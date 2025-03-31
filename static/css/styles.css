@@ -119,3 +119,26 @@ ul {
 li {
     margin-bottom: 8px;
 }
+
+/* Ad Unit Styles */
+.adunit-top, .adunit-mid, .adunit-bottom {
+    background-color: #f5f5f5;
+    border: 1px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #666;
+}
+
+.adunit-top::before {
+    content: "Advertisement Placeholder (Top)";
+}
+
+.adunit-mid::before {
+    content: "Advertisement Placeholder (Middle)";
+}
+
+.adunit-bottom::before {
+    content: "Advertisement Placeholder (Bottom)";
+}
