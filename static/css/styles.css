@@ -437,8 +437,17 @@ li {
 }
 
 .calculator-card-v2 .card-icon {
-  font-size: 1.5rem;
-  margin-bottom: 12px;
+  font-size: 1.9rem;
+  line-height: 1;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.calculator-card-v2 .card-icon svg,
+.calculator-card-v2 .card-icon img {
+  vertical-align: middle;
 }
 
 .calculator-card-v2 .card-title {
