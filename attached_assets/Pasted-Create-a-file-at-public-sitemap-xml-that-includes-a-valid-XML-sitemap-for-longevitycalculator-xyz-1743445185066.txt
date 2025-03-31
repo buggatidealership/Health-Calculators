@@ -1,0 +1,95 @@
+Create a file at `/public/sitemap.xml` that includes a valid XML sitemap for longevitycalculator.xyz.
+
+---
+
+✅ FILE RULES:
+- File name: `sitemap.xml`
+- MIME type: `application/xml`
+- Output must be static and valid XML (not JS or JSX)
+- The first line must be:
+  <?xml version="1.0" encoding="UTF-8"?>
+
+- All URLs must use absolute format (with domain)
+- Ensure proper indentation and tag nesting
+
+---
+
+✅ SITEMAP CONTENT:
+Include the following 5 static pages:
+
+1. Homepage
+<url>
+  <loc>https://longevitycalculator.xyz/</loc>
+  <priority>1.0</priority>
+  <changefreq>weekly</changefreq>
+</url>
+
+2. Caloric Intake & Macronutrient Calculator
+<url>
+  <loc>https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator</loc>
+  <priority>0.9</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+3. Botox Dosage & Cost Calculator
+<url>
+  <loc>https://longevitycalculator.xyz/botox-dosage-calculator</loc>
+  <priority>0.8</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+4. Lifespan Longevity Calculator
+<url>
+  <loc>https://longevitycalculator.xyz/lifespan-longevity-calculator</loc>
+  <priority>0.9</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+5. Creatine Water Intake Calculator
+<url>
+  <loc>https://longevitycalculator.xyz/creatine-water-calculator</loc>
+  <priority>0.8</priority>
+  <changefreq>monthly</changefreq>
+</url>
+
+---
+
+✅ FULL TEMPLATE:
+Paste this in full as the file contents:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://longevitycalculator.xyz/</loc>
+    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/botox-dosage-calculator</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/lifespan-longevity-calculator</loc>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/creatine-water-calculator</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>
+
+---
+
+✅ FINAL CHECKS:
+- No BOM or invisible characters before the `<?xml...` line
+- Confirm file is publicly accessible after deployment at:
+  https://longevitycalculator.xyz/sitemap.xml
+- Submit this URL in Google Search Console for indexing

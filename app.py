@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template
+from flask import Flask, render_template, send_from_directory
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -28,6 +28,10 @@ def lifespan_calculator():
 @app.route('/creatine-water-calculator')
 def creatine_water_calculator():
     return render_template('creatine_water_calculator.html')
+
+@app.route('/sitemap.xml')
+def sitemap():
+    return send_from_directory('static/public', 'sitemap.xml')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
