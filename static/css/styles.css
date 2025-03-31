@@ -254,3 +254,122 @@ li {
     margin-bottom: 10px;
     font-size: 1.1em;
 }
+
+/* Botox Calculator Specific Styles */
+.intensity-options {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.intensity-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.intensity-option:hover {
+    border-color: #d63384;
+}
+
+.intensity-option.active {
+    background-color: #fff0f3;
+    border-color: #d63384;
+}
+
+.intensity-option input {
+    display: none;
+}
+
+.treatment-areas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.treatment-area {
+    display: flex;
+    align-items: center;
+    background: #f9f9f9;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.treatment-area input {
+    width: auto;
+    margin-right: 8px;
+}
+
+.treatment-area label {
+    margin-bottom: 0;
+    font-weight: normal;
+}
+
+.result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff8f8;
+    border-radius: 8px;
+    border: 1px solid #f8d7da;
+    display: none;
+}
+
+.result h3 {
+    color: #d63384;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #f8d7da;
+    padding-bottom: 10px;
+}
+
+.result-item {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.result-label {
+    font-weight: 600;
+}
+
+.total-cost {
+    font-size: 18px;
+    font-weight: bold;
+    color: #d63384;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px dashed #f8d7da;
+    display: flex;
+    justify-content: space-between;
+}
+
+.disclaimer {
+    margin-top: 20px;
+    font-size: 12px;
+    color: #777;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #f0f0f0;
+    padding-bottom: 20px;
+}
+
+.faq-question {
+    font-weight: 600;
+    font-size: 16px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.faq-answer {
+    color: #555;
+    line-height: 1.6;
+}

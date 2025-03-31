@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Botox Dosage & Cost Calculator – Estimate Units and Treatment Price</title>
     <meta name="description" content="Estimate Botox dosage and cost by treatment area, gender, severity, and goals. Personalized and evidence-based.">
-    <link rel="canonical" href="https://longevitycalculator.xyz/botox-dosage-calculator">
+    <meta name="keywords" content="botox calculator, botox cost, botox units, botox dosage calculator, aesthetic calculator">
+    <meta name="author" content="LongevityCalculator.xyz">
     
     <!-- Open Graph -->
     <meta property="og:title" content="Botox Dosage & Cost Calculator">
     <meta property="og:description" content="Estimate Botox dosage and cost by treatment area, gender, and goal.">
     <meta property="og:url" content="https://longevitycalculator.xyz/botox-dosage-calculator">
     <meta property="og:image" content="https://longevitycalculator.xyz/static/images/botox-calculator-og.jpg">
+    <meta property="og:type" content="website">
     
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
@@ -66,41 +68,36 @@
     }
     </script>
     
-    <!-- Stylesheets -->
+    <link rel="canonical" href="https://longevitycalculator.xyz/botox-dosage-calculator">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/botox_styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
-    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
-        <h1 style="text-align: center; margin-bottom: 10px;">Botox Dosage & Cost Calculator</h1>
-        
-        <!-- Calculator Description -->
-        <p style="text-align: center; font-size: 16px; color: #555; margin-bottom: 24px;">
-            Estimate your ideal Botox dosage in units and the cost based on treatment area, gender, severity, and desired outcome.
-        </p>
-        
-        <!-- Medical Disclaimer Block -->
-        <div style="background: #fff0f3; padding: 16px; border-left: 4px solid #d63384; margin-bottom: 24px;">
-            <strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified aesthetic provider for personalized advice.
+    <h1>Botox Dosage & Cost Calculator</h1>
+    <p class="subtitle">Estimate your ideal Botox dosage in units and the cost based on treatment area, gender, severity, and desired outcome.</p>
+    
+    <div class="description">
+        <div class="medical-disclaimer">
+            <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified aesthetic provider for personalized advice.</p>
         </div>
-        
-        <!-- Ad Unit – Top -->
-        <div class="adunit-top">
-            <!-- AdUnit slot="botox-top" / -->
-            <div class="ad-placeholder" style="background-color: #f0f0f0; border: 1px dashed #ccc; padding: 20px; text-align: center; margin: 20px 0;">
-                Advertisement Placeholder (botox-top)
-            </div>
+    </div>
+    
+    <div class="table-of-contents">
+        <h3><i class="fas fa-list section-icon"></i>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Botox Calculator</a></li>
+            <li><a href="#how-it-works">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <!-- AdUnit slot="botox-top" / -->
+        <div class="ad-placeholder" style="background-color: #f0f0f0; border: 1px dashed #ccc; padding: 20px; text-align: center; margin: 20px 0;">
+            Advertisement Placeholder (botox-top)
         </div>
-        
-        <!-- Table of Contents -->
-        <div class="toc">
-            <h3><i class="fas fa-list section-icon"></i>Contents</h3>
-            <ul>
-                <li><a href="#calculator">Botox Calculator</a></li>
-                <li><a href="#how-it-works">How This Calculator Works</a></li>
-                <li><a href="#faq">Frequently Asked Questions</a></li>
-            </ul>
-        </div>
+    </div>
         
         <!-- Calculator Section -->
         <section id="calculator">
@@ -227,59 +224,63 @@
         </section>
         
         <!-- Ad Unit – Mid -->
-        <div class="adunit-mid">
+        <div class="adunit-mid" style="margin: 20px 0;">
             <!-- AdUnit slot="botox-mid" / -->
-            <div class="ad-placeholder" style="background-color: #f0f0f0; border: 1px dashed #ccc; padding: 20px; text-align: center; margin: 20px 0;">
+            <div class="ad-placeholder">
                 Advertisement Placeholder (botox-mid)
             </div>
         </div>
         
         <!-- How It Works Section -->
-        <section id="how-it-works" style="margin: 40px 0;">
-            <h2><i class="fas fa-chart-bar section-icon"></i>How This Calculator Works</h2>
-            <p>This calculator combines evidence-based clinical guidelines from medical literature with real-world practice patterns to estimate your Botox dosage and cost. Here's what's happening behind the scenes:</p>
-            
-            <h3>Dosage Calculation Factors</h3>
-            <ul>
-                <li><strong>Treatment Area:</strong> Different facial areas require different unit amounts, with larger muscles like masseter (jaw) needing more units than smaller areas like bunny lines.</li>
-                <li><strong>Gender:</strong> Men typically require 20-30% more units due to stronger facial muscles.</li>
-                <li><strong>Treatment Intensity:</strong> Light treatments use minimum effective doses for subtle results, while advanced treatments use maximum recommended doses for dramatic results.</li>
-            </ul>
-            
-            <h3>Cost Estimation Methodology</h3>
-            <ul>
-                <li><strong>Geographic Variation:</strong> Prices are adjusted based on average regional costs in your selected country.</li>
-                <li><strong>Provider Type:</strong> Dermatologists and plastic surgeons typically charge premium rates, while medical spas may offer more competitive pricing.</li>
-                <li><strong>Currency Conversion:</strong> All calculations are performed in USD then converted to local currency for accuracy.</li>
-            </ul>
-            
-            <p>All dosing guidelines are based on published medical literature and clinical consensus, but individual results and recommendations may vary.</p>
+        <section id="how-it-works">
+            <div class="description">
+                <h2><i class="fas fa-chart-bar section-icon"></i>How This Calculator Works</h2>
+                <p>This calculator combines evidence-based clinical guidelines from medical literature with real-world practice patterns to estimate your Botox dosage and cost. Here's what's happening behind the scenes:</p>
+                
+                <h3>Dosage Calculation Factors</h3>
+                <ul>
+                    <li><strong>Treatment Area:</strong> Different facial areas require different unit amounts, with larger muscles like masseter (jaw) needing more units than smaller areas like bunny lines.</li>
+                    <li><strong>Gender:</strong> Men typically require 20-30% more units due to stronger facial muscles.</li>
+                    <li><strong>Treatment Intensity:</strong> Light treatments use minimum effective doses for subtle results, while advanced treatments use maximum recommended doses for dramatic results.</li>
+                </ul>
+                
+                <h3>Cost Estimation Methodology</h3>
+                <ul>
+                    <li><strong>Geographic Variation:</strong> Prices are adjusted based on average regional costs in your selected country.</li>
+                    <li><strong>Provider Type:</strong> Dermatologists and plastic surgeons typically charge premium rates, while medical spas may offer more competitive pricing.</li>
+                    <li><strong>Currency Conversion:</strong> All calculations are performed in USD then converted to local currency for accuracy.</li>
+                </ul>
+                
+                <p>All dosing guidelines are based on published medical literature and clinical consensus, but individual results and recommendations may vary.</p>
+            </div>
         </section>
         
         <!-- FAQ Section -->
-        <section id="faq" style="margin: 40px 0;">
-            <h2><i class="fas fa-chart-bar section-icon"></i>Frequently Asked Questions</h2>
-            
-            <div class="faq-item">
-                <div class="faq-question">How long will my Botox results last?</div>
-                <div class="faq-answer">Most Botox treatments last 3-4 months for first-time patients. Regular users may experience longer-lasting results (4-6 months) as muscles become conditioned over time. Results vary based on metabolism, treatment area, and dosage.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Is this calculator accurate for all Botox brands?</div>
-                <div class="faq-answer">This calculator provides estimates based on Botox® (onabotulinumtoxinA) specifically. Other neuromodulators like Dysport®, Xeomin®, or Jeuveau® may require different dosing. Dysport, for example, typically requires 2.5-3x more units than Botox for equivalent results.</div>
-            </div>
-            
-            <div class="faq-item">
-                <div class="faq-question">Why do men need more Botox than women?</div>
-                <div class="faq-answer">Men typically have stronger facial muscles with greater mass and density than women. This increases the amount of neurotoxin needed to achieve the same level of muscle relaxation. Our calculator automatically adjusts dosage recommendations by 20-30% for male patients.</div>
+        <section id="faq">
+            <div class="description">
+                <h2><i class="fas fa-question-circle section-icon"></i>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question">How long will my Botox results last?</div>
+                    <div class="faq-answer">Most Botox treatments last 3-4 months for first-time patients. Regular users may experience longer-lasting results (4-6 months) as muscles become conditioned over time. Results vary based on metabolism, treatment area, and dosage.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Is this calculator accurate for all Botox brands?</div>
+                    <div class="faq-answer">This calculator provides estimates based on Botox® (onabotulinumtoxinA) specifically. Other neuromodulators like Dysport®, Xeomin®, or Jeuveau® may require different dosing. Dysport, for example, typically requires 2.5-3x more units than Botox for equivalent results.</div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">Why do men need more Botox than women?</div>
+                    <div class="faq-answer">Men typically have stronger facial muscles with greater mass and density than women. This increases the amount of neurotoxin needed to achieve the same level of muscle relaxation. Our calculator automatically adjusts dosage recommendations by 20-30% for male patients.</div>
+                </div>
             </div>
         </section>
         
         <!-- Ad Unit – Bottom -->
-        <div class="adunit-bottom">
+        <div class="adunit-bottom" style="margin: 20px 0;">
             <!-- AdUnit slot="botox-bottom" / -->
-            <div class="ad-placeholder" style="background-color: #f0f0f0; border: 1px dashed #ccc; padding: 20px; text-align: center; margin: 20px 0;">
+            <div class="ad-placeholder">
                 Advertisement Placeholder (botox-bottom)
             </div>
         </div>
@@ -291,7 +292,6 @@
                 <strong>Disclaimer:</strong> This calculator is for informational purposes only and should not replace professional aesthetic advice. Dosage may vary by area, anatomy, and provider. Always consult a licensed practitioner.
             </p>
         </footer>
-    </div>
     
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/botox_calculator.js') }}"></script>
