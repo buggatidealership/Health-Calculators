@@ -29,6 +29,10 @@ def lifespan_calculator():
 def creatine_water_calculator():
     return render_template('creatine_water_calculator.html', is_homepage=False)
 
+@app.route('/breast-implant-calculator')
+def breast_implant_calculator():
+    return render_template('breast_implant_calculator.html', is_homepage=False)
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
