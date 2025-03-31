@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Predict your potential lifespan based on health, habits, diet, and lifestyle factors. Backed by research and actuarial data.">
+    <meta name="keywords" content="lifespan calculator, longevity calculator, life expectancy calculator, health calculator, lifespan prediction">
+    <meta name="author" content="LongevityCalculator.xyz">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Lifespan & Longevity Calculator">
+    <meta property="og:description" content="Estimate how long you might live based on your health, exercise, stress, diet, and sleep patterns.">
+    <meta property="og:url" content="https://longevitycalculator.xyz/calculator/lifespan-longevity-calculator">
+    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/lifespan-longevity-calculator-og.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Lifespan & Longevity Calculator">
+    <meta name="twitter:description" content="Estimate how long you might live based on your health, exercise, stress, diet, and sleep patterns.">
+    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/lifespan-longevity-calculator-og.jpg">
+    
+    <title>Lifespan Calculator – Estimate Your Longevity Based on Lifestyle & Habits</title>
+    <link rel="canonical" href="https://longevitycalculator.xyz/calculator/lifespan-longevity-calculator">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Lifespan Longevity Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/calculator/lifespan-longevity-calculator",
+      "description": "Estimate how long you might live based on lifestyle, health, diet, and stress levels. Based on medical research and longevity data."
+    }
+    </script>
+    
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate is a lifespan calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Lifespan calculators offer general estimates based on population health data, not personalized medical advice. Your actual lifespan may vary."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What factors affect life expectancy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Major factors include diet, exercise, genetics, smoking, stress, sleep, and medical access. This calculator takes most into account."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I increase my expected lifespan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Quitting smoking, eating healthy, exercising regularly, and sleeping 7–9 hours per night can significantly increase life expectancy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does stress reduce lifespan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chronic stress is associated with higher disease risk and lower longevity. Managing stress is important for healthy aging."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does sleep affect longevity?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sleep is one of the strongest longevity predictors. Poor sleep increases risk for heart disease, obesity, and early death."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Lifespan & Longevity Calculator</h1>
+    <p class="subtitle">Estimate your potential lifespan based on health markers, lifestyle choices, and genetic factors. This research-backed calculator provides insights into how your choices today may impact your longevity.</p>
+    
+    <div class="description">
+        <div class="medical-disclaimer">
+            <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.</p>
+        </div>
+    </div>
+    
+    <div class="table-of-contents">
+        <h3><i class="fas fa-list section-icon"></i>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Lifespan Calculator</a></li>
+            <li><a href="#how-it-works">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="lifespan-longevity-calculator-top" />
+    </div>
+    
+    <!-- Calculator Section -->
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="age">Current Age:</label>
+                <input type="number" id="age" min="18" max="120" value="30">
+            </div>
+           
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <select id="gender">
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="parental-age">Parental longevity (average age at death of parents):</label>
+                <select id="parental-age">
+                    <option value="-5">Less than 60</option>
+                    <option value="0">60-70</option>
+                    <option value="2" selected>70-80</option>
+                    <option value="5">80-90</option>
+                    <option value="7">90+</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="bmi">Body Mass Index (BMI): <span id="bmi-value" class="range-value">22</span></label>
+                <input type="range" id="bmi" min="15" max="40" value="22" step="0.1">
+                <small>Healthy range: 18.5-24.9</small>
+            </div>
+           
+            <div class="form-group">
+                <label for="exercise">Weekly exercise (minutes of moderate activity): <span id="exercise-value" class="range-value">150</span></label>
+                <input type="range" id="exercise" min="0" max="500" value="150" step="5">
+                <small>Recommended: 150+ minutes</small>
+            </div>
+           
+            <div class="form-group">
+                <label for="diet">Diet quality:</label>
+                <select id="diet">
+                    <option value="-5">Poor (processed foods, low vegetables)</option>
+                    <option value="-2">Average</option>
+                    <option value="0" selected>Good (some whole foods, vegetables)</option>
+                    <option value="3">Very good (Mediterranean-style, plant-focused)</option>
+                    <option value="5">Excellent (whole food plant-based, varied)</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="sleep">Sleep duration (hours per night): <span id="sleep-value" class="range-value">7</span></label>
+                <input type="range" id="sleep" min="4" max="10" value="7" step="0.5">
+                <small>Optimal: 7-9 hours</small>
+            </div>
+           
+            <div class="form-group">
+                <label for="stress">Stress management:</label>
+                <select id="stress">
+                    <option value="-5">High stress, poor coping</option>
+                    <option value="-2">Moderate stress, some coping</option>
+                    <option value="0" selected>Average stress levels</option>
+                    <option value="2">Good stress management</option>
+                    <option value="5">Excellent stress management</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="smoking">Smoking status:</label>
+                <select id="smoking">
+                    <option value="-10">Current heavy smoker (1+ packs/day)</option>
+                    <option value="-7">Current moderate smoker</option>
+                    <option value="-5">Current light smoker</option>
+                    <option value="-3">Quit within last 5 years</option>
+                    <option value="0" selected>Never smoked</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="alcohol">Alcohol consumption:</label>
+                <select id="alcohol">
+                    <option value="-5">Heavy drinker (3+ drinks/day)</option>
+                    <option value="-3">Moderate-heavy (2 drinks/day)</option>
+                    <option value="0" selected>Moderate (up to 1 drink/day)</option>
+                    <option value="1">Light (few per week)</option>
+                    <option value="2">Rarely/never</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="education">Education level:</label>
+                <select id="education">
+                    <option value="0">High school or less</option>
+                    <option value="1" selected>Some college</option>
+                    <option value="2">College degree</option>
+                    <option value="3">Graduate degree</option>
+                </select>
+            </div>
+           
+            <div class="form-group">
+                <label for="social">Social connections:</label>
+                <select id="social">
+                    <option value="-3">Isolated</option>
+                    <option value="0" selected>Average social life</option>
+                    <option value="2">Strong social network</option>
+                    <option value="4">Very strong community ties</option>
+                </select>
+            </div>
+           
+            <button id="calculate-btn" type="button" style="background-color: #d63384; border-radius: 5px;">Calculate My Longevity</button>
+           
+            <div id="result" class="result">
+                <h2>Your Longevity Estimate</h2>
+                <p>Based on your inputs, your estimated lifespan is: <strong><span id="lifespan">85</span> years</strong></p>
+               
+                <p>Compared to average (<span id="average-lifespan">79</span> years for your gender):
+                    <strong><span id="difference">+6</span> years</strong></p>
+               
+                <h3>Key Factors Affecting Your Longevity:</h3>
+                <div id="factors"></div>
+               
+                <h3>Recommendations to Extend Your Lifespan:</h3>
+                <ul id="recommendations"></ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ad Unit – Mid -->
+    <div class="adunit-mid" style="margin: 20px 0;">
+        <AdUnit slot="lifespan-longevity-calculator-mid" />
+    </div>
+    
+    <!-- How It Works Section -->
+    <section id="how-it-works">
+        <div class="description">
+            <h2><i class="fas fa-chart-bar section-icon"></i>How This Calculator Works</h2>
+            <p>This calculator combines evidence-based research from major longevity studies with statistical modeling to estimate your potential lifespan. Here's what's happening behind the scenes:</p>
+            
+            <h3>Scientific Basis</h3>
+            <p>The algorithm incorporates factors from longitudinal studies including the Framingham Heart Study, Nurses' Health Study, and other longevity research. It weighs different lifestyle factors based on their demonstrated impact on mortality:</p>
+            
+            <ul>
+                <li><strong>Genetics</strong> - Parental longevity provides insights into your genetic predisposition for certain health outcomes</li>
+                <li><strong>Body Composition</strong> - BMI follows a J-shaped curve where both underweight and obesity impact longevity</li>
+                <li><strong>Physical Activity</strong> - Exercise shows a dose-response relationship with longevity up to approximately 300 minutes weekly</li>
+                <li><strong>Diet Quality</strong> - Plant-focused, whole-food diets consistently show mortality benefits in research</li>
+                <li><strong>Sleep Patterns</strong> - Sleep duration follows a U-shaped curve with 7-9 hours being optimal</li>
+                <li><strong>Stress &amp; Social Connections</strong> - Chronic stress and isolation are significant mortality factors</li>
+            </ul>
+            
+            <h3>Limitations</h3>
+            <p>While this calculator uses evidence-based algorithms, it cannot account for all factors influencing longevity, including:</p>
+            <ul>
+                <li>Specific medical conditions and family history</li>
+                <li>Environmental exposures</li>
+                <li>Access to healthcare</li>
+                <li>Socioeconomic factors</li>
+                <li>Future medical advances</li>
+            </ul>
+            
+            <p>This tool is designed to provide educational insights into how lifestyle choices impact longevity potential, not to predict your exact lifespan.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="description">
+            <h2><i class="fas fa-question-circle section-icon"></i>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How accurate is this lifespan calculator?</div>
+                <div class="faq-answer">This calculator provides general estimates based on population data and well-established research on longevity factors. It's designed to offer educational insights rather than precise predictions. Your actual lifespan depends on countless variables, including some that cannot be predicted, such as accidents or future medical advances.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What lifestyle changes have the biggest impact on longevity?</div>
+                <div class="faq-answer">Research consistently shows that not smoking, regular physical activity, maintaining a healthy weight, eating a plant-rich diet, moderate or no alcohol consumption, and managing stress have the most significant impacts on lifespan. Of these, smoking cessation typically offers the largest potential gain in life expectancy for those who currently smoke.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How much of longevity is determined by genetics versus lifestyle?</div>
+                <div class="faq-answer">Research suggests that genetics accounts for approximately 25-30% of the variance in human lifespan, while environmental and lifestyle factors account for the remaining 70-75%. Even with genetic predispositions, lifestyle choices significantly influence how genes express themselves (epigenetics) and can substantially impact longevity.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can stress really shorten my life?</div>
+                <div class="faq-answer">Yes, chronic stress has been linked to accelerated aging through multiple biological mechanisms, including inflammation, telomere shortening, and cardiovascular effects. Studies show that chronic psychological stress is associated with a 10-40% increased risk of mortality. However, stress management techniques like meditation, exercise, and social connection can effectively counteract these negative effects.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do social connections really affect longevity?</div>
+                <div class="faq-answer">Strong social connections have a powerful effect on health outcomes. Research shows that social isolation increases mortality risk comparable to smoking 15 cigarettes per day. Conversely, having strong social relationships is associated with a 50% increased likelihood of survival across studies. The mechanisms include stress reduction, improved immune function, and practical support for maintaining healthy behaviors.</div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Ad Unit – Bottom -->
+    <div class="adunit-bottom" style="margin: 20px 0;">
+        <AdUnit slot="lifespan-longevity-calculator-bottom" />
+    </div>
+    
+    <!-- Internal Link to Homepage + Footer Disclaimer -->
+    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+        <p><a href="/" style="color: #555;">← Back to Homepage</a></p>
+        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+            <strong>Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.
+        </p>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/lifespan_calculator.js') }}"></script>
+</body>
+</html>

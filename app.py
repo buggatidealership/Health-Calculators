@@ -21,5 +21,9 @@ def calculator():
 def botox_calculator():
     return render_template('botox_calculator.html')
 
+@app.route('/calculator/lifespan-longevity-calculator')
+def lifespan_calculator():
+    return render_template('lifespan_calculator.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
