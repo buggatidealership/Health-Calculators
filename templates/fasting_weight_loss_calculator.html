@@ -112,6 +112,35 @@
           margin-top: 10px;
           margin-bottom: 30px;
         }
+        
+        .unit-toggle {
+          display: flex;
+          gap: 0;
+          border-radius: 6px;
+          overflow: hidden;
+          margin: 20px 0;
+        }
+        
+        .unit-button {
+          flex: 1;
+          padding: 12px 16px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          border: none;
+          background-color: #f0f0f0;
+          color: #d63384;
+          transition: background-color 0.2s;
+        }
+        
+        .unit-button:hover {
+          background-color: #f7d0e1;
+        }
+        
+        .unit-button.active {
+          background-color: #d63384;
+          color: white;
+        }
     </style>
 </head>
 <body>
@@ -141,8 +170,8 @@
     <section id="calculator" class="calculator">
         <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
         <div class="unit-toggle">
-            <button id="metric-btn" class="active">Metric (kg/cm)</button>
-            <button id="imperial-btn">Imperial (lb/ft/in)</button>
+            <button class="unit-button active" id="metric-btn">Metric (kg/cm)</button>
+            <button class="unit-button" id="imperial-btn">Imperial (lb/ft/in)</button>
         </div>
        
         <div id="metric-inputs">
@@ -298,16 +327,16 @@
             const metricInputs = document.getElementById('metric-inputs');
             const imperialInputs = document.getElementById('imperial-inputs');
            
-            metricBtn.addEventListener('click', function() {
-                metricBtn.classList.add('active');
-                imperialBtn.classList.remove('active');
+            document.getElementById("metric-btn").addEventListener("click", () => {
+                document.getElementById("metric-btn").classList.add("active");
+                document.getElementById("imperial-btn").classList.remove("active");
                 metricInputs.style.display = 'block';
                 imperialInputs.style.display = 'none';
             });
            
-            imperialBtn.addEventListener('click', function() {
-                imperialBtn.classList.add('active');
-                metricBtn.classList.remove('active');
+            document.getElementById("imperial-btn").addEventListener("click", () => {
+                document.getElementById("imperial-btn").classList.add("active");
+                document.getElementById("metric-btn").classList.remove("active");
                 imperialInputs.style.display = 'block';
                 metricInputs.style.display = 'none';
             });
