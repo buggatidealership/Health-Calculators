@@ -106,19 +106,25 @@
         }
         
         .calculator-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
             gap: 30px;
             margin: 40px 0;
         }
         
         @media (max-width: 768px) {
             .calculator-grid {
-                grid-template-columns: 1fr;
+                flex-direction: column;
+                align-items: center;
             }
         }
         
         .calculator-card {
+            flex: 1 1 340px;
+            max-width: 360px;
+            min-height: 320px;
+            box-sizing: border-box;
             border-radius: 8px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
             padding: 25px;
@@ -127,7 +133,7 @@
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            margin-bottom: 20px;
         }
         
         .calculator-card:hover {
@@ -269,7 +275,7 @@
     </div>
     
     <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px auto; max-width: 800px; text-align: center;">
+    <div class="adunit-mid" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
         <AdUnit slot="homepage-mid" />
     </div>
     
@@ -280,7 +286,7 @@
     </div>
     
     <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px auto; max-width: 800px; text-align: center;">
+    <div class="adunit-bottom" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
         <AdUnit slot="homepage-bottom" />
     </div>
     
