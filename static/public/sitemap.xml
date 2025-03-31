@@ -35,4 +35,9 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/fasting-weight-loss-calculator</loc>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>

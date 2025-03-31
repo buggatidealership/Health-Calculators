@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasting Weight Loss Calculator</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .calculator {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .results {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #e8f4fc;
+            border-radius: 8px;
+            display: none;
+        }
+        .results h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        .chart-container {
+            margin-top: 20px;
+            height: 300px;
+        }
+        .info {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+        .references {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #777;
+        }
+        .unit-toggle {
+            display: flex;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .unit-toggle button {
+            flex: 1;
+            background-color: #f1f1f1;
+            color: #333;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .unit-toggle button.active {
+            background-color: #3498db;
+            color: white;
+        }
+        .height-input {
+            display: flex;
+            gap: 10px;
+        }
+        .height-input input {
+            flex: 1;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .calculator {
+                padding: 15px;
+            }
+            .height-input {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Fasting Weight Loss Calculator</h1>
+   
+    <div class="calculator">
+        <div class="unit-toggle">
+            <button id="metric-btn" class="active">Metric (kg/cm)</button>
+            <button id="imperial-btn">Imperial (lb/ft/in)</button>
+        </div>
+       
+        <div id="metric-inputs">
+            <div class="form-group">
+                <label for="weight-kg">Current Weight (kg)</label>
+                <input type="number" id="weight-kg" min="30" max="300" step="0.1" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="height-cm">Height (cm)</label>
+                <input type="number" id="height-cm" min="100" max="250" required>
+            </div>
+        </div>
+       
+        <div id="imperial-inputs" style="display: none;">
+            <div class="form-group">
+                <label for="weight-lb">Current Weight (pounds)</label>
+                <input type="number" id="weight-lb" min="66" max="660" step="0.1" required>
+            </div>
+           
+            <div class="form-group">
+                <label for="height-ft">Height</label>
+                <div class="height-input">
+                    <input type="number" id="height-ft" min="3" max="8" placeholder="Feet" required>
+                    <input type="number" id="height-in" min="0" max="11" placeholder="Inches" required>
+                </div>
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="12" max="120" required>
+        </div>
+       
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+                <option value="1.2">Sedentary (little or no exercise)</option>
+                <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                <option value="1.55">Moderately active (moderate exercise 3-5 days/week)</option>
+                <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                <option value="1.9">Extra active (very hard exercise & physical job)</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="fasting-type">Fasting Type</label>
+            <select id="fasting-type">
+                <option value="16">16:8 (16 hours fasting, 8 hours eating)</option>
+                <option value="18">18:6 (18 hours fasting, 6 hours eating)</option>
+                <option value="20">20:4 (20 hours fasting, 4 hours eating)</option>
+                <option value="24">24-hour fast (one meal per day)</option>
+                <option value="48">48-hour fast (2 days)</option>
+                <option value="72">72-hour fast (3 days)</option>
+                <option value="168">7-day fast</option>
+                <option value="custom">Custom</option>
+            </select>
+        </div>
+       
+        <div class="form-group" id="custom-fasting-group" style="display: none;">
+            <label for="custom-fasting">Custom Fasting Duration (hours)</label>
+            <input type="number" id="custom-fasting" min="1" max="720">
+        </div>
+       
+        <button id="calculate">Calculate Weight Loss</button>
+       
+        <div class="results" id="results">
+            <h2>Estimated Results</h2>
+            <p>Your Basal Metabolic Rate (BMR): <span id="bmr"></span> calories/day</p>
+            <p>Your Total Daily Energy Expenditure (TDEE): <span id="tdee"></span> calories/day</p>
+            <p>Estimated weight loss during fasting period: <span id="weight-loss"></span></p>
+            <p>Estimated fat loss during fasting period: <span id="fat-loss"></span></p>
+            <p>Estimated water weight loss during fasting period: <span id="water-loss"></span></p>
+           
+            <div class="chart-container">
+                <canvas id="results-chart"></canvas>
+            </div>
+           
+            <div class="info">
+                <h3>How This Calculation Works</h3>
+                <p>This calculator estimates weight loss during fasting based on:</p>
+                <ul>
+                    <li>First 24 hours: Primarily glycogen depletion and water loss (about 0.5-1 kg / 1-2 lbs)</li>
+                    <li>After 24 hours: Transition to fat metabolism (about 0.2-0.3 kg / 0.4-0.7 lbs fat per day)</li>
+                    <li>Protein sparing effects of ketosis (minimal muscle loss after adaptation)</li>
+                </ul>
+                <p>Note: Individual results may vary based on metabolism, body composition, and adherence.</p>
+            </div>
+        </div>
+    </div>
+   
+    <div class="references">
+        <h3>Scientific References</h3>
+        <p>1. Cahill GF. Fuel metabolism in starvation. Annu Rev Nutr. 2006;26:1-22.</p>
+        <p>2. Klein S, et al. Progressive alterations in lipid and glucose metabolism during short-term fasting in young adult men. Am J Physiol. 1993;265(5 Pt 1):E801-6.</p>
+        <p>3. Zauner C, et al. Resting energy expenditure in short-term starvation is increased as a result of an increase in serum norepinephrine. Am J Clin Nutr. 2000;71(6):1511-5.</p>
+        <p>4. Heilbronn LK, et al. Alternate-day fasting in nonobese subjects: effects on body weight, body composition, and energy metabolism. Am J Clin Nutr. 2005;81(1):69-73.</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Unit toggle functionality
+            const metricBtn = document.getElementById('metric-btn');
+            const imperialBtn = document.getElementById('imperial-btn');
+            const metricInputs = document.getElementById('metric-inputs');
+            const imperialInputs = document.getElementById('imperial-inputs');
+           
+            metricBtn.addEventListener('click', function() {
+                metricBtn.classList.add('active');
+                imperialBtn.classList.remove('active');
+                metricInputs.style.display = 'block';
+                imperialInputs.style.display = 'none';
+            });
+           
+            imperialBtn.addEventListener('click', function() {
+                imperialBtn.classList.add('active');
+                metricBtn.classList.remove('active');
+                imperialInputs.style.display = 'block';
+                metricInputs.style.display = 'none';
+            });
+           
+            // Show/hide custom fasting input
+            document.getElementById('fasting-type').addEventListener('change', function() {
+                const customGroup = document.getElementById('custom-fasting-group');
+                customGroup.style.display = this.value === 'custom' ? 'block' : 'none';
+            });
+           
+            // Calculate button
+            document.getElementById('calculate').addEventListener('click', calculate);
+           
+            function calculate() {
+                // Get unit system
+                const isMetric = metricBtn.classList.contains('active');
+               
+                // Get weight and convert to kg if necessary
+                let weightKg;
+                if (isMetric) {
+                    weightKg = parseFloat(document.getElementById('weight-kg').value);
+                } else {
+                    const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                    weightKg = weightLb * 0.453592;
+                }
+               
+                // Get height and convert to cm if necessary
+                let heightCm;
+                if (isMetric) {
+                    heightCm = parseFloat(document.getElementById('height-cm').value);
+                } else {
+                    const heightFt = parseFloat(document.getElementById('height-ft').value);
+                    const heightIn = parseFloat(document.getElementById('height-in').value);
+                    heightCm = (heightFt * 12 + heightIn) * 2.54;
+                }
+               
+                // Get other inputs
+                const age = parseInt(document.getElementById('age').value);
+                const gender = document.getElementById('gender').value;
+                const activity = parseFloat(document.getElementById('activity').value);
+               
+                let fastingHours = parseInt(document.getElementById('fasting-type').value);
+                if (document.getElementById('fasting-type').value === 'custom') {
+                    fastingHours = parseInt(document.getElementById('custom-fasting').value);
+                }
+               
+                // Validate
+                if (isNaN(weightKg) || isNaN(heightCm) || isNaN(age) || isNaN(fastingHours)) {
+                    alert('Please fill in all fields with valid numbers');
+                    return;
+                }
+               
+                // Calculate BMR (Mifflin-St Jeor Equation)
+                let bmr;
+                if (gender === 'male') {
+                    bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
+                } else {
+                    bmr = 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
+                }
+               
+                // Calculate TDEE
+                const tdee = bmr * activity;
+               
+                // Calculate fasting days
+                const fastingDays = fastingHours / 24;
+               
+                // Calculate weight loss components
+                // Based on research:
+                // - First 24 hours: glycogen depletion + water loss (~0.5-1kg)
+                // - After 24 hours: fat metabolism (~0.2-0.3kg fat per day)
+                // - Minimal protein loss due to ketosis protein sparing effect
+               
+                const initialWaterLoss = Math.min(1, 0.7 + (0.3 * Math.random())); // 0.7-1kg
+                const dailyFatLoss = 0.25; // kg per day after glycogen depletion
+               
+                let totalFatLoss, totalWaterLoss;
+               
+                if (fastingDays <= 1) {
+                    // Short fasts are mostly water/glycogen
+                    totalWaterLoss = initialWaterLoss * fastingDays;
+                    totalFatLoss = 0.1 * fastingDays; // minimal fat loss
+                } else {
+                    // Longer fasts have initial water loss then fat loss
+                    totalWaterLoss = initialWaterLoss;
+                    totalFatLoss = dailyFatLoss * (fastingDays - 1);
+                }
+               
+                const totalWeightLoss = totalFatLoss + totalWaterLoss;
+               
+                // Convert to pounds if using imperial
+                let weightLossDisplay, fatLossDisplay, waterLossDisplay;
+                if (isMetric) {
+                    weightLossDisplay = totalWeightLoss.toFixed(2) + ' kg';
+                    fatLossDisplay = totalFatLoss.toFixed(2) + ' kg';
+                    waterLossDisplay = totalWaterLoss.toFixed(2) + ' kg';
+                } else {
+                    weightLossDisplay = (totalWeightLoss * 2.20462).toFixed(2) + ' lbs';
+                    fatLossDisplay = (totalFatLoss * 2.20462).toFixed(2) + ' lbs';
+                    waterLossDisplay = (totalWaterLoss * 2.20462).toFixed(2) + ' lbs';
+                }
+               
+                // Display results
+                document.getElementById('bmr').textContent = Math.round(bmr);
+                document.getElementById('tdee').textContent = Math.round(tdee);
+                document.getElementById('weight-loss').textContent = weightLossDisplay;
+                document.getElementById('fat-loss').textContent = fatLossDisplay;
+                document.getElementById('water-loss').textContent = waterLossDisplay;
+               
+                // Show results
+                document.getElementById('results').style.display = 'block';
+               
+                // Create chart
+                createChart(totalFatLoss, totalWaterLoss, isMetric);
+            }
+           
+            function createChart(fatLoss, waterLoss, isMetric) {
+                const ctx = document.getElementById('results-chart').getContext('2d');
+               
+                // Destroy previous chart if exists
+                if (window.resultsChart) {
+                    window.resultsChart.destroy();
+                }
+               
+                const unit = isMetric ? 'kg' : 'lbs';
+                const fatValue = isMetric ? fatLoss : fatLoss * 2.20462;
+                const waterValue = isMetric ? waterLoss : waterLoss * 2.20462;
+               
+                window.resultsChart = new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: [`Fat Loss (${fatValue.toFixed(2)} ${unit})`, `Water Weight Loss (${waterValue.toFixed(2)} ${unit})`],
+                        datasets: [{
+                            data: [fatLoss, waterLoss],
+                            backgroundColor: [
+                                '#3498db',
+                                '#e74c3c'
+                            ],
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: {
+                                position: 'bottom'
+                            },
+                            tooltip: {
+                                callbacks: {
+                                    label: function(context) {
+                                        const label = context.label || '';
+                                        const value = context.raw || 0;
+                                        const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                        const percentage = Math.round((value / total) * 100);
+                                        const displayValue = isMetric ? value.toFixed(2) : (value * 2.20462).toFixed(2);
+                                        const displayUnit = isMetric ? 'kg' : 'lbs';
+                                        return `${label}: ${displayValue} ${displayUnit} (${percentage}%)`;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

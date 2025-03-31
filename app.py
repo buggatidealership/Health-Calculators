@@ -37,6 +37,10 @@ def breast_implant_calculator():
 def vitamin_d_intake_calculator():
     return render_template('vitamin_d_intake_calculator.html', is_homepage=False)
 
+@app.route('/fasting-weight-loss-calculator')
+def fasting_weight_loss_calculator():
+    return render_template('fasting_weight_loss_calculator.html', is_homepage=False)
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
