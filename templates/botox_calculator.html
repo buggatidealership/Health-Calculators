@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botox Dosage & Cost Calculator – Estimate Units and Treatment Price</title>
+    <meta name="description" content="Estimate Botox dosage and cost by treatment area, gender, severity, and goals. Personalized and evidence-based.">
+    <link rel="canonical" href="https://longevitycalculator.xyz/botox-dosage-calculator">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Botox Dosage & Cost Calculator">
+    <meta property="og:description" content="Estimate Botox dosage and cost by treatment area, gender, and goal.">
+    <meta property="og:url" content="https://longevitycalculator.xyz/botox-dosage-calculator">
+    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/botox-calculator-og.jpg">
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Botox Dosage & Cost Calculator">
+    <meta name="twitter:description" content="Estimate Botox dosage and cost by treatment area, gender, and goal.">
+    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/botox-calculator-og.jpg">
+    
+    <!-- SoftwareApplication Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Botox Dosage & Cost Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "description": "Estimate Botox dosage and treatment cost by area, gender, severity, and goal using evidence-based standards.",
+      "url": "https://longevitycalculator.xyz/botox-dosage-calculator"
+    }
+    </script>
+    
+    <!-- FAQPage Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much Botox do I need?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Botox dosage depends on the treatment area, severity of wrinkles, gender, and desired results. This calculator estimates based on those inputs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much does Botox cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Botox pricing varies by location and provider. This calculator gives a range based on estimated units and average per-unit cost."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do men need more Botox than women?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, men typically require more units due to larger muscle mass. This calculator adjusts dosage based on gender."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/botox_styles.css') }}">
+</head>
+<body>
+    <div class="container" style="max-width: 800px; margin: 0 auto; padding: 20px;">
+        <h1 style="text-align: center; margin-bottom: 10px;">Botox Dosage & Cost Calculator</h1>
+        
+        <!-- Calculator Description -->
+        <p style="text-align: center; font-size: 16px; color: #555; margin-bottom: 24px;">
+            Estimate your ideal Botox dosage in units and the cost based on treatment area, gender, severity, and desired outcome.
+        </p>
+        
+        <!-- Medical Disclaimer Block -->
+        <div style="background: #fff0f3; padding: 16px; border-left: 4px solid #d63384; margin-bottom: 24px;">
+            <strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified aesthetic provider for personalized advice.
+        </div>
+        
+        <!-- Ad Unit – Top -->
+        <div class="adunit-top">
+            <AdUnit slot="botox-top" />
+        </div>
+        
+        <!-- Table of Contents -->
+        <div class="toc">
+            <h3><i class="fas fa-list section-icon"></i>Contents</h3>
+            <ul>
+                <li><a href="#calculator">Botox Calculator</a></li>
+                <li><a href="#how-it-works">How This Calculator Works</a></li>
+                <li><a href="#faq">Frequently Asked Questions</a></li>
+            </ul>
+        </div>
+        
+        <!-- Calculator Section -->
+        <section id="calculator">
+            <div class="calculator">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select id="country">
+                        <option value="us">United States</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="canada">Canada</option>
+                        <option value="australia">Australia</option>
+                        <option value="europe">Europe (General)</option>
+                        <option value="uae">UAE</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select id="gender">
+                        <option value="female">Female</option>
+                        <option value="male">Male</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Treatment Intensity</label>
+                    <div class="intensity-options">
+                        <label class="intensity-option" onclick="selectIntensity(this)">
+                            <input type="radio" name="intensity" value="light" checked>
+                            Light (Natural Look)
+                        </label>
+                        <label class="intensity-option" onclick="selectIntensity(this)">
+                            <input type="radio" name="intensity" value="standard">
+                            Standard (Balanced)
+                        </label>
+                        <label class="intensity-option" onclick="selectIntensity(this)">
+                            <input type="radio" name="intensity" value="advanced">
+                            Advanced (Full Correction)
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Treatment Areas (Select All That Apply)</label>
+                    <div class="treatment-areas">
+                        <div class="treatment-area">
+                            <input type="checkbox" id="glabella" value="glabella">
+                            <label for="glabella">Glabella (11's)</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="forehead" value="forehead">
+                            <label for="forehead">Forehead</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="crowfeet" value="crowfeet">
+                            <label for="crowfeet">Crow's Feet</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="bunny" value="bunny">
+                            <label for="bunny">Bunny Lines</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="lipflip" value="lipflip">
+                            <label for="lipflip">Lip Flip</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="dimpler" value="dimpler">
+                            <label for="dimpler">Dimpled Chin</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="jaw" value="jaw">
+                            <label for="jaw">Jaw Reduction</label>
+                        </div>
+                        <div class="treatment-area">
+                            <input type="checkbox" id="neck" value="neck">
+                            <label for="neck">Neck Bands</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="provider-type">Provider Type</label>
+                    <select id="provider-type">
+                        <option value="dermatologist">Dermatologist / Plastic Surgeon</option>
+                        <option value="medspa">Medical Spa</option>
+                        <option value="nurse">Nurse Practitioner</option>
+                    </select>
+                </div>
+                
+                <button onclick="calculateBotox()">Calculate Botox Dosage & Cost</button>
+                
+                <div id="result" class="result">
+                    <h3>Your Botox Treatment Plan</h3>
+                    
+                    <div id="dosage-results">
+                        <!-- Dynamic content will be inserted here -->
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Total Units Required:</span>
+                        <span id="total-units">0</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Cost Per Unit:</span>
+                        <span id="cost-per-unit">$0</span>
+                    </div>
+                    
+                    <div class="total-cost">
+                        <span class="result-label">Estimated Total Cost:</span>
+                        <span id="total-cost">$0</span>
+                    </div>
+                    
+                    <div class="result-item">
+                        <span class="result-label">Expected Results Duration:</span>
+                        <span id="duration">3-4 months</span>
+                    </div>
+                </div>
+                
+                <div class="disclaimer">
+                    <p><strong>Disclaimer:</strong> This calculator provides estimates based on clinical guidelines (Carruthers et al., 2008; ASPS). Dosages vary by treatment intensity: Light (lower end of range), Standard (mid-range), Advanced (higher end). Male patients typically require 20-30% more units. Pricing varies by country and provider. Results last 3-4 months. Always consult a qualified professional.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Ad Unit – Mid -->
+        <div class="adunit-mid">
+            <AdUnit slot="botox-mid" />
+        </div>
+        
+        <!-- How It Works Section -->
+        <section id="how-it-works" style="margin: 40px 0;">
+            <h2><i class="fas fa-chart-bar section-icon"></i>How This Calculator Works</h2>
+            <p>This calculator combines evidence-based clinical guidelines from medical literature with real-world practice patterns to estimate your Botox dosage and cost. Here's what's happening behind the scenes:</p>
+            
+            <h3>Dosage Calculation Factors</h3>
+            <ul>
+                <li><strong>Treatment Area:</strong> Different facial areas require different unit amounts, with larger muscles like masseter (jaw) needing more units than smaller areas like bunny lines.</li>
+                <li><strong>Gender:</strong> Men typically require 20-30% more units due to stronger facial muscles.</li>
+                <li><strong>Treatment Intensity:</strong> Light treatments use minimum effective doses for subtle results, while advanced treatments use maximum recommended doses for dramatic results.</li>
+            </ul>
+            
+            <h3>Cost Estimation Methodology</h3>
+            <ul>
+                <li><strong>Geographic Variation:</strong> Prices are adjusted based on average regional costs in your selected country.</li>
+                <li><strong>Provider Type:</strong> Dermatologists and plastic surgeons typically charge premium rates, while medical spas may offer more competitive pricing.</li>
+                <li><strong>Currency Conversion:</strong> All calculations are performed in USD then converted to local currency for accuracy.</li>
+            </ul>
+            
+            <p>All dosing guidelines are based on published medical literature and clinical consensus, but individual results and recommendations may vary.</p>
+        </section>
+        
+        <!-- FAQ Section -->
+        <section id="faq" style="margin: 40px 0;">
+            <h2><i class="fas fa-chart-bar section-icon"></i>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long will my Botox results last?</div>
+                <div class="faq-answer">Most Botox treatments last 3-4 months for first-time patients. Regular users may experience longer-lasting results (4-6 months) as muscles become conditioned over time. Results vary based on metabolism, treatment area, and dosage.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is this calculator accurate for all Botox brands?</div>
+                <div class="faq-answer">This calculator provides estimates based on Botox® (onabotulinumtoxinA) specifically. Other neuromodulators like Dysport®, Xeomin®, or Jeuveau® may require different dosing. Dysport, for example, typically requires 2.5-3x more units than Botox for equivalent results.</div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Why do men need more Botox than women?</div>
+                <div class="faq-answer">Men typically have stronger facial muscles with greater mass and density than women. This increases the amount of neurotoxin needed to achieve the same level of muscle relaxation. Our calculator automatically adjusts dosage recommendations by 20-30% for male patients.</div>
+            </div>
+        </section>
+        
+        <!-- Ad Unit – Bottom -->
+        <div class="adunit-bottom">
+            <AdUnit slot="botox-bottom" />
+        </div>
+        
+        <!-- Internal Link to Homepage + Footer Disclaimer -->
+        <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+            <p><a href="/" style="color: #555;">← Back to Homepage</a></p>
+            <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+                <strong>Disclaimer:</strong> This calculator is for informational purposes only and should not replace professional aesthetic advice. Dosage may vary by area, anatomy, and provider. Always consult a licensed practitioner.
+            </p>
+        </footer>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/botox_calculator.js') }}"></script>
+</body>
+</html>
