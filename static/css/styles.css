@@ -142,3 +142,32 @@ li {
 .adunit-bottom::before {
     content: "Advertisement Placeholder (Bottom)";
 }
+
+/* Description and Medical Disclaimer Styles */
+.description {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    line-height: 1.7;
+}
+
+.description p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+
+.medical-disclaimer {
+    background-color: #fff8f8;
+    border-left: 4px solid #d63384;
+    padding: 15px;
+    margin-top: 20px;
+    font-size: 0.9em;
+    border-radius: 0 4px 4px 0;
+}
+
+.medical-disclaimer p {
+    margin: 0;
+    color: #555;
+}
