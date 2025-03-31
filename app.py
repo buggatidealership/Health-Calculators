@@ -25,5 +25,9 @@ def botox_calculator():
 def lifespan_calculator():
     return render_template('lifespan_calculator.html')
 
+@app.route('/creatine-water-calculator')
+def creatine_water_calculator():
+    return render_template('creatine_water_calculator.html')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
