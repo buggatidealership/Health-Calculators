@@ -191,85 +191,16 @@
     
     <!-- Calculator Grid -->
     <div class="calculator-grid">
-        <!-- Breast Implant Calculator -->
-        <div class="calculator-card-v2 card-color-pink">
-            <a href="/breast-implant-calculator">
-                <div class="card-icon">💗</div>
-                <h3 class="card-title">Breast Implant Calculator</h3>
-                <p class="card-summary">Find your ideal implant size based on your measurements and goals.</p>
-                <div class="cta-arrow">Calculate Implant Size →</div>
+        {% for card in cards %}
+        <div class="calculator-card-v2 card-color-{{ card.color }}">
+            <a href="{{ card.url }}">
+                <div class="card-icon">{{ card.icon }}</div>
+                <h3 class="card-title">{{ card.title }}</h3>
+                <p class="card-summary">{{ card.summary }}</p>
+                <div class="cta-arrow">{{ card.cta }} →</div>
             </a>
         </div>
-        
-        <!-- Ozempic Weight Loss Calculator -->
-        <div class="calculator-card-v2 card-color-purple">
-            <a href="/ozempic-weight-loss-calculator">
-                <div class="card-icon">💊</div>
-                <h3 class="card-title">Ozempic Weight Loss Calculator</h3>
-                <p class="card-summary">Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy).</p>
-                <div class="cta-arrow">Estimate Fat Loss →</div>
-            </a>
-        </div>
-        
-        <!-- Botox Dosage Calculator -->
-        <div class="calculator-card-v2 card-color-blue">
-            <a href="/botox-dosage-calculator">
-                <div class="card-icon">💉</div>
-                <h3 class="card-title">Botox Dosage Calculator</h3>
-                <p class="card-summary">Determine the appropriate Botox units for different treatment areas.</p>
-                <div class="cta-arrow">Calculate Botox Units →</div>
-            </a>
-        </div>
-        
-        <!-- Creatine Hydration Calculator -->
-        <div class="calculator-card-v2 card-color-teal">
-            <a href="/creatine-water-calculator">
-                <div class="card-icon">💧</div>
-                <h3 class="card-title">Creatine Hydration Calculator</h3>
-                <p class="card-summary">Calculate optimal water intake when using creatine supplements.</p>
-                <div class="cta-arrow">Calculate Hydration →</div>
-            </a>
-        </div>
-        
-        <!-- Vitamin D Intake Calculator -->
-        <div class="calculator-card-v2 card-color-yellow">
-            <a href="/vitamin-d-intake-calculator">
-                <div class="card-icon">☀️</div>
-                <h3 class="card-title">Vitamin D Intake Calculator</h3>
-                <p class="card-summary">Determine your ideal vitamin D supplementation based on lifestyle factors.</p>
-                <div class="cta-arrow">Calculate Intake →</div>
-            </a>
-        </div>
-        
-        <!-- Lifespan Calculator -->
-        <div class="calculator-card-v2 card-color-red">
-            <a href="/lifespan-longevity-calculator">
-                <div class="card-icon">❤️</div>
-                <h3 class="card-title">Lifespan Calculator</h3>
-                <p class="card-summary">Estimate your life expectancy based on health and lifestyle factors.</p>
-                <div class="cta-arrow">Check Your Lifespan →</div>
-            </a>
-        </div>
-        
-        <!-- Fasting Weight Loss Calculator -->
-        <div class="calculator-card-v2 card-color-green">
-            <a href="/fasting-weight-loss-calculator">
-                <div class="card-icon">⏱️</div>
-                <h3 class="card-title">Fasting Weight Loss Calculator</h3>
-                <p class="card-summary">Calculate potential weight loss from intermittent fasting protocols.</p>
-                <div class="cta-arrow">Calculate Weight Loss →</div>
-            </a>
-        </div>
-        
-        <!-- Caloric & Macronutrient Calculator -->
-        <div class="calculator-card-v2 card-color-orange">
-            <a href="/caloric-intake-macronutrient-calculator">
-                <div class="card-icon">🍎</div>
-                <h3 class="card-title">Caloric & Macronutrient Calculator</h3>
-                <p class="card-summary">Calculate your daily caloric needs and optimal macronutrient ratios.</p>
-                <div class="cta-arrow">Calculate Your Calories →</div>
-            </a>
-        </div>
+        {% endfor %}
     </div>
     
     <!-- Mid Ad -->

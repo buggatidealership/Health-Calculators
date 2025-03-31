@@ -9,9 +9,76 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
+cards = [
+    {
+        "title": "Breast Implant Calculator",
+        "url": "/breast-implant-calculator",
+        "summary": "Find your ideal implant size based on your measurements and goals.",
+        "icon": "💗",
+        "cta": "Calculate Implant Size",
+        "color": "pink"
+    },
+    {
+        "title": "Ozempic Weight Loss Calculator",
+        "url": "/ozempic-weight-loss-calculator",
+        "summary": "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy).",
+        "icon": "💊",
+        "cta": "Estimate Fat Loss",
+        "color": "purple"
+    },
+    {
+        "title": "Botox Dosage Calculator",
+        "url": "/botox-dosage-calculator",
+        "summary": "Determine the appropriate Botox units for different treatment areas.",
+        "icon": "💉",
+        "cta": "Calculate Botox Units",
+        "color": "blue"
+    },
+    {
+        "title": "Creatine Hydration Calculator",
+        "url": "/creatine-water-calculator",
+        "summary": "Calculate optimal water intake when using creatine supplements.",
+        "icon": "💧",
+        "cta": "Calculate Hydration",
+        "color": "teal"
+    },
+    {
+        "title": "Vitamin D Intake Calculator",
+        "url": "/vitamin-d-intake-calculator",
+        "summary": "Determine your ideal vitamin D supplementation based on lifestyle factors.",
+        "icon": "☀️",
+        "cta": "Calculate Intake",
+        "color": "yellow"
+    },
+    {
+        "title": "Lifespan Calculator",
+        "url": "/lifespan-longevity-calculator",
+        "summary": "Estimate your life expectancy based on health and lifestyle factors.",
+        "icon": "❤️",
+        "cta": "Check Your Lifespan",
+        "color": "red"
+    },
+    {
+        "title": "Fasting Weight Loss Calculator",
+        "url": "/fasting-weight-loss-calculator",
+        "summary": "Calculate potential weight loss from intermittent fasting protocols.",
+        "icon": "⏱️",
+        "cta": "Calculate Weight Loss",
+        "color": "green"
+    },
+    {
+        "title": "Caloric & Macronutrient Calculator",
+        "url": "/caloric-intake-macronutrient-calculator",
+        "summary": "Calculate your daily caloric needs and optimal macronutrient ratios.",
+        "icon": "🍎",
+        "cta": "Calculate Your Calories",
+        "color": "orange"
+    }
+]
+
 @app.route('/')
 def home():
-    return render_template('home.html', is_homepage=True)
+    return render_template('home.html', is_homepage=True, cards=cards)
 
 @app.route('/caloric-intake-macronutrient-calculator')
 def calculator():
