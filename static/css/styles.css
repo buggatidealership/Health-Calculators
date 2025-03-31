@@ -422,6 +422,7 @@ li {
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   border-top: 5px solid var(--card-color, #d63384); /* default pink */
   min-height: 220px;
+  height: 100%;
   transition: transform 0.2s ease;
 }
 
@@ -460,7 +461,7 @@ li {
   font-size: 0.95rem;
   color: #555;
   flex-grow: 1;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .calculator-card-v2 .cta-arrow {
