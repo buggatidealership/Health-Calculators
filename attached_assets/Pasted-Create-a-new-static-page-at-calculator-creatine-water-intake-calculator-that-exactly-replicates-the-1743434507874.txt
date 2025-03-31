@@ -1,0 +1,310 @@
+Create a new static page at /calculator/creatine-water-intake-calculator that exactly replicates the layout, styling, and structure of the Caloric Intake & Macronutrient Calculator.
+
+Follow these rules:
+
+--- METADATA ---
+- Meta Title: “Creatine Water Intake Calculator – How Much Water to Drink on Creatine”
+- Meta Description: “Estimate your optimal daily water intake while using creatine based on your weight, gender, and workout intensity. Backed by hydration science.”
+- OG Title: “Creatine Water Intake Calculator”
+- OG Description: “Find out how much water you should drink daily when taking creatine. Personalized based on your training level and dosage.”
+- OG URL: https://longevitycalculator.xyz/calculator/creatine-water-intake-calculator
+- OG Image: https://longevitycalculator.xyz/static/images/creatine-water-intake-calculator-og.jpg
+- Twitter meta tags: Match OG content
+- Canonical Tag: https://longevitycalculator.xyz/calculator/creatine-water-intake-calculator
+
+--- LAYOUT & UI ---
+- Match the Caloric Intake & Macronutrient Calculator exactly in layout, typography, spacing, padding, button styling, and section order
+- CTA button: Use pink #d63384 with a darker pink hover state, rounded corners, and matching padding
+- Section icons: Use <BarChart className="section-icon" /> before “How This Calculator Works”, and <HelpCircle className="section-icon" /> before “FAQ”
+- Include a styled Table of Contents with anchor links to #calculator, #how-it-works, and #faq
+
+--- DISCLAIMER (ABOVE TOC) ---
+“This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.”
+
+--- ADUNITS ---
+Insert the following working AdSense components:
+<AdUnit slot="creatine-water-intake-calculator-top" /> (directly below H1)
+<AdUnit slot="creatine-water-intake-calculator-mid" /> (between result output and “How This Calculator Works”)
+<AdUnit slot="creatine-water-intake-calculator-bottom" /> (above the footer disclaimer)
+
+--- CALCULATOR MODULE ---
+Inside <section id="calculator">, insert the following Deepseek-generated HTML:
+
+<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creatine Hydration Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .calculator {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4fc;
+            border-radius: 4px;
+            display: none;
+        }
+        .info {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+        .highlight {
+            background-color: #fffde7;
+            padding: 15px;
+            border-left: 4px solid #ffd600;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Creatine Hydration Calculator</h1>
+   
+    <div class="calculator">
+        <div class="form-group">
+            <label for="weight">Your Weight (kg):</label>
+            <input type="number" id="weight" min="30" max="200" placeholder="Enter your weight in kilograms">
+        </div>
+       
+        <div class="form-group">
+            <label for="phase">Creatine Phase:</label>
+            <select id="phase">
+                <option value="loading">Loading Phase (first 5-7 days)</option>
+                <option value="maintenance">Maintenance Phase</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="activity">Activity Level:</label>
+            <select id="activity">
+                <option value="moderate">Moderate (3-5 workouts/week)</option>
+                <option value="high">High (daily intense workouts)</option>
+                <option value="extreme">Extreme (2+ workouts/day or hot climate)</option>
+            </select>
+        </div>
+       
+        <button onclick="calculateWater()">Calculate Water Needs</button>
+       
+        <div id="result" class="result">
+            <h3>Your Recommended Water Intake:</h3>
+            <p id="waterResult"></p>
+            <p id="creatineDose"></p>
+            <div id="additionalInfo"></div>
+        </div>
+    </div>
+   
+    <div class="highlight">
+        <strong>Scientific Basis:</strong> This calculator uses recommendations from the International Society of Sports Nutrition (ISSN) and other studies on creatine supplementation. The water intake accounts for both baseline hydration needs and additional water required for creatine uptake and muscle hydration.
+    </div>
+   
+    <div class="info">
+        <h3>About Creatine and Hydration</h3>
+        <p>Creatine supplementation increases water retention in muscles, requiring additional fluid intake. Proper hydration enhances creatine uptake and reduces potential side effects like cramping.</p>
+       
+        <h3>Key Recommendations:</h3>
+        <ul>
+            <li><strong>Loading Phase:</strong> 20g/day (divided into 4 doses) for 5-7 days</li>
+            <li><strong>Maintenance Phase:</strong> 3-5g/day thereafter</li>
+            <li>Increase water intake by 500-1000mL/day during supplementation</li>
+            <li>Spread water intake throughout the day</li>
+        </ul>
+       
+        <p>Always consult with a healthcare professional before starting any supplementation regimen.</p>
+    </div>
+   
+    <script>
+        function calculateWater() {
+            // Get input values
+            const weight = parseFloat(document.getElementById('weight').value);
+            const phase = document.getElementById('phase').value;
+            const activity = document.getElementById('activity').value;
+           
+            // Validate weight
+            if (isNaN(weight) || weight < 30 || weight > 200) {
+                alert('Please enter a valid weight between 30 and 200 kg');
+                return;
+            }
+           
+            // Calculate base water needs (30-35 mL per kg of body weight)
+            let baseWater = weight * 35;
+           
+            // Adjust for activity level
+            let activityMultiplier = 1;
+            if (activity === 'high') {
+                activityMultiplier = 1.2;
+            } else if (activity === 'extreme') {
+                activityMultiplier = 1.4;
+            }
+           
+            // Calculate total water without creatine adjustment
+            let totalWater = baseWater * activityMultiplier;
+           
+            // Add creatine adjustment (additional 500-1000 mL based on phase)
+            let creatineAdjustment = 0;
+            let creatineDose = '';
+           
+            if (phase === 'loading') {
+                creatineAdjustment = 1000;
+                creatineDose = 'During the loading phase (first 5-7 days), take 20g of creatine monohydrate daily (divided into 4 doses of 5g each).';
+                totalWater += creatineAdjustment;
+            } else {
+                creatineAdjustment = 500;
+                creatineDose = 'During the maintenance phase, take 3-5g of creatine monohydrate daily.';
+                totalWater += creatineAdjustment;
+            }
+           
+            // Convert to liters and round
+            const totalWaterLiters = Math.round(totalWater / 100) / 10;
+            const baseWaterLiters = Math.round((baseWater * activityMultiplier) / 100) / 10;
+           
+            // Display results
+            document.getElementById('waterResult').innerHTML = `
+                <strong>${totalWaterLiters} liters per day</strong> (${baseWaterLiters}L baseline + ${creatineAdjustment}mL for creatine)
+            `;
+           
+            document.getElementById('creatineDose').innerHTML = creatineDose;
+           
+            // Additional tips
+            let additionalInfo = '<h4>Hydration Tips:</h4><ul>';
+            additionalInfo += '<li>Spread your water intake evenly throughout the day</li>';
+            additionalInfo += '<li>Monitor urine color - aim for pale yellow</li>';
+           
+            if (phase === 'loading') {
+                additionalInfo += '<li>During loading, consider taking creatine with meals to improve absorption</li>';
+            } else {
+                additionalInfo += '<li>Timing isn\'t critical during maintenance - take creatine whenever is convenient</li>';
+            }
+           
+            additionalInfo += '<li>Avoid excessive caffeine as it may counteract hydration</li>';
+            additionalInfo += '</ul>';
+           
+            document.getElementById('additionalInfo').innerHTML = additionalInfo;
+           
+            // Show results
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+<!-- END DEEPSEEK-GENERATED CALCULATOR -->
+
+Ensure all styling, spacing, and form group layout matches macro calculator. Inputs should include: gender, weight (kg/lbs toggle), training intensity, creatine dosage. Output should include water intake recommendation in liters and ounces.
+
+--- SCHEMA MARKUP (IN HEAD) ---
+1. SoftwareApplication:
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Creatine Water Intake Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/calculator/creatine-water-intake-calculator",
+  "description": "Estimate how much water you should drink when supplementing with creatine based on weight, dosage, and workout intensity."
+}
+
+2. FAQPage:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much water should I drink when taking creatine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most people should aim for 3–4 liters per day when supplementing with creatine, depending on body weight and exercise intensity."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is dehydration a risk when using creatine?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, creatine pulls water into muscles, which increases hydration needs. Failing to drink enough may increase risk of cramps or fatigue."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I drink more water on training days?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Training increases water loss through sweat, and creatine adds to the body’s water demand. Increase fluid intake accordingly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I take creatine without drinking enough water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You may experience bloating, cramps, or reduced effectiveness. Hydration is essential for creatine to work properly."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I take creatine with pre-workout?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but it increases your total fluid demand. Make sure to hydrate adequately before and after your workout."
+      }
+    }
+  ]
+}
+
+--- FOOTER ---
+- Add “← Back to Homepage” internal link
+- Add this disclaimer below:
+“This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed practitioner.”
+
+--- FINAL QA ---
+- No commented placeholders — all AdUnits should be live
+- No broken JSX — validate that all tags compile and there are no syntax issues
+- No <img> unless explicitly needed (must include width, height, alt if used)
+- Fully static HTML — no client-side hydration or rendering
+- CLS < 0.1, LCP < 2.5s, and no layout shift on interaction
