@@ -33,6 +33,10 @@ def creatine_water_calculator():
 def breast_implant_calculator():
     return render_template('breast_implant_calculator.html', is_homepage=False)
 
+@app.route('/vitamin-d-intake-calculator')
+def vitamin_d_intake_calculator():
+    return render_template('vitamin_d_intake_calculator.html', is_homepage=False)
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
