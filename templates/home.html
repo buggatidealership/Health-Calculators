@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers.">
+    <meta name="keywords" content="longevity calculator, health calculators, lifespan calculator, nutrition calculator, wellness tools">
+    <meta name="author" content="LongevityCalculator.xyz">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Longevity Calculator – Smart Health Starts Here" />
+    <meta property="og:description" content="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action." />
+    <meta property="og:url" content="https://longevitycalculator.xyz/" />
+    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg" />
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Longevity Calculator – Smart Health Starts Here" />
+    <meta name="twitter:description" content="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action." />
+    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg" />
+    
+    <title>Longevity Calculator – Science-Backed Health Tools & Lifespan Predictors</title>
+    <link rel="canonical" href="https://longevitycalculator.xyz/" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Longevity Calculator",
+      "url": "https://longevitycalculator.xyz",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://longevitycalculator.xyz/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is LongevityCalculator.xyz?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LongevityCalculator.xyz offers science-based health calculators for nutrition, fitness, and lifespan planning. Our tools are built to be accurate, fast, and easy to use."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are these calculators medically accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "They are based on peer-reviewed formulas and guidelines, but results are general estimates. Always consult a medical professional for personalized advice."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will more calculators be added?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. We're continuously building new health and longevity tools and plan to add evidence-based articles and guides for each calculator."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        .homepage-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .homepage-header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .homepage-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .search-container {
+            max-width: 600px;
+            margin: 30px auto;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .calculator-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .calculator-card {
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            background-color: #fff;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        .calculator-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+        
+        .calculator-card h3 {
+            margin-top: 0;
+            font-size: 1.4rem;
+        }
+        
+        .calculator-card p {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        
+        .calculator-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: #d63384;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+        
+        .cta-button:hover {
+            background-color: #be2d73;
+        }
+        
+        .resources-section {
+            background-color: #f9f9f9;
+            padding: 40px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+        
+        .resources-section h2 {
+            margin-top: 0;
+            color: #333;
+        }
+        
+        .footer-disclaimer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="homepage-header">
+        <h1>Smarter Health Starts With Better Numbers</h1>
+        <p>Explore our growing library of science-backed calculators to personalize your wellness path.</p>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px auto; max-width: 800px; text-align: center;">
+        <AdUnit slot="homepage-top" />
+    </div>
+    
+    <!-- Search Input (visual only, no functionality) -->
+    <div class="search-container">
+        <input type="text" class="search-input" placeholder="Search calculators..." aria-label="Search calculators">
+    </div>
+    
+    <!-- Calculator Grid -->
+    <div class="calculator-grid">
+        <!-- Caloric Intake Calculator -->
+        <div class="calculator-card">
+            <a href="/caloric-intake-macronutrient-calculator">
+                <h3>Caloric Intake & Macronutrient Calculator</h3>
+                <p>Estimate your daily calorie needs and macronutrient split using the Mifflin-St Jeor formula.</p>
+                <div class="cta-button">Calculate Your Calories</div>
+            </a>
+        </div>
+        
+        <!-- Botox Calculator -->
+        <div class="calculator-card">
+            <a href="/botox-dosage-calculator">
+                <h3>Botox Dosage & Cost Calculator</h3>
+                <p>Personalize your Botox treatment plan and cost based on treatment area, gender, and goal.</p>
+                <div class="cta-button">Estimate Botox Needs</div>
+            </a>
+        </div>
+        
+        <!-- Lifespan Calculator -->
+        <div class="calculator-card">
+            <a href="/lifespan-longevity-calculator">
+                <h3>Lifespan Longevity Calculator</h3>
+                <p>Predict your potential lifespan using lifestyle, genetics, and health behavior data.</p>
+                <div class="cta-button">Check Your Lifespan</div>
+            </a>
+        </div>
+        
+        <!-- Creatine Water Calculator -->
+        <div class="calculator-card">
+            <a href="/creatine-water-calculator">
+                <h3>Creatine Water Intake Calculator</h3>
+                <p>Find out how much water you should drink while using creatine based on weight and training.</p>
+                <div class="cta-button">Calculate Hydration</div>
+            </a>
+        </div>
+    </div>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px auto; max-width: 800px; text-align: center;">
+        <AdUnit slot="homepage-mid" />
+    </div>
+    
+    <!-- Resources Section -->
+    <div class="resources-section">
+        <h2>Health Resources & Articles (Coming Soon)</h2>
+        <p>We're building evidence-based guides to help you get the most from every calculator.</p>
+    </div>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px auto; max-width: 800px; text-align: center;">
+        <AdUnit slot="homepage-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer-disclaimer">
+        <p>This site provides general educational estimates. Consult a doctor or registered dietitian before making any health decisions.</p>
+    </div>
+</body>
+</html>

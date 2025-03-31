@@ -1,0 +1,143 @@
+The page must match the exact styling and structure of the calculator pages (like `/caloric-intake-macronutrient-calculator`) including:
+
+- Typography
+- Section padding/margins
+- CTA button color: #d63384 with darker hover state
+- Card layout, spacing, shadow, and border-radius
+- Static HTML only (no hydration, no JS dependencies)
+
+---
+
+✅ SEO METADATA (IN <head>):
+- <title>: Longevity Calculator – Science-Backed Health Tools & Lifespan Predictors
+- <meta name="description">: Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we’ve got your body’s numbers.
+- <link rel="canonical" href="https://longevitycalculator.xyz/" />
+- <meta property="og:title" content="Longevity Calculator – Smart Health Starts Here" />
+- <meta property="og:description" content="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action." />
+- <meta property="og:url" content="https://longevitycalculator.xyz/" />
+- <meta property="og:image" content="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg" />
+- <meta name="twitter:card" content="summary_large_image" />
+- <meta name="twitter:title" content="Longevity Calculator – Smart Health Starts Here" />
+- <meta name="twitter:description" content="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action." />
+- <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg" />
+
+---
+
+✅ HEADER SECTION:
+- H1: Smarter Health Starts With Better Numbers
+- Subtext: Explore our growing library of science-backed calculators to personalize your wellness path.
+- Insert directly below: <AdUnit slot="homepage-top" />
+
+---
+
+✅ SEARCH PLACEHOLDER (OPTIONAL):
+- Input field with placeholder: “Search calculators…” (visual only, no backend functionality yet)
+- Match calculator input field styling
+
+---
+
+✅ CALCULATOR GRID (RESPONSIVE):
+- 2 columns on desktop, 1 column on mobile
+- Each calculator = card with:
+  - H3 title (linked)
+  - Short summary (SEO-optimized)
+  - CTA button (styled like calculator buttons)
+
+Include the following calculators:
+
+1. **Caloric Intake & Macronutrient Calculator**
+   - URL: /caloric-intake-macronutrient-calculator
+   - Summary: Estimate your daily calorie needs and macronutrient split using the Mifflin-St Jeor formula.
+
+2. **Botox Dosage & Cost Calculator**
+   - URL: /botox-dosage-calculator
+   - Summary: Personalize your Botox treatment plan and cost based on treatment area, gender, and goal.
+
+3. **Lifespan Longevity Calculator**
+   - URL: /lifespan-longevity-calculator
+   - Summary: Predict your potential lifespan using lifestyle, genetics, and health behavior data.
+
+4. **Creatine Water Intake Calculator**
+   - URL: /creatine-water-calculator
+   - Summary: Find out how much water you should drink while using creatine based on weight and training.
+
+---
+
+✅ RESOURCE PLACEHOLDER SECTION:
+- H2: Health Resources & Articles (Coming Soon)
+- Paragraph: We’re building evidence-based guides to help you get the most from every calculator.
+
+---
+
+✅ FOOTER SECTION:
+- Disclaimer (muted text, small font):  
+  This site provides general educational estimates. Consult a doctor or registered dietitian before making any health decisions.
+- Do not include a homepage link in footer (you're already on `/`)
+- Insert <AdUnit slot="homepage-bottom" /> above the disclaimer
+
+---
+
+✅ ADDITIONAL ADS:
+- <AdUnit slot="homepage-mid" /> below calculator grid
+
+---
+
+✅ JSON-LD SCHEMA (INSERT IN <head>):
+
+1. WebSite Schema:
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Longevity Calculator",
+  "url": "https://longevitycalculator.xyz",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://longevitycalculator.xyz/?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+2. FAQPage Schema:
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is LongevityCalculator.xyz?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LongevityCalculator.xyz offers science-based health calculators for nutrition, fitness, and lifespan planning. Our tools are built to be accurate, fast, and easy to use."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these calculators medically accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They are based on peer-reviewed formulas and guidelines, but results are general estimates. Always consult a medical professional for personalized advice."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will more calculators be added?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We’re continuously building new health and longevity tools and plan to add evidence-based articles and guides for each calculator."
+      }
+    }
+  ]
+}
+</script>
+
+---
+
+✅ PERFORMANCE RULES:
+- Static HTML only
+- CLS < 0.1, LCP < 2.5s
+- No hydration or client-side rendering
+- Responsive layout (desktop and mobile)
+- No <img> unless explicitly added — if so, use webp, alt, width, height
