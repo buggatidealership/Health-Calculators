@@ -410,3 +410,68 @@ li {
   text-decoration: none;
   font-weight: 500;
 }
+
+/* Calculator Card V2 Styles - Redesigned calculator cards */
+.calculator-card-v2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 12px;
+  padding: 24px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  border-top: 5px solid var(--card-color, #d63384); /* default pink */
+  min-height: 220px;
+  transition: transform 0.2s ease;
+}
+
+.calculator-card-v2:hover {
+  transform: translateY(-4px);
+}
+
+.calculator-card-v2 a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  height: 100%;
+}
+
+.calculator-card-v2 .card-icon {
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+}
+
+.calculator-card-v2 .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.calculator-card-v2 .card-summary {
+  font-size: 0.95rem;
+  color: #555;
+  flex-grow: 1;
+}
+
+.calculator-card-v2 .cta-arrow {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #d63384;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: transform 0.2s ease;
+}
+
+.calculator-card-v2:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* Card Color Utility Classes */
+.card-color-pink { --card-color: #d63384; }
+.card-color-blue { --card-color: #3b82f6; }
+.card-color-green { --card-color: #10b981; }
+.card-color-purple { --card-color: #a855f7; }
+.card-color-yellow { --card-color: #f59e0b; }
+.card-color-red { --card-color: #ef4444; }
