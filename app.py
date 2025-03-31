@@ -11,23 +11,23 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('home.html', is_homepage=True)
 
 @app.route('/caloric-intake-macronutrient-calculator')
 def calculator():
-    return render_template('index.html')
+    return render_template('index.html', is_homepage=False)
 
 @app.route('/botox-dosage-calculator')
 def botox_calculator():
-    return render_template('botox_calculator.html')
+    return render_template('botox_calculator.html', is_homepage=False)
 
 @app.route('/lifespan-longevity-calculator')
 def lifespan_calculator():
-    return render_template('lifespan_calculator.html')
+    return render_template('lifespan_calculator.html', is_homepage=False)
 
 @app.route('/creatine-water-calculator')
 def creatine_water_calculator():
-    return render_template('creatine_water_calculator.html')
+    return render_template('creatine_water_calculator.html', is_homepage=False)
 
 @app.route('/sitemap.xml')
 def sitemap():

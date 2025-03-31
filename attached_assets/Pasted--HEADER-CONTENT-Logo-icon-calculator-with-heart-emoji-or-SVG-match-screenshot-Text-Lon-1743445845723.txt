@@ -1,0 +1,86 @@
+✅ HEADER CONTENT:
+- Logo icon (calculator with heart emoji or SVG — match screenshot)
+- Text: “Longevity Calculator”
+- Font: Bold, modern, matching typography from calculator pages
+- Link: Entire logo + name should link to homepage (`/`)
+- On subpages, display a **Back to Homepage** link under the header
+
+---
+
+✅ VISUAL LAYOUT:
+- Left-aligned logo + brand name
+- Minimal padding (top and bottom)
+- Light border below (same as your current layout)
+- Header must be consistent with design from calculator pages (screenshot provided)
+- Use the brand pink `#d63384` for the "← Back to Homepage" link
+- Font size and color must match the calculator typography (not smaller, not lighter)
+
+---
+
+✅ TECHNICAL INTEGRATION:
+- Extract this into a component or include it in a shared header block (e.g., `header.html`)
+- Inject this header into **every HTML file** on the site:
+  - `/index.html` (homepage)
+  - All `/calculator/[slug]` pages
+  - All future `/resources/[slug]` articles
+
+---
+
+✅ STRUCTURE (HTML EXAMPLE):
+
+<!-- BEGIN HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo-link">
+      <span class="logo-icon">🧮❤️</span>
+      <span class="logo-text">Longevity Calculator</span>
+    </a>
+  </div>
+</header>
+
+<!-- Optional subpage nav -->
+<div class="back-link-wrapper">
+  <a href="/" class="back-home-link">← Back to Homepage</a>
+</div>
+<!-- END HEADER -->
+
+---
+
+✅ STYLES (CSS):
+Insert into main stylesheet or scoped CSS block:
+```css
+.site-header {
+  padding: 20px 30px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  color: #111;
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.logo-icon {
+  font-size: 1.5rem;
+}
+
+.back-link-wrapper {
+  padding: 10px 30px;
+  background-color: #f9f9f9;
+}
+
+.back-home-link {
+  color: #d63384;
+  text-decoration: none;
+  font-weight: 500;
+}

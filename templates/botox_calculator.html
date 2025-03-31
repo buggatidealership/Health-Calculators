@@ -73,6 +73,8 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
 </head>
 <body>
+    {% include 'header.html' %}
+    
     <h1>Botox Dosage & Cost Calculator</h1>
     <p class="subtitle">Estimate your ideal Botox dosage in units and the cost based on treatment area, gender, severity, and desired outcome.</p>
     
@@ -276,9 +278,8 @@
             <AdUnit slot="botox-bottom" />
         </div>
         
-        <!-- Internal Link to Homepage + Footer Disclaimer -->
+        <!-- Footer Disclaimer -->
         <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
-            <p><a href="/" style="color: #555;">← Back to Homepage</a></p>
             <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
                 <strong>Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified aesthetic provider for personalized advice.
             </p>
