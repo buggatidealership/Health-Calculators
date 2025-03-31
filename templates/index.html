@@ -28,12 +28,23 @@
         </div>
     </div>
     
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Caloric & Macronutrient Calculator</a></li>
+            <li><a href="#about">About This Calculator</a></li>
+            <li><a href="#how-to-use">How to Use Your Results</a></li>
+            <li><a href="#macronutrients">Understanding Macronutrients</a></li>
+            <li><a href="#diet-types">Why Different Diet Types?</a></li>
+        </ul>
+    </div>
+    
     <!-- Top Ad -->
     <div class="adunit-top" style="margin: 20px 0;">
       <!-- AdUnit slot="macros-top" -->
     </div>
    
-    <div class="calculator">
+    <div id="calculator" class="calculator">
         <div class="units-toggle">
             <button id="metric-btn" class="active" onclick="toggleUnits('metric')">Metric (kg, cm)</button>
             <button id="imperial-btn" onclick="toggleUnits('imperial')">Imperial (lbs, ft/in)</button>
@@ -138,19 +149,19 @@
         </div>
        
         <div class="info">
-            <h3>About This Calculator</h3>
+            <h3 id="about">About This Calculator</h3>
             <p>This calculator uses the Mifflin-St Jeor equation, considered the most accurate for estimating basal metabolic rate (BMR) according to current research. Macronutrient ranges are based on evidence-based guidelines from the Academy of Nutrition and Dietetics and the International Society of Sports Nutrition.</p>
             <p><strong>Note:</strong> These are estimates. Individual needs may vary based on genetics, body composition, and other factors. For personalized advice, consult a registered dietitian.</p>
             
-            <h3>How to Use Your Results</h3>
+            <h3 id="how-to-use">How to Use Your Results</h3>
             <p>The calorie target provided is an estimate of how many calories you should consume daily to reach your goal. The macronutrient breakdown suggests how to distribute these calories among protein, carbohydrates, and fats.</p>
             
-            <h3>Understanding Macronutrients</h3>
+            <h3 id="macronutrients">Understanding Macronutrients</h3>
             <p><strong>Protein:</strong> Essential for muscle repair and growth. Each gram provides 4 calories.</p>
             <p><strong>Carbohydrates:</strong> Your body's primary energy source. Each gram provides 4 calories.</p>
             <p><strong>Fats:</strong> Important for hormone production and vitamin absorption. Each gram provides 9 calories.</p>
             
-            <h3>Why Different Diet Types?</h3>
+            <h3 id="diet-types">Why Different Diet Types?</h3>
             <p>Different macronutrient ratios work better for different individuals based on their goals, preferences, and metabolic responses:</p>
             <ul>
                 <li><strong>Balanced:</strong> A traditional approach with moderate amounts of all macronutrients.</li>
