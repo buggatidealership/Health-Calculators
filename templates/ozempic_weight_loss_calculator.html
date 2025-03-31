@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Estimate how much weight you could lose while taking Ozempic (semaglutide) based on your weight, dosage, and treatment duration.">
+    <meta name="keywords" content="ozempic weight loss calculator, semaglutide calculator, weight loss, GLP-1, wegovy">
+    <meta name="author" content="LongevityCalculator.xyz">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Ozempic Weight Loss Calculator">
+    <meta property="og:description" content="Use this calculator to estimate expected weight loss from Ozempic (semaglutide) based on clinical trial data and your dosage.">
+    <meta property="og:url" content="https://longevitycalculator.xyz/ozempic-weight-loss-calculator">
+    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/ozempic-weight-loss-calculator-og.jpg">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Ozempic Weight Loss Calculator">
+    <meta name="twitter:description" content="Use this calculator to estimate expected weight loss from Ozempic (semaglutide) based on clinical trial data and your dosage.">
+    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/ozempic-weight-loss-calculator-og.jpg">
+    
+    <title>Ozempic Weight Loss Calculator – Estimate Fat Loss on Semaglutide</title>
+    <link rel="canonical" href="https://longevitycalculator.xyz/ozempic-weight-loss-calculator">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Ozempic Weight Loss Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/ozempic-weight-loss-calculator",
+      "description": "Estimate how much weight you could lose on Ozempic (semaglutide) based on dosage, starting weight, and treatment duration."
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much weight will I lose on Ozempic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ozempic clinical trials show average weight loss between 5–15% of body weight depending on dose, time, and lifestyle factors. This calculator provides a personalized estimate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How fast does Ozempic cause weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Weight loss usually begins after the first few weeks and continues steadily over 12–68 weeks. Weekly average loss varies from 0.3 to 1.0 kg."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to change my diet while taking Ozempic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Diet and activity amplify weight loss. Users following structured plans typically lose significantly more than those who don't make changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens after I stop Ozempic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some weight regain is common without long-term diet and activity support. This tool can help estimate how to maintain your progress."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this calculator based on real research?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Estimates are based on results from STEP 1–4 and SUSTAIN clinical trials of semaglutide (Ozempic and Wegovy)."
+          }
+        }
+      ]
+    }
+    </script>
+    
+    <style>
+        .medical-disclaimer {
+          background-color: #fff5f5;
+          padding: 16px 20px;
+          margin-top: 30px;
+          margin-bottom: 40px;
+          border-left: 4px solid #d63384;
+          border-radius: 6px;
+          font-size: 0.95rem;
+          color: #555;
+        }
+        
+        .adunit-mid {
+          margin-top: 40px;
+          margin-bottom: 40px;
+        }
+        
+        #calculator {
+          margin-bottom: 40px;
+        }
+        
+        .how-it-works {
+          margin-top: 60px;
+        }
+        
+        .subtitle {
+          font-weight: 400;
+          font-size: 1.1rem;
+          color: #666;
+          margin-top: 10px;
+          margin-bottom: 30px;
+        }
+        
+        .unit-toggle {
+          display: flex;
+          gap: 0;
+          border-radius: 6px;
+          overflow: hidden;
+          margin: 20px 0;
+        }
+        
+        .unit-button {
+          flex: 1;
+          padding: 12px 16px;
+          font-weight: 600;
+          font-size: 1rem;
+          cursor: pointer;
+          border: none;
+          background-color: #f0f0f0;
+          color: #d63384;
+          transition: background-color 0.2s;
+        }
+        
+        .unit-button:hover {
+          background-color: #f7d0e1;
+        }
+        
+        .unit-button.active {
+          background-color: #d63384;
+          color: white;
+        }
+        
+        /* Custom styles for Ozempic Calculator */
+        button#calculate-btn {
+          background-color: #d63384;
+          color: white;
+          padding: 12px 16px;
+          font-weight: 600;
+          border: none;
+          border-radius: 6px;
+          cursor: pointer;
+          width: 100%;
+          margin: 20px 0;
+          transition: background-color 0.2s;
+        }
+        
+        button#calculate-btn:hover {
+          background-color: #be2d73;
+        }
+        
+        .height-group {
+          display: flex;
+          gap: 10px;
+        }
+        
+        .height-group div {
+          flex: 1;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <h1>Ozempic Weight Loss Calculator</h1>
+    <p class="subtitle">This science-based calculator estimates potential weight loss from Ozempic (semaglutide) based on your starting weight, medication dosage, and treatment duration. Input your details to get personalized weight loss projections.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Always consult a licensed medical provider before starting or modifying any medication.</p>
+    </div>
+    
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Ozempic Weight Loss Calculator</a></li>
+            <li><a href="#how-it-works">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+      <AdUnit slot="ozempic-weight-loss-calculator-top" />
+    </div>
+    
+    <section id="calculator" class="calculator">
+        <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+        <div class="unit-toggle">
+            <button class="unit-button active" id="metricBtn">Metric (kg/cm)</button>
+            <button class="unit-button" id="imperialBtn">Imperial (lb/ft/in)</button>
+        </div>
+       
+        <div class="form-group" id="weight-metric">
+            <label for="weight-kg">Current Weight (kg)</label>
+            <input type="number" id="weight-kg" min="30" max="300" step="0.1" required>
+        </div>
+       
+        <div class="form-group" id="weight-imperial" style="display: none;">
+            <label for="weight-lb">Current Weight (lbs)</label>
+            <input type="number" id="weight-lb" min="66" max="660" step="1" required>
+        </div>
+       
+        <div class="form-group" id="height-metric">
+            <label for="height-cm">Height (cm)</label>
+            <input type="number" id="height-cm" min="120" max="250" required>
+        </div>
+       
+        <div class="form-group" id="height-imperial" style="display: none;">
+            <label>Height (ft/in)</label>
+            <div class="height-group">
+                <div>
+                    <label for="height-ft">Feet</label>
+                    <input type="number" id="height-ft" min="3" max="8" value="5" required>
+                </div>
+                <div>
+                    <label for="height-in">Inches</label>
+                    <input type="number" id="height-in" min="0" max="11" value="9" required>
+                </div>
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="bmi">Current BMI (will be calculated automatically)</label>
+            <input type="number" id="bmi" readonly>
+        </div>
+       
+        <div class="form-group">
+            <label for="duration">Planned Treatment Duration (weeks)</label>
+            <select id="duration">
+                <option value="20">20 weeks (~5 months)</option>
+                <option value="40">40 weeks (~10 months)</option>
+                <option value="68" selected>68 weeks (~16 months)</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="dose">Maximum Planned Dose</label>
+            <select id="dose">
+                <option value="0.5">0.5 mg (typical Ozempic dose for diabetes)</option>
+                <option value="1.0">1.0 mg (higher Ozempic dose)</option>
+                <option value="2.4" selected>2.4 mg (Wegovy dose for weight loss)</option>
+            </select>
+        </div>
+       
+        <button id="calculate-btn">Calculate Projected Weight Loss</button>
+       
+        <div id="result" class="results" style="display: none;">
+            <h2>Projected Results</h2>
+            <p>Starting Weight: <span id="startWeight"></span></p>
+            <p>Starting BMI: <span id="startBMI"></span></p>
+            <p>Projected Weight Loss: <span id="weightLoss"></span></p>
+            <p>Projected Final Weight: <span id="finalWeight"></span></p>
+            <p>Projected Final BMI: <span id="finalBMI"></span></p>
+           
+            <div class="chart-container">
+                <canvas id="chart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Mid Ad -->
+        <div class="adunit-mid" style="margin: 40px 0;">
+          <AdUnit slot="ozempic-weight-loss-calculator-mid" />
+        </div>
+        
+        <div class="info how-it-works">
+            <h3 id="how-it-works"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>How This Calculator Works</h3>
+            <p>This calculator estimates weight loss during Ozempic (semaglutide) treatment based on clinical trial data and your personal factors:</p>
+            <ol>
+                <li><strong>Dosage Effects:</strong> Higher doses of semaglutide lead to greater weight loss. The 2.4mg dose (Wegovy) produces approximately 15% weight loss over 68 weeks, while lower doses used for diabetes (0.5mg, 1.0mg) result in 5-8% weight loss.</li>
+                <li><strong>Time-Based Progression:</strong> Weight loss on semaglutide follows a pattern: initial rapid loss in weeks 1-20, continued steady loss in weeks 20-40, and plateau/maintenance after week 40-60.</li>
+                <li><strong>BMI Calculations:</strong> The calculator shows your starting and projected BMI to help understand the clinical significance of your potential weight loss.</li>
+            </ol>
+            <p>The calculation uses data from the STEP clinical trials (New England Journal of Medicine, 2021) to estimate your expected weight loss trajectory. The model accounts for dosage and time factors but is simplified for educational purposes.</p>
+            <p><strong>Note:</strong> Individual results may vary based on diet, activity level, genetics, medical conditions, and medication adherence. This calculator provides general estimates only.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h3 id="faq"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+        
+        <div class="faq-item">
+            <h4>How much weight will I lose on Ozempic?</h4>
+            <p>Ozempic clinical trials show average weight loss between 5–15% of body weight depending on dose, time, and lifestyle factors. At the 2.4mg dose (Wegovy), average weight loss is approximately 15% after 68 weeks. At lower doses used for diabetes, average weight loss is 5-8%. This calculator provides a personalized estimate based on these clinical averages.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>How fast does Ozempic cause weight loss?</h4>
+            <p>Weight loss usually begins after the first few weeks and continues steadily over 12–68 weeks. Weekly average loss varies from 0.3 to 1.0 kg. Most people see noticeable results within 4-8 weeks, with the most rapid weight loss occurring in the first 20 weeks of treatment.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Do I need to change my diet while taking Ozempic?</h4>
+            <p>While Ozempic naturally reduces appetite, clinical trials show that combining the medication with dietary changes and exercise leads to significantly better outcomes. Patients following structured lifestyle programs lost approximately 5% more weight than those on medication alone. Small healthy changes like increasing protein intake and moderate activity can amplify your results.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>What happens after I stop Ozempic?</h4>
+            <p>Clinical data shows that approximately two-thirds of weight lost on Ozempic is regained within 1-2 years after stopping the medication unless lifestyle changes are maintained. Long-term studies suggest that continued use may be necessary for many patients to maintain weight loss. Discuss maintenance strategies with your healthcare provider before discontinuing treatment.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Is this calculator based on real research?</h4>
+            <p>Yes. Estimates are based on results from the STEP 1-4 clinical trials published in the New England Journal of Medicine and other medical journals. These trials specifically studied semaglutide (the active ingredient in Ozempic and Wegovy) for weight management. The calculator uses simplified models of this data for educational purposes.</p>
+        </div>
+    </div>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+      <AdUnit slot="ozempic-weight-loss-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer-disclaimer">
+        <p>This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed practitioner.</p>
+        <p><a href="/">← Back to Homepage</a></p>
+    </div>
+    
+    <!-- Chart.js for the results visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Unit toggle functionality
+            const metricBtn = document.getElementById('metricBtn');
+            const imperialBtn = document.getElementById('imperialBtn');
+            const weightMetric = document.getElementById('weight-metric');
+            const weightImperial = document.getElementById('weight-imperial');
+            const heightMetric = document.getElementById('height-metric');
+            const heightImperial = document.getElementById('height-imperial');
+            
+            let currentUnits = 'metric';
+            
+            document.getElementById("metricBtn").addEventListener("click", () => {
+                currentUnits = 'metric';
+                document.getElementById("metricBtn").classList.add("active");
+                document.getElementById("imperialBtn").classList.remove("active");
+                weightMetric.style.display = 'block';
+                weightImperial.style.display = 'none';
+                heightMetric.style.display = 'block';
+                heightImperial.style.display = 'none';
+                
+                // Recalculate BMI when switching units
+                calculateBMI();
+            });
+            
+            document.getElementById("imperialBtn").addEventListener("click", () => {
+                currentUnits = 'imperial';
+                document.getElementById("imperialBtn").classList.add("active");
+                document.getElementById("metricBtn").classList.remove("active");
+                weightImperial.style.display = 'block';
+                weightMetric.style.display = 'none';
+                heightImperial.style.display = 'block';
+                heightMetric.style.display = 'none';
+                
+                // Recalculate BMI when switching units
+                calculateBMI();
+            });
+            
+            // Calculate BMI when weight or height changes
+            document.getElementById('weight-kg').addEventListener('input', calculateBMI);
+            document.getElementById('weight-lb').addEventListener('input', calculateBMI);
+            document.getElementById('height-cm').addEventListener('input', calculateBMI);
+            document.getElementById('height-ft').addEventListener('input', calculateBMI);
+            document.getElementById('height-in').addEventListener('input', calculateBMI);
+            
+            function calculateBMI() {
+                let weightKg, heightM;
+                
+                if (currentUnits === 'metric') {
+                    weightKg = parseFloat(document.getElementById('weight-kg').value);
+                    const heightCm = parseFloat(document.getElementById('height-cm').value);
+                    heightM = heightCm / 100;
+                } else {
+                    const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                    weightKg = weightLb / 2.20462;
+                    
+                    const heightFt = parseFloat(document.getElementById('height-ft').value);
+                    const heightIn = parseFloat(document.getElementById('height-in').value);
+                    heightM = (heightFt * 12 + heightIn) * 0.0254;
+                }
+                
+                if (weightKg && heightM) {
+                    const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+                    document.getElementById('bmi').value = bmi;
+                }
+            }
+            
+            // Calculate button functionality
+            document.getElementById('calculate-btn').addEventListener('click', calculate);
+            
+            function calculate() {
+                let weightKg, heightM;
+                
+                // Get weight in kg regardless of input units
+                if (currentUnits === 'metric') {
+                    weightKg = parseFloat(document.getElementById('weight-kg').value);
+                    const heightCm = parseFloat(document.getElementById('height-cm').value);
+                    heightM = heightCm / 100;
+                } else {
+                    const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                    weightKg = weightLb / 2.20462;
+                    
+                    const heightFt = parseFloat(document.getElementById('height-ft').value);
+                    const heightIn = parseFloat(document.getElementById('height-in').value);
+                    heightM = (heightFt * 12 + heightIn) * 0.0254;
+                }
+                
+                const duration = parseInt(document.getElementById('duration').value);
+                const dose = parseFloat(document.getElementById('dose').value);
+                
+                if (!weightKg || !heightM) {
+                    alert("Please enter your weight and height");
+                    return;
+                }
+                
+                // Calculate BMI
+                const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+                
+                // Calculate projected weight loss based on clinical trial data
+                // These percentages are based on the STEP trials (Wilding et al., NEJM 2021)
+                let weightLossPercent;
+                
+                if (dose === 2.4) {
+                    // Wegovy dose - average 14.9% weight loss at 68 weeks in STEP 1 trial
+                    weightLossPercent = Math.min(0.25, 0.149 * (duration/68));
+                } else if (dose === 1.0) {
+                    // Higher Ozempic dose - approximately 8% weight loss at 1 year
+                    weightLossPercent = Math.min(0.12, 0.08 * (duration/52));
+                } else {
+                    // Standard Ozempic dose - approximately 5% weight loss at 1 year
+                    weightLossPercent = Math.min(0.08, 0.05 * (duration/52));
+                }
+                
+                const weightLossKg = (weightKg * weightLossPercent).toFixed(1);
+                const finalWeightKg = (weightKg - weightLossKg).toFixed(1);
+                const finalBMI = (finalWeightKg / (heightM * heightM)).toFixed(1);
+                
+                // Display results in the appropriate units
+                if (currentUnits === 'metric') {
+                    document.getElementById('startWeight').textContent = weightKg + ' kg';
+                    document.getElementById('weightLoss').textContent = weightLossKg + ' kg';
+                    document.getElementById('finalWeight').textContent = finalWeightKg + ' kg';
+                } else {
+                    const weightLb = (weightKg * 2.20462).toFixed(1);
+                    const weightLossLb = (weightLossKg * 2.20462).toFixed(1);
+                    const finalWeightLb = (finalWeightKg * 2.20462).toFixed(1);
+                    
+                    document.getElementById('startWeight').textContent = weightLb + ' lbs';
+                    document.getElementById('weightLoss').textContent = weightLossLb + ' lbs';
+                    document.getElementById('finalWeight').textContent = finalWeightLb + ' lbs';
+                }
+                
+                document.getElementById('startBMI').textContent = bmi;
+                document.getElementById('finalBMI').textContent = finalBMI;
+                
+                // Show result div
+                document.getElementById('result').style.display = 'block';
+                
+                // Create chart
+                createChart(weightKg, finalWeightKg, duration, currentUnits);
+            }
+            
+            function createChart(startWeightKg, finalWeightKg, duration, units) {
+                const ctx = document.getElementById('chart').getContext('2d');
+                
+                // Clear previous chart if it exists
+                if (window.weightChart) {
+                    window.weightChart.destroy();
+                }
+                
+                // Generate data points
+                const labels = [];
+                const data = [];
+                const steps = 5;
+                const stepWeeks = duration/steps;
+                
+                for (let i = 0; i <= steps; i++) {
+                    const weeks = i * stepWeeks;
+                    labels.push(weeks.toFixed(0) + ' weeks');
+                    
+                    // Linear progression for simplicity (actual weight loss would be more rapid early on)
+                    const progress = i/steps;
+                    const currentWeightKg = startWeightKg - (startWeightKg - finalWeightKg) * progress;
+                    
+                    // Convert to lbs if using imperial units
+                    if (units === 'imperial') {
+                        data.push((currentWeightKg * 2.20462).toFixed(1));
+                    } else {
+                        data.push(currentWeightKg.toFixed(1));
+                    }
+                }
+                
+                window.weightChart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{
+                            label: 'Projected Weight (' + (units === 'metric' ? 'kg' : 'lbs') + ')',
+                            data: data,
+                            borderColor: '#d63384',
+                            backgroundColor: 'rgba(214, 51, 132, 0.1)',
+                            fill: true,
+                            tension: 0.4
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        scales: {
+                            y: {
+                                beginAtZero: false,
+                                min: Math.floor((units === 'metric' ? finalWeightKg : (finalWeightKg * 2.20462)) - 5)
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
