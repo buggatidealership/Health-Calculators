@@ -124,6 +124,7 @@
             padding: 25px;
             background-color: #fff;
             transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
         }
         
         .calculator-card:hover {
@@ -138,13 +139,17 @@
         
         .calculator-card p {
             color: #666;
-            margin-bottom: 20px;
             line-height: 1.5;
+            min-height: 4.5em; /* Provides consistent space for description */
         }
         
         .calculator-card a {
             text-decoration: none;
             color: inherit;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
         }
         
         .cta-button {
@@ -156,6 +161,9 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.2s;
+            text-align: center;
+            margin-top: auto;
+            align-self: flex-start;
         }
         
         .cta-button:hover {
