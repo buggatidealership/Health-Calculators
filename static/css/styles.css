@@ -417,7 +417,7 @@ li {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 12px;
-  padding: 24px;
+  padding: 24px 24px 20px;
   background-color: #ffffff;
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
   border-top: 5px solid var(--card-color, #d63384); /* default pink */
@@ -460,10 +460,13 @@ li {
   font-size: 0.95rem;
   color: #555;
   flex-grow: 1;
+  margin-bottom: 8px;
 }
 
 .calculator-card-v2 .cta-arrow {
-  margin-top: 16px;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding-bottom: 0;
   font-size: 0.9rem;
   font-weight: 600;
   color: #d63384;
