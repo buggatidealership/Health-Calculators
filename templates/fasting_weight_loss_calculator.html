@@ -47,68 +47,7 @@
     }
     </script>
     
-    <style>
-        .medical-disclaimer {
-          background-color: #fff5f5;
-          padding: 16px 20px;
-          margin-top: 30px;
-          margin-bottom: 40px;
-          border-left: 4px solid #d63384;
-          border-radius: 6px;
-          font-size: 0.95rem;
-          color: #555;
-        }
-        
-        .adunit-mid {
-          margin-top: 40px;
-          margin-bottom: 40px;
-        }
-        
-        #calculator {
-          margin-bottom: 40px;
-        }
-        
-        .how-it-works {
-          margin-top: 60px;
-        }
-        
-        .subtitle {
-          font-weight: 400;
-          font-size: 1.1rem;
-          color: #666;
-          margin-top: 10px;
-          margin-bottom: 30px;
-        }
-        
-        .unit-toggle {
-          display: flex;
-          gap: 0;
-          border-radius: 6px;
-          overflow: hidden;
-          margin: 20px 0;
-        }
-        
-        .unit-button {
-          flex: 1;
-          padding: 12px 16px;
-          font-weight: 600;
-          font-size: 1rem;
-          cursor: pointer;
-          border: none;
-          background-color: #f0f0f0;
-          color: #d63384;
-          transition: background-color 0.2s;
-        }
-        
-        .unit-button:hover {
-          background-color: #f7d0e1;
-        }
-        
-        .unit-button.active {
-          background-color: #d63384;
-          color: white;
-        }
-    </style>
+
 </head>
 <body>
     {% include 'header.html' %}
@@ -132,7 +71,7 @@
     </div>
     
     <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
+    <div class="adunit-top ad-spacing">
       <AdUnit slot="fasting-weight-loss-calculator-top" />
     </div>
     
@@ -229,15 +168,15 @@
         </div>
         
         <!-- Mid Ad -->
-        <div class="adunit-mid" style="margin: 40px 0;">
+        <div class="adunit-mid mid-ad-spacing">
           <AdUnit slot="fasting-weight-loss-calculator-mid" />
         </div>
         
-        <section id="how-to-use" style="margin-top: 60px;">
+        <section id="how-to-use" class="section-spacing">
           <h2>How to Use the Fasting Weight Loss Calculator</h2>
           <p>This calculator estimates how much fat you may lose while following intermittent fasting protocols based on your body composition and fasting frequency.</p>
 
-          <ul style="margin-top: 20px; padding-left: 20px;">
+          <ul>
             <li><strong>Weight:</strong> Used to calculate your baseline fat mass and energy reserves.</li>
             <li><strong>Height:</strong> Helps calculate your starting BMI.</li>
             <li><strong>Age:</strong> Impacts basal metabolic rate (BMR).</li>
@@ -245,13 +184,13 @@
             <li><strong>Fasting Type:</strong> Choose between popular protocols like 16:8, 18:6, or 20:4 to model expected loss.</li>
           </ul>
 
-          <p style="margin-top: 20px;">
+          <p>
             Estimates are based on clinical fasting research and average fat loss rates over time. Weekly changes are modeled by fasting intensity and consistency.
           </p>
 
-          <p style="margin-top: 10px;">
+          <p>
             For weekly fat loss charts, protocol breakdowns, and expert strategy:  
-            <a href="/resources/fasting-weight-loss-chart" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+            <a href="/resources/fasting-weight-loss-chart">→ Read the full guide</a>
           </p>
         </section>
     </section>
@@ -287,7 +226,7 @@
     </div>
     
     <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
+    <div class="adunit-bottom bottom-ad-spacing">
       <AdUnit slot="fasting-weight-loss-calculator-bottom" />
     </div>
     

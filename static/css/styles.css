@@ -770,3 +770,75 @@ li {
 .resources-link:hover {
   background-color: #be2d73;
 }
+
+/* Page Subtitle */
+.subtitle {
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #666;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+/* Medical Disclaimer Box */
+.medical-disclaimer {
+  background-color: #fff5f5;
+  padding: 16px 20px;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  border-left: 4px solid #d63384;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* How-To-Use Section */
+.how-it-works {
+  margin-top: 60px;
+}
+
+/* Table of Contents */
+.table-of-contents {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 6px;
+}
+
+.table-of-contents h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+.table-of-contents ul {
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.table-of-contents li {
+  margin-bottom: 5px;
+}
+
+.table-of-contents a {
+  color: #d63384;
+  text-decoration: none;
+}
+
+.table-of-contents a:hover {
+  text-decoration: underline;
+}
+
+/* Results section */
+.results {
+  display: none;
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.chart-container {
+  margin-top: 20px;
+}
