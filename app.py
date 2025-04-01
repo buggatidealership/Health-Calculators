@@ -78,39 +78,121 @@ cards = [
 
 @app.route('/')
 def home():
-    return render_template('home.html', is_homepage=True, cards=cards)
+    schema_name = "Longevity Calculator - Health & Wellness Calculators"
+    schema_description = "Explore our collection of science-based health calculators for nutrition, longevity, fitness, and wellness. Get personalized insights to optimize your health."
+    schema_url = "/"
+    return render_template(
+        'home.html', 
+        is_homepage=True, 
+        cards=cards,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/caloric-intake-macronutrient-calculator')
 def caloric_macronutrient_calculator():
-    return render_template('caloric_macronutrient_calculator.html', is_homepage=False)
+    schema_name = "Caloric Intake & Macronutrient Calculator"
+    schema_description = "Calculate your daily caloric needs and macronutrient breakdown with our free, science-based calculator. Personalize for weight loss, maintenance, or muscle gain."
+    schema_url = "/caloric-intake-macronutrient-calculator"
+    return render_template(
+        'caloric_macronutrient_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/botox-dosage-calculator')
 def botox_calculator():
-    return render_template('botox_calculator.html', is_homepage=False)
+    schema_name = "Botox Dosage Calculator"
+    schema_description = "Determine the appropriate Botox units for different treatment areas with our free calculator. Get personalized dosage estimates based on treatment intensity."
+    schema_url = "/botox-dosage-calculator"
+    return render_template(
+        'botox_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/lifespan-longevity-calculator')
 def lifespan_calculator():
-    return render_template('lifespan_calculator.html', is_homepage=False)
+    schema_name = "Lifespan Calculator"
+    schema_description = "Estimate your life expectancy based on health and lifestyle factors with our evidence-based longevity calculator. Get personalized insights into how your habits affect your lifespan."
+    schema_url = "/lifespan-longevity-calculator"
+    return render_template(
+        'lifespan_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/creatine-water-calculator')
 def creatine_water_calculator():
-    return render_template('creatine_water_calculator.html', is_homepage=False)
+    schema_name = "Creatine Hydration Calculator"
+    schema_description = "Calculate optimal water intake when using creatine supplements. Get personalized hydration recommendations based on your weight, activity level, and creatine dosage."
+    schema_url = "/creatine-water-calculator"
+    return render_template(
+        'creatine_water_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/breast-implant-calculator')
 def breast_implant_calculator():
-    return render_template('breast_implant_calculator.html', is_homepage=False)
+    schema_name = "Breast Implant Calculator"
+    schema_description = "Find your ideal implant size based on your measurements and goals. Get personalized recommendations for breast implant volume, projection, and diameter."
+    schema_url = "/breast-implant-calculator"
+    return render_template(
+        'breast_implant_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/vitamin-d-intake-calculator')
 def vitamin_d_intake_calculator():
-    return render_template('vitamin_d_intake_calculator.html', is_homepage=False)
+    schema_name = "Vitamin D Intake Calculator"
+    schema_description = "Determine your ideal vitamin D supplementation based on lifestyle factors. Get personalized recommendations for optimal vitamin D intake based on sun exposure, diet, and other factors."
+    schema_url = "/vitamin-d-intake-calculator"
+    return render_template(
+        'vitamin_d_intake_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/fasting-weight-loss-calculator')
 def fasting_weight_loss_calculator():
-    return render_template('fasting_weight_loss_calculator.html', is_homepage=False)
+    schema_name = "Fasting Weight Loss Calculator"
+    schema_description = "Calculate potential weight loss from intermittent fasting protocols. Get personalized estimates for fat loss based on your fasting schedule, body composition, and activity level."
+    schema_url = "/fasting-weight-loss-calculator"
+    return render_template(
+        'fasting_weight_loss_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/ozempic-weight-loss-calculator')
 def ozempic_weight_loss_calculator():
-    return render_template('ozempic_weight_loss_calculator.html', is_homepage=False)
+    schema_name = "Ozempic Weight Loss Calculator"
+    schema_description = "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy). Get personalized projections based on clinical data and your individual profile."
+    schema_url = "/ozempic-weight-loss-calculator"
+    return render_template(
+        'ozempic_weight_loss_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 articles = [
     {
@@ -141,7 +223,17 @@ articles = [
 
 @app.route('/resources')
 def resources():
-    return render_template('resources.html', is_homepage=False, articles=articles)
+    schema_name = "Health & Wellness Resources"
+    schema_description = "Evidence-based articles, guides and tools to help you take action on your health goals. Access our collection of free resources on nutrition, fitness, and longevity."
+    schema_url = "/resources"
+    return render_template(
+        'resources.html', 
+        is_homepage=False, 
+        articles=articles,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 @app.route('/sitemap.xml')
 def sitemap():

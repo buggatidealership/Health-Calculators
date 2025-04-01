@@ -1,22 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Calculate your daily caloric needs and macronutrient breakdown with our free, science-based calculator. Personalize for weight loss, maintenance, or muscle gain.">
-    <meta name="keywords" content="caloric intake, macronutrient calculator, TDEE calculator, diet calculator, protein calculator, nutrition calculator">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Caloric Intake & Macronutrient Calculator">
-    <meta property="og:description" content="Calculate your daily caloric needs and macronutrient breakdown based on scientific formulas.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/caloric-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <title>Caloric Intake & Macronutrient Calculator | Free Nutrition Tool</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<!-- Include unified SEO head elements -->
+{% with 
+    meta_description="Calculate your daily caloric needs and macronutrient breakdown with our free, science-based calculator. Personalize for weight loss, maintenance, or muscle gain.",
+    meta_keywords="caloric intake, macronutrient calculator, TDEE calculator, diet calculator, protein calculator, nutrition calculator",
+    og_title="Caloric Intake & Macronutrient Calculator",
+    og_description="Calculate your daily caloric needs and macronutrient breakdown based on scientific formulas.",
+    og_url="/caloric-intake-macronutrient-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/caloric-calculator-og.jpg",
+    page_title="Caloric Intake & Macronutrient Calculator | Free Nutrition Tool",
+    canonical_url="/caloric-intake-macronutrient-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
 </head>
 <body>
     {% include 'header.html' %}
