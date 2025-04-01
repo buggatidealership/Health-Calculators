@@ -76,9 +76,48 @@ cards = [
     }
 ]
 
+articles = [
+    {
+        "title": "How to Use the Ozempic Weight Loss Calculator",
+        "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
+        "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
+        "icon": "📘",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
+        "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
+        "url": "/resources/fasting-weight-loss-chart",
+        "summary": "Visual timeline of intermittent fasting benefits, from metabolic changes to weight loss milestones.",
+        "icon": "📊",
+        "cta": "View Timeline",
+        "color": "green"
+    },
+    {
+        "title": "The Science Behind Botox Dosage Calculations",
+        "url": "/resources/botox-dosage-science",
+        "summary": "Research-backed explanation of how Botox units are determined and why personalization matters.",
+        "icon": "🔬",
+        "cta": "Learn More",
+        "color": "purple"
+    },
+    {
+        "title": "Vitamin D Guide: Optimal Levels by Age & Condition",
+        "url": "/resources/vitamin-d-optimal-levels",
+        "summary": "Comprehensive reference for recommended vitamin D targets across different life stages and health scenarios.",
+        "icon": "☀️",
+        "cta": "Read Full Guide",
+        "color": "yellow"
+    }
+]
+
 @app.route('/')
 def home():
-    return render_template('home.html', is_homepage=True, cards=cards)
+    return render_template('home.html', is_homepage=True, cards=cards, articles=articles)
+
+@app.route('/resources')
+def resources():
+    return render_template('resources.html', is_homepage=False, articles=articles)
 
 @app.route('/caloric-intake-macronutrient-calculator')
 def calculator():
