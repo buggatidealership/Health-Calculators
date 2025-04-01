@@ -87,7 +87,7 @@
     </div>
     
     <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
+    <div class="adunit-top top-ad-spacing">
       <AdUnit slot="ozempic-weight-loss-calculator-top" />
     </div>
     
@@ -103,7 +103,7 @@
             <input type="number" id="weight-kg" min="30" max="300" step="0.1" required>
         </div>
        
-        <div class="form-group" id="weight-imperial" style="display: none;">
+        <div class="form-group hidden" id="weight-imperial">
             <label for="weight-lb">Current Weight (lbs)</label>
             <input type="number" id="weight-lb" min="66" max="660" step="1" required>
         </div>
@@ -113,7 +113,7 @@
             <input type="number" id="height-cm" min="120" max="250" required>
         </div>
        
-        <div class="form-group" id="height-imperial" style="display: none;">
+        <div class="form-group hidden" id="height-imperial">
             <label>Height (ft/in)</label>
             <div class="height-group">
                 <div>
@@ -152,7 +152,7 @@
        
         <button id="calculate-btn">Calculate Projected Weight Loss</button>
        
-        <div id="result" class="results" style="display: none;">
+        <div id="result" class="results hidden">
             <h2>Projected Results</h2>
             <p>Starting Weight: <span id="startWeight"></span></p>
             <p>Starting BMI: <span id="startBMI"></span></p>
@@ -166,15 +166,15 @@
         </div>
         
         <!-- Mid Ad -->
-        <div class="adunit-mid" style="margin: 40px 0;">
+        <div class="adunit-mid mid-ad-spacing">
           <AdUnit slot="ozempic-weight-loss-calculator-mid" />
         </div>
         
-        <section id="how-to-use" style="margin-top: 60px;">
+        <section id="how-to-use" class="section-spacing">
           <h2>How to Use the Ozempic Weight Loss Calculator</h2>
           <p>This calculator helps you estimate how much weight you may lose while taking semaglutide (Ozempic or Wegovy), based on real clinical trial data.</p>
           
-          <ul style="margin-top: 20px; padding-left: 20px;">
+          <ul>
             <li><strong>Weight:</strong> Your starting body weight in kg or lbs.</li>
             <li><strong>Height:</strong> Used to calculate your BMI baseline.</li>
             <li><strong>Dosage:</strong> Weekly semaglutide dose (e.g. 0.25mg to 2.4mg).</li>
@@ -182,13 +182,13 @@
             <li><strong>Lifestyle:</strong> Whether you're making additional dietary and physical activity changes.</li>
           </ul>
 
-          <p style="margin-top: 20px;">
+          <p>
             These estimates are based on STEP 1–4 trial outcomes and assume consistent medication adherence. Your real-world results may vary.
           </p>
 
-          <p style="margin-top: 10px;">
+          <p>
             For a deeper explanation, including case examples and visuals:
-            <a href="/resources/how-to-use-the-ozempic-weight-loss-calculator" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+            <a href="/resources/how-to-use-the-ozempic-weight-loss-calculator" class="cta-arrow">→ Read the full guide</a>
           </p>
         </section>
     </section>
@@ -224,7 +224,7 @@
     </div>
     
     <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
+    <div class="adunit-bottom bottom-ad-spacing">
       <AdUnit slot="ozempic-weight-loss-calculator-bottom" />
     </div>
     
@@ -252,10 +252,10 @@
                 currentUnits = 'metric';
                 document.getElementById("metricBtn").classList.add("active");
                 document.getElementById("imperialBtn").classList.remove("active");
-                weightMetric.style.display = 'block';
-                weightImperial.style.display = 'none';
-                heightMetric.style.display = 'block';
-                heightImperial.style.display = 'none';
+                weightMetric.classList.remove('hidden');
+                weightImperial.classList.add('hidden');
+                heightMetric.classList.remove('hidden');
+                heightImperial.classList.add('hidden');
                 
                 // Recalculate BMI when switching units
                 calculateBMI();
@@ -265,10 +265,10 @@
                 currentUnits = 'imperial';
                 document.getElementById("imperialBtn").classList.add("active");
                 document.getElementById("metricBtn").classList.remove("active");
-                weightImperial.style.display = 'block';
-                weightMetric.style.display = 'none';
-                heightImperial.style.display = 'block';
-                heightMetric.style.display = 'none';
+                weightImperial.classList.remove('hidden');
+                weightMetric.classList.add('hidden');
+                heightImperial.classList.remove('hidden');
+                heightMetric.classList.add('hidden');
                 
                 // Recalculate BMI when switching units
                 calculateBMI();
@@ -372,7 +372,7 @@
                 document.getElementById('finalBMI').textContent = finalBMI;
                 
                 // Show result div
-                document.getElementById('result').style.display = 'block';
+                document.getElementById('result').classList.remove('hidden');
                 
                 // Create chart
                 createChart(weightKg, finalWeightKg, duration, currentUnits);

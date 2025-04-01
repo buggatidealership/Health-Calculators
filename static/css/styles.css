@@ -70,7 +70,6 @@ button:hover {
     padding: 20px;
     background-color: #e8f4fc;
     border-radius: 8px;
-    display: none;
 }
 .macronutrients {
     display: flex;
@@ -114,6 +113,7 @@ button:hover {
     color: white;
     border-color: #be2d73;
 }
+/* This class is now deprecated - use .hidden instead */
 .imperial-height {
     display: none;
 }
@@ -319,13 +319,14 @@ li {
 
 /* Standard Result Display */
 .result {
-    display: none;
     margin-top: 30px;
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
+
+/* Use .hidden class to hide result elements */
 
 .result h3 {
     color: #333;
@@ -831,7 +832,6 @@ li {
 
 /* Results section */
 .results {
-  display: none;
   background-color: #f9f9f9;
   padding: 20px;
   margin-top: 30px;
@@ -841,4 +841,9 @@ li {
 
 .chart-container {
   margin-top: 20px;
+}
+
+/* Utility Classes */
+.hidden {
+  display: none !important;
 }
