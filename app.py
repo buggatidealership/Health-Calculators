@@ -81,8 +81,8 @@ def home():
     return render_template('home.html', is_homepage=True, cards=cards)
 
 @app.route('/caloric-intake-macronutrient-calculator')
-def calculator():
-    return render_template('index.html', is_homepage=False)
+def caloric_macronutrient_calculator():
+    return render_template('caloric_macronutrient_calculator.html', is_homepage=False)
 
 @app.route('/botox-dosage-calculator')
 def botox_calculator():

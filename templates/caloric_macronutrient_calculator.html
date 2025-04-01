@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Calculate your daily caloric needs and macronutrient breakdown with our free, science-based calculator. Personalize for weight loss, maintenance, or muscle gain.">
+    <meta name="keywords" content="caloric intake, macronutrient calculator, TDEE calculator, diet calculator, protein calculator, nutrition calculator">
+    <meta name="author" content="LongevityCalculator.xyz">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Caloric Intake & Macronutrient Calculator">
+    <meta property="og:description" content="Calculate your daily caloric needs and macronutrient breakdown based on scientific formulas.">
+    <meta property="og:url" content="https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator">
+    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/caloric-calculator-og.jpg">
+    <meta property="og:type" content="website">
+    
+    <title>Caloric Intake & Macronutrient Calculator | Free Nutrition Tool</title>
+    <link rel="canonical" href="https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Caloric Intake & Macronutrient Calculator</h1>
+    <p class="subtitle">This evidence-based calculator determines your daily caloric needs using the Mifflin-St Jeor equation. Input your details to receive personalized nutrition recommendations for weight loss, maintenance, or muscle gain based on your body's specific requirements.</p>
+    
+    <div class="description">
+        <div class="medical-disclaimer">
+            <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.</p>
+        </div>
+    </div>
+    
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Caloric & Macronutrient Calculator</a></li>
+            <li><a href="#about">About This Calculator</a></li>
+            <li><a href="#how-to-use">How to Use Your Results</a></li>
+            <li><a href="#macronutrients">Understanding Macronutrients</a></li>
+            <li><a href="#diet-types">Why Different Diet Types?</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+      <AdUnit slot="macros-top" />
+    </div>
+   
+    <div id="calculator" class="calculator">
+        <div class="units-toggle">
+            <button id="metric-btn" class="active" onclick="toggleUnits('metric')">Metric (kg, cm)</button>
+            <button id="imperial-btn" onclick="toggleUnits('imperial')">Imperial (lbs, ft/in)</button>
+        </div>
+       
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select id="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="age">Age (years)</label>
+            <input type="number" id="age" min="18" max="100" value="30">
+        </div>
+       
+        <div id="metric-weight" class="form-group">
+            <label for="weight-kg">Weight (kg)</label>
+            <input type="number" id="weight-kg" min="40" max="200" value="70">
+        </div>
+       
+        <div id="imperial-weight" class="form-group" style="display:none;">
+            <label for="weight-lbs">Weight (lbs)</label>
+            <input type="number" id="weight-lbs" min="90" max="440" value="154">
+        </div>
+       
+        <div id="metric-height" class="form-group">
+            <label for="height-cm">Height (cm)</label>
+            <input type="number" id="height-cm" min="140" max="220" value="170">
+        </div>
+       
+        <div id="imperial-height" class="form-group" style="display:none;">
+            <label for="height-ft">Height (ft/in)</label>
+            <div style="display: flex;">
+                <input type="number" id="height-ft" min="4" max="7" value="5" style="flex: 1; margin-right: 10px;">
+                <input type="number" id="height-in" min="0" max="11" value="7" style="flex: 1;">
+            </div>
+        </div>
+       
+        <div class="form-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+                <option value="1.2">Sedentary (little or no exercise)</option>
+                <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                <option value="1.55" selected>Moderately active (moderate exercise 3-5 days/week)</option>
+                <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                <option value="1.9">Extra active (very hard exercise & physical job)</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="goal">Goal</label>
+            <select id="goal">
+                <option value="-500">Weight loss (aggressive)</option>
+                <option value="-250">Weight loss (moderate)</option>
+                <option value="0" selected>Maintenance</option>
+                <option value="250">Muscle gain (moderate)</option>
+                <option value="500">Muscle gain (aggressive)</option>
+            </select>
+        </div>
+       
+        <div class="form-group">
+            <label for="diet-type">Diet Preference</label>
+            <select id="diet-type">
+                <option value="balanced" selected>Balanced</option>
+                <option value="low-carb">Low Carb</option>
+                <option value="high-carb">High Carb</option>
+                <option value="keto">Keto</option>
+            </select>
+        </div>
+       
+        <button onclick="calculate()">Calculate</button>
+       
+        <div id="results" class="results">
+            <h2>Your Daily Nutrition Targets</h2>
+            <p><strong>Calories:</strong> <span id="calories">0</span> kcal/day</p>
+           
+            <div class="macronutrients">
+                <div class="macro protein">
+                    <h3>Protein</h3>
+                    <p id="protein-grams">0g</p>
+                    <p id="protein-percent">0%</p>
+                </div>
+                <div class="macro carbs">
+                    <h3>Carbs</h3>
+                    <p id="carbs-grams">0g</p>
+                    <p id="carbs-percent">0%</p>
+                </div>
+                <div class="macro fat">
+                    <h3>Fat</h3>
+                    <p id="fat-grams">0g</p>
+                    <p id="fat-percent">0%</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mid Ad -->
+        <div class="adunit-mid" style="margin: 40px 0;">
+          <AdUnit slot="macros-mid" />
+        </div>
+       
+        <div class="info">
+            <h3 id="about"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>About This Calculator</h3>
+            <p>This calculator uses the Mifflin-St Jeor equation, considered the most accurate for estimating basal metabolic rate (BMR) according to current research. Macronutrient ranges are based on evidence-based guidelines from the Academy of Nutrition and Dietetics and the International Society of Sports Nutrition.</p>
+            <p><strong>Note:</strong> These are estimates. Individual needs may vary based on genetics, body composition, and other factors. For personalized advice, consult a registered dietitian.</p>
+            
+            <h3 id="how-to-use"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>How to Use Your Results</h3>
+            <p>The calorie target provided is an estimate of how many calories you should consume daily to reach your goal. The macronutrient breakdown suggests how to distribute these calories among protein, carbohydrates, and fats.</p>
+            
+            <h3 id="macronutrients"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>Understanding Macronutrients</h3>
+            <p><strong>Protein:</strong> Essential for muscle repair and growth. Each gram provides 4 calories.</p>
+            <p><strong>Carbohydrates:</strong> Your body's primary energy source. Each gram provides 4 calories.</p>
+            <p><strong>Fats:</strong> Important for hormone production and vitamin absorption. Each gram provides 9 calories.</p>
+            
+            <h3 id="diet-types"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>Why Different Diet Types?</h3>
+            <p>Different macronutrient ratios work better for different individuals based on their goals, preferences, and metabolic responses:</p>
+            <ul>
+                <li><strong>Balanced:</strong> A traditional approach with moderate amounts of all macronutrients.</li>
+                <li><strong>Low-Carb:</strong> Reduces carbohydrates while increasing fat and protein, which may help with hunger control.</li>
+                <li><strong>High-Carb:</strong> Favored by many endurance athletes for increased glycogen storage.</li>
+                <li><strong>Keto:</strong> Very low carbohydrate, high fat diet that shifts your body to primarily burning fat for fuel.</li>
+            </ul>
+        </div>
+    </div>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+      <AdUnit slot="macros-bottom" />
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h3 id="faq"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M7 7v10"></path><path d="M11 7v10"></path><path d="M15 7v10"></path></svg>Frequently Asked Questions</h3>
+        
+        <div class="faq-item">
+            <h4>How accurate is this calculator?</h4>
+            <p>The calculator uses the Mifflin-St Jeor equation, which has been shown to be accurate within 10% for most people. However, individual factors like genetics, hormones, and metabolism can affect your actual needs. For best results, use the calculator as a starting point and adjust based on your personal experience.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Should I adjust my macros on rest days?</h4>
+            <p>Some people find benefits in reducing carbohydrate intake on rest days while maintaining protein intake to support recovery. If you're following a specific training protocol, you might consider consuming 10-20% fewer calories on rest days, primarily from carbohydrates, while keeping protein consistent.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>How often should I recalculate my needs?</h4>
+            <p>It's recommended to recalculate after any significant body weight change (5+ pounds), when your activity level changes substantially, or every 3-6 months to account for metabolic adaptations. If you're not seeing progress toward your goals after 3-4 weeks, it may also be time to recalculate.</p>
+        </div>
+    </div>
+    
+    </div> <!-- End of calculator-container -->
+
+    <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+</body>
+</html>
