@@ -140,75 +140,7 @@
                 </select>
             </div>
             
-            <button id="calculate-btn" type="button" style="background-color: #d63384; border-radius: 6px;">Calculate Water Requirements</button>
-            
-            <style>
-                #calculate-btn:hover {
-                    background-color: #be2d73 !important;
-                }
-                
-                .result {
-                    display: none;
-                    margin-top: 30px;
-                    padding: 20px;
-                    background-color: #f9f9f9;
-                    border-radius: 8px;
-                    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-                }
-                
-                .result h3 {
-                    color: #333;
-                    margin-top: 0;
-                }
-                
-                .highlight {
-                    background-color: #fffde7;
-                    padding: 15px;
-                    border-left: 4px solid #ffd600;
-                    margin: 20px 0;
-                    border-radius: 4px;
-                }
-                
-                .hydration-tips h4 {
-                    margin-top: 15px;
-                    margin-bottom: 8px;
-                }
-                
-                .hydration-tips ul {
-                    margin-top: 8px;
-                    padding-left: 20px;
-                }
-                
-                .hydration-tips li {
-                    margin-bottom: 6px;
-                }
-                
-                .unit-toggle {
-                    display: flex;
-                    margin-top: 8px;
-                }
-                
-                .unit-btn {
-                    padding: 5px 10px;
-                    background-color: #f0f0f0;
-                    border: 1px solid #ddd;
-                    cursor: pointer;
-                }
-                
-                .unit-btn:first-child {
-                    border-radius: 4px 0 0 4px;
-                }
-                
-                .unit-btn:last-child {
-                    border-radius: 0 4px 4px 0;
-                }
-                
-                .unit-active {
-                    background-color: #d63384;
-                    color: white;
-                    border-color: #d63384;
-                }
-            </style>
+            <button id="calculate-btn" type="button">Calculate Water Requirements</button>
             
             <div id="result" class="result">
                 <h3>Your Recommended Water Intake:</h3>
@@ -238,31 +170,31 @@
     </section>
     
     <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
+    <div class="adunit-mid mid-ad-spacing">
         <AdUnit slot="creatine-water-calculator-mid" />
     </div>
     
     <div class="calculator">
     <!-- How to Use Section -->
-    <section id="how-to-use" style="margin-top: 60px;">
+    <section id="how-to-use" class="section-spacing">
       <div class="info">
         <h2>How to Use the Creatine Water Intake Calculator</h2>
         <p>This calculator helps you estimate how much water you should drink daily while using creatine monohydrate, based on body weight, training intensity, and dosage phase.</p>
 
-        <ul style="margin-top: 20px; padding-left: 20px;">
+        <ul>
           <li><strong>Weight:</strong> Heavier individuals require more water to maintain hydration while supplementing with creatine.</li>
           <li><strong>Workout Intensity:</strong> Higher-intensity workouts increase sweat loss and fluid requirements.</li>
           <li><strong>Creatine Dosage:</strong> Affects how much water is required to support absorption and minimize side effects.</li>
           <li><strong>Hydration Mode:</strong> Choose between loading phase (typically 20g/day for 5 days) or maintenance phase (3–5g/day).</li>
         </ul>
 
-        <p style="margin-top: 20px;">
+        <p>
           This tool uses hydration guidelines from creatine-specific sports nutrition research and assumes moderate sweat loss in active individuals.
         </p>
 
-        <p style="margin-top: 10px;">
+        <p>
           For detailed hydration strategies and timing guides:  
-          <a href="/resources/creatine-hydration-guide" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+          <a href="/resources/creatine-hydration-guide">→ Read the full guide</a>
         </p>
       </div>
     </section>
@@ -301,15 +233,15 @@
     </div> <!-- End of calculator div -->
     
     <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
+    <div class="adunit-bottom bottom-ad-spacing">
         <AdUnit slot="creatine-water-calculator-bottom" />
     </div>
     
     </div> <!-- End of calculator-container -->
     
     <!-- Footer -->
-    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
-        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+    <footer class="footer-disclaimer">
+        <p class="medical-disclaimer">
             <strong>Disclaimer:</strong> This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed practitioner.
         </p>
     </footer>
