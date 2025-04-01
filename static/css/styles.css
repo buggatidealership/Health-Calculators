@@ -513,3 +513,38 @@ li {
 .card-color-red { --card-color: #ef4444; }
 .card-color-orange { --card-color: #f97316; }
 .card-color-teal { --card-color: #14b8a6; }
+
+/* Resources Section Styles */
+.resources-section {
+  text-align: center;
+  margin: 40px 0;
+  padding: 30px;
+  background-color: #f9f9f9;
+  border-radius: 12px;
+}
+
+.resources-section h2 {
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  color: #333;
+}
+
+.resources-section p {
+  margin-bottom: 20px;
+  color: #555;
+}
+
+.resources-link {
+  display: inline-block;
+  padding: 10px 24px;
+  background-color: #d63384;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.resources-link:hover {
+  background-color: #be2d73;
+}
