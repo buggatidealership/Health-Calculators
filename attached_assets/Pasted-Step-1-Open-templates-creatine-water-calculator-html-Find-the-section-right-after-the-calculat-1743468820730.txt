@@ -1,0 +1,45 @@
+Step 1: Open `templates/creatine_water_calculator.html`
+
+Find the section right after the calculator results output block (typically ends at `</div>` or `</section>` with ID like `results` or `output`).
+
+---
+
+Step 2: Insert the following block immediately below that section:
+
+<section id="how-to-use" style="margin-top: 60px;">
+  <h2>How to Use the Creatine Hydration Calculator</h2>
+  <p>This calculator helps you estimate how much water you should drink while supplementing with creatine monohydrate, based on your body weight, workout intensity, and dosage.</p>
+
+  <ul style="margin-top: 20px; padding-left: 20px;">
+    <li><strong>Weight:</strong> Your body weight determines your base hydration requirements.</li>
+    <li><strong>Workout Intensity:</strong> Higher intensity increases sweat rate and fluid needs.</li>
+    <li><strong>Creatine Dosage:</strong> Higher doses (e.g. during loading) require more water to support cellular saturation and avoid cramping.</li>
+    <li><strong>Hydration Mode:</strong> Choose whether you're in a loading phase or maintenance phase.</li>
+  </ul>
+
+  <p style="margin-top: 20px;">
+    This calculator assumes standard 3g–10g daily dosing based on research from the ISSN and hydration best practices for creatine users.
+  </p>
+
+  <p style="margin-top: 10px;">
+    For a deep dive on hydration science and creatine optimization:  
+    <a href="/resources/creatine-hydration-guide" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+  </p>
+</section>
+
+---
+
+Step 3: Update the Table of Contents (TOC block near the top of the file):
+
+Add a new item:
+<li><a href="#how-to-use">How to Use This Calculator</a></li>
+
+---
+
+✅ This section should appear:
+- After the results
+- Before any “How It Works” or FAQ blocks
+- Visually match the Ozempic calculator page structure
+
+Let me know once this is deployed — I’ll run final visual + SEO hierarchy QA ✅  
+Then we queue Prompt 8.3: Next calculator of your choice.
