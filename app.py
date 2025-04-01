@@ -235,19 +235,6 @@ def resources():
         schema_url=schema_url
     )
 
-@app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
-def how_to_use_ozempic_calculator():
-    schema_name = "How to Use the Ozempic Weight Loss Calculator"
-    schema_description = "Learn how to interpret results from the Ozempic Weight Loss Calculator and set realistic fat loss expectations with this comprehensive guide."
-    schema_url = "/resources/how-to-use-the-ozempic-weight-loss-calculator"
-    return render_template(
-        'resources/how_to_use_the_ozempic_weight_loss_calculator.html', 
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url
-    )
-
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
