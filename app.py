@@ -196,14 +196,6 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
-        "title": "Ozempic and Longevity: Can GLP-1 Drugs Extend Lifespan?",
-        "url": "/resources/ozempic-and-longevity",
-        "summary": "Explore how Ozempic and other GLP-1 agonists might impact aging processes and potentially extend lifespan.",
-        "icon": "🧬",
-        "cta": "Read Article",
-        "color": "purple"
-    },
-    {
         "title": "How to Use the Ozempic Weight Loss Calculator",
         "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
         "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
@@ -238,19 +230,6 @@ def resources():
         'resources.html', 
         is_homepage=False, 
         articles=articles,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url
-    )
-
-@app.route('/resources/ozempic-and-longevity')
-def ozempic_and_longevity():
-    schema_name = "Ozempic and Longevity: Potential Life-Extending Effects of GLP-1 Drugs"
-    schema_description = "Explore the connection between Ozempic (semaglutide) and potential longevity benefits. Learn how GLP-1 agonists may impact aging, metabolic health, and lifespan."
-    schema_url = "/resources/ozempic-and-longevity"
-    return render_template(
-        'resources/ozempic_and_longevity.html', 
-        is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
