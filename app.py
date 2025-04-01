@@ -143,6 +143,10 @@ articles = [
 def resources():
     return render_template('resources.html', is_homepage=False, articles=articles)
 
+@app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
+def ozempic_article():
+    return render_template('ozempic_weight_loss_article.html', is_homepage=False)
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
