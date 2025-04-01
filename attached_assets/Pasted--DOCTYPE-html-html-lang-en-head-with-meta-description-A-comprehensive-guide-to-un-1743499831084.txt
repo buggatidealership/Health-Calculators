@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% with 
+    meta_description="A comprehensive guide to understanding, interpreting, and maximizing results from the Ozempic Weight Loss Calculator. Includes real data, visuals, FAQs, and clinical insights.",
+    meta_keywords="ozempic weight loss, semaglutide calculator, ozempic dosage results, wegovy bmi loss, how much weight can I lose on ozempic, ozempic results chart, ozempic fat loss timeline",
+    og_title="Ultimate Guide: How to Use the Ozempic Weight Loss Calculator",
+    og_description="Visualize your potential weight loss on Ozempic. This guide breaks down how to use the calculator, understand your results, and improve outcomes.",
+    og_url="/resources/how-to-use-the-ozempic-weight-loss-calculator",
+    og_image="ozempic-weight-loss-guide-og.jpg",
+    page_title="How to Use the Ozempic Weight Loss Calculator – Complete Guide",
+    canonical_url="/resources/how-to-use-the-ozempic-weight-loss-calculator"
+  %}
+  {% include 'head_seo.html' %}
+  {% endwith %}
+</head>
+<body>
+  {% include 'header.html' %}
+  <div class="calculator-container">
+    <h1>How to Use the Ozempic Weight Loss Calculator</h1>
+    <p class="subtitle">Use clinical trial data, personalized metrics, and smart habits to maximize your results while on semaglutide (Ozempic/Wegovy).</p>
+
+    <div class="description">
+      <p><a href="/ozempic-weight-loss-calculator" class="pink-link">The Ozempic Weight Loss Calculator</a> gives you a personalized estimate of how much weight you could lose while on semaglutide. This guide will help you interpret your results, understand the science behind the numbers, and give you practical tips to improve your outcomes.</p>
+    </div>
+
+    <div class="info">
+      <h2>1. How the Calculator Works</h2>
+      <ul>
+        <li>Based on STEP 1–4 clinical trial data (NEJM, 2021)</li>
+        <li>Adjusts for dosage (0.5mg, 1mg, 2.4mg)</li>
+        <li>Projects weight loss over 20–68 weeks</li>
+        <li>Factors in baseline BMI and starting weight</li>
+      </ul>
+
+      <img src="/static/images/ozempic-weight-loss-curve.webp" alt="Ozempic weight loss curve chart" width="100%" style="margin: 30px 0; border-radius: 8px;">
+
+      <h2>2. What Your Results Mean</h2>
+      <ul>
+        <li><strong>Projected Fat Loss:</strong> Based on weekly dosage and clinical averages</li>
+        <li><strong>Expected BMI Drop:</strong> Visualized change from starting BMI to projected BMI</li>
+        <li><strong>Final Weight:</strong> Estimated based on treatment length and adherence</li>
+      </ul>
+
+      <h2>3. How to Maximize Weight Loss While on Ozempic</h2>
+      <ul>
+        <li>Eat 1.2–1.6g protein per kg of body weight daily</li>
+        <li>Strength train at least 2x per week to preserve lean mass</li>
+        <li>Sleep 7–9 hours nightly and manage stress</li>
+        <li>Hydrate with 2.5–3.5L water daily</li>
+      </ul>
+
+      <img src="/static/images/ozempic-dosage-progression.webp" alt="Ozempic dosage and weight loss timeline" width="100%" style="margin: 30px 0; border-radius: 8px;">
+
+      <h2>4. How Long Should You Stay on Ozempic?</h2>
+      <p>The STEP trials lasted 68 weeks. Most users see results between weeks 8–20, with continued progress beyond that. Long-term use is generally safe when monitored by a physician, but combining Ozempic with lasting lifestyle changes is key to maintaining results.</p>
+
+      <h2>5. Can You Regain Weight After Stopping?</h2>
+      <p>Yes. Many people regain 30–60% of the weight lost unless habits are improved. Focus on sustainable nutrition and physical activity so the progress becomes permanent.</p>
+    </div>
+
+    <div class="faq-section">
+      <h3 class="faq-question"><svg class="section-icon" width="20" height="20"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Frequently Asked Questions</h3>
+
+      <div class="faq-item">
+        <h4>Can I use this calculator for Wegovy or Rybelsus?</h4>
+        <p>Yes. Wegovy and Ozempic use semaglutide; the calculator applies to both. Rybelsus is the oral version and results may vary slightly.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>What's the best dose for weight loss?</h4>
+        <p>2.4mg (Wegovy) showed the highest results in STEP 1, with average 15% body weight loss at 68 weeks.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Can you build muscle while on Ozempic?</h4>
+        <p>Yes, but you need adequate protein and resistance training. The drug reduces appetite, so make sure to track macros.</p>
+      </div>
+
+      <div class="faq-item">
+        <h4>Will I gain weight back after stopping?</h4>
+        <p>Without lifestyle changes, some weight regain is expected. This guide and the calculator aim to support sustainable progress.</p>
+      </div>
+    </div>
+
+    <div class="footer-disclaimer">
+      <p>This article is for educational purposes only. Speak to your doctor before making any changes to your medication or lifestyle.</p>
+    </div>
+  </div>
+</body>
+</html>

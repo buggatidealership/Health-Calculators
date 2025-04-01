@@ -235,6 +235,24 @@ def resources():
         schema_url=schema_url
     )
 
+@app.route('/resources/<path:resource_page>')
+def resource_page(resource_page):
+    template_path = f'resources/{resource_page}.html'
+    try:
+        schema_name = "Ozempic Weight Loss Calculator Guide"
+        schema_description = "A comprehensive guide to understanding, interpreting, and maximizing results from the Ozempic Weight Loss Calculator. Includes clinical insights and FAQs."
+        schema_url = f"/resources/{resource_page}"
+        return render_template(
+            template_path,
+            is_homepage=False,
+            schema_name=schema_name,
+            schema_description=schema_description,
+            schema_url=schema_url
+        )
+    except Exception as e:
+        logging.error(f"Error rendering resource page {resource_page}: {e}")
+        return render_template('404.html'), 404
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
