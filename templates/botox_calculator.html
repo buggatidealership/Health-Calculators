@@ -75,6 +75,8 @@
 <body>
     {% include 'header.html' %}
     
+    <div class="calculator-container">
+    
     <h1>Botox Dosage & Cost Calculator</h1>
     <p class="subtitle">Estimate your ideal Botox dosage in units and the cost based on treatment area, gender, severity, and desired outcome.</p>
     
@@ -285,6 +287,8 @@
                 <strong>Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified aesthetic provider for personalized advice.
             </p>
         </footer>
+    
+    </div> <!-- End of calculator-container -->
     
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/botox_calculator.js') }}"></script>
