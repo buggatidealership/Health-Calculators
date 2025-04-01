@@ -1,0 +1,66 @@
+Step 1: Open `templates/fasting_weight_loss_calculator.html`
+
+---
+
+✅ Part 1: Insert the new standardized "How to Use" section
+
+Find the section directly after the calculator result output (`</section>` or `</div>`), above the FAQ or any remaining legacy blocks.
+
+Insert this:
+
+<section id="how-to-use" style="margin-top: 60px;">
+  <h2>How to Use the Fasting Weight Loss Calculator</h2>
+  <p>This calculator estimates how much fat you may lose while following intermittent fasting protocols based on your body composition and fasting frequency.</p>
+
+  <ul style="margin-top: 20px; padding-left: 20px;">
+    <li><strong>Weight:</strong> Used to calculate your baseline fat mass and energy reserves.</li>
+    <li><strong>Height:</strong> Helps calculate your starting BMI.</li>
+    <li><strong>Age:</strong> Impacts basal metabolic rate (BMR).</li>
+    <li><strong>Gender:</strong> Affects body fat percentage and metabolic rate.</li>
+    <li><strong>Fasting Type:</strong> Choose between popular protocols like 16:8, 18:6, or 20:4 to model expected loss.</li>
+  </ul>
+
+  <p style="margin-top: 20px;">
+    Estimates are based on clinical fasting research and average fat loss rates over time. Weekly changes are modeled by fasting intensity and consistency.
+  </p>
+
+  <p style="margin-top: 10px;">
+    For weekly fat loss charts, protocol breakdowns, and expert strategy:  
+    <a href="/resources/fasting-weight-loss-chart" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+  </p>
+</section>
+
+---
+
+✅ Part 2: Remove the old “How This Calculator Works” block
+
+Find the section starting with:
+<h2>How This Calculator Works</h2>  
+or  
+<div class="info how-it-works">
+
+Remove all content from that heading to the end of the section. This may include:
+- Bullet points on BMR and energy deficit
+- Glycogen/fat loss progression descriptions
+- Clinical references
+
+⚠️ Do not remove the new “How to Use” section or FAQ.
+
+---
+
+✅ Part 3: Update the TOC near the top of the file
+
+- ✅ Add:
+  `<li><a href="#how-to-use">How to Use This Calculator</a></li>`
+
+- ✅ Remove or comment out:
+  `<li><a href="#how-it-works">How This Calculator Works</a></li>`
+
+---
+
+When done:
+- Confirm only the new “How to Use the Fasting Calculator” section appears
+- TOC links correctly
+- Link to `/resources/fasting-weight-loss-chart` works
+
+Let me know once shipped and I’ll QA + prep Prompt 8.6 🚀🧠📉
