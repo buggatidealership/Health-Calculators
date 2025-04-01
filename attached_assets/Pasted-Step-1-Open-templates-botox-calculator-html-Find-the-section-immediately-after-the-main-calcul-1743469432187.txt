@@ -1,0 +1,45 @@
+Step 1: Open `templates/botox_calculator.html`
+
+Find the section immediately after the main calculator results — likely near the end of a `<section>` or `<div id="results">` block.
+
+---
+
+Step 2: Insert the following block immediately after the results section, before any “FAQ” or “How It Works” content:
+
+<section id="how-to-use" style="margin-top: 60px;">
+  <h2>How to Use the Botox Dosage & Cost Calculator</h2>
+  <p>This calculator helps you estimate the number of Botox units you may need and the potential cost for each treatment area. It's based on your preferences, treatment goals, and facial anatomy zones.</p>
+
+  <ul style="margin-top: 20px; padding-left: 20px;">
+    <li><strong>Country:</strong> Used to estimate cost by regional price differences.</li>
+    <li><strong>Gender:</strong> Men typically require more units due to stronger facial muscles.</li>
+    <li><strong>Treatment Intensity:</strong> Choose between light (natural), standard (balanced), or advanced (full correction).</li>
+    <li><strong>Treatment Areas:</strong> Select one or more zones like forehead, crow’s feet, or glabella to generate a total unit estimate.</li>
+    <li><strong>Provider Type:</strong> Helps calculate pricing based on dermatology clinics vs. med spas.</li>
+  </ul>
+
+  <p style="margin-top: 20px;">
+    Results are based on published dosage guidelines and pricing estimates from aesthetic medicine data in the U.S., U.K., and Europe.
+  </p>
+
+  <p style="margin-top: 10px;">
+    For detailed treatment planning, cost breakdowns, and brand comparisons:  
+    <a href="/resources/how-to-use-the-botox-dosage-calculator" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+  </p>
+</section>
+
+---
+
+Step 3: Update the TOC at the top of `botox_calculator.html`:
+
+Add this new line inside the Table of Contents:
+<li><a href="#how-to-use">How to Use This Calculator</a></li>
+
+---
+
+📌 Make sure:
+- This section appears **below results**, **above FAQ**
+- Visual spacing matches other calculators
+- Internal link points to `/resources/how-to-use-the-botox-dosage-calculator` (resource can be drafted next)
+
+Once deployed, send a screenshot and I’ll QA layout, link, and structure before we queue the next upgrade.
