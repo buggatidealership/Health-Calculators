@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers.">
-    <meta name="keywords" content="longevity calculator, health calculators, lifespan calculator, nutrition calculator, wellness tools">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Longevity Calculator – Smart Health Starts Here" />
-    <meta property="og:description" content="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action." />
-    <meta property="og:url" content="https://longevitycalculator.xyz/" />
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg" />
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Longevity Calculator – Smart Health Starts Here" />
-    <meta name="twitter:description" content="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action." />
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg" />
-    
-    <title>Longevity Calculator – Science-Backed Health Tools & Lifespan Predictors</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% with 
+    meta_description="Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers.",
+    meta_keywords="longevity calculator, health calculators, lifespan calculator, nutrition calculator, wellness tools",
+    og_title="Longevity Calculator – Smart Health Starts Here",
+    og_description="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action.",
+    og_url="/",
+    og_image="https://longevitycalculator.xyz/static/images/longevity-homepage-og.jpg",
+    page_title="Longevity Calculator – Science-Backed Health Tools & Lifespan Predictors",
+    canonical_url="/"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <!-- Schema Markup -->
     <script type="application/ld+json">

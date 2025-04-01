@@ -1,51 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estimate how much fat you can lose through intermittent fasting. Based on your body weight, fasting hours, and weekly frequency.">
-    <meta name="keywords" content="fasting weight loss calculator, intermittent fasting, fat loss, weight loss calculator, fasting calculator">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Fasting Weight Loss Calculator">
-    <meta property="og:description" content="Use this calculator to estimate fat loss during intermittent fasting based on your weight, body fat %, and fasting duration.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/fasting-weight-loss-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/fasting-weight-loss-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Fasting Weight Loss Calculator">
-    <meta name="twitter:description" content="Use this calculator to estimate fat loss during intermittent fasting based on your weight, body fat %, and fasting duration.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/fasting-weight-loss-calculator-og.jpg">
-    
-    <title>Fasting Weight Loss Calculator – Estimate Fat Loss by Intermittent Fasting</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/fasting-weight-loss-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Fasting Weight Loss Calculator",
-      "description": "Estimate how much fat you can lose through intermittent fasting. Based on your body weight, fasting hours, and weekly frequency.",
-      "url": "https://longevitycalculator.xyz/fasting-weight-loss-calculator",
-      "mainEntity": {
-        "@type": "SpecialAnnouncement",
-        "name": "Fasting Weight Loss Calculator",
-        "text": "This calculator helps estimate potential fat loss from intermittent fasting based on scientific research.",
-        "datePosted": "2025-03-31",
-        "category": "https://schema.org/HealthAndBeautyBusiness",
-        "announcementLocation": {
-          "@type": "HealthAndBeautyBusiness",
-          "name": "LongevityCalculator.xyz",
-          "url": "https://longevitycalculator.xyz"
-        }
-      }
-    }
-    </script>
+{% with 
+    meta_description="Estimate how much fat you can lose through intermittent fasting. Based on your body weight, fasting hours, and weekly frequency.",
+    meta_keywords="fasting weight loss calculator, intermittent fasting, fat loss, weight loss calculator, fasting calculator",
+    og_title="Fasting Weight Loss Calculator",
+    og_description="Use this calculator to estimate fat loss during intermittent fasting based on your weight, body fat %, and fasting duration.",
+    og_url="/fasting-weight-loss-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/fasting-weight-loss-calculator-og.jpg",
+    page_title="Fasting Weight Loss Calculator – Estimate Fat Loss by Intermittent Fasting",
+    canonical_url="/fasting-weight-loss-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <script type="application/ld+json">
     {

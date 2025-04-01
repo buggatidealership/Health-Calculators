@@ -1,28 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Evidence-based health and wellness resources to help you optimize your nutrition, fitness, and longevity. Access expert guides and downloadable tools.">
-    <meta name="keywords" content="longevity resources, health guides, wellness articles, nutrition science, fitness tools">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Health & Wellness Resources – Longevity Calculator" />
-    <meta property="og:description" content="Evidence-based articles, guides and charts to help you interpret calculator results and take effective action on your health goals." />
-    <meta property="og:url" content="https://longevitycalculator.xyz/resources" />
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/longevity-resources-og.jpg" />
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Health & Wellness Resources – Longevity Calculator" />
-    <meta name="twitter:description" content="Evidence-based articles, guides and charts to help you interpret calculator results and take effective action on your health goals." />
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/longevity-resources-og.jpg" />
-    
-    <title>Health & Wellness Resources – Longevity Calculator</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/resources" />
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% with 
+    meta_description="Evidence-based health and wellness resources to help you optimize your nutrition, fitness, and longevity. Access expert guides and downloadable tools.",
+    meta_keywords="longevity resources, health guides, wellness articles, nutrition science, fitness tools",
+    og_title="Health & Wellness Resources – Longevity Calculator",
+    og_description="Evidence-based articles, guides and charts to help you interpret calculator results and take effective action on your health goals.",
+    og_url="/resources",
+    og_image="https://longevitycalculator.xyz/static/images/longevity-resources-og.jpg",
+    page_title="Health & Wellness Resources – Longevity Calculator",
+    canonical_url="/resources"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <style>
         .homepage-header {

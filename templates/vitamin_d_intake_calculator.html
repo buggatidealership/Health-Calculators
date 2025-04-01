@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estimate your ideal daily vitamin D intake based on age, gender, sun exposure, and health status. Evidence-based and personalized.">
-    <meta name="keywords" content="vitamin d calculator, vitamin d intake, vitamin d dosage, vitamin d supplements, vitamin d recommended dose">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Vitamin D Intake Calculator">
-    <meta property="og:description" content="Use this tool to calculate how much vitamin D you need daily for bone health, immunity, and deficiency prevention.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/vitamin-d-intake-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/vitamin-d-intake-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Vitamin D Intake Calculator">
-    <meta name="twitter:description" content="Use this tool to calculate how much vitamin D you need daily for bone health, immunity, and deficiency prevention.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/vitamin-d-intake-calculator-og.jpg">
-    
-    <title>Vitamin D Intake Calculator – Find Your Optimal Daily Dose</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/vitamin-d-intake-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Vitamin D Intake Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "url": "https://longevitycalculator.xyz/vitamin-d-intake-calculator",
-      "description": "Estimate your daily vitamin D needs based on age, gender, sun exposure, and supplement status. Backed by IOM and NIH guidance."
-    }
-    </script>
+{% with 
+    meta_description="Estimate your ideal daily vitamin D intake based on age, gender, sun exposure, and health status. Evidence-based and personalized.",
+    meta_keywords="vitamin d calculator, vitamin d intake, vitamin d dosage, vitamin d supplements, vitamin d recommended dose",
+    og_title="Vitamin D Intake Calculator",
+    og_description="Use this tool to calculate how much vitamin D you need daily for bone health, immunity, and deficiency prevention.",
+    og_url="/vitamin-d-intake-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/vitamin-d-intake-calculator-og.jpg",
+    page_title="Vitamin D Intake Calculator – Find Your Optimal Daily Dose",
+    canonical_url="/vitamin-d-intake-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <script type="application/ld+json">
     {

@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estimate how much weight you could lose while taking Ozempic (semaglutide) based on your weight, dosage, and treatment duration.">
-    <meta name="keywords" content="ozempic weight loss calculator, semaglutide calculator, weight loss, GLP-1, wegovy">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Ozempic Weight Loss Calculator">
-    <meta property="og:description" content="Use this calculator to estimate expected weight loss from Ozempic (semaglutide) based on clinical trial data and your dosage.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/ozempic-weight-loss-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/ozempic-weight-loss-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Ozempic Weight Loss Calculator">
-    <meta name="twitter:description" content="Use this calculator to estimate expected weight loss from Ozempic (semaglutide) based on clinical trial data and your dosage.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/ozempic-weight-loss-calculator-og.jpg">
-    
-    <title>Ozempic Weight Loss Calculator – Estimate Fat Loss on Semaglutide</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/ozempic-weight-loss-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Ozempic Weight Loss Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "url": "https://longevitycalculator.xyz/ozempic-weight-loss-calculator",
-      "description": "Estimate how much weight you could lose on Ozempic (semaglutide) based on dosage, starting weight, and treatment duration."
-    }
-    </script>
+{% with 
+    meta_description="Estimate how much weight you could lose while taking Ozempic (semaglutide) based on your weight, dosage, and treatment duration.",
+    meta_keywords="ozempic weight loss calculator, semaglutide calculator, weight loss, GLP-1, wegovy",
+    og_title="Ozempic Weight Loss Calculator",
+    og_description="Use this calculator to estimate expected weight loss from Ozempic (semaglutide) based on clinical trial data and your dosage.",
+    og_url="/ozempic-weight-loss-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/ozempic-weight-loss-calculator-og.jpg",
+    page_title="Ozempic Weight Loss Calculator – Estimate Fat Loss on Semaglutide",
+    canonical_url="/ozempic-weight-loss-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <script type="application/ld+json">
     {

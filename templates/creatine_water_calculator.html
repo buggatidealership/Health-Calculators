@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estimate how much water you should drink daily when taking creatine. Based on your weight, gender, and workout intensity.">
-    <meta name="keywords" content="creatine water calculator, creatine hydration, water intake, creatine hydration requirements">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Creatine Water Intake Calculator">
-    <meta property="og:description" content="Use our creatine water intake calculator to find your optimal hydration level while supplementing with creatine.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/creatine-water-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/creatine-water-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Creatine Water Intake Calculator">
-    <meta name="twitter:description" content="Use our creatine water intake calculator to find your optimal hydration level while supplementing with creatine.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/creatine-water-calculator-og.jpg">
-    
-    <title>Creatine Water Calculator – How Much Water to Drink With Creatine</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/creatine-water-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Creatine Water Intake Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "url": "https://longevitycalculator.xyz/calculator/creatine-water-calculator",
-      "description": "Calculate how much water you should drink daily when taking creatine, based on weight, dosage, and training intensity."
-    }
-    </script>
+{% with 
+    meta_description="Estimate how much water you should drink daily when taking creatine. Based on your weight, gender, and workout intensity.",
+    meta_keywords="creatine water calculator, creatine hydration, water intake, creatine hydration requirements",
+    og_title="Creatine Water Intake Calculator",
+    og_description="Use our creatine water intake calculator to find your optimal hydration level while supplementing with creatine.",
+    og_url="/creatine-water-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/creatine-water-calculator-og.jpg",
+    page_title="Creatine Water Calculator – How Much Water to Drink With Creatine",
+    canonical_url="/creatine-water-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <script type="application/ld+json">
     {

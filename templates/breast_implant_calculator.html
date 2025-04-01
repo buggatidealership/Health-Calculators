@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Estimate your ideal breast implant size and expected cost based on body type, goals, and location. Built for clarity, speed, and accuracy.">
-    <meta name="keywords" content="breast implant calculator, breast augmentation cost, implant size calculator, breast implant estimator">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Breast Implant Size & Cost Calculator">
-    <meta property="og:description" content="Use our calculator to determine the right implant volume, projection, and price range based on your profile and preferences.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/breast-implant-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/breast-implant-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Breast Implant Size & Cost Calculator">
-    <meta name="twitter:description" content="Use our calculator to determine the right implant volume, projection, and price range based on your profile and preferences.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/breast-implant-calculator-og.jpg">
-    
-    <title>Breast Implant Calculator – Estimate Size, Volume & Surgery Cost</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/breast-implant-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Breast Implant Size & Cost Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "url": "https://longevitycalculator.xyz/breast-implant-calculator",
-      "description": "Estimate breast implant volume, profile, and surgery cost based on your body type, goals, and location using a research-backed tool."
-    }
-    </script>
+{% with 
+    meta_description="Estimate your ideal breast implant size and expected cost based on body type, goals, and location. Built for clarity, speed, and accuracy.",
+    meta_keywords="breast implant calculator, breast augmentation cost, implant size calculator, breast implant estimator",
+    og_title="Breast Implant Size & Cost Calculator",
+    og_description="Use our calculator to determine the right implant volume, projection, and price range based on your profile and preferences.",
+    og_url="/breast-implant-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/breast-implant-calculator-og.jpg",
+    page_title="Breast Implant Calculator – Estimate Size, Volume & Surgery Cost",
+    canonical_url="/breast-implant-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <script type="application/ld+json">
     {

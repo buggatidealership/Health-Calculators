@@ -1,41 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Predict your potential lifespan based on health, habits, diet, and lifestyle factors. Backed by research and actuarial data.">
-    <meta name="keywords" content="lifespan calculator, longevity calculator, life expectancy calculator, health calculator, lifestyle assessment">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="Lifespan & Longevity Calculator">
-    <meta property="og:description" content="Estimate how long you might live based on your health, exercise, stress, diet, and sleep patterns.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/lifespan-longevity-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/lifespan-longevity-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Lifespan & Longevity Calculator">
-    <meta name="twitter:description" content="Estimate how long you might live based on your health, exercise, stress, diet, and sleep patterns.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/lifespan-longevity-calculator-og.jpg">
-    
-    <title>Lifespan Calculator – Estimate Your Longevity Based on Lifestyle & Habits</title>
-    <link rel="canonical" href="https://longevitycalculator.xyz/calculator/lifespan-longevity-calculator">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-    
-    <!-- Schema Markup -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Lifespan Longevity Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "url": "https://longevitycalculator.xyz/lifespan-longevity-calculator",
-      "description": "Estimate how long you might live based on lifestyle, health, diet, and stress levels. Based on medical research and longevity data."
-    }
-    </script>
+{% with 
+    meta_description="Predict your potential lifespan based on health, habits, diet, and lifestyle factors. Backed by research and actuarial data.",
+    meta_keywords="lifespan calculator, longevity calculator, life expectancy calculator, health calculator, lifestyle assessment",
+    og_title="Lifespan & Longevity Calculator",
+    og_description="Estimate how long you might live based on your health, exercise, stress, diet, and sleep patterns.",
+    og_url="/lifespan-longevity-calculator",
+    og_image="https://longevitycalculator.xyz/static/images/lifespan-longevity-calculator-og.jpg",
+    page_title="Lifespan Calculator – Estimate Your Longevity Based on Lifestyle & Habits",
+    canonical_url="/lifespan-longevity-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
     
     <script type="application/ld+json">
     {
