@@ -1,76 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Botox Dosage & Cost Calculator – Estimate Units and Treatment Price</title>
-    <meta name="description" content="Estimate Botox dosage and cost by treatment area, gender, severity, and goals. Personalized and evidence-based.">
-    <meta name="keywords" content="botox calculator, botox cost, botox units, botox dosage calculator, aesthetic calculator">
-    <meta name="author" content="LongevityCalculator.xyz">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Botox Dosage & Cost Calculator">
-    <meta property="og:description" content="Estimate Botox dosage and cost by treatment area, gender, and goal.">
-    <meta property="og:url" content="https://longevitycalculator.xyz/botox-dosage-calculator">
-    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/botox-calculator-og.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Botox Dosage & Cost Calculator">
-    <meta name="twitter:description" content="Estimate Botox dosage and cost by treatment area, gender, and goal.">
-    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/botox-calculator-og.jpg">
-    
-    <!-- SoftwareApplication Schema -->
-    <script type="application/ld+json">
+{% set og_image = "botox-calculator-og.jpg" %}
+{% with 
+    meta_description="Estimate Botox dosage and cost by treatment area, gender, severity, and goals. Personalized and evidence-based.",
+    meta_keywords="botox calculator, botox cost, botox units, botox dosage calculator, aesthetic calculator",
+    og_title="Botox Dosage & Cost Calculator",
+    og_description="Estimate Botox dosage and cost by treatment area, gender, and goal.",
+    og_url="/botox-dosage-calculator",
+    page_title="Botox Dosage & Cost Calculator – Estimate Units and Treatment Price",
+    canonical_url="/botox-dosage-calculator",
+    schema_name="Botox Dosage & Cost Calculator",
+    schema_description="Estimate Botox dosage and treatment cost by area, gender, severity, and goal using evidence-based standards.",
+    schema_url="/botox-dosage-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- FAQPage Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
     {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "Botox Dosage & Cost Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "description": "Estimate Botox dosage and treatment cost by area, gender, severity, and goal using evidence-based standards.",
-      "url": "https://longevitycalculator.xyz/botox-dosage-calculator"
-    }
-    </script>
-    
-    <!-- FAQPage Schema -->
-    <script type="application/ld+json">
+      "@type": "Question",
+      "name": "How much Botox do I need?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Botox dosage depends on the treatment area, severity of wrinkles, gender, and desired results. This calculator estimates based on those inputs."
+      }
+    },
     {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How much Botox do I need?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Botox dosage depends on the treatment area, severity of wrinkles, gender, and desired results. This calculator estimates based on those inputs."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How much does Botox cost?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Botox pricing varies by location and provider. This calculator gives a range based on estimated units and average per-unit cost."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Do men need more Botox than women?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes, men typically require more units due to larger muscle mass. This calculator adjusts dosage based on gender."
-          }
-        }
-      ]
+      "@type": "Question",
+      "name": "How much does Botox cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Botox pricing varies by location and provider. This calculator gives a range based on estimated units and average per-unit cost."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do men need more Botox than women?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, men typically require more units due to larger muscle mass. This calculator adjusts dosage based on gender."
+      }
     }
-    </script>
-    
-    <link rel="canonical" href="https://longevitycalculator.xyz/botox-dosage-calculator">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+  ]
+}
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     {% include 'header.html' %}
