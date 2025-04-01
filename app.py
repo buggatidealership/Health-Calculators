@@ -235,12 +235,27 @@ def resources():
         schema_url=schema_url
     )
 
+@app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
+def ozempic_guide():
+    schema_name = "Ozempic Weight Loss Calculator Guide"
+    schema_description = "A comprehensive guide to understanding, interpreting, and maximizing results from the Ozempic Weight Loss Calculator. Includes clinical insights and FAQs."
+    schema_url = "/resources/how-to-use-the-ozempic-weight-loss-calculator"
+    return render_template(
+        'resources/how_to_use_the_ozempic_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/resources/<path:resource_page>')
 def resource_page(resource_page):
-    template_path = f'resources/{resource_page}.html'
+    # Convert URL format (with hyphens) to file path format (with underscores)
+    file_path = resource_page.replace('-', '_')
+    template_path = f'resources/{file_path}.html'
     try:
-        schema_name = "Ozempic Weight Loss Calculator Guide"
-        schema_description = "A comprehensive guide to understanding, interpreting, and maximizing results from the Ozempic Weight Loss Calculator. Includes clinical insights and FAQs."
+        schema_name = "Health Resource Guide"
+        schema_description = "A comprehensive guide on health and wellness topics. Includes clinical insights and FAQs."
         schema_url = f"/resources/{resource_page}"
         return render_template(
             template_path,
