@@ -196,14 +196,6 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
-        "title": "Ozempic and Longevity: Weight Loss and Lifespan",
-        "url": "/resources/ozempic-and-longevity",
-        "summary": "Explore how Ozempic (semaglutide) may impact longevity, aging, and health beyond its weight loss effects.",
-        "icon": "💊",
-        "cta": "Read Research",
-        "color": "purple"
-    },
-    {
         "title": "How to Use the Ozempic Weight Loss Calculator",
         "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
         "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
@@ -238,19 +230,6 @@ def resources():
         'resources.html', 
         is_homepage=False, 
         articles=articles,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url
-    )
-
-@app.route('/resources/ozempic-and-longevity')
-def ozempic_and_longevity_article():
-    schema_name = "Ozempic and Longevity: Scientific Research"
-    schema_description = "Comprehensive analysis of Ozempic (semaglutide) for weight loss and its potential impact on longevity and healthy lifespan, backed by scientific research."
-    schema_url = "/resources/ozempic-and-longevity"
-    return render_template(
-        'resources/ozempic_and_longevity.html', 
-        is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
