@@ -21,6 +21,8 @@
 <body>
     {% include 'header.html' %}
     
+    <div class="calculator-container">
+    
     <h1>Caloric Intake & Macronutrient Calculator</h1>
     <p class="subtitle">This evidence-based calculator determines your daily caloric needs using the Mifflin-St Jeor equation. Input your details to receive personalized nutrition recommendations for weight loss, maintenance, or muscle gain based on your body's specific requirements.</p>
     
@@ -199,6 +201,8 @@
             <p>It's recommended to recalculate after any significant body weight change (5+ pounds), when your activity level changes substantially, or every 3-6 months to account for metabolic adaptations. If you're not seeing progress toward your goals after 3-4 weeks, it may also be time to recalculate.</p>
         </div>
     </div>
+    
+    </div> <!-- End of calculator-container -->
 
     <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
 </body>
