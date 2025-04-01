@@ -149,6 +149,14 @@ li {
     color: #666;
 }
 
+.adunit-top {
+    margin: 20px 0;
+}
+
+.adunit-mid, .adunit-bottom {
+    margin: 40px 0;
+}
+
 .adunit-top::before {
     content: "Advertisement Placeholder (Top)";
 }
@@ -846,4 +854,41 @@ li {
 /* Utility Classes */
 .hidden {
   display: none !important;
+}
+
+/* Link Styles */
+.pink-link {
+  color: #d63384;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.pink-link:hover {
+  color: #be2d73;
+}
+
+/* Spacing Utility Classes */
+.mt-10 {
+  margin-top: 10px;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mt-60 {
+  margin-top: 60px;
+}
+
+/* Text Alignment */
+.text-center {
+  text-align: center;
+}
+
+/* Footer Styles */
+footer {
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+  margin-top: 40px;
 }

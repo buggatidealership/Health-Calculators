@@ -87,7 +87,7 @@
     </div>
     
     <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
+    <div class="adunit-top">
         <AdUnit slot="lifespan-longevity-calculator-top" />
     </div>
     
@@ -199,11 +199,11 @@
                 </select>
             </div>
             
-            <button id="calculate-btn" type="button" style="background-color: #d63384; border-radius: 6px;">Calculate My Longevity</button>
+            <button id="calculate-btn" type="button">Calculate My Longevity</button>
             
 
             
-            <div id="result" class="result">
+            <div id="result" class="result hidden">
                 <h2>Your Longevity Estimate</h2>
                 <p>Based on your inputs, your estimated lifespan is: <strong><span id="lifespan">85</span> years</strong></p>
                 
@@ -225,16 +225,16 @@
     </section>
     
     <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
+    <div class="adunit-mid">
         <AdUnit slot="lifespan-longevity-calculator-mid" />
     </div>
     
-    <section id="how-to-use" style="margin-top: 60px;">
+    <section id="how-to-use" class="mt-60">
       <div class="info">
         <h2>How to Use the Lifespan Calculator</h2>
         <p>This calculator helps estimate your potential lifespan using peer-reviewed health, behavior, and demographic data. Follow these steps:</p>
 
-        <ol style="margin-top: 20px;">
+        <ol class="mt-20">
           <li><strong>Enter Your Details:</strong> Age, gender, BMI, diet, exercise, sleep, and other lifestyle factors.</li>
           <li><strong>Adjust for Habits:</strong> Input smoking status, alcohol use, stress level, and social connection strength.</li>
           <li><strong>View Your Estimate:</strong> Get projected life expectancy, contributing factors, and tips to add years to your life.</li>
@@ -249,9 +249,9 @@
 
         <p>This estimate is based on large-scale cohort studies like the Framingham Heart Study, Nurses' Health Study, and WHO mortality data.</p>
 
-        <p style="margin-top: 10px;">
+        <p class="mt-10">
           Want the full breakdown with formulas and data sources?  
-          <a href="/resources/lifespan-prediction-guide" style="color: #d63384; text-decoration: underline;">→ Read the full guide</a>
+          <a href="/resources/lifespan-prediction-guide" class="pink-link">→ Read the full guide</a>
         </p>
       </div>
     </section>
@@ -290,13 +290,13 @@
     </section>
     
     <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
+    <div class="adunit-bottom">
         <AdUnit slot="lifespan-longevity-calculator-bottom" />
     </div>
     
     <!-- Footer -->
-    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
-        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+    <footer>
+        <p class="medical-disclaimer">
             <strong>Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.
         </p>
     </footer>
@@ -486,7 +486,7 @@
             });
            
             // Show results
-            document.getElementById('result').style.display = 'block';
+            document.getElementById('result').classList.remove('hidden');
         }
     </script>
     
