@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Evidence-based health and wellness resources to help you optimize your nutrition, fitness, and longevity. Access expert guides and downloadable tools.">
+    <meta name="keywords" content="longevity resources, health guides, wellness articles, nutrition science, fitness tools">
+    <meta name="author" content="LongevityCalculator.xyz">
+    
+    <!-- Open Graph tags for social sharing -->
+    <meta property="og:title" content="Health & Wellness Resources – Longevity Calculator" />
+    <meta property="og:description" content="Evidence-based articles, guides and charts to help you interpret calculator results and take effective action on your health goals." />
+    <meta property="og:url" content="https://longevitycalculator.xyz/resources" />
+    <meta property="og:image" content="https://longevitycalculator.xyz/static/images/longevity-resources-og.jpg" />
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Health & Wellness Resources – Longevity Calculator" />
+    <meta name="twitter:description" content="Evidence-based articles, guides and charts to help you interpret calculator results and take effective action on your health goals." />
+    <meta name="twitter:image" content="https://longevitycalculator.xyz/static/images/longevity-resources-og.jpg" />
+    
+    <title>Health & Wellness Resources – Longevity Calculator</title>
+    <link rel="canonical" href="https://longevitycalculator.xyz/resources" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    
+    <style>
+        .homepage-header {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .homepage-header h1 {
+            font-size: 2.4rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .homepage-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .calculator-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .calculator-grid > .calculator-card-v2 {
+            flex: 1 1 calc(50% - 30px);   /* Two per row with gap accounted */
+            max-width: 500px;
+            min-height: 260px;
+            box-sizing: border-box;
+        }
+        
+        @media (max-width: 768px) {
+            .calculator-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .calculator-grid > .calculator-card-v2 {
+                flex: 1 1 100%;
+            }
+        }
+        
+        .footer-disclaimer {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+            margin-top: 40px;
+            padding: 0 20px;
+        }
+        
+        .back-to-calculators {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            color: #d63384;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .back-to-calculators:hover {
+            color: #be2d73;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="back-link-wrapper">
+        <a href="/" class="back-home-link">← Back to All Calculators</a>
+    </div>
+    
+    <div class="homepage-header">
+        <h1>Health & Wellness Resources</h1>
+        <p>Evidence-based articles, guides and tools to help you take action on your health goals.</p>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px auto; max-width: 800px; text-align: center;">
+        <AdUnit slot="resources-top" />
+    </div>
+    
+    <!-- Articles Grid -->
+    <div class="calculator-grid">
+        {% for article in articles %}
+        <div class="calculator-card-v2 card-color-{{ article.color }}">
+            <a href="{{ article.url }}">
+                <div class="card-icon">{{ article.icon }}</div>
+                <h3 class="card-title">{{ article.title }}</h3>
+                <p class="card-summary">{{ article.summary }}</p>
+                <div class="cta-arrow">{{ article.cta }} →</div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
+        <AdUnit slot="resources-mid" />
+    </div>
+    
+    <!-- Info Section -->
+    <div class="resources-section">
+        <h2>Have a Topic Request?</h2>
+        <p>We're constantly adding new evidence-based guides and articles. Contact us to suggest a health topic you'd like us to cover next.</p>
+    </div>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
+        <AdUnit slot="resources-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer-disclaimer">
+        <p>This site provides general educational information. Consult a doctor or registered healthcare professional before making any health decisions.</p>
+    </div>
+</body>
+</html>

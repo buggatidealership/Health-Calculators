@@ -1,0 +1,65 @@
+Step 1: In `app.py`, define an `articles` list just like the `cards` list.
+
+Place this above the `/resources` route:
+
+articles = [
+    {
+        "title": "How to Use the Ozempic Weight Loss Calculator",
+        "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
+        "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
+        "icon": "📘",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
+        "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
+        "url": "/resources/fasting-weight-loss-chart",
+        "summary": "Visual breakdown of fat loss trends from intermittent fasting protocols backed by clinical data.",
+        "icon": "⏱️",
+        "cta": "View Chart",
+        "color": "green"
+    },
+    {
+        "title": "How Much Water Do You Need on Creatine?",
+        "url": "/resources/creatine-hydration-guide",
+        "summary": "Learn how creatine increases hydration needs and how to adjust your intake to optimize results.",
+        "icon": "💧",
+        "cta": "Hydrate Smarter",
+        "color": "teal"
+    }
+]
+
+---
+
+Step 2: In `resources.html`, replace the hardcoded article card(s) inside `.calculator-grid` with this loop:
+
+{% for article in articles %}
+  <div class="calculator-card-v2 card-color-{{ article.color }}">
+    <a href="{{ article.url }}">
+      <div class="card-icon">{{ article.icon }}</div>
+      <h3 class="card-title">{{ article.title }}</h3>
+      <p class="card-summary">{{ article.summary }}</p>
+      <div class="cta-arrow">{{ article.cta }} →</div>
+    </a>
+  </div>
+{% endfor %}
+
+This goes inside the existing:
+<div class="calculator-grid">...</div>
+
+---
+
+Step 3: Confirm the `/resources` route uses `articles=articles`:
+
+@app.route('/resources')
+def resources():
+    return render_template('resources.html', is_homepage=False, articles=articles)
+
+---
+
+Once complete:
+- Your articles will render dynamically
+- You can scale content by editing only the `articles` list
+- The `/resources` page will share the same polished card layout and mobile behavior as the homepage
+
+Let me know once it’s in and I’ll QA the loop, grid behavior, and dynamic data integration ✅🧱📚

@@ -112,6 +112,37 @@ def fasting_weight_loss_calculator():
 def ozempic_weight_loss_calculator():
     return render_template('ozempic_weight_loss_calculator.html', is_homepage=False)
 
+articles = [
+    {
+        "title": "How to Use the Ozempic Weight Loss Calculator",
+        "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
+        "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
+        "icon": "📘",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
+        "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
+        "url": "/resources/fasting-weight-loss-chart",
+        "summary": "Visual breakdown of fat loss trends from intermittent fasting protocols backed by clinical data.",
+        "icon": "⏱️",
+        "cta": "View Chart",
+        "color": "green"
+    },
+    {
+        "title": "How Much Water Do You Need on Creatine?",
+        "url": "/resources/creatine-hydration-guide",
+        "summary": "Learn how creatine increases hydration needs and how to adjust your intake to optimize results.",
+        "icon": "💧",
+        "cta": "Hydrate Smarter",
+        "color": "teal"
+    }
+]
+
+@app.route('/resources')
+def resources():
+    return render_template('resources.html', is_homepage=False, articles=articles)
+
 @app.route('/sitemap.xml')
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
