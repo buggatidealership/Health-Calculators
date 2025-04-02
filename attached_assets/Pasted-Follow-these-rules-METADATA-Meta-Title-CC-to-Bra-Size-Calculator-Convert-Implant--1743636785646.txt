@@ -1,0 +1,337 @@
+Follow these rules:
+
+--- METADATA ---
+- Meta Title: “CC to Bra Size Calculator – Convert Implant Volume to Cup Size”
+- Meta Description: “Convert breast implant volume (in CCs) to approximate bra cup size using evidence-based plastic surgery formulas.”
+- OG Title: “CC to Bra Size Calculator”
+- OG Description: “Estimate your post-op bra size from breast implant volume. Backed by plastic surgery research.”
+- OG URL: https://longevitycalculator.xyz/cc-to-bra-size-calculator
+- OG Image: https://longevitycalculator.xyz/static/images/cc-to-bra-size-calculator-og.jpg
+- Twitter meta tags: Match OG content
+- Canonical Tag: https://longevitycalculator.xyz/cc-to-bra-size-calculator
+
+--- LAYOUT & UI ---
+- Match the /vitamin-d-intake-calculator exactly in:
+  - Typography, spacing, layout, and visual structure
+  - CTA button: use brand pink #d63384 with darker hover color
+  - Section Icons: Use <BarChart className="section-icon" /> for “How This Calculator Works” and <HelpCircle className="section-icon" /> for FAQ
+  - Include a styled Table of Contents linking to: Calculator, How This Calculator Works, FAQ
+
+--- DISCLAIMER (ABOVE TOC) ---
+“This tool provides general educational estimates. For personalized surgical advice, consult a board-certified plastic surgeon.”
+
+--- ADUNITS ---
+Insert 3 working AdUnit components:
+- <AdUnit slot="cc-to-bra-size-calculator-top" /> → directly under the H1
+- <AdUnit slot="cc-to-bra-size-calculator-mid" /> → between calculator output and “How This Calculator Works”
+- <AdUnit slot="cc-to-bra-size-calculator-bottom" /> → above the footer disclaimer
+
+--- CALCULATOR MODULE ---
+Inside <section id="calculator">, include the following placeholder:
+<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CC to Bra Size Converter</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        h1 {
+            color: #d4548f;
+            text-align: center;
+        }
+        .calculator {
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #d4548f;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #c04a80;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e8f4f8;
+            border-radius: 4px;
+            display: none;
+        }
+        .info {
+            margin-top: 30px;
+            font-size: 14px;
+            color: #666;
+        }
+        .disclaimer {
+            font-size: 12px;
+            color: #999;
+            margin-top: 30px;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CC to Bra Size Converter</h1>
+   
+    <div class="calculator">
+        <div class="input-group">
+            <label for="cc">Implant Volume (cc):</label>
+            <input type="number" id="cc" placeholder="Enter CC volume (e.g., 300)" min="100" max="1000">
+        </div>
+       
+        <div class="input-group">
+            <label for="band">Current Band Size:</label>
+            <select id="band">
+                <option value="">Select band size</option>
+                <option value="28">28</option>
+                <option value="30">30</option>
+                <option value="32">32</option>
+                <option value="34">34</option>
+                <option value="36">36</option>
+                <option value="38">38</option>
+                <option value="40">40</option>
+                <option value="42">42</option>
+            </select>
+        </div>
+       
+        <div class="input-group">
+            <label for="current-cup">Current Cup Size:</label>
+            <select id="current-cup">
+                <option value="AA">AA</option>
+                <option value="A">A</option>
+                <option value="B" selected>B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="DD">DD/E</option>
+                <option value="DDD">DDD/F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+            </select>
+        </div>
+       
+        <button onclick="calculate()">Calculate Bra Size</button>
+       
+        <div id="result" class="result">
+            <h3>Estimated Bra Size:</h3>
+            <p id="size-result">Your estimated new bra size will appear here</p>
+            <p id="volume-info"></p>
+        </div>
+    </div>
+   
+    <div class="info">
+        <h3>How It Works:</h3>
+        <p>This calculator estimates bra size changes based on breast implant volume (cc). The conversion follows these guidelines:</p>
+        <ul>
+            <li>100-150cc ≈ 1 cup size increase</li>
+            <li>150-200cc ≈ 1.5 cup sizes increase</li>
+            <li>200-250cc ≈ 2 cup sizes increase</li>
+            <li>250-300cc ≈ 2.5 cup sizes increase</li>
+            <li>300-350cc ≈ 3 cup sizes increase</li>
+        </ul>
+        <p>Note: Results may vary based on individual anatomy, breast tissue characteristics, and implant placement.</p>
+    </div>
+   
+    <div class="disclaimer">
+        <p><strong>Disclaimer:</strong> This calculator provides estimates only. The actual bra size may vary based on factors like breast shape, implant placement (subglandular vs. submuscular), and individual tissue characteristics. Always consult with a board-certified plastic surgeon for professional advice regarding breast augmentation.</p>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get input values
+            const cc = parseFloat(document.getElementById('cc').value);
+            const bandSize = document.getElementById('band').value;
+            const currentCup = document.getElementById('current-cup').value;
+           
+            // Validate inputs
+            if (isNaN(cc) || cc < 100 || cc > 1000) {
+                alert("Please enter a valid CC volume between 100 and 1000");
+                return;
+            }
+           
+            if (!bandSize) {
+                alert("Please select your current band size");
+                return;
+            }
+           
+            // Calculate cup size increase based on research
+            // Based on studies showing approximately 150-200cc per cup size increase
+            // (Source: Breast Augmentation: The Comprehensive Guide to Breast Implants by Dr. John Tebbetts)
+            const cupSizes = ["AA", "A", "B", "C", "D", "DD", "DDD", "G", "H", "I", "J"];
+           
+            // Find current cup index
+            let currentIndex = cupSizes.indexOf(currentCup);
+            if (currentIndex === -1) currentIndex = 2; // default to B
+           
+            // Calculate cup size increase (approximately 175cc per cup)
+            const cupIncrease = Math.round((cc / 175) * 2) / 2; // rounds to nearest 0.5
+           
+            // Calculate new cup index
+            let newIndex = currentIndex + cupIncrease;
+            newIndex = Math.min(newIndex, cupSizes.length - 1); // don't exceed array bounds
+           
+            // Get full and half sizes
+            const fullCups = Math.floor(newIndex);
+            const remainder = newIndex - fullCups;
+           
+            let newCupSize;
+            if (remainder < 0.25) {
+                newCupSize = cupSizes[fullCups];
+            } else if (remainder < 0.75) {
+                newCupSize = cupSizes[fullCups] + "½";
+                // For sizes where half sizes aren't standard, round up
+                if (cupSizes[fullCups] === "DD" || cupSizes[fullCups] === "DDD") {
+                    newCupSize = cupSizes[fullCups + 1];
+                }
+            } else {
+                newCupSize = cupSizes[fullCups + 1];
+            }
+           
+            // Display result
+            document.getElementById('size-result').textContent =
+                `Estimated new bra size: ${bandSize}${newCupSize}`;
+           
+            // Additional volume info
+            document.getElementById('volume-info').innerHTML = `
+                <p>${cc}cc is approximately a ${cupIncrease.toFixed(1)} cup size increase from your current size.</p>
+                <p><em>Note: This is an estimate. Actual results may vary based on your anatomy.</em></p>
+            `;
+           
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
+<!-- END DEEPSEEK-GENERATED CALCULATOR -->
+
+--- HOW TO USE SECTION ---
+Title: “How to Use the CC to Bra Size Calculator”
+Icon: <BarChart className="section-icon" />
+Content:
+- Enter your breast implant volume in CCs (e.g., 250cc, 400cc)
+- Choose your band size (based on your underbust measurement)
+- The calculator will estimate your resulting bra cup size (e.g., 34C, 36DD)
+- This tool uses plastic surgery conversion charts and average anatomical proportions to generate an estimate
+
+--- FAQ SECTION ---
+Use <HelpCircle className="section-icon" />
+Include the following questions:
+
+Q: How many CCs equal a bra cup size?
+A: Roughly 150–200cc = one cup size, but it varies by body type and band size.
+
+Q: Does band size affect cup size appearance?
+A: Yes. A 300cc implant looks much larger on a 32-band than a 38-band frame.
+
+Q: Are implant shapes and profiles considered?
+A: This tool provides estimates for round, moderate-profile implants. Results may vary with ultra-high or anatomical implants.
+
+Q: What if I already had implants before?
+A: Input your total CC volume. If you're replacing, subtract the old volume from the new.
+
+Q: Is this calculator accurate for every body?
+A: It's an estimate only. Bra sizing is imprecise even across manufacturers. Always consult your surgeon for fitting guidance.
+
+--- SCHEMA MARKUP (IN HEAD) ---
+1. SoftwareApplication:
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CC to Bra Size Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/cc-to-bra-size-calculator",
+  "description": "Convert breast implant volume (in CCs) to estimated bra cup size. Based on plastic surgery implant-to-size charts."
+}
+
+2. FAQPage:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many CCs equal a bra cup size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Roughly 150–200cc = one cup size, but it varies by body type and band size."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does band size affect cup size appearance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A 300cc implant looks much larger on a 32-band than a 38-band frame."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are implant shapes and profiles considered?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "This tool provides estimates for round, moderate-profile implants. Results may vary with ultra-high or anatomical implants."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I already had implants before?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Input your total CC volume. If you're replacing, subtract the old volume from the new."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator accurate for every body?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's an estimate only. Bra sizing is imprecise even across manufacturers. Always consult your surgeon for fitting guidance."
+      }
+    }
+  ]
+}
+
+--- FOOTER ---
+- Add this link: “← Back to Homepage”
+- Footer disclaimer:
+“This calculator is for educational purposes only. Always consult a board-certified plastic surgeon for personalized recommendations.”
+
+--- FINAL QA ---
+- All AdUnits must be functioning and correctly spaced (top, mid, bottom)
+- Must pass mobile responsiveness
+- Calculator must not use any <img> unless explicitly needed (and in webp format with alt/width/height)
+- JSX must compile cleanly

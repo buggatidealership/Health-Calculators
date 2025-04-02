@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "CC to Bra Size Calculator",
+        "url": "/cc-to-bra-size-calculator",
+        "summary": "Convert breast implant volume (CCs) to estimated bra cup size with this plastic surgery calculator.",
+        "icon": "📏",
+        "cta": "Calculate Cup Size",
+        "color": "purple"
+    },
+    {
         "title": "Liposuction Weight Loss Calculator",
         "url": "/liposuction-weight-loss-calculator",
         "summary": "Calculate how much fat and weight you might lose with liposuction, and what it may cost.",
@@ -328,6 +336,19 @@ def adult_height_predictor_calculator():
     schema_url = "/adult-height-predictor-calculator"
     return render_template(
         'adult_height_predictor_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/cc-to-bra-size-calculator')
+def cc_to_bra_size_calculator():
+    schema_name = "CC to Bra Size Calculator"
+    schema_description = "Convert breast implant volume (in CCs) to estimated bra cup size. Based on plastic surgery implant-to-size charts."
+    schema_url = "/cc-to-bra-size-calculator"
+    return render_template(
+        'cc_to_bra_size_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
