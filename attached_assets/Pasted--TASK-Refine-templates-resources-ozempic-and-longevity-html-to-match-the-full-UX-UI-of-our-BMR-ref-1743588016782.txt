@@ -1,0 +1,95 @@
+✅ TASK: Refine templates/resources/ozempic_and_longevity.html to match the full UX/UI of our BMR reference article layout.
+
+🔁 FILE TO EDIT:
+templates/resources/ozempic_and_longevity.html
+
+✅ OBJECTIVE:
+Apply final visual upgrades to match our universal resource article format (BMR-style layout, CTA/TOC/FAQ/Title consistency, spacing, and readability). Do not rewrite or remove any core article content or metadata.
+
+---
+
+🔧 1. UPGRADE TITLE & SUBTITLE
+
+Replace the first `<h1>` with:
+<h1 class="resource-title">Ozempic and Longevity: Can Weight Loss with Semaglutide Extend Lifespan?</h1>
+
+Replace the intro `<p>` below the title with:
+<p class="resource-subtitle">Explore whether Ozempic, known for its weight loss effects, may also extend lifespan through metabolic improvements and reduced disease risk.</p>
+
+---
+
+📚 2. TABLE OF CONTENTS FIX
+
+Wrap the entire TOC in:
+<div class="toc-container">
+  <h2>Table of Contents</h2>
+  <ul>
+    <!-- keep all existing TOC list items -->
+  </ul>
+</div>
+
+---
+
+🎯 3. UPGRADE FAQ SECTION HEADING
+
+Change the FAQ section's opening tag to:
+<section id="faq" class="faq-section">
+
+This ensures TOC scrolling works properly.
+
+---
+
+🔗 4. RELATED LINKS CONTAINER
+
+Wrap the existing related tools section in:
+<div class="related-links">
+  <h3>Explore More</h3>
+  <ul>
+    <!-- keep existing list of calculator links -->
+  </ul>
+</div>
+
+---
+
+🧱 5. GLOBAL STYLES TO ENSURE SUPPORT
+
+Ensure the following CSS classes exist in styles.css:
+.resource-title, .resource-subtitle, .toc-container, .related-links
+
+(You can append this if missing:)
+
+```css
+.resource-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.resource-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+.toc-container {
+  background: #f9f9f9;
+  border-radius: 6px;
+  padding: 20px;
+  margin: 40px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+.related-links {
+  margin-top: 40px;
+  padding: 20px;
+  border-top: 1px solid #eee;
+}
+
+.related-links h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
