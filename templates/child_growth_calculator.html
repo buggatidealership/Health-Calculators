@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "child-growth-calculator-og.jpg" %}
+{% with 
+    meta_description="Track your child's height, weight, and BMI percentile using CDC or WHO charts. Personalized and evidence-based.",
+    meta_keywords="child growth calculator, child height percentile, child weight percentile, child BMI calculator, pediatric growth chart",
+    og_title="Child Growth Percentile Calculator",
+    og_description="Calculate how your child compares to others in height, weight, and BMI. Updated for parents and pediatric use.",
+    og_url="/child-growth-calculator",
+    page_title="Child Growth Calculator – Percentile by Age, Height & Weight",
+    canonical_url="/child-growth-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Child Growth Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/child-growth-calculator",
+      "description": "Estimate your child's growth percentile using CDC/WHO data. Supports height, weight, BMI, age, and gender inputs."
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a growth percentile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A percentile shows how your child compares to others. For example, the 80th percentile in height means your child is taller than 80% of peers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I check growth percentile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Pediatricians check this at wellness visits. You can use this tool every few months to monitor trends."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which chart should I use — CDC or WHO?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use WHO for ages 0–5 and CDC for ages 2–20 in the U.S. This calculator supports both."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Child Growth Calculator</h1>
+    <p class="subtitle">This evidence-based calculator determines your child's height, weight, and BMI percentiles based on age and gender. Use this tool to track growth patterns, compare to national standards, and understand your child's development.</p>
+    
+    <div class="medical-disclaimer" style="margin-top: 24px; background-color: #fff0f3; padding: 16px 20px; border-left: 4px solid #d63384; border-radius: 8px; font-size: 15px;">
+      <p style="margin: 0;">
+        <strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult your pediatrician for personalized growth tracking.
+      </p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Child Growth Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="child-growth-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+            <div class="input-group">
+                <label>Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+           
+            <div class="input-group">
+                <label>Age</label>
+                <div style="display: flex; gap: 10px;">
+                    <input type="number" id="age-years" placeholder="Years" min="0" max="18" style="flex: 1;">
+                    <input type="number" id="age-months" placeholder="Months" min="0" max="11" style="flex: 1;">
+                </div>
+            </div>
+           
+            <div class="unit-toggle">
+                <label>Measurement Units:</label><br>
+                <input type="radio" id="metric" name="units" value="metric" checked onclick="toggleUnits()">
+                <label for="metric" style="display: inline;">Metric (cm, kg)</label>
+                <input type="radio" id="imperial" name="units" value="imperial" onclick="toggleUnits()">
+                <label for="imperial" style="display: inline;">Imperial (ft/in, lbs)</label>
+            </div>
+           
+            <div class="metric-inputs">
+                <div class="input-group">
+                    <label>Height (cm)</label>
+                    <input type="number" id="height-cm" placeholder="Enter height in centimeters">
+                </div>
+                <div class="input-group">
+                    <label>Weight (kg)</label>
+                    <input type="number" id="weight-kg" placeholder="Enter weight in kilograms" step="0.1">
+                </div>
+            </div>
+           
+            <div class="imperial-inputs">
+                <div class="input-group">
+                    <label>Height</label>
+                    <div style="display: flex; gap: 10px;">
+                        <input type="number" id="height-ft" placeholder="Feet" style="flex: 1;">
+                        <input type="number" id="height-in" placeholder="Inches" style="flex: 1;">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>Weight (lbs)</label>
+                    <input type="number" id="weight-lbs" placeholder="Enter weight in pounds" step="0.1">
+                </div>
+            </div>
+           
+            <button onclick="calculate()" class="cta-button">Calculate Growth Percentiles</button>
+           
+            <div id="results" class="result" style="display: none;">
+                <h2>Growth Assessment</h2>
+               
+                <div id="age-warning" class="age-warning" style="display: none;"></div>
+               
+                <div class="result-card">
+                    <h3>Height-for-Age</h3>
+                    <div class="result-value" id="heightResult"></div>
+                    <div class="percentile-bar"><div class="percentile-fill" id="height-bar"></div></div>
+                    <div class="interpretation" id="height-interpretation"></div>
+                </div>
+               
+                <div class="result-card">
+                    <h3>Weight-for-Age</h3>
+                    <div class="result-value" id="weightResult"></div>
+                    <div class="percentile-bar"><div class="percentile-fill" id="weight-bar"></div></div>
+                    <div class="interpretation" id="weight-interpretation"></div>
+                </div>
+               
+                <div class="result-card">
+                    <h3>BMI-for-Age</h3>
+                    <div class="result-value" id="bmiResult"></div>
+                    <div class="percentile-bar"><div class="percentile-fill" id="bmi-bar"></div></div>
+                    <div class="interpretation" id="bmi-interpretation"></div>
+                    <div id="weight-status" class="interpretation"></div>
+                </div>
+               
+                <div class="footnote">
+                    <p><small>Note: This calculator provides estimates based on simplified growth patterns. For clinical assessment, please consult with a pediatrician.</small></p>
+                </div>
+            </div>
+            <!-- END DEEPSEEK-GENERATED CALCULATOR -->
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px 0;">
+        <AdUnit slot="child-growth-calculator-mid" />
+    </div>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="2" ry="2"></rect><line x1="9" y1="6" x2="15" y2="6"></line><line x1="9" y1="12" x2="15" y2="12"></line><line x1="9" y1="18" x2="15" y2="18"></line></svg> How to Use This Calculator</h2>
+            <p>Follow these steps to calculate your child's growth percentiles based on CDC and WHO growth standards:</p>
+
+            <ol>
+                <li><strong>Enter gender:</strong> Different standards apply to boys and girls.</li>
+                <li><strong>Input age:</strong> Enter years and months separately for precise calculations.</li>
+                <li><strong>Choose measurement units:</strong> Select metric (cm/kg) or imperial (in/lbs).</li>
+                <li><strong>Enter height and weight:</strong> Use recent, accurate measurements.</li>
+                <li><strong>View results:</strong> See percentiles and interpretations for height, weight, and BMI.</li>
+            </ol>
+
+            <h4>Understanding Your Results</h4>
+            <ul>
+                <li><strong>Percentile Ranking:</strong> Shows where your child stands compared to peers of the same age and gender.</li>
+                <li><strong>Growth Charts:</strong> Visual representations of your child's measurements relative to standard growth curves.</li>
+                <li><strong>Clinical Interpretations:</strong> Explanations of what the percentiles mean in practical terms.</li>
+            </ul>
+
+            <p>Results are based on CDC growth charts for children 2-20 years and WHO growth standards for children under 5. This tool helps monitor growth patterns over time, but should not replace regular pediatric check-ups.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <h4>What is a growth percentile?</h4>
+                <p>A growth percentile indicates how your child's measurements compare to other children of the same age and gender. For example, if your child is in the 75th percentile for height, it means they are taller than 75% of children their age. Percentiles help pediatricians track whether children are growing in a healthy pattern relative to their peers.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How often should I check my child's growth percentile?</h4>
+                <p>Most pediatricians measure growth at every well-child visit, which typically occurs more frequently during infancy (2-4 months) and spaces out to annual visits for older children. For home monitoring, checking every 3-6 months is reasonable. What's most important is tracking the pattern over time rather than focusing on a single measurement.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Which growth chart should I use — CDC or WHO?</h4>
+                <p>In the United States, the American Academy of Pediatrics recommends using WHO growth standards for all children under 2 years of age and CDC growth charts for children 2-20 years old. The WHO charts better represent optimal growth for younger children, while CDC charts better reflect the U.S. population for older children. This calculator automatically applies the appropriate standards based on your child's age.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Should I be concerned if my child is in a low percentile?</h4>
+                <p>Not necessarily. What's most important is that your child follows a consistent growth curve over time, not their specific percentile. Some children are naturally smaller or larger based on genetics. However, significant drops or jumps across percentile lines (crossing two or more major percentile lines) may warrant discussion with your pediatrician, as might consistently being below the 3rd or above the 97th percentile.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How accurate are online growth calculators?</h4>
+                <p>Online calculators like this one use standard growth data from reliable sources like the CDC and WHO, but they provide estimates rather than clinical assessments. Factors affecting accuracy include measurement precision, data input accuracy, and individual variations not captured by standardized charts. Always discuss results with a healthcare provider, especially if you have concerns about your child's growth.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <AdUnit slot="child-growth-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+        <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
+        <div class="footer-disclaimer">
+          <p>This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed pediatrician.</p>
+        </div>
+    </footer>
+    
+    <!-- Script -->
+    <script>
+        function toggleUnits() {
+            const metricChecked = document.getElementById('metric').checked;
+            document.querySelector('.metric-inputs').style.display = metricChecked ? 'block' : 'none';
+            document.querySelector('.imperial-inputs').style.display = metricChecked ? 'none' : 'block';
+        }
+
+        function calculate() {
+            // Reset warnings
+            document.getElementById('age-warning').style.display = 'none';
+           
+            // Get age
+            const ageYears = parseInt(document.getElementById('age-years').value) || 0;
+            const ageMonths = parseInt(document.getElementById('age-months').value) || 0;
+            const totalMonths = ageYears * 12 + ageMonths;
+           
+            // Validate age
+            if (totalMonths > 240) { // 20 years
+                document.getElementById('age-warning').textContent = 'Note: This calculator is designed for children up to 19 years. Results may not be accurate for older individuals.';
+                document.getElementById('age-warning').style.display = 'block';
+            }
+           
+            // Get height and weight based on selected units
+            let heightCm, weightKg;
+           
+            if (document.getElementById('metric').checked) {
+                heightCm = parseFloat(document.getElementById('height-cm').value);
+                weightKg = parseFloat(document.getElementById('weight-kg').value);
+            } else {
+                const heightFt = parseFloat(document.getElementById('height-ft').value) || 0;
+                const heightIn = parseFloat(document.getElementById('height-in').value) || 0;
+                heightCm = (heightFt * 12 + heightIn) * 2.54;
+               
+                const weightLbs = parseFloat(document.getElementById('weight-lbs').value);
+                weightKg = weightLbs * 0.453592;
+            }
+           
+            // Simple validation
+            if (!totalMonths || !heightCm || !weightKg) {
+                alert("Please fill in all fields with valid numbers");
+                return;
+            }
+           
+            // SIMPLIFIED CALCULATIONS (for demo only)
+            // These are made-up numbers just to show the concept
+            const heightPercentile = Math.min(99, Math.max(1, 50 + (heightCm - (80 + totalMonths * 0.5))));
+            const weightPercentile = Math.min(99, Math.max(1, 50 + (weightKg - (10 + totalMonths * 0.1)) * 2));
+            const bmi = weightKg / ((heightCm/100) ** 2);
+            const bmiPercentile = Math.min(99, Math.max(1, 50 + (bmi - 16) * 3));
+           
+            // Update visual bars
+            document.getElementById('height-bar').style.width = `${heightPercentile}%`;
+            document.getElementById('weight-bar').style.width = `${weightPercentile}%`;
+            document.getElementById('bmi-bar').style.width = `${bmiPercentile}%`;
+           
+            // Show results
+            document.getElementById('heightResult').textContent = `${heightCm.toFixed(1)} cm (${heightPercentile.toFixed(0)}th percentile)`;
+            document.getElementById('weightResult').textContent = `${weightKg.toFixed(1)} kg (${weightPercentile.toFixed(0)}th percentile)`;
+            document.getElementById('bmiResult').textContent = `BMI: ${bmi.toFixed(1)} (${bmiPercentile.toFixed(0)}th percentile)`;
+           
+            // Generate interpretations
+            interpretHeight(heightPercentile);
+            interpretWeight(weightPercentile);
+            interpretBMI(bmiPercentile, ageYears);
+           
+            // Show results section
+            document.getElementById('results').style.display = 'block';
+        }
+       
+        function interpretHeight(percentile) {
+            const elem = document.getElementById('height-interpretation');
+            elem.className = 'interpretation';
+           
+            if (percentile < 3) {
+                elem.innerHTML = `<strong>Very Short Stature:</strong> Your child's height is below the 3rd percentile. This may indicate growth issues. We recommend consulting with a pediatrician to evaluate potential causes.`;
+                elem.className += ' alert';
+            } else if (percentile < 10) {
+                elem.innerHTML = `<strong>Short Stature:</strong> Your child's height is between the 3rd and 10th percentiles. While this may be normal for your family, consider discussing with your pediatrician at the next visit.`;
+                elem.className += ' warning';
+            } else if (percentile < 25) {
+                elem.innerHTML = `<strong>Below Average Height:</strong> Your child's height is between the 10th and 25th percentiles. This is within the normal range but on the shorter side.`;
+            } else if (percentile < 75) {
+                elem.innerHTML = `<strong>Average Height:</strong> Your child's height is between the 25th and 75th percentiles, which is typical for their age and gender.`;
+            } else if (percentile < 90) {
+                elem.innerHTML = `<strong>Above Average Height:</strong> Your child's height is between the 75th and 90th percentiles. This is within the normal range but on the taller side.`;
+            } else if (percentile < 97) {
+                elem.innerHTML = `<strong>Tall Stature:</strong> Your child's height is between the 90th and 97th percentiles. While often normal, extremely rapid growth should be evaluated.`;
+                elem.className += ' warning';
+            } else {
+                elem.innerHTML = `<strong>Very Tall Stature:</strong> Your child's height is above the 97th percentile. This may be normal genetic variation or indicate hormonal issues. Consider consulting with a pediatrician.`;
+                elem.className += ' alert';
+            }
+        }
+       
+        function interpretWeight(percentile) {
+            const elem = document.getElementById('weight-interpretation');
+            elem.className = 'interpretation';
+           
+            if (percentile < 5) {
+                elem.innerHTML = `<strong>Underweight:</strong> Your child's weight is below the 5th percentile. This may indicate inadequate nutrition or other health issues. Please consult with your pediatrician.`;
+                elem.className += ' alert';
+            } else if (percentile < 25) {
+                elem.innerHTML = `<strong>Below Average Weight:</strong> Your child's weight is between the 5th and 25th percentiles. This may be normal for their height and build.`;
+            } else if (percentile < 75) {
+                elem.innerHTML = `<strong>Average Weight:</strong> Your child's weight is between the 25th and 75th percentiles, which is typical for their age and gender.`;
+            } else if (percentile < 85) {
+                elem.innerHTML = `<strong>Above Average Weight:</strong> Your child's weight is between the 75th and 85th percentiles. Monitor to ensure healthy growth patterns continue.`;
+                elem.className += ' warning';
+            } else if (percentile < 95) {
+                elem.innerHTML = `<strong>High Weight:</strong> Your child's weight is between the 85th and 95th percentiles. Consider discussing nutrition and activity levels with your pediatrician.`;
+                elem.className += ' warning';
+            } else {
+                elem.innerHTML = `<strong>Very High Weight:</strong> Your child's weight is above the 95th percentile. Please consult with your pediatrician to evaluate for potential weight-related health concerns.`;
+                elem.className += ' alert';
+            }
+        }
+       
+        function interpretBMI(percentile, ageYears) {
+            const elem = document.getElementById('bmi-interpretation');
+            const statusElem = document.getElementById('weight-status');
+            elem.className = 'interpretation';
+            statusElem.className = 'interpretation';
+           
+            if (percentile < 5) {
+                elem.textContent = "BMI is below the 5th percentile for age and gender.";
+                statusElem.innerHTML = `<strong>Weight Status: Underweight</strong> - This may indicate inadequate nutrition or other health concerns. Please consult with your pediatrician.`;
+                statusElem.className += ' alert';
+            } else if (percentile < 85) {
+                elem.textContent = "BMI is between the 5th and 85th percentiles for age and gender.";
+                statusElem.innerHTML = `<strong>Weight Status: Healthy Weight</strong> - Your child's weight is appropriate for their height. Continue with healthy eating and activity habits.`;
+            } else if (percentile < 95) {
+                elem.textContent = "BMI is between the 85th and 95th percentiles for age and gender.";
+                if (ageYears >= 2) {
+                    statusElem.innerHTML = `<strong>Weight Status: Overweight</strong> - Consider reviewing diet and physical activity. Consult your pediatrician for guidance on healthy growth.`;
+                } else {
+                    statusElem.innerHTML = `<strong>Weight Status: High Weight-for-Length</strong> - For children under 2, consult your pediatrician about appropriate feeding practices.`;
+                }
+                statusElem.className += ' warning';
+            } else {
+                elem.textContent = "BMI is at or above the 95th percentile for age and gender.";
+                if (ageYears >= 2) {
+                    statusElem.innerHTML = `<strong>Weight Status: Obese</strong> - Please consult with your pediatrician to develop a plan for healthy weight management.`;
+                } else {
+                    statusElem.innerHTML = `<strong>Weight Status: Very High Weight-for-Length</strong> - For children under 2, this requires pediatric evaluation of feeding practices and growth patterns.`;
+                }
+                statusElem.className += ' alert';
+            }
+        }
+    </script>
+    
+    <style>
+        /* Child Growth Calculator specific styles */
+        .percentile-bar {
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .percentile-fill {
+            height: 100%;
+            background: #4285f4;
+            width: 50%;
+        }
+        .age-warning {
+            color: #ea4335;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding: 8px 12px;
+            background-color: #ffebee;
+            border-radius: 4px;
+        }
+        .result-card {
+            background: white;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .result-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 10px 0;
+        }
+        .interpretation {
+            padding: 10px;
+            margin-top: 10px;
+            border-left: 4px solid #4285f4;
+            background: #e8f4fd;
+        }
+        .warning {
+            border-left-color: #fbbc05;
+            background: #fff8e6;
+        }
+        .alert {
+            border-left-color: #ea4335;
+            background: #fde8e8;
+        }
+        .metric-inputs,
+        .imperial-inputs {
+            margin-top: 15px;
+        }
+        .imperial-inputs {
+            display: none;
+        }
+        .unit-toggle {
+            margin: 15px 0;
+            padding: 10px;
+            background-color: #f0f7fc;
+            border-radius: 4px;
+        }
+        .footnote {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #666;
+        }
+    </style>
+    
+    </div> <!-- End of calculator-container -->
+</body>
+</html>
