@@ -281,5 +281,9 @@ def child_growth_calculator():
 def sitemap():
     return send_from_directory('static/public', 'sitemap.xml')
 
+@app.route('/ads.txt')
+def ads_txt():
+    return send_from_directory('static/public', 'ads.txt')
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
