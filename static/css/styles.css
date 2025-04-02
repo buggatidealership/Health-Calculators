@@ -892,3 +892,34 @@ footer {
   color: #777;
   margin-top: 40px;
 }
+
+/* Units Toggle Enhanced Styles */
+.units-toggle {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+
+.units-toggle .unit-button {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.units-toggle .unit-button:hover {
+  background-color: #f0f0f0;
+}
+
+.units-toggle .unit-button.active {
+  background-color: #d63384;
+  color: white;
+  border-color: #d63384;
+}
