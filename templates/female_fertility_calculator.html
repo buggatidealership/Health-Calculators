@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Include unified SEO head elements -->
+{% set og_image = "female-fertility-calculator-og.jpg" %}
+{% with 
+    meta_description="Use our fertility calculator to predict your most fertile window based on your cycle. Designed for women trying to conceive naturally.",
+    meta_keywords="fertility calculator, ovulation calculator, fertile window calculator, conception calculator, pregnancy planning, menstrual cycle tracker",
+    og_title="Ovulation & Fertile Window Calculator",
+    og_description="Find your most fertile days based on your menstrual cycle. Backed by science and personalized to your cycle length.",
+    og_url="/calculator/female-fertility-calculator",
+    page_title="Fertility Calculator – Estimate Your Most Fertile Days",
+    canonical_url="/calculator/female-fertility-calculator",
+    schema_name="Fertility Calculator",
+    schema_description="Estimate your fertile window and ovulation date based on your menstrual cycle length, designed to help with natural conception planning."
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- FAQPage schema markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is a fertility calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fertility calculators offer estimates based on typical ovulation patterns. While useful, they don't account for hormonal variations or medical conditions — consult a doctor for personalized tracking."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best time to conceive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your fertile window usually starts about 5 days before ovulation and ends on the day of ovulation. This calculator helps identify those peak days."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this if my cycle is irregular?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but irregular cycles reduce accuracy. The calculator offers estimates, but additional methods like ovulation kits may help track your cycle better."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if I've ovulated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Signs include a rise in basal body temperature, cervical mucus changes, and mild pelvic pain. This tool estimates the timing based on past cycles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the luteal phase length affect fertility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A short luteal phase can make it harder for a fertilized egg to implant. If you suspect this, speak to a fertility specialist."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Fertility Calculator</h1>
+    <p class="subtitle">This evidence-based calculator predicts your most fertile days based on your menstrual cycle. Input your details to identify your ovulation window and best days for conception to maximize your chances of getting pregnant naturally.</p>
+    
+    <div class="description">
+        <div class="medical-disclaimer">
+            <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult your doctor or a fertility specialist for personalized medical advice.</p>
+        </div>
+    </div>
+    
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Fertility Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+      <AdUnit slot="female-fertility-calculator-top" />
+    </div>
+   
+    <section id="calculator" class="calculator">
+        <div class="calculator-container">
+            <div class="form-group">
+                <label for="lastPeriod">First day of last menstrual period:</label>
+                <input type="date" id="lastPeriod" required>
+                <div id="dateError" class="error"></div>
+            </div>
+           
+            <div class="form-group">
+                <label for="cycleLength">Average menstrual cycle length (days):</label>
+                <input type="number" id="cycleLength" min="20" max="45" value="28" required>
+                <small>Typically 21-35 days (28 is average)</small>
+                <div id="cycleError" class="error"></div>
+            </div>
+           
+            <div class="form-group">
+                <label for="lutealPhase">Luteal phase length (days, if known):</label>
+                <input type="number" id="lutealPhase" min="10" max="16" value="14">
+                <small>Typically 10-16 days (14 is average)</small>
+                <div id="lutealError" class="error"></div>
+            </div>
+           
+            <button id="calculateBtn">Calculate Fertility Window</button>
+           
+            <div class="info-box">
+                <strong>How it works:</strong> This calculator estimates your fertile days based on the "calendar method" combined with current fertility research. The most fertile days are typically 5 days before ovulation and the day of ovulation itself.
+            </div>
+           
+            <div id="results" class="results">
+                <h2>Your Fertility Results</h2>
+               
+                <div class="fertility-window">
+                    <h3>Next Fertility Window</h3>
+                    <p><strong>Fertile days:</strong> <span id="fertileDays"></span></p>
+                    <p><strong>Most fertile days:</strong> <span id="peakDays"></span></p>
+                    <p><strong>Likely ovulation day:</strong> <span id="ovulationDay"></span></p>
+                   
+                    <div id="cycleVisualization" style="margin-top: 15px;"></div>
+                </div>
+               
+                <h3>Conception Probability</h3>
+                <p>Based on research from the <em>New England Journal of Medicine</em>:</p>
+                <ul>
+                    <li><span class="high-fertility">5 days before ovulation:</span> 10% chance</li>
+                    <li><span class="high-fertility">4 days before ovulation:</span> 16% chance</li>
+                    <li><span class="high-fertility">3 days before ovulation:</span> 23% chance</li>
+                    <li><span class="peak-fertility">2 days before ovulation:</span> 27% chance</li>
+                    <li><span class="peak-fertility">1 day before ovulation:</span> 33% chance</li>
+                    <li><span class="peak-fertility">Ovulation day:</span> 41% chance</li>
+                    <li><span class="low-fertility">1 day after ovulation:</span> 8% chance</li>
+                </ul>
+               
+                <div class="info-box">
+                    <strong>Note:</strong> These are statistical averages. Individual fertility varies based on age, health, and other factors. The fertile window can shift due to stress, illness, or lifestyle changes.
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mid Ad -->
+        <div class="adunit-mid" style="margin: 40px 0;">
+          <AdUnit slot="female-fertility-calculator-mid" />
+        </div>
+       
+        <div class="info" id="how-to-use">
+            <h2><svg class="section-icon" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M8 18v-8l4 4 4-4v8"></path><path d="M3 8h18"></path></svg>How This Calculator Works</h2>
+            <p>This calculator helps you identify your most fertile days based on your menstrual cycle information, using established fertility science to maximize your chances of conception.</p>
+
+            <ol>
+              <li><strong>Enter Your Last Period Date:</strong> Select the first day of your most recent menstrual period.</li>
+              <li><strong>Input Your Cycle Length:</strong> The average cycle is 28 days, but this can vary from 21-35 days for most women.</li>
+              <li><strong>Specify Luteal Phase (if Known):</strong> This is the time between ovulation and your next period, typically 14 days but can range from 10-16 days.</li>
+              <li><strong>Click Calculate:</strong> See your predicted fertility window, most fertile days, and ovulation date.</li>
+            </ol>
+
+            <h4>Understanding Your Results</h4>
+            <ul>
+              <li><strong>Fertile Window:</strong> The 6-day period when pregnancy is possible (5 days before ovulation plus ovulation day).</li>
+              <li><strong>Peak Fertility:</strong> The 3 days with highest conception probability (1-2 days before ovulation and ovulation day).</li>
+              <li><strong>Ovulation Day:</strong> When your ovary releases an egg, typically 14 days before your next period.</li>
+              <li><strong>Conception Probability:</strong> Daily chances of conception based on clinical research.</li>
+            </ul>
+
+            <p>For more accurate tracking, consider combining this calculator with other fertility awareness methods like basal body temperature tracking or ovulation predictor kits. Always consult a healthcare provider for personalized fertility guidance.</p>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+      <AdUnit slot="female-fertility-calculator-bottom" />
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-section">
+        <h3 id="faq"><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>Frequently Asked Questions</h3>
+        
+        <div class="faq-item">
+            <h4>How accurate is a fertility calculator?</h4>
+            <p>Fertility calculators provide estimates based on typical ovulation patterns, with accuracy ranging from 70-80% for women with regular cycles. The calculator assumes you have a regular cycle and that ovulation occurs at a predictable time. For increased accuracy, combine this with other fertility tracking methods like ovulation prediction kits, basal body temperature monitoring, or tracking cervical mucus changes.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>When is the best time to conceive?</h4>
+            <p>The best time to conceive is during your fertile window, which includes the 5 days before ovulation and the day of ovulation itself. Peak fertility occurs in the 2-3 days leading up to and including ovulation day. Having intercourse every 1-2 days during this window maximizes your chances of conception. An egg survives for about 24 hours after ovulation, while sperm can survive for up to 5 days in favorable cervical conditions.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Can I use this if my cycle is irregular?</h4>
+            <p>Yes, but with reduced accuracy. For irregular cycles, enter your average cycle length if you know it. The calculator will be less reliable if your cycles vary significantly (by more than 7-10 days). In this case, consider using ovulation prediction kits or tracking physical signs of fertility. If your cycles are consistently irregular, consult a healthcare provider as this could indicate hormonal imbalances or conditions like PCOS that may affect fertility.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>How do I know if I've ovulated?</h4>
+            <p>Common signs of ovulation include: a slight rise (0.4-1.0°F) in basal body temperature, changes in cervical mucus (becoming clear, slippery and stretchy, similar to egg whites), mild pelvic or lower abdominal pain (mittelschmerz), increased sex drive, light spotting, breast tenderness, and heightened sense of smell. For more definitive tracking, use ovulation predictor kits that detect luteinizing hormone (LH) surges or consider fertility tracking apps that combine multiple indicators.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Does the luteal phase length affect fertility?</h4>
+            <p>Yes, the luteal phase (time between ovulation and next period) is crucial for fertility. A normal luteal phase lasts 12-16 days, with 14 days being average. A short luteal phase (less than 10 days) can make it difficult for a fertilized egg to implant successfully, as the uterine lining may shed before implantation is complete. If you suspect a luteal phase defect, track your cycle with basal body temperature and discuss with a fertility specialist, as treatment options are available.</p>
+        </div>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <a href="/" class="back-link">← Back to Homepage</a>
+    </div>
+    
+    <div class="footer-disclaimer">
+        <p>This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed practitioner.</p>
+    </div>
+    
+    </div> <!-- End of calculator-container -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('calculateBtn').addEventListener('click', function() {
+                // Clear previous errors and results
+                document.getElementById('dateError').textContent = '';
+                document.getElementById('cycleError').textContent = '';
+                document.getElementById('lutealError').textContent = '';
+                document.getElementById('results').style.display = 'none';
+               
+                // Get input values
+                const lastPeriodInput = document.getElementById('lastPeriod').value;
+                const cycleLength = parseInt(document.getElementById('cycleLength').value);
+                let lutealPhase = parseInt(document.getElementById('lutealPhase').value);
+               
+                // Validate inputs
+                if (!lastPeriodInput) {
+                    document.getElementById('dateError').textContent = 'Please enter your last period date';
+                    return;
+                }
+               
+                const lastPeriod = new Date(lastPeriodInput);
+                if (isNaN(lastPeriod.getTime())) {
+                    document.getElementById('dateError').textContent = 'Please enter a valid date';
+                    return;
+                }
+               
+                if (isNaN(cycleLength) || cycleLength < 20 || cycleLength > 45) {
+                    document.getElementById('cycleError').textContent = 'Please enter a cycle length between 20 and 45 days';
+                    return;
+                }
+               
+                if (isNaN(lutealPhase)) {
+                    lutealPhase = 14; // default value
+                } else if (lutealPhase < 10 || lutealPhase > 16) {
+                    document.getElementById('lutealError').textContent = 'Luteal phase should be between 10-16 days';
+                    return;
+                }
+               
+                // Calculate ovulation day (cycle length - luteal phase)
+                const ovulationDayInCycle = cycleLength - lutealPhase;
+               
+                // Calculate ovulation date (last period + ovulation day in cycle)
+                const ovulationDate = new Date(lastPeriod);
+                ovulationDate.setDate(ovulationDate.getDate() + ovulationDayInCycle);
+               
+                // Calculate fertile window (5 days before ovulation to ovulation day)
+                const fertileStart = new Date(ovulationDate);
+                fertileStart.setDate(fertileStart.getDate() - 5);
+               
+                // Calculate peak fertility days (2 days before ovulation to ovulation day)
+                const peakStart = new Date(ovulationDate);
+                peakStart.setDate(peakStart.getDate() - 2);
+               
+                // Format dates for display
+                document.getElementById('fertileDays').textContent =
+                    formatDate(fertileStart) + ' to ' + formatDate(ovulationDate);
+               
+                document.getElementById('peakDays').textContent =
+                    formatDate(peakStart) + ' to ' + formatDate(ovulationDate);
+               
+                document.getElementById('ovulationDay').textContent = formatDate(ovulationDate);
+               
+                // Create cycle visualization
+                const cycleVis = document.getElementById('cycleVisualization');
+                cycleVis.innerHTML = '<p>Your cycle days:</p>';
+               
+                for (let i = 1; i <= cycleLength; i++) {
+                    const dayElement = document.createElement('span');
+                    dayElement.className = 'cycle-day';
+                    dayElement.textContent = i;
+                   
+                    // Mark fertile days
+                    if (i >= (ovulationDayInCycle - 5) && i <= ovulationDayInCycle) {
+                        dayElement.classList.add('fertile-day');
+                    }
+                   
+                    // Mark peak fertility days
+                    if (i >= (ovulationDayInCycle - 2) && i <= ovulationDayInCycle) {
+                        dayElement.classList.add('peak-fertility');
+                    }
+                   
+                    // Mark ovulation day
+                    if (i === ovulationDayInCycle) {
+                        dayElement.classList.add('ovulation-day');
+                    }
+                   
+                    cycleVis.appendChild(dayElement);
+                }
+               
+                // Show results
+                document.getElementById('results').style.display = 'block';
+               
+                // Scroll to results
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+       
+        // Helper function to format dates consistently
+        function formatDate(date) {
+            const options = { weekday: 'short', month: 'short', day: 'numeric' };
+            return date.toLocaleDateString('en-US', options);
+        }
+    </script>
+
+    <style>
+        .cycle-day {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            margin: 2px;
+            border-radius: 50%;
+            background-color: #eee;
+        }
+        .fertile-day {
+            background-color: #fce4ec;
+            font-weight: bold;
+        }
+        .ovulation-day {
+            background-color: #f8bbd0;
+            font-weight: bold;
+        }
+        .peak-fertility {
+            background-color: #f48fb1;
+            font-weight: bold;
+        }
+        .error {
+            color: #e74c3c;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+        .high-fertility {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .medium-fertility {
+            color: #f39c12;
+            font-weight: bold;
+        }
+        .low-fertility {
+            color: #27ae60;
+            font-weight: bold;
+        }
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #d63384;
+            padding: 15px;
+            margin: 20px 0;
+            font-size: 14px;
+        }
+        #results {
+            display: none;
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f5f9;
+        }
+        .fertility-window {
+            background-color: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .back-link {
+            color: #d63384;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        .footer-disclaimer {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</body>
+</html>

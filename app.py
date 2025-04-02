@@ -11,12 +11,20 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Fertility Calculator",
+        "url": "/calculator/female-fertility-calculator",
+        "summary": "Predict your most fertile days and ovulation date based on your menstrual cycle.",
+        "icon": "👶",
+        "cta": "Find Fertile Days",
+        "color": "pink"
+    },
+    {
         "title": "Breast Implant Calculator",
         "url": "/breast-implant-calculator",
         "summary": "Find your ideal implant size based on your measurements and goals.",
         "icon": "💗",
         "cta": "Calculate Implant Size",
-        "color": "pink"
+        "color": "purple"
     },
     {
         "title": "Ozempic Weight Loss Calculator",
@@ -24,7 +32,7 @@ cards = [
         "summary": "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy).",
         "icon": "💊",
         "cta": "Estimate Fat Loss",
-        "color": "purple"
+        "color": "blue"
     },
     {
         "title": "Botox Dosage Calculator",
@@ -32,7 +40,7 @@ cards = [
         "summary": "Determine the appropriate Botox units for different treatment areas.",
         "icon": "💉",
         "cta": "Calculate Botox Units",
-        "color": "blue"
+        "color": "teal"
     },
     {
         "title": "Creatine Hydration Calculator",
@@ -40,7 +48,7 @@ cards = [
         "summary": "Calculate optimal water intake when using creatine supplements.",
         "icon": "💧",
         "cta": "Calculate Hydration",
-        "color": "teal"
+        "color": "yellow"
     },
     {
         "title": "Vitamin D Intake Calculator",
@@ -48,7 +56,7 @@ cards = [
         "summary": "Determine your ideal vitamin D supplementation based on lifestyle factors.",
         "icon": "☀️",
         "cta": "Calculate Intake",
-        "color": "yellow"
+        "color": "red"
     },
     {
         "title": "Lifespan Calculator",
@@ -56,7 +64,7 @@ cards = [
         "summary": "Estimate your life expectancy based on health and lifestyle factors.",
         "icon": "❤️",
         "cta": "Check Your Lifespan",
-        "color": "red"
+        "color": "green"
     },
     {
         "title": "Fasting Weight Loss Calculator",
@@ -64,7 +72,7 @@ cards = [
         "summary": "Calculate potential weight loss from intermittent fasting protocols.",
         "icon": "⏱️",
         "cta": "Calculate Weight Loss",
-        "color": "green"
+        "color": "orange"
     },
     {
         "title": "Caloric & Macronutrient Calculator",
@@ -72,7 +80,7 @@ cards = [
         "summary": "Calculate your daily caloric needs and optimal macronutrient ratios.",
         "icon": "🍎",
         "cta": "Calculate Your Calories",
-        "color": "orange"
+        "color": "pink"
     }
 ]
 
@@ -196,6 +204,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Maximizing Your Fertility: Natural Methods for Conception",
+        "url": "/resources/natural-fertility-methods",
+        "summary": "Evidence-based guidance on tracking your fertile window, optimizing nutrition, and lifestyle changes to increase conception chances.",
+        "icon": "👶",
+        "cta": "Boost Fertility",
+        "color": "pink"
+    },
+    {
         "title": "How to Use the Ozempic Weight Loss Calculator",
         "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
         "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
@@ -230,6 +246,19 @@ def resources():
         'resources.html', 
         is_homepage=False, 
         articles=articles,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/calculator/female-fertility-calculator')
+def female_fertility_calculator():
+    schema_name = "Fertility Calculator"
+    schema_description = "Estimate your fertile window and ovulation date based on your menstrual cycle length, designed to help with natural conception planning."
+    schema_url = "/calculator/female-fertility-calculator"
+    return render_template(
+        'female_fertility_calculator.html', 
+        is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
