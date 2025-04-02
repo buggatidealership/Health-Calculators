@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Child Growth Calculator",
+        "url": "/child-growth-calculator",
+        "summary": "Track your child's growth percentile for height, weight, and BMI using CDC and WHO standards.",
+        "icon": "📏",
+        "cta": "Check Growth Percentile",
+        "color": "purple"
+    },
+    {
         "title": "Female Fertility Calculator",
         "url": "/female-fertility-calculator",
         "summary": "Predict your most fertile days and ovulation window based on your menstrual cycle.",
@@ -250,6 +258,19 @@ def female_fertility_calculator():
     schema_url = "/female-fertility-calculator"
     return render_template(
         'female_fertility_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/child-growth-calculator')
+def child_growth_calculator():
+    schema_name = "Child Growth Percentile Calculator"
+    schema_description = "Calculate your child's height, weight, and BMI percentiles based on CDC and WHO growth charts. Track developmental progress with our free calculator."
+    schema_url = "/child-growth-calculator"
+    return render_template(
+        'child_growth_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
