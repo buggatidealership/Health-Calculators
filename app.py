@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Lip Filler Cost Calculator",
+        "url": "/lip-filler-cost-calculator",
+        "summary": "Estimate the cost of lip fillers based on volume, brand, and injector type for your procedure.",
+        "icon": "💋",
+        "cta": "Calculate Cost",
+        "color": "pink"
+    },
+    {
         "title": "Adult Height Predictor Calculator",
         "url": "/adult-height-predictor-calculator",
         "summary": "Predict a child's future adult height based on their age, current height, gender, and parental heights.",
@@ -279,6 +287,19 @@ def child_growth_calculator():
     schema_url = "/child-growth-calculator"
     return render_template(
         'child_growth_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/lip-filler-cost-calculator')
+def lip_filler_cost_calculator():
+    schema_name = "Lip Filler Cost Calculator"
+    schema_description = "Estimate the cost of lip filler injections based on desired volume, brand, and injector type. Personalized and aesthetic-focused."
+    schema_url = "/lip-filler-cost-calculator"
+    return render_template(
+        'lip_filler_cost_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
