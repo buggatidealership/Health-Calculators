@@ -142,14 +142,22 @@
             <div class="form-group">
                 <label>Select Treatment Areas:</label>
                 <div class="body-areas">
+                  <div class="checkbox-row">
                     <label><input type="checkbox" name="area" value="abdomen"> Abdomen</label>
                     <label><input type="checkbox" name="area" value="flanks"> Flanks / Love Handles</label>
+                  </div>
+                  <div class="checkbox-row">
                     <label><input type="checkbox" name="area" value="thighs"> Thighs</label>
                     <label><input type="checkbox" name="area" value="arms"> Arms</label>
+                  </div>
+                  <div class="checkbox-row">
                     <label><input type="checkbox" name="area" value="back"> Back</label>
                     <label><input type="checkbox" name="area" value="chin"> Chin / Neck</label>
+                  </div>
+                  <div class="checkbox-row">
                     <label><input type="checkbox" name="area" value="chest"> Chest (Male)</label>
                     <label><input type="checkbox" name="area" value="buttocks"> Buttocks</label>
+                  </div>
                 </div>
             </div>
            
@@ -420,18 +428,31 @@
     .body-areas {
         display: flex;
         flex-direction: column;
-        gap: 10px;
-        margin-top: 10px;
-        margin-bottom: 20px;
+        gap: 12px;
+        margin: 15px 0 20px;
     }
     
-    .body-areas label {
+    .checkbox-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+    }
+    
+    .checkbox-row label {
+        flex: 1;
         display: flex;
         align-items: center;
         gap: 8px;
         font-weight: normal;
         font-size: 15px;
         white-space: nowrap;
+    }
+    
+    @media (max-width: 600px) {
+        .checkbox-row {
+            flex-direction: column;
+            gap: 10px;
+        }
     }
     
     .units {
