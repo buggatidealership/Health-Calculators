@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "newborn-weight-loss-calculator-og.jpg" %}
+{% with 
+    meta_description="Track and estimate newborn weight loss in the first days after birth. Know when weight loss is normal and when to take action.",
+    meta_keywords="newborn weight loss calculator, baby weight loss chart, normal newborn weight change, infant weight tracking",
+    og_title="Newborn Weight Loss Calculator",
+    og_description="Quickly calculate if your newborn's weight loss is within a safe range. Based on clinical guidelines and birth weight.",
+    og_url="/newborn-weight-loss-calculator",
+    page_title="Newborn Weight Loss Calculator – Track Early Weight Changes",
+    canonical_url="/newborn-weight-loss-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Newborn Weight Loss Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/newborn-weight-loss-calculator",
+      "description": "Track newborn weight loss and assess safety with this tool based on clinical guidelines for infant feeding."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much weight loss is normal for a newborn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Up to 7-10% is considered typical in the first week. Beyond 10% may signal concern."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should I worry about weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If your newborn loses more than 10% of their birth weight or isn't regaining by day 10, consult your pediatrician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should I weigh my newborn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Typically once per day during the first week, especially if exclusively breastfeeding."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What causes newborn weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Normal fluid loss, delayed milk production, poor latch, or feeding issues."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it different for C-section or NICU babies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Some may lose more fluid early or regain weight more slowly. Always follow pediatric advice."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .result.normal {
+            background-color: #d5f5e3;
+            border-left: 5px solid #2ecc71;
+        }
+        .result.warning {
+            background-color: #fdebd0;
+            border-left: 5px solid #f39c12;
+        }
+        .result.alert {
+            background-color: #fadbd8;
+            border-left: 5px solid #e74c3c;
+        }
+        .info-box {
+            background-color: #eaf2f8;
+            border-left: 5px solid #3498db;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        .weight-input {
+            display: flex;
+            gap: 10px;
+        }
+        .weight-input input {
+            flex: 1;
+        }
+        .weight-input select {
+            width: 80px;
+        }
+        @media (max-width: 600px) {
+            .weight-input {
+                flex-direction: column;
+            }
+            .weight-input select {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Newborn Weight Loss Calculator</h1>
+    <p class="subtitle">This calculator helps you track and assess weight changes in newborns during their first two weeks of life. Based on established pediatric guidelines, it evaluates whether weight loss falls within the expected range and provides recommendations.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For medical concerns, consult a pediatrician or lactation consultant.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Newborn Weight Loss Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="newborn-weight-loss-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Birth Weight:</label>
+                <div class="weight-input">
+                    <input type="number" id="birth-weight" placeholder="Weight" step="0.01" min="0">
+                    <select id="birth-weight-unit">
+                        <option value="kg">kg</option>
+                        <option value="lb">lb</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Current Weight:</label>
+                <div class="weight-input">
+                    <input type="number" id="current-weight" placeholder="Weight" step="0.01" min="0">
+                    <select id="current-weight-unit">
+                        <option value="kg">kg</option>
+                        <option value="lb">lb</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Baby's Age (days):</label>
+                <input type="number" id="age" min="0" max="14" placeholder="0-14 days">
+            </div>
+            
+            <div class="form-group">
+                <label for="feeding-method">Primary Feeding Method:</label>
+                <select id="feeding-method">
+                    <option value="breast">Exclusively Breastfed</option>
+                    <option value="formula">Exclusively Formula Fed</option>
+                    <option value="mixed">Mixed Feeding</option>
+                </select>
+            </div>
+            
+            <button id="calculate-btn" class="cta-button" onclick="calculateWeightLoss()">Calculate Weight Loss</button>
+            
+            <div id="result" class="result" style="display: none;">
+                <h3>Results</h3>
+                <p id="result-text"></p>
+                <p id="recommendation"></p>
+            </div>
+            
+            <div class="info-box">
+                <h3>About Newborn Weight Loss</h3>
+                <p>Most newborns lose weight in the first few days after birth. According to research:</p>
+                <ul>
+                    <li><strong>Day 1-3:</strong> 5-7% loss is normal for vaginal births, 7-10% for C-sections</li>
+                    <li><strong>Day 4+:</strong> Should stop losing and begin regaining weight</li>
+                    <li><strong>Concerning:</strong> >10% loss at any time or not regaining by day 5</li>
+                    <li><strong>Expected regain:</strong> Birth weight typically regained by 10-14 days</li>
+                </ul>
+                <p>This calculator is based on current AAP guidelines and neonatal research. Always consult your pediatrician with concerns.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px 0;">
+        <AdUnit slot="newborn-weight-loss-calculator-mid" />
+    </div>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>How to Use the Newborn Weight Loss Calculator</h2>
+            <p>Follow these simple steps to track your baby's weight changes:</p>
+
+            <ol>
+                <li><strong>Enter the birth weight</strong> in either kilograms or pounds</li>
+                <li><strong>Enter the current weight</strong> measured today</li>
+                <li><strong>Indicate the baby's age</strong> in days (from 0-14)</li>
+                <li><strong>Select the primary feeding method</strong> (breastfed, formula-fed, or mixed)</li>
+                <li><strong>Click "Calculate Weight Loss"</strong> to see the results</li>
+            </ol>
+
+            <h4>Understanding Your Results</h4>
+            <ul>
+                <li><strong>Weight Change:</strong> Shows absolute weight difference and percentage</li>
+                <li><strong>Status:</strong> Indicates whether the loss is normal, concerning, or needs immediate attention</li>
+                <li><strong>Recommendation:</strong> Provides guidance based on clinical thresholds</li>
+            </ul>
+
+            <p>The color-coding makes it easy to understand the results:</p>
+            <ul>
+                <li><span style="color: #2ecc71; font-weight: bold;">Green</span>: Normal weight change</li>
+                <li><span style="color: #f39c12; font-weight: bold;">Yellow</span>: Monitor closely</li>
+                <li><span style="color: #e74c3c; font-weight: bold;">Red</span>: Consult healthcare provider</li>
+            </ul>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <h4>How much weight loss is normal for a newborn?</h4>
+                <p>Most newborns lose between 5-10% of their birth weight in the first few days of life. This is a normal physiological process, primarily due to fluid shifts and limited initial feeding volumes. For vaginally delivered babies, losses up to 7% are typically considered normal, while C-section delivered babies may lose slightly more (up to 10%) due to extra fluids received during delivery. Weight loss beyond these thresholds may require medical evaluation to rule out feeding problems.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>When should I worry about weight loss?</h4>
+                <p>You should consult your pediatrician if your newborn loses more than 10% of their birth weight at any point, isn't showing signs of weight gain by day 5, or hasn't returned to birth weight by 10-14 days of age. Other concerning signs include: fewer than 6 wet diapers in 24 hours after day 4, persistent lethargy, jaundice, or feeding for more than 30-40 minutes without seeming satisfied. These could indicate problems with milk transfer, production, or other medical issues that need prompt evaluation.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How often should I weigh my newborn?</h4>
+                <p>For healthy, full-term babies, weight is typically checked at birth, during the hospital stay, and at the first pediatrician visit (usually 3-5 days after birth). Additional weight checks may be recommended for babies with excessive early weight loss or feeding concerns. For exclusively breastfed babies, more frequent monitoring in the first week may help detect feeding issues early. Use only medical-grade scales for accuracy, and try to weigh at the same time of day, ideally before a feeding, for consistent measurements.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What causes newborn weight loss?</h4>
+                <p>Newborn weight loss is primarily caused by: (1) Normal fluid shifts - babies are born with extra fluid that they shed in the first days; (2) Limited initial feeding volume - colostrum comes in small amounts before mature milk production begins around day 2-5; (3) Delayed milk production - some mothers' milk comes in later, especially after C-section; (4) Feeding difficulties - poor latch, tongue tie, or other issues can reduce milk transfer; and (5) Meconium passage - first stools account for some weight loss. Most causes are normal and temporary, but persistent issues should be evaluated.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Is it different for C-section or NICU babies?</h4>
+                <p>Yes, babies born via C-section often receive more IV fluids during delivery, which can result in higher initial birth weights and subsequently more dramatic early weight loss (typically 1-3% more than vaginally delivered babies). NICU babies may have different weight patterns based on their medical conditions and feeding protocols. Premature infants often follow different growth curves entirely. In both cases, healthcare providers will use adjusted expectations and guidelines to monitor weight changes, and parents should follow their specific medical team's guidance.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <AdUnit slot="newborn-weight-loss-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+        <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
+        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+            <strong>Disclaimer:</strong> This tool is for educational purposes only. Always consult your pediatrician regarding newborn weight or feeding concerns.
+        </p>
+    </footer>
+    
+    <!-- Script -->
+    <script src="/static/js/newborn_weight_loss_calculator.js"></script>
+    
+    </div> <!-- End of calculator-container -->
+</body>
+</html>

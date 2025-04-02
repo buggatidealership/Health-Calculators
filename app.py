@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Newborn Weight Loss Calculator",
+        "url": "/newborn-weight-loss-calculator",
+        "summary": "Track and assess weight loss in newborns during the first days after birth based on clinical guidelines.",
+        "icon": "👶",
+        "cta": "Calculate Weight Loss",
+        "color": "blue"
+    },
+    {
         "title": "Dog Pregnancy Due-Date Calculator",
         "url": "/dog-pregnancy-due-date-calculator",
         "summary": "Estimate your dog's whelping date based on breeding date with this veterinary-backed calculator.",
@@ -370,6 +378,19 @@ def dog_pregnancy_due_date_calculator():
     schema_url = "/dog-pregnancy-due-date-calculator"
     return render_template(
         'dog_pregnancy_due_date_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/newborn-weight-loss-calculator')
+def newborn_weight_loss_calculator():
+    schema_name = "Newborn Weight Loss Calculator"
+    schema_description = "Track and estimate newborn weight loss in the first days after birth. Know when weight loss is normal and when to take action."
+    schema_url = "/newborn-weight-loss-calculator"
+    return render_template(
+        'newborn_weight_loss_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
