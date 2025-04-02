@@ -342,11 +342,25 @@ def adult_height_predictor_calculator():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory('static/public', 'sitemap.xml')
+    return send_from_directory(
+        'static/public',
+        'sitemap.xml',
+        mimetype='text/xml'
+    )
 
 @app.route('/ads.txt')
 def ads_txt():
     return send_from_directory('static/public', 'ads.txt')
+
+@app.route('/robots.txt')
+def robots_txt():
+    return (
+        "User-agent: *\n"
+        "Disallow:\n"
+        "Sitemap: https://longevitycalculator.xyz/sitemap.xml\n",
+        200,
+        {'Content-Type': 'text/plain'}
+    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
