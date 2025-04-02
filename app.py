@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Baldness Risk Calculator",
+        "url": "/baldness-risk-calculator",
+        "summary": "Estimate your risk of going bald based on family history, age, lifestyle, and health factors.",
+        "icon": "👨‍🦲",
+        "cta": "Predict Hair Loss",
+        "color": "purple"
+    },
+    {
         "title": "Newborn Weight Loss Calculator",
         "url": "/newborn-weight-loss-calculator",
         "summary": "Track and assess weight loss in newborns during the first days after birth based on clinical guidelines.",
@@ -391,6 +399,19 @@ def newborn_weight_loss_calculator():
     schema_url = "/newborn-weight-loss-calculator"
     return render_template(
         'newborn_weight_loss_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/baldness-risk-calculator')
+def baldness_risk_calculator():
+    schema_name = "Baldness Risk Calculator"
+    schema_description = "Estimate your risk of going bald based on family history, age, lifestyle, and health. Backed by clinical studies."
+    schema_url = "/baldness-risk-calculator"
+    return render_template(
+        'baldness_risk_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

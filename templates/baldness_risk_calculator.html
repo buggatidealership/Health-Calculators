@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "baldness-risk-calculator-og.jpg" %}
+{% with 
+    meta_description="Estimate your risk of going bald based on family history, age, lifestyle, and health. Backed by clinical studies.",
+    meta_keywords="baldness calculator, male pattern baldness, predict hair loss, hair loss calculator, genetic baldness risk",
+    og_title="Baldness Risk Calculator",
+    og_description="Use this evidence-based calculator to assess your risk of male or female pattern hair loss over time.",
+    og_url="/baldness-risk-calculator",
+    page_title="Baldness Risk Calculator – Predict Hair Loss Likelihood by Age & Genetics",
+    canonical_url="/baldness-risk-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Baldness Risk Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/baldness-risk-calculator",
+      "description": "Estimate your risk of developing pattern baldness based on age, gender, family history, stress, and health."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is baldness genetic?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Up to 80% of male pattern hair loss is hereditary, with both sides of the family contributing."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What age does balding usually start?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It can begin in the late teens, but most people notice thinning between ages 25–40."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can stress really cause hair loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Chronic stress can trigger telogen effluvium and accelerate pattern loss in those genetically predisposed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Will I definitely go bald if my dad did?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Not always. Genetics increase probability, but lifestyle, health, and maternal genetics also play a role."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I reduce my risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Managing stress, not smoking, eating a nutrient-rich diet, and using treatments like minoxidil may help slow progression."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        .progress-container {
+            width: 100%;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            height: 20px;
+            border-radius: 5px;
+            background-color: #3498db;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+        }
+        .result.risk-low {
+            background-color: #d4edda;
+            color: #155724;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .result.risk-moderate {
+            background-color: #fff3cd;
+            color: #856404;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .result.risk-high {
+            background-color: #f8d7da;
+            color: #721c24;
+            border-radius: 5px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .info {
+            font-size: 14px;
+            color: #666;
+            margin-top: 5px;
+        }
+        .references {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #666;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .references h3 {
+            font-size: 16px;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Baldness Risk Calculator</h1>
+    <p class="subtitle">Estimate your risk of male or female pattern baldness based on your genetics, age, and lifestyle factors. This calculator uses research-backed factors to predict hair loss progression.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For hair loss diagnosis and treatment, consult a dermatologist.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Baldness Risk Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="baldness-risk-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="age">Your Current Age</label>
+                <input type="number" id="age" min="16" max="80" value="30" class="form-control">
+            </div>
+            
+            <div class="form-group">
+                <label for="family-history">Family History of Baldness</label>
+                <select id="family-history" class="form-control">
+                    <option value="0">No bald relatives</option>
+                    <option value="1">One grandparent or uncle</option>
+                    <option value="2">One parent</option>
+                    <option value="3" selected>Both parents or father + maternal grandfather</option>
+                </select>
+                <div class="info">Maternal grandfather's hair loss is particularly predictive</div>
+            </div>
+            
+            <div class="form-group">
+                <label for="current-hair">Current Hair Status (Norwood Scale)</label>
+                <select id="current-hair" class="form-control">
+                    <option value="0">Norwood 1 - No recession</option>
+                    <option value="1">Norwood 2 - Slight recession at temples</option>
+                    <option value="2" selected>Norwood 3 - Deepening recession at temples</option>
+                    <option value="3">Norwood 4 - Recession plus thinning crown</option>
+                    <option value="4">Norwood 5-7 - Advanced balding</option>
+                </select>
+                <div class="info"><a href="https://en.wikipedia.org/wiki/Hamilton%E2%80%93Norwood_scale" target="_blank">Norwood Scale Reference</a></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="hair-loss-rate">Rate of Hair Loss</label>
+                <select id="hair-loss-rate" class="form-control">
+                    <option value="0">No noticeable change in 5+ years</option>
+                    <option value="1" selected>Slow (minor changes over several years)</option>
+                    <option value="2">Moderate (noticeable changes each year)</option>
+                    <option value="3">Rapid (significant changes in months)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="stress">Stress Level</label>
+                <select id="stress" class="form-control">
+                    <option value="0">Low stress</option>
+                    <option value="1" selected>Moderate stress</option>
+                    <option value="2">High stress</option>
+                    <option value="3">Chronic high stress</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="smoking">Smoking Status</label>
+                <select id="smoking" class="form-control">
+                    <option value="0">Never smoked</option>
+                    <option value="1">Former smoker</option>
+                    <option value="2" selected>Current smoker (less than 10/day)</option>
+                    <option value="3">Current smoker (10+ cigarettes/day)</option>
+                </select>
+            </div>
+            
+            <button id="calculate-btn" class="cta-button" onclick="calculateBaldness()">Predict My Baldness Timeline</button>
+            
+            <div id="result" class="result" style="display: none;"></div>
+            
+            <div class="references">
+                <h3>Scientific Basis</h3>
+                <p>This calculator is based on:</p>
+                <ul>
+                    <li>Genetic predisposition studies (Heilmann-Heimbach et al., 2017)</li>
+                    <li>Pattern progression rates (Norwood, 1975)</li>
+                    <li>Environmental factor research (Su & Chen, 2007; Hadshiew et al., 2004)</li>
+                    <li>Clinical progression models (Blumeyer et al., 2011)</li>
+                </ul>
+                <p>Note: This is an estimation tool only. Individual results may vary.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px 0;">
+        <AdUnit slot="baldness-risk-calculator-mid" />
+    </div>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>How to Use the Baldness Risk Calculator</h2>
+            <p>To get an accurate prediction of your hair loss risk and timeline:</p>
+
+            <ol>
+                <li><strong>Enter your age</strong> (balding typically begins between 20–45)</li>
+                <li><strong>Select your family history</strong> — maternal and paternal genetics both influence risk</li>
+                <li><strong>Indicate your current hair status</strong> using the Norwood Scale reference</li>
+                <li><strong>Estimate your rate of hair loss</strong> from your own observations</li>
+                <li><strong>Add lifestyle details</strong> like stress levels and smoking status</li>
+                <li><strong>Click "Predict My Baldness Timeline"</strong> to generate your personalized risk assessment</li>
+            </ol>
+
+            <h4>Understanding Your Results</h4>
+            <p>The calculator will provide:</p>
+            <ul>
+                <li><strong>Risk Score:</strong> Your overall probability of significant hair loss (0-100%)</li>
+                <li><strong>Risk Level:</strong> Low, Moderate, or High classification based on all factors</li>
+                <li><strong>Predicted Age:</strong> The estimated age when you might reach significant baldness</li>
+                <li><strong>Personalized Recommendations:</strong> Based on your specific risk factors</li>
+            </ul>
+
+            <p>Remember that while genetics plays the largest role in hair loss (accounting for approximately 80% of male pattern baldness), lifestyle factors can accelerate or delay the process by several years.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <h4>Is baldness genetic?</h4>
+                <p>Yes. Up to 80% of male pattern hair loss is hereditary, with both sides of the family contributing. The most significant genetic markers are found on the X chromosome (inherited from your mother) and the androgen receptor gene, which determines sensitivity to dihydrotestosterone (DHT). Despite the common belief that baldness comes only from the maternal side, research shows that multiple genes from both parents contribute to hair loss predisposition. Genetic testing can identify some markers, but environmental factors also play a significant role in determining when and how quickly genetic baldness progresses.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What age does balding usually start?</h4>
+                <p>It can begin in the late teens, but most people notice thinning between ages 25–40. The onset of androgenetic alopecia (pattern baldness) varies widely among individuals. Approximately 25% of men with genetic predisposition begin to see hair loss before age 21, while most notice changes in their late twenties or thirties. By age 50, about 50% of men have significant hair loss. For women, pattern hair loss typically becomes noticeable later, often in their 40s or 50s, and usually presents as overall thinning rather than receding hairlines. Early onset of balding (before age 25) often indicates a stronger genetic predisposition and may suggest more aggressive progression.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Can stress really cause hair loss?</h4>
+                <p>Yes. Chronic stress can trigger telogen effluvium and accelerate pattern loss in those genetically predisposed. Stress affects hair growth through several mechanisms: it increases cortisol levels, which can disrupt the hair growth cycle; it can trigger an inflammatory response affecting hair follicles; and it may cause temporary autoimmune reactions where the body attacks its own hair follicles. Typically, stress-related hair loss is diffuse (all over) rather than following the pattern of genetic baldness, and it's usually reversible once the stressor is removed. However, in people with genetic predisposition to pattern baldness, chronic stress can accelerate the timeline and severity of their inherited hair loss pattern by sensitizing follicles to hormones like DHT.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Will I definitely go bald if my dad did?</h4>
+                <p>Not always. Genetics increase probability, but lifestyle, health, and maternal genetics also play a role. While having a father with male pattern baldness increases your risk by about 2.5 times, it's not a guarantee. Hair loss inheritance is polygenic (involving multiple genes) and has variable expression. Your maternal grandfather's hair status is also a significant predictor, as key baldness genes are on the X chromosome (which men inherit from their mothers). Additionally, environmental factors like stress, diet, smoking, certain medications, and overall health can influence when and if genetically-programmed hair loss manifests. Even identical twins with the same genetic blueprint can experience different balding patterns and timelines due to these external influences.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How can I reduce my risk?</h4>
+                <p>Managing stress, not smoking, eating a nutrient-rich diet, and using treatments like minoxidil may help slow progression. While you cannot change your genetic predisposition, several evidence-based approaches can delay onset and slow progression: (1) FDA-approved medications like topical minoxidil and oral finasteride have shown effectiveness in preventing further loss and promoting regrowth; (2) Nutritional support including adequate protein, iron, zinc, vitamin D, and B vitamins helps maintain healthy hair growth; (3) Avoiding harsh styling practices and heat damage prevents breakage and additional stress on follicles; (4) Managing chronic stress through exercise, sleep, and relaxation techniques; and (5) Low-level laser therapy has shown promise in stimulating follicle activity. Early intervention typically yields better results.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <AdUnit slot="baldness-risk-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+        <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
+        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+            <strong>Disclaimer:</strong> This tool provides general educational estimates. For diagnosis or treatment of hair loss, consult a board-certified provider.
+        </p>
+    </footer>
+    
+    <!-- Script -->
+    <script src="/static/js/baldness_risk_calculator.js"></script>
+    
+    </div> <!-- End of calculator-container -->
+</body>
+</html>
