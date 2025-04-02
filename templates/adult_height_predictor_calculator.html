@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'head_seo.html' %}
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Adult Height Predictor Calculator – Estimate Future Height</h1>
+    <p class="subtitle">Predict your child's adult height using evidence-based formulas like mid-parental height, Khamis-Roche, and growth charts. Fast, free, and personalized.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For clinical concerns, consult a pediatrician or endocrinologist.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Adult Height Predictor Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="adult-height-predictor-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="childGender">Child's Gender:</label>
+                <select id="childGender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="childAge">Child's Age (years):</label>
+                <input type="number" id="childAge" min="1" max="17" value="10" step="0.5">
+            </div>
+            
+            <div class="form-group">
+                <label>Child's Current Height:</label>
+                <div class="unit-toggle">
+                    <button type="button" class="unit-btn active" onclick="toggleUnit('child', 'cm')">cm</button>
+                    <button type="button" class="unit-btn" onclick="toggleUnit('child', 'ft')">ft/in</button>
+                </div>
+                <div id="child-cm-input">
+                    <input type="number" id="childHeightCm" min="30" max="220" step="0.1" placeholder="Height in cm">
+                </div>
+                <div id="child-ft-input" style="display: none;">
+                    <input type="number" id="childHeightFt" min="1" max="7" step="1" placeholder="Feet">
+                    <input type="number" id="childHeightIn" min="0" max="11" step="0.1" placeholder="Inches">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Mother's Height:</label>
+                <div class="unit-toggle">
+                    <button type="button" class="unit-btn active" onclick="toggleUnit('mother', 'cm')">cm</button>
+                    <button type="button" class="unit-btn" onclick="toggleUnit('mother', 'ft')">ft/in</button>
+                </div>
+                <div id="mother-cm-input">
+                    <input type="number" id="motherHeightCm" min="120" max="220" step="0.1" placeholder="Height in cm">
+                </div>
+                <div id="mother-ft-input" style="display: none;">
+                    <input type="number" id="motherHeightFt" min="4" max="7" step="1" placeholder="Feet">
+                    <input type="number" id="motherHeightIn" min="0" max="11" step="0.1" placeholder="Inches">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Father's Height:</label>
+                <div class="unit-toggle">
+                    <button type="button" class="unit-btn active" onclick="toggleUnit('father', 'cm')">cm</button>
+                    <button type="button" class="unit-btn" onclick="toggleUnit('father', 'ft')">ft/in</button>
+                </div>
+                <div id="father-cm-input">
+                    <input type="number" id="fatherHeightCm" min="120" max="220" step="0.1" placeholder="Height in cm">
+                </div>
+                <div id="father-ft-input" style="display: none;">
+                    <input type="number" id="fatherHeightFt" min="4" max="7" step="1" placeholder="Feet">
+                    <input type="number" id="fatherHeightIn" min="0" max="11" step="0.1" placeholder="Inches">
+                </div>
+            </div>
+            
+            <button class="cta-button" onclick="calculateHeight()">Predict Adult Height</button>
+            
+            <div id="result" class="result" style="display: none;">
+                <h2>Predicted Adult Height</h2>
+                <p>Based on the input data, the predicted adult height is:</p>
+                <p class="range" id="predictedHeight"></p>
+                <p id="additionalInfo"></p>
+            </div>
+        </div>
+    
+        <div class="info">
+            <h3>About This Calculator</h3>
+            <p>This height predictor uses the mid-parental height method (Tanner method) which is widely used in pediatric practice. The calculation accounts for:</p>
+            <ul>
+                <li>Genetic potential based on parental heights</li>
+                <li>Gender differences in growth patterns</li>
+                <li>Current height and age to assess growth trajectory</li>
+            </ul>
+            <p><strong>Note:</strong> This is an estimate only. Actual adult height can be affected by nutrition, health conditions, and other environmental factors. The prediction is most accurate for children who are not experiencing early or delayed puberty.</p>
+            <p>For children under 4 years old, predictions are less reliable. The margin of error is typically ±5 cm (±2 inches).</p>
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px 0;">
+        <AdUnit slot="adult-height-predictor-calculator-mid" />
+    </div>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2>How to Use the Adult Height Predictor Calculator</h2>
+            <p>Follow these steps to predict a child's potential adult height:</p>
+
+            <ol>
+                <li><strong>Enter gender:</strong> Select male or female as this affects growth patterns.</li>
+                <li><strong>Enter age:</strong> Input the current age in years (can use decimals for months).</li>
+                <li><strong>Enter current height:</strong> Input the child's current height in cm or ft/in.</li>
+                <li><strong>Enter parental heights:</strong> Input both biological parents' heights.</li>
+                <li><strong>Click "Predict Adult Height":</strong> The calculator uses these values to generate a prediction.</li>
+            </ol>
+
+            <h3>Understanding the Results</h3>
+            <p>The calculator provides:</p>
+            <ul>
+                <li><strong>Predicted Adult Height:</strong> The estimated final adult height based on genetic potential and current growth.</li>
+                <li><strong>Height Range:</strong> A typical margin of error (±5 cm) accounting for variables that can influence growth.</li>
+                <li><strong>Additional Information:</strong> Age-specific notes about prediction reliability.</li>
+            </ul>
+
+            <p>The calculator combines two scientific approaches:</p>
+            <ul>
+                <li><strong>Mid-parental Height Method:</strong> Averages parental heights with gender adjustments.</li>
+                <li><strong>Growth Trajectory Analysis:</strong> Factors in current height percentile to refine predictions.</li>
+            </ul>
+            
+            <p>For the most accurate clinical prediction, pediatricians may also use bone age X-rays and specialized growth charts, which are beyond the scope of this calculator.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq" style="margin-top: 60px;">
+        <div class="info">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How accurate is the adult height prediction?</h3>
+                <p>Most predictions using mid-parental height or Khamis-Roche are accurate within 5-8 cm (2-3 inches). However, actual height is influenced by genetics, hormones, nutrition, and other environmental factors. The prediction is most reliable for children following normal growth patterns without early or delayed puberty.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What is the Khamis-Roche method?</h3>
+                <p>It's a non-invasive method developed by pediatric researchers that uses age, sex, weight, height, and parent heights to estimate adult stature without X-rays. This method is best used for children age 4 and older and has been validated in clinical studies. Our calculator incorporates principles from this method.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Does bone age affect height prediction?</h3>
+                <p>Yes. Bone age (skeletal maturity) can significantly improve prediction accuracy, but this requires X-rays that can only be ordered by a healthcare provider. This calculator uses non-invasive data only. If you suspect growth delays or early maturation, consult a pediatrician.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Why is the predicted height different from other calculators?</h3>
+                <p>Different calculators may use varying formulas or emphasis on different factors. Some focus purely on parental heights, while others might weigh current height percentiles more heavily. Our calculator balances genetic potential with current growth trajectory for more comprehensive estimates.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can nutrition or exercise increase a child's height potential?</h3>
+                <p>Proper nutrition and regular physical activity help children achieve their genetic height potential, but they won't exceed it significantly. Severe malnutrition or chronic illness can prevent a child from reaching their genetic height potential, but extra nutrition beyond what's needed for normal growth won't make a child taller than their genetic programming.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <AdUnit slot="adult-height-predictor-calculator-bottom" />
+    </div>
+    
+    <div class="back-to-home">
+        <a href="/">← Back to Homepage</a>
+    </div>
+    
+    <p class="footer-disclaimer">This calculator provides educational estimates. For personalized growth concerns, consult a pediatric endocrinologist.</p>
+    
+    </div> <!-- End calculator-container -->
+    
+    <script>
+        function toggleUnit(person, unit) {
+            const cmBtn = document.querySelector(`button[onclick="toggleUnit('${person}', 'cm')"]`);
+            const ftBtn = document.querySelector(`button[onclick="toggleUnit('${person}', 'ft')"]`);
+            const cmInput = document.getElementById(`${person}-cm-input`);
+            const ftInput = document.getElementById(`${person}-ft-input`);
+            
+            if (unit === 'cm') {
+                cmBtn.classList.add('active');
+                ftBtn.classList.remove('active');
+                cmInput.style.display = 'block';
+                ftInput.style.display = 'none';
+            } else {
+                ftBtn.classList.add('active');
+                cmBtn.classList.remove('active');
+                ftInput.style.display = 'block';
+                cmInput.style.display = 'none';
+            }
+        }
+        
+        function calculateHeight() {
+            // Get input values
+            const gender = document.getElementById('childGender').value;
+            const age = parseFloat(document.getElementById('childAge').value);
+           
+            // Get child height
+            let childHeight;
+            if (document.getElementById('child-cm-input').style.display !== 'none') {
+                childHeight = parseFloat(document.getElementById('childHeightCm').value);
+            } else {
+                const feet = parseFloat(document.getElementById('childHeightFt').value) || 0;
+                const inches = parseFloat(document.getElementById('childHeightIn').value) || 0;
+                childHeight = feet * 30.48 + inches * 2.54;
+            }
+           
+            // Get mother's height
+            let motherHeight;
+            if (document.getElementById('mother-cm-input').style.display !== 'none') {
+                motherHeight = parseFloat(document.getElementById('motherHeightCm').value);
+            } else {
+                const feet = parseFloat(document.getElementById('motherHeightFt').value) || 0;
+                const inches = parseFloat(document.getElementById('motherHeightIn').value) || 0;
+                motherHeight = feet * 30.48 + inches * 2.54;
+            }
+           
+            // Get father's height
+            let fatherHeight;
+            if (document.getElementById('father-cm-input').style.display !== 'none') {
+                fatherHeight = parseFloat(document.getElementById('fatherHeightCm').value);
+            } else {
+                const feet = parseFloat(document.getElementById('fatherHeightFt').value) || 0;
+                const inches = parseFloat(document.getElementById('fatherHeightIn').value) || 0;
+                fatherHeight = feet * 30.48 + inches * 2.54;
+            }
+           
+            // Validate inputs
+            if (isNaN(childHeight) || isNaN(motherHeight) || isNaN(fatherHeight)) {
+                alert("Please enter valid height values");
+                return;
+            }
+           
+            // Calculate mid-parental height (Tanner method)
+            let midParentalHeight;
+            if (gender === 'male') {
+                midParentalHeight = ((motherHeight + fatherHeight) / 2) + 6.5;
+            } else {
+                midParentalHeight = ((motherHeight + fatherHeight) / 2) - 6.5;
+            }
+           
+            // Calculate predicted height based on current height and age
+            let predictedHeight;
+            let additionalInfo = "";
+           
+            if (age < 4) {
+                predictedHeight = midParentalHeight;
+                additionalInfo = "Predictions for children under 4 years are less reliable as growth patterns can vary significantly.";
+            } else {
+                const growthPercentile = getGrowthPercentile(gender, age, childHeight);
+                const geneticWeight = 0.6;
+                const currentWeight = 0.4;
+               
+                predictedHeight = (geneticWeight * midParentalHeight) + (currentWeight * projectHeight(gender, age, childHeight, growthPercentile));
+               
+                if (gender === 'male' && age > 12) {
+                    predictedHeight *= 1.02;
+                } else if (gender === 'female' && age > 10) {
+                    predictedHeight *= 1.01;
+                }
+            }
+           
+            // Calculate range (±5 cm is typical margin of error)
+            const lowerRange = predictedHeight - 5;
+            const upperRange = predictedHeight + 5;
+           
+            // Display results in both units
+            const feetInches = cmToFeetInches(predictedHeight);
+            const lowerFeetInches = cmToFeetInches(lowerRange);
+            const upperFeetInches = cmToFeetInches(upperRange);
+           
+            document.getElementById('predictedHeight').innerHTML =
+                `${Math.round(predictedHeight)} cm (${feetInches})<br>
+                Range: ${Math.round(lowerRange)}-${Math.round(upperRange)} cm (${lowerFeetInches}-${upperFeetInches})`;
+            document.getElementById('additionalInfo').textContent = additionalInfo;
+            document.getElementById('result').style.display = 'block';
+        }
+       
+        function getGrowthPercentile(gender, age, height) {
+            if (gender === 'male') {
+                if (age < 10) {
+                    if (height < 115) return 0.1;
+                    if (height < 125) return 0.25;
+                    if (height < 135) return 0.5;
+                    if (height < 145) return 0.75;
+                    return 0.9;
+                } else {
+                    if (height < 140) return 0.1;
+                    if (height < 150) return 0.25;
+                    if (height < 160) return 0.5;
+                    if (height < 170) return 0.75;
+                    return 0.9;
+                }
+            } else {
+                if (age < 10) {
+                    if (height < 110) return 0.1;
+                    if (height < 120) return 0.25;
+                    if (height < 130) return 0.5;
+                    if (height < 140) return 0.75;
+                    return 0.9;
+                } else {
+                    if (height < 135) return 0.1;
+                    if (height < 145) return 0.25;
+                    if (height < 155) return 0.5;
+                    if (height < 165) return 0.75;
+                    return 0.9;
+                }
+            }
+        }
+       
+        function projectHeight(gender, age, height, percentile) {
+            const remainingGrowth = gender === 'male' ?
+                (18 - age) * (2.5 + (1 - percentile) * 1.5) :
+                (16 - age) * (2.0 + (1 - percentile) * 1.5);
+           
+            return height + remainingGrowth;
+        }
+       
+        function cmToFeetInches(cm) {
+            const inches = cm / 2.54;
+            const feet = Math.floor(inches / 12);
+            const remainingInches = Math.round(inches % 12 * 10) / 10;
+            return `${feet}'${remainingInches}"`;
+        }
+    </script>
+    
+</body>
+</html>

@@ -10,3 +10,38 @@
   "description": "{{ schema_description }}"
 }
 </script>
+
+{% if schema_url == "/adult-height-predictor-calculator" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is the adult height prediction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most predictions using mid-parental height or Khamis-Roche are accurate within 5-8 cm. However, actual height is influenced by genetics, hormones, and nutrition."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Khamis-Roche method?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It's a non-invasive method using age, sex, weight, height, and parent heights to estimate adult stature without X-rays. Best used for children age 4+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does bone age affect prediction?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Bone age can improve accuracy, but this calculator uses non-invasive data only. Talk to a pediatrician if growth delays are suspected."
+      }
+    }
+  ]
+}
+</script>
+{% endif %}

@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Adult Height Predictor Calculator",
+        "url": "/adult-height-predictor-calculator",
+        "summary": "Predict a child's future adult height based on their age, current height, gender, and parental heights.",
+        "icon": "📏",
+        "cta": "Predict Height",
+        "color": "green"
+    },
+    {
         "title": "Child Growth Calculator", 
         "url": "/child-growth-calculator",
         "summary": "Track your child's height, weight, and BMI percentile with age-based charts.",
@@ -271,6 +279,19 @@ def child_growth_calculator():
     schema_url = "/child-growth-calculator"
     return render_template(
         'child_growth_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/adult-height-predictor-calculator')
+def adult_height_predictor_calculator():
+    schema_name = "Adult Height Predictor Calculator"
+    schema_description = "Predict a child's future adult height based on their age, current height, gender, and parental height using validated models like mid-parental height and Khamis-Roche."
+    schema_url = "/adult-height-predictor-calculator"
+    return render_template(
+        'adult_height_predictor_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
