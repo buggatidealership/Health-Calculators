@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+{% set og_image = "adult-height-predictor-calculator-og.jpg" %}
+{% with 
+    meta_description="Predict a child's future adult height based on current age, height, and parental height using validated models.",
+    meta_keywords="height predictor calculator, child height calculator, adult height estimate, how tall will my child be, growth calculator",
+    og_title="Adult Height Predictor Calculator",
+    og_description="Estimate adult height using mid-parental height and growth data. Simple, accurate, free.",
+    og_url="/adult-height-predictor-calculator",
+    page_title="Adult Height Predictor Calculator – Estimate Future Height",
+    canonical_url="/adult-height-predictor-calculator",
+    schema_name="Adult Height Predictor Calculator",
+    schema_description="Estimate your child's adult height using genetics and growth trajectory analysis.",
+    schema_url="/adult-height-predictor-calculator"
+%}
 {% include 'head_seo.html' %}
+{% endwith %}
 <body>
     {% include 'header.html' %}
     
