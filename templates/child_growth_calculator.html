@@ -106,12 +106,12 @@
                 </div>
             </div>
            
-            <div class="unit-toggle">
-                <label>Measurement Units:</label><br>
-                <input type="radio" id="metric" name="units" value="metric" checked onclick="toggleUnits()">
-                <label for="metric" style="display: inline;">Metric (cm, kg)</label>
-                <input type="radio" id="imperial" name="units" value="imperial" onclick="toggleUnits()">
-                <label for="imperial" style="display: inline;">Imperial (ft/in, lbs)</label>
+            <div class="units-toggle">
+                <label style="margin-bottom: 8px; font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px;">
+                    <button type="button" id="metric-btn" class="unit-button active" onclick="setUnit('metric')">Metric (cm, kg)</button>
+                    <button type="button" id="imperial-btn" class="unit-button" onclick="setUnit('imperial')">Imperial (ft/in, lbs)</button>
+                </div>
             </div>
            
             <div class="metric-inputs">
@@ -253,10 +253,25 @@
     
     <!-- Script -->
     <script>
-        function toggleUnits() {
-            const metricChecked = document.getElementById('metric').checked;
-            document.querySelector('.metric-inputs').style.display = metricChecked ? 'block' : 'none';
-            document.querySelector('.imperial-inputs').style.display = metricChecked ? 'none' : 'block';
+        // Set default unit to metric
+        let currentUnit = 'metric';
+        
+        function setUnit(unit) {
+            currentUnit = unit;
+            
+            // Update button styling
+            document.getElementById('metric-btn').classList.remove('active');
+            document.getElementById('imperial-btn').classList.remove('active');
+            
+            if (unit === 'metric') {
+                document.getElementById('metric-btn').classList.add('active');
+                document.querySelector('.metric-inputs').style.display = 'block';
+                document.querySelector('.imperial-inputs').style.display = 'none';
+            } else {
+                document.getElementById('imperial-btn').classList.add('active');
+                document.querySelector('.metric-inputs').style.display = 'none';
+                document.querySelector('.imperial-inputs').style.display = 'block';
+            }
         }
 
         function calculate() {
@@ -277,7 +292,7 @@
             // Get height and weight based on selected units
             let heightCm, weightKg;
            
-            if (document.getElementById('metric').checked) {
+            if (currentUnit === 'metric') {
                 heightCm = parseFloat(document.getElementById('height-cm').value);
                 weightKg = parseFloat(document.getElementById('weight-kg').value);
             } else {
