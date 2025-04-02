@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template, send_from_directory
+from flask import Flask, render_template, send_from_directory, redirect
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -236,28 +236,12 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
-        "title": "How to Use the Ozempic Weight Loss Calculator",
-        "url": "/resources/how-to-use-the-ozempic-weight-loss-calculator",
-        "summary": "A step-by-step guide on interpreting Ozempic calculator results, setting expectations, and tracking progress.",
-        "icon": "📘",
-        "cta": "Read Guide",
-        "color": "blue"
-    },
-    {
         "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
         "url": "/resources/fasting-weight-loss-chart",
         "summary": "Visual breakdown of fat loss trends from intermittent fasting protocols backed by clinical data.",
         "icon": "⏱️",
         "cta": "View Chart",
         "color": "green"
-    },
-    {
-        "title": "How Much Water Do You Need on Creatine?",
-        "url": "/resources/creatine-hydration-guide",
-        "summary": "Learn how creatine increases hydration needs and how to adjust your intake to optimize results.",
-        "icon": "💧",
-        "cta": "Hydrate Smarter",
-        "color": "teal"
     }
 ]
 
@@ -342,11 +326,15 @@ def adult_height_predictor_calculator():
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return send_from_directory(
+    response = send_from_directory(
         'static/public',
         'sitemap.xml',
         mimetype='text/xml'
     )
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'
+    response.headers['Expires'] = '0'
+    return response
 
 @app.route('/ads.txt')
 def ads_txt():
@@ -361,6 +349,14 @@ def robots_txt():
         200,
         {'Content-Type': 'text/plain'}
     )
+
+@app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
+def redirect_ozempic_article():
+    return redirect('/ozempic-weight-loss-calculator', code=301)
+
+@app.route('/resources/creatine-hydration-guide')
+def redirect_creatine_article():
+    return redirect('/creatine-water-calculator', code=301)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
