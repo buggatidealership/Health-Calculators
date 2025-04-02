@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Liposuction Weight Loss Calculator",
+        "url": "/liposuction-weight-loss-calculator",
+        "summary": "Calculate how much fat and weight you might lose with liposuction, and what it may cost.",
+        "icon": "🩺",
+        "cta": "Estimate Results",
+        "color": "teal"
+    },
+    {
         "title": "Lip Filler Cost Calculator",
         "url": "/lip-filler-cost-calculator",
         "summary": "Estimate the cost of lip fillers based on volume, brand, and injector type for your procedure.",
@@ -287,6 +295,19 @@ def child_growth_calculator():
     schema_url = "/child-growth-calculator"
     return render_template(
         'child_growth_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/liposuction-weight-loss-calculator')
+def liposuction_weight_loss_calculator():
+    schema_name = "Liposuction Weight Loss Calculator"
+    schema_description = "Calculate how much fat and weight you might lose with liposuction, and what it may cost based on body areas and region."
+    schema_url = "/liposuction-weight-loss-calculator"
+    return render_template(
+        'liposuction_weight_loss_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
