@@ -143,11 +143,11 @@
                 <label>Select Treatment Areas:</label>
                 <div class="body-areas">
                     <label><input type="checkbox" name="area" value="abdomen"> Abdomen</label>
-                    <label><input type="checkbox" name="area" value="flanks"> Flanks/Love Handles</label>
+                    <label><input type="checkbox" name="area" value="flanks"> Flanks / Love Handles</label>
                     <label><input type="checkbox" name="area" value="thighs"> Thighs</label>
                     <label><input type="checkbox" name="area" value="arms"> Arms</label>
                     <label><input type="checkbox" name="area" value="back"> Back</label>
-                    <label><input type="checkbox" name="area" value="chin"> Chin/Neck</label>
+                    <label><input type="checkbox" name="area" value="chin"> Chin / Neck</label>
                     <label><input type="checkbox" name="area" value="chest"> Chest (Male)</label>
                     <label><input type="checkbox" name="area" value="buttocks"> Buttocks</label>
                 </div>
@@ -418,17 +418,20 @@
     
     <style>
     .body-areas {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: flex;
+        flex-direction: column;
         gap: 10px;
-        margin-bottom: 15px;
+        margin-top: 10px;
+        margin-bottom: 20px;
     }
     
     .body-areas label {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 8px;
         font-weight: normal;
+        font-size: 15px;
+        white-space: nowrap;
     }
     
     .units {
