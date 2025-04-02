@@ -142,22 +142,14 @@
             <div class="form-group">
                 <label>Select Treatment Areas:</label>
                 <div class="body-areas">
-                  <div class="checkbox-row">
                     <label><input type="checkbox" name="area" value="abdomen"> Abdomen</label>
-                    <label><input type="checkbox" name="area" value="flanks"> Flanks / Love Handles</label>
-                  </div>
-                  <div class="checkbox-row">
+                    <label><input type="checkbox" name="area" value="flanks"> Flanks/Love Handles</label>
                     <label><input type="checkbox" name="area" value="thighs"> Thighs</label>
                     <label><input type="checkbox" name="area" value="arms"> Arms</label>
-                  </div>
-                  <div class="checkbox-row">
                     <label><input type="checkbox" name="area" value="back"> Back</label>
-                    <label><input type="checkbox" name="area" value="chin"> Chin / Neck</label>
-                  </div>
-                  <div class="checkbox-row">
+                    <label><input type="checkbox" name="area" value="chin"> Chin/Neck</label>
                     <label><input type="checkbox" name="area" value="chest"> Chest (Male)</label>
                     <label><input type="checkbox" name="area" value="buttocks"> Buttocks</label>
-                  </div>
                 </div>
             </div>
            
@@ -426,33 +418,17 @@
     
     <style>
     .body-areas {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        margin: 15px 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        margin-bottom: 15px;
     }
     
-    .checkbox-row {
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-    }
-    
-    .checkbox-row label {
-        flex: 1;
+    .body-areas label {
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 5px;
         font-weight: normal;
-        font-size: 15px;
-        white-space: nowrap;
-    }
-    
-    @media (max-width: 600px) {
-        .checkbox-row {
-            flex-direction: column;
-            gap: 10px;
-        }
     }
     
     .units {
