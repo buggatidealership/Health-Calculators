@@ -141,15 +141,39 @@
            
             <div class="form-group">
                 <label>Select Treatment Areas:</label>
-                <div class="body-areas">
-                    <label><input type="checkbox" name="area" value="abdomen"> Abdomen</label>
-                    <label><input type="checkbox" name="area" value="flanks"> Flanks/Love Handles</label>
-                    <label><input type="checkbox" name="area" value="thighs"> Thighs</label>
-                    <label><input type="checkbox" name="area" value="arms"> Arms</label>
-                    <label><input type="checkbox" name="area" value="back"> Back</label>
-                    <label><input type="checkbox" name="area" value="chin"> Chin/Neck</label>
-                    <label><input type="checkbox" name="area" value="chest"> Chest (Male)</label>
-                    <label><input type="checkbox" name="area" value="buttocks"> Buttocks</label>
+                <div class="treatment-areas">
+                  <div class="treatment-area">
+                    <input type="checkbox" id="abdomen" name="area" value="abdomen">
+                    <label for="abdomen">Abdomen</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="flanks" name="area" value="flanks">
+                    <label for="flanks">Flanks / Love Handles</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="thighs" name="area" value="thighs">
+                    <label for="thighs">Thighs</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="arms" name="area" value="arms">
+                    <label for="arms">Arms</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="back" name="area" value="back">
+                    <label for="back">Back</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="chin" name="area" value="chin">
+                    <label for="chin">Chin / Neck</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="chest" name="area" value="chest">
+                    <label for="chest">Chest (Male)</label>
+                  </div>
+                  <div class="treatment-area">
+                    <input type="checkbox" id="buttocks" name="area" value="buttocks">
+                    <label for="buttocks">Buttocks</label>
+                  </div>
                 </div>
             </div>
            
@@ -417,18 +441,43 @@
     </script>
     
     <style>
-    .body-areas {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        margin-bottom: 15px;
+    .treatment-areas {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+      margin-bottom: 25px;
     }
-    
-    .body-areas label {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        font-weight: normal;
+
+    .treatment-area {
+      display: flex;
+      align-items: center;
+      background: #f9f9f9;
+      padding: 10px 12px;
+      border-radius: 6px;
+      border: 1px solid #eee;
+      transition: background-color 0.2s ease;
+    }
+
+    .treatment-area input[type="checkbox"] {
+      width: auto;
+      margin-right: 10px;
+    }
+
+    .treatment-area label {
+      font-size: 15px;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .treatment-area:hover {
+      background-color: #f0f0f0;
+    }
+
+    @media (max-width: 600px) {
+      .treatment-areas {
+        grid-template-columns: 1fr;
+      }
     }
     
     .units {

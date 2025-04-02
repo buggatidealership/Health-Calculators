@@ -1,0 +1,86 @@
+# FIX: Make the liposuction treatment area checkboxes match Botox layout
+
+# ⛏️ HTML FIX:
+# Replace the `.body-areas` HTML block inside liposuction_weight_loss_calculator.html with:
+
+<div class="treatment-areas">
+  <div class="treatment-area">
+    <input type="checkbox" id="abdomen" name="area" value="abdomen">
+    <label for="abdomen">Abdomen</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="flanks" name="area" value="flanks">
+    <label for="flanks">Flanks / Love Handles</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="thighs" name="area" value="thighs">
+    <label for="thighs">Thighs</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="arms" name="area" value="arms">
+    <label for="arms">Arms</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="back" name="area" value="back">
+    <label for="back">Back</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="chin" name="area" value="chin">
+    <label for="chin">Chin / Neck</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="chest" name="area" value="chest">
+    <label for="chest">Chest (Male)</label>
+  </div>
+  <div class="treatment-area">
+    <input type="checkbox" id="buttocks" name="area" value="buttocks">
+    <label for="buttocks">Buttocks</label>
+  </div>
+</div>
+
+# 🎨 CSS FIX:
+# Make sure the following CSS is added to style.css or the embedded <style> block:
+
+.treatment-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+  margin-bottom: 25px;
+}
+
+.treatment-area {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #eee;
+  transition: background-color 0.2s ease;
+}
+
+.treatment-area input[type="checkbox"] {
+  width: auto;
+  margin-right: 10px;
+}
+
+.treatment-area label {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 0;
+}
+
+.treatment-area:hover {
+  background-color: #f0f0f0;
+}
+
+@media (max-width: 600px) {
+  .treatment-areas {
+    grid-template-columns: 1fr;
+  }
+}
+
+# ✅ Result:
+# - All liposuction areas match Botox-style pill-shaped blocks
+# - Mobile responsive (stacked)
+# - Label + checkbox aligned on a single line
