@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "dog-pregnancy-due-date-calculator-og.jpg" %}
+{% with 
+    meta_description="Use this dog gestation calculator to estimate your dog's due date. Based on average canine pregnancy length (63 days) from the date of mating.",
+    meta_keywords="dog pregnancy calculator, dog gestation calculator, dog due date calculator, canine pregnancy timeline, whelping date estimator",
+    og_title="Dog Pregnancy Calculator",
+    og_description="Quickly estimate your dog's due date based on conception date. Backed by veterinary gestation timelines.",
+    og_url="/dog-pregnancy-due-date-calculator",
+    page_title="Dog Pregnancy Due-Date Calculator – Estimate Whelping Date",
+    canonical_url="/dog-pregnancy-due-date-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+    .timeline {
+        margin-top: 30px;
+    }
+    .timeline-section {
+        margin-bottom: 15px;
+    }
+    .timeline-header {
+        background-color: #f0f7fc;
+        border-left: 4px solid #d63384;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 4px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 600;
+    }
+    .timeline-header:hover {
+        background-color: #e6f3fa;
+    }
+    .timeline-content {
+        padding: 15px;
+        background-color: #f9f9f9;
+        border-radius: 0 0 4px 4px;
+        display: none;
+        margin-top: 2px;
+    }
+    .timeline-item {
+        margin-bottom: 15px;
+        padding-bottom: 15px;
+        border-bottom: 1px solid #eee;
+    }
+    .timeline-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .timeline-item h4 {
+        color: #d63384;
+        margin-bottom: 5px;
+    }
+    .chevron {
+        transition: transform 0.3s ease;
+        font-size: 20px;
+        line-height: 1;
+    }
+    .chevron.down {
+        transform: rotate(90deg);
+    }
+    .warning {
+        color: #d63384;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+</style>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Dog Pregnancy Due-Date Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/dog-pregnancy-due-date-calculator",
+      "description": "Estimate a dog's pregnancy due date based on average 63-day gestation. Enter breeding date to calculate expected delivery date."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How long is a dog's pregnancy?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Average canine gestation is 63 days from ovulation, or 58–68 days from mating."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this if I don't know the exact date?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Choose the most likely breeding date. A vet can confirm gestation stage via ultrasound."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are all dog breeds the same?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Small and large breeds may vary slightly, but 63 days is the standard average."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are signs that labor is approaching?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nesting, decreased appetite, temperature drop, restlessness, and contractions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this calculator accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It provides a general estimate. A vet check is always recommended for precision."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Dog Pregnancy Due-Date Calculator</h1>
+    <p class="subtitle">Estimate your dog's whelping (delivery) date based on breeding or mating date. This tool uses the standard 63-day canine gestation period to provide a veterinary-backed due date prediction.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For health concerns, consult a licensed veterinarian.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Dog Pregnancy Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="dog-pregnancy-due-date-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="mating-date">First mating date:</label>
+                <input type="date" id="mating-date" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="known-ovulation">Known ovulation date (if available):</label>
+                <input type="date" id="known-ovulation">
+            </div>
+            
+            <div class="form-group">
+                <label for="breed-size">Breed size:</label>
+                <select id="breed-size">
+                    <option value="small">Small (under 20 lbs / 9 kg)</option>
+                    <option value="medium" selected>Medium (20-50 lbs / 9-23 kg)</option>
+                    <option value="large">Large (50-90 lbs / 23-41 kg)</option>
+                    <option value="giant">Giant (over 90 lbs / 41 kg)</option>
+                </select>
+            </div>
+            
+            <button id="calculate-btn" class="cta-button" onclick="calculateDueDate()">Calculate Due Date</button>
+            
+            <div id="results" class="result" style="display: none;">
+                <h2>Pregnancy Results</h2>
+                <p><strong>Expected due date range:</strong> <span id="due-date-range"></span></p>
+                <p><strong>Most likely due date:</strong> <span id="due-date"></span></p>
+                <p><strong>Current gestation day:</strong> <span id="current-day"></span></p>
+                <p><strong>Days remaining:</strong> <span id="days-remaining"></span></p>
+                <p class="warning">Note: Always monitor rectal temperature when approaching due date</p>
+                
+                <div class="timeline">
+                    <h3>Pregnancy Timeline</h3>
+                    <div id="timeline-sections"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px 0;">
+        <AdUnit slot="dog-pregnancy-due-date-calculator-mid" />
+    </div>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"></line><line x1="18" y1="20" x2="18" y2="4"></line><line x1="6" y1="20" x2="6" y2="16"></line></svg>How to Use the Dog Pregnancy Due-Date Calculator</h2>
+            <p>Follow these steps to calculate your dog's estimated due date:</p>
+
+            <ol>
+                <li><strong>Enter the first mating date:</strong> Select the date breeding or mating occurred.</li>
+                <li><strong>Add ovulation date (optional):</strong> If known from veterinary testing, this improves accuracy.</li>
+                <li><strong>Select breed size:</strong> Different sized dogs may have slight variations in gestation length.</li>
+                <li><strong>Click "Calculate Due Date":</strong> The calculator will generate a timeline and expected whelping date.</li>
+            </ol>
+
+            <h4>Understanding Your Results</h4>
+            <ul>
+                <li><strong>Due Date Range:</strong> The window when whelping is likely (typically 61-65 days from ovulation)</li>
+                <li><strong>Most Likely Date:</strong> The statistical average (63 days from ovulation)</li>
+                <li><strong>Current Day:</strong> Where your dog is in the pregnancy timeline</li>
+                <li><strong>Timeline:</strong> Development stages by week with key milestones</li>
+            </ul>
+
+            <p>The calculator adds 63 days (the average gestation) to the breeding date. This is an estimate — dogs can give birth 58–68 days after mating.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <h4>How long is a dog's pregnancy?</h4>
+                <p>The average canine gestation period is 63 days from ovulation, or roughly 58–68 days from mating. This is much shorter than human pregnancy, lasting only about 9 weeks. The uncertainty in the range comes from the fact that canine sperm can survive for several days in the reproductive tract, and eggs can be viable for up to 48 hours after ovulation, creating variability in exact conception timing.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Can I use this if I don't know the exact date?</h4>
+                <p>Yes, you can use your best estimate of when mating occurred. If you're unsure, choose the most likely breeding date based on observed breeding behavior or your breeding records. For more precision, a veterinarian can perform an ultrasound around day 25-28 to confirm pregnancy and estimate the gestational age. Blood tests measuring hormones like relaxin can confirm pregnancy as early as day 22-27.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Are all dog breeds the same?</h4>
+                <p>While 63 days is the standard average for all dogs, there are slight variations between breeds. Research suggests that very small breeds might deliver slightly earlier (around 62 days) while giant breeds may have slightly longer gestations (64-65 days). Individual variation is common. Dogs with litters of 1-2 puppies sometimes carry longer, while dogs with large litters of 8+ puppies may deliver earlier.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>What are signs that labor is approaching?</h4>
+                <p>Key signs that whelping is imminent include: (1) Temperature drop - rectal temperature falls below 99°F (37.2°C), typically 12-24 hours before delivery; (2) Restlessness, pacing, or nesting behavior; (3) Decreased appetite; (4) Vulvar discharge changes from clear to more opaque; (5) Visible abdominal contractions; and (6) Panting or shivering. Some dogs may also become clingy or isolate themselves as labor approaches.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Is this calculator accurate?</h4>
+                <p>This calculator provides a general estimate based on established veterinary knowledge of canine reproduction. However, individual dogs can vary by several days. For precision breeding and pregnancy monitoring, we recommend progesterone testing to pinpoint ovulation, veterinary ultrasounds starting at 25 days, and X-rays after day 45 to count puppies. Always consult with your veterinarian for a comprehensive pregnancy care plan.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <AdUnit slot="dog-pregnancy-due-date-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+        <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
+        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+            <strong>Disclaimer:</strong> This calculator is for educational purposes only and does not replace veterinary guidance or prenatal care.
+        </p>
+    </footer>
+    
+    <!-- Script -->
+    <script src="/static/js/dog_pregnancy_calculator.js"></script>
+    
+    </div> <!-- End of calculator-container -->
+</body>
+</html>

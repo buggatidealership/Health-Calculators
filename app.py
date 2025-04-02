@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Dog Pregnancy Due-Date Calculator",
+        "url": "/dog-pregnancy-due-date-calculator",
+        "summary": "Estimate your dog's whelping date based on breeding date with this veterinary-backed calculator.",
+        "icon": "🐕",
+        "cta": "Calculate Due Date",
+        "color": "teal"
+    },
+    {
         "title": "CC to Bra Size Calculator",
         "url": "/cc-to-bra-size-calculator",
         "summary": "Convert breast implant volume (CCs) to estimated bra cup size with this plastic surgery calculator.",
@@ -349,6 +357,19 @@ def cc_to_bra_size_calculator():
     schema_url = "/cc-to-bra-size-calculator"
     return render_template(
         'cc_to_bra_size_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/dog-pregnancy-due-date-calculator')
+def dog_pregnancy_due_date_calculator():
+    schema_name = "Dog Pregnancy Due-Date Calculator"
+    schema_description = "Estimate your dog's due date based on mating date. Based on average canine pregnancy length (63 days) with breed-specific adjustments."
+    schema_url = "/dog-pregnancy-due-date-calculator"
+    return render_template(
+        'dog_pregnancy_due_date_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
