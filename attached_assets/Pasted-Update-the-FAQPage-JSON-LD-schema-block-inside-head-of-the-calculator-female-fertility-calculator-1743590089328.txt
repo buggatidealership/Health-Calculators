@@ -1,0 +1,59 @@
+Update the FAQPage JSON-LD schema block inside <head> of the /calculator/female-fertility-calculator page with the following content.
+
+Replace the existing FAQ schema (from <script type="application/ld+json"> ... </script>) with this updated block below.
+
+Ensure it is placed inside <head>, renders without syntax errors, and follows proper JSON-LD formatting:
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate is a fertility calculator?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fertility calculators provide estimates based on typical ovulation patterns, with accuracy ranging from 70-80% for women with regular cycles. The calculator assumes you have a regular cycle and that ovulation occurs at a predictable time. For increased accuracy, combine this with other fertility tracking methods like ovulation prediction kits, basal body temperature monitoring, or tracking cervical mucus changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "When is the best time to conceive?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The best time to conceive is during your fertile window, which includes the 5 days before ovulation and the day of ovulation itself. Peak fertility occurs in the 2-3 days leading up to and including ovulation day. Having intercourse every 1-2 days during this window maximizes your chances of conception. An egg survives for about 24 hours after ovulation, while sperm can survive for up to 5 days in favorable cervical conditions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this if my cycle is irregular?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, but with reduced accuracy. For irregular cycles, enter your average cycle length if you know it. The calculator will be less reliable if your cycles vary significantly (by more than 7-10 days). In this case, consider using ovulation prediction kits or tracking physical signs of fertility. If your cycles are consistently irregular, consult a healthcare provider as this could indicate hormonal imbalances or conditions like PCOS that may affect fertility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if I've ovulated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Common signs of ovulation include: a slight rise (0.4–1.0°F) in basal body temperature, changes in cervical mucus (becoming clear, slippery and stretchy, similar to egg whites), mild pelvic or lower abdominal pain (mittelschmerz), increased sex drive, light spotting, breast tenderness, and heightened sense of smell. For more definitive tracking, use ovulation predictor kits that detect luteinizing hormone (LH) surges or consider fertility tracking apps that combine multiple indicators."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does the luteal phase length affect fertility?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the luteal phase (time between ovulation and next period) is crucial for fertility. A normal luteal phase lasts 12–16 days, with 14 days being average. A short luteal phase (less than 10 days) can make it difficult for a fertilized egg to implant successfully, as the uterine lining may shed before implantation is complete. If you suspect a luteal phase defect, track your cycle with basal body temperature and discuss with a fertility specialist, as treatment options are available."
+      }
+    }
+  ]
+}
+</script>
+
+Final QA:
+- JSON-LD must validate with no errors (use Google’s Rich Results Test)
+- Script must be embedded inside <head> tag
+- Only one <script type="application/ld+json"> block for FAQPage on the page
