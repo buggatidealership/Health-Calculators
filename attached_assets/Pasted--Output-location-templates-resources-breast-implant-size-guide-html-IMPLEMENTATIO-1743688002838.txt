@@ -1,0 +1,144 @@
+
+<!-- Output location: templates/resources/breast_implant_size_guide.html -->
+
+<!-- IMPLEMENTATION OVERVIEW -->
+<!-- This article must match the aesthetic and layout of modern, long-form medical content -->
+<!-- Includes: colorful TOC, section cards, callouts, CTA blocks, schema, ads, and mobile-friendly design -->
+<!-- Target URL: /resources/breast-implant-size-guide -->
+
+<!-- ✳️ PAGE METADATA (Use {% with %} block in <head>) -->
+{% with 
+  meta_description="A complete guide to breast implant sizing: cc to cup size conversion, band-to-cup charts, profile types, and surgeon recommendations.",
+  meta_keywords="breast implant size guide, cc to cup size, implant sizing chart, implant profile comparison, breast augmentation cc chart",
+  og_title="Breast Implant Size Guide – Charts, Profiles & Surgeon Tips",
+  og_description="Compare implant sizes by band and cup size. Visual charts, profile illustrations, and sizing advice by body type.",
+  og_url="/resources/breast-implant-size-guide",
+  og_image="https://longevitycalculator.xyz/static/images/breast-implant-size-guide-og.jpg",
+  page_title="Breast Implant Size Guide – Charts, Profiles & CC Conversion",
+  canonical_url="/resources/breast-implant-size-guide"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- ✳️ SCHEMA FAQ INJECTION (inside <head>) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question","name": "How do I know which implant size is right for me?","acceptedAnswer": {"@type": "Answer","text": "Implant size depends on your band size, current breast volume, implant profile, and frame size. Most surgeons start with chest measurements and use sizers or 3D previews to help guide your decision."}},
+    {"@type": "Question","name": "How many CCs equal a cup size?","acceptedAnswer": {"@type": "Answer","text": "On average, 150–200cc increases breast volume by one cup size. However, this varies depending on your band size and implant profile."}},
+    {"@type": "Question","name": "What implant profile is best for a natural look?","acceptedAnswer": {"@type": "Answer","text": "Moderate or moderate-plus profile implants usually offer the most natural appearance. High profiles provide more projection, while low profiles offer subtle width-focused enhancement."}},
+    {"@type": "Question","name": "Do implant sizes look different on different frames?","acceptedAnswer": {"@type": "Answer","text": "Yes. The same 350cc implant can appear as a C cup on a narrow frame and a B cup on a wider chest. Frame size and tissue elasticity significantly influence appearance."}}
+  ]
+}
+</script>
+
+<!-- ✳️ BODY CONTENT (inside templates/resources/breast_implant_size_guide.html) -->
+{% include 'header.html' %}
+<div class="calculator-container">
+<article>
+
+<h1>Breast Implant Size Guide – Charts, Profiles & CC Conversion</h1>
+<p class="subtitle">A complete guide to implant sizing: cup size conversions, CC charts, profile comparisons, and tips by frame type.</p>
+
+<!-- Top Ad -->
+<div class="adunit-top">
+  <AdUnit slot="breast-implant-size-guide-top" />
+</div>
+
+<!-- TOC Block -->
+<div class="toc-block">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#intro">Why Implant Sizing Is Confusing</a></li>
+    <li><a href="#chart">Cup Size by CC Chart</a></li>
+    <li><a href="#profiles">Profile Visual Comparison</a></li>
+    <li><a href="#calculator">Use the Calculator</a></li>
+    <li><a href="#tips">Surgeon Sizing Tips</a></li>
+    <li><a href="#faq">FAQs</a></li>
+  </ul>
+</div>
+
+<!-- Section: Intro -->
+<section id="intro" class="info">
+  <h2>Why Implant Sizing Is Confusing</h2>
+  <p>Cup size depends on more than just volume. Your band size, implant profile, and body shape all play a role. That’s why surgeons rarely promise cup sizes, and instead focus on volume + projection.</p>
+</section>
+
+<!-- Section: Chart -->
+<section id="chart" class="info">
+  <h2>Cup Size by Band & CC</h2>
+  <table>
+    <thead>
+      <tr><th>Band</th><th>A→B</th><th>B→C</th><th>C→D</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>30</td><td>200–250cc</td><td>275–300cc</td><td>350–400cc</td></tr>
+      <tr><td>32</td><td>225–275cc</td><td>300–325cc</td><td>375–425cc</td></tr>
+      <tr><td>34</td><td>250–300cc</td><td>325–350cc</td><td>400–450cc</td></tr>
+      <tr><td>36</td><td>275–325cc</td><td>350–375cc</td><td>425–475cc</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- Section: Profiles -->
+<section id="profiles" class="info">
+  <h2>Visual Comparison of Implant Profiles</h2>
+  <p>The same volume looks different depending on profile. See how:</p>
+  <img src="/static/images/implant-profile-comparison.webp" alt="Comparison of implant profiles" width="720" height="420" loading="lazy">
+</section>
+
+<!-- Section: Calculator Embed -->
+<section id="calculator" class="info">
+  <h2>Estimate Your Cup Size</h2>
+  <div class="calculator-embed-block">
+    <p>Want to know your estimated result based on CCs?</p>
+    <a href="/cc-to-bra-size-calculator" class="cta-button">Try the CC to Bra Size Calculator</a>
+  </div>
+</section>
+
+<!-- Mid Ad -->
+<div class="adunit-mid">
+  <AdUnit slot="breast-implant-size-guide-mid" />
+</div>
+
+<!-- Section: Surgeon Tips -->
+<section id="tips" class="info">
+  <h2>Surgeon Tips by Frame Type</h2>
+  <ul>
+    <li><strong>Petite (30–32 bands, < 5'4"):</strong> avoid high profile unless patient insists</li>
+    <li><strong>Average (32–34):</strong> moderate or moderate-plus profile for natural look</li>
+    <li><strong>Wide (36+ bands):</strong> low or anatomical profile improves side fill</li>
+  </ul>
+</section>
+
+<!-- Section: FAQs -->
+<section id="faq" class="info">
+  <h2>FAQs</h2>
+  <div class="faq-item"><h4>How do I know which implant size is right for me?</h4><p>It depends on band size, current volume, goals, and frame type. Use sizers or 3D preview tools to test options.</p></div>
+  <div class="faq-item"><h4>How many CCs equal one cup size?</h4><p>150–200cc usually increases breast volume by 1 cup size, but this varies by band size and projection.</p></div>
+</section>
+
+<!-- Bottom Ad -->
+<div class="adunit-bottom">
+  <AdUnit slot="breast-implant-size-guide-bottom" />
+</div>
+
+<!-- Footer CTA -->
+<div class="footer-disclaimer">
+  <p><strong>Disclaimer:</strong> This guide is for educational purposes. Always consult a board-certified plastic surgeon before making implant decisions.</p>
+  <p><a href="/cc-to-bra-size-calculator">← Back to Calculator</a></p>
+</div>
+
+</article>
+</div>
+{% include 'footer.html' %}
+
+────────────────────────────────────────────
+
+💡 Once implemented, confirm:
+
+- Article appears in `/resources`
+- Direct link works at: /resources/breast-implant-profiles-explained
+- Visual sections render properly (style/images can be placeholders for now)

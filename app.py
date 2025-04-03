@@ -268,6 +268,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Breast Implant Size Guide",
+        "url": "/resources/breast-implant-size-guide",
+        "summary": "Compare implant profiles, sizes, and cup conversions with detailed charts by band size.",
+        "icon": "💗",
+        "cta": "View Guide",
+        "color": "pink"
+    },
+    {
         "title": "Breast Implant Sizing Guide",
         "url": "/resources/breast-implant-sizing-guide",
         "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
@@ -486,6 +494,16 @@ def breast_implant_sizing_guide():
         schema_name="Breast Implant Sizing Guide",
         schema_description="The most complete breast implant sizing guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
         schema_url="/resources/breast-implant-sizing-guide"
+    )
+
+@app.route('/resources/breast-implant-size-guide')
+def breast_implant_size_guide():
+    return render_template(
+        'resources/breast_implant_size_guide.html',
+        is_homepage=False,
+        schema_name="Breast Implant Size Guide – Charts, Profiles & CC Conversion",
+        schema_description="A complete guide to breast implant sizing: cc to cup size conversion, band-to-cup charts, profile types, and surgeon recommendations.",
+        schema_url="/resources/breast-implant-size-guide"
     )
 
 if __name__ == '__main__':
