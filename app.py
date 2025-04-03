@@ -343,6 +343,16 @@ def how_many_ccs_is_a_c_cup():
         schema_url="/resources/how-many-ccs-is-a-c-cup"
     )
 
+@app.route('/resources/botox-dosage-guide')
+def botox_dosage_guide():
+    return render_template(
+        'resources/botox_dosage_guide.html',
+        is_homepage=False,
+        schema_name="Botox Dosage Guide - Evidence-Based Units by Treatment Area",
+        schema_description="Comprehensive guide to standard Botox dosages by treatment area, backed by clinical studies. Includes cost analysis and duration expectations.",
+        schema_url="/resources/botox-dosage-guide"
+    )
+
 @app.route('/female-fertility-calculator')
 def female_fertility_calculator():
     schema_name = "Fertility Calculator"

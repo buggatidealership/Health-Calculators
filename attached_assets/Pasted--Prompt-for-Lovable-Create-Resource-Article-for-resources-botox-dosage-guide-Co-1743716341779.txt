@@ -1,0 +1,88 @@
+**Prompt for Lovable: Create Resource Article for /resources/botox-dosage-guide**
+
+---
+
+## 🧠 Content Guidelines:
+- ✅ Strictly base all content on **credible, peer-reviewed scientific sources**, with footnotes clearly listing journal, year, and URL (if applicable).
+- ✅ Target word count: **1800–2500 words** for long-form SEO value.
+- ✅ Use a clear **heading hierarchy**:
+  - H1 → Title
+  - H2 → Major sections
+  - H3 → Nested subpoints or calculations
+- ✅ Include **step-by-step calculations or examples** (use `<ol>` or bullet structure).
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- ✅ **Meta Title**: Max ~60 characters, keyword-rich.
+- ✅ **Meta Description**: Max ~155 characters, compelling and accurate.
+- ✅ Insert valid JSON-LD schema: `Article`, `FAQPage`, or `MedicalWebPage` as appropriate.
+- ✅ Explicitly define a **self-referencing canonical tag** matching the final URL: `/resources/botox-dosage-guide`
+
+---
+
+## 🖼️ Image & Visual Policy:
+> ❗ SVGs are NOT allowed in article body content (only as inline icons in headers or cards).
+
+- ✅ Use `.webp` image format **only**
+- ✅ Every image must include:
+  - `alt=""` text
+  - `width=""` and `height=""` attributes
+  - `loading="lazy"`
+- ✅ Only include images that **enhance the article’s educational value** (e.g., comparison charts, annotated diagrams).
+- ✅ Do **not** include decorative images or unverified SVGs.
+
+---
+
+## 💰 AdSense Integration:
+Insert 3 `<AdUnit>` components per article:
+- `<AdUnit slot="botox-dosage-guide-top" />` → Just under H1
+- `<AdUnit slot="botox-dosage-guide-mid" />` → Between output and explanation
+- `<AdUnit slot="botox-dosage-guide-bottom" />` → Above the footer disclaimer
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Add internal links to at least **2 calculators or resources**
+- ✅ Use **anchor text optimized for SEO**, not generic (e.g., use “height predictor calculator” not “click here”)
+- ✅ Include a clean, interactive **Table of Contents**
+- ✅ Feature a **CTA card or button** linking to the relevant calculator
+- ✅ Ensure all links to the calculator point to `/botox-dosage-calculator` (not `/botox-calculator`)
+
+---
+
+## ⚙️ Performance & Accessibility Requirements:
+- ✅ Load all images with `loading="lazy"`
+- ✅ Use semantic HTML5 (e.g., `<section>`, `<figure>`)
+- ✅ Do NOT include render-blocking scripts or excessive inline CSS
+- ✅ Pass automated HTML/JSX validation
+
+---
+
+## 🐸 Screaming Frog SEO Checklist:
+- ✅ Article is not orphaned — includes at least one **internal outbound link**
+- ✅ Canonical tag is explicitly correct
+- ✅ Meta title, description, and H1–H3 tags are fully structured and present
+- ✅ Article is referenced on `/resources` index page
+- ✅ Article is included in sitemap.xml with proper `lastmod` tag
+
+---
+
+## 🚢 Deployment & QA Checklist:
+- ✅ Layout spacing and typography must match current live resources
+- ✅ CTA buttons must use brand pink: `#d63384`
+- ✅ JSX or HTML must be **fully compilable**
+- ✅ Sitemap must not be broken
+- ✅ Image paths must point to valid `static/images/resources/*.webp`
+- ✅ Header and footer must include a link to the article when applicable
+
+---
+
+## 📍 Final URL Format:
+```
+https://longevitycalculator.xyz/resources/botox-dosage-guide
+```
+
+---
+
+> 📌 Use this updated prompt for all resource article generation to ensure full SEO, linking, sitemap, and routing compliance.
