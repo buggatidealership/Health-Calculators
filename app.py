@@ -312,7 +312,7 @@ def fasting_weight_loss_chart():
 @app.route('/resources/how-many-ccs-is-a-c-cup')
 def how_many_ccs_is_a_c_cup():
     return render_template(
-        'how_many_ccs_is_a_c_cup.html',
+        'resources/how_many_ccs_is_a_c_cup.html',
         is_homepage=False,
         schema_name="How Many CCs is a C Cup? Surgeon-Backed Guide",
         schema_description="Convert implant volume (in cc) to a C cup using surgeon-backed sizing rules. Includes charts and conversion guides.",
