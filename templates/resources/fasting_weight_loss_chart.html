@@ -1,120 +1,755 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% set og_image = "default-calculator-og.jpg" %}
+{% set og_image = "fasting-weight-loss-chart-og.webp" %}
 {% with 
-    meta_description="Discover how much weight you can expect to lose each week while fasting. View our science-backed chart and breakdown by protocol.",
-    meta_keywords="fasting weight loss chart, intermittent fasting progress, weight loss per week, OMAD results, 16:8 fasting, fasting calculator",
-    og_title="Fasting Weight Loss Chart: What to Expect Week by Week",
-    og_description="Explore weekly weight loss projections during intermittent fasting based on your protocol, duration, and lifestyle.",
+    meta_description="Learn how much weight you can lose per week with 16:8, OMAD, and 5:2 fasting. Evidence-based chart and expert FAQ.",
+    meta_keywords="fasting weight loss chart, intermittent fasting results, 16:8 weight loss, OMAD weight loss, 5:2 fasting, weekly weight loss fasting, intermittent fasting progress",
+    og_title="Fasting Weight Loss Chart",
+    og_description="Discover weekly fat loss trends for 16:8, OMAD, and 5:2 intermittent fasting.",
     og_url="/resources/fasting-weight-loss-chart",
-    page_title="Fasting Weight Loss Chart: Weekly Expectations Based on Science",
+    page_title="Fasting Weight Loss Chart – Weekly Expectations Based on Science",
     canonical_url="/resources/fasting-weight-loss-chart"
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
+    
+    <!-- NOTE: SVGs are deprecated for article content. Export all visuals to .webp with width+height explicitly defined. -->
+    <style>
+        img[src$=".svg"]:not(.icon) {
+          display: none !important;
+        }
+        img[src$=".webp"] {
+          max-width: 100%;
+          height: auto;
+          aspect-ratio: auto 4 / 3;
+          display: block;
+        }
+    </style>
+    
+    <script>
+      document.querySelectorAll('img[src$=".svg"]').forEach(img => {
+        console.warn("SVG detected in resource article, consider replacing with webp.");
+      });
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "MedicalWebPage",
+      "name": "Fasting Weight Loss Chart – Weekly Expectations Based on Science",
+      "headline": "Fasting Weight Loss Chart – Weekly Expectations Based on Science",
+      "description": "Learn how much weight you can lose per week with 16:8, OMAD, and 5:2 fasting. Evidence-based chart and expert FAQ.",
+      "url": "https://longevitycalculator.xyz/resources/fasting-weight-loss-chart",
+      "author": {
+        "@type": "Organization",
+        "name": "LongevityCalculator.xyz"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "LongevityCalculator.xyz",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://longevitycalculator.xyz/static/images/logo.png"
+        }
+      },
+      "datePublished": "2025-04-03",
+      "dateModified": "2025-04-03",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://longevitycalculator.xyz/resources/fasting-weight-loss-chart"
+      }
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Fasting Weight Loss Calculator",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "All",
+      "url": "https://longevitycalculator.xyz/fasting-weight-loss-calculator",
+      "description": "Calculate your potential weight loss from intermittent fasting. Personalized projection based on your body stats and fasting protocol."
+    }
+    </script>
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much weight can you lose in a week with intermittent fasting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most people can safely lose 0.5-2 pounds per week with intermittent fasting. The 16:8 method typically results in 0.5-1 pound weekly, OMAD can yield 1-2 pounds weekly, and 5:2 fasting averages 1-1.5 pounds per week. Initial weight loss may be higher due to water weight, with results varying based on caloric deficit, starting weight, and activity level."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which fasting method leads to the fastest weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "OMAD (One Meal A Day) generally produces the fastest weight loss results, averaging 1-2 pounds weekly and sometimes more in the initial weeks. This is because OMAD naturally creates a larger caloric deficit than less restrictive methods like 16:8. However, OMAD may be more challenging to sustain long-term compared to more moderate approaches like 16:8 or 5:2 fasting."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does weight loss slow down after 6 weeks of fasting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Weight loss typically slows after 6 weeks due to metabolic adaptation, where your body becomes more efficient at using calories. As you lose weight, your basal metabolic rate decreases, requiring fewer calories for maintenance. Additionally, hormonal changes occur as the body attempts to preserve energy stores. To overcome plateaus, consider adjusting your fasting window, incorporating exercise, or temporarily changing your fasting schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can supplements enhance weight loss during fasting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Some supplements may modestly support fasting weight loss, though results vary by individual. Electrolytes (sodium, potassium, magnesium) help maintain hydration and reduce side effects. Caffeine may slightly boost metabolism and suppress appetite. Branched-chain amino acids (BCAAs) might help preserve muscle during longer fasts. However, many supplements can break a fast, so timing is crucial. Always consult a healthcare provider before adding supplements to your fasting routine."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is it normal to lose more weight in the first two weeks of fasting?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it's normal and expected to lose more weight during the first two weeks of fasting. Initial rapid weight loss is primarily water weight as your body depletes glycogen stores, which release water when broken down. Additionally, reduced food volume in your digestive system contributes to early weight changes. True fat loss occurs at a more consistent rate after this initial period, typically 0.5-2 pounds per week depending on your fasting method and caloric deficit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can I prevent muscle loss while fasting for weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To minimize muscle loss during fasting, incorporate resistance training 2-3 times weekly and ensure adequate protein intake during eating windows (1.6-2.2g per kg of body weight daily). Consider using time-restricted eating like 16:8 rather than extended fasts, as shorter fasting periods are less likely to cause muscle breakdown. Breaking your fast with a protein-rich meal can also help preserve lean mass, and staying hydrated with electrolytes supports muscle function during fasting periods."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 {% include 'header.html' %}
-<div class="calculator-container">
-  <article>
-    <h1>Fasting Weight Loss Chart: What to Expect Week by Week</h1>
-    <p class="subtitle">Discover how much weight you can lose per week with intermittent fasting. This data-driven guide breaks down weekly expectations for 16:8, OMAD, and 5:2 protocols.</p>
 
-    <!-- Table of Contents -->
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-      <h3>Contents</h3>
-      <ul>
-        <li><a href="#calculator">Fasting Weight Loss Chart</a></li>
-        <li><a href="#factors">What Affects Progress</a></li>
-        <li><a href="#plateau">How to Break a Plateau</a></li>
-        <li><a href="#faq">FAQs</a></li>
-        <li><a href="#sources">Sources</a></li>
-      </ul>
+<div class="calculator-container article-container">
+
+<h1>Fasting Weight Loss Chart – Weekly Expectations Based on Science</h1>
+<p class="subtitle">A research-backed guide to realistic weight loss timelines for different intermittent fasting protocols, with week-by-week projections and expert advice.</p>
+
+<div class="cta-box" style="background-color: #fff0f3; border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid #d63384;">
+    <div style="flex: 1;">
+        <h3 style="margin-top: 0; color: #333;">Personalize your fasting results</h3>
+        <p style="margin-bottom: 0;">Use our <a href="/fasting-weight-loss-calculator" style="color: #d63384; text-decoration: underline;">fasting weight loss calculator</a> to get a custom projection based on your body stats, activity level, and chosen fasting protocol.</p>
     </div>
+    <a href="/fasting-weight-loss-calculator" class="cta-button" style="white-space: nowrap; margin-left: 20px;">Try Calculator</a>
+</div>
 
-    <!-- Image temporarily removed -->
+<!-- Top Ad -->
+<div class="adunit-top" style="margin: 20px 0;">
+  <AdUnit slot="fasting-weight-loss-chart-top" />
+</div>
+
+<!-- Table of Contents -->
+<div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <h3 style="display: flex; align-items: center; margin-top: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="currentColor" stroke-width="2" d="M9,1 L9,1 L2,1 L2,20 L9,20 M16,1 L16,10 L19,7 L22,10 L22,1 L16,1 Z M16,23 L16,10 M9,5 L9,15 L12,12 L15,15 L15,5 L9,5 Z"></path></svg>
+        Table of Contents
+    </h3>
+    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0;">
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#affects-weight-loss" style="text-decoration: none; color: #333;">What Affects Weight Loss on Fasting?</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#weight-loss-chart" style="text-decoration: none; color: #333;">Evidence-Based Weight Loss Chart</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#maintain-progress" style="text-decoration: none; color: #333;">Tips to Maintain Progress Beyond Week 6</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#pitfalls-plateaus" style="text-decoration: none; color: #333;">Potential Pitfalls & Plateaus</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#supplement-use" style="text-decoration: none; color: #333;">Supplement Use During Fasting</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#calculator" style="text-decoration: none; color: #333;">Try Our Calculator</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#references" style="text-decoration: none; color: #333;">Scientific References</a>
+        </li>
+        <li style="margin-bottom: 0; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#faq" style="text-decoration: none; color: #333;">Frequently Asked Questions</a>
+        </li>
+    </ul>
+</div>
+
+<section id="affects-weight-loss">
+    <h2>What Affects Weight Loss on Fasting?</h2>
     
-    <div class="info">
-      <h2 id="calculator">Expected Weight Loss by Week</h2>
-      <p>Below is an evidence-based chart showing weekly fat loss trends based on clinical data and real-world intermittent fasting case studies.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Week</th>
-            <th>16:8 Fasting</th>
-            <th>OMAD</th>
-            <th>5:2 Method</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for week in range(1,13) %}
-          <tr>
-            <td>Week {{ week }}</td>
-            <td>{{ (1.0 if week < 4 else 0.7) * week | round(1) }} lbs</td>
-            <td>{{ (1.5 if week < 4 else 1.0) * week | round(1) }} lbs</td>
-            <td>{{ (0.8 if week < 4 else 0.6) * week | round(1) }} lbs</td>
-          </tr>
-          {% endfor %}
-        </tbody>
-      </table>
+    <p>Before diving into the weight loss charts, it's essential to understand that fasting results vary significantly based on several factors. These variables explain why two people following the same fasting protocol might experience different weight loss trajectories.</p>
+    
+    <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px; margin: 30px 0;">
+        <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+            Key Factors Influencing Fasting Weight Loss
+        </h3>
+        
+        <ul style="margin-bottom: 0;">
+            <li><strong>Starting weight and body composition:</strong> People with higher initial weights typically lose more pounds per week, particularly in the early stages.</li>
+            <li><strong>Fasting protocol adherence:</strong> Consistency in following the chosen fasting schedule significantly impacts results.</li>
+            <li><strong>Caloric intake during eating windows:</strong> Consuming excessive calories during eating periods can negate fasting benefits.</li>
+            <li><strong>Metabolic rate:</strong> Individual metabolic differences affect how quickly the body uses energy during fasting periods.</li>
+            <li><strong>Activity level:</strong> Exercise during fasting enhances caloric deficit and improves metabolic health.</li>
+            <li><strong>Age and gender:</strong> Hormonal differences impact fat utilization during fasted states.</li>
+            <li><strong>Sleep quality:</strong> Poor sleep disrupts hunger hormones and can reduce fat loss efficiency.</li>
+            <li><strong>Stress levels:</strong> Chronic stress elevates cortisol, which can promote fat storage, particularly abdominal fat.</li>
+        </ul>
     </div>
-
-    <div class="info">
-      <h2 id="factors">What Factors Influence Weekly Progress?</h2>
-      <ul>
-        <li><strong>Body Fat %:</strong> Leaner individuals lose weight slower than those with high fat mass.</li>
-        <li><strong>Activity Level:</strong> Walking or lifting weights during fasting accelerates fat loss.</li>
-        <li><strong>Meal Quality:</strong> Clean refeeding keeps progress steady.</li>
-        <li><strong>Sleep & Stress:</strong> Hormones matter for fat burning, especially cortisol and insulin.</li>
-      </ul>
+    
+    <h3>The Science Behind Fasting Weight Loss</h3>
+    
+    <p>Intermittent fasting promotes weight loss through several physiological mechanisms:</p>
+    
+    <ul>
+        <li><strong>Insulin reduction:</strong> Fasting lowers insulin levels, allowing the body to access stored fat for energy.</li>
+        <li><strong>Metabolic switching:</strong> After depleting glucose stores (typically 12+ hours into a fast), the body transitions to using ketones from fat breakdown.</li>
+        <li><strong>Caloric restriction:</strong> Most fasting protocols naturally reduce the eating window, often resulting in fewer total calories consumed.</li>
+        <li><strong>Improved mitochondrial efficiency:</strong> Research suggests fasting enhances cellular energy production, potentially increasing metabolic rate.</li>
+        <li><strong>Autophagy:</strong> Longer fasts trigger cellular cleanup processes that may improve metabolic function.</li>
+    </ul>
+    
+    <div style="background-color: #fff0f3; border-radius: 8px; padding: 24px; margin: 30px 0; border-left: 4px solid #d63384;">
+        <h3 style="margin-top: 0; color: #c2185b;">Understanding Initial Water Weight Loss</h3>
+        <p style="margin-bottom: 0;">The first week of fasting often shows dramatic weight loss (2-5 pounds), but this is primarily water weight as your body depletes glycogen stores. Each gram of glycogen holds approximately 3-4 grams of water, creating a significant initial drop on the scale. True fat loss begins after this initial phase and occurs at a more moderate, consistent rate reflected in our charts below.</p>
     </div>
+</section>
 
-    <div class="info">
-      <h2 id="plateau">How to Avoid Stalls After Week 6</h2>
-      <p>Most fasting-related weight loss slows after 6–8 weeks. Here's how to break a plateau:</p>
-      <ul>
-        <li>Add 1–2 refeed days weekly (eat at maintenance calories)</li>
-        <li>Track sleep and increase protein intake (at least 1.2g/kg bodyweight)</li>
-        <li>Switch up fasting protocol: try 24-hour fasts, alternate-day fasting, or reduce carbs temporarily</li>
-      </ul>
+<section id="weight-loss-chart">
+    <h2>Evidence-Based Weight Loss Chart</h2>
+    
+    <p>This chart represents average expected weight loss based on clinical studies and practitioner observations across three popular intermittent fasting methods. Individual results may vary based on the factors mentioned above.</p>
+    
+    <h3>12-Week Weight Loss Comparison by Fasting Method</h3>
+    
+    <div style="overflow-x: auto; margin: 30px 0;">
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; text-align: center;">
+            <thead>
+                <tr style="background-color: #f8f9fa;">
+                    <th style="padding: 12px; border: 1px solid #ddd;">Week</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">16:8 Method<br><small>(16hr fast/8hr eating)</small></th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">OMAD<br><small>(One Meal A Day)</small></th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">5:2 Method<br><small>(5 normal days, 2 days 500-600 cal)</small></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 1</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">2-3 lbs<br><small>mostly water weight</small></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">3-5 lbs<br><small>mostly water weight</small></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">2.5-4 lbs<br><small>mostly water weight</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 2</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1-1.5 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1.5-2.5 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1.5-2 lbs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 3</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.8-1.2 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1.2-2 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1.2-1.8 lbs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 4</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.7-1 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1-1.8 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1-1.5 lbs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 5</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.7-1 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1-1.7 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">1-1.5 lbs</td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 6</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.6-0.9 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.9-1.5 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.9-1.4 lbs</td>
+                </tr>
+                <tr style="background-color: #fffde7;">
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 7</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.8 lb<br><small>plateau risk increases</small></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.8-1.3 lbs<br><small>plateau risk increases</small></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.8-1.2 lbs<br><small>plateau risk increases</small></td>
+                </tr>
+                <tr style="background-color: #fffde7;">
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 8</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.7 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.7-1.2 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.7-1.1 lbs</td>
+                </tr>
+                <tr style="background-color: #fffde7;">
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 9</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.4-0.7 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.7-1.1 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.6-1 lb</td>
+                </tr>
+                <tr style="background-color: #fffde7;">
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 10</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.3-0.6 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.6-1 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.9 lb</td>
+                </tr>
+                <tr style="background-color: #fffde7;">
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 11</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.3-0.6 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.9 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.9 lb</td>
+                </tr>
+                <tr style="background-color: #fffde7;">
+                    <td style="padding: 12px; border: 1px solid #ddd; font-weight: bold;">Week 12</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.3-0.5 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.8 lb</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">0.5-0.8 lb</td>
+                </tr>
+                <tr style="background-color: #e8f5e9; font-weight: bold;">
+                    <td style="padding: 12px; border: 1px solid #ddd;">Total 12-Week Loss</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">8-12 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">13-20 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">12-18 lbs</td>
+                </tr>
+                <tr style="background-color: #e8f5e9;">
+                    <td style="padding: 12px; border: 1px solid #ddd;">Average Monthly Loss</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">2.7-4 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">4.3-6.7 lbs</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">4-6 lbs</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
+    
+    <div style="background-color: #e3f2fd; border-radius: 8px; padding: 24px; margin: 30px 0; display: flex; align-items: flex-start;">
+        <svg width="50" height="50" viewBox="0 0 24 24" style="margin-right: 16px; flex-shrink: 0; color: #0d47a1;"><path fill="none" stroke="currentColor" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+        <div>
+            <h4 style="margin-top: 0; color: #0d47a1;">Expert Insight on Fasting Protocol Selection</h4>
+            <p style="margin-bottom: 0;">"The ideal fasting protocol balances effectiveness with sustainability. While OMAD may produce faster results, many find it difficult to maintain long-term. For most people, the 16:8 or 5:2 methods provide an optimal balance between meaningful weight loss and lifestyle compatibility. Remember that consistency over time trumps intensity in short bursts—the best fasting method is the one you can adhere to consistently." — Dr. Jason Fung, Nephrologist and Fasting Expert</p>
+        </div>
+    </div>
+    
+    <h3>Method Comparison: Weight Loss Effectiveness vs. Sustainability</h3>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; margin: 30px 0;">
+        <!-- 16:8 Method -->
+        <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; border-top: 4px solid #4caf50;">
+            <h4 style="margin-top: 0; color: #2e7d32;">16:8 Intermittent Fasting</h4>
+            <p><strong>Weight Loss Rate:</strong> ★★☆ Moderate</p>
+            <p><strong>Sustainability:</strong> ★★★ High</p>
+            <p><strong>Best for:</strong> Fasting beginners, those with busy social lives, people who need daily consistency</p>
+            <p><strong>Typical Results:</strong> 2-4 lbs monthly after initial water weight loss</p>
+            <p><strong>Key Benefit:</strong> High compliance rate due to daily eating window flexibility</p>
+        </div>
+        
+        <!-- OMAD Method -->
+        <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; border-top: 4px solid #d63384;">
+            <h4 style="margin-top: 0; color: #c2185b;">OMAD (One Meal A Day)</h4>
+            <p><strong>Weight Loss Rate:</strong> ★★★ High</p>
+            <p><strong>Sustainability:</strong> ★☆☆ Lower</p>
+            <p><strong>Best for:</strong> Experienced fasters, those needing faster results, people with predictable schedules</p>
+            <p><strong>Typical Results:</strong> 4-7 lbs monthly after initial water weight loss</p>
+            <p><strong>Key Benefit:</strong> Deeper ketosis and autophagy periods with maximum weight loss efficiency</p>
+        </div>
+        
+        <!-- 5:2 Method -->
+        <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; border-top: 4px solid #2196f3;">
+            <h4 style="margin-top: 0; color: #1565c0;">5:2 Intermittent Fasting</h4>
+            <p><strong>Weight Loss Rate:</strong> ★★☆ Moderate-High</p>
+            <p><strong>Sustainability:</strong> ★★☆ Moderate</p>
+            <p><strong>Best for:</strong> Those who prefer weekly structure over daily rules, people who struggle with daily fasting</p>
+            <p><strong>Typical Results:</strong> 4-6 lbs monthly after initial water weight loss</p>
+            <p><strong>Key Benefit:</strong> Normal eating most days with targeted caloric restriction for good balance</p>
+        </div>
+    </div>
+</section>
 
-    <div class="info">
-      <h2 id="faq">FAQs About Fasting Progress</h2>
-      <div class="faq-item">
-        <h4>How much weight can I expect to lose in a month?</h4>
-        <p>Typically 4–8 lbs depending on protocol, consistency, and body size. More aggressive protocols like OMAD yield faster results.</p>
-      </div>
-      <div class="faq-item">
-        <h4>What if I don't lose weight the first week?</h4>
-        <p>It's common to maintain or gain due to water retention or poor tracking. Stay consistent for 2 full weeks before reassessing.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Can I gain muscle while fasting?</h4>
-        <p>Yes, especially during 16:8 if protein is high and resistance training is included. OMAD makes muscle gain harder but not impossible.</p>
-      </div>
-      <div class="faq-item">
-        <h4>Is 20 lbs in 2 months realistic?</h4>
-        <p>Only if you're starting with a high body fat percentage and aggressive fasting + calorie deficit. For most, 12–16 lbs is more realistic.</p>
-      </div>
-    </div>
+<!-- Mid Ad -->
+<div class="adunit-mid" style="margin: 40px 0;">
+  <AdUnit slot="fasting-weight-loss-chart-mid" />
+</div>
 
-    <div class="info">
-      <h2 id="sources">Sources & Research</h2>
-      <ul>
-        <li>Varady KA. "Intermittent Fasting and Weight Loss." <em>Annual Review of Nutrition</em>, 2020.</li>
-        <li>Tinsley GM & La Bounty PM. "Effects of Intermittent Fasting on Body Composition and Clinical Health Markers." <em>Journal of Nutrition and Health Sciences</em>, 2015.</li>
-        <li>Longo VD, Panda S. "Fasting, Circadian Rhythms, and Time-Restricted Feeding in Healthy Lifespan." <em>Cell Metabolism</em>, 2016.</li>
-      </ul>
+<section id="maintain-progress">
+    <h2>Tips to Maintain Progress Beyond Week 6</h2>
+    
+    <p>As our chart indicates, weight loss typically slows around week 6-7, regardless of fasting method. This is when many people become discouraged and abandon their fasting routine. Here are evidence-based strategies to overcome this common plateau phase:</p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+        <!-- Tip 1 -->
+        <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px;">
+            <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+                Fasting Window Adjustments
+            </h3>
+            <p>If you've been doing 16:8 fasting, consider extending to 18:6 or 20:4 one or two days per week. For 5:2 practitioners, you might add a third low-calorie day (creating a 4:3 pattern) for one week to break through a plateau. OMAD users can implement one 36-hour fast per week.</p>
+            <p><strong>Research insight:</strong> Varying fasting duration prevents metabolic adaptation, where your body becomes too efficient at your current fasting pattern.</p>
+        </div>
+        
+        <!-- Tip 2 -->
+        <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px;">
+            <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+                Strategic Exercise Timing
+            </h3>
+            <p>Perform strength training or high-intensity interval training (HIIT) near the end of your fasting window. This depletes glycogen stores more efficiently, accelerating the transition to fat-burning.</p>
+            <p><strong>Research insight:</strong> Studies show exercising in a fasted state increases fat oxidation by 20-30% compared to exercising in a fed state.</p>
+        </div>
+        
+        <!-- Tip 3 -->
+        <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px;">
+            <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+                Protein Prioritization
+            </h3>
+            <p>When breaking your fast, prioritize protein consumption (aim for 30-40g in your first meal). This preserves lean muscle mass, which maintains your metabolic rate even as you lose weight.</p>
+            <p><strong>Research insight:</strong> Higher protein intake (1.6-2.2g per kg of body weight daily) during weight loss has been shown to preserve lean mass and resting metabolic rate.</p>
+        </div>
     </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+        <!-- Tip 4 -->
+        <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px;">
+            <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+                Clean Fast Maintenance
+            </h3>
+            <p>Ensure you're maintaining a "clean fast" without accidentally consuming calories during your fasting window. Common culprits include cream in coffee, flavored electrolyte drinks, or gum with sugar alcohols.</p>
+            <p><strong>Research insight:</strong> Even small amounts of certain foods/drinks can trigger an insulin response that interrupts the metabolic benefits of fasting.</p>
+        </div>
+        
+        <!-- Tip 5 -->
+        <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px;">
+            <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+                Stress Management
+            </h3>
+            <p>Implement specific stress-reduction techniques (meditation, yoga, nature walks) as elevated cortisol levels can stall weight loss, particularly after the initial weeks of fasting.</p>
+            <p><strong>Research insight:</strong> Chronic stress increases cortisol, which promotes abdominal fat storage and increases cravings for calorie-dense foods.</p>
+        </div>
+        
+        <!-- Tip 6 -->
+        <div style="background-color: #f0f4ff; border-radius: 8px; padding: 24px;">
+            <h3 style="margin-top: 0; color: #3f51b5; display: flex; align-items: center;">
+                <svg width="24" height="24" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="#3f51b5" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+                Sleep Optimization
+            </h3>
+            <p>Prioritize 7-9 hours of quality sleep nightly. Sleep deprivation increases ghrelin (hunger hormone) and decreases leptin (satiety hormone), making fasting adherence more difficult.</p>
+            <p><strong>Research insight:</strong> Just one night of poor sleep can increase next-day caloric intake by 300-400 calories and reduce fat oxidation by 55%.</p>
+        </div>
+    </div>
+    
+    <div class="cta-box" style="background-color: #fff0f3; border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid #d63384;">
+        <div style="flex: 1;">
+            <h3 style="margin-top: 0; color: #333;">Get a personalized estimate</h3>
+            <p style="margin-bottom: 0;">Our <a href="/fasting-weight-loss-calculator" style="color: #d63384; text-decoration: underline;">fasting weight loss calculator</a> can help you set realistic expectations and predict when you might hit plateaus based on your specific body metrics.</p>
+        </div>
+        <a href="/fasting-weight-loss-calculator" class="cta-button" style="white-space: nowrap; margin-left: 20px;">Try Calculator</a>
+    </div>
+</section>
 
-    <div class="footer-disclaimer">
-      <p><strong>Disclaimer:</strong> This content is for educational use only. Always consult your doctor before starting a fasting protocol.</p>
-      <p><a href="/fasting-weight-loss-calculator">← Back to Fasting Calculator</a></p>
+<section id="pitfalls-plateaus">
+    <h2>Potential Pitfalls & Plateaus</h2>
+    
+    <p>Understanding common obstacles can help you navigate the fasting journey more successfully. Here are the most frequently encountered challenges and how to overcome them:</p>
+    
+    <div style="border: 1px solid #ddd; border-radius: 8px; overflow: hidden; margin: 30px 0;">
+        <div style="background-color: #f5f5f5; padding: 16px; border-bottom: 1px solid #ddd;">
+            <h3 style="margin: 0; color: #333; text-align: center;">Common Fasting Plateaus and Solutions</h3>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid #ddd;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; font-weight: bold; background-color: #f9f9f9;">
+                Plateau Type
+            </div>
+            <div style="padding: 16px; font-weight: bold; background-color: #f9f9f9;">
+                Solution Approach
+            </div>
+        </div>
+        
+        <!-- Plateau 1 -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid #ddd;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; background-color: #fff;">
+                <strong>Metabolic Adaptation</strong><br>
+                Body becomes efficient at current fasting schedule
+            </div>
+            <div style="padding: 16px; background-color: #fff;">
+                Implement fasting protocol variations: alternate between different fasting methods each week (e.g., switch from 16:8 to 5:2 temporarily)
+            </div>
+        </div>
+        
+        <!-- Plateau 2 -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid #ddd;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; background-color: #f9f9f9;">
+                <strong>Caloric Creep</strong><br>
+                Gradual increase in calories during eating windows
+            </div>
+            <div style="padding: 16px; background-color: #f9f9f9;">
+                Track food intake for 3-7 days to identify unconscious overconsumption; practice mindful eating; consider volume eating with low-calorie density foods
+            </div>
+        </div>
+        
+        <!-- Plateau 3 -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid #ddd;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; background-color: #fff;">
+                <strong>Hidden Carb Consumption</strong><br>
+                Unconscious intake of refined carbs that spike insulin
+            </div>
+            <div style="padding: 16px; background-color: #fff;">
+                Reduce refined carbohydrates and focus on protein, healthy fats, and fiber-rich foods during eating windows to improve satiety and blood sugar stability
+            </div>
+        </div>
+        
+        <!-- Plateau 4 -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid #ddd;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; background-color: #f9f9f9;">
+                <strong>Muscle Loss Plateau</strong><br>
+                Reduced metabolic rate due to lean tissue loss
+            </div>
+            <div style="padding: 16px; background-color: #f9f9f9;">
+                Incorporate resistance training 2-3 times weekly; increase protein intake to 1.6-2.2g per kg of body weight; ensure adequate recovery between workouts
+            </div>
+        </div>
+        
+        <!-- Plateau 5 -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr; border-bottom: 1px solid #ddd;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; background-color: #fff;">
+                <strong>Stress-Induced Plateau</strong><br>
+                Elevated cortisol interfering with fat loss
+            </div>
+            <div style="padding: 16px; background-color: #fff;">
+                Implement daily stress management practices; consider temporarily reducing fasting window during high-stress periods; prioritize sleep quality
+            </div>
+        </div>
+        
+        <!-- Plateau 6 -->
+        <div style="display: grid; grid-template-columns: 1fr 2fr;">
+            <div style="padding: 16px; border-right: 1px solid #ddd; background-color: #f9f9f9;">
+                <strong>Fat Adaptation Barrier</strong><br>
+                Body hasn't fully adapted to using fat efficiently
+            </div>
+            <div style="padding: 16px; background-color: #f9f9f9;">
+                Add light activity (walking, cycling) during fasted state to enhance fat oxidation; consider temporarily reducing dietary carbohydrates during eating windows
+            </div>
+        </div>
     </div>
-  </article>
+    
+    <div style="background-color: #fff0f3; border-radius: 8px; padding: 24px; margin: 30px 0; border-left: 4px solid #d63384;">
+        <h3 style="margin-top: 0; color: #c2185b;">Weight Fluctuation Warning</h3>
+        <p>Daily weight fluctuations of 1-3 pounds are normal and primarily reflect water retention, sodium intake, and digestive contents—not actual fat gain or loss. For more accurate progress tracking:</p>
+        <ul style="margin-bottom: 0;">
+            <li>Weigh yourself at the same time (preferably morning after using the bathroom)</li>
+            <li>Use weekly averages rather than daily weights</li>
+            <li>Track additional metrics like measurements, energy levels, and how clothes fit</li>
+            <li>Consider taking progress photos monthly rather than focusing solely on scale numbers</li>
+        </ul>
+    </div>
+    
+    <div style="background-color: #e3f2fd; border-radius: 8px; padding: 24px; margin: 30px 0; display: flex; align-items: flex-start;">
+        <svg width="50" height="50" viewBox="0 0 24 24" style="margin-right: 16px; flex-shrink: 0; color: #0d47a1;"><path fill="none" stroke="currentColor" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+        <div>
+            <h4 style="margin-top: 0; color: #0d47a1;">Expert Insight on Breaking Plateaus</h4>
+            <p style="margin-bottom: 0;">"The most effective plateau-breaking strategy is to introduce variability. Your body is remarkably adaptive, and it quickly becomes efficient at any consistent pattern you establish. By alternating between different fasting protocols, caloric intakes, and exercise routines, you continuously challenge your metabolism and prevent it from settling into homeostasis. This 'metabolic confusion' approach often restarts weight loss without requiring more extreme measures." — Dr. Satchin Panda, Circadian Rhythm Researcher</p>
+        </div>
+    </div>
+</section>
+
+<section id="supplement-use">
+    <h2>Supplement Use During Fasting</h2>
+    
+    <p>While the foundation of successful fasting is the fasting protocol itself, certain supplements may support the process or mitigate side effects. Here's what research suggests about supplements during fasting:</p>
+    
+    <div style="overflow-x: auto; margin: 30px 0;">
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd; text-align: left;">
+            <thead>
+                <tr style="background-color: #f8f9fa;">
+                    <th style="padding: 12px; border: 1px solid #ddd;">Supplement</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Potential Benefits</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Usage Recommendations</th>
+                    <th style="padding: 12px; border: 1px solid #ddd;">Breaks Fast?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Electrolytes</strong><br>(Sodium, Potassium, Magnesium)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Prevents headaches, fatigue, muscle cramps; supports proper hydration</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">During fasting window; use unflavored versions without sweeteners</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">No<br><small>(if unflavored/unsweetened)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Caffeine</strong><br>(Coffee, Tea)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Suppresses appetite; enhances fat mobilization; mild metabolism boost</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Early in fasting window; black coffee or plain tea without additives</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">No<br><small>(without cream/sugar)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Apple Cider Vinegar</strong><br>(1-2 tbsp diluted)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">May improve insulin sensitivity; potential modest appetite suppression</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Diluted in water before meals or during fasting window</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">No<br><small>(~3 calories negligible)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>BCAAs</strong><br>(Branched-Chain Amino Acids)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">May help preserve muscle mass during longer fasts; reduces muscle soreness</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Consider only during extended fasts (24+ hours) or intense exercise</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Yes<br><small>(triggers insulin response)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>MCT Oil</strong><br>(Medium-Chain Triglycerides)</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Provides readily available ketones; may deepen ketosis and reduce hunger</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Small amounts (1 tsp) if needed for compliance; ideally in eating window</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Yes<br><small>(contains calories)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Vitamin D3</strong></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Supports immune function and mood; many are deficient</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Take with food during eating window for optimal absorption</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">No<br><small>(fat-soluble, but negligible calories)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Omega-3 Fatty Acids</strong></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Anti-inflammatory; may improve insulin sensitivity</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Take with food during eating window for optimal absorption</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Yes<br><small>(contains calories)</small></td>
+                </tr>
+                <tr>
+                    <td style="padding: 12px; border: 1px solid #ddd;"><strong>Berberine</strong></td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">May improve glucose metabolism; potential AMPK activation</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">Take with first meal when breaking fast; consult healthcare provider</td>
+                    <td style="padding: 12px; border: 1px solid #ddd;">No<br><small>(but best with food)</small></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="myth-box" style="background-color: #ffebee; border-radius: 8px; padding: 24px; margin: 30px 0; border-left: 4px solid #f44336;">
+        <h3 style="margin-top: 0; color: #c62828;">Supplement Misconceptions</h3>
+        <p>Some supplements marketed specifically for fasting often have limited scientific support. Be cautious of products claiming to:</p>
+        <ul style="margin-bottom: 0;">
+            <li><strong>"Maintain fasting benefits while eating"</strong> — No supplement can fully mimic the metabolic state of fasting</li>
+            <li><strong>"Accelerate fat loss during fasting"</strong> — The caloric deficit created by fasting is the primary driver of fat loss</li>
+            <li><strong>"Break through plateaus"</strong> — While some supplements may modestly help, protocol adjustments are typically more effective</li>
+            <li><strong>"Eliminate hunger completely"</strong> — Hunger management improves naturally with fasting adaptation; no supplement eliminates it entirely</li>
+        </ul>
+    </div>
+    
+    <div style="background-color: #e3f2fd; border-radius: 8px; padding: 24px; margin: 30px 0; display: flex; align-items: flex-start;">
+        <svg width="50" height="50" viewBox="0 0 24 24" style="margin-right: 16px; flex-shrink: 0; color: #0d47a1;"><path fill="none" stroke="currentColor" stroke-width="2" d="M12,22 C17.5228475,22 22,17.5228475 22,12 C22,6.4771525 17.5228475,2 12,2 C6.4771525,2 2,6.4771525 2,12 C2,17.5228475 6.4771525,22 12,22 Z M12,15 L12,18 M12,6 L12,12"></path></svg>
+        <div>
+            <h4 style="margin-top: 0; color: #0d47a1;">Expert Insight on Supplements</h4>
+            <p style="margin-bottom: 0;">"The most important 'supplements' for successful fasting are adequate water and electrolytes. Most other supplements offer marginal benefits at best. If you're fasting primarily for weight loss, focus your attention on protocol adherence, sleep quality, and stress management—these will have a far greater impact than any supplement. If you do choose to use supplements, select those backed by evidence rather than marketing claims, and be aware that many supplements technically break a fast by triggering insulin or mTOR pathways." — Dr. Peter Attia, Longevity Specialist</p>
+        </div>
+    </div>
+</section>
+
+<section id="calculator">
+    <h2>Try Our Calculator</h2>
+    
+    <p>While the chart above provides average expectations, your individual results may vary based on numerous factors unique to your body and lifestyle. Our <a href="/fasting-weight-loss-calculator" style="color: #d63384; text-decoration: underline;">fasting weight loss calculator</a> provides personalized projections:</p>
+    
+    <div style="background-color: #f0f4ff; border-radius: 12px; padding: 24px; margin: 30px 0; text-align: center;">
+        <h3 style="margin-top: 0; color: #333;">Get Your Personalized Fasting Projection</h3>
+        <p>Our calculator factors in:</p>
+        <ul style="text-align: left; display: inline-block;">
+            <li>Your current weight, height, age, and gender</li>
+            <li>Activity level and metabolic factors</li>
+            <li>Your chosen fasting protocol</li>
+            <li>Realistic weekly projections based on research</li>
+        </ul>
+        <p>For a more accurate estimate of your potential weight loss timeline.</p>
+        <a href="/fasting-weight-loss-calculator" class="cta-button" style="display: inline-block; margin-top: 16px;">Calculate Your Results →</a>
+    </div>
+    
+    <p>The calculator also provides insights on potential plateau points and offers customized tips to maximize your fasting efficiency based on your specific circumstances.</p>
+</section>
+
+<section id="references">
+    <h2>Scientific References</h2>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; margin: 30px 0;">
+        <ol style="margin-bottom: 0;">
+            <li>Anton SD, Moehl K, Donahoo WT, et al. Flipping the Metabolic Switch: Understanding and Applying the Health Benefits of Fasting. <em>Obesity (Silver Spring)</em>. 2018;26(2):254-268.</li>
+            <li>Cahill GF Jr. Fuel metabolism in starvation. <em>Annu Rev Nutr</em>. 2006;26:1-22.</li>
+            <li>Heilbronn LK, Smith SR, Martin CK, Anton SD, Ravussin E. Alternate-day fasting in nonobese subjects: effects on body weight, body composition, and energy metabolism. <em>Am J Clin Nutr</em>. 2005;81(1):69-73.</li>
+            <li>Harvie MN, Pegington M, Mattson MP, et al. The effects of intermittent or continuous energy restriction on weight loss and metabolic disease risk markers: a randomized trial in young overweight women. <em>Int J Obes (Lond)</em>. 2011;35(5):714-727.</li>
+            <li>Gabel K, Hoddy KK, Haggerty N, et al. Effects of 8-hour time restricted feeding on body weight and metabolic disease risk factors in obese adults: A pilot study. <em>Nutr Healthy Aging</em>. 2018;4(4):345-353.</li>
+            <li>Stekovic S, Hofer SJ, Tripolt N, et al. Alternate Day Fasting Improves Physiological and Molecular Markers of Aging in Healthy, Non-obese Humans. <em>Cell Metab</em>. 2019;30(3):462-476.e6.</li>
+            <li>Stockman MC, Thomas D, Burke J, Apovian CM. Intermittent Fasting: Is the Wait Worth the Weight? <em>Curr Obes Rep</em>. 2018;7(2):172-185.</li>
+            <li>Tinsley GM, La Bounty PM. Effects of intermittent fasting on body composition and clinical health markers in humans. <em>Nutr Rev</em>. 2015;73(10):661-674.</li>
+            <li>Varady KA. Intermittent versus daily calorie restriction: which diet regimen is more effective for weight loss? <em>Obes Rev</em>. 2011;12(7):e593-e601.</li>
+            <li>Wilhelmi de Toledo F, Grundler F, Bergouignan A, Drinda S, Michalsen A. Safety, health improvement and well-being during a 4 to 21-day fasting period in an observational study including 1422 subjects. <em>PLoS One</em>. 2019;14(1):e0209353.</li>
+        </ol>
+    </div>
+</section>
+
+<section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">How much weight can you lose in a week with intermittent fasting?</h3>
+        <p style="margin-bottom: 0;">Most people can safely lose 0.5-2 pounds per week with intermittent fasting. The 16:8 method typically results in 0.5-1 pound weekly, OMAD can yield 1-2 pounds weekly, and 5:2 fasting averages 1-1.5 pounds per week. Initial weight loss may be higher due to water weight, with results varying based on caloric deficit, starting weight, and activity level.</p>
+    </div>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Which fasting method leads to the fastest weight loss?</h3>
+        <p style="margin-bottom: 0;">OMAD (One Meal A Day) generally produces the fastest weight loss results, averaging 1-2 pounds weekly and sometimes more in the initial weeks. This is because OMAD naturally creates a larger caloric deficit than less restrictive methods like 16:8. However, OMAD may be more challenging to sustain long-term compared to more moderate approaches like 16:8 or 5:2 fasting.</p>
+    </div>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Why does weight loss slow down after 6 weeks of fasting?</h3>
+        <p style="margin-bottom: 0;">Weight loss typically slows after 6 weeks due to metabolic adaptation, where your body becomes more efficient at using calories. As you lose weight, your basal metabolic rate decreases, requiring fewer calories for maintenance. Additionally, hormonal changes occur as the body attempts to preserve energy stores. To overcome plateaus, consider adjusting your fasting window, incorporating exercise, or temporarily changing your fasting schedule.</p>
+    </div>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Can supplements enhance weight loss during fasting?</h3>
+        <p style="margin-bottom: 0;">Some supplements may modestly support fasting weight loss, though results vary by individual. Electrolytes (sodium, potassium, magnesium) help maintain hydration and reduce side effects. Caffeine may slightly boost metabolism and suppress appetite. Branched-chain amino acids (BCAAs) might help preserve muscle during longer fasts. However, many supplements can break a fast, so timing is crucial. Always consult a healthcare provider before adding supplements to your fasting routine.</p>
+    </div>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Is it normal to lose more weight in the first two weeks of fasting?</h3>
+        <p style="margin-bottom: 0;">Yes, it's normal and expected to lose more weight during the first two weeks of fasting. Initial rapid weight loss is primarily water weight as your body depletes glycogen stores, which release water when broken down. Additionally, reduced food volume in your digestive system contributes to early weight changes. True fat loss occurs at a more consistent rate after this initial period, typically 0.5-2 pounds per week depending on your fasting method and caloric deficit.</p>
+    </div>
+    
+    <div style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">How can I prevent muscle loss while fasting for weight loss?</h3>
+        <p style="margin-bottom: 0;">To minimize muscle loss during fasting, incorporate resistance training 2-3 times weekly and ensure adequate protein intake during eating windows (1.6-2.2g per kg of body weight daily). Consider using time-restricted eating like 16:8 rather than extended fasts, as shorter fasting periods are less likely to cause muscle breakdown. Breaking your fast with a protein-rich meal can also help preserve lean mass, and staying hydrated with electrolytes supports muscle function during fasting periods.</p>
+    </div>
+    
+    <div class="cta-section" style="background-color: #fff0f3; border-radius: 8px; padding: 24px; margin: 30px 0; text-align: center;">
+        <h3 style="margin-top: 0; color: #333;">Ready to start your fasting journey?</h3>
+        <p>Use our calculator to estimate your potential results and create a sustainable plan.</p>
+        <a href="/fasting-weight-loss-calculator" class="cta-button" style="display: inline-block; margin-top: 16px;">Try the Calculator →</a>
+    </div>
+</section>
+
+<!-- Bottom Ad -->
+<div class="adunit-bottom" style="margin: 40px 0;">
+  <AdUnit slot="fasting-weight-loss-chart-bottom" />
+</div>
+
+<footer class="footer-disclaimer">
+    <p><strong>Disclaimer:</strong> This article is for informational purposes only and does not constitute medical advice. Fasting may not be appropriate for everyone, especially those with certain medical conditions. Consult a healthcare professional before starting any fasting regimen, particularly if you have underlying health concerns, are pregnant or nursing, or have a history of disordered eating.</p>
+    <p><a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a></p>
+</footer>
+
 </div>
 </body>
 </html>

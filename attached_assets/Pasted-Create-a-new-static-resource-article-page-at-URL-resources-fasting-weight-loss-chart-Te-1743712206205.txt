@@ -1,0 +1,82 @@
+Create a new static resource article page at:
+**URL:** `/resources/fasting-weight-loss-chart`
+**Template File:** `templates/resources/fasting_weight_loss_chart.html`
+
+---
+
+## ✅ Layout & Template Requirements:
+- Match structure, spacing, and design of `/resources/are-height-predictors-accurate`
+- Title in H1, subtitle in `.subtitle` class
+- Table of Contents with smooth anchor links to all H2 sections
+- AdUnit components placed in the standard 3 slots
+- Include internal link to fasting calculator (anchor text: "fasting weight loss calculator")
+- CTA block linking to `/fasting-weight-loss-calculator`
+- Ensure SVGs are not used — only `.webp` images allowed with width, height, and alt attributes
+
+---
+
+## 📄 Content Details:
+
+### Meta + SEO
+- **Meta Title:** Fasting Weight Loss Chart – Weekly Expectations Based on Science
+- **Meta Description:** Learn how much weight you can lose per week with 16:8, OMAD, and 5:2 fasting. Evidence-based chart and expert FAQ.
+- **Canonical URL:** https://longevitycalculator.xyz/resources/fasting-weight-loss-chart
+- **OG Title:** Fasting Weight Loss Chart
+- **OG Description:** Discover weekly fat loss trends for 16:8, OMAD, and 5:2 intermittent fasting.
+- **OG Image:** https://longevitycalculator.xyz/static/images/resources/fasting-weight-loss-chart-og.webp
+
+---
+
+### Article Structure
+**H1:** Fasting Weight Loss Chart – Weekly Expectations Based on Science
+
+**Sections (H2/H3 structure):**
+1. What Affects Weight Loss on Fasting? (H2)
+2. Evidence-Based Weight Loss Chart (H2)
+   - Comparison table for 12 weeks: 16:8, OMAD, 5:2 (H3 table)
+3. Tips to Maintain Progress Beyond Week 6 (H2)
+4. Potential Pitfalls & Plateaus (H2)
+5. Supplement Use During Fasting (H2)
+6. Try Our Calculator (H2)
+7. Scientific References (H2)
+8. Frequently Asked Questions (H2)
+
+Include at least:
+- One comparison table of weekly loss estimates for each method
+- One CTA block linking to the fasting calculator (use class `.cta-box`)
+- At least 5 FAQs in a stylized FAQ section
+
+---
+
+### 📈 Schema Markup (in <head>)
+1. **MedicalWebPage** with correct canonical and datePublished/dateModified
+2. **FAQPage** with all 5+ questions embedded in schema format
+
+---
+
+### 🧠 AdUnit Components
+Insert:
+- `<AdUnit slot="fasting-weight-loss-chart-top" />` after H1
+- `<AdUnit slot="fasting-weight-loss-chart-mid" />` between chart section and tips section
+- `<AdUnit slot="fasting-weight-loss-chart-bottom" />` above footer disclaimer
+
+---
+
+### 🚨 Constraints:
+- **Do not** change the existing route in `app.py`. It already routes correctly.
+- Ensure that `templates/resources/fasting_weight_loss_chart.html` is populated with the new article content and not left blank.
+- All inline images must use `.webp` format with full `width`, `height`, `alt`, and `loading="lazy"`
+- Use brand CTA pink `#d63384` on all `.cta-button` classes
+
+---
+
+✅ Confirm sitemap entry already exists — do not duplicate.
+✅ Confirm the new page loads without 404 or broken elements.
+✅ Validate that schema is injected, images load, TOC anchors function, and FAQs are visible.
+
+---
+
+When complete, reply with confirmation and include a screenshot of:
+1. The live resource page in browser
+2. The rendered FAQ section
+3. The chart section with all rows visible
