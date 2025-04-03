@@ -300,6 +300,14 @@ articles = [
         "color": "pink"
     },
     {
+        "title": "Botox Dosage Guide: Units by Treatment Area",
+        "url": "/resources/botox-dosage-guide",
+        "summary": "Comprehensive guide to Botox dosages per treatment area with expert recommendations, cost breakdown, and expected results.",
+        "icon": "💉",
+        "cta": "View Guide",
+        "color": "blue"
+    },
+    {
         "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
         "url": "/resources/fasting-weight-loss-chart",
         "summary": "Visual breakdown of fat loss trends from intermittent fasting protocols backed by clinical data.",
