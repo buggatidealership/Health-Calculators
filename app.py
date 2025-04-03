@@ -571,5 +571,15 @@ def ozempic_weight_loss_calculator_guide():
         schema_url="/resources/ozempic-weight-loss-calculator-guide"
     )
 
+@app.route('/resources/fertility-after-35')
+def fertility_after_35():
+    return render_template(
+        'resources/fertility_after_35.html',
+        is_homepage=False,
+        schema_name="Fertility After 35: What to Know About Your Chances",
+        schema_description="Evidence-based guide to fertility after age 35: age-related egg quality decline, success rates for natural conception, IVF outcomes, and pregnancy risks.",
+        schema_url="/resources/fertility-after-35"
+    )
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
