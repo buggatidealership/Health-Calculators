@@ -276,6 +276,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Fertility After 35: What to Know About Your Chances",
+        "url": "/resources/fertility-after-35",
+        "summary": "Age-related fertility facts, egg reserve decline, and how to assess your chance of pregnancy after age 35.",
+        "icon": "🌿",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "Ozempic Weight Loss Calculator Guide",
         "url": "/resources/ozempic-weight-loss-calculator-guide",
         "summary": "Evidence-based guide to semaglutide weight loss: dosage protocols, timelines, and expected outcomes from clinical trials.",
