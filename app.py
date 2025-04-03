@@ -527,15 +527,5 @@ def are_height_predictors_accurate():
         schema_url="/resources/are-height-predictors-accurate"
     )
 
-@app.route('/resources/botox-dosage-guide')
-def botox_dosage_guide():
-    return render_template(
-        'resources/botox_dosage_guide.html',
-        is_homepage=False,
-        schema_name="Botox Dosage Guide: Units by Treatment Area",
-        schema_description="Comprehensive guide to Botox dosages per treatment area with expert recommendations, cost breakdown, and expected results.",
-        schema_url="/resources/botox-dosage-guide"
-    )
-
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
