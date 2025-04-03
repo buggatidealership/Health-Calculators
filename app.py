@@ -268,6 +268,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Breast Implant Profiles Explained",
+        "url": "/resources/breast-implant-profiles-explained",
+        "summary": "Compare low, moderate & high profile implants with visuals, sizing tips & calculator integration.",
+        "icon": "🧬",
+        "cta": "View Guide",
+        "color": "pink"
+    },
+    {
         "title": "Breast Implant Sizing Guide",
         "url": "/resources/breast-implant-sizing-guide",
         "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
@@ -477,6 +485,16 @@ def redirect_ozempic_article():
 @app.route('/resources/creatine-hydration-guide')
 def redirect_creatine_article():
     return redirect('/creatine-water-calculator', code=301)
+
+@app.route('/resources/breast-implant-profiles-explained')
+def breast_implant_profiles_explained():
+    return render_template(
+        'resources/breast_implant_profiles_explained.html',
+        is_homepage=False,
+        schema_name="Breast Implant Profiles Explained",
+        schema_description="Compare low, moderate, and high profile implants. Includes visuals, tips, and calculator integration.",
+        schema_url="/resources/breast-implant-profiles-explained"
+    )
 
 @app.route('/resources/breast-implant-sizing-guide')
 def breast_implant_sizing_guide():
