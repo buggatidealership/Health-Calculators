@@ -1,0 +1,100 @@
+Create a new resource article at:
+**/resources/how-many-ccs-is-a-c-cup**
+
+It must follow the current resource template structure exactly.
+
+---
+## ✅ METADATA (Insert inside <head>)
+- Meta Title: "How Many CCs is a C Cup? Plastic Surgeon's Guide"
+- Meta Description: "Convert breast implant volume (cc) to C cup sizing. Backed by plastic surgeons. Includes charts, tips, and post-op expectations."
+- OG Title: "How Many CCs is a C Cup?"
+- OG Description: "Estimate cup size from implant volume using medical sizing charts. Includes before/after comparisons and surgeon input."
+- OG URL: https://longevitycalculator.xyz/resources/how-many-ccs-is-a-c-cup
+- OG Image: https://longevitycalculator.xyz/static/images/how-many-ccs-is-a-c-cup-og.jpg
+- Canonical: https://longevitycalculator.xyz/resources/how-many-ccs-is-a-c-cup
+
+---
+## 🖼️ IMAGE POLICY
+❌ Do NOT use SVG images in article body.
+✅ If you include any `.webp` images, add width, height, and alt text.
+✅ Preferred: use formatted text boxes or diagrams instead of visuals.
+
+---
+## 💰 ADSENSE SLOTS
+Insert these components:
+- `<AdUnit slot="how-many-ccs-is-a-c-cup-top" />` → under H1
+- `<AdUnit slot="how-many-ccs-is-a-c-cup-mid" />` → between first output/result and explanation
+- `<AdUnit slot="how-many-ccs-is-a-c-cup-bottom" />` → above footer disclaimer
+
+---
+## 📄 ARTICLE STRUCTURE
+Follow the exact layout style used in /resources/are-height-predictors-accurate:
+- Include CTA card linking to `/cc-to-bra-size-calculator`
+- Embed interactive Table of Contents
+- Use modern `<section>`-based layout
+- Use heading hierarchy: H1 → H2 → H3 (no broken nesting)
+- Use formatted comparison boxes for volume-to-size guidelines
+
+---
+## 📈 ARTICLE CONTENT DIRECTION
+Write a fully structured, long-form article (~2000+ words) that answers:
+- How many CCs does it take to go from B to C? From A to C?  
+- Does band size affect how C cup appears? (yes)
+- Are different profiles (high vs moderate) needed to achieve C cup in narrow frames?
+- What does 300cc look like on a petite vs tall body?
+- When do implants look larger/smaller than expected?
+- Is 300cc always a C cup? Why not?
+
+Break content into:
+1. Sizing overview (cc vs cup size explained)
+2. Detailed band size vs cc chart
+3. Visual differences by profile and frame type
+4. Surgeon strategies for achieving natural C cup appearance
+5. How to estimate size gain if replacing implants
+6. Common sizing mistakes and regrets
+7. CTA: Use the calculator to estimate your post-op cup size
+8. FAQ (include at least 5 entries)
+
+---
+## ✅ SCHEMA
+1. SoftwareApplication (for the calculator):
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CC to Bra Size Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/cc-to-bra-size-calculator",
+  "description": "Convert implant volume (in cc) to estimate cup size. Based on band size and profile."
+}
+```
+2. FAQPage with 5 questions from the article content
+
+---
+## 🔗 INTERNAL LINKS
+Include internal links to:
+- `/cc-to-bra-size-calculator` (at least 2 times)
+- `/resources/breast-implant-sizing-guide`
+
+Use anchor text like:
+- "implant volume to cup size calculator"
+- "surgeon-reviewed breast sizing guide"
+
+---
+## ✅ FINAL URL
+```
+https://longevitycalculator.xyz/resources/how-many-ccs-is-a-c-cup
+```
+
+---
+Once article is generated and deployed:
+✅ Confirm AdUnits are live
+✅ Confirm internal links work
+✅ Validate HTML compiles with no SVGs
+✅ Confirm routing via app.py still maps to templates/resources/how_many_ccs_is_a_c_cup.html
+✅ Confirm it's visible on /resources page
+✅ Confirm sitemap includes the resource
+✅ Confirm images (if any) are in static/images/resources/ and are webp
+
+⚠️ Replit: Do not reuse any deprecated or old article templates. Match current layout 1:1 with are-height-predictors-accurate.
