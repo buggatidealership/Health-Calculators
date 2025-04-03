@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#f8f9fa"/>
+  <g transform="translate(50, 50)">
+    <text x="350" y="0" font-family="Arial" font-size="24" font-weight="bold" text-anchor="middle" fill="#333">Fasting Weight Loss Chart: What to Expect Week by Week</text>
+    
+    <!-- X and Y axis -->
+    <line x1="0" y1="300" x2="700" y2="300" stroke="#333" stroke-width="2"/>
+    <line x1="0" y1="300" x2="0" y2="0" stroke="#333" stroke-width="2"/>
+    
+    <!-- X-axis labels (weeks) -->
+    <text x="0" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">0</text>
+    <text x="58" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">1</text>
+    <text x="117" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">2</text>
+    <text x="175" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">3</text>
+    <text x="233" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">4</text>
+    <text x="292" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">5</text>
+    <text x="350" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">6</text>
+    <text x="408" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">7</text>
+    <text x="467" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">8</text>
+    <text x="525" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">9</text>
+    <text x="583" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">10</text>
+    <text x="642" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">11</text>
+    <text x="700" y="320" font-family="Arial" font-size="12" text-anchor="middle" fill="#333">12</text>
+    <text x="350" y="350" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333">Weeks</text>
+    
+    <!-- Y-axis labels (weight loss) -->
+    <text x="-10" y="300" font-family="Arial" font-size="12" text-anchor="end" fill="#333">0</text>
+    <text x="-10" y="250" font-family="Arial" font-size="12" text-anchor="end" fill="#333">2</text>
+    <text x="-10" y="200" font-family="Arial" font-size="12" text-anchor="end" fill="#333">4</text>
+    <text x="-10" y="150" font-family="Arial" font-size="12" text-anchor="end" fill="#333">6</text>
+    <text x="-10" y="100" font-family="Arial" font-size="12" text-anchor="end" fill="#333">8</text>
+    <text x="-10" y="50" font-family="Arial" font-size="12" text-anchor="end" fill="#333">10</text>
+    <text x="-10" y="0" font-family="Arial" font-size="12" text-anchor="end" fill="#333">12</text>
+    <text x="-40" y="150" font-family="Arial" font-size="14" font-weight="bold" text-anchor="middle" fill="#333" transform="rotate(-90, -40, 150)">Weight Loss (lbs)</text>
+    
+    <!-- OMAD line -->
+    <polyline points="0,300 58,275 117,250 175,225 233,210 292,195 350,180 408,165 467,150 525,135 583,120 642,105 700,90" fill="none" stroke="#d63384" stroke-width="3"/>
+    
+    <!-- 16:8 line -->
+    <polyline points="0,300 58,285 117,270 175,255 233,245 292,235 350,225 408,215 467,205 525,195 583,185 642,175 700,165" fill="none" stroke="#007bff" stroke-width="3"/>
+    
+    <!-- 5:2 line -->
+    <polyline points="0,300 58,290 117,280 175,270 233,262 292,254 350,246 408,238 467,230 525,222 583,214 642,206 700,198" fill="none" stroke="#28a745" stroke-width="3"/>
+    
+    <!-- Legend -->
+    <rect x="550" y="40" width="120" height="80" fill="white" stroke="#ddd" stroke-width="1"/>
+    <line x1="560" y1="55" x2="580" y2="55" stroke="#d63384" stroke-width="3"/>
+    <text x="590" y="59" font-family="Arial" font-size="12" fill="#333">OMAD</text>
+    <line x1="560" y1="75" x2="580" y2="75" stroke="#007bff" stroke-width="3"/>
+    <text x="590" y="79" font-family="Arial" font-size="12" fill="#333">16:8 Fasting</text>
+    <line x1="560" y1="95" x2="580" y2="95" stroke="#28a745" stroke-width="3"/>
+    <text x="590" y="99" font-family="Arial" font-size="12" fill="#333">5:2 Method</text>
+  </g>
+</svg>

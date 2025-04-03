@@ -1,11 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template, send_from_directory, redirect, url_for, flash, request, jsonify, session
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
-from flask_sqlalchemy import SQLAlchemy
-from flask_wtf.csrf import CSRFProtect
-from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import datetime, timedelta
+from flask import Flask, render_template, send_from_directory, redirect
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -13,35 +8,6 @@ logging.basicConfig(level=logging.DEBUG)
 # Create Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
-
-# Configure the database
-app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "postgresql://postgres:postgres@localhost:5432/postgres")
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
-    "pool_recycle": 300,
-    "pool_pre_ping": True,
-}
-
-# Initialize extensions
-db = SQLAlchemy(app)
-csrf = CSRFProtect(app)
-login_manager = LoginManager(app)
-login_manager.login_view = 'login'
-login_manager.login_message = 'Please log in to access this page.'
-
-# Import models after initializing db to avoid circular imports
-from models import User, Badge, UserBadge
-from forms import RegistrationForm, LoginForm
-import badge_manager
-
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
-
-# Initialize tables and default badges
-with app.app_context():
-    db.create_all()
-    badge_manager.initialize_badges()
 
 cards = [
     {
@@ -485,107 +451,6 @@ def redirect_ozempic_article():
 @app.route('/resources/creatine-hydration-guide')
 def redirect_creatine_article():
     return redirect('/creatine-water-calculator', code=301)
-
-# Authentication routes
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('profile'))
-    
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        user = User(
-            username=form.username.data,
-            email=form.email.data
-        )
-        user.set_password(form.password.data)
-        db.session.add(user)
-        db.session.commit()
-        
-        flash('Your account has been created! You can now log in.', 'success')
-        return redirect(url_for('login'))
-    
-    return render_template(
-        'register.html', 
-        is_homepage=False,
-        form=form,
-        schema_name="Register - LongevityCalculator",
-        schema_description="Create an account to track your wellness journey and earn personalized achievement badges.",
-        schema_url="/register"
-    )
-
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('profile'))
-    
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = User.query.filter_by(email=form.email.data).first()
-        
-        if user and user.check_password(form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            flash('You have been successfully logged in!', 'success')
-            return redirect(next_page) if next_page else redirect(url_for('profile'))
-        else:
-            flash('Login unsuccessful. Please check your email and password.', 'error')
-    
-    return render_template(
-        'login.html', 
-        is_homepage=False,
-        form=form,
-        schema_name="Login - LongevityCalculator",
-        schema_description="Log in to your account to access personalized wellness tracking and achievement badges.",
-        schema_url="/login"
-    )
-
-@app.route('/logout')
-def logout():
-    logout_user()
-    flash('You have been logged out.', 'success')
-    return redirect(url_for('home'))
-
-@app.route('/profile')
-@login_required
-def profile():
-    # Get user badges and group them by level
-    user_badges = badge_manager.get_user_badges(current_user.id)
-    available_badges = badge_manager.get_available_badges(current_user.id)
-    
-    # Create a dictionary of badges grouped by level
-    badges_by_level = {
-        'bronze': [],
-        'silver': [],
-        'gold': [],
-        'platinum': []
-    }
-    
-    # Group user badges by their levels
-    for user_badge in user_badges:
-        level = user_badge.badge.level
-        if level in badges_by_level:
-            badges_by_level[level].append(user_badge)
-    
-    return render_template(
-        'profile.html',
-        is_homepage=False,
-        user_badges=user_badges,  # Keep original for backward compatibility
-        badges_by_level=badges_by_level,
-        available_badges=available_badges,
-        schema_name="My Profile - LongevityCalculator",
-        schema_description="View your personalized wellness profile and achievement badges.",
-        schema_url="/profile"
-    )
-
-# Add badge tracking to calculator routes
-@app.before_request
-def check_calculator_badges():
-    # Only process for authenticated users
-    if current_user.is_authenticated:
-        # Extract route name from request.endpoint
-        if request.endpoint and '.' not in request.endpoint:  # Skip static routes
-            badge_manager.check_calculator_badges(request.endpoint)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

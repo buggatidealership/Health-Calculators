@@ -8,55 +8,9 @@
     <nav class="site-nav">
       <a href="/" class="nav-link">Calculators</a>
       <a href="/resources" class="nav-link">Resources</a>
-      
-      {% if current_user.is_authenticated %}
-        <a href="{{ url_for('profile') }}" class="nav-link nav-link-badge">
-          <span class="user-badge">🏆</span>
-          My Profile
-        </a>
-      {% else %}
-        <a href="{{ url_for('login') }}" class="nav-link">Login</a>
-        <a href="{{ url_for('register') }}" class="nav-link nav-link-register">Sign up</a>
-      {% endif %}
     </nav>
   </div>
 </header>
-
-<style>
-  .nav-link-badge {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-  
-  .user-badge {
-    font-size: 1.3em;
-  }
-  
-  .nav-link-register {
-    background-color: #d63384;
-    color: white !important;
-    padding: 6px 12px;
-    border-radius: 4px;
-    transition: background-color 0.2s;
-  }
-  
-  .nav-link-register:hover {
-    background-color: #be2d73;
-    text-decoration: none;
-  }
-  
-  @media (max-width: 768px) {
-    .site-nav {
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    
-    .nav-link-register {
-      margin-left: 0;
-    }
-  }
-</style>
 
 {% if not is_homepage %}
 <!-- Optional subpage nav -->
