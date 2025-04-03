@@ -268,6 +268,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How Many CCs is a C Cup?",
+        "url": "/resources/how-many-ccs-is-a-c-cup",
+        "summary": "Convert implant volume (in cc) to a C cup using surgeon-backed sizing rules. Includes chart + calculator.",
+        "icon": "💗",
+        "cta": "View Guide",
+        "color": "pink"
+    },
+    {
         "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
         "url": "/resources/fasting-weight-loss-chart",
         "summary": "Visual breakdown of fat loss trends from intermittent fasting protocols backed by clinical data.",
@@ -299,6 +307,16 @@ def fasting_weight_loss_chart():
         schema_name="Fasting Weight Loss Chart: What to Expect Week by Week",
         schema_description="Visual chart showing expected weight loss per week on intermittent fasting plans. Backed by clinical studies.",
         schema_url="/resources/fasting-weight-loss-chart"
+    )
+
+@app.route('/resources/how-many-ccs-is-a-c-cup')
+def how_many_ccs_is_a_c_cup():
+    return render_template(
+        'how_many_ccs_is_a_c_cup.html',
+        is_homepage=False,
+        schema_name="How Many CCs is a C Cup? Surgeon-Backed Guide",
+        schema_description="Convert implant volume (in cc) to a C cup using surgeon-backed sizing rules. Includes charts and conversion guides.",
+        schema_url="/resources/how-many-ccs-is-a-c-cup"
     )
 
 @app.route('/female-fertility-calculator')
