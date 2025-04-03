@@ -14,6 +14,8 @@
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
+    <!-- Add Meal Planner CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/meal_planner.css') }}">
 </head>
 <body>
     {% include 'header.html' %}
@@ -31,6 +33,7 @@
         <h3>Contents</h3>
         <ul>
             <li><a href="#calculator">Caloric & Macronutrient Calculator</a></li>
+            <li><a href="#meal-plan">Meal Plan Suggestions</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
         </ul>
     </div>
@@ -167,6 +170,15 @@
         </div>
     </div>
     
+    <!-- Meal Planning Section -->
+    <div id="meal-plan" class="meal-plan-section">
+        <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>Meal Plan Suggestions</h3>
+        <p class="section-intro">After calculating your macronutrient targets, generate personalized meal suggestions to help you meet your nutrition goals.</p>
+        
+        <!-- Meal Plan Suggestions Container -->
+        <div id="meal-plan-suggestions"></div>
+    </div>
+    
     <!-- Bottom Ad -->
     <div class="adunit-bottom" style="margin: 40px 0;">
       <AdUnit slot="macros-bottom" />
@@ -190,10 +202,16 @@
             <h4>How often should I recalculate my needs?</h4>
             <p>It's recommended to recalculate after any significant body weight change (5+ pounds), when your activity level changes substantially, or every 3-6 months to account for metabolic adaptations. If you're not seeing progress toward your goals after 3-4 weeks, it may also be time to recalculate.</p>
         </div>
+        
+        <div class="faq-item">
+            <h4>How can I use the meal plan suggestions?</h4>
+            <p>The meal plan suggestions are customized based on your calculated macronutrient targets and dietary preferences. They provide practical food combinations that align with your nutrition goals. Use these suggestions as inspiration for your meals, adjusting portions or ingredients based on your preferences. You can generate different meal plans by clicking the "Generate New Suggestions" button until you find meal combinations you enjoy.</p>
+        </div>
     </div>
     
     </div> <!-- End of calculator-container -->
 
+    <script src="{{ url_for('static', filename='js/meal_planner.js') }}"></script>
     <script src="{{ url_for('static', filename='js/calculator.js') }}"></script>
 </body>
 </html>

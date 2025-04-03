@@ -1,0 +1,143 @@
+/* Meal Planner Styles */
+
+#meal-plan-suggestions {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    display: none;
+}
+
+#meal-plan-suggestions h2 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#meal-plan-suggestions > p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.meal-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+    border-top: 4px solid #d63384;
+}
+
+.meal-header {
+    color: #d63384;
+    font-size: 1.3rem;
+    margin-top: 0;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.macro-targets {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.macro-target {
+    background-color: #f2f2f2;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-weight: 500;
+}
+
+.food-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.food-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.food-item:last-child {
+    border-bottom: none;
+}
+
+.food-name {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.05rem;
+}
+
+.food-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.food-category {
+    color: #d63384;
+    font-weight: 500;
+}
+
+.food-portion {
+    font-weight: 500;
+}
+
+.food-info {
+    color: #888;
+    font-size: 0.85rem;
+    display: block;
+    width: 100%;
+    margin-top: 5px;
+}
+
+.meal-plan-disclaimer {
+    background-color: #fff0f3;
+    border-left: 4px solid #d63384;
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+.regenerate-button {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-top: 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.regenerate-button:hover {
+    background-color: #be2d73;
+}
+
+@media (max-width: 768px) {
+    .meal-card {
+        padding: 15px;
+    }
+    
+    .food-details {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
