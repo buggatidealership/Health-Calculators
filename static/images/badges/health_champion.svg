@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Badge Circle with Gold for Top Achievement -->
+  <circle cx="100" cy="100" r="90" fill="#FFD700" />
+  
+  <!-- Inner Circle -->
+  <circle cx="100" cy="100" r="78" fill="#ffffff" />
+  
+  <!-- Badge Content -->
+  <circle cx="100" cy="100" r="70" fill="#FFF9E6" />
+  
+  <!-- Badge Icon: Trophy -->
+  <g transform="translate(65, 50)">
+    <!-- Trophy Cup -->
+    <path d="M35,0 L35,25 C35,40 50,50 70,50 L70,0 Z" fill="#FFD700" />
+    <path d="M35,0 L35,25 C35,40 20,50 0,50 L0,0 Z" fill="#FFD700" />
+    
+    <!-- Trophy Base -->
+    <rect x="20" y="50" width="30" height="10" fill="#FFD700" />
+    <rect x="30" y="60" width="10" height="15" fill="#FFD700" />
+    <rect x="15" y="75" width="40" height="5" fill="#FFD700" />
+  </g>
+  
+  <!-- Stars Around -->
+  <g fill="#FFD700">
+    <path d="M40,40 L43,50 L35,44 L45,44 L37,50 Z" />
+    <path d="M160,40 L163,50 L155,44 L165,44 L157,50 Z" />
+    <path d="M40,160 L43,170 L35,164 L45,164 L37,170 Z" />
+    <path d="M160,160 L163,170 L155,164 L165,164 L157,170 Z" />
+  </g>
+  
+  <!-- Badge Border -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#FFD700" stroke-width="3" />
+  
+  <!-- Badge Shine -->
+  <ellipse cx="75" cy="65" rx="60" ry="40" fill="#ffffff" opacity="0.3" />
+  
+  <!-- Badge Text -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#996515">
+    HEALTH CHAMPION
+  </text>
+</svg>

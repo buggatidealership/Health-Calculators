@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Badge Circle -->
+  <circle cx="100" cy="100" r="90" fill="#d63384" />
+  
+  <!-- Inner Circle -->
+  <circle cx="100" cy="100" r="78" fill="#ffffff" />
+  
+  <!-- Badge Content -->
+  <circle cx="100" cy="100" r="70" fill="#ffeef4" />
+  
+  <!-- Badge Icon: Apple -->
+  <g transform="translate(60, 55) scale(0.8)">
+    <path d="M105,60 C105,30 80,10 50,10 C20,10 0,35 0,65 C0,95 20,120 50,120 C80,120 105,90 105,60 Z" fill="#4CAF50"/>
+    <path d="M50,10 C40,10 50,30 50,30 L50,0 C50,0 60,10 50,10 Z" fill="#4CAF50"/>
+  </g>
+  
+  <!-- Badge Border -->
+  <circle cx="100" cy="100" r="90" fill="none" stroke="#d63384" stroke-width="3" />
+  
+  <!-- Badge Shine -->
+  <ellipse cx="75" cy="65" rx="60" ry="40" fill="#ffffff" opacity="0.2" />
+  
+  <!-- Badge Text -->
+  <text x="100" y="150" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#d63384">
+    NUTRITION NOVICE
+  </text>
+</svg>
