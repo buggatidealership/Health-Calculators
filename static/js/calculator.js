@@ -142,16 +142,6 @@ function calculate() {
     // Show results
     document.getElementById('results').style.display = 'block';
     
-    // Generate meal plan if the meal planner section exists
-    if (document.getElementById('meal-plan-suggestions')) {
-        // Generate and display meal plan
-        const mealPlan = generateMealPlan(proteinGrams, carbGrams, fatGrams, dietType);
-        renderMealPlan(mealPlan);
-        
-        // Show meal plan suggestions
-        document.getElementById('meal-plan-suggestions').style.display = 'block';
-    }
-    
     // Scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
 }
