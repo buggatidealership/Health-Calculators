@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "breast-implant-sizing-guide-og.jpg" %}
+{% with 
+  meta_description="The most complete breast implant sizing guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
+  meta_keywords="breast implant sizing, cc to cup size, implant profile chart, breast augmentation size guide, cc chart by cup size",
+  og_title="Breast Implant Sizing Guide – Charts, CC Conversion, and Surgeon Tips",
+  og_description="View breast implant sizing charts by cup size and band size. Learn about implant projection, width, and what CCs look like in real life.",
+  og_url="/resources/breast-implant-sizing-guide",
+  page_title="Breast Implant Sizing Guide – CC Charts, Cup Sizes & Surgeon Advice",
+  canonical_url="/resources/breast-implant-sizing-guide"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CC to Bra Size Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/cc-to-bra-size-calculator",
+  "description": "Convert breast implant volume (in CCs) to estimated bra cup size. Based on plastic surgery implant-to-size charts."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": []
+}
+</script>
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+<article>
+
+<h1>Breast Implant Sizing Guide – CC Charts, Cup Sizes & Surgeon Advice</h1>
+<p class="subtitle">Use this expert guide to understand breast implant sizing. Includes cup size charts, profile comparisons, surgeon tips, and our popular calculator.</p>
+
+<!-- Top Ad -->
+<div class="adunit-top" style="margin: 20px 0;">
+  <AdUnit slot="breast-implant-sizing-guide-top" />
+</div>
+
+<!-- Table of Contents -->
+<div class="table-of-contents" style="margin: 30px 0;">
+  <h3>Contents</h3>
+  <ul>
+    <li><a href="#overview">Why Implant Sizing is Complicated</a></li>
+    <li><a href="#charts">CC to Cup Size Chart</a></li>
+    <li><a href="#calculator">Use the CC-to-Cup Calculator</a></li>
+    <li><a href="#factors">What Affects Sizing</a></li>
+    <li><a href="#visuals">What Different CCs Look Like</a></li>
+    <li><a href="#surgeon-tips">Surgeon Recommendations</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</div>
+
+<section id="overview" class="info">
+  <h2><BarChart className="section-icon" />Why Implant Sizing Is Complicated</h2>
+  <p><!-- Replit: Explain why cup sizes and CCs don't map 1:1. Discuss profile, band size, frame, chest width. --></p>
+</section>
+
+<section id="charts" class="info">
+  <h2><BarChart className="section-icon" />CC to Cup Size Conversion Chart</h2>
+  <p><!-- Replit: Write a short intro. Create a table with Band Size vs A/B/C/D/DD CC estimates. --></p>
+</section>
+
+<section id="calculator" class="info">
+  <h2><BarChart className="section-icon" />Use the Calculator</h2>
+  <p>To estimate your cup size based on band and CCs, try our tool:</p>
+  <a href="/cc-to-bra-size-calculator" class="cta-button" style="margin-top: 10px;">→ Launch the CC to Bra Size Calculator</a>
+</section>
+
+<section id="factors" class="info">
+  <h2><BarChart className="section-icon" />What Affects How Many CCs You Need</h2>
+  <ul>
+    <li><!-- Replit: Frame size and chest width explanation --></li>
+    <li><!-- Replit: Tissue elasticity and density --></li>
+    <li><!-- Replit: Implant profile (low, mod, high) and its effect on projection --></li>
+    <li><!-- Replit: Muscle placement (under vs over) --></li>
+  </ul>
+</section>
+
+<section id="visuals" class="info">
+  <h2><BarChart className="section-icon" />What Different CCs Look Like</h2>
+  <p><!-- Replit: Add 3–4 visual comparison examples (text or table). E.g., "275cc on 5'2", 32B frame..." --></p>
+</section>
+
+<section id="surgeon-tips" class="info">
+  <h2><BarChart className="section-icon" />Surgeon Recommendations by Frame</h2>
+  <p><!-- Replit: Add breakdown for Petite, Average, and Wide Frame. Include band size and CC range. --></p>
+</section>
+
+<!-- Mid Ad -->
+<div class="adunit-mid" style="margin: 40px 0;">
+  <AdUnit slot="breast-implant-sizing-guide-mid" />
+</div>
+
+<section id="faq" class="info">
+  <h2><HelpCircle className="section-icon" />Frequently Asked Questions</h2>
+  <!-- Replit: Write ~8 FAQs and answers about sizing, profile, side effects, revision, accuracy, sizing regrets -->
+</section>
+
+<!-- Bottom Ad -->
+<div class="adunit-bottom" style="margin: 40px 0;">
+  <AdUnit slot="breast-implant-sizing-guide-bottom" />
+</div>
+
+<div class="footer-disclaimer">
+  <p><strong>Disclaimer:</strong> This guide is for educational use only. Always consult a board-certified plastic surgeon before choosing an implant size.</p>
+  <p><a href="/cc-to-bra-size-calculator">← Back to CC to Bra Size Calculator</a></p>
+</div>
+
+</article>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

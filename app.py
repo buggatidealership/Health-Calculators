@@ -268,6 +268,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Breast Implant Sizing Guide",
+        "url": "/resources/breast-implant-sizing-guide",
+        "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
+        "icon": "💗",
+        "cta": "View Guide",
+        "color": "pink"
+    },
+    {
         "title": "How Many CCs is a C Cup?",
         "url": "/resources/how-many-ccs-is-a-c-cup",
         "summary": "Convert implant volume (in cc) to a C cup using surgeon-backed sizing rules. Includes chart + calculator.",
@@ -469,6 +477,16 @@ def redirect_ozempic_article():
 @app.route('/resources/creatine-hydration-guide')
 def redirect_creatine_article():
     return redirect('/creatine-water-calculator', code=301)
+
+@app.route('/resources/breast-implant-sizing-guide')
+def breast_implant_sizing_guide():
+    return render_template(
+        'resources/breast_implant_sizing_guide.html',
+        is_homepage=False,
+        schema_name="Breast Implant Sizing Guide",
+        schema_description="The most complete breast implant sizing guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
+        schema_url="/resources/breast-implant-sizing-guide"
+    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
