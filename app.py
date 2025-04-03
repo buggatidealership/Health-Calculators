@@ -276,6 +276,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Are Height Predictors Accurate?",
+        "url": "/resources/are-height-predictors-accurate",
+        "summary": "How accurate are height prediction methods? Compare scientific evidence for Khamis-Roche, mid-parental formula, and bone age prediction.",
+        "icon": "📏",
+        "cta": "Read Article",
+        "color": "green"
+    },
+    {
         "title": "Breast Implant Sizing Guide",
         "url": "/resources/breast-implant-sizing-guide",
         "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
@@ -507,6 +515,16 @@ def breast_implant_sizing_guide():
         schema_name="Breast Implant Sizing Guide",
         schema_description="The most complete breast implant sizing guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
         schema_url="/resources/breast-implant-sizing-guide"
+    )
+
+@app.route('/resources/are-height-predictors-accurate')
+def are_height_predictors_accurate():
+    return render_template(
+        'resources/are_height_predictors_accurate.html',
+        is_homepage=False,
+        schema_name="Are Height Predictors Accurate? What Science Says",
+        schema_description="How accurate are child and adult height predictors? Explore the science behind growth charts, genetics, and predictive formulas.",
+        schema_url="/resources/are-height-predictors-accurate"
     )
 
 if __name__ == '__main__':
