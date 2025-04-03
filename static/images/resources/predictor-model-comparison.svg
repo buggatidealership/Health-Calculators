@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1200" height="600" viewBox="0 0 1200 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="600" fill="#f8f9fa" rx="8" ry="8" />
+  
+  <!-- Title -->
+  <text x="600" y="50" text-anchor="middle" font-family="Arial" font-size="28" fill="#333" font-weight="bold">Comparison of Height Prediction Methods</text>
+  
+  <!-- Chart container -->
+  <rect x="50" y="100" width="1100" height="400" fill="white" stroke="#ddd" stroke-width="1" rx="8" ry="8" />
+  
+  <!-- Headers -->
+  <rect x="50" y="100" width="200" height="60" fill="#3f51b5" rx="8" ry="8" />
+  <rect x="250" y="100" width="190" height="60" fill="#3f51b5" rx="0" ry="0" />
+  <rect x="440" y="100" width="190" height="60" fill="#3f51b5" rx="0" ry="0" />
+  <rect x="630" y="100" width="190" height="60" fill="#3f51b5" rx="0" ry="0" />
+  <rect x="820" y="100" width="190" height="60" fill="#3f51b5" rx="0" ry="0" />
+  <rect x="1010" y="100" width="140" height="60" fill="#3f51b5" rx="8" ry="8" />
+  
+  <!-- Header Labels -->
+  <text x="150" y="140" text-anchor="middle" font-family="Arial" font-size="18" fill="white" font-weight="bold">Method</text>
+  <text x="345" y="140" text-anchor="middle" font-family="Arial" font-size="18" fill="white" font-weight="bold">Inputs Required</text>
+  <text x="535" y="140" text-anchor="middle" font-family="Arial" font-size="18" fill="white" font-weight="bold">Age Range</text>
+  <text x="725" y="140" text-anchor="middle" font-family="Arial" font-size="18" fill="white" font-weight="bold">Accuracy (±)</text>
+  <text x="915" y="140" text-anchor="middle" font-family="Arial" font-size="18" fill="white" font-weight="bold">Best Use Case</text>
+  <text x="1080" y="140" text-anchor="middle" font-family="Arial" font-size="18" fill="white" font-weight="bold">Rating</text>
+  
+  <!-- Rows -->
+  <!-- Mid-Parental Height Method -->
+  <rect x="50" y="160" width="200" height="80" fill="#e8f5e9" stroke="#ddd" stroke-width="1" />
+  <rect x="250" y="160" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="440" y="160" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="630" y="160" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="820" y="160" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="1010" y="160" width="140" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  
+  <text x="150" y="190" text-anchor="middle" font-family="Arial" font-size="16" fill="#2e7d32" font-weight="bold">Mid-Parental</text>
+  <text x="150" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">Height Formula</text>
+  
+  <text x="345" y="190" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Father's height</text>
+  <text x="345" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Mother's height</text>
+  
+  <text x="535" y="190" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">Any age</text>
+  <text x="535" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(same at all ages)</text>
+  
+  <text x="725" y="190" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">5-10 cm</text>
+  <text x="725" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(2-4 inches)</text>
+  
+  <text x="915" y="190" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Quick estimation</text>
+  <text x="915" y="215" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• No medical data needed</text>
+  
+  <!-- Star Rating -->
+  <g transform="translate(1080, 200)">
+    <circle cx="-40" cy="0" r="8" fill="#4CAF50" />
+    <circle cx="-20" cy="0" r="8" fill="#4CAF50" />
+    <circle cx="0" cy="0" r="8" fill="#4CAF50" />
+    <circle cx="20" cy="0" r="8" fill="#ddd" />
+    <circle cx="40" cy="0" r="8" fill="#ddd" />
+  </g>
+  
+  <!-- Khamis-Roche Method -->
+  <rect x="50" y="240" width="200" height="80" fill="#fff8e1" stroke="#ddd" stroke-width="1" />
+  <rect x="250" y="240" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="440" y="240" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="630" y="240" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="820" y="240" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="1010" y="240" width="140" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  
+  <text x="150" y="270" text-anchor="middle" font-family="Arial" font-size="16" fill="#ff8f00" font-weight="bold">Khamis-Roche</text>
+  <text x="150" y="295" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">Method</text>
+  
+  <text x="345" y="263" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Parents' heights</text>
+  <text x="345" y="283" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Child's current height</text>
+  <text x="345" y="303" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Child's weight & age</text>
+  
+  <text x="535" y="270" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">4-17.5 years</text>
+  <text x="535" y="295" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(most accurate at 9-12)</text>
+  
+  <text x="725" y="270" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">~5 cm</text>
+  <text x="725" y="295" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(~2 inches)</text>
+  
+  <text x="915" y="270" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Best non-medical method</text>
+  <text x="915" y="295" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Sports & school screening</text>
+  
+  <!-- Star Rating -->
+  <g transform="translate(1080, 280)">
+    <circle cx="-40" cy="0" r="8" fill="#FFC107" />
+    <circle cx="-20" cy="0" r="8" fill="#FFC107" />
+    <circle cx="0" cy="0" r="8" fill="#FFC107" />
+    <circle cx="20" cy="0" r="8" fill="#FFC107" />
+    <circle cx="40" cy="0" r="8" fill="#ddd" />
+  </g>
+  
+  <!-- Bone Age Method -->
+  <rect x="50" y="320" width="200" height="80" fill="#e3f2fd" stroke="#ddd" stroke-width="1" />
+  <rect x="250" y="320" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="440" y="320" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="630" y="320" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="820" y="320" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="1010" y="320" width="140" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  
+  <text x="150" y="350" text-anchor="middle" font-family="Arial" font-size="16" fill="#0d47a1" font-weight="bold">Bone Age</text>
+  <text x="150" y="375" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">Assessment</text>
+  
+  <text x="345" y="343" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• X-ray of left hand/wrist</text>
+  <text x="345" y="363" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Current height & weight</text>
+  <text x="345" y="383" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Specialist interpretation</text>
+  
+  <text x="535" y="350" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">5-18 years</text>
+  <text x="535" y="375" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(ideal during puberty)</text>
+  
+  <text x="725" y="350" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">3-4 cm</text>
+  <text x="725" y="375" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(1-1.5 inches)</text>
+  
+  <text x="915" y="350" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Growth disorders</text>
+  <text x="915" y="375" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Medical treatment decisions</text>
+  
+  <!-- Star Rating -->
+  <g transform="translate(1080, 360)">
+    <circle cx="-40" cy="0" r="8" fill="#2196F3" />
+    <circle cx="-20" cy="0" r="8" fill="#2196F3" />
+    <circle cx="0" cy="0" r="8" fill="#2196F3" />
+    <circle cx="20" cy="0" r="8" fill="#2196F3" />
+    <circle cx="40" cy="0" r="8" fill="#2196F3" />
+  </g>
+  
+  <!-- Growth Chart Method -->
+  <rect x="50" y="400" width="200" height="80" fill="#f3e5f5" stroke="#ddd" stroke-width="1" />
+  <rect x="250" y="400" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="440" y="400" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="630" y="400" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="820" y="400" width="190" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  <rect x="1010" y="400" width="140" height="80" fill="white" stroke="#ddd" stroke-width="1" />
+  
+  <text x="150" y="430" text-anchor="middle" font-family="Arial" font-size="16" fill="#7b1fa2" font-weight="bold">Growth Chart</text>
+  <text x="150" y="455" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">Percentile Tracking</text>
+  
+  <text x="345" y="423" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Series of height measurements</text>
+  <text x="345" y="443" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Age at each measurement</text>
+  <text x="345" y="463" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Standard growth charts</text>
+  
+  <text x="535" y="430" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">2-18 years</text>
+  <text x="535" y="455" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(needs multiple measurements)</text>
+  
+  <text x="725" y="430" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">7-8 cm</text>
+  <text x="725" y="455" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">(3 inches)</text>
+  
+  <text x="915" y="430" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Regular pediatric monitoring</text>
+  <text x="915" y="455" text-anchor="middle" font-family="Arial" font-size="14" fill="#333">• Growth pattern assessment</text>
+  
+  <!-- Star Rating -->
+  <g transform="translate(1080, 440)">
+    <circle cx="-40" cy="0" r="8" fill="#9C27B0" />
+    <circle cx="-20" cy="0" r="8" fill="#9C27B0" />
+    <circle cx="0" cy="0" r="8" fill="#9C27B0" />
+    <circle cx="20" cy="0" r="8" fill="#ddd" />
+    <circle cx="40" cy="0" r="8" fill="#ddd" />
+  </g>
+  
+  <!-- Legend -->
+  <rect x="300" y="520" width="600" height="50" rx="25" ry="25" fill="#f5f5f5" stroke="#ddd" />
+  
+  <text x="320" y="550" font-family="Arial" font-size="14" fill="#333" font-weight="bold">Accuracy Rating:</text>
+  
+  <g transform="translate(450, 550)">
+    <circle cx="-30" cy="0" r="6" fill="#ddd" />
+    <circle cx="-15" cy="0" r="6" fill="#ddd" />
+    <circle cx="0" cy="0" r="6" fill="#ddd" />
+    <circle cx="15" cy="0" r="6" fill="#ddd" />
+    <circle cx="30" cy="0" r="6" fill="#ddd" />
+    <text x="50" y="5" font-family="Arial" font-size="14" fill="#333">= Poor</text>
+  </g>
+  
+  <g transform="translate(610, 550)">
+    <circle cx="-30" cy="0" r="6" fill="#9C27B0" />
+    <circle cx="-15" cy="0" r="6" fill="#9C27B0" />
+    <circle cx="0" cy="0" r="6" fill="#9C27B0" />
+    <circle cx="15" cy="0" r="6" fill="#ddd" />
+    <circle cx="30" cy="0" r="6" fill="#ddd" />
+    <text x="50" y="5" font-family="Arial" font-size="14" fill="#333">= Good</text>
+  </g>
+  
+  <g transform="translate(770, 550)">
+    <circle cx="-30" cy="0" r="6" fill="#2196F3" />
+    <circle cx="-15" cy="0" r="6" fill="#2196F3" />
+    <circle cx="0" cy="0" r="6" fill="#2196F3" />
+    <circle cx="15" cy="0" r="6" fill="#2196F3" />
+    <circle cx="30" cy="0" r="6" fill="#2196F3" />
+    <text x="50" y="5" font-family="Arial" font-size="14" fill="#333">= Excellent</text>
+  </g>
+</svg>
