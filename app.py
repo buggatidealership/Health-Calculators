@@ -276,6 +276,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Ozempic Weight Loss Calculator Guide",
+        "url": "/resources/ozempic-weight-loss-calculator-guide",
+        "summary": "Evidence-based guide to semaglutide weight loss: dosage protocols, timelines, and expected outcomes from clinical trials.",
+        "icon": "💊",
+        "cta": "Read Guide",
+        "color": "purple"
+    },
+    {
         "title": "Are Height Predictors Accurate?",
         "url": "/resources/are-height-predictors-accurate",
         "summary": "How accurate are height prediction methods? Compare scientific evidence for Khamis-Roche, mid-parental formula, and bone age prediction.",
@@ -543,6 +551,16 @@ def are_height_predictors_accurate():
         schema_name="Are Height Predictors Accurate? What Science Says",
         schema_description="How accurate are child and adult height predictors? Explore the science behind growth charts, genetics, and predictive formulas.",
         schema_url="/resources/are-height-predictors-accurate"
+    )
+
+@app.route('/resources/ozempic-weight-loss-calculator-guide')
+def ozempic_weight_loss_calculator_guide():
+    return render_template(
+        'resources/ozempic_weight_loss_calculator_guide.html',
+        is_homepage=False,
+        schema_name="Ozempic Weight Loss Calculator Guide: Timeline & Expected Results",
+        schema_description="Comprehensive guide to Ozempic (semaglutide) for weight loss: dosage protocols, expected outcomes, timeline comparisons, and clinical insights based on STEP trials.",
+        schema_url="/resources/ozempic-weight-loss-calculator-guide"
     )
 
 if __name__ == '__main__':
