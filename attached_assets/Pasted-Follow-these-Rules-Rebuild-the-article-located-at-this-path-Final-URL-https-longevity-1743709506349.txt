@@ -1,0 +1,101 @@
+Follow these Rules:
+
+Rebuild the article located at this path:
+
+**Final URL:** https://longevitycalculator.xyz/resources/breast-implant-sizing-guide
+**Template File:** templates/resources/breast_implant_sizing_guide.html
+
+---
+
+## ✅ Structure & Routing
+- Ensure the route `/resources/breast-implant-sizing-guide` is working.
+- Template must be created at: `templates/resources/breast_implant_sizing_guide.html`
+- Add entry to `articles = [...]` list in `app.py` if missing, including correct icon, title, summary, CTA, and color.
+- Add or validate route in `app.py` with proper `render_template()` and schema injection.
+- Update sitemap.xml to include the article URL if missing.
+
+---
+
+## ✅ Content Requirements (Regenerate Content)
+- Use the approved article template guidelines:
+  - ~2000 words
+  - H1 title, H2 sections, H3 subsections
+  - Replace all content using medically accurate, educational, and citation-backed information
+  - **Do not reuse deleted HTML** — generate new, long-form content covering the following:
+    - Overview of breast implant sizing and why it's confusing
+    - Detailed CC to cup size chart
+    - Implant profiles (low/moderate/high)
+    - Visual size differences by body frame
+    - Surgeon advice by body type
+    - FAQ section (5+ items)
+    - Link prominently to `/cc-to-bra-size-calculator`
+
+---
+
+## ✅ Meta Tags
+- Meta Title: "Breast Implant Sizing Guide – CC Chart by Cup Size & Frame"
+- Meta Description: "Use this guide to estimate breast implant volume (CC) by cup size. Includes size chart, profile tips, and surgeon guidance."
+- OG Title: "Breast Implant Sizing Guide"
+- OG Description: "Convert CCs to cup size and see implant differences by profile, frame, and surgeon advice."
+- Canonical Tag: https://longevitycalculator.xyz/resources/breast-implant-sizing-guide
+- OG Image: https://longevitycalculator.xyz/static/images/breast-implant-sizing-guide-og.jpg
+- Twitter meta: match OG
+
+---
+
+## ✅ Schema Markup
+Add this inside `<head>`:
+
+### 1. SoftwareApplication:
+```json
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "CC to Bra Size Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/cc-to-bra-size-calculator",
+  "description": "Convert breast implant volume (in CCs) to estimated bra cup size. Based on plastic surgery implant-to-size charts."
+}
+```
+
+### 2. FAQPage (generate 5–7 FAQ pairs based on article)
+- Include realistic breast augmentation questions and concise answers.
+
+---
+
+## ✅ Visual & UI Instructions
+- No SVGs in article body.
+- Do NOT include broken charts or placeholder illustrations.
+- Avoid unnecessary image blocks. If visuals are used, they must be `.webp` with full metadata (alt, width, height).
+- Use CTA card linking to `/cc-to-bra-size-calculator`
+- Include a clean Table of Contents
+
+---
+
+## ✅ AdSense Integration
+Insert:
+- `<AdUnit slot="breast-implant-sizing-guide-top" />` under the H1
+- `<AdUnit slot="breast-implant-sizing-guide-mid" />` between results and explanation
+- `<AdUnit slot="breast-implant-sizing-guide-bottom" />` above the footer disclaimer
+
+---
+
+## ✅ Footer & Navigation
+- Include footer disclaimer: “This article is for educational use only. Always consult a board-certified plastic surgeon.”
+- Add link: `← Back to Homepage`
+- Add internal link to `/cc-to-bra-size-calculator` using SEO-optimized anchor text
+
+---
+
+## ✅ Performance & QA
+- Validate routing and HTML syntax.
+- Check page appears on /resources overview
+- Schema must compile without errors
+- No broken icons, no orphan page
+- Confirm sitemap entry exists
+- Ensure meta tag values compile correctly inside `head_seo.html`
+
+---
+
+> 📌 Once complete, confirm the page renders properly, routing works, ads appear in correct slots, and internal linking is intact.
