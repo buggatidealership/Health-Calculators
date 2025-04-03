@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Alcohol Impact Calculator",
+        "url": "/alcohol-impact-calculator",
+        "summary": "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration.",
+        "icon": "🍷",
+        "cta": "Calculate Impact",
+        "color": "red"
+    },
+    {
         "title": "Baldness Risk Calculator",
         "url": "/baldness-risk-calculator",
         "summary": "Estimate your risk of going bald based on family history, age, lifestyle, and health factors.",
@@ -438,6 +446,19 @@ def baldness_risk_calculator():
     schema_url = "/baldness-risk-calculator"
     return render_template(
         'baldness_risk_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/alcohol-impact-calculator')
+def alcohol_impact_calculator():
+    schema_name = "Alcohol Impact Calculator"
+    schema_description = "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration. Based on current research."
+    schema_url = "/alcohol-impact-calculator"
+    return render_template(
+        'alcohol_impact_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

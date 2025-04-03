@@ -1,0 +1,291 @@
+Follow these rules:
+
+--- METADATA ---
+- Meta Title: “Alcohol Impact Calculator – Estimate Health, Sleep, and Recovery Effects”
+- Meta Description: “Use this calculator to assess how alcohol affects your sleep quality, next-day productivity, liver health, and hydration. Based on current research.”
+- OG Title: “Alcohol Impact Calculator”
+- OG Description: “Estimate alcohol’s effect on your body. Understand how it influences sleep, energy, and liver recovery.”
+- OG URL: https://longevitycalculator.xyz/alcohol-impact-calculator
+- OG Image: https://longevitycalculator.xyz/static/images/alcohol-impact-calculator-og.jpg
+- Twitter meta tags: Match OG content
+- Canonical Tag: https://longevitycalculator.xyz/alcohol-impact-calculator
+
+--- LAYOUT & UI ---
+- Match the /vitamin-d-intake-calculator exactly in:
+  - Typography, spacing, layout, and visual structure
+  - CTA button should use brand pink #d63384 with darker hover state
+  - Section Icons: Use <BarChart className="section-icon" /> for “How This Calculator Works” and <HelpCircle className="section-icon" /> for FAQs
+  - Include Table of Contents linking to: Calculator, How This Calculator Works, FAQ
+
+--- DISCLAIMER (ABOVE TOC) ---
+“This tool provides general educational estimates. For personalized medical advice, consult a licensed healthcare provider.”
+
+--- ADUNITS ---
+Insert the following 3 live AdUnit components:
+- <AdUnit slot="alcohol-impact-calculator-top" /> → directly under the H1
+- <AdUnit slot="alcohol-impact-calculator-mid" /> → between calculator output and “How This Calculator Works”
+- <AdUnit slot="alcohol-impact-calculator-bottom" /> → above the footer disclaimer
+
+--- CALCULATOR MODULE ---
+Inside <section id="calculator"> embed the following custom HTML:
+
+<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcohol Impact Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #f8f9fa;
+            border-left: 4px solid #4CAF50;
+            display: none;
+        }
+
+        .warning {
+            border-left-color: #ff9800;
+        }
+
+        .danger {
+            border-left-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Alcohol Impact Calculator</h2>
+        <div class="input-group">
+            <label for="drinks">Weekly standard drinks (14g alcohol each):</label>
+            <input type="number" id="drinks" min="0" step="1" value="10" required>
+        </div>
+
+        <div class="input-group">
+            <label for="gender">Biological sex:</label>
+            <select id="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Weight (kg):</label>
+            <input type="number" id="weight" min="30" step="1" value="70" required>
+        </div>
+
+        <div class="input-group">
+            <label for="age">Age:</label>
+            <input type="number" id="age" min="18" max="120" value="40" required>
+        </div>
+
+        <button onclick="calculateImpact()">Calculate Impact</button>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateImpact() {
+            // Get input values
+            const drinks = parseFloat(document.getElementById('drinks').value);
+            const gender = document.getElementById('gender').value;
+            const weight = parseFloat(document.getElementById('weight').value);
+            const age = parseFloat(document.getElementById('age').value);
+
+            // Scientific parameters (GBD 2023 study)
+            const BASE_RISK = 0.4; // Months per drink/week
+            const RISK_MULTIPLIER = 3.0; // For drinks above guidelines
+            const GUIDELINES = gender === 'male' ? 14 : 7;
+            const WEIGHT_FACTOR = 70;
+
+            // Calculate impacts
+            let baseImpact = drinks * BASE_RISK;
+            let excessImpact = Math.max(drinks - GUIDELINES, 0) * (BASE_RISK * RISK_MULTIPLIER);
+            let totalImpact = (baseImpact + excessImpact) * (WEIGHT_FACTOR/weight);
+           
+            // Gender adjustment
+            totalImpact *= gender === 'female' ? 1.4 : 1;
+
+            // Format results
+            const years = Math.floor(totalImpact / 12);
+            const months = Math.round(totalImpact % 12);
+            const resultText = years > 0 ? `${years} year${years > 1 ? 's' : ''} ${months} month${months !== 1 ? 's' : ''}` : `${months} month${months !== 1 ? 's' : ''}`;
+
+            // Display results
+            let result = document.getElementById('result');
+            result.style.display = 'block';
+           
+            // Set appropriate class based on impact level
+            result.className = '';
+            if (totalImpact > 12) {
+                result.classList.add('danger');
+            } else if (totalImpact > 6) {
+                result.classList.add('warning');
+            }
+
+            result.innerHTML = `
+                <h3>Results</h3>
+                <p><strong>Estimated lifespan impact:</strong> ${resultText}</p>
+                <p>For ${drinks} drinks/week (${gender}, ${weight}kg):</p>
+                <ul>
+                    <li>Base risk: ${baseImpact.toFixed(1)} months</li>
+                    ${excessImpact > 0 ? `<li>Excess risk: +${excessImpact.toFixed(1)} months</li>` : ''}
+                    <li>Metabolic factor: ${(WEIGHT_FACTOR/weight).toFixed(2)}x</li>
+                </ul>
+                <p><small>Note: Based on population-level data from global burden of disease studies. Individual results may vary.</small></p>
+            `;
+        }
+    </script>
+</body>
+</html><!-- END DEEPSEEK-GENERATED CALCULATOR -->
+
+--- HOW TO USE SECTION ---
+Use <BarChart className="section-icon" />
+Title: "How to Use the Alcohol Impact Calculator"
+Content:
+- Input how many standard drinks you consumed (1 drink = 14g ethanol).
+- Enter your body weight and gender for accurate BAC estimation.
+- Select how many hours have passed since your last drink.
+- The tool will estimate your BAC, hydration loss, sleep disruption, and liver stress.
+
+--- FAQ SECTION ---
+Use <HelpCircle className="section-icon" />
+Include the following:
+
+Q: What is BAC?
+A: Blood Alcohol Concentration – it measures alcohol level in your bloodstream.
+
+Q: How long does alcohol stay in your system?
+A: BAC decreases by ~0.015% per hour. Most people are sober after 6–8 hours.
+
+Q: Does alcohol affect sleep quality?
+A: Yes. Even 1-2 drinks can reduce REM sleep and increase night-time awakenings.
+
+Q: Can I exercise after drinking?
+A: Mild to moderate exercise is fine if you're sober and hydrated. Avoid strenuous workouts.
+
+Q: How do I detox alcohol faster?
+A: You can't speed up liver metabolism. Hydrate well, eat, and rest.
+
+--- SCHEMA MARKUP (IN HEAD) ---
+1. SoftwareApplication:
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Alcohol Impact Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/alcohol-impact-calculator",
+  "description": "Estimate the impact of alcohol on sleep, hydration, and liver health based on intake and timing."
+}
+
+2. FAQPage:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BAC?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blood Alcohol Concentration – it measures alcohol level in your bloodstream."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does alcohol stay in your system?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BAC decreases by ~0.015% per hour. Most people are sober after 6–8 hours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does alcohol affect sleep quality?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Even 1-2 drinks can reduce REM sleep and increase night-time awakenings."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I exercise after drinking?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mild to moderate exercise is fine if you're sober and hydrated. Avoid strenuous workouts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I detox alcohol faster?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can't speed up liver metabolism. Hydrate well, eat, and rest."
+      }
+    }
+  ]
+}
+
+--- FOOTER ---
+- Add internal link: “← Back to Homepage”
+- Footer disclaimer: “This calculator is for educational use only and does not replace medical advice.”
+
+--- FINAL QA ---
+- Ensure full responsive layout
+- All <AdUnit> slots must render
+- Calculator layout must match vitamin D calculator exactly
+- Schema and metadata must be injected
+- Icons and logic must render properly
