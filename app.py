@@ -326,7 +326,7 @@ def resources():
 @app.route('/resources/fasting-weight-loss-chart')
 def fasting_weight_loss_chart():
     return render_template(
-        'fasting_weight_loss_chart.html',
+        'resources/fasting_weight_loss_chart.html',
         is_homepage=False,
         schema_name="Fasting Weight Loss Chart: What to Expect Week by Week",
         schema_description="Visual chart showing expected weight loss per week on intermittent fasting plans. Backed by clinical studies.",
