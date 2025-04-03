@@ -525,13 +525,7 @@ def ads_txt():
 
 @app.route('/robots.txt')
 def robots_txt():
-    return (
-        "User-agent: *\n"
-        "Disallow:\n"
-        "Sitemap: https://longevitycalculator.xyz/sitemap.xml\n",
-        200,
-        {'Content-Type': 'text/plain'}
-    )
+    return send_from_directory('static/public', 'robots.txt')
 
 @app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
 def redirect_ozempic_article():
