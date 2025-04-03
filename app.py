@@ -306,6 +306,14 @@ articles = [
         "icon": "⏱️",
         "cta": "View Chart",
         "color": "green"
+    },
+    {
+        "title": "Botox Dosage Guide",
+        "url": "/resources/botox-dosage-guide",
+        "summary": "Clinical reference for Botox units by area, dosing ranges, and cost analysis. Based on FDA data and peer-reviewed research.",
+        "icon": "💉",
+        "cta": "View Guide",
+        "color": "teal"
     }
 ]
 

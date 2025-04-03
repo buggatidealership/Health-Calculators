@@ -110,4 +110,10 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/resources/botox-dosage-guide</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>2025-04-03</lastmod>
+  </url>
 </urlset>
