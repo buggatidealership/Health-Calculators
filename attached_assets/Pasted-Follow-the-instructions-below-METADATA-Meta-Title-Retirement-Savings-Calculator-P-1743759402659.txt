@@ -5,10 +5,10 @@ Follow the instructions below:
 - Meta Description: "Estimate how much you'll need to retire comfortably. Calculate your target retirement savings based on age, income, expected expenses, and investment growth."
 - OG Title: "Retirement Savings Calculator"
 - OG Description: "Project your future retirement savings and discover how much to invest monthly to meet your financial goals."
-- OG URL: https://longevitycalculator.xyz/retirement-savings-calculator
-- OG Image: https://longevitycalculator.xyz/static/images/retirement-savings-calculator-og.jpg
+- OG URL: https://healthcalculators.xyz/retirement-savings-calculator
+- OG Image: https://healthcalculators.xyz/static/images/retirement-savings-calculator-og.jpg
 - Twitter meta tags: Mirror the Open Graph tags
-- Canonical URL: https://longevitycalculator.xyz/retirement-savings-calculator
+- Canonical URL: https://healthcalculators.xyz/retirement-savings-calculator
 
 --- LAYOUT & UI ---
 Match the /vitamin-d-intake-calculator in:

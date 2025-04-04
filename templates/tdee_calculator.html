@@ -170,7 +170,7 @@
                 </select>
             </div>
 
-            <button onclick="calculateTDEE()">Calculate TDEE</button>
+            <button onclick="calculateTDEE()" class="btn-pink">Calculate TDEE</button>
 
             <div class="results" id="results">
                 <h3>Your Results</h3>
@@ -192,7 +192,7 @@
         </div>
        
         <div class="info" id="how-to-use">
-            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v2.5L9 6v14a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V6l-1-1.5V2"></path><path d="M8.5 2h7"></path><path d="M7 16h10"></path></svg> How to Use the TDEE Calculator</h2>
+            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3a6 6 0 0 0 0 12v-3.5"/><path d="M9 15v2.7c0 1.3 1.7 2.3 3 2.3s3-1 3-2.3V15"/><path d="M15 3v10.5"/><path d="M9 11.4a.6.6 0 0 1 0-1.2"/><path d="M12 11.4a.6.6 0 0 0 0-1.2"/><path d="M15 11.4a.6.6 0 0 0 0-1.2"/></svg> How to Use the TDEE Calculator</h2>
             <ul>
                 <li>Enter your age, gender, weight, and height.</li>
                 <li>Select your weekly activity level.</li>
@@ -239,68 +239,6 @@
     
     </div> <!-- End of calculator-container -->
 
-    <script>
-        // Unit toggle functionality
-        document.querySelectorAll('input[name="units"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                const isMetric = this.value === 'metric';
-                document.querySelector('.metric-inputs').classList.toggle('hidden', !isMetric);
-                document.querySelector('.imperial-inputs').classList.toggle('hidden', isMetric);
-            });
-        });
-
-        function calculateTDEE() {
-            // Get common values
-            const age = parseInt(document.getElementById('age').value);
-            const gender = document.getElementById('gender').value;
-            const activity = parseFloat(document.getElementById('activity').value);
-            const isMetric = document.querySelector('input[name="units"]:checked').value === 'metric';
-
-            // Get weight and height based on units
-            let weight, height;
-           
-            if (isMetric) {
-                weight = parseFloat(document.getElementById('weight_kg').value);
-                height = parseFloat(document.getElementById('height_cm').value);
-            } else {
-                // Convert pounds to kg
-                weight = parseFloat(document.getElementById('weight_lb').value) * 0.453592;
-                // Convert feet/inches to cm
-                const feet = parseFloat(document.getElementById('height_ft').value);
-                const inches = parseFloat(document.getElementById('height_in').value) || 0;
-                height = (feet * 12 + inches) * 2.54;
-            }
-
-            // Validate inputs
-            if (!age || !weight || !height || isNaN(weight) || isNaN(height)) {
-                alert('Please fill all required fields with valid numbers');
-                return;
-            }
-
-            // Calculate BMR using Mifflin-St Jeor Equation
-            let bmr;
-            if (gender === 'male') {
-                bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
-            } else {
-                bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
-            }
-
-            // Calculate TDEE and results
-            const tdee = Math.round(bmr * activity);
-           
-            // Ensure minimum safe calories
-            const minCalories = gender === 'female' ? 1200 : 1500;
-            const loss1 = Math.max(tdee - 250, minCalories);
-            const loss2 = Math.max(tdee - 500, minCalories);
-            const loss3 = Math.max(tdee - 1000, minCalories);
-
-            // Display results
-            document.getElementById('tdee').textContent = `${tdee} kcal/day`;
-            document.getElementById('loss1').textContent = `${loss1} kcal/day`;
-            document.getElementById('loss2').textContent = `${loss2} kcal/day`;
-            document.getElementById('loss3').textContent = `${loss3} kcal/day`;
-            document.getElementById('results').style.display = 'block';
-        }
-    </script>
+    <script src="/static/js/tdee_calculator.js"></script>
 </body>
 </html>

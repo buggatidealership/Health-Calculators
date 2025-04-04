@@ -5,10 +5,10 @@ Follow these rules:
 - Meta Description: “Estimate your Total Daily Energy Expenditure (TDEE) using age, weight, height, gender, and activity level. Calculate how many calories you burn daily.”
 - OG Title: “TDEE Calculator”
 - OG Description: “Find your Total Daily Energy Expenditure (TDEE) to optimize weight loss, maintenance, or muscle gain.”
-- OG URL: https://longevitycalculator.xyz/tdee-calculator
-- OG Image: https://longevitycalculator.xyz/static/images/tdee-calculator-og.jpg
+- OG URL: https://healthcalculators.xyz/tdee-calculator
+- OG Image: https://healthcalculators.xyz/static/images/tdee-calculator-og.jpg
 - Twitter meta tags: Match OG content
-- Canonical Tag: https://longevitycalculator.xyz/tdee-calculator
+- Canonical Tag: https://healthcalculators.xyz/tdee-calculator
 
 --- LAYOUT & UI ---
 - Match the /caloric-intake-macronutrient-calculator layout exactly
@@ -309,7 +309,7 @@ A: BMR is your resting calorie burn. TDEE includes daily activity and exercise.
   "name": "TDEE Calculator",
   "applicationCategory": "HealthApplication",
   "operatingSystem": "All",
-  "url": "https://longevitycalculator.xyz/tdee-calculator",
+  "url": "https://healthcalculators.xyz/tdee-calculator",
   "description": "Estimate your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor formula. Input age, gender, height, weight, and activity level."
 }
 
