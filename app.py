@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Ideal Body Weight Calculator",
+        "url": "/ideal-body-weight-calculator",
+        "summary": "Estimate your ideal body weight using clinical formulas like Devine and Robinson. Adjust for gender, height, and frame size.",
+        "icon": "⚖️",
+        "cta": "Calculate Ideal Weight",
+        "color": "green"
+    },
+    {
         "title": "Alcohol Impact Calculator",
         "url": "/alcohol-impact-calculator",
         "summary": "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration.",
@@ -235,6 +243,19 @@ def breast_implant_calculator():
         schema_url=schema_url
     )
 
+@app.route('/ideal-body-weight-calculator')
+def ideal_body_weight_calculator():
+    schema_name = "Ideal Body Weight Calculator"
+    schema_description = "Estimate your ideal body weight using clinical formulas like Devine and Robinson. Adjust for gender, height, and frame size."
+    schema_url = "/ideal-body-weight-calculator"
+    return render_template(
+        'ideal_body_weight_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/vitamin-d-intake-calculator')
 def vitamin_d_intake_calculator():
     schema_name = "Vitamin D Intake Calculator"
@@ -275,6 +296,14 @@ def ozempic_weight_loss_calculator():
     )
 
 articles = [
+    {
+        "title": "Understanding Ideal Body Weight Formulas",
+        "url": "/resources/understanding-ideal-body-weight-formulas",
+        "summary": "Compare medical formulas like Devine, Robinson, and Hamwi for calculating ideal body weight. Learn about frame size adjustments and clinical applications.",
+        "icon": "⚖️",
+        "cta": "Read Guide",
+        "color": "green"
+    },
     {
         "title": "Fertility After 35: What to Know About Your Chances",
         "url": "/resources/fertility-after-35",
@@ -567,6 +596,16 @@ def ozempic_weight_loss_calculator_guide():
         schema_name="Ozempic Weight Loss Calculator Guide: Timeline & Expected Results",
         schema_description="Comprehensive guide to Ozempic (semaglutide) for weight loss: dosage protocols, expected outcomes, timeline comparisons, and clinical insights based on STEP trials.",
         schema_url="/resources/ozempic-weight-loss-calculator-guide"
+    )
+
+@app.route('/resources/understanding-ideal-body-weight-formulas')
+def understanding_ideal_body_weight_formulas():
+    return render_template(
+        'resources/understanding_ideal_body_weight_formulas.html',
+        is_homepage=False,
+        schema_name="Understanding Ideal Body Weight Formulas: Complete Guide",
+        schema_description="Compare medical formulas like Devine, Robinson, and Hamwi for calculating ideal body weight. Learn about frame size adjustments and clinical applications.",
+        schema_url="/resources/understanding-ideal-body-weight-formulas"
     )
 
 @app.route('/resources/fertility-after-35')

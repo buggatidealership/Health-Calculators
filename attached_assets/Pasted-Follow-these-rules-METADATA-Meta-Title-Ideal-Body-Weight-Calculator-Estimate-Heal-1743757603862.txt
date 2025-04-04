@@ -1,0 +1,134 @@
+Follow these rules:
+
+--- METADATA ---
+- Meta Title: “Ideal Body Weight Calculator – Estimate Healthy Target Weight”
+- Meta Description: “Estimate your ideal body weight using clinical formulas like Devine and Robinson. Adjust for gender, height, and frame size.”
+- OG Title: “Ideal Body Weight Calculator”
+- OG Description: “Use our calculator to find your optimal body weight based on height, gender, and frame size. Supports multiple medical formulas.”
+- OG URL: https://longevitycalculator.xyz/ideal-body-weight-calculator
+- OG Image: https://longevitycalculator.xyz/static/images/ideal-body-weight-calculator-og.jpg
+- Twitter meta tags: Match OG content
+- Canonical Tag: https://longevitycalculator.xyz/ideal-body-weight-calculator
+
+--- LAYOUT & UI ---
+- Match the /vitamin-d-intake-calculator exactly in:
+  - Typography, spacing, layout, and visual structure
+  - CTA button should use brand pink #d63384 with darker hover state
+  - Section Icons: Use <BarChart className="section-icon" /> for “How This Calculator Works” and <HelpCircle className="section-icon" /> for FAQs
+  - Include Table of Contents linking to: Calculator, How This Calculator Works, FAQ
+
+--- DISCLAIMER (ABOVE TOC) ---
+“This tool provides general educational estimates. Always consult a healthcare provider for weight management decisions.”
+
+--- ADUNITS ---
+Insert the following 3 live AdUnit components:
+- <AdUnit slot="ideal-body-weight-calculator-top" /> → directly under the H1
+- <AdUnit slot="ideal-body-weight-calculator-mid" /> → between calculator output and “How This Calculator Works”
+- <AdUnit slot="ideal-body-weight-calculator-bottom" /> → above the footer disclaimer
+
+--- CALCULATOR MODULE ---
+Inside <section id="calculator"> embed the following Deepseek-generated HTML:
+<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+<!-- (Insert final Deepseek-generated HTML for ideal body weight calculator here) -->
+<!-- END DEEPSEEK-GENERATED CALCULATOR -->
+
+--- HOW TO USE SECTION ---
+Use <BarChart className="section-icon" /> icon.
+Section title: “How to Use the Ideal Body Weight Calculator”
+Content:
+- Enter your height in feet/inches or centimeters.
+- Select your biological sex.
+- Optionally choose your frame size (small, medium, large).
+- Choose a formula (e.g., Devine, Robinson, Miller).
+- Click "Estimate" to get your ideal body weight.
+
+--- FAQ SECTION ---
+Use <HelpCircle className="section-icon" /> icon.
+Include the following FAQs:
+
+Q: What is ideal body weight (IBW)?
+A: IBW is a medically recommended target weight based on height and gender, often used in clinical nutrition and drug dosing.
+
+Q: Which formula is most accurate?
+A: Devine is widely used in hospitals; Robinson and Miller are alternatives. They yield slightly different results.
+
+Q: Should I use frame size?
+A: Frame size can refine estimates but is optional. Use wrist circumference to estimate frame size if needed.
+
+Q: Is this the same as BMI?
+A: No. BMI assesses weight relative to height, while IBW tries to pinpoint the healthiest baseline weight.
+
+Q: Can I use this for children?
+A: No. This tool is for adults. Use pediatric growth calculators for children.
+
+--- SCHEMA MARKUP (IN HEAD) ---
+1. SoftwareApplication:
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Ideal Body Weight Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://longevitycalculator.xyz/ideal-body-weight-calculator",
+  "description": "Estimate your ideal body weight using Devine, Robinson, and other formulas. Enter height, gender, and frame size."
+}
+
+2. FAQPage:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is ideal body weight (IBW)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "IBW is a medically recommended target weight based on height and gender, often used in clinical nutrition and drug dosing."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which formula is most accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Devine is widely used in hospitals; Robinson and Miller are alternatives. They yield slightly different results."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use frame size?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Frame size can refine estimates but is optional. Use wrist circumference to estimate frame size if needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this the same as BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. BMI assesses weight relative to height, while IBW tries to pinpoint the healthiest baseline weight."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this for children?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This tool is for adults. Use pediatric growth calculators for children."
+      }
+    }
+  ]
+}
+
+--- FOOTER ---
+Add internal link: “← Back to Homepage”
+Footer disclaimer:
+“This calculator is for educational purposes only and does not replace clinical advice, physical exams, or doctor supervision.”
+
+--- FINAL QA ---
+- All AdUnits must be functional and properly spaced
+- Calculator layout must follow vitamin D template 1:1
+- No broken icons, FAQ, or frame size logic
+- Schema markup is present in <head>
+- Must render responsively on mobile

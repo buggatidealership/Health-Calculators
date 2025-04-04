@@ -6,6 +6,12 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://longevitycalculator.xyz/ideal-body-weight-calculator</loc>
+    <lastmod>2025-04-04</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://longevitycalculator.xyz/alcohol-impact-calculator</loc>
     <lastmod>2025-04-04</lastmod>
     <priority>0.9</priority>
@@ -111,6 +117,12 @@
     <loc>https://longevitycalculator.xyz/caloric-intake-macronutrient-calculator</loc>
     <lastmod>2025-04-04</lastmod>
     <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://longevitycalculator.xyz/resources/understanding-ideal-body-weight-formulas</loc>
+    <lastmod>2025-04-04</lastmod>
+    <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
