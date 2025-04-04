@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "TDEE Calculator",
+        "url": "/tdee-calculator",
+        "summary": "Estimate your Total Daily Energy Expenditure to determine maintenance calories and create effective weight management plans.",
+        "icon": "🔥",
+        "cta": "Calculate TDEE",
+        "color": "orange"
+    },
+    {
         "title": "Ideal Body Weight Calculator",
         "url": "/ideal-body-weight-calculator",
         "summary": "Calculate your ideal body weight range based on height, gender, and frame size using multiple evidence-based formulas.",
@@ -173,6 +181,19 @@ def home():
         'home.html', 
         is_homepage=True, 
         cards=cards,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/tdee-calculator')
+def tdee_calculator():
+    schema_name = "TDEE Calculator"
+    schema_description = "Estimate your Total Daily Energy Expenditure (TDEE) using age, weight, height, gender, and activity level. Calculate how many calories you burn daily."
+    schema_url = "/tdee-calculator"
+    return render_template(
+        'tdee_calculator.html', 
+        is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
