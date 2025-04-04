@@ -9,7 +9,7 @@ app_path = os.path.join(os.getcwd(), 'app.py')
 sys.path.append(os.getcwd())
 from app import cards, articles
 
-# Template for sitemap
+# Template for sitemap (without any indentation before the XML declaration)
 sitemap_template = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -18,8 +18,7 @@ sitemap_template = """<?xml version="1.0" encoding="UTF-8"?>
     <changefreq>weekly</changefreq>
   </url>
 {entries}
-</urlset>
-"""
+</urlset>"""
 
 # Combine routes from cards and articles
 live_routes = cards + articles
@@ -55,7 +54,8 @@ sitemap_output = sitemap_template.replace("{entries}", "\n".join(entry_lines))
 
 # Save to static/public/sitemap.xml
 sitemap_path = os.path.join(os.getcwd(), 'static', 'public', 'sitemap.xml')
-with open(sitemap_path, "w", encoding="utf-8") as f:
-    f.write(sitemap_output)
+# Make sure we write without BOM
+with open(sitemap_path, "wb") as f:
+    f.write(sitemap_output.encode('utf-8'))
 
 print("✅ sitemap.xml regenerated cleanly without deprecated slugs.")

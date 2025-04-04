@@ -60,8 +60,8 @@ function calculate() {
     `;
 
     document.getElementById('output').innerHTML = results;
-
-}
-document.getElementById('results').style.display = 'block'; 
+    document.getElementById('results').style.display = 'block';
+    
     // Scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
