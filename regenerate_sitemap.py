@@ -13,7 +13,7 @@ from app import cards, articles
 sitemap_template = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://longevitycalculator.xyz/</loc>
+    <loc>https://healthcalculators.xyz/</loc>
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
@@ -26,7 +26,7 @@ live_routes = cards + articles
 entry_lines = []
 
 for route in live_routes:
-    url = f"https://longevitycalculator.xyz{route['url']}"
+    url = f"https://healthcalculators.xyz{route['url']}"
     
     # Set up priority based on route type
     priority = "0.9" if route['url'].startswith("/") and not route['url'].startswith("/resources/") else "0.7"
@@ -42,7 +42,7 @@ for route in live_routes:
 
 # Add resources page
 resources_entry = """  <url>
-    <loc>https://longevitycalculator.xyz/resources</loc>
+    <loc>https://healthcalculators.xyz/resources</loc>
     <lastmod>{lastmod}</lastmod>
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
