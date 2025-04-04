@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Retirement Savings Calculator",
+        "url": "/retirement-savings-calculator",
+        "summary": "Estimate how much you'll have saved for retirement and your safe withdrawal rate based on current savings and contributions.",
+        "icon": "💰",
+        "cta": "Plan Your Retirement",
+        "color": "green"
+    },
+    {
         "title": "TDEE Calculator",
         "url": "/tdee-calculator",
         "summary": "Estimate your Total Daily Energy Expenditure to determine maintenance calories and create effective weight management plans.",
@@ -271,6 +279,19 @@ def vitamin_d_intake_calculator():
     schema_url = "/vitamin-d-intake-calculator"
     return render_template(
         'vitamin_d_intake_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/retirement-savings-calculator')
+def retirement_savings_calculator():
+    schema_name = "Retirement Savings Calculator"
+    schema_description = "Estimate how much you'll need to retire comfortably. Calculate your target retirement savings based on age, income, expected expenses, and investment growth."
+    schema_url = "/retirement-savings-calculator"
+    return render_template(
+        'retirement_savings_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
