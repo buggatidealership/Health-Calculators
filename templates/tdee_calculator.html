@@ -99,23 +99,11 @@
     <section id="calculator" class="calculator">
         <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
         <div class="calculator">
-            <div class="form-group">
-                <label>Units</label>
-                <div class="unit-switch">
-                    <label class="unit-option">
-                        <input type="radio" name="units" value="metric" checked> Metric (kg/cm)
-                    </label>
-                    <label class="unit-option">
-                        <input type="radio" name="units" value="imperial"> Imperial (lbs/ft/in)
-                    </label>
-                </div>
+            <div class="units-toggle">
+                <button id="metric-btn" class="active" onclick="toggleUnits('metric')">Metric (kg, cm)</button>
+                <button id="imperial-btn" onclick="toggleUnits('imperial')">Imperial (lbs, ft/in)</button>
             </div>
-
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" required>
-            </div>
-           
+            
             <div class="form-group">
                 <label for="gender">Gender</label>
                 <select id="gender">
@@ -124,37 +112,38 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" required>
+            </div>
+           
             <!-- Metric Inputs -->
-            <div class="metric-inputs">
-                <div class="form-group">
-                    <label for="weight_kg">Weight (kg)</label>
-                    <input type="number" id="weight_kg" required>
-                </div>
+            <div id="metric-weight" class="form-group">
+                <label for="weight_kg">Weight (kg)</label>
+                <input type="number" id="weight_kg" required>
+            </div>
 
-                <div class="form-group">
-                    <label for="height_cm">Height (cm)</label>
-                    <input type="number" id="height_cm" required>
-                </div>
+            <div id="metric-height" class="form-group">
+                <label for="height_cm">Height (cm)</label>
+                <input type="number" id="height_cm" required>
             </div>
 
             <!-- Imperial Inputs -->
-            <div class="imperial-inputs hidden">
-                <div class="form-group">
-                    <label for="weight_lb">Weight (lbs)</label>
-                    <input type="number" id="weight_lb" required>
-                </div>
+            <div id="imperial-weight" class="form-group" style="display:none;">
+                <label for="weight_lb">Weight (lbs)</label>
+                <input type="number" id="weight_lb" required>
+            </div>
 
-                <div class="form-group">
-                    <label>Height</label>
-                    <div class="imperial-height">
-                        <div>
-                            <label for="height_ft">Feet</label>
-                            <input type="number" id="height_ft" required>
-                        </div>
-                        <div>
-                            <label for="height_in">Inches</label>
-                            <input type="number" id="height_in" min="0" max="11" value="0">
-                        </div>
+            <div id="imperial-height" class="form-group" style="display:none;">
+                <label>Height</label>
+                <div class="imperial-height">
+                    <div>
+                        <label for="height_ft">Feet</label>
+                        <input type="number" id="height_ft" required>
+                    </div>
+                    <div>
+                        <label for="height_in">Inches</label>
+                        <input type="number" id="height_in" min="0" max="11" value="0">
                     </div>
                 </div>
             </div>
@@ -241,20 +230,35 @@
 
     <script>
         // Unit toggle functionality
-        document.querySelectorAll('input[name="units"]').forEach(radio => {
-            radio.addEventListener('change', function() {
-                const isMetric = this.value === 'metric';
-                document.querySelector('.metric-inputs').classList.toggle('hidden', !isMetric);
-                document.querySelector('.imperial-inputs').classList.toggle('hidden', isMetric);
-            });
-        });
+        function toggleUnits(unit) {
+            const metricBtn = document.getElementById('metric-btn');
+            const imperialBtn = document.getElementById('imperial-btn');
+
+            if (unit === 'metric') {
+                document.getElementById('metric-weight').style.display = 'block';
+                document.getElementById('imperial-weight').style.display = 'none';
+                document.getElementById('metric-height').style.display = 'block';
+                document.getElementById('imperial-height').style.display = 'none';
+
+                metricBtn.classList.add('active');
+                imperialBtn.classList.remove('active');
+            } else {
+                document.getElementById('metric-weight').style.display = 'none';
+                document.getElementById('imperial-weight').style.display = 'block';
+                document.getElementById('metric-height').style.display = 'none';
+                document.getElementById('imperial-height').style.display = 'block';
+
+                imperialBtn.classList.add('active');
+                metricBtn.classList.remove('active');
+            }
+        }
 
         function calculateTDEE() {
             // Get common values
             const age = parseInt(document.getElementById('age').value);
             const gender = document.getElementById('gender').value;
             const activity = parseFloat(document.getElementById('activity').value);
-            const isMetric = document.querySelector('input[name="units"]:checked').value === 'metric';
+            const isMetric = document.getElementById('metric-btn').classList.contains('active');
 
             // Get weight and height based on units
             let weight, height;
