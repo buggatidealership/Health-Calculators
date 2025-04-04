@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "ideal-body-weight-calculator-og.jpg" %}
+{% with 
+    meta_description="Calculate your ideal body weight based on height, gender, and frame size using evidence-based formulas like Devine, Robinson, and Miller.",
+    meta_keywords="ideal body weight calculator, healthy weight formula, ideal weight calculator, IBW formula, ideal weight range",
+    og_title="Ideal Body Weight Calculator",
+    og_description="Calculate your ideal body weight range based on height, gender, and frame size using multiple evidence-based formulas.",
+    og_url="/ideal-body-weight-calculator",
+    page_title="Ideal Body Weight Calculator – Find Your Healthy Weight Range",
+    canonical_url="/ideal-body-weight-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ideal body weight (IBW)?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ideal body weight (IBW) represents a theoretical weight range associated with optimal health outcomes based on height, gender, and frame size. It's derived from population studies and provides general guidance rather than an exact target."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which formula is most accurate for calculating ideal body weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No single formula is universally superior. This calculator uses multiple evidence-based formulas (Devine, Robinson, Miller, Hamwi) and averages them for a more reliable estimate, while also providing the range between formulas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does frame size affect ideal body weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Frame size (small, medium, or large) can modify your ideal weight range by approximately ±10%. People with larger frames naturally have heavier bone structure and may have a higher ideal weight range."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is BMI or ideal body weight more accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ideal body weight formulas often provide more personalized estimates than BMI alone because they account for factors like gender and frame size. However, both metrics have limitations and should be used as general guidelines rather than absolute targets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How close should I be to my ideal body weight?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Being within 10-15% of your calculated ideal range is generally considered healthy. Your overall health markers (blood pressure, cholesterol, energy levels) are more important indicators than reaching an exact weight number."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Ideal Body Weight Calculator</h1>
+    <p class="subtitle">This evidence-based calculator determines your ideal body weight range using multiple medical formulas (Devine, Robinson, Miller, and Hamwi). Compare different methods and find personalized weight ranges based on your height, gender, and frame size.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Ideal Body Weight Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="ideal-body-weight-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="unit-toggle-container" style="margin-bottom: 20px;">
+                <span>Units:</span>
+                <div class="unit-toggle">
+                    <button class="unit-btn active" onclick="toggleUnits('imperial')">Imperial</button>
+                    <button class="unit-btn" onclick="toggleUnits('metric')">Metric</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            
+            <div id="imperial-height">
+                <div class="form-group">
+                    <label for="feet">Height</label>
+                    <div class="input-group">
+                        <input type="number" id="feet" min="3" max="8" value="5" style="width: 60px;">
+                        <span style="margin: 0 10px;">ft</span>
+                        <input type="number" id="inches" min="0" max="11" value="10" style="width: 60px;">
+                        <span style="margin-left: 10px;">in</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="metric-height" style="display: none;">
+                <div class="form-group">
+                    <label for="cm">Height (cm)</label>
+                    <input type="number" id="cm" min="100" max="250" value="178">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="frame">Body Frame Size</label>
+                <select id="frame">
+                    <option value="small">Small Frame</option>
+                    <option value="medium" selected>Medium Frame</option>
+                    <option value="large">Large Frame</option>
+                </select>
+            </div>
+            
+            <div class="info-box" style="background-color: #f0f7fc; padding: 12px 15px; border-radius: 8px; margin: 10px 0; font-size: 14px;">
+                <p style="margin: 0;"><strong>How to determine your frame size:</strong> Wrap your thumb and middle finger around your wrist. If they overlap, you likely have a small frame. If they touch, medium frame. If they don't touch, large frame.</p>
+            </div>
+            
+            <button id="calculate-btn" class="cta-button" onclick="calculateIdealWeight()">Calculate Ideal Weight</button>
+            
+            <div id="result" class="result" style="display: none;">
+                <h2>Your Ideal Body Weight Results</h2>
+                <p><strong>Average Ideal Weight:</strong> <span id="idealWeight"></span></p>
+                <p><strong>Healthy Weight Range:</strong> <span id="weightRange"></span></p>
+                
+                <div class="formulas-breakdown">
+                    <h4>Formula Breakdown:</h4>
+                    <ul>
+                        <li>Devine Formula: <span id="devine"></span></li>
+                        <li>Robinson Formula: <span id="robinson"></span></li>
+                        <li>Miller Formula: <span id="miller"></span></li>
+                        <li>Hamwi Formula: <span id="hamwi"></span></li>
+                    </ul>
+                </div>
+                
+                <p id="frameMessage"></p>
+                <p><small>Note: These calculations are based on population averages and medical formulas. Individual health needs may vary.</small></p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-mid" style="margin: 40px 0;">
+        <AdUnit slot="ideal-body-weight-calculator-mid" />
+    </div>
+    
+    <!-- How to Use Section -->
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2>How to Use the Ideal Body Weight Calculator</h2>
+            <p>Follow these steps to determine your ideal body weight range based on medical guidelines:</p>
+
+            <ol>
+                <li><strong>Select your gender:</strong> Male and female calculations use different formulas.</li>
+                <li><strong>Enter your height:</strong> Use either imperial (feet/inches) or metric (cm) units.</li>
+                <li><strong>Choose your frame size:</strong> Small, medium, or large based on wrist measurement.</li>
+                <li><strong>View your results:</strong> See the average of multiple medical formulas and a healthy range.</li>
+            </ol>
+
+            <h4>Understanding Your Results</h4>
+            <ul>
+                <li><strong>Average Ideal Weight:</strong> The mean value across all formulas adjusted for your frame.</li>
+                <li><strong>Healthy Weight Range:</strong> A 10% variation around your calculated ideal weight.</li>
+                <li><strong>Formula Breakdown:</strong> Individual results from each medical formula.</li>
+            </ul>
+
+            <p>All estimates are based on medical formulas developed by Devine, Robinson, Miller, and Hamwi. This is for general education and does not replace medical advice.</p>
+        </div>
+    </section>
+    
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <h4>What is ideal body weight (IBW)?</h4>
+                <p>Ideal body weight (IBW) is a theoretical weight range associated with optimal health outcomes based on height, gender, and frame size. It was originally developed to help determine appropriate medication dosages but has since been used as a general health metric. Unlike BMI, IBW calculations factor in differences between male and female body composition and can be adjusted for frame size. These are evidence-based estimates derived from population studies, not absolute targets that everyone should achieve.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Which formula is most accurate for calculating ideal body weight?</h4>
+                <p>There is no single "most accurate" formula, as each has strengths and limitations. The Devine formula (1974) is widely used in clinical settings, particularly for medication dosing. The Robinson formula (1983) tends to give slightly lower values. The Miller formula (1983) often provides the most conservative estimates. The Hamwi formula (1964) is one of the oldest and simplest methods. This calculator uses all four formulas and provides both an average and the range between them, giving you a more comprehensive picture than any single formula alone.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How does frame size affect ideal body weight?</h4>
+                <p>Frame size accounts for variations in skeletal structure that aren't captured by height alone. People with larger frames naturally have heavier bone and muscle mass independent of body fat. In ideal weight calculations, small frames typically reduce the target weight by 10%, while large frames increase it by 10%. Frame size can be roughly estimated by measuring wrist circumference in relation to height, or by the thumb-middle finger overlap test around the wrist as described in the calculator instructions.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>Is BMI or ideal body weight more accurate?</h4>
+                <p>Neither metric is inherently "more accurate" - they serve different purposes. BMI (Body Mass Index) is simpler and useful for population-level statistics, but doesn't account for differences in muscle mass, bone density, or body composition. Ideal body weight formulas incorporate gender and can be adjusted for frame size, potentially making them more personalized. However, both metrics have significant limitations. For the most comprehensive assessment, these calculations should be considered alongside other health markers like waist circumference, body fat percentage, and metabolic health indicators.</p>
+            </div>
+            
+            <div class="faq-item">
+                <h4>How close should I be to my ideal body weight?</h4>
+                <p>Being within 10-15% of your calculated ideal weight range is generally considered healthy for most people. However, the importance of achieving a specific number should not be overemphasized. Various factors including muscle mass, ethnicity, age, and individual health conditions may make different weights optimal for different people, even at the same height. Focus on overall health markers such as energy levels, blood pressure, cholesterol, and blood sugar control, rather than trying to achieve an exact weight number. Always consult with healthcare providers for personalized guidance.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <AdUnit slot="ideal-body-weight-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
+        <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
+        <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+            <strong>Disclaimer:</strong> This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed practitioner.
+        </p>
+    </footer>
+    
+    <!-- Script -->
+    <script>
+        // Unit toggle
+        function toggleUnits(unitSystem) {
+            const imperialHeight = document.getElementById('imperial-height');
+            const metricHeight = document.getElementById('metric-height');
+            const imperialBtn = document.querySelectorAll('.unit-btn')[0];
+            const metricBtn = document.querySelectorAll('.unit-btn')[1];
+            
+            if (unitSystem === 'imperial') {
+                imperialHeight.style.display = 'block';
+                metricHeight.style.display = 'none';
+                imperialBtn.classList.add('active');
+                metricBtn.classList.remove('active');
+                
+                // Convert from cm to feet/inches if needed
+                const cm = parseFloat(document.getElementById('cm').value);
+                if (!isNaN(cm)) {
+                    const totalInches = cm / 2.54;
+                    const feet = Math.floor(totalInches / 12);
+                    const inches = Math.round(totalInches % 12);
+                    
+                    document.getElementById('feet').value = feet;
+                    document.getElementById('inches').value = inches;
+                }
+            } else {
+                imperialHeight.style.display = 'none';
+                metricHeight.style.display = 'block';
+                imperialBtn.classList.remove('active');
+                metricBtn.classList.add('active');
+                
+                // Convert from feet/inches to cm
+                const feet = parseFloat(document.getElementById('feet').value);
+                const inches = parseFloat(document.getElementById('inches').value);
+                
+                if (!isNaN(feet) && !isNaN(inches)) {
+                    const totalInches = (feet * 12) + inches;
+                    const cm = Math.round(totalInches * 2.54);
+                    
+                    document.getElementById('cm').value = cm;
+                }
+            }
+        }
+        
+        // Calculate button click handler
+        document.getElementById('calculate-btn').addEventListener('click', calculateIdealWeight);
+        
+        function calculateIdealWeight() {
+            // Get user inputs
+            const gender = document.getElementById('gender').value;
+            const frame = document.getElementById('frame').value;
+            
+            // Get height in inches (convert from either unit system)
+            let heightInches;
+            const imperialHeight = document.getElementById('imperial-height');
+            
+            if (imperialHeight.style.display !== 'none') {
+                // Using imperial units
+                const feet = parseInt(document.getElementById('feet').value);
+                const inches = parseInt(document.getElementById('inches').value);
+                
+                if (isNaN(feet) || feet < 3 || feet > 8) {
+                    alert("Please enter a valid height (feet between 3 and 8)");
+                    return;
+                }
+                
+                if (isNaN(inches) || inches < 0 || inches > 11) {
+                    alert("Please enter valid inches (between 0 and 11)");
+                    return;
+                }
+                
+                heightInches = (feet * 12) + inches;
+            } else {
+                // Using metric units
+                const cm = parseInt(document.getElementById('cm').value);
+                
+                if (isNaN(cm) || cm < 100 || cm > 250) {
+                    alert("Please enter a valid height (between 100cm and 250cm)");
+                    return;
+                }
+                
+                heightInches = cm / 2.54;
+            }
+            
+            // Calculate ideal weight using different formulas
+            let devine, robinson, miller, hamwi;
+            
+            // Devine Formula
+            if (gender === 'male') {
+                devine = 50 + 2.3 * (heightInches - 60);
+            } else {
+                devine = 45.5 + 2.3 * (heightInches - 60);
+            }
+            
+            // Robinson Formula
+            if (gender === 'male') {
+                robinson = 52 + 1.9 * (heightInches - 60);
+            } else {
+                robinson = 49 + 1.7 * (heightInches - 60);
+            }
+            
+            // Miller Formula
+            if (gender === 'male') {
+                miller = 56.2 + 1.41 * (heightInches - 60);
+            } else {
+                miller = 53.1 + 1.36 * (heightInches - 60);
+            }
+            
+            // Hamwi Formula
+            if (gender === 'male') {
+                hamwi = 48 + 2.7 * (heightInches - 60);
+            } else {
+                hamwi = 45.5 + 2.2 * (heightInches - 60);
+            }
+            
+            // Adjust for frame size
+            let frameAdjustment = 1.0;
+            if (frame === 'small') {
+                frameAdjustment = 0.9; // 10% less for small frame
+            } else if (frame === 'large') {
+                frameAdjustment = 1.1; // 10% more for large frame
+            }
+            
+            // Apply frame adjustment to all formulas
+            devine *= frameAdjustment;
+            robinson *= frameAdjustment;
+            miller *= frameAdjustment;
+            hamwi *= frameAdjustment;
+            
+            // Calculate average
+            const average = (devine + robinson + miller + hamwi) / 4;
+            
+            // Generate range (±10% from average)
+            const lowerRange = average * 0.9;
+            const upperRange = average * 1.1;
+            
+            // Get current unit system
+            const isImperial = document.getElementById('imperial-height').style.display !== 'none';
+            
+            // Format results for display
+            let formattedAverage, formattedLower, formattedUpper;
+            let formattedDevine, formattedRobinson, formattedMiller, formattedHamwi;
+            
+            if (isImperial) {
+                // Convert kg to lbs for display
+                formattedAverage = `${Math.round(average * 2.20462)} lbs`;
+                formattedLower = `${Math.round(lowerRange * 2.20462)} lbs`;
+                formattedUpper = `${Math.round(upperRange * 2.20462)} lbs`;
+                
+                formattedDevine = `${Math.round(devine * 2.20462)} lbs`;
+                formattedRobinson = `${Math.round(robinson * 2.20462)} lbs`;
+                formattedMiller = `${Math.round(miller * 2.20462)} lbs`;
+                formattedHamwi = `${Math.round(hamwi * 2.20462)} lbs`;
+            } else {
+                // Keep as kg for metric
+                formattedAverage = `${Math.round(average)} kg`;
+                formattedLower = `${Math.round(lowerRange)} kg`;
+                formattedUpper = `${Math.round(upperRange)} kg`;
+                
+                formattedDevine = `${Math.round(devine)} kg`;
+                formattedRobinson = `${Math.round(robinson)} kg`;
+                formattedMiller = `${Math.round(miller)} kg`;
+                formattedHamwi = `${Math.round(hamwi)} kg`;
+            }
+            
+            // Update results in the UI
+            document.getElementById('idealWeight').textContent = formattedAverage;
+            document.getElementById('weightRange').textContent = `${formattedLower} - ${formattedUpper}`;
+            
+            document.getElementById('devine').textContent = formattedDevine;
+            document.getElementById('robinson').textContent = formattedRobinson;
+            document.getElementById('miller').textContent = formattedMiller;
+            document.getElementById('hamwi').textContent = formattedHamwi;
+            
+            // Frame size message
+            let frameMessage = '';
+            if (frame === 'small') {
+                frameMessage = 'Your small frame size adjustment reduces the calculated weight by 10%.';
+            } else if (frame === 'large') {
+                frameMessage = 'Your large frame size adjustment increases the calculated weight by 10%.';
+            } else {
+                frameMessage = 'No frame size adjustment was applied (medium frame).';
+            }
+            document.getElementById('frameMessage').textContent = frameMessage;
+            
+            // Show results
+            document.getElementById('result').style.display = 'block';
+        }
+    </script>
+    </div>
+</body>
+</html>

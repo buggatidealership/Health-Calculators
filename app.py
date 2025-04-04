@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Ideal Body Weight Calculator",
+        "url": "/ideal-body-weight-calculator",
+        "summary": "Calculate your ideal body weight range based on height, gender, and frame size using multiple evidence-based formulas.",
+        "icon": "⚖️",
+        "cta": "Calculate Weight",
+        "color": "blue"
+    },
+    {
         "title": "Alcohol Impact Calculator",
         "url": "/alcohol-impact-calculator",
         "summary": "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration.",
@@ -242,6 +250,19 @@ def vitamin_d_intake_calculator():
     schema_url = "/vitamin-d-intake-calculator"
     return render_template(
         'vitamin_d_intake_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/ideal-body-weight-calculator')
+def ideal_body_weight_calculator():
+    schema_name = "Ideal Body Weight Calculator"
+    schema_description = "Calculate your ideal body weight based on height, gender, and frame size using evidence-based formulas like Devine, Robinson, and Miller."
+    schema_url = "/ideal-body-weight-calculator"
+    return render_template(
+        'ideal_body_weight_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
