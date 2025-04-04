@@ -1,0 +1,99 @@
+### 🔄 Goal:
+We are changing the resource URL slug to improve SEO clarity.
+
+- **Old URL**: `/resources/breast-implant-sizing-guide`
+- **New URL**: `/resources/breast-implant-size-guide`
+
+This change must be reflected across all routing, templates, sitemap entries, and internal links.
+
+---
+
+### 🔧 Required Code Changes:
+
+#### 1. **Rename the HTML Template File:**
+Rename the file:
+```bash
+mv templates/resources/breast_implant_sizing_guide.html templates/resources/breast_implant_size_guide.html
+```
+
+#### 2. **Update `app.py` Route:**
+Replace the old route:
+```python
+@app.route('/resources/breast-implant-sizing-guide')
+def breast_implant_sizing_guide():
+    return render_template(
+        'resources/breast_implant_sizing_guide.html',
+        is_homepage=False,
+        schema_name="Breast Implant Sizing Guide",
+        schema_description="...",
+        schema_url="/resources/breast-implant-sizing-guide"
+    )
+```
+
+With the new route:
+```python
+@app.route('/resources/breast-implant-size-guide')
+def breast_implant_size_guide():
+    return render_template(
+        'resources/breast_implant_size_guide.html',
+        is_homepage=False,
+        schema_name="Breast Implant Size Guide",
+        schema_description="The most complete breast implant size guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
+        schema_url="/resources/breast-implant-size-guide"
+    )
+```
+
+#### 3. **Update Internal Article List in `app.py`:**
+Find the entry in the `articles = [...]` array:
+```python
+{
+    "title": "Breast Implant Sizing Guide",
+    "url": "/resources/breast-implant-sizing-guide",
+    "summary": "...",
+    ...
+},
+```
+Change it to:
+```python
+{
+    "title": "Breast Implant Size Guide",
+    "url": "/resources/breast-implant-size-guide",
+    "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
+    "icon": "💗",
+    "cta": "View Guide",
+    "color": "pink"
+},
+```
+
+#### 4. **Update `sitemap.xml`:**
+Find this line:
+```xml
+<loc>https://longevitycalculator.xyz/resources/breast-implant-sizing-guide</loc>
+```
+Change to:
+```xml
+<loc>https://longevitycalculator.xyz/resources/breast-implant-size-guide</loc>
+```
+Keep all other attributes the same (e.g., `<lastmod>`).
+
+#### 5. **Redirect from Old URL (Optional but Recommended):**
+Add a 301 redirect so old links don’t break:
+```python
+@app.route('/resources/breast-implant-sizing-guide')
+def redirect_old_breast_sizing():
+    return redirect('/resources/breast-implant-size-guide', code=301)
+```
+
+---
+
+### 🚀 Final Checklist:
+- [ ] HTML file renamed
+- [ ] Flask route updated
+- [ ] `articles[]` list updated
+- [ ] `sitemap.xml` updated
+- [ ] 301 redirect added (optional)
+
+Once this is complete, restart the app and test:
+- `/resources/breast-implant-size-guide` should load
+- `/resources/breast-implant-sizing-guide` should redirect (if implemented)
+- Internal links should reflect the new slug

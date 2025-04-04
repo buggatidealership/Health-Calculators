@@ -300,8 +300,8 @@ articles = [
         "color": "green"
     },
     {
-        "title": "Breast Implant Sizing Guide",
-        "url": "/resources/breast-implant-sizing-guide",
+        "title": "Breast Implant Size Guide",
+        "url": "/resources/breast-implant-size-guide",
         "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
         "icon": "💗",
         "cta": "View Guide",
@@ -535,15 +535,19 @@ def redirect_ozempic_article():
 def redirect_creatine_article():
     return redirect('/creatine-water-calculator', code=301)
 
-@app.route('/resources/breast-implant-sizing-guide')
-def breast_implant_sizing_guide():
+@app.route('/resources/breast-implant-size-guide')
+def breast_implant_size_guide():
     return render_template(
-        'resources/breast_implant_sizing_guide.html',
+        'resources/breast_implant_size_guide.html',
         is_homepage=False,
-        schema_name="Breast Implant Sizing Guide",
-        schema_description="The most complete breast implant sizing guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
-        schema_url="/resources/breast-implant-sizing-guide"
+        schema_name="Breast Implant Size Guide",
+        schema_description="The most complete breast implant size guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
+        schema_url="/resources/breast-implant-size-guide"
     )
+
+@app.route('/resources/breast-implant-sizing-guide')
+def redirect_old_breast_sizing():
+    return redirect('/resources/breast-implant-size-guide', code=301)
 
 @app.route('/resources/are-height-predictors-accurate')
 def are_height_predictors_accurate():
