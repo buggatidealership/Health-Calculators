@@ -1,0 +1,190 @@
+Follow the instructions below:
+
+--- METADATA ---
+- Meta Title: "Retirement Savings Calculator – Plan Your Financial Future"
+- Meta Description: "Estimate how much you'll need to retire comfortably. Calculate your target retirement savings based on age, income, expected expenses, and investment growth."
+- OG Title: "Retirement Savings Calculator"
+- OG Description: "Project your future retirement savings and discover how much to invest monthly to meet your financial goals."
+- OG URL: https://longevitycalculator.xyz/retirement-savings-calculator
+- OG Image: https://longevitycalculator.xyz/static/images/retirement-savings-calculator-og.jpg
+- Twitter meta tags: Mirror the Open Graph tags
+- Canonical URL: https://longevitycalculator.xyz/retirement-savings-calculator
+
+--- LAYOUT & UI ---
+Match the /vitamin-d-intake-calculator in:
+- Typography, spacing, button styling (brand pink: #d63384 with hover dark state)
+- Section icon usage: 
+  - <BarChart className="section-icon" /> for "How This Calculator Works"
+  - <HelpCircle className="section-icon" /> for FAQ
+- Table of contents linking to: Calculator, How It Works, FAQs
+
+--- DISCLAIMER (ABOVE TOC) ---
+"This tool provides general financial estimates and does not constitute investment advice."
+
+--- ADUNITS ---
+Insert the following AdUnit components:
+- <AdUnit slot="retirement-savings-calculator-top" /> → under the H1
+- <AdUnit slot="retirement-savings-calculator-mid" /> → between calculator and How It Works section
+- <AdUnit slot="retirement-savings-calculator-bottom" /> → above the footer
+
+--- CALCULATOR MODULE ---
+Embed the following Deepseek-generated HTML inside <section id="calculator">:
+
+<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retirement Spending Calculator</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 600px; margin: 20px auto; padding: 20px; }
+        .input-group { margin-bottom: 15px; }
+        input { width: 100%; padding: 8px; margin: 5px 0; border: 1px solid #ddd; }
+        button { background: #4CAF50; color: white; padding: 12px; border: none; width: 100%; cursor: pointer; }
+        .results { margin-top: 20px; padding: 15px; background: #f0f0f0; }
+        .spending-breakdown { margin-top: 15px; padding-left: 20px; border-left: 3px solid #4CAF50; }
+        .note { color: #666; font-size: 0.9em; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h2>Retirement Spending Calculator</h2>
+       
+        <div class="input-group">
+            <label>Current Age:</label>
+            <input type="number" id="age" placeholder="e.g. 30" required>
+        </div>
+
+        <div class="input-group">
+            <label>Retirement Age:</label>
+            <input type="number" id="retireAge" placeholder="e.g. 65" required>
+        </div>
+
+        <div class="input-group">
+            <label>Current Savings ($):</label>
+            <input type="number" id="savings" placeholder="e.g. 100000" required>
+        </div>
+
+        <div class="input-group">
+            <label>Monthly Contribution ($):</label>
+            <input type="number" id="contribution" placeholder="e.g. 1000" required>
+            <div class="note">Total monthly amount you invest across all retirement accounts</div>
+        </div>
+
+        <button onclick="calculate()">Calculate Retirement Spending</button>
+
+        <div class="results" id="results">
+            <div id="output"></div>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Clear previous results
+            document.getElementById('output').innerHTML = '';
+
+            // Get values
+            const age = parseInt(document.getElementById('age').value);
+            const retireAge = parseInt(document.getElementById('retireAge').value);
+            const savings = parseFloat(document.getElementById('savings').value);
+            const monthly = parseFloat(document.getElementById('contribution').value);
+
+            // Validate inputs
+            if (!age || !retireAge || !savings || !monthly || retireAge <= age) {
+                alert("Please fill all fields correctly");
+                return;
+            }
+
+            // Constants
+            const annualReturn = 0.07; // 7% annual return
+            const inflation = 0.03; // 3% inflation
+            const withdrawalRate = 0.04; // 4% rule
+
+            // Calculations
+            const years = retireAge - age;
+            const futureSavings = savings * Math.pow(1 + annualReturn, years) +
+                               (monthly * 12) * ((Math.pow(1 + annualReturn, years) - 1)/annualReturn);
+
+            // Spending breakdown
+            const annualSpending = futureSavings * withdrawalRate;
+            const monthlySpending = annualSpending / 12;
+            const weeklySpending = annualSpending / 52;
+            const dailySpending = annualSpending / 365;
+
+            // Inflation adjustment
+            const inflationFactor = Math.pow(1 + inflation, years);
+            const realAnnualSpending = annualSpending / inflationFactor;
+
+            // Formatting
+            const format = num => num.toLocaleString('en-US', {
+                maximumFractionDigits: 0,
+                style: 'decimal'
+            });
+
+            // Build results
+            const results = `
+                <h3>At Retirement:</h3>
+                <p>Total Savings: <strong>$${format(futureSavings)}</strong></p>
+               
+                <div class="spending-breakdown">
+                    <h4>Safe Withdrawal Amounts (4% Rule):</h4>
+                    <p>Yearly: $${format(annualSpending)}</p>
+                    <p>Monthly: $${format(monthlySpending)}</p>
+                    <p>Weekly: $${format(weeklySpending)}</p>
+                    <p>Daily: $${format(dailySpending)}</p>
+                </div>
+
+                <div class="note">
+                    <p>Adjusted for 3% inflation:<br>
+                    <strong>$${format(realAnnualSpending)}</strong> annual spending power in today's dollars</p>
+                </div>
+            `;
+
+            document.getElementById('output').innerHTML = results;
+        }
+    </script>
+</body>
+</html>
+<!-- END DEEPSEEK-GENERATED CALCULATOR -->
+
+--- HOW THIS CALCULATOR WORKS ---
+Icon: <BarChart className="section-icon" />
+Title: "How This Calculator Works"
+Bullet points:
+- Compound interest is applied monthly based on expected return.
+- Contributions grow over time with reinvested earnings.
+- Inflation is not included (assumes nominal returns).
+- Results are pre-tax and assume consistent contributions.
+
+--- FAQ SECTION ---
+Icon: <HelpCircle className="section-icon" />
+FAQs:
+Q: How accurate is this calculator?
+A: It gives an estimate based on consistent contributions and growth rate.
+
+Q: Does it account for inflation?
+A: No, values are shown in today's dollars (nominal).
+
+Q: Can I include Social Security or pension income?
+A: Not in this version. It focuses solely on savings accumulation.
+
+Q: What return rate should I use?
+A: A conservative estimate is 5–7% for balanced portfolios.
+
+Q: What happens if I miss contributions?
+A: Your actual savings may be lower than estimated.
+
+--- SCHEMA ---
+1. SoftwareApplication JSON-LD
+2. FAQPage JSON-LD
+
+--- FOOTER ---
+- Link: "← Back to Homepage"
+- Disclaimer: "This calculator provides general estimates. Always consult a certified financial planner for personalized retirement advice."
+
+--- FINAL QA ---
+- All 3 AdUnits are present and functional
+- TOC and section icons render correctly
+- Responsive layout
+- Schema in <head>
+- Output is accurate with sample values
+- Canonical and OG tags correct
