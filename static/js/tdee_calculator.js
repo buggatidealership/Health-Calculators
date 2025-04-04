@@ -57,5 +57,9 @@ function calculateTDEE() {
     document.getElementById('loss1').textContent = `${loss1} kcal/day`;
     document.getElementById('loss2').textContent = `${loss2} kcal/day`;
     document.getElementById('loss3').textContent = `${loss3} kcal/day`;
-    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').style.display = 'block'; 
+    // Scroll to results
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    // Scroll to results
+    document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
