@@ -359,18 +359,25 @@ li {
 }
 
 .unit-btn {
-    padding: 5px 10px;
-    background-color: #f0f0f0;
-    border: 1px solid #ddd;
+    padding: 6px 10px;
+    font-size: 13px;
+    background-color: #f8f8f8;
+    color: #333;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex: 1;
 }
 
-.unit-btn:first-child {
-    border-radius: 4px 0 0 4px;
+.unit-btn.active {
+    background-color: #d63384;
+    color: white;
+    border-color: #d63384;
 }
 
-.unit-btn:last-child {
-    border-radius: 0 4px 4px 0;
+.unit-btn:hover {
+    background-color: #f0f0f0;
 }
 
 .unit-active {

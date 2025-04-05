@@ -16,15 +16,15 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Toggle between metric and imperial units
-function toggleUnits(system) {
-    unitSystem = system;
+function setUnit(unit) {
+    unitSystem = unit;
     
-    // Update UI
-    if (system === 'metric') {
-        document.getElementById('metric').classList.add('active');
-        document.getElementById('imperial').classList.remove('active');
-        
-        // Show metric, hide imperial
+    // Update button styling
+    document.getElementById('metric-btn').classList.remove('active');
+    document.getElementById('imperial-btn').classList.remove('active');
+    
+    if (unit === 'metric') {
+        document.getElementById('metric-btn').classList.add('active');
         document.querySelectorAll('.metric-field').forEach(field => {
             field.style.display = 'block';
         });
@@ -32,10 +32,7 @@ function toggleUnits(system) {
             field.style.display = 'none';
         });
     } else {
-        document.getElementById('imperial').classList.add('active');
-        document.getElementById('metric').classList.remove('active');
-        
-        // Show imperial, hide metric
+        document.getElementById('imperial-btn').classList.add('active');
         document.querySelectorAll('.metric-field').forEach(field => {
             field.style.display = 'none';
         });

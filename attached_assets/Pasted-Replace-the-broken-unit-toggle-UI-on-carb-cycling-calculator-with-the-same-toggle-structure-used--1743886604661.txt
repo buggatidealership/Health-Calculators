@@ -1,0 +1,78 @@
+Replace the broken unit toggle UI on `/carb-cycling-calculator` with the same toggle structure used in `/child-growth-calculator`.
+
+**Steps:**
+
+1. **Find in `carb_cycling_calculator.html`**:
+   ```html
+   <div class="unit-selector">
+       <label>Unit System:</label>
+       <div class="toggle-container">
+           <button id="metric" class="unit-btn active" onclick="toggleUnits('metric')">Metric (kg/cm)</button>
+           <button id="imperial" class="unit-btn" onclick="toggleUnits('imperial')">Imperial (lb/in)</button>
+       </div>
+   </div>
+   ```
+
+2. **Replace it with this updated version from `/child-growth-calculator` (update classes and inline styles if needed to match existing styles):**
+
+   ```html
+   <div class="form-group">
+       <label style="font-weight: 600;">Measurement Units:</label>
+       <div style="display: flex; gap: 10px; margin-top: 8px;">
+           <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (cm, kg)</button>
+           <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (ft/in, lbs)</button>
+       </div>
+   </div>
+   ```
+
+3. **Replace any old `toggleUnits()` JS function with this from the child growth script (or rename to match):**
+
+   ```js
+   function setUnit(unit) {
+       currentUnit = unit;
+       document.getElementById('metric-btn').classList.remove('active');
+       document.getElementById('imperial-btn').classList.remove('active');
+
+       if (unit === 'metric') {
+           document.getElementById('metric-btn').classList.add('active');
+           document.querySelectorAll('.metric-field').forEach(e => e.style.display = 'block');
+           document.querySelectorAll('.imperial-field').forEach(e => e.style.display = 'none');
+       } else {
+           document.getElementById('imperial-btn').classList.add('active');
+           document.querySelectorAll('.metric-field').forEach(e => e.style.display = 'none');
+           document.querySelectorAll('.imperial-field').forEach(e => e.style.display = 'block');
+       }
+   }
+   ```
+
+4. **Make sure the unit buttons use the class `.unit-btn` and that this CSS exists in your stylesheet:**
+   ```css
+   .unit-btn {
+       padding: 6px 10px;
+       font-size: 13px;
+       background-color: #f8f8f8;
+       color: #333;
+       border: 1px solid #ccc;
+       border-radius: 4px;
+       cursor: pointer;
+       transition: background-color 0.2s ease;
+       flex: 1;
+   }
+   .unit-btn.active {
+       background-color: #d63384;
+       color: white;
+       border-color: #d63384;
+   }
+   .unit-btn:hover {
+       background-color: #f0f0f0;
+   }
+   ```
+
+5. **QA:**
+   - Toggle should immediately show/hide `metric-field` and `imperial-field` inputs.
+   - Buttons should toggle pink/white correctly.
+   - Must work on both desktop and mobile.
+
+---
+
+✅ Let me know once this is implemented and I’ll verify it live or help polish the layout further.

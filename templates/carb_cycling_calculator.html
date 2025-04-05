@@ -91,11 +91,11 @@
     
     <section id="calculator">
         <div class="calculator">
-            <div class="unit-selector">
-                <label>Unit System:</label>
-                <div class="toggle-container">
-                    <button id="metric" class="unit-btn active" onclick="toggleUnits('metric')">Metric (kg/cm)</button>
-                    <button id="imperial" class="unit-btn" onclick="toggleUnits('imperial')">Imperial (lb/in)</button>
+            <div class="form-group">
+                <label style="font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (kg/cm)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (lb/in)</button>
                 </div>
             </div>
             
