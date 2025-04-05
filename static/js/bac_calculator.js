@@ -113,149 +113,255 @@ function updateDrinkType(index) {
 
 // Calculate BAC
 function calculateBAC() {
-    // Get gender
-    const gender = document.getElementById('gender').value;
-    
-    // Get weight
-    let weightInKg;
-    if (unit === 'metric') {
-        weightInKg = parseFloat(document.getElementById('weight-kg').value);
-    } else {
-        const weightInLb = parseFloat(document.getElementById('weight-lb').value);
-        weightInKg = weightInLb * 0.453592; // Convert lb to kg
+    try {
+        console.log("Starting BAC calculation");
+        
+        // Get gender
+        const genderElement = document.getElementById('gender');
+        if (!genderElement) {
+            console.error("Gender element not found");
+            return;
+        }
+        const gender = genderElement.value;
+        console.log("Gender:", gender);
+        
+        // Get weight
+        let weightInKg;
+        if (unit === 'metric') {
+            const weightKgElement = document.getElementById('weight-kg');
+            if (!weightKgElement) {
+                console.error("Weight-kg element not found");
+                return;
+            }
+            weightInKg = parseFloat(weightKgElement.value);
+        } else {
+            const weightLbElement = document.getElementById('weight-lb');
+            if (!weightLbElement) {
+                console.error("Weight-lb element not found");
+                return;
+            }
+            const weightInLb = parseFloat(weightLbElement.value);
+            weightInKg = weightInLb * 0.453592; // Convert lb to kg
+        }
+        console.log("Weight in kg:", weightInKg);
+        
+        // Get time elapsed
+        const timeElapsedElement = document.getElementById('time-elapsed');
+        if (!timeElapsedElement) {
+            console.error("Time-elapsed element not found");
+            return;
+        }
+        const timeSinceDrinking = parseFloat(timeElapsedElement.value);
+        console.log("Time since drinking:", timeSinceDrinking);
+        
+        // Calculate total alcohol consumed in grams
+        let totalAlcoholGrams = 0;
+        
+        const drinkItems = document.querySelectorAll('.drink-item');
+        console.log("Found drink items:", drinkItems.length);
+        
+        drinkItems.forEach((drink) => {
+            try {
+                if (!drink.id) {
+                    console.error("Drink item has no ID");
+                    return;
+                }
+                
+                const drinkIndex = drink.id.split('-')[1]; // Extract index from ID
+                console.log("Processing drink with index:", drinkIndex);
+                
+                // Get values for this drink
+                const alcoholPercentElement = document.getElementById(`alcohol-percent-${drinkIndex}`);
+                const volumeElement = document.getElementById(`volume-${drinkIndex}`);
+                const volumeUnitElement = document.getElementById(`volume-unit-${drinkIndex}`);
+                
+                if (!alcoholPercentElement) {
+                    console.error(`Alcohol percent element not found for index ${drinkIndex}`);
+                    return;
+                }
+                if (!volumeElement) {
+                    console.error(`Volume element not found for index ${drinkIndex}`);
+                    return;
+                }
+                if (!volumeUnitElement) {
+                    console.error(`Volume unit element not found for index ${drinkIndex}`);
+                    return;
+                }
+                
+                const alcoholPercentage = parseFloat(alcoholPercentElement.value);
+                const volume = parseFloat(volumeElement.value);
+                const volumeUnit = volumeUnitElement.value;
+                console.log(`Drink ${drinkIndex}: ${volume}${volumeUnit} at ${alcoholPercentage}%`);
+                
+                // Convert volume to ml if in oz
+                const volumeInMl = volumeUnit === 'oz' ? volume * 29.5735 : volume;
+                
+                // Calculate alcohol content in ml (percentage/100 * volume)
+                const alcoholVolumeInMl = (alcoholPercentage / 100) * volumeInMl;
+                
+                // Convert alcohol volume to grams (density of alcohol is ~0.789 g/ml)
+                const alcoholInGrams = alcoholVolumeInMl * 0.789;
+                
+                totalAlcoholGrams += alcoholInGrams;
+            } catch (drinkError) {
+                console.error("Error processing drink:", drinkError);
+            }
+        });
+        
+        console.log("Total alcohol in grams:", totalAlcoholGrams);
+        
+        // Widmark formula variables
+        const r = gender === 'male' ? 0.68 : 0.55; // Distribution ratio
+        const metabolismRate = 0.015; // Average metabolism rate per hour
+        
+        // Calculate BAC using Widmark formula: BAC = (alcohol in grams / (weight in kg * r)) / 10 - (metabolism rate * hours)
+        let bac = (totalAlcoholGrams / (weightInKg * r)) / 10 - (metabolismRate * timeSinceDrinking);
+        
+        // BAC can't be negative
+        bac = Math.max(0, bac);
+        
+        // Round to 3 decimal places
+        bac = Math.round(bac * 1000) / 1000;
+        
+        console.log("Calculated BAC:", bac);
+        
+        // Display results
+        displayResults(bac);
+    } catch (error) {
+        console.error("Error calculating BAC:", error);
     }
-    
-    // Get time elapsed
-    const timeSinceDrinking = parseFloat(document.getElementById('time-elapsed').value);
-    
-    // Calculate total alcohol consumed in grams
-    let totalAlcoholGrams = 0;
-    
-    const drinkItems = document.querySelectorAll('.drink-item');
-    drinkItems.forEach((drink, index) => {
-        const drinkIndex = drink.id.split('-')[1]; // Extract index from ID
-        
-        // Get values for this drink
-        const alcoholPercentage = parseFloat(document.getElementById(`alcohol-percent-${drinkIndex}`).value);
-        const volume = parseFloat(document.getElementById(`volume-${drinkIndex}`).value);
-        const volumeUnit = document.getElementById(`volume-unit-${drinkIndex}`).value;
-        
-        // Convert volume to ml if in oz
-        const volumeInMl = volumeUnit === 'oz' ? volume * 29.5735 : volume;
-        
-        // Calculate alcohol content in ml (percentage/100 * volume)
-        const alcoholVolumeInMl = (alcoholPercentage / 100) * volumeInMl;
-        
-        // Convert alcohol volume to grams (density of alcohol is ~0.789 g/ml)
-        const alcoholInGrams = alcoholVolumeInMl * 0.789;
-        
-        totalAlcoholGrams += alcoholInGrams;
-    });
-    
-    // Widmark formula variables
-    const r = gender === 'male' ? 0.68 : 0.55; // Distribution ratio
-    const metabolismRate = 0.015; // Average metabolism rate per hour
-    
-    // Calculate BAC using Widmark formula: BAC = (alcohol in grams / (weight in kg * r)) / 10 - (metabolism rate * hours)
-    let bac = (totalAlcoholGrams / (weightInKg * r)) / 10 - (metabolismRate * timeSinceDrinking);
-    
-    // BAC can't be negative
-    bac = Math.max(0, bac);
-    
-    // Round to 3 decimal places
-    bac = Math.round(bac * 1000) / 1000;
-    
-    // Display results
-    displayResults(bac);
 }
 
 // Display the results
 function displayResults(bac) {
-    // Format BAC to always show 3 decimal places
-    const formattedBAC = bac.toFixed(3);
-    
-    // Show results section
-    document.getElementById('results').style.display = 'block';
-    
-    // Update BAC result
-    document.getElementById('bac-result').textContent = formattedBAC + '%';
-    
-    // Determine impairment level
-    let impairmentLevel;
-    let cardColor;
-    let borderColor;
-    let textColor;
-    
-    if (bac === 0) {
-        impairmentLevel = 'No alcohol in system';
-        cardColor = '#f8f9fa';
-        borderColor = '#ced4da';
-        textColor = '#212529';
-    } else if (bac < 0.03) {
-        impairmentLevel = 'Minimal impairment - mild relaxation, slight mood elevation';
-        cardColor = '#e6f9ff';
-        borderColor = '#80d8ff';
-        textColor = '#29b6f6';
-    } else if (bac < 0.06) {
-        impairmentLevel = 'Mild impairment - relaxation, mild euphoria, decreased inhibition';
-        cardColor = '#daf7ff';
-        borderColor = '#00b0ff';
-        textColor = '#0288d1';
-    } else if (bac < 0.08) {
-        impairmentLevel = 'Moderate impairment - reduced coordination, impaired judgment';
-        cardColor = '#c9f7ff';
-        borderColor = '#0091ea';
-        textColor = '#0277bd';
-    } else if (bac < 0.15) {
-        impairmentLevel = 'Significant impairment - LEGALLY INTOXICATED in most states, slurred speech, poor balance';
-        cardColor = '#ffeded';
-        borderColor = '#ff5252';
-        textColor = '#d32f2f';
-    } else if (bac < 0.25) {
-        impairmentLevel = 'Severe impairment - nausea, vomiting, blackout risk';
-        cardColor = '#ffe6e6';
-        borderColor = '#ff1744';
-        textColor = '#c62828';
-    } else if (bac < 0.35) {
-        impairmentLevel = 'Life-threatening - loss of consciousness, risk of coma';
-        cardColor = '#ffcccc';
-        borderColor = '#d50000';
-        textColor = '#b71c1c';
-    } else {
-        impairmentLevel = 'Potentially fatal - respiratory arrest, death possible';
-        cardColor = '#ffd1d1';
-        borderColor = '#b71c1c';
-        textColor = '#7f0000';
+    try {
+        console.log("Displaying results for BAC:", bac);
+        
+        // Format BAC to always show 3 decimal places
+        const formattedBAC = bac.toFixed(3);
+        
+        // Show results section
+        const resultsElement = document.getElementById('results');
+        if (!resultsElement) {
+            console.error("Results element not found");
+            return;
+        }
+        resultsElement.style.display = 'block';
+        
+        // Update BAC result
+        const bacResultElement = document.getElementById('bac-result');
+        if (!bacResultElement) {
+            console.error("BAC result element not found");
+            return;
+        }
+        bacResultElement.textContent = formattedBAC + '%';
+        
+        // Determine impairment level
+        let impairmentLevel;
+        let cardColor;
+        let borderColor;
+        let textColor;
+        
+        if (bac === 0) {
+            impairmentLevel = 'No alcohol in system';
+            cardColor = '#f8f9fa';
+            borderColor = '#ced4da';
+            textColor = '#212529';
+        } else if (bac < 0.03) {
+            impairmentLevel = 'Minimal impairment - mild relaxation, slight mood elevation';
+            cardColor = '#e6f9ff';
+            borderColor = '#80d8ff';
+            textColor = '#29b6f6';
+        } else if (bac < 0.06) {
+            impairmentLevel = 'Mild impairment - relaxation, mild euphoria, decreased inhibition';
+            cardColor = '#daf7ff';
+            borderColor = '#00b0ff';
+            textColor = '#0288d1';
+        } else if (bac < 0.08) {
+            impairmentLevel = 'Moderate impairment - reduced coordination, impaired judgment';
+            cardColor = '#c9f7ff';
+            borderColor = '#0091ea';
+            textColor = '#0277bd';
+        } else if (bac < 0.15) {
+            impairmentLevel = 'Significant impairment - LEGALLY INTOXICATED in most states, slurred speech, poor balance';
+            cardColor = '#ffeded';
+            borderColor = '#ff5252';
+            textColor = '#d32f2f';
+        } else if (bac < 0.25) {
+            impairmentLevel = 'Severe impairment - nausea, vomiting, blackout risk';
+            cardColor = '#ffe6e6';
+            borderColor = '#ff1744';
+            textColor = '#c62828';
+        } else if (bac < 0.35) {
+            impairmentLevel = 'Life-threatening - loss of consciousness, risk of coma';
+            cardColor = '#ffcccc';
+            borderColor = '#d50000';
+            textColor = '#b71c1c';
+        } else {
+            impairmentLevel = 'Potentially fatal - respiratory arrest, death possible';
+            cardColor = '#ffd1d1';
+            borderColor = '#b71c1c';
+            textColor = '#7f0000';
+        }
+        
+        // Update impairment level
+        const impairmentLevelElement = document.getElementById('impairment-level');
+        if (!impairmentLevelElement) {
+            console.error("Impairment level element not found");
+            return;
+        }
+        impairmentLevelElement.textContent = impairmentLevel;
+        
+        // Update card styling
+        const impairmentCard = document.getElementById('impairment-card');
+        if (!impairmentCard) {
+            console.error("Impairment card element not found");
+            return;
+        }
+        impairmentCard.style.backgroundColor = cardColor;
+        impairmentCard.style.borderTop = `4px solid ${borderColor}`;
+        impairmentLevelElement.style.color = textColor;
+        
+        // Show/hide legal warning
+        const legalWarning = document.getElementById('legal-warning');
+        if (!legalWarning) {
+            console.error("Legal warning element not found");
+            return;
+        }
+        if (bac >= 0.08) {
+            legalWarning.style.display = 'block';
+        } else {
+            legalWarning.style.display = 'none';
+        }
+        
+        // Calculate time to sober
+        const hoursToSober = bac / 0.015;
+        const hoursToLegal = (bac - 0.08) / 0.015;
+        
+        // Format time strings
+        const soberTimeFormatted = formatTime(hoursToSober);
+        const legalTimeFormatted = bac > 0.08 ? formatTime(hoursToLegal) : '0 hours';
+        
+        // Update time displays
+        const soberTimeElement = document.getElementById('sober-time');
+        const legalTimeElement = document.getElementById('legal-time');
+        
+        if (!soberTimeElement) {
+            console.error("Sober time element not found");
+            return;
+        }
+        if (!legalTimeElement) {
+            console.error("Legal time element not found");
+            return;
+        }
+        
+        soberTimeElement.textContent = soberTimeFormatted;
+        legalTimeElement.textContent = legalTimeFormatted;
+        
+        console.log("Results displayed successfully");
+    } catch (error) {
+        console.error("Error displaying results:", error);
     }
-    
-    // Update impairment level
-    document.getElementById('impairment-level').textContent = impairmentLevel;
-    
-    // Update card styling
-    const impairmentCard = document.getElementById('impairment-card');
-    impairmentCard.style.backgroundColor = cardColor;
-    impairmentCard.style.borderTop = `4px solid ${borderColor}`;
-    document.getElementById('impairment-level').style.color = textColor;
-    
-    // Show/hide legal warning
-    const legalWarning = document.getElementById('legal-warning');
-    if (bac >= 0.08) {
-        legalWarning.style.display = 'block';
-    } else {
-        legalWarning.style.display = 'none';
-    }
-    
-    // Calculate time to sober
-    const hoursToSober = bac / 0.015;
-    const hoursToLegal = (bac - 0.08) / 0.015;
-    
-    // Format time strings
-    const soberTimeFormatted = formatTime(hoursToSober);
-    const legalTimeFormatted = bac > 0.08 ? formatTime(hoursToLegal) : '0 hours';
-    
-    // Update time displays
-    document.getElementById('sober-time').textContent = soberTimeFormatted;
-    document.getElementById('legal-time').textContent = legalTimeFormatted;
 }
 
 // Format time in hours and minutes
