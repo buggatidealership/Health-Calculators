@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "BAC Calculator",
+        "url": "/bac-calculator",
+        "summary": "Estimate your blood alcohol content based on drinks consumed, weight, gender, and time. Understand impairment levels and time to sobriety.",
+        "icon": "🍷",
+        "cta": "Calculate BAC",
+        "color": "purple"
+    },
+    {
         "title": "Carb Cycling Calculator",
         "url": "/carb-cycling-calculator",
         "summary": "Customize your high, low, and medium carb days based on your TDEE and body composition goals with our carb cycling calculator.",
@@ -593,6 +601,19 @@ def baldness_risk_calculator():
     schema_url = "/baldness-risk-calculator"
     return render_template(
         'baldness_risk_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/bac-calculator')
+def bac_calculator():
+    schema_name = "BAC Calculator"
+    schema_description = "Use this BAC calculator to estimate your blood alcohol content based on number of drinks, body weight, gender, and time."
+    schema_url = "/bac-calculator"
+    return render_template(
+        'bac_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
