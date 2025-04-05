@@ -1,0 +1,57 @@
+### 🛠 Replace This Section:
+In `carb_cycling_calculator.html`, find the block starting with:
+```html
+<div id="results" style="display:none; margin-top: 30px;">
+  <h2>Your Carb Cycling Plan</h2>
+  ...
+</div>
+```
+
+### ✅ With This Upgraded Layout:
+Use a grid of 3–4 cards per row (similar to the “Accuracy” cards), and break out each day type (High, Moderate, Low, Very Low) into its own card:
+
+```html
+<div id="results" class="results-section" style="display: none; margin-top: 30px;">
+  <h2>Your Carb Cycling Plan</h2>
+
+  <div class="macro-card-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-top: 20px;">
+    <!-- Example card for High Carb Day -->
+    <div style="background-color: #e3f2fd; border-radius: 8px; padding: 20px; border-top: 4px solid #2196f3;">
+      <h3 style="margin-top: 0; color: #0d47a1;">High Carb Day</h3>
+      <ul style="list-style: none; padding-left: 0;">
+        <li><strong>Calories:</strong> <span id="high-calories">0</span></li>
+        <li><strong>Carbs:</strong> <span id="high-carbs">0g (0 cal)</span></li>
+        <li><strong>Protein:</strong> <span id="high-protein">0g (0 cal)</span></li>
+        <li><strong>Fat:</strong> <span id="high-fat">0g (0 cal)</span></li>
+      </ul>
+    </div>
+
+    <!-- Repeat the same for Moderate, Low, Very Low, Training, and Rest Days -->
+  </div>
+
+  <div class="highlight" style="margin-top: 30px; padding: 20px; background-color: #f9fbe7; border-left: 4px solid #cddc39;">
+    <h3 style="margin-top: 0; color: #827717;">Typical Weekly Schedule</h3>
+    <p id="weekly-schedule">This will be filled dynamically via JS.</p>
+  </div>
+</div>
+```
+
+---
+
+### 💅 Styles to Ensure in `styles.css`
+Add if not already defined:
+```css
+.macro-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+```
+
+---
+
+### 🧠 Final QA:
+- Ensure values are still populated by existing JS (`document.getElementById(...)` bindings).
+- Ensure mobile responsiveness with 1 card per row.
+- Visually match the color palette and padding from `/resources/are-height-predictors-accurate`.

@@ -290,7 +290,7 @@ function displayResults(results, cycleType) {
     
     // Update specific cycle type results
     if (cycleType === 'three-day') {
-        document.getElementById('three-day-results').style.display = 'flex';
+        document.getElementById('three-day-results').style.display = 'grid';
         
         // Update high carb day values
         document.getElementById('high-calories').textContent = results.days.high.totalCalories;
@@ -324,8 +324,8 @@ function displayResults(results, cycleType) {
         document.getElementById('weekly-schedule').innerHTML = scheduleHTML;
         
     } else if (cycleType === 'weekly') {
-        document.getElementById('three-day-results').style.display = 'flex';
-        document.getElementById('weekly-results').style.display = 'flex';
+        document.getElementById('three-day-results').style.display = 'grid';
+        document.getElementById('weekly-results').style.display = 'grid';
         
         // Update high, moderate, and low carb day values (same as 3-day cycle)
         document.getElementById('high-calories').textContent = results.days.high.totalCalories;
@@ -363,7 +363,7 @@ function displayResults(results, cycleType) {
         document.getElementById('weekly-schedule').innerHTML = scheduleHTML;
         
     } else if (cycleType === 'training') {
-        document.getElementById('training-results').style.display = 'flex';
+        document.getElementById('training-results').style.display = 'grid';
         
         // Update training day values
         document.getElementById('training-calories').textContent = results.days.trainingDays.totalCalories;

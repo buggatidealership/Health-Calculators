@@ -203,11 +203,11 @@
             <button class="calculate-btn" onclick="calculate()">Calculate My Carb Cycling Plan</button>
         </div>
         
-        <div id="results" style="display:none; margin-top: 30px;">
+        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
             <h2>Your Carb Cycling Plan</h2>
             
-            <div class="results-section">
-                <h3>Daily Baseline</h3>
+            <div class="results-section" style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="margin-top: 0; color: #212529;">Daily Baseline</h3>
                 <div class="results-row">
                     <div class="results-label">Daily Target Calories:</div>
                     <div class="results-value" id="daily-calories">0</div>
@@ -218,141 +218,85 @@
                 </div>
             </div>
             
-            <div id="three-day-results" class="carb-cycle-results">
-                <div class="day-plan high-carb">
-                    <h4>High Carb Day</h4>
-                    <div class="macro-row">
-                        <div class="macro-label">Calories:</div>
-                        <div class="macro-value" id="high-calories">0</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Carbs:</div>
-                        <div class="macro-value" id="high-carbs">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Protein:</div>
-                        <div class="macro-value" id="high-protein">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Fat:</div>
-                        <div class="macro-value" id="high-fat">0g (0 cal)</div>
-                    </div>
+            <div id="three-day-results" class="macro-card-grid" style="display: none;">
+                <!-- High Carb Day Card -->
+                <div style="background-color: #e3f2fd; border-radius: 8px; padding: 20px; border-top: 4px solid #2196f3;">
+                    <h3 style="margin-top: 0; color: #0d47a1;">High Carb Day</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Calories:</strong> <span id="high-calories">0</span></li>
+                        <li><strong>Carbs:</strong> <span id="high-carbs">0g (0 cal)</span></li>
+                        <li><strong>Protein:</strong> <span id="high-protein">0g (0 cal)</span></li>
+                        <li><strong>Fat:</strong> <span id="high-fat">0g (0 cal)</span></li>
+                    </ul>
                 </div>
                 
-                <div class="day-plan moderate-carb">
-                    <h4>Moderate Carb Day</h4>
-                    <div class="macro-row">
-                        <div class="macro-label">Calories:</div>
-                        <div class="macro-value" id="moderate-calories">0</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Carbs:</div>
-                        <div class="macro-value" id="moderate-carbs">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Protein:</div>
-                        <div class="macro-value" id="moderate-protein">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Fat:</div>
-                        <div class="macro-value" id="moderate-fat">0g (0 cal)</div>
-                    </div>
+                <!-- Moderate Carb Day Card -->
+                <div style="background-color: #e8f5e9; border-radius: 8px; padding: 20px; border-top: 4px solid #4caf50;">
+                    <h3 style="margin-top: 0; color: #2e7d32;">Moderate Carb Day</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Calories:</strong> <span id="moderate-calories">0</span></li>
+                        <li><strong>Carbs:</strong> <span id="moderate-carbs">0g (0 cal)</span></li>
+                        <li><strong>Protein:</strong> <span id="moderate-protein">0g (0 cal)</span></li>
+                        <li><strong>Fat:</strong> <span id="moderate-fat">0g (0 cal)</span></li>
+                    </ul>
                 </div>
                 
-                <div class="day-plan low-carb">
-                    <h4>Low Carb Day</h4>
-                    <div class="macro-row">
-                        <div class="macro-label">Calories:</div>
-                        <div class="macro-value" id="low-calories">0</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Carbs:</div>
-                        <div class="macro-value" id="low-carbs">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Protein:</div>
-                        <div class="macro-value" id="low-protein">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Fat:</div>
-                        <div class="macro-value" id="low-fat">0g (0 cal)</div>
-                    </div>
+                <!-- Low Carb Day Card -->
+                <div style="background-color: #fff3e0; border-radius: 8px; padding: 20px; border-top: 4px solid #ff9800;">
+                    <h3 style="margin-top: 0; color: #e65100;">Low Carb Day</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Calories:</strong> <span id="low-calories">0</span></li>
+                        <li><strong>Carbs:</strong> <span id="low-carbs">0g (0 cal)</span></li>
+                        <li><strong>Protein:</strong> <span id="low-protein">0g (0 cal)</span></li>
+                        <li><strong>Fat:</strong> <span id="low-fat">0g (0 cal)</span></li>
+                    </ul>
                 </div>
             </div>
             
-            <div id="weekly-results" class="carb-cycle-results">
-                <div id="very-low-carb-container" class="day-plan very-low-carb">
-                    <h4>Very Low Carb Day</h4>
-                    <div class="macro-row">
-                        <div class="macro-label">Calories:</div>
-                        <div class="macro-value" id="very-low-calories">0</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Carbs:</div>
-                        <div class="macro-value" id="very-low-carbs">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Protein:</div>
-                        <div class="macro-value" id="very-low-protein">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Fat:</div>
-                        <div class="macro-value" id="very-low-fat">0g (0 cal)</div>
-                    </div>
+            <div id="weekly-results" class="macro-card-grid" style="display: none;">
+                <!-- Very Low Carb Day Card -->
+                <div style="background-color: #fce4ec; border-radius: 8px; padding: 20px; border-top: 4px solid #e91e63;">
+                    <h3 style="margin-top: 0; color: #880e4f;">Very Low Carb Day</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Calories:</strong> <span id="very-low-calories">0</span></li>
+                        <li><strong>Carbs:</strong> <span id="very-low-carbs">0g (0 cal)</span></li>
+                        <li><strong>Protein:</strong> <span id="very-low-protein">0g (0 cal)</span></li>
+                        <li><strong>Fat:</strong> <span id="very-low-fat">0g (0 cal)</span></li>
+                    </ul>
                 </div>
             </div>
             
-            <div id="training-results" class="carb-cycle-results">
-                <div class="day-plan training-day">
-                    <h4>Training Days</h4>
-                    <div class="macro-row">
-                        <div class="macro-label">Calories:</div>
-                        <div class="macro-value" id="training-calories">0</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Carbs:</div>
-                        <div class="macro-value" id="training-carbs">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Protein:</div>
-                        <div class="macro-value" id="training-protein">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Fat:</div>
-                        <div class="macro-value" id="training-fat">0g (0 cal)</div>
-                    </div>
+            <div id="training-results" class="macro-card-grid" style="display: none;">
+                <!-- Training Day Card -->
+                <div style="background-color: #e3f2fd; border-radius: 8px; padding: 20px; border-top: 4px solid #2196f3;">
+                    <h3 style="margin-top: 0; color: #0d47a1;">Training Days</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Calories:</strong> <span id="training-calories">0</span></li>
+                        <li><strong>Carbs:</strong> <span id="training-carbs">0g (0 cal)</span></li>
+                        <li><strong>Protein:</strong> <span id="training-protein">0g (0 cal)</span></li>
+                        <li><strong>Fat:</strong> <span id="training-fat">0g (0 cal)</span></li>
+                    </ul>
                 </div>
                 
-                <div class="day-plan rest-day">
-                    <h4>Rest Days</h4>
-                    <div class="macro-row">
-                        <div class="macro-label">Calories:</div>
-                        <div class="macro-value" id="rest-calories">0</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Carbs:</div>
-                        <div class="macro-value" id="rest-carbs">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Protein:</div>
-                        <div class="macro-value" id="rest-protein">0g (0 cal)</div>
-                    </div>
-                    <div class="macro-row">
-                        <div class="macro-label">Fat:</div>
-                        <div class="macro-value" id="rest-fat">0g (0 cal)</div>
-                    </div>
+                <!-- Rest Day Card -->
+                <div style="background-color: #fff3e0; border-radius: 8px; padding: 20px; border-top: 4px solid #ff9800;">
+                    <h3 style="margin-top: 0; color: #e65100;">Rest Days</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Calories:</strong> <span id="rest-calories">0</span></li>
+                        <li><strong>Carbs:</strong> <span id="rest-carbs">0g (0 cal)</span></li>
+                        <li><strong>Protein:</strong> <span id="rest-protein">0g (0 cal)</span></li>
+                        <li><strong>Fat:</strong> <span id="rest-fat">0g (0 cal)</span></li>
+                    </ul>
                 </div>
             </div>
             
-            <div id="weekly-schedule-container" class="results-section" style="margin-top: 25px;">
-                <h3>Typical Weekly Schedule</h3>
-                <div id="weekly-schedule" class="weekly-schedule">
-                    <!-- This will be filled by JavaScript -->
-                </div>
+            <div id="weekly-schedule-container" class="highlight" style="margin-top: 30px; padding: 20px; background-color: #f9fbe7; border-left: 4px solid #cddc39;">
+                <h3 style="margin-top: 0; color: #827717;">Typical Weekly Schedule</h3>
+                <p id="weekly-schedule">This will be filled dynamically via JS.</p>
             </div>
             
-            <div class="scientific-basis">
-                <h3>Scientific Basis</h3>
+            <div class="scientific-basis" style="margin-top: 30px; padding: 20px; background-color: #f5f5f5; border-radius: 8px;">
+                <h3 style="margin-top: 0;">Scientific Basis</h3>
                 <ul>
                     <li>Protein intake based on research showing 1.2-1.8g/kg for optimal muscle preservation and recovery</li>
                     <li>Carb cycling helps optimize insulin sensitivity and metabolic flexibility</li>
