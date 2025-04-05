@@ -1,0 +1,78 @@
+## ✅ Article Topic: `How to Start Carb Cycling for Fat Loss and Metabolic Flexibility`
+
+This article will act as the **SEO companion** for the `/carb-cycling-calculator` page and establish the site’s authority around carb manipulation, body recomposition, and metabolic optimization.
+
+---
+
+## 🧠 Content Guidelines:
+- ✅ Base all scientific claims on peer-reviewed sources (e.g., Journal of Nutrition, 2021; Metabolism Journal, 2020).
+- ✅ Word count: ~2200 words
+- ✅ H1: `How to Start Carb Cycling for Fat Loss and Metabolic Flexibility`
+- ✅ Suggested H2 sections:
+  - What Is Carb Cycling?
+  - Benefits of Carb Cycling Backed by Science
+  - How to Plan High, Moderate, and Low Carb Days
+  - Sample 7-Day Carb Cycling Meal Plan
+  - Risks, Contraindications, and Who Should Avoid It
+  - Best Tools to Calculate and Customize Your Plan
+
+- ✅ Use `<ol>` steps to walk through example calculation (e.g., based on TDEE, assign macros per day type)
+- ✅ Use internal anchor links to calculators: `/carb-cycling-calculator` and `/tdee-calculator`
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- ✅ Meta Title: `How to Start Carb Cycling for Fat Loss | Science-Backed Guide`
+- ✅ Meta Description: `Learn how to use carb cycling for weight loss and performance. Backed by research with sample plans and macro breakdowns.`
+- ✅ JSON-LD type: `MedicalWebPage`
+- ✅ Canonical: `https://longevitycalculator.xyz/resources/how-to-start-carb-cycling`
+
+---
+
+## 🖼️ Image Policy:
+- ✅ Include 2 `.webp` diagrams:
+  - A weekly macro comparison chart (high vs low vs moderate)
+  - A visual example of carb cycling schedule
+- ✅ Example: `<img src="/static/images/resources/carb-cycling-macro-chart.webp" alt="High vs low carb macro breakdown chart" width="800" height="500" loading="lazy" />`
+- ✅ Borrow visual layout design from `/resources/are-height-predictors-accurate` for consistency.
+
+---
+
+## 💰 AdSense Integration:
+```
+<AdUnit slot="how-to-start-carb-cycling-top" />
+<AdUnit slot="how-to-start-carb-cycling-mid" />
+<AdUnit slot="how-to-start-carb-cycling-bottom" />
+```
+
+---
+
+## 🔗 Internal Links:
+- ✅ Link to `/carb-cycling-calculator` using anchor: `carb cycling calculator`
+- ✅ Link to `/tdee-calculator` using anchor: `TDEE calculator`
+
+---
+
+## ⚙️ Technical & Accessibility Requirements:
+- ✅ Use `<section>`, `<article>`, `<figure>`, and semantic HTML
+- ✅ Ensure image `alt`, `width`, `height`, and `loading` are explicitly defined
+- ✅ Layout and font sizing must match `/resources/are-height-predictors-accurate`
+- ✅ All content must be valid JSX-ready if needed for Replit or React deployment
+
+---
+
+## 📍 Final URL:
+```
+https://longevitycalculator.xyz/resources/how-to-start-carb-cycling
+```
+
+---
+
+This article should rank for:
+- carb cycling guide
+- how to carb cycle for fat loss
+- sample carb cycling meal plan
+- carb cycling macro breakdown
+- metabolic flexibility and carb intake
+
+Goal: Build topical authority, support the calculator, and capture long-tail + mid-competition keywords with science-backed, evergreen content.

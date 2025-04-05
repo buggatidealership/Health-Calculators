@@ -397,6 +397,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Start Carb Cycling for Fat Loss",
+        "url": "/resources/how-to-start-carb-cycling",
+        "summary": "Learn how to use carb cycling for weight loss and performance. Backed by research with sample plans and macro breakdowns.",
+        "icon": "🍽️",
+        "cta": "Read Guide",
+        "color": "orange"
+    },
+    {
         "title": "Fertility After 35: What to Know About Your Chances",
         "url": "/resources/fertility-after-35",
         "summary": "Age-related fertility facts, egg reserve decline, and how to assess your chance of pregnancy after age 35.",
@@ -486,6 +494,16 @@ def how_many_ccs_is_a_c_cup():
         schema_name="How Many CCs is a C Cup? Surgeon-Backed Guide",
         schema_description="Convert implant volume (in cc) to a C cup using surgeon-backed sizing rules. Includes charts and conversion guides.",
         schema_url="/resources/how-many-ccs-is-a-c-cup"
+    )
+
+@app.route('/resources/how-to-start-carb-cycling')
+def how_to_start_carb_cycling():
+    return render_template(
+        'resources/how_to_start_carb_cycling.html',
+        is_homepage=False,
+        schema_name="How to Start Carb Cycling for Fat Loss | Science-Backed Guide",
+        schema_description="Learn how to use carb cycling for weight loss and performance. Backed by research with sample plans and macro breakdowns.",
+        schema_url="/resources/how-to-start-carb-cycling"
     )
 
 @app.route('/resources/botox-dosage-guide')
