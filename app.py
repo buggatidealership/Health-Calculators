@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Starbucks Nutrition Calculator",
+        "url": "/starbucks-nutrition-calculator",
+        "summary": "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and toppings.",
+        "icon": "☕",
+        "cta": "Calculate Nutrition",
+        "color": "green"
+    },
+    {
         "title": "BAC Calculator",
         "url": "/bac-calculator",
         "summary": "Estimate your blood alcohol content based on drinks consumed, weight, gender, and time. Understand impairment levels and time to sobriety.",
@@ -614,6 +622,19 @@ def bac_calculator():
     schema_url = "/bac-calculator"
     return render_template(
         'bac_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/starbucks-nutrition-calculator')
+def starbucks_nutrition_calculator():
+    schema_name = "Starbucks Nutrition Calculator"
+    schema_description = "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and seasonal items."
+    schema_url = "/starbucks-nutrition-calculator"
+    return render_template(
+        'starbucks_nutrition_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

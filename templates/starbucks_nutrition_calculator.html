@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "starbucks-nutrition-calculator-og.jpg" %}
+{% with 
+    meta_description="Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and seasonal items.",
+    meta_keywords="starbucks nutrition calculator, starbucks calories, starbucks drink macros, starbucks nutritional information, starbucks sugar calculator",
+    og_title="Starbucks Drink Nutrition Calculator",
+    og_description="Explore Starbucks drink nutrition with full macro breakdowns. Adjust milk, size, sweeteners, and toppings to see live changes.",
+    og_url="/starbucks-nutrition-calculator",
+    page_title="Starbucks Nutrition Calculator – Calories, Sugar, Protein by Drink",
+    canonical_url="/starbucks-nutrition-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where does the nutrition data come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's based on the official Starbucks menu, nutrition PDFs, and publicly available product data. We update frequently to reflect seasonal offerings."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this include modifiers like sweet cream or foam?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, most of them are supported. Toppings like cold foam or whipped cream are optional toggles and update macros in real time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this for keto or low-carb tracking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — use it to remove classic syrup and swap to sugar-free or no milk. You'll see carbs and sugar drop significantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Values are based on standard sizes and ingredient servings. Customizations made by baristas may slightly vary. Use this as a close approximation."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Starbucks Nutrition Calculator</h1>
+    <p class="subtitle">Customize your favorite Starbucks drinks and instantly see the updated nutrition facts. Swap milk, size, syrups, and toppings. Updated with fall and holiday drinks.</p>
+    
+    <div class="info">
+      <p class="disclaimer">
+        <strong>This tool provides educational estimates only.</strong> Nutrition values are based on official Starbucks data but may vary by location or preparation. For medical concerns, consult a registered dietitian.
+      </p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="starbucks-nutrition-calculator-top"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label style="font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (g/ml)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (oz/fl oz)</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="base-drink">Base Drink</label>
+                <select id="base-drink">
+                    <option value="caffe-latte">Caffè Latte</option>
+                    <option value="cappuccino">Cappuccino</option>
+                    <option value="caffe-mocha">Caffè Mocha</option>
+                    <option value="caramel-macchiato">Caramel Macchiato</option>
+                    <option value="cold-brew">Cold Brew</option>
+                    <option value="iced-coffee">Iced Coffee</option>
+                    <option value="flat-white">Flat White</option>
+                    <option value="frappuccino">Frappuccino (Coffee)</option>
+                    <option value="americano">Americano</option>
+                    <option value="chai-tea-latte">Chai Tea Latte</option>
+                    <option value="green-tea-latte">Green Tea Latte</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="milk-type">Milk Type</label>
+                <select id="milk-type">
+                    <option value="2-percent">2% Milk (Default)</option>
+                    <option value="whole">Whole Milk</option>
+                    <option value="nonfat">Nonfat Milk</option>
+                    <option value="almond">Almond Milk</option>
+                    <option value="oat">Oat Milk</option>
+                    <option value="coconut">Coconut Milk</option>
+                    <option value="soy">Soy Milk</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="size">Drink Size</label>
+                <select id="size">
+                    <option value="tall">Tall (12 oz)</option>
+                    <option value="grande" selected>Grande (16 oz)</option>
+                    <option value="venti">Venti (20 oz)</option>
+                    <option value="trenta">Trenta (30 oz - Cold Only)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="extra-pumps">Extra Syrup Pumps</label>
+                <input type="number" id="extra-pumps" min="0" max="10" value="0">
+            </div>
+            
+            <div class="form-group">
+                <label>Flavored Syrups</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="classic-syrup"> Classic Syrup
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="vanilla-syrup"> Vanilla Syrup
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="caramel-syrup"> Caramel Syrup
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="hazelnut-syrup"> Hazelnut Syrup
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="cinnamon-dolce"> Cinnamon Dolce Syrup
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="sugar-free-vanilla"> Sugar Free Vanilla
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="mocha-sauce"> Mocha Sauce
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="white-chocolate"> White Chocolate Mocha
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Toppings</label>
+                <div class="checkbox-grid">
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="whipped-cream"> Whipped Cream
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="caramel-drizzle"> Caramel Drizzle
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="chocolate-drizzle"> Chocolate Drizzle
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="cinnamon-powder"> Cinnamon Powder
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="cocoa-powder"> Cocoa Powder
+                    </label>
+                    <label class="checkbox-item">
+                        <input type="checkbox" id="vanilla-bean-powder"> Vanilla Bean Powder
+                    </label>
+                </div>
+            </div>
+            
+            <button id="calculate-btn" class="calculate-btn" onclick="calculate()">Calculate Nutrition Facts</button>
+        </div>
+        
+        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
+            <h2>Your Drink's Nutrition Breakdown</h2>
+            
+            <div class="results-summary" style="background-color: #fff2f9; border-radius: 8px; padding: 20px; margin-bottom: 30px; border: 2px solid #d63384; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 0; color: #d63384; font-weight: 600; font-size: 1.5rem;">Drink Summary</h3>
+                <div class="results-row" style="margin-top: 12px; font-size: 1.1rem;">
+                    <div class="results-value" id="drink-summary" style="font-weight: 400;">Grande Latte with 2% Milk</div>
+                </div>
+            </div>
+            
+            <div class="macro-card-grid">
+                <!-- Calories Card -->
+                <div style="background-color: #c9f7ff; border-radius: 8px; padding: 20px; border-top: 4px solid #0091ea; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #0277bd; font-weight: 600;">Calories</h3>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: #0277bd;" id="calories">0</p>
+                    <p>kcal</p>
+                </div>
+                
+                <!-- Sugar Card -->
+                <div style="background-color: #e6f9ff; border-radius: 8px; padding: 20px; border-top: 4px solid #40c4ff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #039be5; font-weight: 600;">Sugar</h3>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: #039be5;" id="sugar">0</p>
+                    <p>grams</p>
+                </div>
+                
+                <!-- Fat Card -->
+                <div style="background-color: #e8f5e9; border-radius: 8px; padding: 20px; border-top: 4px solid #4caf50; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #2e7d32; font-weight: 600;">Fat</h3>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: #2e7d32;" id="fat">0</p>
+                    <p>grams</p>
+                </div>
+                
+                <!-- Protein Card -->
+                <div style="background-color: #fff3e0; border-radius: 8px; padding: 20px; border-top: 4px solid #ff9800; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #ef6c00; font-weight: 600;">Protein</h3>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: #ef6c00;" id="protein">0</p>
+                    <p>grams</p>
+                </div>
+                
+                <!-- Caffeine Card -->
+                <div style="background-color: #f3e5f5; border-radius: 8px; padding: 20px; border-top: 4px solid #9c27b0; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #7b1fa2; font-weight: 600;">Caffeine</h3>
+                    <p style="font-size: 1.5rem; font-weight: 600; color: #7b1fa2;" id="caffeine">0</p>
+                    <p>mg</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Middle Ad -->
+    <div class="adunit-middle" style="margin: 40px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="starbucks-nutrition-calculator-mid"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <section id="how-to-use">
+        <div class="info">
+            <h2>How to Use the Starbucks Nutrition Calculator</h2>
+            <ul>
+                <li>Choose a drink category (hot, cold, espresso, blended).</li>
+                <li>Select your drink, size, milk type, syrup, and customizations.</li>
+                <li>See your drink's full nutrition label update in real time.</li>
+                <li>Compare between milk options or syrup types to reduce sugar or calories.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>Where does the nutrition data come from?</h4>
+                <p>It's based on the official Starbucks menu, nutrition PDFs, and publicly available product data. We update frequently to reflect seasonal offerings.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does this include modifiers like sweet cream or foam?</h4>
+                <p>Yes, most of them are supported. Toppings like cold foam or whipped cream are optional toggles and update macros in real time.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I use this for keto or low-carb tracking?</h4>
+                <p>Yes — use it to remove classic syrup and swap to sugar-free or no milk. You'll see carbs and sugar drop significantly.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How accurate is it?</h4>
+                <p>Values are based on standard sizes and ingredient servings. Customizations made by baristas may slightly vary. Use this as a close approximation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0 20px;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="starbucks-nutrition-calculator-bottom"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <footer class="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for informational purposes only and is not affiliated with Starbucks Corporation.</p>
+    </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/starbucks_nutrition_calculator.js') }}"></script>
+</body>
+</html>

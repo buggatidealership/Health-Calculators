@@ -1,0 +1,423 @@
+// ----------------- METADATA -----------------
+// Meta Title
+// “Starbucks Nutrition Calculator – Calories, Sugar, Protein by Drink”
+// Meta Description
+// “Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and seasonal items.”
+// OG Title
+// “Starbucks Drink Nutrition Calculator”
+// OG Description
+// “Explore Starbucks drink nutrition with full macro breakdowns. Adjust milk, size, sweeteners, and toppings to see live changes.”
+// OG URL
+// https://healthcalculators.xyz/starbucks-nutrition-calculator
+// OG Image
+// https://healthcalculators.xyz/static/images/starbucks-nutrition-calculator-og.jpg
+// Canonical
+// https://healthcalculators.xyz/starbucks-nutrition-calculator
+
+// ----------------- COMPONENT -----------------
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function StarbucksNutritionCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Starbucks Nutrition Calculator</h1>
+      <p className="subtitle">
+        Customize your favorite Starbucks drinks and instantly see the updated
+        nutrition facts. Swap milk, size, syrups, and toppings. Updated with fall and holiday drinks.
+      </p>
+
+      <AdUnit slot="starbucks-nutrition-calculator-top" />
+
+      <div className="info">
+        <p className="disclaimer">
+          <strong>This tool provides educational estimates only.</strong> Nutrition
+          values are based on official Starbucks data but may vary by location or
+          preparation. For medical concerns, consult a registered dietitian.
+        </p>
+      </div>
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#how-to-use">How This Calculator Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        <div className="calculator">
+          {/* Unit Selector UI (if weight-based inputs are ever needed) */}
+          <div className="form-group">
+            <label style={{ fontWeight: 600 }}>Measurement Units:</label>
+            <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
+              <button type="button" id="metric-btn" className="unit-btn active" onClick={() => setUnit("metric")}>
+                Metric (g/ml)
+              </button>
+              <button type="button" id="imperial-btn" className="unit-btn" onClick={() => setUnit("imperial")}>
+                Imperial (oz/fl oz)
+              </button>
+            </div>
+          </div>
+
+          {/* Claude-generated React HTML injection block */}
+          <div dangerouslySetInnerHTML={{ __html: `<!-- BEGIN CLAUDE-GENERATED STARBUCKS CALCULATOR -->
+import React, { useState } from 'react';
+
+const StarbucksNutritionCalculator = () => {
+  // Base drink options
+  const baseOptions = [
+    { name: "Caffè Latte", calories: 190, sugar: 18, fat: 7, protein: 13, caffeine: 150 },
+    { name: "Cappuccino", calories: 140, sugar: 10, fat: 5, protein: 9, caffeine: 150 },
+    { name: "Caffè Mocha", calories: 360, sugar: 35, fat: 15, protein: 13, caffeine: 175 },
+    { name: "Caramel Macchiato", calories: 250, sugar: 33, fat: 7, protein: 10, caffeine: 150 },
+    { name: "Cold Brew", calories: 5, sugar: 0, fat: 0, protein: 0, caffeine: 205 },
+    { name: "Iced Coffee", calories: 5, sugar: 0, fat: 0, protein: 0, caffeine: 165 },
+    { name: "Flat White", calories: 220, sugar: 17, fat: 11, protein: 12, caffeine: 130 },
+    { name: "Frappuccino (Coffee)", calories: 380, sugar: 54, fat: 16, protein: 5, caffeine: 95 },
+    { name: "Americano", calories: 15, sugar: 0, fat: 0, protein: 1, caffeine: 225 },
+    { name: "Chai Tea Latte", calories: 240, sugar: 42, fat: 4.5, protein: 8, caffeine: 95 },
+    { name: "Green Tea Latte", calories: 240, sugar: 33, fat: 7, protein: 9, caffeine: 80 },
+  ];
+
+  // Milk options
+  const milkOptions = [
+    { name: "2% Milk (Default)", calories: 0, sugar: 0, fat: 0, protein: 0 },
+    { name: "Whole Milk", calories: 30, sugar: 0, fat: 3, protein: 0 },
+    { name: "Nonfat Milk", calories: -20, sugar: 0, fat: -3, protein: 0 },
+    { name: "Almond Milk", calories: -30, sugar: -5, fat: -4, protein: -3 },
+    { name: "Oat Milk", calories: 40, sugar: 4, fat: 3, protein: -2 },
+    { name: "Coconut Milk", calories: -10, sugar: -3, fat: 3, protein: -3 },
+    { name: "Soy Milk", calories: 10, sugar: 2, fat: 0, protein: 2 },
+  ];
+
+  // Size options
+  const sizeOptions = [
+    { name: "Tall (12 oz)", factor: 0.75 },
+    { name: "Grande (16 oz)", factor: 1.0 },
+    { name: "Venti (20 oz)", factor: 1.25 },
+    { name: "Trenta (30 oz - Cold Only)", factor: 1.75 },
+  ];
+
+  // Syrup options
+  const syrupOptions = [
+    { name: "Classic Syrup", calories: 20, sugar: 5, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Vanilla Syrup", calories: 20, sugar: 5, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Caramel Syrup", calories: 20, sugar: 5, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Hazelnut Syrup", calories: 20, sugar: 5, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Cinnamon Dolce Syrup", calories: 20, sugar: 5, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Sugar Free Vanilla", calories: 0, sugar: 0, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Mocha Sauce", calories: 25, sugar: 3, fat: 1, protein: 0, caffeine: 5 },
+    { name: "White Chocolate Mocha", calories: 60, sugar: 8, fat: 3, protein: 1, caffeine: 0 },
+  ];
+
+  // Topping options
+  const toppingOptions = [
+    { name: "Whipped Cream", calories: 80, sugar: 2, fat: 8, protein: 0, caffeine: 0 },
+    { name: "Caramel Drizzle", calories: 15, sugar: 2, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Chocolate Drizzle", calories: 15, sugar: 2, fat: 1, protein: 0, caffeine: 0 },
+    { name: "Cinnamon Powder", calories: 0, sugar: 0, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Cocoa Powder", calories: 5, sugar: 0, fat: 0, protein: 0, caffeine: 0 },
+    { name: "Vanilla Bean Powder", calories: 10, sugar: 2, fat: 0, protein: 0, caffeine: 0 },
+  ];
+
+  // State
+  const [selectedDrink, setSelectedDrink] = useState(baseOptions[0]);
+  const [selectedMilk, setSelectedMilk] = useState(milkOptions[0]);
+  const [selectedSize, setSelectedSize] = useState(sizeOptions[1]);
+  const [selectedSyrupNames, setSelectedSyrupNames] = useState([]);
+  const [selectedToppingNames, setSelectedToppingNames] = useState([]);
+  const [syrupCount, setSyrupCount] = useState(0);
+
+  // Get selected syrups and toppings as objects
+  const selectedSyrups = syrupOptions.filter(syrup => selectedSyrupNames.includes(syrup.name));
+  const selectedToppings = toppingOptions.filter(topping => selectedToppingNames.includes(topping.name));
+
+  // Calculate nutrition totals
+  const calculateNutrition = () => {
+    // Start with base drink values
+    let totalCalories = selectedDrink.calories;
+    let totalSugar = selectedDrink.sugar;
+    let totalFat = selectedDrink.fat;
+    let totalProtein = selectedDrink.protein;
+    let totalCaffeine = selectedDrink.caffeine;
+
+    // Add milk adjustments
+    totalCalories += selectedMilk.calories;
+    totalSugar += selectedMilk.sugar;
+    totalFat += selectedMilk.fat;
+    totalProtein += selectedMilk.protein;
+
+    // Add syrups
+    selectedSyrups.forEach(syrup => {
+      totalCalories += syrup.calories;
+      totalSugar += syrup.sugar;
+      totalFat += syrup.fat;
+      totalProtein += syrup.protein;
+      totalCaffeine += syrup.caffeine;
+    });
+
+    // Add extra syrup pumps
+    totalCalories += syrupCount * 20;
+    totalSugar += syrupCount * 5;
+
+    // Add toppings
+    selectedToppings.forEach(topping => {
+      totalCalories += topping.calories;
+      totalSugar += topping.sugar;
+      totalFat += topping.fat;
+      totalProtein += topping.protein;
+      totalCaffeine += topping.caffeine;
+    });
+
+    // Adjust for size
+    totalCalories = Math.round(totalCalories * selectedSize.factor);
+    totalSugar = Math.round(totalSugar * selectedSize.factor);
+    totalFat = Math.round(totalFat * selectedSize.factor * 10) / 10;
+    totalProtein = Math.round(totalProtein * selectedSize.factor * 10) / 10;
+    totalCaffeine = Math.round(totalCaffeine * selectedSize.factor);
+
+    return {
+      calories: totalCalories,
+      sugar: totalSugar,
+      fat: totalFat,
+      protein: totalProtein,
+      caffeine: totalCaffeine
+    };
+  };
+
+  const nutrition = calculateNutrition();
+
+  // Toggle syrup selection
+  const toggleSyrup = (syrupName) => {
+    if (selectedSyrupNames.includes(syrupName)) {
+      setSelectedSyrupNames(selectedSyrupNames.filter(name => name !== syrupName));
+    } else {
+      setSelectedSyrupNames([...selectedSyrupNames, syrupName]);
+    }
+  };
+
+  // Toggle topping selection
+  const toggleTopping = (toppingName) => {
+    if (selectedToppingNames.includes(toppingName)) {
+      setSelectedToppingNames(selectedToppingNames.filter(name => name !== toppingName));
+    } else {
+      setSelectedToppingNames([...selectedToppingNames, toppingName]);
+    }
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto p-4 bg-gray-50 rounded-lg shadow">
+      <h1 className="text-2xl font-bold mb-6 text-center text-green-800">Starbucks Nutrition Calculator</h1>
+      
+      <div className="grid md:grid-cols-2 gap-6">
+        <div className="bg-white p-4 rounded shadow">
+          <h2 className="text-lg font-semibold mb-4">Customize Your Drink</h2>
+          
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-1">Base Drink:</label>
+            <select 
+              className="w-full p-2 border rounded" 
+              value={selectedDrink.name}
+              onChange={(e) => setSelectedDrink(baseOptions.find(d => d.name === e.target.value))}
+            >
+              {baseOptions.map(drink => (
+                <option key={drink.name} value={drink.name}>{drink.name}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-1">Milk Type:</label>
+            <select 
+              className="w-full p-2 border rounded" 
+              value={selectedMilk.name}
+              onChange={(e) => setSelectedMilk(milkOptions.find(m => m.name === e.target.value))}
+            >
+              {milkOptions.map(milk => (
+                <option key={milk.name} value={milk.name}>{milk.name}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-1">Size:</label>
+            <select 
+              className="w-full p-2 border rounded" 
+              value={selectedSize.name}
+              onChange={(e) => setSelectedSize(sizeOptions.find(s => s.name === e.target.value))}
+            >
+              {sizeOptions.map(size => (
+                <option key={size.name} value={size.name}>{size.name}</option>
+              ))}
+            </select>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-1">Extra Syrup Pumps:</label>
+            <input 
+              type="number" 
+              min="0"
+              max="10"
+              className="w-full p-2 border rounded" 
+              value={syrupCount}
+              onChange={(e) => setSyrupCount(parseInt(e.target.value) || 0)}
+            />
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">Flavored Syrups:</label>
+            <div className="grid grid-cols-2 gap-2">
+              {syrupOptions.map(syrup => (
+                <div key={syrup.name} className="flex items-center">
+                  <input 
+                    type="checkbox" 
+                    id={`syrup-${syrup.name}`}
+                    checked={selectedSyrupNames.includes(syrup.name)}
+                    onChange={() => toggleSyrup(syrup.name)}
+                    className="mr-2"
+                  />
+                  <label htmlFor={`syrup-${syrup.name}`} className="text-sm">{syrup.name}</label>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <label className="block text-sm font-medium mb-2">Toppings:</label>
+            <div className="grid grid-cols-2 gap-2">
+              {toppingOptions.map(topping => (
+                <div key={topping.name} className="flex items-center">
+                  <input 
+                    type="checkbox" 
+                    id={`topping-${topping.name}`}
+                    checked={selectedToppingNames.includes(topping.name)}
+                    onChange={() => toggleTopping(topping.name)}
+                    className="mr-2"
+                  />
+                  <label htmlFor={`topping-${topping.name}`} className="text-sm">{topping.name}</label>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div className="bg-white p-4 rounded shadow mb-6">
+            <h2 className="text-lg font-semibold mb-4">Nutrition Facts</h2>
+            
+            <div className="border-b border-gray-300 pb-2 mb-2">
+              <div className="text-2xl font-bold mb-1">{nutrition.calories}</div>
+              <div className="text-sm text-gray-600">Calories</div>
+            </div>
+            
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <div className="font-bold">{nutrition.sugar}g</div>
+                <div className="text-sm text-gray-600">Sugar</div>
+              </div>
+              <div>
+                <div className="font-bold">{nutrition.fat}g</div>
+                <div className="text-sm text-gray-600">Fat</div>
+              </div>
+              <div>
+                <div className="font-bold">{nutrition.protein}g</div>
+                <div className="text-sm text-gray-600">Protein</div>
+              </div>
+              <div>
+                <div className="font-bold">{nutrition.caffeine}mg</div>
+                <div className="text-sm text-gray-600">Caffeine</div>
+              </div>
+            </div>
+          </div>
+
+          <div className="bg-white p-4 rounded shadow">
+            <h2 className="text-lg font-semibold mb-2">Your Drink Summary</h2>
+            <p className="text-gray-800">
+              {selectedSize.name} {selectedDrink.name} with {selectedMilk.name}
+              {selectedSyrups.length > 0 && 
+                `, ${selectedSyrups.map(s => s.name).join(', ')}`
+              }
+              {syrupCount > 0 &&
+                `, +${syrupCount} extra pump${syrupCount !== 1 ? 's' : ''}`
+              }
+              {selectedToppings.length > 0 && 
+                `, topped with ${selectedToppings.map(t => t.name).join(', ')}`
+              }
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div className="mt-6 text-center text-xs text-gray-500">
+        <p>Nutrition values are approximate and based on standard Starbucks recipes.</p>
+      </div>
+    </div>
+  );
+};
+
+-->
+<!-- END CLAUDE-GENERATED STARBUCKS CALCULATOR -->` }} />
+
+          {/* Result Section – Card Style */}
+          <div id="results" className="results-section" style={{ display: 'none', marginTop: 30 }}>
+            <h2>Your Drink's Nutrition Breakdown</h2>
+            <div className="macro-card-grid">
+              <div style={{ backgroundColor: '#f0f7ff', borderRadius: 8, padding: 20, borderTop: '4px solid #2196f3', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                <h3 style={{ marginTop: 0, color: '#0d47a1', fontWeight: 600 }}>Macros</h3>
+                <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+                  <li><strong>Calories:</strong> <span id="calories">0 kcal</span></li>
+                  <li><strong>Protein:</strong> <span id="protein">0 g</span></li>
+                  <li><strong>Carbs:</strong> <span id="carbs">0 g</span></li>
+                  <li><strong>Sugar:</strong> <span id="sugar">0 g</span></li>
+                  <li><strong>Fat:</strong> <span id="fat">0 g</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <AdUnit slot="starbucks-nutrition-calculator-mid" />
+
+      <section id="how-to-use">
+        <h2><BarChart className="section-icon" /> How to Use the Starbucks Nutrition Calculator</h2>
+        <ul>
+          <li>Choose a drink category (hot, cold, espresso, blended).</li>
+          <li>Select your drink, size, milk type, syrup, and customizations.</li>
+          <li>See your drink’s full nutrition label update in real time.</li>
+          <li>Compare between milk options or syrup types to reduce sugar or calories.</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h4>Where does the nutrition data come from?</h4>
+          <p>It’s based on the official Starbucks menu, nutrition PDFs, and publicly available product data. We update frequently to reflect seasonal offerings.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Does this include modifiers like sweet cream or foam?</h4>
+          <p>Yes, most of them are supported. Toppings like cold foam or whipped cream are optional toggles and update macros in real time.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Can I use this for keto or low-carb tracking?</h4>
+          <p>Yes — use it to remove classic syrup and swap to sugar-free or no milk. You’ll see carbs and sugar drop significantly.</p>
+        </div>
+        <div className="faq-item">
+          <h4>How accurate is it?</h4>
+          <p>Values are based on standard sizes and ingredient servings. Customizations made by baristas may slightly vary. Use this as a close approximation.</p>
+        </div>
+      </section>
+
+      <AdUnit slot="starbucks-nutrition-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for informational purposes only and is not affiliated with Starbucks Corporation.</p>
+      </footer>
+    </div>
+  );
+}
