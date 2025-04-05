@@ -1,0 +1,536 @@
+Follow these rules:
+
+--- METADATA ---
+- Meta Title: “IVF Due Date Calculator – Predict Your Baby’s Arrival"
+- Meta Description: “Estimate your baby's due date using IVF transfer or retrieval date. Supports 3-day, 5-day transfers, FET, and egg retrieval inputs.”
+- OG Title: “IVF Pregnancy Calculator”
+- OG Description: “Accurately calculate your IVF due date based on embryo transfer or retrieval date. Includes fresh and frozen cycles.”
+- OG URL: https://healthcalculators.xyz/ivf-due-date-calculator
+- OG Image: https://healthcalculators.xyz/static/images/ivf-due-date-calculator-og.jpg
+- Twitter meta tags: Match OG content
+- Canonical Tag: https://healthcalculators.xyz/ivf-due-date-calculator
+
+--- LAYOUT & UI ---
+- Match the /vitamin-d-intake-calculator exactly in:
+  - Typography, spacing, layout, and visual structure
+  - CTA button should use brand pink #d63384 with darker hover state
+  - Section Icons: Use <BarChart className="section-icon" /> for “How This Calculator Works” and <HelpCircle className="section-icon" /> for FAQs
+  - Include Table of Contents linking to: Calculator, How This Calculator Works, FAQ
+
+--- DISCLAIMER (ABOVE TOC) ---
+“This tool provides general educational estimates. For pregnancy confirmation and prenatal care, consult a licensed OB-GYN.”
+
+--- ADUNITS ---
+Insert the following 3 live AdUnit components:
+- <AdUnit slot="ivf-due-date-calculator-top" /> → directly under the H1
+- <AdUnit slot="ivf-due-date-calculator-mid" /> → between calculator output and “How This Calculator Works”
+- <AdUnit slot="ivf-due-date-calculator-bottom" /> → above the footer disclaimer
+
+--- CALCULATOR MODULE ---
+Inside <section id="calculator"> embed the following Deepseek-generated HTML:
+
+<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IVF Due Date Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f8fa;
+        }
+        .calculator {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input[type="date"], select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .results {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            display: none;
+        }
+        .result-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #cce5ff;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .result-label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .result-value {
+            color: #3498db;
+            font-weight: bold;
+        }
+        .info-section {
+            margin-top: 30px;
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .info-section h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+        @media (max-width: 600px) {
+            .calculator, .info-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>IVF Due Date Calculator</h1>
+    
+    <div class="calculator">
+        <div class="form-group">
+            <label for="calculationType">Select Calculation Type:</label>
+            <select id="calculationType">
+                <option value="retrieval">Based on Egg Retrieval Date</option>
+                <option value="transfer">Based on Embryo Transfer Date</option>
+                <option value="frozen">Based on Frozen Embryo Transfer Date</option>
+            </select>
+        </div>
+        
+        <div id="retrievalSection" class="form-group">
+            <label for="retrievalDate">Egg Retrieval Date:</label>
+            <input type="date" id="retrievalDate">
+        </div>
+        
+        <div id="transferSection" class="form-group" style="display: none;">
+            <label for="transferDate">Fresh Embryo Transfer Date:</label>
+            <input type="date" id="transferDate">
+        </div>
+        
+        <div id="frozenSection" class="form-group" style="display: none;">
+            <label for="frozenDate">Frozen Embryo Transfer Date:</label>
+            <input type="date" id="frozenDate">
+        </div>
+        
+        <div id="daySection" class="form-group">
+            <label for="embryoDay">Embryo Age at Transfer:</label>
+            <select id="embryoDay">
+                <option value="3">3-Day Embryo</option>
+                <option value="5" selected>5-Day Blastocyst</option>
+                <option value="6">6-Day Blastocyst</option>
+            </select>
+        </div>
+        
+        <button id="calculate">Calculate Important Dates</button>
+    </div>
+    
+    <div id="results" class="results">
+        <h2>Your Important Dates</h2>
+        
+        <div class="result-item">
+            <div class="result-label">Estimated Due Date:</div>
+            <div id="dueDate" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">First Trimester (Weeks 1-13):</div>
+            <div id="firstTrimester" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">Second Trimester (Weeks 14-27):</div>
+            <div id="secondTrimester" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">Third Trimester (Weeks 28-40):</div>
+            <div id="thirdTrimester" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">Estimated Gestational Age Today:</div>
+            <div id="currentGA" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">First Ultrasound (6-8 weeks):</div>
+            <div id="firstUltrasound" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">NIPT Testing Window (10-14 weeks):</div>
+            <div id="niptWindow" class="result-value"></div>
+        </div>
+        
+        <div class="result-item">
+            <div class="result-label">Anatomy Scan (18-22 weeks):</div>
+            <div id="anatomyScan" class="result-value"></div>
+        </div>
+    </div>
+    
+    <div class="info-section">
+        <h2>About IVF Due Date Calculation</h2>
+        <p>IVF pregnancy dating differs from spontaneous conception calculations. Based on recent research, IVF pregnancies are calculated more precisely since the exact date of egg retrieval or embryo transfer is known.</p>
+        
+        <h3>Scientific Basis for Calculation</h3>
+        <p>This calculator follows evidence-based guidelines that account for the embryo's developmental stage at transfer:</p>
+        <ul>
+            <li>For a 3-day embryo transfer: Due date is 266 days after egg retrieval (or 263 days after transfer)</li>
+            <li>For a 5-day blastocyst transfer: Due date is 264 days after egg retrieval (or 259 days after transfer)</li>
+            <li>For a 6-day blastocyst transfer: Due date is 263 days after egg retrieval (or 257 days after transfer)</li>
+        </ul>
+        
+        <h3>Important Notes</h3>
+        <p>The actual delivery date can vary by approximately two weeks before or after the calculated due date. Only about 5% of babies are born exactly on their due date.</p>
+        
+        <p>This calculator is based on research published in fertility journals through 2024, which demonstrated that IVF pregnancy dating based on embryo age provides more accurate gestational age estimation than traditional last menstrual period (LMP) dating methods.</p>
+        
+        <p><em>Note: This calculator is for informational purposes only and should not replace professional medical advice. Always consult with your fertility specialist or obstetrician for personalized care.</em></p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const calculationType = document.getElementById('calculationType');
+            const retrievalSection = document.getElementById('retrievalSection');
+            const transferSection = document.getElementById('transferSection');
+            const frozenSection = document.getElementById('frozenSection');
+            const daySection = document.getElementById('daySection');
+            const calculateButton = document.getElementById('calculate');
+            const resultsDiv = document.getElementById('results');
+            
+            // Toggle sections based on calculation type
+            calculationType.addEventListener('change', function() {
+                if (this.value === 'retrieval') {
+                    retrievalSection.style.display = 'block';
+                    transferSection.style.display = 'none';
+                    frozenSection.style.display = 'none';
+                    daySection.style.display = 'block';
+                } else if (this.value === 'transfer') {
+                    retrievalSection.style.display = 'none';
+                    transferSection.style.display = 'block';
+                    frozenSection.style.display = 'none';
+                    daySection.style.display = 'block';
+                } else if (this.value === 'frozen') {
+                    retrievalSection.style.display = 'none';
+                    transferSection.style.display = 'none';
+                    frozenSection.style.display = 'block';
+                    daySection.style.display = 'block';
+                }
+            });
+            
+            // Calculate button click handler
+            calculateButton.addEventListener('click', function() {
+                // Get input values
+                const type = calculationType.value;
+                const embryoDay = parseInt(document.getElementById('embryoDay').value);
+                
+                let startDate = new Date();
+                
+                // Get the appropriate date based on calculation type
+                if (type === 'retrieval') {
+                    const retrievalDate = document.getElementById('retrievalDate').value;
+                    if (!retrievalDate) {
+                        alert("Please select an egg retrieval date");
+                        return;
+                    }
+                    startDate = new Date(retrievalDate);
+                } else if (type === 'transfer') {
+                    const transferDate = document.getElementById('transferDate').value;
+                    if (!transferDate) {
+                        alert("Please select a fresh embryo transfer date");
+                        return;
+                    }
+                    startDate = new Date(transferDate);
+                    // Adjust for days since retrieval
+                    startDate.setDate(startDate.getDate() - embryoDay);
+                } else if (type === 'frozen') {
+                    const frozenDate = document.getElementById('frozenDate').value;
+                    if (!frozenDate) {
+                        alert("Please select a frozen embryo transfer date");
+                        return;
+                    }
+                    startDate = new Date(frozenDate);
+                    // For frozen transfers, we calculate from transfer date
+                    startDate = new Date(frozenDate);
+                }
+                
+                // Calculate due date based on research
+                let dueDate = new Date(startDate);
+                
+                if (type === 'frozen') {
+                    // For frozen embryo transfers, calculate from transfer date directly
+                    if (embryoDay === 3) {
+                        dueDate.setDate(dueDate.getDate() + 263);
+                    } else if (embryoDay === 5) {
+                        dueDate.setDate(dueDate.getDate() + 259);
+                    } else if (embryoDay === 6) {
+                        dueDate.setDate(dueDate.getDate() + 257);
+                    }
+                } else {
+                    // For egg retrieval or fresh transfers (already adjusted to retrieval date)
+                    if (embryoDay === 3) {
+                        dueDate.setDate(dueDate.getDate() + 266);
+                    } else if (embryoDay === 5) {
+                        dueDate.setDate(dueDate.getDate() + 264);
+                    } else if (embryoDay === 6) {
+                        dueDate.setDate(dueDate.getDate() + 263);
+                    }
+                }
+                
+                // Calculate other important dates
+                const today = new Date();
+                
+                // Calculate gestational age in weeks and days
+                let gestationalAgeMs = today - startDate;
+                let gestationalAgeDays = Math.floor(gestationalAgeMs / (1000 * 60 * 60 * 24));
+                
+                // Adjust gestational age based on embryo day
+                if (type !== 'frozen') {
+                    // For retrieval or fresh transfer, add 14 days to match clinical dating
+                    gestationalAgeDays += 14;
+                } else {
+                    // For frozen transfers, add 14 days minus the embryo age
+                    gestationalAgeDays += (14 - embryoDay);
+                }
+                
+                const gestationalAgeWeeks = Math.floor(gestationalAgeDays / 7);
+                const gestationalAgeDaysRemainder = gestationalAgeDays % 7;
+                
+                // Calculate trimesters
+                let firstTrimesterStart = new Date(startDate);
+                let firstTrimesterEnd = new Date(startDate);
+                
+                // First trimester (weeks 1-13)
+                if (type !== 'frozen') {
+                    firstTrimesterStart.setDate(firstTrimesterStart.getDate() - 14); // Adjust to LMP equivalent
+                    firstTrimesterEnd = new Date(firstTrimesterStart);
+                    firstTrimesterEnd.setDate(firstTrimesterStart.getDate() + (13 * 7) - 1);
+                } else {
+                    firstTrimesterStart.setDate(firstTrimesterStart.getDate() - embryoDay); // Adjust based on embryo age
+                    firstTrimesterEnd = new Date(firstTrimesterStart);
+                    firstTrimesterEnd.setDate(firstTrimesterStart.getDate() + (13 * 7) - 1);
+                }
+                
+                // Second trimester (weeks 14-27)
+                let secondTrimesterStart = new Date(firstTrimesterEnd);
+                secondTrimesterStart.setDate(secondTrimesterStart.getDate() + 1);
+                let secondTrimesterEnd = new Date(secondTrimesterStart);
+                secondTrimesterEnd.setDate(secondTrimesterStart.getDate() + (14 * 7) - 1);
+                
+                // Third trimester (weeks 28-40)
+                let thirdTrimesterStart = new Date(secondTrimesterEnd);
+                thirdTrimesterStart.setDate(thirdTrimesterStart.getDate() + 1);
+                
+                // Calculate first ultrasound window (6-8 weeks)
+                let firstUltrasoundStart = new Date(startDate);
+                let firstUltrasoundEnd = new Date(startDate);
+                
+                if (type !== 'frozen') {
+                    firstUltrasoundStart.setDate(firstUltrasoundStart.getDate() + 28); // 6 weeks from egg retrieval (adjusted for clinical dating)
+                    firstUltrasoundEnd.setDate(firstUltrasoundEnd.getDate() + 42); // 8 weeks from egg retrieval (adjusted for clinical dating)
+                } else {
+                    firstUltrasoundStart.setDate(firstUltrasoundStart.getDate() + (28 - embryoDay)); // Adjusted for embryo age
+                    firstUltrasoundEnd.setDate(firstUltrasoundEnd.getDate() + (42 - embryoDay)); // Adjusted for embryo age
+                }
+                
+                // Calculate NIPT window (10-14 weeks)
+                let niptStart = new Date(startDate);
+                let niptEnd = new Date(startDate);
+                
+                if (type !== 'frozen') {
+                    niptStart.setDate(niptStart.getDate() + 56); // 10 weeks from egg retrieval (adjusted for clinical dating)
+                    niptEnd.setDate(niptEnd.getDate() + 84); // 14 weeks from egg retrieval (adjusted for clinical dating)
+                } else {
+                    niptStart.setDate(niptStart.getDate() + (56 - embryoDay)); // Adjusted for embryo age
+                    niptEnd.setDate(niptEnd.getDate() + (84 - embryoDay)); // Adjusted for embryo age
+                }
+                
+                // Calculate anatomy scan window (18-22 weeks)
+                let anatomyScanStart = new Date(startDate);
+                let anatomyScanEnd = new Date(startDate);
+                
+                if (type !== 'frozen') {
+                    anatomyScanStart.setDate(anatomyScanStart.getDate() + 112); // 18 weeks from egg retrieval (adjusted for clinical dating)
+                    anatomyScanEnd.setDate(anatomyScanEnd.getDate() + 140); // 22 weeks from egg retrieval (adjusted for clinical dating)
+                } else {
+                    anatomyScanStart.setDate(anatomyScanStart.getDate() + (112 - embryoDay)); // Adjusted for embryo age
+                    anatomyScanEnd.setDate(anatomyScanEnd.getDate() + (140 - embryoDay)); // Adjusted for embryo age
+                }
+                
+                // Format dates for display
+                function formatDate(date) {
+                    return date.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+                }
+                
+                function formatDateRange(startDate, endDate) {
+                    return formatDate(startDate) + ' to ' + formatDate(endDate);
+                }
+                
+                // Update the results section
+                document.getElementById('dueDate').textContent = formatDate(dueDate);
+                document.getElementById('firstTrimester').textContent = formatDateRange(firstTrimesterStart, firstTrimesterEnd);
+                document.getElementById('secondTrimester').textContent = formatDateRange(secondTrimesterStart, secondTrimesterEnd);
+                document.getElementById('thirdTrimester').textContent = formatDateRange(thirdTrimesterStart, dueDate);
+                document.getElementById('currentGA').textContent = gestationalAgeWeeks + ' weeks, ' + gestationalAgeDaysRemainder + ' days';
+                document.getElementById('firstUltrasound').textContent = formatDateRange(firstUltrasoundStart, firstUltrasoundEnd);
+                document.getElementById('niptWindow').textContent = formatDateRange(niptStart, niptEnd);
+                document.getElementById('anatomyScan').textContent = formatDateRange(anatomyScanStart, anatomyScanEnd);
+                
+                // Show results
+                resultsDiv.style.display = 'block';
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- END DEEPSEEK-GENERATED CALCULATOR -->
+
+--- HOW TO USE SECTION ---
+Use <BarChart className="section-icon" /> icon.
+Section title: “How to Use the IVF Due Date Calculator”
+Content:
+- Choose your IVF method: fresh, frozen (FET), or egg retrieval.
+- Enter embryo transfer or retrieval date depending on method.
+- The tool uses standard gestational models for IVF calculations.
+- Results reflect expected due date based on embryonic age.
+
+--- FAQ SECTION ---
+Use <HelpCircle className="section-icon" /> icon.
+Include the following FAQs:
+
+Q: Is IVF due date different from natural conception?
+A: Slightly. IVF due dates are more precise because transfer day is known.
+
+Q: What’s the typical gestation for IVF?
+A: 38 weeks from retrieval or 36 weeks from a 5-day transfer.
+
+Q: Does embryo age affect due date?
+A: Yes. A 5-day embryo transfer is calculated with a 261-day pregnancy window.
+
+Q: Can I use this if I had FET?
+A: Yes. Enter your frozen embryo transfer date.
+
+Q: Is this calculator medically accurate?
+A: It’s based on accepted obstetric models. Always confirm with your OB-GYN.
+
+--- SCHEMA MARKUP (IN HEAD) ---
+1. SoftwareApplication:
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "IVF Due Date Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/ivf-due-date-calculator",
+  "description": "Estimate your IVF pregnancy due date based on embryo transfer or retrieval date using accepted obstetric methods."
+}
+
+2. FAQPage:
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is IVF due date different from natural conception?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Slightly. IVF due dates are more precise because transfer day is known."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What’s the typical gestation for IVF?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "38 weeks from retrieval or 36 weeks from a 5-day transfer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does embryo age affect due date?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. A 5-day embryo transfer is calculated with a 261-day pregnancy window."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this if I had FET?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Enter your frozen embryo transfer date."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is this calculator medically accurate?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It’s based on accepted obstetric models. Always confirm with your OB-GYN."
+      }
+    }
+  ]
+}
+
+--- FOOTER ---
+Add internal link: “← Back to Homepage”
+Footer disclaimer:
+“This calculator is for educational purposes only and does not replace medical advice or prenatal care.”
+
+--- FINAL QA ---
+- All AdUnits must be functional and properly spaced
+- Calculator layout must follow vitamin D template 1:1
+- No broken icons, FAQ, or unit toggle logic
+- Schema markup is present in <head>
+- Must render responsively on mobile

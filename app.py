@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "IVF Due Date Calculator",
+        "url": "/ivf-due-date-calculator",
+        "summary": "Accurately predict your baby's due date after IVF treatment with our specialized calculator for both fresh and frozen embryo transfers.",
+        "icon": "👶",
+        "cta": "Calculate Due Date",
+        "color": "pink"
+    },
+    {
         "title": "Retirement Savings Calculator",
         "url": "/retirement-savings-calculator",
         "summary": "Estimate how much you'll have saved for retirement and your safe withdrawal rate based on current savings and contributions.",
@@ -279,6 +287,19 @@ def vitamin_d_intake_calculator():
     schema_url = "/vitamin-d-intake-calculator"
     return render_template(
         'vitamin_d_intake_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/ivf-due-date-calculator')
+def ivf_due_date_calculator():
+    schema_name = "IVF Due Date Calculator"
+    schema_description = "Estimate your baby's due date using IVF transfer or retrieval date. Supports 3-day, 5-day transfers, FET, and egg retrieval inputs."
+    schema_url = "/ivf-due-date-calculator"
+    return render_template(
+        'ivf_due_date_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
