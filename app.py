@@ -575,7 +575,7 @@ def sitemap():
     response = send_from_directory(
         'static/public',
         'sitemap.xml',
-        mimetype='text/xml'
+        mimetype='application/xml'
     )
     response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
     response.headers['Pragma'] = 'no-cache'
