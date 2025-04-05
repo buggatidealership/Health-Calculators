@@ -1,0 +1,716 @@
+Follow these rules:
+
+// ----------------- METADATA -----------------
+// Meta Title
+// “Carb Cycling Calculator – Customize High and Low Carb Days”
+// Meta Description
+// “Use this carb cycling calculator to customize your high, low, and medium carb days based on your TDEE and body composition goals.”
+// OG Title
+// “Carb Cycling Calculator”
+// OG Description
+// “Plan your weekly macros with precision using this free carb cycling calculator. Designed for fat loss, muscle gain, and metabolic flexibility.”
+// OG URL
+// https://healthcalculators.xyz/carb-cycling-calculator
+// OG Image
+// https://healthcalculators.xyz/static/images/carb-cycling-calculator-og.jpg
+// Canonical
+// https://healthcalculators.xyz/carb-cycling-calculator
+
+// ----------------- COMPONENT -----------------
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function CarbCyclingCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Carb Cycling Calculator</h1>
+      <p className="subtitle">
+        Use this carb cycling calculator to create customized high, low, and medium
+        carb days. Based on your TDEE and goals, personalize your weekly macro
+        split for cutting, bulking, or recomposition.
+      </p>
+
+      <AdUnit slot="carb-cycling-calculator-top" />
+
+      <div className="info">
+        <p className="disclaimer">
+          <strong>This tool provides general educational estimates.</strong> For
+          medical concerns, consult a registered dietitian or doctor.
+        </p>
+      </div>
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#how-to-use">How This Calculator Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        {/* Deepseek calculator module goes here */}
+        <div dangerouslySetInnerHTML={{ __html: `<!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+import React, { useState, useEffect } from 'react';
+
+const CarbCyclingCalculator = () => {
+  const [gender, setGender] = useState('male');
+  const [age, setAge] = useState(30);
+  const [weight, setWeight] = useState(70);
+  const [heightCm, setHeightCm] = useState(175);
+  const [activityLevel, setActivityLevel] = useState('moderate');
+  const [goal, setGoal] = useState('maintain');
+  const [cycleType, setCycleType] = useState('threeDayCycle');
+  const [results, setResults] = useState(null);
+  const [units, setUnits] = useState('metric');
+  const [weightLbs, setWeightLbs] = useState(154);
+  const [heightFt, setHeightFt] = useState(5);
+  const [heightIn, setHeightIn] = useState(9);
+ 
+  // Convert imperial to metric when needed
+  useEffect(() => {
+    if (units === 'imperial') {
+      setWeight(weightLbs / 2.20462);
+      setHeightCm((heightFt * 30.48) + (heightIn * 2.54));
+    }
+  }, [units, weightLbs, heightFt, heightIn]);
+ 
+  // Convert metric to imperial for display
+  useEffect(() => {
+    if (units === 'metric') {
+      setWeightLbs(Math.round(weight * 2.20462));
+      const totalInches = heightCm / 2.54;
+      setHeightFt(Math.floor(totalInches / 12));
+      setHeightIn(Math.round(totalInches % 12));
+    }
+  }, [units, weight, heightCm]);
+
+  // Activity level multipliers based on scientific literature
+  const activityMultipliers = {
+    sedentary: 1.2,
+    light: 1.375,
+    moderate: 1.55,
+    active: 1.725,
+    veryActive: 1.9
+  };
+
+  // Goal adjustment multipliers
+  const goalMultipliers = {
+    lose: 0.8,
+    maintain: 1.0,
+    gain: 1.15
+  };
+
+  // Different carb cycling schemes
+  const cycleSchemes = {
+    threeDayCycle: {
+      high: 1.5,
+      moderate: 1.0,
+      low: 0.5
+    },
+    weeklySchedule: {
+      high: 1.5,
+      moderate: 1.0,
+      low: 0.5,
+      veryLow: 0.25
+    },
+    trainingBased: {
+      trainingDays: 1.5,
+      restDays: 0.5
+    }
+  };
+
+  const calculateBMR = () => {
+    // Mifflin-St Jeor Equation for BMR
+    if (gender === 'male') {
+      return (10 * weight) + (6.25 * heightCm) - (5 * age) + 5;
+    } else {
+      return (10 * weight) + (6.25 * heightCm) - (5 * age) - 161;
+    }
+  };
+
+  const calculateTDEE = (bmr) => {
+    return bmr * activityMultipliers[activityLevel];
+  };
+
+  const calculateCarbCycle = () => {
+    const bmr = calculateBMR();
+    const tdee = calculateTDEE(bmr);
+    const adjustedCalories = tdee * goalMultipliers[goal];
+   
+    // Protein and fat baseline calculations
+    // Protein: 1.8g/kg for athletes, 1.6g/kg for active, 1.2g/kg for general population
+    let proteinMultiplier = 1.2;
+    if (activityLevel === 'active' || activityLevel === 'veryActive') {
+      proteinMultiplier = 1.6;
+    }
+    if (goal === 'gain') {
+      proteinMultiplier = 1.8;
+    }
+   
+    // Calculate protein in grams and calories
+    const proteinGrams = weight * proteinMultiplier;
+    const proteinCalories = proteinGrams * 4;
+   
+    // Fat is 25-30% of total calories, higher on low carb days
+    const baselineFatCalories = adjustedCalories * 0.25;
+    const baselineFatGrams = baselineFatCalories / 9;
+   
+    let results = {};
+   
+    // Calculate carbs for different cycle types
+    if (cycleType === 'threeDayCycle') {
+      // Standard 3-day cycle
+      const cycleData = cycleSchemes.threeDayCycle;
+     
+      // Calculate remaining calories for carbs after protein and baseline fat
+      const remainingCalories = adjustedCalories - proteinCalories - baselineFatCalories;
+     
+      results = {
+        dailyCalories: Math.round(adjustedCalories),
+        protein: {
+          grams: Math.round(proteinGrams),
+          calories: Math.round(proteinCalories)
+        },
+        days: {
+          high: calculateDayMacros('high', cycleData.high, remainingCalories, baselineFatGrams, proteinGrams),
+          moderate: calculateDayMacros('moderate', cycleData.moderate, remainingCalories, baselineFatGrams, proteinGrams),
+          low: calculateDayMacros('low', cycleData.low, remainingCalories, baselineFatGrams, proteinGrams)
+        }
+      };
+    } else if (cycleType === 'weeklySchedule') {
+      // Weekly schedule with 4 different carb levels
+      const cycleData = cycleSchemes.weeklySchedule;
+     
+      // Calculate remaining calories for carbs
+      const remainingCalories = adjustedCalories - proteinCalories - baselineFatCalories;
+     
+      results = {
+        dailyCalories: Math.round(adjustedCalories),
+        protein: {
+          grams: Math.round(proteinGrams),
+          calories: Math.round(proteinCalories)
+        },
+        days: {
+          high: calculateDayMacros('high', cycleData.high, remainingCalories, baselineFatGrams, proteinGrams),
+          moderate: calculateDayMacros('moderate', cycleData.moderate, remainingCalories, baselineFatGrams, proteinGrams),
+          low: calculateDayMacros('low', cycleData.low, remainingCalories, baselineFatGrams, proteinGrams),
+          veryLow: calculateDayMacros('veryLow', cycleData.veryLow, remainingCalories, baselineFatGrams, proteinGrams)
+        }
+      };
+    } else if (cycleType === 'trainingBased') {
+      // Training-based cycle (higher carbs on training days)
+      const cycleData = cycleSchemes.trainingBased;
+     
+      // Calculate remaining calories for carbs
+      const remainingCalories = adjustedCalories - proteinCalories - baselineFatCalories;
+     
+      results = {
+        dailyCalories: Math.round(adjustedCalories),
+        protein: {
+          grams: Math.round(proteinGrams),
+          calories: Math.round(proteinCalories)
+        },
+        days: {
+          trainingDays: calculateDayMacros('trainingDays', cycleData.trainingDays, remainingCalories, baselineFatGrams, proteinGrams),
+          restDays: calculateDayMacros('restDays', cycleData.restDays, remainingCalories, baselineFatGrams, proteinGrams)
+        }
+      };
+    }
+   
+    setResults(results);
+  };
+ 
+  const calculateDayMacros = (dayType, carbMultiplier, remainingCalories, baselineFatGrams, proteinGrams) => {
+    let carbCalories, fatCalories, carbGrams, fatGrams;
+   
+    // On low carb days, increase fat and decrease carbs
+    if (dayType === 'low' || dayType === 'veryLow' || dayType === 'restDays') {
+      // Adjust fat allocation based on carb level
+      const fatAdjustment = 1 + ((1 - carbMultiplier) * 0.5);
+      fatGrams = Math.round(baselineFatGrams * fatAdjustment);
+      fatCalories = fatGrams * 9;
+     
+      // Remaining calories go to carbs
+      carbCalories = remainingCalories * carbMultiplier;
+      carbGrams = Math.round(carbCalories / 4);
+    } else {
+      // For high/moderate carb days, keep baseline fat
+      fatGrams = Math.round(baselineFatGrams);
+      fatCalories = fatGrams * 9;
+     
+      // Allocate remaining calories to carbs based on multiplier
+      carbCalories = remainingCalories * carbMultiplier;
+      carbGrams = Math.round(carbCalories / 4);
+    }
+   
+    const totalCalories = (proteinGrams * 4) + (carbGrams * 4) + (fatGrams * 9);
+   
+    return {
+      carbs: {
+        grams: carbGrams,
+        calories: Math.round(carbCalories)
+      },
+      fat: {
+        grams: fatGrams,
+        calories: Math.round(fatCalories)
+      },
+      totalCalories: Math.round(totalCalories)
+    };
+  };
+
+  const renderTypicalSchedule = () => {
+    if (!results) return null;
+   
+    if (cycleType === 'threeDayCycle') {
+      return (
+        <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Sample 3-Day Cycle</h3>
+          <p className="mb-2">Repeat this cycle continuously:</p>
+          <div className="grid grid-cols-3 gap-2">
+            <div className="p-2 bg-green-100 rounded">
+              <span className="font-bold">Day 1: High Carb</span>
+              <p>Ideal for intense training days</p>
+            </div>
+            <div className="p-2 bg-yellow-100 rounded">
+              <span className="font-bold">Day 2: Moderate Carb</span>
+              <p>For moderate training days</p>
+            </div>
+            <div className="p-2 bg-orange-100 rounded">
+              <span className="font-bold">Day 3: Low Carb</span>
+              <p>For rest days or light activity</p>
+            </div>
+          </div>
+        </div>
+      );
+    }
+   
+    if (cycleType === 'weeklySchedule') {
+      return (
+        <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Sample Weekly Schedule</h3>
+          <div className="grid grid-cols-7 gap-1 text-sm">
+            <div className="p-2 bg-green-100 rounded">
+              <span className="font-bold">Mon</span>
+              <p>High</p>
+            </div>
+            <div className="p-2 bg-yellow-100 rounded">
+              <span className="font-bold">Tue</span>
+              <p>Moderate</p>
+            </div>
+            <div className="p-2 bg-orange-100 rounded">
+              <span className="font-bold">Wed</span>
+              <p>Low</p>
+            </div>
+            <div className="p-2 bg-green-100 rounded">
+              <span className="font-bold">Thu</span>
+              <p>High</p>
+            </div>
+            <div className="p-2 bg-yellow-100 rounded">
+              <span className="font-bold">Fri</span>
+              <p>Moderate</p>
+            </div>
+            <div className="p-2 bg-red-100 rounded">
+              <span className="font-bold">Sat</span>
+              <p>Very Low</p>
+            </div>
+            <div className="p-2 bg-orange-100 rounded">
+              <span className="font-bold">Sun</span>
+              <p>Low</p>
+            </div>
+          </div>
+          <p className="mt-2 text-sm">Adjust based on your training schedule</p>
+        </div>
+      );
+    }
+   
+    if (cycleType === 'trainingBased') {
+      return (
+        <div className="mt-4 p-4 bg-blue-50 rounded-lg">
+          <h3 className="text-lg font-semibold mb-2">Training-Based Approach</h3>
+          <div className="flex gap-4">
+            <div className="p-2 bg-green-100 rounded flex-1">
+              <span className="font-bold">Training Days</span>
+              <p>Higher carbs to fuel workouts</p>
+            </div>
+            <div className="p-2 bg-orange-100 rounded flex-1">
+              <span className="font-bold">Rest Days</span>
+              <p>Lower carbs, higher fat</p>
+            </div>
+          </div>
+          <p className="mt-2 text-sm">Synchronize with your actual training schedule</p>
+        </div>
+      );
+    }
+  };
+
+  return (
+    <div className="max-w-4xl mx-auto p-4 bg-white rounded-lg shadow">
+      <h1 className="text-2xl font-bold mb-4">Carb Cycling Calculator</h1>
+      <p className="mb-4">This calculator is based on scientific research to help you determine optimal carbohydrate intake for different days in your carb cycling plan.</p>
+     
+      {/* Units Selection */}
+      <div className="mb-4 p-4 bg-gray-50 rounded">
+        <h2 className="text-lg font-semibold mb-2">Units</h2>
+        <div className="flex gap-4">
+          <label className="flex items-center">
+            <input
+              type="radio"
+              name="units"
+              value="metric"
+              checked={units === 'metric'}
+              onChange={() => setUnits('metric')}
+              className="mr-2"
+            />
+            Metric (kg/cm)
+          </label>
+          <label className="flex items-center">
+            <input
+              type="radio"
+              name="units"
+              value="imperial"
+              checked={units === 'imperial'}
+              onChange={() => setUnits('imperial')}
+              className="mr-2"
+            />
+            Imperial (lb/ft)
+          </label>
+        </div>
+      </div>
+     
+      {/* Personal Information */}
+      <div className="mb-4 p-4 bg-gray-50 rounded">
+        <h2 className="text-lg font-semibold mb-2">Personal Information</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1">Gender</label>
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div>
+            <label className="block mb-1">Age</label>
+            <input
+              type="number"
+              value={age}
+              onChange={(e) => setAge(Number(e.target.value))}
+              className="w-full p-2 border rounded"
+              min="18"
+              max="100"
+            />
+          </div>
+         
+          {units === 'metric' ? (
+            <>
+              <div>
+                <label className="block mb-1">Weight (kg)</label>
+                <input
+                  type="number"
+                  value={weight}
+                  onChange={(e) => setWeight(Number(e.target.value))}
+                  className="w-full p-2 border rounded"
+                  min="40"
+                  max="200"
+                  step="0.1"
+                />
+              </div>
+              <div>
+                <label className="block mb-1">Height (cm)</label>
+                <input
+                  type="number"
+                  value={heightCm}
+                  onChange={(e) => setHeightCm(Number(e.target.value))}
+                  className="w-full p-2 border rounded"
+                  min="130"
+                  max="220"
+                />
+              </div>
+            </>
+          ) : (
+            <>
+              <div>
+                <label className="block mb-1">Weight (lb)</label>
+                <input
+                  type="number"
+                  value={weightLbs}
+                  onChange={(e) => setWeightLbs(Number(e.target.value))}
+                  className="w-full p-2 border rounded"
+                  min="88"
+                  max="440"
+                />
+              </div>
+              <div>
+                <label className="block mb-1">Height</label>
+                <div className="flex gap-2">
+                  <div className="flex-1">
+                    <label className="block mb-1">Feet</label>
+                    <input
+                      type="number"
+                      value={heightFt}
+                      onChange={(e) => setHeightFt(Number(e.target.value))}
+                      className="w-full p-2 border rounded"
+                      min="4"
+                      max="7"
+                    />
+                  </div>
+                  <div className="flex-1">
+                    <label className="block mb-1">Inches</label>
+                    <input
+                      type="number"
+                      value={heightIn}
+                      onChange={(e) => setHeightIn(Number(e.target.value))}
+                      className="w-full p-2 border rounded"
+                      min="0"
+                      max="11"
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
+        </div>
+      </div>
+     
+      {/* Activity & Goals */}
+      <div className="mb-4 p-4 bg-gray-50 rounded">
+        <h2 className="text-lg font-semibold mb-2">Activity & Goals</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label className="block mb-1">Activity Level</label>
+            <select
+              value={activityLevel}
+              onChange={(e) => setActivityLevel(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              <option value="sedentary">Sedentary (little or no exercise)</option>
+              <option value="light">Light (light exercise 1-3 days/week)</option>
+              <option value="moderate">Moderate (moderate exercise 3-5 days/week)</option>
+              <option value="active">Active (hard exercise 6-7 days/week)</option>
+              <option value="veryActive">Very Active (hard exercise & physical job)</option>
+            </select>
+          </div>
+          <div>
+            <label className="block mb-1">Goal</label>
+            <select
+              value={goal}
+              onChange={(e) => setGoal(e.target.value)}
+              className="w-full p-2 border rounded"
+            >
+              <option value="lose">Fat Loss</option>
+              <option value="maintain">Maintain Weight</option>
+              <option value="gain">Muscle Gain</option>
+            </select>
+          </div>
+        </div>
+      </div>
+     
+      {/* Carb Cycling Type */}
+      <div className="mb-4 p-4 bg-gray-50 rounded">
+        <h2 className="text-lg font-semibold mb-2">Carb Cycling Type</h2>
+        <div className="flex flex-col gap-2">
+          <label className="flex items-center">
+            <input
+              type="radio"
+              name="cycleType"
+              value="threeDayCycle"
+              checked={cycleType === 'threeDayCycle'}
+              onChange={() => setCycleType('threeDayCycle')}
+              className="mr-2"
+            />
+            3-Day Cycle (High, Moderate, Low)
+          </label>
+          <label className="flex items-center">
+            <input
+              type="radio"
+              name="cycleType"
+              value="weeklySchedule"
+              checked={cycleType === 'weeklySchedule'}
+              onChange={() => setCycleType('weeklySchedule')}
+              className="mr-2"
+            />
+            Weekly Schedule (High, Moderate, Low, Very Low days)
+          </label>
+          <label className="flex items-center">
+            <input
+              type="radio"
+              name="cycleType"
+              value="trainingBased"
+              checked={cycleType === 'trainingBased'}
+              onChange={() => setCycleType('trainingBased')}
+              className="mr-2"
+            />
+            Training-Based (Higher carbs on training days)
+          </label>
+        </div>
+      </div>
+     
+      {/* Calculate Button */}
+      <div className="mb-4">
+        <button
+          onClick={calculateCarbCycle}
+          className="w-full py-2 px-4 bg-blue-600 text-white font-bold rounded hover:bg-blue-700"
+        >
+          Calculate My Carb Cycling Plan
+        </button>
+      </div>
+     
+      {/* Results Section */}
+      {results && (
+        <div className="mt-6 p-4 bg-blue-50 rounded-lg">
+          <h2 className="text-xl font-bold mb-4">Your Carb Cycling Plan</h2>
+         
+          <div className="mb-4">
+            <h3 className="text-lg font-semibold mb-2">Daily Baseline</h3>
+            <p className="mb-1">Daily Target Calories: <strong>{results.dailyCalories}</strong> calories</p>
+            <p>Daily Protein Target: <strong>{results.protein.grams}g</strong> ({results.protein.calories} calories)</p>
+          </div>
+         
+          {cycleType === 'threeDayCycle' && (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div className="p-3 bg-green-100 rounded">
+                <h4 className="font-bold">High Carb Day</h4>
+                <p>Calories: <strong>{results.days.high.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.high.carbs.grams}g</strong> ({results.days.high.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.high.fat.grams}g</strong> ({results.days.high.fat.calories} cal)</p>
+              </div>
+              <div className="p-3 bg-yellow-100 rounded">
+                <h4 className="font-bold">Moderate Carb Day</h4>
+                <p>Calories: <strong>{results.days.moderate.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.moderate.carbs.grams}g</strong> ({results.days.moderate.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.moderate.fat.grams}g</strong> ({results.days.moderate.fat.calories} cal)</p>
+              </div>
+              <div className="p-3 bg-orange-100 rounded">
+                <h4 className="font-bold">Low Carb Day</h4>
+                <p>Calories: <strong>{results.days.low.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.low.carbs.grams}g</strong> ({results.days.low.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.low.fat.grams}g</strong> ({results.days.low.fat.calories} cal)</p>
+              </div>
+            </div>
+          )}
+         
+          {cycleType === 'weeklySchedule' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="p-3 bg-green-100 rounded">
+                <h4 className="font-bold">High Carb Day</h4>
+                <p>Calories: <strong>{results.days.high.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.high.carbs.grams}g</strong> ({results.days.high.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.high.fat.grams}g</strong> ({results.days.high.fat.calories} cal)</p>
+              </div>
+              <div className="p-3 bg-yellow-100 rounded">
+                <h4 className="font-bold">Moderate Carb Day</h4>
+                <p>Calories: <strong>{results.days.moderate.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.moderate.carbs.grams}g</strong> ({results.days.moderate.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.moderate.fat.grams}g</strong> ({results.days.moderate.fat.calories} cal)</p>
+              </div>
+              <div className="p-3 bg-orange-100 rounded">
+                <h4 className="font-bold">Low Carb Day</h4>
+                <p>Calories: <strong>{results.days.low.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.low.carbs.grams}g</strong> ({results.days.low.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.low.fat.grams}g</strong> ({results.days.low.fat.calories} cal)</p>
+              </div>
+              <div className="p-3 bg-red-100 rounded">
+                <h4 className="font-bold">Very Low Carb Day</h4>
+                <p>Calories: <strong>{results.days.veryLow.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.veryLow.carbs.grams}g</strong> ({results.days.veryLow.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.veryLow.fat.grams}g</strong> ({results.days.veryLow.fat.calories} cal)</p>
+              </div>
+            </div>
+          )}
+         
+          {cycleType === 'trainingBased' && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+              <div className="p-3 bg-green-100 rounded">
+                <h4 className="font-bold">Training Days</h4>
+                <p>Calories: <strong>{results.days.trainingDays.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.trainingDays.carbs.grams}g</strong> ({results.days.trainingDays.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.trainingDays.fat.grams}g</strong> ({results.days.trainingDays.fat.calories} cal)</p>
+              </div>
+              <div className="p-3 bg-orange-100 rounded">
+                <h4 className="font-bold">Rest Days</h4>
+                <p>Calories: <strong>{results.days.restDays.totalCalories}</strong></p>
+                <p>Carbs: <strong>{results.days.restDays.carbs.grams}g</strong> ({results.days.restDays.carbs.calories} cal)</p>
+                <p>Protein: <strong>{results.protein.grams}g</strong> ({results.protein.calories} cal)</p>
+                <p>Fat: <strong>{results.days.restDays.fat.grams}g</strong> ({results.days.restDays.fat.calories} cal)</p>
+              </div>
+            </div>
+          )}
+         
+          {renderTypicalSchedule()}
+         
+          <div className="mt-4 p-4 bg-gray-50 rounded">
+            <h3 className="text-lg font-semibold mb-2">Scientific Basis</h3>
+            <ul className="list-disc pl-5 space-y-1">
+              <li>Protein intake based on research showing 1.2-1.8g/kg for optimal muscle preservation and recovery</li>
+              <li>Carb cycling helps optimize insulin sensitivity and metabolic flexibility</li>
+              <li>Higher carb intake on training days provides glycogen for performance</li>
+              <li>Lower carb intake on rest days may enhance fat utilization</li>
+              <li>Calculations based on Mifflin-St Jeor equation for BMR, which has been validated in research</li>
+            </ul>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+<!-- END DEEPSEEK-GENERATED CALCULATOR -->` }} />
+      </section>
+
+      <AdUnit slot="carb-cycling-calculator-mid" />
+
+      <section id="how-to-use">
+        <h2><BarChart className="section-icon" /> How to Use the Carb Cycling Calculator</h2>
+        <ul>
+          <li>Enter your TDEE or let the calculator estimate it using height, weight, age, and activity level.</li>
+          <li>Choose your carb cycling strategy: 2 high, 3 medium, 2 low days, or customize your own split.</li>
+          <li>Adjust your macro ratios for each day type if desired (e.g., higher protein on low-carb days).</li>
+          <li>Click "Calculate" to get a complete weekly breakdown of calories, protein, carbs, and fat.</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h4>What is carb cycling?</h4>
+          <p>Carb cycling is a strategic dietary method that alternates high, medium, and low carbohydrate days throughout the week to support fat loss, muscle gain, and performance.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Is carb cycling effective for weight loss?</h4>
+          <p>Yes, it can be effective by manipulating insulin response and optimizing energy use, especially when paired with training schedules.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Do I need to exercise on high-carb days?</h4>
+          <p>High-carb days are ideal for heavy training or intense workouts. Low-carb days are better suited for rest or light activity.</p>
+        </div>
+        <div className="faq-item">
+          <h4>How many high-carb days should I have per week?</h4>
+          <p>It depends on your goals and training frequency. Most people use 1–2 high-carb days, 2–3 medium, and 2 low-carb days weekly.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Can I use this calculator for bulking?</h4>
+          <p>Yes. Adjust your TDEE upward and set higher calorie targets for high- and medium-carb days while maintaining protein.</p>
+        </div>
+      </section>
+
+      <AdUnit slot="carb-cycling-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for educational purposes only and does not replace dietary guidance from a licensed provider.</p>
+      </footer>
+    </div>
+  );
+}

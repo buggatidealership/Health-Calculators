@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "carb-cycling-calculator-og.jpg" %}
+{% with 
+    meta_description="Use this carb cycling calculator to customize your high, low, and medium carb days based on your TDEE and body composition goals.",
+    meta_keywords="carb cycling calculator, carb cycling, high carb low carb, carb intake calculator, carb macros, macronutrient calculator",
+    og_title="Carb Cycling Calculator",
+    og_description="Plan your weekly macros with precision using this free carb cycling calculator. Designed for fat loss, muscle gain, and metabolic flexibility.",
+    og_url="/carb-cycling-calculator",
+    page_title="Carb Cycling Calculator – Customize High and Low Carb Days",
+    canonical_url="/carb-cycling-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is carb cycling?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Carb cycling is a strategic dietary method that alternates high, medium, and low carbohydrate days throughout the week to support fat loss, muscle gain, and performance."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is carb cycling effective for weight loss?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, it can be effective by manipulating insulin response and optimizing energy use, especially when paired with training schedules."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need to exercise on high-carb days?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "High-carb days are ideal for heavy training or intense workouts. Low-carb days are better suited for rest or light activity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many high-carb days should I have per week?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on your goals and training frequency. Most people use 1–2 high-carb days, 2–3 medium, and 2 low-carb days weekly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this calculator for bulking?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Adjust your TDEE upward and set higher calorie targets for high- and medium-carb days while maintaining protein."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Carb Cycling Calculator</h1>
+    <p class="subtitle">This calculator helps you plan your carb cycling strategy by determining optimal carbohydrate intake for different days based on your body metrics, activity level, and fitness goals. Create a personalized plan for fat loss, muscle gain, and improved performance.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Carb Cycling Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="carb-cycling-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="unit-selector">
+                <label>Unit System:</label>
+                <div class="toggle-container">
+                    <button id="metric" class="unit-btn active" onclick="toggleUnits('metric')">Metric (kg/cm)</button>
+                    <button id="imperial" class="unit-btn" onclick="toggleUnits('imperial')">Imperial (lb/in)</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Age (years)</label>
+                <input type="number" id="age" min="18" max="100" value="30">
+            </div>
+            
+            <div class="form-group metric-field">
+                <label for="weight-kg">Weight (kg)</label>
+                <input type="number" id="weight-kg" min="40" max="200" step="0.1" value="70">
+            </div>
+            
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="weight-lb">Weight (lb)</label>
+                <input type="number" id="weight-lb" min="88" max="440" value="154">
+            </div>
+            
+            <div class="form-group metric-field">
+                <label for="height-cm">Height (cm)</label>
+                <input type="number" id="height-cm" min="130" max="220" value="170">
+            </div>
+            
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="height-ft">Height (ft)</label>
+                <input type="number" id="height-ft" min="4" max="7" value="5">
+            </div>
+            
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="height-in">Height (in)</label>
+                <input type="number" id="height-in" min="0" max="11" value="7">
+            </div>
+            
+            <div class="form-group">
+                <label for="activity-level">Activity Level</label>
+                <select id="activity-level">
+                    <option value="sedentary">Sedentary (little or no exercise)</option>
+                    <option value="light">Light (light exercise 1-3 days/week)</option>
+                    <option value="moderate" selected>Moderate (moderate exercise 3-5 days/week)</option>
+                    <option value="active">Active (hard exercise 6-7 days/week)</option>
+                    <option value="very-active">Very Active (hard exercise & physical job)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="goal">Goal</label>
+                <select id="goal">
+                    <option value="lose">Fat Loss</option>
+                    <option value="maintain" selected>Maintain Weight</option>
+                    <option value="gain">Muscle Gain</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="cycle-type">Carb Cycling Type</label>
+                <select id="cycle-type">
+                    <option value="three-day">3-Day Cycle (High, Moderate, Low)</option>
+                    <option value="weekly" selected>Weekly Schedule (High, Moderate, Low, Very Low days)</option>
+                    <option value="training">Training-Based (Higher carbs on training days)</option>
+                </select>
+            </div>
+            
+            <div id="training-days-container" style="display: none; margin-top: 15px; margin-bottom: 15px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                <label style="display: block; margin-bottom: 10px; font-weight: bold;">Training Days (select days you train)</label>
+                <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-mon" checked> 
+                        <span style="margin-left: 5px;">Monday</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-tue" checked> 
+                        <span style="margin-left: 5px;">Tuesday</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-wed"> 
+                        <span style="margin-left: 5px;">Wednesday</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-thu" checked> 
+                        <span style="margin-left: 5px;">Thursday</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-fri" checked> 
+                        <span style="margin-left: 5px;">Friday</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-sat"> 
+                        <span style="margin-left: 5px;">Saturday</span>
+                    </label>
+                    <label style="display: flex; align-items: center;">
+                        <input type="checkbox" id="train-sun"> 
+                        <span style="margin-left: 5px;">Sunday</span>
+                    </label>
+                </div>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculate()">Calculate My Carb Cycling Plan</button>
+        </div>
+        
+        <div id="results" style="display:none; margin-top: 30px;">
+            <h2>Your Carb Cycling Plan</h2>
+            
+            <div class="results-section">
+                <h3>Daily Baseline</h3>
+                <div class="results-row">
+                    <div class="results-label">Daily Target Calories:</div>
+                    <div class="results-value" id="daily-calories">0</div>
+                </div>
+                <div class="results-row">
+                    <div class="results-label">Daily Protein Target:</div>
+                    <div class="results-value" id="protein-grams">0g (0 calories)</div>
+                </div>
+            </div>
+            
+            <div id="three-day-results" class="carb-cycle-results">
+                <div class="day-plan high-carb">
+                    <h4>High Carb Day</h4>
+                    <div class="macro-row">
+                        <div class="macro-label">Calories:</div>
+                        <div class="macro-value" id="high-calories">0</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Carbs:</div>
+                        <div class="macro-value" id="high-carbs">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Protein:</div>
+                        <div class="macro-value" id="high-protein">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Fat:</div>
+                        <div class="macro-value" id="high-fat">0g (0 cal)</div>
+                    </div>
+                </div>
+                
+                <div class="day-plan moderate-carb">
+                    <h4>Moderate Carb Day</h4>
+                    <div class="macro-row">
+                        <div class="macro-label">Calories:</div>
+                        <div class="macro-value" id="moderate-calories">0</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Carbs:</div>
+                        <div class="macro-value" id="moderate-carbs">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Protein:</div>
+                        <div class="macro-value" id="moderate-protein">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Fat:</div>
+                        <div class="macro-value" id="moderate-fat">0g (0 cal)</div>
+                    </div>
+                </div>
+                
+                <div class="day-plan low-carb">
+                    <h4>Low Carb Day</h4>
+                    <div class="macro-row">
+                        <div class="macro-label">Calories:</div>
+                        <div class="macro-value" id="low-calories">0</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Carbs:</div>
+                        <div class="macro-value" id="low-carbs">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Protein:</div>
+                        <div class="macro-value" id="low-protein">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Fat:</div>
+                        <div class="macro-value" id="low-fat">0g (0 cal)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="weekly-results" class="carb-cycle-results">
+                <div id="very-low-carb-container" class="day-plan very-low-carb">
+                    <h4>Very Low Carb Day</h4>
+                    <div class="macro-row">
+                        <div class="macro-label">Calories:</div>
+                        <div class="macro-value" id="very-low-calories">0</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Carbs:</div>
+                        <div class="macro-value" id="very-low-carbs">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Protein:</div>
+                        <div class="macro-value" id="very-low-protein">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Fat:</div>
+                        <div class="macro-value" id="very-low-fat">0g (0 cal)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="training-results" class="carb-cycle-results">
+                <div class="day-plan training-day">
+                    <h4>Training Days</h4>
+                    <div class="macro-row">
+                        <div class="macro-label">Calories:</div>
+                        <div class="macro-value" id="training-calories">0</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Carbs:</div>
+                        <div class="macro-value" id="training-carbs">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Protein:</div>
+                        <div class="macro-value" id="training-protein">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Fat:</div>
+                        <div class="macro-value" id="training-fat">0g (0 cal)</div>
+                    </div>
+                </div>
+                
+                <div class="day-plan rest-day">
+                    <h4>Rest Days</h4>
+                    <div class="macro-row">
+                        <div class="macro-label">Calories:</div>
+                        <div class="macro-value" id="rest-calories">0</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Carbs:</div>
+                        <div class="macro-value" id="rest-carbs">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Protein:</div>
+                        <div class="macro-value" id="rest-protein">0g (0 cal)</div>
+                    </div>
+                    <div class="macro-row">
+                        <div class="macro-label">Fat:</div>
+                        <div class="macro-value" id="rest-fat">0g (0 cal)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="weekly-schedule-container" class="results-section" style="margin-top: 25px;">
+                <h3>Typical Weekly Schedule</h3>
+                <div id="weekly-schedule" class="weekly-schedule">
+                    <!-- This will be filled by JavaScript -->
+                </div>
+            </div>
+            
+            <div class="scientific-basis">
+                <h3>Scientific Basis</h3>
+                <ul>
+                    <li>Protein intake based on research showing 1.2-1.8g/kg for optimal muscle preservation and recovery</li>
+                    <li>Carb cycling helps optimize insulin sensitivity and metabolic flexibility</li>
+                    <li>Higher carb intake on training days provides glycogen for performance</li>
+                    <li>Lower carb intake on rest days may enhance fat utilization</li>
+                    <li>Calculations based on Mifflin-St Jeor equation for BMR, which has been validated in research</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Middle Ad -->
+    <div class="adunit-middle" style="margin: 30px 0;">
+        <AdUnit slot="carb-cycling-calculator-mid" />
+    </div>
+    
+    <section id="how-to-use">
+        <h2>How to Use the Carb Cycling Calculator</h2>
+        <ul>
+            <li>Enter your personal details (age, gender, weight, height) to calculate your baseline caloric needs.</li>
+            <li>Select your activity level to determine your total daily energy expenditure (TDEE).</li>
+            <li>Choose your goal (fat loss, maintenance, or muscle gain) to adjust calorie targets appropriately.</li>
+            <li>Select a carb cycling type that matches your preferences and lifestyle.</li>
+            <li>For training-based cycling, indicate which days of the week you typically train.</li>
+            <li>Click "Calculate" to get a complete weekly breakdown of calories, protein, carbs, and fat.</li>
+        </ul>
+    </section>
+    
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h4>What is carb cycling?</h4>
+            <p>Carb cycling is a strategic dietary method that alternates high, medium, and low carbohydrate days throughout the week to support fat loss, muscle gain, and performance.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Is carb cycling effective for weight loss?</h4>
+            <p>Yes, it can be effective by manipulating insulin response and optimizing energy use, especially when paired with training schedules.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Do I need to exercise on high-carb days?</h4>
+            <p>High-carb days are ideal for heavy training or intense workouts. Low-carb days are better suited for rest or light activity.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>How many high-carb days should I have per week?</h4>
+            <p>It depends on your goals and training frequency. Most people use 1–2 high-carb days, 2–3 medium, and 2 low-carb days weekly.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Can I use this calculator for bulking?</h4>
+            <p>Yes. Adjust your TDEE upward and set higher calorie targets for high- and medium-carb days while maintaining protein.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>What's the difference between the three carb cycling methods?</h4>
+            <p>The 3-day cycle rotates through high, moderate, and low carb days continuously. The weekly schedule allows for customizing specific days of the week. The training-based approach increases carbs on workout days and reduces them on rest days.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>How much protein should I eat when carb cycling?</h4>
+            <p>Protein intake remains consistent throughout carb cycling to support muscle maintenance and recovery. This calculator recommends between 1.2-1.8g of protein per kg of bodyweight based on your activity level.</p>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 30px 0;">
+        <AdUnit slot="carb-cycling-calculator-bottom" />
+    </div>
+    
+    <footer class="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for educational purposes only and does not replace dietary guidance from a licensed provider.</p>
+    </footer>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/carb_cycling_calculator.js') }}"></script>
+</body>
+</html>

@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Carb Cycling Calculator",
+        "url": "/carb-cycling-calculator",
+        "summary": "Customize your high, low, and medium carb days based on your TDEE and body composition goals with our carb cycling calculator.",
+        "icon": "🍽️",
+        "cta": "Create Carb Cycle",
+        "color": "orange"
+    },
+    {
         "title": "IVF Due Date Calculator",
         "url": "/ivf-due-date-calculator",
         "summary": "Accurately predict your baby's due date after IVF treatment with our specialized calculator for both fresh and frozen embryo transfers.",
@@ -300,6 +308,19 @@ def ivf_due_date_calculator():
     schema_url = "/ivf-due-date-calculator"
     return render_template(
         'ivf_due_date_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/carb-cycling-calculator')
+def carb_cycling_calculator():
+    schema_name = "Carb Cycling Calculator"
+    schema_description = "Customize your high, low, and medium carb days based on your TDEE and body composition goals with our carb cycling calculator."
+    schema_url = "/carb-cycling-calculator"
+    return render_template(
+        'carb_cycling_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
