@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="500" viewBox="0 0 800 500" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    text {
+      font-family: Arial, sans-serif;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .subtitle {
+      font-size: 16px;
+    }
+    .label {
+      font-size: 14px;
+    }
+    .value {
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .small-label {
+      font-size: 12px;
+    }
+  </style>
+  
+  <!-- Background -->
+  <rect x="0" y="0" width="800" height="500" fill="#f8f9fa" rx="10" ry="10" />
+  
+  <!-- Title -->
+  <text x="400" y="40" class="title" text-anchor="middle">Carb Cycling Macro Comparison</text>
+  <text x="400" y="70" class="subtitle" text-anchor="middle">Macronutrient breakdown by carb day type (based on 2000 calorie diet)</text>
+  
+  <!-- High Carb Day Chart -->
+  <g transform="translate(150, 140)">
+    <!-- Chart Title -->
+    <text x="0" y="0" class="label" font-weight="bold">High Carb Day</text>
+    
+    <!-- Pie chart -->
+    <circle cx="70" cy="70" r="70" fill="white" stroke="#ddd" stroke-width="1" />
+    
+    <!-- Carbs Slice (50%) -->
+    <path d="M 70 70 L 70 0 A 70 70 0 0 1 139.28 104.65 Z" fill="#1565c0" />
+    
+    <!-- Protein Slice (30%) -->
+    <path d="M 70 70 L 139.28 104.65 A 70 70 0 0 1 35.35 139.28 Z" fill="#4caf50" />
+    
+    <!-- Fat Slice (20%) -->
+    <path d="M 70 70 L 35.35 139.28 A 70 70 0 0 1 70 0 Z" fill="#ff9800" />
+    
+    <!-- Legend -->
+    <rect x="160" y="25" width="20" height="20" fill="#1565c0" />
+    <text x="190" y="40" class="label">Carbs: 50%</text>
+    <text x="190" y="60" class="small-label">(250g | 1000 calories)</text>
+    
+    <rect x="160" y="75" width="20" height="20" fill="#4caf50" />
+    <text x="190" y="90" class="label">Protein: 30%</text>
+    <text x="190" y="110" class="small-label">(150g | 600 calories)</text>
+    
+    <rect x="160" y="125" width="20" height="20" fill="#ff9800" />
+    <text x="190" y="140" class="label">Fat: 20%</text>
+    <text x="190" y="160" class="small-label">(45g | 400 calories)</text>
+  </g>
+  
+  <!-- Moderate Carb Day Chart -->
+  <g transform="translate(150, 330)">
+    <!-- Chart Title -->
+    <text x="0" y="0" class="label" font-weight="bold">Moderate Carb Day</text>
+    
+    <!-- Pie chart -->
+    <circle cx="70" cy="70" r="70" fill="white" stroke="#ddd" stroke-width="1" />
+    
+    <!-- Carbs Slice (35%) -->
+    <path d="M 70 70 L 70 0 A 70 70 0 0 1 126 126 Z" fill="#1565c0" />
+    
+    <!-- Protein Slice (30%) -->
+    <path d="M 70 70 L 126 126 A 70 70 0 0 1 0 70 Z" fill="#4caf50" />
+    
+    <!-- Fat Slice (35%) -->
+    <path d="M 70 70 L 0 70 A 70 70 0 0 1 70 0 Z" fill="#ff9800" />
+    
+    <!-- Legend -->
+    <rect x="160" y="25" width="20" height="20" fill="#1565c0" />
+    <text x="190" y="40" class="label">Carbs: 35%</text>
+    <text x="190" y="60" class="small-label">(175g | 700 calories)</text>
+    
+    <rect x="160" y="75" width="20" height="20" fill="#4caf50" />
+    <text x="190" y="90" class="label">Protein: 30%</text>
+    <text x="190" y="110" class="small-label">(150g | 600 calories)</text>
+    
+    <rect x="160" y="125" width="20" height="20" fill="#ff9800" />
+    <text x="190" y="140" class="label">Fat: 35%</text>
+    <text x="190" y="160" class="small-label">(78g | 700 calories)</text>
+  </g>
+  
+  <!-- Low Carb Day Chart -->
+  <g transform="translate(500, 140)">
+    <!-- Chart Title -->
+    <text x="0" y="0" class="label" font-weight="bold">Low Carb Day</text>
+    
+    <!-- Pie chart -->
+    <circle cx="70" cy="70" r="70" fill="white" stroke="#ddd" stroke-width="1" />
+    
+    <!-- Carbs Slice (15%) -->
+    <path d="M 70 70 L 70 0 A 70 70 0 0 1 124.28 30.05 Z" fill="#1565c0" />
+    
+    <!-- Protein Slice (35%) -->
+    <path d="M 70 70 L 124.28 30.05 A 70 70 0 0 1 70 140 Z" fill="#4caf50" />
+    
+    <!-- Fat Slice (50%) -->
+    <path d="M 70 70 L 70 140 A 70 70 0 0 1 70 0 Z" fill="#ff9800" />
+    
+    <!-- Legend -->
+    <rect x="160" y="25" width="20" height="20" fill="#1565c0" />
+    <text x="190" y="40" class="label">Carbs: 15%</text>
+    <text x="190" y="60" class="small-label">(75g | 300 calories)</text>
+    
+    <rect x="160" y="75" width="20" height="20" fill="#4caf50" />
+    <text x="190" y="90" class="label">Protein: 35%</text>
+    <text x="190" y="110" class="small-label">(175g | 700 calories)</text>
+    
+    <rect x="160" y="125" width="20" height="20" fill="#ff9800" />
+    <text x="190" y="140" class="label">Fat: 50%</text>
+    <text x="190" y="160" class="small-label">(111g | 1000 calories)</text>
+  </g>
+  
+  <!-- Footer Notes -->
+  <text x="400" y="480" class="small-label" text-anchor="middle">Note: Exact macro ratios should be personalized based on individual needs, activity levels, and body composition goals.</text>
+</svg>
