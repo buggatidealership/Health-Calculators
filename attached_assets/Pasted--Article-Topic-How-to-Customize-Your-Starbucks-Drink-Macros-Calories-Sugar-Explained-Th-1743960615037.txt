@@ -1,0 +1,75 @@
+## ✅ Article Topic: `How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)`
+
+This long-form article will support and internally link to the `/starbucks-nutrition-calculator` and provide readers with a data-driven guide to understanding the nutrition of Starbucks beverages. It will explain macros, ingredients, sweeteners, and drink hacks based on health goals.
+
+---
+
+## 🧠 Content Guidelines:
+- Use official Starbucks nutrition data and cited comparisons from USDA, peer-reviewed nutrition journals, and American Heart Association.
+- Word count: 2000–2200
+- H1: `How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)`
+
+### H2 structure:
+- Why Starbucks Drinks Can Wreck Your Macros
+- How to Read the Starbucks Nutrition Label
+- Macro Breakdown by Drink Type (hot, cold, espresso, blended)
+- Sweetener Swaps, Milk Hacks, and Portion Tips
+- Best Low-Calorie and High-Protein Drink Combos
+- Use the Starbucks Nutrition Calculator
+- Related Tools: TDEE & Caloric Intake
+- FAQs
+
+Use comparison charts, tables, or ordered lists to help readers decode nutrition math or build macro-friendly drink orders.
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- Meta Title: `Starbucks Nutrition Calculator Guide | Calories & Macros`
+- Meta Description: `Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.`
+- Schema: `MedicalWebPage`
+- Canonical: `https://longevitycalculator.xyz/resources/starbucks-nutrition-guide`
+- ✅ After deployment, add this article URL to `sitemap.xml` with `<priority>0.7</priority>` and `<changefreq>monthly`.
+
+---
+
+## 🖼️ Image & Visual Policy:
+- Include at least 2 `.webp` visuals:
+  1. Macro breakdown chart (e.g., Latte vs. Cold Brew vs. Frappuccino)
+  2. Sample drink customization comparison table (Tall Vanilla Latte vs. Tall with almond milk, etc.)
+
+Example:
+```html
+<img src="/static/images/resources/starbucks-macro-comparison.webp" alt="Macro comparison of Starbucks drinks" width="800" height="500" loading="lazy" />
+```
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="starbucks-nutrition-guide-top" />
+<AdUnit slot="starbucks-nutrition-guide-mid" />
+<AdUnit slot="starbucks-nutrition-guide-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/starbucks-nutrition-calculator` (anchor: "Starbucks Nutrition Calculator")
+- ✅ Link to: `/tdee-calculator` and `/caloric-intake-macronutrient-calculator`
+- ✅ Include early CTA card linking to calculator (with pink CTA button)
+- ✅ Include a styled TOC block with anchor links to all H2s
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- From Article → Calculator:
+  - Link 1: Top CTA (e.g., "Customize Your Drink →")
+  - Link 2: Mid-article during drink breakdown
+  - Link 3: Final section above FAQ
+
+- From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to decode your drink macros and cut hidden sugar?{" 
