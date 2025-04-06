@@ -405,6 +405,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Use the Army Body Fat Calculator (Tape Test Explained)",
+        "url": "/resources/army-body-fat-calculator-guide",
+        "summary": "Learn how the Army tape test works, how to measure body fat for military compliance, and understand the accuracy compared to other methods.",
+        "icon": "📏",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
         "title": "How to Start Carb Cycling for Fat Loss",
         "url": "/resources/how-to-start-carb-cycling",
         "summary": "Learn how to use carb cycling for weight loss and performance. Backed by research with sample plans and macro breakdowns.",
@@ -753,6 +761,16 @@ def ozempic_weight_loss_calculator_guide():
         schema_name="Ozempic Weight Loss Calculator Guide: Timeline & Expected Results",
         schema_description="Comprehensive guide to Ozempic (semaglutide) for weight loss: dosage protocols, expected outcomes, timeline comparisons, and clinical insights based on STEP trials.",
         schema_url="/resources/ozempic-weight-loss-calculator-guide"
+    )
+
+@app.route('/resources/army-body-fat-calculator-guide')
+def army_body_fat_calculator_guide():
+    return render_template(
+        'resources/army_body_fat_calculator_guide.html',
+        is_homepage=False,
+        schema_name="Army Body Fat Calculator Guide | Tape Test Formula & Accuracy",
+        schema_description="Learn how the Army tape test works, how to measure body fat for compliance, and use our calculator for fast results.",
+        schema_url="/resources/army-body-fat-calculator-guide"
     )
 
 @app.route('/resources/fertility-after-35')
