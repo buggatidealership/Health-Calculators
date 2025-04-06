@@ -405,6 +405,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)",
+        "url": "/resources/starbucks-nutrition-guide",
+        "summary": "Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
+        "icon": "☕",
+        "cta": "Read Guide",
+        "color": "green"
+    },
+    {
         "title": "How to Use the Army Body Fat Calculator (Tape Test Explained)",
         "url": "/resources/army-body-fat-calculator-guide",
         "summary": "Learn how the Army tape test works, how to measure body fat for military compliance, and understand the accuracy compared to other methods.",
@@ -761,6 +769,16 @@ def ozempic_weight_loss_calculator_guide():
         schema_name="Ozempic Weight Loss Calculator Guide: Timeline & Expected Results",
         schema_description="Comprehensive guide to Ozempic (semaglutide) for weight loss: dosage protocols, expected outcomes, timeline comparisons, and clinical insights based on STEP trials.",
         schema_url="/resources/ozempic-weight-loss-calculator-guide"
+    )
+
+@app.route('/resources/starbucks-nutrition-guide')
+def starbucks_nutrition_guide():
+    return render_template(
+        'resources/starbucks_nutrition_guide.html',
+        is_homepage=False,
+        schema_name="Starbucks Nutrition Calculator Guide | Calories & Macros",
+        schema_description="Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
+        schema_url="/resources/starbucks-nutrition-guide"
     )
 
 @app.route('/resources/army-body-fat-calculator-guide')
