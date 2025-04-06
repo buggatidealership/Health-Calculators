@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
+        "url": "/resources/chipotle-nutrition-guide",
+        "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
+        "icon": "🌯",
+        "cta": "Read Guide",
+        "color": "green"
+    },
+    {
         "title": "How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)",
         "url": "/resources/starbucks-nutrition-guide",
         "summary": "Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
@@ -820,6 +828,16 @@ def fertility_after_35():
         schema_name="Fertility After 35: What to Know About Your Chances",
         schema_description="Evidence-based guide to fertility after age 35: age-related egg quality decline, success rates for natural conception, IVF outcomes, and pregnancy risks.",
         schema_url="/resources/fertility-after-35"
+    )
+
+@app.route('/resources/chipotle-nutrition-guide')
+def chipotle_nutrition_guide():
+    return render_template(
+        'resources/chipotle_nutrition_guide.html',
+        is_homepage=False,
+        schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
+        schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
+        schema_url="/resources/chipotle-nutrition-guide"
     )
 
 if __name__ == '__main__':

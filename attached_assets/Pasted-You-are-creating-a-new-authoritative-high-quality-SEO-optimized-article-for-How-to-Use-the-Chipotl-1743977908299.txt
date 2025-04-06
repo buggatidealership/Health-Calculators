@@ -1,0 +1,107 @@
+You are creating a new authoritative, high-quality, SEO-optimized article for How to Use the Chipotle Nutrition Calculator using the attached rules.
+
+---
+
+## ✅ Article Topic: `How to Customize Your Chipotle Order (Calories, Macros & Fiber Explained)`
+
+This long-form article will support and internally link to the `/chipotle-nutrition-calculator` and act as a nutrition-forward guide to understanding Chipotle ingredients, macro tracking, ingredient swaps, and diet strategies.
+
+---
+
+## 🧠 Content Guidelines:
+- Use Chipotle’s official nutrition guide, USDA nutrition database, and peer-reviewed dietary studies
+- Word count: 2000–2200
+- H1: `How to Customize Your Chipotle Order (Calories, Macros & Fiber Explained)`
+
+### H2 structure:
+- Why Chipotle Nutrition Deserves a Strategy
+- How to Decode the Chipotle Nutrition Label
+- Macros by Category: Proteins, Bases, Sides, Toppings
+- Ingredient Swap Hacks for Cutting Calories
+- High-Protein or Low-Carb Chipotle Orders (With Examples)
+- How to Use the Chipotle Nutrition Calculator
+- Related Tools: Caloric Intake + TDEE Calculators
+- FAQs
+
+Use `<ol>` or `<ul>` to show step-by-step builds and meal comparisons.
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- Meta Title: `Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks`
+- Meta Description: `Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.`
+- Schema: `MedicalWebPage`
+- Canonical: `https://healthcalculators.xyz/resources/chipotle-nutrition-guide`
+- ✅ After deployment, add this article URL to `sitemap.xml` with `<priority>0.7</priority>` and `<changefreq>monthly`.
+
+---
+
+## 🖼️ Image & Visual Policy:
+- Include the following `.webp` visuals:
+  1. Nutrition macro chart comparing bowls vs burritos
+  2. Sample Chipotle order comparison: default vs light rice, no sour cream, extra protein
+
+Example:
+```html
+<img src="/static/images/resources/chipotle-meal-comparison.webp" alt="Chipotle bowl vs burrito macro comparison" width="800" height="500" loading="lazy" />
+```
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="chipotle-nutrition-guide-top" />
+<AdUnit slot="chipotle-nutrition-guide-mid" />
+<AdUnit slot="chipotle-nutrition-guide-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/chipotle-nutrition-calculator` (anchor: "Chipotle Nutrition Calculator")
+- ✅ Link to: `/caloric-intake-macronutrient-calculator` and `/tdee-calculator`
+- ✅ Include early CTA to calculator (pink button)
+- ✅ Include interactive TOC block
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- From Article → Calculator:
+  - Link 1: Early CTA block (e.g., “Build Your Meal →”)
+  - Link 2: Mid-article example comparisons
+  - Link 3: Final CTA above FAQ
+
+- From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to decode your macros, cut calories, or track your Chipotle meal like a pro?
+    <a href="/resources/chipotle-nutrition-guide" class="pink-link">
+      Read the full Chipotle Nutrition Guide →
+    </a>
+  </p>
+</div>
+```
+
+---
+
+## ⚙️ Technical Performance:
+- ✅ All images must include `alt`, `width`, `height`, `loading="lazy"`
+- ✅ Semantic HTML5 throughout
+- ✅ Valid JSX + HTML render-ready
+
+---
+
+## 🧩 Visual Layout Reference:
+- ✅ Follow the layout of `/resources/are-height-predictors-accurate`
+  - CTA blocks, TOC, FAQ flow, section padding, pink buttons
+
+---
+
+## 📍 Final URL:
+```
+https://healthcalculators.xyz/resources/chipotle-nutrition-guide
+```
+
+> 📌 Use this prompt as the master spec for producing the long-form article connected to the Chipotle Nutrition Calculator.
