@@ -405,14 +405,6 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
-        "title": "Army Body Fat Calculator Guide: How the Tape Test Works",
-        "url": "/resources/army-body-fat-calculator-guide",
-        "summary": "Learn how the military measures body fat with the tape test, how to perform measurements correctly, and view standards by age and gender.",
-        "icon": "📏",
-        "cta": "Read Guide",
-        "color": "blue"
-    },
-    {
         "title": "How to Start Carb Cycling for Fat Loss",
         "url": "/resources/how-to-start-carb-cycling",
         "summary": "Learn how to use carb cycling for weight loss and performance. Backed by research with sample plans and macro breakdowns.",
@@ -771,16 +763,6 @@ def fertility_after_35():
         schema_name="Fertility After 35: What to Know About Your Chances",
         schema_description="Evidence-based guide to fertility after age 35: age-related egg quality decline, success rates for natural conception, IVF outcomes, and pregnancy risks.",
         schema_url="/resources/fertility-after-35"
-    )
-
-@app.route('/resources/army-body-fat-calculator-guide')
-def army_body_fat_calculator_guide():
-    return render_template(
-        'resources/army_body_fat_calculator_guide.html',
-        is_homepage=False,
-        schema_name="Army Body Fat Calculator Guide: How the Tape Test Works",
-        schema_description="Learn how to use the Army body fat calculator and tape test method. Step-by-step instructions, standards, and accuracy comparisons.",
-        schema_url="/resources/army-body-fat-calculator-guide"
     )
 
 if __name__ == '__main__':
