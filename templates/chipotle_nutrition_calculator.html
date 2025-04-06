@@ -123,7 +123,6 @@
                   gap: 10px;
                   margin-top: 12px;
                 }
-                
                 .ingredient-button {
                   padding: 8px 16px;
                   border-radius: 4px;
@@ -131,10 +130,16 @@
                   background-color: white;
                   cursor: pointer;
                   display: flex;
-                  justify-content: space-between;
+                  flex-direction: column;
+                  justify-content: center;
                   align-items: center;
-                  text-align: left;
+                  text-align: center;
                   transition: all 0.2s;
+                  font-weight: 500;
+                  color: #212529;
+                  min-width: 140px;
+                  height: 60px;
+                }
                   font-weight: 500;
                   color: #212529;
                   min-width: 120px;
@@ -338,31 +343,33 @@
                     
                     // Render protein options
                     renderIngredients('proteins', nutritionData.proteins, selectProtein);
-                    
-                    // Render topping options
-                    renderIngredients('toppings', nutritionData.toppings, toggleTopping);
-                    
-                    // Render extras options
-                    renderIngredients('extras', nutritionData.extras, toggleExtra);
-                    
-                    // Initial calculation
-                    calculateNutrition();
-                }
-
-                // Render ingredient buttons
                 function renderIngredients(categoryId, ingredients, clickHandler) {
                     const container = document.getElementById(categoryId);
                     
                     ingredients.forEach(ingredient => {
-                        const button = document.createElement('button');
-                        button.className = 'ingredient-button';
-                        button.setAttribute('data-name', ingredient.name);
+                        const button = document.createElement("button");
+                        button.className = "ingredient-button";
+                        button.setAttribute("data-name", ingredient.name);
                         
-                        const nameSpan = document.createElement('span');
+                        const nameSpan = document.createElement("span");
                         nameSpan.textContent = ingredient.name;
+                        nameSpan.style.display = "block";
+                        nameSpan.style.fontWeight = "500";
                         
-                        const caloriesSpan = document.createElement('span');
-                        caloriesSpan.className = 'ingredient-calories';
+                        const calorieSpan = document.createElement("span");
+                        calorieSpan.className = "ingredient-calories";
+                        calorieSpan.textContent = `${ingredient.calories} cal`;
+                        
+                        button.appendChild(nameSpan);
+                        button.appendChild(calorieSpan);
+                        
+                        button.addEventListener("click", function() {
+                            clickHandler(ingredient.name, this);
+                        });
+                        
+                        container.appendChild(button);
+                    });
+                }
                         caloriesSpan.textContent = `${ingredient.calories} cal`;
                         
                         button.appendChild(nameSpan);
