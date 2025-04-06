@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Estimate Your Blood Alcohol Content (BAC) Safely and Accurately",
+        "url": "/resources/bac-calculator-guide",
+        "summary": "Learn how BAC is calculated, how long alcohol stays in your system, and use our calculator to estimate your blood alcohol level.",
+        "icon": "🍷",
+        "cta": "Read Guide",
+        "color": "purple"
+    },
+    {
         "title": "How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)",
         "url": "/resources/starbucks-nutrition-guide",
         "summary": "Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
@@ -800,6 +808,16 @@ def starbucks_nutrition_guide():
         schema_name="Starbucks Nutrition Calculator Guide | Calories & Macros",
         schema_description="Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
         schema_url="/resources/starbucks-nutrition-guide"
+    )
+
+@app.route('/resources/bac-calculator-guide')
+def bac_calculator_guide():
+    return render_template(
+        'resources/bac_calculator_guide.html',
+        is_homepage=False,
+        schema_name="BAC Calculator Guide | How to Estimate Blood Alcohol Content",
+        schema_description="Learn how BAC is calculated, how long alcohol stays in your system, and use our calculator to estimate your blood alcohol level.",
+        schema_url="/resources/bac-calculator-guide"
     )
 
 @app.route('/resources/army-body-fat-calculator-guide')

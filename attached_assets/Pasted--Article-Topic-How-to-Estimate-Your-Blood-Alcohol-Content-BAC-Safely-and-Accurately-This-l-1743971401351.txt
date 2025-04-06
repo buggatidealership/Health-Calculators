@@ -1,0 +1,103 @@
+## ✅ Article Topic: `How to Estimate Your Blood Alcohol Content (BAC) Safely and Accurately`
+
+This long-form article will support and internally link to the `/bac-calculator`, helping users understand how BAC is calculated, legal limits, impairment thresholds, and real-world use cases.
+
+---
+
+## 🧠 Content Guidelines:
+- Use peer-reviewed studies, NHTSA data, and law enforcement standards
+- Word count: 1800–2200
+- H1: `How to Estimate Your Blood Alcohol Content (BAC) Safely and Accurately`
+
+### H2 structure:
+- What Is BAC? (Definition and Relevance)
+- Legal Limits in the U.S. and Abroad
+- How BAC Is Calculated (Weight, Gender, Drinks, Time)
+- Understanding Impairment Levels by BAC %
+- Step-by-Step: How to Use the BAC Calculator
+- How Long Does It Take to Sober Up?
+- Related Tools: Alcohol Impact Calculator, TDEE
+- FAQs
+
+Use `<ol>` or `<ul>` for calculations and intoxication timelines.
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- Meta Title: `BAC Calculator Guide | How to Estimate Blood Alcohol Content`
+- Meta Description: `Learn how BAC is calculated, how long alcohol stays in your system, and use our calculator to estimate your blood alcohol level.`
+- Schema: `MedicalWebPage`
+- Canonical: `https://healthcalculators.xyz/resources/bac-calculator-guide`
+- ✅ After deployment, add this article URL to `sitemap.xml` with `<priority>0.7</priority>` and `<changefreq>monthly`.
+
+---
+
+## 🖼️ Image & Visual Policy:
+- Include `.webp` visuals:
+  1. A BAC impairment chart (e.g., 0.02–0.30%) with effects per range
+  2. A time-to-sober comparison based on number of drinks
+
+Example:
+```html
+<img src="/static/images/resources/bac-intoxication-levels.webp" alt="BAC levels and effects chart" width="800" height="500" loading="lazy" />
+```
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="bac-calculator-guide-top" />
+<AdUnit slot="bac-calculator-guide-mid" />
+<AdUnit slot="bac-calculator-guide-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/bac-calculator` (anchor: "BAC Calculator")
+- ✅ Link to: `/alcohol-impact-calculator` and `/tdee-calculator`
+- ✅ Add early CTA block linking to calculator with pink button
+- ✅ Include full TOC linking to H2 sections
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- From Article → Calculator:
+  - Link 1: Early CTA block
+  - Link 2: Inside "Step-by-Step" section
+  - Link 3: Final CTA above FAQ
+
+- From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to understand how BAC is calculated and how long it takes to sober up?
+    <a href="/resources/bac-calculator-guide" class="pink-link">
+      Read the full BAC Calculator Guide →
+    </a>
+  </p>
+</div>
+```
+
+---
+
+## ⚙️ Technical Performance:
+- ✅ All images must include `alt`, `width`, `height`, `loading="lazy"`
+- ✅ Use semantic HTML5 layout structure
+- ✅ Render-ready in JSX or HTML
+
+---
+
+## 🧩 Visual Layout Reference:
+- ✅ Follow layout of `/resources/are-height-predictors-accurate`
+  - Clean TOC, section rhythm, pink buttons, FAQ block
+
+---
+
+## 📍 Final URL:
+```
+https://healthcalculators.xyz/resources/bac-calculator-guide
+```
+
+> 📌 Use this prompt as the master spec for producing the long-form article connected to the BAC Calculator.
