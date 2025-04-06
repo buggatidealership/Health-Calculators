@@ -184,25 +184,21 @@
 <!-- END Related Guide Section -->
         </section>
         
-        <!-- FAQ Section -->
-        <section id="faq">
-            <div class="faq-section">
-                <div class="faq-item">
-                    <h4>Do I need to change my diet while taking Ozempic?</h4>
-                    <p>While Ozempic naturally reduces appetite, clinical trials show that combining the medication with dietary changes and exercise leads to significantly better outcomes. Patients following structured lifestyle programs lost approximately 5% more weight than those on medication alone. Small healthy changes like increasing protein intake and moderate activity can amplify your results.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>What happens after I stop Ozempic?</h4>
-                    <p>Clinical data shows that approximately two-thirds of weight lost on Ozempic is regained within 1-2 years after stopping the medication unless lifestyle changes are maintained. Long-term studies suggest that continued use may be necessary for many patients to maintain weight loss. Discuss maintenance strategies with your healthcare provider before discontinuing treatment.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h4>Is this calculator based on real research?</h4>
-                    <p>Yes. Estimates are based on results from the STEP 1-4 clinical trials published in the New England Journal of Medicine and other medical journals. These trials specifically studied semaglutide (the active ingredient in Ozempic and Wegovy) for weight management. The calculator uses simplified models of this data for educational purposes.</p>
-                </div>
-            </div>
-        </section>
+        <div class="faq-item">
+            <h4>Do I need to change my diet while taking Ozempic?</h4>
+            <p>While Ozempic naturally reduces appetite, clinical trials show that combining the medication with dietary changes and exercise leads to significantly better outcomes. Patients following structured lifestyle programs lost approximately 5% more weight than those on medication alone. Small healthy changes like increasing protein intake and moderate activity can amplify your results.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>What happens after I stop Ozempic?</h4>
+            <p>Clinical data shows that approximately two-thirds of weight lost on Ozempic is regained within 1-2 years after stopping the medication unless lifestyle changes are maintained. Long-term studies suggest that continued use may be necessary for many patients to maintain weight loss. Discuss maintenance strategies with your healthcare provider before discontinuing treatment.</p>
+        </div>
+        
+        <div class="faq-item">
+            <h4>Is this calculator based on real research?</h4>
+            <p>Yes. Estimates are based on results from the STEP 1-4 clinical trials published in the New England Journal of Medicine and other medical journals. These trials specifically studied semaglutide (the active ingredient in Ozempic and Wegovy) for weight management. The calculator uses simplified models of this data for educational purposes.</p>
+        </div>
+    </div>
     
     <!-- Bottom Ad -->
     <div class="adunit-bottom bottom-ad-spacing">
