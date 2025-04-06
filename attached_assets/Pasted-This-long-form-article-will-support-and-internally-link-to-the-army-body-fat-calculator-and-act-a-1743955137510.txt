@@ -1,0 +1,73 @@
+This long-form article will support and internally link to the `/army-body-fat-calculator` and act as a deep-dive educational guide into Army Regulation 600-9 standards, tape test procedure, and accuracy comparisons.
+
+---
+
+## 🧠 Content Guidelines:
+- Use U.S. Army body composition regulation (AR 600-9), military medical journals, and peer-reviewed comparisons with DEXA/hydrostatic testing.
+- Word count: 2000–2200
+- H1: `How to Use the Army Body Fat Calculator (Tape Test Explained)`
+
+### H2 structure:
+- Understanding Army Body Fat Standards
+- What Is the Tape Test? (And Why It Exists)
+- Male vs. Female Tape Test Methodology
+- Step-by-Step: How to Calculate Body Fat
+- Example Tape Test Calculation
+- How Accurate Is the Army Tape Test?
+- Use the Army Body Fat Calculator
+- Related Tools: Ideal Body Weight, BMI
+- FAQs
+
+Use `<ol>` or `<ul>` where needed to show calculation steps and differences clearly.
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- Meta Title: `Army Body Fat Calculator Guide | Tape Test Formula & Accuracy`
+- Meta Description: `Learn how the Army tape test works, how to measure body fat for compliance, and use our calculator for fast results.`
+- Schema: `MedicalWebPage`
+- Canonical: `https://longevitycalculator.xyz/resources/army-body-fat-calculator-guide`
+
+---
+
+## 🖼️ Image & Visual Policy:
+- Include the following `.webp` visuals:
+  1. Diagram: Tape test measurement zones (neck, waist, hips)
+  2. Table image: Body fat % requirements by age and gender
+
+Example:
+```html
+<img src="/static/images/resources/army-tape-measure-zones.webp" alt="Army tape test measurement zones" width="800" height="500" loading="lazy" />
+```
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="army-body-fat-calculator-guide-top" />
+<AdUnit slot="army-body-fat-calculator-guide-mid" />
+<AdUnit slot="army-body-fat-calculator-guide-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/army-body-fat-calculator` (anchor: "Army Body Fat Calculator")
+- ✅ Link to: `/ideal-body-weight-calculator` (anchor: "ideal weight calculator")
+- ✅ Include CTA card to calculator near the top with pink CTA button
+- ✅ Include Table of Contents block with anchors for H2s
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- From Article → Calculator:
+  - Link 1: Early CTA block (e.g., “Estimate Now →”)
+  - Link 2: Inside "Use the Calculator" section
+  - Link 3: Final section above FAQ
+
+- From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to understand how the Army tape test works and how to pass your measurement?{" 

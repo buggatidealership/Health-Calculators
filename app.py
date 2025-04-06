@@ -680,6 +680,19 @@ def army_body_fat_calculator():
         schema_url=schema_url
     )
 
+@app.route('/resources/army-body-fat-calculator-guide')
+def army_body_fat_calculator_guide():
+    schema_name = "Army Body Fat Calculator Guide | Tape Test Formula & Accuracy"
+    schema_description = "Learn how the Army tape test works, how to measure body fat for compliance, and use our calculator for fast results."
+    schema_url = "/resources/army-body-fat-calculator-guide"
+    return render_template(
+        'resources/army_body_fat_calculator_guide.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/alcohol-impact-calculator')
 def alcohol_impact_calculator():
     schema_name = "Alcohol Impact Calculator"
