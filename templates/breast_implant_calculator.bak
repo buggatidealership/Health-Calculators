@@ -168,14 +168,8 @@
                 </a>
             </p>
         </div>
+
         
-        <!-- How to Use Section -->
-        <section id="how-to-use" class="section-spacing">
-            <div class="info">
-              <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>How to Use the Breast Implant Size & Cost Calculator</h2>
-              <p>This calculator helps you estimate your ideal implant size and expected cost range based on your current measurements, desired cup size, and location.</p>
-              
-              <ul>
                 <li><strong>Implant Type:</strong> Affects cost and feel (e.g., silicone vs. saline).</li>
                 <li><strong>Location:</strong> Prices vary by country — this allows for regional accuracy.</li>
               </ul>
