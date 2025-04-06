@@ -19,6 +19,14 @@ cards = [
         "color": "blue"
     },
     {
+        "title": "Chipotle Nutrition Calculator",
+        "url": "/chipotle-nutrition-calculator",
+        "summary": "Build your Chipotle order and see real-time nutrition facts: calories, protein, carbs, fat, and fiber. Includes all protein, toppings, and sides.",
+        "icon": "🌯",
+        "cta": "Calculate Nutrition",
+        "color": "green"
+    },
+    {
         "title": "Starbucks Nutrition Calculator",
         "url": "/starbucks-nutrition-calculator",
         "summary": "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and toppings.",
