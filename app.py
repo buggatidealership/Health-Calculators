@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Army Body Fat Calculator",
+        "url": "/army-body-fat-calculator",
+        "summary": "Estimate your body fat percentage using the U.S. Army tape test method. Based on gender, age, height, neck, and waist measurements.",
+        "icon": "⭐",
+        "cta": "Calculate Body Fat",
+        "color": "blue"
+    },
+    {
         "title": "Starbucks Nutrition Calculator",
         "url": "/starbucks-nutrition-calculator",
         "summary": "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and toppings.",
@@ -653,6 +661,19 @@ def starbucks_nutrition_calculator():
     schema_url = "/starbucks-nutrition-calculator"
     return render_template(
         'starbucks_nutrition_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/army-body-fat-calculator')
+def army_body_fat_calculator():
+    schema_name = "Army Body Fat Calculator"
+    schema_description = "Estimate your body fat percentage using U.S. Army tape test standards. Based on gender, age, height, neck, and waist measurements."
+    schema_url = "/army-body-fat-calculator"
+    return render_template(
+        'army_body_fat_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

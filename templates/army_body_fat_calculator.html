@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "army-body-fat-calculator-og.jpg" %}
+{% with 
+    meta_description="Use this Army Body Fat Calculator to estimate your body fat percentage using tape test standards. Based on gender, age, height, neck, and waist.",
+    meta_keywords="army body fat calculator, army body fat percentage, military tape test, body fat army standard, military body composition",
+    og_title="Army Body Fat Calculator",
+    og_description="Estimate your body fat percentage using U.S. Army tape test standards. Includes male and female methods with quick results.",
+    og_url="/army-body-fat-calculator",
+    page_title="Army Body Fat Calculator – Tape Test % Estimator",
+    canonical_url="/army-body-fat-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the Army body fat standard?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The U.S. Army uses age- and gender-based standards to determine whether a soldier meets body composition requirements. These are published in Army Regulation 600-9."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the Army tape test?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It provides an estimate but is less precise than DEXA or hydrostatic weighing. This calculator uses the same formula to help prepare for official assessments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this tool if I'm not in the military?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — anyone can use it to track body fat percentage or compare results to Army standards."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does the calculator support both metric and imperial?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can toggle between inches and centimeters depending on your preference."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Army Body Fat Calculator</h1>
+    <p class="subtitle">Estimate your body fat percentage using the U.S. Army tape test method. This tool works for both male and female standards based on current military guidelines.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>This tool provides educational estimates.</strong> Official testing and validation should be conducted by qualified personnel.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Army Body Fat Calculator</a></li>
+            <li><a href="#how-to-use">How to Use the Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="army-body-fat-calculator-top"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label style="font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="imperial-btn" class="unit-btn active" onclick="setUnit('imperial')">Imperial (in)</button>
+                    <button type="button" id="metric-btn" class="unit-btn" onclick="setUnit('metric')">Metric (cm)</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="17" max="100" value="25">
+            </div>
+            
+            <!-- Imperial Height Fields -->
+            <div class="form-group imperial-field">
+                <label>Height</label>
+                <div style="display: flex; gap: 10px;">
+                    <div style="flex: 1;">
+                        <input type="number" id="height-feet" min="4" max="7" value="5" placeholder="Feet">
+                        <span class="input-label">feet</span>
+                    </div>
+                    <div style="flex: 1;">
+                        <input type="number" id="height-inches" min="0" max="11" value="9" placeholder="Inches">
+                        <span class="input-label">inches</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Metric Height Field -->
+            <div class="form-group metric-field" style="display: none;">
+                <label for="height-cm">Height</label>
+                <input type="number" id="height-cm" min="120" max="220" value="175" placeholder="Height in cm">
+                <span class="input-label">cm</span>
+            </div>
+            
+            <!-- Imperial Neck Field -->
+            <div class="form-group imperial-field">
+                <label for="neck-inches">Neck Circumference</label>
+                <input type="number" id="neck-inches" min="10" max="30" step="0.5" value="15">
+                <span class="input-label">inches</span>
+            </div>
+            
+            <!-- Metric Neck Field -->
+            <div class="form-group metric-field" style="display: none;">
+                <label for="neck-cm">Neck Circumference</label>
+                <input type="number" id="neck-cm" min="25" max="75" step="0.5" value="38">
+                <span class="input-label">cm</span>
+            </div>
+            
+            <!-- Imperial Waist Field -->
+            <div class="form-group imperial-field">
+                <label for="waist-inches">Waist Circumference</label>
+                <input type="number" id="waist-inches" min="20" max="60" step="0.5" value="34">
+                <span class="input-label">inches</span>
+            </div>
+            
+            <!-- Metric Waist Field -->
+            <div class="form-group metric-field" style="display: none;">
+                <label for="waist-cm">Waist Circumference</label>
+                <input type="number" id="waist-cm" min="50" max="150" step="0.5" value="86">
+                <span class="input-label">cm</span>
+            </div>
+            
+            <!-- Imperial Hip Field (Female Only) -->
+            <div class="form-group imperial-field female-only" style="display: none;">
+                <label for="hip-inches">Hip Circumference</label>
+                <input type="number" id="hip-inches" min="20" max="60" step="0.5" value="36">
+                <span class="input-label">inches</span>
+            </div>
+            
+            <!-- Metric Hip Field (Female Only) -->
+            <div class="form-group metric-field female-only" style="display: none;">
+                <label for="hip-cm">Hip Circumference</label>
+                <input type="number" id="hip-cm" min="50" max="150" step="0.5" value="91">
+                <span class="input-label">cm</span>
+            </div>
+            
+            <div class="form-notes">
+                <h4>How to Measure:</h4>
+                <ul>
+                    <li><strong>Neck:</strong> Measure at the narrowest point, just below the larynx (Adam's apple)</li>
+                    <li><strong>Waist:</strong> For males, measure at navel level. For females, at the narrowest point of the abdomen</li>
+                    <li><strong>Hip (females only):</strong> Measure at the widest point around the buttocks</li>
+                </ul>
+            </div>
+            
+            <button id="calculate-btn" class="calculate-btn" onclick="calculate()">Calculate Body Fat</button>
+        </div>
+        
+        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
+            <h2>Your Body Fat Results</h2>
+            <div class="macro-card-grid">
+                <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-top: 4px solid #d63384; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #d63384; font-weight: 600;">Estimated Body Fat %</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Body Fat %:</strong> <span id="body-fat-percentage">--%</span></li>
+                        <li><strong>Compliance:</strong> <span id="army-compliance">--</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Middle Ad -->
+    <div class="adunit-middle" style="margin: 40px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="army-body-fat-calculator-mid"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Related Guide Section -->
+    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+      <h3 style="color: #333; margin-top: 0;">📘 Related Tool</h3>
+      <p>
+        Want to calculate your ideal body weight based on height and body frame? Our Ideal Body Weight Calculator uses evidence-based formulas to estimate your healthy weight range.
+        <a href="/ideal-body-weight-calculator" style="color: #d63384; text-decoration: none; font-weight: 500;">
+          Try the Ideal Body Weight Calculator →
+        </a>
+      </p>
+    </div>
+    <!-- END Related Guide Section -->
+
+    <section id="how-to-use">
+        <div class="info">
+            <h2>How to Use the Army Body Fat Calculator</h2>
+            <ul>
+                <li>Select gender and enter your height and age.</li>
+                <li>Enter your neck and waist circumference (for women, also hip circumference).</li>
+                <li>Choose your unit system: inches or centimeters.</li>
+                <li>Click "Calculate" to get your body fat percentage and compliance status.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>What is the Army body fat standard?</h4>
+                <p>The U.S. Army uses age- and gender-based standards to determine whether a soldier meets body composition requirements. These are published in Army Regulation 600-9.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How accurate is the Army tape test?</h4>
+                <p>It provides an estimate but is less precise than DEXA or hydrostatic weighing. This calculator uses the same formula to help prepare for official assessments.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I use this tool if I'm not in the military?</h4>
+                <p>Yes — anyone can use it to track body fat percentage or compare results to Army standards.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does the calculator support both metric and imperial?</h4>
+                <p>Yes. You can toggle between inches and centimeters depending on your preference.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0 20px;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="army-body-fat-calculator-bottom"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <footer class="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator provides educational estimates and is not affiliated with the U.S. Department of Defense or any military institution.</p>
+    </footer>
+    
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/army_body_fat_calculator.js') }}"></script>
+    <script>
+    // Show/hide hip measurement field based on gender selection
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('gender').addEventListener('change', function() {
+            const femaleFields = document.querySelectorAll('.female-only');
+            if (this.value === 'female') {
+                femaleFields.forEach(field => {
+                    if (field.classList.contains('imperial-field') && unitSystem === 'imperial') {
+                        field.style.display = 'block';
+                    } else if (field.classList.contains('metric-field') && unitSystem === 'metric') {
+                        field.style.display = 'block';
+                    }
+                });
+            } else {
+                femaleFields.forEach(field => field.style.display = 'none');
+            }
+        });
+    });
+    </script>
+</body>
+</html>

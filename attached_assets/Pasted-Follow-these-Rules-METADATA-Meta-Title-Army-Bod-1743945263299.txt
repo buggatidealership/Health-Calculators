@@ -1,0 +1,471 @@
+Follow these Rules: 
+
+// ----------------- METADATA -----------------
+// Meta Title
+// “Army Body Fat Calculator – Tape Test % Estimator”
+// Meta Description
+// “Use this Army Body Fat Calculator to estimate your body fat percentage using tape test standards. Based on gender, age, height, neck, and waist.”
+// OG Title
+// “Army Body Fat Calculator”
+// OG Description
+// “Estimate your body fat percentage using U.S. Army tape test standards. Includes male and female methods with quick results.”
+// OG URL
+// https://healthcalculators.xyz/army-body-fat-calculator
+// OG Image
+// https://healthcalculators.xyz/static/images/army-body-fat-calculator-og.jpg
+// Canonical
+// https://healthcalculators.xyz/army-body-fat-calculator
+
+// ----------------- COMPONENT -----------------
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function ArmyBodyFatCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Army Body Fat Calculator</h1>
+      <p className="subtitle">
+        Estimate your body fat percentage using the U.S. Army tape test method. This tool works for both male and female standards based on current military guidelines.
+      </p>
+
+      <AdUnit slot="army-body-fat-calculator-top" />
+
+      <div className="info">
+        <p className="disclaimer">
+          <strong>This tool provides educational estimates.</strong> Official testing and validation should be conducted by qualified personnel.
+        </p>
+      </div>
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Army Body Fat Calculator</a></li>
+          <li><a href="#how-to-use">How to Use the Calculator</a></li>
+          <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        <div className="calculator">
+          {/* Unit Selector UI */}
+          <div className="form-group">
+            <label style={{ fontWeight: 600 }}>Measurement Units:</label>
+            <div style={{ display: "flex", gap: "10px", marginTop: "8px" }}>
+              <button type="button" id="metric-btn" className="unit-btn active" onClick={() => setUnit("metric")}>Metric (cm)</button>
+              <button type="button" id="imperial-btn" className="unit-btn" onClick={() => setUnit("imperial")}>Imperial (in)</button>
+            </div>
+          </div>
+
+          {/* Claude or Deepseek generated calculator module goes here */}
+          <div dangerouslySetInnerHTML={{ __html: `<!-- BEGIN GENERATED MODULE -->
+import React, { useState } from 'react';
+
+const ArmyBodyFatCalculator = () => {
+  const [gender, setGender] = useState('male');
+  const [age, setAge] = useState(25);
+  const [unitSystem, setUnitSystem] = useState('imperial');
+ 
+  // Imperial measurements
+  const [heightFeet, setHeightFeet] = useState(5);
+  const [heightInches, setHeightInches] = useState(9);
+  const [neckInches, setNeckInches] = useState(16);
+  const [waistInches, setWaistInches] = useState(34);
+  const [hipInches, setHipInches] = useState(36);
+ 
+  // Metric measurements
+  const [heightCm, setHeightCm] = useState(175);
+  const [neckCm, setNeckCm] = useState(40);
+  const [waistCm, setWaistCm] = useState(86);
+  const [hipCm, setHipCm] = useState(91);
+ 
+  const [result, setResult] = useState(null);
+  const [status, setStatus] = useState('');
+
+  const calculateBodyFat = () => {
+    let heightInInches, neckInInches, waistInInches, hipInInches;
+   
+    // Convert all measurements to inches for the calculation
+    if (unitSystem === 'imperial') {
+      heightInInches = (heightFeet * 12) + heightInches;
+      neckInInches = neckInches;
+      waistInInches = waistInches;
+      hipInInches = hipInches;
+    } else {
+      // Convert cm to inches (1 inch = 2.54 cm)
+      heightInInches = heightCm / 2.54;
+      neckInInches = neckCm / 2.54;
+      waistInInches = waistCm / 2.54;
+      hipInInches = hipCm / 2.54;
+    }
+   
+    let bodyFatPercentage;
+   
+    if (gender === 'male') {
+      // Men: % body fat = 163.205 × log10(waist - neck) - 97.684 × log10(height) - 78.387
+      bodyFatPercentage = 163.205 * Math.log10(waistInInches - neckInInches) - 97.684 * Math.log10(heightInInches) - 78.387;
+    } else {
+      // Women: % body fat = 163.205 × log10(waist + hip - neck) - 97.684 × log10(height) - 104.912
+      bodyFatPercentage = 163.205 * Math.log10(waistInInches + hipInInches - neckInInches) - 97.684 * Math.log10(heightInInches) - 104.912;
+    }
+   
+    // Round to one decimal place
+    bodyFatPercentage = Math.round(bodyFatPercentage * 10) / 10;
+   
+    // Handle any calculation errors or invalid inputs
+    if (isNaN(bodyFatPercentage) || !isFinite(bodyFatPercentage)) {
+      setResult("Error");
+      setStatus("Please check your measurements. Ensure neck measurement is smaller than waist measurement.");
+      return;
+    }
+   
+    // Ensure body fat can't be negative
+    bodyFatPercentage = Math.max(bodyFatPercentage, 0);
+   
+    setResult(bodyFatPercentage);
+   
+    // Determine status based on Army standards
+    determineStatus(bodyFatPercentage);
+  };
+ 
+  const determineStatus = (bodyFat) => {
+    // Army body fat standards by age and gender
+    const standards = {
+      male: {
+        '17-20': 20,
+        '21-27': 22,
+        '28-39': 24,
+        '40+': 26
+      },
+      female: {
+        '17-20': 30,
+        '21-27': 32,
+        '28-39': 34,
+        '40+': 36
+      }
+    };
+   
+    let ageGroup;
+    if (age <= 20) ageGroup = '17-20';
+    else if (age <= 27) ageGroup = '21-27';
+    else if (age <= 39) ageGroup = '28-39';
+    else ageGroup = '40+';
+   
+    const maxAllowed = standards[gender][ageGroup];
+   
+    if (bodyFat <= maxAllowed) {
+      setStatus(`✅ PASS: You are within the Army standard for your age group (${ageGroup}): ${maxAllowed}%`);
+    } else {
+      setStatus(`❌ FAIL: You exceed the maximum allowed body fat for your age group (${ageGroup}): ${maxAllowed}%`);
+    }
+  };
+
+  return (
+    <div className="p-6 max-w-lg mx-auto bg-white shadow-md rounded-lg">
+      <h1 className="text-2xl font-bold text-center mb-6">U.S. Army Body Fat Calculator</h1>
+     
+      <div className="space-y-4">
+        <div>
+          <label className="block mb-1 font-medium">Gender</label>
+          <select
+            className="w-full p-2 border rounded"
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+          >
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
+       
+        <div>
+          <label className="block mb-1 font-medium">Age</label>
+          <input
+            type="number"
+            className="w-full p-2 border rounded"
+            value={age}
+            onChange={(e) => setAge(parseInt(e.target.value) || 17)}
+            min="17"
+            max="100"
+          />
+        </div>
+       
+        <div>
+          <label className="block mb-1 font-medium">Unit System</label>
+          <div className="flex gap-4">
+            <label className="flex items-center">
+              <input
+                type="radio"
+                checked={unitSystem === 'imperial'}
+                onChange={() => setUnitSystem('imperial')}
+                className="mr-2"
+              />
+              Imperial (in)
+            </label>
+            <label className="flex items-center">
+              <input
+                type="radio"
+                checked={unitSystem === 'metric'}
+                onChange={() => setUnitSystem('metric')}
+                className="mr-2"
+              />
+              Metric (cm)
+            </label>
+          </div>
+        </div>
+       
+        {/* Measurements section - changes based on unit system */}
+        {unitSystem === 'imperial' ? (
+          <>
+            <div>
+              <label className="block mb-1 font-medium">Height</label>
+              <div className="flex gap-2">
+                <div className="w-1/2">
+                  <input
+                    type="number"
+                    className="w-full p-2 border rounded"
+                    value={heightFeet}
+                    onChange={(e) => setHeightFeet(parseInt(e.target.value) || 5)}
+                    min="4"
+                    max="7"
+                    placeholder="Feet"
+                  />
+                  <span className="text-xs text-gray-500">feet</span>
+                </div>
+                <div className="w-1/2">
+                  <input
+                    type="number"
+                    className="w-full p-2 border rounded"
+                    value={heightInches}
+                    onChange={(e) => setHeightInches(parseInt(e.target.value) || 0)}
+                    min="0"
+                    max="11"
+                    placeholder="Inches"
+                  />
+                  <span className="text-xs text-gray-500">inches</span>
+                </div>
+              </div>
+            </div>
+           
+            <div>
+              <label className="block mb-1 font-medium">Neck Circumference</label>
+              <div className="relative">
+                <input
+                  type="number"
+                  className="w-full p-2 border rounded"
+                  value={neckInches}
+                  onChange={(e) => setNeckInches(parseFloat(e.target.value) || 10)}
+                  min="10"
+                  max="30"
+                  step="0.5"
+                />
+                <span className="text-xs text-gray-500">inches</span>
+              </div>
+            </div>
+           
+            <div>
+              <label className="block mb-1 font-medium">Waist Circumference</label>
+              <div className="relative">
+                <input
+                  type="number"
+                  className="w-full p-2 border rounded"
+                  value={waistInches}
+                  onChange={(e) => setWaistInches(parseFloat(e.target.value) || 20)}
+                  min="20"
+                  max="60"
+                  step="0.5"
+                />
+                <span className="text-xs text-gray-500">inches</span>
+              </div>
+            </div>
+           
+            {gender === 'female' && (
+              <div>
+                <label className="block mb-1 font-medium">Hip Circumference</label>
+                <div className="relative">
+                  <input
+                    type="number"
+                    className="w-full p-2 border rounded"
+                    value={hipInches}
+                    onChange={(e) => setHipInches(parseFloat(e.target.value) || 20)}
+                    min="20"
+                    max="60"
+                    step="0.5"
+                  />
+                  <span className="text-xs text-gray-500">inches</span>
+                </div>
+              </div>
+            )}
+          </>
+        ) : (
+          <>
+            <div>
+              <label className="block mb-1 font-medium">Height</label>
+              <div className="relative">
+                <input
+                  type="number"
+                  className="w-full p-2 border rounded"
+                  value={heightCm}
+                  onChange={(e) => setHeightCm(parseInt(e.target.value) || 150)}
+                  min="150"
+                  max="220"
+                />
+                <span className="text-xs text-gray-500">cm</span>
+              </div>
+            </div>
+           
+            <div>
+              <label className="block mb-1 font-medium">Neck Circumference</label>
+              <div className="relative">
+                <input
+                  type="number"
+                  className="w-full p-2 border rounded"
+                  value={neckCm}
+                  onChange={(e) => setNeckCm(parseFloat(e.target.value) || 25)}
+                  min="25"
+                  max="75"
+                  step="0.5"
+                />
+                <span className="text-xs text-gray-500">cm</span>
+              </div>
+            </div>
+           
+            <div>
+              <label className="block mb-1 font-medium">Waist Circumference</label>
+              <div className="relative">
+                <input
+                  type="number"
+                  className="w-full p-2 border rounded"
+                  value={waistCm}
+                  onChange={(e) => setWaistCm(parseFloat(e.target.value) || 50)}
+                  min="50"
+                  max="150"
+                  step="0.5"
+                />
+                <span className="text-xs text-gray-500">cm</span>
+              </div>
+            </div>
+           
+            {gender === 'female' && (
+              <div>
+                <label className="block mb-1 font-medium">Hip Circumference</label>
+                <div className="relative">
+                  <input
+                    type="number"
+                    className="w-full p-2 border rounded"
+                    value={hipCm}
+                    onChange={(e) => setHipCm(parseFloat(e.target.value) || 50)}
+                    min="50"
+                    max="150"
+                    step="0.5"
+                  />
+                  <span className="text-xs text-gray-500">cm</span>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+       
+        <button
+          className="w-full p-2 bg-blue-600 text-white rounded font-medium hover:bg-blue-700"
+          onClick={calculateBodyFat}
+        >
+          Calculate Body Fat
+        </button>
+       
+        {result !== null && (
+          <div className="mt-6">
+            <div className="p-4 bg-gray-100 rounded-lg">
+              <h2 className="text-xl font-bold mb-2">Results</h2>
+              {result === "Error" ? (
+                <p className="text-red-500">{status}</p>
+              ) : (
+                <>
+                  <p className="text-lg">Body Fat Percentage: <span className="font-bold">{result}%</span></p>
+                  <p className="mt-2">{status}</p>
+                </>
+              )}
+            </div>
+          </div>
+        )}
+       
+        <div className="mt-4 text-sm text-gray-600">
+          <h3 className="font-medium">How to measure:</h3>
+          <ul className="list-disc pl-5 mt-1 space-y-1">
+            <li>Neck: Measure at the narrowest point, usually just below the larynx (Adam's apple)</li>
+            <li>Waist: For males, measure at navel level. For females, at the narrowest point of the abdomen</li>
+            {gender === 'female' && <li>Hip: Measure at the widest point around the buttocks</li>}
+            <li>All measurements should be taken while standing</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
+<!-- END GENERATED MODULE -->` }} />
+
+          <div id="results" className="results-section" style={{ display: 'none', marginTop: 30 }}>
+            <h2>Your Body Fat Results</h2>
+            <div className="macro-card-grid">
+              <div style={{ backgroundColor: '#f8f9fa', borderRadius: 8, padding: 20, borderTop: '4px solid #d63384', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                <h3 style={{ marginTop: 0, color: '#d63384', fontWeight: 600 }}>Estimated Body Fat %</h3>
+                <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+                  <li><strong>Body Fat %:</strong> <span id="body-fat-percentage">--%</span></li>
+                  <li><strong>Compliance:</strong> <span id="army-compliance">--</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <AdUnit slot="army-body-fat-calculator-mid" />
+
+      {/* INSERT-RELATED-GUIDE-HERE if article exists */}
+
+      <section id="how-to-use" style={{ marginTop: 60 }}>
+        <div className="info">
+          <h2><BarChart className="section-icon" /> How to Use the Army Body Fat Calculator</h2>
+          <ul>
+            <li>Select gender and enter your height and age.</li>
+            <li>Enter your neck and waist circumference (for women, also hip circumference).</li>
+            <li>Choose your unit system: inches or centimeters.</li>
+            <li>Click "Calculate" to get your body fat percentage and compliance status.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div className="faq-section">
+          <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+
+          <div className="faq-item">
+            <h4>What is the Army body fat standard?</h4>
+            <p>The U.S. Army uses age- and gender-based standards to determine whether a soldier meets body composition requirements. These are published in Army Regulation 600-9.</p>
+          </div>
+
+          <div className="faq-item">
+            <h4>How accurate is the Army tape test?</h4>
+            <p>It provides an estimate but is less precise than DEXA or hydrostatic weighing. This calculator uses the same formula to help prepare for official assessments.</p>
+          </div>
+
+          <div className="faq-item">
+            <h4>Can I use this tool if I’m not in the military?</h4>
+            <p>Yes — anyone can use it to track body fat percentage or compare results to Army standards.</p>
+          </div>
+
+          <div className="faq-item">
+            <h4>Does the calculator support both metric and imperial?</h4>
+            <p>Yes. You can toggle between inches and centimeters depending on your preference.</p>
+          </div>
+        </div>
+      </section>
+
+      <AdUnit slot="army-body-fat-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator provides educational estimates and is not affiliated with the U.S. Department of Defense or any military institution.</p>
+      </footer>
+    </div>
+  );
+}
