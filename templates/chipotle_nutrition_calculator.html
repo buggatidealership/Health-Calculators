@@ -102,8 +102,8 @@
             <!-- Chipotle Calculator HTML and CSS -->
             <style>
                 :root {
-                  --primary: #4d7c0f;
-                  --primary-light: #ecfccb;
+                  --primary: #d63384;
+                  --primary-light: #f5d0e3;
                   --border-color: #d1d5db;
                   --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
                 }
@@ -118,15 +118,16 @@
                 }
                 
                 .ingredient-grid {
-                  display: grid;
-                  grid-template-columns: repeat(2, 1fr);
+                  display: flex;
+                  flex-wrap: wrap;
                   gap: 10px;
+                  margin-top: 12px;
                 }
                 
                 .ingredient-button {
-                  padding: 10px;
-                  border-radius: 6px;
-                  border: 1px solid var(--border-color);
+                  padding: 8px 16px;
+                  border-radius: 4px;
+                  border: 1px solid #dee2e6;
                   background-color: white;
                   cursor: pointer;
                   display: flex;
@@ -134,15 +135,26 @@
                   align-items: center;
                   text-align: left;
                   transition: all 0.2s;
+                  font-weight: 500;
+                  color: #212529;
+                  min-width: 120px;
                 }
                 
                 .ingredient-button:hover {
-                  border-color: var(--primary);
+                  border-color: #d63384;
+                  background-color: #f8f9fa;
                 }
                 
-                .ingredient-button.selected {
+                .ingredient-button.active {
+                  background-color: #d63384;
+                  border-color: #d63384;
+                  color: white;
+                }
+                .nutrition-summary {
                   background-color: var(--primary-light);
-                  border-color: var(--primary);
+                  border-radius: 8px;
+                  padding: 16px;
+                  margin-bottom: 24px;
                 }
                 
                 .ingredient-calories {
@@ -175,14 +187,14 @@
                   padding: 10px;
                   text-align: center;
                   box-shadow: var(--shadow);
+                @media (max-width: 640px) {
+                  .nutrition-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                  }
+                  .ingredient-grid {
+                    justify-content: center;
+                  }
                 }
-                
-                .nutrition-value {
-                  font-size: 18px;
-                  font-weight: bold;
-                }
-                
-                .nutrition-label {
                   font-size: 12px;
                   color: #6b7280;
                 }
@@ -367,10 +379,10 @@
                     
                     if (index === -1) {
                         state.selectedBases.push(name);
-                        button.classList.add('selected');
+                        button.classList.add('active');
                     } else {
                         state.selectedBases.splice(index, 1);
-                        button.classList.remove('selected');
+                        button.classList.remove('active');
                     }
                     
                     calculateNutrition();
@@ -382,12 +394,12 @@
                     if (state.selectedProtein !== "None") {
                         const prevButton = document.querySelector(`#proteins button[data-name="${state.selectedProtein}"]`);
                         if (prevButton) {
-                            prevButton.classList.remove('selected');
+                            prevButton.classList.remove('active');
                         }
                     }
                     
                     state.selectedProtein = name;
-                    button.classList.add('selected');
+                    button.classList.add('active');
                     calculateNutrition();
                 }
 
@@ -397,10 +409,10 @@
                     
                     if (index === -1) {
                         state.selectedToppings.push(name);
-                        button.classList.add('selected');
+                        button.classList.add('active');
                     } else {
                         state.selectedToppings.splice(index, 1);
-                        button.classList.remove('selected');
+                        button.classList.remove('active');
                     }
                     
                     calculateNutrition();
@@ -412,10 +424,10 @@
                     
                     if (index === -1) {
                         state.selectedExtras.push(name);
-                        button.classList.add('selected');
+                        button.classList.add('active');
                     } else {
                         state.selectedExtras.splice(index, 1);
-                        button.classList.remove('selected');
+                        button.classList.remove('active');
                     }
                     
                     calculateNutrition();
