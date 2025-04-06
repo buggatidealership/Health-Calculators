@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "chipotle-nutrition-calculator-og.jpg" %}
+{% with 
+    meta_description="Build your Chipotle order and see real-time nutrition facts: calories, protein, carbs, fat, and fiber. Includes all protein, toppings, and sides.",
+    meta_keywords="chipotle nutrition calculator, chipotle calories, chipotle macros, chipotle burrito calories, chipotle bowl nutrition, chipotle diet",
+    og_title="Chipotle Nutrition Calculator",
+    og_description="Customize your Chipotle burrito, bowl, taco, or salad and instantly see updated macros. Track calories, sugar, protein, and more.",
+    og_url="/chipotle-nutrition-calculator",
+    page_title="Chipotle Nutrition Calculator – Customize Burritos, Bowls & Tacos",
+    canonical_url="/chipotle-nutrition-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where does the nutrition data come from?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "All nutrition data is based on Chipotle's official ingredient and allergen guide, as well as USDA food database entries."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use this to track macros or cut calories?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — you can instantly adjust ingredients and see how your Chipotle meal fits into your macro goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are vegan and vegetarian options supported?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, you can customize with sofritas, black beans, fajita veggies, guacamole, and more."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does this calculator work for delivery orders?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes — ingredient macros match in-store and digital orders. Custom portioning may vary slightly."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Chipotle Nutrition Calculator</h1>
+    <p class="subtitle">Customize your Chipotle burrito, bowl, tacos, or salad and instantly see the nutrition breakdown. Adjust your order to meet your macros.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides educational estimates only. Nutrition values are based on Chipotle's published data but may vary by location or preparation. For medical concerns, consult a registered dietitian.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="chipotle-nutrition-calculator-top"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label style="font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (g/ml)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (oz/fl oz)</button>
+                </div>
+            </div>
+            
+            <!-- Chipotle Calculator HTML and CSS -->
+            <style>
+                :root {
+                  --primary: #4d7c0f;
+                  --primary-light: #ecfccb;
+                  --border-color: #d1d5db;
+                  --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                }
+                
+                .ingredient-section {
+                  margin-bottom: 24px;
+                }
+                
+                .ingredient-section h2 {
+                  font-size: 18px;
+                  margin-bottom: 12px;
+                }
+                
+                .ingredient-grid {
+                  display: grid;
+                  grid-template-columns: repeat(2, 1fr);
+                  gap: 10px;
+                }
+                
+                .ingredient-button {
+                  padding: 10px;
+                  border-radius: 6px;
+                  border: 1px solid var(--border-color);
+                  background-color: white;
+                  cursor: pointer;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
+                  text-align: left;
+                  transition: all 0.2s;
+                }
+                
+                .ingredient-button:hover {
+                  border-color: var(--primary);
+                }
+                
+                .ingredient-button.selected {
+                  background-color: var(--primary-light);
+                  border-color: var(--primary);
+                }
+                
+                .ingredient-calories {
+                  font-size: 12px;
+                  color: #6b7280;
+                }
+                
+                .nutrition-summary {
+                  background-color: var(--primary-light);
+                  border-radius: 8px;
+                  padding: 16px;
+                  margin-bottom: 24px;
+                }
+                
+                .nutrition-summary h2 {
+                  font-size: 18px;
+                  margin-bottom: 12px;
+                  color: var(--primary);
+                }
+                
+                .nutrition-grid {
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  gap: 10px;
+                }
+                
+                .nutrition-item {
+                  background-color: white;
+                  border-radius: 6px;
+                  padding: 10px;
+                  text-align: center;
+                  box-shadow: var(--shadow);
+                }
+                
+                .nutrition-value {
+                  font-size: 18px;
+                  font-weight: bold;
+                }
+                
+                .nutrition-label {
+                  font-size: 12px;
+                  color: #6b7280;
+                }
+                
+                @media (max-width: 640px) {
+                  .nutrition-grid {
+                    grid-template-columns: repeat(3, 1fr);
+                  }
+                  .ingredient-grid {
+                    grid-template-columns: 1fr;
+                  }
+                }
+            </style>
+            
+            <div class="nutrition-summary">
+                <h2>Nutrition Summary</h2>
+                <div class="nutrition-grid">
+                    <div class="nutrition-item">
+                        <div id="total-calories" class="nutrition-value">0</div>
+                        <div class="nutrition-label">Calories</div>
+                    </div>
+                    <div class="nutrition-item">
+                        <div id="total-protein" class="nutrition-value">0g</div>
+                        <div class="nutrition-label">Protein</div>
+                    </div>
+                    <div class="nutrition-item">
+                        <div id="total-carbs" class="nutrition-value">0g</div>
+                        <div class="nutrition-label">Carbs</div>
+                    </div>
+                    <div class="nutrition-item">
+                        <div id="total-fat" class="nutrition-value">0g</div>
+                        <div class="nutrition-label">Fat</div>
+                    </div>
+                    <div class="nutrition-item">
+                        <div id="total-fiber" class="nutrition-value">0g</div>
+                        <div class="nutrition-label">Fiber</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="ingredient-section">
+                <h2>Choose Your Base</h2>
+                <div id="bases" class="ingredient-grid"></div>
+            </div>
+            
+            <div class="ingredient-section">
+                <h2>Choose Your Protein</h2>
+                <div id="proteins" class="ingredient-grid"></div>
+            </div>
+            
+            <div class="ingredient-section">
+                <h2>Choose Your Toppings</h2>
+                <div id="toppings" class="ingredient-grid"></div>
+            </div>
+            
+            <div class="ingredient-section">
+                <h2>Extras</h2>
+                <div id="extras" class="ingredient-grid"></div>
+            </div>
+            
+            <script>
+                // Set up unit toggle functionality
+                function setUnit(unit) {
+                    if (unit === 'metric') {
+                        document.getElementById('metric-btn').classList.add('active');
+                        document.getElementById('imperial-btn').classList.remove('active');
+                    } else {
+                        document.getElementById('metric-btn').classList.remove('active');
+                        document.getElementById('imperial-btn').classList.add('active');
+                    }
+                    // Re-calculate with new units
+                    calculateNutrition();
+                }
+                
+                // Nutritional data for Chipotle ingredients
+                const nutritionData = {
+                    bases: [
+                        { name: "White Rice", calories: 210, protein: 4, carbs: 40, fat: 4, fiber: 1 },
+                        { name: "Brown Rice", calories: 210, protein: 4, carbs: 39, fat: 6, fiber: 2 },
+                        { name: "Cauliflower Rice", calories: 40, protein: 3, carbs: 7, fat: 1, fiber: 3 },
+                        { name: "Black Beans", calories: 130, protein: 8, carbs: 22, fat: 1, fiber: 7 },
+                        { name: "Pinto Beans", calories: 130, protein: 8, carbs: 21, fat: 1.5, fiber: 8 },
+                        { name: "Lettuce", calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 1 }
+                    ],
+                    proteins: [
+                        { name: "Chicken", calories: 180, protein: 32, carbs: 0, fat: 7, fiber: 0 },
+                        { name: "Steak", calories: 150, protein: 21, carbs: 1, fat: 6, fiber: 0 },
+                        { name: "Barbacoa", calories: 170, protein: 24, carbs: 2, fat: 7, fiber: 1 },
+                        { name: "Carnitas", calories: 210, protein: 23, carbs: 0, fat: 12, fiber: 0 },
+                        { name: "Sofritas", calories: 150, protein: 8, carbs: 9, fat: 10, fiber: 3 },
+                        { name: "None", calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0 }
+                    ],
+                    toppings: [
+                        { name: "Fajita Veggies", calories: 20, protein: 1, carbs: 5, fat: 0, fiber: 1 },
+                        { name: "Queso Blanco", calories: 120, protein: 5, carbs: 2, fat: 9, fiber: 0 },
+                        { name: "Fresh Tomato Salsa", calories: 25, protein: 0, carbs: 4, fat: 0, fiber: 1 },
+                        { name: "Roasted Chili-Corn Salsa", calories: 80, protein: 3, carbs: 16, fat: 1.5, fiber: 3 },
+                        { name: "Tomatillo Green-Chili Salsa", calories: 15, protein: 0, carbs: 4, fat: 0, fiber: 1 },
+                        { name: "Tomatillo Red-Chili Salsa", calories: 30, protein: 0, carbs: 4, fat: 1, fiber: 1 },
+                        { name: "Sour Cream", calories: 110, protein: 2, carbs: 2, fat: 9, fiber: 0 },
+                        { name: "Cheese", calories: 110, protein: 6, carbs: 1, fat: 9, fiber: 0 },
+                        { name: "Guacamole", calories: 230, protein: 2, carbs: 8, fat: 22, fiber: 6 }
+                    ],
+                    extras: [
+                        { name: "Tortilla (Burrito)", calories: 320, protein: 8, carbs: 50, fat: 10, fiber: 3 },
+                        { name: "Tortilla (Taco)", calories: 90, protein: 2, carbs: 13, fat: 3, fiber: 1 },
+                        { name: "Chips", calories: 540, protein: 8, carbs: 73, fat: 25, fiber: 8 },
+                        { name: "Chips & Guacamole", calories: 770, protein: 10, carbs: 81, fat: 47, fiber: 14 },
+                        { name: "Chips & Queso", calories: 660, protein: 13, carbs: 75, fat: 34, fiber: 8 }
+                    ]
+                };
+
+                // State for selected ingredients
+                const state = {
+                    selectedBases: [],
+                    selectedProtein: "None",
+                    selectedToppings: [],
+                    selectedExtras: [],
+                    totalNutrition: {
+                        calories: 0,
+                        protein: 0,
+                        carbs: 0,
+                        fat: 0,
+                        fiber: 0
+                    }
+                };
+
+                // DOM elements for totals
+                const totalElements = {
+                    calories: document.getElementById('total-calories'),
+                    protein: document.getElementById('total-protein'),
+                    carbs: document.getElementById('total-carbs'),
+                    fat: document.getElementById('total-fat'),
+                    fiber: document.getElementById('total-fiber')
+                };
+
+                // Initialize the UI
+                function initializeUI() {
+                    // Render base options
+                    renderIngredients('bases', nutritionData.bases, toggleBase);
+                    
+                    // Render protein options
+                    renderIngredients('proteins', nutritionData.proteins, selectProtein);
+                    
+                    // Render topping options
+                    renderIngredients('toppings', nutritionData.toppings, toggleTopping);
+                    
+                    // Render extras options
+                    renderIngredients('extras', nutritionData.extras, toggleExtra);
+                    
+                    // Initial calculation
+                    calculateNutrition();
+                }
+
+                // Render ingredient buttons
+                function renderIngredients(categoryId, ingredients, clickHandler) {
+                    const container = document.getElementById(categoryId);
+                    
+                    ingredients.forEach(ingredient => {
+                        const button = document.createElement('button');
+                        button.className = 'ingredient-button';
+                        button.setAttribute('data-name', ingredient.name);
+                        
+                        const nameSpan = document.createElement('span');
+                        nameSpan.textContent = ingredient.name;
+                        
+                        const caloriesSpan = document.createElement('span');
+                        caloriesSpan.className = 'ingredient-calories';
+                        caloriesSpan.textContent = `${ingredient.calories} cal`;
+                        
+                        button.appendChild(nameSpan);
+                        button.appendChild(caloriesSpan);
+                        button.addEventListener('click', () => clickHandler(ingredient.name, button));
+                        
+                        container.appendChild(button);
+                    });
+                }
+
+                // Toggle base selection
+                function toggleBase(name, button) {
+                    const index = state.selectedBases.indexOf(name);
+                    
+                    if (index === -1) {
+                        state.selectedBases.push(name);
+                        button.classList.add('selected');
+                    } else {
+                        state.selectedBases.splice(index, 1);
+                        button.classList.remove('selected');
+                    }
+                    
+                    calculateNutrition();
+                }
+
+                // Select protein (only one at a time)
+                function selectProtein(name, button) {
+                    // Deselect previous protein
+                    if (state.selectedProtein !== "None") {
+                        const prevButton = document.querySelector(`#proteins button[data-name="${state.selectedProtein}"]`);
+                        if (prevButton) {
+                            prevButton.classList.remove('selected');
+                        }
+                    }
+                    
+                    state.selectedProtein = name;
+                    button.classList.add('selected');
+                    calculateNutrition();
+                }
+
+                // Toggle topping selection
+                function toggleTopping(name, button) {
+                    const index = state.selectedToppings.indexOf(name);
+                    
+                    if (index === -1) {
+                        state.selectedToppings.push(name);
+                        button.classList.add('selected');
+                    } else {
+                        state.selectedToppings.splice(index, 1);
+                        button.classList.remove('selected');
+                    }
+                    
+                    calculateNutrition();
+                }
+
+                // Toggle extra selection
+                function toggleExtra(name, button) {
+                    const index = state.selectedExtras.indexOf(name);
+                    
+                    if (index === -1) {
+                        state.selectedExtras.push(name);
+                        button.classList.add('selected');
+                    } else {
+                        state.selectedExtras.splice(index, 1);
+                        button.classList.remove('selected');
+                    }
+                    
+                    calculateNutrition();
+                }
+
+                // Calculate nutrition totals when selections change
+                function calculateNutrition() {
+                    let totals = { calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0 };
+                    
+                    // Add base nutrition
+                    state.selectedBases.forEach(base => {
+                        const baseData = nutritionData.bases.find(item => item.name === base);
+                        if (baseData) {
+                            totals.calories += baseData.calories;
+                            totals.protein += baseData.protein;
+                            totals.carbs += baseData.carbs;
+                            totals.fat += baseData.fat;
+                            totals.fiber += baseData.fiber;
+                        }
+                    });
+                    
+                    // Add protein nutrition
+                    const proteinData = nutritionData.proteins.find(item => item.name === state.selectedProtein);
+                    if (proteinData) {
+                        totals.calories += proteinData.calories;
+                        totals.protein += proteinData.protein;
+                        totals.carbs += proteinData.carbs;
+                        totals.fat += proteinData.fat;
+                        totals.fiber += proteinData.fiber;
+                    }
+                    
+                    // Add toppings nutrition
+                    state.selectedToppings.forEach(topping => {
+                        const toppingData = nutritionData.toppings.find(item => item.name === topping);
+                        if (toppingData) {
+                            totals.calories += toppingData.calories;
+                            totals.protein += toppingData.protein;
+                            totals.carbs += toppingData.carbs;
+                            totals.fat += toppingData.fat;
+                            totals.fiber += toppingData.fiber;
+                        }
+                    });
+                    
+                    // Add extras nutrition
+                    state.selectedExtras.forEach(extra => {
+                        const extraData = nutritionData.extras.find(item => item.name === extra);
+                        if (extraData) {
+                            totals.calories += extraData.calories;
+                            totals.protein += extraData.protein;
+                            totals.carbs += extraData.carbs;
+                            totals.fat += extraData.fat;
+                            totals.fiber += extraData.fiber;
+                        }
+                    });
+                    
+                    // Update state
+                    state.totalNutrition = totals;
+                    
+                    // Update UI
+                    updateNutritionDisplay();
+                }
+
+                // Update nutrition display
+                function updateNutritionDisplay() {
+                    const unit = document.getElementById('imperial-btn').classList.contains('active') ? 'imperial' : 'metric';
+                    
+                    totalElements.calories.textContent = state.totalNutrition.calories;
+                    
+                    if (unit === 'imperial') {
+                        // Convert grams to ounces
+                        const ozConvert = 0.035274;
+                        totalElements.protein.textContent = `${(state.totalNutrition.protein * ozConvert).toFixed(1)}oz`;
+                        totalElements.carbs.textContent = `${(state.totalNutrition.carbs * ozConvert).toFixed(1)}oz`;
+                        totalElements.fat.textContent = `${(state.totalNutrition.fat * ozConvert).toFixed(1)}oz`;
+                        totalElements.fiber.textContent = `${(state.totalNutrition.fiber * ozConvert).toFixed(1)}oz`;
+                    } else {
+                        totalElements.protein.textContent = `${state.totalNutrition.protein}g`;
+                        totalElements.carbs.textContent = `${state.totalNutrition.carbs}g`;
+                        totalElements.fat.textContent = `${state.totalNutrition.fat}g`;
+                        totalElements.fiber.textContent = `${state.totalNutrition.fiber}g`;
+                    }
+                }
+
+                // Initialize the app when the page loads
+                window.addEventListener('DOMContentLoaded', initializeUI);
+            </script>
+            
+            <!-- Result Section - This is a duplicate of the nutrition summary but included to match other calculators -->
+            <div id="results" class="results-section" style="display: none; margin-top: 30px;">
+                <h2>Your Meal's Nutrition Breakdown</h2>
+                <div class="macro-card-grid">
+                    <div style="background-color: #e8f5e9; border-radius: 8px; padding: 20px; border-top: 4px solid #4caf50; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                        <h3 style="margin-top: 0; color: #2e7d32; font-weight: 600;">Macros</h3>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li><strong>Calories:</strong> <span id="calories">0 kcal</span></li>
+                            <li><strong>Protein:</strong> <span id="protein">0 g</span></li>
+                            <li><strong>Carbs:</strong> <span id="carbs">0 g</span></li>
+                            <li><strong>Fiber:</strong> <span id="fiber">0 g</span></li>
+                            <li><strong>Fat:</strong> <span id="fat">0 g</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Middle Ad -->
+    <div class="adunit-middle" style="margin: 40px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="chipotle-nutrition-calculator-mid"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <!-- Future Related Guide block would go here -->
+    
+    <section id="how-to-use">
+        <div class="info">
+            <h2>How to Use the Chipotle Nutrition Calculator</h2>
+            <ul>
+                <li>Start by selecting your meal base (bowl, burrito, salad, taco).</li>
+                <li>Choose your proteins, rice, beans, vegetables, and toppings.</li>
+                <li>Watch your nutrition stats update in real time below.</li>
+                <li>Switch units if needed between metric and imperial.</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="faq">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4>Where does the nutrition data come from?</h4>
+                <p>All nutrition data is based on Chipotle's official ingredient and allergen guide, as well as USDA food database entries.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I use this to track macros or cut calories?</h4>
+                <p>Yes — you can instantly adjust ingredients and see how your Chipotle meal fits into your macro goals.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Are vegan and vegetarian options supported?</h4>
+                <p>Yes, you can customize with sofritas, black beans, fajita veggies, guacamole, and more.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Does this calculator work for delivery orders?</h4>
+                <p>Yes — ingredient macros match in-store and digital orders. Custom portioning may vary slightly.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 40px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="chipotle-nutrition-calculator-bottom"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <div class="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for educational purposes only and is not affiliated with or endorsed by Chipotle Mexican Grill.</p>
+    </div>
+    
+    </div>
+    
+    <script>
+        // No additional JS needed for page functionality
+    </script>
+</body>
+</html>

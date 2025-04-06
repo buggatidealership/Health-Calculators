@@ -670,6 +670,19 @@ def bac_calculator():
         schema_url=schema_url
     )
 
+@app.route('/chipotle-nutrition-calculator')
+def chipotle_nutrition_calculator():
+    schema_name = "Chipotle Nutrition Calculator"
+    schema_description = "Build your Chipotle order and see real-time nutrition facts: calories, protein, carbs, fat, and fiber. Includes all protein, toppings, and sides."
+    schema_url = "/chipotle-nutrition-calculator"
+    return render_template(
+        'chipotle_nutrition_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/starbucks-nutrition-calculator')
 def starbucks_nutrition_calculator():
     schema_name = "Starbucks Nutrition Calculator"
