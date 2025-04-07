@@ -168,12 +168,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://healthcalculators.xyz/resources/ivf-due-date-calculator-guide</loc>
-    <lastmod>2025-04-07</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://healthcalculators.xyz/resources/chipotle-nutrition-guide</loc>
     <lastmod>2025-04-07</lastmod>
     <priority>0.7</priority>
@@ -198,6 +192,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+  <url>
+    <loc>https://healthcalculators.xyz/resources/ivf-due-date-calculator-guide</loc>
+    <lastmod>2025-04-07</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
     <loc>https://healthcalculators.xyz/resources/fertility-after-35</loc>
     <lastmod>2025-04-07</lastmod>
     <priority>0.7</priority>
