@@ -1,0 +1,82 @@
+## Article Topic:
+`How to Calculate Your IVF Due Date (Fresh, Frozen & FET Timelines Explained)`
+
+This article supports the `/ivf-due-date-calculator` page by educating users on embryo transfer timing, due date prediction logic, and pregnancy tracking based on FET or fresh cycles.
+
+---
+
+## Content Guidelines:
+✅ Strictly base all content on credible, peer-reviewed scientific sources, clearly documented in footnotes.
+✅ Article length target: 1800–2500 words for depth and SEO authority.
+✅ Include a structured, hierarchical heading system (multiple clear H2, H3 tags explicitly included).
+✅ Provide clearly explained, numbered-step calculations/examples (if applicable).
+
+---
+
+## SEO & Schema Requirements:
+✅ SEO-optimized Meta Title (≤ 60 characters):
+`IVF Due Date Calculator Guide | Fresh vs Frozen Timeline`
+
+✅ Meta Description (≤ 155 characters):
+`Calculate your IVF due date based on embryo transfer date. Fresh, frozen, day 3 or day 5 — we've got your pregnancy timeline covered.`
+
+✅ Schema Type: `MedicalWebPage`
+✅ Canonical Tag: `https://longevitycalculator.xyz/resources/ivf-due-date-calculator-guide`
+✅ After deployment, add to `sitemap.xml` with `<priority>0.7</priority>` and `<changefreq>monthly`.
+
+---
+
+## Image Requirements:
+✅ All images must be `.webp` format
+✅ Include 2 visuals:
+1. IVF pregnancy timeline graphic (retrieval → transfer → due date)
+2. Day 3 vs Day 5 embryo transfer comparison table
+
+Example:
+```html
+<img src="/static/images/resources/ivf-transfer-timeline.webp" alt="IVF pregnancy timeline for FET and fresh cycles" width="800" height="500" loading="lazy" />
+```
+
+---
+
+## AdSense Integration:
+```html
+<AdUnit slot="ivf-due-date-calculator-guide-top" />
+<AdUnit slot="ivf-due-date-calculator-guide-mid" />
+<AdUnit slot="ivf-due-date-calculator-guide-bottom" />
+```
+
+---
+
+## Internal Linking & Navigation:
+✅ Link to: `/ivf-due-date-calculator` (anchor: "IVF Due Date Calculator")
+✅ Link to: `/fertility-after-35`, `/pregnancy-due-date-calculator`
+✅ Include CTA card linking back to calculator with pink button
+✅ Include a Table of Contents with anchor navigation
+
+---
+
+## Performance & Accessibility Checklist:
+✅ JavaScript and CSS assets minimized; avoid render-blocking scripts.
+✅ Optimize image sizes explicitly for improved load speeds.
+✅ Confirm structured, hierarchical heading usage (H2, H3, etc.) to satisfy Screaming Frog and Google audits.
+
+---
+
+## Screaming Frog SEO Validation Checklist:
+✅ Confirm article includes internal outbound links to avoid orphan status.
+✅ Canonical tag is explicitly correct.
+✅ Ensure content hierarchy completeness (H1, H2, H3).
+
+---
+
+## Deployment & QA:
+✅ Match existing successful article formatting precisely (spacing, button styles, CTA placements).
+✅ Validate JSX/HTML syntax explicitly for compilation errors before publishing (especially `SEOHead.tsx`).
+✅ Do NOT use `{% include 'footer.html' %}` — instead, inline the footer markup as shown in live articles.
+
+---
+
+## Final URL for Article:
+```
+https://longevitycalculator.xyz/resources/ivf-due-date-calculator-guide

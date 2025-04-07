@@ -840,5 +840,15 @@ def chipotle_nutrition_guide():
         schema_url="/resources/chipotle-nutrition-guide"
     )
 
+@app.route('/resources/ivf-due-date-calculator-guide')
+def ivf_due_date_calculator_guide():
+    return render_template(
+        'resources/ivf_due_date_calculator_guide.html',
+        is_homepage=False,
+        schema_name="IVF Due Date Calculator Guide | Fresh vs Frozen Timeline",
+        schema_description="Calculate your IVF due date based on embryo transfer date. Fresh, frozen, day 3 or day 5 — we've got your pregnancy timeline covered.",
+        schema_url="/resources/ivf-due-date-calculator-guide"
+    )
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
