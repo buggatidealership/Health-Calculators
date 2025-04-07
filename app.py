@@ -499,14 +499,6 @@ articles = [
         "icon": "💉",
         "cta": "View Guide",
         "color": "teal"
-    },
-    {
-        "title": "How to Calculate Your IVF Due Date (Fresh vs. Frozen Transfer Explained)",
-        "url": "/resources/ivf-due-date-calculator-guide",
-        "summary": "Learn how IVF due dates differ from natural conception, calculate your timeline, and understand the differences between fresh and frozen embryo transfers.",
-        "icon": "🗓️",
-        "cta": "Read Guide",
-        "color": "purple"
     }
 ]
 
@@ -846,16 +838,6 @@ def chipotle_nutrition_guide():
         schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
         schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
         schema_url="/resources/chipotle-nutrition-guide"
-    )
-
-@app.route('/resources/ivf-due-date-calculator-guide')
-def ivf_due_date_calculator_guide():
-    return render_template(
-        'resources/ivf_due_date_calculator_guide.html',
-        is_homepage=False,
-        schema_name="IVF Due Date Calculator Guide | Fresh vs. Frozen Transfer Timelines",
-        schema_description="Learn how IVF due dates differ from natural conception, calculate your timeline, and understand the differences between fresh and frozen embryo transfers.",
-        schema_url="/resources/ivf-due-date-calculator-guide"
     )
 
 if __name__ == '__main__':
