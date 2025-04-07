@@ -499,6 +499,14 @@ articles = [
         "icon": "💉",
         "cta": "View Guide",
         "color": "teal"
+    },
+    {
+        "title": "How to Calculate Your IVF Due Date (Fresh vs. Frozen Transfer Explained)",
+        "url": "/resources/ivf-due-date-calculator-guide",
+        "summary": "Learn how IVF due dates differ from natural conception, calculate your timeline, and understand the differences between fresh and frozen embryo transfers.",
+        "icon": "🗓️",
+        "cta": "Read Guide",
+        "color": "purple"
     }
 ]
 
