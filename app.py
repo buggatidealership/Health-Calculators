@@ -805,8 +805,8 @@ def starbucks_nutrition_guide():
     return render_template(
         'resources/starbucks_nutrition_guide.html',
         is_homepage=False,
-        schema_name="Starbucks Nutrition Calculator Guide | Calories & Macros",
-        schema_description="Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
+        schema_name="Starbucks Drink Nutrition Guide | Macros, Calories & Custom Orders",
+        schema_description="Track Starbucks drink macros with our step-by-step guide. Build low-sugar, high-protein drinks using our nutrition calculator.",
         schema_url="/resources/starbucks-nutrition-guide"
     )
 
@@ -816,7 +816,7 @@ def army_body_fat_calculator_guide():
         'resources/army_body_fat_calculator_guide.html',
         is_homepage=False,
         schema_name="Army Body Fat Calculator Guide | Tape Test Formula & Accuracy",
-        schema_description="Learn how the Army tape test works, how to measure body fat for compliance, and use our calculator for fast results.",
+        schema_description="Learn how the Army tape test method works, how to measure body fat for military compliance, and calculate your results quickly.",
         schema_url="/resources/army-body-fat-calculator-guide"
     )
 
@@ -835,8 +835,8 @@ def chipotle_nutrition_guide():
     return render_template(
         'resources/chipotle_nutrition_guide.html',
         is_homepage=False,
-        schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
-        schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
+        schema_name="Chipotle Nutrition Guide | Optimize Calories, Macros & Meal Strategy",
+        schema_description="Learn customization strategies for Chipotle orders: calorie reduction techniques, protein optimization, and macro-friendly meal building for any diet.",
         schema_url="/resources/chipotle-nutrition-guide"
     )
 
