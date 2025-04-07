@@ -1,0 +1,111 @@
+You are creating an authoritative, high-quality, SEO-optimized article for **longevitycalculator.xyz**.
+
+---
+
+## Article Topic:
+`How Alcohol Is Absorbed and Eliminated: The Science Behind BAC Levels`
+
+This article supports the `/bac-calculator` page by explaining the underlying biology of alcohol absorption, distribution, and elimination. It reinforces domain authority in alcohol-related science and builds trust with educational, evidence-based content.
+
+---
+
+## 🧠 Content Guidelines:
+- ✅ Strictly base all content on **credible, peer-reviewed scientific sources**, with footnotes clearly listing journal, year, and URL (if applicable).
+- ✅ Target word count: **1800–2500 words** for long-form SEO value.
+- ✅ Use a clear **heading hierarchy**:
+  - H1 → Title
+  - H2 → Major sections
+  - H3 → Nested subpoints or calculations
+- ✅ Include **step-by-step calculations or examples** (use `<ol>` or bullet structure).
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- ✅ Meta Title: `How Alcohol Affects Your BAC | Absorption, Elimination, and Time`
+- ✅ Meta Description: `Understand how alcohol is absorbed and processed by the body. Learn how weight, gender, and time affect your BAC.`
+- ✅ Schema: `MedicalWebPage`
+- ✅ Canonical: `https://longevitycalculator.xyz/resources/how-alcohol-affects-your-bac`
+
+---
+
+## 🖼️ Image & Visual Policy:
+- ✅ Use `.webp` image format **only**
+- ✅ Every image must include:
+  - `alt=""` text
+  - `width=""` and `height=""` attributes
+  - `loading="lazy"`
+- ✅ Suggested visuals:
+  1. Absorption/elimination curve (BAC vs. time)
+  2. Visual comparison: alcohol metabolism in men vs. women
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="how-alcohol-affects-your-bac-top" />
+<AdUnit slot="how-alcohol-affects-your-bac-mid" />
+<AdUnit slot="how-alcohol-affects-your-bac-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/bac-calculator`, `/alcohol-impact-calculator`, `/tdee-calculator`
+- ✅ Use SEO-optimized anchor text (e.g. "how alcohol affects your BAC")
+- ✅ Include a clean Table of Contents
+- ✅ Feature a CTA card linking to the BAC Calculator
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- ✅ From Article → Calculator:
+  - Link 1: Early CTA block
+  - Link 2: Mid-article (inside BAC curve explanation)
+  - Link 3: Final CTA above FAQ
+
+- ✅ From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to understand how your body absorbs and eliminates alcohol?
+    <a href="/resources/how-alcohol-affects-your-bac" class="pink-link">
+      Read the full BAC Absorption Guide →
+    </a>
+  </p>
+</div>
+```
+
+---
+
+## ⚙️ Performance & Accessibility Requirements:
+- ✅ Load all images with `loading="lazy"`
+- ✅ Use semantic HTML5 (e.g., `<section>`, `<figure>`, `<article>`)
+- ✅ Do NOT include render-blocking scripts or excessive inline CSS
+- ✅ Pass automated HTML/JSX validation
+
+---
+
+## 🐸 Screaming Frog SEO Checklist:
+- ✅ Article is not orphaned — includes at least one **internal outbound link**
+- ✅ Canonical tag is explicitly correct
+- ✅ Meta title, description, and H1–H3 tags are fully structured and present
+
+---
+
+## 🚢 Deployment & QA Checklist:
+- ✅ Layout spacing and typography must match current live resources
+- ✅ CTA buttons must use brand pink: `#d63384`
+- ✅ JSX or HTML must be **fully compilable**
+- ✅ Sitemap must not be broken
+- ✅ Image paths must point to valid `static/images/resources/*.webp`
+- ✅ Resource articles should now use `{% include 'footer.html' %}` at the bottom for a consistent shared footer (do not inline it manually).
+
+---
+
+## 📍 Final URL Format:
+```
+https://longevitycalculator.xyz/resources/how-alcohol-affects-your-bac
+```
+
+> 📌 Use this template for every resource article to ensure consistency, SEO performance, and monetization readiness.
