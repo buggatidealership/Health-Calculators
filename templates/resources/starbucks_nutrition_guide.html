@@ -504,22 +504,14 @@
         </script>
     </div>
     
-    <div class="medical-disclaimer">
-        <p><strong>Medical Disclaimer:</strong> This article provides general nutrition information and is based on publicly available data from Starbucks and nutritional research. The calculator and information are educational estimates only. Actual nutrition may vary by preparation, serving size, and specific ingredients. This content is not intended to replace professional nutritional or medical advice. Always seek the guidance of a registered dietitian or healthcare provider for personalized nutritional guidance.</p>
-    </div>
-    
-    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
-        <h3 style="color: #333; margin-top: 0;">📘 Related Tool</h3>
-        <p>
-            Try our easy-to-use Starbucks Nutrition Calculator to customize any drink and see exact calories, sugar, protein, and more. Perfect for tracking macros or finding healthier options.
-            <a href="/starbucks-nutrition-calculator" style="color: #d63384; text-decoration: none; font-weight: 500;">
-                Customize Your Starbucks Drink →
-            </a>
-        </p>
-    </div>
-    
-    </div>
-    
+                            top: targetElement.offsetTop - 80, // Adjusted for header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Smooth scrolling for anchor links
@@ -540,24 +532,25 @@
             });
         });
     </script>
-</body>
-</html>    <script>
-        document.addEventListener('DOMContentLoaded', function() {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
             // Smooth scrolling for anchor links
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
+            document.querySelectorAll("a[href^="#"]").forEach(anchor => {
+                anchor.addEventListener("click", function (e) {
                     e.preventDefault();
                     
-                    const targetId = this.getAttribute('href');
+                    const targetId = this.getAttribute("href");
                     const targetElement = document.querySelector(targetId);
                     
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop - 80, // Adjusted for header
-                            behavior: 'smooth'
+                            behavior: "smooth"
                         });
                     }
                 });
             });
         });
     </script>
+</body>
+</html>
