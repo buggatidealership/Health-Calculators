@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Use the IVF Due Date Calculator (Day 3, Day 5, and FET)",
+        "url": "/resources/ivf-due-date-calculator-guide",
+        "summary": "Calculate your IVF pregnancy due date based on your specific transfer type (Day 3, Day 5, or FET). Includes detailed timeline.",
+        "icon": "👶",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
         "url": "/resources/chipotle-nutrition-guide",
         "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
@@ -808,6 +816,16 @@ def starbucks_nutrition_guide():
         schema_name="Starbucks Nutrition Calculator Guide | Calories & Macros",
         schema_description="Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
         schema_url="/resources/starbucks-nutrition-guide"
+    )
+
+@app.route('/resources/ivf-due-date-calculator-guide')
+def ivf_due_date_calculator_guide():
+    return render_template(
+        'resources/ivf_due_date_calculator_guide.html',
+        is_homepage=False,
+        schema_name="IVF Due Date Calculator Guide | Day 3, Day 5, and FET",
+        schema_description="Calculate your IVF pregnancy due date based on your specific transfer type. Understand the differences between Day 3, Day 5, and FET transfers.",
+        schema_url="/resources/ivf-due-date-calculator-guide"
     )
 
 @app.route('/resources/army-body-fat-calculator-guide')
