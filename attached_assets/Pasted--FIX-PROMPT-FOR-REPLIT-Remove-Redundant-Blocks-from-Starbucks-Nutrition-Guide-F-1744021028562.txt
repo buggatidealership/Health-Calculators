@@ -1,0 +1,48 @@
+<!-- ✅ FIX PROMPT FOR REPLIT — Remove Redundant Blocks from Starbucks Nutrition Guide -->
+<!-- 📄 File: templates/resources/starbucks_nutrition_guide.html -->
+
+<!-- 🎯 Issues to Fix: -->
+<!-- 1. The "Related Tool" block should NOT appear at the bottom of resource articles. That pattern is only for calculators. -->
+<!-- 2. The "Medical Disclaimer" block should also be removed. It's already in the calculator. Articles don't use this. -->
+<!-- 3. Ahrefs reports that the <title>, meta description, and H1 tag are duplicates. -->
+<!-- 4. Page includes a broken internal link to /caloric-macronutrient-calculator which does not exist. -->
+
+<!-- ✅ Fix Instructions -->
+
+1. **REMOVE the entire block that starts with:**
+```html
+<div class="highlight" ...> <!-- Related Tool -->
+```
+Delete until the closing `</div>` that ends that block (usually about 10–15 lines).
+
+2. **REMOVE the following medical disclaimer block entirely:**
+```html
+<div class="medical-disclaimer">
+  <p><strong>Medical Disclaimer:</strong> ...</p>
+</div>
+```
+This is redundant on article pages and clutters the bottom layout.
+
+3. **UPDATE the <title>, meta description, and H1 to fix duplication:**
+- Replace the `<title>` tag with:
+```html
+<title>Starbucks Drink Nutrition Guide | Macros, Calories & Custom Orders</title>
+```
+- Replace the `<meta name="description">` with:
+```html
+<meta name="description" content="Track Starbucks drink macros with our step-by-step guide. Build low-sugar, high-protein drinks using our nutrition calculator." />
+```
+- Replace the H1 with:
+```html
+<h1>Starbucks Drink Nutrition Guide: Calories, Sugar, and Custom Macros</h1>
+```
+
+4. **FIX the broken internal link:**
+- Find the `<a href="/caloric-macronutrient-calculator">` or any anchor tag linking to that page
+- Replace it with a working calculator such as:
+```html
+<a href="/tdee-calculator">TDEE Calculator</a>
+```
+
+<!-- ✅ RESULT: -->
+<!-- The article will render cleanly with no broken links, no duplicate tags, and no leftover calculator UI. Ahrefs warnings will clear on next crawl. -->
