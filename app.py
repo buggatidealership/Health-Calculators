@@ -413,14 +413,6 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
-        "title": "How Drunk Am I? BAC Charts by Drink Type and Body Weight",
-        "url": "/resources/bac-calculator-guide",
-        "summary": "Understand how BAC affects impairment, what factors influence blood alcohol levels, and when it's safe to drive after drinking.",
-        "icon": "🍸",
-        "cta": "Read Guide",
-        "color": "blue"
-    },
-    {
         "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
         "url": "/resources/chipotle-nutrition-guide",
         "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
@@ -850,13 +842,3 @@ def chipotle_nutrition_guide():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
-
-@app.route('/resources/bac-calculator-guide')
-def bac_calculator_guide():
-    return render_template(
-        'resources/bac_calculator_guide.html',
-        is_homepage=False,
-        schema_name="How Drunk Am I? BAC Charts by Drink & Weight",
-        schema_description="Estimate your BAC based on drink count, weight, gender, and time. Use our BAC charts to see impairment risk and when it's safe to drive.",
-        schema_url="/resources/bac-calculator-guide"
-    )
