@@ -1,0 +1,112 @@
+This article supports the `/bac-calculator` page by helping users understand how blood alcohol content (BAC) changes based on drink type, body weight, gender, and time elapsed — and when it’s no longer safe to drive.
+
+---
+
+## 🧠 Content Guidelines:
+- ✅ Strictly base all content on **credible, peer-reviewed scientific sources**, with footnotes clearly listing journal, year, and URL (if applicable).
+- ✅ Target word count: **1800–2500 words** for long-form SEO value.
+- ✅ Use a clear **heading hierarchy**:
+  - H1 → Title
+  - H2 → Major sections
+  - H3 → Nested subpoints or calculations
+- ✅ Include **step-by-step calculations or examples** (use `<ol>` or bullet structure).
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- ✅ Meta Title: `How Drunk Am I? BAC Charts by Drink & Weight`
+- ✅ Meta Description: `Estimate your BAC based on drink count, weight, gender, and time. Use our BAC charts to see impairment risk and when it’s safe to drive.`
+- ✅ Insert valid JSON-LD schema: `MedicalWebPage`
+- ✅ Explicitly define a **self-referencing canonical tag** pointing to:
+```
+https://longevitycalculator.xyz/resources/bac-calculator-guide
+```
+
+---
+
+## 🖼️ Image & Visual Policy:
+- ✅ Use `.webp` image format **only**
+- ✅ Every image must include:
+  - `alt=""` text
+  - `width=""` and `height=""` attributes
+  - `loading="lazy"`
+- ✅ Required visuals:
+  1. A BAC chart with intoxication symptoms by %
+  2. Timeline visual comparing time-to-sober for men vs women
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="bac-calculator-guide-top" />
+<AdUnit slot="bac-calculator-guide-mid" />
+<AdUnit slot="bac-calculator-guide-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/bac-calculator`, `/alcohol-impact-calculator`, `/tdee-calculator`
+- ✅ Use SEO-optimized anchor text like “BAC Calculator” and “alcohol impairment guide”
+- ✅ Include a clean, interactive Table of Contents
+- ✅ Include a CTA block linking to the BAC Calculator with a pink button
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- ✅ From Article → Calculator:
+  - Link 1: Early CTA block (e.g., "Estimate Your BAC →")
+  - Link 2: In the calculation breakdown section
+  - Link 3: Final CTA block above FAQ
+
+- ✅ From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to understand how BAC changes by drink, weight, gender, and time?
+    <a href="/resources/bac-calculator-guide" class="pink-link">
+      Read the full BAC Calculator Guide →
+    </a>
+  </p>
+</div>
+```
+
+---
+
+## ⚙️ Performance & Accessibility Requirements:
+- ✅ Load all images with `loading="lazy"`
+- ✅ Use semantic HTML5 (e.g., `<section>`, `<figure>`, `<article>`)
+- ✅ Do NOT include render-blocking scripts or excessive inline CSS
+- ✅ Pass automated HTML/JSX validation
+
+---
+
+## 🐸 Screaming Frog SEO Checklist:
+- ✅ Article is not orphaned — includes at least one **internal outbound link**
+- ✅ Canonical tag is explicitly correct
+- ✅ Meta title, description, and H1–H3 tags are fully structured and present
+
+---
+
+## 🚢 Deployment & QA Checklist:
+- ✅ Layout spacing and typography must match current live resources
+- ✅ CTA buttons must use brand pink: `#d63384`
+- ✅ JSX or HTML must be **fully compilable**
+- ✅ Sitemap must not be broken
+- ✅ Image paths must point to valid `static/images/resources/*.webp`
+- ✅ Resource articles should now use `{% include 'footer.html' %}` at the bottom for a consistent shared footer (do not inline it manually).
+
+---
+
+## 📍 Final URL Format:
+```
+https://longevitycalculator.xyz/resources/bac-calculator-guide
+```
+
+---
+
+## 📘 Reference Layout:
+Use `/resources/fasting-weight-loss-chart` as the visual + structural layout reference for all future articles (e.g., section rhythm, CTA blocks, header padding, and spacing).
+
+> 📌 Use this template for every resource article to ensure consistency, SEO performance, and monetization readiness.
