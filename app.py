@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Calculate Your IVF Due Date (Fresh, Frozen & FET Timelines Explained)",
+        "url": "/resources/ivf-due-date-calculator-guide",
+        "summary": "Calculate your IVF due date based on embryo transfer date. Fresh, frozen, day 3 or day 5 — we've got your pregnancy timeline covered.",
+        "icon": "🍼",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
         "url": "/resources/chipotle-nutrition-guide",
         "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
