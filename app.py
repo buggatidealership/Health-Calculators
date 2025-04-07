@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Use the IVF Due Date Calculator (Fresh vs Frozen Timeline)",
+        "url": "/resources/ivf-due-date-calculator-guide",
+        "summary": "Calculate your IVF due date based on embryo transfer date. Fresh, frozen, day 3 or day 5 — we've got your pregnancy timeline covered.",
+        "icon": "👶",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
         "url": "/resources/chipotle-nutrition-guide",
         "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
@@ -838,6 +846,16 @@ def chipotle_nutrition_guide():
         schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
         schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
         schema_url="/resources/chipotle-nutrition-guide"
+    )
+
+@app.route('/resources/ivf-due-date-calculator-guide')
+def ivf_due_date_calculator_guide():
+    return render_template(
+        'resources/ivf_due_date_calculator_guide.html',
+        is_homepage=False,
+        schema_name="IVF Due Date Calculator Guide | Fresh vs Frozen Timeline",
+        schema_description="Calculate your IVF due date based on embryo transfer date. Fresh, frozen, day 3 or day 5 — we've got your pregnancy timeline covered.",
+        schema_url="/resources/ivf-due-date-calculator-guide"
     )
 
 if __name__ == '__main__':
