@@ -1,0 +1,67 @@
+<!-- ✅ FIX PROMPT FOR REPLIT — Full Sitemap Sync -->
+<!-- 📄 File: static/public/sitemap.xml -->
+
+<!-- 🎯 GOAL: Ensure all 27 calculator pages and 11 resource articles are listed in sitemap.xml -->
+
+<!-- ✅ Step-by-Step Instructions -->
+
+1. Open `sitemap.xml`
+2. Confirm it includes the following **27 calculators**:
+```
+/army-body-fat-calculator
+/starbucks-nutrition-calculator
+/chipotle-nutrition-calculator
+/bac-calculator
+/ozempic-weight-loss-calculator
+/female-fertility-calculator
+/ivf-due-date-calculator
+/dog-pregnancy-due-date-calculator
+/retirement-savings-calculator
+/tdee-calculator
+/ideal-body-weight-calculator
+/lip-filler-cost-calculator
+/liposuction-weight-loss-calculator
+/child-growth-calculator
+/cc-to-bra-size-calculator
+/breast-implant-calculator
+/baldness-risk-calculator
+/newborn-weight-loss-calculator
+/pregnancy-due-date-calculator
+/alcohol-impact-calculator
+/creatine-water-calculator
+/vitamin-d-intake-calculator
+/final-height-predictor-calculator
+/fasting-weight-loss-calculator
+/weight-loss-by-body-fat-calculator
+/caloric-intake-macronutrient-calculator
+/height-percentile-calculator
+```
+
+3. Confirm it includes these **11 article/resource pages**:
+```
+/resources/starbucks-nutrition-guide
+/resources/chipotle-nutrition-guide
+/resources/army-body-fat-calculator-guide
+/resources/ozempic-weight-loss-calculator-guide
+/resources/ivf-due-date-calculator-guide
+/resources/how-to-start-carb-cycling
+/resources/fertility-after-35
+/resources/botox-dosage-guide
+/resources/are-height-predictors-accurate
+/resources/how-many-ccs-is-a-c-cup
+/resources/breast-implant-size-guide
+```
+
+4. For any missing pages, insert:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/[slug]</loc>
+  <lastmod>2025-04-06</lastmod>
+  <priority>0.7</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+5. Ensure all entries are inside the `<urlset>` block and properly closed.
+
+<!-- ✅ RESULT: Sitemap will be fully synced with the live site and no pages will be missed in crawl or indexing. -->
