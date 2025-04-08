@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Do Breast Implants Cause Weight Gain? The Science-Based Answer",
+        "url": "/resources/do-breast-implants-cause-weight-gain",
+        "summary": "Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors.",
+        "icon": "⚖️",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "Can a Mammogram Pop Breast Implants? Risks & Safety Explained",
         "url": "/resources/can-a-mammogram-pop-breast-implants",
         "summary": "Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.",
@@ -892,6 +900,16 @@ def mammogram_breast_implants_guide():
         schema_name="Can a Mammogram Pop Breast Implants? Risks & Safety Explained",
         schema_description="Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.",
         schema_url="/resources/can-a-mammogram-pop-breast-implants"
+    )
+
+@app.route('/resources/do-breast-implants-cause-weight-gain')
+def breast_implants_weight_gain_guide():
+    return render_template(
+        'resources/do_breast_implants_cause_weight_gain.html',
+        is_homepage=False,
+        schema_name="Do Breast Implants Cause Weight Gain? The Science-Based Answer",
+        schema_description="Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors after breast augmentation.",
+        schema_url="/resources/do-breast-implants-cause-weight-gain"
     )
 
 if __name__ == '__main__':
