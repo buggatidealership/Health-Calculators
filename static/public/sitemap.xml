@@ -240,6 +240,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://healthcalculators.xyz/resources/how-alcohol-affects-your-bac</loc>
+    <lastmod>2025-04-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://healthcalculators.xyz/resources</loc>
     <lastmod>2025-04-07</lastmod>
     <priority>0.6</priority>
