@@ -1,0 +1,108 @@
+You are creating an authoritative, high-quality, SEO-optimized article for **longevitycalculator.xyz**.
+
+---
+
+## 🧠 Content Guidelines:
+- ✅ Strictly base all content on **credible, peer-reviewed scientific sources**, with footnotes clearly listing journal, year, and URL (if applicable).
+- ✅ Target word count: **1800–2500 words** for long-form SEO value.
+- ✅ Use a clear **heading hierarchy**:
+  - H1 → Title
+  - H2 → Major sections
+  - H3 → Nested subpoints or calculations
+- ✅ Include **step-by-step calculations or examples** (use `<ol>` or bullet structure).
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- ✅ Meta Title: `Can a Mammogram Pop Breast Implants? Risks & Safety Explained`
+- ✅ Meta Description: `Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.`
+- ✅ Insert valid JSON-LD schema: `MedicalWebPage`
+- ✅ Explicitly define a **self-referencing canonical tag**:
+```
+https://longevitycalculator.xyz/resources/can-a-mammogram-pop-breast-implants
+```
+
+---
+
+## 🖼️ Image & Visual Policy:
+> ❗ SVGs are NOT allowed in article body content (only as inline icons in headers or cards).
+
+- ✅ Use `.webp` image format **only**
+- ✅ Every image must include:
+  - `alt=""` text
+  - `width=""` and `height=""` attributes
+  - `loading="lazy"`
+- ✅ Suggested visuals:
+  1. Diagram of implant placement relative to mammogram paddle
+  2. Comparison of saline vs silicone rupture likelihood
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="can-a-mammogram-pop-breast-implants-top" />
+<AdUnit slot="can-a-mammogram-pop-breast-implants-mid" />
+<AdUnit slot="can-a-mammogram-pop-breast-implants-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/breast-implant-calculator`, `/breast-implant-size-guide`
+- ✅ Use optimized anchor text like "implant volume estimator" or "breast implant rupture risk guide"
+- ✅ Include clean, interactive Table of Contents
+- ✅ Feature a CTA card or button linking to the calculator
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- ✅ From Article → Calculator:
+  - Link 1: Early CTA card
+  - Link 2: Mid-article reference to sizing/risk estimation
+  - Link 3: Final CTA block above FAQ
+
+- ✅ From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Curious whether mammograms can pop breast implants and what you can do to stay safe?
+    <a href="/resources/can-a-mammogram-pop-breast-implants" class="pink-link">
+      Read the full guide →
+    </a>
+  </p>
+</div>
+```
+
+---
+
+## ⚙️ Performance & Accessibility Requirements:
+- ✅ Load all images with `loading="lazy"`
+- ✅ Use semantic HTML5 (e.g., `<section>`, `<figure>`, `<article>`)
+- ✅ Do NOT include render-blocking scripts or excessive inline CSS
+- ✅ Pass automated HTML/JSX validation
+
+---
+
+## 🐸 Screaming Frog SEO Checklist:
+- ✅ Article is not orphaned — includes at least one **internal outbound link**
+- ✅ Canonical tag is explicitly correct
+- ✅ Meta title, description, and H1–H3 tags are fully structured and present
+
+---
+
+## 🚢 Deployment & QA Checklist:
+- ✅ Layout spacing and typography must match current live resources
+- ✅ CTA buttons must use brand pink: `#d63384`
+- ✅ JSX or HTML must be **fully compilable**
+- ✅ Sitemap must not be broken
+- ✅ Image paths must point to valid `static/images/resources/*.webp`
+
+---
+
+## 📍 Final URL Format:
+```
+https://longevitycalculator.xyz/resources/can-a-mammogram-pop-breast-implants
+```
+
+> 📌 Use this template for every resource article to ensure consistency, SEO performance, and monetization readiness.

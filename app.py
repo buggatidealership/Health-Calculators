@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Can a Mammogram Pop Breast Implants? Risks & Safety Explained",
+        "url": "/resources/can-a-mammogram-pop-breast-implants",
+        "summary": "Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.",
+        "icon": "🏥",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "How Alcohol Is Absorbed and Eliminated: The Science Behind BAC Levels",
         "url": "/resources/how-alcohol-affects-your-bac",
         "summary": "Understand how alcohol is absorbed and processed by the body. Learn how weight, gender, and time affect your BAC.",
@@ -874,6 +882,16 @@ def chipotle_nutrition_guide():
         schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
         schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
         schema_url="/resources/chipotle-nutrition-guide"
+    )
+
+@app.route('/resources/can-a-mammogram-pop-breast-implants')
+def mammogram_breast_implants_guide():
+    return render_template(
+        'resources/can_a_mammogram_pop_breast_implants.html',
+        is_homepage=False,
+        schema_name="Can a Mammogram Pop Breast Implants? Risks & Safety Explained",
+        schema_description="Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.",
+        schema_url="/resources/can-a-mammogram-pop-breast-implants"
     )
 
 if __name__ == '__main__':
