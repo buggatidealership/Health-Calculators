@@ -1,6 +1,9 @@
 import os
 import logging
-from flask import Flask, render_template, send_from_directory, redirect
+from flask import Flask, render_template, send_from_directory, redirect, url_for, flash, request, jsonify, session
+from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from database import db
+from models import User, SavedCalculation
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -8,6 +11,32 @@ logging.basicConfig(level=logging.DEBUG)
 # Create Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
+
+# Configure the database
+app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL")
+app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+    "pool_recycle": 300,
+    "pool_pre_ping": True,
+}
+
+# Initialize extensions
+db.init_app(app)
+
+# Setup Login Manager
+login_manager = LoginManager()
+login_manager.init_app(app)
+login_manager.login_view = 'login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
+
+# Import forms after app is created to avoid circular imports
+from forms import LoginForm, RegistrationForm, UpdateProfileForm
+
+# Create all database tables
+with app.app_context():
+    db.create_all()
 
 cards = [
     {
@@ -911,6 +940,141 @@ def breast_implants_weight_gain_guide():
         schema_description="Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors after breast augmentation.",
         schema_url="/resources/do-breast-implants-cause-weight-gain"
     )
+
+# Authentication routes
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
+    
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(username=form.username.data, email=form.email.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Your account has been created! You can now log in.', 'success')
+        return redirect(url_for('login'))
+    
+    return render_template('register.html', form=form)
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
+    
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user and user.check_password(form.password.data):
+            login_user(user, remember=form.remember.data)
+            next_page = request.args.get('next')
+            flash('Login successful!', 'success')
+            return redirect(next_page) if next_page else redirect(url_for('dashboard'))
+        else:
+            flash('Login unsuccessful. Please check your email and password.', 'danger')
+    
+    return render_template('login.html', form=form)
+
+@app.route('/logout')
+def logout():
+    logout_user()
+    flash('You have been logged out.', 'success')
+    return redirect(url_for('home'))
+
+@app.route('/dashboard')
+@login_required
+def dashboard():
+    calculations = SavedCalculation.query.filter_by(user_id=current_user.id).order_by(SavedCalculation.created_at.desc()).all()
+    form = UpdateProfileForm(original_username=current_user.username, original_email=current_user.email)
+    return render_template('dashboard.html', calculations=calculations, form=form)
+
+@app.route('/update-profile', methods=['POST'])
+@login_required
+def update_profile():
+    form = UpdateProfileForm(current_user.username, current_user.email)
+    if form.validate_on_submit():
+        # Verify current password
+        if current_user.check_password(form.current_password.data):
+            current_user.username = form.username.data
+            current_user.email = form.email.data
+            
+            # Update password if provided
+            if form.new_password.data:
+                current_user.set_password(form.new_password.data)
+            
+            db.session.commit()
+            flash('Your profile has been updated!', 'success')
+        else:
+            flash('Current password is incorrect.', 'danger')
+    
+    return redirect(url_for('dashboard'))
+
+@app.route('/save-calculation', methods=['POST'])
+@login_required
+def save_calculation():
+    data = request.get_json()
+    
+    if not data or 'calculator_type' not in data or 'input_data' not in data or 'result_data' not in data:
+        return jsonify({'success': False, 'error': 'Invalid data provided'}), 400
+    
+    calculation = SavedCalculation(
+        user_id=current_user.id,
+        calculator_type=data['calculator_type'],
+        input_data=data['input_data'],
+        result_data=data['result_data']
+    )
+    
+    db.session.add(calculation)
+    db.session.commit()
+    
+    return jsonify({'success': True, 'message': 'Calculation saved successfully!'}), 200
+
+@app.route('/delete-calculation/<int:calc_id>', methods=['DELETE'])
+@login_required
+def delete_calculation(calc_id):
+    calculation = SavedCalculation.query.get_or_404(calc_id)
+    
+    # Check if the calculation belongs to the current user
+    if calculation.user_id != current_user.id:
+        return jsonify({'success': False, 'error': 'Unauthorized access'}), 403
+    
+    db.session.delete(calculation)
+    db.session.commit()
+    
+    return jsonify({'success': True, 'message': 'Calculation deleted successfully!'}), 200
+
+@app.route('/recalculate/<int:calc_id>')
+@login_required
+def recalculate(calc_id):
+    calculation = SavedCalculation.query.get_or_404(calc_id)
+    
+    # Check if the calculation belongs to the current user
+    if calculation.user_id != current_user.id:
+        flash('Unauthorized access', 'danger')
+        return redirect(url_for('dashboard'))
+    
+    # Redirect to the appropriate calculator with the saved input data
+    calculator_routes = {
+        'TDEE Calculator': 'tdee_calculator',
+        'BAC Calculator': 'bac_calculator',
+        'Carb Cycling Calculator': 'carb_cycling_calculator',
+        'IVF Due Date Calculator': 'ivf_due_date_calculator',
+        'Army Body Fat Calculator': 'army_body_fat_calculator',
+        'Starbucks Nutrition Calculator': 'starbucks_nutrition_calculator',
+        'Chipotle Nutrition Calculator': 'chipotle_nutrition_calculator',
+        # Add more mappings as needed
+    }
+    
+    if calculation.calculator_type in calculator_routes:
+        route = calculator_routes[calculation.calculator_type]
+        # Pass the input data as URL parameters or session data
+        # This is a simplified version - you might need to adapt based on your calculators
+        session['recalculate_data'] = calculation.input_data
+        return redirect(url_for(route))
+    
+    flash('Cannot recalculate this type of calculation', 'warning')
+    return redirect(url_for('dashboard'))
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

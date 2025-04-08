@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Include unified SEO head elements -->
+{% set og_image = "default-calculator-og.jpg" %}
+{% with 
+    meta_description="View and manage your saved health calculation results in your personal dashboard.",
+    meta_keywords="health calculator, dashboard, health tracking, saved calculations",
+    og_title="My Dashboard | Health Calculators",
+    og_description="Access your saved health calculator results and track your progress in one place.",
+    og_url="/dashboard",
+    page_title="My Dashboard | Health Calculators",
+    canonical_url="/dashboard"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+    .tab-content {
+        padding: 20px 0;
+    }
+    
+    .calculation-card {
+        border: 1px solid #e9ecef;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    
+    .calculation-header {
+        background-color: #f8f9fa;
+        padding: 1rem;
+        border-bottom: 1px solid #e9ecef;
+        border-radius: 0.5rem 0.5rem 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .calculation-body {
+        padding: 1.5rem;
+    }
+    
+    .calculation-meta {
+        color: #6c757d;
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .result-item {
+        margin-bottom: 0.75rem;
+    }
+    
+    .action-btn {
+        color: #fff;
+        background-color: #d63384;
+        border-color: #d63384;
+    }
+    
+    .action-btn:hover {
+        background-color: #be2d73;
+        border-color: #be2d73;
+        color: #fff;
+    }
+    
+    .delete-btn {
+        color: #dc3545;
+        cursor: pointer;
+    }
+    
+    .nav-tabs .nav-link.active {
+        color: #d63384;
+        border-color: #dee2e6 #dee2e6 #fff;
+        border-bottom: 2px solid #d63384;
+    }
+    
+    .nav-tabs .nav-link {
+        color: #495057;
+    }
+    
+    .profile-form .form-label {
+        font-weight: 500;
+    }
+    
+    .no-calculations {
+        padding: 3rem 0;
+        text-align: center;
+        color: #6c757d;
+    }
+</style>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="mb-4">My Dashboard</h1>
+                
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+                {% endwith %}
+                
+                <ul class="nav nav-tabs mb-4" id="dashboardTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="calculations-tab" data-bs-toggle="tab" data-bs-target="#calculations" type="button" role="tab" aria-controls="calculations" aria-selected="true">Saved Calculations</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Profile Settings</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="dashboardTabsContent">
+                    <div class="tab-pane fade show active" id="calculations" role="tabpanel" aria-labelledby="calculations-tab">
+                        {% if calculations %}
+                            <div class="row">
+                                {% for calculation in calculations %}
+                                <div class="col-md-6 calculation-container" data-id="{{ calculation.id }}">
+                                    <div class="calculation-card">
+                                        <div class="calculation-header">
+                                            <h3 class="h5 mb-0">{{ calculation.calculator_type }}</h3>
+                                            <div>
+                                                <a href="{{ url_for('recalculate', calc_id=calculation.id) }}" class="btn btn-sm action-btn">Recalculate</a>
+                                                <i class="fa fa-trash delete-btn ms-2" onclick="deleteCalculation({{ calculation.id }})"></i>
+                                            </div>
+                                        </div>
+                                        <div class="calculation-body">
+                                            <div class="calculation-meta">
+                                                Saved on: {{ calculation.created_at.strftime('%B %d, %Y at %I:%M %p') }}
+                                            </div>
+                                            
+                                            <div class="calculation-inputs mb-3">
+                                                <h4 class="h6">Inputs:</h4>
+                                                <ul class="list-unstyled">
+                                                    {% for key, value in calculation.input_data.items() %}
+                                                    <li><strong>{{ key|replace('_', ' ')|title }}:</strong> {{ value }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            
+                                            <div class="calculation-results">
+                                                <h4 class="h6">Results:</h4>
+                                                <ul class="list-unstyled">
+                                                    {% for key, value in calculation.result_data.items() %}
+                                                    <li class="result-item"><strong>{{ key|replace('_', ' ')|title }}:</strong> {{ value }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        {% else %}
+                            <div class="no-calculations">
+                                <i class="fa fa-calculator fa-3x mb-3"></i>
+                                <h3>No Saved Calculations Yet</h3>
+                                <p class="mb-4">Save your calculator results to track your progress over time.</p>
+                                <a href="/" class="btn action-btn">Try a Calculator</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                        <div class="row justify-content-center">
+                            <div class="col-md-8">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h2 class="h4 mb-0">Update Profile</h2>
+                                    </div>
+                                    <div class="card-body">
+                                        <form method="POST" action="{{ url_for('update_profile') }}" class="profile-form">
+                                            {{ form.hidden_tag() }}
+                                            <div class="mb-3">
+                                                {{ form.username.label(class="form-label") }}
+                                                {% if form.username.errors %}
+                                                    {{ form.username(class="form-control is-invalid", value=current_user.username) }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.username.errors %}
+                                                            {{ error }}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.username(class="form-control", value=current_user.username) }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.email.label(class="form-label") }}
+                                                {% if form.email.errors %}
+                                                    {{ form.email(class="form-control is-invalid", value=current_user.email) }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.email.errors %}
+                                                            {{ error }}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.email(class="form-control", value=current_user.email) }}
+                                                {% endif %}
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.current_password.label(class="form-label") }}
+                                                {% if form.current_password.errors %}
+                                                    {{ form.current_password(class="form-control is-invalid") }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.current_password.errors %}
+                                                            {{ error }}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.current_password(class="form-control") }}
+                                                {% endif %}
+                                                <small class="form-text text-muted">Required to update your profile</small>
+                                            </div>
+                                            <div class="mb-3">
+                                                {{ form.new_password.label(class="form-label") }}
+                                                {% if form.new_password.errors %}
+                                                    {{ form.new_password(class="form-control is-invalid") }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.new_password.errors %}
+                                                            {{ error }}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.new_password(class="form-control") }}
+                                                {% endif %}
+                                                <small class="form-text text-muted">Leave blank to keep current password</small>
+                                            </div>
+                                            <div class="mb-4">
+                                                {{ form.confirm_password.label(class="form-label") }}
+                                                {% if form.confirm_password.errors %}
+                                                    {{ form.confirm_password(class="form-control is-invalid") }}
+                                                    <div class="invalid-feedback">
+                                                        {% for error in form.confirm_password.errors %}
+                                                            {{ error }}
+                                                        {% endfor %}
+                                                    </div>
+                                                {% else %}
+                                                    {{ form.confirm_password(class="form-control") }}
+                                                {% endif %}
+                                            </div>
+                                            {{ form.submit(class="btn action-btn") }}
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {% include 'footer.html' %}
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Bootstrap JavaScript and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function deleteCalculation(id) {
+            if (confirm('Are you sure you want to delete this calculation? This action cannot be undone.')) {
+                fetch(`/delete-calculation/${id}`, {
+                    method: 'DELETE',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        document.querySelector(`.calculation-container[data-id="${id}"]`).remove();
+                        
+                        // If no calculations left, show the empty state
+                        if (document.querySelectorAll('.calculation-container').length === 0) {
+                            document.getElementById('calculations').innerHTML = `
+                                <div class="no-calculations">
+                                    <i class="fa fa-calculator fa-3x mb-3"></i>
+                                    <h3>No Saved Calculations Yet</h3>
+                                    <p class="mb-4">Save your calculator results to track your progress over time.</p>
+                                    <a href="/" class="btn action-btn">Try a Calculator</a>
+                                </div>
+                            `;
+                        }
+                    } else {
+                        alert('Failed to delete calculation. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred. Please try again.');
+                });
+            }
+        }
+    </script>
+</body>
+</html>
