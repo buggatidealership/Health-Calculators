@@ -413,6 +413,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How Alcohol Is Absorbed and Eliminated: The Science Behind BAC Levels",
+        "url": "/resources/how-alcohol-affects-your-bac",
+        "summary": "Understand how alcohol is absorbed and processed by the body. Learn how weight, gender, and time affect your BAC.",
+        "icon": "🍷",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
         "title": "How to Use the IVF Due Date Calculator (Day 3, Day 5, and FET)",
         "url": "/resources/ivf-due-date-calculator-guide",
         "summary": "Calculate your IVF pregnancy due date based on your specific transfer type (Day 3, Day 5, or FET). Includes detailed timeline.",
@@ -836,6 +844,16 @@ def army_body_fat_calculator_guide():
         schema_name="Army Body Fat Calculator Guide | Tape Test Formula & Accuracy",
         schema_description="Learn how the Army tape test works, how to measure body fat for compliance, and use our calculator for fast results.",
         schema_url="/resources/army-body-fat-calculator-guide"
+    )
+
+@app.route('/resources/how-alcohol-affects-your-bac')
+def alcohol_absorption_bac_guide():
+    return render_template(
+        'resources/alcohol_absorption_bac_guide.html',
+        is_homepage=False,
+        schema_name="How Alcohol Affects Your BAC | Absorption, Elimination, and Time",
+        schema_description="Understand how alcohol is absorbed and processed by the body. Learn how weight, gender, and time affect your BAC.",
+        schema_url="/resources/how-alcohol-affects-your-bac"
     )
 
 @app.route('/resources/fertility-after-35')
