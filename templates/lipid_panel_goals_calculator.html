@@ -104,7 +104,7 @@
       const nonHdlDisplay = document.getElementById('non-hdl');
       
       const resultsTable = document.getElementById('results-table');
-      const sampleProfileButtons = document.querySelectorAll('.sample-profile-btn');
+      const sampleProfileButtons = document.querySelectorAll('.sample-profiles .unit-btn');
       
       // Initialize inputs with default values
       if (ageInput) ageInput.value = age;
@@ -664,26 +664,7 @@
       margin: 20px 0;
       border-radius: 8px;
     }
-    .sample-profile-btn {
-      padding: 8px 15px;
-      font-size: 14px;
-      background-color: #f8f8f8;
-      color: #333;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background-color 0.2s ease;
-      margin-right: 8px;
-      margin-bottom: 8px;
-    }
-    .sample-profile-btn:hover {
-      background-color: #f0f0f0;
-    }
-    .sample-profile-btn.active {
-      background-color: #d63384;
-      color: white;
-      border-color: #d63384;
-    }
+
     #results-table {
       width: 100%;
       border-collapse: collapse;
@@ -842,10 +823,10 @@
           <div class="sample-profiles" style="margin-top: 20px;">
             <h3>Load Sample Profile:</h3>
             <div class="unit-toggle" style="display: flex; flex-wrap: wrap;">
-              <button class="sample-profile-btn" style="flex: 1;">Healthy Profile</button>
-              <button class="sample-profile-btn" style="flex: 1;">Borderline Profile</button>
-              <button class="sample-profile-btn" style="flex: 1;">High Risk Profile</button>
-              <button class="sample-profile-btn" style="flex: 1;">Your Current Profile</button>
+              <button class="unit-btn" style="flex: 1;">Healthy Profile</button>
+              <button class="unit-btn" style="flex: 1;">Borderline Profile</button>
+              <button class="unit-btn" style="flex: 1;">High Risk Profile</button>
+              <button class="unit-btn" style="flex: 1;">Your Current Profile</button>
             </div>
           </div>
           
