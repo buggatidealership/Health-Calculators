@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Breast Implant Size Calculator",
+        "url": "/breast-implant-size-calculator",
+        "summary": "Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate by region.",
+        "icon": "💗",
+        "cta": "Calculate Implant Size",
+        "color": "pink"
+    },
+    {
         "title": "Army Body Fat Calculator",
         "url": "/army-body-fat-calculator",
         "summary": "Estimate your body fat percentage using the U.S. Army tape test method. Based on gender, age, height, neck, and waist measurements.",
