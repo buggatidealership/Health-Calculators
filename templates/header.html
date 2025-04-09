@@ -16,6 +16,11 @@
 <!-- Optional subpage nav -->
 <div class="back-link-wrapper">
   <a href="/" class="back-home-link">← Back to Homepage</a>
+  {% if request.path.startswith('/resources/') %}
+  <div style="margin-top: 10px;">
+    <a href="/" class="back-calculators-link" style="color: #d63384;">← Back to All Calculators</a>
+  </div>
+  {% endif %}
 </div>
 {% endif %}
 <!-- END HEADER -->
