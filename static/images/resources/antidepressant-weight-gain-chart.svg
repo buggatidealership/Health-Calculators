@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <rect width="800" height="500" fill="#f0f4ff" />
+  <text x="400" y="250" font-family="Arial" font-size="24" text-anchor="middle" fill="#333">Antidepressant Weight Gain Chart</text>
+  <text x="400" y="290" font-family="Arial" font-size="16" text-anchor="middle" fill="#666">Chart comparing average weight gain across antidepressants</text>
+</svg>

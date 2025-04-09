@@ -1,0 +1,105 @@
+## ✅ Article Topic: `Antidepressants and Body Fat: Understanding the Connection`
+
+This long-form article will support and internally link to a future calculator (e.g. SSRI Weight Impact Estimator) and act as an educational deep-dive into how antidepressants influence body composition, weight gain, and fat distribution.
+
+---
+
+## 🧠 Content Guidelines:
+- Use peer-reviewed studies on SSRIs, SNRIs, tricyclics, and atypical antidepressants
+- Reference data from journals like JAMA Psychiatry, Frontiers in Endocrinology, and NIH.gov
+- Word count: **2000–2200**
+- H1: `Antidepressants and Body Fat: Understanding the Connection`
+
+### H2 structure:
+- Introduction: Mood, Metabolism & Medications
+- Which Antidepressants Are Linked to Fat Gain?
+- Biological Mechanisms: Appetite, Hormones & Inflammation
+- SSRIs vs. SNRIs vs. TCAs: Side-by-Side Impact
+- Does Everyone Gain Weight on Antidepressants?
+- Body Fat vs. Weight: Why the Distinction Matters
+- How to Monitor Changes in Body Fat (Tools + Tips)
+- Are There Weight-Neutral or Weight-Loss Options?
+- Use the SSRI Weight Calculator
+- FAQs
+
+Use `<ol>` or `<ul>` where needed to compare drug classes, timelines, and mechanisms.
+
+---
+
+## 🔍 SEO & Schema Requirements:
+- Meta Title: `Antidepressants and Body Fat | SSRI Weight Gain Guide`
+- Meta Description: `Do antidepressants cause body fat gain? Learn which meds have the strongest effect, why it happens, and how to track changes over time.`
+- Schema: `MedicalWebPage`
+- Canonical: `https://longevitycalculator.xyz/resources/antidepressants-and-body-fat`
+- ✅ After deployment, add this article URL to `sitemap.xml` with `<priority>0.7</priority>` and `<changefreq>monthly`>
+
+---
+
+## 🖼️ Image & Visual Policy:
+- Include the following `.webp` visuals:
+  1. Chart comparing average weight gain across antidepressants (e.g. paroxetine, bupropion, sertraline)
+  2. Illustration of hormonal and appetite feedback loop disruption (ghrelin/leptin/cortisol)
+
+Example:
+```html
+<img src="/static/images/resources/antidepressant-weight-gain-chart.webp" alt="Average weight gain by antidepressant" width="800" height="500" loading="lazy" />
+```
+
+---
+
+## 💰 AdSense Integration:
+```html
+<AdUnit slot="antidepressants-body-fat-guide-top" />
+<AdUnit slot="antidepressants-body-fat-guide-mid" />
+<AdUnit slot="antidepressants-body-fat-guide-bottom" />
+```
+
+---
+
+## 🔗 Internal Linking & Navigation:
+- ✅ Link to: `/tdee-calculator` (anchor: "calorie needs calculator")
+- ✅ Link to: `/body-fat-calculator` (anchor: "body fat calculator")
+- ✅ Include CTA card block to future calculator (e.g., "Estimate My Antidepressant Weight Gain")
+- ✅ Add a full Table of Contents with anchor links for all H2s
+
+---
+
+## 🔁 Bi-Directional Linking Requirement:
+- From Article → Calculator:
+  - Early CTA box (e.g., "Estimate Now →")
+  - Inside "Use the Calculator" section
+  - Final section CTA
+- From Calculator → Article:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+  <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+  <p>
+    Want to understand how antidepressants affect body fat and metabolism?
+    <a href="/resources/antidepressants-and-body-fat" class="pink-link">
+      Read the full Antidepressant Body Fat Guide →
+    </a>
+  </p>
+</div>
+```
+
+---
+
+## ⚙️ Technical Performance:
+- ✅ All images must include `alt`, `width`, `height`, `loading="lazy"`
+- ✅ Must use semantic HTML5 (section, article, figure)
+- ✅ Must pass HTML validation and render error-free in JSX
+
+---
+
+## 🧩 Visual Layout Reference:
+- ✅ Match the layout and spacing of `/resources/are-height-predictors-accurate`
+- Use section-based rhythm, boxed CTA cards, and embedded charts/tables
+
+---
+
+## 📍 Final URL:
+```
+https://longevitycalculator.xyz/resources/antidepressants-and-body-fat
+```
+
+> 📌 Use this prompt as the master spec for writing the long-form guide supporting a future SSRI/metabolic impact calculator.

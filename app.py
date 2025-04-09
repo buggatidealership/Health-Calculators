@@ -455,6 +455,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Antidepressants and Body Fat: Understanding the Connection",
+        "url": "/resources/antidepressants-and-body-fat",
+        "summary": "Do antidepressants cause body fat gain? Learn which medications have the strongest effect, why it happens, and how to track changes over time.",
+        "icon": "💊",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
         "title": "Do Breast Implants Cause Weight Gain? The Science-Based Answer",
         "url": "/resources/do-breast-implants-cause-weight-gain",
         "summary": "Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors.",
@@ -932,6 +940,16 @@ def chipotle_nutrition_guide():
         schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
         schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
         schema_url="/resources/chipotle-nutrition-guide"
+    )
+
+@app.route('/resources/antidepressants-and-body-fat')
+def antidepressants_and_body_fat():
+    return render_template(
+        'resources/antidepressants_and_body_fat.html',
+        is_homepage=False,
+        schema_name="Antidepressants and Body Fat | SSRI Weight Gain Guide",
+        schema_description="Do antidepressants cause body fat gain? Learn which meds have the strongest effect, why it happens, and how to track changes over time.",
+        schema_url="/resources/antidepressants-and-body-fat"
     )
 
 @app.route('/resources/can-a-mammogram-pop-breast-implants')
