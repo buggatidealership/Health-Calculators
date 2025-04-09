@@ -487,6 +487,14 @@ articles = [
         "color": "pink"
     },
     {
+        "title": "Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
+        "url": "/resources/who-should-not-get-breast-implants",
+        "summary": "Discover who should avoid breast implants due to health risks, psychological readiness, or FDA restrictions. Based on ASPS and surgeon guidance.",
+        "icon": "🚫",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "Can a Mammogram Pop Breast Implants? Risks & Safety Explained",
         "url": "/resources/can-a-mammogram-pop-breast-implants",
         "summary": "Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.",
@@ -999,6 +1007,20 @@ def breast_implants_weight_gain_guide():
         schema_name="Do Breast Implants Cause Weight Gain? The Science-Based Answer",
         schema_description="Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors after breast augmentation.",
         schema_url="/resources/do-breast-implants-cause-weight-gain"
+    )
+
+@app.route("/resources/who-should-not-get-breast-implants")
+def who_should_not_get_breast_implants():
+    return render_template("resources/who_should_not_get_breast_implants.html",
+        schema_url="/resources/who-should-not-get-breast-implants",
+        canonical_url="/resources/who-should-not-get-breast-implants",
+        page_title="Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
+        meta_description="Discover who should avoid breast implants due to health risks, psychological readiness, or FDA restrictions. Based on ASPS and surgeon guidance.",
+        og_title="Who Should Not Get Breast Implants?",
+        og_description="Explore medical and lifestyle reasons for implant disqualification. Includes autoimmune risks, age limits, mental health factors, and candidacy FAQs.",
+        og_image="who-should-not-get-breast-implants-og.jpg",
+        schema_name="Who Should Not Get Breast Implants? Guide",
+        schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines."
     )
 
 @app.route('/lipid-panel-goals-calculator')
