@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Breast Implant Cost Calculator",
+        "url": "/breast-implant-cost-calculator",
+        "summary": "Estimate your total breast augmentation cost based on implant type, region, and surgeon experience. Compare different countries and implant options.",
+        "icon": "💰",
+        "cta": "Calculate Cost",
+        "color": "pink"
+    },
+    {
         "title": "Breast Implant Size Calculator",
         "url": "/breast-implant-size-calculator",
         "summary": "Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate by region.",
@@ -335,6 +343,19 @@ def breast_implant_size_calculator():
     schema_url = "/breast-implant-size-calculator"
     return render_template(
         'breast_implant_size_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+    
+@app.route('/breast-implant-cost-calculator')
+def breast_implant_cost_calculator():
+    schema_name = "Breast Implant Cost Calculator"
+    schema_description = "Estimate your total breast augmentation cost based on implant type, region, and anesthesia. Includes surgeon fees, facility costs, and material."
+    schema_url = "/breast-implant-cost-calculator"
+    return render_template(
+        'breast_implant_cost_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

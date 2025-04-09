@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "breast-implant-cost-calculator-og.jpg" %}
+{% with 
+    meta_description="Estimate your total breast augmentation cost based on implant type, region, and anesthesia. Includes surgeon fees, facility costs, and material.",
+    meta_keywords="breast implant cost calculator, breast augmentation cost, breast implant price estimate, breast augmentation price calculator, breast implant cost by region",
+    og_title="Breast Implant Cost Estimator",
+    og_description="See a breakdown of breast implant costs by location, implant material, anesthesia type, and procedure complexity. Personalized pricing calculator.",
+    og_url="/breast-implant-cost-calculator",
+    page_title="Breast Implant Cost Calculator – Estimate Price by Region & Type",
+    canonical_url="/breast-implant-cost-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much do breast implants cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In the United States, breast augmentation surgery typically costs between $5,000 and $10,000 total. This varies significantly by region, surgeon experience, implant type, and facility fees. Other countries have different price ranges."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does insurance cover breast implants?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Insurance typically doesn't cover cosmetic breast augmentation. However, reconstructive procedures after mastectomy or for significant asymmetry may qualify for coverage under many insurance plans and laws like the Women's Health and Cancer Rights Act."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are silicone implants more expensive than saline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, silicone implants typically cost $1,000-$1,500 more than saline implants. Specialized options like 'gummy bear' cohesive gel implants may cost an additional $500-$1,000 over standard silicone implants."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What factors affect breast implant costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The main factors are: geographic location, surgeon experience, implant type and brand, facility fees, anesthesia method, additional procedures performed simultaneously, and post-operative care requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is medical tourism for breast implants worth it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Medical tourism may offer savings, but carries additional risks including complications that require follow-up care after returning home, difficulty verifying surgeon credentials, and different safety standards or implant regulations."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <div class="back-link-wrapper">
+        <a href="/" class="back-home-link">← Back to Homepage</a>
+    </div>
+    
+    <h1>Breast Implant Cost Calculator</h1>
+    <p class="subtitle">Estimate your out-of-pocket cost for breast augmentation based on implant type, region, and anesthesia. Results include total cost range and breakdown.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides educational cost estimates only. For an exact quote, consult a board-certified plastic surgeon in your area.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Cost Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <AdUnit slot="breast-implant-cost-calculator-top" />
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="country">Select Your Country</label>
+                <select id="country">
+                    <option value="">Select a country</option>
+                    <option value="United States">United States</option>
+                    <option value="Canada">Canada</option>
+                    <option value="United Kingdom">United Kingdom</option>
+                    <option value="Australia">Australia</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Brazil">Brazil</option>
+                    <option value="South Korea">South Korea</option>
+                    <option value="Thailand">Thailand</option>
+                    <option value="Mexico">Mexico</option>
+                    <option value="Spain">Spain</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="currency">Display Currency</label>
+                <select id="currency">
+                    <option value="USD">US Dollar (USD)</option>
+                    <option value="CAD">Canadian Dollar (CAD)</option>
+                    <option value="GBP">British Pound (GBP)</option>
+                    <option value="AUD">Australian Dollar (AUD)</option>
+                    <option value="EUR">Euro (EUR)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="city-tier">Location Within Country</label>
+                <select id="city-tier">
+                    <option value="">Select location type</option>
+                    <option value="major">Major Metropolitan Area</option>
+                    <option value="mid">Mid-sized City</option>
+                    <option value="small">Smaller City/Town</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="implant-type">Implant Type</label>
+                <select id="implant-type">
+                    <option value="">Select implant type</option>
+                    <option value="Saline">Saline</option>
+                    <option value="Standard Silicone">Standard Silicone</option>
+                    <option value="Gummy Bear (Cohesive Gel)">Gummy Bear (Cohesive Gel)</option>
+                    <option value="Structured (IDEAL)">Structured (IDEAL)</option>
+                    <option value="Anatomical (Teardrop)">Anatomical (Teardrop)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="implant-size">Implant Size</label>
+                <select id="implant-size">
+                    <option value="">Select implant size</option>
+                    <option value="Small (Under 300cc)">Small (Under 300cc)</option>
+                    <option value="Medium (300-400cc)">Medium (300-400cc)</option>
+                    <option value="Large (400-500cc)">Large (400-500cc)</option>
+                    <option value="Extra Large (Over 500cc)">Extra Large (Over 500cc)</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="surgeon-tier">Surgeon Experience Level</label>
+                <select id="surgeon-tier">
+                    <option value="">Select surgeon tier</option>
+                    <option value="Top Specialist">Top Specialist (Premium)</option>
+                    <option value="Board Certified">Board Certified (Standard)</option>
+                    <option value="Less Experienced">Less Experienced (Economy)</option>
+                </select>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculate()">Calculate Cost Estimate</button>
+        </div>
+        
+        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
+            <h2>Your Personalized Cost Estimate</h2>
+            
+            <div class="results-section" style="background-color: #fff2f9; border-radius: 8px; padding: 20px; margin-bottom: 30px; border: 2px solid #d63384; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 0; color: #d63384; font-weight: 600; font-size: 1.5rem;">Total Cost Range</h3>
+                <div class="results-row" style="margin-top: 12px; font-size: 1.1rem;">
+                    <div class="results-value" id="cost-range" style="font-weight: 600; font-size: 1.8rem; text-align: center;">$0 - $0</div>
+                    <div id="currency-note" style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 5px;"></div>
+                </div>
+            </div>
+            
+            <div class="macro-card-grid">
+                <!-- Selected Options Card -->
+                <div style="background-color: #c9f7ff; border-radius: 8px; padding: 20px; border-top: 4px solid #0091ea; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #0277bd; font-weight: 600;">Selected Options</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li><strong>Country:</strong> <span id="result-country">--</span></li>
+                        <li><strong>Implant Type:</strong> <span id="result-implant-type">--</span></li>
+                        <li><strong>Implant Size:</strong> <span id="result-implant-size">--</span></li>
+                        <li><strong>Surgeon Level:</strong> <span id="result-surgeon">--</span></li>
+                    </ul>
+                </div>
+                
+                <!-- Cost Breakdown Card -->
+                <div style="background-color: #daf7ff; border-radius: 8px; padding: 20px; border-top: 4px solid #00b0ff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #0288d1; font-weight: 600;">What's Included</h3>
+                    <ul style="list-style: disc; padding-left: 20px;">
+                        <li>Surgeon's Fee</li>
+                        <li>Implant Cost</li>
+                        <li>Operating Room Fees</li>
+                        <li>Standard Pre-Op Consultation</li>
+                        <li>Basic Follow-Up Care</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin-top: 20px; border-left: 4px solid #dc3545;">
+                <h3 style="margin-top: 0;">Additional Potential Costs</h3>
+                <ul style="padding-left: 20px;">
+                    <li>Anesthesia fees: Additional 10-15%</li>
+                    <li>Medical tests: $100-300 equivalent</li>
+                    <li>Post-surgical garments: $50-150 equivalent</li>
+                    <li>Prescription medications: $50-100 equivalent</li>
+                    <li>Possible revision surgery if needed</li>
+                </ul>
+            </div>
+            
+            <div style="margin-top: 20px;" id="country-notes">
+                <!-- Country-specific notes will appear here -->
+            </div>
+        </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-middle" style="margin: 30px 0;">
+        <AdUnit slot="breast-implant-cost-calculator-mid" />
+    </div>
+    
+    <!-- START Related Guide Section -->
+    <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #d63384;">
+      <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
+      <p>Looking for comprehensive information on breast implant sizing? Read our complete guide:</p>
+      <p><a href="/resources/breast-implant-size-guide" style="color: #d63384; font-weight: 600; text-decoration: none;">Breast Implant Size Guide: Finding Your Perfect Fit →</a></p>
+    </div>
+    <!-- END Related Guide Section -->
+    
+    <section id="how-to-use" style="margin-top: 60px;">
+        <div class="info">
+            <h2>How the Breast Implant Cost Calculator Works</h2>
+            <p>This calculator provides cost estimates for breast augmentation surgery based on several key factors that influence pricing:</p>
+            
+            <h3>Regional Price Variations</h3>
+            <p>Breast augmentation costs vary significantly by region and even within countries. This calculator accounts for:</p>
+            <ul>
+                <li><strong>Country:</strong> Base costs are different in each country due to economic factors, healthcare systems, and market competition.</li>
+                <li><strong>Location Type:</strong> Major metropolitan areas typically charge more than smaller cities or rural areas within the same country.</li>
+            </ul>
+            
+            <h3>Implant Selection Impact</h3>
+            <p>Your choice of implant material and size affects total cost:</p>
+            <ul>
+                <li><strong>Implant Type:</strong> Saline implants are generally less expensive than silicone, while specialized options like gummy bear or structured implants command premium prices.</li>
+                <li><strong>Size Range:</strong> Larger implant sizes may require more specialized surgical techniques or additional materials, potentially increasing costs.</li>
+            </ul>
+            
+            <h3>Surgeon Experience Factor</h3>
+            <p>The surgeon's experience level is a major pricing factor:</p>
+            <ul>
+                <li><strong>Top Specialists:</strong> Surgeons with exceptional reputations, extensive before/after portfolios, and specialized training typically charge 30-50% more than average.</li>
+                <li><strong>Board-Certified:</strong> Standard pricing from qualified surgeons with appropriate certifications and moderate experience.</li>
+                <li><strong>Less Experienced:</strong> Surgeons with fewer years of experience or those in training may offer lower rates to build their practice.</li>
+            </ul>
+            
+            <div class="highlight" style="background-color: #ffecf2; padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 3px solid #d63384;">
+                <p style="margin-top: 0;"><strong>Important:</strong> This calculator provides estimates based on aggregated data from multiple sources and should be used for planning purposes only. Actual costs can vary, and a consultation with a board-certified plastic surgeon is necessary for an accurate quote.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="faq">
+        <div class="faq-section">
+            <h2>Frequently Asked Questions About Breast Implant Costs</h2>
+            
+            <div class="faq-item">
+                <h3>How much do breast implants cost?</h3>
+                <div class="faq-answer">
+                    <p>In the United States, the total cost for breast augmentation typically ranges from $5,000 to $10,000. The cost breakdown generally includes:</p>
+                    <ul>
+                        <li>Surgeon's fee: $2,500-$4,500</li>
+                        <li>Anesthesia: $600-$1,000</li>
+                        <li>Facility fee: $800-$1,200</li>
+                        <li>Implants: $1,000-$3,000</li>
+                        <li>Miscellaneous (medical tests, garments, etc.): $200-$500</li>
+                    </ul>
+                    <p>International costs vary significantly, with some countries like Thailand or Mexico offering procedures at 40-60% of US prices, while others like Australia may be more expensive.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Does insurance cover breast implants?</h3>
+                <div class="faq-answer">
+                    <p>Insurance coverage for breast implants depends on whether the procedure is considered cosmetic or reconstructive:</p>
+                    <ul>
+                        <li><strong>Cosmetic Augmentation:</strong> Almost never covered by health insurance</li>
+                        <li><strong>Reconstructive (Post-Mastectomy):</strong> Covered by most insurance plans in the US under the Women's Health and Cancer Rights Act of 1998</li>
+                        <li><strong>Congenital Deformities:</strong> May be covered if considered medically necessary</li>
+                        <li><strong>Severe Asymmetry:</strong> Sometimes covered if the asymmetry is significant enough to be considered a deformity</li>
+                    </ul>
+                    <p>Always check directly with your insurance provider about coverage options and requirements.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Are silicone implants more expensive than saline?</h3>
+                <div class="faq-answer">
+                    <p>Yes, silicone implants typically cost more than saline implants:</p>
+                    <ul>
+                        <li>Saline implants: $1,000-$1,500 per pair</li>
+                        <li>Standard silicone implants: $2,000-$2,500 per pair</li>
+                        <li>Cohesive gel ("gummy bear") implants: $2,500-$3,000 per pair</li>
+                        <li>Structured or specialized implants: $2,500-$3,500 per pair</li>
+                    </ul>
+                    <p>The manufacturing process for silicone implants is more complex, and the material itself is more expensive. However, many patients feel the additional cost is justified by the more natural look and feel silicone provides.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What factors affect breast implant costs?</h3>
+                <div class="faq-answer">
+                    <p>Several factors can influence the total cost of breast implant surgery:</p>
+                    <ul>
+                        <li><strong>Geographic Location:</strong> Prices vary by country and even by city within the same country</li>
+                        <li><strong>Surgeon Experience:</strong> More experienced surgeons with stronger reputations typically charge more</li>
+                        <li><strong>Implant Type:</strong> Saline, silicone, gummy bear, or structured implants have different price points</li>
+                        <li><strong>Implant Brand:</strong> Premium brands like Mentor, Allergan, or Sientra may cost more than others</li>
+                        <li><strong>Procedure Complexity:</strong> Whether you need a lift in addition to augmentation</li>
+                        <li><strong>Anesthesia Type:</strong> General anesthesia costs more than local anesthesia with sedation</li>
+                        <li><strong>Facility Type:</strong> Hospital operating rooms cost more than outpatient surgical centers</li>
+                        <li><strong>Pre-operative Testing:</strong> Required medical tests can add to the total cost</li>
+                    </ul>
+                    <p>Always ask for an itemized quote to understand exactly what is included in your total price.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Is medical tourism for breast implants worth it?</h3>
+                <div class="faq-answer">
+                    <p>Medical tourism for breast implants offers potential savings but comes with important considerations:</p>
+                    <p><strong>Potential Benefits:</strong></p>
+                    <ul>
+                        <li>Cost savings: 40-70% less expensive in countries like Thailand, Mexico, or Brazil</li>
+                        <li>Combined vacation opportunity</li>
+                        <li>Access to surgeons who may specialize in specific techniques</li>
+                    </ul>
+                    <p><strong>Significant Risks:</strong></p>
+                    <ul>
+                        <li>Difficulty researching surgeon credentials and facility standards</li>
+                        <li>Potential language barriers affecting communication</li>
+                        <li>Complications after returning home requiring local treatment</li>
+                        <li>Different implant brands may not be FDA-approved</li>
+                        <li>Limited legal recourse if problems occur</li>
+                        <li>Travel restrictions during recovery period</li>
+                        <li>Difficulty with follow-up appointments</li>
+                    </ul>
+                    <p>If considering medical tourism, thoroughly research the surgeon's credentials, read patient reviews, verify the clinic's accreditation, and have a plan for follow-up care after returning home.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom" style="margin: 30px 0;">
+        <AdUnit slot="breast-implant-cost-calculator-bottom" />
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer-disclaimer">
+      <p>The content on this page is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment provided by a qualified healthcare provider. Consult with a board-certified plastic surgeon regarding your specific health needs and for accurate cost estimates in your area.</p>
+    </div>
+    
+    <script>
+        // Cost data for different countries
+        const costData = {
+            "United States": {
+                currency: "USD",
+                baseCost: 6500, // national average
+                cityTiers: {
+                    "major": 1.4, // 40% more expensive in major metros
+                    "mid": 1.0, // base rate
+                    "small": 0.8, // 20% less expensive in smaller cities
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.4, // 40% premium
+                    "Board Certified": 1.0, // standard rate
+                    "Less Experienced": 0.8, // 20% discount
+                },
+                notes: "Costs typically include the surgeon's fee but may exclude facility fees ($800-$1,200), anesthesia ($600-$1,000), and medications ($100-$200)."
+            },
+            "Canada": {
+                currency: "CAD",
+                baseCost: 8500,
+                cityTiers: {
+                    "major": 1.3, // Toronto/Vancouver
+                    "mid": 1.0, // Montreal/Calgary
+                    "small": 0.85, // Smaller cities
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.35,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.85,
+                },
+                notes: "Provincial healthcare does not cover cosmetic procedures. Private clinics may offer financing options."
+            },
+            "United Kingdom": {
+                currency: "GBP",
+                baseCost: 5500,
+                cityTiers: {
+                    "major": 1.35, // London
+                    "mid": 1.0, // Major cities
+                    "small": 0.85, // Regional areas
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.3,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.9,
+                },
+                notes: "NHS only covers reconstructive cases. Most clinics offer payment plans spread over 12-60 months."
+            },
+            "Australia": {
+                currency: "AUD",
+                baseCost: 10000,
+                cityTiers: {
+                    "major": 1.25, // Sydney/Melbourne
+                    "mid": 1.0, // Brisbane/Perth
+                    "small": 0.9, // Regional areas
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.3,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.85,
+                },
+                notes: "Medicare item numbers only apply for reconstructive surgery. Expect out-of-pocket costs even with private health insurance."
+            },
+            "Germany": {
+                currency: "EUR",
+                baseCost: 5500,
+                cityTiers: {
+                    "major": 1.2, // Munich/Frankfurt
+                    "mid": 1.0, // Berlin/Hamburg
+                    "small": 0.9, // Smaller cities
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.25,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.9,
+                },
+                notes: "Prices are consistent due to medical regulations. Health insurance only covers reconstructive procedures."
+            },
+            "Brazil": {
+                currency: "USD",
+                baseCost: 4000,
+                cityTiers: {
+                    "major": 1.25, // São Paulo/Rio
+                    "mid": 1.0, // Major cities
+                    "small": 0.8, // Smaller cities
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.5,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.7,
+                },
+                notes: "Renowned for plastic surgery with competitive pricing. Premium surgeons can charge significantly more."
+            },
+            "South Korea": {
+                currency: "USD",
+                baseCost: 7000,
+                cityTiers: {
+                    "major": 1.3, // Seoul (Gangnam)
+                    "mid": 1.0, // Seoul (Other)
+                    "small": 0.8, // Outside Seoul
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.4,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.75,
+                },
+                notes: "Medical tourism packages often include hotel stays and airport transfers. High-end clinics cater specifically to international patients."
+            },
+            "Thailand": {
+                currency: "USD",
+                baseCost: 4000,
+                cityTiers: {
+                    "major": 1.25, // Bangkok (Premium)
+                    "mid": 1.0, // Bangkok/Phuket
+                    "small": 0.8, // Other regions
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.3,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.7,
+                },
+                notes: "Popular medical tourism destination with internationally accredited hospitals. Recovery resort packages available."
+            },
+            "Mexico": {
+                currency: "USD",
+                baseCost: 4500,
+                cityTiers: {
+                    "major": 1.2, // Mexico City
+                    "mid": 1.0, // Tijuana/Cancun
+                    "small": 0.8, // Smaller cities
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.3,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.7,
+                },
+                notes: "Verify surgeon credentials and facility accreditation carefully. Many surgeons are US-trained and board-certified."
+            },
+            "Spain": {
+                currency: "EUR",
+                baseCost: 5000,
+                cityTiers: {
+                    "major": 1.25, // Madrid/Barcelona
+                    "mid": 1.0, // Valencia/Seville
+                    "small": 0.85, // Smaller cities
+                },
+                surgeonTiers: {
+                    "Top Specialist": 1.3,
+                    "Board Certified": 1.0,
+                    "Less Experienced": 0.85,
+                },
+                notes: "Many clinics offer all-inclusive packages. Private healthcare networks may provide partial coverage for members."
+            }
+        };
+
+        // Implant type price factors
+        const implantTypeData = {
+            "Saline": {
+                factor: 0.9, // 10% less than baseline
+                description: "Filled with sterile salt water. Less expensive option with a more uniform shape."
+            },
+            "Standard Silicone": {
+                factor: 1.0, // baseline
+                description: "Standard silicone gel implants. Most commonly used type worldwide with natural feel."
+            },
+            "Gummy Bear (Cohesive Gel)": {
+                factor: 1.2, // 20% more than baseline
+                description: "Form-stable silicone that maintains shape. Reduced risk of rippling and leakage."
+            },
+            "Structured (IDEAL)": {
+                factor: 1.25, // 25% more than baseline
+                description: "Advanced internal structure combining saline filling with natural feel. Newer technology."
+            },
+            "Anatomical (Teardrop)": {
+                factor: 1.15, // 15% more than baseline
+                description: "Shaped to mimic natural breast contour. Better for certain body types."
+            }
+        };
+
+        // Implant size price factors
+        const implantSizeData = {
+            "Small (Under 300cc)": {
+                factor: 0.95, // 5% less than baseline
+                description: "Moderate enhancement suitable for petite frames."
+            },
+            "Medium (300-400cc)": {
+                factor: 1.0, // baseline
+                description: "Standard size range chosen by many patients."
+            },
+            "Large (400-500cc)": {
+                factor: 1.05, // 5% more than baseline
+                description: "More noticeable enhancement. May require additional surgical planning."
+            },
+            "Extra Large (Over 500cc)": {
+                factor: 1.15, // 15% more than baseline
+                description: "Maximum enhancement. Often requires specialized techniques and implants."
+            }
+        };
+
+        // Exchange rates (approximate)
+        const exchangeRates = {
+            "USD": 1,
+            "CAD": 0.74,
+            "GBP": 1.29,
+            "AUD": 0.67,
+            "EUR": 1.08
+        };
+
+        // Currency symbols
+        const currencySymbols = {
+            "USD": "$",
+            "CAD": "CA$",
+            "GBP": "£",
+            "AUD": "A$",
+            "EUR": "€"
+        };
+
+        // City tier mapping
+        const cityTierMapping = {
+            "major": {
+                "United States": "Major Metro (NYC, LA, SF)",
+                "Canada": "Toronto/Vancouver",
+                "United Kingdom": "London",
+                "Australia": "Sydney/Melbourne",
+                "Germany": "Munich/Frankfurt",
+                "Brazil": "São Paulo/Rio",
+                "South Korea": "Seoul (Gangnam)",
+                "Thailand": "Bangkok (Premium)",
+                "Mexico": "Mexico City",
+                "Spain": "Madrid/Barcelona"
+            },
+            "mid": {
+                "United States": "Mid-sized Cities",
+                "Canada": "Montreal/Calgary",
+                "United Kingdom": "Major Cities",
+                "Australia": "Brisbane/Perth",
+                "Germany": "Berlin/Hamburg",
+                "Brazil": "Major Cities",
+                "South Korea": "Seoul (Other)",
+                "Thailand": "Bangkok/Phuket",
+                "Mexico": "Tijuana/Cancun",
+                "Spain": "Valencia/Seville"
+            },
+            "small": {
+                "United States": "Smaller Cities/Towns",
+                "Canada": "Smaller Cities",
+                "United Kingdom": "Regional Areas",
+                "Australia": "Regional Areas",
+                "Germany": "Smaller Cities",
+                "Brazil": "Smaller Cities",
+                "South Korea": "Outside Seoul",
+                "Thailand": "Other Regions",
+                "Mexico": "Smaller Cities",
+                "Spain": "Smaller Cities"
+            }
+        };
+
+        // Calculate function
+        function calculate() {
+            const country = document.getElementById('country').value;
+            const currency = document.getElementById('currency').value;
+            const cityTier = document.getElementById('city-tier').value;
+            const implantType = document.getElementById('implant-type').value;
+            const implantSize = document.getElementById('implant-size').value;
+            const surgeonTier = document.getElementById('surgeon-tier').value;
+            
+            // Validate inputs
+            if (!country || !cityTier || !implantType || !implantSize || !surgeonTier) {
+                alert('Please fill in all fields to calculate.');
+                return;
+            }
+            
+            // Get country data
+            const countryData = costData[country];
+            if (!countryData) return;
+            
+            // Get factors
+            const cityFactor = countryData.cityTiers[cityTier] || 1.0;
+            const surgeonFactor = countryData.surgeonTiers[surgeonTier] || 1.0;
+            const typeFactor = implantTypeData[implantType]?.factor || 1.0;
+            const sizeFactor = implantSizeData[implantSize]?.factor || 1.0;
+            
+            // Calculate base cost with all factors
+            const baseCost = countryData.baseCost;
+            const calculatedCost = baseCost * surgeonFactor * typeFactor * sizeFactor * cityFactor;
+            
+            // Add variability for more realistic ranges (±7%)
+            const lowRange = Math.round(calculatedCost * 0.93);
+            const highRange = Math.round(calculatedCost * 1.07);
+            
+            // Convert to selected currency if needed
+            const originalCurrency = countryData.currency;
+            let lowConverted = lowRange;
+            let highConverted = highRange;
+            
+            if (originalCurrency !== currency) {
+                // Convert to USD first if needed
+                let lowUSD = originalCurrency === "USD" ? lowRange : lowRange / exchangeRates[originalCurrency];
+                let highUSD = originalCurrency === "USD" ? highRange : highRange / exchangeRates[originalCurrency];
+                
+                // Convert from USD to target currency
+                lowConverted = currency === "USD" ? lowUSD : lowUSD * exchangeRates[currency];
+                highConverted = currency === "USD" ? highUSD : highUSD * exchangeRates[currency];
+            }
+            
+            // Round to nearest 100
+            lowConverted = Math.round(lowConverted / 100) * 100;
+            highConverted = Math.round(highConverted / 100) * 100;
+            
+            // Display results
+            const symbol = currencySymbols[currency] || '';
+            document.getElementById('cost-range').textContent = `${symbol}${lowConverted.toLocaleString()} - ${symbol}${highConverted.toLocaleString()}`;
+            document.getElementById('currency-note').textContent = `Prices shown in ${currency} · Regional variance may apply`;
+            
+            document.getElementById('result-country').textContent = country;
+            document.getElementById('result-implant-type').textContent = implantType;
+            document.getElementById('result-implant-size').textContent = implantSize;
+            document.getElementById('result-surgeon').textContent = surgeonTier;
+            
+            // Display country-specific notes
+            document.getElementById('country-notes').innerHTML = `
+                <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-left: 4px solid #17a2b8;">
+                    <h3 style="margin-top: 0;">Notes for ${country}</h3>
+                    <p>${countryData.notes}</p>
+                </div>
+            `;
+            
+            // Show results
+            document.getElementById('results').style.display = 'block';
+        }
+    </script>
+    
+    </div> <!-- End of calculator-container -->
+</body>
+</html>
