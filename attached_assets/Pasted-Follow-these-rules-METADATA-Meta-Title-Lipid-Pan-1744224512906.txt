@@ -1,0 +1,713 @@
+Follow these rules:
+
+// ----------------- METADATA -----------------
+// Meta Title
+// “Lipid Panel Goals Calculator – HDL, LDL, Triglycerides & Non-HDL”
+// Meta Description
+// “Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol.”
+// OG Title
+// “Cholesterol Goal Calculator”
+// OG Description
+// “Get your personalized lipid panel goals. Use it to compare against test results and manage cardiovascular risk.”
+// OG URL
+// https://healthcalculators.xyz/lipid-panel-goals-calculator
+// OG Image
+// https://healthcalculators.xyz/static/images/lipid-panel-goals-calculator-og.jpg
+// Canonical
+// https://healthcalculators.xyz/lipid-panel-goals-calculator
+
+// ✅ After deployment, add this URL to sitemap.xml with <priority>0.9</priority> and <changefreq>monthly</changefreq> so it gets indexed.
+
+// ----------------- COMPONENT -----------------
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function LipidPanelGoalsCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Lipid Panel Goals Calculator</h1>
+      <p className="subtitle">
+        Determine your ideal cholesterol targets (LDL, HDL, triglycerides, and more) based on medical guidelines and your cardiovascular risk level.
+      </p>
+
+      {/* ✅ Shared Medical Disclaimer */}
+      {% include 'components/medical-disclaimer.html' %}
+
+      <AdUnit slot="lipid-panel-goals-calculator-top" />
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#how-to-use">How This Calculator Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        <div className="calculator">
+          {/* BEGIN CLAUDE-GENERATED LIPID GOAL CALCULATOR */}
+ import { useState, useEffect } from 'react';
+
+export default function LipidPanelCalculator() {
+  const [age, setAge] = useState(45);
+  const [gender, setGender] = useState('male');
+  
+  // Height & weight values
+  const [heightUnit, setHeightUnit] = useState('imperial');
+  const [heightFeet, setHeightFeet] = useState(6);
+  const [heightInches, setHeightInches] = useState(3);
+  const [heightCm, setHeightCm] = useState(190);
+  
+  const [weightUnit, setWeightUnit] = useState('imperial');
+  const [weightLbs, setWeightLbs] = useState(250);
+  const [weightKg, setWeightKg] = useState(113);
+  
+  // Lipid values
+  const [cholesterol, setCholesterol] = useState(259);
+  const [triglycerides, setTriglycerides] = useState(166);
+  const [ldl, setLdl] = useState(176);
+  const [hdl, setHdl] = useState(52);
+  const [apoB, setApoB] = useState(140);
+  const [a1c, setA1c] = useState(5.2);
+  
+  // Calculated values
+  const [bmi, setBmi] = useState(0);
+  const [heightInchesTotal, setHeightInchesTotal] = useState(75);
+  const [weightPounds, setWeightPounds] = useState(250);
+  const [riskCategory, setRiskCategory] = useState('');
+  const [targetRanges, setTargetRanges] = useState({});
+  const [currentStatus, setCurrentStatus] = useState({});
+  
+  // Sample profiles for simulation
+  const sampleProfiles = [
+    {
+      name: "Healthy Profile",
+      values: {
+        cholesterol: 185, triglycerides: 120, ldl: 95, hdl: 62, apoB: 75, a1c: 5.2,
+        heightFeet: 5, heightInches: 10, heightCm: 178, weightLbs: 170, weightKg: 77
+      }
+    },
+    {
+      name: "Borderline Profile",
+      values: {
+        cholesterol: 210, triglycerides: 149, ldl: 128, hdl: 45, apoB: 95, a1c: 5.6,
+        heightFeet: 5, heightInches: 9, heightCm: 175, weightLbs: 190, weightKg: 86
+      }
+    },
+    {
+      name: "High Risk Profile",
+      values: {
+        cholesterol: 265, triglycerides: 210, ldl: 185, hdl: 38, apoB: 145, a1c: 6.1,
+        heightFeet: 6, heightInches: 0, heightCm: 183, weightLbs: 240, weightKg: 109
+      }
+    },
+    {
+      name: "Your Current Profile",
+      values: {
+        cholesterol: 259, triglycerides: 166, ldl: 176, hdl: 52, apoB: 140, a1c: 5.2,
+        heightFeet: 6, heightInches: 3, heightCm: 190, weightLbs: 250, weightKg: 113
+      }
+    }
+  ];
+  
+  // Function to load a sample profile
+  const loadSampleProfile = (profile) => {
+    setCholesterol(profile.values.cholesterol);
+    setTriglycerides(profile.values.triglycerides);
+    setLdl(profile.values.ldl);
+    setHdl(profile.values.hdl);
+    setApoB(profile.values.apoB);
+    setA1c(profile.values.a1c);
+    setHeightFeet(profile.values.heightFeet);
+    setHeightInches(profile.values.heightInches);
+    setHeightCm(profile.values.heightCm);
+    setWeightLbs(profile.values.weightLbs);
+    setWeightKg(profile.values.weightKg);
+  };
+
+  // Handle height unit changes and conversions
+  useEffect(() => {
+    if (heightUnit === 'imperial') {
+      // Convert feet/inches to total inches
+      const totalInches = (heightFeet * 12) + heightInches;
+      setHeightInchesTotal(totalInches);
+      
+      // Update cm based on inches
+      const cmValue = Math.round(totalInches * 2.54);
+      setHeightCm(cmValue);
+    } else {
+      // Convert cm to inches, then to feet/inches
+      const totalInches = Math.round(heightCm / 2.54);
+      setHeightInchesTotal(totalInches);
+      
+      const feet = Math.floor(totalInches / 12);
+      const inches = totalInches % 12;
+      
+      setHeightFeet(feet);
+      setHeightInches(inches);
+    }
+  }, [heightFeet, heightInches, heightCm, heightUnit]);
+
+  // Handle weight unit changes and conversions
+  useEffect(() => {
+    if (weightUnit === 'imperial') {
+      setWeightPounds(weightLbs);
+      
+      // Update kg based on lbs
+      const kgValue = Math.round(weightLbs / 2.205);
+      setWeightKg(kgValue);
+    } else {
+      // Convert kg to lbs
+      const lbsValue = Math.round(weightKg * 2.205);
+      setWeightPounds(lbsValue);
+      setWeightLbs(lbsValue);
+    }
+  }, [weightLbs, weightKg, weightUnit]);
+
+  // Calculate BMI
+  useEffect(() => {
+    const calculateBMI = () => {
+      // BMI = weight(kg) / height(m)²
+      if (weightUnit === 'imperial') {
+        // BMI formula for imperial: (weight in pounds * 703) / (height in inches)²
+        const bmiValue = (weightPounds * 703) / (heightInchesTotal * heightInchesTotal);
+        setBmi(bmiValue);
+      } else {
+        // BMI formula for metric: weight in kg / (height in m)²
+        const heightInMeters = heightCm / 100;
+        const bmiValue = weightKg / (heightInMeters * heightInMeters);
+        setBmi(bmiValue);
+      }
+    };
+    calculateBMI();
+  }, [heightInchesTotal, weightPounds, heightCm, weightKg, weightUnit]);
+
+  // Determine risk category (simplified version)
+  useEffect(() => {
+    const determineRiskCategory = () => {
+      if (bmi >= 30 || ldl > 160 || apoB > 130) {
+        return 'High Risk';
+      } else if (bmi >= 25 || ldl > 130 || apoB > 100) {
+        return 'Moderate Risk';
+      } else {
+        return 'Low Risk';
+      }
+    };
+    setRiskCategory(determineRiskCategory());
+  }, [bmi, ldl, apoB]);
+
+  // Set target ranges based on risk category and clinical guidelines
+  useEffect(() => {
+    const calculateTargets = () => {
+      let targets = {};
+      
+      // Guidelines based on AHA/ACC/NLA recommendations
+      if (riskCategory === 'High Risk') {
+        targets = {
+          totalCholesterol: '< 200 mg/dL',
+          triglycerides: '< 150 mg/dL',
+          ldl: '< 100 mg/dL',
+          hdl: gender === 'male' ? '> 40 mg/dL' : '> 50 mg/dL',
+          apoB: '< 80 mg/dL',
+          nonHdl: '< 130 mg/dL',
+          a1c: '< 5.7%',
+          bmi: '18.5-24.9'
+        };
+      } else if (riskCategory === 'Moderate Risk') {
+        targets = {
+          totalCholesterol: '< 200 mg/dL',
+          triglycerides: '< 150 mg/dL',
+          ldl: '< 130 mg/dL',
+          hdl: gender === 'male' ? '> 40 mg/dL' : '> 50 mg/dL',
+          apoB: '< 90 mg/dL',
+          nonHdl: '< 160 mg/dL',
+          a1c: '< 5.7%',
+          bmi: '18.5-24.9'
+        };
+      } else {
+        targets = {
+          totalCholesterol: '< 200 mg/dL',
+          triglycerides: '< 150 mg/dL',
+          ldl: '< 160 mg/dL',
+          hdl: gender === 'male' ? '> 40 mg/dL' : '> 50 mg/dL',
+          apoB: '< 100 mg/dL',
+          nonHdl: '< 160 mg/dL',
+          a1c: '< 5.7%',
+          bmi: '18.5-24.9'
+        };
+      }
+      setTargetRanges(targets);
+    };
+    calculateTargets();
+  }, [riskCategory, gender]);
+
+  // Evaluate current status
+  useEffect(() => {
+    const evaluateStatus = () => {
+      const nonHdl = cholesterol - hdl;
+      
+      const status = {
+        totalCholesterol: getStatusColor(cholesterol, 200),
+        triglycerides: getStatusColor(triglycerides, 150),
+        ldl: getStatusLDL(ldl, riskCategory),
+        hdl: getStatusHDL(hdl, gender),
+        apoB: getStatusApoB(apoB, riskCategory),
+        nonHdl: getStatusNonHDL(nonHdl, riskCategory),
+        a1c: getStatusA1C(a1c),
+        bmi: getStatusBMI(bmi)
+      };
+      
+      setCurrentStatus(status);
+    };
+    evaluateStatus();
+  }, [cholesterol, triglycerides, ldl, hdl, apoB, a1c, bmi, riskCategory, gender]);
+
+  // Helper functions for status evaluation
+  const getStatusColor = (value, threshold) => {
+    return value < threshold ? 'text-green-500' : 'text-red-500';
+  };
+
+  const getStatusLDL = (value, risk) => {
+    if (risk === 'High Risk') {
+      return value < 100 ? 'text-green-500' : 'text-red-500';
+    } else if (risk === 'Moderate Risk') {
+      return value < 130 ? 'text-green-500' : 'text-red-500';
+    } else {
+      return value < 160 ? 'text-green-500' : 'text-red-500';
+    }
+  };
+
+  const getStatusHDL = (value, gender) => {
+    const threshold = gender === 'male' ? 40 : 50;
+    return value > threshold ? 'text-green-500' : 'text-red-500';
+  };
+
+  const getStatusApoB = (value, risk) => {
+    if (risk === 'High Risk') {
+      return value < 80 ? 'text-green-500' : 'text-red-500';
+    } else if (risk === 'Moderate Risk') {
+      return value < 90 ? 'text-green-500' : 'text-red-500';
+    } else {
+      return value < 100 ? 'text-green-500' : 'text-red-500';
+    }
+  };
+
+  const getStatusNonHDL = (value, risk) => {
+    if (risk === 'High Risk') {
+      return value < 130 ? 'text-green-500' : 'text-red-500';
+    } else {
+      return value < 160 ? 'text-green-500' : 'text-red-500';
+    }
+  };
+
+  const getStatusA1C = (value) => {
+    return value < 5.7 ? 'text-green-500' : (value < 6.5 ? 'text-yellow-500' : 'text-red-500');
+  };
+
+  const getStatusBMI = (value) => {
+    return (value >= 18.5 && value < 25) ? 'text-green-500' : 'text-red-500';
+  };
+
+  // Calculate non-HDL
+  const nonHdlValue = cholesterol - hdl;
+
+  return (
+    <div className="max-w-4xl mx-auto p-6 bg-white rounded-lg shadow-lg">
+      <h1 className="text-2xl font-bold text-center mb-6">Lipid Panel Target Calculator</h1>
+      
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">Personal Information</h2>
+          
+          <div className="grid grid-cols-2 gap-4 mb-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Age</label>
+              <input 
+                type="number" 
+                value={age} 
+                onChange={(e) => setAge(parseInt(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">Gender</label>
+              <select 
+                value={gender} 
+                onChange={(e) => setGender(e.target.value)}
+                className="w-full p-2 border rounded"
+              >
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
+            </div>
+          </div>
+          
+          {/* Height Section */}
+          <div className="mb-4">
+            <div className="flex justify-between items-center mb-2">
+              <label className="block text-sm font-medium">Height</label>
+              <div className="flex items-center">
+                <label className="inline-flex items-center mr-4">
+                  <input 
+                    type="radio" 
+                    checked={heightUnit === 'imperial'} 
+                    onChange={() => setHeightUnit('imperial')} 
+                    className="mr-1"
+                  />
+                  <span className="text-sm">ft/in</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input 
+                    type="radio" 
+                    checked={heightUnit === 'metric'} 
+                    onChange={() => setHeightUnit('metric')} 
+                    className="mr-1"
+                  />
+                  <span className="text-sm">cm</span>
+                </label>
+              </div>
+            </div>
+            
+            {heightUnit === 'imperial' ? (
+              <div className="flex space-x-2">
+                <div className="w-1/2">
+                  <input 
+                    type="number" 
+                    value={heightFeet} 
+                    onChange={(e) => setHeightFeet(parseInt(e.target.value) || 0)}
+                    className="w-full p-2 border rounded" 
+                    placeholder="Feet"
+                  />
+                  <label className="text-xs text-gray-500">feet</label>
+                </div>
+                <div className="w-1/2">
+                  <input 
+                    type="number" 
+                    value={heightInches} 
+                    onChange={(e) => setHeightInches(parseInt(e.target.value) || 0)}
+                    className="w-full p-2 border rounded" 
+                    placeholder="Inches"
+                    min="0"
+                    max="11"
+                  />
+                  <label className="text-xs text-gray-500">inches</label>
+                </div>
+              </div>
+            ) : (
+              <div>
+                <input 
+                  type="number" 
+                  value={heightCm} 
+                  onChange={(e) => setHeightCm(parseInt(e.target.value) || 0)}
+                  className="w-full p-2 border rounded" 
+                  placeholder="CM"
+                />
+                <label className="text-xs text-gray-500">centimeters</label>
+              </div>
+            )}
+          </div>
+          
+          {/* Weight Section */}
+          <div className="mb-4">
+            <div className="flex justify-between items-center mb-2">
+              <label className="block text-sm font-medium">Weight</label>
+              <div className="flex items-center">
+                <label className="inline-flex items-center mr-4">
+                  <input 
+                    type="radio" 
+                    checked={weightUnit === 'imperial'} 
+                    onChange={() => setWeightUnit('imperial')} 
+                    className="mr-1"
+                  />
+                  <span className="text-sm">lbs</span>
+                </label>
+                <label className="inline-flex items-center">
+                  <input 
+                    type="radio" 
+                    checked={weightUnit === 'metric'} 
+                    onChange={() => setWeightUnit('metric')} 
+                    className="mr-1"
+                  />
+                  <span className="text-sm">kg</span>
+                </label>
+              </div>
+            </div>
+            
+            {weightUnit === 'imperial' ? (
+              <div>
+                <input 
+                  type="number" 
+                  value={weightLbs} 
+                  onChange={(e) => setWeightLbs(parseInt(e.target.value) || 0)}
+                  className="w-full p-2 border rounded" 
+                  placeholder="Pounds"
+                />
+                <label className="text-xs text-gray-500">pounds</label>
+              </div>
+            ) : (
+              <div>
+                <input 
+                  type="number" 
+                  value={weightKg} 
+                  onChange={(e) => setWeightKg(parseInt(e.target.value) || 0)}
+                  className="w-full p-2 border rounded" 
+                  placeholder="Kilograms"
+                />
+                <label className="text-xs text-gray-500">kilograms</label>
+              </div>
+            )}
+          </div>
+          
+          <div className="mt-4">
+            <p className="font-medium">BMI: <span className={currentStatus.bmi}>{bmi.toFixed(1)}</span></p>
+            <p className="font-medium">Risk Category: <span className="font-bold">{riskCategory}</span></p>
+          </div>
+        </div>
+        
+        <div className="bg-gray-50 p-4 rounded-lg">
+          <h2 className="text-xl font-semibold mb-4">Current Lipid Values</h2>
+          
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block text-sm font-medium mb-1">Total Cholesterol</label>
+              <input 
+                type="number" 
+                value={cholesterol} 
+                onChange={(e) => setCholesterol(parseInt(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">Triglycerides</label>
+              <input 
+                type="number" 
+                value={triglycerides} 
+                onChange={(e) => setTriglycerides(parseInt(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">LDL</label>
+              <input 
+                type="number" 
+                value={ldl} 
+                onChange={(e) => setLdl(parseInt(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">HDL</label>
+              <input 
+                type="number" 
+                value={hdl} 
+                onChange={(e) => setHdl(parseInt(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">ApoB</label>
+              <input 
+                type="number" 
+                value={apoB} 
+                onChange={(e) => setApoB(parseInt(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+            
+            <div>
+              <label className="block text-sm font-medium mb-1">A1C (%)</label>
+              <input 
+                type="number" 
+                step="0.1" 
+                value={a1c} 
+                onChange={(e) => setA1c(parseFloat(e.target.value) || 0)}
+                className="w-full p-2 border rounded" 
+              />
+            </div>
+          </div>
+          
+          <div className="mt-4">
+            <p className="font-medium">Calculated Non-HDL: <span className={currentStatus.nonHdl}>{nonHdlValue} mg/dL</span></p>
+          </div>
+          
+          <div className="mt-4">
+            <h3 className="font-medium mb-2">Load Sample Profile:</h3>
+            <div className="flex flex-wrap gap-2">
+              {sampleProfiles.map((profile, index) => (
+                <button 
+                  key={index}
+                  onClick={() => loadSampleProfile(profile.values)}
+                  className="px-3 py-1 bg-blue-100 hover:bg-blue-200 rounded text-sm"
+                >
+                  {profile.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div className="bg-gray-50 p-4 rounded-lg">
+        <h2 className="text-xl font-semibold mb-4">Target Ranges & Status</h2>
+        
+        <div className="overflow-x-auto">
+          <table className="w-full text-left border-collapse">
+            <thead>
+              <tr className="bg-gray-200">
+                <th className="py-2 px-4 border">Marker</th>
+                <th className="py-2 px-4 border">Your Value</th>
+                <th className="py-2 px-4 border">Target Range</th>
+                <th className="py-2 px-4 border">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td className="py-2 px-4 border">Total Cholesterol</td>
+                <td className="py-2 px-4 border">{cholesterol} mg/dL</td>
+                <td className="py-2 px-4 border">{targetRanges.totalCholesterol}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.totalCholesterol}`}>
+                  {cholesterol < 200 ? 'Optimal' : (cholesterol < 240 ? 'Borderline High' : 'High')}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">Triglycerides</td>
+                <td className="py-2 px-4 border">{triglycerides} mg/dL</td>
+                <td className="py-2 px-4 border">{targetRanges.triglycerides}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.triglycerides}`}>
+                  {triglycerides < 150 ? 'Optimal' : (triglycerides < 200 ? 'Borderline High' : 'High')}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">LDL</td>
+                <td className="py-2 px-4 border">{ldl} mg/dL</td>
+                <td className="py-2 px-4 border">{targetRanges.ldl}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.ldl}`}>
+                  {ldl < 100 ? 'Optimal' : (ldl < 130 ? 'Near Optimal' : (ldl < 160 ? 'Borderline High' : 'High'))}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">HDL</td>
+                <td className="py-2 px-4 border">{hdl} mg/dL</td>
+                <td className="py-2 px-4 border">{targetRanges.hdl}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.hdl}`}>
+                  {hdl > (gender === 'male' ? 40 : 50) ? 'Optimal' : 'Low'}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">Non-HDL</td>
+                <td className="py-2 px-4 border">{nonHdlValue} mg/dL</td>
+                <td className="py-2 px-4 border">{targetRanges.nonHdl}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.nonHdl}`}>
+                  {nonHdlValue < 130 ? 'Optimal' : (nonHdlValue < 160 ? 'Above Optimal' : 'High')}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">ApoB</td>
+                <td className="py-2 px-4 border">{apoB} mg/dL</td>
+                <td className="py-2 px-4 border">{targetRanges.apoB}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.apoB}`}>
+                  {apoB < 80 ? 'Optimal' : (apoB < 100 ? 'Above Optimal' : 'High')}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">A1C</td>
+                <td className="py-2 px-4 border">{a1c}%</td>
+                <td className="py-2 px-4 border">{targetRanges.a1c}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.a1c}`}>
+                  {a1c < 5.7 ? 'Normal' : (a1c < 6.5 ? 'Prediabetic' : 'Diabetic')}
+                </td>
+              </tr>
+              <tr>
+                <td className="py-2 px-4 border">BMI</td>
+                <td className="py-2 px-4 border">{bmi.toFixed(1)}</td>
+                <td className="py-2 px-4 border">{targetRanges.bmi}</td>
+                <td className={`py-2 px-4 border font-bold ${currentStatus.bmi}`}>
+                  {bmi < 18.5 ? 'Underweight' : (bmi < 25 ? 'Normal' : (bmi < 30 ? 'Overweight' : 'Obese'))}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+      <div className="mt-8 bg-blue-50 p-4 rounded-lg">
+        <h2 className="text-xl font-semibold mb-2">Improvement Strategies</h2>
+        <ul className="list-disc pl-6 space-y-2">
+          <li>Focus on a Mediterranean or DASH diet rich in fruits, vegetables, whole grains, and lean proteins</li>
+          <li>Reduce saturated and trans fats; increase monounsaturated and omega-3 fats</li>
+          <li>Exercise regularly (aim for 150+ minutes of moderate activity per week)</li>
+          <li>Maintain a consistent weight loss plan (1-2 lbs per week is sustainable)</li>
+          <li>Limit alcohol consumption</li>
+          <li>Consider discussing medication options with your healthcare provider if lifestyle changes don't yield sufficient improvement</li>
+        </ul>
+      </div>
+      
+      <div className="mt-6 text-sm text-gray-600">
+        <p><strong>Note:</strong> This calculator uses guidelines from the American Heart Association (AHA), American College of Cardiology (ACC), and National Lipid Association (NLA). Results should be discussed with your healthcare provider.</p>
+      </div>
+    </div>
+  );
+}
+
+
+
+          {/* END CLAUDE-GENERATED LIPID GOAL CALCULATOR */}
+        </div>
+      </section>
+
+      <AdUnit slot="lipid-panel-goals-calculator-mid" />
+
+      {/* Optional Related Guide Block */}
+      {false && (
+        <div className="highlight" style={{ marginTop: 40, backgroundColor: '#f8f9fa', padding: 20, borderRadius: 8, borderLeft: '4px solid #d63384' }}>
+          <h3 style={{ color: '#333', marginTop: 0 }}>📘 Related Guide</h3>
+          <p>
+            Learn more about lipid goals, cardiovascular risk, and how to interpret your lab panel.
+            <a href="/resources/lipid-panel-goals-explained" className="pink-link">
+              Read the full Lipid Panel Guide →
+            </a>
+          </p>
+        </div>
+      )}
+
+      <section id="how-to-use">
+        <h2><BarChart className="section-icon" /> How to Use the Lipid Panel Goals Calculator</h2>
+        <ul>
+          <li>Enter your age, gender, and clinical risk factors.</li>
+          <li>Click "Calculate Goals" to receive target ranges for each lipid category.</li>
+          <li>Compare your lab results with your personalized goals.</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h4>What is a healthy LDL goal?</h4>
+          <p>For low-risk individuals, LDL should be <100 mg/dL. For those with heart disease or diabetes, <70 mg/dL is often targeted.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Are triglycerides part of my cardiovascular risk?</h4>
+          <p>Yes. High triglycerides can increase atherosclerosis risk. Goals are typically <150 mg/dL.</p>
+        </div>
+        <div className="faq-item">
+          <h4>What’s the difference between HDL and non-HDL?</h4>
+          <p>HDL is "good" cholesterol. Non-HDL includes all atherogenic particles. It’s a stronger predictor than LDL alone.</p>
+        </div>
+      </section>
+
+      <AdUnit slot="lipid-panel-goals-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for educational use only. Always consult your doctor to interpret lab results.</p>
+      </footer>
+    </div>
+  );
+}

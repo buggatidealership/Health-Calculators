@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% set og_image = "lipid-panel-goals-calculator-og.jpg" %}
+  {% with
+    meta_title="Lipid Panel Goals Calculator – HDL, LDL, Triglycerides & Non-HDL",
+    meta_description="Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol.",
+    og_title="Cholesterol Goal Calculator",
+    og_description="Get your personalized lipid panel goals. Use it to compare against test results and manage cardiovascular risk.",
+    og_url="/lipid-panel-goals-calculator",
+    canonical_url="/lipid-panel-goals-calculator",
+    page_title="Lipid Panel Goals Calculator – HDL, LDL, Triglycerides & Non-HDL"
+  %}
+  {% include 'head_seo.html' %}
+  {% endwith %}
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Initialize variables
+      let age = 45;
+      let gender = 'male';
+      
+      // Height & weight variables
+      let heightUnit = 'imperial';
+      let heightFeet = 6;
+      let heightInches = 3;
+      let heightCm = 190;
+      let heightInchesTotal = 75;
+      
+      let weightUnit = 'imperial';
+      let weightLbs = 250;
+      let weightKg = 113;
+      let weightPounds = 250;
+      
+      // Lipid values
+      let cholesterol = 259;
+      let triglycerides = 166;
+      let ldl = 176;
+      let hdl = 52;
+      let apoB = 140;
+      let a1c = 5.2;
+      
+      // Calculated values
+      let bmi = 0;
+      let riskCategory = '';
+      let targetRanges = {};
+      let currentStatus = {};
+      
+      // Sample profiles for simulation
+      const sampleProfiles = [
+        {
+          name: "Healthy Profile",
+          values: {
+            cholesterol: 185, triglycerides: 120, ldl: 95, hdl: 62, apoB: 75, a1c: 5.2,
+            heightFeet: 5, heightInches: 10, heightCm: 178, weightLbs: 170, weightKg: 77
+          }
+        },
+        {
+          name: "Borderline Profile",
+          values: {
+            cholesterol: 210, triglycerides: 149, ldl: 128, hdl: 45, apoB: 95, a1c: 5.6,
+            heightFeet: 5, heightInches: 9, heightCm: 175, weightLbs: 190, weightKg: 86
+          }
+        },
+        {
+          name: "High Risk Profile",
+          values: {
+            cholesterol: 265, triglycerides: 210, ldl: 185, hdl: 38, apoB: 145, a1c: 6.1,
+            heightFeet: 6, heightInches: 0, heightCm: 183, weightLbs: 240, weightKg: 109
+          }
+        },
+        {
+          name: "Your Current Profile",
+          values: {
+            cholesterol: 259, triglycerides: 166, ldl: 176, hdl: 52, apoB: 140, a1c: 5.2,
+            heightFeet: 6, heightInches: 3, heightCm: 190, weightLbs: 250, weightKg: 113
+          }
+        }
+      ];
+      
+      // DOM elements
+      const ageInput = document.getElementById('age');
+      const genderSelect = document.getElementById('gender');
+      
+      const heightUnitMetric = document.getElementById('height-unit-metric');
+      const heightUnitImperial = document.getElementById('height-unit-imperial');
+      const heightFeetInput = document.getElementById('height-feet');
+      const heightInchesInput = document.getElementById('height-inches');
+      const heightCmInput = document.getElementById('height-cm');
+      
+      const weightUnitMetric = document.getElementById('weight-unit-metric');
+      const weightUnitImperial = document.getElementById('weight-unit-imperial');
+      const weightLbsInput = document.getElementById('weight-lbs');
+      const weightKgInput = document.getElementById('weight-kg');
+      
+      const cholesterolInput = document.getElementById('cholesterol');
+      const triglyceridesInput = document.getElementById('triglycerides');
+      const ldlInput = document.getElementById('ldl');
+      const hdlInput = document.getElementById('hdl');
+      const apoBInput = document.getElementById('apoB');
+      const a1cInput = document.getElementById('a1c');
+      
+      const bmiDisplay = document.getElementById('bmi');
+      const riskCategoryDisplay = document.getElementById('risk-category');
+      const nonHdlDisplay = document.getElementById('non-hdl');
+      
+      const resultsTable = document.getElementById('results-table');
+      const sampleProfileButtons = document.querySelectorAll('.sample-profile-btn');
+      
+      // Initialize inputs with default values
+      if (ageInput) ageInput.value = age;
+      if (genderSelect) genderSelect.value = gender;
+      
+      if (heightFeetInput) heightFeetInput.value = heightFeet;
+      if (heightInchesInput) heightInchesInput.value = heightInches;
+      if (heightCmInput) heightCmInput.value = heightCm;
+      
+      if (weightLbsInput) weightLbsInput.value = weightLbs;
+      if (weightKgInput) weightKgInput.value = weightKg;
+      
+      if (cholesterolInput) cholesterolInput.value = cholesterol;
+      if (triglyceridesInput) triglyceridesInput.value = triglycerides;
+      if (ldlInput) ldlInput.value = ldl;
+      if (hdlInput) hdlInput.value = hdl;
+      if (apoBInput) apoBInput.value = apoB;
+      if (a1cInput) a1cInput.value = a1c;
+      
+      // Set up event listeners
+      if (ageInput) {
+        ageInput.addEventListener('input', function() {
+          age = parseInt(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      if (genderSelect) {
+        genderSelect.addEventListener('change', function() {
+          gender = this.value;
+          updateCalculations();
+        });
+      }
+      
+      // Height unit toggle
+      if (heightUnitMetric && heightUnitImperial) {
+        heightUnitMetric.addEventListener('click', function() {
+          heightUnit = 'metric';
+          toggleHeightInputs();
+          updateHeightCm();
+        });
+        
+        heightUnitImperial.addEventListener('click', function() {
+          heightUnit = 'imperial';
+          toggleHeightInputs();
+          updateHeightFeetInches();
+        });
+      }
+      
+      // Height inputs
+      if (heightFeetInput) {
+        heightFeetInput.addEventListener('input', function() {
+          heightFeet = parseInt(this.value) || 0;
+          updateHeightTotal();
+        });
+      }
+      
+      if (heightInchesInput) {
+        heightInchesInput.addEventListener('input', function() {
+          heightInches = parseInt(this.value) || 0;
+          updateHeightTotal();
+        });
+      }
+      
+      if (heightCmInput) {
+        heightCmInput.addEventListener('input', function() {
+          heightCm = parseInt(this.value) || 0;
+          updateHeightTotal();
+        });
+      }
+      
+      // Weight unit toggle
+      if (weightUnitMetric && weightUnitImperial) {
+        weightUnitMetric.addEventListener('click', function() {
+          weightUnit = 'metric';
+          toggleWeightInputs();
+          updateWeightKg();
+        });
+        
+        weightUnitImperial.addEventListener('click', function() {
+          weightUnit = 'imperial';
+          toggleWeightInputs();
+          updateWeightLbs();
+        });
+      }
+      
+      // Weight inputs
+      if (weightLbsInput) {
+        weightLbsInput.addEventListener('input', function() {
+          weightLbs = parseInt(this.value) || 0;
+          weightPounds = weightLbs;
+          updateWeightKg();
+          updateCalculations();
+        });
+      }
+      
+      if (weightKgInput) {
+        weightKgInput.addEventListener('input', function() {
+          weightKg = parseInt(this.value) || 0;
+          updateWeightLbs();
+          updateCalculations();
+        });
+      }
+      
+      // Lipid inputs
+      if (cholesterolInput) {
+        cholesterolInput.addEventListener('input', function() {
+          cholesterol = parseInt(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      if (triglyceridesInput) {
+        triglyceridesInput.addEventListener('input', function() {
+          triglycerides = parseInt(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      if (ldlInput) {
+        ldlInput.addEventListener('input', function() {
+          ldl = parseInt(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      if (hdlInput) {
+        hdlInput.addEventListener('input', function() {
+          hdl = parseInt(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      if (apoBInput) {
+        apoBInput.addEventListener('input', function() {
+          apoB = parseInt(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      if (a1cInput) {
+        a1cInput.addEventListener('input', function() {
+          a1c = parseFloat(this.value) || 0;
+          updateCalculations();
+        });
+      }
+      
+      // Sample profile buttons
+      if (sampleProfileButtons) {
+        sampleProfileButtons.forEach(function(button, index) {
+          button.addEventListener('click', function() {
+            loadSampleProfile(sampleProfiles[index].values);
+          });
+        });
+      }
+      
+      // Helper functions
+      function toggleHeightInputs() {
+        const imperialInputs = document.getElementById('height-imperial-inputs');
+        const metricInputs = document.getElementById('height-metric-inputs');
+        
+        if (heightUnit === 'imperial') {
+          imperialInputs.style.display = 'flex';
+          metricInputs.style.display = 'none';
+          heightUnitImperial.classList.add('active');
+          heightUnitMetric.classList.remove('active');
+        } else {
+          imperialInputs.style.display = 'none';
+          metricInputs.style.display = 'block';
+          heightUnitImperial.classList.remove('active');
+          heightUnitMetric.classList.add('active');
+        }
+      }
+      
+      function toggleWeightInputs() {
+        const imperialInputs = document.getElementById('weight-imperial-inputs');
+        const metricInputs = document.getElementById('weight-metric-inputs');
+        
+        if (weightUnit === 'imperial') {
+          imperialInputs.style.display = 'block';
+          metricInputs.style.display = 'none';
+          weightUnitImperial.classList.add('active');
+          weightUnitMetric.classList.remove('active');
+        } else {
+          imperialInputs.style.display = 'none';
+          metricInputs.style.display = 'block';
+          weightUnitImperial.classList.remove('active');
+          weightUnitMetric.classList.add('active');
+        }
+      }
+      
+      function updateHeightTotal() {
+        if (heightUnit === 'imperial') {
+          heightInchesTotal = (heightFeet * 12) + heightInches;
+          heightCm = Math.round(heightInchesTotal * 2.54);
+          if (heightCmInput) heightCmInput.value = heightCm;
+        } else {
+          heightInchesTotal = Math.round(heightCm / 2.54);
+          heightFeet = Math.floor(heightInchesTotal / 12);
+          heightInches = heightInchesTotal % 12;
+          if (heightFeetInput) heightFeetInput.value = heightFeet;
+          if (heightInchesInput) heightInchesInput.value = heightInches;
+        }
+        updateCalculations();
+      }
+      
+      function updateHeightFeetInches() {
+        heightInchesTotal = Math.round(heightCm / 2.54);
+        heightFeet = Math.floor(heightInchesTotal / 12);
+        heightInches = heightInchesTotal % 12;
+        if (heightFeetInput) heightFeetInput.value = heightFeet;
+        if (heightInchesInput) heightInchesInput.value = heightInches;
+        updateCalculations();
+      }
+      
+      function updateHeightCm() {
+        heightCm = Math.round(heightInchesTotal * 2.54);
+        if (heightCmInput) heightCmInput.value = heightCm;
+        updateCalculations();
+      }
+      
+      function updateWeightLbs() {
+        weightLbs = Math.round(weightKg * 2.205);
+        weightPounds = weightLbs;
+        if (weightLbsInput) weightLbsInput.value = weightLbs;
+        updateCalculations();
+      }
+      
+      function updateWeightKg() {
+        weightKg = Math.round(weightLbs / 2.205);
+        if (weightKgInput) weightKgInput.value = weightKg;
+        updateCalculations();
+      }
+      
+      function calculateBMI() {
+        if (weightUnit === 'imperial') {
+          // BMI formula for imperial: (weight in pounds * 703) / (height in inches)²
+          bmi = (weightPounds * 703) / (heightInchesTotal * heightInchesTotal);
+        } else {
+          // BMI formula for metric: weight in kg / (height in m)²
+          const heightInMeters = heightCm / 100;
+          bmi = weightKg / (heightInMeters * heightInMeters);
+        }
+        return bmi;
+      }
+      
+      function determineRiskCategory() {
+        if (bmi >= 30 || ldl > 160 || apoB > 130) {
+          return 'High Risk';
+        } else if (bmi >= 25 || ldl > 130 || apoB > 100) {
+          return 'Moderate Risk';
+        } else {
+          return 'Low Risk';
+        }
+      }
+      
+      function calculateTargets() {
+        let targets = {};
+        
+        // Guidelines based on AHA/ACC/NLA recommendations
+        if (riskCategory === 'High Risk') {
+          targets = {
+            totalCholesterol: '< 200 mg/dL',
+            triglycerides: '< 150 mg/dL',
+            ldl: '< 100 mg/dL',
+            hdl: gender === 'male' ? '> 40 mg/dL' : '> 50 mg/dL',
+            apoB: '< 80 mg/dL',
+            nonHdl: '< 130 mg/dL',
+            a1c: '< 5.7%',
+            bmi: '18.5-24.9'
+          };
+        } else if (riskCategory === 'Moderate Risk') {
+          targets = {
+            totalCholesterol: '< 200 mg/dL',
+            triglycerides: '< 150 mg/dL',
+            ldl: '< 130 mg/dL',
+            hdl: gender === 'male' ? '> 40 mg/dL' : '> 50 mg/dL',
+            apoB: '< 90 mg/dL',
+            nonHdl: '< 160 mg/dL',
+            a1c: '< 5.7%',
+            bmi: '18.5-24.9'
+          };
+        } else {
+          targets = {
+            totalCholesterol: '< 200 mg/dL',
+            triglycerides: '< 150 mg/dL',
+            ldl: '< 160 mg/dL',
+            hdl: gender === 'male' ? '> 40 mg/dL' : '> 50 mg/dL',
+            apoB: '< 100 mg/dL',
+            nonHdl: '< 160 mg/dL',
+            a1c: '< 5.7%',
+            bmi: '18.5-24.9'
+          };
+        }
+        return targets;
+      }
+      
+      function evaluateStatus() {
+        const nonHdl = cholesterol - hdl;
+        
+        const status = {
+          totalCholesterol: getStatusColor(cholesterol, 200),
+          triglycerides: getStatusColor(triglycerides, 150),
+          ldl: getStatusLDL(ldl, riskCategory),
+          hdl: getStatusHDL(hdl, gender),
+          apoB: getStatusApoB(apoB, riskCategory),
+          nonHdl: getStatusNonHDL(nonHdl, riskCategory),
+          a1c: getStatusA1C(a1c),
+          bmi: getStatusBMI(bmi)
+        };
+        
+        return status;
+      }
+      
+      // Helper functions for status evaluation
+      function getStatusColor(value, threshold) {
+        return value < threshold ? 'text-success' : 'text-danger';
+      }
+      
+      function getStatusLDL(value, risk) {
+        if (risk === 'High Risk') {
+          return value < 100 ? 'text-success' : 'text-danger';
+        } else if (risk === 'Moderate Risk') {
+          return value < 130 ? 'text-success' : 'text-danger';
+        } else {
+          return value < 160 ? 'text-success' : 'text-danger';
+        }
+      }
+      
+      function getStatusHDL(value, gender) {
+        const threshold = gender === 'male' ? 40 : 50;
+        return value > threshold ? 'text-success' : 'text-danger';
+      }
+      
+      function getStatusApoB(value, risk) {
+        if (risk === 'High Risk') {
+          return value < 80 ? 'text-success' : 'text-danger';
+        } else if (risk === 'Moderate Risk') {
+          return value < 90 ? 'text-success' : 'text-danger';
+        } else {
+          return value < 100 ? 'text-success' : 'text-danger';
+        }
+      }
+      
+      function getStatusNonHDL(value, risk) {
+        if (risk === 'High Risk') {
+          return value < 130 ? 'text-success' : 'text-danger';
+        } else {
+          return value < 160 ? 'text-success' : 'text-danger';
+        }
+      }
+      
+      function getStatusA1C(value) {
+        return value < 5.7 ? 'text-success' : (value < 6.5 ? 'text-warning' : 'text-danger');
+      }
+      
+      function getStatusBMI(value) {
+        return (value >= 18.5 && value < 25) ? 'text-success' : 'text-danger';
+      }
+      
+      function getStatusLabel(marker, value) {
+        switch(marker) {
+          case 'totalCholesterol':
+            return value < 200 ? 'Optimal' : (value < 240 ? 'Borderline High' : 'High');
+          case 'triglycerides':
+            return value < 150 ? 'Optimal' : (value < 200 ? 'Borderline High' : 'High');
+          case 'ldl':
+            return value < 100 ? 'Optimal' : (value < 130 ? 'Near Optimal' : (value < 160 ? 'Borderline High' : 'High'));
+          case 'hdl':
+            return value > (gender === 'male' ? 40 : 50) ? 'Optimal' : 'Low';
+          case 'nonHdl':
+            return value < 130 ? 'Optimal' : (value < 160 ? 'Above Optimal' : 'High');
+          case 'apoB':
+            return value < 80 ? 'Optimal' : (value < 100 ? 'Above Optimal' : 'High');
+          case 'a1c':
+            return value < 5.7 ? 'Normal' : (value < 6.5 ? 'Prediabetic' : 'Diabetic');
+          case 'bmi':
+            return value < 18.5 ? 'Underweight' : (value < 25 ? 'Normal' : (value < 30 ? 'Overweight' : 'Obese'));
+          default:
+            return '';
+        }
+      }
+      
+      function loadSampleProfile(profileValues) {
+        // Update all inputs with profile values
+        cholesterol = profileValues.cholesterol;
+        triglycerides = profileValues.triglycerides;
+        ldl = profileValues.ldl;
+        hdl = profileValues.hdl;
+        apoB = profileValues.apoB;
+        a1c = profileValues.a1c;
+        heightFeet = profileValues.heightFeet;
+        heightInches = profileValues.heightInches;
+        heightCm = profileValues.heightCm;
+        weightLbs = profileValues.weightLbs;
+        weightKg = profileValues.weightKg;
+        
+        // Update input elements
+        if (cholesterolInput) cholesterolInput.value = cholesterol;
+        if (triglyceridesInput) triglyceridesInput.value = triglycerides;
+        if (ldlInput) ldlInput.value = ldl;
+        if (hdlInput) hdlInput.value = hdl;
+        if (apoBInput) apoBInput.value = apoB;
+        if (a1cInput) a1cInput.value = a1c;
+        
+        if (heightFeetInput) heightFeetInput.value = heightFeet;
+        if (heightInchesInput) heightInchesInput.value = heightInches;
+        if (heightCmInput) heightCmInput.value = heightCm;
+        
+        if (weightLbsInput) weightLbsInput.value = weightLbs;
+        if (weightKgInput) weightKgInput.value = weightKg;
+        
+        // Update calculations
+        updateHeightTotal();
+        updateCalculations();
+      }
+      
+      function updateCalculations() {
+        // Calculate BMI
+        bmi = calculateBMI();
+        if (bmiDisplay) bmiDisplay.textContent = bmi.toFixed(1);
+        
+        // Determine risk category
+        riskCategory = determineRiskCategory();
+        if (riskCategoryDisplay) riskCategoryDisplay.textContent = riskCategory;
+        
+        // Calculate target ranges
+        targetRanges = calculateTargets();
+        
+        // Evaluate current status
+        currentStatus = evaluateStatus();
+        
+        // Calculate non-HDL
+        const nonHdlValue = cholesterol - hdl;
+        if (nonHdlDisplay) nonHdlDisplay.textContent = nonHdlValue + ' mg/dL';
+        if (nonHdlDisplay) nonHdlDisplay.className = currentStatus.nonHdl;
+        
+        // Update results table
+        updateResultsTable();
+      }
+      
+      function updateResultsTable() {
+        if (!resultsTable) return;
+        
+        const nonHdlValue = cholesterol - hdl;
+        
+        // Create table body
+        let tableHtml = `
+          <thead>
+            <tr>
+              <th>Marker</th>
+              <th>Your Value</th>
+              <th>Target Range</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total Cholesterol</td>
+              <td>${cholesterol} mg/dL</td>
+              <td>${targetRanges.totalCholesterol}</td>
+              <td class="${currentStatus.totalCholesterol}">
+                ${getStatusLabel('totalCholesterol', cholesterol)}
+              </td>
+            </tr>
+            <tr>
+              <td>Triglycerides</td>
+              <td>${triglycerides} mg/dL</td>
+              <td>${targetRanges.triglycerides}</td>
+              <td class="${currentStatus.triglycerides}">
+                ${getStatusLabel('triglycerides', triglycerides)}
+              </td>
+            </tr>
+            <tr>
+              <td>LDL</td>
+              <td>${ldl} mg/dL</td>
+              <td>${targetRanges.ldl}</td>
+              <td class="${currentStatus.ldl}">
+                ${getStatusLabel('ldl', ldl)}
+              </td>
+            </tr>
+            <tr>
+              <td>HDL</td>
+              <td>${hdl} mg/dL</td>
+              <td>${targetRanges.hdl}</td>
+              <td class="${currentStatus.hdl}">
+                ${getStatusLabel('hdl', hdl)}
+              </td>
+            </tr>
+            <tr>
+              <td>Non-HDL</td>
+              <td>${nonHdlValue} mg/dL</td>
+              <td>${targetRanges.nonHdl}</td>
+              <td class="${currentStatus.nonHdl}">
+                ${getStatusLabel('nonHdl', nonHdlValue)}
+              </td>
+            </tr>
+            <tr>
+              <td>ApoB</td>
+              <td>${apoB} mg/dL</td>
+              <td>${targetRanges.apoB}</td>
+              <td class="${currentStatus.apoB}">
+                ${getStatusLabel('apoB', apoB)}
+              </td>
+            </tr>
+            <tr>
+              <td>A1C</td>
+              <td>${a1c}%</td>
+              <td>${targetRanges.a1c}</td>
+              <td class="${currentStatus.a1c}">
+                ${getStatusLabel('a1c', a1c)}
+              </td>
+            </tr>
+            <tr>
+              <td>BMI</td>
+              <td>${bmi.toFixed(1)}</td>
+              <td>${targetRanges.bmi}</td>
+              <td class="${currentStatus.bmi}">
+                ${getStatusLabel('bmi', bmi)}
+              </td>
+            </tr>
+          </tbody>
+        `;
+        
+        resultsTable.innerHTML = tableHtml;
+      }
+      
+      // Initialize
+      toggleHeightInputs();
+      toggleWeightInputs();
+      updateCalculations();
+    });
+  </script>
+  <style>
+    .text-success {
+      color: #28a745;
+      font-weight: bold;
+    }
+    .text-danger {
+      color: #dc3545;
+      font-weight: bold;
+    }
+    .text-warning {
+      color: #ffc107;
+      font-weight: bold;
+    }
+    .lipid-info-box {
+      background-color: #f8f9fa;
+      border-left: 4px solid #3f51b5;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 8px;
+    }
+    .sample-profile-btn {
+      padding: 8px 12px;
+      background-color: #f0f4ff;
+      border: 1px solid #d1d5db;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-size: 0.9rem;
+    }
+    .sample-profile-btn:hover {
+      background-color: #e2e8f0;
+    }
+    #results-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    #results-table th, #results-table td {
+      padding: 12px;
+      border: 1px solid #dee2e6;
+      text-align: left;
+    }
+    #results-table th {
+      background-color: #f2f2f2;
+      font-weight: bold;
+    }
+    #results-table tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+  </style>
+</head>
+<body>
+  {% include 'header.html' %}
+  <div class="calculator-container">
+    <div class="back-link-wrapper">
+      <a href="/" class="back-home-link">← Back to Homepage</a>
+    </div>
+
+    <h1>Lipid Panel Goals Calculator</h1>
+    <p class="subtitle">
+      Determine your ideal cholesterol targets (LDL, HDL, triglycerides, and more) based on medical guidelines and your cardiovascular risk level.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <!-- Top Ad -->
+    <div class="adunit-top">
+      <AdUnit slot="lipid-panel-goals-calculator-top" />
+    </div>
+
+    <div class="table-of-contents">
+      <h3>Contents</h3>
+      <ul>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#how-to-use">How This Calculator Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+
+    <section id="calculator">
+      <h2>Lipid Panel Target Calculator</h2>
+      <div class="calculator">
+        <div class="calculator-form">
+          <div class="form-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+            <!-- Personal Information Section -->
+            <div class="form-section">
+              <h3>Personal Information</h3>
+              
+              <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" class="form-control" min="18" max="120">
+              </div>
+              
+              <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" class="form-control">
+                  <option value="male">Male</option>
+                  <option value="female">Female</option>
+                </select>
+              </div>
+              
+              <!-- Height Input -->
+              <div class="form-group">
+                <label>Height</label>
+                <div class="unit-toggle">
+                  <button type="button" id="height-unit-imperial" class="unit-btn active">ft/in</button>
+                  <button type="button" id="height-unit-metric" class="unit-btn">cm</button>
+                </div>
+                
+                <div id="height-imperial-inputs" style="display: flex; gap: 10px;">
+                  <div style="flex: 1;">
+                    <input type="number" id="height-feet" class="form-control" min="4" max="8" placeholder="Feet">
+                    <small>feet</small>
+                  </div>
+                  <div style="flex: 1;">
+                    <input type="number" id="height-inches" class="form-control" min="0" max="11" placeholder="Inches">
+                    <small>inches</small>
+                  </div>
+                </div>
+                
+                <div id="height-metric-inputs" style="display: none;">
+                  <input type="number" id="height-cm" class="form-control" min="120" max="250" placeholder="cm">
+                  <small>centimeters</small>
+                </div>
+              </div>
+              
+              <!-- Weight Input -->
+              <div class="form-group">
+                <label>Weight</label>
+                <div class="unit-toggle">
+                  <button type="button" id="weight-unit-imperial" class="unit-btn active">lbs</button>
+                  <button type="button" id="weight-unit-metric" class="unit-btn">kg</button>
+                </div>
+                
+                <div id="weight-imperial-inputs">
+                  <input type="number" id="weight-lbs" class="form-control" min="50" max="500" placeholder="Pounds">
+                  <small>pounds</small>
+                </div>
+                
+                <div id="weight-metric-inputs" style="display: none;">
+                  <input type="number" id="weight-kg" class="form-control" min="30" max="250" placeholder="Kilograms">
+                  <small>kilograms</small>
+                </div>
+              </div>
+              
+              <div class="calculated-values" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                <p><strong>BMI:</strong> <span id="bmi" class="text-success">0.0</span></p>
+                <p><strong>Risk Category:</strong> <span id="risk-category">Low Risk</span></p>
+              </div>
+            </div>
+            
+            <!-- Lipid Values Section -->
+            <div class="form-section">
+              <h3>Current Lipid Values</h3>
+              
+              <div class="form-group">
+                <label for="cholesterol">Total Cholesterol (mg/dL)</label>
+                <input type="number" id="cholesterol" class="form-control" min="0" max="500">
+              </div>
+              
+              <div class="form-group">
+                <label for="triglycerides">Triglycerides (mg/dL)</label>
+                <input type="number" id="triglycerides" class="form-control" min="0" max="1000">
+              </div>
+              
+              <div class="form-group">
+                <label for="ldl">LDL (mg/dL)</label>
+                <input type="number" id="ldl" class="form-control" min="0" max="300">
+              </div>
+              
+              <div class="form-group">
+                <label for="hdl">HDL (mg/dL)</label>
+                <input type="number" id="hdl" class="form-control" min="0" max="150">
+              </div>
+              
+              <div class="form-group">
+                <label for="apoB">ApoB (mg/dL)</label>
+                <input type="number" id="apoB" class="form-control" min="0" max="250">
+              </div>
+              
+              <div class="form-group">
+                <label for="a1c">A1C (%)</label>
+                <input type="number" id="a1c" class="form-control" step="0.1" min="3" max="15">
+              </div>
+              
+              <div class="calculated-values" style="margin-top: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+                <p><strong>Calculated Non-HDL:</strong> <span id="non-hdl" class="text-danger">0 mg/dL</span></p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Sample Profiles -->
+          <div class="sample-profiles" style="margin-top: 20px;">
+            <h3>Load Sample Profile:</h3>
+            <div style="display: flex; flex-wrap: wrap;">
+              <button class="sample-profile-btn">Healthy Profile</button>
+              <button class="sample-profile-btn">Borderline Profile</button>
+              <button class="sample-profile-btn">High Risk Profile</button>
+              <button class="sample-profile-btn">Your Current Profile</button>
+            </div>
+          </div>
+          
+          <!-- Results Table -->
+          <div class="results-section" style="margin-top: 30px;">
+            <h3>Target Ranges & Status</h3>
+            <table id="results-table" class="results-table">
+              <!-- Table will be populated by JavaScript -->
+            </table>
+          </div>
+          
+          <div class="lipid-info-box" style="margin-top: 30px;">
+            <h3 style="margin-top: 0;">Understanding Your Results</h3>
+            <p>This calculator estimates your recommended lipid targets based on medical guidelines and your personal risk factors. The color-coded status indicators help you identify which values need improvement:</p>
+            <ul>
+              <li><span class="text-success">Green</span>: Within recommended range</li>
+              <li><span class="text-danger">Red</span>: Outside recommended range</li>
+              <li><span class="text-warning">Yellow</span>: Borderline (for A1C only)</li>
+            </ul>
+            <p><strong>Note:</strong> These are general guidelines based on current medical recommendations. Always consult with your healthcare provider for personalized advice and interpretation of your lipid panel results.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Mid Ad -->
+    <div class="adunit-middle">
+      <AdUnit slot="lipid-panel-goals-calculator-mid" />
+    </div>
+
+    <section id="how-to-use">
+      <h2>How to Use the Lipid Panel Goals Calculator</h2>
+      <div class="info">
+        <p>This calculator helps you understand your ideal cholesterol goals based on medical guidelines. Here's how to use it:</p>
+        <ol>
+          <li><strong>Enter your personal information</strong> - age, gender, height, and weight.</li>
+          <li><strong>Input your current lipid values</strong> from a recent blood test, including total cholesterol, triglycerides, LDL, HDL, and if available, ApoB and A1C.</li>
+          <li><strong>Review your results</strong> - The calculator will determine your risk category and show your recommended target ranges for each value.</li>
+          <li><strong>Compare your current values</strong> with the recommended targets to identify areas that may need improvement.</li>
+        </ol>
+        <p>You can also use the sample profiles to see how different lipid patterns might be evaluated based on cardiovascular risk.</p>
+        
+        <h3>Understanding Your Risk Category</h3>
+        <p>Your cardiovascular risk category is determined based on a combination of factors:</p>
+        <ul>
+          <li><strong>Low Risk</strong>: BMI &lt; 25, LDL &lt; 130 mg/dL, and ApoB &lt; 100 mg/dL</li>
+          <li><strong>Moderate Risk</strong>: BMI 25-29.9, LDL 130-159 mg/dL, or ApoB 100-129 mg/dL</li>
+          <li><strong>High Risk</strong>: BMI ≥ 30, LDL ≥ 160 mg/dL, or ApoB ≥ 130 mg/dL</li>
+        </ul>
+        <p>Your risk category determines the specific target ranges for your lipid values based on current clinical guidelines.</p>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Frequently Asked Questions</h2>
+      <div class="info">
+        <div class="faq-item">
+          <h4>What is a lipid panel?</h4>
+          <p>A lipid panel (or lipid profile) is a blood test that measures various lipids (fats) in your blood, including total cholesterol, LDL cholesterol, HDL cholesterol, and triglycerides. It's a key tool for assessing cardiovascular health and risk for heart disease.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What's the difference between LDL and HDL cholesterol?</h4>
+          <p>LDL (low-density lipoprotein) is often called "bad" cholesterol because high levels can lead to plaque buildup in arteries. HDL (high-density lipoprotein) is known as "good" cholesterol because it helps remove LDL from the bloodstream and transport it to the liver for processing and elimination.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What is ApoB and why is it important?</h4>
+          <p>Apolipoprotein B (ApoB) is a protein found on the surface of LDL, VLDL, and other atherogenic particles. Each atherogenic particle contains exactly one ApoB molecule, making ApoB a direct measure of the number of potentially harmful lipid particles in your bloodstream. Some experts consider ApoB a more accurate predictor of cardiovascular risk than LDL cholesterol.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>What is Non-HDL cholesterol?</h4>
+          <p>Non-HDL cholesterol is calculated by subtracting HDL (good) cholesterol from total cholesterol. It represents all the "bad" cholesterol types in your bloodstream, including LDL, VLDL, IDL, and Lp(a). It's considered a better predictor of cardiovascular risk than LDL alone, especially in people with high triglycerides.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Why is A1C included in a lipid calculator?</h4>
+          <p>While A1C (glycated hemoglobin) isn't part of a standard lipid panel, it's included in this calculator because diabetes and prediabetes significantly increase cardiovascular risk. Elevated blood glucose levels (measured by A1C) often correlate with unhealthy lipid profiles and compound the risk of cardiovascular disease.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>How often should I get a lipid panel test?</h4>
+          <p>For adults with normal risk, the general recommendation is to get a lipid panel every 4-6 years. However, if you have risk factors for heart disease or abnormal previous results, your doctor may recommend more frequent testing, possibly annually or even more often.</p>
+        </div>
+        
+        <div class="faq-item">
+          <h4>Can lifestyle changes improve my lipid panel results?</h4>
+          <p>Yes, several lifestyle modifications can significantly improve your lipid profile:<br>
+          - Regular physical activity (aim for 150+ minutes per week)<br>
+          - A heart-healthy diet rich in fruits, vegetables, whole grains, and lean proteins<br>
+          - Limited intake of saturated fats, trans fats, and refined carbohydrates<br>
+          - Weight management<br>
+          - Smoking cessation<br>
+          - Moderate alcohol consumption (if you drink)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom">
+      <AdUnit slot="lipid-panel-goals-calculator-bottom" />
+    </div>
+
+    <!-- Footer -->
+    <footer style="text-align: center; font-size: 14px; color: #777; margin-top: 40px;">
+      <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
+      <p style="margin-top: 20px; max-width: 700px; margin-inline: auto; font-size: 13px; color: #999;">
+        <strong>Disclaimer:</strong> This calculator provides estimated lipid panel goals based on population guidelines, not personalized medical advice. Target ranges may vary based on individual health conditions and risk factors not captured by this tool. Always consult a healthcare provider for interpretation of your lipid panel results and for personalized recommendations.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

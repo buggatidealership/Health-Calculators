@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Lipid Panel Goals Calculator",
+        "url": "/lipid-panel-goals-calculator",
+        "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
+        "icon": "❤️",
+        "cta": "Get Targets",
+        "color": "red"
+    },
+    {
         "title": "Antidepressant Weight Gain Calculator",
         "url": "/antidepressant-weight-gain-calculator",
         "summary": "Estimate potential weight and body fat gain from antidepressants based on medication type, dose, and treatment duration.",
@@ -991,6 +999,19 @@ def breast_implants_weight_gain_guide():
         schema_name="Do Breast Implants Cause Weight Gain? The Science-Based Answer",
         schema_description="Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors after breast augmentation.",
         schema_url="/resources/do-breast-implants-cause-weight-gain"
+    )
+
+@app.route('/lipid-panel-goals-calculator')
+def lipid_panel_goals_calculator():
+    schema_name = "Lipid Panel Goals Calculator"
+    schema_description = "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol."
+    schema_url = "/lipid-panel-goals-calculator"
+    return render_template(
+        'lipid_panel_goals_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
     )
 
 if __name__ == '__main__':
