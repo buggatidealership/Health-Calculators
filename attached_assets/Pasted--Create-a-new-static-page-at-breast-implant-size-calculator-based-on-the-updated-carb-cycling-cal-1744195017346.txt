@@ -1,0 +1,127 @@
+// Create a new static page at /breast-implant-size-calculator based on the updated carb-cycling-calculator template layout.
+
+// ----------------- METADATA -----------------
+// Meta Title
+// “Breast Implant Size Calculator – Volume, Profile & Cost Estimate” // ✅ Keep under 60 characters for ideal search display
+// Meta Description
+// “Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate by region.” // ✅ Keep under 155 characters to ensure full display in SERP
+// OG Title
+// “Breast Implant Volume & Profile Calculator”
+// OG Description
+// “Find your optimal breast implant size and profile with this calculator. Based on surgeon guidelines and personalized to your body.”
+// OG URL
+// https://healthcalculators.xyz/breast-implant-size-calculator
+// OG Image
+// https://healthcalculators.xyz/static/images/breast-implant-size-calculator-og.jpg
+// Canonical
+// https://healthcalculators.xyz/breast-implant-size-calculator
+
+// ✅ After deployment, add this URL to sitemap.xml with <priority>0.9</priority> and <changefreq>monthly</changefreq> so it gets indexed.
+
+// ----------------- COMPONENT -----------------
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function BreastImplantSizeCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Breast Implant Size Calculator</h1>
+      <p className="subtitle">
+        Estimate your ideal implant volume, profile, and regional price range. Input your current size, goal cup size, breast width, and implant type.
+      </p>
+
+      <AdUnit slot="breast-implant-size-calculator-top" />
+
+      <div className="info">
+        <p className="disclaimer">
+          <strong>This tool provides educational estimates only.</strong> Final sizing should always be discussed with a board-certified plastic surgeon.
+        </p>
+      </div>
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#how-to-use">How This Calculator Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        <div className="calculator">
+          {/* BEGIN CLAUDE-GENERATED BREAST IMPLANT CALCULATOR */}
+          {/* REPLACE THIS COMMENT BLOCK WITH HTML MODULE THAT ALLOWS:
+          - Enter band size (e.g., 34)
+          - Select current and goal cup size
+          - Input breast width
+          - Choose implant material
+          - Estimate volume, profile, and price */}
+          {/* END CLAUDE-GENERATED BREAST IMPLANT CALCULATOR */}
+
+          <div id="results" className="results" style={{ display: 'none', marginTop: 30 }}>
+            <h2>Implant Estimate Results</h2>
+            <ul>
+              <li><strong>Recommended Volume:</strong> <span id="volume">0 cc</span></li>
+              <li><strong>Profile Suggestion:</strong> <span id="profile">Moderate</span></li>
+              <li><strong>Cost Estimate:</strong> <span id="cost">$0 - $0</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <AdUnit slot="breast-implant-size-calculator-mid" />
+
+      {/* ✅ Insert Related Guide block BELOW this Mid Ad but ABOVE How-To section */}
+      {/* PLACEHOLDER: Only insert when supporting article is live */}
+      {false && (
+        <div className="highlight" style={{ marginTop: 40, backgroundColor: '#f8f9fa', padding: 20, borderRadius: 8, borderLeft: '4px solid #d63384' }}>
+          <h3 style={{ color: '#333', marginTop: 0 }}>📘 Related Guide</h3>
+          <p>
+            Want a detailed explanation of implant sizing, profiles, and visuals?
+            <a href="/resources/breast-implant-size-guide" className="pink-link">
+              Read the full Breast Implant Size Guide →
+            </a>
+          </p>
+        </div>
+      )}
+
+      <section id="how-to-use">
+        <h2><BarChart className="section-icon" /> How to Use the Breast Implant Size Calculator</h2>
+        <ul>
+          <li>Enter your current band and cup size.</li>
+          <li>Select your goal cup and implant material.</li>
+          <li>Add breast width for profile and sizing accuracy.</li>
+          <li>Choose your location to get realistic price ranges.</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h4>How is implant size calculated?</h4>
+          <p>We combine cup size deltas, breast width, and implant type to approximate implant volume. For real-world precision, use sizing kits or 3D scan consults.</p>
+        </div>
+        <div className="faq-item">
+          <h4>What does implant profile mean?</h4>
+          <p>Profile indicates projection — low = wider/flatter, high = narrower/more projecting. Choice depends on chest width and aesthetic goal.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Is this calculator for trans or cis women?</h4>
+          <p>This tool is helpful for all body types. For trans women, we recommend consulting surgeons with trans-specific experience for best results.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Does it estimate total implant weight?</h4>
+          <p>Not directly, but most implants weigh ~1-1.5 lb total depending on volume and material. You can estimate 1 cc ≈ 1 gram.</p>
+        </div>
+      </section>
+
+      <AdUnit slot="breast-implant-size-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This tool is for general estimation only. Results are not medical advice.</p>
+      </footer>
+    </div>
+  );
+}
