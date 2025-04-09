@@ -256,6 +256,12 @@
       if (sampleProfileButtons) {
         sampleProfileButtons.forEach(function(button, index) {
           button.addEventListener('click', function() {
+            // Remove active class from all buttons
+            sampleProfileButtons.forEach(function(btn) {
+              btn.classList.remove('active');
+            });
+            // Add active class to clicked button
+            this.classList.add('active');
             loadSampleProfile(sampleProfiles[index].values);
           });
         });
@@ -659,17 +665,24 @@
       border-radius: 8px;
     }
     .sample-profile-btn {
-      padding: 8px 12px;
-      background-color: #f0f4ff;
-      border: 1px solid #d1d5db;
+      padding: 8px 15px;
+      font-size: 14px;
+      background-color: #f8f8f8;
+      color: #333;
+      border: 1px solid #ccc;
       border-radius: 4px;
       cursor: pointer;
+      transition: background-color 0.2s ease;
       margin-right: 8px;
       margin-bottom: 8px;
-      font-size: 0.9rem;
     }
     .sample-profile-btn:hover {
-      background-color: #e2e8f0;
+      background-color: #f0f0f0;
+    }
+    .sample-profile-btn.active {
+      background-color: #d63384;
+      color: white;
+      border-color: #d63384;
     }
     #results-table {
       width: 100%;
@@ -828,11 +841,11 @@
           <!-- Sample Profiles -->
           <div class="sample-profiles" style="margin-top: 20px;">
             <h3>Load Sample Profile:</h3>
-            <div style="display: flex; flex-wrap: wrap;">
-              <button class="sample-profile-btn">Healthy Profile</button>
-              <button class="sample-profile-btn">Borderline Profile</button>
-              <button class="sample-profile-btn">High Risk Profile</button>
-              <button class="sample-profile-btn">Your Current Profile</button>
+            <div class="unit-toggle" style="display: flex; flex-wrap: wrap;">
+              <button class="sample-profile-btn" style="flex: 1;">Healthy Profile</button>
+              <button class="sample-profile-btn" style="flex: 1;">Borderline Profile</button>
+              <button class="sample-profile-btn" style="flex: 1;">High Risk Profile</button>
+              <button class="sample-profile-btn" style="flex: 1;">Your Current Profile</button>
             </div>
           </div>
           
