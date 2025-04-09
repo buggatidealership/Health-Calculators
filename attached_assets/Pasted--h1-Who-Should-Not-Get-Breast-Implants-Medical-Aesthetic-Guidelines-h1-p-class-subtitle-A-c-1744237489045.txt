@@ -1,0 +1,83 @@
+<h1>Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines</h1>
+<p class="subtitle">A complete guide to understanding who is not a good candidate for breast augmentation — based on health, lifestyle, age, and surgical risks.</p>
+
+<p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+  Breast implants aren't right for everyone. This guide outlines the medical, psychological, and surgical reasons someone may be advised against breast augmentation — based on real clinical guidelines and surgeon consensus.
+</p>
+
+<div class="cta-box" style="background-color: #fff0f3; border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid #d63384;">
+  <div style="flex: 1;">
+    <h3 style="margin-top: 0; color: #333;">Considering Breast Implants?</h3>
+    <p style="margin-bottom: 0;">Use our <a href="/breast-implant-calculator" class="pink-link">Breast Implant Calculator</a> for a personalized size and profile recommendation.</p>
+  </div>
+  <a href="/breast-implant-calculator" style="background-color: #d63384; color: white; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none;">Try Calculator →</a>
+</div>
+
+<div class="table-of-contents">
+  <h3>Table of Contents</h3>
+  <ul>
+    <li><a href="#section-1">Medical Conditions That May Exclude Candidates</a></li>
+    <li><a href="#section-2">Psychological Considerations & Age Requirements</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+</div>
+
+<AdUnit slot="breast-implant-candidacy-guide-top" />
+
+<section id="section-1">
+  <h2>Medical Conditions That May Exclude Candidates</h2>
+  <p>There are certain medical conditions and physiological factors that may disqualify someone from safely undergoing breast augmentation surgery. These include:</p>
+  <ul>
+    <li><strong>Autoimmune diseases</strong> (e.g. lupus, scleroderma): Increased risk of adverse response to implant materials.</li>
+    <li><strong>Uncontrolled diabetes or hypertension</strong>: Increases risk of post-op complications and poor wound healing.</li>
+    <li><strong>History of blood clotting disorders</strong>: Increases risk of DVT/PE post-operatively.</li>
+    <li><strong>Severe allergies or anaphylaxis history</strong>: May complicate anesthesia or material compatibility.</li>
+    <li><strong>Active infections</strong> (skin or systemic): Implants should never be placed during ongoing infection.</li>
+    <li><strong>Current pregnancy or breastfeeding</strong>: Surgery should be deferred until 3–6 months postpartum and post-lactation.</li>
+  </ul>
+</section>
+
+<section id="section-2">
+  <h2>Psychological Considerations & Age Requirements</h2>
+  <p>Breast augmentation has emotional and psychological implications. Surgeons screen for:</p>
+  <ul>
+    <li><strong>Body dysmorphic disorder (BDD)</strong>: Unrealistic expectations or dissatisfaction regardless of outcome.</li>
+    <li><strong>External pressure</strong> from partners or social media trends.</li>
+    <li><strong>Unrealistic goals</strong>: e.g., wanting to look like a specific celebrity or boost self-worth entirely through physical changes.</li>
+  </ul>
+  <p><strong>Age limitations:</strong> In the U.S., the FDA mandates:</p>
+  <ul>
+    <li>Minimum age for saline implants: <strong>18 years</strong></li>
+    <li>Minimum age for silicone implants: <strong>22 years</strong></li>
+  </ul>
+  <p>Teenagers are generally not considered candidates unless under rare reconstructive exceptions (e.g. congenital asymmetry, trauma).</p>
+</section>
+
+<AdUnit slot="breast-implant-candidacy-guide-mid" />
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <h4>Can I get implants if I have an autoimmune disease?</h4>
+    <p>Some surgeons may proceed with caution depending on the severity and control of the disease, but many avoid elective implants due to immune activation risk.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Is smoking a disqualification?</h4>
+    <p>Active smokers are typically told to quit for 4–6 weeks before and after surgery. Smoking impairs healing and increases the risk of necrosis and infection.</p>
+  </div>
+  <div class="faq-item">
+    <h4>Can I still get implants after pregnancy?</h4>
+    <p>Yes, but most surgeons recommend waiting at least 3–6 months after delivery and lactation to allow tissue to stabilize.</p>
+  </div>
+  <div class="faq-item">
+    <h4>What if I have a history of depression?</h4>
+    <p>Mild depression does not disqualify you, but active severe depression or unmanaged mental health conditions may require clearance from a psychiatrist.</p>
+  </div>
+</section>
+
+<AdUnit slot="breast-implant-candidacy-guide-bottom" />
+
+<footer class="footer-disclaimer">
+  <p><strong>Disclaimer:</strong> This article is for educational purposes only and does not replace medical advice. Always consult with a board-certified plastic surgeon before making surgical decisions.</p>
+  <p><a href="/">&larr; Back to Homepage</a></p>
+</footer>

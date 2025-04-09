@@ -1,0 +1,60 @@
+🛠️ Replit Prompt: Deploy `/resources/who-should-not-get-breast-implants`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/who-should-not-get-breast-implants
+```
+
+✅ Target File: `who_should_not_get_breast_implants.html`
+
+---
+
+### 📌 Deployment Instructions:
+
+1. **Create file:** `templates/resources/who_should_not_get_breast_implants.html`
+2. Paste in the full content from the finalized article.
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/who-should-not-get-breast-implants",
+canonical_url="/resources/who-should-not-get-breast-implants",
+page_title="Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
+meta_description="Discover who should avoid breast implants due to health risks, psychological readiness, or FDA restrictions. Based on ASPS and surgeon guidance.",
+og_title="Who Should Not Get Breast Implants?",
+og_description="Explore medical and lifestyle reasons for implant disqualification. Includes autoimmune risks, age limits, mental health factors, and candidacy FAQs.",
+og_image="who-should-not-get-breast-implants-og.jpg",
+schema_name="Who Should Not Get Breast Implants? Guide",
+schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/who-should-not-get-breast-implants")
+def who_should_not_get_breast_implants():
+    return render_template("resources/who_should_not_get_breast_implants.html",
+        schema_url="/resources/who-should-not-get-breast-implants",
+        canonical_url="/resources/who-should-not-get-breast-implants",
+        page_title="Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
+        meta_description="Discover who should avoid breast implants due to health risks, psychological readiness, or FDA restrictions. Based on ASPS and surgeon guidance.",
+        og_title="Who Should Not Get Breast Implants?",
+        og_description="Explore medical and lifestyle reasons for implant disqualification. Includes autoimmune risks, age limits, mental health factors, and candidacy FAQs.",
+        og_image="who-should-not-get-breast-implants-og.jpg",
+        schema_name="Who Should Not Get Breast Implants? Guide",
+        schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines."
+    )
+```
+
+5. **Add to sitemap.xml**:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/who-should-not-get-breast-implants</loc>
+  <priority>0.7</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Add Open Graph image:**
+Upload to: `/static/images/who-should-not-get-breast-implants-og.jpg`
+
+---
+
+✅ Let me know when it’s deployed and I’ll QA the live route + prep internal links from implant-related pages.

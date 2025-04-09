@@ -1,0 +1,60 @@
+🛠️ Replit Prompt: Deploy `/resources/breast-implant-candidacy-guide`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/breast-implant-candidacy-guide
+```
+
+✅ Target File: `breast_implant_candidacy_guide.html`
+
+---
+
+### 📌 Deployment Instructions:
+
+1. **Create file:** `templates/resources/breast_implant_candidacy_guide.html`
+2. Paste in the full content from the finalized article.
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/breast-implant-candidacy-guide",
+canonical_url="/resources/breast-implant-candidacy-guide",
+page_title="Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
+meta_description="Find out who should not get breast implants based on health risks, psychological readiness, and age. Backed by FDA and ASPS guidance.",
+og_title="Who Should Not Get Breast Implants?",
+og_description="Medical and aesthetic reasons why some individuals may be advised against breast augmentation surgery. Includes candidacy checklist and FAQs.",
+og_image="breast-implant-candidacy-guide-og.jpg",
+schema_name="Breast Implant Candidacy Guide",
+schema_description="Find out who qualifies or does not qualify for breast augmentation. Includes medical contraindications, psychological screening, and age limits."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/breast-implant-candidacy-guide")
+def breast_implant_candidacy_guide():
+    return render_template("resources/breast_implant_candidacy_guide.html",
+        schema_url="/resources/breast-implant-candidacy-guide",
+        canonical_url="/resources/breast-implant-candidacy-guide",
+        page_title="Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
+        meta_description="Find out who should not get breast implants based on health risks, psychological readiness, and age. Backed by FDA and ASPS guidance.",
+        og_title="Who Should Not Get Breast Implants?",
+        og_description="Medical and aesthetic reasons why some individuals may be advised against breast augmentation surgery. Includes candidacy checklist and FAQs.",
+        og_image="breast-implant-candidacy-guide-og.jpg",
+        schema_name="Breast Implant Candidacy Guide",
+        schema_description="Find out who qualifies or does not qualify for breast augmentation. Includes medical contraindications, psychological screening, and age limits."
+    )
+```
+
+5. **Add to sitemap.xml**
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/breast-implant-candidacy-guide</loc>
+  <priority>0.7</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Add Open Graph image:**
+Upload to: `/static/images/breast-implant-candidacy-guide-og.jpg`
+
+---
+
+✅ Let me know when it’s deployed and I’ll QA the page + prep bi-directional internal links from other breast-related content.
