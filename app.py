@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Antidepressant Weight Gain Calculator",
+        "url": "/antidepressant-weight-gain-calculator",
+        "summary": "Estimate potential weight and body fat gain from antidepressants based on medication type, dose, and treatment duration.",
+        "icon": "💊",
+        "cta": "Calculate Impact",
+        "color": "blue"
+    },
+    {
         "title": "Breast Implant Cost Calculator",
         "url": "/breast-implant-cost-calculator",
         "summary": "Estimate your total breast augmentation cost based on implant type, region, and surgeon experience. Compare different countries and implant options.",
@@ -788,6 +796,19 @@ def starbucks_nutrition_calculator():
     schema_url = "/starbucks-nutrition-calculator"
     return render_template(
         'starbucks_nutrition_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/antidepressant-weight-gain-calculator')
+def antidepressant_weight_gain_calculator():
+    schema_name = "Antidepressant Weight Gain Calculator"
+    schema_description = "Estimate your potential body fat gain from antidepressants like SSRIs, SNRIs, TCAs, and atypicals. Personalized results by dose, duration, and drug class."
+    schema_url = "/antidepressant-weight-gain-calculator"
+    return render_template(
+        'antidepressant_weight_gain_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

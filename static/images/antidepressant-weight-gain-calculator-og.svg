@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#f4f6fb" />
+  <rect x="50" y="50" width="1100" height="530" rx="20" fill="#ffffff" stroke="#d63384" stroke-width="4" />
+  <text x="600" y="180" font-family="Arial" font-size="48" font-weight="bold" text-anchor="middle" fill="#333333">Antidepressant Weight Gain Calculator</text>
+  <text x="600" y="250" font-family="Arial" font-size="28" text-anchor="middle" fill="#666666">Estimate weight changes based on medication type</text>
+  <text x="600" y="310" font-family="Arial" font-size="28" text-anchor="middle" fill="#666666">and treatment duration</text>
+  <text x="600" y="430" font-family="Arial" font-size="36" font-weight="bold" text-anchor="middle" fill="#d63384">HealthCalculators.xyz</text>
+  <text x="600" y="500" font-family="Arial" font-size="24" text-anchor="middle" fill="#666666">Evidence-based tools for health optimization</text>
+</svg>

@@ -1,0 +1,284 @@
+Follow below rules:
+
+// Create a new static page at /antidepressant-weight-gain-calculator based on the updated carb-cycling-calculator template layout.
+
+// ----------------- METADATA -----------------
+// Meta Title
+// “Antidepressant Weight Gain Calculator – Estimate Fat Impact by Medication”
+// Meta Description
+// “Estimate your potential body fat gain from antidepressants like SSRIs, SNRIs, TCAs, and atypicals. Personalized results by dose, duration, and drug class.”
+// OG Title
+// “Antidepressant Weight Gain Estimator”
+// OG Description
+// “Predict weight gain based on your antidepressant type, duration, and dose. Track risk of fat storage and body composition changes.”
+// OG URL
+// https://healthcalculators.xyz/antidepressant-weight-gain-calculator
+// OG Image
+// https://healthcalculators.xyz/static/images/antidepressant-weight-gain-calculator-og.jpg
+// Canonical
+// https://healthcalculators.xyz/antidepressant-weight-gain-calculator
+
+// ✅ After deployment, add this URL to sitemap.xml with <priority>0.9</priority> and <changefreq>monthly</changefreq> so it gets indexed.
+
+// ----------------- COMPONENT -----------------
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function AntidepressantWeightGainCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Antidepressant Weight Gain Calculator</h1>
+      <p className="subtitle">
+        Estimate how much weight and body fat you may gain from antidepressant use based on your medication type, dose, and duration.
+      </p>
+
+      <AdUnit slot="antidepressant-weight-gain-calculator-top" />
+
+      <div className="info">
+        <p className="disclaimer">
+          <strong>This tool provides educational estimates only.</strong> Weight gain outcomes depend on many personal and clinical factors. Consult your doctor before changing medications.
+        </p>
+      </div>
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#how-to-use">How This Calculator Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        <div className="calculator">
+          {/* BEGIN CLAUDE-GENERATED ANTIDEPRESSANT CALCULATOR */}
+function AntidepressantWeightCalculator() {
+  const [weight, setWeight] = React.useState("");
+  const [weightUnit, setWeightUnit] = React.useState("kg");
+  const [medication, setMedication] = React.useState("");
+  const [duration, setDuration] = React.useState("");
+  const [result, setResult] = React.useState(null);
+  
+  // Simple medication data
+  const medicationData = {
+    mirtazapine: { name: "Mirtazapine (Remeron)", avgGain: 2.5, riskLevel: "High" },
+    paroxetine: { name: "Paroxetine (Paxil)", avgGain: 1.7, riskLevel: "High" },
+    amitriptyline: { name: "Amitriptyline (Elavil)", avgGain: 1.8, riskLevel: "High" },
+    citalopram: { name: "Citalopram (Celexa)", avgGain: 1.1, riskLevel: "Moderate" },
+    fluoxetine: { name: "Fluoxetine (Prozac)", avgGain: 0.8, riskLevel: "Low-Moderate" },
+    bupropion: { name: "Bupropion (Wellbutrin)", avgGain: -0.4, riskLevel: "Minimal/Weight Loss" }
+  };
+  
+  // Duration factors
+  const durationFactors = {
+    "1": 0.5,
+    "6": 1.0,
+    "12": 1.2
+  };
+  
+  function handleCalculate() {
+    const currentWeight = parseFloat(weight);
+    
+    if (isNaN(currentWeight) || !medication || !duration) {
+      return;
+    }
+    
+    // Convert to kg if needed
+    const baseWeight = weightUnit === "lb" ? currentWeight * 0.453592 : currentWeight;
+    
+    // Get values
+    const med = medicationData[medication];
+    const durationFactor = durationFactors[duration];
+    
+    // Calculate weight change
+    const changeInKg = (baseWeight * med.avgGain / 100) * durationFactor;
+    const changeInUnit = weightUnit === "lb" ? changeInKg * 2.20462 : changeInKg;
+    const newWeight = currentWeight + changeInUnit;
+    
+    setResult({
+      medication: med.name,
+      weightChange: changeInUnit.toFixed(1),
+      newWeight: newWeight.toFixed(1),
+      riskLevel: med.riskLevel,
+      unit: weightUnit
+    });
+  }
+  
+  return (
+    <div style={{ fontFamily: "Arial", maxWidth: "500px", margin: "0 auto", padding: "20px" }}>
+      <h2 style={{ color: "#333" }}>Antidepressant Weight Impact Calculator</h2>
+      
+      <div style={{ marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "5px" }}>
+          Weight:
+          <input
+            type="number"
+            value={weight}
+            onChange={(e) => setWeight(e.target.value)}
+            style={{ width: "100px", padding: "5px", marginLeft: "10px" }}
+          />
+          <select 
+            value={weightUnit}
+            onChange={(e) => setWeightUnit(e.target.value)}
+            style={{ marginLeft: "5px", padding: "5px" }}
+          >
+            <option value="kg">kg</option>
+            <option value="lb">lb</option>
+          </select>
+        </label>
+      </div>
+      
+      <div style={{ marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "5px" }}>
+          Medication:
+          <select
+            value={medication}
+            onChange={(e) => setMedication(e.target.value)}
+            style={{ width: "200px", padding: "5px", marginLeft: "10px" }}
+          >
+            <option value="">Select...</option>
+            {Object.keys(medicationData).map(key => (
+              <option key={key} value={key}>
+                {medicationData[key].name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+      
+      <div style={{ marginBottom: "15px" }}>
+        <label style={{ display: "block", marginBottom: "5px" }}>
+          Duration:
+          <select
+            value={duration}
+            onChange={(e) => setDuration(e.target.value)}
+            style={{ width: "150px", padding: "5px", marginLeft: "10px" }}
+          >
+            <option value="">Select...</option>
+            <option value="1">1 month</option>
+            <option value="6">6 months</option>
+            <option value="12">12 months</option>
+          </select>
+        </label>
+      </div>
+      
+      <button 
+        onClick={handleCalculate}
+        style={{ 
+          backgroundColor: "#4CAF50", 
+          color: "white", 
+          padding: "10px 15px", 
+          border: "none", 
+          borderRadius: "4px", 
+          cursor: "pointer" 
+        }}
+      >
+        Calculate
+      </button>
+      
+      {result && (
+        <div style={{ marginTop: "20px", padding: "15px", backgroundColor: "#f9f9f9", borderRadius: "5px" }}>
+          <h3 style={{ marginTop: "0" }}>Results:</h3>
+          <p><strong>Medication:</strong> {result.medication}</p>
+          <p>
+            <strong>Estimated weight change:</strong> 
+            <span style={{ color: parseFloat(result.weightChange) >= 0 ? "#d32f2f" : "#388e3c" }}>
+              {parseFloat(result.weightChange) >= 0 ? "+" : ""}{result.weightChange} {result.unit}
+            </span>
+          </p>
+          <p><strong>Estimated new weight:</strong> {result.newWeight} {result.unit}</p>
+          <p>
+            <strong>Risk level:</strong> 
+            <span style={{ 
+              color: 
+                result.riskLevel === "High" ? "#d32f2f" : 
+                result.riskLevel === "Moderate" ? "#f57c00" : 
+                result.riskLevel === "Low-Moderate" ? "#fbc02d" : 
+                "#388e3c" 
+            }}>
+              {result.riskLevel}
+            </span>
+          </p>
+        </div>
+      )}
+      
+      <div style={{ marginTop: "20px", fontSize: "12px", color: "#666" }}>
+        <p>This calculator is based on scientific research on antidepressant-associated weight changes.
+        Individual results may vary. Always consult with a healthcare provider.</p>
+      </div>
+    </div>
+  );
+}
+
+export default AntidepressantWeightCalculator;
+
+
+          {/* END CLAUDE-GENERATED ANTIDEPRESSANT CALCULATOR */}
+
+          <div id="results" className="results-section" style={{ display: 'none', marginTop: 30 }}>
+            <h2>Estimated Body Composition Impact</h2>
+            <div className="macro-card-grid">
+              <div style={{ backgroundColor: '#f4f6fb', borderRadius: 8, padding: 20, borderTop: '4px solid #3f51b5', boxShadow: '0 2px 4px rgba(0,0,0,0.1)' }}>
+                <h3 style={{ marginTop: 0, color: '#2c387e', fontWeight: 600 }}>Predicted Impact</h3>
+                <ul style={{ listStyle: 'none', paddingLeft: 0 }}>
+                  <li><strong>Weight Gain:</strong> <span id="weightGain">0 lbs</span></li>
+                  <li><strong>Body Fat % Increase:</strong> <span id="bodyFatGain">0%</span></li>
+                  <li><strong>Risk Level:</strong> <span id="riskLevel">Low</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <AdUnit slot="antidepressant-weight-gain-calculator-mid" />
+
+      {/* ✅ Insert Related Guide block BELOW this Mid Ad but ABOVE How-To section */}
+      {false && (
+        <div className="highlight" style={{ marginTop: 40, backgroundColor: '#f8f9fa', padding: 20, borderRadius: 8, borderLeft: '4px solid #d63384' }}>
+          <h3 style={{ color: '#333', marginTop: 0 }}>📘 Related Guide</h3>
+          <p>
+            Learn how antidepressants influence fat storage, appetite, and metabolism.
+            <a href="/resources/antidepressants-and-body-fat" className="pink-link">
+              Read the full Antidepressant & Body Fat Guide →
+            </a>
+          </p>
+        </div>
+      )}
+
+      <section id="how-to-use">
+        <h2><BarChart className="section-icon" /> How to Use the Antidepressant Weight Gain Calculator</h2>
+        <ul>
+          <li>Select your antidepressant class and medication.</li>
+          <li>Enter your dose and duration of use.</li>
+          <li>Get a weight gain estimate and body fat risk score.</li>
+          <li>Use the data to inform a conversation with your doctor.</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h4>Which antidepressants cause the most weight gain?</h4>
+          <p>Studies show mirtazapine, paroxetine, and amitriptyline are linked with higher rates of fat gain. Bupropion is often weight-neutral or associated with loss.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Is fat gain different from weight gain?</h4>
+          <p>Yes. Many users gain body fat but not necessarily lean mass. This calculator focuses on estimated fat % increase.</p>
+        </div>
+        <div className="faq-item">
+          <h4>Is this medically accurate?</h4>
+          <p>It’s based on published clinical studies but individual outcomes vary. Always talk to your healthcare provider before adjusting medications.</p>
+        </div>
+      </section>
+
+      <AdUnit slot="antidepressant-weight-gain-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This tool estimates body fat gain from antidepressants using population-based data. Individual outcomes may differ. This is not medical advice.</p>
+      </footer>
+    </div>
+  );
+}
