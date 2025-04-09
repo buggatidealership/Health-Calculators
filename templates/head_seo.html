@@ -40,7 +40,31 @@
   "applicationCategory": "HealthApplication",
   "operatingSystem": "All",
   "url": "https://healthcalculators.xyz{{ schema_url }}",
-  "description": "{{ schema_description }}"
+  "description": "{{ schema_description }}",
+  "author": {
+    "@type": "Organization",
+    "name": "HealthCalculators.xyz",
+    "url": "https://healthcalculators.xyz"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "HealthCalculators.xyz",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://healthcalculators.xyz/static/images/logo.png",
+      "width": 300,
+      "height": 60
+    },
+    "sameAs": [
+      "https://twitter.com/healthcalculators",
+      "https://linkedin.com/company/healthcalculators",
+      "https://github.com/healthcalculators"
+    ]
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://healthcalculators.xyz{{ schema_url }}"
+  }
 }
 </script>
 
