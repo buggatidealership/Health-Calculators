@@ -320,6 +320,19 @@ def breast_implant_calculator():
         schema_url=schema_url
     )
 
+@app.route('/breast-implant-size-calculator')
+def breast_implant_size_calculator():
+    schema_name = "Breast Implant Size Calculator"
+    schema_description = "Estimate the ideal breast implant size based on your current measurements, desired cup size, and implant type. Includes volume, profile, and cost ranges."
+    schema_url = "/breast-implant-size-calculator"
+    return render_template(
+        'breast_implant_size_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/vitamin-d-intake-calculator')
 def vitamin_d_intake_calculator():
     schema_name = "Vitamin D Intake Calculator"
