@@ -12,7 +12,7 @@
   </div>
 </header>
 
-{% if not is_homepage %}
+{% if not is_homepage and request.path != '/resources' %}
 <!-- Optional subpage nav -->
 <div class="back-link-wrapper">
   <a href="/" class="back-home-link">← Back to Homepage</a>
