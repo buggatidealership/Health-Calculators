@@ -1,0 +1,60 @@
+🛠️ Replit Prompt: Deploy `/resources/semaglutide-vs-ozempic-guide`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/semaglutide-vs-ozempic-guide
+```
+
+✅ Target File: `semaglutide_vs_ozempic_guide.html`
+
+---
+
+### 📌 Deployment Instructions:
+
+1. **Create file:** `templates/resources/semaglutide_vs_ozempic_guide.html`
+2. Paste in the full content from the finalized article (built using the updated resource article template).
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/semaglutide-vs-ozempic-guide",
+canonical_url="/resources/semaglutide-vs-ozempic-guide",
+page_title="Semaglutide vs Ozempic: What's the Difference?",
+meta_description="Understand how semaglutide and Ozempic compare by dosage, brand, cost, side effects, and weight loss. Learn how they relate — and how they differ.",
+og_title="Semaglutide vs Ozempic: What’s the Difference?",
+og_description="Are semaglutide and Ozempic the same thing? Compare brands, generics, effectiveness, weight loss impact, and how GLP-1 medications work.",
+og_image="semaglutide-vs-ozempic-guide-og.jpg",
+schema_name="Semaglutide vs Ozempic Comparison Guide",
+schema_description="Explore how semaglutide and Ozempic compare in terms of chemical structure, dosage, brand naming, weight loss, and cost. Based on clinical trials and prescribing data."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/semaglutide-vs-ozempic-guide")
+def semaglutide_vs_ozempic_guide():
+    return render_template("resources/semaglutide_vs_ozempic_guide.html",
+        schema_url="/resources/semaglutide-vs-ozempic-guide",
+        canonical_url="/resources/semaglutide-vs-ozempic-guide",
+        page_title="Semaglutide vs Ozempic: What's the Difference?",
+        meta_description="Understand how semaglutide and Ozempic compare by dosage, brand, cost, side effects, and weight loss. Learn how they relate — and how they differ.",
+        og_title="Semaglutide vs Ozempic: What’s the Difference?",
+        og_description="Are semaglutide and Ozempic the same thing? Compare brands, generics, effectiveness, weight loss impact, and how GLP-1 medications work.",
+        og_image="semaglutide-vs-ozempic-guide-og.jpg",
+        schema_name="Semaglutide vs Ozempic Comparison Guide",
+        schema_description="Explore how semaglutide and Ozempic compare in terms of chemical structure, dosage, brand naming, weight loss, and cost. Based on clinical trials and prescribing data."
+    )
+```
+
+5. **Add to sitemap.xml**:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/semaglutide-vs-ozempic-guide</loc>
+  <priority>0.8</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Add Open Graph image:**
+Upload to: `/static/images/semaglutide-vs-ozempic-guide-og.jpg`
+
+---
+
+✅ Let me know when it’s deployed and I’ll run full QA + prepare internal linking prompt from GLP-1 and weight loss calculators/articles.

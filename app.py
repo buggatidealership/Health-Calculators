@@ -559,6 +559,14 @@ articles = [
         "color": "pink"
     },
     {
+        "title": "Semaglutide vs Ozempic: What's the Difference?",
+        "url": "/resources/semaglutide-vs-ozempic-guide",
+        "summary": "Understand how semaglutide and Ozempic compare by dosage, brand, cost, side effects, and weight loss. Learn how they relate — and how they differ.",
+        "icon": "💊",
+        "cta": "Read Guide",
+        "color": "purple"
+    },
+    {
         "title": "Ozempic Weight Loss Calculator Guide",
         "url": "/resources/ozempic-weight-loss-calculator-guide",
         "summary": "Evidence-based guide to semaglutide weight loss: dosage protocols, timelines, and expected outcomes from clinical trials.",
@@ -1021,6 +1029,16 @@ def who_should_not_get_breast_implants():
         og_image="who-should-not-get-breast-implants-og.jpg",
         schema_name="Who Should Not Get Breast Implants? Guide",
         schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines."
+    )
+
+@app.route("/resources/semaglutide-vs-ozempic-guide")
+def semaglutide_vs_ozempic_guide():
+    return render_template(
+        "resources/semaglutide_vs_ozempic_guide.html",
+        is_homepage=False,
+        schema_name="Semaglutide vs Ozempic Comparison Guide",
+        schema_description="Explore how semaglutide and Ozempic compare in terms of chemical structure, dosage, brand naming, weight loss, and cost. Based on clinical trials and prescribing data.",
+        schema_url="/resources/semaglutide-vs-ozempic-guide"
     )
 
 @app.route('/lipid-panel-goals-calculator')
