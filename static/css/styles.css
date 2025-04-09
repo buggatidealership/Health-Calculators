@@ -198,6 +198,21 @@ li {
     color: #555;
 }
 
+/* Reusable styled pink box for disclaimers and important notices */
+.pink-box {
+    background-color: #fff2f8; 
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    border-left: 4px solid #d63384;
+}
+
+.pink-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
 /* Table of Contents Styles */
 .table-of-contents {
     background-color: white;
