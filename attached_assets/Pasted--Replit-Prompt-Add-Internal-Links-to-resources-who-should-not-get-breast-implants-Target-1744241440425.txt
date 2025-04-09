@@ -1,0 +1,51 @@
+🛠️ Replit Prompt: Add Internal Links to `/resources/who-should-not-get-breast-implants`
+
+✅ Target files:
+- `breast_implant_calculator.html`
+- `breast_implant_size_guide.html`
+- `how_many_ccs_is_a_c_cup.html`
+
+✅ Target URL:
+```
+https://healthcalculators.xyz/resources/who-should-not-get-breast-implants
+```
+
+✅ Anchor Text Options (rotate across placements):
+- "Who should not get breast implants"
+- "Breast implant disqualification guide"
+- "Medical reasons to avoid implants"
+- "FDA restrictions on breast implants"
+- "Psychological and age factors in candidacy"
+
+---
+
+### 📌 Instructions per File:
+
+---
+
+### 1. `breast_implant_calculator.html`
+✅ Insert the following block **below the calculator results**, before the Related Guide section:
+```html
+<div class="highlight" style="margin-top: 40px; background-color: #fff8f8; padding: 20px; border-left: 4px solid #d63384; border-radius: 8px;">
+  <h3 style="margin-top: 0; color: #333;">🚫 Not everyone is eligible for implants</h3>
+  <p>Some individuals are not ideal candidates for breast augmentation due to medical, psychological, or age-related risks. <a href="/resources/who-should-not-get-breast-implants" class="pink-link">Read our candidacy guide →</a></p>
+</div>
+```
+
+---
+
+### 2. `breast_implant_size_guide.html`
+✅ Inside the section comparing sizing methods or medical charts, add:
+```html
+<p>If you're unsure whether you're even a good candidate for breast augmentation, check out our <a href="/resources/who-should-not-get-breast-implants" class="pink-link">guide to breast implant disqualifications</a>.</p>
+```
+
+---
+
+### 3. `how_many_ccs_is_a_c_cup.html`
+✅ Add below one of the conversion chart sections:
+```html
+<p>While cup size conversion is useful, not everyone should pursue implants. Learn about <a href="/resources/who-should-not-get-breast-implants" class="pink-link">who may be medically ineligible for breast augmentation</a>.</p>
+```
+
+✅ After adding these, let me know and I’ll confirm the links are live and indexed properly in the cluster.
