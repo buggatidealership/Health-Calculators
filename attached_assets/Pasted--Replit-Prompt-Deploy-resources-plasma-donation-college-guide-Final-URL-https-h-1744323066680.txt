@@ -1,0 +1,68 @@
+🛠️ Replit Prompt: Deploy `/resources/plasma-donation-college-guide`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/plasma-donation-college-guide
+```
+
+✅ Target File:
+```
+plasma_donation_college_guide.html
+```
+
+---
+
+### 📌 Deployment Instructions
+
+1. **Create file:** `templates/resources/plasma_donation_college_guide.html`
+2. Paste in the final HTML content generated using the article template
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/plasma-donation-college-guide",
+canonical_url="/resources/plasma-donation-college-guide",
+page_title="Plasma Donation for College Students: Veins, Gains & Study Time",
+meta_description="Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.",
+og_title="Plasma Donation for Students: Side Effects, Schedule & Recovery",
+og_description="How to donate plasma as a broke college student without wrecking your sleep, workouts, or exam prep. Includes hydration tips and recovery guide.",
+og_image="plasma-donation-college-guide-og.jpg",
+schema_name="Plasma Donation for Students Guide",
+schema_description="Straightforward advice for students donating plasma. Learn how it affects your veins, workout recovery, study routine, and how to donate safely."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/plasma-donation-college-guide")
+def plasma_donation_college_guide():
+    return render_template("resources/plasma_donation_college_guide.html",
+        schema_url="/resources/plasma-donation-college-guide",
+        canonical_url="/resources/plasma-donation-college-guide",
+        page_title="Plasma Donation for College Students: Veins, Gains & Study Time",
+        meta_description="Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.",
+        og_title="Plasma Donation for Students: Side Effects, Schedule & Recovery",
+        og_description="How to donate plasma as a broke college student without wrecking your sleep, workouts, or exam prep. Includes hydration tips and recovery guide.",
+        og_image="plasma-donation-college-guide-og.jpg",
+        schema_name="Plasma Donation for Students Guide",
+        schema_description="Straightforward advice for students donating plasma. Learn how it affects your veins, workout recovery, study routine, and how to donate safely."
+    )
+```
+
+5. **Add to sitemap.xml**:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/plasma-donation-college-guide</loc>
+  <priority>0.75</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Upload Open Graph Image**:
+```
+/static/images/plasma-donation-college-guide-og.jpg
+```
+
+---
+
+✅ This article will:
+- Answer the exact Reddit comment: “Donating Plasma as a Broke College Student: Will It Mess with My Veins, Gains, or Study Time?”
+- Target terms like "plasma donation fitness recovery", "college student plasma donor tips"
+- Reinforce your topical authority in the plasma earnings + health vertical

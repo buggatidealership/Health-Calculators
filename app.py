@@ -513,6 +513,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Plasma Donation for College Students: Veins, Gains & Study Time",
+        "url": "/resources/plasma-donation-college-guide",
+        "summary": "Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.",
+        "icon": "🩸",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
         "title": "Plasma Donation Screening: What to Expect at Your First Visit",
         "url": "/resources/plasma-donation-screening-guide",
         "summary": "Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.",
@@ -1121,6 +1129,20 @@ def plasma_donation_screening_guide():
         og_image="plasma-donation-screening-guide-og.jpg",
         schema_name="Plasma Donation Screening Guide",
         schema_description="Step-by-step overview of the initial physical screening process for new plasma donors. Includes ID requirements, health exam checklist, and FAQs."
+    )
+
+@app.route("/resources/plasma-donation-college-guide")
+def plasma_donation_college_guide():
+    return render_template("resources/plasma_donation_college_guide.html",
+        schema_url="/resources/plasma-donation-college-guide",
+        canonical_url="/resources/plasma-donation-college-guide",
+        page_title="Plasma Donation for College Students: Veins, Gains & Study Time",
+        meta_description="Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.",
+        og_title="Plasma Donation for Students: Side Effects, Schedule & Recovery",
+        og_description="How to donate plasma as a broke college student without wrecking your sleep, workouts, or exam prep. Includes hydration tips and recovery guide.",
+        og_image="plasma-donation-college-guide-og.jpg",
+        schema_name="Plasma Donation for Students Guide",
+        schema_description="Straightforward advice for students donating plasma. Learn how it affects your veins, workout recovery, study routine, and how to donate safely."
     )
 
 @app.route('/lipid-panel-goals-calculator')
