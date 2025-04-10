@@ -235,6 +235,14 @@ cards = [
         "color": "red"
     },
     {
+        "title": "Vitamin D Conversion Calculator",
+        "url": "/vitamin-d-conversion-calculator",
+        "summary": "Convert vitamin D levels between ng/mL and nmol/L. Helpful for interpreting lab results and international guidelines.",
+        "icon": "🔄",
+        "cta": "Convert Units",
+        "color": "yellow"
+    },
+    {
         "title": "Lifespan Calculator",
         "url": "/lifespan-longevity-calculator",
         "summary": "Estimate your life expectancy based on health and lifestyle factors.",
