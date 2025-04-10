@@ -1,8 +1,18 @@
-{% extends 'base.html' %}
-
-{% block title %}Vitamin D Conversion Calculator | Convert ng/mL to nmol/L{% endblock %}
-
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% set og_image = "vitamin-d-conversion-calculator-og.jpg" %}
+  {% with
+    meta_title="Vitamin D Conversion Calculator | Convert ng/mL to nmol/L",
+    meta_description="Convert vitamin D levels between ng/mL and nmol/L instantly. Interpret lab results and supplement dosages across different units.",
+    og_title="Vitamin D Conversion Calculator",
+    og_description="Convert between vitamin D units easily. Helpful for interpreting lab results from different countries and supplement labels.",
+    og_url="/vitamin-d-conversion-calculator",
+    canonical_url="/vitamin-d-conversion-calculator",
+    page_title="Vitamin D Conversion Calculator | Convert ng/mL to nmol/L"
+  %}
+  {% include 'head_seo.html' %}
+  {% endwith %}
 <div class="calculator-container">
     <h1>Vitamin D Conversion Calculator</h1>
     <p class="subtitle">Convert vitamin D levels between ng/mL and nmol/L instantly.</p>
@@ -91,4 +101,5 @@
 </div>
 
 <script src="{{ url_for('static', filename='js/vitamin_d_conversion_calculator.js') }}"></script>
-{% endblock %}
+</body>
+</html>

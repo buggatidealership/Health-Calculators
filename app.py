@@ -1062,5 +1062,18 @@ def lipid_panel_goals_calculator():
         schema_url=schema_url
     )
 
+@app.route('/vitamin-d-conversion-calculator')
+def vitamin_d_conversion_calculator():
+    schema_name = "Vitamin D Conversion Calculator"
+    schema_description = "Convert vitamin D levels between ng/mL and nmol/L instantly. Interpret lab results and supplement dosages across different units."
+    schema_url = "/vitamin-d-conversion-calculator"
+    return render_template(
+        'vitamin_d_conversion_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
