@@ -11,14 +11,6 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
-        "title": "Ozempic Pen Click Calculator",
-        "url": "/ozempic-pen-click-calculator",
-        "summary": "Convert Ozempic pen clicks to milligrams of medication. Track doses, estimate remaining medication, and avoid dosing errors.",
-        "icon": "💉",
-        "cta": "Calculate Dose",
-        "color": "purple"
-    },
-    {
         "title": "Lipid Panel Goals Calculator",
         "url": "/lipid-panel-goals-calculator",
         "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
@@ -1095,19 +1087,6 @@ def lipid_panel_goals_calculator():
     schema_url = "/lipid-panel-goals-calculator"
     return render_template(
         'lipid_panel_goals_calculator.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url
-    )
-
-@app.route('/ozempic-pen-click-calculator')
-def ozempic_pen_click_calculator():
-    schema_name = "Ozempic Pen Click Calculator"
-    schema_description = "Convert Ozempic pen clicks to milligrams of medication. Helpful for understanding how much medication you're injecting or how much is left in your pen."
-    schema_url = "/ozempic-pen-click-calculator"
-    return render_template(
-        'ozempic_pen_click_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
