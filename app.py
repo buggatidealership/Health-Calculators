@@ -393,8 +393,8 @@ def vitamin_d_intake_calculator():
 
 @app.route('/ivf-due-date-calculator')
 def ivf_due_date_calculator():
-    schema_name = "IVF Due Date Calculator"
-    schema_description = "Estimate your baby's due date using IVF transfer or retrieval date. Supports 3-day, 5-day transfers, FET, and egg retrieval inputs."
+    schema_name = "FET Due Date Calculator"
+    schema_description = "Use this FET due date calculator to estimate pregnancy timeline by day 3, day 5, or frozen embryo transfer. Includes trimester and appointment estimates."
     schema_url = "/ivf-due-date-calculator"
     return render_template(
         'ivf_due_date_calculator.html',
