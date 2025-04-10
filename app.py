@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Plasma Donation Earnings Calculator",
+        "url": "/plasma-donation-earnings-calculator",
+        "summary": "Estimate how much you can earn donating plasma based on your weight, location, and donation frequency. Includes new donor bonuses.",
+        "icon": "🩸",
+        "cta": "Calculate Earnings",
+        "color": "red"
+    },
+    {
         "title": "Lipid Panel Goals Calculator",
         "url": "/lipid-panel-goals-calculator",
         "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
@@ -1165,6 +1173,19 @@ def plasma_vs_platelet_donation():
         og_image="plasma-vs-platelet-donation-og.jpg",
         schema_name="Plasma vs Platelet Donation Comparison Guide",
         schema_description="Should you donate plasma or platelets? This guide compares donation volume, frequency, and which one helps more based on real data and Red Cross guidelines."
+    )
+
+@app.route('/plasma-donation-earnings-calculator')
+def plasma_donation_earnings_calculator():
+    schema_name = "Plasma Donation Earnings Calculator"
+    schema_description = "Calculate your potential plasma donation earnings based on weight, frequency, location, and donor status. Includes new donor bonuses and eligibility check."
+    schema_url = "/plasma-donation-earnings-calculator"
+    return render_template(
+        'plasma_donation_earnings_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
     )
 
 @app.route('/lipid-panel-goals-calculator')
