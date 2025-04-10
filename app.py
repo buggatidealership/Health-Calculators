@@ -11,6 +11,14 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
+        "title": "Vitamin D Conversion Calculator",
+        "url": "/vitamin-d-conversion-calculator",
+        "summary": "Convert vitamin D levels between ng/mL and nmol/L instantly. Interpret lab results and supplement dosages across different units.",
+        "icon": "💊",
+        "cta": "Convert Units",
+        "color": "orange"
+    },
+    {
         "title": "Lipid Panel Goals Calculator",
         "url": "/lipid-panel-goals-calculator",
         "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
