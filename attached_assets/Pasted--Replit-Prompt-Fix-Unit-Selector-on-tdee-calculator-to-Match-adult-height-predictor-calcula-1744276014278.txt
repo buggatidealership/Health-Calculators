@@ -1,0 +1,62 @@
+🛠️ Replit Prompt: Fix Unit Selector on `/tdee-calculator` to Match `/adult-height-predictor-calculator`
+
+✅ Target file: `tdee_calculator.html`
+
+---
+
+🔧 INSTRUCTIONS:
+
+### 1. ✅ Replace Current Radio Button Unit Selector
+Current broken unit selector uses this structure:
+```html
+<div class="unit-switch">
+  <label class="unit-option">
+    <input type="radio" name="units" value="metric" checked> Metric (kg/cm)
+  </label>
+  <label class="unit-option">
+    <input type="radio" name="units" value="imperial"> Imperial (lbs/ft/in)
+  </label>
+</div>
+```
+
+✅ Replace it with this format used in `adult_height_predictor_calculator.html`:
+```html
+<div class="form-group">
+  <label>Measurement Units:</label>
+  <div style="display: flex; gap: 10px; margin-top: 8px;">
+    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('tdee', 'metric')">Metric (kg/cm)</button>
+    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('tdee', 'imperial')">Imperial (lbs/ft/in)</button>
+  </div>
+</div>
+```
+
+---
+
+### 2. ✅ Implement toggle functionality
+At the top of your `<script>` block (or in `/static/js/tdee_calculator.js`), define:
+```javascript
+function toggleUnit(form, unit) {
+  const metricBtn = document.getElementById('metric-btn');
+  const imperialBtn = document.getElementById('imperial-btn');
+  const metricFields = document.querySelector('.metric-inputs');
+  const imperialFields = document.querySelector('.imperial-inputs');
+
+  if (unit === 'metric') {
+    metricBtn.classList.add('active');
+    imperialBtn.classList.remove('active');
+    metricFields.classList.remove('hidden');
+    imperialFields.classList.add('hidden');
+  } else {
+    imperialBtn.classList.add('active');
+    metricBtn.classList.remove('active');
+    imperialFields.classList.remove('hidden');
+    metricFields.classList.add('hidden');
+  }
+}
+```
+
+✅ This matches the toggle experience used in other calculators and provides visual clarity + mobile usability.
+
+---
+
+Let me know when implemented so I can QA for visual spacing, script function, and mobile UX.

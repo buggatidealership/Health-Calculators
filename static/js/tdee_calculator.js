@@ -1,18 +1,29 @@
 // Unit toggle functionality
-document.querySelectorAll('input[name="units"]').forEach(radio => {
-    radio.addEventListener('change', function() {
-        const isMetric = this.value === 'metric';
-        document.querySelector('.metric-inputs').classList.toggle('hidden', !isMetric);
-        document.querySelector('.imperial-inputs').classList.toggle('hidden', isMetric);
-    });
-});
+function toggleUnit(form, unit) {
+  const metricBtn = document.getElementById('metric-btn');
+  const imperialBtn = document.getElementById('imperial-btn');
+  const metricFields = document.querySelector('.metric-inputs');
+  const imperialFields = document.querySelector('.imperial-inputs');
+
+  if (unit === 'metric') {
+    metricBtn.classList.add('active');
+    imperialBtn.classList.remove('active');
+    metricFields.classList.remove('hidden');
+    imperialFields.classList.add('hidden');
+  } else {
+    imperialBtn.classList.add('active');
+    metricBtn.classList.remove('active');
+    imperialFields.classList.remove('hidden');
+    metricFields.classList.add('hidden');
+  }
+}
 
 function calculateTDEE() {
     // Get common values
     const age = parseInt(document.getElementById('age').value);
     const gender = document.getElementById('gender').value;
     const activity = parseFloat(document.getElementById('activity').value);
-    const isMetric = document.querySelector('input[name="units"]:checked').value === 'metric';
+    const isMetric = document.getElementById('metric-btn').classList.contains('active');
 
     // Get weight and height based on units
     let weight, height;

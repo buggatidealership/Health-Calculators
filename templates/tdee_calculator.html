@@ -100,14 +100,10 @@
         <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
         <div class="calculator">
             <div class="form-group">
-                <label>Units</label>
-                <div class="unit-switch">
-                    <label class="unit-option">
-                        <input type="radio" name="units" value="metric" checked> Metric (kg/cm)
-                    </label>
-                    <label class="unit-option">
-                        <input type="radio" name="units" value="imperial"> Imperial (lbs/ft/in)
-                    </label>
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('tdee', 'metric')">Metric (kg/cm)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('tdee', 'imperial')">Imperial (lbs/ft/in)</button>
                 </div>
             </div>
 
@@ -206,9 +202,8 @@
     </section>
     
     <!-- FAQ Section -->
-    <section id="faq">
-        <div class="faq-section">
-            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg> Frequently Asked Questions</h3>
+    <section id="faq" class="info">
+        <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg> Frequently Asked Questions</h2>
         
         <div class="faq-item">
             <h4>What is TDEE?</h4>
@@ -229,7 +224,7 @@
             <h4>What's the difference between BMR and TDEE?</h4>
             <p>BMR is your resting calorie burn. TDEE includes daily activity and exercise.</p>
         </div>
-    </div>
+    </section>
     
     <div class="calculator-footer">
         <p><a href="/" class="back-link">← Back to Homepage</a></p>
