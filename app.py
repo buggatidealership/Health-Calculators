@@ -485,13 +485,13 @@ def fasting_weight_loss_calculator():
         schema_url=schema_url
     )
 
-@app.route('/ozempic-dosing-safety-calculator')
-def ozempic_dosing_safety_calculator():
-    schema_name = "Ozempic Dosing Safety Calculator"
+@app.route('/ozempic-pen-click-calculator')
+def ozempic_pen_click_calculator():
+    schema_name = "Ozempic Pen Click Calculator"
     schema_description = "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool."
-    schema_url = "/ozempic-dosing-safety-calculator"
+    schema_url = "/ozempic-pen-click-calculator"
     return render_template(
-        'ozempic_dosing_safety_calculator.html', 
+        'ozempic_pen_click_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
