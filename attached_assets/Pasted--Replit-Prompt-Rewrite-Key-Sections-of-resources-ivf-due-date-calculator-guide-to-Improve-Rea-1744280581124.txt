@@ -1,0 +1,55 @@
+🛠️ Replit Prompt: Rewrite Key Sections of `/resources/ivf-due-date-calculator-guide` to Improve Readability
+
+✅ Target file: `ivf_due_date_calculator_guide.html`
+
+---
+
+🔧 INSTRUCTIONS:
+
+### 1. ✅ Replace "IVF vs. Natural Conception Due Dates" section with:
+```html
+<h2>IVF vs. Natural Conception Due Dates</h2>
+<p>In natural conception, due dates are estimated based on the first day of your last menstrual period (LMP). With IVF, we use the exact date the embryo was transferred into the uterus. That means the calculation is more accurate.</p>
+<p>Instead of estimating when ovulation happened, we adjust your pregnancy timeline based on:</p>
+<ul>
+  <li>How old the embryo was on transfer day</li>
+  <li>Whether the embryo was fresh or frozen</li>
+</ul>
+```
+
+---
+
+### 2. ✅ Replace "The Complete IVF Pregnancy Timeline" section with:
+```html
+<h2>The IVF Pregnancy Timeline (Month by Month)</h2>
+<p>Here’s how your pregnancy typically progresses after transfer:</p>
+<ul>
+  <li><strong>2 Weeks After Transfer:</strong> Blood test confirms pregnancy (beta hCG)</li>
+  <li><strong>4–5 Weeks:</strong> First ultrasound can detect a gestational sac</li>
+  <li><strong>6–7 Weeks:</strong> Heartbeat may be visible</li>
+  <li><strong>10–12 Weeks:</strong> NIPT and genetic screenings available</li>
+  <li><strong>12 Weeks:</strong> First trimester ends</li>
+  <li><strong>18–20 Weeks:</strong> Anatomy scan</li>
+  <li><strong>28 Weeks:</strong> Third trimester begins</li>
+  <li><strong>40 Weeks:</strong> Estimated due date</li>
+</ul>
+```
+
+---
+
+### 3. ✅ Replace "How to Use the Calculator" section with:
+```html
+<h2>How to Use the IVF Due Date Calculator</h2>
+<p>Choose your embryo transfer type:</p>
+<ul>
+  <li><strong>Day 3 transfer:</strong> Embryo is 3 days old at implantation</li>
+  <li><strong>Day 5 transfer:</strong> Embryo is more mature (blastocyst)</li>
+  <li><strong>FET (frozen embryo transfer):</strong> Embryo was frozen, then thawed and transferred later</li>
+</ul>
+<p>Then enter your transfer date. The calculator will show:</p>
+<ul>
+  <li>Your estimated due date</li>
+  <li>Trimester milestones</li>
+  <li>Important prenatal appointment windows</li>
+</ul>
+```
