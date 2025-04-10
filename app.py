@@ -513,6 +513,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Plasma Donation Screening: What to Expect at Your First Visit",
+        "url": "/resources/plasma-donation-screening-guide",
+        "summary": "Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.",
+        "icon": "🩸",
+        "cta": "Read Guide",
+        "color": "red"
+    },
+    {
         "title": "How to Prevent Hair Loss: Science-Based Prevention & Treatment",
         "url": "/resources/how-to-prevent-hair-loss",
         "summary": "Learn how to prevent hair loss with simple lifestyle changes, supplements, and treatments. Evidence-based strategies for both men and women.",
@@ -1099,6 +1107,20 @@ def semaglutide_vs_ozempic_guide():
         schema_name="Semaglutide vs Ozempic Comparison Guide",
         schema_description="Explore how semaglutide and Ozempic compare in terms of chemical structure, dosage, brand naming, weight loss, and cost. Based on clinical trials and prescribing data.",
         schema_url="/resources/semaglutide-vs-ozempic-guide"
+    )
+
+@app.route("/resources/plasma-donation-screening-guide")
+def plasma_donation_screening_guide():
+    return render_template("resources/plasma_donation_screening_guide.html",
+        schema_url="/resources/plasma-donation-screening-guide",
+        canonical_url="/resources/plasma-donation-screening-guide",
+        page_title="Plasma Donation Screening: What to Expect at Your First Visit",
+        meta_description="Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.",
+        og_title="Plasma Donation Screening Process Explained",
+        og_description="Your first plasma donation visit includes a basic health exam, ID check, and questionnaire. Here's how to prepare and what to expect.",
+        og_image="plasma-donation-screening-guide-og.jpg",
+        schema_name="Plasma Donation Screening Guide",
+        schema_description="Step-by-step overview of the initial physical screening process for new plasma donors. Includes ID requirements, health exam checklist, and FAQs."
     )
 
 @app.route('/lipid-panel-goals-calculator')
