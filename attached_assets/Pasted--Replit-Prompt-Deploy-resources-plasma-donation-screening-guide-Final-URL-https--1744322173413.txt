@@ -1,0 +1,70 @@
+🛠️ Replit Prompt: Deploy `/resources/plasma-donation-screening-guide`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/plasma-donation-screening-guide
+```
+
+✅ Target File:
+```
+plasma_donation_screening_guide.html
+```
+
+---
+
+### 📌 Deployment Instructions
+
+1. **Create file:** `templates/resources/plasma_donation_screening_guide.html`
+2. Paste in the final HTML content generated using the article template
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/plasma-donation-screening-guide",
+canonical_url="/resources/plasma-donation-screening-guide",
+page_title="Plasma Donation Screening: What to Expect at Your First Visit",
+meta_description="Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.",
+og_title="Plasma Donation Screening Process Explained",
+og_description="Your first plasma donation visit includes a basic health exam, ID check, and questionnaire. Here's how to prepare and what to expect.",
+og_image="plasma-donation-screening-guide-og.jpg",
+schema_name="Plasma Donation Screening Guide",
+schema_description="Step-by-step overview of the initial physical screening process for new plasma donors. Includes ID requirements, health exam checklist, and FAQs."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/plasma-donation-screening-guide")
+def plasma_donation_screening_guide():
+    return render_template("resources/plasma_donation_screening_guide.html",
+        schema_url="/resources/plasma-donation-screening-guide",
+        canonical_url="/resources/plasma-donation-screening-guide",
+        page_title="Plasma Donation Screening: What to Expect at Your First Visit",
+        meta_description="Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.",
+        og_title="Plasma Donation Screening Process Explained",
+        og_description="Your first plasma donation visit includes a basic health exam, ID check, and questionnaire. Here's how to prepare and what to expect.",
+        og_image="plasma-donation-screening-guide-og.jpg",
+        schema_name="Plasma Donation Screening Guide",
+        schema_description="Step-by-step overview of the initial physical screening process for new plasma donors. Includes ID requirements, health exam checklist, and FAQs."
+    )
+```
+
+5. **Add to sitemap.xml**:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/plasma-donation-screening-guide</loc>
+  <priority>0.8</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Upload Open Graph Image**:
+```
+/static/images/plasma-donation-screening-guide-og.jpg
+```
+
+---
+
+✅ This article will:
+- Answer Reddit questions like "What is the physical exam like at CSL Plasma?"
+- Rank for long-tail terms like "plasma donation health screening process"
+- Increase trust by clarifying step-by-step what happens
+
+Let me know once it’s deployed and I’ll QA structure, readability, and schema injection.
