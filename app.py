@@ -492,6 +492,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "How to Prevent Hair Loss: Science-Based Prevention & Treatment",
+        "url": "/resources/how-to-prevent-hair-loss",
+        "summary": "Learn how to prevent hair loss with simple lifestyle changes, supplements, and treatments. Evidence-based strategies for both men and women.",
+        "icon": "💆",
+        "cta": "Read Guide",
+        "color": "blue"
+    },
+    {
         "title": "Antidepressants and Body Fat: Understanding the Connection",
         "url": "/resources/antidepressants-and-body-fat",
         "summary": "Do antidepressants cause body fat gain? Learn which medications have the strongest effect, why it happens, and how to track changes over time.",
@@ -806,6 +814,16 @@ def baldness_risk_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
+    )
+
+@app.route('/resources/how-to-prevent-hair-loss')
+def how_to_prevent_hair_loss():
+    return render_template(
+        'resources/how_to_prevent_hair_loss.html',
+        is_homepage=False,
+        schema_name="How to Prevent Hair Loss: Science-Based Prevention & Treatment",
+        schema_description="Learn how to prevent hair loss with simple lifestyle changes, supplements, and treatments. Evidence-based strategies for both men and women.",
+        schema_url="/resources/how-to-prevent-hair-loss"
     )
 
 @app.route('/bac-calculator')
