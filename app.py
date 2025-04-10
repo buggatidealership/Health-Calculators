@@ -243,14 +243,6 @@ cards = [
         "color": "yellow"
     },
     {
-        "title": "Ozempic Pen Click Calculator",
-        "url": "/ozempic-pen-click-calculator",
-        "summary": "Convert Ozempic pen clicks to precise dosage in milligrams. Check your dose or estimate remaining medication.",
-        "icon": "💉",
-        "cta": "Calculate Dose",
-        "color": "blue"
-    },
-    {
         "title": "Lifespan Calculator",
         "url": "/lifespan-longevity-calculator",
         "summary": "Estimate your life expectancy based on health and lifestyle factors.",
@@ -1095,19 +1087,6 @@ def lipid_panel_goals_calculator():
     schema_url = "/lipid-panel-goals-calculator"
     return render_template(
         'lipid_panel_goals_calculator.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url
-    )
-
-@app.route('/ozempic-pen-click-calculator')
-def ozempic_pen_click_calculator():
-    schema_name = "Ozempic Pen Click Calculator"
-    schema_description = "Convert Ozempic pen clicks to precise dosage in milligrams. Useful for verifying prescribed doses or estimating remaining medication in your pen."
-    schema_url = "/ozempic-pen-click-calculator"
-    return render_template(
-        'ozempic_pen_click_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
