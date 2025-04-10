@@ -203,8 +203,8 @@ cards = [
         "color": "purple"
     },
     {
-        "title": "Ozempic Dosing Safety Calculator",
-        "url": "/ozempic-dosing-safety-calculator",
+        "title": "Ozempic Pen Click Calculator",
+        "url": "/ozempic-pen-click-calculator",
         "summary": "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool.",
         "icon": "💉",
         "cta": "Check Dosing",
