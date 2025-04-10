@@ -11,14 +11,6 @@ app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
 cards = [
     {
-        "title": "Vitamin D Conversion Calculator",
-        "url": "/vitamin-d-conversion-calculator",
-        "summary": "Convert vitamin D levels between ng/mL and nmol/L instantly. Interpret lab results and supplement dosages across different units.",
-        "icon": "💊",
-        "cta": "Convert Units",
-        "color": "orange"
-    },
-    {
         "title": "Lipid Panel Goals Calculator",
         "url": "/lipid-panel-goals-calculator",
         "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
@@ -1056,19 +1048,6 @@ def lipid_panel_goals_calculator():
     schema_url = "/lipid-panel-goals-calculator"
     return render_template(
         'lipid_panel_goals_calculator.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url
-    )
-
-@app.route('/vitamin-d-conversion-calculator')
-def vitamin_d_conversion_calculator():
-    schema_name = "Vitamin D Conversion Calculator"
-    schema_description = "Convert vitamin D levels between ng/mL and nmol/L instantly. Interpret lab results and supplement dosages across different units."
-    schema_url = "/vitamin-d-conversion-calculator"
-    return render_template(
-        'vitamin_d_conversion_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
