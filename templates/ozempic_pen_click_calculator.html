@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set schema_name = schema_name | default("Ozempic Pen Click Calculator") %}
+{% set schema_description = schema_description | default("Convert Ozempic pen clicks to milligrams of medication. Helpful for understanding how much medication you're injecting or how much is left in your pen.") %}
+{% set schema_url = schema_url | default("/ozempic-pen-click-calculator") %}
+{% set og_image = "ozempic-pen-click-calculator-og.jpg" %}
+{% with 
+    meta_description="Convert Ozempic pen clicks to milligrams of medication. Calculate your dose, track remaining injections, and prevent dosing errors.",
+    meta_keywords="ozempic pen clicks, semaglutide clicks, ozempic dosing calculator, ozempic, semaglutide",
+    og_title="Ozempic Pen Click Calculator - Convert Clicks to Milligrams",
+    og_description="Convert Ozempic pen clicks to milligrams. Estimate your dose, track remaining medication, and avoid common dosing errors.",
+    og_url="/ozempic-pen-click-calculator",
+    page_title="Ozempic Pen Click Calculator | Convert Clicks to Milligrams",
+    canonical_url="/ozempic-pen-click-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "headline": "Ozempic Pen Click Calculator - Convert Clicks to Milligrams",
+  "datePublished": "2025-04-10",
+  "lastReviewed": "2025-04-10",
+  "specialty": ["Endocrinology", "Diabetes Management"],
+  "author": {
+    "@type": "Organization",
+    "name": "HealthCalculators.xyz",
+    "url": "https://healthcalculators.xyz"
+  },
+  "mainEntity": {
+    "@type": "MedicalEntity",
+    "name": "Semaglutide (Ozempic) Dosing"
+  },
+  "about": {
+    "@type": "MedicalEntity",
+    "name": "Ozempic Pen Click Calculation",
+    "description": "Calculator for converting Ozempic (semaglutide) pen clicks to milligram doses"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Patients using Ozempic"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How accurate are Ozempic pen clicks?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Each Ozempic pen has a specific number of clicks per dose. The blue pen (0.25-0.5mg) has 4 clicks per 0.25mg. The gray pen (1-2mg) has 4 clicks per 0.5mg. The green pen (2-4mg) has 4 clicks per 1mg. These specifications are based on official Ozempic documentation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this with Wegovy or other GLP-1 pens?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. This calculator is designed specifically for Ozempic pens. Other GLP-1 medication pens like Wegovy, Rybelsus, or Mounjaro may have different click calibrations and dosing mechanisms. Always use the correct calculator for your specific medication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if I count clicks incorrectly?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Miscounting clicks could lead to incorrect dosing. Underdosing may reduce medication effectiveness, while overdosing could increase side effects. Always ensure each click is complete (you should hear/feel a distinct click), and consult your healthcare provider if you're unsure about your dose."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+        <h1>Ozempic Pen Click Calculator</h1>
+        <p class="subtitle">Convert Ozempic pen clicks to milligrams of medication.</p>
+        
+        <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+            This tool estimates your Ozempic dose by counting pen clicks. Helpful for understanding how much medication you're injecting or how much is left in your pen.
+        </p>
+
+        {% include 'components/medical-disclaimer.html' %}
+
+        <div class="table-of-contents">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#calculator">Calculator</a></li>
+                <li><a href="#how-to-use">How This Calculator Works</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+
+        <!-- Top Ad -->
+        <div class="ad-container">
+            <div class="ad-unit" id="ozempic-pen-click-calculator-top"></div>
+        </div>
+
+        <section id="calculator">
+            <div class="calculator">
+                <div class="calculator-form">
+                    <div class="form-group">
+                        <label for="pen-type">Pen Strength (mg)</label>
+                        <select id="pen-type" class="form-control">
+                            <option value="blue">0.25-0.5 mg (Blue)</option>
+                            <option value="gray">1-2 mg (Gray)</option>
+                            <option value="green">2-4 mg (Green)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="click-count">Number of Clicks</label>
+                        <input type="number" id="click-count" class="form-control" min="1" max="20" value="4">
+                        <small class="form-text text-muted">Enter how many clicks you've turned the dose selector</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="last-injection">Last Injection Date (optional)</label>
+                        <input type="date" id="last-injection" class="form-control">
+                    </div>
+
+                    <button type="button" id="calculate-btn" class="btn btn-primary">Calculate Dose</button>
+                </div>
+
+                <div id="results" class="calculator-results" style="display:none;">
+                    <div class="result-card">
+                        <h3>Your Dose Information</h3>
+                        
+                        <div class="result-item">
+                            <div class="result-label">Dose Amount:</div>
+                            <div class="result-value" id="dose-amount">0.25 mg</div>
+                        </div>
+                        
+                        <div class="result-item">
+                            <div class="result-label">Standard or Non-Standard:</div>
+                            <div class="result-value" id="dose-standard">Standard Dose</div>
+                        </div>
+                        
+                        <div class="result-item">
+                            <div class="result-label">Doses Remaining in Pen:</div>
+                            <div class="result-value" id="doses-remaining">3 doses</div>
+                        </div>
+                        
+                        <div class="result-item">
+                            <div class="result-label">Next Injection Date:</div>
+                            <div class="result-value" id="next-injection-date">Not calculated</div>
+                        </div>
+                    </div>
+                    
+                    <div id="safety-warnings" class="safety-warnings" style="display:none;">
+                        <h4>Safety Considerations</h4>
+                        <ul id="warnings-list">
+                            <!-- Warnings will be inserted here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mid Ad -->
+        <div class="ad-container">
+            <div class="ad-unit" id="ozempic-pen-click-calculator-mid"></div>
+        </div>
+
+        <section id="how-to-use" class="info">
+            <h2>How to Use the Ozempic Pen Click Calculator</h2>
+            <p>This calculator helps you understand your Ozempic dose based on pen clicks. Each pen type has a specific click value.</p>
+            
+            <ul>
+                <li><strong>Select your pen type</strong> (Blue 0.25-0.5mg, Gray 1-2mg, or Green 2-4mg)</li>
+                <li><strong>Enter the number of clicks</strong> you've dialed on your pen's dose selector</li>
+                <li><strong>Add your last injection date</strong> (optional) to calculate your next scheduled dose</li>
+                <li><strong>Click "Calculate Dose"</strong> to see your dose in milligrams and safety information</li>
+            </ul>
+            
+            <div class="highlight-box" style="background-color: #f0f8ff; padding: 20px; border-radius: 8px; margin-top: 20px; border-left: 4px solid #0066cc;">
+                <h3 style="margin-top: 0;">Ozempic Pen Click Reference</h3>
+                <ul>
+                    <li><strong>Blue Pen (0.25-0.5mg):</strong> Each click = 0.0625mg (4 clicks = 0.25mg)</li>
+                    <li><strong>Gray Pen (1-2mg):</strong> Each click = 0.125mg (4 clicks = 0.5mg)</li>
+                    <li><strong>Green Pen (2-4mg):</strong> Each click = 0.25mg (4 clicks = 1mg)</li>
+                </ul>
+                <p style="margin-bottom: 0; font-style: italic;">These values are based on official Ozempic dosing specifications.</p>
+            </div>
+        </section>
+
+        <section id="faq" class="info">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <h3>How accurate are Ozempic pen clicks?</h3>
+                <div class="faq-answer">
+                    <p>Each Ozempic pen has a specific number of clicks per dose. The blue pen (0.25-0.5mg) has 4 clicks per 0.25mg. The gray pen (1-2mg) has 4 clicks per 0.5mg. The green pen (2-4mg) has 4 clicks per 1mg.</p>
+                    <p>For accurate dosing, make sure each click is complete—you should hear and feel a distinct click. The dose window should display the correct dose amount.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>Can I use this with Wegovy or other GLP-1 pens?</h3>
+                <div class="faq-answer">
+                    <p>No. This calculator is designed specifically for Ozempic pens. Other GLP-1 medication pens like Wegovy, Rybelsus, or Mounjaro may have different click calibrations and dosing mechanisms.</p>
+                    <p>Always use the correct calculator for your specific medication, and follow your healthcare provider's dosing instructions.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>What happens if I count clicks incorrectly?</h3>
+                <div class="faq-answer">
+                    <p>Miscounting clicks could lead to incorrect dosing. Underdosing may reduce medication effectiveness, while overdosing could increase side effects like nausea, vomiting, or diarrhea.</p>
+                    <p>Always verify your dose in the pen's dose window. If you're unsure, contact your healthcare provider for guidance.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3>How do I know which Ozempic pen I have?</h3>
+                <div class="faq-answer">
+                    <p>Ozempic pens are color-coded:</p>
+                    <ul>
+                        <li><strong>Blue pen:</strong> 0.25mg or 0.5mg doses (lower doses for starting therapy)</li>
+                        <li><strong>Gray pen:</strong> 1mg or 2mg doses (maintenance therapy)</li>
+                        <li><strong>Green pen:</strong> 2mg or 4mg doses (higher doses for some patients)</li>
+                    </ul>
+                    <p>The pen color and dose range are printed on the pen label and packaging.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Ad -->
+        <div class="ad-container">
+            <div class="ad-unit" id="ozempic-pen-click-calculator-bottom"></div>
+        </div>
+
+        <p class="text-center mt-8">
+            <a href="/" class="back-link">&larr; Back to Homepage</a>
+        </p>
+    </div>
+
+    {% include 'footer.html' %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Define pen specifications
+            const penSpecs = {
+                "blue": {
+                    clicksPerDose: 4,
+                    mgPerClick: 0.0625,
+                    standardDoses: [0.25, 0.5],
+                    maxDoses: 4
+                },
+                "gray": {
+                    clicksPerDose: 4,
+                    mgPerClick: 0.125,
+                    standardDoses: [1, 1.5, 2],
+                    maxDoses: 4
+                },
+                "green": {
+                    clicksPerDose: 4,
+                    mgPerClick: 0.25,
+                    standardDoses: [2, 3, 4],
+                    maxDoses: 4
+                }
+            };
+            
+            // Get DOM elements
+            const penTypeSelect = document.getElementById('pen-type');
+            const clickCountInput = document.getElementById('click-count');
+            const lastInjectionInput = document.getElementById('last-injection');
+            const calculateBtn = document.getElementById('calculate-btn');
+            const resultsDiv = document.getElementById('results');
+            const doseAmountElem = document.getElementById('dose-amount');
+            const doseStandardElem = document.getElementById('dose-standard');
+            const dosesRemainingElem = document.getElementById('doses-remaining');
+            const nextInjectionDateElem = document.getElementById('next-injection-date');
+            const safetyWarningsDiv = document.getElementById('safety-warnings');
+            const warningsListElem = document.getElementById('warnings-list');
+            
+            // Calculate button click handler
+            calculateBtn.addEventListener('click', function() {
+                const penType = penTypeSelect.value;
+                const clickCount = parseInt(clickCountInput.value, 10);
+                const lastInjection = lastInjectionInput.value;
+                
+                // Calculate dose amount
+                const spec = penSpecs[penType];
+                const doseAmount = clickCount * spec.mgPerClick;
+                
+                // Check if standard dose
+                const isStandard = spec.standardDoses.includes(doseAmount);
+                
+                // Calculate doses remaining
+                const maxClicks = spec.maxDoses * spec.clicksPerDose;
+                const dosesRemaining = Math.floor(maxClicks / clickCount);
+                
+                // Calculate next injection date
+                let nextInjectionDate = "Not calculated";
+                if (lastInjection) {
+                    const date = new Date(lastInjection);
+                    date.setDate(date.getDate() + 7); // 7 days later
+                    nextInjectionDate = date.toLocaleDateString();
+                }
+                
+                // Display results
+                doseAmountElem.textContent = doseAmount.toFixed(2) + " mg";
+                doseStandardElem.textContent = isStandard ? "Standard Dose" : "Non-Standard Dose";
+                dosesRemainingElem.textContent = dosesRemaining + " doses";
+                nextInjectionDateElem.textContent = nextInjectionDate;
+                
+                // Check for warnings
+                const warnings = [];
+                
+                // Check if non-standard dose
+                if (!isStandard) {
+                    warnings.push("You've selected a non-standard dose. Standard doses for the " + 
+                                 penType + " pen are: " + spec.standardDoses.join(", ") + " mg.");
+                }
+                
+                // Check if clicks are not aligned with pen design
+                if (clickCount % spec.clicksPerDose !== 0) {
+                    warnings.push("The number of clicks you entered doesn't align with standard dose increments. " +
+                                 "This may lead to dosing errors.");
+                }
+                
+                // Check if days since last injection is unusual
+                if (lastInjection) {
+                    const today = new Date();
+                    const lastDate = new Date(lastInjection);
+                    const diffTime = today - lastDate;
+                    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+                    
+                    if (diffDays < 6) {
+                        warnings.push("Your last injection was only " + diffDays + " days ago. " +
+                                     "Ozempic is typically taken every 7 days.");
+                    } else if (diffDays > 10) {
+                        warnings.push("It has been " + diffDays + " days since your last injection. " +
+                                     "Taking doses too far apart may reduce effectiveness.");
+                    }
+                }
+                
+                // Display warnings if any
+                if (warnings.length > 0) {
+                    warningsListElem.innerHTML = '';
+                    warnings.forEach(warning => {
+                        const li = document.createElement('li');
+                        li.textContent = warning;
+                        warningsListElem.appendChild(li);
+                    });
+                    safetyWarningsDiv.style.display = 'block';
+                } else {
+                    safetyWarningsDiv.style.display = 'none';
+                }
+                
+                // Show results
+                resultsDiv.style.display = 'block';
+            });
+
+            // FAQ accordion functionality
+            const faqItems = document.querySelectorAll('.faq-item h3');
+            
+            faqItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const isActive = answer.style.display === 'block';
+                    
+                    if (isActive) {
+                        answer.style.display = 'none';
+                        this.classList.remove('active');
+                    } else {
+                        answer.style.display = 'block';
+                        this.classList.add('active');
+                    }
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80, // Adjusted for header
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
