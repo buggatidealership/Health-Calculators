@@ -203,6 +203,14 @@ cards = [
         "color": "purple"
     },
     {
+        "title": "Ozempic Dosing Safety Calculator",
+        "url": "/ozempic-dosing-safety-calculator",
+        "summary": "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool.",
+        "icon": "💉",
+        "cta": "Check Dosing",
+        "color": "blue"
+    },
+    {
         "title": "Ozempic Weight Loss Calculator",
         "url": "/ozempic-weight-loss-calculator",
         "summary": "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy).",
@@ -471,6 +479,19 @@ def fasting_weight_loss_calculator():
     schema_url = "/fasting-weight-loss-calculator"
     return render_template(
         'fasting_weight_loss_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/ozempic-dosing-safety-calculator')
+def ozempic_dosing_safety_calculator():
+    schema_name = "Ozempic Dosing Safety Calculator"
+    schema_description = "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool."
+    schema_url = "/ozempic-dosing-safety-calculator"
+    return render_template(
+        'ozempic_dosing_safety_calculator.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
