@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "plasma-donation-earnings-calculator-og.jpg" %}
+{% with 
+    meta_description="Calculate your potential plasma donation earnings with our free calculator. See estimates based on weight, frequency, and location with new donor bonuses.",
+    meta_keywords="plasma donation calculator, plasma donation pay, plasma donation earnings, how much do plasma donations pay, plasma donation money calculator",
+    og_title="Plasma Donation Earnings Calculator",
+    og_description="Find out how much you can earn from plasma donation based on your weight, location, and donation frequency. Includes new donor bonuses.",
+    og_url="/plasma-donation-earnings-calculator",
+    page_title="Plasma Donation Earnings Calculator - Estimate Your Pay",
+    canonical_url="/plasma-donation-earnings-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does plasma donation pay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plasma donation typically pays between $20-60 per donation for regular donors, and $40-100 for new donors. Compensation varies based on weight, location, frequency, and promotional bonuses."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often can I donate plasma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "FDA regulations allow plasma donation up to twice in a 7-day period, with at least one day between donations. You can donate up to 104 times per year, though most donors give 1-2 times per week."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do heavier people get paid more for plasma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Donors weighing over 175 lbs typically receive $5-15 more per donation because they can safely donate a larger volume of plasma."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What factors affect plasma donation pay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Compensation depends on your weight, donation center location, frequency of donation, first-time donor status, and special promotions. Our calculator accounts for all these variables."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+    
+    <div class="calculator-container">
+    
+    <h1>Plasma Donation Earnings Calculator</h1>
+    <p class="subtitle">Estimate how much you can earn from donating plasma based on your eligibility, location, and donation frequency. Includes new donor bonuses and weight-based compensation differences.</p>
+    
+    <div class="medical-disclaimer">
+      <p><strong>This tool provides educational estimates.</strong> Actual plasma donation compensation may vary by donation center and current promotions.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Plasma Earnings Calculator</a></li>
+            <li><a href="#how-to-use">How to Use the Calculator</a></li>
+            <li><a href="#related-resources">Related Resources</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+    
+    <!-- Top Ad -->
+    <div class="adunit-top" style="margin: 20px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="plasma-donation-earnings-calculator-top"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <section id="calculator">
+        <div class="calculator">
+            <h2>Plasma Donation Eligibility & Earnings</h2>
+            
+            <div class="form-group">
+                <label for="age">Your Age:</label>
+                <input type="number" id="age" min="18" max="75" placeholder="18-75">
+            </div>
+            
+            <div class="form-group">
+                <label for="weight">Your Weight (lbs):</label>
+                <input type="number" id="weight" min="90" placeholder="Minimum 110 lbs">
+            </div>
+            
+            <div class="form-group">
+                <label for="health-status">Do you have any chronic health conditions?</label>
+                <select id="health-status" required>
+                    <option value="">Select...</option>
+                    <option value="no">No, I'm in good health</option>
+                    <option value="yes">Yes, I have health conditions</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="new-donor">Is this your first time donating plasma?</label>
+                <select id="new-donor" required>
+                    <option value="">Select...</option>
+                    <option value="yes">Yes, I'm a new donor</option>
+                    <option value="no">No, I've donated before</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="frequency">How often can you donate?</label>
+                <select id="frequency" required>
+                    <option value="">Select Frequency</option>
+                    <option value="1">Once per week</option>
+                    <option value="2" selected>Twice per week (maximum)</option>
+                    <option value="3">1-2 times per month</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="state">Your State:</label>
+                <select id="state" required>
+                    <option value="">Select State</option>
+                    <option value="AL">Alabama</option>
+                    <option value="AK">Alaska</option>
+                    <option value="AZ">Arizona</option>
+                    <option value="AR">Arkansas</option>
+                    <option value="CA">California</option>
+                    <option value="CO">Colorado</option>
+                    <option value="CT">Connecticut</option>
+                    <option value="DE">Delaware</option>
+                    <option value="FL">Florida</option>
+                    <option value="GA">Georgia</option>
+                    <option value="HI">Hawaii</option>
+                    <option value="ID">Idaho</option>
+                    <option value="IL">Illinois</option>
+                    <option value="IN">Indiana</option>
+                    <option value="IA">Iowa</option>
+                    <option value="KS">Kansas</option>
+                    <option value="KY">Kentucky</option>
+                    <option value="LA">Louisiana</option>
+                    <option value="ME">Maine</option>
+                    <option value="MD">Maryland</option>
+                    <option value="MA">Massachusetts</option>
+                    <option value="MI">Michigan</option>
+                    <option value="MN">Minnesota</option>
+                    <option value="MS">Mississippi</option>
+                    <option value="MO">Missouri</option>
+                    <option value="MT">Montana</option>
+                    <option value="NE">Nebraska</option>
+                    <option value="NV">Nevada</option>
+                    <option value="NH">New Hampshire</option>
+                    <option value="NJ">New Jersey</option>
+                    <option value="NM">New Mexico</option>
+                    <option value="NY">New York</option>
+                    <option value="NC">North Carolina</option>
+                    <option value="ND">North Dakota</option>
+                    <option value="OH">Ohio</option>
+                    <option value="OK">Oklahoma</option>
+                    <option value="OR">Oregon</option>
+                    <option value="PA">Pennsylvania</option>
+                    <option value="RI">Rhode Island</option>
+                    <option value="SC">South Carolina</option>
+                    <option value="SD">South Dakota</option>
+                    <option value="TN">Tennessee</option>
+                    <option value="TX">Texas</option>
+                    <option value="UT">Utah</option>
+                    <option value="VT">Vermont</option>
+                    <option value="VA">Virginia</option>
+                    <option value="WA">Washington</option>
+                    <option value="WV">West Virginia</option>
+                    <option value="WI">Wisconsin</option>
+                    <option value="WY">Wyoming</option>
+                </select>
+            </div>
+            
+            <div class="form-notes">
+                <h4>Eligibility Notes:</h4>
+                <ul>
+                    <li><strong>Age:</strong> Must be 18-65 years old (up to 75 at some centers)</li>
+                    <li><strong>Weight:</strong> Minimum 110 lbs (50kg) for most centers</li>
+                    <li><strong>Health:</strong> No recent tattoos, piercings, or certain medications</li>
+                </ul>
+            </div>
+            
+            <button id="calculate-btn" class="calculate-btn">Calculate My Potential Earnings</button>
+        </div>
+        
+        <div id="results" style="display:none; margin-top: 30px;">
+            <h2>Your Plasma Donation Results</h2>
+            <div id="eligibility-result"></div>
+            
+            <div id="earnings-details" style="display: none;">
+                <h3>Earnings Breakdown</h3>
+                
+                <div class="macro-card-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin: 20px 0;">
+                    <div class="macro-card" style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-top: 4px solid #d63384; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+                        <h3 style="margin-top: 0; color: #d63384; font-weight: 600;">Per Donation</h3>
+                        <div style="font-size: 24px; font-weight: bold; color: #2e7d32; margin: 10px 0;" id="per-donation">$0</div>
+                        <div style="font-size: 14px; color: #666;" id="per-donation-note"></div>
+                    </div>
+                    <div class="macro-card" style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-top: 4px solid #d63384; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+                        <h3 style="margin-top: 0; color: #d63384; font-weight: 600;">Weekly</h3>
+                        <div style="font-size: 24px; font-weight: bold; color: #2e7d32; margin: 10px 0;" id="weekly">$0</div>
+                        <div style="font-size: 14px; color: #666;" id="weekly-note"></div>
+                    </div>
+                    <div class="macro-card" style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; border-top: 4px solid #d63384; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center;">
+                        <h3 style="margin-top: 0; color: #d63384; font-weight: 600;">Monthly</h3>
+                        <div style="font-size: 24px; font-weight: bold; color: #2e7d32; margin: 10px 0;" id="monthly">$0</div>
+                        <div style="font-size: 14px; color: #666;" id="monthly-note"></div>
+                    </div>
+                </div>
+                
+                <div class="macro-card" style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; border: 1px solid #e9ecef; box-shadow: 0 2px 4px rgba(0,0,0,0.05); margin-top: 20px;">
+                    <h4 style="margin-top: 0;">Annual Estimate: <span id="annual" style="color: #2e7d32;">$0</span></h4>
+                    <div id="annual-note" style="font-size: 14px; color: #666; margin-bottom: 15px;"></div>
+                    
+                    <h4 style="margin-top: 15px; margin-bottom: 10px;">Calculation Details</h4>
+                    <div id="calculation-details" style="font-size: 14px;"></div>
+                </div>
+
+                <!-- Primary CTA Button -->
+                <div style="text-align: center; margin: 30px 0; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Ready to Start Earning?</h3>
+                    <p>New donors can get special bonuses for their first donations.</p>
+                    <a href="/resources/plasma-donation-screening-guide" class="calculate-btn" id="main-cta" style="display: inline-block; text-decoration: none; margin-top: 10px;">
+                        Learn What to Expect at Your First Visit →
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Secondary CTA for Ineligible Users -->
+            <div id="ineligible-cta" style="display: none; margin-top: 30px;">
+                <div style="text-align: center; margin: 30px 0; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+                    <h3 style="margin-top: 0;">Not Eligible? You Might Still Qualify!</h3>
+                    <p>Center requirements vary. Learn more about eligibility differences:</p>
+                    <a href="/resources/plasma-donation-screening-guide" class="calculate-btn" style="display: inline-block; text-decoration: none; margin-top: 10px; background-color: #3498db;">
+                        Check Alternative Eligibility Options →
+                    </a>
+                </div>
+            </div>
+            
+            <div id="reasons-list"></div>
+        </div>
+    </section>
+    
+    <!-- Middle Ad -->
+    <div class="adunit-middle" style="margin: 40px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="plasma-donation-earnings-calculator-mid"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Related Resources Section -->
+    <section id="related-resources" style="margin-bottom: 40px;">
+        <h2>Related Resources</h2>
+        
+        <p>Learn more about plasma donation with our comprehensive guides:</p>
+        
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+            <a href="/resources/plasma-donation-screening-guide" style="text-decoration: none; color: inherit;">
+                <div style="background-color: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; border-top: 4px solid #d63384;">
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <span style="font-size: 28px; margin-right: 12px;">🩸</span>
+                        <h3 style="margin: 0; font-size: 18px;">Plasma Donation Screening: What to Expect at Your First Visit</h3>
+                    </div>
+                    <p style="margin-bottom: 20px; flex-grow: 1; font-size: 14px;">Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.</p>
+                    <div style="display: flex; align-items: center; color: #d63384; font-weight: 500; font-size: 14px;">
+                        Read Guide 
+                        <svg width="16" height="16" viewBox="0 0 24 24" style="margin-left: 4px;"><path fill="none" stroke="currentColor" stroke-width="2" d="M12,2 L12,22 M2,12 L22,12" transform="rotate(45 12 12)"></path></svg>
+                    </div>
+                </div>
+            </a>
+            <a href="/resources/plasma-donation-college-guide" style="text-decoration: none; color: inherit;">
+                <div style="background-color: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; border-top: 4px solid #1976d2;">
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <span style="font-size: 28px; margin-right: 12px;">🩸</span>
+                        <h3 style="margin: 0; font-size: 18px;">Plasma Donation for College Students: Veins, Gains & Study Time</h3>
+                    </div>
+                    <p style="margin-bottom: 20px; flex-grow: 1; font-size: 14px;">Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.</p>
+                    <div style="display: flex; align-items: center; color: #1976d2; font-weight: 500; font-size: 14px;">
+                        Read Guide 
+                        <svg width="16" height="16" viewBox="0 0 24 24" style="margin-left: 4px;"><path fill="none" stroke="currentColor" stroke-width="2" d="M12,2 L12,22 M2,12 L22,12" transform="rotate(45 12 12)"></path></svg>
+                    </div>
+                </div>
+            </a>
+            <a href="/resources/plasma-vs-platelet-donation" style="text-decoration: none; color: inherit;">
+                <div style="background-color: #fff; border-radius: 12px; padding: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); height: 100%; display: flex; flex-direction: column; border-top: 4px solid #8e24aa;">
+                    <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                        <span style="font-size: 28px; margin-right: 12px;">🩸</span>
+                        <h3 style="margin: 0; font-size: 18px;">Plasma vs Platelet Donation: Which Makes a Bigger Impact?</h3>
+                    </div>
+                    <p style="margin-bottom: 20px; flex-grow: 1; font-size: 14px;">Not sure whether to donate plasma or platelets? This guide compares collection volume, donation frequency, and community need.</p>
+                    <div style="display: flex; align-items: center; color: #8e24aa; font-weight: 500; font-size: 14px;">
+                        Read Guide 
+                        <svg width="16" height="16" viewBox="0 0 24 24" style="margin-left: 4px;"><path fill="none" stroke="currentColor" stroke-width="2" d="M12,2 L12,22 M2,12 L22,12" transform="rotate(45 12 12)"></path></svg>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #eee;" />
+
+    <section id="how-to-use">
+        <div class="info">
+            <h2>How to Use the Plasma Donation Earnings Calculator</h2>
+            <ul>
+                <li>Enter your age and weight to determine basic eligibility.</li>
+                <li>Select whether you have any health conditions (some may affect eligibility).</li>
+                <li>Indicate if you're a new donor (first-time donors typically earn more).</li>
+                <li>Choose how frequently you plan to donate (up to twice weekly).</li>
+                <li>Select your state, as compensation varies by location.</li>
+                <li>Click "Calculate" to see your estimated earnings per donation, weekly, monthly, and annually.</li>
+            </ul>
+            <p>The calculator shows both minimum and maximum expected ranges since exact rates can vary between donation centers and promotional periods.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>How much does plasma donation pay?</h4>
+            <p>Plasma donation typically pays between $20-60 per donation for regular donors, and $40-100 for new donors. Compensation varies based on weight, location, frequency, and promotional bonuses.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How often can I donate plasma?</h4>
+            <p>FDA regulations allow plasma donation up to twice in a 7-day period, with at least one day between donations. You can donate up to 104 times per year, though most donors give 1-2 times per week.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do heavier people get paid more for plasma?</h4>
+            <p>Yes. Donors weighing over 175 lbs typically receive $5-15 more per donation because they can safely donate a larger volume of plasma.</p>
+        </div>
+        <div class="faq-item">
+            <h4>What factors affect plasma donation pay?</h4>
+            <p>Compensation depends on your weight, donation center location, frequency of donation, first-time donor status, and special promotions. Our calculator accounts for all these variables.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Do I qualify to donate plasma?</h4>
+            <p>Basic qualifications include being 18-65 years old (up to 75 at some centers), weighing at least 110 lbs, and being in good health. You'll need valid ID and proof of address. Some medical conditions, medications, and recent tattoos/piercings may temporarily disqualify you.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How long does a plasma donation take?</h4>
+            <p>First-time donors should expect the process to take 2-3 hours due to additional screening. Return visits typically take 1-1.5 hours, with the actual donation process taking about 45 minutes.</p>
+        </div>
+        <div class="faq-item">
+            <h4>Where do plasma centers pay the most?</h4>
+            <p>California, New York, and Texas generally offer the highest plasma donation compensation, while states with lower costs of living like North Dakota and Wyoming typically offer lower rates. Urban areas with multiple competing centers often have better compensation.</p>
+        </div>
+        <div class="faq-item">
+            <h4>How is plasma donation payment calculated?</h4>
+            <p>Payment is typically based on volume collected, which correlates with donor weight. Centers offer baseline rates plus bonuses for first-time donors, consistent donation frequency, and special promotions. Rates are adjusted for location-based factors like cost of living and competition.</p>
+        </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    <div class="adunit-bottom bottom-ad-spacing">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-slot="plasma-donation-earnings-calculator-bottom"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    
+    <div class="medical-disclaimer">
+        <p><strong>Disclaimer:</strong> This calculator provides educational estimates and should not be considered financial advice. Actual compensation varies by donation center, time of year, and individual donor factors. Always check with your local plasma donation center for current rates and eligibility requirements.</p>
+    </div>
+    
+    <footer class="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+    </footer>
+    
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/plasma_donation_earnings_calculator.js') }}"></script>
+</body>
+</html>
