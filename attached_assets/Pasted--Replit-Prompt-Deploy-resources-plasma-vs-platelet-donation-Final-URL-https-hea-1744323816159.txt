@@ -1,0 +1,68 @@
+🛠️ Replit Prompt: Deploy `/resources/plasma-vs-platelet-donation`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/plasma-vs-platelet-donation
+```
+
+✅ Target File:
+```
+plasma_vs_platelet_donation.html
+```
+
+---
+
+### 📌 Deployment Instructions
+
+1. **Create file:** `templates/resources/plasma_vs_platelet_donation.html`
+2. Paste in the final HTML content generated using the article template
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/plasma-vs-platelet-donation",
+canonical_url="/resources/plasma-vs-platelet-donation",
+page_title="Plasma vs Platelet Donation: Which Makes a Bigger Impact?",
+meta_description="Not sure whether to donate plasma or platelets? This guide compares collection volume, donation frequency, and community need.",
+og_title="Plasma or Platelets: Which Should You Donate?",
+og_description="We compare plasma and platelet donation in terms of volume, impact, and frequency — based on Red Cross donation guidelines and donor experience.",
+og_image="plasma-vs-platelet-donation-og.jpg",
+schema_name="Plasma vs Platelet Donation Comparison Guide",
+schema_description="Should you donate plasma or platelets? This guide compares donation volume, frequency, and which one helps more based on real data and Red Cross guidelines."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/plasma-vs-platelet-donation")
+def plasma_vs_platelet_donation():
+    return render_template("resources/plasma_vs_platelet_donation.html",
+        schema_url="/resources/plasma-vs-platelet-donation",
+        canonical_url="/resources/plasma-vs-platelet-donation",
+        page_title="Plasma vs Platelet Donation: Which Makes a Bigger Impact?",
+        meta_description="Not sure whether to donate plasma or platelets? This guide compares collection volume, donation frequency, and community need.",
+        og_title="Plasma or Platelets: Which Should You Donate?",
+        og_description="We compare plasma and platelet donation in terms of volume, impact, and frequency — based on Red Cross donation guidelines and donor experience.",
+        og_image="plasma-vs-platelet-donation-og.jpg",
+        schema_name="Plasma vs Platelet Donation Comparison Guide",
+        schema_description="Should you donate plasma or platelets? This guide compares donation volume, frequency, and which one helps more based on real data and Red Cross guidelines."
+    )
+```
+
+5. **Add to sitemap.xml**:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/plasma-vs-platelet-donation</loc>
+  <priority>0.75</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Upload Open Graph Image**:
+```
+/static/images/plasma-vs-platelet-donation-og.jpg
+```
+
+---
+
+✅ This article will:
+- Answer the Reddit question: "Which has a bigger impact — donating plasma or platelets?"
+- Compare volume drawn, recovery time, donation limits, and scheduling logistics
+- Reinforce your topical authority across all donation formats (plasma, whole blood, platelets)

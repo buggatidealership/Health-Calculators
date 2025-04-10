@@ -513,6 +513,14 @@ def ozempic_weight_loss_calculator():
 
 articles = [
     {
+        "title": "Plasma vs Platelet Donation: Which Makes a Bigger Impact?",
+        "url": "/resources/plasma-vs-platelet-donation",
+        "summary": "Not sure whether to donate plasma or platelets? This guide compares collection volume, donation frequency, and community need.",
+        "icon": "🩸",
+        "cta": "Read Guide",
+        "color": "purple"
+    },
+    {
         "title": "Plasma Donation for College Students: Veins, Gains & Study Time",
         "url": "/resources/plasma-donation-college-guide",
         "summary": "Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.",
@@ -1143,6 +1151,20 @@ def plasma_donation_college_guide():
         og_image="plasma-donation-college-guide-og.jpg",
         schema_name="Plasma Donation for Students Guide",
         schema_description="Straightforward advice for students donating plasma. Learn how it affects your veins, workout recovery, study routine, and how to donate safely."
+    )
+
+@app.route("/resources/plasma-vs-platelet-donation")
+def plasma_vs_platelet_donation():
+    return render_template("resources/plasma_vs_platelet_donation.html",
+        schema_url="/resources/plasma-vs-platelet-donation",
+        canonical_url="/resources/plasma-vs-platelet-donation",
+        page_title="Plasma vs Platelet Donation: Which Makes a Bigger Impact?",
+        meta_description="Not sure whether to donate plasma or platelets? This guide compares collection volume, donation frequency, and community need.",
+        og_title="Plasma or Platelets: Which Should You Donate?",
+        og_description="We compare plasma and platelet donation in terms of volume, impact, and frequency — based on Red Cross donation guidelines and donor experience.",
+        og_image="plasma-vs-platelet-donation-og.jpg",
+        schema_name="Plasma vs Platelet Donation Comparison Guide",
+        schema_description="Should you donate plasma or platelets? This guide compares donation volume, frequency, and which one helps more based on real data and Red Cross guidelines."
     )
 
 @app.route('/lipid-panel-goals-calculator')
