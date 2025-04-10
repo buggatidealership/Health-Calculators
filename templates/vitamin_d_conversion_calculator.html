@@ -13,6 +13,57 @@
   %}
   {% include 'head_seo.html' %}
   {% endwith %}
+
+<!-- Schema markup for Vitamin D Conversion calculator -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Vitamin D Conversion Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/vitamin-d-conversion-calculator",
+  "description": "Convert vitamin D levels between ng/mL and nmol/L instantly. Interpret lab results and supplement dosages across different units."
+}
+</script>
+
+<!-- FAQ Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the conversion factor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "1 ng/mL = 2.5 nmol/L and 1 nmol/L = 0.4 ng/mL"
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which unit does my lab use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most US labs report vitamin D in ng/mL, while international reports use nmol/L."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy vitamin D level?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Generally, 30–50 ng/mL (75–125 nmol/L) is considered adequate by many health organizations."
+      }
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+  {% include 'header.html' %}
 <div class="calculator-container">
     <h1>Vitamin D Conversion Calculator</h1>
     <p class="subtitle">Convert vitamin D levels between ng/mL and nmol/L instantly.</p>
