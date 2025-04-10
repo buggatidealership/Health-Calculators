@@ -1,0 +1,247 @@
+// ✅ New Calculator: Vitamin D Conversion Calculator
+// ✅ Template includes full Architecture + Readability optimizations
+
+import { BarChart, HelpCircle } from "lucide-react";
+import { AdUnit } from "@/components/AdUnit";
+
+export default function VitaminDConversionCalculator() {
+  return (
+    <div className="calculator-container">
+      <h1>Vitamin D Conversion Calculator</h1>
+      <p className="subtitle">Convert vitamin D levels between ng/mL and nmol/L instantly.</p>
+
+      <p style={{ fontSize: "0.95rem", color: "#555", marginTop: 12 }}>
+        This tool helps you switch between common vitamin D units used around the world. Useful for interpreting lab results, supplement labels, and global medical guidelines.
+      </p>
+
+      {% include 'components/medical-disclaimer.html' %}
+
+      <AdUnit slot="vitamin-d-conversion-calculator-top" />
+
+      <div className="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+          <li><a href="#calculator">Calculator</a></li>
+          <li><a href="#how-to-use">How This Calculator Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <section id="calculator">
+        <div className="calculator">
+          {/* BEGIN CLAUDE-GENERATED VITAMIN D CONVERSION CALCULATOR */}
+import { useState } from "react";
+
+export default function VitaminDCalculator() {
+  const [mcgValue, setMcgValue] = useState("");
+  const [iuValue, setIuValue] = useState("");
+  const [lastEdited, setLastEdited] = useState(null);
+  const [showInfo, setShowInfo] = useState(false);
+
+  // Conversion factor: 1 mcg = 40 IU for vitamin D
+  const handleMcgChange = (e) => {
+    const value = e.target.value;
+    setMcgValue(value);
+    if (value === "") {
+      setIuValue("");
+    } else {
+      const mcg = parseFloat(value);
+      setIuValue((mcg * 40).toFixed(1));
+    }
+    setLastEdited("mcg");
+  };
+
+  const handleIuChange = (e) => {
+    const value = e.target.value;
+    setIuValue(value);
+    if (value === "") {
+      setMcgValue("");
+    } else {
+      const iu = parseFloat(value);
+      setMcgValue((iu / 40).toFixed(2));
+    }
+    setLastEdited("iu");
+  };
+
+  const getRecommendationText = () => {
+    if (!mcgValue) return null;
+    
+    const mcg = parseFloat(mcgValue);
+    const iu = parseFloat(iuValue);
+    
+    if (mcg < 10) {
+      return {
+        level: "Low to Moderate",
+        description: "This is in the range of basic daily needs. Many adults need 15-25 mcg (600-1000 IU) daily for maintenance."
+      };
+    } else if (mcg >= 10 && mcg < 25) {
+      return {
+        level: "Standard Daily",
+        description: "This is a common daily supplementation range for most adults."
+      };
+    } else if (mcg >= 25 && mcg < 50) {
+      return {
+        level: "Higher Supplementation",
+        description: "This range is often used for vitamin D deficiency correction or for those with higher needs."
+      };
+    } else if (mcg >= 50 && mcg < 100) {
+      return {
+        level: "Therapeutic",
+        description: "This is often prescribed for significant deficiency. Typically used under medical supervision."
+      };
+    } else {
+      return {
+        level: "Very High",
+        description: "This is a high dose that should only be taken under medical supervision."
+      };
+    }
+  };
+
+  const recommendationInfo = getRecommendationText();
+
+  return (
+    <div className="max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
+      <h1 className="text-2xl font-bold text-center text-blue-600 mb-6">Vitamin D Converter</h1>
+      
+      <div className="space-y-6">
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">Micrograms (mcg)</label>
+          <div className="relative mt-1 rounded-md shadow-sm">
+            <input
+              type="number"
+              value={mcgValue}
+              onChange={handleMcgChange}
+              className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-blue-500 focus:ring-blue-500 text-lg py-2 border"
+              placeholder="Enter mcg"
+            />
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+              <span className="text-gray-500 sm:text-sm">mcg</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="flex justify-center">
+          <div className="bg-blue-100 rounded-full p-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-500">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <polyline points="19 12 12 19 5 12"></polyline>
+            </svg>
+          </div>
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-1">International Units (IU)</label>
+          <div className="relative mt-1 rounded-md shadow-sm">
+            <input
+              type="number"
+              value={iuValue}
+              onChange={handleIuChange}
+              className="block w-full rounded-md border-gray-300 pl-3 pr-12 focus:border-blue-500 focus:ring-blue-500 text-lg py-2 border"
+              placeholder="Enter IU"
+            />
+            <div className="absolute inset-y-0 right-0 flex items-center pr-3">
+              <span className="text-gray-500 sm:text-sm">IU</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {mcgValue && iuValue && (
+        <div className="mt-6 p-4 bg-blue-50 rounded-md">
+          <h3 className="font-medium text-lg text-blue-800">Your Results:</h3>
+          <p className="text-blue-700 mt-1">
+            {mcgValue} mcg = {iuValue} IU of vitamin D
+          </p>
+          
+          {recommendationInfo && (
+            <div className="mt-3">
+              <div className="flex items-center">
+                <span className="font-medium text-blue-800">Level: </span>
+                <span className="ml-1 text-blue-700">{recommendationInfo.level}</span>
+              </div>
+              <p className="mt-1 text-sm text-blue-700">{recommendationInfo.description}</p>
+            </div>
+          )}
+        </div>
+      )}
+      
+      <div className="mt-6">
+        <button 
+          onClick={() => setShowInfo(!showInfo)}
+          className="text-blue-600 hover:text-blue-800 text-sm flex items-center"
+        >
+          {showInfo ? "Hide Information" : "Learn more about Vitamin D units"}
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            width="16" 
+            height="16" 
+            viewBox="0 0 24 24" 
+            fill="none" 
+            stroke="currentColor" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            className={`ml-1 transition-transform ${showInfo ? "rotate-180" : ""}`}
+          >
+            <polyline points="6 9 12 15 18 9"></polyline>
+          </svg>
+        </button>
+        
+        {showInfo && (
+          <div className="mt-3 text-sm text-gray-600 bg-gray-50 p-4 rounded-md">
+            <h4 className="font-medium text-gray-800 mb-2">About Vitamin D Units</h4>
+            <ul className="list-disc list-inside space-y-2">
+              <li><strong>Conversion rate:</strong> 1 mcg (microgram) = 40 IU (International Units)</li>
+              <li><strong>Recommended daily intake:</strong> Generally 15-25 mcg (600-1000 IU) for most adults</li>
+              <li><strong>Supplement labels:</strong> May use either mcg or IU (or both) on packaging</li>
+              <li><strong>Blood tests:</strong> Typically measured in ng/mL (nanograms per milliliter) in the US</li>
+              <li><strong>Important note:</strong> Always follow healthcare provider recommendations for your specific needs</li>
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+
+          {/* END CLAUDE-GENERATED VITAMIN D CONVERSION CALCULATOR */}
+        </div>
+      </section>
+
+      <AdUnit slot="vitamin-d-conversion-calculator-mid" />
+
+      <section id="how-to-use">
+        <h2><BarChart className="section-icon" /> How to Use the Vitamin D Conversion Calculator</h2>
+        <ul>
+          <li>Enter your test result or supplement label value</li>
+          <li>Select the current unit: ng/mL or nmol/L</li>
+          <li>Get an instant conversion below</li>
+        </ul>
+      </section>
+
+      <section id="faq">
+        <h2><HelpCircle className="section-icon" /> Frequently Asked Questions</h2>
+        <div className="faq-item">
+          <h4>What is the conversion factor?</h4>
+          <p>1 ng/mL = 2.5 nmol/L and 1 nmol/L = 0.4 ng/mL</p>
+        </div>
+        <div className="faq-item">
+          <h4>Which unit does my lab use?</h4>
+          <p>Most US labs report vitamin D in ng/mL, while international reports use nmol/L.</p>
+        </div>
+        <div className="faq-item">
+          <h4>What is a healthy vitamin D level?</h4>
+          <p>Generally, 30–50 ng/mL (75–125 nmol/L) is considered adequate by many health organizations.</p>
+        </div>
+      </section>
+
+      <AdUnit slot="vitamin-d-conversion-calculator-bottom" />
+
+      <footer className="footer-disclaimer">
+        <p><a href="/">&larr; Back to Homepage</a></p>
+        <p><strong>Disclaimer:</strong> This calculator is for informational purposes only and does not replace medical advice.</p>
+      </footer>
+    </div>
+  );
+}

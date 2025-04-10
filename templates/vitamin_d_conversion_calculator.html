@@ -1,0 +1,188 @@
+{% extends 'base.html' %}
+
+{% block title %}Vitamin D Conversion Calculator | ng/mL to nmol/L Converter{% endblock %}
+
+{% block content %}
+<div class="calculator-container">
+    <h1>Vitamin D Conversion Calculator</h1>
+    <p class="subtitle">Convert vitamin D levels between ng/mL and nmol/L instantly.</p>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        This tool helps you switch between common vitamin D units used around the world. Useful for interpreting lab results, supplement labels, and global medical guidelines.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <!-- Ad placement - top -->
+    <div class="ad-container">
+        <div class="ad-unit" id="vitamin-d-conversion-calculator-top"></div>
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+        </ul>
+    </div>
+
+    <section id="calculator">
+        <h2>Vitamin D Unit Converter</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="ng-input">ng/mL (US units):</label>
+                    <input type="number" id="ng-input" min="0" step="0.1" placeholder="Enter value in ng/mL">
+                </div>
+            </div>
+
+            <div class="calculator-row conversion-arrow">
+                <div class="arrow-down">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="12" y1="5" x2="12" y2="19"></line>
+                        <polyline points="19 12 12 19 5 12"></polyline>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="nmol-input">nmol/L (International units):</label>
+                    <input type="number" id="nmol-input" min="0" step="0.1" placeholder="Enter value in nmol/L">
+                </div>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-box">
+                    <h3>Conversion Results:</h3>
+                    <p id="conversion-result">Loading result...</p>
+                    
+                    <div id="level-indicator">
+                        <h4>Vitamin D Status:</h4>
+                        <p id="level-description">-</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about Vitamin D units
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About Vitamin D Units</h4>
+                    <ul>
+                        <li><strong>Conversion rate:</strong> 1 ng/mL = 2.5 nmol/L</li>
+                        <li><strong>Blood tests:</strong> US typically uses ng/mL, while many international countries use nmol/L</li>
+                        <li><strong>Normal Range:</strong> Generally 30-50 ng/mL (75-125 nmol/L) is considered adequate</li>
+                        <li><strong>Deficiency:</strong> Below 20 ng/mL (50 nmol/L) is typically considered deficient</li>
+                        <li><strong>Important note:</strong> Always follow healthcare provider recommendations for your specific needs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad placement - mid -->
+    <div class="ad-container">
+        <div class="ad-unit" id="vitamin-d-conversion-calculator-mid"></div>
+    </div>
+
+    <section id="how-to-use" class="info">
+        <h2>How to Use the Vitamin D Conversion Calculator</h2>
+        <ul>
+            <li>Enter your test result or supplement label value in either field</li>
+            <li>Select the unit your value is currently in (ng/mL or nmol/L)</li>
+            <li>The conversion is performed automatically</li>
+            <li>The calculator will also indicate if your level is deficient, sufficient, or high</li>
+        </ul>
+        
+        <div class="important-box">
+            <h3>Why Converting Vitamin D Units Matters</h3>
+            <p>Different countries use different measurement systems for vitamin D:</p>
+            <ul>
+                <li><strong>United States:</strong> Typically uses ng/mL (nanograms per milliliter)</li>
+                <li><strong>Europe, Canada, Australia:</strong> Usually use nmol/L (nanomoles per liter)</li>
+            </ul>
+            <p>Converting between these units helps you compare your results with international guidelines and research.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h3>What is the conversion factor between ng/mL and nmol/L?</h3>
+            <div class="faq-answer">
+                <p>The conversion factor is 2.5. To convert:</p>
+                <ul>
+                    <li>ng/mL to nmol/L: Multiply by 2.5</li>
+                    <li>nmol/L to ng/mL: Divide by 2.5 (or multiply by 0.4)</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <h3>Which unit does my lab use?</h3>
+            <div class="faq-answer">
+                <p>Most US labs report vitamin D in ng/mL, while laboratories in Europe, Canada, and Australia typically use nmol/L. The unit should be listed on your lab report.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <h3>What is a healthy vitamin D level?</h3>
+            <div class="faq-answer">
+                <p>Generally, vitamin D levels are categorized as:</p>
+                <ul>
+                    <li><strong>Deficient:</strong> Less than 20 ng/mL (50 nmol/L)</li>
+                    <li><strong>Insufficient:</strong> 21-29 ng/mL (51-74 nmol/L)</li>
+                    <li><strong>Sufficient:</strong> 30-50 ng/mL (75-125 nmol/L)</li>
+                    <li><strong>High:</strong> Above 50 ng/mL (125 nmol/L)</li>
+                </ul>
+                <p>These ranges may vary depending on the laboratory and medical guidelines. Always consult with your healthcare provider about your specific results.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why do different countries use different units?</h3>
+            <div class="faq-answer">
+                <p>The use of different units stems from historical preferences in measurement systems. The US has traditionally favored weight-based measurements (ng/mL), while many other countries have adopted the International System of Units (SI), which uses substance concentration (nmol/L).</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <h3>How does vitamin D testing work?</h3>
+            <div class="faq-answer">
+                <p>Vitamin D testing typically measures the level of 25-hydroxyvitamin D [25(OH)D] in your blood, which is the primary circulating form of vitamin D and the best indicator of your vitamin D status. The test requires a simple blood sample and can be ordered by your healthcare provider.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ad placement - bottom -->
+    <div class="ad-container">
+        <div class="ad-unit" id="vitamin-d-conversion-calculator-bottom"></div>
+    </div>
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/vitamin-d-intake-calculator" class="related-tool-card">
+                <h4>Vitamin D Intake Calculator</h4>
+                <p>Calculate your daily vitamin D requirements based on age, weight, and other factors.</p>
+            </a>
+        </div>
+    </div>
+
+    <p class="text-center mt-8">
+        <a href="/" class="back-link">&larr; Back to All Calculators</a>
+    </p>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/vitamin_d_conversion_calculator.js"></script>
+{% endblock %}

@@ -391,6 +391,19 @@ def vitamin_d_intake_calculator():
         schema_url=schema_url
     )
 
+@app.route('/vitamin-d-conversion-calculator')
+def vitamin_d_conversion_calculator():
+    schema_name = "Vitamin D Conversion Calculator"
+    schema_description = "Convert vitamin D levels between ng/mL and nmol/L instantly. A simple tool to help interpret lab results, supplement labels, and international medical guidelines."
+    schema_url = "/vitamin-d-conversion-calculator"
+    return render_template(
+        'vitamin_d_conversion_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/ivf-due-date-calculator')
 def ivf_due_date_calculator():
     schema_name = "FET Due Date Calculator"
