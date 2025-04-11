@@ -3,7 +3,7 @@
 <head>
 {% set og_image = "breast-implant-size-guide-og.jpg" %}
 {% with 
-  meta_description="The most complete breast implant size guide online. Learn how many CCs equal a cup size, compare profiles, view size charts, and use our calculator.",
+  meta_description="Discover your ideal breast implant size. Interactive CC charts, cup-size visuals, surgeon insights, and sizing calculator included.",
   meta_keywords="breast implant sizing, cc to cup size, implant profile chart, breast augmentation size guide, cc chart by cup size",
   og_title="Breast Implant Size Guide – Charts, CC Conversion, and Surgeon Tips",
   og_description="View breast implant size charts by cup size and band size. Learn about implant projection, width, and what CCs look like in real life.",
@@ -19,11 +19,13 @@
     img[src$=".svg"]:not(.icon) {
       display: none !important;
     }
-    img[src$=".webp"] {
+    
+    .article-container img {
       max-width: 100%;
       height: auto;
-      aspect-ratio: auto 4 / 3;
+      aspect-ratio: 4/3;
       display: block;
+      border-radius: 8px;
     }
 </style>
 
@@ -146,6 +148,27 @@
 </head>
 <body>
 {% include 'header.html' %}
+
+<nav aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://healthcalculators.xyz" itemprop="item">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://healthcalculators.xyz/resources" itemprop="item">
+        <span itemprop="name">Resources</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">Breast Implant Size Guide</span>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ol>
+</nav>
 
 <div class="calculator-container article-container">
 
@@ -326,7 +349,7 @@
 <section id="factors">
     <h2>What Affects How Many CCs You Need</h2>
     
-    <p>Several factors influence how many CCs you'll need to achieve your desired cup size increase:</p>
+    <p>Several factors influence how many CCs you'll need to achieve your desired cup size increase. Use our <a href="/breast-implant-calculator" class="pink-link">comprehensive breast implant calculator</a> for personalized guidance:</p>
     
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 20px 0;">
         <!-- Frame Size -->
@@ -382,7 +405,7 @@
 <section id="visuals">
     <h2>What Different CCs Look Like</h2>
     
-    <p>Understanding what different implant volumes look like on various body types can help you visualize potential outcomes. Here are some general examples based on typical results:</p>
+    <p>Understanding what different implant volumes look like on various body types can help you visualize potential outcomes. Our <a href="/cc-to-bra-size-calculator" class="pink-link">CC to Bra Size Calculator</a> can help with personalized estimates. Here are some general examples based on typical results:</p>
     
     <div style="overflow-x: auto; margin: 20px 0;">
         <table style="width: 100%; border-collapse: collapse; border: 1px solid #ddd;">
