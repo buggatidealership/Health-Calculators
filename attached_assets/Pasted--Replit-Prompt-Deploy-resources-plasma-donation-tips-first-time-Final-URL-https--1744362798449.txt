@@ -1,0 +1,68 @@
+🛠️ Replit Prompt: Deploy `/resources/plasma-donation-tips-first-time`
+
+✅ Final URL:
+```
+https://healthcalculators.xyz/resources/plasma-donation-tips-first-time
+```
+
+✅ Target File:
+```
+plasma_donation_tips_first_time.html
+```
+
+---
+
+### 📌 Deployment Instructions
+
+1. **Create file:** `templates/resources/plasma_donation_tips_first_time.html`
+2. Paste in the final HTML content generated using the resource article template
+3. Ensure these variables are passed into `head_seo.html`:
+```python
+schema_url="/resources/plasma-donation-tips-first-time",
+canonical_url="/resources/plasma-donation-tips-first-time",
+page_title="Plasma Donation Tips for First-Timers: What to Know Before You Go",
+meta_description="Donating plasma for the first time? Learn exactly what to eat, drink, and wear — plus what to bring and how to feel better after.",
+og_title="First-Time Plasma Donation Guide",
+og_description="New to plasma donation? Here's how to prep the night before and day-of to stay safe, avoid dizziness, and make the process smooth.",
+og_image="plasma-donation-tips-first-time-og.jpg",
+schema_name="First-Time Plasma Donation Preparation Guide",
+schema_description="Checklist for your first plasma donation: meals, hydration, what to bring, what to wear, how to feel after, and safety tips."
+```
+
+4. **Add route to `app.py`**:
+```python
+@app.route("/resources/plasma-donation-tips-first-time")
+def plasma_donation_tips_first_time():
+    return render_template("resources/plasma_donation_tips_first_time.html",
+        schema_url="/resources/plasma-donation-tips-first-time",
+        canonical_url="/resources/plasma-donation-tips-first-time",
+        page_title="Plasma Donation Tips for First-Timers: What to Know Before You Go",
+        meta_description="Donating plasma for the first time? Learn exactly what to eat, drink, and wear — plus what to bring and how to feel better after.",
+        og_title="First-Time Plasma Donation Guide",
+        og_description="New to plasma donation? Here's how to prep the night before and day-of to stay safe, avoid dizziness, and make the process smooth.",
+        og_image="plasma-donation-tips-first-time-og.jpg",
+        schema_name="First-Time Plasma Donation Preparation Guide",
+        schema_description="Checklist for your first plasma donation: meals, hydration, what to bring, what to wear, how to feel after, and safety tips."
+    )
+```
+
+5. **Add to sitemap.xml**:
+```xml
+<url>
+  <loc>https://healthcalculators.xyz/resources/plasma-donation-tips-first-time</loc>
+  <priority>0.75</priority>
+  <changefreq>monthly</changefreq>
+</url>
+```
+
+6. **Upload Open Graph Image:**
+```
+/static/images/plasma-donation-tips-first-time-og.jpg
+```
+
+---
+
+✅ This article will:
+- Directly answer Reddit questions like “I’m donating tomorrow — what should I know?”
+- Target search phrases like “first time donating plasma checklist” or “what to eat before donating plasma”
+- Serve as a linkable prep resource for all earnings and eligibility pages
