@@ -8,6 +8,49 @@ body {
     background-color: #f9f9f9;
 }
 
+/* CTA Box Styling */
+.cta-box {
+    background-color: #fff0f3;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 30px 0;
+    border-left: 4px solid #d63384;
+    text-align: center;
+}
+
+.cta-box h3 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.cta-button {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    display: inline-block;
+    margin-top: 15px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #be2d73;
+}
+
+/* Highlight Box Styling */
+.highlight-box {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-left: 4px solid #d63384;
+    border-radius: 8px;
+    margin: 25px 0;
+}
+
 .calculator-container {
     max-width: 850px;
     margin: 0 auto;
