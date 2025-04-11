@@ -545,6 +545,14 @@ articles = [
         "color": "red"
     },
     {
+        "title": "Plasma Donation Tips for First-Timers: What to Know Before You Go",
+        "url": "/resources/plasma-donation-tips-first-time",
+        "summary": "Donating plasma for the first time? Learn exactly what to eat, drink, and wear — plus what to bring and how to feel better after.",
+        "icon": "🩸",
+        "cta": "Read Guide",
+        "color": "pink"
+    },
+    {
         "title": "How to Prevent Hair Loss: Science-Based Prevention & Treatment",
         "url": "/resources/how-to-prevent-hair-loss",
         "summary": "Learn how to prevent hair loss with simple lifestyle changes, supplements, and treatments. Evidence-based strategies for both men and women.",
