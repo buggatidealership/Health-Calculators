@@ -1,0 +1,83 @@
+🛠️ Replit Prompt: Add Favicon Across All Pages & Update Site Logo
+
+✅ Task: 
+1. Integrate the favicon (pink calculator icon) into the global `<head>` of every page
+2. Replace the site logo in the top-left corner (current multicolored icon) with the new pink calculator icon
+
+---
+
+### 📁 Step 1: Upload These Files to `/static`
+
+Upload the following favicon/logo files into your Replit project’s `/static/` folder:
+```
+/static/favicon.ico
+/static/favicon-32x32.png
+/static/apple-touch-icon.png
+/static/site-logo.png   ← (This is the new logo that will replace the top-left icon)
+```
+
+---
+
+### 🧱 Step 2: Edit `head_seo.html`
+
+Open:
+```
+templates/head_seo.html
+```
+
+Add the following inside the `<head>` section:
+
+```html
+<!-- Favicon Integration -->
+<link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+<link rel="shortcut icon" href="/static/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+```
+
+*(Optional — for PWA support)*
+```html
+<link rel="manifest" href="/static/site.webmanifest">
+```
+
+---
+
+### 🧱 Step 3: Replace the Logo in Header
+
+Open:
+```
+templates/header.html
+```
+
+Find the existing logo element near the `<header>` or navigation section:
+```html
+<img src="/static/logo.svg" alt="HealthCalculators.xyz logo" ...>
+```
+
+Replace it with:
+```html
+<img src="/static/site-logo.png" alt="HealthCalculators.xyz logo" width="40" height="40" style="margin-right: 8px;">
+```
+
+✅ Make sure this appears alongside the site name like:
+```html
+<div class="logo-wrapper" style="display: flex; align-items: center;">
+  <img src="/static/site-logo.png" alt="HealthCalculators.xyz logo" width="40" height="40" style="margin-right: 8px;">
+  <span class="site-title">HealthCalculators.xyz</span>
+</div>
+```
+
+---
+
+### ✅ Step 4: Save & Preview
+
+1. Save both `head_seo.html` and `header.html`
+2. Hit **Run** on Replit
+3. Open your homepage and refresh with cache clear:
+   - Windows: `Ctrl + Shift + R`
+   - Mac: `Cmd + Shift + R`
+
+✅ You should now see:
+- The new **favicon** in your browser tab
+- The new **logo** in the top-left header across all pages
+
+Let me know when it’s live and I’ll QA both the favicon and logo update!
