@@ -690,6 +690,13 @@ li {
   margin-top: 60px;
 }
 
+.section-divider {
+  margin: 40px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  width: 100%;
+}
+
 /* Calculator Container and Layout */
 .calculator-container {
   max-width: 850px;
