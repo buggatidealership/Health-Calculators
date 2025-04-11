@@ -1,0 +1,120 @@
+### 🔧 **SEO & Indexing Issues:**
+
+#### 1. Schema Markup Enhancements
+
+- **Current Issue:** Schema missing explicit image dimensions, and some recommended fields for increased Google visibility.
+
+- **Fix:**
+Replace current `MedicalWebPage` schema block with enhanced structured data:
+
+```html
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "Breast Implant Sizing Guide – CC Charts, Cup Sizes & Surgeon Advice",
+  "headline": "Breast Implant Sizing Guide – CC Charts, Cup Sizes & Surgeon Advice",
+  "description": "Complete breast implant sizing guide. Learn CC conversions, profiles, view charts, and use our calculator.",
+  "url": "https://healthcalculators.xyz/resources/breast-implant-size-guide",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://healthcalculators.xyz/static/images/breast-implant-size-guide-og.jpg",
+    "width": 1200,
+    "height": 628
+  },
+  "author": {"@type": "Organization", "name": "HealthCalculators.xyz"},
+  "publisher": {
+    "@type": "Organization",
+    "name": "HealthCalculators.xyz",
+    "logo": {"@type": "ImageObject", "url": "https://healthcalculators.xyz/static/images/logo.png"}
+  },
+  "datePublished": "2025-04-03",
+  "dateModified": "2025-04-03",
+  "mainEntityOfPage": {"@type": "WebPage", "@id": "https://healthcalculators.xyz/resources/breast-implant-size-guide"}
+}
+</script>
+```
+
+#### 2. HTML and Image Optimization
+
+- **Issue:** Redundant inline styles and lack of lazy loading on images.
+
+- **Fix:**
+Replace `<style>` tag block for images with simplified global CSS:
+
+```css
+.article-container img {
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4/3;
+  display: block;
+  border-radius: 8px;
+}
+```
+
+Ensure all images include lazy loading:
+```html
+<img src="..." alt="..." loading="lazy" width="800" height="600">
+```
+
+#### 3. Internal Linking Enhancement
+
+- **Issue:** Limited internal links to key calculators/guides.
+
+- **Fix:**
+Add at least two internal links per section to relevant calculator pages, using keyword-rich anchor text like:
+- **Section: CC to Cup Size Chart** → Link to `/cc-to-bra-size-calculator`
+- **Section: What Affects How Many CCs You Need** → Link to `/breast-implant-calculator`
+
+Example implementation:
+```html
+<p>Understand personalized implant sizing better by using our <a href="/cc-to-bra-size-calculator" class="pink-link">CC to Bra Size Calculator</a>.</p>
+```
+
+#### 4. Breadcrumb Implementation
+
+- **Issue:** Missing breadcrumb navigation for better SEO and UX.
+
+- **Fix:**
+Insert breadcrumb structured data just below `<body>` opening tag:
+
+```html
+<nav aria-label="Breadcrumb">
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://healthcalculators.xyz" itemprop="item">
+        <span itemprop="name">Home</span>
+      </a>
+      <meta itemprop="position" content="1" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <a href="https://healthcalculators.xyz/resources" itemprop="item">
+        <span itemprop="name">Resources</span>
+      </a>
+      <meta itemprop="position" content="2" />
+    </li>
+    <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+      <span itemprop="name">Breast Implant Size Guide</span>
+      <meta itemprop="position" content="3" />
+    </li>
+  </ol>
+</nav>
+```
+
+#### 5. Meta Tags & Description Optimization
+
+- **Issue:** Potential improvements for click-through rate (CTR).
+
+- **Fix:** Ensure meta description is actionable:
+
+```html
+<meta name="description" content="Discover your ideal breast implant size. Interactive CC charts, cup-size visuals, surgeon insights, and sizing calculator included." />
+```
+
+---
+
+### ✅ **Final Checklist (After implementation):**
+- [ ] Verify schema via Google's Rich Results Test.
+- [ ] Confirm images load lazily.
+- [ ] Ensure internal links correctly navigate.
+- [ ] Confirm breadcrumb structured data passes Google's testing tool.
