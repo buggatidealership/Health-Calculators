@@ -1175,6 +1175,20 @@ def plasma_vs_platelet_donation():
         schema_description="Should you donate plasma or platelets? This guide compares donation volume, frequency, and which one helps more based on real data and Red Cross guidelines."
     )
 
+@app.route("/resources/plasma-donation-tips-first-time")
+def plasma_donation_tips_first_time():
+    return render_template("resources/plasma_donation_tips_first_time.html",
+        schema_url="/resources/plasma-donation-tips-first-time",
+        canonical_url="/resources/plasma-donation-tips-first-time",
+        page_title="Plasma Donation Tips for First-Timers: What to Know Before You Go",
+        meta_description="Donating plasma for the first time? Learn exactly what to eat, drink, and wear — plus what to bring and how to feel better after.",
+        og_title="First-Time Plasma Donation Guide",
+        og_description="New to plasma donation? Here's how to prep the night before and day-of to stay safe, avoid dizziness, and make the process smooth.",
+        og_image="plasma-donation-tips-first-time-og.jpg",
+        schema_name="First-Time Plasma Donation Preparation Guide",
+        schema_description="Checklist for your first plasma donation: meals, hydration, what to bring, what to wear, how to feel after, and safety tips."
+    )
+
 @app.route('/plasma-donation-earnings-calculator')
 def plasma_donation_earnings_calculator():
     schema_name = "Plasma Donation Earnings Calculator"
