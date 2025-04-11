@@ -8,6 +8,44 @@ body {
     background-color: #f9f9f9;
 }
 
+/* Table of Contents Styling */
+.table-of-contents {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 30px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.table-of-contents h3 {
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+
+.table-of-contents ul {
+    list-style-type: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+.table-of-contents li {
+    margin-bottom: 10px;
+    padding-left: 24px;
+    position: relative;
+}
+
+.table-of-contents li:last-child {
+    margin-bottom: 0;
+}
+
+.feature-note {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
 /* CTA Box Styling */
 .cta-box {
     background-color: #fff0f3;
@@ -254,6 +292,26 @@ li {
     margin: 0;
     font-size: 0.95rem;
     color: #333;
+}
+
+/* Blue-themed CTA box */
+.cta-box.blue-box {
+    background-color: #f0f4ff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid #3f51b5;
+}
+
+.cta-box.blue-box h3 {
+    margin-top: 0;
+    color: #333;
+}
+
+.cta-box.blue-box p {
+    margin-bottom: 0;
 }
 
 /* Table of Contents Styles */

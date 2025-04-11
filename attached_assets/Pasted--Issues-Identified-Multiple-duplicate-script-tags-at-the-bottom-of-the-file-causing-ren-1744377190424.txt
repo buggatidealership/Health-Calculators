@@ -1,0 +1,114 @@
+### 🔧 Issues Identified:
+- Multiple duplicate `<script>` tags at the bottom of the file causing rendering issues.
+- Missing clearly defined article structure (`<article>` tag missing).
+- Incorrect or duplicated script blocks causing bloating and potential crawl errors.
+- Overuse of inline CSS and JavaScript reducing readability and possibly affecting crawlability.
+
+---
+
+### ✅ Fix Instructions:
+
+**Step 1: Remove duplicated script tags:**
+- Delete the duplicated smooth scrolling script blocks at the bottom of the file:
+
+Remove all duplicate occurrences, leaving only one instance of:
+```html
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+</script>
+```
+
+**Step 2: Implement `<article>` tag for semantic SEO:**
+- Wrap all content from `<h1>` (Starbucks Drink Nutrition Guide) to the last FAQ item in an `<article>` tag for clear structure:
+
+```html
+<article>
+  <!-- Existing content from h1 to FAQ -->
+</article>
+```
+
+**Step 3: Externalize CSS:**
+- Move the following inline CSS blocks to your external `styles.css` file:
+  - `.cta-box`, `.table-of-contents`, `.feature-note`
+
+Example:
+```css
+.cta-box {
+    background-color: #f0f4ff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 30px 0;
+    display: flex;
+    align-items: center;
+    border-left: 4px solid #3f51b5;
+}
+
+.table-of-contents {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 24px;
+    margin: 30px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.feature-note {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+```
+
+Then update HTML:
+```html
+<div class="cta-box">...</div>
+<div class="table-of-contents">...</div>
+<p class="feature-note">...</p>
+```
+
+**Step 4: Simplify JavaScript:**
+- Move smooth scroll functionality to a dedicated JavaScript file (`main.js`) and ensure it's loaded once in `head_seo.html`:
+
+`main.js`:
+```javascript
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', e => {
+            e.preventDefault();
+            const targetElement = document.querySelector(anchor.getAttribute('href'));
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+});
+```
+
+Then remove inline script from HTML.
+
+---
+
+### ✅ QA Checklist after completion:
+- [ ] Only one instance of the smooth scrolling script
+- [ ] Content wrapped in semantic `<article>` tag
+- [ ] CSS externalized and linked
+- [ ] JavaScript simplified and externalized
+- [ ] HTML passes validation checks (no errors/warnings)
+- [ ] Ensure structured data is intact and functional
