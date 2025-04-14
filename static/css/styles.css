@@ -648,8 +648,10 @@ li {
   font-size: 1.3rem;
 }
 
-.logo-icon {
-  font-size: 1.5rem;
+.logo-image {
+  height: 32px;
+  width: auto;
+  margin-right: 10px;
 }
 
 .back-link-wrapper {
