@@ -114,7 +114,7 @@ function calculateBaldness() {
     }
     document.getElementById('detail-message').textContent = message;
 
-    resultDiv.style.display = "block";
+    resultDiv.style.display = 'block';
 }
 
 // Add event listener when page loads
