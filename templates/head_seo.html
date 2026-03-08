@@ -209,6 +209,9 @@ document.addEventListener('DOMContentLoaded',function(){
     document.body.appendChild(sticky);
     sticky.querySelector('button').addEventListener('click',function(){
       calcForm.scrollIntoView({behavior:'smooth',block:'start'});
+      if(typeof gtag==='function'){
+        gtag('event','sticky_cta_click',{event_category:'engagement',page:window.location.pathname});
+      }
     });
     // Show/hide based on scroll position
     var ticking=false;

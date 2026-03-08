@@ -284,6 +284,16 @@ function showNextSteps(calculatorId, userData, resultData, containerId) {
 
     a.href = url;
     a.className = 'next-step-card';
+    // GA4 event tracking for content loop clicks
+    a.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'content_loop_click', {
+          'source_calculator': calculatorId,
+          'destination': link.url,
+          'event_category': 'engagement'
+        });
+      }
+    });
 
     // Replace {placeholders} in reason text with result data
     var reason = link.reason;
@@ -380,6 +390,14 @@ function addShareButton(container, userData) {
   copyBtn.className = 'share-btn';
   copyBtn.innerHTML = '&#128279; Copy Link';
   copyBtn.addEventListener('click', function() {
+    // GA4 event tracking
+    if (typeof gtag === 'function') {
+      gtag('event', 'share_results', {
+        'method': 'copy_link',
+        'calculator': window.location.pathname,
+        'event_category': 'engagement'
+      });
+    }
     if (navigator.clipboard) {
       navigator.clipboard.writeText(shareUrl).then(function() {
         copyBtn.innerHTML = '&#10003; Copied!';
@@ -408,4 +426,93 @@ function addShareButton(container, userData) {
   shareDiv.appendChild(copyBtn);
 
   container.appendChild(shareDiv);
+
+  // Save calculation to localStorage for return visit hook
+  saveLastCalculation(userData);
+}
+
+/**
+ * Save the user's last calculation for return visit prompts.
+ */
+function saveLastCalculation(userData) {
+  try {
+    var entry = {
+      page: window.location.pathname,
+      data: userData,
+      timestamp: Date.now()
+    };
+    localStorage.setItem('hc_last_calc', JSON.stringify(entry));
+  } catch(e) {}
+}
+
+/**
+ * Show return visit prompt if the user has a previous calculation.
+ * Call this on DOMContentLoaded.
+ */
+function checkReturnVisit() {
+  try {
+    var raw = localStorage.getItem('hc_last_calc');
+    if (!raw) return;
+    var entry = JSON.parse(raw);
+    // Only show if last calc was on a different page and within 30 days
+    if (entry.page === window.location.pathname) return;
+    if (Date.now() - entry.timestamp > 30 * 24 * 60 * 60 * 1000) return;
+
+    // Find the calculator name from the graph
+    var calcName = '';
+    var calcId = '';
+    Object.keys(CALCULATOR_GRAPH).forEach(function(id) {
+      var links = CALCULATOR_GRAPH[id].links;
+      links.forEach(function(link) {
+        if (link.url === entry.page) {
+          calcName = link.title;
+          calcId = id;
+        }
+      });
+    });
+
+    // Build the return URL with saved data
+    var returnUrl = entry.page;
+    if (entry.data) {
+      var parts = [];
+      Object.keys(entry.data).forEach(function(k) {
+        if (entry.data[k]) parts.push(k + '=' + encodeURIComponent(entry.data[k]));
+      });
+      if (parts.length) returnUrl += '?' + parts.join('&');
+    }
+
+    // Only show if we found a name for the calculator
+    if (!calcName) return;
+
+    // Create a subtle banner below the header
+    var banner = document.createElement('div');
+    banner.className = 'return-visit-banner';
+    banner.innerHTML =
+      '<span>Welcome back! Continue with your <a href="' + returnUrl + '">' + calcName + '</a> results.</span>' +
+      '<button type="button" class="return-visit-close" aria-label="Dismiss">&times;</button>';
+
+    var headerEl = document.querySelector('.calculator-container');
+    if (headerEl) {
+      headerEl.insertBefore(banner, headerEl.firstChild);
+    }
+
+    banner.querySelector('.return-visit-close').addEventListener('click', function() {
+      banner.remove();
+    });
+
+    // GA4 tracking
+    if (typeof gtag === 'function') {
+      gtag('event', 'return_visit_prompt', {
+        'previous_calculator': entry.page,
+        'event_category': 'engagement'
+      });
+    }
+  } catch(e) {}
+}
+
+// Auto-initialize return visit check
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', checkReturnVisit);
+} else {
+  checkReturnVisit();
 }
