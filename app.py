@@ -152,6 +152,10 @@ cross_links = {
         "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator"],
         "guides": []
     },
+    "/protein-intake-calculator": {
+        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/bmi-calculator", "/ideal-body-weight-calculator"],
+        "guides": []
+    },
 }
 
 # Build a title lookup from cards and articles arrays (populated after they are defined)
@@ -507,6 +511,16 @@ cards = [
         "color": "green",
         "category": "fitness",
         "popular": True
+    },
+    {
+        "title": "Protein Intake Calculator",
+        "url": "/protein-intake-calculator",
+        "summary": "Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Science-backed recommendations for muscle building, weight loss, and general health.",
+        "icon": "🥩",
+        "cta": "Calculate Protein Needs",
+        "color": "red",
+        "category": "nutrition",
+        "popular": False
     }
 ]
 
@@ -557,6 +571,19 @@ def bmi_calculator():
     schema_url = "/bmi-calculator"
     return render_template(
         'bmi_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/protein-intake-calculator')
+def protein_intake_calculator():
+    schema_name = "Protein Intake Calculator"
+    schema_description = "Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Science-backed recommendations for muscle building, weight loss, and general health."
+    schema_url = "/protein-intake-calculator"
+    return render_template(
+        'protein_intake_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

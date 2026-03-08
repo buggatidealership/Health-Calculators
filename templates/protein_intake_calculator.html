@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "protein-intake-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Science-backed recommendations for muscle building, weight loss, and general health.",
+    meta_keywords="protein calculator, daily protein intake, protein needs, how much protein, protein for muscle building, protein requirements",
+    og_title="Protein Intake Calculator – Daily Protein Needs by Goal & Activity",
+    og_description="Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Science-backed recommendations for muscle building, weight loss, and general health.",
+    og_url="/protein-intake-calculator",
+    page_title="Protein Intake Calculator – Daily Protein Needs by Goal & Activity",
+    canonical_url="/protein-intake-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Protein Intake Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/protein-intake-calculator",
+  "description": "Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Science-backed recommendations for muscle building, weight loss, and general health.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much protein do I need per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The WHO/RDA recommends 0.8 g/kg of body weight per day for sedentary adults. Active individuals, athletes, and those building muscle may need 1.2–2.2 g/kg depending on training intensity and goals."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you eat too much protein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For healthy individuals, intakes up to 2.2 g/kg are generally safe. Very high intakes (>3.5 g/kg) over long periods may stress the kidneys in those with pre-existing kidney disease. Healthy kidneys handle high protein intakes well according to current evidence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is protein more important for weight loss or muscle gain?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both. During weight loss, higher protein (1.2–1.6 g/kg) preserves lean muscle and increases satiety. For muscle gain, 1.6–2.2 g/kg combined with resistance training maximizes muscle protein synthesis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does protein intake need to increase with age?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Adults over 65 are recommended to consume at least 1.0–1.2 g/kg/day to counteract age-related muscle loss (sarcopenia). The PROT-AGE study group recommends even higher intakes for elderly with acute or chronic illness."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is plant protein as effective as animal protein?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Plant proteins can be equally effective when consumed in sufficient variety and quantity. Most plant sources are lower in leucine and may have lower digestibility (PDCAAS), so slightly higher total intake (~10-20% more) is recommended for those on fully plant-based diets."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Protein Intake Calculator</h1>
+    <p class="subtitle">Calculate your optimal daily protein intake based on weight, activity level, and fitness goals.</p>
+
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('protein', 'metric')">Metric (kg)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('protein', 'imperial')">Imperial (lbs)</button>
+                </div>
+            </div>
+
+            <!-- Metric Inputs -->
+            <div class="metric-inputs">
+                <div class="form-group">
+                    <label for="weight_kg">Weight (kg)</label>
+                    <input type="number" id="weight_kg" min="30" max="300" step="0.1" placeholder="e.g. 70" required>
+                </div>
+            </div>
+
+            <!-- Imperial Inputs -->
+            <div class="imperial-inputs hidden">
+                <div class="form-group">
+                    <label for="weight_lb">Weight (lbs)</label>
+                    <input type="number" id="weight_lb" min="66" max="660" step="0.1" placeholder="e.g. 154" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="15" max="120" placeholder="e.g. 30" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Sex</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity Level</label>
+                <select id="activity">
+                    <option value="sedentary">Sedentary (little or no exercise)</option>
+                    <option value="lightly_active">Lightly Active (exercise 1-3 days/week)</option>
+                    <option value="moderately_active" selected>Moderately Active (exercise 3-5 days/week)</option>
+                    <option value="very_active">Very Active (exercise 6-7 days/week)</option>
+                    <option value="extremely_active">Extremely Active (hard exercise & physical job)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="goal">Goal</label>
+                <select id="goal">
+                    <option value="general_health">General Health</option>
+                    <option value="maintain">Maintain Muscle</option>
+                    <option value="build_muscle">Build Muscle</option>
+                    <option value="lose_fat">Lose Fat</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="body_type">Body Type</label>
+                <select id="body_type">
+                    <option value="average">Average</option>
+                    <option value="lean">Lean / Athletic</option>
+                    <option value="overweight">Overweight</option>
+                </select>
+            </div>
+
+            <button onclick="calculateProtein()" class="btn btn-pink">Calculate Protein Needs</button>
+
+            <div class="results hidden" id="results">
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="protein-total">—</div>
+                    <div class="tdee-label">grams/day</div>
+                    <div class="tdee-sublabel">Your Recommended Daily Protein Intake</div>
+                </div>
+
+                <div class="tdee-breakdown" id="breakdown">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Protein per kg of body weight</span>
+                        <span class="tdee-breakdown-value" id="protein-per-kg">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Protein per lb of body weight</span>
+                        <span class="tdee-breakdown-value" id="protein-per-lb">—</span>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Per Meal Breakdown</h4>
+                <div class="tdee-goals" id="meal-breakdown">
+                    <div class="tdee-goal-card tdee-goal-maintain">
+                        <div class="tdee-goal-title">3 Meals/Day</div>
+                        <div class="tdee-goal-subtitle">Spread across breakfast, lunch, dinner</div>
+                        <div class="tdee-goal-value" id="protein-3-meals">—</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-gain">
+                        <div class="tdee-goal-title">4 Meals/Day</div>
+                        <div class="tdee-goal-subtitle">Including a snack or shake</div>
+                        <div class="tdee-goal-value" id="protein-4-meals">—</div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Intake Range</h4>
+                <div style="background: #f8f9fa; border-radius: 8px; padding: 16px; margin-bottom: 16px;">
+                    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #666; margin-bottom: 4px;">
+                        <span>RDA (0.8 g/kg)</span>
+                        <span id="protein-range-label">—</span>
+                        <span>Athletic (2.2+ g/kg)</span>
+                    </div>
+                    <div style="width: 100%; background: #e0e0e0; border-radius: 6px; height: 12px; overflow: hidden;">
+                        <div id="protein-gauge-fill" style="height: 100%; background: linear-gradient(90deg, #4caf50, #ff9800, #f44336); border-radius: 6px; width: 0%; transition: width 0.6s ease;"></div>
+                    </div>
+                </div>
+
+                <p id="protein-goal-context" style="font-size: 0.9rem; color: #555; line-height: 1.5; margin-top: 12px;"></p>
+
+                <p id="protein-bodytype-note" class="hidden" style="font-size: 0.85rem; color: #888; margin-top: 8px; font-style: italic;">
+                    Note: Your protein target is based on adjusted body weight (~75% of total weight) to better estimate lean mass needs for overweight individuals.
+                </p>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    These are estimates based on current sports nutrition and WHO/RDA guidelines. Individual needs vary. Consult a registered dietitian for personalized guidance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC -->
+    <h2>How Much Protein Do You Need?</h2>
+    <div class="answer-capsule">
+      Protein is an essential macronutrient required for muscle repair, immune function, enzyme production, and hormone synthesis. The Recommended Dietary Allowance (RDA) of 0.8 g/kg/day represents the minimum to prevent deficiency in sedentary adults — not the optimal amount for health or performance. Current evidence supports higher intakes of 1.2–2.2 g/kg/day for active individuals, athletes, older adults, and those with body composition goals.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#by-activity">Protein Requirements by Activity Level</a></li>
+            <li><a href="#muscle-vs-loss">Protein for Muscle Building vs Weight Loss</a></li>
+            <li><a href="#best-sources">Best Protein Sources</a></li>
+            <li><a href="#deficiency">Signs of Protein Deficiency</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Protein by Activity Level -->
+    <section id="by-activity" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Protein Requirements by Activity Level</h2>
+            <div class="answer-capsule">
+                Protein needs scale with physical activity because exercise — especially resistance training — increases muscle protein breakdown and the demand for amino acids to repair and build tissue. The more intense and frequent your training, the higher your protein requirement.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Activity Level</th>
+                        <th style="text-align: left; padding: 8px;">Protein (g/kg/day)</th>
+                        <th style="text-align: left; padding: 8px;">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Sedentary</td>
+                        <td style="padding: 8px;">0.8 – 1.0</td>
+                        <td style="padding: 8px;">Desk job, no planned exercise</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Lightly Active</td>
+                        <td style="padding: 8px;">1.0 – 1.2</td>
+                        <td style="padding: 8px;">Casual exercise 1-3 days/week</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Moderately Active</td>
+                        <td style="padding: 8px;">1.2 – 1.4</td>
+                        <td style="padding: 8px;">Structured training 3-5 days/week</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Very Active</td>
+                        <td style="padding: 8px;">1.4 – 1.7</td>
+                        <td style="padding: 8px;">Intense training 6-7 days/week</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">Extremely Active</td>
+                        <td style="padding: 8px;">1.7 – 2.2</td>
+                        <td style="padding: 8px;">Athletes, 2x daily training, physical labor</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 12px;">These ranges are supported by position statements from the International Society of Sports Nutrition (ISSN) and the American College of Sports Medicine (ACSM).</p>
+        </div>
+    </section>
+
+    <!-- Muscle Building vs Weight Loss -->
+    <section id="muscle-vs-loss" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Protein for Muscle Building vs Weight Loss</h2>
+            <div class="answer-capsule">
+                Higher protein intakes are beneficial for both muscle building and fat loss, but for different reasons. During a caloric surplus (bulking), protein provides the amino acid building blocks for muscle protein synthesis. During a caloric deficit (cutting), higher protein preserves lean tissue and increases satiety, helping you lose fat rather than muscle.
+            </div>
+
+            <h4>Muscle Building</h4>
+            <p>A 2018 meta-analysis by Morton et al. in the British Journal of Sports Medicine found that protein intakes of <strong>1.6 g/kg/day</strong> maximized resistance training–induced gains in fat-free mass. Intakes above 2.2 g/kg/day showed no additional benefit for muscle growth in most individuals.</p>
+
+            <h4>Fat Loss</h4>
+            <p>During energy restriction, a 2016 study by Longland et al. showed that consuming <strong>2.4 g/kg/day</strong> combined with high-intensity training allowed participants to gain lean body mass while losing fat — even in a 40% caloric deficit. More conservative targets of 1.2–1.6 g/kg/day are sufficient for most dieters to preserve muscle.</p>
+
+            <div class="highlight-box" style="margin-top: 16px;">
+                <p><strong>Key takeaway:</strong> Whether bulking or cutting, aim for at least 1.6 g/kg/day if you do resistance training. Distribute protein evenly across 3-4 meals with 0.4–0.55 g/kg per meal for optimal muscle protein synthesis.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Best Protein Sources -->
+    <section id="best-sources" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Best Protein Sources</h2>
+            <div class="answer-capsule">
+                The quality of protein matters alongside quantity. Complete proteins contain all nine essential amino acids in adequate proportions. Animal sources are typically complete, while most plant sources benefit from combining different foods (e.g., rice + beans). Below are common foods ranked by protein density.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Food</th>
+                        <th style="text-align: left; padding: 8px;">Serving</th>
+                        <th style="text-align: left; padding: 8px;">Protein (g)</th>
+                        <th style="text-align: left; padding: 8px;">Calories</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Chicken breast (cooked)</td>
+                        <td style="padding: 8px;">100 g</td>
+                        <td style="padding: 8px; font-weight: 500;">31 g</td>
+                        <td style="padding: 8px;">165</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Greek yogurt (nonfat)</td>
+                        <td style="padding: 8px;">170 g</td>
+                        <td style="padding: 8px; font-weight: 500;">17 g</td>
+                        <td style="padding: 8px;">100</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Eggs (whole)</td>
+                        <td style="padding: 8px;">2 large</td>
+                        <td style="padding: 8px; font-weight: 500;">12 g</td>
+                        <td style="padding: 8px;">140</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Salmon (cooked)</td>
+                        <td style="padding: 8px;">100 g</td>
+                        <td style="padding: 8px; font-weight: 500;">25 g</td>
+                        <td style="padding: 8px;">208</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Lean ground beef (95%)</td>
+                        <td style="padding: 8px;">100 g</td>
+                        <td style="padding: 8px; font-weight: 500;">26 g</td>
+                        <td style="padding: 8px;">150</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Tofu (firm)</td>
+                        <td style="padding: 8px;">100 g</td>
+                        <td style="padding: 8px; font-weight: 500;">17 g</td>
+                        <td style="padding: 8px;">144</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Lentils (cooked)</td>
+                        <td style="padding: 8px;">1 cup</td>
+                        <td style="padding: 8px; font-weight: 500;">18 g</td>
+                        <td style="padding: 8px;">230</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Whey protein powder</td>
+                        <td style="padding: 8px;">1 scoop (30 g)</td>
+                        <td style="padding: 8px; font-weight: 500;">24 g</td>
+                        <td style="padding: 8px;">120</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Cottage cheese (low-fat)</td>
+                        <td style="padding: 8px;">1 cup</td>
+                        <td style="padding: 8px; font-weight: 500;">28 g</td>
+                        <td style="padding: 8px;">163</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Chickpeas (cooked)</td>
+                        <td style="padding: 8px;">1 cup</td>
+                        <td style="padding: 8px; font-weight: 500;">15 g</td>
+                        <td style="padding: 8px;">269</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Signs of Protein Deficiency -->
+    <section id="deficiency" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Signs of Protein Deficiency</h2>
+            <div class="answer-capsule">
+                True protein deficiency (kwashiorkor) is rare in developed countries, but suboptimal intake is common — especially among older adults, dieters, and those on restrictive diets. Chronic under-consumption can impair recovery, immune function, and body composition over time.
+            </div>
+
+            <ul style="line-height: 1.8;">
+                <li><strong>Muscle loss and weakness</strong> — The body breaks down muscle tissue to meet amino acid needs when dietary protein is insufficient.</li>
+                <li><strong>Frequent illness</strong> — Antibodies and immune cells require protein for synthesis. Low intake weakens immune defense.</li>
+                <li><strong>Slow wound healing</strong> — Collagen and tissue repair depend on adequate amino acid supply.</li>
+                <li><strong>Hair thinning and brittle nails</strong> — Hair and nails are made of keratin, a structural protein. Deficiency shows here early.</li>
+                <li><strong>Persistent hunger and cravings</strong> — Protein is the most satiating macronutrient. Low intake often leads to overeating carbohydrates and fats.</li>
+                <li><strong>Edema (swelling)</strong> — Severe deficiency reduces blood albumin, causing fluid to accumulate in tissues.</li>
+                <li><strong>Fatigue and brain fog</strong> — Amino acids are precursors to neurotransmitters like serotonin and dopamine.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>How much protein do I need per day?</h4>
+            <div class="faq-body">
+            <p>The WHO/RDA minimum is 0.8 g/kg of body weight per day for sedentary adults. However, the International Society of Sports Nutrition recommends 1.4–2.0 g/kg/day for active individuals. Those building muscle or losing fat benefit from the higher end of this range (1.6–2.2 g/kg/day).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can you eat too much protein?</h4>
+            <div class="faq-body">
+            <p>For healthy individuals with normal kidney function, protein intakes up to 2.2 g/kg/day are well-supported by evidence and considered safe. A 2016 review in the Journal of the International Society of Sports Nutrition found no adverse effects at intakes up to 3.3 g/kg/day over a year in trained individuals. However, those with pre-existing kidney disease should consult their physician.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does protein timing matter?</h4>
+            <div class="faq-body">
+            <p>Total daily protein intake matters more than timing. That said, distributing protein evenly across 3-4 meals (0.4–0.55 g/kg per meal) maximizes muscle protein synthesis throughout the day. The "anabolic window" post-workout is less critical than once thought — consuming protein within a few hours of training is sufficient.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Is plant protein as effective as animal protein?</h4>
+            <div class="faq-body">
+            <p>Plant proteins can support muscle growth and health when consumed in sufficient variety and quantity. Most plant sources have lower leucine content and digestibility (measured by PDCAAS/DIAAS scores) compared to animal sources. The recommendation is to consume approximately 10-20% more total protein on a fully plant-based diet to compensate for lower bioavailability.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Do older adults need more protein?</h4>
+            <div class="faq-body">
+            <p>Yes. The PROT-AGE study group recommends 1.0–1.2 g/kg/day for healthy adults over 65, and up to 1.5 g/kg/day for those with acute or chronic illness. Age-related anabolic resistance means older muscles require a higher amino acid stimulus to trigger the same protein synthesis response as younger muscles.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Should I use protein supplements?</h4>
+            <div class="faq-body">
+            <p>Whole food sources are generally preferred because they provide additional nutrients (vitamins, minerals, fiber). However, protein supplements like whey, casein, or plant-based powders are a convenient and effective way to meet daily targets — especially post-workout or when whole food meals are impractical. They are not inherently superior to food protein.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Morton RW, Murphy KT, McKellar SR, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. Br J Sports Med. 2018;52(6):376-384.", "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/"},
+        {"text": "Jäger R, Kerksick CM, Campbell BI, et al. International Society of Sports Nutrition Position Stand: protein and exercise. J Int Soc Sports Nutr. 2017;14:20.", "url": "https://pubmed.ncbi.nlm.nih.gov/28642676/"},
+        {"text": "Bauer J, Biolo G, Cederholm T, et al. Evidence-based recommendations for optimal dietary protein intake in older people: a position paper from the PROT-AGE Study Group. J Am Med Dir Assoc. 2013;14(8):542-559.", "url": "https://pubmed.ncbi.nlm.nih.gov/23867520/"},
+        {"text": "World Health Organization. Protein and amino acid requirements in human nutrition: report of a joint FAO/WHO/UNU expert consultation. WHO Technical Report Series 935. 2007.", "url": "https://pubmed.ncbi.nlm.nih.gov/18330140/"},
+        {"text": "Longland TM, Oikawa SY, Mitchell CJ, Devries MC, Phillips SM. Higher compared with lower dietary protein during an energy deficit combined with intense exercise promotes greater lean mass gain and fat mass loss. Am J Clin Nutr. 2016;103(3):738-746.", "url": "https://pubmed.ncbi.nlm.nih.gov/26817506/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+
+    {% include 'components/explore-more.html' %}
+
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script defer src="/static/js/content-loops.js"></script>
+    <script defer src="/static/js/protein_intake_calculator.js"></script>
+</body>
+</html>
