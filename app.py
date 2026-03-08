@@ -949,7 +949,8 @@ def inject_cross_links():
 
     return {
         'related_calculators': related_calcs,
-        'related_guides': related_guides
+        'related_guides': related_guides,
+        'cards': cards
     }
 
 @app.route('/resources')

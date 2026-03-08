@@ -1,26 +1,52 @@
 <!-- BEGIN HEADER -->
-<header class="site-header">
+<header class="site-header" id="site-header">
   <div class="header-inner">
     <a href="/" class="logo-link">
       <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Health Calculator Logo" class="logo-image">
-      <span class="logo-text">HealthCalculators.xyz</span>
+      <span class="logo-text">HealthCalculators<span class="logo-dot">.xyz</span></span>
     </a>
     <nav class="site-nav">
-      <a href="/" class="nav-link">Calculators</a>
-      <a href="/resources" class="nav-link">Resources</a>
+      <a href="/" class="nav-link {% if is_homepage %}nav-active{% endif %}">Calculators</a>
+      <a href="/resources" class="nav-link {% if request.path == '/resources' or request.path.startswith('/resources/') %}nav-active{% endif %}">Guides</a>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Browse categories">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
     </nav>
+  </div>
+  <!-- Mobile/dropdown menu -->
+  <div class="nav-dropdown" id="nav-dropdown">
+    <div class="nav-dropdown-inner">
+      <div class="nav-dropdown-section">
+        <div class="nav-dropdown-title">Popular</div>
+        <a href="/tdee-calculator" class="nav-dropdown-link">TDEE Calculator</a>
+        <a href="/ozempic-weight-loss-calculator" class="nav-dropdown-link">Ozempic Weight Loss</a>
+        <a href="/chipotle-nutrition-calculator" class="nav-dropdown-link">Chipotle Nutrition</a>
+        <a href="/starbucks-nutrition-calculator" class="nav-dropdown-link">Starbucks Nutrition</a>
+        <a href="/bac-calculator" class="nav-dropdown-link">BAC Calculator</a>
+      </div>
+      <div class="nav-dropdown-section">
+        <div class="nav-dropdown-title">Categories</div>
+        <a href="/#section-nutrition" class="nav-dropdown-link">Nutrition & Diet</a>
+        <a href="/#section-medications" class="nav-dropdown-link">Weight Loss Meds</a>
+        <a href="/#section-cosmetic" class="nav-dropdown-link">Cosmetic & Aesthetic</a>
+        <a href="/#section-fertility" class="nav-dropdown-link">Pregnancy & Fertility</a>
+        <a href="/#section-health" class="nav-dropdown-link">Health & Longevity</a>
+        <a href="/#section-fitness" class="nav-dropdown-link">Fitness & Body</a>
+      </div>
+    </div>
   </div>
 </header>
 
 {% if not is_homepage and request.path != '/resources' %}
-<!-- Optional subpage nav -->
-<div class="back-link-wrapper">
-  <a href="/" class="back-home-link">← Back to Homepage</a>
+<!-- Breadcrumb -->
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">Home</a>
+  <span class="breadcrumb-sep">/</span>
   {% if request.path.startswith('/resources/') %}
-  <div style="margin-top: 10px;">
-    <a href="/" class="back-calculators-link" style="color: #d63384;">← Back to All Calculators</a>
-  </div>
+  <a href="/resources">Guides</a>
+  <span class="breadcrumb-sep">/</span>
   {% endif %}
-</div>
+  <span class="breadcrumb-current">{{ page_title or request.path.replace('/', ' ').replace('-', ' ').strip().title() }}</span>
+</nav>
 {% endif %}
 <!-- END HEADER -->

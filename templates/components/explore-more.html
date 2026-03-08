@@ -1,0 +1,36 @@
+{#
+  "Explore More" component — drives pageviews per session.
+  Shows 4-6 calculator cards at the bottom of every calculator page.
+  Uses the global cards list + current page path to exclude self.
+#}
+{% if cards %}
+<div class="explore-more">
+  <h3 class="explore-more-title">Explore More Calculators</h3>
+  <div class="explore-more-grid">
+    {% set shown = [] %}
+    {# First show related calculators if available #}
+    {% for calc in related_calculators or [] %}
+    {% if shown|length < 6 and calc.url != request.path %}
+    <a href="{{ calc.url }}" class="explore-more-card">
+      <span class="explore-more-name">{{ calc.title }}</span>
+      <span class="explore-more-arrow">&rarr;</span>
+    </a>
+    {% if shown.append(calc.url) %}{% endif %}
+    {% endif %}
+    {% endfor %}
+    {# Fill remaining slots with popular/other cards #}
+    {% for card in cards %}
+    {% if shown|length < 6 and card.url != request.path and card.url not in shown %}
+    {% if card.popular or shown|length < 4 %}
+    <a href="{{ card.url }}" class="explore-more-card">
+      <span class="explore-more-icon">{{ card.icon }}</span>
+      <span class="explore-more-name">{{ card.title }}</span>
+      <span class="explore-more-arrow">&rarr;</span>
+    </a>
+    {% if shown.append(card.url) %}{% endif %}
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endif %}

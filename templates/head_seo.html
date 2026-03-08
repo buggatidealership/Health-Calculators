@@ -1,5 +1,10 @@
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697" crossorigin="anonymous"></script>
 
+<!-- Inter Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 <!-- Global SEO Head Elements -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,4 +102,38 @@
 <title>{{ page_title }}</title>
 <link rel="canonical" href="https://healthcalculators.xyz{{ canonical_url }}">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
-<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      e.preventDefault();
+      var t=document.querySelector(a.getAttribute('href'));
+      if(t)window.scrollTo({top:t.offsetTop-70,behavior:'smooth'});
+    });
+  });
+  // Header dropdown toggle
+  var btn=document.getElementById('nav-menu-btn');
+  var dd=document.getElementById('nav-dropdown');
+  if(btn&&dd){
+    btn.addEventListener('click',function(e){
+      e.stopPropagation();
+      dd.classList.toggle('open');
+      btn.classList.toggle('open');
+    });
+    document.addEventListener('click',function(e){
+      if(!dd.contains(e.target)&&!btn.contains(e.target)){
+        dd.classList.remove('open');
+        btn.classList.remove('open');
+      }
+    });
+  }
+  // Sticky header shadow on scroll
+  var header=document.getElementById('site-header');
+  if(header){
+    window.addEventListener('scroll',function(){
+      header.classList.toggle('scrolled',window.scrollY>10);
+    });
+  }
+});
+</script></script>
