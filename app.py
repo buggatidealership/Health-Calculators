@@ -148,6 +148,10 @@ cross_links = {
         "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/ozempic-weight-loss-calculator", "/carb-cycling-calculator"],
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
+    "/bmi-calculator": {
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator"],
+        "guides": []
+    },
 }
 
 # Build a title lookup from cards and articles arrays (populated after they are defined)
@@ -493,6 +497,16 @@ cards = [
         "color": "blue",
         "category": "nutrition",
         "popular": False
+    },
+    {
+        "title": "BMI Calculator",
+        "url": "/bmi-calculator",
+        "summary": "Calculate your Body Mass Index and see your weight category based on WHO guidelines. Includes healthy weight range for your height.",
+        "icon": "📊",
+        "cta": "Calculate BMI",
+        "color": "green",
+        "category": "fitness",
+        "popular": True
     }
 ]
 
@@ -530,6 +544,19 @@ def tdee_calculator():
     schema_url = "/tdee-calculator"
     return render_template(
         'tdee_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/bmi-calculator')
+def bmi_calculator():
+    schema_name = "BMI Calculator"
+    schema_description = "Calculate your Body Mass Index (BMI) using weight and height. Determine your weight category based on WHO guidelines and find your healthy weight range."
+    schema_url = "/bmi-calculator"
+    return render_template(
+        'bmi_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

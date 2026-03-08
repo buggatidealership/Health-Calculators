@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "bmi-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your Body Mass Index (BMI) with our free calculator. Get your BMI score, weight category, and healthy weight range using the standard WHO formula.",
+    meta_keywords="BMI calculator, body mass index, BMI chart, healthy weight, BMI categories, underweight, overweight, obese, WHO BMI",
+    og_title="BMI Calculator – Body Mass Index",
+    og_description="Calculate your BMI and find out if you're in a healthy weight range. Free, instant results with WHO categories.",
+    og_url="/bmi-calculator",
+    page_title="BMI Calculator – Body Mass Index",
+    canonical_url="/bmi-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "BMI Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/bmi-calculator",
+  "description": "Calculate your Body Mass Index (BMI) using weight and height. Determine your weight category based on WHO guidelines.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Body Mass Index (BMI) is a numerical value calculated from your weight and height. It is used as a screening tool to categorize individuals into weight categories: underweight (below 18.5), normal weight (18.5–24.9), overweight (25–29.9), and obese (30 and above)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is BMI calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI is calculated by dividing your weight in kilograms by your height in meters squared: BMI = weight (kg) / height (m)². For imperial units, the formula is: BMI = 703 × weight (lbs) / height (inches)²."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BMI accurate for everyone?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BMI does not directly measure body fat and may misclassify muscular individuals as overweight. It also does not account for age, sex, ethnicity, or body fat distribution. It is best used as an initial screening tool alongside other measurements like waist circumference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy BMI range?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "According to the World Health Organization, a BMI between 18.5 and 24.9 is considered normal weight. However, optimal BMI may vary by age and ethnicity. Some studies suggest a BMI of 22–25 is associated with the lowest mortality risk in most populations."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>BMI Calculator</h1>
+    <p class="subtitle">Calculate your Body Mass Index and see where you fall on the WHO weight classification scale.</p>
+
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('bmi', 'metric')">Metric (kg/cm)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('bmi', 'imperial')">Imperial (lbs/ft/in)</button>
+                </div>
+            </div>
+
+            <!-- Metric Inputs -->
+            <div class="metric-inputs">
+                <div class="form-group">
+                    <label for="weight_kg">Weight (kg)</label>
+                    <input type="number" id="weight_kg" min="20" max="500" step="0.1" placeholder="e.g. 70" required>
+                </div>
+                <div class="form-group">
+                    <label for="height_cm">Height (cm)</label>
+                    <input type="number" id="height_cm" min="50" max="275" step="0.1" placeholder="e.g. 175" required>
+                </div>
+            </div>
+
+            <!-- Imperial Inputs -->
+            <div class="imperial-inputs hidden">
+                <div class="form-group">
+                    <label for="weight_lb">Weight (lbs)</label>
+                    <input type="number" id="weight_lb" min="44" max="1100" step="0.1" placeholder="e.g. 154" required>
+                </div>
+                <div class="form-group">
+                    <label>Height</label>
+                    <div class="imperial-height">
+                        <div>
+                            <label for="height_ft">Feet</label>
+                            <input type="number" id="height_ft" min="2" max="8" placeholder="5" required>
+                        </div>
+                        <div>
+                            <label for="height_in">Inches</label>
+                            <input type="number" id="height_in" min="0" max="11" value="0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button onclick="calculateBMI()" class="btn btn-pink">Calculate BMI</button>
+
+            <div class="results hidden" id="results">
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="bmi-display">—</div>
+                    <div class="tdee-label" id="bmi-category-label">—</div>
+                    <div class="tdee-sublabel">Your Body Mass Index</div>
+                </div>
+
+                <!-- BMI Gauge -->
+                <div id="bmi-gauge" style="margin: 24px 0;">
+                    <div style="display: flex; border-radius: 8px; overflow: hidden; height: 24px; position: relative;">
+                        <div style="flex: 18.5; background: #3498db;" title="Underweight"></div>
+                        <div style="flex: 6.4; background: #2ecc71;" title="Normal"></div>
+                        <div style="flex: 5; background: #f39c12;" title="Overweight"></div>
+                        <div style="flex: 10.1; background: #e74c3c;" title="Obese"></div>
+                    </div>
+                    <div style="position: relative; height: 20px; margin-top: 4px;">
+                        <div id="bmi-marker" style="position: absolute; transform: translateX(-50%); font-size: 1.2rem; top: -2px;">▲</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #888; margin-top: 4px;">
+                        <span>15</span>
+                        <span>18.5</span>
+                        <span>25</span>
+                        <span>30</span>
+                        <span>40</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #aaa; margin-top: 2px; text-align: center;">
+                        <span style="flex: 18.5; text-align: center;">Underweight</span>
+                        <span style="flex: 6.4; text-align: center;">Normal</span>
+                        <span style="flex: 5; text-align: center;">Overweight</span>
+                        <span style="flex: 10.1; text-align: center;">Obese</span>
+                    </div>
+                </div>
+
+                <!-- BMI Category Table -->
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">BMI Categories (WHO Classification)</h4>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #ddd;">
+                            <th style="text-align: left; padding: 8px;">Category</th>
+                            <th style="text-align: left; padding: 8px;">BMI Range</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row-underweight" style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#3498db;margin-right:6px;"></span>Underweight</td>
+                            <td style="padding: 8px;">Below 18.5</td>
+                        </tr>
+                        <tr id="row-normal" style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#2ecc71;margin-right:6px;"></span>Normal weight</td>
+                            <td style="padding: 8px;">18.5 – 24.9</td>
+                        </tr>
+                        <tr id="row-overweight" style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#f39c12;margin-right:6px;"></span>Overweight</td>
+                            <td style="padding: 8px;">25.0 – 29.9</td>
+                        </tr>
+                        <tr id="row-obese">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#e74c3c;margin-right:6px;"></span>Obese</td>
+                            <td style="padding: 8px;">30.0 and above</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Healthy Weight Range -->
+                <div class="tdee-breakdown" id="weight-range" style="margin-top: 20px;">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Healthy Weight Range for Your Height</span>
+                        <span class="tdee-breakdown-value" id="healthy-range-display">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Weight to Reach Normal BMI</span>
+                        <span class="tdee-breakdown-value" id="weight-diff-display">—</span>
+                    </div>
+                </div>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    BMI is a screening tool, not a diagnostic measure. It does not account for muscle mass, bone density, or body fat distribution. Consult a healthcare provider for a complete assessment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC (moved below calculator for tool-first layout) -->
+    <h2>What Is Body Mass Index (BMI)?</h2>
+    <div class="answer-capsule">
+      Body Mass Index (BMI) is a simple numerical measure of body weight relative to height. Originally developed by Belgian mathematician Adolphe Quetelet in the 1830s, BMI is now the most widely used screening tool for weight classification by the World Health Organization and the National Institutes of Health. While not a direct measure of body fat, BMI strongly correlates with more direct measures of adiposity and is useful for identifying weight categories that may lead to health problems.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#how-it-works">How BMI Is Calculated</a></li>
+            <li><a href="#categories">BMI Categories & Health Risks</a></li>
+            <li><a href="#limitations">Limitations of BMI</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- How BMI Is Calculated -->
+    <section id="how-it-works" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How BMI Is Calculated</h2>
+            <div class="answer-capsule">
+                BMI uses a straightforward formula that divides body weight by height squared. The result is a single number that maps to a weight category defined by the WHO. The same formula applies to both men and women.
+            </div>
+
+            <h4>The Formula</h4>
+            <div class="highlight-box">
+                <p><strong>Metric:</strong> BMI = weight (kg) &divide; height (m)&sup2;</p>
+                <p><strong>Imperial:</strong> BMI = 703 &times; weight (lbs) &divide; height (inches)&sup2;</p>
+            </div>
+
+            <p><strong>Example:</strong> A person weighing 70 kg who is 1.75 m tall has a BMI of 70 &divide; (1.75)&sup2; = 22.9, which falls in the "Normal weight" category.</p>
+            <p>The factor of 703 in the imperial formula converts the result to match the metric calculation. Both formulas produce the same BMI value for the same person.</p>
+        </div>
+    </section>
+
+    <!-- BMI Categories & Health Risks -->
+    <section id="categories" style="margin-top: 48px;">
+        <div class="info">
+            <h2>BMI Categories & Health Risks</h2>
+            <div class="answer-capsule">
+                The WHO defines four primary BMI categories. Higher BMI values are associated with increased risk of type 2 diabetes, cardiovascular disease, hypertension, and certain cancers. However, BMI alone does not determine individual health risk.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Category</th>
+                        <th style="text-align: left; padding: 8px;">BMI (kg/m&sup2;)</th>
+                        <th style="text-align: left; padding: 8px;">Associated Health Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Underweight</td>
+                        <td style="padding: 8px;">Below 18.5</td>
+                        <td style="padding: 8px;">Nutritional deficiency, osteoporosis, immune impairment</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Normal weight</td>
+                        <td style="padding: 8px;">18.5 – 24.9</td>
+                        <td style="padding: 8px;">Lowest overall risk of weight-related disease</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Overweight</td>
+                        <td style="padding: 8px;">25.0 – 29.9</td>
+                        <td style="padding: 8px;">Increased risk of cardiovascular disease and type 2 diabetes</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Obese Class I</td>
+                        <td style="padding: 8px;">30.0 – 34.9</td>
+                        <td style="padding: 8px;">High risk of metabolic syndrome and sleep apnea</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Obese Class II</td>
+                        <td style="padding: 8px;">35.0 – 39.9</td>
+                        <td style="padding: 8px;">Very high risk; medical intervention often recommended</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">Obese Class III</td>
+                        <td style="padding: 8px;">40.0 and above</td>
+                        <td style="padding: 8px;">Extremely high risk; associated with reduced life expectancy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Limitations of BMI -->
+    <section id="limitations" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Limitations of BMI</h2>
+            <div class="answer-capsule">
+                BMI is a useful population-level screening tool, but it has important limitations at the individual level. It cannot distinguish between fat mass and lean mass, does not account for fat distribution, and may underperform across different age groups and ethnicities.
+            </div>
+
+            <ul style="line-height: 1.8;">
+                <li><strong>Muscle mass:</strong> Athletes and muscular individuals may have a high BMI despite low body fat. A 2012 study found that BMI misclassified 48% of women and 25% of men when compared to body fat percentage measurements.</li>
+                <li><strong>Age:</strong> Older adults tend to have more body fat than younger adults at the same BMI. The relationship between BMI and mortality shifts upward with age.</li>
+                <li><strong>Sex:</strong> Women generally carry more body fat than men at equivalent BMI values.</li>
+                <li><strong>Ethnicity:</strong> Asian populations may face elevated health risks at lower BMI thresholds (23+), while some Pacific Islander populations may have lower risk at higher BMI values.</li>
+                <li><strong>Fat distribution:</strong> Central (abdominal) obesity carries higher cardiovascular risk than peripheral fat. Waist circumference and waist-to-hip ratio can supplement BMI for a more complete picture.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>What is BMI?</h4>
+            <div class="faq-body">
+            <p>Body Mass Index (BMI) is a numerical value calculated from your weight and height. It is used as a screening tool to categorize individuals into weight categories: underweight (below 18.5), normal weight (18.5–24.9), overweight (25–29.9), and obese (30 and above). The formula was adopted by the WHO in the 1990s as a standard health metric.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How is BMI calculated?</h4>
+            <div class="faq-body">
+            <p>BMI is calculated by dividing your weight in kilograms by your height in meters squared: BMI = weight (kg) / height (m). For imperial units, the formula is: BMI = 703 &times; weight (lbs) / height (inches). Both formulas produce the same result.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Is BMI accurate for everyone?</h4>
+            <div class="faq-body">
+            <p>No. BMI does not directly measure body fat and may misclassify muscular individuals as overweight or obese. It also does not account for age, sex, ethnicity, or body fat distribution. A 2016 study in the International Journal of Obesity found that over 54 million Americans classified as "overweight" or "obese" by BMI were actually metabolically healthy. BMI is best used as an initial screening tool alongside other measurements like waist circumference and body fat percentage.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is a healthy BMI range?</h4>
+            <div class="faq-body">
+            <p>According to the World Health Organization, a BMI between 18.5 and 24.9 is considered normal weight. However, optimal BMI may vary. Some large meta-analyses suggest that a BMI of 22–25 is associated with the lowest all-cause mortality risk. For older adults (65+), slightly higher BMI values (23–27) may be associated with better outcomes, a phenomenon sometimes called the "obesity paradox."</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does BMI differ by age or sex?</h4>
+            <div class="faq-body">
+            <p>The standard BMI formula and categories are the same for adult men and women. However, women naturally carry a higher percentage of body fat than men at the same BMI. For children and teens (ages 2–19), BMI is interpreted using age- and sex-specific percentile charts from the CDC rather than fixed cutoffs. This calculator is designed for adults aged 18 and older.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Should I use BMI or body fat percentage?</h4>
+            <div class="faq-body">
+            <p>Both metrics provide useful but different information. BMI is simpler to calculate and widely used in clinical settings. Body fat percentage is more precise but requires specialized equipment (DEXA scan, calipers, or bioelectrical impedance). For most people, BMI serves as a reasonable first approximation. If you exercise regularly or have an unusual body composition, body fat percentage may be more informative.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "World Health Organization. Obesity: preventing and managing the global epidemic. WHO Technical Report Series 894. 2000.", "url": "https://pubmed.ncbi.nlm.nih.gov/11234459/"},
+        {"text": "Keys A, Fidanza F, Karvonen MJ, Kimura N, Taylor HL. Indices of relative weight and obesity. J Chronic Dis. 1972;25(6-7):329-343.", "url": "https://pubmed.ncbi.nlm.nih.gov/4650929/"},
+        {"text": "Flegal KM, Kit BK, Orpana H, Graubard BI. Association of all-cause mortality with overweight and obesity using standard body mass index categories: a systematic review and meta-analysis. JAMA. 2013;309(1):71-82.", "url": "https://pubmed.ncbi.nlm.nih.gov/23280227/"},
+        {"text": "Nuttall FQ. Body Mass Index: Obesity, BMI, and Health: A Critical Review. Nutr Today. 2015;50(3):117-128.", "url": "https://pubmed.ncbi.nlm.nih.gov/27340299/"},
+        {"text": "National Heart, Lung, and Blood Institute. Clinical Guidelines on the Identification, Evaluation, and Treatment of Overweight and Obesity in Adults. NIH Publication No. 98-4083. 1998.", "url": "https://pubmed.ncbi.nlm.nih.gov/9813653/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+
+    {% include 'components/explore-more.html' %}
+
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script defer src="/static/js/content-loops.js"></script>
+    <script defer src="/static/js/bmi_calculator.js"></script>
+</body>
+</html>
