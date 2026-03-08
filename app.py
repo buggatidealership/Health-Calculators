@@ -121,19 +121,27 @@ cross_links = {
         "guides": ["/resources/botox-dosage-guide"]
     },
     "/ozempic-pen-click-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator"],
+        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-weight-loss-calculator": {
-        "calculators": ["/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/mounjaro-weight-loss-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
+        "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
     },
+    "/zepbound-weight-loss-calculator": {
+        "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
+        "guides": []
+    },
+    "/glp1-comparison-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
+        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+    },
     "/ozempic-face-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
+        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/botox-dosage-calculator": {
@@ -481,6 +489,26 @@ cards = [
         "icon": "💊",
         "cta": "Estimate Weight Loss",
         "color": "purple",
+        "category": "medications",
+        "popular": False
+    },
+    {
+        "title": "Zepbound Weight Loss Calculator",
+        "url": "/zepbound-weight-loss-calculator",
+        "summary": "Project your expected weight loss on Zepbound (tirzepatide) based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration.",
+        "icon": "💊",
+        "cta": "Project Weight Loss",
+        "color": "blue",
+        "category": "medications",
+        "popular": False
+    },
+    {
+        "title": "GLP-1 Comparison Calculator",
+        "url": "/glp1-comparison-calculator",
+        "summary": "Compare projected weight loss on Ozempic, Mounjaro, and Zepbound side by side. Based on STEP and SURMOUNT clinical trial data.",
+        "icon": "📊",
+        "cta": "Compare Medications",
+        "color": "teal",
         "category": "medications",
         "popular": False
     },
@@ -969,6 +997,32 @@ def mounjaro_weight_loss_calculator():
     schema_url = "/mounjaro-weight-loss-calculator"
     return render_template(
         'mounjaro_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/zepbound-weight-loss-calculator')
+def zepbound_weight_loss_calculator():
+    schema_name = "Zepbound Weight Loss Calculator"
+    schema_description = "Project your expected weight loss on Zepbound (tirzepatide) based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration."
+    schema_url = "/zepbound-weight-loss-calculator"
+    return render_template(
+        'zepbound_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/glp1-comparison-calculator')
+def glp1_comparison_calculator():
+    schema_name = "GLP-1 Comparison Calculator"
+    schema_description = "Compare projected weight loss on Ozempic (semaglutide), Mounjaro (tirzepatide), and Zepbound (tirzepatide) side by side. Based on STEP-1 and SURMOUNT-1 clinical trial data."
+    schema_url = "/glp1-comparison-calculator"
+    return render_template(
+        'glp1_comparison_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

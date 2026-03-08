@@ -97,6 +97,7 @@ var CALCULATOR_GRAPH = {
   },
   'ozempic': {
     links: [
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Rapid weight loss ages the face — find out if you\'re at risk before it happens', params: ['weight_kg','height_cm','age'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro users lost 22.5% of body weight in trials — see your projection', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] },
@@ -107,6 +108,7 @@ var CALCULATOR_GRAPH = {
   },
   'ozempic-face': {
     links: [
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'See how much weight you can expect to lose — then weigh the tradeoff', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro causes faster weight loss than Ozempic — does that change your face risk?', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI determines how much facial fat you have to lose — check yours', params: ['weight_kg','height_cm'] },
@@ -115,18 +117,41 @@ var CALCULATOR_GRAPH = {
   },
   'ozempic-pen': {
     links: [
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'The average Ozempic user loses 15% body weight — where do you land?', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Eating below your calorie floor on Ozempic causes muscle loss — find it', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'mounjaro': {
     links: [
+      { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '💊', reason: 'Same drug, different label — Zepbound is tirzepatide approved for weight loss, not diabetes', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Mounjaro causes faster loss than Ozempic — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic averages 15% loss vs Mounjaro\'s 22.5% — see your comparison', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most Mounjaro users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'GLP-1 drugs slash appetite — but the wrong macros cost you muscle', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'When should you stop losing? Your frame determines the answer', params: ['height_cm','gender'] }
+    ]
+  },
+  'zepbound': {
+    links: [
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro is the same drug prescribed for diabetes — see how the projection differs', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic targets GLP-1 only — Zepbound hits two receptors and loses 50% more weight', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Zepbound causes the fastest weight loss of any GLP-1 — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most tirzepatide users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'GLP-1 drugs can reduce lean mass too — track your body fat, not just weight', params: ['height_cm','gender','age'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
+  'glp1-comparison': {
+    links: [
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Get a detailed Ozempic projection with dose-specific data and weekly timeline', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Get a detailed Mounjaro projection with dose escalation and lifestyle factors', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Fast weight loss on GLP-1 drugs can age the face — check your risk', params: ['weight_kg','height_cm','age'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] }
     ]
   },
   'antidepressant': {
