@@ -77,7 +77,7 @@ cross_links = {
         "guides": []
     },
     "/tdee-calculator": {
-        "calculators": ["/caloric-intake-macronutrient-calculator", "/ideal-body-weight-calculator", "/carb-cycling-calculator", "/fasting-weight-loss-calculator"],
+        "calculators": ["/caloric-intake-macronutrient-calculator", "/ideal-body-weight-calculator", "/carb-cycling-calculator", "/fasting-weight-loss-calculator", "/calories-burned-calculator"],
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/ideal-body-weight-calculator": {
@@ -553,6 +553,16 @@ cards = [
         "color": "blue",
         "category": "nutrition",
         "popular": False
+    },
+    {
+        "title": "Calories Burned Calculator",
+        "url": "/calories-burned-calculator",
+        "summary": "Calculate calories burned during exercise and daily activities using MET values from the Compendium of Physical Activities for 30+ exercises.",
+        "icon": "🔥",
+        "cta": "Calculate Calories Burned",
+        "color": "orange",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -590,6 +600,19 @@ def tdee_calculator():
     schema_url = "/tdee-calculator"
     return render_template(
         'tdee_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/calories-burned-calculator')
+def calories_burned_calculator():
+    schema_name = "Calories Burned Calculator"
+    schema_description = "Calculate calories burned during exercise and daily activities using MET values from the Compendium of Physical Activities for 30+ exercises including running, walking, cycling, and swimming."
+    schema_url = "/calories-burned-calculator"
+    return render_template(
+        'calories_burned_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

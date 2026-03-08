@@ -22,6 +22,7 @@ var CALCULATOR_GRAPH = {
   'tdee': {
     links: [
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See how many calories your workouts burn', params: ['weight_kg'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Calculate your optimal daily protein intake', params: ['weight_kg','age','gender'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Optimize your {tdee} kcal with carb cycling', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'See how fasting affects your {tdee} kcal budget', params: ['weight_kg','height_cm','age','gender'] },
@@ -283,6 +284,14 @@ var CALCULATOR_GRAPH = {
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Get your full macronutrient breakdown', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] }
+    ]
+  },
+  'calories-burned': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your total daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Fuel your workouts with optimal protein', params: ['weight_kg','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Plan your post-workout nutrition', params: ['weight_kg','height_cm','age','gender'] }
     ]
   }
 };
