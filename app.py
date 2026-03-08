@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template, send_from_directory, redirect
+from flask import Flask, render_template, send_from_directory, redirect, Response
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -965,18 +965,6 @@ def alcohol_impact_calculator():
         schema_url=schema_url
     )
 
-@app.route('/sitemap.xml')
-def sitemap():
-    response = send_from_directory(
-        'static/public',
-        'sitemap.xml',
-        mimetype='application/xml'
-    )
-    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
-    response.headers['Pragma'] = 'no-cache'
-    response.headers['Expires'] = '0'
-    return response
-
 @app.route('/ads.txt')
 def ads_txt():
     return send_from_directory('static/public', 'ads.txt')
@@ -1222,6 +1210,81 @@ def lipid_panel_goals_calculator():
         schema_description=schema_description,
         schema_url=schema_url
     )
+
+@app.route('/about')
+def about():
+    return render_template(
+        'about.html',
+        is_homepage=False,
+        schema_name="About HealthCalculators.xyz",
+        schema_description="Learn about HealthCalculators.xyz — our mission, methodology, and the evidence-based approach behind every health calculator.",
+        schema_url="/about"
+    )
+
+@app.route('/privacy')
+def privacy():
+    return render_template(
+        'privacy.html',
+        is_homepage=False,
+        schema_name="Privacy Policy",
+        schema_description="How HealthCalculators.xyz collects, uses, and protects your data.",
+        schema_url="/privacy"
+    )
+
+@app.route('/terms')
+def terms():
+    return render_template(
+        'terms.html',
+        is_homepage=False,
+        schema_name="Terms of Service",
+        schema_description="Terms and conditions for using HealthCalculators.xyz.",
+        schema_url="/terms"
+    )
+
+@app.route('/sitemap.xml')
+def sitemap_xml():
+    """Auto-generate sitemap from registered routes."""
+    from datetime import date
+    today = date.today().isoformat()
+
+    # Collect all public page URLs
+    pages = []
+
+    # Homepage
+    pages.append({'loc': '/', 'priority': '1.0', 'changefreq': 'weekly'})
+
+    # Calculator pages (from cards array)
+    for card in cards:
+        pages.append({'loc': card['url'], 'priority': '0.8', 'changefreq': 'monthly', 'lastmod': today})
+
+    # Resource listing page
+    pages.append({'loc': '/resources', 'priority': '0.7', 'changefreq': 'weekly'})
+
+    # Resource guide pages (from articles array)
+    for article in articles:
+        pages.append({'loc': article['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
+
+    # Static pages
+    for path in ['/about', '/privacy', '/terms']:
+        pages.append({'loc': path, 'priority': '0.3', 'changefreq': 'yearly'})
+
+    xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for page in pages:
+        xml += '  <url>\n'
+        xml += f'    <loc>https://healthcalculators.xyz{page["loc"]}</loc>\n'
+        if 'lastmod' in page:
+            xml += f'    <lastmod>{page["lastmod"]}</lastmod>\n'
+        xml += f'    <priority>{page["priority"]}</priority>\n'
+        xml += f'    <changefreq>{page["changefreq"]}</changefreq>\n'
+        xml += '  </url>\n'
+    xml += '</urlset>'
+
+    return Response(xml, mimetype='application/xml', headers={
+        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
+        'Pragma': 'no-cache',
+        'Expires': '0'
+    })
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
