@@ -261,6 +261,10 @@
     <p>Many student athletes find they can maintain their training goals while donating by following these protocols, though some reduction in performance should be expected during the first 24-48 hours post-donation.</p>
 </section>
 
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
 {% with ad_position="middle" %}
 {% include 'components/ad-unit.html' %}
 {% endwith %}
@@ -555,6 +559,8 @@
 {% include 'components/medical-disclaimer.html' %}
 
 </div>
+
+{% include 'components/related-links.html' %}
 
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}

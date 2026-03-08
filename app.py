@@ -927,7 +927,8 @@ articles = [
         "summary": "Not sure whether to donate plasma or platelets? This guide compares collection volume, donation frequency, and community need.",
         "icon": "🩸",
         "cta": "Read Guide",
-        "color": "purple"
+        "color": "purple",
+        "category": "health"
     },
     {
         "title": "Plasma Donation for College Students: Veins, Gains & Study Time",
@@ -935,7 +936,8 @@ articles = [
         "summary": "Can plasma donation affect your workouts, focus, or schedule as a student? Learn how to manage it safely without hurting your gains or grades.",
         "icon": "🩸",
         "cta": "Read Guide",
-        "color": "blue"
+        "color": "blue",
+        "category": "health"
     },
     {
         "title": "Plasma Donation Screening: What to Expect at Your First Visit",
@@ -943,7 +945,8 @@ articles = [
         "summary": "Learn what happens during the initial plasma donation screening. Covers ID check, health questions, physical exam, and tips to prepare.",
         "icon": "🩸",
         "cta": "Read Guide",
-        "color": "red"
+        "color": "red",
+        "category": "health"
     },
     {
         "title": "Plasma Donation Tips for First-Timers: What to Know Before You Go",
@@ -951,7 +954,8 @@ articles = [
         "summary": "Donating plasma for the first time? Learn exactly what to eat, drink, and wear — plus what to bring and how to feel better after.",
         "icon": "🩸",
         "cta": "Read Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "health"
     },
     {
         "title": "How to Prevent Hair Loss: Science-Based Prevention & Treatment",
@@ -959,7 +963,8 @@ articles = [
         "summary": "Learn how to prevent hair loss with simple lifestyle changes, supplements, and treatments. Evidence-based strategies for both men and women.",
         "icon": "💆",
         "cta": "Read Guide",
-        "color": "blue"
+        "color": "blue",
+        "category": "cosmetic"
     },
     {
         "title": "Antidepressants and Body Fat: Understanding the Connection",
@@ -967,7 +972,8 @@ articles = [
         "summary": "Do antidepressants cause body fat gain? Learn which medications have the strongest effect, why it happens, and how to track changes over time.",
         "icon": "💊",
         "cta": "Read Guide",
-        "color": "blue"
+        "color": "blue",
+        "category": "medications"
     },
     {
         "title": "Do Breast Implants Cause Weight Gain? The Science-Based Answer",
@@ -975,7 +981,8 @@ articles = [
         "summary": "Learn whether breast implants cause weight gain based on scientific evidence. Understand implant weight, fluid retention, and lifestyle factors.",
         "icon": "⚖️",
         "cta": "Read Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic"
     },
     {
         "title": "Who Should Not Get Breast Implants? Medical & Aesthetic Guidelines",
@@ -983,7 +990,8 @@ articles = [
         "summary": "Discover who should avoid breast implants due to health risks, psychological readiness, or FDA restrictions. Based on ASPS and surgeon guidance.",
         "icon": "🚫",
         "cta": "Read Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic"
     },
     {
         "title": "Can a Mammogram Pop Breast Implants? Risks & Safety Explained",
@@ -991,7 +999,8 @@ articles = [
         "summary": "Learn whether mammograms can damage breast implants, how to protect your implants during imaging, and what to expect from screening.",
         "icon": "🏥",
         "cta": "Read Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic"
     },
     {
         "title": "How Alcohol Is Absorbed and Eliminated: The Science Behind BAC Levels",
@@ -999,7 +1008,8 @@ articles = [
         "summary": "Understand how alcohol is absorbed and processed by the body. Learn how weight, gender, and time affect your BAC.",
         "icon": "🍷",
         "cta": "Read Guide",
-        "color": "blue"
+        "color": "blue",
+        "category": "health"
     },
     {
         "title": "How to Use the IVF Due Date Calculator (Day 3, Day 5, and FET)",
@@ -1007,7 +1017,8 @@ articles = [
         "summary": "Calculate your IVF pregnancy due date based on your specific transfer type (Day 3, Day 5, or FET). Includes detailed timeline.",
         "icon": "👶",
         "cta": "Read Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "fertility"
     },
     {
         "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
@@ -1015,7 +1026,8 @@ articles = [
         "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
         "icon": "🌯",
         "cta": "Read Guide",
-        "color": "green"
+        "color": "green",
+        "category": "nutrition"
     },
     {
         "title": "How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)",
@@ -1023,7 +1035,8 @@ articles = [
         "summary": "Decode your Starbucks drink nutrition. Learn how to adjust calories, macros, and sugar with our calculator-backed customization guide.",
         "icon": "☕",
         "cta": "Read Guide",
-        "color": "green"
+        "color": "green",
+        "category": "nutrition"
     },
     {
         "title": "How to Use the Army Body Fat Calculator (Tape Test Explained)",
@@ -1031,7 +1044,8 @@ articles = [
         "summary": "Learn how the Army tape test works, how to measure body fat for military compliance, and understand the accuracy compared to other methods.",
         "icon": "📏",
         "cta": "Read Guide",
-        "color": "blue"
+        "color": "blue",
+        "category": "fitness"
     },
     {
         "title": "How to Start Carb Cycling for Fat Loss",
@@ -1039,7 +1053,8 @@ articles = [
         "summary": "Learn how to use carb cycling for weight loss and performance. Backed by research with sample plans and macro breakdowns.",
         "icon": "🍽️",
         "cta": "Read Guide",
-        "color": "orange"
+        "color": "orange",
+        "category": "nutrition"
     },
     {
         "title": "Fertility After 35: What to Know About Your Chances",
@@ -1047,7 +1062,8 @@ articles = [
         "summary": "Age-related fertility facts, egg reserve decline, and how to assess your chance of pregnancy after age 35.",
         "icon": "🌿",
         "cta": "Read Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "fertility"
     },
     {
         "title": "Semaglutide vs Ozempic: What's the Difference?",
@@ -1055,7 +1071,8 @@ articles = [
         "summary": "Understand how semaglutide and Ozempic compare by dosage, brand, cost, side effects, and weight loss. Learn how they relate — and how they differ.",
         "icon": "💊",
         "cta": "Read Guide",
-        "color": "purple"
+        "color": "purple",
+        "category": "medications"
     },
     {
         "title": "Ozempic Weight Loss Calculator Guide",
@@ -1063,7 +1080,8 @@ articles = [
         "summary": "Evidence-based guide to semaglutide weight loss: dosage protocols, timelines, and expected outcomes from clinical trials.",
         "icon": "💊",
         "cta": "Read Guide",
-        "color": "purple"
+        "color": "purple",
+        "category": "medications"
     },
     {
         "title": "Are Height Predictors Accurate?",
@@ -1071,7 +1089,8 @@ articles = [
         "summary": "How accurate are height prediction methods? Compare scientific evidence for Khamis-Roche, mid-parental formula, and bone age prediction.",
         "icon": "📏",
         "cta": "Read Article",
-        "color": "green"
+        "color": "green",
+        "category": "health"
     },
     {
         "title": "Breast Implant Size Guide",
@@ -1079,7 +1098,8 @@ articles = [
         "summary": "View implant size charts, band-to-cup estimates, and visual comparisons for A to D cups.",
         "icon": "💗",
         "cta": "View Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic"
     },
     {
         "title": "How Many CCs is a C Cup?",
@@ -1087,7 +1107,8 @@ articles = [
         "summary": "Convert implant volume (in cc) to a C cup using surgeon-backed sizing rules. Includes chart + calculator.",
         "icon": "💗",
         "cta": "View Guide",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic"
     },
     {
         "title": "Fasting Weight Loss Chart: What to Expect Week by Week",
@@ -1095,7 +1116,8 @@ articles = [
         "summary": "Visual breakdown of fat loss trends from intermittent fasting protocols backed by clinical data.",
         "icon": "⏱️",
         "cta": "View Chart",
-        "color": "green"
+        "color": "green",
+        "category": "nutrition"
     },
     {
         "title": "Botox Dosage Guide",
@@ -1103,7 +1125,8 @@ articles = [
         "summary": "Clinical reference for Botox units by area, dosing ranges, and cost analysis. Based on FDA data and peer-reviewed research.",
         "icon": "💉",
         "cta": "View Guide",
-        "color": "teal"
+        "color": "teal",
+        "category": "cosmetic"
     }
 ]
 

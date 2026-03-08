@@ -255,6 +255,10 @@
     <p>Following the questionnaire, a staff member will review your answers with you in a private setting to ensure accuracy and address any follow-up questions.</p>
 </section>
 
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
 {% with ad_position="middle" %}
 {% include 'components/ad-unit.html' %}
 {% endwith %}
@@ -503,6 +507,8 @@
 {% include 'components/medical-disclaimer.html' %}
 
 </div>
+
+{% include 'components/related-links.html' %}
 
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}

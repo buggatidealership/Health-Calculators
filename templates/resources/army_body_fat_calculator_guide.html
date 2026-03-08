@@ -275,7 +275,11 @@
         <p>These methodological differences reflect physiological realities: women typically carry more essential body fat than men and distribute it differently throughout their bodies. The additional hip measurement for women accounts for this difference in fat distribution patterns.</p>
     </section>
     
-    {% with ad_position="middle" %}
+    {% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+{% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
     
@@ -549,6 +553,8 @@
             });
         });
     </script>
+{% include 'components/related-links.html' %}
+
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 

@@ -201,7 +201,11 @@
 
     <!-- Ad placement - mid -->
     <div class="ad-container">
-        {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
+        {% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+{% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="day3-vs-day5">
@@ -543,7 +547,9 @@
         </ol>
     </div>
 
-    {% include 'components/explore-more.html' %}
+    {% include 'components/related-links.html' %}
+
+{% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
     </div>
     

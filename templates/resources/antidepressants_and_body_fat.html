@@ -147,7 +147,11 @@
         <p>Additionally, medications like mirtazapine have strong antihistamine effects, which directly increase appetite and food-seeking behavior through the central histamine H1 receptor. This explains why medications with stronger antihistaminergic properties often show the most pronounced weight gain effects.</p>
     </section>
     
-    {% with ad_position="middle" %}
+    {% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+{% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
     
@@ -499,6 +503,8 @@
         <a href="/caloric-intake-macronutrient-calculator" style="background-color: var(--color-accent); color: white; border: none; border-radius: 4px; padding: 12px 24px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; display: inline-block; margin-top: 15px;">Use the Calculator</a>
     </div>
 </div> <!-- End of calculator-container -->
+{% include 'components/related-links.html' %}
+
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 

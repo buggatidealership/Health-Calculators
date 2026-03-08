@@ -422,7 +422,11 @@
 
     <!-- Ad placement - middle -->
     <div class="ad-container">
-        {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
+        {% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+{% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="ingredient-swaps">
@@ -707,6 +711,8 @@
             });
         });
     </script>
+{% include 'components/related-links.html' %}
+
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 

@@ -202,7 +202,11 @@
         <p class="feature-note" style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid var(--color-accent); margin: 20px 0;">A 2021 review in the International Journal of Sports Nutrition found that intermittent energy and carbohydrate restriction protocols (similar to carb cycling) led to comparable or superior improvements in body composition compared to continuous energy restriction approaches.</p>
     </section>
     
-    {% with ad_position="middle" %}
+    {% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+{% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
 
@@ -558,6 +562,8 @@
     </section>
 </div>
     
+{% include 'components/related-links.html' %}
+
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 

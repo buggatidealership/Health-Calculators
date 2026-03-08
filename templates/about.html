@@ -2,58 +2,249 @@
 <html lang="en">
 <head>
 {% with
-    meta_description="About HealthCalculators.xyz — free, evidence-based health calculators built on peer-reviewed research and clinical guidelines.",
-    meta_keywords="about healthcalculators, health calculator methodology, evidence-based calculators",
-    og_title="About HealthCalculators.xyz",
+    meta_description="About HealthCalculators.xyz — free, evidence-based health calculators built on peer-reviewed research and clinical guidelines. 40+ tools across nutrition, fitness, medications, and wellness.",
+    meta_keywords="about healthcalculators, health calculator methodology, evidence-based calculators, free health tools",
+    og_title="About HealthCalculators.xyz – Evidence-Based Health Tools",
     og_description="Learn about our mission, methodology, and the evidence-based approach behind every health calculator on our site.",
     og_url="/about",
     page_title="About Us – HealthCalculators.xyz",
-    canonical_url="/about"
+    canonical_url="/about",
+    schema_name="About HealthCalculators.xyz",
+    schema_url="/about",
+    schema_description="About HealthCalculators.xyz — free, evidence-based health calculators built on peer-reviewed research and clinical guidelines."
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
+
+    <style>
+        .about-hero {
+            text-align: center;
+            padding: 40px 20px 32px;
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 50%, #ecfeff 100%);
+            border-radius: 16px;
+            margin-bottom: 28px;
+        }
+        .about-hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin: 0 0 12px;
+        }
+        .about-hero p {
+            font-size: 1.05rem;
+            color: #555;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 28px 0;
+        }
+        .about-stat {
+            text-align: center;
+            padding: 20px 12px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+        }
+        .about-stat-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--color-accent);
+        }
+        .about-stat-label {
+            font-size: 0.82rem;
+            color: var(--color-text-secondary);
+            margin-top: 4px;
+        }
+        .about-method {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 20px 0 28px;
+        }
+        .about-method-card {
+            padding: 20px;
+            background: var(--color-surface);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            border-top: 3px solid var(--color-accent);
+        }
+        .about-method-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: var(--color-text);
+        }
+        .about-method-card p {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .about-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+            margin: 16px 0 28px;
+        }
+        .about-cat {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 14px;
+            background: var(--color-muted);
+            border-radius: 8px;
+        }
+        .about-cat-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+        .about-cat h3 { font-size: 0.9rem; font-weight: 600; margin: 0 0 3px; }
+        .about-cat p { font-size: 0.82rem; color: var(--color-text-secondary); margin: 0; line-height: 1.4; }
+        .about-disclaimer {
+            background: var(--color-warning-bg);
+            border: 1px solid var(--color-warning-border);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 28px 0;
+        }
+        .about-disclaimer h2 { margin: 0 0 8px; font-size: 1.1rem; }
+        .about-disclaimer p { margin: 0 0 10px; font-size: 0.92rem; line-height: 1.6; }
+        .about-disclaimer p:last-child { margin: 0; }
+        @media (max-width: 600px) {
+            .about-hero h1 { font-size: 1.6rem; }
+            .about-stats { grid-template-columns: repeat(2, 1fr); }
+            .about-method { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 {% include 'header.html' %}
 
 <div class="calculator-container">
 
-<h1>About HealthCalculators.xyz</h1>
+<div class="about-hero">
+    <h1>About HealthCalculators.xyz</h1>
+    <p>Free, evidence-based health calculators built on peer-reviewed research and clinical guidelines. No accounts, no paywalls.</p>
+</div>
 
-<p class="subtitle">Free, evidence-based health calculators built on peer-reviewed research and clinical guidelines.</p>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+<div class="about-stats">
+    <div class="about-stat">
+        <div class="about-stat-num">40+</div>
+        <div class="about-stat-label">Free Calculators</div>
+    </div>
+    <div class="about-stat">
+        <div class="about-stat-num">23+</div>
+        <div class="about-stat-label">Expert Guides</div>
+    </div>
+    <div class="about-stat">
+        <div class="about-stat-num">7</div>
+        <div class="about-stat-label">Health Categories</div>
+    </div>
+    <div class="about-stat">
+        <div class="about-stat-num">100%</div>
+        <div class="about-stat-label">Free & Open</div>
+    </div>
+</div>
 
 <h2>Our Mission</h2>
 <p>HealthCalculators.xyz provides free, accurate health and wellness calculators that help people make informed decisions about their bodies. Every calculator on this site is built using formulas derived from peer-reviewed medical research, clinical guidelines, and established health standards.</p>
 
-<p>We believe health information should be accessible, transparent, and grounded in science — not marketing or speculation. Our tools are designed to give you a starting point for understanding your health, not to replace professional medical advice.</p>
+<p>We believe health information should be accessible, transparent, and grounded in science — not marketing or speculation. Our tools give you a starting point for understanding your health, not a replacement for professional medical advice.</p>
 
 <h2>Our Methodology</h2>
-<p>Each calculator on this site follows a consistent development process:</p>
-<ul>
-    <li><strong>Research-first design:</strong> We identify the established medical formulas, clinical guidelines, or peer-reviewed studies that underpin each calculation before writing a single line of code.</li>
-    <li><strong>Transparent formulas:</strong> Where possible, we cite the specific studies, formulas, or guidelines our calculators use (e.g., Mifflin-St Jeor for TDEE, Army AR 600-9 for body fat, STEP trials for Ozempic projections).</li>
-    <li><strong>Conservative estimates:</strong> When clinical data shows a range, we default to conservative projections rather than optimistic ones.</li>
-    <li><strong>Limitations stated:</strong> Every calculator includes a disclaimer noting what it can and cannot tell you, and when you should consult a healthcare professional.</li>
-</ul>
+<p>Each calculator follows a rigorous development process:</p>
+
+<div class="about-method">
+    <div class="about-method-card">
+        <h3>Research First</h3>
+        <p>We identify the established medical formulas, clinical guidelines, or peer-reviewed studies before writing a single line of code.</p>
+    </div>
+    <div class="about-method-card">
+        <h3>Transparent Formulas</h3>
+        <p>We cite specific studies and formulas — Mifflin-St Jeor for TDEE, SURMOUNT trials for Mounjaro, AR 600-9 for Army body fat.</p>
+    </div>
+    <div class="about-method-card">
+        <h3>Conservative Estimates</h3>
+        <p>When clinical data shows a range, we default to conservative projections rather than optimistic ones.</p>
+    </div>
+    <div class="about-method-card">
+        <h3>Limitations Stated</h3>
+        <p>Every calculator includes a disclaimer noting what it can and cannot tell you, and when to consult a healthcare professional.</p>
+    </div>
+</div>
+
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <h2>What We Cover</h2>
-<p>Our calculator library spans several health and wellness categories:</p>
-<ul>
-    <li><strong>Nutrition & Diet:</strong> TDEE, caloric intake, macronutrient planning, carb cycling, and restaurant-specific nutrition trackers (Chipotle, Starbucks)</li>
-    <li><strong>Weight Management:</strong> Fasting weight loss, ideal body weight, GLP-1/Ozempic projections</li>
-    <li><strong>Cosmetic & Surgical:</strong> Breast implant sizing and cost, Botox dosage, lip filler cost, liposuction estimates</li>
-    <li><strong>Fertility & Pregnancy:</strong> IVF due dates, female fertility windows, child growth tracking, newborn weight, dog pregnancy</li>
-    <li><strong>General Health:</strong> BAC estimation, alcohol impact, vitamin D intake, creatine hydration, lipid panel goals, baldness risk, adult height prediction</li>
-    <li><strong>Financial:</strong> Plasma donation earnings, retirement savings</li>
-</ul>
+<div class="about-categories">
+    <div class="about-cat">
+        <div class="about-cat-icon">🍽️</div>
+        <div>
+            <h3>Nutrition & Diet</h3>
+            <p>TDEE, protein intake, caloric macro planning, carb cycling, water intake, restaurant nutrition trackers</p>
+        </div>
+    </div>
+    <div class="about-cat">
+        <div class="about-cat-icon">💊</div>
+        <div>
+            <h3>Weight Loss Medications</h3>
+            <p>Ozempic, Mounjaro (tirzepatide), semaglutide projections based on clinical trial data</p>
+        </div>
+    </div>
+    <div class="about-cat">
+        <div class="about-cat-icon">✨</div>
+        <div>
+            <h3>Cosmetic & Aesthetic</h3>
+            <p>Breast implant sizing and cost, Botox dosage, lip filler cost, liposuction estimates</p>
+        </div>
+    </div>
+    <div class="about-cat">
+        <div class="about-cat-icon">👶</div>
+        <div>
+            <h3>Fertility & Pregnancy</h3>
+            <p>IVF due dates, fertility windows, child growth tracking, newborn weight, dog pregnancy</p>
+        </div>
+    </div>
+    <div class="about-cat">
+        <div class="about-cat-icon">❤️</div>
+        <div>
+            <h3>Health & Wellness</h3>
+            <p>BMI, sleep cycles, BAC, vitamin D, lipid panels, baldness risk, height prediction</p>
+        </div>
+    </div>
+    <div class="about-cat">
+        <div class="about-cat-icon">💪</div>
+        <div>
+            <h3>Fitness & Body Composition</h3>
+            <p>Body fat percentage, calories burned, Army body fat, ideal body weight, creatine hydration</p>
+        </div>
+    </div>
+</div>
 
-<h2>Medical Disclaimer</h2>
-<p>The calculators and articles on this site are for <strong>informational and educational purposes only</strong>. They are not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before making health decisions based on calculator results.</p>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
-<p>Our tools use population-level data and general formulas. Individual results vary based on genetics, medical history, medications, and other factors that no online calculator can fully account for.</p>
+<div class="about-disclaimer">
+    <h2>Medical Disclaimer</h2>
+    <p>The calculators and articles on this site are for <strong>informational and educational purposes only</strong>. They are not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before making health decisions based on calculator results.</p>
+    <p>Our tools use population-level data and general formulas. Individual results vary based on genetics, medical history, medications, and other factors that no online calculator can fully account for.</p>
+</div>
 
 <h2>Contact</h2>
-<p>For questions, corrections, or suggestions, contact us at <strong>calculatordirectory@gmail.com</strong>.</p>
+<p>For questions, corrections, or calculator suggestions: <strong>calculatordirectory@gmail.com</strong></p>
+
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 </div>
 

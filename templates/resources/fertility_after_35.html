@@ -260,6 +260,10 @@
     <p>This decline in egg quality is directly related to the aging of the eggs, which have been present since birth and accumulate cellular damage over time, particularly to mitochondria and meiotic spindle apparatus.</p>
 </section>
 
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
 {% with ad_position="middle" %}
 {% include 'components/ad-unit.html' %}
 {% endwith %}
@@ -661,6 +665,8 @@
 {% include 'components/ad-unit.html' %}
 {% endwith %}
 <script defer src="{{ url_for('static', filename='js/calculator.js') }}"></script>
+{% include 'components/related-links.html' %}
+
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 

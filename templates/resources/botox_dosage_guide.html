@@ -433,6 +433,10 @@
     </div>
 </section>
 
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
 {% with ad_position="middle" %}
 {% include 'components/ad-unit.html' %}
 {% endwith %}
@@ -1108,6 +1112,8 @@
 {% include 'components/ad-unit.html' %}
 {% endwith %}
 </div>
+{% include 'components/related-links.html' %}
+
 {% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 
