@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template, send_from_directory, redirect, Response
+from flask import Flask, render_template, send_from_directory, redirect, Response, request
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -703,6 +703,190 @@ def home():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
+    )
+
+# ===== CATEGORY HUB PAGES =====
+category_hub_data = {
+    "nutrition": {
+        "url": "/nutrition-calculators",
+        "title": "Nutrition & Diet Calculators",
+        "description": "Evidence-based tools to calculate your caloric needs, optimize macronutrient ratios, and make informed dietary decisions. Built on peer-reviewed formulas from sports nutrition and clinical research.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>How to Use Nutrition Calculators Effectively</h2>
+          <p>Nutrition calculators translate complex metabolic science into personalized numbers you can act on. Rather than following generic diet advice, these tools account for your unique body composition, activity level, and goals.</p>
+          <h3>Start With Your TDEE</h3>
+          <p>Your Total Daily Energy Expenditure is the foundation of any nutrition plan. It tells you how many calories your body burns each day, including exercise. From there, you can create a caloric deficit for fat loss, a surplus for muscle gain, or eat at maintenance.</p>
+          <h3>Then Dial In Macros</h3>
+          <p>Calories matter, but where those calories come from matters too. Protein intake drives muscle protein synthesis and satiety. Carb cycling can optimize performance around training. Our calculators use formulas validated against metabolic ward studies to give you precise targets.</p>
+          <h3>Common Mistakes to Avoid</h3>
+          <ul>
+            <li>Setting calories too low — aggressive deficits (over 500 cal/day) increase muscle loss and metabolic adaptation</li>
+            <li>Ignoring protein — most people undershoot. Aim for 0.7-1g per pound of bodyweight when in a deficit</li>
+            <li>Not recalculating — your TDEE changes as your weight changes. Recalculate every 10-15 lbs</li>
+          </ul>
+        </div>
+        """
+    },
+    "medications": {
+        "url": "/weight-loss-medication-calculators",
+        "title": "Weight Loss Medication Calculators",
+        "description": "Project your expected weight loss on GLP-1 medications like Ozempic, Mounjaro, Wegovy, and Zepbound. All projections based on published clinical trial data from STEP and SURMOUNT studies.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>Understanding GLP-1 Weight Loss Projections</h2>
+          <p>GLP-1 receptor agonists represent a breakthrough in obesity treatment, with clinical trials showing 15-25% total body weight loss depending on the medication and dose. Our calculators model these outcomes using data from the largest published trials.</p>
+          <h3>How These Calculators Work</h3>
+          <p>Each calculator uses a logarithmic weight loss curve fitted to trial-reported outcomes at specific time points. This captures the real pattern of GLP-1 weight loss: rapid initial loss that gradually plateaus over 12-18 months. Your projection accounts for starting weight, dose, and treatment duration.</p>
+          <h3>Key Differences Between Medications</h3>
+          <ul>
+            <li><strong>Ozempic (semaglutide 1mg)</strong> — Originally approved for type 2 diabetes. Average weight loss ~12-15% over 68 weeks in STEP trials</li>
+            <li><strong>Wegovy (semaglutide 2.4mg)</strong> — Higher-dose semaglutide specifically for obesity. ~15-17% weight loss in STEP trials</li>
+            <li><strong>Mounjaro/Zepbound (tirzepatide)</strong> — Dual GIP/GLP-1 agonist. ~20-25% weight loss in SURMOUNT trials, the most effective option to date</li>
+          </ul>
+          <h3>Important Caveats</h3>
+          <p>Individual results vary significantly from trial averages. Factors like diet, exercise, starting BMI, and genetics all influence outcomes. These projections are estimates based on population-level data, not guarantees. Always work with your prescribing physician to set realistic expectations.</p>
+        </div>
+        """
+    },
+    "fitness": {
+        "url": "/fitness-body-composition-calculators",
+        "title": "Fitness & Body Composition Calculators",
+        "description": "Measure and track your body composition with evidence-based calculators for BMI, body fat percentage, ideal weight, and more. Based on formulas validated against DEXA and clinical measurements.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>Beyond the Scale: Measuring What Matters</h2>
+          <p>Bodyweight alone tells an incomplete story. Two people at the same weight can have vastly different body compositions — and very different health risk profiles. These calculators help you understand <em>what</em> your body is made of, not just how much it weighs.</p>
+          <h3>Which Calculator Should You Start With?</h3>
+          <ul>
+            <li><strong>BMI Calculator</strong> — Quick screening tool using just height and weight. Good starting point but has known limitations for athletes and muscular individuals</li>
+            <li><strong>Body Fat Calculator</strong> — Uses the U.S. Navy circumference method for a more accurate picture of body composition. Requires a tape measure</li>
+            <li><strong>Body Roundness Index</strong> — Newer metric that captures central adiposity (belly fat) specifically, which is the strongest predictor of metabolic disease risk</li>
+            <li><strong>Ideal Body Weight</strong> — Compares multiple evidence-based formulas (Devine, Robinson, Miller, Hamwi) to give you a realistic target range</li>
+          </ul>
+          <h3>Tracking Progress Over Time</h3>
+          <p>Body composition changes slowly. Measure under consistent conditions (same time of day, same hydration state) and track trends over weeks, not daily fluctuations. A 1-2% change in body fat percentage per month is excellent progress.</p>
+        </div>
+        """
+    },
+    "cosmetic": {
+        "url": "/cosmetic-procedure-calculators",
+        "title": "Cosmetic & Aesthetic Procedure Calculators",
+        "description": "Estimate costs, dosages, and expected outcomes for popular cosmetic procedures including breast augmentation, Botox, lip fillers, and liposuction. Informed decision-making backed by clinical data.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>Making Informed Cosmetic Decisions</h2>
+          <p>Cosmetic procedures are significant investments in both cost and recovery time. These calculators help you set realistic expectations for outcomes and budget before your consultation.</p>
+          <h3>Cost Factors That Matter</h3>
+          <p>Procedure costs vary dramatically based on geographic region, surgeon experience, facility type, and technique. Our calculators account for these variables to give you a realistic range rather than a misleading average. Board-certified surgeons in major metros typically charge 30-50% more than average — but complication rates are also significantly lower.</p>
+          <h3>Important Notes</h3>
+          <ul>
+            <li>These calculators provide estimates only — get multiple consultations for accurate quotes</li>
+            <li>The cheapest option is rarely the safest. Factor in surgeon credentials and facility accreditation</li>
+            <li>Budget for follow-up appointments, compression garments, and potential revisions</li>
+          </ul>
+        </div>
+        """
+    },
+    "fertility": {
+        "url": "/pregnancy-fertility-calculators",
+        "title": "Pregnancy & Fertility Calculators",
+        "description": "Track fertility windows, predict due dates, monitor newborn development, and plan for reproductive health milestones. Tools designed for every stage from conception through postpartum.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>Tools for Every Reproductive Stage</h2>
+          <p>From tracking ovulation to monitoring your newborn's growth, these calculators support data-driven decisions throughout your reproductive journey.</p>
+          <h3>Trying to Conceive</h3>
+          <p>The <strong>Female Fertility Calculator</strong> helps identify your most fertile days based on cycle length and ovulation patterns. For those undergoing assisted reproduction, our <strong>IVF Due Date Calculator</strong> accounts for the specific timing of fresh and frozen embryo transfers — which differs from natural conception dating by up to 2 weeks.</p>
+          <h3>During Pregnancy</h3>
+          <p>Accurate due date calculation matters for prenatal care scheduling, genetic screening windows, and delivery planning. Our calculators use the standard Naegele's rule adjusted for individual cycle length.</p>
+          <h3>After Birth</h3>
+          <p>The <strong>Newborn Weight Loss Calculator</strong> helps you assess whether your baby's initial weight loss is within normal clinical guidelines (up to 7-10% in the first few days is expected) or warrants medical attention.</p>
+        </div>
+        """
+    },
+    "health": {
+        "url": "/health-longevity-calculators",
+        "title": "Health & Longevity Calculators",
+        "description": "Assess your health risks, optimize supplementation, and estimate life expectancy with calculators based on epidemiological research and clinical guidelines from WHO, CDC, and peer-reviewed studies.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>Data-Driven Health Assessment</h2>
+          <p>These calculators translate population-level health research into personalized insights. They don't replace medical testing — but they can help you understand risk factors and have more informed conversations with your healthcare provider.</p>
+          <h3>Longevity & Risk Assessment</h3>
+          <p>The <strong>Lifespan Calculator</strong> uses actuarial data adjusted for lifestyle factors (exercise, diet, sleep, smoking, alcohol) to estimate life expectancy. It's not a crystal ball, but it highlights which modifiable factors have the biggest impact on your projected healthspan.</p>
+          <h3>Supplementation</h3>
+          <p>Vitamin D deficiency affects an estimated 1 billion people worldwide. Our <strong>Vitamin D Calculator</strong> estimates your ideal daily intake based on sun exposure, skin tone, latitude, and BMI — factors that dramatically affect your body's ability to synthesize vitamin D naturally.</p>
+          <h3>Sleep Optimization</h3>
+          <p>The <strong>Sleep Calculator</strong> uses 90-minute sleep cycle science to find optimal bedtimes and wake times. Waking mid-cycle causes grogginess regardless of total sleep duration — timing matters as much as quantity.</p>
+        </div>
+        """
+    },
+    "financial": {
+        "url": "/financial-health-calculators",
+        "title": "Financial & Health Earnings Calculators",
+        "description": "Calculate earnings from plasma donation and plan retirement savings. Practical financial tools at the intersection of health and personal finance.",
+        "content": """
+        <div class="hub-content-section">
+          <h2>Health-Adjacent Financial Planning</h2>
+          <p>Financial health and physical health are deeply connected. These tools help you make informed decisions about health-related income opportunities and long-term financial planning.</p>
+          <h3>Plasma Donation</h3>
+          <p>Plasma donation centers pay $50-$75+ per donation, with new donors often earning bonuses up to $1,000 in their first month. Our calculator estimates annual earnings based on your eligible donation frequency, weight (which affects plasma volume collected), and local center rates.</p>
+        </div>
+        """
+    }
+}
+
+# Add URL to categories for hub linking
+category_urls = {cat["id"]: category_hub_data[cat["id"]]["url"] for cat in categories if cat["id"] in category_hub_data}
+
+@app.route('/nutrition-calculators')
+@app.route('/weight-loss-medication-calculators')
+@app.route('/fitness-body-composition-calculators')
+@app.route('/cosmetic-procedure-calculators')
+@app.route('/pregnancy-fertility-calculators')
+@app.route('/health-longevity-calculators')
+@app.route('/financial-health-calculators')
+def category_hub():
+    path = request.path.lstrip('/')
+    # Find the matching category
+    hub = None
+    cat_id = None
+    for cid, data in category_hub_data.items():
+        if data["url"].lstrip('/') == path:
+            hub = data
+            cat_id = cid
+            break
+    if not hub:
+        return "Not found", 404
+
+    cat_info = next((c for c in categories if c["id"] == cat_id), None)
+    hub_cards = [c for c in cards if c.get("category") == cat_id]
+    other_cats = [
+        {"icon": c["icon"], "label": c["label"], "url": category_hub_data[c["id"]]["url"]}
+        for c in categories if c["id"] != cat_id and c["id"] in category_hub_data
+    ]
+
+    return render_template(
+        'category_hub.html',
+        page_title=f"{hub['title']} | HealthCalculators.xyz",
+        meta_description=hub["description"],
+        meta_keywords=f"{cat_info['label']}, health calculators, {cat_id} tools",
+        og_title=hub["title"],
+        og_description=hub["description"],
+        og_url=hub["url"],
+        schema_name=hub["title"],
+        schema_description=hub["description"],
+        schema_url=hub["url"],
+        canonical_url=hub["url"],
+        breadcrumb_title=hub["title"],
+        hub_icon=cat_info["icon"],
+        hub_title=hub["title"],
+        hub_description=hub["description"],
+        hub_cards=hub_cards,
+        hub_content=hub["content"],
+        other_categories=other_cats,
+        is_homepage=False
     )
 
 @app.route('/tdee-calculator')
