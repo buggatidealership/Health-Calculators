@@ -174,13 +174,51 @@
 
             <button id="calculate-btn">Calculate Weight Loss</button>
 
-            <div class="results" id="results">
-                <h2>Estimated Results</h2>
-                <p>Your Basal Metabolic Rate (BMR): <span id="bmr"></span> calories/day</p>
-                <p>Your Total Daily Energy Expenditure (TDEE): <span id="tdee"></span> calories/day</p>
-                <p>Estimated weight loss during fasting period: <span id="weight-loss"></span></p>
-                <p>Estimated fat loss during fasting period: <span id="fat-loss"></span></p>
-                <p>Estimated water weight loss during fasting period: <span id="water-loss"></span></p>
+            <div class="results-section" id="results" style="display: none;">
+                <div class="result-hero">
+                    <div class="result-hero-number" id="weight-loss">—</div>
+                    <div class="result-hero-label">Estimated Weight Loss</div>
+                    <div class="result-hero-sublabel" id="fasting-type-label">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card pink">
+                        <div class="result-card-title">Fat Loss</div>
+                        <div class="result-card-value" id="fat-loss">—</div>
+                        <div class="result-card-note">actual body fat</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Water Weight</div>
+                        <div class="result-card-value" id="water-loss">—</div>
+                        <div class="result-card-note">temporary loss</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">BMR</div>
+                        <div class="result-card-value" id="bmr">—</div>
+                        <div class="result-card-note">calories/day</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">TDEE</div>
+                        <div class="result-card-value" id="tdee">—</div>
+                        <div class="result-card-note">calories/day</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Fasting Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Fasting Protocol</span>
+                        <span class="result-breakdown-val" id="protocol-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Caloric Deficit (per fast)</span>
+                        <span class="result-breakdown-val" id="deficit-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Fasting Duration</span>
+                        <span class="result-breakdown-val" id="duration-display">—</span>
+                    </div>
+                </div>
 
                 <div class="chart-container">
                     <canvas id="results-chart"></canvas>
@@ -455,6 +493,14 @@
                     document.getElementById('fat-loss').textContent = fatLossLbs.toFixed(2) + " lbs";
                     document.getElementById('water-loss').textContent = (waterLossKg / 0.45359237).toFixed(2) + " lbs";
                 }
+
+                // Populate new detail elements
+                const fastingSelect = document.getElementById('fasting-type');
+                const fastingLabel = fastingSelect.options[fastingSelect.selectedIndex].text;
+                document.getElementById('fasting-type-label').textContent = fastingLabel;
+                document.getElementById('protocol-display').textContent = fastingLabel;
+                document.getElementById('deficit-display').textContent = Math.round(caloricDeficit) + ' calories';
+                document.getElementById('duration-display').textContent = fastingHours + (fastingHours === 1 ? ' hour' : ' hours');
 
                 // Show results
                 document.getElementById('results').style.display = 'block';
