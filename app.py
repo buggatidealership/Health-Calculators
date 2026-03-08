@@ -9,6 +9,150 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
+# Cross-linking map: each calculator URL -> related calculators + guides
+# Used by the related_links component template
+cross_links = {
+    "/plasma-donation-earnings-calculator": {
+        "calculators": ["/lipid-panel-goals-calculator", "/retirement-savings-calculator"],
+        "guides": ["/resources/plasma-vs-platelet-donation", "/resources/plasma-donation-tips-first-time"]
+    },
+    "/lipid-panel-goals-calculator": {
+        "calculators": ["/tdee-calculator", "/plasma-donation-earnings-calculator", "/lifespan-longevity-calculator"],
+        "guides": []
+    },
+    "/antidepressant-weight-gain-calculator": {
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator"],
+        "guides": ["/resources/antidepressants-and-body-fat"]
+    },
+    "/breast-implant-calculator": {
+        "calculators": ["/breast-implant-size-calculator", "/breast-implant-cost-calculator", "/cc-to-bra-size-calculator"],
+        "guides": ["/resources/breast-implant-size-guide", "/resources/who-should-not-get-breast-implants"]
+    },
+    "/breast-implant-size-calculator": {
+        "calculators": ["/breast-implant-calculator", "/cc-to-bra-size-calculator", "/breast-implant-cost-calculator"],
+        "guides": ["/resources/breast-implant-size-guide", "/resources/how-many-ccs-is-a-c-cup"]
+    },
+    "/breast-implant-cost-calculator": {
+        "calculators": ["/breast-implant-calculator", "/breast-implant-size-calculator", "/lip-filler-cost-calculator"],
+        "guides": ["/resources/do-breast-implants-cause-weight-gain", "/resources/who-should-not-get-breast-implants"]
+    },
+    "/cc-to-bra-size-calculator": {
+        "calculators": ["/breast-implant-size-calculator", "/breast-implant-calculator", "/breast-implant-cost-calculator"],
+        "guides": ["/resources/how-many-ccs-is-a-c-cup", "/resources/breast-implant-size-guide"]
+    },
+    "/army-body-fat-calculator": {
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": ["/resources/army-body-fat-calculator-guide"]
+    },
+    "/chipotle-nutrition-calculator": {
+        "calculators": ["/starbucks-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
+        "guides": ["/resources/chipotle-nutrition-guide"]
+    },
+    "/starbucks-nutrition-calculator": {
+        "calculators": ["/chipotle-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
+        "guides": ["/resources/starbucks-nutrition-guide"]
+    },
+    "/bac-calculator": {
+        "calculators": ["/alcohol-impact-calculator", "/ideal-body-weight-calculator", "/lifespan-longevity-calculator"],
+        "guides": ["/resources/how-alcohol-affects-your-bac"]
+    },
+    "/alcohol-impact-calculator": {
+        "calculators": ["/bac-calculator", "/lifespan-longevity-calculator", "/tdee-calculator"],
+        "guides": ["/resources/how-alcohol-affects-your-bac"]
+    },
+    "/carb-cycling-calculator": {
+        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/fasting-weight-loss-calculator"],
+        "guides": ["/resources/how-to-start-carb-cycling"]
+    },
+    "/ivf-due-date-calculator": {
+        "calculators": ["/female-fertility-calculator", "/newborn-weight-loss-calculator", "/dog-pregnancy-due-date-calculator"],
+        "guides": ["/resources/ivf-due-date-calculator-guide", "/resources/fertility-after-35"]
+    },
+    "/female-fertility-calculator": {
+        "calculators": ["/ivf-due-date-calculator", "/lifespan-longevity-calculator", "/newborn-weight-loss-calculator"],
+        "guides": ["/resources/fertility-after-35", "/resources/ivf-due-date-calculator-guide"]
+    },
+    "/retirement-savings-calculator": {
+        "calculators": ["/lifespan-longevity-calculator", "/plasma-donation-earnings-calculator"],
+        "guides": []
+    },
+    "/tdee-calculator": {
+        "calculators": ["/caloric-intake-macronutrient-calculator", "/ideal-body-weight-calculator", "/carb-cycling-calculator", "/fasting-weight-loss-calculator"],
+        "guides": ["/resources/how-to-start-carb-cycling"]
+    },
+    "/ideal-body-weight-calculator": {
+        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/fasting-weight-loss-calculator"],
+        "guides": ["/resources/fasting-weight-loss-chart"]
+    },
+    "/caloric-intake-macronutrient-calculator": {
+        "calculators": ["/tdee-calculator", "/carb-cycling-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator"],
+        "guides": ["/resources/how-to-start-carb-cycling"]
+    },
+    "/baldness-risk-calculator": {
+        "calculators": ["/lifespan-longevity-calculator", "/antidepressant-weight-gain-calculator"],
+        "guides": ["/resources/how-to-prevent-hair-loss"]
+    },
+    "/newborn-weight-loss-calculator": {
+        "calculators": ["/child-growth-calculator", "/adult-height-predictor-calculator", "/ivf-due-date-calculator"],
+        "guides": ["/resources/are-height-predictors-accurate"]
+    },
+    "/child-growth-calculator": {
+        "calculators": ["/adult-height-predictor-calculator", "/newborn-weight-loss-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/are-height-predictors-accurate"]
+    },
+    "/adult-height-predictor-calculator": {
+        "calculators": ["/child-growth-calculator", "/newborn-weight-loss-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/are-height-predictors-accurate"]
+    },
+    "/dog-pregnancy-due-date-calculator": {
+        "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator"],
+        "guides": []
+    },
+    "/liposuction-weight-loss-calculator": {
+        "calculators": ["/ideal-body-weight-calculator", "/tdee-calculator", "/lip-filler-cost-calculator", "/breast-implant-cost-calculator"],
+        "guides": ["/resources/fasting-weight-loss-chart"]
+    },
+    "/lip-filler-cost-calculator": {
+        "calculators": ["/botox-dosage-calculator", "/breast-implant-cost-calculator", "/liposuction-weight-loss-calculator"],
+        "guides": ["/resources/botox-dosage-guide"]
+    },
+    "/ozempic-pen-click-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator"],
+        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+    },
+    "/ozempic-weight-loss-calculator": {
+        "calculators": ["/ozempic-pen-click-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+    },
+    "/botox-dosage-calculator": {
+        "calculators": ["/lip-filler-cost-calculator", "/breast-implant-cost-calculator", "/liposuction-weight-loss-calculator"],
+        "guides": ["/resources/botox-dosage-guide"]
+    },
+    "/creatine-water-calculator": {
+        "calculators": ["/tdee-calculator", "/vitamin-d-intake-calculator", "/ideal-body-weight-calculator"],
+        "guides": []
+    },
+    "/vitamin-d-intake-calculator": {
+        "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
+        "guides": []
+    },
+    "/vitamin-d-conversion-calculator": {
+        "calculators": ["/vitamin-d-intake-calculator", "/creatine-water-calculator"],
+        "guides": []
+    },
+    "/lifespan-longevity-calculator": {
+        "calculators": ["/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator"],
+        "guides": []
+    },
+    "/fasting-weight-loss-calculator": {
+        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/ozempic-weight-loss-calculator", "/carb-cycling-calculator"],
+        "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
+    },
+}
+
+# Build a title lookup from cards and articles arrays (populated after they are defined)
+_title_lookup = {}
+
 cards = [
     {
         "title": "Plasma Donation Earnings Calculator",
@@ -705,6 +849,27 @@ articles = [
         "color": "teal"
     }
 ]
+
+# Build title lookup for cross-linking component
+for card in cards:
+    _title_lookup[card['url']] = card['title']
+for article in articles:
+    _title_lookup[article['url']] = article['title']
+
+@app.context_processor
+def inject_cross_links():
+    """Make cross-linking data available to all templates."""
+    from flask import request
+    path = request.path
+    links = cross_links.get(path, {'calculators': [], 'guides': []})
+
+    related_calcs = [{'url': url, 'title': _title_lookup.get(url, url)} for url in links.get('calculators', [])]
+    related_guides = [{'url': url, 'title': _title_lookup.get(url, url)} for url in links.get('guides', [])]
+
+    return {
+        'related_calculators': related_calcs,
+        'related_guides': related_guides
+    }
 
 @app.route('/resources')
 def resources():

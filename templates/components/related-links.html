@@ -1,0 +1,31 @@
+{% if related_calculators or related_guides %}
+<div class="related-links-section">
+  {% if related_calculators %}
+  <div class="related-block">
+    <h3>Related Calculators</h3>
+    <div class="related-grid">
+      {% for calc in related_calculators %}
+      <a href="{{ calc.url }}" class="related-card">
+        <span class="related-card-title">{{ calc.title }}</span>
+        <span class="related-card-arrow">&rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+
+  {% if related_guides %}
+  <div class="related-block">
+    <h3>Related Guides</h3>
+    <div class="related-grid">
+      {% for guide in related_guides %}
+      <a href="{{ guide.url }}" class="related-card related-card-guide">
+        <span class="related-card-title">{{ guide.title }}</span>
+        <span class="related-card-arrow">&rarr;</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}
