@@ -81,6 +81,10 @@
     <div class="calculator-container">
     
     <h1>Retirement Savings Calculator</h1>
+    <h2>How Much Do You Need to Retire?</h2>
+    <div class="answer-capsule">
+      Retirement savings planning uses the compound interest formula to project how your current savings and regular contributions will grow over time. This calculator applies the future value formula with periodic contributions and adjusts for inflation. For withdrawal planning, it uses the 4% safe withdrawal rate from the Trinity Study (1998), which analyzed 30-year retirement portfolios across historical market conditions.
+    </div>
     <p class="subtitle">This evidence-based calculator helps you determine how much you'll have saved for retirement based on your current age, planned retirement age, existing savings, and monthly contributions. Plan your financial future with confidence by understanding your projected retirement income.</p>
     
     <div class="medical-disclaimer">
@@ -185,6 +189,12 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+    {% set sources = [
+        {"text": "Cooley PL, Hubbard CM, Walz DT. Retirement savings: choosing a withdrawal rate that is sustainable. AAII Journal. 1998;20(2):16-21."},
+        {"text": "Bengen WP. Determining withdrawal rates using historical data. J Financial Planning. 1994;7(4):171-180."}
+    ] %}
+    {% include 'components/sources.html' %}
+
 <!-- Script -->
 <script src="/static/js/retirement_savings_calculator.js"></script>
 

@@ -146,6 +146,10 @@
   {% include 'header.html' %}
   <div class="calculator-container">
     <h1>Antidepressant Weight Gain Calculator</h1>
+    <h2>Do Antidepressants Cause Weight Gain?</h2>
+    <div class="answer-capsule">
+      Antidepressant-associated weight change varies significantly by medication class and individual drug. SSRIs, SNRIs, TCAs, and atypical antidepressants each carry different weight gain profiles. This calculator uses data from large-scale pharmacovigilance studies and clinical trials to estimate potential weight change based on your specific medication, dosage, and treatment duration.
+    </div>
     <p class="subtitle">
       Estimate how much weight and body fat you may gain from antidepressant use based on your medication type, dose, and duration.
     </p>
@@ -291,6 +295,12 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    {% set sources = [
+        {"text": "Gafoor R, Booth HP, Gulliford MC. Antidepressant utilisation and incidence of weight gain during 10 years' follow-up: population based cohort study. BMJ. 2018;361:k1951.", "url": "https://pubmed.ncbi.nlm.nih.gov/29793997/"},
+        {"text": "Serretti A, Mandelli L. Antidepressants and body weight: a comprehensive review and meta-analysis. J Clin Psychiatry. 2010;71(10):1259-1272.", "url": "https://pubmed.ncbi.nlm.nih.gov/21062615/"}
+    ] %}
+    {% include 'components/sources.html' %}
 </div>
 
     {% include 'components/related-links.html' %}

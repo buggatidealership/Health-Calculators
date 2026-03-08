@@ -136,6 +136,10 @@
     <div class="calculator-container">
     
     <h1>Baldness Risk Calculator</h1>
+    <h2>What Predicts Hair Loss Risk?</h2>
+    <div class="answer-capsule">
+      Male pattern baldness (androgenetic alopecia) is a polygenic condition influenced by over 389 identified genetic loci. Risk assessment combines family history patterns, age of onset indicators, and the Hamilton-Norwood classification scale. While no single formula can predict individual outcomes, this calculator uses established risk factors from GWAS studies and clinical dermatology to estimate your likelihood of significant hair loss.
+    </div>
     <p class="subtitle">Estimate your risk of male or female pattern baldness based on your genetics, age, and lifestyle factors. This calculator uses research-backed factors to predict hair loss progression.</p>
     
     {% include 'components/medical-disclaimer.html' %}
@@ -291,6 +295,13 @@
 <!-- Script -->
     <script src="/static/js/baldness_risk_calculator.js"></script>
     
+    {% set sources = [
+        {"text": "Hagenaars SP, Hill WD, Harris SE, et al. Genetic prediction of male pattern baldness. PLoS Genet. 2017;13(2):e1006594.", "url": "https://pubmed.ncbi.nlm.nih.gov/28196072/"},
+        {"text": "Norwood OT. Male pattern baldness: classification and incidence. South Med J. 1975;68(11):1359-1365.", "url": "https://pubmed.ncbi.nlm.nih.gov/1188424/"},
+        {"text": "Hamilton JB. Patterned loss of hair in man: types and incidence. Ann N Y Acad Sci. 1951;53(3):708-728.", "url": "https://pubmed.ncbi.nlm.nih.gov/14819896/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     </div> <!-- End of calculator-container -->
 
     {% include 'components/related-links.html' %}

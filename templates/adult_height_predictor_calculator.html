@@ -21,6 +21,10 @@
     <div class="calculator-container">
     
     <h1>Adult Height Predictor Calculator – Estimate Future Height</h1>
+    <h2>How Is Adult Height Predicted?</h2>
+    <div class="answer-capsule">
+      Adult height prediction uses the Khamis-Roche method (1994), which estimates final adult height from a child's current height, weight, and mid-parent height without requiring a bone age X-ray. The method provides predictions within ±2.1 inches for boys and ±1.7 inches for girls, based on data from the Fels Longitudinal Study.
+    </div>
     <p class="subtitle">Predict your child's adult height using evidence-based formulas like mid-parental height, Khamis-Roche, and growth charts. Fast, free, and personalized.</p>
     
     <div class="medical-disclaimer">
@@ -205,8 +209,15 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    {% set sources = [
+        {"text": "Khamis HJ, Roche AF. Predicting adult stature without using skeletal age: the Khamis-Roche method. Pediatrics. 1994;94(4):504-507.", "url": "https://pubmed.ncbi.nlm.nih.gov/7936860/"},
+        {"text": "Khamis HJ, Roche AF. Erratum. Pediatrics. 1995;95(3):457.", "url": "https://pubmed.ncbi.nlm.nih.gov/7862497/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
 </div> <!-- End calculator-container -->
-    
+
     <script>
         function toggleUnit(person, unit) {
             const cmBtn = document.querySelector(`button[onclick="toggleUnit('${person}', 'cm')"]`);

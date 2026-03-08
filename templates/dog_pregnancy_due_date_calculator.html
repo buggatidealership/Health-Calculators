@@ -138,6 +138,10 @@
     <div class="calculator-container">
     
     <h1>Dog Pregnancy Due-Date Calculator</h1>
+    <h2>How Long Is a Dog's Pregnancy?</h2>
+    <div class="answer-capsule">
+      Canine pregnancy (gestation) averages 63 days from ovulation, with a normal whelping window of 58-68 days. The variation depends on breed size and whether timing is measured from mating or confirmed ovulation. This calculator estimates your dog's due date and provides week-by-week developmental milestones based on veterinary reproductive science.
+    </div>
     <p class="subtitle">Estimate your dog's whelping (delivery) date based on breeding or mating date. This tool uses the standard 63-day canine gestation period to provide a veterinary-backed due date prediction.</p>
     
     <div class="medical-disclaimer">
@@ -264,6 +268,12 @@
 <!-- Script -->
     <script src="/static/js/dog_pregnancy_calculator.js"></script>
     
+    {% set sources = [
+        {"text": "Johnston SD, Root Kustritz MV, Olson PNS. Canine and Feline Theriogenology. Philadelphia: Saunders; 2001."},
+        {"text": "Concannon PW. Reproductive cycles of the domestic bitch. Anim Reprod Sci. 2011;124(3-4):200-210.", "url": "https://pubmed.ncbi.nlm.nih.gov/21055888/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     </div> <!-- End of calculator-container -->
 
     {% include 'components/related-links.html' %}

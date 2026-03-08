@@ -61,6 +61,10 @@
     <div class="calculator-container">
     
     <h1>Army Body Fat Calculator</h1>
+    <h2>What Is the Army Body Fat Calculator?</h2>
+    <div class="answer-capsule">
+      The Army Body Fat Calculator uses circumference-based measurements to estimate body fat percentage per Department of Defense standards. The legacy method uses neck, waist, and hip circumferences with the DoD logarithmic formula. A new 2023 single-site method simplifies this to body weight and abdomen circumference only. Results determine compliance with AR 600-9 body composition standards.
+    </div>
     <p class="subtitle">Estimate your body fat percentage using the U.S. Army tape test method. This tool works for both male and female standards based on current military guidelines.</p>
     
     <div class="medical-disclaimer">
@@ -258,8 +262,15 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    {% set sources = [
+        {"text": "U.S. Department of Defense. DoD Instruction 1308.03: DoD Physical Fitness/Body Composition Program.", "url": "https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/130803p.pdf"},
+        {"text": "Headquarters, Department of the Army. AR 600-9: The Army Body Composition Program. Updated 2023.", "url": "https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1021431"}
+    ] %}
+    {% include 'components/sources.html' %}
+
 </div>
-    
+
     <script src="{{ url_for('static', filename='js/army_body_fat_calculator.js') }}"></script>
     <script>
     // Show/hide hip measurement field based on gender selection

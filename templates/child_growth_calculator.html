@@ -65,6 +65,10 @@
     <div class="calculator-container">
     
     <h1>Child Growth Calculator</h1>
+    <h2>What Are Child Growth Percentiles?</h2>
+    <div class="answer-capsule">
+      Child growth percentiles compare your child's height, weight, and BMI against population reference data. This calculator uses WHO Growth Standards for children 0-5 years and CDC Growth Charts for ages 2-20, applying the LMS (Box-Cox) statistical method to calculate precise z-scores and percentiles for age- and sex-specific comparisons.
+    </div>
     <p class="subtitle">This evidence-based calculator determines your child's height, weight, and BMI percentiles based on age and gender. Use this tool to track growth patterns, compare to national standards, and understand your child's development.</p>
     
     <div class="medical-disclaimer" style="margin-top: 24px; background-color: #fff0f3; padding: 16px 20px; border-left: 4px solid #d63384; border-radius: 8px; font-size: 15px;">
@@ -505,6 +509,12 @@
         }
     </style>
     
+    {% set sources = [
+        {"text": "WHO Multicentre Growth Reference Study Group. WHO Child Growth Standards based on length/height, weight and age. Acta Paediatr Suppl. 2006;450:76-85.", "url": "https://pubmed.ncbi.nlm.nih.gov/16817681/"},
+        {"text": "Kuczmarski RJ, Ogden CL, Guo SS, et al. 2000 CDC growth charts for the United States: methods and development. Vital Health Stat 11. 2002;(246):1-190.", "url": "https://pubmed.ncbi.nlm.nih.gov/12043359/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     </div> <!-- End of calculator-container -->
 
     {% include 'components/related-links.html' %}
