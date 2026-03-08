@@ -29,14 +29,16 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Know your daily calorie needs first', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Set your fasting target weight', params: ['height_cm','gender'] },
-      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Pair fasting with carb cycling', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Pair fasting with carb cycling', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/creatine-water-calculator', title: 'Hydration Calculator', icon: '💧', reason: 'Stay hydrated during fasting', params: ['weight_kg'] }
     ]
   },
   'ideal-body-weight': {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate calories for your ideal weight', params: ['height_cm','gender','age'] },
       { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Estimate your current body composition', params: ['height_cm','gender','age'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Plan your path to your ideal weight', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Plan your path to your ideal weight', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/plasma-donation-earnings-calculator', title: 'Plasma Donation', icon: '🩸', reason: 'Check if you meet weight requirements', params: ['weight_kg','height_cm'] }
     ]
   },
   'caloric-macro': {
@@ -126,7 +128,8 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'Calculate your IVF due date', params: [] },
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Track growth percentiles', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Monitor newborn weight changes', params: [] }
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Monitor newborn weight changes', params: [] },
+      { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Expecting puppies? Track that too', params: [] }
     ]
   },
   'ivf-due-date': {
@@ -165,21 +168,25 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Check your blood alcohol level', params: ['weight_kg','gender'] },
       { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'See impact on your longevity', params: ['age','gender'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel', icon: '❤️', reason: 'Check cardiovascular health markers', params: ['age','gender'] }
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel', icon: '❤️', reason: 'Check cardiovascular health markers', params: ['age','gender'] },
+      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Plan finances for a healthier future', params: ['age'] }
     ]
   },
   'lifespan': {
     links: [
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Optimize your cardiovascular health', params: ['age','gender'] },
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Ensure adequate vitamin D levels', params: ['age','gender','weight_kg'] },
-      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Check alcohol\'s effect on longevity', params: ['age','gender'] }
+      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Check alcohol\'s effect on longevity', params: ['age','gender'] },
+      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'Assess genetic hair loss factors', params: ['age','gender'] },
+      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Plan finances for your projected lifespan', params: ['age'] }
     ]
   },
   'lipid-panel': {
     links: [
       { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'See how lipids affect longevity', params: ['age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Manage calories for heart health', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Check your vitamin D needs', params: ['age','gender','weight_kg'] }
+      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Check your vitamin D needs', params: ['age','gender','weight_kg'] },
+      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'DHT and cholesterol share pathways', params: ['age','gender'] }
     ]
   },
   'vitamin-d-intake': {
@@ -224,7 +231,8 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Fit your drink into your calorie budget', params: [] },
       { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Build a healthy lunch too', params: [] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Track your daily macros', params: [] }
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Track your daily macros', params: [] },
+      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Tracking drinks too? Check your BAC', params: [] }
     ]
   },
   'chipotle': {
