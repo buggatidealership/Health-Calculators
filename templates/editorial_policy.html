@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy.",
+    meta_keywords="editorial policy, health calculator standards, evidence-based calculators, source requirements, review process",
+    og_title="Editorial Policy – HealthCalculators.xyz",
+    og_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy.",
+    og_url="/editorial-policy",
+    page_title="Editorial Policy – HealthCalculators.xyz",
+    canonical_url="/editorial-policy",
+    schema_name="Editorial Policy – HealthCalculators.xyz",
+    schema_url="/editorial-policy",
+    schema_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy."
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+    <style>
+        .editorial-hero {
+            text-align: center;
+            padding: 40px 20px 32px;
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 50%, #ecfeff 100%);
+            border-radius: 16px;
+            margin-bottom: 28px;
+        }
+        .editorial-hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin: 0 0 12px;
+        }
+        .editorial-hero p {
+            font-size: 1.05rem;
+            color: #555;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.5;
+        }
+        .editorial-section {
+            margin-bottom: 28px;
+        }
+        .editorial-section h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0 0 12px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid var(--color-accent, #0ea5e9);
+        }
+        .editorial-section p,
+        .editorial-section li {
+            font-size: 0.95rem;
+            color: var(--color-text-secondary, #555);
+            line-height: 1.7;
+        }
+        .editorial-section ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .editorial-section li {
+            margin-bottom: 8px;
+        }
+        .editorial-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin: 20px 0 28px;
+        }
+        .editorial-card {
+            padding: 20px;
+            background: var(--color-surface, #fff);
+            border: 1px solid var(--color-border, #e5e7eb);
+            border-radius: 10px;
+            border-top: 3px solid var(--color-accent, #0ea5e9);
+        }
+        .editorial-card h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: var(--color-text, #1a1a2e);
+        }
+        .editorial-card p {
+            font-size: 0.88rem;
+            color: var(--color-text-secondary, #555);
+            margin: 0;
+            line-height: 1.5;
+        }
+        .editorial-disclaimer {
+            background: var(--color-warning-bg, #fffbeb);
+            border: 1px solid var(--color-warning-border, #fde68a);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 28px 0;
+        }
+        .editorial-disclaimer h2 {
+            margin: 0 0 8px;
+            font-size: 1.1rem;
+        }
+        .editorial-disclaimer p {
+            margin: 0 0 10px;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .editorial-disclaimer p:last-child {
+            margin: 0;
+        }
+        @media (max-width: 600px) {
+            .editorial-hero h1 { font-size: 1.6rem; }
+            .editorial-cards { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+
+<div class="editorial-hero">
+    <h1>Editorial Policy</h1>
+    <p>Our commitment to evidence-based health information. Every calculator, formula, and recommendation on this site is grounded in published research and clinical standards.</p>
+</div>
+
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+<div class="editorial-section">
+    <h2>Our Standards</h2>
+    <p>Every calculator on HealthCalculators.xyz uses formulas derived from peer-reviewed research, clinical guidelines, or established medical standards. We do not invent formulas, extrapolate beyond what the evidence supports, or present unvalidated methods as reliable tools.</p>
+    <p>Our standards require that each calculator clearly identifies the formula or methodology it uses, cites the original source, and states its known limitations. If a formula has competing alternatives in the literature, we select the one with the strongest validation evidence and note the alternatives where relevant.</p>
+</div>
+
+<div class="editorial-section">
+    <h2>Source Requirements</h2>
+    <p>We hold ourselves to specific sourcing standards. Acceptable sources for our calculators include:</p>
+    <ul>
+        <li><strong>Peer-reviewed research</strong> published in indexed journals such as PubMed, the New England Journal of Medicine (NEJM), The Lancet, and JAMA</li>
+        <li><strong>Government and institutional guidelines</strong> from the FDA, WHO, CDC, NIH, and equivalent bodies</li>
+        <li><strong>Established clinical formulas</strong> with widespread medical adoption, such as Mifflin-St Jeor (energy expenditure), Hodgdon-Beckett (body fat), Harris-Benedict (BMR), Cockcroft-Gault (renal function), and Friedewald (LDL estimation)</li>
+        <li><strong>Clinical trial data</strong> from registered trials (e.g., SURMOUNT, STEP trials) for medication-related calculators</li>
+    </ul>
+    <p>We do not use blog posts, social media claims, manufacturer marketing materials, or unverified user testimonials as sources for calculator formulas or health claims.</p>
+</div>
+
+<div class="editorial-section">
+    <h2>Review Process</h2>
+    <p>Each calculator and guide goes through a structured review process before publication:</p>
+    <div class="editorial-cards">
+        <div class="editorial-card">
+            <h3>Accuracy Review</h3>
+            <p>Content is reviewed against the cited sources to verify that formulas, thresholds, and interpretive ranges are correctly implemented.</p>
+        </div>
+        <div class="editorial-card">
+            <h3>Calculation Validation</h3>
+            <p>Calculator outputs are validated against known reference values and, where possible, cross-checked with results from established clinical tools.</p>
+        </div>
+        <div class="editorial-card">
+            <h3>Source Verification</h3>
+            <p>All cited studies and guidelines are confirmed to exist, to say what we claim they say, and to remain current and unretracted.</p>
+        </div>
+        <div class="editorial-card">
+            <h3>Regular Updates</h3>
+            <p>Published pages are periodically reviewed and updated when new research, revised guidelines, or corrected data become available.</p>
+        </div>
+    </div>
+</div>
+
+<div class="editorial-section">
+    <h2>What We Don't Do</h2>
+    <p>Transparency about our limitations is as important as our standards. We want to be clear about what this site is not:</p>
+    <ul>
+        <li><strong>We do not provide medical diagnoses.</strong> Our calculators produce estimates based on population-level data and general formulas. They cannot account for individual medical history, genetics, or concurrent conditions.</li>
+        <li><strong>We do not replace professional medical advice.</strong> Calculator results are a starting point for understanding your health, not a substitute for consultation with a qualified healthcare provider.</li>
+        <li><strong>We do not make claims beyond what published research supports.</strong> If the evidence is limited, uncertain, or conflicting, we say so. We do not present preliminary findings as established fact.</li>
+        <li><strong>We do not accept payment for editorial content.</strong> Our calculator formulas and health information are not influenced by advertisers or sponsors.</li>
+    </ul>
+</div>
+
+<div class="editorial-section">
+    <h2>Corrections Policy</h2>
+    <p>Accuracy is our highest priority. If you find an error in any calculator, formula, citation, or health claim on this site, please email us at <strong>calculatordirectory@gmail.com</strong>. Include the page URL and a description of the issue.</p>
+    <p>We will investigate every report and, if a correction is warranted, update the affected page within <strong>48 hours</strong>. Significant corrections will be noted on the page. We take every error report seriously — getting the math and the medicine right matters.</p>
+</div>
+
+<div class="editorial-section">
+    <h2>Update Schedule</h2>
+    <p>All calculator and guide pages display a last-updated date so you can see how current the information is. We review and update calculators when:</p>
+    <ul>
+        <li>New clinical guidelines are published by relevant medical bodies (FDA, WHO, CDC, etc.)</li>
+        <li>New peer-reviewed research supersedes or refines the formulas we use</li>
+        <li>Errors are identified and confirmed through our corrections process</li>
+        <li>User feedback highlights areas where clarity or accuracy can be improved</li>
+    </ul>
+</div>
+
+<div class="editorial-disclaimer">
+    <h2>Medical Disclaimer</h2>
+    <p>The calculators and articles on this site are for <strong>informational and educational purposes only</strong>. They are not a substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified healthcare provider before making health decisions based on calculator results.</p>
+    <p>Our tools use population-level data and general formulas. Individual results vary based on genetics, medical history, medications, and other factors that no online calculator can fully account for.</p>
+</div>
+
+</div>
+
+{% include 'footer.html' %}
+</body>
+</html>

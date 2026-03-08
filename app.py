@@ -1707,6 +1707,17 @@ def terms():
         schema_url="/terms"
     )
 
+@app.route('/editorial-policy')
+def editorial_policy():
+    return render_template(
+        'editorial_policy.html',
+        is_homepage=False,
+        breadcrumb_title='Editorial Policy',
+        schema_name="Editorial Policy – HealthCalculators.xyz",
+        schema_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy.",
+        schema_url="/editorial-policy"
+    )
+
 @app.route('/sitemap.xml')
 def sitemap_xml():
     """Auto-generate sitemap from registered routes."""

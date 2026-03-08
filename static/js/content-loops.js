@@ -12,305 +12,305 @@
 var CALCULATOR_GRAPH = {
   'bmi': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Find your optimal protein intake', params: ['weight_kg','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight for a healthy BMI', params: ['height_cm','gender'] },
-      { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'Check Army tape test standards', params: ['height_cm','gender','age'] },
-      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'BMI doesn\'t measure fat — this does', params: ['height_cm','gender','age'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Plan your path to a healthier BMI', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your BMI shows where you are — not how many calories it takes to change it', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Most people eat 40% less protein than they need — are you one of them?', params: ['weight_kg','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your "ideal" weight depends on 3 factors most people overlook', params: ['height_cm','gender'] },
+      { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'The military uses a different standard than BMI — would you pass?', params: ['height_cm','gender','age'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: '30% of "healthy" BMIs hide unhealthy body fat levels', params: ['height_cm','gender','age'] },
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: '16:8 fasting burns fat without cutting calories — see your timeline', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'tdee': {
     links: [
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
-      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See how many calories your workouts burn', params: ['weight_kg'] },
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Calculate your optimal daily protein intake', params: ['weight_kg','age','gender'] },
-      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Optimize your {tdee} kcal with carb cycling', params: ['weight_kg','height_cm','age','gender','activity'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'See how fasting affects your {tdee} kcal budget', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight based on your frame', params: ['height_cm','gender'] },
-      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Optimize your sleep for better recovery', params: ['age'] }
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your TDEE changes with your BMI — do you know your category?', params: ['weight_kg','height_cm'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'A 30-min run burns fewer calories than most people think', params: ['weight_kg'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Without enough protein, up to 25% of weight loss comes from muscle', params: ['weight_kg','age','gender'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Cycling carbs around your {tdee} kcal can accelerate fat loss', params: ['weight_kg','height_cm','age','gender','activity'] },
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Fasting changes when you burn your {tdee} kcal — see the difference', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your frame size shifts your ideal weight by up to 15 lbs', params: ['height_cm','gender'] },
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Poor sleep raises hunger hormones by 28% — are you getting enough?', params: ['age'] }
     ]
   },
   'carb-cycling': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Recalculate your base calorie needs', params: ['weight_kg','height_cm','age','gender','activity'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Combine carb cycling with intermittent fasting', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Fine-tune your macro split', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your carb cycle only works if your TDEE baseline is accurate', params: ['weight_kg','height_cm','age','gender','activity'] },
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Stacking fasting with carb cycling doubled fat loss in one study', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your fat-to-protein ratio matters more than total calories', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'fasting': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Know your daily calorie needs first', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Set your fasting target weight', params: ['height_cm','gender'] },
-      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Pair fasting with carb cycling', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/creatine-water-calculator', title: 'Hydration Calculator', icon: '💧', reason: 'Stay hydrated during fasting', params: ['weight_kg'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Fasting without knowing your TDEE? You might be undereating', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'How far are you from your ideal weight? The answer sets your timeline', params: ['height_cm','gender'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'High-carb days on workout days can boost fasting results by 20%', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/creatine-water-calculator', title: 'Hydration Calculator', icon: '💧', reason: 'Dehydration during fasting drops metabolism — find your water target', params: ['weight_kg'] }
     ]
   },
   'ideal-body-weight': {
     links: [
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your current BMI category', params: ['weight_kg','height_cm'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate calories for your ideal weight', params: ['height_cm','gender','age'] },
-      { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Estimate your current body composition', params: ['height_cm','gender','age'] },
-      { url: '/plasma-donation-earnings-calculator', title: 'Plasma Donation', icon: '🩸', reason: 'Check if you meet weight requirements', params: ['weight_kg','height_cm'] }
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'How far is your current BMI from where your ideal weight lands?', params: ['weight_kg','height_cm'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Reaching your ideal weight takes a specific calorie number — find it', params: ['height_cm','gender','age'] },
+      { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Two people at the same weight can have 10%+ different body fat', params: ['height_cm','gender','age'] },
+      { url: '/plasma-donation-earnings-calculator', title: 'Plasma Donation', icon: '🩸', reason: 'You could earn $500+/month donating plasma — do you qualify?', params: ['weight_kg','height_cm'] }
     ]
   },
   'caloric-macro': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Refine your calorie baseline', params: ['weight_kg','height_cm','age','gender','activity'] },
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Dial in your protein target', params: ['weight_kg','age','gender'] },
-      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Cycle your macros for better results', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Build a meal that fits your macros' }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your macros mean nothing if your calorie baseline is off — is it?', params: ['weight_kg','height_cm','age','gender','activity'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'The 0.8g/kg protein RDA is a minimum, not optimal — find yours', params: ['weight_kg','age','gender'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Same weekly macros, different daily splits — the results surprised researchers', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'A Chipotle bowl can hit your macros perfectly — or blow them by 800 cal' }
     ]
   },
   'army-body-fat': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate calories for your body composition', params: ['height_cm','gender','age'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] },
-      { url: '/body-fat-calculator', title: 'Navy Body Fat Calculator', icon: '📐', reason: 'Compare with Navy method estimate', params: ['height_cm','gender','age'] },
-      { url: '/liposuction-weight-loss-calculator', title: 'Liposuction Calculator', icon: '💉', reason: 'Estimate fat removal results', params: ['weight_kg','height_cm','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your body fat % determines your actual calorie burn — it\'s not what you\'d guess', params: ['height_cm','gender','age'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Muscle weighs more than fat — your ideal weight might be higher than you think', params: ['height_cm','gender'] },
+      { url: '/body-fat-calculator', title: 'Navy Body Fat Calculator', icon: '📐', reason: 'Army and Navy methods can differ by 3-5% — which is more accurate for you?', params: ['height_cm','gender','age'] },
+      { url: '/liposuction-weight-loss-calculator', title: 'Liposuction Calculator', icon: '💉', reason: 'Lipo removes 1-11 lbs of fat per area — see your projected result', params: ['weight_kg','height_cm','gender'] }
     ]
   },
   'body-fat': {
     links: [
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Optimize protein for body recomposition', params: ['weight_kg','age','gender'] },
-      { url: '/army-body-fat-calculator', title: 'Army Body Fat Calculator', icon: '⭐', reason: 'Check Army tape test standards', params: ['height_cm','gender','age'] }
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your body fat and BMI often tell different stories — see yours', params: ['weight_kg','height_cm'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'At your body fat %, your ideal weight is probably not what you expect', params: ['height_cm','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Muscle burns 3x more calories than fat — your TDEE reflects that', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Recomposition requires a specific protein threshold — are you hitting it?', params: ['weight_kg','age','gender'] },
+      { url: '/army-body-fat-calculator', title: 'Army Body Fat Calculator', icon: '⭐', reason: 'The Army tape test gives a different number — would you pass?', params: ['height_cm','gender','age'] }
     ]
   },
   'ozempic': {
     links: [
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Compare with tirzepatide projections', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Calculate your exact pen clicks', params: [] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Optimize calories alongside Ozempic', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Combine Ozempic with fasting', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/antidepressant-weight-gain-calculator', title: 'Antidepressant Weight', icon: '💊', reason: 'Check medication weight interactions', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro users lost 22.5% of body weight in trials — see your projection', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Ozempic cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Some doctors pair Ozempic with fasting — see how the math changes', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/antidepressant-weight-gain-calculator', title: 'Antidepressant Weight', icon: '💊', reason: 'Some antidepressants add 7+ lbs — could that be offsetting your results?', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'ozempic-pen': {
     links: [
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'Project your weight loss timeline', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Set your calorie target with Ozempic', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'The average Ozempic user loses 15% body weight — where do you land?', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Eating below your calorie floor on Ozempic causes muscle loss — find it', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'mounjaro': {
     links: [
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Compare with semaglutide projections', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your current BMI category', params: ['weight_kg','height_cm'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Optimize calories alongside Mounjaro', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Plan your nutrition while on Mounjaro', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] }
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic averages 15% loss vs Mounjaro\'s 22.5% — see your comparison', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most Mounjaro users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'GLP-1 drugs slash appetite — but the wrong macros cost you muscle', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'When should you stop losing? Your frame determines the answer', params: ['height_cm','gender'] }
     ]
   },
   'antidepressant': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Manage calories during medication', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'Explore weight loss medication options', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Set a healthy weight target', params: ['height_cm','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Medication weight gain is partly metabolic — your true calorie need may differ', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'Ozempic is now prescribed alongside antidepressants — see your projection', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'A realistic target weight accounts for medication — is yours accurate?', params: ['height_cm','gender'] }
     ]
   },
   'breast-implant-size': {
     links: [
-      { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: 'Convert your CCs to bra size', params: [] },
-      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Estimate total procedure cost', params: [] },
-      { url: '/breast-implant-calculator', title: 'Implant Comparison', icon: '🔬', reason: 'Compare implant types and profiles', params: [] }
+      { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: '300cc doesn\'t always mean the same cup size — your frame changes it', params: [] },
+      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Total cost varies by $3,000+ depending on type and surgeon — get your estimate', params: [] },
+      { url: '/breast-implant-calculator', title: 'Implant Comparison', icon: '🔬', reason: 'Silicone vs saline, round vs teardrop — each profile looks different on you', params: [] }
     ]
   },
   'cc-to-bra': {
     links: [
-      { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Find your ideal implant size', params: [] },
-      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Estimate total procedure cost', params: [] },
-      { url: '/breast-implant-calculator', title: 'Implant Comparison', icon: '🔬', reason: 'Compare types and profiles', params: [] }
+      { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Your chest width and tissue affect the result more than CCs alone', params: [] },
+      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'The price gap between silicone and saline is bigger than you\'d think', params: [] },
+      { url: '/breast-implant-calculator', title: 'Implant Comparison', icon: '🔬', reason: 'High vs low profile changes your look completely at the same CC', params: [] }
     ]
   },
   'breast-implant-cost': {
     links: [
-      { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Determine your ideal size', params: [] },
-      { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: 'Convert CCs to cup size', params: [] },
-      { url: '/botox-calculator', title: 'Botox Cost', icon: '💉', reason: 'Plan additional procedures', params: [] }
+      { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Size affects cost — but the "right" size depends on 4 body measurements', params: [] },
+      { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: 'The same CCs produce different cup sizes on different frames', params: [] },
+      { url: '/botox-calculator', title: 'Botox Cost', icon: '💉', reason: 'Bundling procedures saves 15-20% on average — see your Botox estimate', params: [] }
     ]
   },
   'breast-implant': {
     links: [
-      { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Fine-tune your size choice', params: [] },
-      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Estimate your total cost', params: [] },
-      { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: 'Convert CCs to bra size', params: [] }
+      { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Most patients wish they\'d gone slightly larger — find your number first', params: [] },
+      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Costs range from $5,000 to $12,000+ — see where your choice falls', params: [] },
+      { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: '350cc is a C cup on one frame and a D on another — check yours', params: [] }
     ]
   },
   'botox': {
     links: [
-      { url: '/lip-filler-cost-calculator', title: 'Lip Filler Cost', icon: '💋', reason: 'Estimate lip filler pricing', params: [] },
-      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Plan additional procedures', params: [] },
-      { url: '/liposuction-weight-loss-calculator', title: 'Liposuction', icon: '📐', reason: 'Explore body contouring', params: [] }
+      { url: '/lip-filler-cost-calculator', title: 'Lip Filler Cost', icon: '💋', reason: 'Lip filler costs $500-$2,000 per session — your price depends on volume', params: [] },
+      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Bundling Botox with other procedures often saves 15-20%', params: [] },
+      { url: '/liposuction-weight-loss-calculator', title: 'Liposuction', icon: '📐', reason: 'Lipo removes fat Botox can\'t touch — see your projected result', params: [] }
     ]
   },
   'lip-filler': {
     links: [
-      { url: '/botox-calculator', title: 'Botox Calculator', icon: '💉', reason: 'Estimate Botox costs', params: [] },
-      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Plan additional procedures', params: [] }
+      { url: '/botox-calculator', title: 'Botox Calculator', icon: '💉', reason: '68% of filler patients also get Botox — see what yours would cost', params: [] },
+      { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Combining procedures in one visit cuts total cost significantly', params: [] }
     ]
   },
   'liposuction': {
     links: [
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Set your post-procedure target', params: ['height_cm','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Maintain results with proper calories', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Estimate your body composition', params: ['height_cm','gender'] }
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Post-lipo weight isn\'t the same as ideal weight — find the difference', params: ['height_cm','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Lipo results reverse without the right calorie target — know yours', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Lipo changes your body fat % — see where you\'d land after', params: ['height_cm','gender'] }
     ]
   },
   'fertility': {
     links: [
-      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'Calculate your IVF due date', params: [] },
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Track growth percentiles', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Monitor newborn weight changes', params: [] },
-      { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Expecting puppies? Track that too', params: [] }
+      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'IVF due dates differ from natural conception dates — find yours', params: [] },
+      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Is your child in the 50th percentile? That might not mean what you think', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Newborns lose up to 10% of birth weight — is yours on track?', params: [] },
+      { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Dog pregnancies last only 63 days — is your pup on schedule?', params: [] }
     ]
   },
   'ivf-due-date': {
     links: [
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Assess fertility factors', params: ['age'] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Prepare for newborn care', params: [] },
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Track growth after birth', params: [] }
+      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility drops 50% between age 30 and 40 — where do you stand?', params: ['age'] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'All newborns lose weight after birth — know when to worry and when not to', params: [] },
+      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'IVF babies follow different early growth curves — track yours', params: [] }
     ]
   },
   'newborn-weight': {
     links: [
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Track ongoing growth percentiles', params: [] },
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Plan your next pregnancy', params: [] }
+      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Birth weight predicts growth trajectory — see your child\'s percentile', params: [] },
+      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Spacing pregnancies 18+ months apart improves outcomes — check your window', params: [] }
     ]
   },
   'child-growth': {
     links: [
-      { url: '/adult-height-predictor-calculator', title: 'Height Predictor', icon: '📐', reason: 'Predict adult height', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Check newborn weight loss', params: [] }
+      { url: '/adult-height-predictor-calculator', title: 'Height Predictor', icon: '📐', reason: 'A child\'s current percentile doesn\'t predict adult height — this formula does', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Up to 10% weight loss is normal for newborns — was yours in range?', params: [] }
     ]
   },
   'adult-height': {
     links: [
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Track growth percentiles', params: [] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find ideal weight for predicted height', params: ['height_cm','gender'] }
+      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Growth spurts happen at specific ages — is your child on the curve?', params: [] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Every inch of height shifts ideal weight by 5-10 lbs — see the target', params: ['height_cm','gender'] }
     ]
   },
   'bac': {
     links: [
-      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'See long-term health effects', params: ['weight_kg','gender','age'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Check alcohol\'s effect on longevity', params: ['age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Count alcohol calories in your budget', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: '2 drinks/day raises disease risk by 20% — see your personal impact', params: ['weight_kg','gender','age'] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each drink pattern maps to a different lifespan estimate — find yours', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A beer has 150+ invisible calories — see what that does to your budget', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'alcohol-impact': {
     links: [
-      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Check your blood alcohol level', params: ['weight_kg','gender'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'See impact on your longevity', params: ['age','gender'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel', icon: '❤️', reason: 'Check cardiovascular health markers', params: ['age','gender'] },
-      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Plan finances for a healthier future', params: ['age'] }
+      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Your weight and gender change BAC more than the number of drinks', params: ['weight_kg','gender'] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Moderate drinking adds years in some studies, costs them in others — see yours', params: ['age','gender'] },
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel', icon: '❤️', reason: 'Alcohol raises HDL but also triglycerides — is the tradeoff worth it?', params: ['age','gender'] },
+      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Living longer means needing more savings — does your plan match?', params: ['age'] }
     ]
   },
   'lifespan': {
     links: [
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Optimize your cardiovascular health', params: ['age','gender'] },
-      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Ensure adequate vitamin D levels', params: ['age','gender','weight_kg'] },
-      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Check alcohol\'s effect on longevity', params: ['age','gender'] },
-      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'Assess genetic hair loss factors', params: ['age','gender'] },
-      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Plan finances for your projected lifespan', params: ['age'] }
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Heart disease is the #1 killer — your lipid numbers reveal your risk', params: ['age','gender'] },
+      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: '42% of Americans are vitamin D deficient — it cuts lifespan silently', params: ['age','gender','weight_kg'] },
+      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Even "moderate" drinking affects lifespan differently than you\'d expect', params: ['age','gender'] },
+      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'Early baldness correlates with heart risk — it\'s not just cosmetic', params: ['age','gender'] },
+      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Your projected lifespan determines how much savings you actually need', params: ['age'] }
     ]
   },
   'lipid-panel': {
     links: [
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'See how lipids affect longevity', params: ['age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Manage calories for heart health', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Check your vitamin D needs', params: ['age','gender','weight_kg'] },
-      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'DHT and cholesterol share pathways', params: ['age','gender'] }
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal LDL adds up to 10 years of life expectancy — check your estimate', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing just 5% body weight can drop LDL by 10% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Low vitamin D is linked to worse lipid profiles — are you getting enough?', params: ['age','gender','weight_kg'] },
+      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'DHT and cholesterol share metabolic pathways — your risk may be connected', params: ['age','gender'] }
     ]
   },
   'vitamin-d-intake': {
     links: [
-      { url: '/vitamin-d-conversion-calculator', title: 'Vitamin D Units', icon: '🔄', reason: 'Convert between IU, mcg, and nmol/L', params: [] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'See vitamin D\'s effect on longevity', params: ['age','gender'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Check your heart health markers', params: ['age','gender'] }
+      { url: '/vitamin-d-conversion-calculator', title: 'Vitamin D Units', icon: '🔄', reason: 'Your lab uses nmol/L but your supplement says IU — they\'re not the same', params: [] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal vitamin D levels correlate with 7+ years longer lifespan', params: ['age','gender'] },
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Vitamin D deficiency worsens cholesterol — check your heart markers', params: ['age','gender'] }
     ]
   },
   'vitamin-d-conversion': {
     links: [
-      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Find your optimal daily intake', params: ['age','gender','weight_kg'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'See vitamin D\'s longevity benefits', params: ['age','gender'] }
+      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Most people take the wrong dose — your weight and age change the number', params: ['age','gender','weight_kg'] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Vitamin D levels above 40 ng/mL link to significantly longer lifespan', params: ['age','gender'] }
     ]
   },
   'baldness': {
     links: [
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Explore genetic health factors', params: ['age','gender'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Check related health markers', params: ['age','gender'] }
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Early hair loss shares genetic markers with longevity — see your estimate', params: ['age','gender'] },
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Men with vertex baldness have 36% higher heart disease risk — check yours', params: ['age','gender'] }
     ]
   },
   'dog-pregnancy': {
     links: [
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Track child growth percentiles', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Monitor newborn weight', params: [] }
+      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Growing kids at home too? See if they\'re hitting their percentiles', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Human newborns lose 5-10% of birth weight — know what\'s normal', params: [] }
     ]
   },
   'plasma-donation': {
     links: [
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Check weight requirements for donation', params: ['height_cm','gender'] },
-      { url: '/creatine-water-calculator', title: 'Hydration Calculator', icon: '💧', reason: 'Stay hydrated for donation', params: ['weight_kg'] }
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'You must weigh at least 110 lbs to donate — where does your ideal fall?', params: ['height_cm','gender'] },
+      { url: '/creatine-water-calculator', title: 'Hydration Calculator', icon: '💧', reason: 'Dehydration before donating causes 30% of deferrals — check your intake', params: ['weight_kg'] }
     ]
   },
   'creatine': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Optimize calories with creatine', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Pair creatine with carb cycling', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Set your muscle-building target', params: ['height_cm','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Creatine boosts performance but not without enough calories — find your floor', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Creatine absorbs better with carbs — timing your cycling matters', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Creatine adds 2-5 lbs of water weight — your real target is different', params: ['height_cm','gender'] }
     ]
   },
   'starbucks': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Fit your drink into your calorie budget', params: [] },
-      { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Build a healthy lunch too', params: [] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Track your daily macros', params: [] },
-      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Tracking drinks too? Check your BAC', params: [] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A Frappuccino can be 25% of your daily calories — do you know your limit?', params: [] },
+      { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Your Chipotle order could be 500 or 1,200 cal — the difference is 3 choices', params: [] },
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'That latte has almost no protein — see what your daily macros need', params: [] },
+      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Coffee masks alcohol effects but doesn\'t lower BAC — know your real level', params: [] }
     ]
   },
   'chipotle': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Fit your meal into your calorie budget', params: [] },
-      { url: '/starbucks-nutrition-calculator', title: 'Starbucks Nutrition', icon: '☕', reason: 'Check your drink calories too', params: [] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Track your daily macros', params: [] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A burrito can eat 50%+ of your daily calories — find your actual budget', params: [] },
+      { url: '/starbucks-nutrition-calculator', title: 'Starbucks Nutrition', icon: '☕', reason: 'Your afternoon Starbucks might have more calories than your Chipotle bowl', params: [] },
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Chipotle is high-protein but the carb/fat ratio varies wildly by order', params: [] }
     ]
   },
   'retirement': {
     links: [
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Estimate how long your savings need to last', params: ['age','gender'] }
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Most people underestimate their lifespan by 5+ years — can your savings cover it?', params: ['age','gender'] }
     ]
   },
   'protein-intake': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Get your full macronutrient breakdown', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Calculate your optimal daily hydration', params: ['weight_kg','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Protein needs depend on your calorie deficit — eating blind wastes effort', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Protein is only 1 of 3 macros — the other 2 determine your results too', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'High-protein diets need 30%+ more water — are you drinking enough?', params: ['weight_kg','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI category changes your optimal protein range by 20-40g', params: ['weight_kg','height_cm'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Protein targets should be based on ideal weight, not current weight', params: ['height_cm','gender'] }
     ]
   },
   'water-intake': {
     links: [
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Calculate your optimal protein intake', params: ['weight_kg','age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Get your full macronutrient breakdown', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] }
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'High protein requires more water — but most people don\'t adjust their protein either', params: ['weight_kg','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Even mild dehydration drops your metabolism 3% — pair water with your calorie plan', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Water retention changes with your carb intake — get your full macro picture', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Water weight can shift your BMI by a full point — find your true number', params: ['weight_kg','height_cm'] }
     ]
   },
   'calories-burned': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your total daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Fuel your workouts with optimal protein', params: ['weight_kg','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Plan your post-workout nutrition', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Exercise is only 15-30% of your total burn — do you know the rest?', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Eating protein within 2 hours post-workout boosts recovery by 25%', params: ['weight_kg','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Heavier people burn more calories per workout — check your BMI context', params: ['weight_kg','height_cm'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'What you eat after a workout matters more than the workout itself', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'sleep': {
     links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['age'] },
-      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See how exercise affects your sleep needs', params: [] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: [] }
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Sleeping under 7 hours changes your calorie burn — see the real number', params: ['age'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Exercise improves sleep quality, but timing matters — check your burn', params: [] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Poor sleepers are 55% more likely to be obese — where\'s your BMI?', params: [] }
     ]
   }
 };
