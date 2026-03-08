@@ -442,7 +442,7 @@ li {
 }
 
 /* Standard Result Display */
-.result {
+.result, .results-section {
     margin-top: 30px;
     padding: 20px;
     background-color: #f9f9f9;

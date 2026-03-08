@@ -204,18 +204,54 @@
             
 
             
-            <div id="result" class="result hidden">
-                <h2>Your Longevity Estimate</h2>
-                <p>Based on your inputs, your estimated lifespan is: <strong><span id="lifespan">85</span> years</strong></p>
-                
-                <p>Compared to average (<span id="average-lifespan">79</span> years for your gender):
-                    <strong><span id="difference">+6</span> years</strong></p>
-                
-                <h3>Key Factors Affecting Your Longevity:</h3>
-                <div id="factors"></div>
-                
-                <h3>Recommendations to Extend Your Lifespan:</h3>
-                <ul id="recommendations"></ul>
+            <div id="result" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number"><span id="lifespan">85</span> years</div>
+                    <div class="result-hero-label">Estimated Lifespan</div>
+                    <div class="result-hero-sublabel" id="lifespan-comparison">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card green" id="diff-card">
+                        <div class="result-card-title">vs. Average</div>
+                        <div class="result-card-value" id="difference">+6</div>
+                        <div class="result-card-note">years compared to <span id="average-lifespan">79</span> avg</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Years Remaining</div>
+                        <div class="result-card-value" id="years-remaining">—</div>
+                        <div class="result-card-note">from current age</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Health Score</div>
+                        <div class="result-card-value" id="health-score">—</div>
+                        <div class="result-card-note">lifestyle factors</div>
+                    </div>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Lifespan Range</div>
+                    <div class="result-gauge-bar" style="position: relative;">
+                        <div class="result-gauge-fill" id="lifespan-gauge" style="width: 50%; background: #4caf50;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>65</span>
+                        <span>75</span>
+                        <span>85</span>
+                        <span>95</span>
+                        <span>105</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Key Factors Affecting Your Longevity</div>
+                    <div id="factors"></div>
+                </div>
+
+                <div class="result-breakdown" style="border-left: 3px solid #d63384;">
+                    <div class="result-breakdown-title">Recommendations to Extend Your Lifespan</div>
+                    <ul id="recommendations" style="margin: 8px 0 0; padding-left: 20px;"></ul>
+                </div>
             </div>
             
             <div class="footnote">
@@ -387,7 +423,51 @@
             document.getElementById('lifespan').textContent = Math.round(baseLifespan);
             document.getElementById('average-lifespan').textContent = averageLifespan;
             document.getElementById('difference').textContent = difference >= 0 ? `+${Math.round(difference)}` : Math.round(difference);
-           
+
+            // Populate lifespan comparison text
+            const aboveBelow = difference >= 0 ? 'above' : 'below';
+            document.getElementById('lifespan-comparison').textContent = Math.abs(Math.round(difference)) + ' years ' + aboveBelow + ' average for ' + gender;
+
+            // Years remaining
+            const yearsRemaining = Math.round(baseLifespan) - currentAge;
+            document.getElementById('years-remaining').textContent = yearsRemaining > 0 ? yearsRemaining : 0;
+
+            // Health score (sum of all lifestyle adjustments)
+            const totalAdjustment = bmiEffect + exerciseEffect + diet + sleepEffect + stress + smoking + alcohol + education + social + parentalAge;
+            document.getElementById('health-score').textContent = totalAdjustment >= 0 ? '+' + totalAdjustment.toFixed(1) : totalAdjustment.toFixed(1);
+
+            // Diff card color: green if positive, red if negative
+            const diffCard = document.getElementById('diff-card');
+            diffCard.className = difference >= 0 ? 'result-card green' : 'result-card red';
+
+            // Result hero border color: green if above avg, orange if near (±2), red if below
+            const heroEl = document.getElementById('result-hero');
+            if (difference > 2) {
+                heroEl.style.borderColor = '#4caf50';
+                heroEl.style.background = 'linear-gradient(135deg, #e8f5e9, #fff)';
+            } else if (difference >= -2) {
+                heroEl.style.borderColor = '#ff9800';
+                heroEl.style.background = 'linear-gradient(135deg, #fff3e0, #fff)';
+            } else {
+                heroEl.style.borderColor = '#f44336';
+                heroEl.style.background = 'linear-gradient(135deg, #ffebee, #fff)';
+            }
+
+            // Lifespan gauge: map 65-105 to 0-100%
+            const gaugePercent = Math.max(0, Math.min(100, ((Math.round(baseLifespan) - 65) / 40) * 100));
+            const gaugeEl = document.getElementById('lifespan-gauge');
+            gaugeEl.style.width = gaugePercent + '%';
+            const rounded = Math.round(baseLifespan);
+            if (rounded < 72) {
+                gaugeEl.style.background = '#f44336';
+            } else if (rounded <= 78) {
+                gaugeEl.style.background = '#ff9800';
+            } else if (rounded <= 90) {
+                gaugeEl.style.background = '#4caf50';
+            } else {
+                gaugeEl.style.background = '#2196f3';
+            }
+
             // Show key factors
             const factorsEl = document.getElementById('factors');
             factorsEl.innerHTML = '';
