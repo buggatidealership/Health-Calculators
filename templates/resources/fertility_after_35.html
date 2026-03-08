@@ -147,10 +147,9 @@
     <a href="/female-fertility-calculator" style="background-color: #d63384; color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; margin-left: 20px; display: inline-block;">Try Calculator</a>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="fertility-after-35-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Table of Contents -->
 <div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
@@ -261,10 +260,9 @@
     <p>This decline in egg quality is directly related to the aging of the eggs, which have been present since birth and accumulate cellular damage over time, particularly to mitochondria and meiotic spindle apparatus.</p>
 </section>
 
-<!-- Middle Ad -->
-<div class="adunit-mid" style="margin: 40px 0;">
-  <AdUnit slot="fertility-after-35-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="hormone-markers">
     <h2>Hormone Markers: AMH, FSH, and Ovarian Reserve</h2>
@@ -523,10 +521,9 @@
     <p>These costs are rarely covered by insurance unless the fertility preservation is medically necessary (such as before cancer treatment).</p>
 </section>
 
-<!-- Bottom Ad -->
-<div class="adunit-bottom" style="margin: 40px 0;">
-  <AdUnit slot="fertility-after-35-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="lifestyle-factors">
     <h2>Lifestyle Factors That Influence Fertility</h2>
@@ -660,10 +657,9 @@
 
 </div>
 
-<!-- Bottom Ad -->
-<div class="adunit-bottom" style="margin: 40px 0;">
-    <AdUnit slot="fertility-after-35-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <footer class="footer-disclaimer">
     <p><strong>Disclaimer:</strong> This article is for educational purposes only and does not constitute medical advice. Consult a fertility specialist or reproductive endocrinologist for personalized guidance.</p>
@@ -674,10 +670,9 @@
 </body>
 </html></div>
 
-<!-- Bottom Ad -->
-<div class="adunit-bottom" style="margin: 40px 0;">
-    <AdUnit slot="fertility-after-35-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <footer class="footer-disclaimer">
     <p><strong>Disclaimer:</strong> This article is for educational purposes only and does not constitute medical advice. Consult a fertility specialist or reproductive endocrinologist for personalized guidance.</p>

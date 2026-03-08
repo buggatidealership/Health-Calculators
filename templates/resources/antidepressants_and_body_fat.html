@@ -73,10 +73,9 @@
         </ul>
     </div>
 
-    <!-- Top Ad -->
-    <div class="adunit-top">
-        <AdUnit slot="antidepressants-body-fat-guide-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Calculator CTA -->
     <div class="cta-box" style="background-color: #f0f4ff; border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid #3f51b5;">
@@ -151,10 +150,9 @@
         <p>Additionally, medications like mirtazapine have strong antihistamine effects, which directly increase appetite and food-seeking behavior through the central histamine H1 receptor. This explains why medications with stronger antihistaminergic properties often show the most pronounced weight gain effects.</p>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-middle">
-        <AdUnit slot="antidepressants-body-fat-guide-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Comparison Section -->
     <section id="comparison">
@@ -479,10 +477,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom">
-        <AdUnit slot="antidepressants-body-fat-guide-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Medical disclaimer is now at the top of the page -->
     

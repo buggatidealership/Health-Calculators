@@ -84,10 +84,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="creatine-water-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -167,10 +166,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid mid-ad-spacing">
-        <AdUnit slot="creatine-water-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <div class="calculator">
     <!-- How to Use Section -->
@@ -230,10 +228,9 @@
     </section>
     </div> <!-- End of calculator div -->
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom bottom-ad-spacing">
-        <AdUnit slot="creatine-water-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     </div> <!-- End of calculator-container -->
     

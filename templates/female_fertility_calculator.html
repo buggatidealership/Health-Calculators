@@ -46,10 +46,9 @@
     <h1>Female Fertility Calculator</h1>
     <p class="subtitle">This science-based calculator helps you identify your most fertile days based on your menstrual cycle. Enter your cycle information to receive personalized predictions for your fertility window, helping you optimize your chances of natural conception.</p>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-      <AdUnit slot="female-fertility-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <div class="medical-disclaimer" style="margin-top: 24px; background-color: #fff0f3; padding: 16px 20px; border-left: 4px solid #d63384; border-radius: 8px; font-size: 15px;">
       <p style="margin: 0;">
@@ -125,10 +124,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
-      <AdUnit slot="female-fertility-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- START Related Guide Section -->
     <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
@@ -163,10 +161,9 @@
         <p>This calculator helps you plan conception by identifying days with highest probability of fertilization. For best results, track multiple fertility signs like basal body temperature, cervical mucus changes, and ovulation tests.</p>
     </div>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-      <AdUnit slot="female-fertility-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <!-- FAQ Section -->
     <div class="faq-section">

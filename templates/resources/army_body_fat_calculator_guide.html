@@ -158,10 +158,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="army-body-fat-calculator-guide-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="standards">
         <h2>Understanding Army Body Fat Standards</h2>
@@ -276,10 +275,9 @@
         <p>These methodological differences reflect physiological realities: women typically carry more essential body fat than men and distribute it differently throughout their bodies. The additional hip measurement for women accounts for this difference in fat distribution patterns.</p>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
-        <AdUnit slot="army-body-fat-calculator-guide-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="step-by-step">
         <h2>Step-by-Step: How to Calculate Body Fat</h2>
@@ -492,10 +490,9 @@
         <p>These complementary tools can provide a more comprehensive picture of your health metrics and goals, especially if you're working toward meeting military fitness standards or improving body composition.</p>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-        <AdUnit slot="army-body-fat-calculator-guide-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="faq">
         <h2>Frequently Asked Questions</h2>

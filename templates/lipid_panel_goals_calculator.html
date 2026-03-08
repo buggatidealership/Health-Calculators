@@ -694,10 +694,9 @@
 
     {% include 'components/medical-disclaimer.html' %}
 
-    <!-- Top Ad -->
-    <div class="adunit-top">
-      <AdUnit slot="lipid-panel-goals-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <div class="table-of-contents">
       <h3>Contents</h3>
@@ -852,10 +851,9 @@
       </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-middle">
-      <AdUnit slot="lipid-panel-goals-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <section id="how-to-use">
       <h2>How to Use the Lipid Panel Goals Calculator</h2>
@@ -926,10 +924,9 @@
       </div>
     </section>
 
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom">
-      <AdUnit slot="lipid-panel-goals-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <!-- Footer -->
     <footer style="text-align: center; font-size: 14px; color: #777; margin-top: 40px;">

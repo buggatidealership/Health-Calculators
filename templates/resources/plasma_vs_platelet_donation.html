@@ -187,10 +187,9 @@
     </div>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="plasma-vs-platelet-donation-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="quick-comparison">
     <h2>Quick Comparison: Plasma vs Platelet Donation</h2>
@@ -292,10 +291,9 @@
     </ul>
 </section>
 
-<!-- Mid Ad -->
-<div class="adunit-mid" style="margin: 30px 0;">
-  <AdUnit slot="plasma-vs-platelet-donation-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Try the Calculator Section (Middle) -->
 <div style="background-color: #fff8f8; padding: 30px; border-radius: 10px; margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -787,10 +785,9 @@
     </div>
 </div>
 
-<!-- Ad placement - bottom -->
-<div class="adunit-bottom bottom-ad-spacing">
-    <AdUnit slot="plasma-vs-platelet-donation-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 {% include 'components/medical-disclaimer.html' %}
 

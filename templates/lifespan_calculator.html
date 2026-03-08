@@ -84,10 +84,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top">
-        <AdUnit slot="lifespan-longevity-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -222,10 +221,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid">
-        <AdUnit slot="lifespan-longevity-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="how-to-use" class="mt-60">
       <div class="info">
@@ -287,10 +285,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom">
-        <AdUnit slot="lifespan-longevity-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Footer -->
     <footer>

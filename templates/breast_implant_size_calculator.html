@@ -88,10 +88,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="breast-implant-size-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -201,10 +200,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-middle" style="margin: 30px 0;">
-        <AdUnit slot="breast-implant-size-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- START Related Guide Section -->
     <div style="background-color: #f8f9fa; padding: 25px; border-radius: 8px; margin: 30px 0; border-left: 4px solid #d63384;">
@@ -327,10 +325,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 30px 0;">
-        <AdUnit slot="breast-implant-size-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Footer -->
     <div class="footer-disclaimer">

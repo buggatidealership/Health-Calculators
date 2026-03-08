@@ -132,10 +132,9 @@
     <a href="/baldness-risk-calculator" style="background-color: #d63384; color: white; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; white-space: nowrap;">Estimate Now →</a>
 </div>
 
-<!-- Ad placement - top -->
-<div class="adunit-top">
-    <AdUnit slot="how-to-prevent-hair-loss-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="daily-habits">
     <h2>Daily Habits That Reduce Hair Loss</h2>
@@ -212,10 +211,9 @@
     </div>
 </section>
 
-<!-- Ad placement - mid -->
-<div class="adunit-middle">
-    <AdUnit slot="how-to-prevent-hair-loss-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="related-tools">
     <h2>Related Tools</h2>
@@ -282,10 +280,9 @@
     </div>
 </section>
 
-<!-- Ad placement - bottom -->
-<div class="adunit-bottom bottom-ad-spacing">
-    <AdUnit slot="how-to-prevent-hair-loss-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 </div>
 

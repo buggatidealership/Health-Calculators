@@ -187,10 +187,9 @@
     <a href="/cc-to-bra-size-calculator" class="btn btn-primary">Try Calculator</a>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="breast-implant-size-guide-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Table of Contents -->
 <div class="table-of-contents">
@@ -341,10 +340,9 @@
     </div>
 </section>
 
-<!-- Mid Ad -->
-<div class="adunit-mid" style="margin: 40px 0;">
-  <AdUnit slot="breast-implant-size-guide-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="factors">
     <h2>What Affects How Many CCs You Need</h2>
@@ -610,10 +608,9 @@
     </div>
 </section>
 
-<!-- Bottom Ad -->
-<div class="adunit-bottom" style="margin: 40px 0;">
-  <AdUnit slot="breast-implant-size-guide-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <footer class="footer-disclaimer">
     <p><strong>Disclaimer:</strong> This guide is for educational use only. Always consult a board-certified plastic surgeon before choosing an implant size.</p>

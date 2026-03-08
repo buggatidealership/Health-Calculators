@@ -132,10 +132,9 @@
     <a href="/cc-to-bra-size-calculator" class="cta-button">Try Calculator</a>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="how-many-ccs-is-a-c-cup-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Table of Contents -->
 <div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
@@ -287,10 +286,9 @@
     <p>While cup size conversion is useful, not everyone should pursue implants. Learn about <a href="/resources/who-should-not-get-breast-implants" class="pink-link">who may be medically ineligible for breast augmentation</a>.</p>
 </section>
 
-<!-- Mid Ad -->
-<div class="adunit-mid" style="margin: 40px 0;">
-  <AdUnit slot="how-many-ccs-is-a-c-cup-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="different-profiles">
     <h2>Profile Differences: Getting a C Cup</h2>
@@ -717,10 +715,9 @@
     </div>
 </section>
 
-<!-- Bottom Ad -->
-<div class="adunit-bottom bottom-ad-spacing">
-  <AdUnit slot="how-many-ccs-is-a-c-cup-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <div class="medical-disclaimer">
   <p><strong>Important:</strong> This article is for educational purposes only and does not constitute medical advice. Breast implant sizing should be discussed with a board-certified plastic surgeon who can evaluate your unique anatomy and aesthetic goals. Individual results vary.</p>

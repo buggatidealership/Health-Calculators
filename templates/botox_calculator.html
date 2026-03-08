@@ -72,10 +72,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top ad-spacing">
-        <AdUnit slot="botox-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
         
         <!-- Calculator Section -->
         <section id="calculator">
@@ -202,9 +201,9 @@
         </section>
         
         <!-- Ad Unit – Mid -->
-        <div class="adunit-mid mid-ad-spacing">
-            <AdUnit slot="botox-mid" />
-        </div>
+        {% with ad_position="middle" %}
+        {% include 'components/ad-unit.html' %}
+        {% endwith %}
         
         <!-- Related Guide Section -->
         <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
@@ -267,9 +266,9 @@
         </section>
         
         <!-- Ad Unit – Bottom -->
-        <div class="adunit-bottom bottom-ad-spacing">
-            <AdUnit slot="botox-bottom" />
-        </div>
+        {% with ad_position="bottom" %}
+        {% include 'components/ad-unit.html' %}
+        {% endwith %}
         
         <!-- Footer Disclaimer -->
         <footer class="footer-disclaimer">

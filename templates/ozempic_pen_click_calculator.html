@@ -83,10 +83,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top top-ad-spacing">
-        <AdUnit slot="ozempic-pen-click-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator" class="calculator">
         <div class="form-group">
@@ -165,10 +164,9 @@
         
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-middle">
-        <AdUnit slot="ozempic-pen-click-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Related Guide Section -->
     <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
@@ -293,10 +291,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom bottom-ad-spacing">
-        <AdUnit slot="ozempic-pen-click-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     </div>
     

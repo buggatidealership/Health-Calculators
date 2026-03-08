@@ -163,10 +163,9 @@
     <a href="/ozempic-weight-loss-calculator" style="background-color: #d63384; color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; margin-left: 20px; display: inline-block;">Try Calculator</a>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="ozempic-weight-loss-calculator-guide-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Table of Contents -->
 <div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
@@ -442,10 +441,9 @@
     </div>
 </section>
 
-<!-- Mid Ad -->
-<div class="adunit-mid" style="margin: 40px 0;">
-  <AdUnit slot="ozempic-weight-loss-calculator-guide-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="timeline-phases">
     <h2>Ozempic Weight Loss Timeline & Phases</h2>
@@ -1114,10 +1112,9 @@
     </div>
 </section>
 
-<!-- Bottom Ad -->
-<div class="adunit-bottom" style="margin: 40px 0;">
-  <AdUnit slot="ozempic-weight-loss-calculator-guide-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <footer class="footer-disclaimer">
     <p><strong>References:</strong></p>

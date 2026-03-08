@@ -82,10 +82,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="child-growth-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -176,10 +175,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
-        <AdUnit slot="child-growth-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Related Guide Section -->
     <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
@@ -250,10 +248,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-        <AdUnit slot="child-growth-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Footer -->
     <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">

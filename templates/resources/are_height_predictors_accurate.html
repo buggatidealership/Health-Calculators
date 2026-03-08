@@ -154,10 +154,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="are-height-predictors-accurate-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="why-use">
         <h2>What Are Height Predictors and Why Use Them?</h2>
@@ -322,10 +321,9 @@
         </ul>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
-        <AdUnit slot="are-height-predictors-accurate-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="limitations">
         <h2>Limitations of Current Height Predictors</h2>
@@ -563,10 +561,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-        <AdUnit slot="are-height-predictors-accurate-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <footer class="footer-disclaimer">
         <p><strong>Disclaimer:</strong> This article is for educational purposes only and does not constitute medical advice. Consult a pediatric endocrinologist for growth concerns.</p>

@@ -98,10 +98,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="liposuction-weight-loss-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -213,10 +212,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
-        <AdUnit slot="liposuction-weight-loss-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- How to Use Section -->
     <section id="how-to-use" style="margin-top: 60px;">
@@ -276,10 +274,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-        <AdUnit slot="liposuction-weight-loss-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Footer -->
     <div class="back-to-home">

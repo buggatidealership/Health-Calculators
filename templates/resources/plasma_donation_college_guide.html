@@ -183,10 +183,9 @@
     </div>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="plasma-donation-college-guide-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="quick-overview">
     <h2>Quick Overview of Student Plasma Donation</h2>
@@ -262,10 +261,9 @@
     <p>Many student athletes find they can maintain their training goals while donating by following these protocols, though some reduction in performance should be expected during the first 24-48 hours post-donation.</p>
 </section>
 
-<!-- Mid Ad -->
-<div class="adunit-mid" style="margin: 30px 0;">
-  <AdUnit slot="plasma-donation-college-guide-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Try the Calculator Section (Middle) -->
 <div style="background-color: #fff8f8; padding: 30px; border-radius: 10px; margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -550,10 +548,9 @@
     </div>
 </div>
 
-<!-- Ad placement - bottom -->
-<div class="adunit-bottom bottom-ad-spacing">
-    <AdUnit slot="plasma-donation-college-guide-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 {% include 'components/medical-disclaimer.html' %}
 

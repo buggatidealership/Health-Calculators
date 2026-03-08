@@ -148,8 +148,9 @@
     <a href="/breast-implant-calculator" style="background-color: #d63384; color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; margin-left: 20px; display: inline-block;">Try Calculator</a>
 </div>
 
-<!-- Top Ad -->
-<AdUnit slot="do-breast-implants-cause-weight-gain-top" />
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Table of Contents -->
 <div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
@@ -245,8 +246,9 @@
     <p>For most women, the direct weight of implants is noticeable immediately after surgery but becomes less apparent as the body adjusts to the new weight distribution. The supporting muscles and tissues adapt to the implants' weight typically within 3-6 months.<sup>4</sup></p>
 </section>
 
-<!-- Mid Ad -->
-<AdUnit slot="do-breast-implants-cause-weight-gain-mid" />
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="factors">
     <h2>5 Factors That Can Cause Weight Gain After Breast Augmentation</h2>
@@ -504,8 +506,9 @@
     </div>
 </section>
 
-<!-- Bottom Ad -->
-<AdUnit slot="do-breast-implants-cause-weight-gain-bottom" />
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="faq" class="faq-section">
     <h2>Frequently Asked Questions</h2>

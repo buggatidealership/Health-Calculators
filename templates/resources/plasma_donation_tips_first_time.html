@@ -181,10 +181,9 @@
     </div>
 </div>
 
-<!-- Top Ad -->
-<div class="adunit-top" style="margin: 20px 0;">
-  <AdUnit slot="plasma-donation-tips-first-time-top" />
-</div>
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <section id="quick-checklist">
     <h2>Quick Checklist for First-Time Plasma Donors</h2>
@@ -337,10 +336,9 @@
     <p>First-time donors who arrive well-hydrated report significantly fewer instances of difficult vein access, dizziness, and other adverse effects. Some experienced donors recommend adding electrolytes to your water the day of donation, which can help maintain fluid balance.</p>
 </section>
 
-<!-- Mid Ad -->
-<div class="adunit-mid" style="margin: 30px 0;">
-  <AdUnit slot="plasma-donation-tips-first-time-mid" />
-</div>
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <!-- Try the Calculator Section (Middle) -->
 <div style="background-color: #fff8f8; padding: 30px; border-radius: 10px; margin: 30px 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap;">
@@ -732,10 +730,9 @@
     </div>
 </section>
 
-<!-- Ad placement - bottom -->
-<div class="adunit-bottom bottom-ad-spacing">
-    <AdUnit slot="plasma-donation-tips-first-time-bottom" />
-</div>
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 {% include 'components/medical-disclaimer.html' %}
 

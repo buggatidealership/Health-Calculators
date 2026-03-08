@@ -96,10 +96,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <AdUnit slot="ivf-due-date-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -184,10 +183,9 @@
         </div>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 40px 0;">
-        <AdUnit slot="ivf-due-date-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     <!-- Related Guide Section -->
     <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin: 30px 0; border-left: 4px solid #d63384;">
         <h3 style="margin-top: 0; display: flex; align-items: center;">
@@ -239,10 +237,9 @@
     </div>
 </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom bottom-ad-spacing">
-        <AdUnit slot="ivf-due-date-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Footer -->
     <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">

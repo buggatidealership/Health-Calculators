@@ -156,10 +156,9 @@
 
     {% include 'components/medical-disclaimer.html' %}
 
-    <!-- Top Ad -->
-    <div class="adunit-top">
-      <AdUnit slot="antidepressant-weight-gain-calculator-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <div class="table-of-contents">
       <h3>Contents</h3>
@@ -233,10 +232,9 @@
       </div>
     </section>
 
-    <!-- Mid Ad -->
-    <div class="adunit-middle">
-      <AdUnit slot="antidepressant-weight-gain-calculator-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <!-- Related Guide Section -->
     <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
@@ -294,10 +292,9 @@
       </div>
     </section>
 
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom">
-      <AdUnit slot="antidepressant-weight-gain-calculator-bottom" />
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <!-- Footer -->
     <footer style="text-align: center; font-size: 14px; color: #777; margin-top: 40px;">
