@@ -1,9 +1,9 @@
 // Unit toggle functionality
 function toggleUnit(form, unit) {
-  const metricBtn = document.getElementById('metric-btn');
-  const imperialBtn = document.getElementById('imperial-btn');
-  const metricFields = document.querySelector('.metric-inputs');
-  const imperialFields = document.querySelector('.imperial-inputs');
+  var metricBtn = document.getElementById('metric-btn');
+  var imperialBtn = document.getElementById('imperial-btn');
+  var metricFields = document.querySelector('.metric-inputs');
+  var imperialFields = document.querySelector('.imperial-inputs');
 
   if (unit === 'metric') {
     metricBtn.classList.add('active');
@@ -19,57 +19,80 @@ function toggleUnit(form, unit) {
 }
 
 function calculateTDEE() {
-    // Get common values
-    const age = parseInt(document.getElementById('age').value);
-    const gender = document.getElementById('gender').value;
-    const activity = parseFloat(document.getElementById('activity').value);
-    const isMetric = document.getElementById('metric-btn').classList.contains('active');
+    var age = parseInt(document.getElementById('age').value);
+    var gender = document.getElementById('gender').value;
+    var activity = parseFloat(document.getElementById('activity').value);
+    var isMetric = document.getElementById('metric-btn').classList.contains('active');
 
-    // Get weight and height based on units
-    let weight, height;
-   
+    var weight, height;
+
     if (isMetric) {
         weight = parseFloat(document.getElementById('weight_kg').value);
         height = parseFloat(document.getElementById('height_cm').value);
     } else {
-        // Convert pounds to kg
         weight = parseFloat(document.getElementById('weight_lb').value) * 0.453592;
-        // Convert feet/inches to cm
-        const feet = parseFloat(document.getElementById('height_ft').value);
-        const inches = parseFloat(document.getElementById('height_in').value) || 0;
+        var feet = parseFloat(document.getElementById('height_ft').value);
+        var inches = parseFloat(document.getElementById('height_in').value) || 0;
         height = (feet * 12 + inches) * 2.54;
     }
 
-    // Validate inputs
     if (!age || !weight || !height || isNaN(weight) || isNaN(height)) {
-        alert('Please fill all required fields with valid numbers');
+        alert('Please fill all required fields with valid numbers.');
         return;
     }
 
-    // Calculate BMR using Mifflin-St Jeor Equation
-    let bmr;
+    if (age < 15 || age > 100) {
+        alert('Please enter an age between 15 and 100.');
+        return;
+    }
+
+    // Mifflin-St Jeor Equation
+    var bmr;
     if (gender === 'male') {
         bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
     } else {
         bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
     }
 
-    // Calculate TDEE and results
-    const tdee = Math.round(bmr * activity);
-   
-    // Ensure minimum safe calories
-    const minCalories = gender === 'female' ? 1200 : 1500;
-    const loss1 = Math.max(tdee - 250, minCalories);
-    const loss2 = Math.max(tdee - 500, minCalories);
-    const loss3 = Math.max(tdee - 1000, minCalories);
+    var tdee = Math.round(bmr * activity);
+    var bmrRounded = Math.round(bmr);
 
-    // Display results
-    document.getElementById('tdee').textContent = `${tdee} kcal/day`;
-    document.getElementById('loss1').textContent = `${loss1} kcal/day`;
-    document.getElementById('loss2').textContent = `${loss2} kcal/day`;
-    document.getElementById('loss3').textContent = `${loss3} kcal/day`;
-    document.getElementById('results').style.display = 'block'; 
-    
-    // Scroll to results
+    // Calorie targets
+    var minCalories = gender === 'female' ? 1200 : 1500;
+    var lossModerate = Math.max(tdee - 500, minCalories);
+    var gainLean = tdee + 250;
+
+    // Macros (30/40/30 split at maintenance)
+    var proteinCal = tdee * 0.30;
+    var carbsCal = tdee * 0.40;
+    var fatCal = tdee * 0.30;
+    var proteinG = Math.round(proteinCal / 4);
+    var carbsG = Math.round(carbsCal / 4);
+    var fatG = Math.round(fatCal / 9);
+
+    // Activity level labels
+    var activityLabels = {
+        '1.2': 'Sedentary',
+        '1.375': 'Lightly Active',
+        '1.55': 'Moderately Active',
+        '1.725': 'Very Active',
+        '1.9': 'Extra Active'
+    };
+
+    // Populate results
+    document.getElementById('tdee-display').textContent = tdee.toLocaleString();
+    document.getElementById('bmr-display').textContent = bmrRounded.toLocaleString() + ' kcal/day';
+    document.getElementById('multiplier-display').textContent = '×' + activity + ' (' + (activityLabels[String(activity)] || '') + ')';
+
+    document.getElementById('loss-moderate').textContent = lossModerate.toLocaleString() + ' kcal';
+    document.getElementById('maintain').textContent = tdee.toLocaleString() + ' kcal';
+    document.getElementById('gain-lean').textContent = gainLean.toLocaleString() + ' kcal';
+
+    document.getElementById('macro-protein').textContent = proteinG + 'g';
+    document.getElementById('macro-carbs').textContent = carbsG + 'g';
+    document.getElementById('macro-fat').textContent = fatG + 'g';
+
+    // Show results
+    document.getElementById('results').style.display = 'block';
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

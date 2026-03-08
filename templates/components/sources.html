@@ -1,0 +1,29 @@
+{#
+  Sources/citations component for medical credibility (E-E-A-T).
+
+  Usage: {% include 'components/sources.html' %}
+  Requires: sources variable (list of dicts with 'text' and optional 'url' keys)
+
+  Example in template:
+  {% set sources = [
+    {"text": "Mifflin MD, et al. A new predictive equation for resting energy expenditure. Am J Clin Nutr. 1990;51(2):241-247.", "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"},
+    {"text": "WHO Technical Report Series, No. 724. Energy and Protein Requirements. 1985."}
+  ] %}
+#}
+{% if sources %}
+<div class="sources-section" id="sources">
+  <h3>Sources & Methodology</h3>
+  <ol class="sources-list">
+    {% for source in sources %}
+    <li>
+      {% if source.url %}
+      <a href="{{ source.url }}" target="_blank" rel="noopener noreferrer">{{ source.text }}</a>
+      {% else %}
+      {{ source.text }}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="sources-note">This calculator uses peer-reviewed formulas and clinical guidelines. Results are estimates and should not replace professional medical advice.</p>
+</div>
+{% endif %}

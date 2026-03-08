@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Include unified SEO head elements -->
 {% set og_image = "tdee-calculator-og.jpg" %}
-{% with 
-    meta_description="Estimate your Total Daily Energy Expenditure (TDEE) using age, weight, height, gender, and activity level. Calculate how many calories you burn daily.",
-    meta_keywords="TDEE calculator, total daily energy expenditure, calorie calculator, BMR calculator, maintenance calories, weight management",
-    og_title="TDEE Calculator",
+{% with
+    meta_description="Calculate your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation. Personalized calorie estimates for weight loss, maintenance, or muscle gain based on your age, gender, height, weight, and activity level.",
+    meta_keywords="TDEE calculator, total daily energy expenditure, calorie calculator, BMR calculator, maintenance calories, weight management, Mifflin-St Jeor",
+    og_title="TDEE Calculator – Total Daily Energy Expenditure",
     og_description="Find your Total Daily Energy Expenditure (TDEE) to optimize weight loss, maintenance, or muscle gain.",
     og_url="/tdee-calculator",
     page_title="TDEE Calculator – Total Daily Energy Expenditure",
@@ -15,7 +14,7 @@
 {% include 'head_seo.html' %}
 {% endwith %}
 
-<!-- Schema markup for TDEE calculator -->
+<!-- Schema: SoftwareApplication -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -24,11 +23,16 @@
   "applicationCategory": "HealthApplication",
   "operatingSystem": "All",
   "url": "https://healthcalculators.xyz/tdee-calculator",
-  "description": "Estimate your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor formula. Input age, gender, height, weight, and activity level."
+  "description": "Estimate your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor formula. Input age, gender, height, weight, and activity level.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
 }
 </script>
 
-<!-- FAQ Schema -->
+<!-- Schema: FAQPage -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -39,23 +43,23 @@
       "name": "What is TDEE?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "TDEE stands for Total Daily Energy Expenditure—the number of calories your body burns each day based on your BMR and activity level."
+        "text": "TDEE stands for Total Daily Energy Expenditure — the total number of calories your body burns per day, combining your Basal Metabolic Rate (BMR) with calories burned through physical activity, digestion, and non-exercise movement."
       }
     },
     {
       "@type": "Question",
-      "name": "How accurate is this calculator?",
+      "name": "How accurate is the Mifflin-St Jeor equation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It provides a good estimate using the Mifflin-St Jeor formula, one of the most validated methods in nutrition science."
+        "text": "The Mifflin-St Jeor equation predicts BMR within 10% of measured values for approximately 82% of individuals, making it the most accurate predictive equation for non-obese and obese individuals according to the American Dietetic Association."
       }
     },
     {
       "@type": "Question",
-      "name": "Can I use TDEE for weight loss?",
+      "name": "How do I use TDEE for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Subtract 500–700 calories from your TDEE to aim for ~1-1.5 lbs of fat loss per week."
+        "text": "To lose weight, eat fewer calories than your TDEE. A deficit of 500 calories per day produces approximately 1 pound of fat loss per week. The NIH recommends deficits of 500-1000 kcal/day for safe weight loss of 1-2 lbs/week."
       }
     },
     {
@@ -63,7 +67,7 @@
       "name": "What's the difference between BMR and TDEE?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "BMR is your resting calorie burn. TDEE includes daily activity and exercise."
+        "text": "BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest to maintain vital functions like breathing and circulation. TDEE adds your physical activity, thermic effect of food, and non-exercise activity thermogenesis (NEAT) to your BMR."
       }
     }
   ]
@@ -72,32 +76,35 @@
 </head>
 <body>
     {% include 'header.html' %}
-    
+
     <div class="calculator-container">
-    
+
     <h1>TDEE Calculator</h1>
-    <p class="subtitle">This evidence-based calculator determines your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation. Find out how many calories your body burns daily based on your age, gender, weight, height, and activity level.</p>
-    
-    <div class="medical-disclaimer">
-        <p><strong>Medical Disclaimer:</strong> This calculator provides general estimates. For personalized guidance, consult a registered dietitian or physician.</p>
+
+    <!-- Answer Capsule: LLM-optimized definition -->
+    <h2>What Is Total Daily Energy Expenditure?</h2>
+    <div class="answer-capsule">
+      Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns per day. It combines your Basal Metabolic Rate (BMR) — the energy needed for basic life-sustaining functions — with calories burned through physical activity, digestion, and non-exercise movement. This calculator uses the Mifflin-St Jeor equation, which the American Dietetic Association recommends as the most accurate predictive formula for estimating caloric needs.
     </div>
-    
+
     <div class="table-of-contents">
         <h3>Contents</h3>
         <ul>
             <li><a href="#calculator">TDEE Calculator</a></li>
-            <li><a href="#how-to-use">How to Use the TDEE Calculator</a></li>
+            <li><a href="#results-section">Understanding Your Results</a></li>
+            <li><a href="#how-it-works">How the Mifflin-St Jeor Equation Works</a></li>
+            <li><a href="#activity-levels">Activity Level Guide</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
         </ul>
     </div>
-    
+
     <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-      <AdUnit slot="tdee-calculator-top" />
-    </div>
-   
-    <section id="calculator" class="calculator">
-        <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label>Measurement Units:</label>
@@ -109,11 +116,11 @@
 
             <div class="form-group">
                 <label for="age">Age</label>
-                <input type="number" id="age" required>
+                <input type="number" id="age" min="15" max="100" placeholder="e.g. 30" required>
             </div>
-           
+
             <div class="form-group">
-                <label for="gender">Gender</label>
+                <label for="gender">Sex</label>
                 <select id="gender">
                     <option value="male">Male</option>
                     <option value="female">Female</option>
@@ -124,12 +131,11 @@
             <div class="metric-inputs">
                 <div class="form-group">
                     <label for="weight_kg">Weight (kg)</label>
-                    <input type="number" id="weight_kg" required>
+                    <input type="number" id="weight_kg" min="30" max="300" step="0.1" placeholder="e.g. 70" required>
                 </div>
-
                 <div class="form-group">
                     <label for="height_cm">Height (cm)</label>
-                    <input type="number" id="height_cm" required>
+                    <input type="number" id="height_cm" min="100" max="250" step="0.1" placeholder="e.g. 175" required>
                 </div>
             </div>
 
@@ -137,15 +143,14 @@
             <div class="imperial-inputs hidden">
                 <div class="form-group">
                     <label for="weight_lb">Weight (lbs)</label>
-                    <input type="number" id="weight_lb" required>
+                    <input type="number" id="weight_lb" min="66" max="660" step="0.1" placeholder="e.g. 154" required>
                 </div>
-
                 <div class="form-group">
                     <label>Height</label>
                     <div class="imperial-height">
                         <div>
                             <label for="height_ft">Feet</label>
-                            <input type="number" id="height_ft" required>
+                            <input type="number" id="height_ft" min="3" max="8" placeholder="5" required>
                         </div>
                         <div>
                             <label for="height_in">Inches</label>
@@ -159,83 +164,206 @@
                 <label for="activity">Activity Level</label>
                 <select id="activity">
                     <option value="1.2">Sedentary (little or no exercise)</option>
-                    <option value="1.375">Light (exercise 1-3 days/week)</option>
-                    <option value="1.55">Moderate (exercise 3-5 days/week)</option>
-                    <option value="1.725">Active (exercise 6-7 days/week)</option>
-                    <option value="1.9">Very Active (hard exercise & physical job)</option>
+                    <option value="1.375">Lightly Active (exercise 1-3 days/week)</option>
+                    <option value="1.55" selected>Moderately Active (exercise 3-5 days/week)</option>
+                    <option value="1.725">Very Active (exercise 6-7 days/week)</option>
+                    <option value="1.9">Extra Active (hard exercise & physical job)</option>
                 </select>
             </div>
 
             <button onclick="calculateTDEE()" class="btn btn-pink">Calculate TDEE</button>
 
             <div class="results" id="results">
-                <h3>Your Results</h3>
-                <p><strong>Maintenance Calories:</strong> <span id="tdee"></span></p>
-                <p><strong>Mild Weight Loss (0.25kg/week):</strong> <span id="loss1"></span></p>
-                <p><strong>Weight Loss (0.5kg/week):</strong> <span id="loss2"></span></p>
-                <p><strong>Extreme Weight Loss (1kg/week):</strong> <span id="loss3"></span></p>
-                <p style="color: #666; font-size: 0.9em;">
-                    * Based on NIH recommendations (500-1000 kcal deficit/day)<br>
-                    * Always consult healthcare professional before dieting
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="tdee-display">—</div>
+                    <div class="tdee-label">calories/day</div>
+                    <div class="tdee-sublabel">Your Total Daily Energy Expenditure</div>
+                </div>
+
+                <div class="tdee-breakdown" id="breakdown">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Basal Metabolic Rate (BMR)</span>
+                        <span class="tdee-breakdown-value" id="bmr-display">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Activity Multiplier</span>
+                        <span class="tdee-breakdown-value" id="multiplier-display">—</span>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Calorie Targets by Goal</h4>
+                <div class="tdee-goals" id="goals">
+                    <div class="tdee-goal-card tdee-goal-loss">
+                        <div class="tdee-goal-title">Weight Loss</div>
+                        <div class="tdee-goal-subtitle">−500 kcal/day (~0.5 kg/week)</div>
+                        <div class="tdee-goal-value" id="loss-moderate">—</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-maintain">
+                        <div class="tdee-goal-title">Maintenance</div>
+                        <div class="tdee-goal-subtitle">Keep current weight</div>
+                        <div class="tdee-goal-value" id="maintain">—</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-gain">
+                        <div class="tdee-goal-title">Lean Bulk</div>
+                        <div class="tdee-goal-subtitle">+250 kcal/day (~0.25 kg/week)</div>
+                        <div class="tdee-goal-value" id="gain-lean">—</div>
+                    </div>
+                </div>
+
+                <div class="tdee-macro-summary" id="macro-summary">
+                    <h4>Suggested Macros (Maintenance)</h4>
+                    <div class="tdee-macro-row">
+                        <div class="tdee-macro-item">
+                            <span class="tdee-macro-label">Protein</span>
+                            <span class="tdee-macro-value" id="macro-protein">—</span>
+                        </div>
+                        <div class="tdee-macro-item">
+                            <span class="tdee-macro-label">Carbs</span>
+                            <span class="tdee-macro-value" id="macro-carbs">—</span>
+                        </div>
+                        <div class="tdee-macro-item">
+                            <span class="tdee-macro-label">Fat</span>
+                            <span class="tdee-macro-value" id="macro-fat">—</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 8px;">Based on 30% protein / 40% carbs / 30% fat split. Adjust to your goals.</p>
+                </div>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    These are estimates based on the Mifflin-St Jeor equation. Individual metabolism varies. Consult a registered dietitian for personalized guidance.
                 </p>
             </div>
         </div>
-        <!-- END DEEPSEEK-GENERATED CALCULATOR -->
-        
-        <!-- Mid Ad -->
-        <div class="adunit-mid" style="margin: 40px 0;">
-          <AdUnit slot="tdee-calculator-mid" />
-        </div>
     </section>
-    
-    <!-- How to Use Section -->
-    <section id="how-to-use" style="margin-top: 60px;">
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- How the Formula Works -->
+    <section id="how-it-works" style="margin-top: 48px;">
         <div class="info">
-            <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3a6 6 0 0 0 0 12v-3.5"/><path d="M9 15v2.7c0 1.3 1.7 2.3 3 2.3s3-1 3-2.3V15"/><path d="M15 3v10.5"/><path d="M9 11.4a.6.6 0 0 1 0-1.2"/><path d="M12 11.4a.6.6 0 0 0 0-1.2"/><path d="M15 11.4a.6.6 0 0 0 0-1.2"/></svg> How to Use the TDEE Calculator</h2>
-            <ul>
-                <li>Enter your age, gender, weight, and height.</li>
-                <li>Select your weekly activity level.</li>
-                <li>Your Total Daily Energy Expenditure (TDEE) is calculated using the Mifflin-St Jeor formula.</li>
-                <li>Use the result to plan calorie intake for weight loss, maintenance, or gain.</li>
-            </ul>
+            <h2>How the Mifflin-St Jeor Equation Works</h2>
+            <div class="answer-capsule">
+                The Mifflin-St Jeor equation calculates BMR using weight (kg), height (cm), age, and sex. Published in 1990, it is considered the gold standard for BMR estimation by the American Dietetic Association. Your TDEE is then calculated by multiplying BMR by an activity factor.
+            </div>
+
+            <h4>The Formula</h4>
+            <div class="highlight-box">
+                <p><strong>Males:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5</p>
+                <p><strong>Females:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161</p>
+                <p style="margin-top: 12px;"><strong>TDEE</strong> = BMR × Activity Factor</p>
+            </div>
+
+            <p>The Mifflin-St Jeor equation replaced the older Harris-Benedict equation (1919) because it better reflects modern body compositions. A 2005 validation study by the ADA found it predicts BMR within ±10% for 82% of individuals — the highest accuracy among non-calorimetry methods.</p>
         </div>
     </section>
-    
+
+    <!-- Activity Level Guide -->
+    <section id="activity-levels" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Activity Level Guide</h2>
+            <div class="answer-capsule">
+                Activity factors range from 1.2 (sedentary) to 1.9 (extra active) and account for all movement beyond basal metabolism, including exercise, walking, fidgeting, and occupational activity. Most desk workers overestimate their activity level — if unsure, choose one level lower than you think.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Level</th>
+                        <th style="text-align: left; padding: 8px;">Factor</th>
+                        <th style="text-align: left; padding: 8px;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Sedentary</td>
+                        <td style="padding: 8px;">1.2</td>
+                        <td style="padding: 8px;">Desk job, no planned exercise</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Lightly Active</td>
+                        <td style="padding: 8px;">1.375</td>
+                        <td style="padding: 8px;">Light exercise 1-3 days/week or daily walking</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Moderately Active</td>
+                        <td style="padding: 8px;">1.55</td>
+                        <td style="padding: 8px;">Moderate exercise 3-5 days/week</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Very Active</td>
+                        <td style="padding: 8px;">1.725</td>
+                        <td style="padding: 8px;">Hard exercise 6-7 days/week</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">Extra Active</td>
+                        <td style="padding: 8px;">1.9</td>
+                        <td style="padding: 8px;">Very hard exercise + physical job or 2x training</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
-    <section id="faq" class="info">
-        <h2><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg> Frequently Asked Questions</h2>
-        
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
         <div class="faq-item">
             <h4>What is TDEE?</h4>
-            <p>TDEE stands for Total Daily Energy Expenditure—the number of calories your body burns each day based on your BMR and activity level.</p>
+            <p>TDEE stands for Total Daily Energy Expenditure — the total number of calories your body burns per day, combining your Basal Metabolic Rate (BMR) with calories burned through physical activity, digestion (thermic effect of food), and non-exercise activity thermogenesis (NEAT).</p>
         </div>
-        
+
         <div class="faq-item">
-            <h4>How accurate is this calculator?</h4>
-            <p>It provides a good estimate using the Mifflin-St Jeor formula, one of the most validated methods in nutrition science.</p>
+            <h4>How accurate is the Mifflin-St Jeor equation?</h4>
+            <p>The Mifflin-St Jeor equation predicts BMR within 10% of measured values for approximately 82% of individuals, making it the most accurate predictive equation recommended by the American Dietetic Association. However, factors like muscle mass, genetics, and metabolic conditions can cause individual variation.</p>
         </div>
-        
+
         <div class="faq-item">
-            <h4>Can I use TDEE for weight loss?</h4>
-            <p>Yes. Subtract 500–700 calories from your TDEE to aim for ~1-1.5 lbs of fat loss per week.</p>
+            <h4>How do I use TDEE for weight loss?</h4>
+            <p>To lose weight, eat fewer calories than your TDEE. The NIH recommends a deficit of 500-1,000 kcal/day for safe weight loss of 1-2 lbs (0.5-1 kg) per week. Avoid going below 1,200 kcal/day (women) or 1,500 kcal/day (men) without medical supervision.</p>
         </div>
-        
+
         <div class="faq-item">
             <h4>What's the difference between BMR and TDEE?</h4>
-            <p>BMR is your resting calorie burn. TDEE includes daily activity and exercise.</p>
+            <p>BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest to maintain vital functions like breathing, circulation, and cell production. TDEE adds the calories you burn through physical activity, the thermic effect of food (~10% of intake), and non-exercise activity thermogenesis (NEAT) to your BMR. For most people, BMR accounts for 60-75% of TDEE.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>Should I eat back exercise calories?</h4>
+            <p>If you selected an activity level that includes your exercise, your TDEE already accounts for those calories — don't add them again. If you chose "Sedentary" and track exercise separately, you can add a portion (about 50-75%) of burned calories, as exercise trackers tend to overestimate.</p>
+        </div>
+
+        <div class="faq-item">
+            <h4>How often should I recalculate TDEE?</h4>
+            <p>Recalculate every 10 lbs (4.5 kg) of weight change, or every 4-6 weeks during active dieting. As you lose weight, your TDEE decreases — a phenomenon called metabolic adaptation. Failing to recalculate is a common reason weight loss plateaus.</p>
         </div>
     </section>
-    
-    <div class="calculator-footer">
-        <p><a href="/" class="back-link">← Back to Homepage</a></p>
-        <p class="disclaimer">This tool is for general informational use only. For personalized advice, speak with a licensed nutritionist or physician.</p>
-    </div>
-    
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Mifflin MD, St Jeor ST, Hill LA, Scott BJ, Daugherty SA, Koh YO. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241-247.", "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"},
+        {"text": "Frankenfield D, Roth-Yousey L, Compher C. Comparison of predictive equations for resting metabolic rate in healthy nonobese and obese adults: a systematic review. J Am Diet Assoc. 2005;105(5):775-789.", "url": "https://pubmed.ncbi.nlm.nih.gov/15883556/"},
+        {"text": "Hall KD, Heymsfield SB, Kemnitz JW, et al. Energy balance and its components: implications for body weight regulation. Am J Clin Nutr. 2012;95(4):989-994.", "url": "https://pubmed.ncbi.nlm.nih.gov/22434603/"},
+        {"text": "National Institutes of Health. Aim for a Healthy Weight. NIH Publication No. 05-5213.", "url": "https://www.nhlbi.nih.gov/health/educational/lose_wt/"},
+        {"text": "Ainsworth BE, Haskell WL, et al. Compendium of Physical Activities: an update of activity codes and MET intensities. Med Sci Sports Exerc. 2000;32(9 Suppl):S498-516.", "url": "https://pubmed.ncbi.nlm.nih.gov/10993420/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
     </div> <!-- End of calculator-container -->
 
-    <script src="/static/js/tdee_calculator.js"></script>
-
     {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
 
+    <script src="/static/js/tdee_calculator.js"></script>
 </body>
 </html>
