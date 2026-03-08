@@ -125,12 +125,16 @@ cross_links = {
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-weight-loss-calculator": {
-        "calculators": ["/ozempic-pen-click-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/mounjaro-weight-loss-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
+        "calculators": ["/ozempic-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
+    },
+    "/ozempic-face-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
+        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/botox-dosage-calculator": {
         "calculators": ["/lip-filler-cost-calculator", "/breast-implant-cost-calculator", "/liposuction-weight-loss-calculator"],
@@ -157,7 +161,11 @@ cross_links = {
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
     "/bmi-calculator": {
-        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator"],
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator"],
+        "guides": []
+    },
+    "/body-roundness-index-calculator": {
+        "calculators": ["/bmi-calculator", "/body-fat-calculator", "/ideal-body-weight-calculator", "/army-body-fat-calculator"],
         "guides": []
     },
     "/protein-intake-calculator": {
@@ -463,6 +471,16 @@ cards = [
         "popular": False
     },
     {
+        "title": "Ozempic Face Risk Calculator",
+        "url": "/ozempic-face-calculator",
+        "summary": "Estimate your risk of facial volume loss from GLP-1 weight loss medications based on age, BMI, rate of weight loss, and other clinical factors.",
+        "icon": "😮",
+        "cta": "Assess Risk",
+        "color": "teal",
+        "category": "medications",
+        "popular": False
+    },
+    {
         "title": "Botox Dosage Calculator",
         "url": "/botox-dosage-calculator",
         "summary": "Determine the appropriate Botox units for different treatment areas.",
@@ -583,6 +601,16 @@ cards = [
         "popular": False
     },
     {
+        "title": "Body Roundness Index (BRI)",
+        "url": "/body-roundness-index-calculator",
+        "summary": "Calculate your Body Roundness Index using waist circumference and height. BRI measures central adiposity and predicts health risk more accurately than BMI.",
+        "icon": "📏",
+        "cta": "Calculate BRI",
+        "color": "green",
+        "category": "fitness",
+        "popular": False
+    },
+    {
         "title": "Sleep Calculator",
         "url": "/sleep-calculator",
         "summary": "Calculate the best time to go to bed or wake up based on 90-minute sleep cycles. Time your sleep to complete full cycles and wake up refreshed.",
@@ -667,6 +695,19 @@ def bmi_calculator():
     schema_url = "/bmi-calculator"
     return render_template(
         'bmi_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/body-roundness-index-calculator')
+def body_roundness_index_calculator():
+    schema_name = "Body Roundness Index (BRI) Calculator"
+    schema_description = "Calculate your Body Roundness Index using waist circumference and height. BRI measures central adiposity and predicts health risk more accurately than BMI alone."
+    schema_url = "/body-roundness-index-calculator"
+    return render_template(
+        'bri_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -914,6 +955,19 @@ def mounjaro_weight_loss_calculator():
     schema_url = "/mounjaro-weight-loss-calculator"
     return render_template(
         'mounjaro_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/ozempic-face-calculator')
+def ozempic_face_calculator():
+    schema_name = "Ozempic Face Risk Calculator"
+    schema_description = "Estimate your risk of facial volume loss from GLP-1 weight loss medications like Ozempic and Wegovy. Based on clinical data on age, BMI, and rate of weight loss."
+    schema_url = "/ozempic-face-calculator"
+    return render_template(
+        'ozempic_face_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
