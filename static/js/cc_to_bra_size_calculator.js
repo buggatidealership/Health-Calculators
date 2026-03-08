@@ -50,15 +50,24 @@ function calculate() {
         newCupSize = cupSizes[fullCups + 1];
     }
     
-    // Display result
-    document.getElementById('size-result').textContent =
-        `Estimated new bra size: ${bandSize}${newCupSize}`;
-    
-    // Additional volume info
-    document.getElementById('volume-info').innerHTML = `
-        <p>${cc}cc is approximately a ${cupIncrease.toFixed(1)} cup size increase from your current size.</p>
-        <p><em>Note: This is an estimate. Actual results may vary based on your anatomy.</em></p>
-    `;
-    
+    // Band-adjusted cc per cup size (smaller frames need less volume per cup)
+    const bandNum = parseInt(bandSize);
+    let ccPerCup;
+    if (bandNum <= 30) ccPerCup = 150;
+    else if (bandNum <= 32) ccPerCup = 160;
+    else if (bandNum <= 34) ccPerCup = 175;
+    else if (bandNum <= 36) ccPerCup = 185;
+    else if (bandNum <= 38) ccPerCup = 195;
+    else ccPerCup = 200;
+
+    // Populate comparison display
+    document.getElementById('current-size-display').textContent = bandSize + currentCup;
+    document.getElementById('new-size-display').textContent = bandSize + newCupSize;
+
+    // Populate result cards
+    document.getElementById('volume-added').textContent = cc + ' cc';
+    document.getElementById('cup-increase').textContent = '+' + cupIncrease.toFixed(1) + ' cups';
+    document.getElementById('cc-per-cup').textContent = '~' + ccPerCup;
+
     document.getElementById('result').style.display = 'block';
 }

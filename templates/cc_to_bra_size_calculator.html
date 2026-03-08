@@ -146,10 +146,62 @@
            
             <button id="calculate-btn" class="cta-button" onclick="calculate()">Calculate Bra Size</button>
            
-            <div id="result" class="result" style="display: none;">
-                <h3>Estimated Bra Size:</h3>
-                <p id="size-result">Your estimated new bra size will appear here</p>
-                <p id="volume-info"></p>
+            <div id="result" class="results-section" style="display: none;">
+                <div class="result-comparison">
+                    <div class="result-comparison-box before">
+                        <div class="result-comparison-label">Current Size</div>
+                        <div class="result-comparison-size" id="current-size-display">&mdash;</div>
+                    </div>
+                    <div class="result-comparison-arrow">&rarr;</div>
+                    <div class="result-comparison-box after">
+                        <div class="result-comparison-label">Estimated New Size</div>
+                        <div class="result-comparison-size" id="new-size-display">&mdash;</div>
+                    </div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card pink">
+                        <div class="result-card-title">Volume Added</div>
+                        <div class="result-card-value" id="volume-added">&mdash;</div>
+                        <div class="result-card-note">cubic centimeters</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Cup Increase</div>
+                        <div class="result-card-value" id="cup-increase">&mdash;</div>
+                        <div class="result-card-note">approximate</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">CC Per Cup</div>
+                        <div class="result-card-value" id="cc-per-cup">~175</div>
+                        <div class="result-card-note">for your band size</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Reference: CC to Cup Size Chart</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">A Cup</span>
+                        <span class="result-breakdown-val">130&ndash;175 cc</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">B Cup</span>
+                        <span class="result-breakdown-val">175&ndash;300 cc</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">C Cup</span>
+                        <span class="result-breakdown-val">300&ndash;400 cc</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">D Cup</span>
+                        <span class="result-breakdown-val">400&ndash;550 cc</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">DD/E Cup</span>
+                        <span class="result-breakdown-val">550&ndash;700 cc</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.82rem; color: #888; font-style: italic; margin-top: 12px;">Estimates based on round, moderate-profile implants. Actual results vary by anatomy, implant profile, and surgical technique.</p>
             </div>
         </div>
         <!-- END DEEPSEEK-GENERATED CALCULATOR -->
