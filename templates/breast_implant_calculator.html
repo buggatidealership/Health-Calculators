@@ -76,7 +76,12 @@
     
     <div class="calculator-container">
         <h1>Breast Implant Size & Cost Calculator</h1>
-        
+
+        <h2>What Is Breast Implant Sizing?</h2>
+        <div class="answer-capsule">
+          Breast implant sizing uses body measurements — chest width, breast base diameter, and tissue characteristics — to determine optimal implant dimensions. This calculator applies the Tebbetts-Adams "High Five" decision process (2005), which uses five measurements taken in five minutes to guide implant selection for predictable outcomes.
+        </div>
+
         <div class="medical-disclaimer">
             <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
         </div>
@@ -259,6 +264,13 @@
         {% with ad_position="bottom" %}
         {% include 'components/ad-unit.html' %}
         {% endwith %}
+
+        {% set sources = [
+            {"text": "Tebbetts JB, Adams WP. Five critical decisions in breast augmentation using five measurements in 5 minutes: the high five decision support process. Plast Reconstr Surg. 2005;116(7):2005-2016.", "url": "https://pubmed.ncbi.nlm.nih.gov/16327615/"},
+            {"text": "ASPS. 2024 Plastic Surgery Statistics Report. American Society of Plastic Surgeons.", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+            {"text": "Pfeiffer M, et al. What is the standard volume to increase a cup size for breast augmentation surgery? Plast Reconstr Surg. 2017;139(5):1084e-1089e.", "url": "https://pubmed.ncbi.nlm.nih.gov/28445352/"}
+        ] %}
+        {% include 'components/sources.html' %}
 </div>
     
     <!-- Script -->

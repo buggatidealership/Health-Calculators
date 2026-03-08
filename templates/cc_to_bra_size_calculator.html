@@ -81,6 +81,12 @@
     <div class="calculator-container">
     
     <h1>CC to Bra Size Calculator</h1>
+
+    <h2>How Do CCs Convert to Bra Cup Sizes?</h2>
+    <div class="answer-capsule">
+      Breast implant volume in cubic centimeters (cc) roughly converts to cup sizes at a rate of 130-200 cc per cup size increase. The exact conversion depends on your band size, chest wall dimensions, and existing breast tissue. This calculator uses volumetric data from 3D CT imaging studies to provide the most accurate estimates available.
+    </div>
+
     <p class="subtitle">This calculator converts breast implant volume (measured in CCs) to approximate bra cup size. Use this tool to help estimate post-augmentation sizing based on plastic surgery research formulas.</p>
     
     <div class="medical-disclaimer">
@@ -214,6 +220,11 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    {% set sources = [
+        {"text": "Pfeiffer M, et al. What is the standard volume to increase a cup size for breast augmentation surgery? A novel three-dimensional computed tomographic approach. Plast Reconstr Surg. 2017;139(5):1084e-1089e.", "url": "https://pubmed.ncbi.nlm.nih.gov/28445352/"}
+    ] %}
+    {% include 'components/sources.html' %}
 <!-- Script -->
     <script src="/static/js/cc_to_bra_size_calculator.js"></script>
     

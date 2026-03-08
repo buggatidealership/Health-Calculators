@@ -83,6 +83,12 @@
     <div class="calculator-container">
     
     <h1>Liposuction Weight Loss Calculator – Estimate Fat Removed & Procedure Cost</h1>
+
+    <h2>How Much Weight Can Liposuction Remove?</h2>
+    <div class="answer-capsule">
+      Liposuction is a body contouring procedure, not a weight loss treatment. ASPS safety guidelines limit total aspirate to 5,000 mL (5 liters) per procedure. The actual weight removed is typically 2-5 pounds of pure fat, as aspirate contains a mix of fat, tumescent fluid, and blood. This calculator estimates fat removal based on treatment areas and body composition.
+    </div>
+
     <p class="subtitle">This evidence-based calculator helps you estimate potential fat removal, weight change, and procedure cost for liposuction based on your body metrics, treatment areas, and location. Results are personalized based on clinical data and safety guidelines.</p>
     
     <div class="medical-disclaimer">
@@ -277,7 +283,14 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
+
+    {% set sources = [
+        {"text": "Rohrich RJ, Beran SJ, Kenkel JM. Ultrasound-Assisted Liposuction. Quality Medical Publishing; 1998.",  "url": "https://pubmed.ncbi.nlm.nih.gov/16327615/"},
+        {"text": "ASPS Practice Advisory on Liposuction. American Society of Plastic Surgeons.", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+        {"text": "Nordström H, Stange K. Plasma lidocaine levels and risks after liposuction with tumescent anaesthesia. Acta Anaesthesiol Scand. 2005;49(10):1487-1490.", "url": "https://pubmed.ncbi.nlm.nih.gov/16223395/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     <!-- Footer -->
 </div> <!-- End calculator-container -->
     

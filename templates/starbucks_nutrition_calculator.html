@@ -70,18 +70,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="starbucks-nutrition-calculator-top"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <h2 style="margin-top: 40px;">Your Starbucks Drink Nutrition</h2>
     
@@ -244,18 +235,9 @@
         </div>
     </section>
     
-    <!-- Middle Ad -->
-    <div class="adunit-middle" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="starbucks-nutrition-calculator-mid"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <section id="how-to-use">
         <div class="info">
@@ -317,18 +299,9 @@
         </div>
     </section>
 
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0 20px;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="starbucks-nutrition-calculator-bottom"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 </div>
     
     <script src="{{ url_for('static', filename='js/starbucks_nutrition_calculator.js') }}"></script>

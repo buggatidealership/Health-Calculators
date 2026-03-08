@@ -81,6 +81,10 @@
     <div class="calculator-container">
     
     <h1>Blood Alcohol Content (BAC) Calculator</h1>
+    <h2>What Is Blood Alcohol Content?</h2>
+    <div class="answer-capsule">
+      Blood Alcohol Content (BAC) is the percentage of alcohol in your bloodstream by volume. This calculator uses the Widmark formula (1932), the standard method in forensic toxicology, which accounts for body weight, biological sex, amount of alcohol consumed, and time elapsed. A BAC of 0.08% is the legal driving limit in most U.S. states.
+    </div>
     <p class="subtitle">Estimate your blood alcohol concentration (BAC) using our research-backed calculator. Based on number of drinks, gender, weight, and hours since drinking began.</p>
     
     {% include 'components/medical-disclaimer.html' %}
@@ -399,6 +403,12 @@
         </div>
     </section>
     
+    {% set sources = [
+        {"text": "Widmark EMP. Principles and Applications of Medicolegal Alcohol Determination. Davis, CA: Biomedical Publications; 1981. (Translation of 1932 original)", "url": "https://pubmed.ncbi.nlm.nih.gov/20857978/"},
+        {"text": "Jones AW. Ultrarapid rate of ethanol elimination from blood in drunken drivers with extremely high blood-alcohol concentrations. Int J Legal Med. 1993;105(5):279-284.", "url": "https://pubmed.ncbi.nlm.nih.gov/8420539/"},
+        {"text": "National Highway Traffic Safety Administration (NHTSA). The ABCs of BAC. DOT HS 809 844.", "url": "https://www.nhtsa.gov/risky-driving/drunk-driving"}
+    ] %}
+    {% include 'components/sources.html' %}
     </div>
 
     <script src="{{ url_for('static', filename='js/bac_calculator.js') }}"></script>

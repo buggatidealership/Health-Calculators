@@ -81,6 +81,10 @@
     <div class="calculator-container">
     
     <h1>FET Due Date Calculator – IVF Pregnancy Timeline by Transfer Type</h1>
+    <h2>What Is an IVF Due Date?</h2>
+    <div class="answer-capsule">
+      An IVF due date is calculated from the embryo transfer date rather than the last menstrual period. For a 5-day blastocyst transfer, the estimated due date is the transfer date plus 261 days; for a 3-day embryo transfer, it is the transfer date plus 263 days. This method follows ACOG Committee Opinion No. 700, which states that ART-based dating takes precedence over ultrasound dating.
+    </div>
     <p class="subtitle">This calculator estimates your due date based on frozen embryo transfer (FET), day 3, or day 5 transfers. You can also track gestational age, trimesters, and key prenatal milestones. Calculations use IVF-specific gestational formulas.</p>
     
     <div class="medical-disclaimer">
@@ -435,6 +439,11 @@
         });
     </script>
     
+    {% set sources = [
+        {"text": "ACOG Committee Opinion No. 700. Methods for estimating the due date. Obstet Gynecol. 2017;129(5):e150-e154.", "url": "https://pubmed.ncbi.nlm.nih.gov/28426621/"},
+        {"text": "Practice Committee of ASRM. Role of assisted hatching in in vitro fertilization. Fertil Steril. 2014;102(2):348-351.", "url": "https://pubmed.ncbi.nlm.nih.gov/24907916/"}
+    ] %}
+    {% include 'components/sources.html' %}
     </div> <!-- End of calculator-container -->
 
     {% include 'components/related-links.html' %}

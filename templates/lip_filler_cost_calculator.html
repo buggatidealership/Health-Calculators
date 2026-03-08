@@ -83,6 +83,12 @@
     <div class="calculator-container">
     
     <h1>Lip Filler Cost Calculator – Estimate Price by Area & Volume</h1>
+
+    <h2>What Does Lip Filler Cost?</h2>
+    <div class="answer-capsule">
+      Lip filler (hyaluronic acid dermal filler) costs an average of $715 per syringe according to the American Society of Plastic Surgeons. Most lip augmentation procedures require 1-2 syringes. This calculator estimates your total cost based on the number of syringes, provider type, and geographic location, using ASPS pricing data.
+    </div>
+
     <p class="subtitle">This calculator helps you estimate the cost of lip filler injections based on your geographic location, provider experience, product type, and volume needed. Get personalized pricing information to help plan your lip enhancement procedure.</p>
     
     <div class="medical-disclaimer">
@@ -232,7 +238,13 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
+
+    {% set sources = [
+        {"text": "ASPS. 2023 Plastic Surgery Statistics Report. American Society of Plastic Surgeons.", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+        {"text": "Funt D, Pavicic T. Dermal fillers in aesthetics: an overview of adverse events and treatment approaches. Clin Cosmet Investig Dermatol. 2013;6:295-316.", "url": "https://pubmed.ncbi.nlm.nih.gov/24363560/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     <!-- Footer -->
 </div> <!-- End calculator-container -->
     

@@ -77,18 +77,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="plasma-donation-earnings-calculator-top"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -250,18 +241,9 @@
         </div>
     </section>
     
-    <!-- Middle Ad -->
-    <div class="adunit-middle" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="plasma-donation-earnings-calculator-mid"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <!-- Related Resources Section -->
     <section id="related-resources" style="margin-bottom: 40px;">
@@ -376,18 +358,9 @@
         </div>
     </section>
 
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom bottom-ad-spacing">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="plasma-donation-earnings-calculator-bottom"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <div class="medical-disclaimer">
         <p><strong>Disclaimer:</strong> This calculator provides educational estimates and should not be considered financial advice. Actual compensation varies by donation center, time of year, and individual donor factors. Always check with your local plasma donation center for current rates and eligibility requirements.</p>

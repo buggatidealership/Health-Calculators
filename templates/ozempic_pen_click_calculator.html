@@ -70,6 +70,10 @@
     <div class="calculator-container">
     
     <h1>Ozempic Pen Click Calculator</h1>
+    <h2>What Is the Ozempic Pen Click Calculator?</h2>
+    <div class="answer-capsule">
+      This calculator estimates the number of pen clicks needed for specific Ozempic (semaglutide) doses. It is based on the pen mechanism described in the FDA-approved prescribing information. Important: Novo Nordisk explicitly advises against click-counting for off-label microdosing, as click-to-dose ratios are inconsistent across pens and production batches.
+    </div>
     <p class="subtitle">Calculate exact pen clicks, check safety alerts, and track your injection schedule with this comprehensive Ozempic (semaglutide) dosing calculator. Input your details for precise dosing information.</p>
     
     {% include 'components/medical-disclaimer.html' %}
@@ -295,9 +299,14 @@
     {% include 'components/ad-unit.html' %}
     {% endwith %}
     
+    {% set sources = [
+        {"text": "Novo Nordisk. Ozempic (semaglutide) injection prescribing information. FDA.gov. Revised 2024.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/209637s009lbl.pdf"},
+        {"text": "Wilding JPH, Batterham RL, et al. Once-weekly semaglutide in adults with overweight or obesity (STEP 1). N Engl J Med. 2021;384(11):989-1002.", "url": "https://pubmed.ncbi.nlm.nih.gov/33567185/"}
+    ] %}
+    {% include 'components/sources.html' %}
     </div>
-    
-    
+
+
     {% include 'components/related-links.html' %}
 
     {% include 'footer.html' %}

@@ -69,6 +69,12 @@
     <div class="calculator-container">
     
     <h1>Breast Implant Cost Calculator</h1>
+
+    <h2>What Does Breast Augmentation Cost?</h2>
+    <div class="answer-capsule">
+      Breast augmentation costs include the surgeon's fee, facility fee, anesthesia, and implant cost. According to the American Society of Plastic Surgeons 2024 statistics, the average surgeon fee is $4,294, with total procedure costs ranging from $7,500 to $15,000 depending on implant type, geographic location, and surgeon experience.
+    </div>
+
     <p class="subtitle">Estimate your out-of-pocket cost for breast augmentation based on implant type, region, and anesthesia. Results include total cost range and breakdown.</p>
     
     <div class="medical-disclaimer">
@@ -356,8 +362,13 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
-    
+
+    {% set sources = [
+        {"text": "ASPS. 2024 Plastic Surgery Statistics Report. American Society of Plastic Surgeons.", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+        {"text": "Rohrich RJ, Coberly DM, Krueger JK, Brown SA. Planning elective operations on patients who smoke: survey of North American plastic surgeons. Plast Reconstr Surg. 2002;109(1):350-355.", "url": "https://pubmed.ncbi.nlm.nih.gov/11786835/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     <script>
         // Cost data for different countries
         const costData = {

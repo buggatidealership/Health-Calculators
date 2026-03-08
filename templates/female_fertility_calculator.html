@@ -44,6 +44,10 @@
     <div class="calculator-container">
     
     <h1>Female Fertility Calculator</h1>
+    <h2>What Affects Female Fertility?</h2>
+    <div class="answer-capsule">
+      Female fertility is primarily influenced by age, with peak fertility occurring between ages 20-25 and significant decline after 35. Ovarian reserve, measured by Anti-Mullerian Hormone (AMH) and Antral Follicle Count (AFC), provides the best biomarkers for remaining egg supply. This calculator estimates fertility potential based on age-related decline curves from reproductive endocrinology research.
+    </div>
     <p class="subtitle">This science-based calculator helps you identify your most fertile days based on your menstrual cycle. Enter your cycle information to receive personalized predictions for your fertility window, helping you optimize your chances of natural conception.</p>
     
     {% with ad_position="top" %}
@@ -195,6 +199,12 @@
         </div>
     </div>
     
+    {% set sources = [
+        {"text": "Broekmans FJ, Kwee J, Hendriks DJ, Mol BW, Lambalk CB. A systematic review of tests predicting ovarian reserve and IVF outcome. Hum Reprod Update. 2006;12(6):685-718.", "url": "https://pubmed.ncbi.nlm.nih.gov/16891297/"},
+        {"text": "ACOG Committee Opinion No. 589. Female age-related fertility decline. Obstet Gynecol. 2014;123(3):719-721.", "url": "https://pubmed.ncbi.nlm.nih.gov/24553166/"},
+        {"text": "Practice Committee of ASRM. Testing and interpreting measures of ovarian reserve. Fertil Steril. 2020;114(6):1151-1157.", "url": "https://pubmed.ncbi.nlm.nih.gov/33280722/"}
+    ] %}
+    {% include 'components/sources.html' %}
     </div> <!-- End of calculator-container -->
 
     <script>

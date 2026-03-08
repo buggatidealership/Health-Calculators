@@ -133,18 +133,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="how-to-start-carb-cycling-top"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="what-is">
         <h2>What Is Carb Cycling?</h2>
@@ -211,18 +202,9 @@
         <p class="feature-note" style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #d63384; margin: 20px 0;">A 2021 review in the International Journal of Sports Nutrition found that intermittent energy and carbohydrate restriction protocols (similar to carb cycling) led to comparable or superior improvements in body composition compared to continuous energy restriction approaches.</p>
     </section>
     
-    <!-- Mid Ad -->
-    <div class="adunit-middle" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="how-to-start-carb-cycling-mid"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <section id="planning">
         <h2>How to Plan High, Moderate, and Low Carb Days</h2>
@@ -448,18 +430,9 @@
         <p class="feature-note" style="background-color: #f8f9fa; padding: 15px; border-left: 4px solid #d63384; margin: 20px 0;">According to a 2021 position statement from the Academy of Nutrition and Dietetics, individualized approaches to carbohydrate intake are essential, as optimal levels vary considerably based on individual factors including metabolic health, training status, and specific goals.</p>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0 20px;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="how-to-start-carb-cycling-bottom"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <section id="tools">
         <h2>Best Tools to Calculate and Customize Your Plan</h2>

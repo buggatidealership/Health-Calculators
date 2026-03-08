@@ -156,18 +156,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="starbucks-nutrition-guide-top"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="wreck-macros">
         <h2>Why Starbucks Drinks Can Wreck Your Macros</h2>
@@ -321,18 +312,9 @@
         <a href="/starbucks-nutrition-calculator" style="color: #d63384; text-decoration: none; font-weight: 500;">Try our Starbucks Nutrition Calculator to compare your favorite drinks →</a>
     </section>
     
-    <!-- Middle Ad -->
-    <div class="adunit-middle" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="starbucks-nutrition-guide-mid"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="customization">
         <h2>Sweetener Swaps, Milk Hacks, and Portion Tips</h2>
@@ -495,18 +477,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="starbucks-nutrition-guide-bottom"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
                             top: targetElement.offsetTop - 80, // Adjusted for header
                             behavior: 'smooth'

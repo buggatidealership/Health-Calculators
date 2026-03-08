@@ -69,6 +69,10 @@
     <div class="calculator-container">
     
     <h1>Ideal Body Weight Calculator</h1>
+    <h2>What Is Ideal Body Weight?</h2>
+    <div class="answer-capsule">
+      Ideal body weight (IBW) is a clinically estimated weight range associated with the lowest disease risk for a given height and sex. This calculator uses four validated medical formulas — Devine (1974), Robinson (1983), Miller (1983), and Hamwi (1964) — and adjusts for body frame size to provide a comprehensive weight range rather than a single number.
+    </div>
     <p class="subtitle">This evidence-based calculator determines your ideal body weight range using multiple medical formulas (Devine, Robinson, Miller, and Hamwi). Compare different methods and find personalized weight ranges based on your height, gender, and frame size.</p>
     
     <div class="medical-disclaimer">
@@ -413,6 +417,13 @@
             document.getElementById('result').style.display = 'block';
         }
     </script>
+    {% set sources = [
+        {"text": "Devine BJ. Gentamicin therapy. Drug Intell Clin Pharm. 1974;8:650-655."},
+        {"text": "Robinson JD, Lupkiewicz SM, Palenik L, Lopez LM, Ariet M. Determination of ideal body weight for drug dosage calculations. Am J Hosp Pharm. 1983;40(6):1016-1019.", "url": "https://pubmed.ncbi.nlm.nih.gov/6869387/"},
+        {"text": "Hamwi GJ. Therapy: changing dietary concepts. In: Danowski TS, ed. Diabetes Mellitus: Diagnosis and Treatment. New York: American Diabetes Association; 1964:73-78."},
+        {"text": "Peterson CM, Thomas DM, Blackburn GL, Heymsfield SB. Universal equation for estimating ideal body weight and body weight at any BMI. Am J Clin Nutr. 2016;103(5):1197-1203.", "url": "https://pubmed.ncbi.nlm.nih.gov/27030535/"}
+    ] %}
+    {% include 'components/sources.html' %}
     </div>
 
     {% include 'components/related-links.html' %}

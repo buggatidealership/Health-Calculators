@@ -76,18 +76,9 @@
         </ul>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="chipotle-nutrition-calculator-top"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <section id="calculator">
         <div class="calculator">
@@ -534,18 +525,9 @@
         </div>
     </section>
     
-    <!-- Middle Ad -->
-    <div class="adunit-middle" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="chipotle-nutrition-calculator-mid"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Related Guide -->
     <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
@@ -592,18 +574,9 @@
         </div>
     </section>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 40px 0;">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-1580600669281697"
-             data-ad-slot="chipotle-nutrition-calculator-bottom"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
-        <script>
-             (adsbygoogle = window.adsbygoogle || []).push({});
-        </script>
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     </div>
     

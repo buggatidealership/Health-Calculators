@@ -59,6 +59,10 @@
     <div class="calculator-container">
     
     <h1>Botox Dosage & Cost Calculator</h1>
+    <h2>What Is Botox Dosage?</h2>
+    <div class="answer-capsule">
+      Botox (onabotulinumtoxinA) is dosed in units specific to each treatment area. FDA-approved dosing is 20 units for glabellar lines, 20 units for forehead lines (with glabellar), and 24 units for crow's feet. This calculator estimates total units and cost based on the areas you want treated, following FDA label guidelines from Allergan/AbbVie.
+    </div>
     <p class="subtitle">Estimate your ideal Botox dosage in units and the cost based on treatment area, gender, severity, and desired outcome.</p>
     
     {% include 'components/medical-disclaimer.html' %}
@@ -269,8 +273,13 @@
         {% with ad_position="bottom" %}
         {% include 'components/ad-unit.html' %}
         {% endwith %}
+    {% set sources = [
+        {"text": "Allergan/AbbVie. BOTOX Cosmetic (onabotulinumtoxinA) prescribing information. FDA.gov.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2024/103000s5332lbl.pdf"},
+        {"text": "ASPS. 2024 Plastic Surgery Statistics Report. American Society of Plastic Surgeons.", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"}
+    ] %}
+    {% include 'components/sources.html' %}
 </div> <!-- End of calculator-container -->
-    
+
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/botox_calculator.js') }}"></script>
 
