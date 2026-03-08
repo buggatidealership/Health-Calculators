@@ -288,15 +288,7 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
-    <!-- Footer -->
-    <footer>
-        <p class="medical-disclaimer">
-            <strong>Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.
-        </p>
-    </footer>
-    
-    <!-- Script -->
+<!-- Script -->
     <script>
         // Update range values in real-time
         document.getElementById('bmi').addEventListener('input', function() {
@@ -488,6 +480,8 @@
     </div> <!-- End of calculator-container -->
 
     {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
 
 </body>
 </html>

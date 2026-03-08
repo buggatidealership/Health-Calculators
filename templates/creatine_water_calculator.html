@@ -233,15 +233,7 @@
     {% endwith %}
     
     </div> <!-- End of calculator-container -->
-    
-    <!-- Footer -->
-    <footer class="footer-disclaimer">
-        <p class="medical-disclaimer">
-            <strong>Disclaimer:</strong> This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed practitioner.
-        </p>
-    </footer>
-    
-    <!-- Script -->
+<!-- Script -->
     <script>
         // Global variables to track units
         let currentUnit = 'kg';
@@ -380,6 +372,8 @@
     </script>
 
     {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
 
 </body>
 </html>

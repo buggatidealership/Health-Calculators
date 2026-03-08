@@ -387,16 +387,13 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
-    <footer class="footer-disclaimer">
-        <p><a href="/">&larr; Back to Homepage</a></p>
-        <p><strong>Disclaimer:</strong> This calculator is for educational purposes only and does not replace dietary guidance from a licensed provider.</p>
-    </footer>
-    </div>
+</div>
     
     <script src="{{ url_for('static', filename='js/carb_cycling_calculator.js') }}"></script>
 
     {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
 
 </body>
 </html>

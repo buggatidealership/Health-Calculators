@@ -251,16 +251,7 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
-    <!-- Footer -->
-    <footer style="text-align:center; font-size: 14px; color: #777; margin-top: 40px;">
-        <a href="/" style="color: #555; text-decoration: none;">&larr; Back to Homepage</a>
-        <div class="footer-disclaimer">
-          <p>This calculator is for informational purposes only and should not replace professional advice. Always consult a licensed pediatrician.</p>
-        </div>
-    </footer>
-    
-    <!-- Script -->
+<!-- Script -->
     <script>
         // Set default unit to metric
         let currentUnit = 'metric';
@@ -517,6 +508,8 @@
     </div> <!-- End of calculator-container -->
 
     {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
 
 </body>
 </html>

@@ -269,20 +269,14 @@
         {% with ad_position="bottom" %}
         {% include 'components/ad-unit.html' %}
         {% endwith %}
-        
-        <!-- Footer Disclaimer -->
-        <footer class="footer-disclaimer">
-            <p class="medical-disclaimer">
-                <strong>Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified aesthetic provider for personalized advice.
-            </p>
-        </footer>
-    
-    </div> <!-- End of calculator-container -->
+</div> <!-- End of calculator-container -->
     
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='js/botox_calculator.js') }}"></script>
 
     {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
 
 </body>
 </html>
