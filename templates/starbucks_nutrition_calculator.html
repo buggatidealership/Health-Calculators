@@ -286,22 +286,35 @@
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
                 <h4>Where does the nutrition data come from?</h4>
+            <div class="faq-body">
                 <p>It's based on the official Starbucks menu, nutrition PDFs, and publicly available product data. We update frequently to reflect seasonal offerings.</p>
-            </div>
+                        </div>
+        </div>
             <div class="faq-item">
                 <h4>Does this include modifiers like sweet cream or foam?</h4>
+            <div class="faq-body">
                 <p>Yes, most of them are supported. Toppings like cold foam or whipped cream are optional toggles and update macros in real time.</p>
-            </div>
+                        </div>
+        </div>
             <div class="faq-item">
                 <h4>Can I use this for keto or low-carb tracking?</h4>
+            <div class="faq-body">
                 <p>Yes — use it to remove classic syrup and swap to sugar-free or no milk. You'll see carbs and sugar drop significantly.</p>
-            </div>
+                        </div>
+        </div>
             <div class="faq-item">
                 <h4>How accurate is it?</h4>
+            <div class="faq-body">
                 <p>Values are based on standard sizes and ingredient servings. Customizations made by baristas may slightly vary. Use this as a close approximation.</p>
-            </div>
+                        </div>
+        </div>
         </div>
     </section>
+
+        <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}

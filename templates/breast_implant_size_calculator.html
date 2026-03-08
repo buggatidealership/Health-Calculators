@@ -327,6 +327,11 @@
         </div>
     </section>
     
+        <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}

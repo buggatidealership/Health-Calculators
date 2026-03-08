@@ -1,18 +1,34 @@
 {#
-  Reusable ad unit component with CLS-preventing space reservation.
+  Reusable ad unit component with CLS-preventing space reservation
+  and lazy-loading for below-fold placements.
 
   Usage: {% include 'components/ad-unit.html' with context %}
-  Pass: ad_position = "top" | "middle" | "bottom"
+  Pass: ad_position = "top" | "middle" | "bottom" | "in-article"
 
-  The min-height reserves space to prevent Cumulative Layout Shift.
+  - "top": above the fold, loaded eagerly (no lazy)
+  - "middle": mid-content, lazy-loaded
+  - "bottom": end of content, lazy-loaded
+  - "in-article": native in-article format, lazy-loaded (highest CTR)
+
+  The min-height on each container prevents Cumulative Layout Shift.
   Ad format "auto" with full-width-responsive lets AdSense choose optimal size.
 #}
 {% set position = ad_position|default("middle") %}
 <div class="ad-container ad-container-{{ position }}" aria-hidden="true">
+  {% if position == "in-article" %}
+  <ins class="adsbygoogle"
+       style="display:block; text-align:center"
+       data-ad-layout="in-article"
+       data-ad-format="fluid"
+       data-ad-client="ca-pub-1580600669281697"
+       {% if position != "top" %}loading="lazy"{% endif %}></ins>
+  {% else %}
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-1580600669281697"
        data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+       data-full-width-responsive="true"
+       {% if position != "top" %}loading="lazy"{% endif %}></ins>
+  {% endif %}
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>

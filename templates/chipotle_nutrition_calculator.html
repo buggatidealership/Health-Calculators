@@ -561,23 +561,36 @@
             <h2>Frequently Asked Questions</h2>
             <div class="faq-item">
                 <h4>Where does the nutrition data come from?</h4>
+            <div class="faq-body">
                 <p>All nutrition data is based on Chipotle's official ingredient and allergen guide, as well as USDA food database entries.</p>
-            </div>
+                        </div>
+        </div>
             <div class="faq-item">
                 <h4>Can I use this to track macros or cut calories?</h4>
+            <div class="faq-body">
                 <p>Yes — you can instantly adjust ingredients and see how your Chipotle meal fits into your macro goals.</p>
-            </div>
+                        </div>
+        </div>
             <div class="faq-item">
                 <h4>Are vegan and vegetarian options supported?</h4>
+            <div class="faq-body">
                 <p>Yes, you can customize with sofritas, black beans, fajita veggies, guacamole, and more.</p>
-            </div>
+                        </div>
+        </div>
             <div class="faq-item">
                 <h4>Does this calculator work for delivery orders?</h4>
+            <div class="faq-body">
                 <p>Yes — ingredient macros match in-store and digital orders. Custom portioning may vary slightly.</p>
-            </div>
+                        </div>
+        </div>
         </div>
     </section>
     
+        <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
