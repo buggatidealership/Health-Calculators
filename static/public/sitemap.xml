@@ -353,4 +353,10 @@
     <priority>0.6</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://healthcalculators.xyz/editorial-policy</loc>
+    <lastmod>2026-03-08</lastmod>
+    <priority>0.7</priority>
+    <changefreq>yearly</changefreq>
+  </url>
 </urlset>
