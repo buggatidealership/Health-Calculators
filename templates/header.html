@@ -46,7 +46,7 @@
   <a href="/resources">Guides</a>
   <span class="breadcrumb-sep">/</span>
   {% endif %}
-  <span class="breadcrumb-current">{{ page_title or request.path.replace('/', ' ').replace('-', ' ').strip().title() }}</span>
+  <span class="breadcrumb-current">{{ breadcrumb_title or request.path.replace('/', ' ').replace('-', ' ').strip().title() }}</span>
 </nav>
 {% endif %}
 <!-- END HEADER -->

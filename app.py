@@ -947,10 +947,17 @@ def inject_cross_links():
     related_calcs = [{'url': url, 'title': _title_lookup.get(url, url)} for url in links.get('calculators', [])]
     related_guides = [{'url': url, 'title': _title_lookup.get(url, url)} for url in links.get('guides', [])]
 
+    # Breadcrumb title from card/article titles (proper casing)
+    breadcrumb_title = _title_lookup.get(path, '')
+    # Strip " Calculator" suffix for cleaner breadcrumbs
+    if breadcrumb_title.endswith(' Calculator'):
+        breadcrumb_title = breadcrumb_title[:-len(' Calculator')]
+
     return {
         'related_calculators': related_calcs,
         'related_guides': related_guides,
-        'cards': cards
+        'cards': cards,
+        'breadcrumb_title': breadcrumb_title
     }
 
 @app.route('/resources')
