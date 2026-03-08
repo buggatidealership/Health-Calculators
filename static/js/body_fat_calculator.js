@@ -168,17 +168,17 @@ function calculateBodyFat() {
 
 function getACECategory(bf, gender) {
     if (gender === 'male') {
-        if (bf < 6) return { name: 'Essential Fat', color: '#2196F3', id: 'essential' };
-        if (bf <= 13) return { name: 'Athletes', color: '#4CAF50', id: 'athletes' };
-        if (bf <= 17) return { name: 'Fitness', color: '#8BC34A', id: 'fitness' };
-        if (bf <= 24) return { name: 'Average', color: '#FFC107', id: 'average' };
-        return { name: 'Obese', color: '#FF5722', id: 'obese' };
+        if (bf < 6) return { name: 'Essential Fat', color: '#0891b2', id: 'essential' };
+        if (bf <= 13) return { name: 'Athletes', color: '#16a34a', id: 'athletes' };
+        if (bf <= 17) return { name: 'Fitness', color: '#22c55e', id: 'fitness' };
+        if (bf <= 24) return { name: 'Average', color: '#d97706', id: 'average' };
+        return { name: 'Obese', color: '#dc2626', id: 'obese' };
     } else {
-        if (bf < 14) return { name: 'Essential Fat', color: '#2196F3', id: 'essential' };
-        if (bf <= 20) return { name: 'Athletes', color: '#4CAF50', id: 'athletes' };
-        if (bf <= 24) return { name: 'Fitness', color: '#8BC34A', id: 'fitness' };
-        if (bf <= 31) return { name: 'Average', color: '#FFC107', id: 'average' };
-        return { name: 'Obese', color: '#FF5722', id: 'obese' };
+        if (bf < 14) return { name: 'Essential Fat', color: '#0891b2', id: 'essential' };
+        if (bf <= 20) return { name: 'Athletes', color: '#16a34a', id: 'athletes' };
+        if (bf <= 24) return { name: 'Fitness', color: '#22c55e', id: 'fitness' };
+        if (bf <= 31) return { name: 'Average', color: '#d97706', id: 'average' };
+        return { name: 'Obese', color: '#dc2626', id: 'obese' };
     }
 }
 
@@ -204,7 +204,7 @@ function highlightACERow(categoryId) {
     // Highlight active
     var active = document.getElementById('ace-' + categoryId);
     if (active) {
-        active.style.backgroundColor = '#fff3e0';
+        active.style.backgroundColor = '#fffbeb';
         active.style.fontWeight = '600';
     }
 }

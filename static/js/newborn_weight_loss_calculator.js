@@ -89,15 +89,15 @@ function calculateWeightLoss() {
     let statusLevel, statusColor, statusIcon;
     if (statusClass === 'normal') {
         statusLevel = 'status-good';
-        statusColor = '#4caf50';
+        statusColor = '#16a34a';
         statusIcon = '\u2705';
     } else if (statusClass === 'warning') {
         statusLevel = 'status-warning';
-        statusColor = '#ff9800';
+        statusColor = '#d97706';
         statusIcon = '\u26A0\uFE0F';
     } else {
         statusLevel = 'status-danger';
-        statusColor = '#f44336';
+        statusColor = '#dc2626';
         statusIcon = '\uD83D\uDEA8';
     }
 
@@ -130,13 +130,13 @@ function calculateWeightLoss() {
     const gaugeFill = document.getElementById('gauge-fill');
     gaugeFill.style.width = gaugeWidth + '%';
     if (pctLoss <= 5) {
-        gaugeFill.style.background = '#4caf50';
+        gaugeFill.style.background = '#16a34a';
     } else if (pctLoss <= 7) {
-        gaugeFill.style.background = '#ffeb3b';
+        gaugeFill.style.background = '#fde68a';
     } else if (pctLoss <= 10) {
-        gaugeFill.style.background = '#ff9800';
+        gaugeFill.style.background = '#d97706';
     } else {
-        gaugeFill.style.background = '#f44336';
+        gaugeFill.style.background = '#dc2626';
     }
 
     // Info cards

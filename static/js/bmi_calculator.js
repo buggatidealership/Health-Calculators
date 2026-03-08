@@ -57,19 +57,19 @@ function calculateBMI() {
     var category, color, rowId;
     if (bmi < 18.5) {
         category = 'Underweight';
-        color = '#3498db';
+        color = '#0891b2';
         rowId = 'row-underweight';
     } else if (bmi < 25) {
         category = 'Normal weight';
-        color = '#2ecc71';
+        color = '#16a34a';
         rowId = 'row-normal';
     } else if (bmi < 30) {
         category = 'Overweight';
-        color = '#f39c12';
+        color = '#d97706';
         rowId = 'row-overweight';
     } else {
         category = 'Obese';
-        color = '#e74c3c';
+        color = '#dc2626';
         rowId = 'row-obese';
     }
 
@@ -128,7 +128,7 @@ function calculateBMI() {
         } else {
             weightDiffEl.textContent = 'Gain ' + Math.round(needToGain / 0.453592) + ' lbs';
         }
-        weightDiffEl.style.color = '#3498db';
+        weightDiffEl.style.color = '#0891b2';
     } else if (bmi >= 25) {
         var needToLose = weightKg - healthyMax;
         if (isMetric) {
@@ -136,10 +136,10 @@ function calculateBMI() {
         } else {
             weightDiffEl.textContent = 'Lose ' + Math.round(needToLose / 0.453592) + ' lbs';
         }
-        weightDiffEl.style.color = '#e74c3c';
+        weightDiffEl.style.color = '#dc2626';
     } else {
         weightDiffEl.textContent = 'You are in the healthy range';
-        weightDiffEl.style.color = '#2ecc71';
+        weightDiffEl.style.color = '#16a34a';
     }
 
     // Show results with reveal animation

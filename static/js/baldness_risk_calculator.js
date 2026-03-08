@@ -66,22 +66,22 @@ function calculateBaldness() {
     // Hero border color based on risk
     const heroEl = document.getElementById('result-hero');
     if (riskScore <= 30) {
-        heroEl.style.borderColor = '#28a745';
+        heroEl.style.borderColor = '#16a34a';
     } else if (riskScore <= 60) {
-        heroEl.style.borderColor = '#fd7e14';
+        heroEl.style.borderColor = '#d97706';
     } else {
-        heroEl.style.borderColor = '#dc3545';
+        heroEl.style.borderColor = '#dc2626';
     }
 
     // Gauge fill
     const gaugeFill = document.getElementById('gauge-fill');
     gaugeFill.style.width = riskScore + "%";
     if (riskScore <= 30) {
-        gaugeFill.style.backgroundColor = '#28a745';
+        gaugeFill.style.backgroundColor = '#16a34a';
     } else if (riskScore <= 60) {
-        gaugeFill.style.backgroundColor = '#fd7e14';
+        gaugeFill.style.backgroundColor = '#d97706';
     } else {
-        gaugeFill.style.backgroundColor = '#dc3545';
+        gaugeFill.style.backgroundColor = '#dc2626';
     }
 
     // Predicted age
