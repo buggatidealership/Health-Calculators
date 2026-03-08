@@ -27,7 +27,8 @@ var CALCULATOR_GRAPH = {
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Calculate your optimal daily protein intake', params: ['weight_kg','age','gender'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Optimize your {tdee} kcal with carb cycling', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'See how fasting affects your {tdee} kcal budget', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight based on your frame', params: ['height_cm','gender'] }
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight based on your frame', params: ['height_cm','gender'] },
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Optimize your sleep for better recovery', params: ['age'] }
     ]
   },
   'carb-cycling': {
@@ -303,6 +304,13 @@ var CALCULATOR_GRAPH = {
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Fuel your workouts with optimal protein', params: ['weight_kg','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Plan your post-workout nutrition', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
+  'sleep': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['age'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See how exercise affects your sleep needs', params: [] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: [] }
     ]
   }
 };
