@@ -80,29 +80,7 @@
     <div class="calculator-container">
 
     <h1>TDEE Calculator</h1>
-
-    <!-- Answer Capsule: LLM-optimized definition -->
-    <h2>What Is Total Daily Energy Expenditure?</h2>
-    <div class="answer-capsule">
-      Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns per day. It combines your Basal Metabolic Rate (BMR) — the energy needed for basic life-sustaining functions — with calories burned through physical activity, digestion, and non-exercise movement. This calculator uses the Mifflin-St Jeor equation, which the American Dietetic Association recommends as the most accurate predictive formula for estimating caloric needs.
-    </div>
-
-    <div class="table-of-contents">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">TDEE Calculator</a></li>
-            <li><a href="#results-section">Understanding Your Results</a></li>
-            <li><a href="#how-it-works">How the Mifflin-St Jeor Equation Works</a></li>
-            <li><a href="#activity-levels">Activity Level Guide</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#sources">Sources & Methodology</a></li>
-        </ul>
-    </div>
-
-    <!-- Top Ad -->
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
+    <p class="subtitle">Calculate your Total Daily Energy Expenditure using the Mifflin-St Jeor equation.</p>
 
     <section id="calculator">
         <div class="calculator">
@@ -235,6 +213,27 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC (moved below calculator for tool-first layout) -->
+    <h2>What Is Total Daily Energy Expenditure?</h2>
+    <div class="answer-capsule">
+      Total Daily Energy Expenditure (TDEE) is the total number of calories your body burns per day. It combines your Basal Metabolic Rate (BMR) — the energy needed for basic life-sustaining functions — with calories burned through physical activity, digestion, and non-exercise movement. This calculator uses the Mifflin-St Jeor equation, which the American Dietetic Association recommends as the most accurate predictive formula for estimating caloric needs.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#how-it-works">How the Mifflin-St Jeor Equation Works</a></li>
+            <li><a href="#activity-levels">Activity Level Guide</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
 
     <!-- Mid Ad -->
     {% with ad_position="middle" %}

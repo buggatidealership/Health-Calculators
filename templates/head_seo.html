@@ -198,5 +198,35 @@ document.addEventListener('DOMContentLoaded',function(){
       item.classList.add('faq-open');
     });
   }
+  // Sticky mobile CTA: show when calculator form scrolls out of view
+  (function(){
+    var calcForm=document.querySelector('.calculator');
+    if(!calcForm) return;
+    // Create sticky CTA
+    var sticky=document.createElement('div');
+    sticky.className='sticky-cta';
+    sticky.innerHTML='<button class="sticky-cta-btn" type="button">&#9650; Use Calculator</button>';
+    document.body.appendChild(sticky);
+    sticky.querySelector('button').addEventListener('click',function(){
+      calcForm.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+    // Show/hide based on scroll position
+    var ticking=false;
+    window.addEventListener('scroll',function(){
+      if(!ticking){
+        requestAnimationFrame(function(){
+          var rect=calcForm.getBoundingClientRect();
+          // Show when calculator form is above viewport
+          if(rect.bottom<0){
+            sticky.classList.add('visible');
+          } else {
+            sticky.classList.remove('visible');
+          }
+          ticking=false;
+        });
+        ticking=true;
+      }
+    });
+  })();
 });
 </script>

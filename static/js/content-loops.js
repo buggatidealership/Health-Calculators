@@ -307,6 +307,9 @@ function showNextSteps(calculatorId, userData, resultData, containerId) {
   });
 
   container.appendChild(wrapper);
+
+  // Add share button after next steps
+  addShareButton(container, userData);
 }
 
 /**
@@ -343,4 +346,66 @@ function collectUserData() {
     data.height_cm = ((ft * 12 + inches) * 2.54).toFixed(1);
   }
   return data;
+}
+
+/**
+ * Add share button to results area.
+ * Generates a shareable URL with user data pre-filled.
+ */
+function addShareButton(container, userData) {
+  // Remove existing share buttons if recalculating
+  var existing = container.querySelector('.share-results');
+  if (existing) existing.remove();
+
+  var shareDiv = document.createElement('div');
+  shareDiv.className = 'share-results';
+
+  // Build share URL with user data
+  var shareUrl = window.location.origin + window.location.pathname;
+  if (userData) {
+    var queryParts = [];
+    Object.keys(userData).forEach(function(key) {
+      if (userData[key]) {
+        queryParts.push(encodeURIComponent(key) + '=' + encodeURIComponent(userData[key]));
+      }
+    });
+    if (queryParts.length) {
+      shareUrl += '?' + queryParts.join('&');
+    }
+  }
+
+  // Copy link button
+  var copyBtn = document.createElement('button');
+  copyBtn.type = 'button';
+  copyBtn.className = 'share-btn';
+  copyBtn.innerHTML = '&#128279; Copy Link';
+  copyBtn.addEventListener('click', function() {
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(shareUrl).then(function() {
+        copyBtn.innerHTML = '&#10003; Copied!';
+        copyBtn.classList.add('copied');
+        setTimeout(function() {
+          copyBtn.innerHTML = '&#128279; Copy Link';
+          copyBtn.classList.remove('copied');
+        }, 2000);
+      });
+    } else {
+      // Fallback for non-HTTPS
+      var input = document.createElement('input');
+      input.value = shareUrl;
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand('copy');
+      document.body.removeChild(input);
+      copyBtn.innerHTML = '&#10003; Copied!';
+      copyBtn.classList.add('copied');
+      setTimeout(function() {
+        copyBtn.innerHTML = '&#128279; Copy Link';
+        copyBtn.classList.remove('copied');
+      }, 2000);
+    }
+  });
+  shareDiv.appendChild(copyBtn);
+
+  container.appendChild(shareDiv);
 }
