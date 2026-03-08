@@ -165,7 +165,7 @@
 
     <!-- Ad placement - top -->
     <div class="ad-container">
-        <div class="ad-unit" id="chipotle-nutrition-guide-top"></div>
+        {% with ad_position="top" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="nutrition-strategy">
@@ -422,7 +422,7 @@
 
     <!-- Ad placement - middle -->
     <div class="ad-container">
-        <div class="ad-unit" id="chipotle-nutrition-guide-mid"></div>
+        {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="ingredient-swaps">
@@ -641,7 +641,7 @@
 
     <!-- Ad placement - bottom -->
     <div class="ad-container">
-        <div class="ad-unit" id="chipotle-nutrition-guide-bottom"></div>
+        {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="faq">
@@ -707,6 +707,7 @@
             });
         });
     </script>
+{% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 
 </body>

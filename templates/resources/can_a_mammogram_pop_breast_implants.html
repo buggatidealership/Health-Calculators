@@ -149,7 +149,7 @@
 
 <!-- Top Ad -->
 <div class="ad-container">
-    <div class="ad-unit" id="can-a-mammogram-pop-breast-implants-top"></div>
+    {% with ad_position="top" %}{% include 'components/ad-unit.html' %}{% endwith %}
 </div>
 
 <!-- Table of Contents -->
@@ -212,7 +212,7 @@
 
 <!-- Mid Ad -->
 <div class="ad-container">
-    <div class="ad-unit" id="can-a-mammogram-pop-breast-implants-mid"></div>
+    {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
 </div>
 
 <section id="risk-factors">
@@ -475,7 +475,7 @@
 
 <!-- Bottom Ad -->
 <div class="ad-container">
-    <div class="ad-unit" id="can-a-mammogram-pop-breast-implants-bottom"></div>
+    {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
 </div>
 
 <div class="cta-box" style="background-color: #fff0f3; border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid #d63384;">
@@ -540,6 +540,7 @@
 
 </div>
 
+{% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 </body>
 </html>

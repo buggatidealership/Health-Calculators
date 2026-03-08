@@ -30,10 +30,9 @@
 
     {% include 'components/medical-disclaimer.html' %}
 
-    <!-- Ad placement - top -->
-    <div class="ad-container">
-        <div class="ad-unit" id="vitamin-d-conversion-calculator-top"></div>
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <div class="table-of-contents">
         <h3>Contents</h3>
@@ -153,10 +152,9 @@
         </div>
     </section>
 
-    <!-- Ad placement - mid -->
-    <div class="ad-container">
-        <div class="ad-unit" id="vitamin-d-conversion-calculator-mid"></div>
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <section id="how-to-use" class="info">
         <h2>How to Use the Vitamin D Conversion Calculator</h2>
@@ -227,10 +225,9 @@
         </div>
     </section>
 
-    <!-- Ad placement - bottom -->
-    <div class="ad-container">
-        <div class="ad-unit" id="vitamin-d-conversion-calculator-bottom"></div>
-    </div>
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
 
     <div class="related-tools">
         <h3>Related Calculators</h3>

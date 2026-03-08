@@ -162,7 +162,7 @@
 
     <!-- Ad placement - top -->
     <div class="ad-container">
-        <div class="ad-unit" id="how-alcohol-affects-your-bac-top"></div>
+        {% with ad_position="top" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="alcohol-absorption">
@@ -216,7 +216,7 @@
 
     <!-- Ad placement - mid -->
     <div class="ad-container">
-        <div class="ad-unit" id="how-alcohol-affects-your-bac-mid"></div>
+        {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="bac-curve">
@@ -541,7 +541,7 @@
 
     <!-- Ad placement - bottom -->
     <div class="ad-container">
-        <div class="ad-unit" id="how-alcohol-affects-your-bac-bottom"></div>
+        {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="faq" class="faq-section">
@@ -654,7 +654,8 @@
     <p style="font-size: 0.8em; color: #666; margin-top: 40px;">Last updated: April 8, 2025</p>
     </div>
     
-    {% include 'footer.html' %}
+    {% include 'components/explore-more.html' %}
+{% include 'footer.html' %}
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {

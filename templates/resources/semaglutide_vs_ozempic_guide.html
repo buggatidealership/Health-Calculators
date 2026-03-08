@@ -122,7 +122,7 @@
 
 <!-- Top Ad -->
 <div class="ad-container">
-    <div class="ad-unit" id="semaglutide-vs-ozempic-guide-top"></div>
+    {% with ad_position="top" %}{% include 'components/ad-unit.html' %}{% endwith %}
 </div>
 
 <!-- Table of Contents -->
@@ -182,7 +182,7 @@
 
 <!-- Mid Ad -->
 <div class="ad-container">
-    <div class="ad-unit" id="semaglutide-vs-ozempic-guide-mid"></div>
+    {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
 </div>
 
 <section id="key-differences">
@@ -424,13 +424,14 @@
 
 <!-- Bottom Ad -->
 <div class="ad-container">
-    <div class="ad-unit" id="semaglutide-vs-ozempic-guide-bottom"></div>
+    {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
 </div>
 
 </div>
 
 {% include 'components/medical-disclaimer.html' %}
 
+{% include 'components/explore-more.html' %}
 {% include 'footer.html' %}
 
 </body>

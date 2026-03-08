@@ -171,7 +171,7 @@
 
     <!-- Ad placement - top -->
     <div class="ad-container">
-        <div class="ad-unit" id="ivf-due-date-calculator-guide-top"></div>
+        {% with ad_position="top" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="ivf-vs-natural">
@@ -201,7 +201,7 @@
 
     <!-- Ad placement - mid -->
     <div class="ad-container">
-        <div class="ad-unit" id="ivf-due-date-calculator-guide-mid"></div>
+        {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="day3-vs-day5">
@@ -440,7 +440,7 @@
 
     <!-- Ad placement - bottom -->
     <div class="ad-container">
-        <div class="ad-unit" id="ivf-due-date-calculator-guide-bottom"></div>
+        {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
     <section id="faq" class="faq-section">
@@ -543,7 +543,8 @@
         </ol>
     </div>
 
-    {% include 'footer.html' %}
+    {% include 'components/explore-more.html' %}
+{% include 'footer.html' %}
     </div>
     
     <script>
