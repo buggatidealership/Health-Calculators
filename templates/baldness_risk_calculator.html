@@ -219,7 +219,73 @@
             
             <button id="calculate-btn" class="cta-button" onclick="calculateBaldness()">Predict My Baldness Timeline</button>
             
-            <div id="result" class="result" style="display: none;"></div>
+            <div id="result" class="results-section" style="display: none;">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="risk-score">—</div>
+                    <div class="result-hero-label">Risk Score</div>
+                    <div class="result-hero-sublabel" id="risk-level">—</div>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Risk Level</div>
+                    <div class="result-gauge-bar">
+                        <div class="result-gauge-fill" id="gauge-fill" style="width: 0%;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>Low (0-30)</span>
+                        <span>Moderate (30-60)</span>
+                        <span>High (60-100)</span>
+                    </div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card blue" id="predicted-card">
+                        <div class="result-card-title">Predicted Balding Age</div>
+                        <div class="result-card-value" id="predicted-age">—</div>
+                        <div class="result-card-note">significant hair loss</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Years Remaining</div>
+                        <div class="result-card-value" id="years-remaining">—</div>
+                        <div class="result-card-note">until significant change</div>
+                    </div>
+                    <div class="result-card purple">
+                        <div class="result-card-title">Current Stage</div>
+                        <div class="result-card-value" id="norwood-stage">—</div>
+                        <div class="result-card-note">Norwood Scale</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Risk Factor Breakdown</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Family History</span>
+                        <span class="result-breakdown-val" id="family-score">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Current Hair Status</span>
+                        <span class="result-breakdown-val" id="hair-score">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Loss Rate</span>
+                        <span class="result-breakdown-val" id="loss-score">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Stress Level</span>
+                        <span class="result-breakdown-val" id="stress-score">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Smoking</span>
+                        <span class="result-breakdown-val" id="smoking-score">—</span>
+                    </div>
+                </div>
+
+                <div id="detail-status" class="result-status status-good">
+                    <span class="result-status-text" id="detail-message">—</span>
+                </div>
+
+                <p style="font-size: 0.82rem; color: #888; font-style: italic; margin-top: 12px;">Based on statistical averages and the Hamilton-Norwood classification. Lifestyle changes or treatments (finasteride, minoxidil) could alter progression.</p>
+            </div>
             
             <div class="references">
                 <h3>Scientific Basis</h3>

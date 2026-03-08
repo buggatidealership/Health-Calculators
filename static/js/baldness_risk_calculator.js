@@ -58,17 +58,62 @@ function calculateBaldness() {
     
     // Display result
     const resultDiv = document.getElementById('result');
-    resultDiv.innerHTML = `
-        <h3>Your Baldness Prediction</h3>
-        <div class="progress-container">
-            <div class="progress-bar" style="width: ${riskScore}%">${riskScore}% Risk Score</div>
-        </div>
-        <p><strong>Risk Level:</strong> ${riskLevel}</p>
-        <p><strong>Predicted Age for Significant Balding:</strong> ${predictedAge}</p>
-        <p><strong>Details:</strong> ${message}</p>
-        <p><strong>Note:</strong> This prediction is based on statistical averages and your current progression rate. Lifestyle changes or medical treatments could alter this timeline.</p>
-    `;
-    resultDiv.className = "result " + resultClass;
+
+    // Risk score and level
+    document.getElementById('risk-score').textContent = riskScore + "/100";
+    document.getElementById('risk-level').textContent = riskLevel;
+
+    // Hero border color based on risk
+    const heroEl = document.getElementById('result-hero');
+    if (riskScore <= 30) {
+        heroEl.style.borderColor = '#28a745';
+    } else if (riskScore <= 60) {
+        heroEl.style.borderColor = '#fd7e14';
+    } else {
+        heroEl.style.borderColor = '#dc3545';
+    }
+
+    // Gauge fill
+    const gaugeFill = document.getElementById('gauge-fill');
+    gaugeFill.style.width = riskScore + "%";
+    if (riskScore <= 30) {
+        gaugeFill.style.backgroundColor = '#28a745';
+    } else if (riskScore <= 60) {
+        gaugeFill.style.backgroundColor = '#fd7e14';
+    } else {
+        gaugeFill.style.backgroundColor = '#dc3545';
+    }
+
+    // Predicted age
+    document.getElementById('predicted-age').textContent = predictedAge > 85 ? "85+" : predictedAge;
+
+    // Years remaining
+    const yearsLeft = predictedAge - currentAge;
+    document.getElementById('years-remaining').textContent = yearsLeft > 25 ? "25+" : yearsLeft;
+
+    // Norwood stage mapping
+    const norwoodLabels = {0: "NW1", 1: "NW2", 2: "NW3", 3: "NW4", 4: "NW5+"};
+    document.getElementById('norwood-stage').textContent = norwoodLabels[currentHair] || "—";
+
+    // Risk factor breakdown scores
+    document.getElementById('family-score').textContent = (familyHistory * 25) + " pts";
+    document.getElementById('hair-score').textContent = (currentHair * 10) + " pts";
+    document.getElementById('loss-score').textContent = (hairLossRate * 5) + " pts";
+    document.getElementById('stress-score').textContent = (stress * 3) + " pts";
+    document.getElementById('smoking-score').textContent = (smoking * 4) + " pts";
+
+    // Detail status
+    const detailStatus = document.getElementById('detail-status');
+    detailStatus.className = "result-status";
+    if (riskScore <= 30) {
+        detailStatus.classList.add('status-good');
+    } else if (riskScore <= 60) {
+        detailStatus.classList.add('status-warning');
+    } else {
+        detailStatus.classList.add('status-bad');
+    }
+    document.getElementById('detail-message').textContent = message;
+
     resultDiv.style.display = "block";
 }
 
