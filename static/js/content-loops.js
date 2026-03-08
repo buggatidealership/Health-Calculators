@@ -272,8 +272,17 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Get your full macronutrient breakdown', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Calculate your optimal daily hydration', params: ['weight_kg','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] }
+    ]
+  },
+  'water-intake': {
+    links: [
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Calculate your optimal protein intake', params: ['weight_kg','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Get your full macronutrient breakdown', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] }
     ]
   }
 };

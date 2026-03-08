@@ -160,6 +160,14 @@ cross_links = {
         "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/bmi-calculator", "/ideal-body-weight-calculator"],
         "guides": []
     },
+    "/water-intake-calculator": {
+        "calculators": ["/protein-intake-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/bmi-calculator"],
+        "guides": []
+    },
+    "/calories-burned-calculator": {
+        "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/bmi-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
 }
 
 # Build a title lookup from cards and articles arrays (populated after they are defined)
@@ -535,6 +543,16 @@ cards = [
         "color": "red",
         "category": "nutrition",
         "popular": False
+    },
+    {
+        "title": "Water Intake Calculator",
+        "url": "/water-intake-calculator",
+        "summary": "Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations backed by IOM guidelines.",
+        "icon": "💧",
+        "cta": "Calculate Water Needs",
+        "color": "blue",
+        "category": "nutrition",
+        "popular": False
     }
 ]
 
@@ -598,6 +616,19 @@ def protein_intake_calculator():
     schema_url = "/protein-intake-calculator"
     return render_template(
         'protein_intake_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/water-intake-calculator')
+def water_intake_calculator():
+    schema_name = "Water Intake Calculator"
+    schema_description = "Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations backed by IOM guidelines."
+    schema_url = "/water-intake-calculator"
+    return render_template(
+        'water_intake_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "water-intake-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations backed by IOM guidelines.",
+    meta_keywords="water intake calculator, daily water intake, how much water to drink, hydration calculator, water consumption, daily water needs",
+    og_title="Water Intake Calculator – How Much Water Should You Drink Daily?",
+    og_description="Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations backed by IOM guidelines.",
+    og_url="/water-intake-calculator",
+    page_title="Water Intake Calculator – How Much Water Should You Drink Daily?",
+    canonical_url="/water-intake-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Water Intake Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/water-intake-calculator",
+  "description": "Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations backed by IOM guidelines.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much water should I drink per day?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Institute of Medicine recommends approximately 3.7 liters (125 oz) per day for men and 2.7 liters (91 oz) per day for women from all beverages and food combined. About 80% typically comes from drinks, making the drinking-water recommendation roughly 3.0 L for men and 2.2 L for women."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does coffee count toward my daily water intake?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, coffee and tea do count toward your daily fluid intake. While caffeine has a mild diuretic effect, the net hydration from caffeinated beverages is still positive. However, very high caffeine intake (above 400mg/day) may increase fluid losses, which is why this calculator adds a small offset for heavy caffeine consumers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you drink too much water?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Drinking excessive water can lead to hyponatremia (dangerously low blood sodium levels). This is rare but can occur when consuming large volumes in a short time, especially during endurance exercise. Spread your intake throughout the day and drink to thirst rather than forcing excessive amounts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need more water when exercising?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The American College of Sports Medicine recommends drinking 400-800 ml (14-28 oz) per hour during exercise, depending on intensity, duration, and sweat rate. For workouts longer than 60 minutes, consider adding electrolytes to your water."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does climate affect water needs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Hot and humid climates increase sweat production, raising water needs by 20-30%. Hot and dry climates can increase needs even more (up to 30%) because sweat evaporates quickly and you may not realize how much fluid you're losing. Even cold climates increase needs slightly due to respiratory water loss and reduced thirst perception."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does water intake change during pregnancy or breastfeeding?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. The IOM recommends pregnant women consume approximately 3.0 liters (about 10 cups) of total beverages daily, an increase of about 300 ml over baseline. Breastfeeding women need about 3.8 liters (about 13 cups) daily, an increase of approximately 700 ml, to support milk production."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Water Intake Calculator</h1>
+    <p class="subtitle">Calculate your optimal daily water intake based on weight, activity, climate, and lifestyle factors.</p>
+
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleWaterUnit('metric')">Metric (kg)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleWaterUnit('imperial')">Imperial (lbs)</button>
+                </div>
+            </div>
+
+            <!-- Metric Weight -->
+            <div class="metric-inputs">
+                <div class="form-group">
+                    <label for="weight_kg">Weight (kg)</label>
+                    <input type="number" id="weight_kg" min="30" max="300" step="0.1" placeholder="e.g. 70" required>
+                </div>
+            </div>
+
+            <!-- Imperial Weight -->
+            <div class="imperial-inputs hidden">
+                <div class="form-group">
+                    <label for="weight_lb">Weight (lbs)</label>
+                    <input type="number" id="weight_lb" min="66" max="660" step="0.1" placeholder="e.g. 154" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="15" max="100" placeholder="e.g. 30" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender" onchange="togglePregnancyField()">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity Level</label>
+                <select id="activity">
+                    <option value="sedentary">Sedentary (little or no exercise)</option>
+                    <option value="lightly">Lightly Active (exercise 1-3 days/week)</option>
+                    <option value="moderately" selected>Moderately Active (exercise 3-5 days/week)</option>
+                    <option value="very">Very Active (exercise 6-7 days/week)</option>
+                    <option value="extremely">Extremely Active (hard exercise & physical job)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="climate">Climate</label>
+                <select id="climate">
+                    <option value="temperate" selected>Temperate</option>
+                    <option value="hot_humid">Hot & Humid</option>
+                    <option value="hot_dry">Hot & Dry</option>
+                    <option value="cold">Cold</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="caffeine">Caffeinated Drinks Per Day</label>
+                <select id="caffeine">
+                    <option value="0">0</option>
+                    <option value="1-2" selected>1-2</option>
+                    <option value="3-4">3-4</option>
+                    <option value="5+">5+</option>
+                </select>
+            </div>
+
+            <div class="form-group hidden" id="pregnancy-group">
+                <label for="pregnancy">Currently Pregnant or Breastfeeding?</label>
+                <select id="pregnancy">
+                    <option value="no" selected>No</option>
+                    <option value="pregnant">Pregnant</option>
+                    <option value="breastfeeding">Breastfeeding</option>
+                </select>
+            </div>
+
+            <button onclick="calculateWaterIntake()" class="btn btn-pink">Calculate Water Intake</button>
+
+            <div class="results hidden" id="results">
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="water-display">--</div>
+                    <div class="tdee-label">liters/day</div>
+                    <div class="tdee-sublabel" id="water-oz-display">-- oz/day</div>
+                </div>
+
+                <div class="tdee-breakdown" id="breakdown">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Glasses per day (8 oz)</span>
+                        <span class="tdee-breakdown-value" id="glasses-display">--</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Hourly intake suggestion</span>
+                        <span class="tdee-breakdown-value" id="hourly-display">--</span>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Hydration Schedule</h4>
+                <div class="tdee-goals" id="schedule">
+                    <div class="tdee-goal-card tdee-goal-loss">
+                        <div class="tdee-goal-title">Morning</div>
+                        <div class="tdee-goal-subtitle">6 AM - 10 AM</div>
+                        <div class="tdee-goal-value" id="schedule-morning">--</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-maintain">
+                        <div class="tdee-goal-title">Midday</div>
+                        <div class="tdee-goal-subtitle">10 AM - 2 PM</div>
+                        <div class="tdee-goal-value" id="schedule-midday">--</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-gain">
+                        <div class="tdee-goal-title">Afternoon</div>
+                        <div class="tdee-goal-subtitle">2 PM - 6 PM</div>
+                        <div class="tdee-goal-value" id="schedule-afternoon">--</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-loss">
+                        <div class="tdee-goal-title">Evening</div>
+                        <div class="tdee-goal-subtitle">6 PM - 10 PM</div>
+                        <div class="tdee-goal-value" id="schedule-evening">--</div>
+                    </div>
+                </div>
+
+                <div class="tdee-macro-summary" id="adjustment-summary">
+                    <h4>Adjustment Factors</h4>
+                    <div class="tdee-macro-row">
+                        <div class="tdee-macro-item">
+                            <span class="tdee-macro-label">Activity</span>
+                            <span class="tdee-macro-value" id="adj-activity">--</span>
+                        </div>
+                        <div class="tdee-macro-item">
+                            <span class="tdee-macro-label">Climate</span>
+                            <span class="tdee-macro-value" id="adj-climate">--</span>
+                        </div>
+                        <div class="tdee-macro-item">
+                            <span class="tdee-macro-label">Other</span>
+                            <span class="tdee-macro-value" id="adj-other">--</span>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #888; margin-top: 8px;">Multipliers applied to your base intake of 35 ml per kg body weight (IOM baseline).</p>
+                </div>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    These are estimates based on IOM and EFSA guidelines. Individual needs vary based on health conditions, medications, and sweat rate. Consult a healthcare provider for personalized guidance.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC -->
+    <h2>How Much Water Should You Drink Per Day?</h2>
+    <div class="answer-capsule">
+      The Institute of Medicine (IOM) recommends a total daily water intake of approximately 3.7 liters (125 oz) for men and 2.7 liters (91 oz) for women from all sources including food and beverages. About 20% of daily water intake comes from food, so drinking water recommendations are roughly 3.0 L for men and 2.2 L for women. However, your actual needs depend on body weight, activity level, climate, and individual factors. This calculator uses the evidence-based baseline of 35 ml per kg of body weight, adjusted for your specific circumstances.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#factors">Factors That Affect Your Water Needs</a></li>
+            <li><a href="#dehydration">Signs of Dehydration</a></li>
+            <li><a href="#beverages">Water vs Other Beverages</a></li>
+            <li><a href="#tips">Tips for Staying Hydrated</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Factors That Affect Your Water Needs -->
+    <section id="factors" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Factors That Affect Your Water Needs</h2>
+            <div class="answer-capsule">
+                Your optimal water intake is not a fixed number. It varies based on body size, physical activity, environmental conditions, and physiological state. Understanding these factors helps you adjust your intake beyond generic recommendations.
+            </div>
+
+            <h4>Body Weight</h4>
+            <p>Larger bodies have greater metabolic water demands. The 35 ml/kg baseline used by the European Food Safety Authority (EFSA) scales intake proportionally to body mass. A 90 kg person needs roughly 3.15 L at baseline, while a 60 kg person needs about 2.1 L.</p>
+
+            <h4>Physical Activity</h4>
+            <p>Exercise increases water loss through sweat. The American College of Sports Medicine estimates sweat rates of 0.5-2.0 liters per hour during exercise, depending on intensity and conditions. Even moderate daily activity like walking 30 minutes can increase water needs by 10-20%.</p>
+
+            <h4>Climate and Environment</h4>
+            <p>Hot and humid environments increase sweat production, while hot and dry climates cause rapid evaporation that can mask fluid loss. Cold environments increase respiratory water loss and suppress thirst, leading to unrecognized dehydration. Altitude above 2,500 m also increases water needs due to faster breathing and increased urine output.</p>
+
+            <h4>Age</h4>
+            <p>Adults over 65 may have reduced thirst perception and lower metabolic rates, but adequate hydration remains critical. The slight reduction in baseline (about 10%) accounts for lower metabolic water production, though older adults should still drink regularly rather than relying on thirst cues.</p>
+
+            <h4>Pregnancy and Breastfeeding</h4>
+            <p>The IOM recommends an additional 300 ml/day during pregnancy to support increased blood volume and amniotic fluid. During breastfeeding, an additional 700 ml/day supports milk production, as breast milk is approximately 87% water.</p>
+        </div>
+    </section>
+
+    <!-- Signs of Dehydration -->
+    <section id="dehydration" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Signs of Dehydration</h2>
+            <div class="answer-capsule">
+                Even mild dehydration (1-2% body weight loss) can impair cognitive function, mood, and physical performance. Recognizing early signs helps you correct hydration before symptoms worsen.
+            </div>
+
+            <h4>Early Signs (Mild Dehydration)</h4>
+            <ul>
+                <li><strong>Dark yellow urine</strong> -- Pale straw color indicates good hydration; dark yellow or amber signals dehydration</li>
+                <li><strong>Thirst</strong> -- By the time you feel thirsty, you may already be 1-2% dehydrated</li>
+                <li><strong>Dry mouth and lips</strong> -- Reduced saliva production is an early indicator</li>
+                <li><strong>Fatigue and reduced concentration</strong> -- Studies show even 1.5% dehydration impairs working memory and increases anxiety</li>
+                <li><strong>Headache</strong> -- Dehydration is a common and under-recognized trigger for headaches</li>
+            </ul>
+
+            <h4>Moderate to Severe Signs</h4>
+            <ul>
+                <li>Dizziness or lightheadedness</li>
+                <li>Rapid heartbeat</li>
+                <li>Sunken eyes</li>
+                <li>Very dark urine or reduced urination</li>
+                <li>Muscle cramps</li>
+            </ul>
+
+            <p>If you experience severe dehydration symptoms, seek medical attention promptly. Chronic mild dehydration has been linked to increased risk of kidney stones, urinary tract infections, and constipation.</p>
+        </div>
+    </section>
+
+    <!-- Water vs Other Beverages -->
+    <section id="beverages" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Water vs Other Beverages</h2>
+            <div class="answer-capsule">
+                All beverages contribute to hydration, but they differ in caloric content, additives, and secondary effects. Plain water remains the gold standard for hydration because it has zero calories, no sugar, and no additives.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Beverage</th>
+                        <th style="text-align: left; padding: 8px;">Hydration Effect</th>
+                        <th style="text-align: left; padding: 8px;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Water</td>
+                        <td style="padding: 8px;">Excellent</td>
+                        <td style="padding: 8px;">Zero calories, optimal hydration</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Tea</td>
+                        <td style="padding: 8px;">Very Good</td>
+                        <td style="padding: 8px;">Mild diuretic effect offset by fluid volume; antioxidant benefits</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Coffee</td>
+                        <td style="padding: 8px;">Good</td>
+                        <td style="padding: 8px;">Net positive hydration despite caffeine; limit to 400 mg caffeine/day</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Milk</td>
+                        <td style="padding: 8px;">Very Good</td>
+                        <td style="padding: 8px;">Studies show milk may hydrate better than water due to electrolyte content</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Juice</td>
+                        <td style="padding: 8px;">Good</td>
+                        <td style="padding: 8px;">Hydrating but high in sugar; limit intake</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Soda</td>
+                        <td style="padding: 8px;">Moderate</td>
+                        <td style="padding: 8px;">Hydrating but high sugar or artificial sweetener content</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">Alcohol</td>
+                        <td style="padding: 8px;">Poor</td>
+                        <td style="padding: 8px;">Net dehydrating effect; drink extra water to compensate</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Tips for Staying Hydrated -->
+    <section id="tips" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Tips for Staying Hydrated</h2>
+            <div class="answer-capsule">
+                Consistent hydration throughout the day is more effective than drinking large amounts at once. Building habits and using environmental cues can help you meet your daily target without constant effort.
+            </div>
+
+            <ul>
+                <li><strong>Start your day with water.</strong> Drink 1-2 glasses upon waking to replenish overnight fluid losses and jumpstart hydration.</li>
+                <li><strong>Carry a reusable water bottle.</strong> Having water visible and accessible increases consumption by up to 25% according to behavioral studies.</li>
+                <li><strong>Set reminders.</strong> Use phone alarms or apps to prompt drinking at regular intervals, especially if you have low thirst awareness.</li>
+                <li><strong>Eat water-rich foods.</strong> Cucumbers (96% water), watermelon (92%), strawberries (91%), and lettuce (96%) contribute meaningfully to hydration.</li>
+                <li><strong>Drink before, during, and after exercise.</strong> Pre-hydrate 2-3 hours before with 500 ml, sip during activity, and replace 150% of sweat losses afterward.</li>
+                <li><strong>Monitor urine color.</strong> Aim for pale straw yellow. Clear urine may indicate overhydration; dark yellow signals dehydration.</li>
+                <li><strong>Flavor your water naturally.</strong> Add lemon, cucumber, mint, or berries if plain water feels monotonous.</li>
+                <li><strong>Match every caffeinated or alcoholic drink with a glass of water.</strong> This simple rule helps offset any diuretic effect.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>How much water should I drink per day?</h4>
+            <div class="faq-body">
+            <p>The Institute of Medicine recommends approximately 3.7 liters (125 oz) per day for men and 2.7 liters (91 oz) per day for women from all beverages and food combined. About 80% typically comes from drinks, making the drinking-water recommendation roughly 3.0 L for men and 2.2 L for women. This calculator personalizes your target based on body weight, activity, climate, and other factors.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does coffee count toward my daily water intake?</h4>
+            <div class="faq-body">
+            <p>Yes, coffee and tea do count toward your daily fluid intake. While caffeine has a mild diuretic effect, the net hydration from caffeinated beverages is still positive. However, very high caffeine intake (above 400 mg/day) may increase fluid losses, which is why this calculator adds a small offset for heavy caffeine consumers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can you drink too much water?</h4>
+            <div class="faq-body">
+            <p>Yes. Drinking excessive water can lead to hyponatremia (dangerously low blood sodium levels). This is rare but can occur when consuming large volumes in a short time, especially during endurance exercise. Spread your intake throughout the day and drink to thirst rather than forcing excessive amounts.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Do I need more water when exercising?</h4>
+            <div class="faq-body">
+            <p>Yes. The American College of Sports Medicine recommends drinking 400-800 ml (14-28 oz) per hour during exercise, depending on intensity, duration, and sweat rate. For workouts longer than 60 minutes, consider adding electrolytes to your water.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How does climate affect water needs?</h4>
+            <div class="faq-body">
+            <p>Hot and humid climates increase sweat production, raising water needs by 20-30%. Hot and dry climates can increase needs even more (up to 30%) because sweat evaporates quickly and you may not realize how much fluid you are losing. Even cold climates increase needs slightly due to respiratory water loss and reduced thirst perception.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does water intake change during pregnancy or breastfeeding?</h4>
+            <div class="faq-body">
+            <p>Yes. The IOM recommends pregnant women consume approximately 3.0 liters (about 10 cups) of total beverages daily, an increase of about 300 ml over baseline. Breastfeeding women need about 3.8 liters (about 13 cups) daily, an increase of approximately 700 ml, to support milk production.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Institute of Medicine. Dietary Reference Intakes for Water, Potassium, Sodium, Chloride, and Sulfate. Washington, DC: The National Academies Press; 2005.", "url": "https://nap.nationalacademies.org/catalog/10925/dietary-reference-intakes-for-water-potassium-sodium-chloride-and-sulfate"},
+        {"text": "EFSA Panel on Dietetic Products, Nutrition, and Allergies. Scientific Opinion on Dietary Reference Values for water. EFSA Journal. 2010;8(3):1459.", "url": "https://efsa.onlinelibrary.wiley.com/doi/abs/10.2903/j.efsa.2010.1459"},
+        {"text": "Sawka MN, Burke LM, Eichner ER, et al. American College of Sports Medicine position stand. Exercise and fluid replacement. Med Sci Sports Exerc. 2007;39(2):377-390.", "url": "https://pubmed.ncbi.nlm.nih.gov/17277604/"},
+        {"text": "Popkin BM, D'Anci KE, Rosenberg IH. Water, hydration, and health. Nutr Rev. 2010;68(8):439-458.", "url": "https://pubmed.ncbi.nlm.nih.gov/20646222/"},
+        {"text": "Maughan RJ, Watson P, Cordery PA, et al. A randomized trial to assess the potential of different beverages to affect hydration status: development of a beverage hydration index. Am J Clin Nutr. 2016;103(3):717-723.", "url": "https://pubmed.ncbi.nlm.nih.gov/26702122/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+
+    {% include 'components/explore-more.html' %}
+
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script defer src="/static/js/content-loops.js"></script>
+    <script defer src="/static/js/water_intake_calculator.js"></script>
+</body>
+</html>
