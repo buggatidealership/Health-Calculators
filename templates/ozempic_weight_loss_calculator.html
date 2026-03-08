@@ -197,13 +197,47 @@
 
             <button id="calculate-btn" class="btn btn-pink">Calculate Projected Weight Loss</button>
 
-            <div id="result" class="results hidden">
-                <h2 id="results-section">Projected Results</h2>
-                <p>Starting Weight: <span id="startWeight"></span></p>
-                <p>Starting BMI: <span id="startBMI"></span></p>
-                <p>Projected Weight Loss: <span id="weightLoss"></span></p>
-                <p>Projected Final Weight: <span id="finalWeight"></span></p>
-                <p>Projected Final BMI: <span id="finalBMI"></span></p>
+            <div id="result" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="weightLoss">—</div>
+                    <div class="result-hero-label">Projected Weight Loss</div>
+                    <div class="result-hero-sublabel" id="loss-pct-label">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card blue">
+                        <div class="result-card-title">Starting Weight</div>
+                        <div class="result-card-value" id="startWeight">—</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Final Weight</div>
+                        <div class="result-card-value" id="finalWeight">—</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Starting BMI</div>
+                        <div class="result-card-value" id="startBMI">—</div>
+                    </div>
+                    <div class="result-card pink">
+                        <div class="result-card-title">Final BMI</div>
+                        <div class="result-card-value" id="finalBMI">—</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Treatment Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Treatment Duration</span>
+                        <span class="result-breakdown-val" id="duration-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Maximum Dose</span>
+                        <span class="result-breakdown-val" id="dose-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Clinical Trial Basis</span>
+                        <span class="result-breakdown-val" id="trial-basis">STEP 1 Trial</span>
+                    </div>
+                </div>
 
                 <div class="chart-container">
                     <canvas id="chart"></canvas>
@@ -445,6 +479,22 @@
 
                 document.getElementById('startBMI').textContent = bmi;
                 document.getElementById('finalBMI').textContent = finalBMI;
+
+                // Populate new result elements
+                document.getElementById('loss-pct-label').textContent = (weightLossPercent * 100).toFixed(1) + '% of starting body weight';
+
+                const durationSelect = document.getElementById('duration');
+                document.getElementById('duration-display').textContent = durationSelect.options[durationSelect.selectedIndex].text;
+
+                const doseSelect = document.getElementById('dose');
+                document.getElementById('dose-display').textContent = doseSelect.options[doseSelect.selectedIndex].text;
+
+                // Set trial basis based on dose
+                if (dose === 2.4) {
+                    document.getElementById('trial-basis').textContent = 'STEP 1 Trial';
+                } else {
+                    document.getElementById('trial-basis').textContent = 'SUSTAIN Trials';
+                }
 
                 // Show result div
                 document.getElementById('result').classList.remove('hidden');
