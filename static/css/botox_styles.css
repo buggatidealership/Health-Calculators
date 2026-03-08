@@ -1,7 +1,7 @@
 /* Botox Dosage & Cost Calculator Styles */
 
 :root {
-    --primary: #d63384; /* Brand pink */
+    --primary: var(--color-accent); /* Brand pink */
     --primary-hover: #be2d73; /* Darker pink for hover */
     --secondary: #f8d7da; /* Light pink for backgrounds */
     --text: #333; /* Dark gray for text */

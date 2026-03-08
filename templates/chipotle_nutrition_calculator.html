@@ -97,7 +97,7 @@
             <!-- Chipotle Calculator HTML and CSS -->
             <style>
                 :root {
-                  --primary: #d63384;
+                  --primary: var(--color-accent);
                   --primary-light: #f5d0e3;
                   --border-color: #d1d5db;
                   --shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -136,13 +136,13 @@
                 }
                 
                 .ingredient-button:hover {
-                  border-color: #d63384;
+                  border-color: var(--color-accent);
                   background-color: #f8f9fa;
                 }
                 
                 .ingredient-button.active {
-                  background-color: #d63384;
-                  border-color: #d63384;
+                  background-color: var(--color-accent);
+                  border-color: var(--color-accent);
                   color: white;
                 }
                 .nutrition-summary {
@@ -534,7 +534,7 @@
     {% endwith %}
     
     <!-- Related Guide -->
-    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #d63384;">
+    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-accent);">
       <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
       <p>
         Want to decode your macros, cut calories, or track your Chipotle meal like a pro?

@@ -67,7 +67,7 @@
         .hp-hero {
             text-align: center;
             padding: 48px 20px 36px;
-            background: linear-gradient(135deg, #fff5f8 0%, #fff 50%, #f0f9ff 100%);
+            background: linear-gradient(135deg, #f8fafc 0%, #fff 50%, #f0f9ff 100%);
             border-radius: 16px;
             margin-bottom: 32px;
         }
@@ -97,7 +97,7 @@
         .hp-stat-num {
             font-size: 1.6rem;
             font-weight: 700;
-            color: #d63384;
+            color: var(--color-accent);
         }
         .hp-stat-label {
             font-size: 0.82rem;
@@ -123,7 +123,7 @@
         }
         .hp-search input:focus {
             outline: none;
-            border-color: #d63384;
+            border-color: var(--color-accent);
         }
         .hp-search-icon {
             position: absolute;
@@ -177,7 +177,7 @@
             gap: 14px;
             padding: 16px 18px;
             background: #fff;
-            border: 2px solid #f8bbd0;
+            border: 2px solid var(--color-border);
             border-radius: 12px;
             text-decoration: none;
             color: inherit;
@@ -185,7 +185,7 @@
         }
         .hp-popular-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(214,51,132,0.12);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         .hp-popular-icon {
             font-size: 1.6rem;
@@ -195,7 +195,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #fff5f8;
+            background: var(--color-muted);
             border-radius: 10px;
         }
         .hp-popular-text h3 {
@@ -235,7 +235,7 @@
         }
         .hp-cat-card:hover {
             transform: translateY(-2px);
-            border-color: var(--card-color, #d63384);
+            border-color: var(--card-color, var(--color-accent));
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
         }
         .hp-cat-icon {
@@ -268,7 +268,7 @@
             transition: color 0.15s, transform 0.15s;
         }
         .hp-cat-card:hover .hp-cat-arrow {
-            color: var(--card-color, #d63384);
+            color: var(--card-color, var(--color-accent));
             transform: translateX(3px);
         }
 
@@ -293,17 +293,17 @@
             cursor: pointer;
         }
         .hp-cat-pill:hover, .hp-cat-pill.active {
-            background: #d63384;
+            background: var(--color-accent);
             color: #fff;
-            border-color: #d63384;
+            border-color: var(--color-accent);
         }
 
         /* Resources callout */
         .hp-resources {
-            background: linear-gradient(135deg, #f8f9fa, #fff5f8);
+            background: var(--color-muted);
             padding: 28px 24px;
             border-radius: 12px;
-            border: 1px solid #f0e0e8;
+            border: 1px solid var(--color-border);
             margin: 40px 0;
             display: flex;
             align-items: center;
@@ -325,7 +325,7 @@
             margin: 0 0 10px;
         }
         .hp-resources a {
-            color: #d63384;
+            color: var(--color-accent);
             font-weight: 600;
             text-decoration: none;
         }
