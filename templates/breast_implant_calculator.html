@@ -76,30 +76,7 @@
     
     <div class="calculator-container">
         <h1>Breast Implant Size & Cost Calculator</h1>
-
-        <h2>What Is Breast Implant Sizing?</h2>
-        <div class="answer-capsule">
-          Breast implant sizing uses body measurements — chest width, breast base diameter, and tissue characteristics — to determine optimal implant dimensions. This calculator applies the Tebbetts-Adams "High Five" decision process (2005), which uses five measurements taken in five minutes to guide implant selection for predictable outcomes.
-        </div>
-
-        <div class="medical-disclaimer">
-            <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
-        </div>
-        
-        <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-            <h3>Contents</h3>
-            <ul>
-                <li><a href="#calculator">Breast Implant Size & Cost Calculator</a></li>
-                <li><a href="#how-to-use">How to Use This Calculator</a></li>
-                <li><a href="#faq">Frequently Asked Questions</a></li>
-            </ul>
-        </div>
-        
-        {% with ad_position="top" %}
-        {% include 'components/ad-unit.html' %}
-        {% endwith %}
-        
-        <section id="calculator">
+<section id="calculator">
             <div class="calculator">
                 <div class="form-group">
                     <label for="band">Current Band Size (e.g., 32, 34, 36):</label>
@@ -165,6 +142,30 @@
                 </div>
             </div>
         </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Breast Implant Sizing?</h2>
+        <div class="answer-capsule">
+          Breast implant sizing uses body measurements — chest width, breast base diameter, and tissue characteristics — to determine optimal implant dimensions. This calculator applies the Tebbetts-Adams "High Five" decision process (2005), which uses five measurements taken in five minutes to guide implant selection for predictable outcomes.
+        </div>
+
+        <div class="medical-disclaimer">
+            <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
+        </div>
+        
+        <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+            <h3>Contents</h3>
+            <ul>
+                <li><a href="#calculator">Breast Implant Size & Cost Calculator</a></li>
+                <li><a href="#how-to-use">How to Use This Calculator</a></li>
+                <li><a href="#faq">Frequently Asked Questions</a></li>
+            </ul>
+        </div>
+
         
         {% with ad_position="middle" %}
         {% include 'components/ad-unit.html' %}

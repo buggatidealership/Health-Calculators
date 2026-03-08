@@ -69,32 +69,9 @@
     <div class="calculator-container">
     
     <h1>Breast Implant Cost Calculator</h1>
-
-    <h2>What Does Breast Augmentation Cost?</h2>
-    <div class="answer-capsule">
-      Breast augmentation costs include the surgeon's fee, facility fee, anesthesia, and implant cost. According to the American Society of Plastic Surgeons 2024 statistics, the average surgeon fee is $4,294, with total procedure costs ranging from $7,500 to $15,000 depending on implant type, geographic location, and surgeon experience.
-    </div>
-
     <p class="subtitle">Estimate your out-of-pocket cost for breast augmentation based on implant type, region, and anesthesia. Results include total cost range and breakdown.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides educational cost estimates only. For an exact quote, consult a board-certified plastic surgeon in your area.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Cost Calculator</a></li>
-            <li><a href="#how-to-use">How This Calculator Works</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label for="country">Select Your Country</label>
@@ -222,6 +199,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Does Breast Augmentation Cost?</h2>
+    <div class="answer-capsule">
+      Breast augmentation costs include the surgeon's fee, facility fee, anesthesia, and implant cost. According to the American Society of Plastic Surgeons 2024 statistics, the average surgeon fee is $4,294, with total procedure costs ranging from $7,500 to $15,000 depending on implant type, geographic location, and surgeon experience.
+    </div>
+
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides educational cost estimates only. For an exact quote, consult a board-certified plastic surgeon in your area.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Cost Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

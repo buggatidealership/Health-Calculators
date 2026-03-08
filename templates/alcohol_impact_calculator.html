@@ -81,30 +81,9 @@
     <div class="calculator-container">
     
     <h1>Alcohol Impact Calculator</h1>
-    <h2>What Is the AUDIT Alcohol Screening Tool?</h2>
-    <div class="answer-capsule">
-      The Alcohol Use Disorders Identification Test (AUDIT) is a 10-item screening tool developed by the World Health Organization to identify hazardous drinking patterns. Scores range from 0-40, with 8+ indicating hazardous use and 20+ suggesting possible dependence. This calculator applies WHO-validated scoring thresholds to assess your drinking pattern risk level.
-    </div>
     <p class="subtitle">This evidence-based calculator determines how alcohol consumption affects your body, including impacts on sleep quality, liver health, hydration status, and recovery time. Use this tool to make informed decisions about your drinking habits.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For personalized medical advice, consult a licensed healthcare provider.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Alcohol Impact Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
         <div class="calculator">
             <div class="form-group">
@@ -146,6 +125,31 @@
         </div>
         <!-- END DEEPSEEK-GENERATED CALCULATOR -->
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is the AUDIT Alcohol Screening Tool?</h2>
+    <div class="answer-capsule">
+      The Alcohol Use Disorders Identification Test (AUDIT) is a 10-item screening tool developed by the World Health Organization to identify hazardous drinking patterns. Scores range from 0-40, with 8+ indicating hazardous use and 20+ suggesting possible dependence. This calculator applies WHO-validated scoring thresholds to assess your drinking pattern risk level.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For personalized medical advice, consult a licensed healthcare provider.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Alcohol Impact Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

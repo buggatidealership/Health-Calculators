@@ -69,30 +69,9 @@
     <div class="calculator-container">
     
     <h1>Carb Cycling Calculator</h1>
-    <h2>What Is Carb Cycling?</h2>
-    <div class="answer-capsule">
-      Carb cycling is a dietary strategy that alternates between high, moderate, and low carbohydrate intake days throughout the week. The approach aims to optimize glycogen replenishment on training days while promoting fat oxidation on rest days. This calculator uses your TDEE (via the Mifflin-St Jeor equation) and distributes macronutrients based on sports nutrition guidelines from the ISSN.
-    </div>
     <p class="subtitle">This calculator helps you plan your carb cycling strategy by determining optimal carbohydrate intake for different days based on your body metrics, activity level, and fitness goals. Create a personalized plan for fat loss, muscle gain, and improved performance.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Carb Cycling Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label style="font-weight: 600;">Measurement Units:</label>
@@ -310,6 +289,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Carb Cycling?</h2>
+    <div class="answer-capsule">
+      Carb cycling is a dietary strategy that alternates between high, moderate, and low carbohydrate intake days throughout the week. The approach aims to optimize glycogen replenishment on training days while promoting fat oxidation on rest days. This calculator uses your TDEE (via the Mifflin-St Jeor equation) and distributes macronutrients based on sports nutrition guidelines from the ISSN.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Carb Cycling Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

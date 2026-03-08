@@ -70,28 +70,9 @@
     <div class="calculator-container">
     
     <h1>Ozempic Pen Click Calculator</h1>
-    <h2>What Is the Ozempic Pen Click Calculator?</h2>
-    <div class="answer-capsule">
-      This calculator estimates the number of pen clicks needed for specific Ozempic (semaglutide) doses. It is based on the pen mechanism described in the FDA-approved prescribing information. Important: Novo Nordisk explicitly advises against click-counting for off-label microdosing, as click-to-dose ratios are inconsistent across pens and production batches.
-    </div>
     <p class="subtitle">Calculate exact pen clicks, check safety alerts, and track your injection schedule with this comprehensive Ozempic (semaglutide) dosing calculator. Input your details for precise dosing information.</p>
-    
-    {% include 'components/medical-disclaimer.html' %}
-    
-    <div class="table-of-contents">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Ozempic Pen Click Calculator</a></li>
-            <li><a href="#how-to-use">How to Use the Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator" class="calculator">
+
+<section id="calculator" class="calculator">
         <div class="form-group">
             <label for="pen-strength">Pen Strength (mg)</label>
             <select id="pen-strength" required>
@@ -167,6 +148,29 @@
         </div>
         
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is the Ozempic Pen Click Calculator?</h2>
+    <div class="answer-capsule">
+      This calculator estimates the number of pen clicks needed for specific Ozempic (semaglutide) doses. It is based on the pen mechanism described in the FDA-approved prescribing information. Important: Novo Nordisk explicitly advises against click-counting for off-label microdosing, as click-to-dose ratios are inconsistent across pens and production batches.
+    </div>
+    
+    
+    {% include 'components/medical-disclaimer.html' %}
+    
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Ozempic Pen Click Calculator</a></li>
+            <li><a href="#how-to-use">How to Use the Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

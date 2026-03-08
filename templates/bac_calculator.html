@@ -81,28 +81,9 @@
     <div class="calculator-container">
     
     <h1>Blood Alcohol Content (BAC) Calculator</h1>
-    <h2>What Is Blood Alcohol Content?</h2>
-    <div class="answer-capsule">
-      Blood Alcohol Content (BAC) is the percentage of alcohol in your bloodstream by volume. This calculator uses the Widmark formula (1932), the standard method in forensic toxicology, which accounts for body weight, biological sex, amount of alcohol consumed, and time elapsed. A BAC of 0.08% is the legal driving limit in most U.S. states.
-    </div>
     <p class="subtitle">Estimate your blood alcohol concentration (BAC) using our research-backed calculator. Based on number of drinks, gender, weight, and hours since drinking began.</p>
-    
-    {% include 'components/medical-disclaimer.html' %}
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Calculator</a></li>
-            <li><a href="#how-to-use">How This Calculator Works</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label style="font-weight: 600;">Measurement Units:</label>
@@ -233,6 +214,29 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Blood Alcohol Content?</h2>
+    <div class="answer-capsule">
+      Blood Alcohol Content (BAC) is the percentage of alcohol in your bloodstream by volume. This calculator uses the Widmark formula (1932), the standard method in forensic toxicology, which accounts for body weight, biological sex, amount of alcohol consumed, and time elapsed. A BAC of 0.08% is the legal driving limit in most U.S. states.
+    </div>
+    
+    
+    {% include 'components/medical-disclaimer.html' %}
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

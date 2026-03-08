@@ -81,30 +81,9 @@
     <div class="calculator-container">
     
     <h1>Retirement Savings Calculator</h1>
-    <h2>How Much Do You Need to Retire?</h2>
-    <div class="answer-capsule">
-      Retirement savings planning uses the compound interest formula to project how your current savings and regular contributions will grow over time. This calculator applies the future value formula with periodic contributions and adjusts for inflation. For withdrawal planning, it uses the 4% safe withdrawal rate from the Trinity Study (1998), which analyzed 30-year retirement portfolios across historical market conditions.
-    </div>
     <p class="subtitle">This evidence-based calculator helps you determine how much you'll have saved for retirement based on your current age, planned retirement age, existing savings, and monthly contributions. Plan your financial future with confidence by understanding your projected retirement income.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Disclaimer:</strong> This tool provides general financial estimates and does not constitute investment advice.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Retirement Savings Calculator</a></li>
-            <li><a href="#how-to-use">How This Calculator Works</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <!-- BEGIN DEEPSEEK-GENERATED CALCULATOR -->
         <div class="calculator">
             <div class="input-group">
@@ -199,6 +178,31 @@
         </div>
         <!-- END DEEPSEEK-GENERATED CALCULATOR -->
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Much Do You Need to Retire?</h2>
+    <div class="answer-capsule">
+      Retirement savings planning uses the compound interest formula to project how your current savings and regular contributions will grow over time. This calculator applies the future value formula with periodic contributions and adjusts for inflation. For withdrawal planning, it uses the 4% safe withdrawal rate from the Trinity Study (1998), which analyzed 30-year retirement portfolios across historical market conditions.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Disclaimer:</strong> This tool provides general financial estimates and does not constitute investment advice.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Retirement Savings Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

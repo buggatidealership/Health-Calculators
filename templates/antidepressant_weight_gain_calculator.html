@@ -147,30 +147,11 @@
   {% include 'header.html' %}
   <div class="calculator-container">
     <h1>Antidepressant Weight Gain Calculator</h1>
-    <h2>Do Antidepressants Cause Weight Gain?</h2>
-    <div class="answer-capsule">
-      Antidepressant-associated weight change varies significantly by medication class and individual drug. SSRIs, SNRIs, TCAs, and atypical antidepressants each carry different weight gain profiles. This calculator uses data from large-scale pharmacovigilance studies and clinical trials to estimate potential weight change based on your specific medication, dosage, and treatment duration.
-    </div>
     <p class="subtitle">
       Estimate how much weight and body fat you may gain from antidepressant use based on your medication type, dose, and duration.
     </p>
 
-    {% include 'components/medical-disclaimer.html' %}
-
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-
-    <div class="table-of-contents">
-      <h3>Contents</h3>
-      <ul>
-        <li><a href="#calculator">Calculator</a></li>
-        <li><a href="#how-to-use">How This Calculator Works</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-
-    <section id="calculator">
+<section id="calculator">
       <h2>Antidepressant Weight Impact Calculator</h2>
       <div class="calculator">
         <div class="calculator-form">
@@ -232,6 +213,29 @@
         </div>
       </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>Do Antidepressants Cause Weight Gain?</h2>
+    <div class="answer-capsule">
+      Antidepressant-associated weight change varies significantly by medication class and individual drug. SSRIs, SNRIs, TCAs, and atypical antidepressants each carry different weight gain profiles. This calculator uses data from large-scale pharmacovigilance studies and clinical trials to estimate potential weight change based on your specific medication, dosage, and treatment duration.
+    </div>
+    
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+      <h3>Contents</h3>
+      <ul>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#how-to-use">How This Calculator Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+
 
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

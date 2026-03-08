@@ -21,30 +21,9 @@
     <div class="calculator-container">
     
     <h1>Adult Height Predictor Calculator – Estimate Future Height</h1>
-    <h2>How Is Adult Height Predicted?</h2>
-    <div class="answer-capsule">
-      Adult height prediction uses the Khamis-Roche method (1994), which estimates final adult height from a child's current height, weight, and mid-parent height without requiring a bone age X-ray. The method provides predictions within ±2.1 inches for boys and ±1.7 inches for girls, based on data from the Fels Longitudinal Study.
-    </div>
     <p class="subtitle">Predict your child's adult height using evidence-based formulas like mid-parental height, Khamis-Roche, and growth charts. Fast, free, and personalized.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For clinical concerns, consult a pediatrician or endocrinologist.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Adult Height Predictor Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label for="childGender">Child's Gender:</label>
@@ -169,6 +148,31 @@
             <p>For children under 4 years old, predictions are less reliable. The margin of error is typically ±5 cm (±2 inches).</p>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Is Adult Height Predicted?</h2>
+    <div class="answer-capsule">
+      Adult height prediction uses the Khamis-Roche method (1994), which estimates final adult height from a child's current height, weight, and mid-parent height without requiring a bone age X-ray. The method provides predictions within ±2.1 inches for boys and ±1.7 inches for girls, based on data from the Fels Longitudinal Study.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For clinical concerns, consult a pediatrician or endocrinologist.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Adult Height Predictor Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

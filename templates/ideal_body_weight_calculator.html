@@ -69,30 +69,9 @@
     <div class="calculator-container">
     
     <h1>Ideal Body Weight Calculator</h1>
-    <h2>What Is Ideal Body Weight?</h2>
-    <div class="answer-capsule">
-      Ideal body weight (IBW) is a clinically estimated weight range associated with the lowest disease risk for a given height and sex. This calculator uses four validated medical formulas — Devine (1974), Robinson (1983), Miller (1983), and Hamwi (1964) — and adjusts for body frame size to provide a comprehensive weight range rather than a single number.
-    </div>
     <p class="subtitle">This evidence-based calculator determines your ideal body weight range using multiple medical formulas (Devine, Robinson, Miller, and Hamwi). Compare different methods and find personalized weight ranges based on your height, gender, and frame size.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Ideal Body Weight Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="unit-toggle-container" style="margin-bottom: 20px;">
                 <span>Units:</span>
@@ -201,6 +180,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Ideal Body Weight?</h2>
+    <div class="answer-capsule">
+      Ideal body weight (IBW) is a clinically estimated weight range associated with the lowest disease risk for a given height and sex. This calculator uses four validated medical formulas — Devine (1974), Robinson (1983), Miller (1983), and Hamwi (1964) — and adjusts for body frame size to provide a comprehensive weight range rather than a single number.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a board-certified provider for personalized advice.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Ideal Body Weight Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

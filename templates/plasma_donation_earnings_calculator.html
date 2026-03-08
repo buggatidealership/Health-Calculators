@@ -61,31 +61,9 @@
     <div class="calculator-container">
     
     <h1>Plasma Donation Earnings Calculator</h1>
-    <h2>How Much Can You Earn Donating Plasma?</h2>
-    <div class="answer-capsule">
-      Plasma donation compensation typically ranges from $30-70 per visit, with new donor bonuses up to $100 per visit for the first 6-8 donations. The FDA allows up to two donations within a 7-day period with at least one day between sessions. This calculator estimates your weekly, monthly, and annual earnings based on center-specific rates and donation frequency.
-    </div>
     <p class="subtitle">Estimate how much you can earn from donating plasma based on your eligibility, location, and donation frequency. Includes new donor bonuses and weight-based compensation differences.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>This tool provides educational estimates.</strong> Actual plasma donation compensation may vary by donation center and current promotions.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Plasma Earnings Calculator</a></li>
-            <li><a href="#how-to-use">How to Use the Calculator</a></li>
-            <li><a href="#related-resources">Related Resources</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <h2>Plasma Donation Eligibility & Earnings</h2>
             
@@ -244,6 +222,32 @@
             <div id="reasons-list"></div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Much Can You Earn Donating Plasma?</h2>
+    <div class="answer-capsule">
+      Plasma donation compensation typically ranges from $30-70 per visit, with new donor bonuses up to $100 per visit for the first 6-8 donations. The FDA allows up to two donations within a 7-day period with at least one day between sessions. This calculator estimates your weekly, monthly, and annual earnings based on center-specific rates and donation frequency.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>This tool provides educational estimates.</strong> Actual plasma donation compensation may vary by donation center and current promotions.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Plasma Earnings Calculator</a></li>
+            <li><a href="#how-to-use">How to Use the Calculator</a></li>
+            <li><a href="#related-resources">Related Resources</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

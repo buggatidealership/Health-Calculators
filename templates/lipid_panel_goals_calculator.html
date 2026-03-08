@@ -689,30 +689,11 @@
   {% include 'header.html' %}
   <div class="calculator-container">
     <h1>Lipid Panel Goals Calculator</h1>
-    <h2>What Are Lipid Panel Goals?</h2>
-    <div class="answer-capsule">
-      Lipid panel goals are target levels for LDL cholesterol, HDL cholesterol, and triglycerides based on your cardiovascular risk profile. This calculator uses risk-stratified targets from the NCEP ATP III guidelines and the 2018 AHA/ACC cholesterol management guidelines, incorporating the Pooled Cohort Equations for 10-year ASCVD risk estimation.
-    </div>
     <p class="subtitle">
       Determine your ideal cholesterol targets (LDL, HDL, triglycerides, and more) based on medical guidelines and your cardiovascular risk level.
     </p>
 
-    {% include 'components/medical-disclaimer.html' %}
-
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-
-    <div class="table-of-contents">
-      <h3>Contents</h3>
-      <ul>
-        <li><a href="#calculator">Calculator</a></li>
-        <li><a href="#how-to-use">How This Calculator Works</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-    </div>
-
-    <section id="calculator">
+<section id="calculator">
       <div class="calculator">
         <div class="calculator-form">
           <div class="form-layout" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -855,6 +836,29 @@
         </div>
       </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Are Lipid Panel Goals?</h2>
+    <div class="answer-capsule">
+      Lipid panel goals are target levels for LDL cholesterol, HDL cholesterol, and triglycerides based on your cardiovascular risk profile. This calculator uses risk-stratified targets from the NCEP ATP III guidelines and the 2018 AHA/ACC cholesterol management guidelines, incorporating the Pooled Cohort Equations for 10-year ASCVD risk estimation.
+    </div>
+    
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+      <h3>Contents</h3>
+      <ul>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#how-to-use">How This Calculator Works</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

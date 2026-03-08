@@ -72,30 +72,7 @@
     <div class="calculator-container">
 
     <h1>Fasting Weight Loss Calculator</h1>
-
-    <!-- Answer Capsule: LLM-optimized definition -->
-    <h2>What Is Intermittent Fasting Weight Loss?</h2>
-    <div class="answer-capsule">
-      Intermittent fasting (IF) promotes weight loss by creating a caloric deficit through time-restricted eating windows. During fasting periods, your body depletes glycogen stores and shifts to burning stored fat for energy. This calculator estimates fat loss and water weight changes based on your BMR, activity level, and chosen fasting protocol using the Mifflin-St Jeor equation.
-    </div>
-
-    <div class="table-of-contents">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Fasting Weight Loss Calculator</a></li>
-            <li><a href="#how-to-use">How It Works</a></li>
-            <li><a href="#activity-levels">Activity Level Guide</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#sources">Sources & Methodology</a></li>
-        </ul>
-    </div>
-
-    <!-- Top Ad -->
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-
-    <section id="calculator">
+<section id="calculator">
         <div class="calculator">
             <div class="unit-toggle">
                 <button class="unit-button active" id="metric-btn">Metric (kg/cm)</button>
@@ -226,6 +203,29 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule: LLM-optimized definition -->
+    <h2>What Is Intermittent Fasting Weight Loss?</h2>
+    <div class="answer-capsule">
+      Intermittent fasting (IF) promotes weight loss by creating a caloric deficit through time-restricted eating windows. During fasting periods, your body depletes glycogen stores and shifts to burning stored fat for energy. This calculator estimates fat loss and water weight changes based on your BMR, activity level, and chosen fasting protocol using the Mifflin-St Jeor equation.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Fasting Weight Loss Calculator</a></li>
+            <li><a href="#how-to-use">How It Works</a></li>
+            <li><a href="#activity-levels">Activity Level Guide</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
 
     <!-- Mid Ad -->
     {% with ad_position="middle" %}

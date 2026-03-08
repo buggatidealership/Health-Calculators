@@ -61,30 +61,9 @@
     <div class="calculator-container">
     
     <h1>Chipotle Nutrition Calculator</h1>
-    <h2>What Are Chipotle's Nutrition Facts?</h2>
-    <div class="answer-capsule">
-      Chipotle meals are built from individual ingredients, each with published nutrition data. A typical burrito bowl ranges from 400-1,100 calories depending on protein, rice, and topping choices. This calculator sums per-ingredient nutrition values from Chipotle's official data to give you accurate calorie, protein, carb, and fat totals for any custom order.
-    </div>
     <p class="subtitle">Customize your Chipotle burrito, bowl, tacos, or salad and instantly see the nutrition breakdown. Adjust your order to meet your macros.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides educational estimates only. Nutrition values are based on Chipotle's published data but may vary by location or preparation. For medical concerns, consult a registered dietitian.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Calculator</a></li>
-            <li><a href="#how-to-use">How This Calculator Works</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label style="font-weight: 600;">Measurement Units:</label>
@@ -531,6 +510,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Are Chipotle's Nutrition Facts?</h2>
+    <div class="answer-capsule">
+      Chipotle meals are built from individual ingredients, each with published nutrition data. A typical burrito bowl ranges from 400-1,100 calories depending on protein, rice, and topping choices. This calculator sums per-ingredient nutrition values from Chipotle's official data to give you accurate calorie, protein, carb, and fat totals for any custom order.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides educational estimates only. Nutrition values are based on Chipotle's published data but may vary by location or preparation. For medical concerns, consult a registered dietitian.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-to-use">How This Calculator Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

@@ -121,30 +121,9 @@
     <div class="calculator-container">
     
     <h1>Newborn Weight Loss Calculator</h1>
-    <h2>What Is Normal Newborn Weight Loss?</h2>
-    <div class="answer-capsule">
-      Newborns typically lose 5-7% of their birth weight in the first few days of life, with breastfed infants sometimes losing up to 10%. This calculator uses the NEWT (Newborn Weight Loss Tool) nomograms from Flaherman et al. (2015), which provide hour-by-hour percentile curves stratified by delivery mode and feeding type to help identify excessive weight loss.
-    </div>
     <p class="subtitle">This calculator helps you track and assess weight changes in newborns during their first two weeks of life. Based on established pediatric guidelines, it evaluates whether weight loss falls within the expected range and provides recommendations.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For medical concerns, consult a pediatrician or lactation consultant.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Newborn Weight Loss Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label>Birth Weight:</label>
@@ -260,6 +239,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Normal Newborn Weight Loss?</h2>
+    <div class="answer-capsule">
+      Newborns typically lose 5-7% of their birth weight in the first few days of life, with breastfed infants sometimes losing up to 10%. This calculator uses the NEWT (Newborn Weight Loss Tool) nomograms from Flaherman et al. (2015), which provide hour-by-hour percentile curves stratified by delivery mode and feeding type to help identify excessive weight loss.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For medical concerns, consult a pediatrician or lactation consultant.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Newborn Weight Loss Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

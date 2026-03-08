@@ -136,28 +136,9 @@
     <div class="calculator-container">
     
     <h1>Baldness Risk Calculator</h1>
-    <h2>What Predicts Hair Loss Risk?</h2>
-    <div class="answer-capsule">
-      Male pattern baldness (androgenetic alopecia) is a polygenic condition influenced by over 389 identified genetic loci. Risk assessment combines family history patterns, age of onset indicators, and the Hamilton-Norwood classification scale. While no single formula can predict individual outcomes, this calculator uses established risk factors from GWAS studies and clinical dermatology to estimate your likelihood of significant hair loss.
-    </div>
     <p class="subtitle">Estimate your risk of male or female pattern baldness based on your genetics, age, and lifestyle factors. This calculator uses research-backed factors to predict hair loss progression.</p>
-    
-    {% include 'components/medical-disclaimer.html' %}
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Baldness Risk Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label for="age">Your Current Age</label>
@@ -300,6 +281,29 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Predicts Hair Loss Risk?</h2>
+    <div class="answer-capsule">
+      Male pattern baldness (androgenetic alopecia) is a polygenic condition influenced by over 389 identified genetic loci. Risk assessment combines family history patterns, age of onset indicators, and the Hamilton-Norwood classification scale. While no single formula can predict individual outcomes, this calculator uses established risk factors from GWAS studies and clinical dermatology to estimate your likelihood of significant hair loss.
+    </div>
+    
+    
+    {% include 'components/medical-disclaimer.html' %}
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Baldness Risk Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

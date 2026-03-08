@@ -138,30 +138,9 @@
     <div class="calculator-container">
     
     <h1>Dog Pregnancy Due-Date Calculator</h1>
-    <h2>How Long Is a Dog's Pregnancy?</h2>
-    <div class="answer-capsule">
-      Canine pregnancy (gestation) averages 63 days from ovulation, with a normal whelping window of 58-68 days. The variation depends on breed size and whether timing is measured from mating or confirmed ovulation. This calculator estimates your dog's due date and provides week-by-week developmental milestones based on veterinary reproductive science.
-    </div>
     <p class="subtitle">Estimate your dog's whelping (delivery) date based on breeding or mating date. This tool uses the standard 63-day canine gestation period to provide a veterinary-backed due date prediction.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For health concerns, consult a licensed veterinarian.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Dog Pregnancy Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label for="mating-date">First mating date:</label>
@@ -200,6 +179,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Long Is a Dog's Pregnancy?</h2>
+    <div class="answer-capsule">
+      Canine pregnancy (gestation) averages 63 days from ovulation, with a normal whelping window of 58-68 days. The variation depends on breed size and whether timing is measured from mating or confirmed ovulation. This calculator estimates your dog's due date and provides week-by-week developmental milestones based on veterinary reproductive science.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. For health concerns, consult a licensed veterinarian.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Dog Pregnancy Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

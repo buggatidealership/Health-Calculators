@@ -69,32 +69,9 @@
     <div class="calculator-container">
     
     <h1>Breast Implant Size Calculator</h1>
-
-    <h2>What Is CC to Cup Size Conversion?</h2>
-    <div class="answer-capsule">
-      Breast implant volume is measured in cubic centimeters (cc). Approximately 130-200 cc of implant volume corresponds to one cup size increase, depending on chest width and existing breast tissue. This calculator uses 3D volumetric data from Pfeiffer et al. (2017) to estimate cup size changes based on implant volume selection.
-    </div>
-
     <p class="subtitle">Estimate your ideal implant volume, profile, and regional price range. Input your current size, goal cup size, breast width, and implant type.</p>
-    
-    <div class="medical-disclaimer">
-      <p><strong>Medical Disclaimer:</strong> This tool provides educational estimates only. Final sizing should always be discussed with a board-certified plastic surgeon.</p>
-    </div>
-    
-    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Breast Implant Size Calculator</a></li>
-            <li><a href="#how-to-use">How to Use This Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label style="font-weight: 600;">Measurement Units:</label>
@@ -201,6 +178,32 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is CC to Cup Size Conversion?</h2>
+    <div class="answer-capsule">
+      Breast implant volume is measured in cubic centimeters (cc). Approximately 130-200 cc of implant volume corresponds to one cup size increase, depending on chest width and existing breast tissue. This calculator uses 3D volumetric data from Pfeiffer et al. (2017) to estimate cup size changes based on implant volume selection.
+    </div>
+
+    
+    
+    <div class="medical-disclaimer">
+      <p><strong>Medical Disclaimer:</strong> This tool provides educational estimates only. Final sizing should always be discussed with a board-certified plastic surgeon.</p>
+    </div>
+    
+    <div class="table-of-contents" style="margin-top: 20px; margin-bottom: 40px;">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Breast Implant Size Calculator</a></li>
+            <li><a href="#how-to-use">How to Use This Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}

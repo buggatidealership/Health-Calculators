@@ -110,30 +110,7 @@
     <div class="calculator-container">
 
     <h1>Ozempic Weight Loss Calculator</h1>
-
-    <!-- Answer Capsule: LLM-optimized definition -->
-    <h2>What Is the Ozempic Weight Loss Calculator?</h2>
-    <div class="answer-capsule">
-      This calculator estimates potential weight loss with Ozempic (semaglutide) based on clinical trial data from the STEP and SUSTAIN studies. It uses your current weight, BMI, planned dosage, and treatment duration to project fat loss outcomes. Results reflect average clinical trial outcomes — individual results vary based on diet, exercise, and metabolic factors.
-    </div>
-
-    <div class="table-of-contents">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Ozempic Weight Loss Calculator</a></li>
-            <li><a href="#results-section">Understanding Your Results</a></li>
-            <li><a href="#how-it-works">How It Works</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#sources">Sources & Methodology</a></li>
-        </ul>
-    </div>
-
-    <!-- Top Ad -->
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-
-    <section id="calculator">
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label>Measurement Units:</label>
@@ -249,6 +226,29 @@
             </p>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule: LLM-optimized definition -->
+    <h2>What Is the Ozempic Weight Loss Calculator?</h2>
+    <div class="answer-capsule">
+      This calculator estimates potential weight loss with Ozempic (semaglutide) based on clinical trial data from the STEP and SUSTAIN studies. It uses your current weight, BMI, planned dosage, and treatment duration to project fat loss outcomes. Results reflect average clinical trial outcomes — individual results vary based on diet, exercise, and metabolic factors.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Ozempic Weight Loss Calculator</a></li>
+            <li><a href="#results-section">Understanding Your Results</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
 
     <!-- Mid Ad -->
     {% with ad_position="middle" %}

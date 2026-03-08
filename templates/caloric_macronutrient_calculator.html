@@ -96,31 +96,7 @@
     <div class="calculator-container">
 
     <h1>Caloric Intake & Macronutrient Calculator</h1>
-
-    <!-- Answer Capsule: LLM-optimized definition -->
-    <h2>What Are Macronutrients?</h2>
-    <div class="answer-capsule">
-      Macronutrients are the three main nutrients your body needs in large amounts: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). This calculator determines your daily caloric needs using the Mifflin-St Jeor equation, then distributes calories across macros based on your goal and diet preference. The split is guided by recommendations from the Academy of Nutrition and Dietetics and ISSN.
-    </div>
-
-    <div class="table-of-contents">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Caloric & Macronutrient Calculator</a></li>
-            <li><a href="#results-section">Understanding Your Results</a></li>
-            <li><a href="#how-it-works">How the Calculator Works</a></li>
-            <li><a href="#macro-splits">Macronutrient Split Guide</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#sources">Sources & Methodology</a></li>
-        </ul>
-    </div>
-
-    <!-- Top Ad -->
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-
-    <section id="calculator">
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label>Measurement Units:</label>
@@ -234,6 +210,30 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule: LLM-optimized definition -->
+    <h2>What Are Macronutrients?</h2>
+    <div class="answer-capsule">
+      Macronutrients are the three main nutrients your body needs in large amounts: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). This calculator determines your daily caloric needs using the Mifflin-St Jeor equation, then distributes calories across macros based on your goal and diet preference. The split is guided by recommendations from the Academy of Nutrition and Dietetics and ISSN.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Caloric & Macronutrient Calculator</a></li>
+            <li><a href="#results-section">Understanding Your Results</a></li>
+            <li><a href="#how-it-works">How the Calculator Works</a></li>
+            <li><a href="#macro-splits">Macronutrient Split Guide</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
 
     <!-- Mid Ad -->
     {% with ad_position="middle" %}

@@ -69,30 +69,9 @@
     <div class="calculator-container">
     
     <h1>Lifespan Calculator – Estimate Your Longevity</h1>
-    <h2>What Is a Lifespan Calculator?</h2>
-    <div class="answer-capsule">
-      A lifespan calculator estimates your life expectancy by adjusting actuarial life table data with modifiable risk factors. This tool uses baseline data from the Social Security Administration's period life tables and applies hazard ratios from epidemiological studies to factors like smoking, exercise, BMI, and chronic conditions to produce a personalized longevity estimate.
-    </div>
     <p class="subtitle">Use this evidence-based calculator to predict your potential lifespan based on key lifestyle, health, and behavioral factors. Identify which areas of your life may be reducing or extending your longevity.</p>
-    
-    <div class="medical-disclaimer">
-        <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.</p>
-    </div>
-    
-    <div class="table-of-contents">
-        <h3>Contents</h3>
-        <ul>
-            <li><a href="#calculator">Lifespan & Longevity Calculator</a></li>
-            <li><a href="#how-to-use">How to Use the Lifespan Calculator</a></li>
-            <li><a href="#faq">Frequently Asked Questions</a></li>
-        </ul>
-    </div>
-    
-    {% with ad_position="top" %}
-    {% include 'components/ad-unit.html' %}
-    {% endwith %}
-    
-    <section id="calculator">
+
+<section id="calculator">
         <div class="calculator">
             <div class="form-group">
                 <label for="age">Current Age:</label>
@@ -260,6 +239,31 @@
             </div>
         </div>
     </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is a Lifespan Calculator?</h2>
+    <div class="answer-capsule">
+      A lifespan calculator estimates your life expectancy by adjusting actuarial life table data with modifiable risk factors. This tool uses baseline data from the Social Security Administration's period life tables and applies hazard ratios from epidemiological studies to factors like smoking, exercise, BMI, and chronic conditions to produce a personalized longevity estimate.
+    </div>
+    
+    
+    <div class="medical-disclaimer">
+        <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates. Consult a registered dietitian or doctor for personalized advice.</p>
+    </div>
+    
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Lifespan & Longevity Calculator</a></li>
+            <li><a href="#how-to-use">How to Use the Lifespan Calculator</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
     
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
