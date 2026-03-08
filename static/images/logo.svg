@@ -1,15 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
-  <!-- Calculator body -->
-  <rect x="4" y="2" width="32" height="36" rx="6" fill="#0891b2"/>
-  <!-- Screen area with health cross -->
-  <rect x="9" y="6" width="22" height="12" rx="3" fill="#ffffff" fill-opacity="0.25"/>
-  <rect x="17.5" y="8.5" width="5" height="7" rx="1" fill="#ffffff"/>
-  <rect x="16" y="10.5" width="8" height="3" rx="1" fill="#ffffff"/>
-  <!-- Calculator buttons grid -->
-  <circle cx="13" cy="24" r="2.2" fill="#ffffff" fill-opacity="0.85"/>
-  <circle cx="20" cy="24" r="2.2" fill="#ffffff" fill-opacity="0.85"/>
-  <circle cx="27" cy="24" r="2.2" fill="#ffffff" fill-opacity="0.85"/>
-  <circle cx="13" cy="31" r="2.2" fill="#ffffff" fill-opacity="0.85"/>
-  <circle cx="20" cy="31" r="2.2" fill="#ffffff" fill-opacity="0.85"/>
-  <rect x="24.5" y="28.5" width="5" height="5" rx="1.5" fill="#ffffff" fill-opacity="0.85"/>
+  <!-- Rounded square background -->
+  <rect width="40" height="40" rx="10" fill="#0a7e8c"/>
+  <!-- H with integrated pulse line -->
+  <path d="M9 10 L9 30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M9 20 L15.5 20 L17.5 14 L19.5 26 L21.5 17 L23.5 20 L31 20" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path d="M31 10 L31 30" stroke="#ffffff" stroke-width="3.5" stroke-linecap="round"/>
 </svg>
