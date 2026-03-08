@@ -10,12 +10,20 @@
  */
 
 var CALCULATOR_GRAPH = {
+  'bmi': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight for a healthy BMI', params: ['height_cm','gender'] },
+      { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'BMI doesn\'t measure fat — this does', params: ['height_cm','gender','age'] },
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Plan your path to a healthier BMI', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'tdee': {
     links: [
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Optimize your {tdee} kcal with carb cycling', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'See how fasting affects your {tdee} kcal budget', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight based on your frame', params: ['height_cm','gender'] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Get detailed macros for your {tdee} kcal goal', params: ['weight_kg','height_cm','age','gender','activity'] }
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight based on your frame', params: ['height_cm','gender'] }
     ]
   },
   'carb-cycling': {
@@ -35,9 +43,9 @@ var CALCULATOR_GRAPH = {
   },
   'ideal-body-weight': {
     links: [
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your current BMI category', params: ['weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate calories for your ideal weight', params: ['height_cm','gender','age'] },
       { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Estimate your current body composition', params: ['height_cm','gender','age'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Plan your path to your ideal weight', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/plasma-donation-earnings-calculator', title: 'Plasma Donation', icon: '🩸', reason: 'Check if you meet weight requirements', params: ['weight_kg','height_cm'] }
     ]
   },
