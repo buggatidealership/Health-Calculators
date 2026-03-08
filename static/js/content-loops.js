@@ -68,6 +68,7 @@ var CALCULATOR_GRAPH = {
   },
   'ozempic': {
     links: [
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Compare with tirzepatide projections', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Calculate your exact pen clicks', params: [] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Optimize calories alongside Ozempic', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Combine Ozempic with fasting', params: ['weight_kg','height_cm','age','gender'] },
@@ -78,6 +79,15 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'Project your weight loss timeline', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Set your calorie target with Ozempic', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
+  'mounjaro': {
+    links: [
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Compare with semaglutide projections', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your current BMI category', params: ['weight_kg','height_cm'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Optimize calories alongside Mounjaro', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Plan your nutrition while on Mounjaro', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] }
     ]
   },
   'antidepressant': {

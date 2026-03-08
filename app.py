@@ -121,8 +121,12 @@ cross_links = {
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-weight-loss-calculator": {
-        "calculators": ["/ozempic-pen-click-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/ozempic-pen-click-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+    },
+    "/mounjaro-weight-loss-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
     },
     "/botox-dosage-calculator": {
         "calculators": ["/lip-filler-cost-calculator", "/breast-implant-cost-calculator", "/liposuction-weight-loss-calculator"],
@@ -431,6 +435,16 @@ cards = [
         "color": "blue",
         "category": "medications",
         "popular": True
+    },
+    {
+        "title": "Mounjaro Weight Loss Calculator",
+        "url": "/mounjaro-weight-loss-calculator",
+        "summary": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on SURMOUNT clinical trial data, dose, and lifestyle factors.",
+        "icon": "💊",
+        "cta": "Estimate Weight Loss",
+        "color": "purple",
+        "category": "medications",
+        "popular": False
     },
     {
         "title": "Botox Dosage Calculator",
@@ -791,7 +805,20 @@ def ozempic_weight_loss_calculator():
     schema_description = "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy). Get personalized projections based on clinical data and your individual profile."
     schema_url = "/ozempic-weight-loss-calculator"
     return render_template(
-        'ozempic_weight_loss_calculator.html', 
+        'ozempic_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/mounjaro-weight-loss-calculator')
+def mounjaro_weight_loss_calculator():
+    schema_name = "Mounjaro Weight Loss Calculator"
+    schema_description = "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data."
+    schema_url = "/mounjaro-weight-loss-calculator"
+    return render_template(
+        'mounjaro_weight_loss_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
