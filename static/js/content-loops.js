@@ -19,7 +19,8 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your "ideal" weight depends on 3 factors most people overlook', params: ['height_cm','gender'] },
       { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'The military uses a different standard than BMI — would you pass?', params: ['height_cm','gender','age'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: '30% of "healthy" BMIs hide unhealthy body fat levels', params: ['height_cm','gender','age'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: '16:8 fasting burns fat without cutting calories — see your timeline', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: '16:8 fasting burns fat without cutting calories — see your timeline', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Low BMI can trigger menopause up to 1 year earlier — check your timeline', params: ['age'] }
     ]
   },
   'tdee': {
@@ -185,6 +186,7 @@ var CALCULATOR_GRAPH = {
   },
   'fertility': {
     links: [
+      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Fertility and menopause are linked — knowing your timeline helps you plan', params: ['age'] },
       { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'IVF due dates differ from natural conception dates — find yours', params: [] },
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Is your child in the 50th percentile? That might not mean what you think', params: [] },
       { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Newborns lose up to 10% of birth weight — is yours on track?', params: [] },
@@ -237,7 +239,8 @@ var CALCULATOR_GRAPH = {
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: '42% of Americans are vitamin D deficient — it cuts lifespan silently', params: ['age','gender','weight_kg'] },
       { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Even "moderate" drinking affects lifespan differently than you\'d expect', params: ['age','gender'] },
       { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'Early baldness correlates with heart risk — it\'s not just cosmetic', params: ['age','gender'] },
-      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Your projected lifespan determines how much savings you actually need', params: ['age'] }
+      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Your projected lifespan determines how much savings you actually need', params: ['age'] },
+      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Earlier menopause is linked to shorter lifespan — predict your menopause age', params: ['age'] }
     ]
   },
   'lipid-panel': {
