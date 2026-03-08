@@ -238,4 +238,32 @@ function calculateBRI() {
   }
   userData.gender = sex;
   showNextSteps('body-roundness-index', userData, { bri: briRounded.toString(), category: category });
+
+  // Share card — sensitive if obese or high risk
+  var isSensitive = bri >= 4.45;
+  var heightDisplay, waistDisplay;
+  if (isMetric) {
+    heightDisplay = document.getElementById('height_cm').value + ' cm';
+    waistDisplay = document.getElementById('waist_cm').value + ' cm';
+  } else {
+    heightDisplay = document.getElementById('height_ft').value + '\'' +
+      (document.getElementById('height_in').value || '0') + '"';
+    waistDisplay = document.getElementById('waist_in').value + ' in';
+  }
+  if (typeof generateShareCard === 'function') {
+    generateShareCard({
+      calculatorName: 'Body Roundness Index Calculator',
+      resultLabel: 'Your BRI',
+      resultValue: briRounded.toString(),
+      resultCategory: category,
+      categoryColor: color,
+      details: [
+        { label: 'Height', value: heightDisplay },
+        { label: 'Waist', value: waistDisplay },
+        { label: 'Age', value: age + ' yrs' }
+      ],
+      url: 'healthcalculators.xyz/body-roundness-index-calculator',
+      sensitive: isSensitive
+    });
+  }
 }

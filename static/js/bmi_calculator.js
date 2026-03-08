@@ -153,4 +153,31 @@ function calculateBMI() {
     // Content loop: contextual next steps
     var userData = collectUserData();
     showNextSteps('bmi', userData, { bmi: bmiRounded.toString(), category: category });
+
+    // Share card — sensitive if BMI is in obese range
+    var isSensitive = bmi >= 30;
+    var heightDisplay, weightDisplay;
+    if (isMetric) {
+        heightDisplay = document.getElementById('height_cm').value + ' cm';
+        weightDisplay = document.getElementById('weight_kg').value + ' kg';
+    } else {
+        heightDisplay = document.getElementById('height_ft').value + '\'' +
+            (document.getElementById('height_in').value || '0') + '"';
+        weightDisplay = document.getElementById('weight_lb').value + ' lbs';
+    }
+    if (typeof generateShareCard === 'function') {
+        generateShareCard({
+            calculatorName: 'BMI Calculator',
+            resultLabel: 'Your BMI',
+            resultValue: bmiRounded.toString(),
+            resultCategory: category,
+            categoryColor: color,
+            details: [
+                { label: 'Height', value: heightDisplay },
+                { label: 'Weight', value: weightDisplay }
+            ],
+            url: 'healthcalculators.xyz/bmi-calculator',
+            sensitive: isSensitive
+        });
+    }
 }

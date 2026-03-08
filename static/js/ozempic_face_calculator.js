@@ -251,6 +251,24 @@ document.addEventListener('DOMContentLoaded', function() {
         if (typeof showNextSteps === 'function' && typeof collectUserData === 'function') {
             showNextSteps('ozempic-face', collectUserData(), null, 'result');
         }
+
+        // Share card — always sensitive (health/appearance data)
+        if (typeof generateShareCard === 'function') {
+            generateShareCard({
+                calculatorName: 'Ozempic Face Risk Calculator',
+                resultLabel: 'Risk Score',
+                resultValue: data.totalScore + '/100',
+                resultCategory: data.riskCategory + ' Risk',
+                categoryColor: data.riskColor,
+                details: [
+                    { label: 'Age', value: data.age + ' yrs' },
+                    { label: 'Target Loss', value: data.targetLossPct + '%' },
+                    { label: 'Timeline', value: data.timelineMonths + ' mo' }
+                ],
+                url: 'healthcalculators.xyz/ozempic-face-calculator',
+                sensitive: true
+            });
+        }
     }
 
     function displayResults(data) {
