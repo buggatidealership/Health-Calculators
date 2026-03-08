@@ -89,9 +89,6 @@
     <div class="calculator-container">
     
     <div class="back-link-wrapper">
-        <a href="/" class="back-home-link">← Back to Homepage</a>
-    </div>
-    <div class="back-link-wrapper">
         <a href="/" class="back-home-link">← Back to All Calculators</a>
     </div>
     
@@ -100,10 +97,9 @@
         <p>Evidence-based articles, guides and tools to help you take action on your health goals.</p>
     </div>
     
-    <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px auto; max-width: 800px; text-align: center;">
-        <AdUnit slot="resources-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Articles Grid -->
     <div class="calculator-grid">
@@ -119,10 +115,9 @@
         {% endfor %}
     </div>
     
-    <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
-        <AdUnit slot="resources-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Info Section -->
     <div class="resources-section">
@@ -130,16 +125,12 @@
         <p>We're constantly adding new evidence-based guides and articles. Contact us to suggest a health topic you'd like us to cover next.</p>
     </div>
     
-    <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
-        <AdUnit slot="resources-bottom" />
-    </div>
-    
-    <!-- Footer -->
-    <div class="footer-disclaimer">
-        <p>This site provides general educational information. Consult a doctor or registered healthcare professional before making any health decisions.</p>
-    </div>
-    
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
     </div> <!-- End of calculator-container -->
+
+    {% include 'footer.html' %}
 </body>
 </html>

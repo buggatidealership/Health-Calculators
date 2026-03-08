@@ -172,13 +172,13 @@
     </div>
     
     <!-- Top Ad -->
-    <div class="adunit-top" style="margin: 20px auto; max-width: 800px; text-align: center;">
-        <AdUnit slot="homepage-top" />
-    </div>
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
-    <!-- Search Input (visual only, no functionality) -->
+    <!-- Search Filter -->
     <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search calculators..." aria-label="Search calculators">
+        <input type="text" class="search-input" placeholder="Search calculators..." aria-label="Search calculators" id="calc-search" oninput="filterCalculators()">
     </div>
     
     <!-- Calculator Grid -->
@@ -196,9 +196,9 @@
     </div>
     
     <!-- Mid Ad -->
-    <div class="adunit-mid" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
-        <AdUnit slot="homepage-mid" />
-    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
     
     <!-- Resources Section -->
     <div class="resources-section">
@@ -208,15 +208,25 @@
     </div>
     
     <!-- Bottom Ad -->
-    <div class="adunit-bottom" style="margin: 60px auto 40px; max-width: 800px; text-align: center;">
-        <AdUnit slot="homepage-bottom" />
-    </div>
-    
-    <!-- Footer -->
-    <div class="footer-disclaimer">
-        <p>This site provides general educational estimates. Consult a doctor or registered dietitian before making any health decisions.</p>
-    </div>
-    
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
     </div> <!-- End of calculator-container -->
+
+    {% include 'footer.html' %}
+
+    <script>
+    function filterCalculators() {
+      var query = document.getElementById('calc-search').value.toLowerCase();
+      var cards = document.querySelectorAll('.calculator-card-v2');
+      cards.forEach(function(card) {
+        var title = card.querySelector('.card-title');
+        var summary = card.querySelector('.card-summary');
+        var text = (title ? title.textContent : '') + ' ' + (summary ? summary.textContent : '');
+        card.style.display = text.toLowerCase().indexOf(query) !== -1 ? '' : 'none';
+      });
+    }
+    </script>
 </body>
 </html>
