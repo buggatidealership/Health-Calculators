@@ -53,6 +53,10 @@
     <div class="calculator-container">
     
     <h1>Starbucks Nutrition Calculator</h1>
+    <h2>What Are Starbucks Drink Nutrition Facts?</h2>
+    <div class="answer-capsule">
+      Starbucks drink nutrition varies dramatically by size, milk choice, and syrup pumps. A Grande Caffe Latte has 190 calories with 2% milk but drops to 130 with almond milk. This calculator uses official Starbucks nutrition data to compute accurate calorie, sugar, protein, carb, and fat values for any drink customization.
+    </div>
     <p class="subtitle">Calculate calories, sugar, protein, carbs, and fat for any Starbucks drink. Easy customizations and accurate results.</p>
     
     <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
@@ -302,6 +306,13 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    {% set sources = [
+        {"text": "Starbucks Corporation. Official Nutrition Information.", "url": "https://www.starbucks.com/menu"},
+        {"text": "USDA FoodData Central. U.S. Department of Agriculture.", "url": "https://fdc.nal.usda.gov/"},
+        {"text": "FDA. 21 CFR Part 101 — Food Labeling Requirements.", "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-101"}
+    ] %}
+    {% include 'components/sources.html' %}
 </div>
     
     <script src="{{ url_for('static', filename='js/starbucks_nutrition_calculator.js') }}"></script>

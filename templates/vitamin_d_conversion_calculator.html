@@ -18,6 +18,10 @@
 {% include 'header.html' %}
 <div class="calculator-container">
     <h1>Vitamin D Conversion Calculator</h1>
+    <h2>How Do Vitamin D Units Convert?</h2>
+    <div class="answer-capsule">
+      Vitamin D blood levels are measured in ng/mL (conventional, used in the US) or nmol/L (SI units, used internationally). The conversion factor is 2.496, based on the molecular weight of 25-hydroxyvitamin D (calcidiol) at 400.65 g/mol. This calculator instantly converts between units to help you interpret lab results from different countries and guidelines.
+    </div>
     <p class="subtitle">Convert vitamin D levels between ng/mL and nmol/L instantly.</p>
 
     <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
@@ -189,9 +193,11 @@
         </div>
     </div>
 
-    <p class="text-center mt-8">
-        <a href="/" class="back-link">&larr; Back to All Calculators</a>
-    </p>
+    {% set sources = [
+        {"text": "Holick MF, Binkley NC, et al. Evaluation, treatment, and prevention of vitamin D deficiency: an Endocrine Society clinical practice guideline. J Clin Endocrinol Metab. 2011;96(7):1911-1930.", "url": "https://pubmed.ncbi.nlm.nih.gov/21646368/"},
+        {"text": "Demay MB, Pittas AG, et al. Vitamin D for the prevention of disease: an Endocrine Society clinical practice guideline. J Clin Endocrinol Metab. 2024;109(8):1907-1947.", "url": "https://pubmed.ncbi.nlm.nih.gov/38828931/"}
+    ] %}
+    {% include 'components/sources.html' %}
 </div>
 
 
