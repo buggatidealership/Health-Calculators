@@ -71,6 +71,9 @@ function calculate() {
     const resultsDiv = document.getElementById('results');
     resultsDiv.style.display = 'block';
     resultsDiv.className = eligible ? 'eligible' : 'ineligible';
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('plasma-donation', collectUserData());
     
     document.getElementById('eligibility-result').innerHTML = eligible 
         ? '<p class="highlight">✅ You appear to be eligible to donate plasma!</p>'

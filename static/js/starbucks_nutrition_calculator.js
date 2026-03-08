@@ -193,9 +193,12 @@ function calculate() {
     
     // Show results
     document.getElementById('results').style.display = 'block';
-    
+
     // Scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('starbucks', collectUserData());
 }
 
 // Initialize when page loads

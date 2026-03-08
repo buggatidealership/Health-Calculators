@@ -146,6 +146,9 @@ function calculateBotox() {
     
     // Show result div
     document.getElementById('result').style.display = 'block';
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('botox', collectUserData(), null, 'result');
 }
 
 function capitalizeFirstLetter(string) {

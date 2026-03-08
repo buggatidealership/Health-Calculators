@@ -297,6 +297,7 @@
         } else {
           imperialInputs.style.display = 'none';
           metricInputs.style.display = 'block';
+    showNextSteps('lipid-panel', collectUserData());
           weightUnitImperial.classList.remove('active');
           weightUnitMetric.classList.add('active');
         }
@@ -965,5 +966,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

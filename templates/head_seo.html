@@ -143,6 +143,49 @@ document.addEventListener('DOMContentLoaded',function(){
       header.classList.toggle('scrolled',window.scrollY>10);
     });
   }
+  // URL param pre-filler: reads ?weight=70&height=175&age=30&gender=male etc.
+  // Enables data-carrying cross-links between calculators
+  (function(){
+    var params=new URLSearchParams(window.location.search);
+    if(params.toString()){
+      // Map of URL param names to possible form field IDs
+      var fieldMap={
+        'weight_kg':['weight_kg','weight-kg'],
+        'weight_lb':['weight_lb','weight-lb'],
+        'height_cm':['height_cm','height-cm'],
+        'height_ft':['height_ft','height-ft'],
+        'height_in':['height_in','height-in'],
+        'age':['age'],
+        'gender':['gender','sex'],
+        'activity':['activity','activity-level'],
+        'weight':['weight_kg','weight','weight-kg']
+      };
+      params.forEach(function(val,key){
+        var ids=fieldMap[key]||[key];
+        ids.forEach(function(id){
+          var el=document.getElementById(id);
+          if(el){
+            el.value=val;
+            // Trigger change event for selects
+            if(el.tagName==='SELECT'){
+              el.dispatchEvent(new Event('change'));
+            }
+          }
+        });
+      });
+      // If imperial weight/height provided, switch to imperial
+      if(params.get('weight_lb')||params.get('height_ft')){
+        var impBtn=document.getElementById('imperial-btn');
+        if(impBtn&&!impBtn.classList.contains('active')){
+          impBtn.click();
+        }
+      }
+      // Clean URL without reloading (removes params after pre-filling)
+      if(window.history.replaceState){
+        window.history.replaceState(null,'',window.location.pathname);
+      }
+    }
+  })();
   // Collapsible FAQ on mobile
   if(window.innerWidth<=600){
     document.querySelectorAll('.faq-item h4, .faq-item h3').forEach(function(h){

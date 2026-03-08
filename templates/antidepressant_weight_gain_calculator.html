@@ -132,6 +132,7 @@
         
         // Scroll to results
         resultsDiv.scrollIntoView({ behavior: 'smooth' });
+    showNextSteps('antidepressant', collectUserData());
       });
     });
   </script>
@@ -324,5 +325,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

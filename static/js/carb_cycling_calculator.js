@@ -405,4 +405,7 @@ function displayResults(results, cycleType) {
     
     // Scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('carb-cycling', collectUserData());
 }

@@ -99,4 +99,8 @@ function calculateTDEE() {
     void resultsEl.offsetWidth;
     resultsEl.classList.add('results-reveal');
     resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Content loop: contextual next steps
+    var userData = collectUserData();
+    showNextSteps('tdee', userData, { tdee: tdee.toLocaleString() });
 }

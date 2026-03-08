@@ -456,6 +456,7 @@
                 `${costFormatted} (varies by surgeon, facility, and anesthesia)`;
            
             document.getElementById('results').style.display = 'block';
+    showNextSteps('liposuction', collectUserData());
         }
     </script>
     
@@ -536,5 +537,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

@@ -386,6 +386,9 @@
            
             // Show results
             document.getElementById("result").style.display = "block";
+
+            // Content loop
+            if (typeof showNextSteps === 'function') showNextSteps('vitamin-d-intake', collectUserData(), null, 'result');
         }
     </script>
     
@@ -404,5 +407,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

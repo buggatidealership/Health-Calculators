@@ -383,6 +383,7 @@
             }
 
             document.getElementById('result').style.display = 'block';
+    showNextSteps('adult-height', collectUserData());
         }
        
         function getGrowthPercentile(gender, age, height) {
@@ -440,5 +441,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

@@ -115,6 +115,9 @@ function calculateBaldness() {
     document.getElementById('detail-message').textContent = message;
 
     resultDiv.style.display = 'block';
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('baldness', collectUserData(), null, 'result');
 }
 
 // Add event listener when page loads

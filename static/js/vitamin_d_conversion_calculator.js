@@ -77,6 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show conversion results
     function showResults(ngValue, nmolValue, inputUnit) {
         resultsSection.classList.remove('hidden');
+        // Content loop
+        if (typeof showNextSteps === 'function') showNextSteps('vitamin-d-conversion', collectUserData());
 
         const ngNum = parseFloat(ngValue);
         const nmolNum = parseFloat(nmolValue);

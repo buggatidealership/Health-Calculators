@@ -483,6 +483,9 @@
                     
                     // Update UI
                     updateNutritionDisplay();
+
+                    // Content loop
+                    if (typeof showNextSteps === 'function') showNextSteps('chipotle', collectUserData());
                 }
 
                 // Update nutrition display
@@ -614,5 +617,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

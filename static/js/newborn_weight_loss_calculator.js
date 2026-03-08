@@ -115,6 +115,9 @@ function calculateWeightLoss() {
     const heroEl = document.getElementById('result-hero');
     heroEl.style.borderColor = statusColor;
 
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('newborn-weight', collectUserData(), null, 'result');
+
     // Status banner
     const weightStatusEl = document.getElementById('weight-status');
     weightStatusEl.className = 'result-status ' + statusLevel;

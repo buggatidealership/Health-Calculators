@@ -521,6 +521,7 @@
 
                 // Show results
                 document.getElementById('results').style.display = 'block';
+    showNextSteps('fasting', collectUserData());
 
                 // Create chart
                 createResultsChart(waterLossKg, fatLossKg, isMetric);
@@ -580,5 +581,6 @@
             }
         });
     </script>
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

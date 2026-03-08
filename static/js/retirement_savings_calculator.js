@@ -54,4 +54,7 @@ function calculate() {
 
     // Scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('retirement', collectUserData());
 }

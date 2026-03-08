@@ -70,4 +70,7 @@ function calculate() {
     document.getElementById('cc-per-cup').textContent = '~' + ccPerCup;
 
     document.getElementById('result').style.display = 'block';
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('cc-to-bra', collectUserData(), null, 'result');
 }

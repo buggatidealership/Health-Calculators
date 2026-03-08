@@ -72,6 +72,9 @@ function calculateDueDate() {
     
     // Show results
     document.getElementById('results').style.display = 'block';
+
+    // Content loop
+    if (typeof showNextSteps === 'function') showNextSteps('dog-pregnancy', collectUserData());
 }
 
 function generateTimeline(ovulationDate, dueDate, breedSize) {

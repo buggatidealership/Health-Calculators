@@ -316,6 +316,7 @@
                
                 // Scroll to results
                 document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
+    showNextSteps('fertility', collectUserData());
             });
         });
        
@@ -415,5 +416,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

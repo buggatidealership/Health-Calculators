@@ -515,6 +515,7 @@
 
                 // Show result div
                 document.getElementById('result').classList.remove('hidden');
+    showNextSteps('ozempic', collectUserData());
 
                 // Create chart
                 createChart(weightKg, finalWeightKg, duration, currentUnits);
@@ -576,5 +577,6 @@
             }
         });
     </script>
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

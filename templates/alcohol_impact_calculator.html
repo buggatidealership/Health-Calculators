@@ -276,6 +276,7 @@
             // Display results
             let result = document.getElementById('result');
             result.style.display = 'block';
+    showNextSteps('alcohol-impact', collectUserData());
            
             // Update result text
             document.getElementById('resultText').textContent = resultText;
@@ -317,5 +318,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>

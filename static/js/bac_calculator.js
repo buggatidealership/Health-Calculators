@@ -359,6 +359,8 @@ function displayResults(bac) {
         legalTimeElement.textContent = legalTimeFormatted;
         
         console.log("Results displayed successfully");
+        // Content loop
+        if (typeof showNextSteps === 'function') showNextSteps('bac', collectUserData());
     } catch (error) {
         console.error("Error displaying results:", error);
     }

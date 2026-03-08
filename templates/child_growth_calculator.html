@@ -353,6 +353,7 @@
            
             // Show results section
             document.getElementById('results').style.display = 'block';
+    showNextSteps('child-growth', collectUserData());
         }
        
         function interpretHeight(percentile) {
@@ -538,5 +539,6 @@
 
     {% include 'footer.html' %}
 
+    <script defer src="/static/js/content-loops.js"></script>
 </body>
 </html>
