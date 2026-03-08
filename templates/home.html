@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-{% with 
+{% with
     meta_description="Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers.",
     meta_keywords="health calculators, lifespan calculator, nutrition calculator, wellness tools, tdee calculator",
     og_title="HealthCalculators.xyz – Smart Health Starts Here",
@@ -13,7 +13,7 @@
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
-    
+
     <!-- Schema Markup -->
     <script type="application/ld+json">
     {
@@ -28,7 +28,7 @@
       }
     }
     </script>
-    
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,172 +61,483 @@
       ]
     }
     </script>
-    
+
     <style>
-        .homepage-header {
+        /* Hero */
+        .hp-hero {
             text-align: center;
-            margin: 40px 0;
+            padding: 48px 20px 36px;
+            background: linear-gradient(135deg, #fff5f8 0%, #fff 50%, #f0f9ff 100%);
+            border-radius: 16px;
+            margin-bottom: 32px;
         }
-        
-        .homepage-header h1 {
+        .hp-hero h1 {
             font-size: 2.4rem;
-            margin-bottom: 15px;
-            color: #333;
+            font-weight: 800;
+            color: #1a1a2e;
+            margin: 0 0 12px;
+            line-height: 1.15;
         }
-        
-        .homepage-header p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 800px;
-            margin: 0 auto;
+        .hp-hero p {
+            font-size: 1.15rem;
+            color: #555;
+            max-width: 640px;
+            margin: 0 auto 24px;
+            line-height: 1.5;
         }
-        
-        .search-container {
-            max-width: 600px;
-            margin: 30px auto;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            font-size: 16px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        
-        .calculator-grid {
+        .hp-stats {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 30px;
-            margin: 40px 0;
+            gap: 32px;
+            flex-wrap: wrap;
         }
-        
-        .calculator-grid > .calculator-card-v2 {
-            flex: 1 1 calc(50% - 30px);   /* Two per row with gap accounted */
-            max-width: 500px;
-            min-height: 260px;
+        .hp-stat {
+            text-align: center;
+        }
+        .hp-stat-num {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #d63384;
+        }
+        .hp-stat-label {
+            font-size: 0.82rem;
+            color: #888;
+            margin-top: 2px;
+        }
+
+        /* Search */
+        .hp-search {
+            max-width: 560px;
+            margin: 0 auto 36px;
+            position: relative;
+        }
+        .hp-search input {
+            width: 100%;
+            padding: 14px 18px 14px 44px;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            background: #fff;
+            transition: border-color 0.2s;
             box-sizing: border-box;
         }
-        
-        @media (max-width: 768px) {
-            .calculator-grid {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .calculator-grid > .calculator-card-v2 {
-                flex: 1 1 100%;
-            }
+        .hp-search input:focus {
+            outline: none;
+            border-color: #d63384;
         }
-        
-        /* Legacy calculator card styles removed */
-        
-        .cta-button {
-            display: inline-block;
-            background-color: #d63384;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 6px;
+        .hp-search-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            pointer-events: none;
+        }
+
+        /* Section headers */
+        .hp-section {
+            margin-bottom: 40px;
+        }
+        .hp-section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        .hp-section-icon {
+            font-size: 1.3rem;
+        }
+        .hp-section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin: 0;
+        }
+        .hp-section-count {
+            font-size: 0.8rem;
+            color: #999;
+            background: #f0f0f0;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: auto;
+        }
+
+        /* Popular grid — featured row */
+        .hp-popular-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .hp-popular-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 18px;
+            background: #fff;
+            border: 2px solid #f8bbd0;
+            border-radius: 12px;
             text-decoration: none;
-            font-weight: 600;
-            transition: background-color 0.2s;
-            margin-top: auto;
+            color: inherit;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+        .hp-popular-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(214,51,132,0.12);
+        }
+        .hp-popular-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff5f8;
+            border-radius: 10px;
+        }
+        .hp-popular-text h3 {
+            font-size: 0.95rem;
+            font-weight: 700;
+            margin: 0 0 3px;
+            color: #1a1a2e;
+        }
+        .hp-popular-text p {
+            font-size: 0.82rem;
+            color: #777;
+            margin: 0;
+            line-height: 1.35;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Category grid */
+        .hp-cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 14px;
+        }
+        .hp-cat-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 16px;
+            background: #fff;
+            border: 1px solid #e9ecef;
+            border-radius: 10px;
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
+        }
+        .hp-cat-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--card-color, #d63384);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+        .hp-cat-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            width: 40px;
             text-align: center;
         }
-        
-        .cta-button:hover {
-            background-color: #be2d73;
-        }
-        
-        .resources-section {
-            background-color: #f9f9f9;
-            padding: 40px;
-            border-radius: 8px;
-            margin: 40px 0;
-        }
-        
-        .resources-section h2 {
-            margin-top: 0;
+        .hp-cat-text h3 {
+            font-size: 0.92rem;
+            font-weight: 600;
+            margin: 0 0 2px;
             color: #333;
         }
-        
-        .footer-disclaimer {
+        .hp-cat-text p {
+            font-size: 0.8rem;
+            color: #888;
+            margin: 0;
+            line-height: 1.3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .hp-cat-arrow {
+            margin-left: auto;
+            color: #ccc;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            transition: color 0.15s, transform 0.15s;
+        }
+        .hp-cat-card:hover .hp-cat-arrow {
+            color: var(--card-color, #d63384);
+            transform: translateX(3px);
+        }
+
+        /* Category nav pills */
+        .hp-cat-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 28px;
+            justify-content: center;
+        }
+        .hp-cat-pill {
+            padding: 7px 16px;
+            border: 1px solid #e0e0e0;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #555;
+            text-decoration: none;
+            background: #fff;
+            transition: all 0.15s;
+            cursor: pointer;
+        }
+        .hp-cat-pill:hover, .hp-cat-pill.active {
+            background: #d63384;
+            color: #fff;
+            border-color: #d63384;
+        }
+
+        /* Resources callout */
+        .hp-resources {
+            background: linear-gradient(135deg, #f8f9fa, #fff5f8);
+            padding: 28px 24px;
+            border-radius: 12px;
+            border: 1px solid #f0e0e8;
+            margin: 40px 0;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .hp-resources-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+        .hp-resources h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 6px;
+            color: #1a1a2e;
+        }
+        .hp-resources p {
+            font-size: 0.92rem;
+            color: #666;
+            margin: 0 0 10px;
+        }
+        .hp-resources a {
+            color: #d63384;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .hp-resources a:hover {
+            text-decoration: underline;
+        }
+
+        /* No results */
+        .hp-no-results {
             text-align: center;
-            font-size: 14px;
-            color: #777;
-            margin-top: 40px;
-            padding: 0 20px;
+            padding: 40px 20px;
+            color: #999;
+            display: none;
+        }
+
+        @media (max-width: 600px) {
+            .hp-hero { padding: 32px 16px 28px; }
+            .hp-hero h1 { font-size: 1.7rem; }
+            .hp-hero p { font-size: 1rem; }
+            .hp-stats { gap: 20px; }
+            .hp-stat-num { font-size: 1.3rem; }
+            .hp-popular-grid { grid-template-columns: 1fr; }
+            .hp-cat-grid { grid-template-columns: 1fr; }
+            .hp-resources { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
     {% include 'header.html' %}
-    
+
     <div class="calculator-container">
-    
-    <div class="homepage-header">
+
+    <!-- Hero -->
+    <div class="hp-hero">
         <h1>Smarter Health Starts With Better Numbers</h1>
-        <p>Explore our growing library of science-backed calculators to personalize your wellness path.</p>
+        <p>Science-backed calculators for nutrition, fitness, longevity, and wellness. Personalized results you can actually use.</p>
+        <div class="hp-stats">
+            <div class="hp-stat">
+                <div class="hp-stat-num">{{ cards|length }}+</div>
+                <div class="hp-stat-label">Calculators</div>
+            </div>
+            <div class="hp-stat">
+                <div class="hp-stat-num">100%</div>
+                <div class="hp-stat-label">Free to Use</div>
+            </div>
+            <div class="hp-stat">
+                <div class="hp-stat-num">Evidence</div>
+                <div class="hp-stat-label">Based</div>
+            </div>
+        </div>
     </div>
-    
+
     <!-- Top Ad -->
     {% with ad_position="top" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
-    <!-- Search Filter -->
-    <div class="search-container">
-        <input type="text" class="search-input" placeholder="Search calculators..." aria-label="Search calculators" id="calc-search" oninput="filterCalculators()">
+
+    <!-- Search -->
+    <div class="hp-search">
+        <svg class="hp-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" placeholder="Search calculators..." aria-label="Search calculators" id="calc-search" autocomplete="off">
     </div>
-    
-    <!-- Calculator Grid -->
-    <div class="calculator-grid">
-        {% for card in cards %}
-        <div class="calculator-card-v2 card-color-{{ card.color }}">
-            <a href="{{ card.url }}">
-                <div class="card-icon">{{ card.icon }}</div>
-                <h3 class="card-title">{{ card.title }}</h3>
-                <p class="card-summary">{{ card.summary }}</p>
-                <div class="cta-arrow">{{ card.cta }} →</div>
-            </a>
-        </div>
+
+    <!-- Category pills -->
+    <div class="hp-cat-nav">
+        <span class="hp-cat-pill active" data-cat="all">All</span>
+        {% for cat in categories %}
+        <span class="hp-cat-pill" data-cat="{{ cat.id }}">{{ cat.icon }} {{ cat.label }}</span>
         {% endfor %}
     </div>
-    
+
+    <!-- No results message -->
+    <div class="hp-no-results" id="no-results">
+        No calculators match your search.
+    </div>
+
+    <!-- Popular Section -->
+    <div class="hp-section" id="section-popular" data-section="popular">
+        <div class="hp-section-header">
+            <span class="hp-section-icon">&#11088;</span>
+            <h2 class="hp-section-title">Most Popular</h2>
+            <span class="hp-section-count">{{ popular_cards|length }} tools</span>
+        </div>
+        <div class="hp-popular-grid">
+            {% for card in popular_cards %}
+            <a href="{{ card.url }}" class="hp-popular-card searchable-card" data-cat="{{ card.category }}">
+                <div class="hp-popular-icon">{{ card.icon }}</div>
+                <div class="hp-popular-text">
+                    <h3>{{ card.title }}</h3>
+                    <p>{{ card.summary }}</p>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
     <!-- Mid Ad -->
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
-    <!-- Resources Section -->
-    <div class="resources-section">
-        <h2>Health Resources & Articles</h2>
-        <p>Evidence-based guides to help you get the most from every calculator.</p>
-        <a href="/resources" class="resources-link">View All Resources →</a>
+
+    <!-- Category Sections -->
+    {% for cat in categories %}
+    <div class="hp-section" id="section-{{ cat.id }}" data-section="{{ cat.id }}">
+        <div class="hp-section-header">
+            <span class="hp-section-icon">{{ cat.icon }}</span>
+            <h2 class="hp-section-title">{{ cat.label }}</h2>
+            <span class="hp-section-count">{{ cards|selectattr('category', 'equalto', cat.id)|list|length }} tools</span>
+        </div>
+        <div class="hp-cat-grid">
+            {% for card in cards if card.category == cat.id %}
+            <a href="{{ card.url }}" class="hp-cat-card searchable-card card-color-{{ card.color }}" data-cat="{{ card.category }}">
+                <div class="hp-cat-icon">{{ card.icon }}</div>
+                <div class="hp-cat-text">
+                    <h3>{{ card.title }}</h3>
+                    <p>{{ card.summary }}</p>
+                </div>
+                <span class="hp-cat-arrow">&rsaquo;</span>
+            </a>
+            {% endfor %}
+        </div>
     </div>
-    
+    {% endfor %}
+
+    <!-- Resources -->
+    <div class="hp-resources">
+        <div class="hp-resources-icon">&#128218;</div>
+        <div>
+            <h3>Health Resources & Guides</h3>
+            <p>Evidence-based articles to help you understand your results and take action.</p>
+            <a href="/resources">Browse All Resources &rarr;</a>
+        </div>
+    </div>
+
     <!-- Bottom Ad -->
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
 
-    </div> <!-- End of calculator-container -->
+    </div>
 
     {% include 'footer.html' %}
 
     <script>
-    function filterCalculators() {
-      var query = document.getElementById('calc-search').value.toLowerCase();
-      var cards = document.querySelectorAll('.calculator-card-v2');
-      cards.forEach(function(card) {
-        var title = card.querySelector('.card-title');
-        var summary = card.querySelector('.card-summary');
-        var text = (title ? title.textContent : '') + ' ' + (summary ? summary.textContent : '');
-        card.style.display = text.toLowerCase().indexOf(query) !== -1 ? '' : 'none';
-      });
-    }
+    (function() {
+        var searchInput = document.getElementById('calc-search');
+        var pills = document.querySelectorAll('.hp-cat-pill');
+        var sections = document.querySelectorAll('.hp-section');
+        var allCards = document.querySelectorAll('.searchable-card');
+        var noResults = document.getElementById('no-results');
+        var activeCat = 'all';
+
+        // Category filter
+        pills.forEach(function(pill) {
+            pill.addEventListener('click', function() {
+                pills.forEach(function(p) { p.classList.remove('active'); });
+                pill.classList.add('active');
+                activeCat = pill.getAttribute('data-cat');
+                searchInput.value = '';
+                applyFilters();
+            });
+        });
+
+        // Search filter
+        searchInput.addEventListener('input', function() {
+            // Reset to "All" when searching
+            if (searchInput.value.length > 0) {
+                pills.forEach(function(p) { p.classList.remove('active'); });
+                document.querySelector('[data-cat="all"]').classList.add('active');
+                activeCat = 'all';
+            }
+            applyFilters();
+        });
+
+        function applyFilters() {
+            var query = searchInput.value.toLowerCase().trim();
+            var visibleCount = 0;
+
+            sections.forEach(function(section) {
+                var sectionId = section.getAttribute('data-section');
+                var cards = section.querySelectorAll('.searchable-card');
+                var sectionVisible = 0;
+
+                cards.forEach(function(card) {
+                    var cardCat = card.getAttribute('data-cat');
+                    var text = card.textContent.toLowerCase();
+                    var matchesCat = activeCat === 'all' || cardCat === activeCat;
+                    var matchesSearch = !query || text.indexOf(query) !== -1;
+
+                    if (matchesCat && matchesSearch) {
+                        card.style.display = '';
+                        sectionVisible++;
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Hide section if no cards visible, or if filtering by category and section doesn't match
+                if (activeCat !== 'all' && sectionId === 'popular') {
+                    // Show popular section only if it has visible cards
+                    section.style.display = sectionVisible > 0 ? '' : 'none';
+                } else if (activeCat !== 'all' && sectionId !== activeCat && sectionId !== 'popular') {
+                    section.style.display = 'none';
+                } else {
+                    section.style.display = sectionVisible > 0 ? '' : 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    })();
     </script>
 </body>
 </html>

@@ -93,6 +93,6 @@ function calculateTDEE() {
     document.getElementById('macro-fat').textContent = fatG + 'g';
 
     // Show results
-    document.getElementById('results').style.display = 'block';
+    document.getElementById('results').classList.remove('hidden');
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

@@ -194,9 +194,9 @@ button:hover {
     color: white;
     border-color: #be2d73;
 }
-/* This class is now deprecated - use .hidden instead */
 .imperial-height {
-    display: none;
+    display: flex;
+    gap: 12px;
 }
 @media (max-width: 600px) {
     .macronutrients {
@@ -1614,7 +1614,7 @@ footer {
   height: 12px;
   background: #e9ecef;
   border-radius: 6px;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 

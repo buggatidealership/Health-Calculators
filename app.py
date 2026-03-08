@@ -160,7 +160,9 @@ cards = [
         "summary": "Estimate how much you can earn donating plasma based on your weight, location, and donation frequency. Includes new donor bonuses.",
         "icon": "🩸",
         "cta": "Calculate Earnings",
-        "color": "red"
+        "color": "red",
+        "category": "financial",
+        "popular": False
     },
     {
         "title": "Lipid Panel Goals Calculator",
@@ -168,7 +170,9 @@ cards = [
         "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
         "icon": "❤️",
         "cta": "Get Targets",
-        "color": "red"
+        "color": "red",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "Antidepressant Weight Gain Calculator",
@@ -176,7 +180,9 @@ cards = [
         "summary": "Estimate potential weight and body fat gain from antidepressants based on medication type, dose, and treatment duration.",
         "icon": "💊",
         "cta": "Calculate Impact",
-        "color": "blue"
+        "color": "blue",
+        "category": "medications",
+        "popular": False
     },
     {
         "title": "Breast Implant Cost Calculator",
@@ -184,7 +190,9 @@ cards = [
         "summary": "Estimate your total breast augmentation cost based on implant type, region, and surgeon experience. Compare different countries and implant options.",
         "icon": "💰",
         "cta": "Calculate Cost",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic",
+        "popular": True
     },
     {
         "title": "Breast Implant Size Calculator",
@@ -192,7 +200,9 @@ cards = [
         "summary": "Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate by region.",
         "icon": "💗",
         "cta": "Calculate Implant Size",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic",
+        "popular": False
     },
     {
         "title": "Army Body Fat Calculator",
@@ -200,7 +210,9 @@ cards = [
         "summary": "Estimate your body fat percentage using the U.S. Army tape test method. Based on gender, age, height, neck, and waist measurements.",
         "icon": "⭐",
         "cta": "Calculate Body Fat",
-        "color": "blue"
+        "color": "blue",
+        "category": "fitness",
+        "popular": False
     },
     {
         "title": "Chipotle Nutrition Calculator",
@@ -208,7 +220,9 @@ cards = [
         "summary": "Build your Chipotle order and see real-time nutrition facts: calories, protein, carbs, fat, and fiber. Includes all protein, toppings, and sides.",
         "icon": "🌯",
         "cta": "Calculate Nutrition",
-        "color": "green"
+        "color": "green",
+        "category": "nutrition",
+        "popular": True
     },
     {
         "title": "Starbucks Nutrition Calculator",
@@ -216,7 +230,9 @@ cards = [
         "summary": "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and toppings.",
         "icon": "☕",
         "cta": "Calculate Nutrition",
-        "color": "green"
+        "color": "green",
+        "category": "nutrition",
+        "popular": True
     },
     {
         "title": "BAC Calculator",
@@ -224,7 +240,9 @@ cards = [
         "summary": "Estimate your blood alcohol content based on drinks consumed, weight, gender, and time. Understand impairment levels and time to sobriety.",
         "icon": "🍷",
         "cta": "Calculate BAC",
-        "color": "purple"
+        "color": "purple",
+        "category": "health",
+        "popular": True
     },
     {
         "title": "Carb Cycling Calculator",
@@ -232,7 +250,9 @@ cards = [
         "summary": "Customize your high, low, and medium carb days based on your TDEE and body composition goals with our carb cycling calculator.",
         "icon": "🍽️",
         "cta": "Create Carb Cycle",
-        "color": "orange"
+        "color": "orange",
+        "category": "nutrition",
+        "popular": False
     },
     {
         "title": "IVF Due Date Calculator",
@@ -240,7 +260,9 @@ cards = [
         "summary": "Accurately predict your baby's due date after IVF treatment with our specialized calculator for both fresh and frozen embryo transfers.",
         "icon": "👶",
         "cta": "Calculate Due Date",
-        "color": "pink"
+        "color": "pink",
+        "category": "fertility",
+        "popular": True
     },
     {
         "title": "Retirement Savings Calculator",
@@ -248,7 +270,9 @@ cards = [
         "summary": "Estimate how much you'll have saved for retirement and your safe withdrawal rate based on current savings and contributions.",
         "icon": "💰",
         "cta": "Plan Your Retirement",
-        "color": "green"
+        "color": "green",
+        "category": "financial",
+        "popular": False
     },
     {
         "title": "TDEE Calculator",
@@ -256,7 +280,9 @@ cards = [
         "summary": "Estimate your Total Daily Energy Expenditure to determine maintenance calories and create effective weight management plans.",
         "icon": "🔥",
         "cta": "Calculate TDEE",
-        "color": "orange"
+        "color": "orange",
+        "category": "nutrition",
+        "popular": True
     },
     {
         "title": "Ideal Body Weight Calculator",
@@ -264,7 +290,9 @@ cards = [
         "summary": "Calculate your ideal body weight range based on height, gender, and frame size using multiple evidence-based formulas.",
         "icon": "⚖️",
         "cta": "Calculate Weight",
-        "color": "blue"
+        "color": "blue",
+        "category": "fitness",
+        "popular": False
     },
     {
         "title": "Alcohol Impact Calculator",
@@ -272,7 +300,9 @@ cards = [
         "summary": "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration.",
         "icon": "🍷",
         "cta": "Calculate Impact",
-        "color": "red"
+        "color": "red",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "Baldness Risk Calculator",
@@ -280,7 +310,9 @@ cards = [
         "summary": "Estimate your risk of going bald based on family history, age, lifestyle, and health factors.",
         "icon": "👨‍🦲",
         "cta": "Predict Hair Loss",
-        "color": "purple"
+        "color": "purple",
+        "category": "health",
+        "popular": True
     },
     {
         "title": "Newborn Weight Loss Calculator",
@@ -288,7 +320,9 @@ cards = [
         "summary": "Track and assess weight loss in newborns during the first days after birth based on clinical guidelines.",
         "icon": "👶",
         "cta": "Calculate Weight Loss",
-        "color": "blue"
+        "color": "blue",
+        "category": "fertility",
+        "popular": False
     },
     {
         "title": "Dog Pregnancy Due-Date Calculator",
@@ -296,7 +330,9 @@ cards = [
         "summary": "Estimate your dog's whelping date based on breeding date with this veterinary-backed calculator.",
         "icon": "🐕",
         "cta": "Calculate Due Date",
-        "color": "teal"
+        "color": "teal",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "CC to Bra Size Calculator",
@@ -304,7 +340,9 @@ cards = [
         "summary": "Convert breast implant volume (CCs) to estimated bra cup size with this plastic surgery calculator.",
         "icon": "📏",
         "cta": "Calculate Cup Size",
-        "color": "purple"
+        "color": "purple",
+        "category": "cosmetic",
+        "popular": False
     },
     {
         "title": "Liposuction Weight Loss Calculator",
@@ -312,7 +350,9 @@ cards = [
         "summary": "Calculate how much fat and weight you might lose with liposuction, and what it may cost.",
         "icon": "🩺",
         "cta": "Estimate Results",
-        "color": "teal"
+        "color": "teal",
+        "category": "cosmetic",
+        "popular": False
     },
     {
         "title": "Lip Filler Cost Calculator",
@@ -320,7 +360,9 @@ cards = [
         "summary": "Estimate the cost of lip fillers based on volume, brand, and injector type for your procedure.",
         "icon": "💋",
         "cta": "Calculate Cost",
-        "color": "pink"
+        "color": "pink",
+        "category": "cosmetic",
+        "popular": False
     },
     {
         "title": "Adult Height Predictor Calculator",
@@ -328,15 +370,19 @@ cards = [
         "summary": "Predict a child's future adult height based on their age, current height, gender, and parental heights.",
         "icon": "📏",
         "cta": "Predict Height",
-        "color": "green"
+        "color": "green",
+        "category": "health",
+        "popular": False
     },
     {
-        "title": "Child Growth Calculator", 
+        "title": "Child Growth Calculator",
         "url": "/child-growth-calculator",
         "summary": "Track your child's height, weight, and BMI percentile with age-based charts.",
         "icon": "📏",
         "cta": "Track Growth",
-        "color": "green"
+        "color": "green",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "Female Fertility Calculator",
@@ -344,7 +390,9 @@ cards = [
         "summary": "Predict your most fertile days and ovulation window based on your menstrual cycle.",
         "icon": "🌸",
         "cta": "Find Fertile Days",
-        "color": "pink"
+        "color": "pink",
+        "category": "fertility",
+        "popular": True
     },
     {
         "title": "Breast Implant Calculator",
@@ -352,7 +400,9 @@ cards = [
         "summary": "Find your ideal implant size based on your measurements and goals.",
         "icon": "💗",
         "cta": "Calculate Implant Size",
-        "color": "purple"
+        "color": "purple",
+        "category": "cosmetic",
+        "popular": False
     },
     {
         "title": "Ozempic Pen Click Calculator",
@@ -360,7 +410,9 @@ cards = [
         "summary": "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool.",
         "icon": "💉",
         "cta": "Check Dosing",
-        "color": "blue"
+        "color": "blue",
+        "category": "medications",
+        "popular": False
     },
     {
         "title": "Ozempic Weight Loss Calculator",
@@ -368,7 +420,9 @@ cards = [
         "summary": "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy).",
         "icon": "💊",
         "cta": "Estimate Fat Loss",
-        "color": "blue"
+        "color": "blue",
+        "category": "medications",
+        "popular": True
     },
     {
         "title": "Botox Dosage Calculator",
@@ -376,7 +430,9 @@ cards = [
         "summary": "Determine the appropriate Botox units for different treatment areas.",
         "icon": "💉",
         "cta": "Calculate Botox Units",
-        "color": "teal"
+        "color": "teal",
+        "category": "cosmetic",
+        "popular": False
     },
     {
         "title": "Creatine Hydration Calculator",
@@ -384,7 +440,9 @@ cards = [
         "summary": "Calculate optimal water intake when using creatine supplements.",
         "icon": "💧",
         "cta": "Calculate Hydration",
-        "color": "yellow"
+        "color": "yellow",
+        "category": "fitness",
+        "popular": False
     },
     {
         "title": "Vitamin D Intake Calculator",
@@ -392,7 +450,9 @@ cards = [
         "summary": "Determine your ideal vitamin D supplementation based on lifestyle factors.",
         "icon": "☀️",
         "cta": "Calculate Intake",
-        "color": "red"
+        "color": "red",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "Vitamin D Conversion Calculator",
@@ -400,7 +460,9 @@ cards = [
         "summary": "Convert vitamin D levels between ng/mL and nmol/L. Helpful for interpreting lab results and international guidelines.",
         "icon": "🔄",
         "cta": "Convert Units",
-        "color": "yellow"
+        "color": "yellow",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "Lifespan Calculator",
@@ -408,7 +470,9 @@ cards = [
         "summary": "Estimate your life expectancy based on health and lifestyle factors.",
         "icon": "❤️",
         "cta": "Check Your Lifespan",
-        "color": "green"
+        "color": "green",
+        "category": "health",
+        "popular": True
     },
     {
         "title": "Fasting Weight Loss Calculator",
@@ -416,7 +480,9 @@ cards = [
         "summary": "Calculate potential weight loss from intermittent fasting protocols.",
         "icon": "⏱️",
         "cta": "Calculate Weight Loss",
-        "color": "orange"
+        "color": "orange",
+        "category": "nutrition",
+        "popular": False
     },
     {
         "title": "Caloric & Macronutrient Calculator",
@@ -424,8 +490,20 @@ cards = [
         "summary": "Calculate your daily caloric needs and optimal macronutrient ratios.",
         "icon": "🍎",
         "cta": "Calculate Your Calories",
-        "color": "blue"
+        "color": "blue",
+        "category": "nutrition",
+        "popular": False
     }
+]
+
+categories = [
+    {"id": "nutrition", "label": "Nutrition & Diet", "icon": "🍎"},
+    {"id": "medications", "label": "Weight Loss Medications", "icon": "💊"},
+    {"id": "fitness", "label": "Fitness & Body Composition", "icon": "💪"},
+    {"id": "cosmetic", "label": "Cosmetic & Aesthetic", "icon": "✨"},
+    {"id": "fertility", "label": "Pregnancy & Fertility", "icon": "👶"},
+    {"id": "health", "label": "Health & Longevity", "icon": "❤️"},
+    {"id": "financial", "label": "Financial & Earnings", "icon": "💰"},
 ]
 
 @app.route('/')
@@ -433,10 +511,13 @@ def home():
     schema_name = "Longevity Calculator - Health & Wellness Calculators"
     schema_description = "Explore our collection of science-based health calculators for nutrition, longevity, fitness, and wellness. Get personalized insights to optimize your health."
     schema_url = "/"
+    popular_cards = [c for c in cards if c.get("popular")]
     return render_template(
-        'home.html', 
-        is_homepage=True, 
+        'home.html',
+        is_homepage=True,
         cards=cards,
+        popular_cards=popular_cards,
+        categories=categories,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url
