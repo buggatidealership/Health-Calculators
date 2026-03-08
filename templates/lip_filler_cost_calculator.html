@@ -159,12 +159,68 @@
            
             <button id="calculate-btn" class="cta-button" onclick="calculateCost()">Calculate Estimated Cost</button>
            
-            <div class="result" id="result" style="display: none;">
-                <h3>Estimated Cost Range</h3>
-                <p>Based on current market data and your selections:</p>
-                <p class="price" id="price">$0</p>
-                <p id="details"></p>
-                <p><em>Note: This is an estimate only. Actual costs may vary. Always consult with a qualified provider.</em></p>
+            <div class="results-section" id="result" style="display: none;">
+                <div class="result-hero">
+                    <div class="result-hero-number" id="price">—</div>
+                    <div class="result-hero-label">Estimated Total Cost</div>
+                    <div class="result-hero-sublabel">including touch-ups</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card pink">
+                        <div class="result-card-title">Per Syringe</div>
+                        <div class="result-card-value" id="per-syringe-cost">—</div>
+                        <div class="result-card-note">base cost</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Syringes</div>
+                        <div class="result-card-value" id="syringe-count">—</div>
+                        <div class="result-card-note">ordered</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Touch-Up Cost</div>
+                        <div class="result-card-value" id="touchup-cost-display">—</div>
+                        <div class="result-card-note">additional</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Cost Breakdown</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Base Syringe Cost</span>
+                        <span class="result-breakdown-val" id="base-cost-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Location Factor</span>
+                        <span class="result-breakdown-val" id="location-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Provider Factor</span>
+                        <span class="result-breakdown-val" id="provider-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Product Factor</span>
+                        <span class="result-breakdown-val" id="product-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Touch-Up Estimate</span>
+                        <span class="result-breakdown-val" id="touchup-display">—</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown" style="border-left: 3px solid #d63384;">
+                    <div class="result-breakdown-title">Annual Cost (if maintaining)</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Treatments per Year</span>
+                        <span class="result-breakdown-val">1–2 sessions</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Est. Annual Cost</span>
+                        <span class="result-breakdown-val" id="annual-cost">—</span>
+                    </div>
+                </div>
+
+                <p style="font-size: 0.82rem; color: #888; font-style: italic; margin-top: 12px;">Estimates based on ASPS 2023 data ($684 avg/syringe). Actual costs vary by location and provider.</p>
             </div>
         </div>
     
@@ -269,17 +325,19 @@
             let touchupCost = cost * touchupFactor;
             let totalCost = cost + touchupCost;
            
-            // Display result
-            document.getElementById('price').textContent = '$' + Math.round(totalCost) + ' - $' + Math.round(totalCost * 1.2);
-           
-            let details = `Breakdown:
-                <ul>
-                    <li>Base cost for ${syringes} syringe(s): $${Math.round(cost)}</li>
-                    ${touchupFactor > 0 ? `<li>Estimated touch-up costs: $${Math.round(touchupCost)}</li>` : ''}
-                    <li>Price factors: ${getLocationText()} location, ${getProviderText()} provider, ${getProductText()} product</li>
-                </ul>`;
-           
-            document.getElementById('details').innerHTML = details;
+            // Display results
+            var adjustedPricePerSyringe = Math.round(basePricePerSyringe * locationFactor * providerFactor * productFactor);
+
+            document.getElementById('price').textContent = '$' + Math.round(totalCost) + ' – $' + Math.round(totalCost * 1.2);
+            document.getElementById('per-syringe-cost').textContent = '$' + adjustedPricePerSyringe;
+            document.getElementById('syringe-count').textContent = syringes;
+            document.getElementById('touchup-cost-display').textContent = touchupCost > 0 ? '$' + Math.round(touchupCost) : '$0';
+            document.getElementById('base-cost-display').textContent = '$' + Math.round(cost);
+            document.getElementById('location-display').textContent = getLocationText();
+            document.getElementById('provider-display').textContent = getProviderText();
+            document.getElementById('product-display').textContent = getProductText();
+            document.getElementById('touchup-display').textContent = touchupCost > 0 ? '$' + Math.round(touchupCost) : 'None selected';
+            document.getElementById('annual-cost').textContent = '$' + Math.round(totalCost * 1.5) + ' – $' + Math.round(totalCost * 2.4);
             document.getElementById('result').style.display = 'block';
         }
        
