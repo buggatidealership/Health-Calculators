@@ -97,6 +97,7 @@ var CALCULATOR_GRAPH = {
   },
   'ozempic': {
     links: [
+      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is the same drug at a higher dose (2.4 mg) — see your projection with full weight-loss approval', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Rapid weight loss ages the face — find out if you\'re at risk before it happens', params: ['weight_kg','height_cm','age'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro users lost 22.5% of body weight in trials — see your projection', params: ['weight_kg','height_cm','age','gender'] },
@@ -106,10 +107,22 @@ var CALCULATOR_GRAPH = {
       { url: '/antidepressant-weight-gain-calculator', title: 'Antidepressant Weight', icon: '💊', reason: 'Some antidepressants add 7+ lbs — could that be offsetting your results?', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
+  'wegovy': {
+    links: [
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '\ud83d\udcc9', reason: 'Same drug, lower dose — see how Ozempic\'s projection compares at 1.0 mg', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '\ud83d\udcca', reason: 'See how your projected loss compares across all GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '\ud83d\ude2e', reason: 'Wegovy causes the most weight loss of any semaglutide dose — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '\ud83d\udc8a', reason: 'Mounjaro users lost 22.5% body weight vs Wegovy\'s 14.9% — see your projection', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '\ud83d\udc8a', reason: 'Zepbound hits two receptors vs Wegovy\'s one — does that change your outcome?', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '\ud83d\udd25', reason: 'Wegovy cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '\ud83d\udcca', reason: 'Track your BMI category shift as you lose weight on Wegovy', params: ['weight_kg','height_cm'] }
+    ]
+  },
   'ozempic-face': {
     links: [
       { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'See how much weight you can expect to lose — then weigh the tradeoff', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide at the full weight-loss dose — check your projection', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro causes faster weight loss than Ozempic — does that change your face risk?', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI determines how much facial fat you have to lose — check yours', params: ['weight_kg','height_cm'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Body fat % predicts where you lose fat first — face or body', params: ['height_cm','gender','age'] }
@@ -128,6 +141,7 @@ var CALCULATOR_GRAPH = {
       { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Mounjaro causes faster loss than Ozempic — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic averages 15% loss vs Mounjaro\'s 22.5% — see your comparison', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide at the weight-loss dose — compare your projection', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most Mounjaro users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'GLP-1 drugs slash appetite — but the wrong macros cost you muscle', params: ['weight_kg','height_cm','age','gender'] },
@@ -139,6 +153,7 @@ var CALCULATOR_GRAPH = {
       { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro is the same drug prescribed for diabetes — see how the projection differs', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic targets GLP-1 only — Zepbound hits two receptors and loses 50% more weight', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide approved for weight loss — compare your dual-agonist projection', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Zepbound causes the fastest weight loss of any GLP-1 — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most tirzepatide users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'GLP-1 drugs can reduce lean mass too — track your body fat, not just weight', params: ['height_cm','gender','age'] },
@@ -148,6 +163,7 @@ var CALCULATOR_GRAPH = {
   'glp1-comparison': {
     links: [
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Get a detailed Ozempic projection with dose-specific data and weekly timeline', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide at the full 2.4 mg weight-loss dose — injectable or oral pill', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Get a detailed Mounjaro projection with dose escalation and lifestyle factors', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Fast weight loss on GLP-1 drugs can age the face — check your risk', params: ['weight_kg','height_cm','age'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },

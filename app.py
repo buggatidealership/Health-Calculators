@@ -125,23 +125,27 @@ cross_links = {
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-weight-loss-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/wegovy-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+    },
+    "/wegovy-weight-loss-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/mounjaro-weight-loss-calculator": {
-        "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
+        "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
     },
     "/zepbound-weight-loss-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
+        "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
         "guides": []
     },
     "/glp1-comparison-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
+        "calculators": ["/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-face-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
+        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/botox-dosage-calculator": {
@@ -481,6 +485,16 @@ cards = [
         "color": "blue",
         "category": "medications",
         "popular": True
+    },
+    {
+        "title": "Wegovy Weight Loss Calculator",
+        "url": "/wegovy-weight-loss-calculator",
+        "summary": "Project your expected weight loss on Wegovy (semaglutide 2.4mg) based on STEP clinical trial data. Supports injectable and oral pill forms.",
+        "icon": "💊",
+        "cta": "Project Weight Loss",
+        "color": "purple",
+        "category": "medications",
+        "popular": False
     },
     {
         "title": "Mounjaro Weight Loss Calculator",
@@ -984,6 +998,19 @@ def ozempic_weight_loss_calculator():
     schema_url = "/ozempic-weight-loss-calculator"
     return render_template(
         'ozempic_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/wegovy-weight-loss-calculator')
+def wegovy_weight_loss_calculator():
+    schema_name = "Wegovy Weight Loss Calculator"
+    schema_description = "Project your expected weight loss on Wegovy (semaglutide 2.4mg) based on STEP clinical trial data. Personalized by starting weight, form (injectable or oral), and treatment duration."
+    schema_url = "/wegovy-weight-loss-calculator"
+    return render_template(
+        'wegovy_weight_loss_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
