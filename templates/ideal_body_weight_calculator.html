@@ -144,23 +144,60 @@
             
             <button id="calculate-btn" class="cta-button" onclick="calculateIdealWeight()">Calculate Ideal Weight</button>
             
-            <div id="result" class="result" style="display: none;">
-                <h2>Your Ideal Body Weight Results</h2>
-                <p><strong>Average Ideal Weight:</strong> <span id="idealWeight"></span></p>
-                <p><strong>Healthy Weight Range:</strong> <span id="weightRange"></span></p>
-                
-                <div class="formulas-breakdown">
-                    <h4>Formula Breakdown:</h4>
-                    <ul>
-                        <li>Devine Formula: <span id="devine"></span></li>
-                        <li>Robinson Formula: <span id="robinson"></span></li>
-                        <li>Miller Formula: <span id="miller"></span></li>
-                        <li>Hamwi Formula: <span id="hamwi"></span></li>
-                    </ul>
+            <div id="result" class="results-section" style="display: none;">
+                <div class="result-hero">
+                    <div class="result-hero-number" id="idealWeight">—</div>
+                    <div class="result-hero-label">Ideal Body Weight (Average)</div>
+                    <div class="result-hero-sublabel" id="weightRange">—</div>
                 </div>
-                
-                <p id="frameMessage"></p>
-                <p><small>Note: These calculations are based on population averages and medical formulas. Individual health needs may vary.</small></p>
+
+                <div class="result-cards">
+                    <div class="result-card pink">
+                        <div class="result-card-title">Devine (1974)</div>
+                        <div class="result-card-value" id="devine">—</div>
+                        <div class="result-card-note">Most widely used clinically</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Robinson (1983)</div>
+                        <div class="result-card-value" id="robinson">—</div>
+                        <div class="result-card-note">Lower estimates</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Miller (1983)</div>
+                        <div class="result-card-value" id="miller">—</div>
+                        <div class="result-card-note">Most conservative</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Hamwi (1964)</div>
+                        <div class="result-card-value" id="hamwi">—</div>
+                        <div class="result-card-note">Oldest formula</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Calculation Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Height Used</span>
+                        <span class="result-breakdown-val" id="height-used">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Gender</span>
+                        <span class="result-breakdown-val" id="gender-used">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Frame Adjustment</span>
+                        <span class="result-breakdown-val" id="frame-used">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Formula Spread</span>
+                        <span class="result-breakdown-val" id="formula-spread">—</span>
+                    </div>
+                </div>
+
+                <div id="status-indicator" class="result-status status-good" style="display: none;">
+                    <span class="result-status-icon" id="status-icon"></span>
+                    <span class="result-status-text" id="frameMessage"></span>
+                </div>
             </div>
         </div>
     </section>
@@ -395,24 +432,64 @@
             
             // Update results in the UI
             document.getElementById('idealWeight').textContent = formattedAverage;
-            document.getElementById('weightRange').textContent = `${formattedLower} - ${formattedUpper}`;
-            
+            document.getElementById('weightRange').textContent = "Healthy range: " + formattedLower + " – " + formattedUpper;
+
             document.getElementById('devine').textContent = formattedDevine;
             document.getElementById('robinson').textContent = formattedRobinson;
             document.getElementById('miller').textContent = formattedMiller;
             document.getElementById('hamwi').textContent = formattedHamwi;
-            
-            // Frame size message
+
+            // Populate breakdown details
+            if (isImperial) {
+                const feet = parseInt(document.getElementById('feet').value);
+                const inches = parseInt(document.getElementById('inches').value);
+                document.getElementById('height-used').textContent = feet + "'" + inches + '"';
+            } else {
+                const cm = parseInt(document.getElementById('cm').value);
+                document.getElementById('height-used').textContent = cm + " cm";
+            }
+
+            document.getElementById('gender-used').textContent = gender.charAt(0).toUpperCase() + gender.slice(1);
+
+            // Frame adjustment description
+            let frameDesc = '';
+            if (frame === 'small') {
+                frameDesc = 'Small (-10%)';
+            } else if (frame === 'large') {
+                frameDesc = 'Large (+10%)';
+            } else {
+                frameDesc = 'Medium (no adjustment)';
+            }
+            document.getElementById('frame-used').textContent = frameDesc;
+
+            // Formula spread (difference between highest and lowest)
+            const allFormulas = [devine, robinson, miller, hamwi];
+            const highest = Math.max(...allFormulas);
+            const lowest = Math.min(...allFormulas);
+            const spread = highest - lowest;
+            if (isImperial) {
+                document.getElementById('formula-spread').textContent = Math.round(spread * 2.20462) + " lbs spread";
+            } else {
+                document.getElementById('formula-spread').textContent = Math.round(spread) + " kg spread";
+            }
+
+            // Frame size message and status indicator
             let frameMessage = '';
+            const statusIndicator = document.getElementById('status-indicator');
             if (frame === 'small') {
                 frameMessage = 'Your small frame size adjustment reduces the calculated weight by 10%.';
+                statusIndicator.className = 'result-status status-warning';
             } else if (frame === 'large') {
                 frameMessage = 'Your large frame size adjustment increases the calculated weight by 10%.';
+                statusIndicator.className = 'result-status status-warning';
             } else {
                 frameMessage = 'No frame size adjustment was applied (medium frame).';
+                statusIndicator.className = 'result-status status-good';
             }
             document.getElementById('frameMessage').textContent = frameMessage;
-            
+            document.getElementById('status-icon').textContent = frame === 'medium' ? '✓' : '⚠';
+            statusIndicator.style.display = 'block';
+
             // Show results
             document.getElementById('result').style.display = 'block';
         }
