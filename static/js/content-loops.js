@@ -12,6 +12,7 @@
 var CALCULATOR_GRAPH = {
   'bmi': {
     links: [
+      { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI catches health risks that BMI misses — see your score', params: ['height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your BMI shows where you are — not how many calories it takes to change it', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'On a GLP-1 medication? Your BMI affects how much facial fat you could lose', params: ['weight_kg','height_cm','age'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Most people eat 40% less protein than they need — are you one of them?', params: ['weight_kg','age','gender'] },
@@ -49,6 +50,7 @@ var CALCULATOR_GRAPH = {
   },
   'ideal-body-weight': {
     links: [
+      { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI measures body shape, not weight — it reveals risks that ideal weight calculations miss', params: ['height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'How far is your current BMI from where your ideal weight lands?', params: ['weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Reaching your ideal weight takes a specific calorie number — find it', params: ['height_cm','gender','age'] },
       { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Two people at the same weight can have 10%+ different body fat', params: ['height_cm','gender','age'] },
@@ -65,6 +67,7 @@ var CALCULATOR_GRAPH = {
   },
   'army-body-fat': {
     links: [
+      { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI uses your waist measurement differently than the tape test — compare results', params: ['height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your body fat % determines your actual calorie burn — it\'s not what you\'d guess', params: ['height_cm','gender','age'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Muscle weighs more than fat — your ideal weight might be higher than you think', params: ['height_cm','gender'] },
       { url: '/body-fat-calculator', title: 'Navy Body Fat Calculator', icon: '📐', reason: 'Army and Navy methods can differ by 3-5% — which is more accurate for you?', params: ['height_cm','gender','age'] },
@@ -73,12 +76,22 @@ var CALCULATOR_GRAPH = {
   },
   'body-fat': {
     links: [
+      { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI catches health risks that body fat % and BMI both miss — see your score', params: ['height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your body fat and BMI often tell different stories — see yours', params: ['weight_kg','height_cm'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Your body fat % affects where you lose fat first — face or body?', params: ['weight_kg','height_cm','age'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'At your body fat %, your ideal weight is probably not what you expect', params: ['height_cm','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Muscle burns 3x more calories than fat — your TDEE reflects that', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Recomposition requires a specific protein threshold — are you hitting it?', params: ['weight_kg','age','gender'] },
       { url: '/army-body-fat-calculator', title: 'Army Body Fat Calculator', icon: '⭐', reason: 'The Army tape test gives a different number — would you pass?', params: ['height_cm','gender','age'] }
+    ]
+  },
+  'body-roundness-index': {
+    links: [
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'See how your BMI compares to your BRI — they often disagree', params: ['weight_kg','height_cm'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Your BRI estimates shape — body fat % tells you the composition behind it', params: ['height_cm','gender','age'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your BRI ignores weight entirely — find out what your ideal weight actually is', params: ['height_cm','gender'] },
+      { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'The Army tape test also uses your waist — would you pass their standard?', params: ['height_cm','gender','age'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Reducing your BRI requires a calorie target — find yours', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'ozempic': {
@@ -322,7 +335,16 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Sleeping under 7 hours changes your calorie burn — see the real number', params: ['age'] },
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Exercise improves sleep quality, but timing matters — check your burn', params: [] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Poor sleepers are 55% more likely to be obese — where\'s your BMI?', params: [] }
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Poor sleepers are 55% more likely to be obese — where\'s your BMI?', params: [] },
+      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Sleep disruption is one of the earliest signs of perimenopause — check your timeline', params: ['age'] }
+    ]
+  },
+  'menopause': {
+    links: [
+      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility declines years before menopause — see where you stand in the transition', params: ['age'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI affects menopause timing and symptom severity — check yours', params: [] },
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Night sweats and insomnia disrupt sleep cycles — optimize your sleep timing', params: ['age'] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Menopause age correlates with longevity — earlier menopause links to shorter lifespan', params: ['age','gender'] }
     ]
   }
 };

@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "bri-calculator-og.jpg" %}
+{% with
+    meta_description="Free Body Roundness Index calculator. BRI measures body roundness using waist circumference and height — a more accurate health risk predictor than BMI alone. Evidence-based.",
+    meta_keywords="body roundness index, BRI calculator, BRI vs BMI, waist circumference health risk, central adiposity, body roundness score, health risk assessment",
+    og_title="Body Roundness Index (BRI) Calculator – Better Than BMI?",
+    og_description="Calculate your Body Roundness Index using waist circumference and height. BRI predicts health risk more accurately than BMI by measuring central adiposity.",
+    og_url="/body-roundness-index-calculator",
+    page_title="Body Roundness Index (BRI) Calculator – Better Than BMI?",
+    canonical_url="/body-roundness-index-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Body Roundness Index (BRI) Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/body-roundness-index-calculator",
+  "description": "Calculate your Body Roundness Index (BRI) using waist circumference and height. BRI measures central adiposity and predicts health risk more accurately than BMI alone.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the Body Roundness Index (BRI)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The Body Roundness Index (BRI) is a measure of body shape and central adiposity developed by Thomas et al. in 2013. It uses waist circumference and height to estimate how round or elliptical the body cross-section is. Unlike BMI, BRI specifically captures abdominal fat distribution, which is more strongly linked to cardiovascular disease, type 2 diabetes, and mortality risk."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is BRI calculated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BRI is calculated using the formula: BRI = 364.2 - 365.5 x sqrt(1 - ((WC / (2*pi))^2 / (0.5 * H)^2)), where WC is waist circumference in meters and H is height in meters. The formula models the body as an ellipse and calculates a roundness score typically ranging from 1 to 15+."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is BRI better than BMI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research suggests BRI is better than BMI at predicting health risks related to body fat, particularly cardiovascular disease and metabolic syndrome. A 2024 study in JAMA Network Open found that BRI was more strongly associated with all-cause mortality than BMI. BMI cannot distinguish muscle from fat or detect where fat is stored, while BRI specifically measures central adiposity — the most dangerous fat distribution pattern."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a healthy BRI score?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A BRI between 1 and 3.41 is generally considered lean/healthy. A BRI of 3.41 to 4.45 indicates moderate risk (overweight range). A BRI of 4.45 to 5.73 indicates elevated risk (obese range), and a BRI above 5.73 indicates high risk. However, thresholds may vary slightly by age and sex, and research on optimal BRI cutoffs is still evolving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does BRI require knowing my weight?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Unlike BMI, BRI does not require weight — only waist circumference and height. This is a key advantage because BRI directly measures body shape and fat distribution rather than total body mass. This means BRI will not misclassify muscular individuals as unhealthy the way BMI often does."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Body Roundness Index (BRI) Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Calculate your BRI using waist circumference and height. BRI measures central adiposity — a stronger predictor of health risk than BMI.</p>
+
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleBRIUnit('metric')">Metric (cm)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleBRIUnit('imperial')">Imperial (in/ft)</button>
+                </div>
+            </div>
+
+            <!-- Metric Inputs -->
+            <div class="metric-inputs">
+                <div class="form-group">
+                    <label for="height_cm">Height (cm)</label>
+                    <input type="number" id="height_cm" min="100" max="250" step="0.1" placeholder="e.g. 175" required>
+                </div>
+                <div class="form-group">
+                    <label for="waist_cm">Waist Circumference (cm)</label>
+                    <input type="number" id="waist_cm" min="40" max="200" step="0.1" placeholder="e.g. 85" required>
+                    <small style="color: #888; display: block; margin-top: 4px;">Measure at navel level, relaxed breathing</small>
+                </div>
+            </div>
+
+            <!-- Imperial Inputs -->
+            <div class="imperial-inputs hidden">
+                <div class="form-group">
+                    <label>Height</label>
+                    <div class="imperial-height">
+                        <div>
+                            <label for="height_ft">Feet</label>
+                            <input type="number" id="height_ft" min="3" max="8" placeholder="5" required>
+                        </div>
+                        <div>
+                            <label for="height_in">Inches</label>
+                            <input type="number" id="height_in" min="0" max="11" value="0">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="waist_in">Waist Circumference (inches)</label>
+                    <input type="number" id="waist_in" min="15" max="80" step="0.1" placeholder="e.g. 33" required>
+                    <small style="color: #888; display: block; margin-top: 4px;">Measure at navel level, relaxed breathing</small>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="18" max="120" placeholder="e.g. 35" required>
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Sex</label>
+                <select id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <!-- Optional weight for BMI comparison -->
+            <div class="form-group" style="border-top: 1px solid #eee; padding-top: 16px; margin-top: 8px;">
+                <label for="weight_kg" style="display: flex; align-items: center; gap: 8px;">
+                    Weight <span style="font-size: 0.8em; color: #888; font-weight: normal;">(optional — unlocks BMI comparison)</span>
+                </label>
+                <div class="metric-weight-input">
+                    <input type="number" id="weight_kg" min="20" max="500" step="0.1" placeholder="kg">
+                </div>
+                <div class="imperial-weight-input hidden">
+                    <input type="number" id="weight_lb" min="44" max="1100" step="0.1" placeholder="lbs">
+                </div>
+            </div>
+
+            <button onclick="calculateBRI()" class="btn btn-pink">Calculate BRI</button>
+
+            <div class="results hidden" id="results">
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="bri-display">—</div>
+                    <div class="tdee-label" id="bri-category-label">—</div>
+                    <div class="tdee-sublabel">Your Body Roundness Index</div>
+                </div>
+
+                <!-- BRI Gauge -->
+                <div id="bri-gauge" style="margin: 24px 0;">
+                    <div style="display: flex; border-radius: 8px; overflow: hidden; height: 24px; position: relative;">
+                        <div style="flex: 3.41; background: #16a34a;" title="Lean / Healthy"></div>
+                        <div style="flex: 1.04; background: #d97706;" title="Overweight"></div>
+                        <div style="flex: 1.28; background: #ef4444;" title="Obese"></div>
+                        <div style="flex: 4.27; background: #dc2626;" title="High Risk"></div>
+                    </div>
+                    <div style="position: relative; height: 20px; margin-top: 4px;">
+                        <div id="bri-marker" style="position: absolute; transform: translateX(-50%); font-size: 1.2rem; top: -2px;">&#9650;</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #888; margin-top: 4px;">
+                        <span>1</span>
+                        <span>3.41</span>
+                        <span>4.45</span>
+                        <span>5.73</span>
+                        <span>10+</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.7rem; color: #aaa; margin-top: 2px; text-align: center;">
+                        <span style="flex: 3.41; text-align: center;">Lean / Healthy</span>
+                        <span style="flex: 1.04; text-align: center;">Overweight</span>
+                        <span style="flex: 1.28; text-align: center;">Obese</span>
+                        <span style="flex: 4.27; text-align: center;">High Risk</span>
+                    </div>
+                </div>
+
+                <!-- BRI Category Table -->
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">BRI Categories &amp; Health Risk</h4>
+                <table style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #ddd;">
+                            <th style="text-align: left; padding: 8px;">Category</th>
+                            <th style="text-align: left; padding: 8px;">BRI Range</th>
+                            <th style="text-align: left; padding: 8px;">Health Risk</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr id="row-lean" style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#16a34a;margin-right:6px;"></span>Lean / Healthy</td>
+                            <td style="padding: 8px;">1.0 &ndash; 3.40</td>
+                            <td style="padding: 8px;">Low risk of metabolic and cardiovascular disease</td>
+                        </tr>
+                        <tr id="row-overweight" style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#d97706;margin-right:6px;"></span>Overweight</td>
+                            <td style="padding: 8px;">3.41 &ndash; 4.44</td>
+                            <td style="padding: 8px;">Moderate risk; increased central adiposity</td>
+                        </tr>
+                        <tr id="row-obese" style="border-bottom: 1px solid #eee;">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#ef4444;margin-right:6px;"></span>Obese</td>
+                            <td style="padding: 8px;">4.45 &ndash; 5.72</td>
+                            <td style="padding: 8px;">High risk of type 2 diabetes, CVD, and metabolic syndrome</td>
+                        </tr>
+                        <tr id="row-high-risk">
+                            <td style="padding: 8px;"><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#dc2626;margin-right:6px;"></span>High Risk</td>
+                            <td style="padding: 8px;">5.73 and above</td>
+                            <td style="padding: 8px;">Very high risk; strongly associated with increased mortality</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Health Risk Interpretation -->
+                <div class="tdee-breakdown" id="risk-interpretation" style="margin-top: 20px;">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Health Risk Level</span>
+                        <span class="tdee-breakdown-value" id="risk-level-display">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Central Adiposity</span>
+                        <span class="tdee-breakdown-value" id="adiposity-display">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row" id="age-context-row">
+                        <span class="tdee-breakdown-label">Age-Adjusted Context</span>
+                        <span class="tdee-breakdown-value" id="age-context-display">—</span>
+                    </div>
+                </div>
+
+                <!-- BMI Comparison (shown only when weight is provided) -->
+                <div id="bmi-comparison" class="hidden" style="margin-top: 24px;">
+                    <h4 style="margin-bottom: 12px;">BRI vs BMI Comparison</h4>
+                    <div class="tdee-breakdown">
+                        <div class="tdee-breakdown-row">
+                            <span class="tdee-breakdown-label">Your BRI</span>
+                            <span class="tdee-breakdown-value" id="bri-compare-display">—</span>
+                        </div>
+                        <div class="tdee-breakdown-row">
+                            <span class="tdee-breakdown-label">Your BMI</span>
+                            <span class="tdee-breakdown-value" id="bmi-compare-display">—</span>
+                        </div>
+                        <div class="tdee-breakdown-row">
+                            <span class="tdee-breakdown-label">Comparison</span>
+                            <span class="tdee-breakdown-value" id="comparison-text" style="font-size: 0.85em; max-width: 60%;">—</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    BRI is a screening tool based on body shape, not a clinical diagnosis. It does not replace comprehensive health assessment. Consult a healthcare provider for personalized evaluation.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC -->
+    <h2>What Is the Body Roundness Index (BRI)?</h2>
+    <div class="answer-capsule">
+      The Body Roundness Index (BRI) is a body shape measure developed in 2013 by Diana Thomas and colleagues at Montclair State University. Published in the journal <em>Obesity</em>, BRI models the human body as an ellipse and uses waist circumference and height to estimate how "round" the body cross-section is. Unlike BMI, which only considers total weight relative to height, BRI specifically captures central (abdominal) fat distribution — the fat pattern most strongly linked to cardiovascular disease, type 2 diabetes, and premature death.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#how-it-works">How BRI Is Calculated</a></li>
+            <li><a href="#why-better">Why BRI Is Better Than BMI</a></li>
+            <li><a href="#how-to-measure">How to Measure Your Waist</a></li>
+            <li><a href="#categories">BRI Categories &amp; Health Risks</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources &amp; Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- How BRI Is Calculated -->
+    <section id="how-it-works" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How BRI Is Calculated</h2>
+            <div class="answer-capsule">
+                BRI uses an eccentricity-based formula that models the body as an ellipse. The formula takes waist circumference and height as inputs and produces a dimensionless score. Higher BRI values indicate a more round (less elliptical) body shape, reflecting greater central adiposity.
+            </div>
+
+            <h4>The Formula</h4>
+            <div class="highlight-box">
+                <p><strong>BRI = 364.2 &minus; 365.5 &times; &radic;(1 &minus; ((WC / (2&pi;))&sup2; / (0.5 &times; H)&sup2;))</strong></p>
+                <p style="margin-top: 8px; font-size: 0.9em; color: #666;">Where WC = waist circumference in meters, H = height in meters</p>
+            </div>
+
+            <p><strong>Example:</strong> A person 175 cm tall with a waist circumference of 85 cm has a BRI of approximately 3.7, which falls in the "Overweight" range, suggesting moderate central adiposity.</p>
+            <p>The formula derives from the eccentricity of an ellipse where the semi-major axis is half the height and the semi-minor axis is estimated from the waist circumference. A perfectly "round" cross-section yields a high BRI; a narrow cross-section yields a low BRI.</p>
+
+            <h4>Key Advantage: No Weight Needed</h4>
+            <p>Unlike BMI, BRI does not require knowing your weight. It relies entirely on waist circumference and height. This means BRI will not misclassify a muscular person with a lean waist as "overweight" the way BMI frequently does. A bodybuilder weighing 220 lbs might have an "obese" BMI of 31 but a healthy BRI of 2.8 — correctly reflecting their low abdominal fat.</p>
+        </div>
+    </section>
+
+    <!-- Why BRI Is Better Than BMI -->
+    <section id="why-better" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Why BRI Is Better Than BMI</h2>
+            <div class="answer-capsule">
+                BMI treats all body mass the same — it cannot distinguish between muscle, bone, water, and fat. BRI solves this by measuring body shape rather than body mass. Since abdominal fat (visceral adiposity) is the primary driver of metabolic disease, BRI provides a more meaningful health risk assessment for most people.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Factor</th>
+                        <th style="text-align: left; padding: 8px;">BMI</th>
+                        <th style="text-align: left; padding: 8px;">BRI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Inputs</td>
+                        <td style="padding: 8px;">Weight + height</td>
+                        <td style="padding: 8px;">Waist circumference + height</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Measures</td>
+                        <td style="padding: 8px;">Total body mass relative to height</td>
+                        <td style="padding: 8px;">Body shape / central fat distribution</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Muscle vs Fat</td>
+                        <td style="padding: 8px;">Cannot distinguish (misclassifies athletes)</td>
+                        <td style="padding: 8px;">Ignores muscle mass; focuses on waist fat</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Visceral Fat</td>
+                        <td style="padding: 8px;">Not measured</td>
+                        <td style="padding: 8px;">Directly reflected by waist circumference</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">Mortality Prediction</td>
+                        <td style="padding: 8px;">Moderate association</td>
+                        <td style="padding: 8px;">Stronger association (JAMA Network Open, 2024)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 16px;">A 2024 study published in <em>JAMA Network Open</em> analyzing over 32,000 adults found that BRI had a stronger U-shaped association with all-cause mortality compared to BMI. Individuals with very low or very high BRI values faced elevated mortality risk, while a moderate BRI was protective — a pattern that BMI captured less precisely.</p>
+            <p>Other research has shown BRI outperforms BMI for predicting type 2 diabetes incidence, cardiovascular events, and metabolic syndrome across diverse populations including Chinese, European, and American cohorts.</p>
+        </div>
+    </section>
+
+    <!-- How to Measure Your Waist -->
+    <section id="how-to-measure" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How to Measure Your Waist Circumference</h2>
+            <div class="answer-capsule">
+                Accurate waist measurement is critical for a valid BRI score. The standard method measures at the level of the navel (umbilicus) during relaxed breathing. An incorrect measurement can shift your BRI by 1-2 points.
+            </div>
+
+            <h4>Step-by-Step Instructions</h4>
+            <ol style="line-height: 2;">
+                <li><strong>Stand upright</strong> with feet shoulder-width apart. Remove or lift clothing from your midsection.</li>
+                <li><strong>Find your navel.</strong> The measuring tape should pass horizontally at navel level — not at the narrowest point of the waist or the hip bones.</li>
+                <li><strong>Wrap the tape</strong> around your waist. Keep it snug but not compressing the skin. The tape should be level all the way around (not angled).</li>
+                <li><strong>Breathe normally.</strong> Take the measurement at the end of a normal exhale — do not suck in your stomach or push it out.</li>
+                <li><strong>Read the tape</strong> where the zero end meets the rest of the tape. Record to the nearest 0.5 cm or 0.25 inch.</li>
+            </ol>
+
+            <div class="highlight-box" style="margin-top: 16px;">
+                <p><strong>Common mistakes to avoid:</strong></p>
+                <ul style="margin-top: 8px; line-height: 1.8;">
+                    <li>Measuring over thick clothing (adds 1-3 cm)</li>
+                    <li>Pulling the tape too tight (underestimates circumference)</li>
+                    <li>Measuring at the narrowest point instead of navel level</li>
+                    <li>Holding your breath or flexing abdominal muscles</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- BRI Categories & Health Risks -->
+    <section id="categories" style="margin-top: 48px;">
+        <div class="info">
+            <h2>BRI Categories &amp; Health Risks</h2>
+            <div class="answer-capsule">
+                BRI categories are derived from population studies correlating body roundness scores with health outcomes. A higher BRI indicates greater central adiposity and progressively higher risk of metabolic disease, cardiovascular events, and mortality.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Category</th>
+                        <th style="text-align: left; padding: 8px;">BRI Range</th>
+                        <th style="text-align: left; padding: 8px;">Associated Health Risk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Lean / Healthy</td>
+                        <td style="padding: 8px;">1.0 &ndash; 3.40</td>
+                        <td style="padding: 8px;">Low central adiposity. Lowest risk of metabolic syndrome, type 2 diabetes, and cardiovascular disease.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Overweight</td>
+                        <td style="padding: 8px;">3.41 &ndash; 4.44</td>
+                        <td style="padding: 8px;">Moderate central adiposity. Increased risk of insulin resistance and elevated blood pressure.</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Obese</td>
+                        <td style="padding: 8px;">4.45 &ndash; 5.72</td>
+                        <td style="padding: 8px;">High central adiposity. Significantly elevated risk of type 2 diabetes, CVD, and metabolic syndrome.</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">High Risk</td>
+                        <td style="padding: 8px;">5.73 and above</td>
+                        <td style="padding: 8px;">Very high central adiposity. Strongly associated with increased all-cause mortality, non-alcoholic fatty liver disease, and cardiovascular events.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 16px;"><strong>Note on thresholds:</strong> BRI cutoff values are based on published research but are not yet universally standardized like BMI categories from the WHO. Thresholds may be refined as more large-scale validation studies are completed. The values used here are derived from Thomas et al. (2013) and subsequent validation studies using NHANES data.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>What is the Body Roundness Index (BRI)?</h4>
+            <div class="faq-body">
+            <p>The Body Roundness Index (BRI) is a measure of body shape and central adiposity developed by Thomas et al. in 2013. It uses waist circumference and height to estimate how round or elliptical the body cross-section is. Unlike BMI, BRI specifically captures abdominal fat distribution, which is more strongly linked to cardiovascular disease, type 2 diabetes, and mortality risk.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How is BRI calculated?</h4>
+            <div class="faq-body">
+            <p>BRI uses the formula: BRI = 364.2 - 365.5 &times; &radic;(1 - ((WC / (2&pi;))&sup2; / (0.5 &times; H)&sup2;)), where WC is waist circumference in meters and H is height in meters. The formula models the body as an ellipse and produces a score typically between 1 and 15+. Higher scores indicate greater body roundness and more central fat.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Is BRI better than BMI?</h4>
+            <div class="faq-body">
+            <p>For most people, BRI provides a more accurate picture of health risk than BMI. A 2024 study in JAMA Network Open found BRI was more strongly associated with all-cause mortality than BMI in a cohort of over 32,000 U.S. adults. BMI cannot distinguish muscle from fat or detect dangerous visceral fat, while BRI specifically measures the body shape changes driven by abdominal fat accumulation. However, BMI remains useful as a quick screening tool and has decades of validated clinical cutoffs.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is a healthy BRI score?</h4>
+            <div class="faq-body">
+            <p>A BRI between 1 and 3.41 is generally considered healthy, indicating lean body shape with low central adiposity. BRI values of 3.41-4.45 suggest moderate risk, 4.45-5.73 suggest high risk, and above 5.73 indicates very high risk. These thresholds come from population studies using NHANES data, though optimal cutoffs may vary slightly by age and sex. Research on age- and sex-specific BRI thresholds is ongoing.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does BRI require knowing my weight?</h4>
+            <div class="faq-body">
+            <p>No — and this is one of BRI's key advantages. BRI uses only waist circumference and height. It does not need weight at all. This means muscular individuals who weigh more due to lean mass will not be misclassified as unhealthy, which is a common problem with BMI. A 200-pound athlete with a 30-inch waist will get a healthy BRI, while BMI might label them overweight or obese.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Thomas DM, Bredlau C, Bosy-Westphal A, et al. Relationships between body roundness with body fat and visceral adipose tissue emerging from a new geometrical model. Obesity. 2013;21(11):2264-2271.", "url": "https://pubmed.ncbi.nlm.nih.gov/23519954/"},
+        {"text": "Zhang X, Ma N, Lin Q, et al. Body Roundness Index and All-Cause Mortality Among US Adults. JAMA Network Open. 2024;7(6):e2415051.", "url": "https://pubmed.ncbi.nlm.nih.gov/38837156/"},
+        {"text": "Chang Y, Guo X, Chen Y, et al. A body shape index and body roundness index: two new body indices to identify diabetes mellitus among rural populations in northeast China. BMC Public Health. 2015;15:794.", "url": "https://pubmed.ncbi.nlm.nih.gov/26286520/"},
+        {"text": "Rico-Martin S, Calderon-Garcia JF, Sanchez-Rey P, et al. Effectiveness of body roundness index in predicting metabolic syndrome: a systematic review and meta-analysis. Obes Rev. 2020;21(7):e13023.", "url": "https://pubmed.ncbi.nlm.nih.gov/32267640/"},
+        {"text": "Maessen MF, Eijsvogels TM, Verheggen RJ, Hopman MT, Verbeek AL, de Vegt F. Entering a new era of body indices: the feasibility of a body shape index and body roundness index to identify cardiovascular health status. PLoS One. 2014;9(9):e107212.", "url": "https://pubmed.ncbi.nlm.nih.gov/25229394/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+
+    {% include 'components/explore-more.html' %}
+
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script defer src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
+    <script defer src="{{ url_for('static', filename='js/bri_calculator.js') }}"></script>
+</body>
+</html>

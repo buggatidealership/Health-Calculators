@@ -73,7 +73,7 @@ cross_links = {
         "guides": ["/resources/ivf-due-date-calculator-guide", "/resources/fertility-after-35"]
     },
     "/female-fertility-calculator": {
-        "calculators": ["/ivf-due-date-calculator", "/lifespan-longevity-calculator", "/newborn-weight-loss-calculator"],
+        "calculators": ["/ivf-due-date-calculator", "/menopause-calculator", "/lifespan-longevity-calculator", "/newborn-weight-loss-calculator"],
         "guides": ["/resources/fertility-after-35", "/resources/ivf-due-date-calculator-guide"]
     },
     "/retirement-savings-calculator": {
@@ -153,7 +153,7 @@ cross_links = {
         "guides": []
     },
     "/lifespan-longevity-calculator": {
-        "calculators": ["/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator"],
+        "calculators": ["/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator", "/menopause-calculator"],
         "guides": []
     },
     "/fasting-weight-loss-calculator": {
@@ -161,7 +161,7 @@ cross_links = {
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
     "/bmi-calculator": {
-        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator"],
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator", "/menopause-calculator"],
         "guides": []
     },
     "/body-roundness-index-calculator": {
@@ -181,7 +181,11 @@ cross_links = {
         "guides": []
     },
     "/sleep-calculator": {
-        "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator"],
+        "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator", "/menopause-calculator"],
+        "guides": []
+    },
+    "/menopause-calculator": {
+        "calculators": ["/female-fertility-calculator", "/bmi-calculator", "/sleep-calculator", "/lifespan-longevity-calculator"],
         "guides": []
     },
 }
@@ -429,6 +433,16 @@ cards = [
         "color": "pink",
         "category": "fertility",
         "popular": True
+    },
+    {
+        "title": "Menopause Age Calculator",
+        "url": "/menopause-calculator",
+        "summary": "Predict perimenopause and menopause onset based on family history, lifestyle, and research data.",
+        "icon": "🌡️",
+        "cta": "Predict Menopause Age",
+        "color": "pink",
+        "category": "fertility",
+        "popular": False
     },
     {
         "title": "Breast Implant Calculator",
@@ -1274,6 +1288,19 @@ def female_fertility_calculator():
     schema_url = "/female-fertility-calculator"
     return render_template(
         'female_fertility_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/menopause-calculator')
+def menopause_calculator():
+    schema_name = "Menopause Age Calculator"
+    schema_description = "Predict when you may enter perimenopause and menopause based on family history, lifestyle factors, and medical research. Evidence-based tool."
+    schema_url = "/menopause-calculator"
+    return render_template(
+        'menopause_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
