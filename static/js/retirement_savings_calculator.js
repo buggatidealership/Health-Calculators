@@ -1,7 +1,4 @@
 function calculate() {
-    // Clear previous results
-    document.getElementById('output').innerHTML = '';
-
     // Get values
     const age = parseInt(document.getElementById('age').value);
     const retireAge = parseInt(document.getElementById('retireAge').value);
@@ -40,28 +37,21 @@ function calculate() {
         style: 'decimal'
     });
 
-    // Build results
-    const results = `
-        <h3>At Retirement:</h3>
-        <p>Total Savings: <strong>$${format(futureSavings)}</strong></p>
-       
-        <div class="spending-breakdown">
-            <h4>Safe Withdrawal Amounts (4% Rule):</h4>
-            <p>Yearly: $${format(annualSpending)}</p>
-            <p>Monthly: $${format(monthlySpending)}</p>
-            <p>Weekly: $${format(weeklySpending)}</p>
-            <p>Daily: $${format(dailySpending)}</p>
-        </div>
+    // Populate results
+    document.getElementById('total-savings').textContent = "$" + format(futureSavings);
+    document.getElementById('years-to-retire').textContent = years + " years of compounding growth";
+    document.getElementById('annual-spending').textContent = "$" + format(annualSpending);
+    document.getElementById('monthly-spending').textContent = "$" + format(monthlySpending);
+    document.getElementById('weekly-spending').textContent = "$" + format(weeklySpending);
+    document.getElementById('daily-spending').textContent = "$" + format(dailySpending);
+    document.getElementById('detail-years').textContent = years + " years";
+    document.getElementById('detail-current').textContent = "$" + format(savings);
+    document.getElementById('detail-contributions').textContent = "$" + format(monthly * 12 * years);
+    document.getElementById('detail-growth').textContent = "$" + format(futureSavings - savings - (monthly * 12 * years));
+    document.getElementById('real-annual').textContent = "$" + format(realAnnualSpending) + "/year";
 
-        <div class="note">
-            <p>Adjusted for 3% inflation:<br>
-            <strong>$${format(realAnnualSpending)}</strong> annual spending power in today's dollars</p>
-        </div>
-    `;
-
-    document.getElementById('output').innerHTML = results;
     document.getElementById('results').style.display = 'block';
-    
+
     // Scroll to results
     document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }

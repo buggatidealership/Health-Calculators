@@ -130,8 +130,71 @@
 
             <button id="calculate-btn" class="btn btn-pink" onclick="calculate()">Calculate Retirement Spending</button>
 
-            <div class="results" id="results">
-                <div id="output"></div>
+            <div id="results" class="results-section" style="display: none;">
+                <div class="result-hero">
+                    <div class="result-hero-number" id="total-savings">—</div>
+                    <div class="result-hero-label">Projected Retirement Savings</div>
+                    <div class="result-hero-sublabel" id="years-to-retire">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card green">
+                        <div class="result-card-title">Annual Withdrawal</div>
+                        <div class="result-card-value" id="annual-spending">—</div>
+                        <div class="result-card-note">4% safe withdrawal rate</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Monthly Income</div>
+                        <div class="result-card-value" id="monthly-spending">—</div>
+                        <div class="result-card-note">from retirement savings</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Weekly Budget</div>
+                        <div class="result-card-value" id="weekly-spending">—</div>
+                        <div class="result-card-note">discretionary spending</div>
+                    </div>
+                    <div class="result-card pink">
+                        <div class="result-card-title">Daily Budget</div>
+                        <div class="result-card-value" id="daily-spending">—</div>
+                        <div class="result-card-note">per day average</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Calculation Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Years to Retirement</span>
+                        <span class="result-breakdown-val" id="detail-years">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Current Savings</span>
+                        <span class="result-breakdown-val" id="detail-current">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Total Contributions</span>
+                        <span class="result-breakdown-val" id="detail-contributions">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Investment Growth</span>
+                        <span class="result-breakdown-val" id="detail-growth">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Assumed Return Rate</span>
+                        <span class="result-breakdown-val">7% annually</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown" style="border-left: 3px solid #d63384;">
+                    <div class="result-breakdown-title">Inflation-Adjusted (Today's Dollars)</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Real Annual Income</span>
+                        <span class="result-breakdown-val" id="real-annual">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Inflation Rate Used</span>
+                        <span class="result-breakdown-val">3% annually</span>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- END DEEPSEEK-GENERATED CALCULATOR -->
