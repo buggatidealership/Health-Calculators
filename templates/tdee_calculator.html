@@ -229,6 +229,7 @@
     <div class="table-of-contents">
         <h3>Contents</h3>
         <ul>
+            <li><a href="#tdee-chart">TDEE Chart by Age & Gender</a></li>
             <li><a href="#how-it-works">How the Mifflin-St Jeor Equation Works</a></li>
             <li><a href="#activity-levels">Activity Level Guide</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
@@ -240,6 +241,55 @@
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    <!-- TDEE Reference Chart -->
+    <section id="tdee-chart" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Average TDEE by Age, Gender, and Activity Level</h2>
+            <div class="answer-capsule">
+                These reference values show estimated TDEE for average-height adults (5'4" female / 5'9" male) at a healthy weight. Your actual TDEE depends on your specific height, weight, age, and activity level — use the calculator above for a personalized estimate.
+            </div>
+            <h4>Women (5'4", 140 lbs)</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Age</th>
+                        <th>Sedentary</th>
+                        <th>Light</th>
+                        <th>Moderate</th>
+                        <th>Very Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">20</td><td>1,730</td><td>1,985</td><td>2,240</td><td class="td-accent">2,495</td></tr>
+                    <tr><td class="td-bold">30</td><td>1,680</td><td>1,928</td><td>2,175</td><td class="td-accent">2,423</td></tr>
+                    <tr><td class="td-bold">40</td><td>1,630</td><td>1,870</td><td>2,110</td><td class="td-accent">2,350</td></tr>
+                    <tr><td class="td-bold">50</td><td>1,580</td><td>1,813</td><td>2,045</td><td class="td-accent">2,278</td></tr>
+                    <tr><td class="td-bold">60</td><td>1,530</td><td>1,755</td><td>1,980</td><td class="td-accent">2,205</td></tr>
+                </tbody>
+            </table>
+            <h4>Men (5'9", 170 lbs)</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Age</th>
+                        <th>Sedentary</th>
+                        <th>Light</th>
+                        <th>Moderate</th>
+                        <th>Very Active</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">20</td><td>2,145</td><td>2,461</td><td>2,778</td><td class="td-accent">3,094</td></tr>
+                    <tr><td class="td-bold">30</td><td>2,095</td><td>2,404</td><td>2,713</td><td class="td-accent">3,021</td></tr>
+                    <tr><td class="td-bold">40</td><td>2,045</td><td>2,346</td><td>2,648</td><td class="td-accent">2,949</td></tr>
+                    <tr><td class="td-bold">50</td><td>1,995</td><td>2,289</td><td>2,583</td><td class="td-accent">2,876</td></tr>
+                    <tr><td class="td-bold">60</td><td>1,945</td><td>2,231</td><td>2,518</td><td class="td-accent">2,804</td></tr>
+                </tbody>
+            </table>
+            <p class="td-muted" style="font-size:0.82rem; color:var(--color-text-tertiary); margin-top:8px;">Calculated using the Mifflin-St Jeor equation. Activity factors: Sedentary (1.2), Light (1.375), Moderate (1.55), Very Active (1.725). All values in kcal/day.</p>
+        </div>
+    </section>
 
     <!-- How the Formula Works -->
     <section id="how-it-works" style="margin-top: 48px;">

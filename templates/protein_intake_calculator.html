@@ -233,6 +233,7 @@
     <div class="table-of-contents">
         <h3>Contents</h3>
         <ul>
+            <li><a href="#protein-chart">Daily Protein Chart by Weight & Goal</a></li>
             <li><a href="#by-activity">Protein Requirements by Activity Level</a></li>
             <li><a href="#muscle-vs-loss">Protein for Muscle Building vs Weight Loss</a></li>
             <li><a href="#best-sources">Best Protein Sources</a></li>
@@ -246,6 +247,40 @@
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    <!-- Daily Protein Quick Reference -->
+    <section id="protein-chart" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Daily Protein Intake Chart by Body Weight and Goal</h2>
+            <div class="answer-capsule">
+                This quick reference shows daily protein targets in grams for common body weights. Find your weight and goal to see how much protein you should eat per day. Values are based on the ranges recommended by the International Society of Sports Nutrition (ISSN) and the American College of Sports Medicine (ACSM).
+            </div>
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <caption>Daily protein targets (grams) by body weight and fitness goal — Sources: ISSN 2017, ACSM 2016</caption>
+                <thead>
+                    <tr>
+                        <th>Body Weight</th>
+                        <th>General Health</th>
+                        <th>Fat Loss</th>
+                        <th>Muscle Building</th>
+                        <th>Athlete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">120 lbs (54 kg)</td><td>44–54 g</td><td>65–87 g</td><td class="td-accent">87–108 g</td><td>97–119 g</td></tr>
+                    <tr><td class="td-bold">140 lbs (64 kg)</td><td>51–64 g</td><td>77–102 g</td><td class="td-accent">102–128 g</td><td>115–141 g</td></tr>
+                    <tr><td class="td-bold">160 lbs (73 kg)</td><td>58–73 g</td><td>88–117 g</td><td class="td-accent">117–146 g</td><td>131–160 g</td></tr>
+                    <tr><td class="td-bold">180 lbs (82 kg)</td><td>66–82 g</td><td>98–131 g</td><td class="td-accent">131–164 g</td><td>148–180 g</td></tr>
+                    <tr><td class="td-bold">200 lbs (91 kg)</td><td>73–91 g</td><td>109–146 g</td><td class="td-accent">146–182 g</td><td>164–200 g</td></tr>
+                    <tr><td class="td-bold">220 lbs (100 kg)</td><td>80–100 g</td><td>120–160 g</td><td class="td-accent">160–200 g</td><td>180–220 g</td></tr>
+                    <tr><td class="td-bold">250 lbs (113 kg)</td><td>91–113 g</td><td>136–181 g</td><td class="td-accent">181–226 g</td><td>204–249 g</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p class="td-muted" style="font-size:0.82rem; color:var(--color-text-tertiary); margin-top:8px;">Ranges: General health 0.8–1.0 g/kg | Fat loss 1.2–1.6 g/kg | Muscle building 1.6–2.0 g/kg | Athlete 1.8–2.2 g/kg. For obese individuals, calculate based on lean body mass or ideal body weight.</p>
+        </div>
+    </section>
 
     <!-- Protein by Activity Level -->
     <section id="by-activity" style="margin-top: 48px;">

@@ -225,6 +225,7 @@
     <div class="table-of-contents">
         <h3>Contents</h3>
         <ul>
+            <li><a href="#bmi-chart">BMI Chart by Height & Weight</a></li>
             <li><a href="#how-it-works">How BMI Is Calculated</a></li>
             <li><a href="#categories">BMI Categories & Health Risks</a></li>
             <li><a href="#limitations">Limitations of BMI</a></li>
@@ -237,6 +238,46 @@
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
+
+    <!-- BMI Chart by Height and Weight -->
+    <section id="bmi-chart" style="margin-top: 48px;">
+        <div class="info">
+            <h2>BMI Chart: Find Your BMI by Height and Weight</h2>
+            <div class="answer-capsule">
+                Use this reference chart to quickly find your approximate BMI. Heights are in feet/inches, weights in pounds. Colors indicate WHO weight categories: <span style="color:var(--color-accent)">normal</span>, <span style="color:var(--color-warning)">overweight</span>, and <span style="color:var(--color-danger)">obese</span>.
+            </div>
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <caption>BMI values by height (ft/in) and weight (lbs) — WHO classifications</caption>
+                <thead>
+                    <tr>
+                        <th>Height</th>
+                        <th>120 lb</th>
+                        <th>140 lb</th>
+                        <th>160 lb</th>
+                        <th>180 lb</th>
+                        <th>200 lb</th>
+                        <th>220 lb</th>
+                        <th>250 lb</th>
+                        <th>280 lb</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">5'0"</td><td class="td-accent">23.4</td><td class="td-warning">27.3</td><td class="td-danger">31.2</td><td class="td-danger">35.2</td><td class="td-danger">39.1</td><td class="td-danger">43.0</td><td class="td-danger">48.8</td><td class="td-danger">54.7</td></tr>
+                    <tr><td class="td-bold">5'2"</td><td class="td-accent">21.9</td><td class="td-warning">25.6</td><td class="td-warning">29.3</td><td class="td-danger">32.9</td><td class="td-danger">36.6</td><td class="td-danger">40.3</td><td class="td-danger">45.7</td><td class="td-danger">51.2</td></tr>
+                    <tr><td class="td-bold">5'4"</td><td class="td-accent">20.6</td><td class="td-accent">24.0</td><td class="td-warning">27.5</td><td class="td-danger">30.9</td><td class="td-danger">34.3</td><td class="td-danger">37.8</td><td class="td-danger">42.9</td><td class="td-danger">48.1</td></tr>
+                    <tr><td class="td-bold">5'6"</td><td class="td-accent">19.4</td><td class="td-accent">22.6</td><td class="td-warning">25.8</td><td class="td-warning">29.1</td><td class="td-danger">32.3</td><td class="td-danger">35.5</td><td class="td-danger">40.4</td><td class="td-danger">45.2</td></tr>
+                    <tr><td class="td-bold">5'8"</td><td class="td-accent">18.2</td><td class="td-accent">21.3</td><td class="td-accent">24.3</td><td class="td-warning">27.4</td><td class="td-danger">30.4</td><td class="td-danger">33.5</td><td class="td-danger">38.0</td><td class="td-danger">42.6</td></tr>
+                    <tr><td class="td-bold">5'10"</td><td class="td-accent">17.2</td><td class="td-accent">20.1</td><td class="td-accent">23.0</td><td class="td-warning">25.8</td><td class="td-warning">28.7</td><td class="td-danger">31.6</td><td class="td-danger">35.9</td><td class="td-danger">40.2</td></tr>
+                    <tr><td class="td-bold">6'0"</td><td class="td-accent">16.3</td><td class="td-accent">19.0</td><td class="td-accent">21.7</td><td class="td-accent">24.4</td><td class="td-warning">27.1</td><td class="td-warning">29.8</td><td class="td-danger">33.9</td><td class="td-danger">38.0</td></tr>
+                    <tr><td class="td-bold">6'2"</td><td class="td-accent">15.4</td><td class="td-accent">18.0</td><td class="td-accent">20.5</td><td class="td-accent">23.1</td><td class="td-warning">25.7</td><td class="td-warning">28.2</td><td class="td-danger">32.1</td><td class="td-danger">35.9</td></tr>
+                    <tr><td class="td-bold">6'4"</td><td class="td-accent">14.6</td><td class="td-accent">17.0</td><td class="td-accent">19.5</td><td class="td-accent">21.9</td><td class="td-accent">24.3</td><td class="td-warning">26.8</td><td class="td-danger">30.4</td><td class="td-danger">34.1</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p class="td-muted" style="font-size:0.82rem; color:var(--color-text-tertiary); margin-top:8px;">Normal: 18.5–24.9 | Overweight: 25.0–29.9 | Obese: 30.0+ &mdash; Source: WHO Global Database on BMI</p>
+        </div>
+    </section>
 
     <!-- How BMI Is Calculated -->
     <section id="how-it-works" style="margin-top: 48px;">
