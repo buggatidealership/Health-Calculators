@@ -15,7 +15,8 @@ var CALCULATOR_GRAPH = {
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate your daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Find your optimal protein intake', params: ['weight_kg','age','gender'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight for a healthy BMI', params: ['height_cm','gender'] },
-      { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'BMI doesn\'t measure fat — this does', params: ['height_cm','gender','age'] },
+      { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'Check Army tape test standards', params: ['height_cm','gender','age'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'BMI doesn\'t measure fat — this does', params: ['height_cm','gender','age'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Plan your path to a healthier BMI', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
@@ -64,7 +65,17 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate calories for your body composition', params: ['height_cm','gender','age'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] },
+      { url: '/body-fat-calculator', title: 'Navy Body Fat Calculator', icon: '📐', reason: 'Compare with Navy method estimate', params: ['height_cm','gender','age'] },
       { url: '/liposuction-weight-loss-calculator', title: 'Liposuction Calculator', icon: '💉', reason: 'Estimate fat removal results', params: ['weight_kg','height_cm','gender'] }
+    ]
+  },
+  'body-fat': {
+    links: [
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your BMI category', params: ['weight_kg','height_cm'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Find your target weight', params: ['height_cm','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Calculate daily calorie needs', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Optimize protein for body recomposition', params: ['weight_kg','age','gender'] },
+      { url: '/army-body-fat-calculator', title: 'Army Body Fat Calculator', icon: '⭐', reason: 'Check Army tape test standards', params: ['height_cm','gender','age'] }
     ]
   },
   'ozempic': {

@@ -41,8 +41,12 @@ cross_links = {
         "guides": ["/resources/how-many-ccs-is-a-c-cup", "/resources/breast-implant-size-guide"]
     },
     "/army-body-fat-calculator": {
-        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator"],
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/body-fat-calculator"],
         "guides": ["/resources/army-body-fat-calculator-guide"]
+    },
+    "/body-fat-calculator": {
+        "calculators": ["/bmi-calculator", "/ideal-body-weight-calculator", "/tdee-calculator", "/protein-intake-calculator", "/army-body-fat-calculator"],
+        "guides": []
     },
     "/chipotle-nutrition-calculator": {
         "calculators": ["/starbucks-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
@@ -166,6 +170,10 @@ cross_links = {
     },
     "/calories-burned-calculator": {
         "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/bmi-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
+    "/sleep-calculator": {
+        "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator"],
         "guides": []
     },
 }
@@ -563,6 +571,26 @@ cards = [
         "color": "orange",
         "category": "fitness",
         "popular": False
+    },
+    {
+        "title": "Body Fat Calculator",
+        "url": "/body-fat-calculator",
+        "summary": "Calculate your body fat percentage using the U.S. Navy method. Simple neck, waist, and hip measurements give accurate body composition estimates.",
+        "icon": "📐",
+        "cta": "Calculate Body Fat",
+        "color": "blue",
+        "category": "fitness",
+        "popular": False
+    },
+    {
+        "title": "Sleep Calculator",
+        "url": "/sleep-calculator",
+        "summary": "Calculate the best time to go to bed or wake up based on 90-minute sleep cycles. Time your sleep to complete full cycles and wake up refreshed.",
+        "icon": "🌙",
+        "cta": "Calculate Sleep Times",
+        "color": "purple",
+        "category": "health",
+        "popular": False
     }
 ]
 
@@ -600,6 +628,19 @@ def tdee_calculator():
     schema_url = "/tdee-calculator"
     return render_template(
         'tdee_calculator.html', 
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/sleep-calculator')
+def sleep_calculator():
+    schema_name = "Sleep Calculator"
+    schema_description = "Calculate the best time to go to bed or wake up based on 90-minute sleep cycles. Wake up feeling refreshed by timing your sleep to complete full cycles."
+    schema_url = "/sleep-calculator"
+    return render_template(
+        'sleep_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1335,6 +1376,19 @@ def army_body_fat_calculator():
     schema_url = "/army-body-fat-calculator"
     return render_template(
         'army_body_fat_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/body-fat-calculator')
+def body_fat_calculator():
+    schema_name = "Body Fat Percentage Calculator"
+    schema_description = "Calculate your body fat percentage using the U.S. Navy method. Simple measurements of neck, waist, and hip circumference give accurate body composition estimates."
+    schema_url = "/body-fat-calculator"
+    return render_template(
+        'body_fat_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
