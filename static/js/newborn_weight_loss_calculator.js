@@ -85,20 +85,91 @@ function calculateWeightLoss() {
         recommendation = "First-day losses are typically minimal. Verify weights and feeding.";
     }
     
+    // Map old statusClass to new status levels
+    let statusLevel, statusColor, statusIcon;
+    if (statusClass === 'normal') {
+        statusLevel = 'status-good';
+        statusColor = '#4caf50';
+        statusIcon = '\u2705';
+    } else if (statusClass === 'warning') {
+        statusLevel = 'status-warning';
+        statusColor = '#ff9800';
+        statusIcon = '\u26A0\uFE0F';
+    } else {
+        statusLevel = 'status-danger';
+        statusColor = '#f44336';
+        statusIcon = '\uD83D\uDEA8';
+    }
+
     // Display results
     const resultDiv = document.getElementById('result');
-    resultDiv.className = `result ${statusClass}`;
     resultDiv.style.display = 'block';
-    
-    document.getElementById('result-text').innerHTML = `
-        <strong>Birth Weight:</strong> ${formatWeight(birthGrams, birthUnit)}<br>
-        <strong>Current Weight:</strong> ${formatWeight(currentGrams, birthUnit)}<br>
-        <strong>Weight Change:</strong> ${currentGrams > birthGrams ? '+' : '-'}${formatWeight(Math.abs(lossGrams), birthUnit)}<br>
-        <strong>Percentage Change:</strong> ${currentGrams > birthGrams ? '+' : '-'}${percentLoss.toFixed(1)}%<br>
-        <strong>Status:</strong> ${status}
-    `;
-    
-    document.getElementById('recommendation').innerHTML = `<strong>Recommendation:</strong> ${recommendation}`;
+
+    // Hero section
+    const sign = currentGrams > birthGrams ? '+' : '-';
+    document.getElementById('pct-change').textContent = sign + percentLoss.toFixed(1) + '%';
+    document.getElementById('weight-change-detail').textContent = currentGrams > birthGrams
+        ? 'Gained ' + formatWeight(Math.abs(lossGrams), birthUnit) + ' above birth weight'
+        : 'Lost ' + formatWeight(Math.abs(lossGrams), birthUnit) + ' from birth weight';
+
+    const heroEl = document.getElementById('result-hero');
+    heroEl.style.borderColor = statusColor;
+
+    // Status banner
+    const weightStatusEl = document.getElementById('weight-status');
+    weightStatusEl.className = 'result-status ' + statusLevel;
+    document.getElementById('status-icon').textContent = statusIcon;
+    document.getElementById('status-text').textContent = status;
+
+    // Gauge
+    const pctLoss = currentGrams > birthGrams ? 0 : percentLoss;
+    const gaugeWidth = Math.min(pctLoss / 12 * 100, 100);
+    const gaugeFill = document.getElementById('gauge-fill');
+    gaugeFill.style.width = gaugeWidth + '%';
+    if (pctLoss <= 5) {
+        gaugeFill.style.background = '#4caf50';
+    } else if (pctLoss <= 7) {
+        gaugeFill.style.background = '#ffeb3b';
+    } else if (pctLoss <= 10) {
+        gaugeFill.style.background = '#ff9800';
+    } else {
+        gaugeFill.style.background = '#f44336';
+    }
+
+    // Info cards
+    document.getElementById('birth-wt-display').textContent = formatWeight(birthGrams, birthUnit);
+    document.getElementById('current-wt-display').textContent = formatWeight(currentGrams, currentUnit);
+    document.getElementById('age-display').textContent = age + (age === 1 ? ' day' : ' days');
+
+    // Age note
+    let ageNote;
+    if (age <= 3) {
+        ageNote = 'Day ' + age + ' \u2014 expected loss phase';
+    } else if (age <= 5) {
+        ageNote = 'Day ' + age + ' \u2014 should stabilize';
+    } else if (age <= 10) {
+        ageNote = 'Day ' + age + ' \u2014 should be gaining';
+    } else {
+        ageNote = 'Day ' + age + ' \u2014 approaching birth weight';
+    }
+    document.getElementById('age-note').textContent = ageNote;
+
+    // Assessment details
+    const feedingLabels = { breast: 'Exclusively Breastfed', formula: 'Exclusively Formula Fed', mixed: 'Mixed Feeding' };
+    document.getElementById('feeding-display').textContent = feedingLabels[feedingMethod] || feedingMethod;
+
+    const expectedRanges = { breast: '5\u201310%', formula: '5\u20137%', mixed: '5\u20138%' };
+    document.getElementById('expected-range').textContent = expectedRanges[feedingMethod] || '5\u201310%';
+
+    // Weight to regain
+    if (currentGrams < birthGrams) {
+        document.getElementById('weight-to-regain').textContent = formatWeight(lossGrams, birthUnit);
+    } else {
+        document.getElementById('weight-to-regain').textContent = 'None \u2014 at or above birth weight';
+    }
+
+    // Recommendation
+    document.getElementById('recommendation').textContent = recommendation;
 }
 
 // Add event listener when page loads

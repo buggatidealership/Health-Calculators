@@ -184,10 +184,67 @@
             
             <button id="calculate-btn" class="cta-button" onclick="calculateWeightLoss()">Calculate Weight Loss</button>
             
-            <div id="result" class="result" style="display: none;">
-                <h3>Results</h3>
-                <p id="result-text"></p>
-                <p id="recommendation"></p>
+            <div id="result" class="results-section" style="display: none;">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="pct-change">—</div>
+                    <div class="result-hero-label">Weight Change</div>
+                    <div class="result-hero-sublabel" id="weight-change-detail">—</div>
+                </div>
+
+                <div id="weight-status" class="result-status status-good">
+                    <span class="result-status-icon" id="status-icon"></span>
+                    <span class="result-status-text" id="status-text">—</span>
+                </div>
+
+                <div class="result-gauge" id="gauge-section">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Weight Loss Severity</div>
+                    <div class="result-gauge-bar">
+                        <div class="result-gauge-fill" id="gauge-fill" style="width: 0%; background: #4caf50;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>0%</span>
+                        <span>5% (typical)</span>
+                        <span>7%</span>
+                        <span>10% (concern)</span>
+                    </div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card blue">
+                        <div class="result-card-title">Birth Weight</div>
+                        <div class="result-card-value" id="birth-wt-display">—</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Current Weight</div>
+                        <div class="result-card-value" id="current-wt-display">—</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Age</div>
+                        <div class="result-card-value" id="age-display">—</div>
+                        <div class="result-card-note" id="age-note">—</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Assessment Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Feeding Method</span>
+                        <span class="result-breakdown-val" id="feeding-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Expected Loss Range</span>
+                        <span class="result-breakdown-val" id="expected-range">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weight to Regain</span>
+                        <span class="result-breakdown-val" id="weight-to-regain">—</span>
+                    </div>
+                </div>
+
+                <div id="recommendation-box" class="result-breakdown" style="border-left: 3px solid #d63384;">
+                    <div class="result-breakdown-title">Recommendation</div>
+                    <p id="recommendation" style="font-size: 0.92rem; color: #555; margin: 8px 0 0;">—</p>
+                </div>
             </div>
             
             <div class="info-box">

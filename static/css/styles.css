@@ -1445,3 +1445,255 @@ footer {
     font-size: 2.2rem;
   }
 }
+
+/* ===== Reusable Rich Results System ===== */
+
+.result-hero {
+  text-align: center;
+  padding: 28px 20px;
+  background: linear-gradient(135deg, #fff5f8, #fff);
+  border-radius: 12px;
+  border: 2px solid #d63384;
+  margin-bottom: 20px;
+}
+
+.result-hero-number {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #d63384;
+  line-height: 1;
+}
+
+.result-hero-label {
+  font-size: 1rem;
+  color: #666;
+  margin-top: 6px;
+}
+
+.result-hero-sublabel {
+  font-size: 0.82rem;
+  color: #999;
+  margin-top: 2px;
+}
+
+.result-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+
+.result-card {
+  padding: 16px 14px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+  background: #fff;
+}
+
+.result-card-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-card-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #333;
+  margin-top: 6px;
+}
+
+.result-card-note {
+  font-size: 0.72rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Color variants for result cards */
+.result-card.pink   { background: #fff5f8; border-color: #f8bbd0; }
+.result-card.blue   { background: #e3f2fd; border-color: #90caf9; }
+.result-card.green  { background: #e8f5e9; border-color: #a5d6a7; }
+.result-card.orange { background: #fff3e0; border-color: #ffcc80; }
+.result-card.purple { background: #f3e5f5; border-color: #ce93d8; }
+.result-card.red    { background: #ffebee; border-color: #ef9a9a; }
+.result-card.teal   { background: #e0f2f1; border-color: #80cbc4; }
+
+.result-card.pink .result-card-value   { color: #c2185b; }
+.result-card.blue .result-card-value   { color: #1565c0; }
+.result-card.green .result-card-value  { color: #2e7d32; }
+.result-card.orange .result-card-value { color: #e65100; }
+.result-card.purple .result-card-value { color: #7b1fa2; }
+.result-card.red .result-card-value    { color: #c62828; }
+.result-card.teal .result-card-value   { color: #00695c; }
+
+/* Breakdown rows (key-value pairs) */
+.result-breakdown {
+  margin: 16px 0;
+  padding: 14px 18px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e9ecef;
+}
+
+.result-breakdown-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.result-breakdown-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+}
+
+.result-breakdown-row + .result-breakdown-row {
+  border-top: 1px solid #f0f0f0;
+}
+
+.result-breakdown-key {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.result-breakdown-val {
+  font-weight: 600;
+  color: #333;
+  font-size: 0.9rem;
+}
+
+/* Status indicator bar */
+.result-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-radius: 8px;
+  margin: 12px 0;
+  font-weight: 600;
+}
+
+.result-status.status-good {
+  background: #e8f5e9;
+  border: 1px solid #a5d6a7;
+  color: #2e7d32;
+}
+
+.result-status.status-warning {
+  background: #fff3e0;
+  border: 1px solid #ffcc80;
+  color: #e65100;
+}
+
+.result-status.status-danger {
+  background: #ffebee;
+  border: 1px solid #ef9a9a;
+  color: #c62828;
+}
+
+.result-status-icon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.result-status-text {
+  font-size: 0.92rem;
+}
+
+/* Progress/gauge bar */
+.result-gauge {
+  margin: 16px 0;
+}
+
+.result-gauge-bar {
+  height: 12px;
+  background: #e9ecef;
+  border-radius: 6px;
+  overflow: hidden;
+  position: relative;
+}
+
+.result-gauge-fill {
+  height: 100%;
+  border-radius: 6px;
+  transition: width 0.6s ease;
+}
+
+.result-gauge-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* Before/After comparison */
+.result-comparison {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 12px;
+  align-items: center;
+  margin: 16px 0;
+}
+
+.result-comparison-arrow {
+  font-size: 1.5rem;
+  color: #d63384;
+  font-weight: 700;
+}
+
+.result-comparison-box {
+  text-align: center;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #e9ecef;
+}
+
+.result-comparison-box.before {
+  background: #f8f9fa;
+}
+
+.result-comparison-box.after {
+  background: #fff5f8;
+  border-color: #f8bbd0;
+}
+
+.result-comparison-size {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.result-comparison-box.after .result-comparison-size {
+  color: #d63384;
+}
+
+.result-comparison-label {
+  font-size: 0.78rem;
+  color: #888;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 4px;
+}
+
+@media (max-width: 500px) {
+  .result-hero-number {
+    font-size: 2.2rem;
+  }
+  .result-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+  .result-comparison {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .result-comparison-arrow {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+}
