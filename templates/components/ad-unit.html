@@ -14,7 +14,7 @@
   Ad format "auto" with full-width-responsive lets AdSense choose optimal size.
 #}
 {% set position = ad_position|default("middle") %}
-<div class="ad-container ad-container-{{ position }}" aria-hidden="true">
+<div class="ad-container ad-container-{{ position }}" role="complementary" aria-label="Advertisement">
   {% if position == "in-article" %}
   <ins class="adsbygoogle"
        style="display:block; text-align:center"
