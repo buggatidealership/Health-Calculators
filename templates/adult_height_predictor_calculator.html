@@ -106,11 +106,54 @@
             
             <button class="cta-button" onclick="calculateHeight()">Predict Adult Height</button>
             
-            <div id="result" class="result" style="display: none;">
-                <h2>Predicted Adult Height</h2>
-                <p>Based on the input data, the predicted adult height is:</p>
-                <p class="range" id="predictedHeight"></p>
-                <p id="additionalInfo"></p>
+            <div id="result" class="results-section" style="display: none;">
+                <div class="result-hero">
+                    <div class="result-hero-number" id="predicted-main">—</div>
+                    <div class="result-hero-label">Predicted Adult Height</div>
+                    <div class="result-hero-sublabel" id="predicted-range">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card pink">
+                        <div class="result-card-title">Metric</div>
+                        <div class="result-card-value" id="height-cm">—</div>
+                        <div class="result-card-note">centimeters</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">Imperial</div>
+                        <div class="result-card-value" id="height-ft">—</div>
+                        <div class="result-card-note">feet & inches</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Growth Remaining</div>
+                        <div class="result-card-value" id="growth-remaining">—</div>
+                        <div class="result-card-note">approximate</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Calculation Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Mid-Parental Height</span>
+                        <span class="result-breakdown-val" id="mid-parental">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Child's Current Height</span>
+                        <span class="result-breakdown-val" id="current-height-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Prediction Range</span>
+                        <span class="result-breakdown-val" id="range-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Method</span>
+                        <span class="result-breakdown-val">Mid-Parental + Growth Trajectory</span>
+                    </div>
+                </div>
+
+                <div id="info-status" class="result-status status-good" style="display: none;">
+                    <span class="result-status-text" id="additionalInfo">—</span>
+                </div>
             </div>
         </div>
     
@@ -312,15 +355,28 @@
             const lowerRange = predictedHeight - 5;
             const upperRange = predictedHeight + 5;
            
-            // Display results in both units
-            const feetInches = cmToFeetInches(predictedHeight);
-            const lowerFeetInches = cmToFeetInches(lowerRange);
-            const upperFeetInches = cmToFeetInches(upperRange);
-           
-            document.getElementById('predictedHeight').innerHTML =
-                `${Math.round(predictedHeight)} cm (${feetInches})<br>
-                Range: ${Math.round(lowerRange)}-${Math.round(upperRange)} cm (${lowerFeetInches}-${upperFeetInches})`;
-            document.getElementById('additionalInfo').textContent = additionalInfo;
+            // Display results
+            var feetInches = cmToFeetInches(predictedHeight);
+            var lowerFeetInches = cmToFeetInches(lowerRange);
+            var upperFeetInches = cmToFeetInches(upperRange);
+
+            document.getElementById('predicted-main').textContent = feetInches;
+            document.getElementById('predicted-range').textContent = 'Range: ' + lowerFeetInches + ' – ' + upperFeetInches;
+            document.getElementById('height-cm').textContent = Math.round(predictedHeight) + ' cm';
+            document.getElementById('height-ft').textContent = feetInches;
+            document.getElementById('growth-remaining').textContent = Math.round(predictedHeight - childHeight) + ' cm';
+            document.getElementById('mid-parental').textContent = Math.round(midParentalHeight) + ' cm (' + cmToFeetInches(midParentalHeight) + ')';
+            document.getElementById('current-height-display').textContent = Math.round(childHeight) + ' cm (' + cmToFeetInches(childHeight) + ')';
+            document.getElementById('range-display').textContent = Math.round(lowerRange) + '–' + Math.round(upperRange) + ' cm';
+
+            if (additionalInfo) {
+                document.getElementById('additionalInfo').textContent = additionalInfo;
+                document.getElementById('info-status').style.display = 'flex';
+                document.getElementById('info-status').className = 'result-status status-warning';
+            } else {
+                document.getElementById('info-status').style.display = 'none';
+            }
+
             document.getElementById('result').style.display = 'block';
         }
        
