@@ -344,19 +344,23 @@ button:hover {
 }
 .cta-box h3 { margin-top: 0; margin-bottom: 10px; }
 .cta-button {
-  display: inline-block;
+  display: block;
+  width: 100%;
   background: #d63384;
   color: white;
   border: none;
   border-radius: 8px;
-  padding: 10px 24px;
+  padding: 14px 24px;
+  font-size: 1rem;
   font-weight: 600;
   text-decoration: none;
-  margin-top: 12px;
-  transition: background-color 0.15s;
+  margin-top: 16px;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
   width: auto;
 }
-.cta-button:hover { background: #be2d73; }
+.cta-button:hover { background: #be2d73; transform: translateY(-1px); }
+.cta-button:active { transform: translateY(0); }
 .cta-box.blue-box {
   background: #f0f4ff;
   border-left-color: #3f51b5;
@@ -878,6 +882,11 @@ button:hover {
 @media (max-width: 600px) {
   h1 { font-size: 1.6rem; }
   .calculator { padding: 20px 16px; }
+  .calculator-container { padding: 0 12px; }
+  .site-header { padding: 10px 16px; }
+  .logo-text { font-size: 1rem; }
+  .nav-link { padding: 6px 10px; font-size: 0.82rem; }
+  .nav-dropdown-inner { grid-template-columns: 1fr; gap: 16px; }
   .footer-nav { flex-direction: column; gap: 24px; }
   .related-grid { grid-template-columns: 1fr; }
   .macronutrients { flex-direction: column; }
@@ -885,6 +894,8 @@ button:hover {
   .ad-container-middle { min-height: 100px; }
   .tdee-goals { grid-template-columns: 1fr; }
   .tdee-number { font-size: 2.2rem; }
+  .answer-capsule { font-size: 0.9rem; padding: 14px 16px; }
+  .table-of-contents { padding: 14px 16px; }
 }
 
 @media (max-width: 500px) {
