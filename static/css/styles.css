@@ -140,7 +140,8 @@ a { color: #d63384; }
 }
 .breadcrumb a:hover { color: #d63384; }
 .breadcrumb-sep { margin: 0 6px; color: #ccc; }
-.breadcrumb-current { color: #555; font-weight: 500; }
+.breadcrumb-current { color: #555; font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 300px; display: inline-block; vertical-align: bottom; }
+@media (max-width: 600px) { .breadcrumb-current { max-width: 180px; } }
 
 /* ===== LAYOUT ===== */
 .calculator-container {
