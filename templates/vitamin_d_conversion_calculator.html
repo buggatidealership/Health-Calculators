@@ -71,13 +71,62 @@
             </div>
 
             <div id="results-section" class="results-section hidden">
-                <div class="result-box">
-                    <h3>Conversion Results:</h3>
-                    <p id="conversion-result">Loading result...</p>
-                    
-                    <div id="level-indicator">
-                        <h4>Vitamin D Status:</h4>
-                        <p id="level-description">-</p>
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="conversion-result">—</div>
+                    <div class="result-hero-label" id="conversion-direction">—</div>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-box before">
+                        <div class="result-comparison-label" id="input-unit-label">ng/mL</div>
+                        <div class="result-comparison-size" id="input-value-display">—</div>
+                    </div>
+                    <div class="result-comparison-arrow">=</div>
+                    <div class="result-comparison-box after">
+                        <div class="result-comparison-label" id="output-unit-label">nmol/L</div>
+                        <div class="result-comparison-size" id="output-value-display">—</div>
+                    </div>
+                </div>
+
+                <div id="level-status" class="result-status status-good">
+                    <span class="result-status-icon" id="level-icon"></span>
+                    <span class="result-status-text" id="level-description">—</span>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Vitamin D Status</div>
+                    <div class="result-gauge-bar" style="position: relative; background: linear-gradient(to right, #f44336 0%, #f44336 17%, #ff9800 17%, #ff9800 33%, #ffeb3b 33%, #ffeb3b 42%, #4caf50 42%, #4caf50 67%, #ff9800 67%, #ff9800 83%, #f44336 83%);">
+                        <div id="gauge-marker" style="position: absolute; width: 3px; height: 18px; background: #333; border-radius: 2px; top: -3px; left: 0; transition: left 0.4s ease;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>Deficient</span>
+                        <span>Insufficient</span>
+                        <span>Sufficient</span>
+                        <span>High</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Reference Ranges</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Deficient</span>
+                        <span class="result-breakdown-val">&lt; 20 ng/mL (&lt; 50 nmol/L)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Insufficient</span>
+                        <span class="result-breakdown-val">21–29 ng/mL (51–74 nmol/L)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Sufficient</span>
+                        <span class="result-breakdown-val">30–50 ng/mL (75–125 nmol/L)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">High</span>
+                        <span class="result-breakdown-val">51–80 ng/mL (126–200 nmol/L)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Potentially Toxic</span>
+                        <span class="result-breakdown-val">&gt; 80 ng/mL (&gt; 200 nmol/L)</span>
                     </div>
                 </div>
             </div>
