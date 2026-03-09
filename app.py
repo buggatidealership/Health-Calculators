@@ -156,6 +156,10 @@ cross_links = {
         "calculators": ["/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
+    "/glp1-cost-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/oral-wegovy-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/glp1-comparison-calculator", "/tdee-calculator"],
+        "guides": ["/resources/semaglutide-vs-ozempic-guide", "/resources/ozempic-weight-loss-calculator-guide"]
+    },
     "/ozempic-face-calculator": {
         "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
@@ -586,6 +590,16 @@ cards = [
         "summary": "Compare projected weight loss on Ozempic, Mounjaro, and Zepbound side by side. Based on STEP and SURMOUNT clinical trial data.",
         "icon": "📊",
         "cta": "Compare Medications",
+        "color": "teal",
+        "category": "medications",
+        "popular": False
+    },
+    {
+        "title": "GLP-1 Cost Calculator",
+        "url": "/glp1-cost-calculator",
+        "summary": "Compare costs of GLP-1 medications and estimate treatment expenses with insurance and savings options.",
+        "icon": "💰",
+        "cta": "Compare Costs",
         "color": "teal",
         "category": "medications",
         "popular": False
@@ -1469,6 +1483,19 @@ def zepbound_weight_loss_calculator():
     schema_url = "/zepbound-weight-loss-calculator"
     return render_template(
         'zepbound_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/glp1-cost-calculator')
+def glp1_cost_calculator():
+    schema_name = "GLP-1 Medication Cost Calculator"
+    schema_description = "Compare costs of GLP-1 medications and estimate your treatment expenses with insurance and savings options."
+    schema_url = "/glp1-cost-calculator"
+    return render_template(
+        'glp1_cost_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

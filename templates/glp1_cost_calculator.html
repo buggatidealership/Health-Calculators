@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "glp1-cost-calculator-og.jpg" %}
+{% with
+    meta_description="Estimate and compare costs of GLP-1 receptor agonist medications. Calculate your monthly and annual treatment expenses with insurance, manufacturer discounts, and savings options.",
+    meta_keywords="GLP-1 cost calculator, GLP-1 medication cost, weight loss medication cost, semaglutide cost, tirzepatide cost, insurance coverage GLP-1, medication savings",
+    og_title="GLP-1 Medication Cost Comparison Calculator",
+    og_description="Compare costs of GLP-1 medications and estimate your treatment expenses with insurance and savings options.",
+    og_url="/glp1-cost-calculator",
+    page_title="GLP-1 Medication Cost Calculator – Compare Treatment Costs",
+    canonical_url="/glp1-cost-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "GLP-1 Medication Cost Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/glp1-cost-calculator",
+  "description": "Compare costs of GLP-1 receptor agonist medications and estimate monthly and annual treatment expenses with insurance and savings options.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much do GLP-1 medications cost without insurance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Without insurance, GLP-1 medications typically cost between $800 and $1,500 per month at retail pharmacy prices, depending on the specific medication and dosage. Costs vary significantly by pharmacy, location, and whether manufacturer coupons or patient assistance programs are applied."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does insurance cover GLP-1 medications for weight loss?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Coverage varies widely by insurer and plan. Many commercial insurance plans cover GLP-1 medications for type 2 diabetes but may exclude or require prior authorization for weight management indications. Medicare Part D began covering some anti-obesity medications in 2026. Check with your specific insurance plan for details."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there ways to reduce GLP-1 medication costs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Options include manufacturer savings programs and coupons, patient assistance programs for qualifying individuals, pharmacy discount cards, mail-order pharmacies, and comparing prices across pharmacies. Some patients also explore compounded versions where legally available, though these may differ from brand-name formulations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long do people typically stay on GLP-1 medications?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Treatment duration varies by individual and medical guidance. Clinical trials typically run 52 to 72 weeks, but many patients continue treatment longer for sustained results. Studies show that weight regain is common after discontinuation, so long-term cost planning is important. Discuss your expected treatment timeline with your healthcare provider."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>GLP-1 Medication Cost Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Compare treatment costs and estimate your monthly and annual expenses for GLP-1 medications.</p>
+
+    <section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="medication-type">Medication Category</label>
+                <select id="medication-type">
+                    <option value="semaglutide-brand">Semaglutide (brand injectable)</option>
+                    <option value="semaglutide-oral">Semaglutide (oral)</option>
+                    <option value="tirzepatide-brand">Tirzepatide (brand injectable)</option>
+                    <option value="compounded">Compounded semaglutide</option>
+                    <option value="custom">Custom / Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="insurance-status">Insurance / Discount Status</label>
+                <select id="insurance-status">
+                    <option value="none">No insurance coverage</option>
+                    <option value="commercial">Commercial insurance (with coverage)</option>
+                    <option value="manufacturer">Manufacturer savings program</option>
+                    <option value="assistance">Patient assistance program</option>
+                    <option value="medicare">Medicare / Government plan</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="monthly-cost">Your Monthly Cost ($)</label>
+                <input type="number" id="monthly-cost" min="0" max="50000" step="1" placeholder="Enter your monthly cost">
+                <p class="form-hint" id="cost-hint" style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">
+                    Typical range without insurance: $800 - $1,500/month
+                </p>
+            </div>
+
+            <div class="form-group">
+                <label for="treatment-duration">Treatment Duration (months)</label>
+                <input type="number" id="treatment-duration" min="1" max="120" step="1" placeholder="e.g. 12" value="12">
+            </div>
+
+            <div class="form-group">
+                <label>Compare with alternative? (optional)</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="compare-no-btn" class="unit-btn active" onclick="toggleCompare(false)">No</button>
+                    <button type="button" id="compare-yes-btn" class="unit-btn" onclick="toggleCompare(true)">Yes</button>
+                </div>
+            </div>
+
+            <div id="comparison-inputs" class="hidden">
+                <div class="form-group">
+                    <label for="alt-medication-type">Alternative Medication Category</label>
+                    <select id="alt-medication-type">
+                        <option value="semaglutide-brand">Semaglutide (brand injectable)</option>
+                        <option value="semaglutide-oral">Semaglutide (oral)</option>
+                        <option value="tirzepatide-brand">Tirzepatide (brand injectable)</option>
+                        <option value="compounded" selected>Compounded semaglutide</option>
+                        <option value="custom">Custom / Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="alt-monthly-cost">Alternative Monthly Cost ($)</label>
+                    <input type="number" id="alt-monthly-cost" min="0" max="50000" step="1" placeholder="Enter alternative monthly cost">
+                    <p class="form-hint" id="alt-cost-hint" style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 4px;">
+                        Typical range for compounded: $150 - $500/month
+                    </p>
+                </div>
+            </div>
+
+            <button onclick="calculateGLP1Cost()" class="btn btn-pink">Calculate Costs</button>
+
+            <div class="results hidden" id="results">
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="total-cost-display">--</div>
+                    <div class="tdee-label">estimated total cost</div>
+                    <div class="tdee-sublabel" id="duration-label">over 12 months of treatment</div>
+                </div>
+
+                <div class="tdee-breakdown" id="breakdown">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Monthly Cost</span>
+                        <span class="tdee-breakdown-value" id="monthly-display">--</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Annual Cost (12 months)</span>
+                        <span class="tdee-breakdown-value" id="annual-display">--</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Daily Cost</span>
+                        <span class="tdee-breakdown-value" id="daily-display">--</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Medication Category</span>
+                        <span class="tdee-breakdown-value" id="med-type-display">--</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Coverage Type</span>
+                        <span class="tdee-breakdown-value" id="coverage-display">--</span>
+                    </div>
+                </div>
+
+                <!-- Comparison Results (shown when comparing) -->
+                <div id="comparison-results" class="hidden">
+                    <h4 style="margin-top: 24px; margin-bottom: 12px;">Cost Comparison</h4>
+                    <div class="tdee-goals" id="comparison-cards">
+                        <div class="tdee-goal-card tdee-goal-loss">
+                            <div class="tdee-goal-title" id="primary-med-label">Primary</div>
+                            <div class="tdee-goal-subtitle">Total treatment cost</div>
+                            <div class="tdee-goal-value" id="primary-total">--</div>
+                        </div>
+                        <div class="tdee-goal-card tdee-goal-maintain">
+                            <div class="tdee-goal-title" id="alt-med-label">Alternative</div>
+                            <div class="tdee-goal-subtitle">Total treatment cost</div>
+                            <div class="tdee-goal-value" id="alt-total">--</div>
+                        </div>
+                        <div class="tdee-goal-card tdee-goal-gain">
+                            <div class="tdee-goal-title">Potential Savings</div>
+                            <div class="tdee-goal-subtitle" id="savings-period">Over treatment period</div>
+                            <div class="tdee-goal-value" id="savings-display">--</div>
+                        </div>
+                    </div>
+
+                    <div class="tdee-breakdown" style="margin-top: 16px;">
+                        <div class="tdee-breakdown-row">
+                            <span class="tdee-breakdown-label">Monthly Savings</span>
+                            <span class="tdee-breakdown-value" id="monthly-savings-display">--</span>
+                        </div>
+                        <div class="tdee-breakdown-row">
+                            <span class="tdee-breakdown-label">Annual Savings</span>
+                            <span class="tdee-breakdown-value" id="annual-savings-display">--</span>
+                        </div>
+                        <div class="tdee-breakdown-row">
+                            <span class="tdee-breakdown-label">Percentage Difference</span>
+                            <span class="tdee-breakdown-value" id="pct-savings-display">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cost Projection Table -->
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Cost Projection Timeline</h4>
+                <div style="overflow-x: auto;">
+                    <table class="data-table" id="projection-table">
+                        <thead>
+                            <tr>
+                                <th>Month</th>
+                                <th>Monthly Cost</th>
+                                <th>Cumulative Total</th>
+                            </tr>
+                        </thead>
+                        <tbody id="projection-body">
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    These are estimates based on the costs you entered. Actual costs vary by pharmacy, location, insurance plan, and dosage adjustments. This calculator does not provide medical or financial advice. Consult your healthcare provider and insurance plan for accurate cost information.
+                </p>
+
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC -->
+    <h2>Understanding GLP-1 Medication Costs</h2>
+    <div class="answer-capsule">
+      GLP-1 receptor agonists are a class of medications originally developed for type 2 diabetes that have shown significant effectiveness for weight management. Understanding the cost landscape is important for treatment planning, as these medications often require long-term use and costs can vary dramatically based on insurance coverage, manufacturer programs, and the specific medication prescribed.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#what-are-glp1s">What Are GLP-1 Medications?</a></li>
+            <li><a href="#cost-factors">Factors That Affect GLP-1 Costs</a></li>
+            <li><a href="#insurance-coverage">Insurance Coverage Guide</a></li>
+            <li><a href="#savings-options">Ways to Reduce Costs</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- What Are GLP-1 Medications -->
+    <section id="what-are-glp1s" style="margin-top: 48px;">
+        <div class="info">
+            <h2>What Are GLP-1 Medications?</h2>
+            <div class="answer-capsule">
+                GLP-1 receptor agonists mimic a naturally occurring hormone called glucagon-like peptide-1. This hormone helps regulate blood sugar, slows gastric emptying, and signals satiety to the brain. These medications were first approved for type 2 diabetes and have since gained FDA approval for chronic weight management in eligible patients.
+            </div>
+
+            <p>GLP-1 receptor agonists work by binding to GLP-1 receptors throughout the body. In the pancreas, they stimulate insulin secretion and suppress glucagon release. In the brain, they act on appetite centers to reduce hunger and increase feelings of fullness. In the stomach, they slow the rate at which food empties into the small intestine.</p>
+
+            <p>Several GLP-1 medications are currently available, each with different formulations, dosing schedules, and approved indications. Some are injectable (administered weekly via a pen device), while newer options include daily oral tablets. Dual-agonist medications that target both GLP-1 and GIP receptors have also entered the market, offering a different mechanism profile.</p>
+
+            <p>The cost of these medications has become a significant factor in treatment decisions. Without insurance or discount programs, monthly costs can represent a substantial financial commitment. Understanding the full cost picture — including insurance coverage, manufacturer programs, and alternative options — is essential for making informed treatment decisions with your healthcare provider.</p>
+        </div>
+    </section>
+
+    <!-- Cost Factors -->
+    <section id="cost-factors" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Factors That Affect GLP-1 Costs</h2>
+            <div class="answer-capsule">
+                The out-of-pocket cost for GLP-1 medications depends on several variables, including the specific medication, your insurance plan, pharmacy choice, dosage level, and whether you qualify for any assistance programs. Understanding these factors can help you find the most affordable option.
+            </div>
+
+            <h4>Key Cost Variables</h4>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Impact on Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-bold">Insurance Coverage</td>
+                        <td>Can reduce costs by 50-90% with favorable formulary placement; some plans exclude weight management coverage entirely</td>
+                    </tr>
+                    <tr>
+                        <td class="td-bold">Manufacturer Programs</td>
+                        <td>Savings cards and coupons can reduce copays significantly for commercially insured patients</td>
+                    </tr>
+                    <tr>
+                        <td class="td-bold">Pharmacy Choice</td>
+                        <td>Prices can vary 10-30% between retail, mail-order, and specialty pharmacies</td>
+                    </tr>
+                    <tr>
+                        <td class="td-bold">Dosage Titration</td>
+                        <td>Starting doses are often lower-cost; maintenance doses at higher levels may cost more</td>
+                    </tr>
+                    <tr>
+                        <td class="td-bold">Formulation Type</td>
+                        <td>Injectable, oral, and compounded versions have different price points</td>
+                    </tr>
+                    <tr>
+                        <td class="td-bold">Treatment Duration</td>
+                        <td>Longer treatment periods mean higher total cost but consistent monthly expense</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Insurance Coverage Guide -->
+    <section id="insurance-coverage" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Insurance Coverage for GLP-1 Medications</h2>
+            <div class="answer-capsule">
+                Insurance coverage for GLP-1 medications depends heavily on the indication (diabetes vs. weight management), your specific plan, and the insurer's formulary. Coverage has been expanding but remains inconsistent across plans and payers.
+            </div>
+
+            <h4>Coverage by Payer Type</h4>
+            <p><strong>Commercial Insurance:</strong> Many employer-sponsored and marketplace plans cover GLP-1 medications for type 2 diabetes. Coverage for weight management indications varies — some plans include anti-obesity medications, while others exclude them or require prior authorization, step therapy, or documented BMI criteria. Check your plan's formulary and any obesity-related exclusions.</p>
+
+            <p><strong>Medicare:</strong> Historically, Medicare Part D did not cover anti-obesity medications. The Treat and Reduce Obesity Act and subsequent legislative changes have begun expanding coverage for certain weight management medications. Coverage details and eligible medications continue to evolve — verify current coverage with Medicare or your Part D plan.</p>
+
+            <p><strong>Medicaid:</strong> Coverage varies by state. Some state Medicaid programs cover GLP-1 medications for diabetes but not for weight management. Check your state's Medicaid drug formulary for current coverage policies.</p>
+
+            <h4>Tips for Working with Insurance</h4>
+            <ul>
+                <li>Ask your prescriber about prior authorization requirements before filling the prescription</li>
+                <li>Request a formulary exception if your medication is not covered but medically necessary</li>
+                <li>Document BMI, comorbidities, and previous weight management attempts — insurers often require this</li>
+                <li>Consider appeal processes if initial coverage is denied</li>
+                <li>Ask about step therapy requirements that may require trying lower-cost options first</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Savings Options -->
+    <section id="savings-options" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Ways to Reduce GLP-1 Medication Costs</h2>
+            <div class="answer-capsule">
+                Several strategies can help reduce the out-of-pocket cost of GLP-1 medications. The best approach depends on your insurance status, income level, and which medication you are prescribed.
+            </div>
+
+            <h4>Cost Reduction Strategies</h4>
+
+            <p><strong>Manufacturer Savings Programs:</strong> Most GLP-1 medication manufacturers offer savings cards or coupons that can reduce copays for commercially insured patients. These programs typically have eligibility requirements and may not apply to government-funded insurance. Visit the manufacturer's website for your specific medication to check current program availability and terms.</p>
+
+            <p><strong>Patient Assistance Programs (PAPs):</strong> Pharmaceutical companies offer free or reduced-cost medications to patients who meet income and insurance criteria. These programs are designed for uninsured or underinsured individuals and typically require an application documenting financial need.</p>
+
+            <p><strong>Pharmacy Price Comparison:</strong> Prices can vary significantly between pharmacies. Tools like GoodRx, RxSaver, and pharmacy discount cards can help identify lower prices. Mail-order pharmacies often offer lower per-dose costs, especially for 90-day supplies. Specialty pharmacies may also have different pricing structures.</p>
+
+            <p><strong>Compounded Medications:</strong> Some pharmacies offer compounded versions of certain GLP-1 active ingredients at lower cost. Compounded medications are not FDA-approved finished products and may differ in formulation, concentration, or delivery from brand-name versions. Discuss the risks and benefits with your healthcare provider before considering compounded alternatives.</p>
+
+            <p><strong>Flexible Spending and HSA Accounts:</strong> If your employer offers a Flexible Spending Account (FSA) or you have a Health Savings Account (HSA), prescribed GLP-1 medications are typically eligible expenses. Using pre-tax dollars effectively reduces your cost by your marginal tax rate.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>How much do GLP-1 medications cost without insurance?</h4>
+            <div class="faq-body">
+            <p>Without insurance, GLP-1 medications typically cost between $800 and $1,500 per month at retail pharmacy prices, depending on the specific medication and dosage. Compounded versions, where available, may range from $150 to $500 per month. Prices vary by pharmacy and location, so comparing options is worthwhile.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does insurance cover GLP-1 medications for weight loss?</h4>
+            <div class="faq-body">
+            <p>Coverage varies widely by insurer and plan. Many commercial insurance plans cover GLP-1 medications for type 2 diabetes but may exclude or restrict coverage for weight management indications. Prior authorization, step therapy, and BMI documentation are common requirements. Check your specific plan's formulary and any anti-obesity medication exclusions.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Are there ways to reduce GLP-1 medication costs?</h4>
+            <div class="faq-body">
+            <p>Yes. Options include manufacturer savings programs and coupons, patient assistance programs for qualifying individuals, pharmacy discount cards, mail-order pharmacies, HSA/FSA accounts, and comparing prices across pharmacies. Some patients also explore compounded versions where legally available, though these differ from brand-name formulations.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How long do people typically stay on GLP-1 medications?</h4>
+            <div class="faq-body">
+            <p>Treatment duration varies by individual and medical guidance. Clinical trials typically run 52 to 72 weeks, but many patients continue treatment longer for sustained results. Studies show that weight regain is common after discontinuation — one study found participants regained approximately two-thirds of lost weight within a year of stopping. Discuss your expected treatment timeline and long-term cost planning with your healthcare provider.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Will GLP-1 medications become cheaper over time?</h4>
+            <div class="faq-body">
+            <p>Several factors may reduce costs in the future. Patent expirations will eventually allow generic versions, increased competition from new entrants in the GLP-1 class may create pricing pressure, and legislative efforts to negotiate drug prices continue. However, timelines for these changes are uncertain, and current out-of-pocket costs remain a significant consideration for many patients.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is the difference between brand-name and compounded GLP-1 medications?</h4>
+            <div class="faq-body">
+            <p>Brand-name GLP-1 medications are FDA-approved finished products manufactured under strict quality controls with extensive clinical trial data supporting their safety and efficacy. Compounded versions are prepared by compounding pharmacies using active ingredients and may differ in formulation, concentration, and delivery method. Compounded drugs are not FDA-approved as finished products and are subject to different regulatory oversight. Consult your healthcare provider about the implications for your treatment.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Wilding JPH, Batterham RL, Calanna S, et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity. N Engl J Med. 2021;384(11):989-1002.", "url": "https://pubmed.ncbi.nlm.nih.gov/33567185/"},
+        {"text": "Jastreboff AM, Aronne LJ, Ahmad NN, et al. Tirzepatide Once Weekly for the Treatment of Obesity. N Engl J Med. 2022;387(3):205-216.", "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/"},
+        {"text": "Aronne LJ, Sattar N, Horn DB, et al. Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity (SURMOUNT-4). JAMA. 2024;331(1):38-48.", "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/"},
+        {"text": "KFF. The Cost of GLP-1 Drugs for Weight Loss and Diabetes. Kaiser Family Foundation. 2024.", "url": "https://www.kff.org/"},
+        {"text": "American Diabetes Association. Standards of Care in Diabetes — 2024. Diabetes Care. 2024;47(Suppl 1).", "url": "https://diabetesjournals.org/care/issue/47/Supplement_1"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+    <script defer src="/static/js/sidebar-toc.js"></script>
+    <script defer src="/static/js/glp1_cost_calculator.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof showNextSteps === 'function') {
+        // Next steps will be shown after calculation
+      }
+    });
+    </script>
+</body>
+</html>

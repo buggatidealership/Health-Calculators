@@ -491,6 +491,15 @@ var CALCULATOR_GRAPH = {
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Exercise boosts metabolism for hours after — see your actual burn', params: ['weight_kg'] },
       { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'A younger metabolic age predicts longer lifespan — check your estimate', params: ['age','gender'] }
     ]
+  },
+  'glp1-cost': {
+    links: [
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '💊', reason: 'See your projected weight loss on semaglutide — does the cost justify the outcome?', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'Compare projected weight loss across GLP-1 medications side by side', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/oral-wegovy-weight-loss-calculator', title: 'Oral Wegovy Calculator', icon: '💊', reason: 'The oral pill avoids needles — see your projected results', params: ['weight_kg','height_cm'] },
+      { url: '/cagrisema-weight-loss-calculator', title: 'CagriSema Calculator', icon: '💊', reason: 'The newest dual-agonist achieved 20.4% weight loss — see your projection', params: ['weight_kg','height_cm'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Know your calorie baseline to maximize results alongside medication', params: ['weight_kg','height_cm','age','gender'] }
+    ]
   }
 };
 
