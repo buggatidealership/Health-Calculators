@@ -21,7 +21,8 @@ var CALCULATOR_GRAPH = {
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: '30% of "healthy" BMIs hide unhealthy body fat levels', params: ['height_cm','gender','age'] },
       { url: '/bmi-vs-body-fat', title: 'BMI vs Body Fat %', icon: '📋', reason: 'BMI missed the mark? See which metric actually predicts your health risk', params: [] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: '16:8 fasting burns fat without cutting calories — see your timeline', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Low BMI can trigger menopause up to 1 year earlier — check your timeline', params: ['age'] }
+      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Low BMI can trigger menopause up to 1 year earlier — check your timeline', params: ['age'] },
+      { url: '/metabolic-age-calculator', title: 'Metabolic Age', icon: '🧬', reason: 'Two people with the same BMI can have metabolic ages 10 years apart', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'tdee': {
@@ -33,7 +34,8 @@ var CALCULATOR_GRAPH = {
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Cycling carbs around your {tdee} kcal can accelerate fat loss', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Fasting changes when you burn your {tdee} kcal — see the difference', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your frame size shifts your ideal weight by up to 15 lbs', params: ['height_cm','gender'] },
-      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Poor sleep raises hunger hormones by 28% — are you getting enough?', params: ['age'] }
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Poor sleep raises hunger hormones by 28% — are you getting enough?', params: ['age'] },
+      { url: '/metabolic-age-calculator', title: 'Metabolic Age', icon: '🧬', reason: 'Your TDEE starts with BMR — is your metabolism aging faster than you?', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'carb-cycling': {
@@ -335,8 +337,18 @@ var CALCULATOR_GRAPH = {
       { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Living longer means needing more savings — does your plan match?', params: ['age'] }
     ]
   },
+  'heart-age': {
+    links: [
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Heart disease is the #1 killer — see how your heart age affects your lifespan estimate', params: ['age','gender'] },
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Your cholesterol numbers directly determine heart age — check your targets', params: ['age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI over 30 adds 3 years to heart age — get your precise number', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'Diabetes adds 6 years to heart age — track your blood sugar control', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5% body weight measurably lowers heart age — find your calorie target', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'lifespan': {
     links: [
+      { url: '/heart-age-calculator', title: 'Heart Age', icon: '🫀', reason: 'Heart disease is the #1 cause of death — find out if your heart is aging faster than you', params: ['age','gender'] },
       { url: '/diabetes-risk-calculator', title: 'Diabetes Risk', icon: '🩺', reason: 'Diabetes cuts life expectancy by 6-7 years — find out if you\'re at risk', params: ['age','gender','weight_kg','height_cm'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Heart disease is the #1 killer — your lipid numbers reveal your risk', params: ['age','gender'] },
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: '42% of Americans are vitamin D deficient — it cuts lifespan silently', params: ['age','gender','weight_kg'] },
