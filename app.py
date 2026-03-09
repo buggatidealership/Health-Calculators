@@ -2164,5 +2164,611 @@ def sitemap_xml():
         'Expires': '0'
     })
 
+# ===== DEMOGRAPHIC CALCULATOR PAGES =====
+demographic_pages = {
+    'tdee-calculator-for-women': {
+        'url': '/tdee-calculator-for-women',
+        'page_title': 'TDEE Calculator for Women — Daily Calorie Needs by Age & Activity | HealthCalculators.xyz',
+        'og_title': 'TDEE Calculator for Women — Daily Calorie Needs',
+        'meta_description': 'Calculate your Total Daily Energy Expenditure as a woman. See how age, menstrual cycle, menopause, and activity level affect your calorie needs with gender-specific data.',
+        'meta_keywords': 'TDEE calculator for women, female calorie calculator, women daily calories, TDEE women over 40, menopause calorie needs',
+        'h1': 'TDEE Calculator for Women',
+        'demographic': 'Women',
+        'icon': '🔥',
+        'read_time': '6',
+        'calculator_url': '/tdee-calculator',
+        'prefill_params': '?gender=female&age=35&weight_lb=140&height_ft=5&height_in=4&activity=1.55',
+        'cta_title': 'Calculate Your TDEE',
+        'cta_description': 'Pre-filled for a 35-year-old moderately active woman (5\'4", 140 lbs). Adjust to match your details.',
+        'cta_button_text': 'Open TDEE Calculator →',
+        'cta_note': 'Calculator opens with your values pre-filled. Adjust and recalculate.',
+        'overview': '''
+            <h2>Understanding TDEE for Women</h2>
+            <p>Women's Total Daily Energy Expenditure differs from men's due to hormonal fluctuations, body composition differences, and life stages like pregnancy and menopause. On average, women burn 1,600–2,400 calories per day, compared to 2,000–3,000 for men.</p>
+            <p>Key factors that make women's TDEE unique:</p>
+            <ul>
+                <li><strong>Menstrual cycle:</strong> BMR increases 5–10% during the luteal phase (days 15–28), adding 100–300 extra calories burned per day</li>
+                <li><strong>Menopause:</strong> BMR decreases approximately 50–100 calories/day after menopause due to declining estrogen</li>
+                <li><strong>Body composition:</strong> Women carry 6–11% more essential body fat than men, which lowers resting metabolic rate</li>
+                <li><strong>Pregnancy/lactation:</strong> Calorie needs increase by 340–500 calories/day in later pregnancy and during breastfeeding</li>
+            </ul>
+        ''',
+        'table_title': 'Average TDEE for Women by Age & Activity Level',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Age</th><th>Sedentary</th><th>Light Activity</th><th>Moderate</th><th>Very Active</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>18–25</td><td>1,800</td><td>2,000</td><td class="td-accent">2,200</td><td>2,500</td></tr>
+                    <tr><td>26–35</td><td>1,750</td><td>1,950</td><td class="td-accent">2,150</td><td>2,400</td></tr>
+                    <tr><td>36–45</td><td>1,700</td><td>1,900</td><td class="td-accent">2,100</td><td>2,350</td></tr>
+                    <tr><td>46–55</td><td>1,600</td><td>1,800</td><td class="td-accent">2,000</td><td>2,250</td></tr>
+                    <tr><td>56–65</td><td>1,550</td><td>1,750</td><td class="td-accent">1,950</td><td>2,150</td></tr>
+                    <tr><td>65+</td><td>1,500</td><td>1,700</td><td class="td-accent">1,850</td><td>2,050</td></tr>
+                </tbody>
+            </table>
+            </div>
+        ''',
+        'table_source': 'Based on Mifflin-St Jeor equation for a 5\'4" (163 cm) woman at 140 lbs (63.5 kg). Individual results vary.',
+        'considerations': '''
+            <h3>Menstrual Cycle & TDEE</h3>
+            <p>Your TDEE naturally fluctuates throughout your menstrual cycle. During the <strong>luteal phase</strong> (after ovulation, before your period), your body temperature rises and BMR increases by 5–10%. This means you may genuinely need 100–300 more calories on these days. Many women report increased hunger during this phase — it's physiological, not a lack of willpower.</p>
+            <h3>Perimenopause & Menopause</h3>
+            <p>Starting in your late 30s to early 40s, declining estrogen levels lead to gradual decreases in muscle mass and increases in body fat. This can reduce your TDEE by 200–300 calories per day compared to your 20s. Resistance training becomes especially important during this transition to preserve metabolically active muscle tissue.</p>
+            <h3>Weight Loss Considerations</h3>
+            <p>Women should avoid aggressive calorie deficits below 1,200 calories/day, as this can disrupt menstrual cycles (hypothalamic amenorrhea), impair thyroid function, and accelerate bone density loss. A moderate deficit of 300–500 calories below TDEE is safer and more sustainable for most women.</p>
+        ''',
+        'faqs': [
+            {'q': 'How many calories should a woman eat per day?', 'a': 'The average adult woman needs 1,600–2,400 calories per day depending on age, height, weight, and activity level. Sedentary women need fewer calories (around 1,600–1,800), while very active women may need 2,200–2,500+. Use a TDEE calculator for a personalized estimate.'},
+            {'q': 'Does your period affect calorie burn?', 'a': 'Yes. During the luteal phase (roughly days 15–28 of your cycle), your basal metabolic rate increases by about 5–10%, meaning you burn an extra 100–300 calories per day. This is why many women experience increased hunger before their period.'},
+            {'q': 'How does menopause affect TDEE?', 'a': 'Menopause typically reduces TDEE by 200–300 calories per day. This is caused by declining estrogen levels which lead to decreased muscle mass and increased fat storage. Resistance training and adequate protein intake (at least 1.0 g/kg) can help counteract this metabolic slowdown.'},
+            {'q': 'Should women eat differently than men for weight loss?', 'a': 'Women generally need smaller calorie deficits than men and should avoid going below 1,200 calories/day. Women also benefit from higher protein intake during weight loss to preserve lean mass, and should adjust intake around menstrual cycle phases for better adherence and results.'}
+        ],
+        'sources': [
+            'Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." American Journal of Clinical Nutrition, 1990.',
+            'Webb P. "24-hour energy expenditure and the menstrual cycle." American Journal of Clinical Nutrition, 1986.',
+            'Lovejoy JC, et al. "Increased visceral fat and decreased energy expenditure during the menopausal transition." International Journal of Obesity, 2008.',
+            'U.S. Department of Agriculture. Dietary Guidelines for Americans, 2020–2025.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'TDEE Calculator for Women', 'url': '/tdee-calculator-for-women'}
+        ]
+    },
+    'tdee-calculator-for-weight-loss': {
+        'url': '/tdee-calculator-for-weight-loss',
+        'page_title': 'TDEE Calculator for Weight Loss — How to Create a Calorie Deficit | HealthCalculators.xyz',
+        'og_title': 'TDEE Calculator for Weight Loss',
+        'meta_description': 'Use your TDEE to create the right calorie deficit for sustainable weight loss. See how deficit size affects fat loss speed, muscle retention, and metabolic adaptation.',
+        'meta_keywords': 'TDEE calculator weight loss, calorie deficit calculator, how many calories to lose weight, TDEE for fat loss, weight loss calorie calculator',
+        'h1': 'TDEE Calculator for Weight Loss',
+        'demographic': 'Weight Loss',
+        'icon': '📉',
+        'read_time': '7',
+        'calculator_url': '/tdee-calculator',
+        'prefill_params': '?age=35&weight_lb=180&height_ft=5&height_in=7&activity=1.375',
+        'cta_title': 'Calculate Your TDEE',
+        'cta_description': 'Find your maintenance calories, then subtract 500 for steady weight loss of ~1 lb per week.',
+        'cta_button_text': 'Calculate My TDEE →',
+        'cta_note': 'Your TDEE minus 500 = your weight loss calorie target.',
+        'overview': '''
+            <h2>How TDEE Drives Weight Loss</h2>
+            <p>Weight loss fundamentally comes down to one equation: <strong>eat fewer calories than your TDEE</strong>. Your Total Daily Energy Expenditure is the total number of calories your body burns each day. To lose weight, you need to create a calorie deficit — the gap between what you eat and what you burn.</p>
+            <p>The size of your deficit determines your rate of loss:</p>
+            <ul>
+                <li><strong>250 cal/day deficit:</strong> ~0.5 lbs/week loss — minimal muscle loss, easy to sustain</li>
+                <li><strong>500 cal/day deficit:</strong> ~1 lb/week loss — the standard recommendation for most people</li>
+                <li><strong>750 cal/day deficit:</strong> ~1.5 lbs/week — aggressive but sustainable for those with more weight to lose</li>
+                <li><strong>1,000 cal/day deficit:</strong> ~2 lbs/week — maximum safe rate, risk of muscle loss increases significantly</li>
+            </ul>
+            <p>The 500-calorie deficit rule is based on the principle that 1 pound of fat equals approximately 3,500 calories. However, actual weight loss is non-linear because your body adapts through metabolic adaptation, changes in NEAT (non-exercise activity thermogenesis), and water weight fluctuations.</p>
+        ''',
+        'table_title': 'Calorie Deficit Guide: TDEE to Weight Loss Timeline',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Your TDEE</th><th>Moderate Deficit<br>(−500)</th><th>Aggressive Deficit<br>(−750)</th><th>Time to Lose 20 lbs<br>(moderate)</th><th>Time to Lose 20 lbs<br>(aggressive)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1,800</td><td class="td-accent">1,300</td><td class="td-warning">1,050*</td><td>40 weeks</td><td>27 weeks</td></tr>
+                    <tr><td>2,000</td><td class="td-accent">1,500</td><td>1,250</td><td>40 weeks</td><td>27 weeks</td></tr>
+                    <tr><td>2,200</td><td class="td-accent">1,700</td><td>1,450</td><td>40 weeks</td><td>27 weeks</td></tr>
+                    <tr><td>2,500</td><td class="td-accent">2,000</td><td>1,750</td><td>40 weeks</td><td>27 weeks</td></tr>
+                    <tr><td>2,800</td><td class="td-accent">2,300</td><td>2,050</td><td>40 weeks</td><td>27 weeks</td></tr>
+                    <tr><td>3,000</td><td class="td-accent">2,500</td><td>2,250</td><td>40 weeks</td><td>27 weeks</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p class="source-note">*Below 1,200 calories is generally not recommended without medical supervision.</p>
+        ''',
+        'table_source': 'Based on the 3,500 cal/lb approximation. Actual results vary due to metabolic adaptation.',
+        'considerations': '''
+            <h3>Metabolic Adaptation</h3>
+            <p>As you lose weight, your TDEE decreases for two reasons: you weigh less (smaller body burns fewer calories) and your body actively reduces energy expenditure in response to the deficit. Research shows this "adaptive thermogenesis" can reduce your TDEE by an additional 5–15% beyond what weight loss alone would predict. This is why progress stalls — you need to recalculate your TDEE every 10–15 lbs lost.</p>
+            <h3>Protein During a Deficit</h3>
+            <p>When eating below your TDEE, protein intake becomes critical. Without adequate protein (1.6–2.2 g/kg of body weight), up to 25% of weight lost can come from muscle instead of fat. Higher protein intake preserves muscle, keeps you fuller, and has a higher thermic effect of food (your body burns more calories digesting protein than carbs or fat).</p>
+            <h3>When to Adjust Your Deficit</h3>
+            <p>If your weight loss stalls for more than 2–3 weeks, recalculate your TDEE at your new weight. Alternatively, increase activity rather than cutting calories further — adding 30 minutes of walking burns approximately 150 calories and is easier to sustain than eating less.</p>
+        ''',
+        'faqs': [
+            {'q': 'How many calories should I eat to lose weight?', 'a': 'Subtract 500 from your TDEE for a moderate deficit that produces about 1 pound of fat loss per week. For example, if your TDEE is 2,200 calories, aim for 1,700 calories per day. Never go below 1,200 calories (women) or 1,500 calories (men) without medical supervision.'},
+            {'q': 'Why am I not losing weight even in a calorie deficit?', 'a': 'The most common reasons are: inaccurate calorie tracking (most people underestimate intake by 20–50%), overestimating exercise calories burned, metabolic adaptation reducing your TDEE below what you calculated, water retention masking fat loss, or your deficit being too small. Recalculate your TDEE and track food more precisely for 2 weeks.'},
+            {'q': 'How fast is it safe to lose weight?', 'a': 'Most health organizations recommend 1–2 pounds per week as a safe rate of weight loss. Losing faster than this increases risk of muscle loss, gallstones, nutritional deficiencies, and metabolic adaptation. People with more weight to lose (BMI 35+) may safely lose 2–3 lbs/week initially.'},
+            {'q': 'Should I eat back exercise calories?', 'a': 'Generally, no — or eat back only half. Exercise calorie estimates (from watches, machines, apps) are notoriously inaccurate, often overestimating by 30–50%. If your TDEE already accounts for your activity level, those exercise calories are already included. Only add calories back if you do significantly more exercise than your selected activity level.'}
+        ],
+        'sources': [
+            'Hall KD, et al. "Quantification of the effect of energy imbalance on bodyweight." The Lancet, 2011.',
+            'Trexler ET, et al. "Metabolic adaptation to weight loss." Journal of the International Society of Sports Nutrition, 2014.',
+            'Helms ER, et al. "A systematic review of dietary protein during caloric restriction." International Journal of Sport Nutrition and Exercise Metabolism, 2014.',
+            'U.S. Department of Agriculture. Dietary Guidelines for Americans, 2020–2025.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'TDEE Calculator for Weight Loss', 'url': '/tdee-calculator-for-weight-loss'}
+        ]
+    },
+    'bmi-calculator-for-women': {
+        'url': '/bmi-calculator-for-women',
+        'page_title': 'BMI Calculator for Women — Healthy Ranges, Limitations & What Your BMI Means | HealthCalculators.xyz',
+        'og_title': 'BMI Calculator for Women',
+        'meta_description': 'Calculate your BMI as a woman and understand what it means. See healthy BMI ranges for women by age, why BMI may be inaccurate during pregnancy or menopause, and better alternatives.',
+        'meta_keywords': 'BMI calculator for women, female BMI chart, healthy BMI women, BMI ranges women, normal BMI for women',
+        'h1': 'BMI Calculator for Women',
+        'demographic': 'Women',
+        'icon': '📊',
+        'read_time': '5',
+        'calculator_url': '/bmi-calculator',
+        'prefill_params': '?weight_lb=140&height_ft=5&height_in=4',
+        'cta_title': 'Calculate Your BMI',
+        'cta_description': 'Enter your height and weight to find your BMI category. Pre-filled for 5\'4", 140 lbs.',
+        'cta_button_text': 'Open BMI Calculator →',
+        'cta_note': None,
+        'overview': '''
+            <h2>Understanding BMI for Women</h2>
+            <p>BMI (Body Mass Index) uses the same formula for men and women: weight (kg) ÷ height (m²). However, the same BMI number can mean different things for women compared to men because women naturally carry more body fat.</p>
+            <p>At a BMI of 25, a woman typically has 30–35% body fat while a man has 20–25%. This means the WHO BMI categories may underestimate health risks for women at the lower end and overestimate them at the higher end.</p>
+            <p>Important considerations for women:</p>
+            <ul>
+                <li><strong>Body fat distribution:</strong> Women tend to store fat in the hips and thighs (pear shape), which carries lower cardiovascular risk than abdominal fat (apple shape)</li>
+                <li><strong>Age-related changes:</strong> BMI accuracy decreases after menopause as body composition shifts toward more fat and less muscle</li>
+                <li><strong>Pregnancy:</strong> BMI should be calculated using pre-pregnancy weight. Pregnancy weight gain is expected and healthy</li>
+                <li><strong>Athletes:</strong> Muscular women may have a "overweight" BMI despite having healthy body fat levels</li>
+            </ul>
+        ''',
+        'table_title': 'BMI Reference Chart for Women (Height vs. Weight)',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Height</th><th>Underweight<br>(&lt;18.5)</th><th>Normal<br>(18.5–24.9)</th><th>Overweight<br>(25–29.9)</th><th>Obese<br>(30+)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>5'0"</td><td class="td-warning">&lt;95 lbs</td><td class="td-good">95–127 lbs</td><td class="td-warning">128–153 lbs</td><td class="td-danger">154+ lbs</td></tr>
+                    <tr><td>5'2"</td><td class="td-warning">&lt;101 lbs</td><td class="td-good">101–136 lbs</td><td class="td-warning">137–163 lbs</td><td class="td-danger">164+ lbs</td></tr>
+                    <tr><td>5'4"</td><td class="td-warning">&lt;108 lbs</td><td class="td-good">108–145 lbs</td><td class="td-warning">146–174 lbs</td><td class="td-danger">175+ lbs</td></tr>
+                    <tr><td>5'6"</td><td class="td-warning">&lt;115 lbs</td><td class="td-good">115–154 lbs</td><td class="td-warning">155–185 lbs</td><td class="td-danger">186+ lbs</td></tr>
+                    <tr><td>5'8"</td><td class="td-warning">&lt;122 lbs</td><td class="td-good">122–163 lbs</td><td class="td-warning">164–196 lbs</td><td class="td-danger">197+ lbs</td></tr>
+                    <tr><td>5'10"</td><td class="td-warning">&lt;129 lbs</td><td class="td-good">129–173 lbs</td><td class="td-warning">174–207 lbs</td><td class="td-danger">208+ lbs</td></tr>
+                </tbody>
+            </table>
+            </div>
+        ''',
+        'table_source': 'Based on WHO BMI categories. These ranges apply equally to men and women.',
+        'considerations': '''
+            <h3>BMI During Pregnancy</h3>
+            <p>Your pre-pregnancy BMI determines recommended weight gain during pregnancy. The Institute of Medicine guidelines suggest: underweight (BMI &lt;18.5) gain 28–40 lbs, normal weight (18.5–24.9) gain 25–35 lbs, overweight (25–29.9) gain 15–25 lbs, and obese (30+) gain 11–20 lbs. Do not try to lose weight during pregnancy.</p>
+            <h3>BMI After Menopause</h3>
+            <p>After menopause, body composition shifts even if weight stays the same — women lose muscle and gain visceral (abdominal) fat. Some researchers argue the "healthy" BMI range for postmenopausal women should be 23–30 rather than 18.5–24.9, as slightly higher BMI is associated with lower mortality in older women. A body fat percentage or waist circumference measurement may be more informative.</p>
+            <h3>Better Alternatives to BMI for Women</h3>
+            <p>Consider supplementing BMI with waist circumference (healthy &lt;35 inches for women), waist-to-hip ratio (healthy &lt;0.85), or body fat percentage (healthy 21–33% depending on age). Our <a href="/body-roundness-index-calculator">Body Roundness Index (BRI) calculator</a> accounts for body shape and may give you a more accurate health risk assessment.</p>
+        ''',
+        'faqs': [
+            {'q': 'What is a healthy BMI for a woman?', 'a': 'The World Health Organization classifies a BMI of 18.5–24.9 as healthy weight for both men and women. For women specifically, the average BMI in the U.S. is 29.6. However, BMI does not account for body fat distribution, muscle mass, or age. A "healthy" BMI doesn\'t guarantee good health, and a slightly elevated BMI doesn\'t necessarily mean poor health.'},
+            {'q': 'Is BMI accurate for women?', 'a': 'BMI is less accurate for women in several situations: during pregnancy, after menopause (when body composition changes), for athletes with significant muscle mass, and for very short women (under 5\'0") where BMI tends to overestimate fat. Body fat percentage or waist-to-hip ratio may provide a more accurate health risk assessment for women.'},
+            {'q': 'Does BMI change with age in women?', 'a': 'BMI itself doesn\'t change with age for the same height and weight — the formula is the same. However, what a given BMI means health-wise does change. After menopause, women tend to gain visceral fat even without weight gain, making a previously "healthy" BMI potentially misleading. Some researchers recommend a higher healthy BMI range (23–28) for women over 65.'},
+            {'q': 'Why is my BMI high even though I look thin?', 'a': 'This is uncommon for women but can happen if you have dense bones or significant muscle mass from strength training. The opposite — looking thin but having a high body fat percentage ("skinny fat") — is more common in women and would show as a normal BMI. If concerned, measure your body fat percentage for a more accurate assessment.'}
+        ],
+        'sources': [
+            'World Health Organization. "Body mass index - BMI." WHO Regional Office for Europe.',
+            'Institute of Medicine. "Weight Gain During Pregnancy: Reexamining the Guidelines." National Academies Press, 2009.',
+            'Winter JE, et al. "BMI and all-cause mortality in older adults: a meta-analysis." American Journal of Clinical Nutrition, 2014.',
+            'Flegal KM, et al. "Association of all-cause mortality with overweight and obesity using standard body mass index categories." JAMA, 2013.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Fitness & Body Calculators', 'url': '/fitness-body-composition-calculators'},
+            {'name': 'BMI Calculator for Women', 'url': '/bmi-calculator-for-women'}
+        ]
+    },
+    'protein-calculator-for-women': {
+        'url': '/protein-calculator-for-women',
+        'page_title': 'Protein Calculator for Women — Daily Protein Needs by Goal & Life Stage | HealthCalculators.xyz',
+        'og_title': 'Protein Calculator for Women',
+        'meta_description': 'Calculate your daily protein needs as a woman. See recommendations for weight loss, muscle building, pregnancy, menopause, and aging with evidence-based intake ranges.',
+        'meta_keywords': 'protein calculator for women, how much protein women need, daily protein intake women, protein for weight loss women, protein pregnancy',
+        'h1': 'Protein Calculator for Women',
+        'demographic': 'Women',
+        'icon': '🥩',
+        'read_time': '6',
+        'calculator_url': '/protein-intake-calculator',
+        'prefill_params': '?gender=female&age=35&weight_lb=140&goal=maintain',
+        'cta_title': 'Calculate Your Protein Needs',
+        'cta_description': 'Get a personalized daily protein recommendation based on your weight, age, and goals.',
+        'cta_button_text': 'Open Protein Calculator →',
+        'cta_note': None,
+        'overview': '''
+            <h2>Why Protein Matters More for Women Than Most Think</h2>
+            <p>Women consistently under-consume protein. Research shows the average American woman gets only 66 grams of protein per day — well below the optimal range of 90–130 grams for most active women. This shortfall affects muscle maintenance, bone health, satiety, and metabolic rate.</p>
+            <p>Protein needs vary significantly by life stage:</p>
+            <ul>
+                <li><strong>General health:</strong> 0.8–1.0 g/kg body weight (the minimum RDA)</li>
+                <li><strong>Weight loss:</strong> 1.2–1.6 g/kg — higher protein preserves muscle during a calorie deficit</li>
+                <li><strong>Muscle building:</strong> 1.6–2.2 g/kg — supports muscle protein synthesis from resistance training</li>
+                <li><strong>Pregnancy:</strong> 1.1–1.5 g/kg — increased needs for fetal development, especially in the 2nd and 3rd trimesters</li>
+                <li><strong>Over 50:</strong> 1.0–1.2 g/kg — higher needs to offset age-related muscle loss (sarcopenia)</li>
+            </ul>
+        ''',
+        'table_title': 'Daily Protein Needs for Women by Body Weight & Goal',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Body Weight</th><th>Minimum<br>(0.8 g/kg)</th><th>Weight Loss<br>(1.4 g/kg)</th><th>Muscle Building<br>(1.8 g/kg)</th><th>Pregnancy<br>(1.2 g/kg)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>120 lbs (54 kg)</td><td>44 g</td><td class="td-accent">76 g</td><td class="td-accent">98 g</td><td>65 g</td></tr>
+                    <tr><td>135 lbs (61 kg)</td><td>49 g</td><td class="td-accent">86 g</td><td class="td-accent">110 g</td><td>74 g</td></tr>
+                    <tr><td>150 lbs (68 kg)</td><td>54 g</td><td class="td-accent">95 g</td><td class="td-accent">123 g</td><td>82 g</td></tr>
+                    <tr><td>165 lbs (75 kg)</td><td>60 g</td><td class="td-accent">105 g</td><td class="td-accent">135 g</td><td>90 g</td></tr>
+                    <tr><td>180 lbs (82 kg)</td><td>65 g</td><td class="td-accent">114 g</td><td class="td-accent">147 g</td><td>98 g</td></tr>
+                    <tr><td>200 lbs (91 kg)</td><td>73 g</td><td class="td-accent">127 g</td><td class="td-accent">163 g</td><td>109 g</td></tr>
+                </tbody>
+            </table>
+            </div>
+        ''',
+        'table_source': 'Based on ISSN and ACSM position statements on protein intake. Pregnancy values from ACOG guidelines.',
+        'considerations': '''
+            <h3>Protein & Weight Loss for Women</h3>
+            <p>Higher protein intake during weight loss is critical for women. A 2016 study found that women eating 1.4 g/kg protein while in a calorie deficit lost 40% more fat and gained lean mass compared to women eating 0.8 g/kg. Protein also increases satiety, reducing hunger and making it easier to maintain a deficit.</p>
+            <h3>Protein During Pregnancy</h3>
+            <p>Protein needs increase during pregnancy, especially in the second and third trimesters. The ACOG recommends at least 71 grams per day, but more recent research suggests 1.2 g/kg may be optimal. Focus on complete protein sources (eggs, dairy, meat, fish, soy) and distribute intake across meals.</p>
+            <h3>Protein After Menopause</h3>
+            <p>Women over 50 experience accelerated muscle loss (sarcopenia). Adequate protein intake (1.0–1.2 g/kg) combined with resistance training can significantly slow this process. Distribute protein evenly across 3–4 meals (25–30 g per meal) for optimal muscle protein synthesis, as the "muscle-full effect" becomes less efficient with age.</p>
+        ''',
+        'faqs': [
+            {'q': 'How much protein does a woman need per day?', 'a': 'The minimum recommended intake is 0.8 g per kg of body weight (about 46 grams for a 130-lb woman). However, most nutrition experts now recommend 1.0–1.6 g/kg for optimal health, weight management, and muscle maintenance. Active women and those over 50 should aim for the higher end.'},
+            {'q': 'Can women eat too much protein?', 'a': 'For healthy women with normal kidney function, protein intakes up to 2.2 g/kg are safe and well-studied. There is no evidence that high protein diets damage healthy kidneys. However, extremely high intakes (over 3.0 g/kg) have no additional benefit and may displace other important nutrients from your diet.'},
+            {'q': 'Does protein help women lose belly fat?', 'a': 'Higher protein intake is associated with less abdominal fat in observational studies. Protein helps weight loss by increasing satiety, preserving muscle mass (which keeps metabolism higher), and having a higher thermic effect. However, you still need a calorie deficit to lose fat — protein makes the deficit more effective, not unnecessary.'},
+            {'q': 'What are the best protein sources for women?', 'a': 'Prioritize complete proteins: eggs, Greek yogurt, chicken breast, fish, lean beef, cottage cheese, tofu, and tempeh. Plant-based options like lentils, chickpeas, and quinoa are good but lower in essential amino acids. If using protein powder, whey and casein are most studied; pea protein is the best plant-based option.'}
+        ],
+        'sources': [
+            'Longland TM, et al. "Higher compared with lower dietary protein during an energy deficit combined with intense exercise promotes greater lean mass gain." American Journal of Clinical Nutrition, 2016.',
+            'Phillips SM, et al. "Protein requirements and supplementation in strength sports." Nutrition, 2004.',
+            'ACOG Committee Opinion No. 650. "Physical Activity and Exercise During Pregnancy." Obstetrics & Gynecology, 2015.',
+            'Baum JI, et al. "Protein Consumption and the Elderly: What Is the Optimal Level of Intake?" Nutrients, 2016.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'Protein Calculator for Women', 'url': '/protein-calculator-for-women'}
+        ]
+    },
+    'protein-calculator-for-athletes': {
+        'url': '/protein-calculator-for-athletes',
+        'page_title': 'Protein Calculator for Athletes — Optimize Intake for Performance & Recovery | HealthCalculators.xyz',
+        'og_title': 'Protein Calculator for Athletes',
+        'meta_description': 'Calculate optimal protein intake for athletic performance. Evidence-based recommendations for endurance, strength, and team sport athletes with timing and distribution guidance.',
+        'meta_keywords': 'protein calculator athletes, athlete protein intake, protein for muscle building, sports nutrition protein, how much protein athletes need',
+        'h1': 'Protein Calculator for Athletes',
+        'demographic': 'Athletes',
+        'icon': '🏋️',
+        'read_time': '6',
+        'calculator_url': '/protein-intake-calculator',
+        'prefill_params': '?gender=male&age=28&weight_lb=180&goal=muscle',
+        'cta_title': 'Calculate Your Protein Needs',
+        'cta_description': 'Get a personalized recommendation based on your sport type, body weight, and training goals.',
+        'cta_button_text': 'Open Protein Calculator →',
+        'cta_note': None,
+        'overview': '''
+            <h2>Protein for Athletic Performance</h2>
+            <p>Athletes need significantly more protein than sedentary individuals. The International Society of Sports Nutrition (ISSN) recommends <strong>1.4–2.0 g/kg body weight per day</strong> for most athletes — nearly double the general RDA of 0.8 g/kg.</p>
+            <p>Optimal intake depends on your sport type:</p>
+            <ul>
+                <li><strong>Strength/power athletes:</strong> 1.6–2.2 g/kg — supports muscle protein synthesis and recovery from resistance training</li>
+                <li><strong>Endurance athletes:</strong> 1.2–1.6 g/kg — repairs muscle damage from prolonged aerobic exercise</li>
+                <li><strong>Team sport athletes:</strong> 1.4–1.8 g/kg — balances demands of mixed endurance and power output</li>
+                <li><strong>During a cut:</strong> 2.0–2.4 g/kg — higher protein prevents muscle loss during calorie restriction</li>
+            </ul>
+        ''',
+        'table_title': 'Daily Protein Needs by Sport Type & Body Weight',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Body Weight</th><th>Endurance<br>(1.4 g/kg)</th><th>Team Sports<br>(1.6 g/kg)</th><th>Strength<br>(1.8 g/kg)</th><th>Cutting<br>(2.2 g/kg)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>130 lbs (59 kg)</td><td>83 g</td><td>94 g</td><td class="td-accent">106 g</td><td class="td-accent">130 g</td></tr>
+                    <tr><td>150 lbs (68 kg)</td><td>95 g</td><td>109 g</td><td class="td-accent">123 g</td><td class="td-accent">150 g</td></tr>
+                    <tr><td>170 lbs (77 kg)</td><td>108 g</td><td>123 g</td><td class="td-accent">139 g</td><td class="td-accent">170 g</td></tr>
+                    <tr><td>190 lbs (86 kg)</td><td>121 g</td><td>138 g</td><td class="td-accent">155 g</td><td class="td-accent">190 g</td></tr>
+                    <tr><td>210 lbs (95 kg)</td><td>134 g</td><td>153 g</td><td class="td-accent">172 g</td><td class="td-accent">210 g</td></tr>
+                    <tr><td>230 lbs (104 kg)</td><td>146 g</td><td>167 g</td><td class="td-accent">188 g</td><td class="td-accent">230 g</td></tr>
+                </tbody>
+            </table>
+            </div>
+        ''',
+        'table_source': 'Based on ISSN and ACSM position statements on protein and athletic performance.',
+        'considerations': '''
+            <h3>Protein Timing for Athletes</h3>
+            <p>The "anabolic window" is real but wider than the 30-minute myth. Research shows consuming 20–40 g of protein within 2 hours of training optimizes muscle protein synthesis. For maximum benefit, distribute protein evenly across 4–5 meals (0.4–0.55 g/kg per meal) rather than loading it into one or two meals.</p>
+            <h3>Protein During a Cut</h3>
+            <p>Athletes cutting weight need the highest protein intake — 2.0–2.4 g/kg. A landmark study by Longland et al. showed that athletes eating 2.4 g/kg during a 40% calorie deficit actually gained lean mass while losing fat, compared to muscle loss in the 1.2 g/kg group. The higher protein group lost 4.8 kg of fat vs. 3.5 kg.</p>
+            <h3>Protein Quality</h3>
+            <p>Not all protein sources are equal for athletes. Leucine content is the primary driver of muscle protein synthesis. Whey protein has the highest leucine content (~11%), followed by animal proteins (~8–9%), and plant proteins (~6–7%). Athletes using plant-based protein should aim for the higher end of intake ranges and combine sources.</p>
+        ''',
+        'faqs': [
+            {'q': 'How much protein do athletes need per day?', 'a': 'Most athletes need 1.4–2.0 g of protein per kg of body weight per day, according to the ISSN. Strength athletes should aim for the higher end (1.6–2.2 g/kg), while endurance athletes can target 1.2–1.6 g/kg. During weight cutting phases, intake should increase to 2.0–2.4 g/kg to preserve muscle.'},
+            {'q': 'Is there a limit to how much protein your body can use?', 'a': 'Per-meal, research suggests 0.4–0.55 g/kg body weight (roughly 30–50 g for most athletes) optimally stimulates muscle protein synthesis. More protein in a single meal is still digested and used for other functions, but the muscle-building stimulus plateaus. This is why spreading protein across 4–5 meals is more effective than eating it all at once.'},
+            {'q': 'Do endurance athletes need as much protein as strength athletes?', 'a': 'Endurance athletes need slightly less (1.2–1.6 g/kg vs. 1.6–2.2 g/kg) but more than most realize. Prolonged endurance exercise damages muscle fibers and can use amino acids for fuel (up to 5–10% of total energy). Ultra-endurance athletes (marathon, Ironman) may need up to 1.8 g/kg during heavy training blocks.'},
+            {'q': 'Is whey protein better than plant protein for athletes?', 'a': 'Whey protein has superior leucine content and digestibility, making it marginally better for muscle protein synthesis per gram. However, plant protein (especially pea, rice, and soy blends) can match whey\'s effects when consumed in slightly higher amounts (+10–20%). The key is total daily protein intake, not the source.'}
+        ],
+        'sources': [
+            'Jäger R, et al. "International Society of Sports Nutrition Position Stand: protein and exercise." Journal of the International Society of Sports Nutrition, 2017.',
+            'Longland TM, et al. "Higher compared with lower dietary protein during an energy deficit combined with intense exercise." AJCN, 2016.',
+            'Morton RW, et al. "A systematic review, meta-analysis and meta-regression of the effect of protein supplementation." British Journal of Sports Medicine, 2018.',
+            'Thomas DT, et al. "Position of the Academy of Nutrition and Dietetics: Nutrition and Athletic Performance." JAND, 2016.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'Protein Calculator for Athletes', 'url': '/protein-calculator-for-athletes'}
+        ]
+    },
+    'bmi-calculator-for-teens': {
+        'url': '/bmi-calculator-for-teens',
+        'page_title': 'BMI Calculator for Teens — Percentile Charts by Age & Gender | HealthCalculators.xyz',
+        'og_title': 'BMI Calculator for Teens',
+        'meta_description': 'Calculate BMI for teenagers (13-19) using age and gender-specific percentile charts. Understand what your teen\'s BMI percentile means for their growth and health.',
+        'meta_keywords': 'BMI calculator teens, teen BMI percentile, BMI for teenagers, adolescent BMI chart, healthy BMI teenager',
+        'h1': 'BMI Calculator for Teens',
+        'demographic': 'Teens (Ages 13–19)',
+        'icon': '📊',
+        'read_time': '5',
+        'calculator_url': '/bmi-calculator',
+        'prefill_params': '?weight_lb=130&height_ft=5&height_in=5',
+        'cta_title': 'Calculate BMI',
+        'cta_description': 'Enter height and weight to get a BMI value. For teens, interpretation requires age-specific percentile charts (see below).',
+        'cta_button_text': 'Open BMI Calculator →',
+        'cta_note': 'Note: Adult BMI categories don\'t apply to teens. Use the percentile chart below to interpret results.',
+        'overview': '''
+            <h2>BMI for Teenagers Is Different</h2>
+            <p>Unlike adults, teen BMI is interpreted using <strong>age and gender-specific percentile charts</strong>. A BMI of 23 might be perfectly healthy for a 17-year-old boy but could indicate overweight for a 13-year-old girl. This is because teens are still growing, and healthy body fat levels change with age and puberty.</p>
+            <p>Teen BMI percentile categories:</p>
+            <ul>
+                <li><strong>Underweight:</strong> Below the 5th percentile</li>
+                <li><strong>Healthy weight:</strong> 5th to 84th percentile</li>
+                <li><strong>Overweight:</strong> 85th to 94th percentile</li>
+                <li><strong>Obese:</strong> 95th percentile or above</li>
+            </ul>
+            <p>These percentiles are based on CDC growth charts from 2000. A teen at the 60th percentile has a higher BMI than 60% of teens of the same age and gender.</p>
+        ''',
+        'table_title': '50th Percentile BMI by Age & Gender (Typical/Median)',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Age</th><th>Girls (50th %ile)</th><th>Boys (50th %ile)</th><th>Girls (85th %ile)<br>Overweight threshold</th><th>Boys (85th %ile)<br>Overweight threshold</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>13</td><td class="td-good">18.7</td><td class="td-good">18.5</td><td class="td-warning">22.6</td><td class="td-warning">21.8</td></tr>
+                    <tr><td>14</td><td class="td-good">19.4</td><td class="td-good">19.2</td><td class="td-warning">23.3</td><td class="td-warning">22.6</td></tr>
+                    <tr><td>15</td><td class="td-good">20.0</td><td class="td-good">19.9</td><td class="td-warning">24.0</td><td class="td-warning">23.4</td></tr>
+                    <tr><td>16</td><td class="td-good">20.6</td><td class="td-good">20.5</td><td class="td-warning">24.6</td><td class="td-warning">24.2</td></tr>
+                    <tr><td>17</td><td class="td-good">21.1</td><td class="td-good">21.2</td><td class="td-warning">25.2</td><td class="td-warning">24.9</td></tr>
+                    <tr><td>18</td><td class="td-good">21.5</td><td class="td-good">21.7</td><td class="td-warning">25.7</td><td class="td-warning">25.6</td></tr>
+                    <tr><td>19</td><td class="td-good">22.0</td><td class="td-good">22.3</td><td class="td-warning">26.1</td><td class="td-warning">26.3</td></tr>
+                </tbody>
+            </table>
+            </div>
+        ''',
+        'table_source': 'Data from CDC Growth Charts (2000). 50th percentile = median; 85th percentile = overweight threshold.',
+        'considerations': '''
+            <h3>Why Adult BMI Categories Don\'t Work for Teens</h3>
+            <p>Adult BMI uses fixed categories (underweight &lt;18.5, normal 18.5–24.9, etc.). For teens, these don't apply because body composition changes rapidly during puberty. A 13-year-old boy with a BMI of 21 is at the 75th percentile, while an 18-year-old with the same BMI is at the 50th percentile. Percentile-based interpretation accounts for these developmental differences.</p>
+            <h3>Puberty & BMI</h3>
+            <p>During puberty, it's normal for BMI to increase. Girls typically gain body fat before their growth spurt, and boys gain lean muscle mass. A temporary increase in BMI percentile during ages 11–14 doesn't necessarily indicate a health problem — it often reflects normal pubertal development. Trends over time are more meaningful than single measurements.</p>
+            <h3>When to Be Concerned</h3>
+            <p>Speak with a pediatrician if your teen's BMI percentile has jumped dramatically (crossing two or more percentile lines), is consistently above the 95th percentile, or is below the 5th percentile. However, BMI alone should never be used to restrict a teenager's food intake or prescribe a "diet." Teens need adequate nutrition for growth and development.</p>
+        ''',
+        'faqs': [
+            {'q': 'What is a normal BMI for a teenager?', 'a': 'For teens, "normal" is defined as the 5th to 84th percentile for their age and gender, not by a single number. For example, a normal BMI for a 15-year-old girl ranges from about 16.0 to 24.0, while for a 15-year-old boy it\'s about 15.5 to 23.4. Use CDC growth charts to find the exact percentile.'},
+            {'q': 'Is BMI accurate for teenagers?', 'a': 'BMI is a reasonable screening tool for teens when using age/gender-specific percentiles, but it has the same limitation as for adults — it doesn\'t distinguish between muscle and fat. Athletic teens, especially those in sports like football or gymnastics, may have elevated BMI from muscle mass rather than excess fat.'},
+            {'q': 'Should a teenager try to lower their BMI?', 'a': 'Teens should never diet to lower BMI without medical guidance. Restrictive eating during adolescence can impair growth, delay puberty, weaken bones, and increase risk of eating disorders. If a teen\'s BMI is in the overweight or obese range, a pediatrician may recommend lifestyle changes focused on more physical activity and healthier food choices rather than calorie restriction.'},
+            {'q': 'How often should I check my teen\'s BMI?', 'a': 'The American Academy of Pediatrics recommends BMI screening at annual well-child visits. Tracking BMI percentile over time (rather than focusing on single measurements) gives a better picture of growth trajectory. Most electronic health records automatically plot BMI-for-age at each visit.'}
+        ],
+        'sources': [
+            'CDC. "About Child & Teen BMI." Centers for Disease Control and Prevention, 2024.',
+            'Barlow SE. "Expert Committee Recommendations on the Assessment, Prevention, and Treatment of Child and Adolescent Overweight and Obesity." Pediatrics, 2007.',
+            'Kuczmarski RJ, et al. "2000 CDC Growth Charts for the United States." National Center for Health Statistics, 2002.',
+            'Styne DM, et al. "Pediatric Obesity — Assessment, Treatment, and Prevention." Endocrine Society Clinical Practice Guideline, 2017.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Fitness & Body Calculators', 'url': '/fitness-body-composition-calculators'},
+            {'name': 'BMI Calculator for Teens', 'url': '/bmi-calculator-for-teens'}
+        ]
+    },
+    'macro-calculator-for-weight-loss': {
+        'url': '/macro-calculator-for-weight-loss',
+        'page_title': 'Macro Calculator for Weight Loss — Optimal Protein, Carb & Fat Ratios | HealthCalculators.xyz',
+        'og_title': 'Macro Calculator for Weight Loss',
+        'meta_description': 'Calculate the ideal macronutrient ratio for weight loss. See how to split protein, carbs, and fat for maximum fat loss while preserving muscle mass.',
+        'meta_keywords': 'macro calculator weight loss, macros for fat loss, weight loss macros, protein carbs fat ratio, cutting macros',
+        'h1': 'Macro Calculator for Weight Loss',
+        'demographic': 'Weight Loss',
+        'icon': '🥗',
+        'read_time': '6',
+        'calculator_url': '/caloric-intake-macronutrient-calculator',
+        'prefill_params': '?age=35&weight_lb=180&height_ft=5&height_in=7&activity=1.375&goal=lose',
+        'cta_title': 'Calculate Your Macros',
+        'cta_description': 'Get personalized macro targets based on your TDEE and weight loss goal.',
+        'cta_button_text': 'Open Macro Calculator →',
+        'cta_note': None,
+        'overview': '''
+            <h2>Macros Matter More Than Calories Alone</h2>
+            <p>Two people eating 1,800 calories per day can have vastly different results depending on their macro split. Someone eating 40% protein / 30% carbs / 30% fat will lose more fat and preserve more muscle than someone eating 15% protein / 55% carbs / 30% fat — even at the same calorie level.</p>
+            <p>Evidence-based macro ratios for weight loss:</p>
+            <ul>
+                <li><strong>High protein approach (recommended):</strong> 40% protein / 30% carbs / 30% fat — maximizes muscle retention and satiety</li>
+                <li><strong>Moderate approach:</strong> 30% protein / 40% carbs / 30% fat — easier to sustain, good for active people</li>
+                <li><strong>Low-carb approach:</strong> 35% protein / 25% carbs / 40% fat — may help with insulin resistance and hunger control</li>
+                <li><strong>Ketogenic:</strong> 25% protein / 5% carbs / 70% fat — extreme carb restriction, not necessary for most people</li>
+            </ul>
+            <p>The most important macro for weight loss is protein. Hitting your protein target matters more than the exact carb-to-fat ratio.</p>
+        ''',
+        'table_title': 'Macro Targets by Calorie Level (40/30/30 Split)',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Daily Calories</th><th>Protein (40%)</th><th>Carbs (30%)</th><th>Fat (30%)</th><th>Protein (g)</th><th>Carbs (g)</th><th>Fat (g)</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1,400</td><td>560 cal</td><td>420 cal</td><td>420 cal</td><td class="td-accent">140 g</td><td>105 g</td><td>47 g</td></tr>
+                    <tr><td>1,600</td><td>640 cal</td><td>480 cal</td><td>480 cal</td><td class="td-accent">160 g</td><td>120 g</td><td>53 g</td></tr>
+                    <tr><td>1,800</td><td>720 cal</td><td>540 cal</td><td>540 cal</td><td class="td-accent">180 g</td><td>135 g</td><td>60 g</td></tr>
+                    <tr><td>2,000</td><td>800 cal</td><td>600 cal</td><td>600 cal</td><td class="td-accent">200 g</td><td>150 g</td><td>67 g</td></tr>
+                    <tr><td>2,200</td><td>880 cal</td><td>660 cal</td><td>660 cal</td><td class="td-accent">220 g</td><td>165 g</td><td>73 g</td></tr>
+                    <tr><td>2,500</td><td>1000 cal</td><td>750 cal</td><td>750 cal</td><td class="td-accent">250 g</td><td>188 g</td><td>83 g</td></tr>
+                </tbody>
+            </table>
+            </div>
+        ''',
+        'table_source': 'Protein: 4 cal/g, Carbs: 4 cal/g, Fat: 9 cal/g. 40/30/30 is optimal for muscle preservation during weight loss.',
+        'considerations': '''
+            <h3>Why Protein Is the Priority Macro</h3>
+            <p>During a calorie deficit, your body breaks down both fat and muscle for energy. High protein intake (1.6–2.2 g/kg) sends a signal to preserve muscle. It also has the highest thermic effect — your body burns 20–30% of protein calories just digesting it, compared to 5–10% for carbs and 0–3% for fat. This means 200 calories of protein effectively becomes only 140–160 usable calories.</p>
+            <h3>Carbs vs. Fat: Which to Cut?</h3>
+            <p>Once protein is set, the carb-to-fat ratio is less important for fat loss. Research shows similar weight loss results with low-carb vs. low-fat diets when calories and protein are matched. Choose based on preference and sustainability: if you love bread and fruit, cut fat; if you prefer cheese and avocado, cut carbs. Adherence matters more than the ratio.</p>
+            <h3>Tracking Tips</h3>
+            <p>Focus on hitting your protein target (within 10 grams) and staying within total calories. Let carbs and fat fill the remaining calories flexibly. Strict macro tracking isn't necessary long-term — most people get good results by just tracking protein and total calories.</p>
+        ''',
+        'faqs': [
+            {'q': 'What is the best macro ratio for weight loss?', 'a': 'A 40% protein / 30% carbs / 30% fat split is well-supported by research for weight loss. The high protein preserves muscle, keeps you full, and has a higher thermic effect. However, the exact carb-to-fat ratio matters less than total calories and protein intake. Pick whichever ratio you can sustain.'},
+            {'q': 'Should I count macros or calories for weight loss?', 'a': 'Counting total calories ensures you\'re in a deficit. Tracking macros (especially protein) ensures the weight you lose comes from fat, not muscle. Ideally, do both. At minimum, track total calories and protein grams. Let carbs and fat fill the rest naturally.'},
+            {'q': 'How do I hit my protein target without too many calories?', 'a': 'Choose lean protein sources: chicken breast (31g protein, 165 cal per serving), Greek yogurt (17g protein, 100 cal), egg whites (11g protein, 50 cal), whey protein powder (25g protein, 120 cal), shrimp (24g protein, 120 cal). These provide maximum protein per calorie.'},
+            {'q': 'Do macros matter if I\'m in a calorie deficit?', 'a': 'Yes. In a deficit without enough protein, up to 25% of weight lost comes from muscle. With adequate protein (1.6+ g/kg), nearly all weight loss comes from fat. Macro composition also affects hunger levels, energy, workout performance, and long-term sustainability.'}
+        ],
+        'sources': [
+            'Helms ER, et al. "A systematic review of dietary protein during caloric restriction in resistance trained lean athletes." IJSNEM, 2014.',
+            'Hall KD, et al. "Calorie for Calorie, Dietary Fat Restriction Results in More Body Fat Loss than Carbohydrate Restriction." Cell Metabolism, 2015.',
+            'Westerterp-Plantenga MS, et al. "Dietary protein — its role in satiety, energetics, weight loss and health." British Journal of Nutrition, 2012.',
+            'Aragon AA, et al. "International Society of Sports Nutrition Position Stand: diets and body composition." JISSN, 2017.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'Macro Calculator for Weight Loss', 'url': '/macro-calculator-for-weight-loss'}
+        ]
+    },
+    'calorie-calculator-for-weight-loss': {
+        'url': '/calorie-calculator-for-weight-loss',
+        'page_title': 'Calorie Calculator for Weight Loss — How Many Calories to Eat to Lose Weight | HealthCalculators.xyz',
+        'og_title': 'Calorie Calculator for Weight Loss',
+        'meta_description': 'Calculate exactly how many calories you should eat to lose weight. See your TDEE-based calorie target for safe, sustainable fat loss at 1-2 lbs per week.',
+        'meta_keywords': 'calorie calculator weight loss, how many calories to lose weight, weight loss calorie calculator, calorie deficit calculator, calories to lose 1 pound',
+        'h1': 'Calorie Calculator for Weight Loss',
+        'demographic': 'Weight Loss',
+        'icon': '⚖️',
+        'read_time': '5',
+        'calculator_url': '/tdee-calculator',
+        'prefill_params': '?age=35&weight_lb=180&height_ft=5&height_in=8&activity=1.375',
+        'cta_title': 'Calculate Your Calorie Target',
+        'cta_description': 'Find your TDEE (maintenance calories), then see your deficit target for weight loss.',
+        'cta_button_text': 'Open Calorie Calculator →',
+        'cta_note': 'Your TDEE minus 500 calories = lose ~1 lb/week.',
+        'overview': '''
+            <h2>How to Calculate Calories for Weight Loss</h2>
+            <p>To lose weight, you need to eat fewer calories than your body burns. This gap is called a <strong>calorie deficit</strong>. The steps are simple:</p>
+            <ol>
+                <li><strong>Calculate your TDEE</strong> — the total calories your body burns each day (including exercise)</li>
+                <li><strong>Subtract 500 calories</strong> — creates a deficit that produces ~1 lb of fat loss per week</li>
+                <li><strong>Track and adjust</strong> — if you're not losing after 2–3 weeks, reduce by another 100–200 calories</li>
+            </ol>
+            <p>The key rule: <strong>never eat fewer than 1,200 calories (women) or 1,500 calories (men)</strong> without medical supervision. Going too low risks nutrient deficiencies, muscle loss, metabolic damage, and is unsustainable.</p>
+        ''',
+        'table_title': 'Calorie Targets for Weight Loss (by TDEE)',
+        'table_html': '''
+            <div class="data-table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr><th>Your TDEE<br>(Maintenance)</th><th>Slow Loss<br>(−250 cal/day)<br>0.5 lb/week</th><th>Moderate<br>(−500 cal/day)<br>1 lb/week</th><th>Fast<br>(−750 cal/day)<br>1.5 lb/week</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>1,800</td><td>1,550</td><td class="td-accent">1,300</td><td class="td-warning">1,050*</td></tr>
+                    <tr><td>2,000</td><td>1,750</td><td class="td-accent">1,500</td><td>1,250</td></tr>
+                    <tr><td>2,200</td><td>1,950</td><td class="td-accent">1,700</td><td>1,450</td></tr>
+                    <tr><td>2,500</td><td>2,250</td><td class="td-accent">2,000</td><td>1,750</td></tr>
+                    <tr><td>2,800</td><td>2,550</td><td class="td-accent">2,300</td><td>2,050</td></tr>
+                    <tr><td>3,200</td><td>2,950</td><td class="td-accent">2,700</td><td>2,450</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p class="source-note">*Below 1,200 calories is not recommended without medical supervision.</p>
+        ''',
+        'table_source': 'Based on the energy balance principle: 3,500 calorie deficit ≈ 1 lb fat loss.',
+        'considerations': '''
+            <h3>Why 500 Calories Is the Sweet Spot</h3>
+            <p>A 500-calorie daily deficit translates to about 3,500 calories per week — roughly equivalent to 1 pound of fat. This rate of loss is considered safe, sustainable, and minimizes muscle loss. Larger deficits (1,000+ calories) can work short-term but often lead to metabolic adaptation, increased hunger hormones, and eventual rebound weight gain.</p>
+            <h3>Why the Scale Lies</h3>
+            <p>Weight fluctuates 1–5 lbs daily from water retention, food volume, sodium intake, and hormonal changes. This means you can be losing fat while the scale stays flat or even goes up. Track your weekly average weight (weigh daily, calculate the 7-day average) rather than focusing on any single day's number.</p>
+            <h3>When to Recalculate</h3>
+            <p>Recalculate your TDEE and calorie target every 10–15 lbs of weight loss. As you weigh less, your body burns fewer calories — a person at 180 lbs burns more calories than the same person at 160 lbs. If you don't adjust, your deficit shrinks and weight loss stalls.</p>
+        ''',
+        'faqs': [
+            {'q': 'How many calories should I eat to lose weight?', 'a': 'Subtract 500 from your TDEE (Total Daily Energy Expenditure) for a moderate deficit producing ~1 lb of weight loss per week. For example, if your TDEE is 2,200, eat 1,700 calories per day. Use our TDEE calculator to find your personalized number. Never go below 1,200 (women) or 1,500 (men) without medical supervision.'},
+            {'q': 'Is 1,200 calories enough to lose weight?', 'a': '1,200 calories is the minimum recommended intake for women and should only be used if your TDEE is around 1,700 or less. For many people, 1,200 is too restrictive — it\'s hard to get adequate nutrition, increases hunger hormones, and often leads to metabolic slowdown and binge eating. A smaller deficit at a higher calorie level is usually more effective long-term.'},
+            {'q': 'How long does it take to lose 20 pounds?', 'a': 'At a 500-calorie daily deficit (1 lb/week), it takes about 20 weeks (5 months) to lose 20 pounds. At a 750-calorie deficit (1.5 lbs/week), it takes about 13 weeks. However, actual results are non-linear — you may lose faster initially (water weight) and slower later (metabolic adaptation).'},
+            {'q': 'Do I need to count calories to lose weight?', 'a': 'Not necessarily. Calorie counting is the most precise method, but alternatives include portion control (using hand-size guides), intermittent fasting (eating in a time window), or focusing on food quality (whole foods naturally create a mild deficit). However, if you\'ve tried other methods without success, calorie counting for 2–4 weeks can reveal hidden overconsumption.'}
+        ],
+        'sources': [
+            'Hall KD, et al. "Quantification of the effect of energy imbalance on bodyweight." The Lancet, 2011.',
+            'Lichtman SW, et al. "Discrepancy between self-reported and actual caloric intake and exercise in obese subjects." NEJM, 1992.',
+            'U.S. Department of Agriculture. Dietary Guidelines for Americans, 2020–2025.',
+            'Trexler ET, et al. "Metabolic adaptation to weight loss." JISSN, 2014.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'Calorie Calculator for Weight Loss', 'url': '/calorie-calculator-for-weight-loss'}
+        ]
+    }
+}
+
+@app.route('/tdee-calculator-for-women')
+@app.route('/tdee-calculator-for-weight-loss')
+@app.route('/bmi-calculator-for-women')
+@app.route('/protein-calculator-for-women')
+@app.route('/protein-calculator-for-athletes')
+@app.route('/bmi-calculator-for-teens')
+@app.route('/macro-calculator-for-weight-loss')
+@app.route('/calorie-calculator-for-weight-loss')
+def demographic_calculator():
+    path = request.path.lstrip('/')
+    page = demographic_pages.get(path)
+    if not page:
+        return "Not found", 404
+    return render_template(
+        'demographic_calculator.html',
+        demo=page,
+        is_homepage=False,
+        page_title=page['page_title'],
+        meta_description=page['meta_description'],
+        meta_keywords=page['meta_keywords'],
+        og_title=page['og_title'],
+        og_description=page['meta_description'],
+        og_url=page['url'],
+        canonical_url=page['url']
+    )
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

@@ -24,6 +24,55 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- Demographic Calculator Pages -->
+  <url>
+    <loc>https://healthcalculators.xyz/tdee-calculator-for-women</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/tdee-calculator-for-weight-loss</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/bmi-calculator-for-women</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/protein-calculator-for-women</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/protein-calculator-for-athletes</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/bmi-calculator-for-teens</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/macro-calculator-for-weight-loss</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/calorie-calculator-for-weight-loss</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <!-- Category Hub Pages -->
   <url>
     <loc>https://healthcalculators.xyz/nutrition-calculators</loc>
