@@ -336,6 +336,20 @@ main > .calculator-container {
   }
 }
 
+/* Wide screens: visually center the content column, sidebar extends into right margin */
+@media (min-width: 1400px) {
+  .page-layout {
+    max-width: none;
+    margin: 0;
+    padding-left: calc(50% - var(--max-width) / 2);
+    padding-right: 20px;
+  }
+  .breadcrumb {
+    max-width: none;
+    padding-left: calc(50% - var(--max-width) / 2);
+  }
+}
+
 /* ===== CALCULATOR FORM ===== */
 .calculator {
   background: var(--color-surface);
