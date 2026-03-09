@@ -56,7 +56,7 @@
   "url": "https://healthcalculators.xyz{{ schema_url }}",
   "description": "{{ schema_description }}",
   "datePublished": "{{ date_published|default('2025-06-01') }}",
-  "dateModified": "{{ date_modified|default('2026-03-08') }}",
+  "dateModified": "{{ date_modified|default('2026-03-09') }}",
   "author": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
@@ -70,6 +70,7 @@
   "publisher": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
+    "url": "https://healthcalculators.xyz",
     "logo": {
       "@type": "ImageObject",
       "url": "https://healthcalculators.xyz/static/images/logo.png",
@@ -85,10 +86,14 @@
     "@id": "https://healthcalculators.xyz{{ schema_url }}"
   },
   "about": {
-    "@type": "MedicalCondition",
-    "name": "{{ schema_name }}"
+    "@type": "Thing",
+    "name": "{{ schema_about|default(schema_name) }}"
   },
-  "lastReviewed": "{{ date_modified|default('2026-03-08') }}"
+  "audience": {
+    "@type": "MedicalAudience",
+    "audienceType": "Patient"
+  },
+  "lastReviewed": "{{ date_modified|default('2026-03-09') }}"
 }
 </script>
 
@@ -237,6 +242,36 @@ document.addEventListener('DOMContentLoaded',function(){
         ticking=true;
       }
     });
+  })();
+  // Auto-generate FAQPage schema from .faq-item elements
+  (function(){
+    var items=document.querySelectorAll('.faq-item');
+    if(items.length<2) return;
+    var faqEntities=[];
+    items.forEach(function(item){
+      var h=item.querySelector('h4,h3');
+      var body=item.querySelector('.faq-body,.faq-answer');
+      if(h&&body){
+        var answer=body.textContent.trim();
+        if(answer.length>10){
+          faqEntities.push({
+            '@type':'Question',
+            'name':h.textContent.trim(),
+            'acceptedAnswer':{'@type':'Answer','text':answer}
+          });
+        }
+      }
+    });
+    if(faqEntities.length>=2){
+      var script=document.createElement('script');
+      script.type='application/ld+json';
+      script.textContent=JSON.stringify({
+        '@context':'https://schema.org',
+        '@type':'FAQPage',
+        'mainEntity':faqEntities
+      });
+      document.head.appendChild(script);
+    }
   })();
 });
 </script>
