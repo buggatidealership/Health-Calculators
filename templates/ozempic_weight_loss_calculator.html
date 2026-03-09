@@ -625,5 +625,17 @@
         });
     </script>
     <script defer src="/static/js/content-loops.js"></script>
+    <script src="/static/js/example-prefill.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      prefillExample({
+        unit: 'imperial',
+        fields: { 'weight-lb': '220', 'height-ft': '5', 'height-in': '9' },
+        selects: { duration: '52', dose: '1.0' },
+        calculateFn: function() { document.getElementById('calculate-btn').click(); },
+        resultsId: 'result'
+      });
+    });
+    </script>
 </body>
 </html>

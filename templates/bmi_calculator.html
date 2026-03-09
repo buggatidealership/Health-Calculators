@@ -443,5 +443,16 @@
 
     <script defer src="/static/js/content-loops.js"></script>
     <script defer src="/static/js/bmi_calculator.js"></script>
+    <script src="/static/js/example-prefill.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      prefillExample({
+        unit: 'imperial',
+        fields: { weight_lb: '160', height_ft: '5', height_in: '8' },
+        calculateFn: calculateBMI,
+        resultsId: 'results'
+      });
+    });
+    </script>
 </body>
 </html>

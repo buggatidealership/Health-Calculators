@@ -528,5 +528,17 @@
 
     <script defer src="/static/js/content-loops.js"></script>
     <script defer src="/static/js/protein_intake_calculator.js"></script>
+    <script src="/static/js/example-prefill.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      prefillExample({
+        unit: 'imperial',
+        fields: { age: '30', weight_lb: '170', height_ft: '5', height_in: '9' },
+        selects: { gender: 'male', activity: 'moderate', goal: 'muscle' },
+        calculateFn: calculateProtein,
+        resultsId: 'results'
+      });
+    });
+    </script>
 </body>
 </html>

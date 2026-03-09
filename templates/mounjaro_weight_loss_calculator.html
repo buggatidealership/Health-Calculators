@@ -765,5 +765,17 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script defer src="/static/js/content-loops.js"></script>
     <script defer src="/static/js/mounjaro_weight_loss_calculator.js"></script>
+    <script src="/static/js/example-prefill.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      prefillExample({
+        unit: 'imperial',
+        fields: { 'weight-lb': '220', 'height-ft': '5', 'height-in': '9', age: '45' },
+        selects: { gender: 'female', dose: '10', duration: '52', activity: 'light', diet: 'good' },
+        calculateFn: function() { document.getElementById('calculate-btn').click(); },
+        resultsId: 'results'
+      });
+    });
+    </script>
 </body>
 </html>
