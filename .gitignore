@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Request log database (contains user traffic data)
+data/request_log.db
+
+# Python
+__pycache__/
+*.pyc

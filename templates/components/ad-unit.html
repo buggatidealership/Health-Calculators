@@ -5,16 +5,19 @@
   Usage: {% include 'components/ad-unit.html' with context %}
   Pass: ad_position = "top" | "middle" | "bottom" | "in-article"
 
-  - "top": above the fold, loaded eagerly (no lazy)
-  - "middle": mid-content, lazy-loaded
-  - "bottom": end of content, lazy-loaded
-  - "in-article": native in-article format, lazy-loaded (highest CTR)
+  Active positions:
+  - "middle": first ad after TOC/intro content, loaded eagerly
+  - "in-article": native in-article format after FAQ, lazy-loaded (highest CTR)
+
+  Disabled positions (UX optimization):
+  - "top": disabled — was between calculator results and explanation, too disruptive
+  - "bottom": disabled — low viewability, not worth the CLS cost
 
   The min-height on each container prevents Cumulative Layout Shift.
   Ad format "auto" with full-width-responsive lets AdSense choose optimal size.
 #}
 {% set position = ad_position|default("middle") %}
-{% if position == "middle" or position == "bottom" %}
+{% if position == "top" or position == "bottom" %}
 <!-- ad: {{ position }} disabled -->
 {% else %}
 <div class="ad-container ad-container-{{ position }}" role="complementary" aria-label="Advertisement">
@@ -24,14 +27,14 @@
        data-ad-layout="in-article"
        data-ad-format="fluid"
        data-ad-client="ca-pub-1580600669281697"
-       {% if position != "top" %}loading="lazy"{% endif %}></ins>
+       loading="lazy"></ins>
   {% else %}
   <ins class="adsbygoogle"
        style="display:block"
        data-ad-client="ca-pub-1580600669281697"
        data-ad-format="auto"
        data-full-width-responsive="true"
-       {% if position != "top" %}loading="lazy"{% endif %}></ins>
+       {% if position == "in-article" %}loading="lazy"{% endif %}></ins>
   {% endif %}
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
