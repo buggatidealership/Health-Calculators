@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description=chart.meta_description,
+    meta_keywords=chart.meta_keywords,
+    og_title=chart.og_title,
+    og_description=chart.meta_description,
+    og_url=chart.url,
+    page_title=chart.page_title,
+    canonical_url=chart.url
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: FAQPage -->
+{% if chart.faqs %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in chart.faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.q }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.a }}"
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+<!-- Schema: MedicalWebPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MedicalWebPage",
+  "name": "{{ chart.page_title }}",
+  "url": "https://healthcalculators.xyz{{ chart.url }}",
+  "description": "{{ chart.meta_description }}",
+  "lastReviewed": "2026-03-01"
+}
+</script>
+</head>
+<body>
+{% set breadcrumb_items = chart.breadcrumbs %}
+{% include 'header.html' %}
+
+    <section class="calculator-section">
+        <div class="calculator-container">
+            <div class="article-meta">
+                <span class="article-meta-item">Medically Reviewed Content</span>
+                <span class="article-meta-item">Updated March 2026</span>
+                <span class="article-meta-item">{{ chart.read_time }} min read</span>
+            </div>
+
+            <h1>{{ chart.h1 }}</h1>
+            <p class="lead-text">{{ chart.intro }}</p>
+
+            <!-- Table of Contents -->
+            <nav class="toc-nav" aria-label="Table of Contents">
+                <p class="toc-title">Contents</p>
+                <ul class="toc-list">
+                    {% for section in chart.sections %}
+                    <li><a href="#{{ section.id }}">{{ section.toc_label }}</a></li>
+                    {% endfor %}
+                    {% if chart.faqs %}<li><a href="#faq">FAQ</a></li>{% endif %}
+                    <li><a href="#sources">Sources</a></li>
+                </ul>
+            </nav>
+
+            {% include 'components/ad-unit.html' %}
+
+            {% for section in chart.sections %}
+            <section id="{{ section.id }}">
+                <h2>{{ section.title }}</h2>
+                {% if section.text %}{{ section.text|safe }}{% endif %}
+                {% if section.table %}
+                {{ section.table|safe }}
+                {% endif %}
+                {% if section.note %}<p class="source-note">{{ section.note }}</p>{% endif %}
+            </section>
+            {% if loop.index == 2 %}
+            {% include 'components/ad-unit.html' %}
+            {% endif %}
+            {% endfor %}
+
+            <!-- Calculator CTA -->
+            <section class="calculator-cta-box">
+                <div class="calculator-cta-icon">{{ chart.cta_icon }}</div>
+                <h2>{{ chart.cta_title }}</h2>
+                <p>{{ chart.cta_description }}</p>
+                <a href="{{ chart.calculator_url }}" class="cta-button">{{ chart.cta_button_text }}</a>
+            </section>
+
+            {% if chart.faqs %}
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                {% for faq in chart.faqs %}
+                <div class="faq-item">
+                    <h3>{{ faq.q }}</h3>
+                    <p>{{ faq.a }}</p>
+                </div>
+                {% endfor %}
+            </section>
+            {% endif %}
+
+            <section id="sources">
+                <h2>Sources &amp; References</h2>
+                <ol class="sources-list">
+                    {% for source in chart.sources %}
+                    <li>{{ source }}</li>
+                    {% endfor %}
+                </ol>
+            </section>
+
+            <p class="disclaimer-text" style="margin-top: 16px;">
+                This content is for informational purposes only and does not constitute medical advice. Consult a healthcare provider for personalized recommendations.
+            </p>
+
+            {% include 'components/share-card.html' %}
+        </div>
+    </section>
+
+{% include 'footer.html' %}
+
+<script src="/static/js/content-loops.js" defer></script>
+</body>
+</html>

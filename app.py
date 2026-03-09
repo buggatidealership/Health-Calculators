@@ -3205,5 +3205,374 @@ def demographic_calculator():
     )
 
 
+# ===== CHART REFERENCE PAGES =====
+chart_pages = {
+    'bmi-chart': {
+        'url': '/bmi-chart',
+        'page_title': 'BMI Chart for Men and Women (2026) — Full Height & Weight Table | HealthCalculators.xyz',
+        'og_title': 'BMI Chart for Men and Women (2026)',
+        'meta_description': 'Complete BMI chart showing BMI values for every height (4\'10" to 6\'4") and weight (100 to 300 lbs). Color-coded by WHO category with healthy ranges highlighted.',
+        'meta_keywords': 'BMI chart, BMI table, BMI chart for men, BMI chart for women, height weight chart BMI, body mass index chart',
+        'h1': 'BMI Chart for Men and Women (2026)',
+        'intro': 'Find your BMI instantly using the chart below. Locate your height in the left column and your weight across the top. The number where they intersect is your BMI. Colors indicate WHO categories: green (healthy), yellow (overweight), red (obese).',
+        'read_time': '4',
+        'cta_icon': '📊',
+        'cta_title': 'Get Your Exact BMI',
+        'cta_description': 'The chart gives an estimate. Use our calculator for a precise BMI with category breakdown and health interpretation.',
+        'cta_button_text': 'Open BMI Calculator →',
+        'calculator_url': '/bmi-calculator',
+        'sections': [
+            {
+                'id': 'bmi-chart-imperial',
+                'title': 'BMI Chart (Imperial — lbs & inches)',
+                'toc_label': 'BMI Chart (Imperial)',
+                'text': '<p>This chart shows BMI values for heights from 4\'10" to 6\'4" and weights from 100 to 280 lbs. BMI is calculated as (weight in lbs × 703) ÷ (height in inches)².</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table" style="font-size:0.78rem;">
+                        <thead>
+                            <tr><th>Height</th><th>100</th><th>120</th><th>140</th><th>160</th><th>180</th><th>200</th><th>220</th><th>240</th><th>260</th><th>280</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>4'10"</td><td class="td-warning">20.9</td><td class="td-good">25.1</td><td class="td-warning">29.3</td><td class="td-danger">33.5</td><td class="td-danger">37.7</td><td class="td-danger">41.8</td><td class="td-danger">46.0</td><td class="td-danger">50.2</td><td class="td-danger">54.4</td><td class="td-danger">58.6</td></tr>
+                            <tr><td>5'0"</td><td class="td-good">19.5</td><td class="td-good">23.4</td><td class="td-warning">27.3</td><td class="td-danger">31.2</td><td class="td-danger">35.2</td><td class="td-danger">39.1</td><td class="td-danger">43.0</td><td class="td-danger">46.9</td><td class="td-danger">50.8</td><td class="td-danger">54.7</td></tr>
+                            <tr><td>5'2"</td><td class="td-good">18.3</td><td class="td-good">21.9</td><td class="td-warning">25.6</td><td class="td-warning">29.3</td><td class="td-danger">32.9</td><td class="td-danger">36.6</td><td class="td-danger">40.2</td><td class="td-danger">43.9</td><td class="td-danger">47.6</td><td class="td-danger">51.2</td></tr>
+                            <tr><td>5'4"</td><td class="td-good">17.2</td><td class="td-good">20.6</td><td class="td-good">24.0</td><td class="td-warning">27.5</td><td class="td-danger">30.9</td><td class="td-danger">34.3</td><td class="td-danger">37.8</td><td class="td-danger">41.2</td><td class="td-danger">44.6</td><td class="td-danger">48.1</td></tr>
+                            <tr><td>5'6"</td><td class="td-good">16.1</td><td class="td-good">19.4</td><td class="td-good">22.6</td><td class="td-warning">25.8</td><td class="td-warning">29.0</td><td class="td-danger">32.3</td><td class="td-danger">35.5</td><td class="td-danger">38.7</td><td class="td-danger">42.0</td><td class="td-danger">45.2</td></tr>
+                            <tr><td>5'8"</td><td class="td-good">15.2</td><td class="td-good">18.2</td><td class="td-good">21.3</td><td class="td-good">24.3</td><td class="td-warning">27.4</td><td class="td-danger">30.4</td><td class="td-danger">33.5</td><td class="td-danger">36.5</td><td class="td-danger">39.5</td><td class="td-danger">42.6</td></tr>
+                            <tr><td>5'10"</td><td class="td-warning">14.4</td><td class="td-good">17.2</td><td class="td-good">20.1</td><td class="td-good">23.0</td><td class="td-warning">25.8</td><td class="td-warning">28.7</td><td class="td-danger">31.6</td><td class="td-danger">34.4</td><td class="td-danger">37.3</td><td class="td-danger">40.2</td></tr>
+                            <tr><td>6'0"</td><td class="td-warning">13.6</td><td class="td-good">16.3</td><td class="td-good">19.0</td><td class="td-good">21.7</td><td class="td-good">24.4</td><td class="td-warning">27.1</td><td class="td-warning">29.9</td><td class="td-danger">32.6</td><td class="td-danger">35.3</td><td class="td-danger">38.0</td></tr>
+                            <tr><td>6'2"</td><td class="td-warning">12.8</td><td class="td-good">15.4</td><td class="td-good">18.0</td><td class="td-good">20.5</td><td class="td-good">23.1</td><td class="td-warning">25.6</td><td class="td-warning">28.2</td><td class="td-danger">30.8</td><td class="td-danger">33.3</td><td class="td-danger">35.9</td></tr>
+                            <tr><td>6'4"</td><td class="td-warning">12.2</td><td class="td-good">14.6</td><td class="td-good">17.0</td><td class="td-good">19.5</td><td class="td-good">21.9</td><td class="td-good">24.3</td><td class="td-warning">26.8</td><td class="td-warning">29.2</td><td class="td-danger">31.6</td><td class="td-danger">34.1</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Green = healthy (18.5–24.9), Yellow = overweight (25–29.9), Red = obese (30+). Under 18.5 = underweight.'
+            },
+            {
+                'id': 'bmi-categories',
+                'title': 'WHO BMI Categories',
+                'toc_label': 'BMI Categories',
+                'text': None,
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Category</th><th>BMI Range</th><th>Health Risk</th><th>Action</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td class="td-warning">Underweight</td><td>&lt; 18.5</td><td>Nutritional deficiency, bone loss, weakened immunity</td><td>Consult a doctor; increase calorie intake</td></tr>
+                            <tr><td class="td-good">Healthy Weight</td><td>18.5 – 24.9</td><td>Lowest overall health risk</td><td>Maintain through balanced diet and activity</td></tr>
+                            <tr><td class="td-warning">Overweight</td><td>25.0 – 29.9</td><td>Increased risk of heart disease, diabetes</td><td>Moderate calorie reduction and exercise</td></tr>
+                            <tr><td class="td-danger">Obese Class I</td><td>30.0 – 34.9</td><td>High risk of cardiovascular disease, type 2 diabetes</td><td>Medical guidance recommended</td></tr>
+                            <tr><td class="td-danger">Obese Class II</td><td>35.0 – 39.9</td><td>Very high risk of comorbidities</td><td>Medical intervention often needed</td></tr>
+                            <tr><td class="td-danger">Obese Class III</td><td>≥ 40.0</td><td>Extremely high risk; associated with reduced life expectancy</td><td>Comprehensive medical treatment</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Source: World Health Organization. Categories apply to adults (20+ years). For teens, use age-specific percentiles.'
+            },
+            {
+                'id': 'bmi-healthy-weight',
+                'title': 'Healthy Weight Ranges by Height',
+                'toc_label': 'Healthy Weights by Height',
+                'text': '<p>The table below shows the weight range that falls within a healthy BMI (18.5–24.9) for each height.</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Height</th><th>Minimum Healthy Weight</th><th>Maximum Healthy Weight</th><th>Midpoint</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>4'10" (58")</td><td>91 lbs</td><td>119 lbs</td><td class="td-good">105 lbs</td></tr>
+                            <tr><td>5'0" (60")</td><td>97 lbs</td><td>128 lbs</td><td class="td-good">112 lbs</td></tr>
+                            <tr><td>5'2" (62")</td><td>104 lbs</td><td>136 lbs</td><td class="td-good">120 lbs</td></tr>
+                            <tr><td>5'4" (64")</td><td>110 lbs</td><td>145 lbs</td><td class="td-good">128 lbs</td></tr>
+                            <tr><td>5'6" (66")</td><td>118 lbs</td><td>154 lbs</td><td class="td-good">136 lbs</td></tr>
+                            <tr><td>5'8" (68")</td><td>125 lbs</td><td>163 lbs</td><td class="td-good">144 lbs</td></tr>
+                            <tr><td>5'10" (70")</td><td>132 lbs</td><td>173 lbs</td><td class="td-good">153 lbs</td></tr>
+                            <tr><td>6'0" (72")</td><td>140 lbs</td><td>183 lbs</td><td class="td-good">162 lbs</td></tr>
+                            <tr><td>6'2" (74")</td><td>148 lbs</td><td>194 lbs</td><td class="td-good">171 lbs</td></tr>
+                            <tr><td>6'4" (76")</td><td>156 lbs</td><td>205 lbs</td><td class="td-good">180 lbs</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Based on BMI 18.5 (minimum) and 24.9 (maximum). Individual healthy weight depends on body composition, age, and other factors.'
+            }
+        ],
+        'faqs': [
+            {'q': 'How do I read a BMI chart?', 'a': 'Find your height in the left column and your weight along the top row. The number where they meet is your BMI. Colors indicate categories: green is healthy (18.5–24.9), yellow is overweight (25–29.9), and red is obese (30+).'},
+            {'q': 'Is BMI the same for men and women?', 'a': 'The BMI formula and category cutoffs are the same for adult men and women. However, at the same BMI, women typically have higher body fat percentage than men. This means BMI may underestimate health risks for women and overestimate them for muscular men.'},
+            {'q': 'What is a good BMI for my age?', 'a': 'For adults 20–65, a BMI of 18.5–24.9 is considered healthy regardless of age. However, research suggests slightly higher BMIs (23–28) may be optimal for adults over 65, as moderate weight appears to protect against bone fractures and illness in older adults.'},
+            {'q': 'How accurate is BMI?', 'a': 'BMI is a reasonable screening tool for the general population but has significant limitations. It misclassifies about 30% of people — muscular individuals may be classified as overweight despite low body fat, while "skinny fat" individuals may have a normal BMI but unhealthy body composition. Body fat percentage is a more accurate measure of health.'}
+        ],
+        'sources': [
+            'World Health Organization. "Body mass index - BMI." WHO Global Health Observatory.',
+            'National Heart, Lung, and Blood Institute. "Classification of Overweight and Obesity by BMI, Waist Circumference, and Associated Disease Risks."',
+            'Flegal KM, et al. "Association of all-cause mortality with overweight and obesity using standard body mass index categories." JAMA, 2013.',
+            'CDC. "About Adult BMI." Centers for Disease Control and Prevention, 2024.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Fitness & Body Calculators', 'url': '/fitness-body-composition-calculators'},
+            {'name': 'BMI Chart', 'url': '/bmi-chart'}
+        ]
+    },
+    'tdee-chart': {
+        'url': '/tdee-chart',
+        'page_title': 'TDEE Chart by Age, Gender & Activity Level (2026) | HealthCalculators.xyz',
+        'og_title': 'TDEE Chart by Age & Activity Level',
+        'meta_description': 'Complete TDEE chart showing daily calorie needs for men and women by age (18-75+) and 5 activity levels. Based on the Mifflin-St Jeor equation.',
+        'meta_keywords': 'TDEE chart, calorie chart by age, daily calorie needs chart, TDEE by age, how many calories by age',
+        'h1': 'TDEE Chart by Age, Gender & Activity Level',
+        'intro': 'Use the charts below to estimate your Total Daily Energy Expenditure based on your age, gender, and activity level. These values are calculated using the Mifflin-St Jeor equation for average-height individuals.',
+        'read_time': '5',
+        'cta_icon': '🔥',
+        'cta_title': 'Get Your Personalized TDEE',
+        'cta_description': 'Charts use average heights and weights. For a precise calculation using your exact measurements, use our TDEE calculator.',
+        'cta_button_text': 'Open TDEE Calculator →',
+        'calculator_url': '/tdee-calculator',
+        'sections': [
+            {
+                'id': 'tdee-chart-women',
+                'title': 'TDEE Chart for Women (Calories/Day)',
+                'toc_label': 'TDEE Chart — Women',
+                'text': '<p>Based on Mifflin-St Jeor equation for a woman at average height (5\'4" / 163 cm) and weight proportional to age.</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Age</th><th>Sedentary<br>(×1.2)</th><th>Lightly Active<br>(×1.375)</th><th>Moderate<br>(×1.55)</th><th>Very Active<br>(×1.725)</th><th>Extra Active<br>(×1.9)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>18–20</td><td>1,750</td><td>2,000</td><td class="td-accent">2,250</td><td>2,500</td><td>2,750</td></tr>
+                            <tr><td>21–25</td><td>1,750</td><td>2,000</td><td class="td-accent">2,250</td><td>2,500</td><td>2,750</td></tr>
+                            <tr><td>26–30</td><td>1,700</td><td>1,950</td><td class="td-accent">2,200</td><td>2,450</td><td>2,700</td></tr>
+                            <tr><td>31–35</td><td>1,700</td><td>1,950</td><td class="td-accent">2,150</td><td>2,400</td><td>2,650</td></tr>
+                            <tr><td>36–40</td><td>1,650</td><td>1,900</td><td class="td-accent">2,100</td><td>2,350</td><td>2,600</td></tr>
+                            <tr><td>41–45</td><td>1,650</td><td>1,850</td><td class="td-accent">2,100</td><td>2,300</td><td>2,550</td></tr>
+                            <tr><td>46–50</td><td>1,600</td><td>1,800</td><td class="td-accent">2,050</td><td>2,250</td><td>2,500</td></tr>
+                            <tr><td>51–55</td><td>1,550</td><td>1,800</td><td class="td-accent">2,000</td><td>2,200</td><td>2,450</td></tr>
+                            <tr><td>56–60</td><td>1,550</td><td>1,750</td><td class="td-accent">1,950</td><td>2,150</td><td>2,400</td></tr>
+                            <tr><td>61–65</td><td>1,500</td><td>1,700</td><td class="td-accent">1,900</td><td>2,100</td><td>2,350</td></tr>
+                            <tr><td>66–70</td><td>1,450</td><td>1,650</td><td class="td-accent">1,850</td><td>2,050</td><td>2,250</td></tr>
+                            <tr><td>71–75</td><td>1,400</td><td>1,600</td><td class="td-accent">1,800</td><td>2,000</td><td>2,200</td></tr>
+                            <tr><td>75+</td><td>1,350</td><td>1,550</td><td class="td-accent">1,750</td><td>1,950</td><td>2,150</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Rounded to nearest 50 calories. Based on 5\'4", 140 lbs baseline, adjusted for age-related metabolic decline.'
+            },
+            {
+                'id': 'tdee-chart-men',
+                'title': 'TDEE Chart for Men (Calories/Day)',
+                'toc_label': 'TDEE Chart — Men',
+                'text': '<p>Based on Mifflin-St Jeor equation for a man at average height (5\'9" / 175 cm) and weight proportional to age.</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Age</th><th>Sedentary<br>(×1.2)</th><th>Lightly Active<br>(×1.375)</th><th>Moderate<br>(×1.55)</th><th>Very Active<br>(×1.725)</th><th>Extra Active<br>(×1.9)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>18–20</td><td>2,350</td><td>2,700</td><td class="td-accent">3,000</td><td>3,350</td><td>3,700</td></tr>
+                            <tr><td>21–25</td><td>2,350</td><td>2,650</td><td class="td-accent">3,000</td><td>3,350</td><td>3,650</td></tr>
+                            <tr><td>26–30</td><td>2,300</td><td>2,600</td><td class="td-accent">2,950</td><td>3,250</td><td>3,600</td></tr>
+                            <tr><td>31–35</td><td>2,250</td><td>2,550</td><td class="td-accent">2,900</td><td>3,200</td><td>3,500</td></tr>
+                            <tr><td>36–40</td><td>2,200</td><td>2,500</td><td class="td-accent">2,800</td><td>3,100</td><td>3,450</td></tr>
+                            <tr><td>41–45</td><td>2,150</td><td>2,450</td><td class="td-accent">2,750</td><td>3,050</td><td>3,350</td></tr>
+                            <tr><td>46–50</td><td>2,100</td><td>2,400</td><td class="td-accent">2,700</td><td>3,000</td><td>3,300</td></tr>
+                            <tr><td>51–55</td><td>2,050</td><td>2,350</td><td class="td-accent">2,650</td><td>2,950</td><td>3,200</td></tr>
+                            <tr><td>56–60</td><td>2,000</td><td>2,300</td><td class="td-accent">2,550</td><td>2,850</td><td>3,150</td></tr>
+                            <tr><td>61–65</td><td>1,950</td><td>2,200</td><td class="td-accent">2,500</td><td>2,800</td><td>3,050</td></tr>
+                            <tr><td>66–70</td><td>1,900</td><td>2,150</td><td class="td-accent">2,400</td><td>2,700</td><td>2,950</td></tr>
+                            <tr><td>71–75</td><td>1,850</td><td>2,100</td><td class="td-accent">2,350</td><td>2,600</td><td>2,850</td></tr>
+                            <tr><td>75+</td><td>1,800</td><td>2,050</td><td class="td-accent">2,300</td><td>2,550</td><td>2,800</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Rounded to nearest 50 calories. Based on 5\'9", 180 lbs baseline, adjusted for age-related metabolic decline.'
+            },
+            {
+                'id': 'activity-levels',
+                'title': 'Activity Level Definitions',
+                'toc_label': 'Activity Level Guide',
+                'text': None,
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Level</th><th>Multiplier</th><th>Description</th><th>Examples</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Sedentary</td><td>×1.2</td><td>Little to no exercise, desk job</td><td>Office worker, minimal walking</td></tr>
+                            <tr><td>Lightly Active</td><td>×1.375</td><td>Light exercise 1–3 days/week</td><td>Casual walking, yoga, light gym sessions</td></tr>
+                            <tr><td class="td-accent">Moderately Active</td><td class="td-accent">×1.55</td><td>Moderate exercise 3–5 days/week</td><td>Jogging, cycling, recreational sports</td></tr>
+                            <tr><td>Very Active</td><td>×1.725</td><td>Hard exercise 6–7 days/week</td><td>Daily gym sessions, competitive training</td></tr>
+                            <tr><td>Extra Active</td><td>×1.9</td><td>Very hard exercise + physical job</td><td>Professional athletes, construction + gym</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Most people overestimate their activity level. If unsure, choose one level lower than you think.'
+            }
+        ],
+        'faqs': [
+            {'q': 'How many calories do I burn per day?', 'a': 'The average adult burns 1,600–3,200 calories per day. Women typically burn 1,600–2,400 and men 2,000–3,200, depending on age, size, and activity level. Use the charts above to find your estimate, or use a TDEE calculator for a personalized number.'},
+            {'q': 'Does TDEE decrease with age?', 'a': 'Yes. TDEE decreases approximately 50–100 calories per decade after age 30, primarily due to loss of muscle mass (sarcopenia). A 60-year-old burns roughly 200–300 fewer calories per day than a 25-year-old of the same size and activity level. Regular resistance training can slow this decline by preserving muscle.'},
+            {'q': 'How accurate are TDEE charts?', 'a': 'TDEE charts provide estimates within 200–300 calories of actual expenditure for most people. They use population-average body compositions and may over- or underestimate by more for individuals with unusually high or low muscle mass. For the most accurate estimate, use a calculator with your exact height, weight, age, and activity level.'},
+            {'q': 'What does TDEE include?', 'a': 'TDEE includes: Basal Metabolic Rate (60–75% of total), the thermic effect of food (10%), non-exercise activity thermogenesis/NEAT (15–30%), and exercise activity (variable). Your BMR is the calories burned at complete rest; everything else adds to it based on your daily movement and eating patterns.'}
+        ],
+        'sources': [
+            'Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." American Journal of Clinical Nutrition, 1990.',
+            'U.S. Department of Agriculture. "Dietary Guidelines for Americans, 2020–2025." Estimated Calorie Needs per Day by Age, Sex, and Physical Activity Level.',
+            'Westerterp KR. "Physical activity and physical activity induced energy expenditure in humans." Clinical Nutrition, 2013.',
+            'Fielding RA, et al. "Sarcopenia: An Undiagnosed Condition in Older Adults." Journal of the American Medical Directors Association, 2011.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'TDEE Chart', 'url': '/tdee-chart'}
+        ]
+    },
+    'protein-intake-chart': {
+        'url': '/protein-intake-chart',
+        'page_title': 'Protein Intake Chart by Body Weight, Age & Goal (2026) | HealthCalculators.xyz',
+        'og_title': 'Protein Intake Chart by Weight & Goal',
+        'meta_description': 'Complete daily protein intake chart showing grams needed by body weight (100-250 lbs), fitness goal, and age. Based on ISSN, ACSM, and RDA recommendations.',
+        'meta_keywords': 'protein intake chart, how much protein per day, protein chart by weight, daily protein needs chart, protein requirements by age',
+        'h1': 'Daily Protein Intake Chart by Body Weight & Goal',
+        'intro': 'Find your recommended daily protein intake using the charts below. Locate your body weight and goal to see your target in grams per day. Based on the latest sports nutrition and dietary research.',
+        'read_time': '5',
+        'cta_icon': '🥩',
+        'cta_title': 'Get Your Personalized Recommendation',
+        'cta_description': 'These charts show ranges. For a precise recommendation based on your age, weight, activity, and goals, use our calculator.',
+        'cta_button_text': 'Open Protein Calculator →',
+        'calculator_url': '/protein-intake-calculator',
+        'sections': [
+            {
+                'id': 'protein-by-goal',
+                'title': 'Daily Protein by Body Weight & Goal (grams/day)',
+                'toc_label': 'Protein by Weight & Goal',
+                'text': '<p>Protein needs vary significantly based on your goal. The table below shows recommended daily intake in grams for different body weights and goals.</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Body Weight</th><th>Minimum<br>(RDA 0.8 g/kg)</th><th>General Health<br>(1.0 g/kg)</th><th>Weight Loss<br>(1.4 g/kg)</th><th>Muscle Building<br>(1.8 g/kg)</th><th>Athlete/Cutting<br>(2.2 g/kg)</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>100 lbs (45 kg)</td><td>36 g</td><td>45 g</td><td class="td-accent">64 g</td><td class="td-accent">82 g</td><td class="td-accent">100 g</td></tr>
+                            <tr><td>120 lbs (54 kg)</td><td>44 g</td><td>54 g</td><td class="td-accent">76 g</td><td class="td-accent">98 g</td><td class="td-accent">120 g</td></tr>
+                            <tr><td>140 lbs (64 kg)</td><td>51 g</td><td>64 g</td><td class="td-accent">89 g</td><td class="td-accent">115 g</td><td class="td-accent">140 g</td></tr>
+                            <tr><td>160 lbs (73 kg)</td><td>58 g</td><td>73 g</td><td class="td-accent">102 g</td><td class="td-accent">131 g</td><td class="td-accent">160 g</td></tr>
+                            <tr><td>180 lbs (82 kg)</td><td>65 g</td><td>82 g</td><td class="td-accent">114 g</td><td class="td-accent">147 g</td><td class="td-accent">180 g</td></tr>
+                            <tr><td>200 lbs (91 kg)</td><td>73 g</td><td>91 g</td><td class="td-accent">127 g</td><td class="td-accent">163 g</td><td class="td-accent">200 g</td></tr>
+                            <tr><td>220 lbs (100 kg)</td><td>80 g</td><td>100 g</td><td class="td-accent">140 g</td><td class="td-accent">180 g</td><td class="td-accent">220 g</td></tr>
+                            <tr><td>250 lbs (113 kg)</td><td>91 g</td><td>113 g</td><td class="td-accent">159 g</td><td class="td-accent">204 g</td><td class="td-accent">250 g</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'For overweight individuals, calculate based on lean body mass or ideal body weight rather than total weight.'
+            },
+            {
+                'id': 'protein-by-age',
+                'title': 'Recommended Protein by Age & Life Stage',
+                'toc_label': 'Protein by Age',
+                'text': '<p>Protein needs change across the lifespan. Children, pregnant women, and older adults all have different requirements.</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Age/Life Stage</th><th>RDA (g/kg/day)</th><th>Optimal Range</th><th>Key Reason</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Children (4–13)</td><td>0.95 g/kg</td><td>1.0–1.5 g/kg</td><td>Growth and development</td></tr>
+                            <tr><td>Teens (14–18)</td><td>0.85 g/kg</td><td>1.0–1.6 g/kg</td><td>Pubertal growth spurt</td></tr>
+                            <tr><td>Adults (19–50)</td><td>0.8 g/kg</td><td class="td-accent">1.0–1.6 g/kg</td><td>Maintenance and muscle support</td></tr>
+                            <tr><td>Adults (51–65)</td><td>0.8 g/kg</td><td class="td-accent">1.0–1.2 g/kg</td><td>Counteract sarcopenia</td></tr>
+                            <tr><td>Older Adults (65+)</td><td>0.8 g/kg</td><td class="td-accent">1.2–1.5 g/kg</td><td>Prevent muscle loss and frailty</td></tr>
+                            <tr><td>Pregnancy</td><td>1.1 g/kg</td><td class="td-accent">1.2–1.5 g/kg</td><td>Fetal development (2nd/3rd trimester)</td></tr>
+                            <tr><td>Breastfeeding</td><td>1.3 g/kg</td><td class="td-accent">1.3–1.7 g/kg</td><td>Milk production</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'RDA = Recommended Dietary Allowance (minimum to prevent deficiency). Optimal ranges reflect current sports nutrition and geriatric research.'
+            },
+            {
+                'id': 'protein-sources',
+                'title': 'High-Protein Foods Comparison',
+                'toc_label': 'Protein Sources',
+                'text': '<p>Protein per serving for common foods, sorted by protein density (grams per 100 calories).</p>',
+                'table': '''
+                    <div class="data-table-scroll">
+                    <table class="data-table">
+                        <thead>
+                            <tr><th>Food</th><th>Serving</th><th>Protein</th><th>Calories</th><th>Protein per 100 cal</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Chicken breast (cooked)</td><td>4 oz (113g)</td><td class="td-accent">31 g</td><td>165</td><td class="td-good">18.8 g</td></tr>
+                            <tr><td>Egg whites</td><td>4 large</td><td class="td-accent">14 g</td><td>68</td><td class="td-good">20.6 g</td></tr>
+                            <tr><td>Greek yogurt (nonfat)</td><td>1 cup (227g)</td><td class="td-accent">17 g</td><td>100</td><td class="td-good">17.0 g</td></tr>
+                            <tr><td>Shrimp</td><td>4 oz (113g)</td><td class="td-accent">24 g</td><td>120</td><td class="td-good">20.0 g</td></tr>
+                            <tr><td>Whey protein powder</td><td>1 scoop (30g)</td><td class="td-accent">25 g</td><td>120</td><td class="td-good">20.8 g</td></tr>
+                            <tr><td>Cottage cheese (2%)</td><td>1 cup (226g)</td><td class="td-accent">24 g</td><td>183</td><td>13.1 g</td></tr>
+                            <tr><td>Salmon (cooked)</td><td>4 oz (113g)</td><td class="td-accent">25 g</td><td>234</td><td>10.7 g</td></tr>
+                            <tr><td>Tofu (firm)</td><td>4 oz (113g)</td><td>11 g</td><td>88</td><td>12.5 g</td></tr>
+                            <tr><td>Lentils (cooked)</td><td>1 cup (198g)</td><td>18 g</td><td>230</td><td>7.8 g</td></tr>
+                            <tr><td>Whole eggs</td><td>2 large</td><td>12 g</td><td>144</td><td>8.3 g</td></tr>
+                        </tbody>
+                    </table>
+                    </div>
+                ''',
+                'note': 'Values from USDA FoodData Central. Protein density (g per 100 cal) helps maximize protein while managing total calorie intake.'
+            }
+        ],
+        'faqs': [
+            {'q': 'How much protein do I need per day?', 'a': 'The minimum RDA is 0.8 g per kg of body weight (about 56g for a 155-lb person). However, most nutrition experts recommend 1.0–1.6 g/kg for optimal health, muscle maintenance, and satiety. Active individuals and those over 50 should aim for 1.2–2.0 g/kg.'},
+            {'q': 'Is 100g of protein a day enough?', 'a': '100g of protein is enough for most sedentary to lightly active people weighing under 180 lbs. For weight loss, muscle building, or athletic performance, you likely need more. A 180-lb person aiming for muscle building (1.8 g/kg) needs about 147g per day.'},
+            {'q': 'Can you eat too much protein?', 'a': 'For healthy individuals with normal kidney function, protein intakes up to 2.2 g/kg (about 1 g per pound of body weight) are well-studied and safe. Extremely high intakes (3+ g/kg) show no additional benefit and may displace other important nutrients. People with kidney disease should consult their doctor about protein limits.'},
+            {'q': 'When should I eat protein for best results?', 'a': 'Distribute protein evenly across 3–5 meals (20–40g per meal) rather than loading it into one meal. For muscle building, consuming protein within 2 hours after resistance training optimizes muscle protein synthesis. Before bed, a slow-digesting protein like casein or cottage cheese supports overnight recovery.'}
+        ],
+        'sources': [
+            'Jäger R, et al. "International Society of Sports Nutrition Position Stand: protein and exercise." JISSN, 2017.',
+            'Phillips SM, et al. "Dietary protein for athletes: from requirements to optimum adaptation." Journal of Sports Sciences, 2011.',
+            'Baum JI, et al. "Protein Consumption and the Elderly: What Is the Optimal Level of Intake?" Nutrients, 2016.',
+            'USDA FoodData Central. U.S. Department of Agriculture.'
+        ],
+        'breadcrumbs': [
+            {'name': 'Nutrition Calculators', 'url': '/nutrition-calculators'},
+            {'name': 'Protein Intake Chart', 'url': '/protein-intake-chart'}
+        ]
+    }
+}
+
+@app.route('/bmi-chart')
+@app.route('/tdee-chart')
+@app.route('/protein-intake-chart')
+def chart_reference():
+    path = request.path.lstrip('/')
+    page = chart_pages.get(path)
+    if not page:
+        return "Not found", 404
+    return render_template(
+        'chart_reference.html',
+        chart=page,
+        is_homepage=False,
+        page_title=page['page_title'],
+        meta_description=page['meta_description'],
+        meta_keywords=page['meta_keywords'],
+        og_title=page['og_title'],
+        og_description=page['meta_description'],
+        og_url=page['url'],
+        canonical_url=page['url']
+    )
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

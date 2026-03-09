@@ -24,6 +24,25 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- Chart Reference Pages -->
+  <url>
+    <loc>https://healthcalculators.xyz/bmi-chart</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/tdee-chart</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/protein-intake-chart</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <!-- Demographic Calculator Pages -->
   <url>
     <loc>https://healthcalculators.xyz/tdee-calculator-for-women</loc>
