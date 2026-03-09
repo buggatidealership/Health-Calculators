@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Vitamin D levels chart showing normal, deficient, insufficient & optimal ranges by age. Includes recommended daily intake (IOM & Endocrine Society), deficiency symptoms, D2 vs D3, and dosing guidance.",
+    meta_keywords="vitamin D levels chart, vitamin D deficiency, normal vitamin D level, optimal vitamin D range, vitamin D blood test, 25-hydroxyvitamin D, vitamin D intake by age, vitamin D insufficiency, vitamin D IU recommendations",
+    og_title="Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges",
+    og_description="Complete vitamin D reference chart with blood level ranges, daily intake by age, deficiency prevalence by country, and evidence-based dosing guidance.",
+    og_url="/resources/vitamin-d-levels-chart",
+    page_title="Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges",
+    canonical_url="/resources/vitamin-d-levels-chart",
+    schema_name="Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges",
+    schema_description="Complete vitamin D reference chart with blood level ranges, recommended daily intake by age, deficiency prevalence by country, and evidence-based dosing guidance.",
+    schema_url="/resources/vitamin-d-levels-chart",
+    schema_about="Vitamin D Blood Levels and Recommended Intake",
+    date_published="2026-03-09",
+    date_modified="2026-03-09"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+    <style>
+        img[src$=".svg"]:not(.icon) {
+          display: none !important;
+        }
+        img[src$=".webp"] {
+          max-width: 100%;
+          height: auto;
+          aspect-ratio: auto 4 / 3;
+          display: block;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.95rem;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #ddd;
+            padding: 10px 14px;
+            text-align: left;
+        }
+        .data-table th {
+            background-color: #f0f9fa;
+            font-weight: 600;
+            color: #333;
+        }
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .data-table tr:hover {
+            background-color: #f0f5f5;
+        }
+        .status-severe { color: #dc2626; font-weight: 600; }
+        .status-deficient { color: #d97706; font-weight: 600; }
+        .status-insufficient { color: #ca8a04; font-weight: 600; }
+        .status-sufficient { color: #16a34a; font-weight: 600; }
+        .status-optimal { color: #059669; font-weight: 700; }
+        .status-excess { color: #dc2626; font-weight: 600; }
+        @media (max-width: 600px) {
+            .data-table { font-size: 0.85rem; }
+            .data-table th, .data-table td { padding: 7px 8px; }
+        }
+    </style>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a normal vitamin D level in ng/mL?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A normal (sufficient) vitamin D level is 30-50 ng/mL (75-125 nmol/L) according to the Endocrine Society. The Institute of Medicine considers 20 ng/mL (50 nmol/L) adequate for bone health. Levels below 20 ng/mL are classified as deficient, and below 10 ng/mL as severely deficient."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much vitamin D should I take daily?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The IOM recommends 600 IU/day for adults aged 19-70 and 800 IU/day for adults over 70. The Endocrine Society recommends 1,500-2,000 IU/day for adults to maintain levels above 30 ng/mL. The tolerable upper intake level is 4,000 IU/day for adults, though some clinicians prescribe higher doses under supervision for deficiency correction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What percentage of people are vitamin D deficient?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Approximately 42% of US adults have vitamin D levels below 20 ng/mL (deficient). Globally, an estimated 1 billion people have vitamin D deficiency or insufficiency. Prevalence is highest in the Middle East (60-80%), South Asia (70-80%), and Northern Europe (40-60%), largely due to limited sun exposure, darker skin pigmentation, and dietary factors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is vitamin D3 better than vitamin D2?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, vitamin D3 (cholecalciferol) is generally considered more effective than D2 (ergocalciferol). Studies show D3 raises serum 25(OH)D levels 87% more potently than D2 and maintains elevated levels 2-3 times longer. D3 also has a higher affinity for vitamin D-binding protein, giving it a longer half-life in circulation (approximately 2-3 weeks vs. 2-3 days for D2)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the symptoms of low vitamin D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Common symptoms of vitamin D deficiency include bone pain, muscle weakness, fatigue, depression, impaired wound healing, and frequent infections. Severe deficiency (below 10 ng/mL) can cause osteomalacia in adults (bone softening) and rickets in children. Many people with mild deficiency (10-20 ng/mL) may have no obvious symptoms, which is why blood testing is recommended for at-risk populations."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to correct vitamin D deficiency?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It typically takes 8-12 weeks of supplementation to correct vitamin D deficiency, depending on the starting level and dose. A common loading protocol is 50,000 IU weekly for 8 weeks, followed by maintenance of 1,500-2,000 IU daily. Each 1,000 IU of daily vitamin D3 raises blood levels by approximately 10 ng/mL over 2-3 months, though individual responses vary based on body weight, absorption, and other factors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you take too much vitamin D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, vitamin D toxicity (hypervitaminosis D) can occur at blood levels above 100 ng/mL (250 nmol/L), though it is rare and typically requires prolonged intake above 10,000 IU/day. Symptoms include nausea, vomiting, weakness, and dangerously elevated blood calcium (hypercalcemia). The tolerable upper intake level set by the IOM is 4,000 IU/day for adults. Toxicity does not occur from sun exposure alone, as the body regulates cutaneous vitamin D production."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best test for vitamin D levels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The 25-hydroxyvitamin D [25(OH)D] blood test is the standard and most accurate test for measuring vitamin D status. It reflects vitamin D from both dietary intake and skin synthesis, with a half-life of 2-3 weeks. The test measures total 25(OH)D (D2 + D3 combined). Results are reported in ng/mL (US) or nmol/L (international), where 1 ng/mL = 2.5 nmol/L. Testing is recommended for at-risk groups including older adults, people with dark skin, and those with limited sun exposure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does sunscreen block vitamin D production?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In theory, sunscreen with SPF 30 blocks approximately 97% of UVB rays needed for vitamin D synthesis. However, real-world studies show that regular sunscreen use rarely causes vitamin D deficiency because people typically do not apply enough sunscreen to block all UVB, and incidental sun exposure on uncovered skin areas still contributes to production. The Endocrine Society recommends 10-15 minutes of unprotected midday sun exposure on arms and legs 2-3 times per week for fair-skinned individuals, followed by sunscreen application."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container article-container">
+
+<h1>Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges</h1>
+<p class="subtitle">A comprehensive, evidence-based reference guide to vitamin D blood levels, recommended daily intake by age, global deficiency prevalence, and practical supplementation guidance -- sourced from the Institute of Medicine, Endocrine Society, and WHO.</p>
+
+<div class="cta-box" style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
+    <div style="flex: 1;">
+        <h3 style="margin-top: 0; color: #333;">Check your vitamin D needs</h3>
+        <p style="margin-bottom: 0;">Use our <a href="/vitamin-d-intake-calculator" style="color: var(--color-accent); text-decoration: underline;">Vitamin D Intake Calculator</a> for a personalized daily dose recommendation based on your sun exposure, skin tone, latitude, and body weight. Need to convert units? Try the <a href="/vitamin-d-conversion-calculator" style="color: var(--color-accent); text-decoration: underline;">Vitamin D Conversion Calculator</a>.</p>
+    </div>
+    <a href="/vitamin-d-intake-calculator" style="background-color: var(--color-accent); color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; margin-left: 20px; display: inline-block;">Calculate My Intake</a>
+</div>
+
+{% with ad_position="top" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+<!-- Table of Contents -->
+<div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <h3 style="display: flex; align-items: center; margin-top: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="currentColor" stroke-width="2" d="M9,1 L9,1 L2,1 L2,20 L9,20 M16,1 L16,10 L19,7 L22,10 L22,1 L16,1 Z M16,23 L16,10 M9,5 L9,15 L12,12 L15,15 L15,5 L9,5 Z"></path></svg>
+        Table of Contents
+    </h3>
+    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0;">
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#blood-level-ranges" style="text-decoration: none; color: #333;">Vitamin D Blood Level Ranges</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#daily-intake" style="text-decoration: none; color: #333;">Recommended Daily Intake by Age</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#deficiency-by-country" style="text-decoration: none; color: #333;">Vitamin D Deficiency by Country</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#deficiency-symptoms" style="text-decoration: none; color: #333;">Symptoms of Vitamin D Deficiency</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#raise-levels" style="text-decoration: none; color: #333;">How to Raise Your Vitamin D Levels</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#d2-vs-d3" style="text-decoration: none; color: #333;">Vitamin D2 vs D3: Which Is Better?</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#risk-factors" style="text-decoration: none; color: #333;">Who Is Most at Risk for Deficiency?</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#testing" style="text-decoration: none; color: #333;">Testing Your Vitamin D Level</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#faq" style="text-decoration: none; color: #333;">Frequently Asked Questions</a>
+        </li>
+        <li style="margin-bottom: 0; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: #3f51b5;"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#references" style="text-decoration: none; color: #333;">References</a>
+        </li>
+    </ul>
+</div>
+
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+<!-- Section 1: Blood Level Ranges -->
+<section id="blood-level-ranges">
+    <h2>Vitamin D Blood Level Ranges</h2>
+
+    <p>A 25-hydroxyvitamin D level between 30 and 50 ng/mL (75-125 nmol/L) is considered sufficient by the Endocrine Society, while the optimal range for overall health is 40-60 ng/mL (100-150 nmol/L).<sup><a href="#ref1">1</a></sup> The standard blood test for vitamin D status measures serum 25-hydroxyvitamin D [25(OH)D], which reflects both dietary intake and cutaneous synthesis from UVB exposure. This metabolite has a circulating half-life of approximately 2-3 weeks, making it the most reliable biomarker for vitamin D stores.<sup><a href="#ref2">2</a></sup></p>
+
+    <p>Two major bodies define the clinical thresholds differently. The Institute of Medicine (IOM) considers 20 ng/mL (50 nmol/L) adequate for bone health in 97.5% of the population.<sup><a href="#ref3">3</a></sup> The Endocrine Society uses a higher threshold of 30 ng/mL (75 nmol/L) as the minimum for sufficiency, reflecting evidence for extraskeletal benefits including immune function, cardiovascular health, and cancer risk reduction.<sup><a href="#ref1">1</a></sup></p>
+
+    <table class="data-table">
+        <caption style="text-align: left; font-weight: 600; margin-bottom: 10px; font-size: 1.05rem;">Vitamin D Blood Level Classification (25-hydroxyvitamin D)</caption>
+        <thead>
+            <tr>
+                <th>Status</th>
+                <th>ng/mL</th>
+                <th>nmol/L</th>
+                <th>Clinical Significance</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="status-severe">Severely Deficient</span></td>
+                <td>&lt;10</td>
+                <td>&lt;25</td>
+                <td>Rickets (children), osteomalacia (adults), severe muscle weakness</td>
+            </tr>
+            <tr>
+                <td><span class="status-deficient">Deficient</span></td>
+                <td>10-20</td>
+                <td>25-50</td>
+                <td>Increased bone loss, elevated fracture risk, impaired calcium absorption</td>
+            </tr>
+            <tr>
+                <td><span class="status-insufficient">Insufficient</span></td>
+                <td>20-30</td>
+                <td>50-75</td>
+                <td>Suboptimal bone health, possible immune and metabolic effects</td>
+            </tr>
+            <tr>
+                <td><span class="status-sufficient">Sufficient</span></td>
+                <td>30-50</td>
+                <td>75-125</td>
+                <td>Adequate for bone and general health (Endocrine Society threshold)</td>
+            </tr>
+            <tr>
+                <td><span class="status-optimal">Optimal</span></td>
+                <td>40-60</td>
+                <td>100-150</td>
+                <td>Associated with best outcomes for immune, cardiovascular, and bone health<sup><a href="#ref1">1</a></sup></td>
+            </tr>
+            <tr>
+                <td><span class="status-excess">Potentially Harmful</span></td>
+                <td>&gt;100</td>
+                <td>&gt;250</td>
+                <td>Risk of hypercalcemia, kidney stones, soft tissue calcification<sup><a href="#ref4">4</a></sup></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>The conversion factor between units is: <strong>1 ng/mL = 2.5 nmol/L</strong>. Labs in the United States typically report results in ng/mL, while many international labs use nmol/L. Use our <a href="/vitamin-d-conversion-calculator">Vitamin D Conversion Calculator</a> for instant conversions between the two units.</p>
+
+    <p>It is important to note that the "optimal" range of 40-60 ng/mL is supported by observational studies showing associations with reduced risk of autoimmune disease, certain cancers, and cardiovascular events, but randomized controlled trials have not definitively established causation for all extraskeletal outcomes.<sup><a href="#ref5">5</a></sup> The IOM's lower threshold of 20 ng/mL is based on established evidence for bone health specifically.</p>
+</section>
+
+<!-- Section 2: Recommended Daily Intake by Age -->
+<section id="daily-intake">
+    <h2>Recommended Daily Intake by Age</h2>
+
+    <p>The recommended daily vitamin D intake varies by age, with the Endocrine Society consistently recommending higher doses than the IOM to achieve serum levels above 30 ng/mL.<sup><a href="#ref1">1</a></sup><sup><a href="#ref3">3</a></sup> Both organizations agree on a tolerable upper intake level (UL) of 4,000 IU/day for anyone over age 9, above which the risk of adverse effects increases without medical supervision.</p>
+
+    <table class="data-table">
+        <caption style="text-align: left; font-weight: 600; margin-bottom: 10px; font-size: 1.05rem;">Vitamin D Daily Intake Recommendations (IU/day)</caption>
+        <thead>
+            <tr>
+                <th>Age Group</th>
+                <th>IOM RDA</th>
+                <th>Endocrine Society</th>
+                <th>Tolerable Upper Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Infants 0-12 months</td>
+                <td>400 IU</td>
+                <td>400-1,000 IU</td>
+                <td>1,000-2,000 IU</td>
+            </tr>
+            <tr>
+                <td>Children 1-18 years</td>
+                <td>600 IU</td>
+                <td>600-1,000 IU</td>
+                <td>2,500-4,000 IU*</td>
+            </tr>
+            <tr>
+                <td>Adults 19-70 years</td>
+                <td>600 IU</td>
+                <td>1,500-2,000 IU</td>
+                <td>4,000 IU</td>
+            </tr>
+            <tr>
+                <td>Adults 71+ years</td>
+                <td>800 IU</td>
+                <td>1,500-2,000 IU</td>
+                <td>4,000 IU</td>
+            </tr>
+            <tr>
+                <td>Pregnant &amp; Lactating</td>
+                <td>600 IU</td>
+                <td>1,500-2,000 IU</td>
+                <td>4,000 IU</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.88rem; color: #666;">*UL varies by age within this group: 2,500 IU for ages 1-3, 3,000 IU for ages 4-8, and 4,000 IU for ages 9-18.<sup><a href="#ref3">3</a></sup></p>
+
+    <p>The Endocrine Society's 2011 Clinical Practice Guideline notes that obese individuals (BMI &ge; 30) may require 2-3 times more vitamin D to achieve the same serum levels as normal-weight individuals, because vitamin D is sequestered in adipose tissue.<sup><a href="#ref1">1</a></sup> Individuals on medications that accelerate vitamin D metabolism (e.g., anticonvulsants, glucocorticoids, antiretrovirals) may also need higher doses.</p>
+
+    <p>For a personalized recommendation based on your specific factors, use our <a href="/vitamin-d-intake-calculator">Vitamin D Intake Calculator</a>, which accounts for sun exposure, skin tone, latitude, body weight, and dietary sources.</p>
+</section>
+
+<!-- Section 3: Deficiency by Country -->
+<section id="deficiency-by-country">
+    <h2>Vitamin D Deficiency by Country</h2>
+
+    <p>An estimated 1 billion people worldwide have vitamin D deficiency or insufficiency, making it one of the most common nutritional deficiencies globally.<sup><a href="#ref6">6</a></sup> Prevalence varies dramatically by region, driven by differences in latitude, skin pigmentation, dietary patterns, cultural clothing practices, and public health fortification policies.</p>
+
+    <table class="data-table">
+        <caption style="text-align: left; font-weight: 600; margin-bottom: 10px; font-size: 1.05rem;">Estimated Vitamin D Deficiency Prevalence by Country/Region (&lt;20 ng/mL)</caption>
+        <thead>
+            <tr>
+                <th>Country / Region</th>
+                <th>Estimated Deficiency (%)</th>
+                <th>Key Contributing Factors</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>United States</td>
+                <td>~42%</td>
+                <td>Indoor lifestyles, obesity, racial disparities (82% of Black adults)<sup><a href="#ref7">7</a></sup></td>
+            </tr>
+            <tr>
+                <td>United Kingdom</td>
+                <td>~40%</td>
+                <td>High latitude (50-60&deg;N), limited UVB October-March<sup><a href="#ref8">8</a></sup></td>
+            </tr>
+            <tr>
+                <td>Germany</td>
+                <td>~50%</td>
+                <td>Northern latitude, low supplementation rates</td>
+            </tr>
+            <tr>
+                <td>India</td>
+                <td>~70-80%</td>
+                <td>Dark skin pigmentation, air pollution blocking UVB, low dairy intake<sup><a href="#ref9">9</a></sup></td>
+            </tr>
+            <tr>
+                <td>Middle East (Saudi Arabia, Iran, UAE)</td>
+                <td>~60-80%</td>
+                <td>Concealing clothing, extreme heat limiting outdoor activity, limited fortification<sup><a href="#ref6">6</a></sup></td>
+            </tr>
+            <tr>
+                <td>Australia</td>
+                <td>~23%</td>
+                <td>Strong sun-safety culture, sunscreen use; lower than expected for latitude</td>
+            </tr>
+            <tr>
+                <td>Japan</td>
+                <td>~40-50%</td>
+                <td>Cultural preference for pale skin, sun avoidance, limited fortification</td>
+            </tr>
+            <tr>
+                <td>Brazil</td>
+                <td>~28%</td>
+                <td>Despite tropical latitude, high urbanization and indoor work drive deficiency</td>
+            </tr>
+            <tr>
+                <td>Canada</td>
+                <td>~37%</td>
+                <td>High latitude, long winters; mandatory vitamin D milk fortification helps</td>
+            </tr>
+            <tr>
+                <td>Nordic Countries (Finland, Sweden, Norway)</td>
+                <td>~25-40%</td>
+                <td>High latitude but strong supplementation culture and food fortification policies</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>Notably, some of the highest deficiency rates are found not in northern countries but in South Asia and the Middle East, where factors beyond latitude -- including skin pigmentation, cultural dress, and limited food fortification -- play a dominant role.<sup><a href="#ref6">6</a></sup> Countries with mandatory vitamin D food fortification programs (Finland, Canada, United States) tend to have lower deficiency rates than their latitude alone would predict.</p>
+</section>
+
+<!-- Section 4: Symptoms of Deficiency -->
+<section id="deficiency-symptoms">
+    <h2>Symptoms of Vitamin D Deficiency</h2>
+
+    <p>Vitamin D deficiency often develops silently: many individuals with levels of 10-20 ng/mL have no obvious symptoms, which is why routine screening is recommended for high-risk groups.<sup><a href="#ref1">1</a></sup> When symptoms do appear, they typically reflect impaired calcium metabolism, weakened immune function, or disrupted neuromuscular signaling.</p>
+
+    <h3>Skeletal System</h3>
+    <ul>
+        <li><strong>Bone pain and tenderness</strong> -- particularly in the lower back, pelvis, and legs, caused by inadequate bone mineralization (osteomalacia)<sup><a href="#ref2">2</a></sup></li>
+        <li><strong>Increased fracture risk</strong> -- vitamin D deficiency reduces calcium absorption to 10-15% (vs. 30-40% at sufficient levels), accelerating bone density loss<sup><a href="#ref3">3</a></sup></li>
+        <li><strong>Rickets in children</strong> -- skeletal deformities (bowed legs, widened wrists) at levels below 10 ng/mL</li>
+    </ul>
+
+    <h3>Muscular System</h3>
+    <ul>
+        <li><strong>Proximal muscle weakness</strong> -- difficulty climbing stairs, rising from a chair, or lifting objects overhead</li>
+        <li><strong>Muscle cramps and spasms</strong> -- related to impaired calcium and magnesium regulation</li>
+        <li><strong>Increased fall risk in elderly</strong> -- meta-analyses show vitamin D supplementation reduces falls by 19% in deficient individuals<sup><a href="#ref10">10</a></sup></li>
+    </ul>
+
+    <h3>Immune System</h3>
+    <ul>
+        <li><strong>Frequent respiratory infections</strong> -- vitamin D activates antimicrobial peptides (cathelicidin, defensins) in immune cells<sup><a href="#ref5">5</a></sup></li>
+        <li><strong>Slow wound healing</strong> -- vitamin D modulates inflammatory cytokines involved in tissue repair</li>
+        <li><strong>Autoimmune associations</strong> -- low levels linked to higher incidence of multiple sclerosis, type 1 diabetes, and rheumatoid arthritis in observational studies</li>
+    </ul>
+
+    <h3>Neurological &amp; Psychological</h3>
+    <ul>
+        <li><strong>Fatigue and daytime sleepiness</strong> -- one of the most commonly reported symptoms, often improving with repletion</li>
+        <li><strong>Depression and low mood</strong> -- vitamin D receptors are present in brain regions involved in mood regulation; meta-analyses suggest supplementation has a small positive effect on depressive symptoms<sup><a href="#ref11">11</a></sup></li>
+        <li><strong>Cognitive impairment in elderly</strong> -- severe deficiency associated with increased dementia risk in observational studies</li>
+    </ul>
+</section>
+
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
+<!-- Section 5: How to Raise Levels -->
+<section id="raise-levels">
+    <h2>How to Raise Your Vitamin D Levels</h2>
+
+    <p>Each 1,000 IU of daily vitamin D3 supplementation raises serum 25(OH)D by approximately 10 ng/mL (25 nmol/L) over 2-3 months, though the response varies by body weight, baseline level, and genetic factors.<sup><a href="#ref1">1</a></sup> The table below provides general dosing guidance based on your current blood level and target range.</p>
+
+    <table class="data-table">
+        <caption style="text-align: left; font-weight: 600; margin-bottom: 10px; font-size: 1.05rem;">Supplementation Guidance by Current Vitamin D Level</caption>
+        <thead>
+            <tr>
+                <th>Current Level (ng/mL)</th>
+                <th>Target Level</th>
+                <th>Suggested Daily D3 Dose</th>
+                <th>Expected Timeline</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="status-severe">&lt;10 (Severe)</td>
+                <td>40-60 ng/mL</td>
+                <td>5,000-10,000 IU (loading) then 2,000-4,000 IU maintenance*</td>
+                <td>3-4 months</td>
+            </tr>
+            <tr>
+                <td class="status-deficient">10-20 (Deficient)</td>
+                <td>40-60 ng/mL</td>
+                <td>4,000-5,000 IU (loading) then 1,500-2,000 IU maintenance</td>
+                <td>2-3 months</td>
+            </tr>
+            <tr>
+                <td class="status-insufficient">20-30 (Insufficient)</td>
+                <td>40-60 ng/mL</td>
+                <td>2,000-4,000 IU daily</td>
+                <td>8-12 weeks</td>
+            </tr>
+            <tr>
+                <td class="status-sufficient">30-40 (Sufficient)</td>
+                <td>40-60 ng/mL</td>
+                <td>1,000-2,000 IU daily</td>
+                <td>6-8 weeks</td>
+            </tr>
+            <tr>
+                <td class="status-optimal">40-60 (Optimal)</td>
+                <td>Maintain</td>
+                <td>1,000-2,000 IU daily (maintenance)</td>
+                <td>Ongoing</td>
+            </tr>
+        </tbody>
+    </table>
+    <p style="font-size: 0.88rem; color: #666;">*Doses above 4,000 IU/day should be taken under medical supervision with periodic blood level monitoring. An alternative loading protocol is 50,000 IU once weekly for 8 weeks, commonly prescribed by physicians for severe deficiency.<sup><a href="#ref1">1</a></sup></p>
+
+    <h3>Three Sources of Vitamin D</h3>
+    <p><strong>Sunlight (UVB radiation):</strong> The body synthesizes vitamin D3 when UVB rays (290-315 nm wavelength) strike the skin. Fair-skinned individuals produce approximately 10,000-20,000 IU after 10-15 minutes of midday summer sun exposure on arms and legs.<sup><a href="#ref2">2</a></sup> Darker skin requires 3-6 times longer for equivalent production. UVB availability drops significantly above 35&deg;N latitude during winter months.</p>
+
+    <p><strong>Dietary sources:</strong> Few foods naturally contain significant vitamin D. Fatty fish (salmon: ~600-1,000 IU per 3.5 oz serving; mackerel: ~400 IU) and cod liver oil (~1,360 IU per tablespoon) are the richest natural sources. Fortified milk typically provides 100-120 IU per cup. Egg yolks contain 40-50 IU each.<sup><a href="#ref3">3</a></sup></p>
+
+    <p><strong>Supplements:</strong> Vitamin D3 (cholecalciferol) supplements are the most effective way to reliably raise and maintain blood levels. Available as daily tablets (1,000-5,000 IU), weekly capsules (50,000 IU), and liquid drops. Take with a fat-containing meal to maximize absorption, as vitamin D is fat-soluble.</p>
+</section>
+
+<!-- Section 6: D2 vs D3 -->
+<section id="d2-vs-d3">
+    <h2>Vitamin D2 vs D3: Which Is Better?</h2>
+
+    <p>Vitamin D3 (cholecalciferol) is generally more effective than D2 (ergocalciferol) at raising and maintaining serum 25(OH)D levels. A 2012 meta-analysis found that D3 was 87% more potent than D2 in raising serum 25(OH)D concentrations and produced 2-3 times greater storage of the vitamin.<sup><a href="#ref12">12</a></sup></p>
+
+    <table class="data-table">
+        <caption style="text-align: left; font-weight: 600; margin-bottom: 10px; font-size: 1.05rem;">Vitamin D2 vs D3 Comparison</caption>
+        <thead>
+            <tr>
+                <th>Property</th>
+                <th>Vitamin D2 (Ergocalciferol)</th>
+                <th>Vitamin D3 (Cholecalciferol)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Source</td>
+                <td>Fungi, yeast, UV-irradiated mushrooms</td>
+                <td>Animal products, lanolin, lichen (vegan D3), skin synthesis</td>
+            </tr>
+            <tr>
+                <td>Potency (raising 25(OH)D)</td>
+                <td>Lower (baseline reference)</td>
+                <td>~87% more effective than D2<sup><a href="#ref12">12</a></sup></td>
+            </tr>
+            <tr>
+                <td>Half-life in circulation</td>
+                <td>~2-3 days</td>
+                <td>~2-3 weeks</td>
+            </tr>
+            <tr>
+                <td>Binding to vitamin D-binding protein</td>
+                <td>Lower affinity</td>
+                <td>Higher affinity (longer retention)</td>
+            </tr>
+            <tr>
+                <td>Stability</td>
+                <td>Less stable (degrades faster in storage)</td>
+                <td>More stable</td>
+            </tr>
+            <tr>
+                <td>Suitable for vegans?</td>
+                <td>Yes (plant/fungal origin)</td>
+                <td>Only lichen-derived D3 is vegan</td>
+            </tr>
+            <tr>
+                <td>Prescription form</td>
+                <td>50,000 IU capsules (common Rx)</td>
+                <td>Available OTC in most doses; Rx 50,000 IU less common</td>
+            </tr>
+            <tr>
+                <td>Cost</td>
+                <td>Generally cheaper</td>
+                <td>Slightly more expensive, widely available</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p><strong>Bottom line:</strong> For most people, D3 is the preferred form due to its greater potency and longer duration of action. Strict vegans who cannot use lichen-derived D3 may use D2, but should be aware that more frequent dosing or higher amounts may be needed to achieve the same blood levels. Both forms are effective for treating severe deficiency when used at appropriate doses.<sup><a href="#ref1">1</a></sup></p>
+</section>
+
+<!-- Section 7: Risk Factors -->
+<section id="risk-factors">
+    <h2>Who Is Most at Risk for Deficiency?</h2>
+
+    <p>Certain populations face significantly elevated risk of vitamin D deficiency due to reduced sun exposure, impaired synthesis, or increased physiological demand.<sup><a href="#ref1">1</a></sup><sup><a href="#ref6">6</a></sup> The following table summarizes major risk factors and the mechanism by which they lower vitamin D status.</p>
+
+    <table class="data-table">
+        <caption style="text-align: left; font-weight: 600; margin-bottom: 10px; font-size: 1.05rem;">Vitamin D Deficiency Risk Factors</caption>
+        <thead>
+            <tr>
+                <th>Risk Factor</th>
+                <th>Mechanism</th>
+                <th>Relative Risk Increase</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Darker skin (Fitzpatrick IV-VI)</td>
+                <td>Melanin absorbs UVB, reducing cutaneous synthesis by 3-6x</td>
+                <td>2-3x higher deficiency rates<sup><a href="#ref7">7</a></sup></td>
+            </tr>
+            <tr>
+                <td>Obesity (BMI &ge; 30)</td>
+                <td>Vitamin D sequestered in adipose tissue, reducing bioavailability</td>
+                <td>~1.5-2x; may need 2-3x higher supplementation doses<sup><a href="#ref1">1</a></sup></td>
+            </tr>
+            <tr>
+                <td>Age &gt; 65 years</td>
+                <td>Skin synthesis declines 4x with aging; reduced outdoor activity</td>
+                <td>~2x compared to younger adults</td>
+            </tr>
+            <tr>
+                <td>High latitude (&gt;35&deg;N or &gt;35&deg;S)</td>
+                <td>Insufficient UVB radiation during winter months for cutaneous synthesis</td>
+                <td>Seasonal deficiency (October-March in Northern Hemisphere)</td>
+            </tr>
+            <tr>
+                <td>Indoor occupation / limited sun exposure</td>
+                <td>Minimal UVB exposure even at favorable latitudes</td>
+                <td>~1.5-2x</td>
+            </tr>
+            <tr>
+                <td>Malabsorption syndromes (celiac, Crohn's, gastric bypass)</td>
+                <td>Impaired intestinal absorption of fat-soluble vitamins</td>
+                <td>Highly variable; requires monitoring<sup><a href="#ref2">2</a></sup></td>
+            </tr>
+            <tr>
+                <td>Chronic kidney disease</td>
+                <td>Impaired 1-alpha-hydroxylation (conversion to active form)</td>
+                <td>Nearly universal in advanced CKD</td>
+            </tr>
+            <tr>
+                <td>Certain medications (anticonvulsants, glucocorticoids)</td>
+                <td>Accelerated catabolism of 25(OH)D via CYP3A4 induction</td>
+                <td>Variable; dose-dependent</td>
+            </tr>
+            <tr>
+                <td>Exclusively breastfed infants</td>
+                <td>Breast milk contains only 25-78 IU/L of vitamin D</td>
+                <td>High risk without supplementation (AAP recommends 400 IU/day)</td>
+            </tr>
+            <tr>
+                <td>Pregnancy and lactation</td>
+                <td>Increased fetal/neonatal demand depletes maternal stores</td>
+                <td>~1.5x; deficiency common without supplementation</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <p>If you fall into one or more of these categories, the Endocrine Society recommends periodic 25(OH)D testing and supplementation to maintain levels above 30 ng/mL.<sup><a href="#ref1">1</a></sup> Use our <a href="/vitamin-d-intake-calculator">Vitamin D Intake Calculator</a> to factor in your personal risk profile and get a tailored recommendation.</p>
+</section>
+
+<!-- Section 8: Testing -->
+<section id="testing">
+    <h2>Testing Your Vitamin D Level</h2>
+
+    <p>The 25-hydroxyvitamin D [25(OH)D] test is the standard clinical assay for assessing vitamin D status.<sup><a href="#ref2">2</a></sup> This test measures the total concentration of both 25(OH)D2 and 25(OH)D3 in serum, providing a comprehensive picture of vitamin D from all sources -- diet, supplements, and sun exposure.</p>
+
+    <h3>Key Facts About the 25(OH)D Test</h3>
+    <ul>
+        <li><strong>Test name:</strong> 25-hydroxyvitamin D (also written as 25(OH)D or calcidiol)</li>
+        <li><strong>Sample type:</strong> Venous blood draw (serum or plasma)</li>
+        <li><strong>Fasting required?</strong> No, fasting is not necessary</li>
+        <li><strong>Turnaround time:</strong> Typically 1-3 business days</li>
+        <li><strong>Units:</strong> ng/mL (US) or nmol/L (international); 1 ng/mL = 2.5 nmol/L</li>
+        <li><strong>Cost:</strong> $40-$80 without insurance in the US; often covered for at-risk populations</li>
+    </ul>
+
+    <p><strong>Important distinction:</strong> Do not confuse the 25(OH)D test with the 1,25-dihydroxyvitamin D test (calcitriol). The 1,25(OH)2D test measures the active hormonal form, which has a very short half-life (4-6 hours) and is tightly regulated by parathyroid hormone. It does not reliably reflect vitamin D stores and is only ordered for specific conditions such as hypercalcemia, sarcoidosis, or renal failure.<sup><a href="#ref2">2</a></sup></p>
+
+    <h3>When to Test</h3>
+    <p>The Endocrine Society recommends 25(OH)D testing for individuals at risk for deficiency, including those with osteoporosis, chronic kidney disease, malabsorption syndromes, obesity, darker skin, and older adults with a history of falls.<sup><a href="#ref1">1</a></sup> Routine population screening is not recommended by the IOM for healthy individuals at low risk. After starting supplementation for deficiency, recheck levels at 8-12 weeks to confirm response to treatment.</p>
+
+    <p><strong>Timing note:</strong> Vitamin D levels fluctuate seasonally. If tested in summer, levels may be 10-20 ng/mL higher than winter values at the same supplementation dose, due to cutaneous synthesis from sun exposure. For the most clinically useful result, consider testing in late winter (February-March in the Northern Hemisphere) when levels are at their nadir.</p>
+</section>
+
+<!-- Section 9: FAQ -->
+<section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">What is a normal vitamin D level in ng/mL?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">A normal (sufficient) vitamin D level is 30-50 ng/mL (75-125 nmol/L) according to the Endocrine Society. The Institute of Medicine considers 20 ng/mL (50 nmol/L) adequate for bone health. Levels below 20 ng/mL are classified as deficient, and below 10 ng/mL as severely deficient. The optimal range for overall health is 40-60 ng/mL (100-150 nmol/L).</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">How much vitamin D should I take daily?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">The IOM recommends 600 IU/day for adults aged 19-70 and 800 IU/day for adults over 70. The Endocrine Society recommends 1,500-2,000 IU/day for adults to maintain levels above 30 ng/mL. The tolerable upper intake level is 4,000 IU/day for adults, though some clinicians prescribe higher doses under supervision for correcting deficiency.</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">What percentage of people are vitamin D deficient?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">Approximately 42% of US adults have vitamin D levels below 20 ng/mL. Globally, an estimated 1 billion people have vitamin D deficiency or insufficiency. Rates are highest in the Middle East (60-80%), South Asia (70-80%), and Northern Europe (40-60%).</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Is vitamin D3 better than vitamin D2?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">Yes. Vitamin D3 (cholecalciferol) is approximately 87% more potent than D2 (ergocalciferol) at raising serum 25(OH)D levels. D3 also has a longer half-life in circulation (2-3 weeks vs. 2-3 days for D2). For most people, D3 is the preferred supplementation form. Vegans can choose lichen-derived D3 or use D2 at higher doses.</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">What are the symptoms of low vitamin D?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">Common symptoms include bone pain, muscle weakness, fatigue, depression, impaired wound healing, and frequent infections. Severe deficiency (below 10 ng/mL) can cause osteomalacia in adults and rickets in children. Many people with mild deficiency (10-20 ng/mL) may have no obvious symptoms.</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">How long does it take to correct vitamin D deficiency?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">It typically takes 8-12 weeks of supplementation to correct vitamin D deficiency. A common loading protocol is 50,000 IU once weekly for 8 weeks, followed by maintenance of 1,500-2,000 IU daily. Each 1,000 IU of daily vitamin D3 raises blood levels by approximately 10 ng/mL over 2-3 months.</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Can you take too much vitamin D?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">Yes. Vitamin D toxicity can occur at blood levels above 100 ng/mL (250 nmol/L), though it is rare and typically requires prolonged intake above 10,000 IU/day. Symptoms include nausea, vomiting, weakness, and dangerously elevated blood calcium. The tolerable upper intake level is 4,000 IU/day for adults. Toxicity does not occur from sun exposure alone.</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">What is the best test for vitamin D levels?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">The 25-hydroxyvitamin D [25(OH)D] blood test is the gold standard. It reflects vitamin D from both diet and sun exposure, with a half-life of 2-3 weeks. Do not confuse it with the 1,25-dihydroxyvitamin D test, which measures the active hormonal form and does not reliably reflect vitamin D stores.</p></div>
+    </div>
+
+    <div class="faq-item" style="background-color: #f5f5f5; border-radius: 8px; padding: 20px; margin: 20px 0;">
+        <h3 style="margin-top: 0; color: #333; font-size: 1.2rem;">Does sunscreen block vitamin D production?</h3>
+        <div class="faq-answer"><p style="margin-bottom: 0;">In theory, SPF 30 blocks about 97% of UVB rays needed for vitamin D synthesis. However, real-world studies show regular sunscreen use rarely causes vitamin D deficiency because people typically do not apply enough to block all UVB, and incidental exposure on uncovered skin still contributes. The Endocrine Society recommends 10-15 minutes of unprotected midday sun on arms and legs 2-3 times per week for fair-skinned individuals.</p></div>
+    </div>
+</section>
+
+<!-- References -->
+<section id="references">
+    <h2>References</h2>
+
+    <ol style="padding-left: 20px; line-height: 1.8;">
+        <li id="ref1">Holick MF, Binkley NC, Bischoff-Ferrari HA, et al. "Evaluation, Treatment, and Prevention of Vitamin D Deficiency: an Endocrine Society Clinical Practice Guideline." <em>J Clin Endocrinol Metab</em>. 2011;96(7):1911-1930. doi:10.1210/jc.2011-0385</li>
+        <li id="ref2">Holick MF. "Vitamin D Deficiency." <em>N Engl J Med</em>. 2007;357(3):266-281. doi:10.1056/NEJMra070553</li>
+        <li id="ref3">Institute of Medicine. <em>Dietary Reference Intakes for Calcium and Vitamin D</em>. Washington, DC: The National Academies Press; 2011. doi:10.17226/13050</li>
+        <li id="ref4">Galior K, Grebe S, Singh R. "Development of Vitamin D Toxicity from Overcorrection of Vitamin D Deficiency: A Review of Case Reports." <em>Nutrients</em>. 2018;10(8):953. doi:10.3390/nu10080953</li>
+        <li id="ref5">Martineau AR, Jolliffe DA, Hooper RL, et al. "Vitamin D supplementation to prevent acute respiratory tract infections: systematic review and meta-analysis of individual participant data." <em>BMJ</em>. 2017;356:i6583. doi:10.1136/bmj.i6583</li>
+        <li id="ref6">Palacios C, Gonzalez L. "Is vitamin D deficiency a major global public health problem?" <em>J Steroid Biochem Mol Biol</em>. 2014;144:138-145. doi:10.1016/j.jsbmb.2013.11.003</li>
+        <li id="ref7">Forrest KY, Stuhldreher WL. "Prevalence and correlates of vitamin D deficiency in US adults." <em>Nutr Res</em>. 2011;31(1):48-54. doi:10.1016/j.nutres.2010.12.001</li>
+        <li id="ref8">Sheridan C, Quinn S, Engelsen O, Cashman KD. "Vitamin D deficiency and its determinants in a sample of adults in the UK: a cross-sectional analysis." <em>Proc Nutr Soc</em>. 2011;70(OCE3):E89.</li>
+        <li id="ref9">Aparna P, Muthathal S, Nongkynrih B, Gupta SK. "Vitamin D deficiency in India." <em>J Family Med Prim Care</em>. 2018;7(2):324-330. doi:10.4103/jfmpc.jfmpc_78_18</li>
+        <li id="ref10">Bischoff-Ferrari HA, Dawson-Hughes B, Staehelin HB, et al. "Fall prevention with supplemental and active forms of vitamin D: a meta-analysis of randomised controlled trials." <em>BMJ</em>. 2009;339:b3692. doi:10.1136/bmj.b3692</li>
+        <li id="ref11">Anglin RES, Samaan Z, Walter SD, McDonald SD. "Vitamin D deficiency and depression in adults: systematic review and meta-analysis." <em>Br J Psychiatry</em>. 2013;202(2):100-107. doi:10.1192/bjp.bp.111.106666</li>
+        <li id="ref12">Tripkovic L, Lambert H, Hart K, et al. "Comparison of vitamin D2 and vitamin D3 supplementation in raising serum 25-hydroxyvitamin D status: a systematic review and meta-analysis." <em>Am J Clin Nutr</em>. 2012;95(6):1357-1364. doi:10.3945/ajcn.111.031070</li>
+    </ol>
+</section>
+
+<div class="cta-section" style="background-color: var(--color-muted); border-radius: 8px; padding: 24px; margin: 30px 0; text-align: center;">
+    <h3 style="margin-top: 0; color: #333;">Find your ideal vitamin D dose</h3>
+    <p>Get a personalized supplementation recommendation based on your sun exposure, skin tone, body weight, latitude, and diet.</p>
+    <a href="/vitamin-d-intake-calculator" style="background-color: var(--color-accent); color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; display: inline-block; margin-top: 16px;">Vitamin D Intake Calculator</a>
+    <a href="/vitamin-d-conversion-calculator" style="background-color: transparent; color: var(--color-accent); border: 2px solid var(--color-accent); border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; display: inline-block; margin-top: 16px; margin-left: 10px;">Unit Converter (ng/mL to nmol/L)</a>
+</div>
+
+{% with ad_position="bottom" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+</div>
+{% include 'components/related-links.html' %}
+
+{% include 'footer.html' %}
+
+</body>
+</html>
