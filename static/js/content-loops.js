@@ -417,7 +417,7 @@ function showNextSteps(calculatorId, userData, resultData, containerId) {
 
   var wrapper = document.createElement('div');
   wrapper.className = 'next-steps';
-  wrapper.innerHTML = '<p class="next-steps-title">What to Calculate Next</p>';
+  wrapper.innerHTML = '<p class="next-steps-title">What Should You Do Next?</p>';
 
   // Show up to 3 suggestions
   var links = config.links.slice(0, 3);
