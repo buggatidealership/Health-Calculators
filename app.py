@@ -2077,6 +2077,10 @@ def ads_txt():
 def robots_txt():
     return send_from_directory('static/public', 'robots.txt')
 
+@app.route('/8d67938f8032429ab9b1991f43c6526b.txt')
+def indexnow_key():
+    return Response('8d67938f8032429ab9b1991f43c6526b', mimetype='text/plain')
+
 # Short-URL redirects for common search patterns
 @app.route('/calorie-calculator')
 def redirect_calorie_calculator():
