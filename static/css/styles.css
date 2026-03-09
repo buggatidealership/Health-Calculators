@@ -263,11 +263,7 @@ main > .calculator-container {
 }
 
 /* Desktop 2-column layout with sidebar ad */
-.page-layout {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 20px;
-}
+.page-layout { /* transparent wrapper on mobile */ }
 .page-sidebar { display: none; }
 
 @media (min-width: 1100px) {
@@ -276,11 +272,17 @@ main > .calculator-container {
     grid-template-columns: minmax(0, var(--max-width)) 300px;
     gap: 40px;
     max-width: 1060px;
+    margin: 0 auto;
+    padding: 0 20px;
     align-items: start;
   }
   .page-layout .calculator-container {
     max-width: none;
     padding: 0;
+  }
+  .breadcrumb {
+    max-width: 1060px;
+    padding-left: 20px;
   }
   .page-sidebar {
     display: block;
