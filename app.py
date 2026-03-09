@@ -2077,6 +2077,27 @@ def ads_txt():
 def robots_txt():
     return send_from_directory('static/public', 'robots.txt')
 
+# Short-URL redirects for common search patterns
+@app.route('/calorie-calculator')
+def redirect_calorie_calculator():
+    return redirect('/caloric-intake-macronutrient-calculator', code=301)
+
+@app.route('/macro-calculator')
+def redirect_macro_calculator():
+    return redirect('/caloric-intake-macronutrient-calculator', code=301)
+
+@app.route('/protein-calculator')
+def redirect_protein_calculator():
+    return redirect('/protein-intake-calculator', code=301)
+
+@app.route('/ideal-weight-calculator')
+def redirect_ideal_weight_calculator():
+    return redirect('/ideal-body-weight-calculator', code=301)
+
+@app.route('/bmr-calculator')
+def redirect_bmr_calculator():
+    return redirect('/metabolic-age-calculator', code=301)
+
 @app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
 def redirect_ozempic_article():
     return redirect('/ozempic-weight-loss-calculator', code=301)
