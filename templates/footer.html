@@ -1,3 +1,20 @@
+{% if not is_homepage|default(false) and request.path != '/resources' %}
+  </div><!-- /.page-content -->
+  <aside class="page-sidebar" aria-label="Sidebar">
+    <div class="sidebar-ad-sticky">
+      <div class="ad-container ad-container-sidebar" role="complementary" aria-label="Advertisement">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-1580600669281697"
+             data-ad-format="auto"
+             data-full-width-responsive="false"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+      <div class="sidebar-toc" id="sidebar-toc"></div>
+    </div>
+  </aside>
+</div><!-- /.page-layout -->
+{% endif %}
 </main>
 <footer class="site-footer">
   <div class="footer-inner">
