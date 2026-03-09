@@ -2393,6 +2393,25 @@ def sitemap_xml():
     for article in articles:
         pages.append({'loc': article['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
 
+    # Category hub pages
+    for cid, data in category_hub_data.items():
+        pages.append({'loc': data['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
+
+    # Comparison pages
+    for path in ['/bmi-vs-body-fat', '/tdee-vs-bmr', '/ozempic-vs-mounjaro']:
+        pages.append({'loc': path, 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
+
+    # Demographic pages
+    for slug, data in demographic_pages.items():
+        pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': today})
+
+    # Chart reference pages
+    for slug, data in chart_pages.items():
+        pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': today})
+
+    # Editorial policy
+    pages.append({'loc': '/editorial-policy', 'priority': '0.4', 'changefreq': 'yearly'})
+
     # Static pages
     for path in ['/about', '/privacy', '/terms']:
         pages.append({'loc': path, 'priority': '0.3', 'changefreq': 'yearly'})
