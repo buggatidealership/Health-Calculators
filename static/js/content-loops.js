@@ -113,6 +113,7 @@ var CALCULATOR_GRAPH = {
   },
   'wegovy': {
     links: [
+      { url: '/oral-wegovy-weight-loss-calculator', title: 'Oral Wegovy Calculator', icon: '\ud83d\udc8a', reason: 'The FDA-approved Wegovy pill (25mg daily) avoids needles — see your oral projection', params: ['weight_kg','height_cm'] },
       { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '\ud83d\udcc9', reason: 'Same drug, lower dose — see how Ozempic\'s projection compares at 1.0 mg', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '\ud83d\udcca', reason: 'See how your projected loss compares across all GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '\ud83d\ude2e', reason: 'Wegovy causes the most weight loss of any semaglutide dose — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
@@ -120,6 +121,17 @@ var CALCULATOR_GRAPH = {
       { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '\ud83d\udc8a', reason: 'Zepbound hits two receptors vs Wegovy\'s one — does that change your outcome?', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '\ud83d\udd25', reason: 'Wegovy cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '\ud83d\udcca', reason: 'Track your BMI category shift as you lose weight on Wegovy', params: ['weight_kg','height_cm'] }
+    ]
+  },
+  'oral-wegovy': {
+    links: [
+      { url: '/wegovy-weight-loss-calculator', title: 'Injectable Wegovy Calculator', icon: '\ud83d\udc89', reason: 'Injectable Wegovy achieved ~15% loss vs oral\'s ~14% — see the difference for your weight', params: ['weight_kg','height_cm'] },
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '\ud83d\udcc9', reason: 'Same drug, lower dose — see how Ozempic\'s projection compares at 1.0 mg', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '\ud83d\udcca', reason: 'See how your projected loss compares across all GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '\ud83d\udc8a', reason: 'Mounjaro users lost 22.5% body weight — see your tirzepatide projection', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '\ud83d\ude2e', reason: 'Rapid weight loss on GLP-1 drugs can age the face — check your risk', params: ['weight_kg','height_cm','age'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '\ud83d\udcca', reason: 'Track your BMI category shift as you lose weight on oral Wegovy', params: ['weight_kg','height_cm'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '\ud83d\udd25', reason: 'Oral Wegovy cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'ozempic-face': {

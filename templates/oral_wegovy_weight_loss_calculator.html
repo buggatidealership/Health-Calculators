@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "oral-wegovy-weight-loss-calculator-og.jpg" %}
+{% with
+    meta_description="Free Oral Wegovy (oral semaglutide 25mg) weight loss calculator. Project your expected weight loss based on OASIS 1 clinical trial data. Personalized by starting weight, height, and treatment duration.",
+    meta_keywords="oral Wegovy calculator, oral semaglutide weight loss, Wegovy pill, oral semaglutide 25mg, oral Wegovy weight loss, GLP-1 pill, semaglutide tablet",
+    og_title="Oral Wegovy Weight Loss Calculator – Oral Semaglutide 25mg Projection Tool",
+    og_description="Calculate your expected weight loss with oral Wegovy (semaglutide 25mg pill). Personalized results based on OASIS 1 trial data, dosing schedule, and treatment duration.",
+    og_url="/oral-wegovy-weight-loss-calculator",
+    page_title="Oral Wegovy Weight Loss Calculator – Oral Semaglutide 25mg Projection Tool",
+    canonical_url="/oral-wegovy-weight-loss-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Oral Wegovy Weight Loss Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/oral-wegovy-weight-loss-calculator",
+  "description": "Project your expected weight loss with oral Wegovy (semaglutide 25mg pill) based on OASIS 1 clinical trial data. Input weight, height, and treatment duration for personalized projections.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much weight can I lose on oral Wegovy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "In the OASIS 1 clinical trial, participants taking oral semaglutide 25mg daily lost an average of approximately 14% of their body weight over 68 weeks compared to about 2% with placebo. Results depend on treatment duration, adherence, diet, and exercise habits."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between oral Wegovy and injectable Wegovy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both contain semaglutide, but oral Wegovy is a daily pill (maintenance dose 25mg) while injectable Wegovy is a weekly injection (maintenance dose 2.4mg). Injectable Wegovy achieved about 15% weight loss at 68 weeks in the STEP trials, while oral Wegovy achieved about 14% in the OASIS 1 trial. The oral form must be taken on an empty stomach with minimal water, 30 minutes before food or drink."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I take the oral Wegovy pill?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Take oral Wegovy first thing in the morning on an empty stomach with no more than 4 ounces (120mL) of plain water. Wait at least 30 minutes before eating, drinking, or taking other oral medications. Swallow the tablet whole — do not split, crush, or chew it. These instructions are critical for proper absorption of the medication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the dosing schedule for oral Wegovy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oral Wegovy uses a gradual dose escalation over approximately 20 weeks: 1.5mg daily for weeks 1-4, 4mg daily for weeks 5-8, 9mg daily for weeks 9-12, 14mg daily for weeks 13-16, then the maintenance dose of 25mg daily from week 17 onward. Each increase occurs every 4 weeks to minimize gastrointestinal side effects."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is oral Wegovy as effective as injectable Wegovy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oral Wegovy (25mg daily) achieved approximately 14% weight loss at 68 weeks in the OASIS 1 trial, compared to approximately 15% with injectable Wegovy (2.4mg weekly) in the STEP 1 trial. While the injectable form showed slightly higher average weight loss, the oral form offers a needle-free alternative with comparable results for many patients."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- Schema: BreadcrumbList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://healthcalculators.xyz"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Oral Wegovy Weight Loss Calculator",
+      "item": "https://healthcalculators.xyz/oral-wegovy-weight-loss-calculator"
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Oral Wegovy Weight Loss Calculator</h1>
+    {% include 'components/article-meta.html' %}
+<section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metricBtn" class="unit-btn active">Metric (kg/cm)</button>
+                    <button type="button" id="imperialBtn" class="unit-btn">Imperial (lb/ft/in)</button>
+                </div>
+            </div>
+
+            <div class="form-group" id="weight-metric">
+                <label for="weight-kg">Current Weight (kg)</label>
+                <input type="number" id="weight-kg" min="30" max="300" step="0.1" required>
+            </div>
+
+            <div class="form-group hidden" id="weight-imperial">
+                <label for="weight-lb">Current Weight (lbs)</label>
+                <input type="number" id="weight-lb" min="66" max="660" step="1" required>
+            </div>
+
+            <div class="form-group" id="height-metric">
+                <label for="height-cm">Height (cm)</label>
+                <input type="number" id="height-cm" min="120" max="250" required>
+            </div>
+
+            <div class="form-group hidden" id="height-imperial">
+                <label>Height (ft/in)</label>
+                <div class="imperial-height">
+                    <div>
+                        <label for="height-ft">Feet</label>
+                        <input type="number" id="height-ft" min="3" max="8" value="5" required>
+                    </div>
+                    <div>
+                        <label for="height-in">Inches</label>
+                        <input type="number" id="height-in" min="0" max="11" value="9" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="bmi">Current BMI (calculated automatically)</label>
+                <input type="number" id="bmi" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Planned Treatment Duration (weeks)</label>
+                <select id="duration">
+                    <option value="12">12 weeks (~3 months)</option>
+                    <option value="24">24 weeks (~6 months)</option>
+                    <option value="36">36 weeks (~9 months)</option>
+                    <option value="52">52 weeks (~12 months)</option>
+                    <option value="68" selected>68 weeks (~16 months)</option>
+                </select>
+            </div>
+
+            <button id="calculate-btn" class="btn btn-pink">Calculate Projected Weight Loss</button>
+
+            <div id="result" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="weightLoss">—</div>
+                    <div class="result-hero-label">Projected Weight Loss</div>
+                    <div class="result-hero-sublabel" id="loss-pct-label">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card blue">
+                        <div class="result-card-title">Starting Weight</div>
+                        <div class="result-card-value" id="startWeight">—</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Projected Final Weight</div>
+                        <div class="result-card-value" id="finalWeight">—</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Starting BMI</div>
+                        <div class="result-card-value" id="startBMI">—</div>
+                    </div>
+                    <div class="result-card pink">
+                        <div class="result-card-title">Projected Final BMI</div>
+                        <div class="result-card-value" id="finalBMI">—</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Treatment Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Treatment Duration</span>
+                        <span class="result-breakdown-val" id="duration-display">—</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Medication Form</span>
+                        <span class="result-breakdown-val">Oral semaglutide 25mg (daily pill)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Clinical Trial Basis</span>
+                        <span class="result-breakdown-val">OASIS 1 Trial</span>
+                    </div>
+                </div>
+
+                <!-- Dose Escalation Schedule -->
+                <div class="result-breakdown" style="margin-top: 20px;">
+                    <div class="result-breakdown-title">Oral Wegovy Dose Escalation Schedule</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weeks 1-4</span>
+                        <span class="result-breakdown-val">1.5 mg daily</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weeks 5-8</span>
+                        <span class="result-breakdown-val">4 mg daily</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weeks 9-12</span>
+                        <span class="result-breakdown-val">9 mg daily</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weeks 13-16</span>
+                        <span class="result-breakdown-val">14 mg daily</span>
+                    </div>
+                    <div class="result-breakdown-row" style="font-weight: 600;">
+                        <span class="result-breakdown-key">Week 17+</span>
+                        <span class="result-breakdown-val">25 mg daily (maintenance dose)</span>
+                    </div>
+                </div>
+
+                <div class="chart-container">
+                    <canvas id="chart"></canvas>
+                </div>
+
+                <!-- Oral Wegovy vs Injectable Wegovy vs Ozempic Comparison -->
+                <div class="result-breakdown" style="margin-top: 20px;">
+                    <div class="result-breakdown-title">Oral Wegovy vs Injectable Wegovy vs Ozempic</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Active Ingredient</span>
+                        <span class="result-breakdown-val">All semaglutide</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Administration</span>
+                        <span class="result-breakdown-val">Oral: daily pill | Inj. Wegovy: weekly shot | Ozempic: weekly shot</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Maintenance Dose</span>
+                        <span class="result-breakdown-val">Oral: 25 mg/day | Inj.: 2.4 mg/wk | Ozempic: 2.0 mg/wk</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">FDA Approval</span>
+                        <span class="result-breakdown-val">Oral Wegovy: weight loss (2025) | Inj. Wegovy: weight loss (2021) | Ozempic: diabetes</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Avg Weight Loss (68 wk)</span>
+                        <span class="result-breakdown-val">Oral: ~14% | Inj.: ~15% | Ozempic 1mg: ~8%</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Primary Trial</span>
+                        <span class="result-breakdown-val">Oral: OASIS 1 | Inj.: STEP 1 | Ozempic: SUSTAIN</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Key Advantage</span>
+                        <span class="result-breakdown-val">Oral: no needles | Inj.: once weekly | Ozempic: diabetes coverage</span>
+                    </div>
+                </div>
+            </div>
+
+            <p class="disclaimer-text" style="margin-top: 16px;">
+                These are estimates based on average outcomes from the OASIS 1 clinical trial. Individual results vary significantly based on genetics, diet, exercise, and metabolic factors. Consult your healthcare provider before starting or adjusting any GLP-1 medication.
+            </p>
+
+            {% include 'components/share-card.html' %}
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule: LLM-optimized definition -->
+    <h2>What Is Oral Wegovy?</h2>
+    <div class="answer-capsule">
+      Oral Wegovy is the pill form of semaglutide, FDA-approved in December 2025 for chronic weight management. Unlike injectable Wegovy (2.4mg weekly injection), oral Wegovy is taken as a daily tablet at a maintenance dose of 25mg. It contains the same active ingredient — semaglutide, a GLP-1 receptor agonist — but uses an absorption enhancer (SNAC) to allow the peptide to survive the digestive system. In the OASIS 1 clinical trial, oral semaglutide 25mg produced approximately 14% body weight loss at 68 weeks, making it a needle-free alternative with results close to the injectable form.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Oral Wegovy Weight Loss Calculator</a></li>
+            <li><a href="#oral-vs-injectable">How Oral Wegovy Compares to Injectable Wegovy</a></li>
+            <li><a href="#dosing-schedule">Dosing Schedule for Oral Semaglutide</a></li>
+            <li><a href="#how-to-take">How to Take the Oral Wegovy Pill</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Oral vs Injectable Comparison Section -->
+    <section id="oral-vs-injectable" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How Oral Wegovy Compares to Injectable Wegovy</h2>
+            <div class="answer-capsule">
+                Both oral and injectable Wegovy contain semaglutide and are FDA-approved for chronic weight management. The key differences are how you take them, dosing frequency, and slight differences in clinical trial outcomes. Injectable Wegovy (2.4mg weekly) achieved about 15% weight loss at 68 weeks in the STEP 1 trial. Oral Wegovy (25mg daily) achieved about 14% weight loss at 68 weeks in the OASIS 1 trial. The oral form trades a small reduction in average efficacy for the major convenience of no needles.
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Oral Wegovy (25mg daily pill):</strong> Approximately 14% body weight loss at 68 weeks (OASIS 1 trial). Taken daily on an empty stomach.</p>
+                <p><strong>Injectable Wegovy (2.4mg weekly):</strong> Average 14.9% body weight loss at 68 weeks (STEP 1, N=1,961). Subcutaneous injection once per week.</p>
+                <p><strong>Ozempic (1.0mg weekly injection):</strong> Average ~8% body weight loss at 52 weeks (SUSTAIN trials). FDA-approved for diabetes, not weight loss.</p>
+            </div>
+
+            <h4>Who Should Consider the Oral Form?</h4>
+            <p>Oral Wegovy may be a better fit if you have needle phobia or strong aversion to self-injection, prefer a daily routine over a weekly injection schedule, travel frequently and want to avoid carrying injection supplies, or have experienced injection site reactions with the injectable form. However, the strict fasting requirement (empty stomach, minimal water, 30-minute wait before food) makes the oral form less convenient for some patients.</p>
+
+            <h4>Who May Prefer the Injectable Form?</h4>
+            <p>Injectable Wegovy may be preferable if you have trouble with the fasting requirement, prefer once-weekly dosing over daily pills, have gastrointestinal conditions that could affect oral absorption, or want the slightly higher average weight loss seen in the STEP trials. The injectable form does not require fasting and is not affected by food or other oral medications.</p>
+        </div>
+    </section>
+
+    <!-- Dosing Schedule Section -->
+    <section id="dosing-schedule" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Dosing Schedule for Oral Semaglutide (Oral Wegovy)</h2>
+            <div class="answer-capsule">
+                Oral Wegovy uses a gradual 16-week dose escalation to minimize gastrointestinal side effects. Each dose level is maintained for 4 weeks before increasing. Do not skip steps or accelerate the schedule without medical supervision.
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>Weeks 1-4:</strong> 1.5 mg once daily (starting dose)</p>
+                <p><strong>Weeks 5-8:</strong> 4 mg once daily</p>
+                <p><strong>Weeks 9-12:</strong> 9 mg once daily</p>
+                <p><strong>Weeks 13-16:</strong> 14 mg once daily</p>
+                <p><strong>Week 17 onward:</strong> 25 mg once daily (maintenance dose)</p>
+            </div>
+
+            <p>During the dose-titration phase (weeks 1-16), the primary goal is building tolerability. The most common side effects — nausea, vomiting, and diarrhea — are most likely to occur during dose increases. Significant weight loss typically accelerates after reaching the 25mg maintenance dose, though most patients begin losing weight during escalation.</p>
+
+            <h4>Comparison to Injectable Wegovy Dose Schedule</h4>
+            <div class="highlight-box">
+                <p><strong>Injectable Weeks 1-4:</strong> 0.25 mg once weekly</p>
+                <p><strong>Injectable Weeks 5-8:</strong> 0.5 mg once weekly</p>
+                <p><strong>Injectable Weeks 9-12:</strong> 1.0 mg once weekly</p>
+                <p><strong>Injectable Weeks 13-16:</strong> 1.7 mg once weekly</p>
+                <p><strong>Injectable Week 17+:</strong> 2.4 mg once weekly (maintenance dose)</p>
+            </div>
+
+            <p>Both forms share the same 16-week escalation structure, but the oral form uses higher milligram doses because oral bioavailability of semaglutide is approximately 1% — meaning only about 1% of the oral dose reaches the bloodstream. The absorption enhancer SNAC (sodium N-[8-(2-hydroxybenzoyl) amino] caprylate) is co-formulated in the tablet to increase this absorption.</p>
+        </div>
+    </section>
+
+    <!-- How to Take Section -->
+    <section id="how-to-take" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How to Take the Oral Wegovy Pill</h2>
+            <div class="answer-capsule">
+                Oral semaglutide has strict administration requirements because the peptide is fragile in the digestive environment. Following these instructions precisely is critical for the medication to work.
+            </div>
+
+            <div class="highlight-box">
+                <p><strong>1. Empty stomach:</strong> Take the pill first thing in the morning, before eating or drinking anything.</p>
+                <p><strong>2. Minimal water:</strong> Swallow the tablet with no more than 4 ounces (120 mL) of plain water only.</p>
+                <p><strong>3. Wait 30 minutes:</strong> Do not eat, drink, or take other oral medications for at least 30 minutes after taking the pill.</p>
+                <p><strong>4. Swallow whole:</strong> Do not split, crush, or chew the tablet.</p>
+            </div>
+
+            <p>Food, beverages (other than plain water), and other medications in the stomach reduce absorption of oral semaglutide and can make the medication less effective. The 30-minute fasting window is the minimum — longer fasting times may slightly improve absorption. If you miss a dose, skip it and take your next dose the following day at the usual time. Do not double up on doses.</p>
+        </div>
+    </section>
+
+    <!-- Related Guide Section -->
+    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-accent);">
+      <h3 style="color: #333; margin-top: 0;">Related Guide</h3>
+      <p>
+        Want a detailed, evidence-based understanding of how semaglutide works for weight loss? Our comprehensive guide covers
+        week-by-week expected results, proper dosage protocols, managing side effects, and long-term maintenance strategies.
+        <a href="/resources/ozempic-weight-loss-calculator-guide" style="color: var(--color-accent); text-decoration: none; font-weight: 500;">
+          Read the full Semaglutide Weight Loss Guide &rarr;
+        </a>
+      </p>
+    </div>
+
+    <!-- Semaglutide vs Ozempic Guide Block -->
+    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-left: 4px solid var(--color-accent); border-radius: 8px;">
+      <h3 style="margin-top: 0; color: #333;">Learn the Difference Between Brands</h3>
+      <p>Ozempic, Wegovy, and other GLP-1 medications share the same ingredient — semaglutide. But they're not always used the same way. <a href="/resources/semaglutide-vs-ozempic-guide" class="pink-link">Read the full breakdown &rarr;</a></p>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>How much weight can I lose on oral Wegovy?</h4>
+            <div class="faq-body">
+            <p>In the OASIS 1 clinical trial, participants taking oral semaglutide 25mg daily lost an average of approximately 14% of their body weight over 68 weeks, compared to about 2% with placebo. The trajectory is approximately 5% at 12 weeks, 9% at 24 weeks, 12% at 36 weeks, 13% at 52 weeks, and 14% at 68 weeks. Results depend on treatment adherence, diet, exercise, and individual metabolic factors. Some patients may lose more or less than the average.</p>
+                    </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is the difference between oral Wegovy and injectable Wegovy?</h4>
+            <div class="faq-body">
+            <p>Both forms contain semaglutide and are FDA-approved for chronic weight management. Oral Wegovy is a daily pill (maintenance dose 25mg) while injectable Wegovy is a weekly injection (maintenance dose 2.4mg). Injectable Wegovy achieved about 15% weight loss at 68 weeks in the STEP 1 trial (N=1,961), while oral Wegovy achieved about 14% in the OASIS 1 trial. The oral form requires taking the pill on an empty stomach with minimal water, 30 minutes before food — a strict requirement that the injectable form does not have.</p>
+                    </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Why are the oral and injectable doses so different?</h4>
+            <div class="faq-body">
+            <p>Oral semaglutide has a bioavailability of approximately 1%, meaning only about 1% of the dose reaches the bloodstream through the digestive system. The 25mg oral maintenance dose delivers roughly the same amount of active semaglutide to the blood as the 2.4mg injectable dose. The tablet includes an absorption enhancer called SNAC that protects the semaglutide molecule and increases uptake through the stomach lining.</p>
+                    </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>When was oral Wegovy FDA-approved?</h4>
+            <div class="faq-body">
+            <p>The FDA approved oral semaglutide for chronic weight management in December 2025. This made Wegovy available in both injectable and oral forms. The approval was based on the OASIS 1 clinical trial, which demonstrated that oral semaglutide 25mg daily produced clinically meaningful weight loss in adults with obesity or overweight with at least one weight-related condition. Note that oral semaglutide was previously available at lower doses (Rybelsus, up to 14mg) for type 2 diabetes, but the 25mg weight-management dose is a new formulation.</p>
+                    </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Is this calculator based on real clinical trial data?</h4>
+            <div class="faq-body">
+            <p>Yes. The weight loss projections are derived from the OASIS 1 (Oral Semaglutide as an Aid to weight management: a randomIzed, double-blind, placebo-controlled trial) clinical trial. The approximate trajectory used — 5% at 12 weeks, 9% at 24 weeks, 12% at 36 weeks, 13% at 52 weeks, and 14% at 68 weeks — reflects the non-linear pattern of weight loss observed in the trial, where most loss occurs in the first 36 weeks with a gradual plateau thereafter. Individual results vary based on adherence, diet, exercise, and metabolic factors.</p>
+                    </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ad -->
+        <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "FDA approves oral semaglutide (Wegovy) for chronic weight management. FDA News Release, December 2025.", "url": "https://www.fda.gov/drugs/drug-safety-and-availability"},
+        {"text": "Knop FK, Aroda VR, do Vale RD, et al. Oral semaglutide 50 mg taken once daily in adults with overweight or obesity (OASIS 1): a randomised, double-blind, placebo-controlled, phase 3 trial. Lancet. 2023;402(10403):705-719.", "url": "https://pubmed.ncbi.nlm.nih.gov/37385280/"},
+        {"text": "Wilding JPH, Batterham RL, Calanna S, et al. Once-Weekly Semaglutide in Adults with Overweight or Obesity (STEP 1). N Engl J Med. 2021;384(11):989-1002.", "url": "https://pubmed.ncbi.nlm.nih.gov/33567185/"},
+        {"text": "Novo Nordisk. Wegovy (semaglutide) Prescribing Information. FDA.gov.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/215256s007lbl.pdf"},
+        {"text": "Novo Nordisk. Rybelsus (oral semaglutide) Prescribing Information. FDA.gov.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/213051s013lbl.pdf"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    </div> <!-- End of calculator-container -->
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <!-- Chart.js for the results visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/static/js/oral_wegovy_weight_loss_calculator.js"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
