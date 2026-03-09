@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'head_seo.html' %}
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container" style="padding-top: 20px; padding-bottom: 60px;">
+
+    <h1>Ozempic vs Mounjaro: Comparing Weight Loss, Cost, and Side Effects</h1>
+    <p class="subtitle">A data-driven comparison of the two most popular GLP-1 weight loss medications. Both work — but they differ significantly in mechanism, efficacy, dosing, and cost.</p>
+
+    {% include 'components/article-meta.html' %}
+
+    {% set ad_position = "top" %}
+    {% include 'components/ad-unit.html' with context %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#comparison">Head-to-Head Comparison</a></li>
+            <li><a href="#weight-loss">Weight Loss Results</a></li>
+            <li><a href="#mechanism">How They Work Differently</a></li>
+            <li><a href="#dosing">Dosing Schedules</a></li>
+            <li><a href="#side-effects">Side Effects Comparison</a></li>
+            <li><a href="#cost">Cost Comparison</a></li>
+            <li><a href="#which">Which Is Right for You?</a></li>
+            <li><a href="#calculators">Project Your Weight Loss</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources</a></li>
+        </ul>
+    </div>
+
+    <!-- Core Comparison -->
+    <section id="comparison" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Ozempic vs Mounjaro: Quick Comparison</h2>
+            <div class="answer-capsule">
+                Ozempic (semaglutide) targets GLP-1 receptors only. Mounjaro (tirzepatide) targets both GLP-1 and GIP receptors. This dual mechanism gives Mounjaro a significant weight loss advantage in clinical trials — 22.5% vs 14.9% average body weight loss at the highest doses.
+            </div>
+
+            <table class="data-table">
+                <caption>Ozempic vs Mounjaro — comprehensive comparison based on published clinical data</caption>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Ozempic (Semaglutide)</th>
+                        <th>Mounjaro (Tirzepatide)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">Manufacturer</td><td>Novo Nordisk</td><td>Eli Lilly</td></tr>
+                    <tr><td class="td-bold">Mechanism</td><td>GLP-1 receptor agonist</td><td class="td-accent">Dual GIP + GLP-1 agonist</td></tr>
+                    <tr><td class="td-bold">FDA-approved for</td><td>Type 2 diabetes</td><td>Type 2 diabetes + obesity</td></tr>
+                    <tr><td class="td-bold">Weight loss version</td><td>Wegovy (2.4 mg)</td><td>Zepbound (up to 15 mg)</td></tr>
+                    <tr><td class="td-bold">Max weight loss (trials)</td><td>~14.9% (68 wks)</td><td class="td-accent">~22.5% (72 wks)</td></tr>
+                    <tr><td class="td-bold">Injection frequency</td><td>Once weekly</td><td>Once weekly</td></tr>
+                    <tr><td class="td-bold">Dose range</td><td>0.25 – 2.4 mg</td><td>2.5 – 15 mg</td></tr>
+                    <tr><td class="td-bold">Time to max dose</td><td>16–20 weeks</td><td>20–28 weeks</td></tr>
+                    <tr><td class="td-bold">Key trial program</td><td>STEP (1-5)</td><td>SURMOUNT (1-4)</td></tr>
+                    <tr><td class="td-bold">List price (monthly)</td><td>~$935 (Ozempic)</td><td>~$1,023 (Mounjaro)</td></tr>
+                    <tr><td class="td-bold">With insurance/coupon</td><td>$0–$300</td><td>$0–$550</td></tr>
+                    <tr><td class="td-bold">Available since</td><td>2017 (diabetes), 2021 (obesity)</td><td>2022 (diabetes), 2023 (obesity)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    {% set ad_position = "in-article" %}
+    {% include 'components/ad-unit.html' with context %}
+
+    <!-- Weight Loss Data -->
+    <section id="weight-loss" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Weight Loss: Clinical Trial Results</h2>
+            <p>The most reliable comparison comes from the SURMOUNT-2 trial, which directly compared tirzepatide against semaglutide. But we can also compare across the STEP and SURMOUNT programs.</p>
+            <table class="data-table">
+                <caption>Weight loss outcomes by medication and dose — Sources: STEP 1, SURMOUNT-1, SURMOUNT-2</caption>
+                <thead>
+                    <tr>
+                        <th>Medication</th>
+                        <th>Dose</th>
+                        <th>Avg. Weight Loss</th>
+                        <th>% Losing &ge;10%</th>
+                        <th>% Losing &ge;20%</th>
+                        <th>Duration</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">Ozempic</td><td>1.0 mg</td><td>~8%</td><td>~35%</td><td>~8%</td><td>52 wks</td></tr>
+                    <tr><td class="td-bold">Wegovy</td><td>2.4 mg</td><td>~14.9%</td><td>~69%</td><td>~32%</td><td>68 wks</td></tr>
+                    <tr><td class="td-bold">Mounjaro</td><td>5 mg</td><td>~15.0%</td><td>~67%</td><td>~32%</td><td>72 wks</td></tr>
+                    <tr><td class="td-bold">Mounjaro</td><td>10 mg</td><td>~19.5%</td><td>~82%</td><td>~46%</td><td>72 wks</td></tr>
+                    <tr><td class="td-bold">Mounjaro</td><td>15 mg</td><td class="td-accent">~22.5%</td><td class="td-accent">~87%</td><td class="td-accent">~57%</td><td>72 wks</td></tr>
+                    <tr><td>Placebo</td><td>—</td><td>~2.4–3.1%</td><td>~10%</td><td>~2%</td><td>68-72 wks</td></tr>
+                </tbody>
+            </table>
+            <div class="highlight-box" style="margin-top: 16px;">
+                <p><strong>Key finding:</strong> Mounjaro's lowest dose (5 mg) produces roughly the same weight loss as Wegovy's maximum dose (2.4 mg). At higher doses, Mounjaro's weight loss advantage widens to 5-8 percentage points.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mechanism -->
+    <section id="mechanism" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How They Work Differently</h2>
+            <p><strong>Ozempic (semaglutide)</strong> mimics a single gut hormone — GLP-1 — which slows gastric emptying, reduces appetite, and increases insulin secretion. It's a targeted, single-pathway approach.</p>
+            <p><strong>Mounjaro (tirzepatide)</strong> mimics two gut hormones simultaneously — GLP-1 and GIP. The addition of GIP receptor activation provides additional metabolic benefits:</p>
+            <ul>
+                <li>Enhanced fat metabolism beyond what GLP-1 alone achieves</li>
+                <li>Improved insulin sensitivity through a complementary pathway</li>
+                <li>Potentially greater energy expenditure (still being studied)</li>
+                <li>Additive appetite suppression from two independent signaling pathways</li>
+            </ul>
+            <p>This dual mechanism is the primary reason Mounjaro produces greater weight loss in clinical trials. It's not simply a higher dose of the same approach — it's a fundamentally broader mechanism.</p>
+        </div>
+    </section>
+
+    <!-- Dosing -->
+    <section id="dosing" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Dosing Schedule Comparison</h2>
+            <table class="data-table">
+                <caption>Side-by-side dose escalation — both are once-weekly subcutaneous injections</caption>
+                <thead>
+                    <tr>
+                        <th>Week</th>
+                        <th>Ozempic/Wegovy</th>
+                        <th>Mounjaro/Zepbound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">1–4</td><td>0.25 mg (initiation)</td><td>2.5 mg (initiation)</td></tr>
+                    <tr><td class="td-bold">5–8</td><td>0.5 mg</td><td>5.0 mg</td></tr>
+                    <tr><td class="td-bold">9–12</td><td>1.0 mg</td><td>7.5 mg (optional)</td></tr>
+                    <tr><td class="td-bold">13–16</td><td>1.7 mg</td><td>10.0 mg</td></tr>
+                    <tr><td class="td-bold">17–20</td><td>2.4 mg (max)</td><td>12.5 mg (optional)</td></tr>
+                    <tr><td class="td-bold">21+</td><td>—</td><td>15.0 mg (max)</td></tr>
+                </tbody>
+            </table>
+            <p>Mounjaro takes slightly longer to reach maximum dose (20-28 weeks vs 16-20 weeks) because it has more dose steps. Both medications require gradual escalation to minimize nausea and other GI side effects.</p>
+        </div>
+    </section>
+
+    <!-- Side Effects -->
+    <section id="side-effects" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Side Effects: How They Compare</h2>
+            <div class="answer-capsule">Both medications share similar GI side effects because they both activate GLP-1 receptors. However, the rates and severity differ slightly between trials.</div>
+            <table class="data-table">
+                <caption>Most common side effects reported in pivotal trials (% of participants)</caption>
+                <thead>
+                    <tr>
+                        <th>Side Effect</th>
+                        <th>Ozempic/Wegovy</th>
+                        <th>Mounjaro</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">Nausea</td><td class="td-warning">44%</td><td class="td-warning">31%</td></tr>
+                    <tr><td class="td-bold">Diarrhea</td><td>30%</td><td>23%</td></tr>
+                    <tr><td class="td-bold">Vomiting</td><td>24%</td><td>12%</td></tr>
+                    <tr><td class="td-bold">Constipation</td><td>24%</td><td>17%</td></tr>
+                    <tr><td class="td-bold">Abdominal pain</td><td>20%</td><td>14%</td></tr>
+                    <tr><td class="td-bold">Injection site reaction</td><td>3.2%</td><td>5%</td></tr>
+                    <tr><td class="td-bold">Discontinuation due to side effects</td><td>7%</td><td>6.3%</td></tr>
+                </tbody>
+            </table>
+            <p>Mounjaro appears to have lower rates of nausea and vomiting in trials, though direct comparison is limited because the trials used different populations. Both medications' GI side effects are most pronounced during dose escalation and typically improve after 4-6 weeks at a stable dose.</p>
+        </div>
+    </section>
+
+    <!-- Cost -->
+    <section id="cost" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Cost Comparison (2026)</h2>
+            <table class="data-table">
+                <caption>Approximate monthly costs — actual costs vary by insurance, pharmacy, and availability</caption>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>Ozempic</th>
+                        <th>Wegovy</th>
+                        <th>Mounjaro</th>
+                        <th>Zepbound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">List price/month</td><td>~$935</td><td>~$1,349</td><td>~$1,023</td><td>~$1,060</td></tr>
+                    <tr><td class="td-bold">With commercial insurance</td><td>$25–$150</td><td>$0–$300</td><td>$25–$150</td><td>$0–$550</td></tr>
+                    <tr><td class="td-bold">Manufacturer savings</td><td>Yes (Novo Nordisk)</td><td>Yes (Novo Nordisk)</td><td>Yes (Eli Lilly)</td><td>Yes (Eli Lilly)</td></tr>
+                    <tr><td class="td-bold">Compounded available?</td><td>Limited (2026)</td><td>Limited</td><td>Yes</td><td>Yes</td></tr>
+                    <tr><td class="td-bold">Medicare Part D</td><td>Yes (diabetes)</td><td>Varies</td><td>Yes (diabetes)</td><td>Varies</td></tr>
+                </tbody>
+            </table>
+            <p>Actual out-of-pocket cost depends heavily on your insurance plan. Both manufacturers offer savings cards that can reduce copays to $0-$25/month for commercially insured patients. Without insurance, compounded versions may be available at lower cost but quality and regulation vary.</p>
+        </div>
+    </section>
+
+    <!-- Which Is Right -->
+    <section id="which" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Which Medication Is Right for You?</h2>
+            <div class="highlight-box">
+                <p><strong>This is a medical decision that should be made with your prescribing physician.</strong> The comparison below highlights general factors, not personalized medical advice.</p>
+            </div>
+            <p><strong>Mounjaro/Zepbound may be preferred if:</strong></p>
+            <ul>
+                <li>Maximum weight loss is the primary goal (22.5% vs 14.9%)</li>
+                <li>You have type 2 diabetes (dual mechanism offers better glucose control)</li>
+                <li>You've plateaued on semaglutide and want to try a different mechanism</li>
+            </ul>
+            <p><strong>Ozempic/Wegovy may be preferred if:</strong></p>
+            <ul>
+                <li>Longer safety track record matters to you (on market since 2017 vs 2022)</li>
+                <li>More real-world data and clinical experience is available</li>
+                <li>Cardiovascular risk reduction is important (Wegovy has CV outcome data; Mounjaro's is pending)</li>
+                <li>Your insurance covers one but not the other</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Calculator CTAs -->
+    <section id="calculators" style="margin-top: 48px;">
+        <div class="info" style="text-align: center;">
+            <h2>Project Your Weight Loss on Each Medication</h2>
+            <p>Use our calculators to see personalized projections based on your starting weight, dose, and treatment duration.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                <a href="/ozempic-weight-loss-calculator" class="cta-button" style="text-decoration:none;">Ozempic Calculator</a>
+                <a href="/mounjaro-weight-loss-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #6b30c0 0%, #8848d0 100%);">Mounjaro Calculator</a>
+                <a href="/glp1-comparison-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%);">Compare All 3</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>Can you switch from Ozempic to Mounjaro?</h4>
+            <div class="faq-body"><p>Yes, with your doctor's guidance. The typical approach is to stop Ozempic and start Mounjaro at the lowest dose (2.5 mg) regardless of your previous Ozempic dose, then escalate normally. Some doctors may start at a slightly higher Mounjaro dose if you've been on high-dose semaglutide, but this is an individual clinical decision.</p></div>
+        </div>
+        <div class="faq-item">
+            <h4>Is Mounjaro always better than Ozempic for weight loss?</h4>
+            <div class="faq-body"><p>On average, yes — Mounjaro produces greater weight loss at comparable treatment durations. However, individual responses vary significantly. Some people respond exceptionally well to semaglutide and may not need tirzepatide. The "best" medication is the one that produces good results with tolerable side effects for you specifically.</p></div>
+        </div>
+        <div class="faq-item">
+            <h4>Do you regain weight after stopping either medication?</h4>
+            <div class="faq-body"><p>Studies show significant weight regain after discontinuation of both medications. The STEP 1 extension trial found participants regained approximately two-thirds of lost weight within one year of stopping semaglutide. Long-term data for tirzepatide discontinuation is still being collected, but the pattern is expected to be similar. This is why many physicians recommend ongoing treatment.</p></div>
+        </div>
+        <div class="faq-item">
+            <h4>Can you take Ozempic and Mounjaro together?</h4>
+            <div class="faq-body"><p>No. Both medications activate GLP-1 receptors, so combining them would increase the risk of severe side effects (particularly GI effects) without a proportional increase in benefit. They should not be used simultaneously.</p></div>
+        </div>
+    </section>
+
+    <!-- Sources -->
+    <section id="sources" style="margin-top: 40px;">
+        <div class="sources-section">
+            <h3>Sources & References</h3>
+            <ol class="sources-list">
+                <li>Wilding JPH, et al. "Once-weekly semaglutide in adults with overweight or obesity." <em>N Engl J Med</em>. 2021;384(11):989-1002. (STEP 1)</li>
+                <li>Jastreboff AM, et al. "Tirzepatide once weekly for the treatment of obesity." <em>N Engl J Med</em>. 2022;387(3):205-216. (SURMOUNT-1)</li>
+                <li>Garvey WT, et al. "Tirzepatide once weekly for the treatment of obesity in people with type 2 diabetes." <em>Lancet</em>. 2023;402(10402):613-626. (SURMOUNT-2)</li>
+                <li>Rubino D, et al. "Effect of continued weekly subcutaneous semaglutide vs placebo on weight loss maintenance." <em>JAMA</em>. 2021;325(14):1414-1425. (STEP 4)</li>
+                <li>Novo Nordisk. "Ozempic (semaglutide) prescribing information." FDA, 2024.</li>
+                <li>Eli Lilly. "Mounjaro (tirzepatide) prescribing information." FDA, 2024.</li>
+            </ol>
+        </div>
+    </section>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
+{% include 'footer.html' %}
+</body>
+</html>

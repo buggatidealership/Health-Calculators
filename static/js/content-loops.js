@@ -19,6 +19,7 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your "ideal" weight depends on 3 factors most people overlook', params: ['height_cm','gender'] },
       { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'The military uses a different standard than BMI — would you pass?', params: ['height_cm','gender','age'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: '30% of "healthy" BMIs hide unhealthy body fat levels', params: ['height_cm','gender','age'] },
+      { url: '/bmi-vs-body-fat', title: 'BMI vs Body Fat %', icon: '📋', reason: 'BMI missed the mark? See which metric actually predicts your health risk', params: [] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: '16:8 fasting burns fat without cutting calories — see your timeline', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Low BMI can trigger menopause up to 1 year earlier — check your timeline', params: ['age'] }
     ]
@@ -26,6 +27,7 @@ var CALCULATOR_GRAPH = {
   'tdee': {
     links: [
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your TDEE changes with your BMI — do you know your category?', params: ['weight_kg','height_cm'] },
+      { url: '/tdee-vs-bmr', title: 'TDEE vs BMR Explained', icon: '📋', reason: 'Most people confuse these two numbers — the difference changes your entire diet plan', params: [] },
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'A 30-min run burns fewer calories than most people think', params: ['weight_kg'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Without enough protein, up to 25% of weight loss comes from muscle', params: ['weight_kg','age','gender'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Cycling carbs around your {tdee} kcal can accelerate fat loss', params: ['weight_kg','height_cm','age','gender','activity'] },
@@ -104,7 +106,8 @@ var CALCULATOR_GRAPH = {
       { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Ozempic cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Some doctors pair Ozempic with fasting — see how the math changes', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/antidepressant-weight-gain-calculator', title: 'Antidepressant Weight', icon: '💊', reason: 'Some antidepressants add 7+ lbs — could that be offsetting your results?', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/antidepressant-weight-gain-calculator', title: 'Antidepressant Weight', icon: '💊', reason: 'Some antidepressants add 7+ lbs — could that be offsetting your results?', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-vs-mounjaro', title: 'Ozempic vs Mounjaro', icon: '📋', reason: 'Mounjaro produced 22.5% weight loss vs Ozempic\'s 14.9% — see the full comparison', params: [] }
     ]
   },
   'wegovy': {
@@ -145,7 +148,8 @@ var CALCULATOR_GRAPH = {
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most Mounjaro users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'GLP-1 drugs slash appetite — but the wrong macros cost you muscle', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'When should you stop losing? Your frame determines the answer', params: ['height_cm','gender'] }
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'When should you stop losing? Your frame determines the answer', params: ['height_cm','gender'] },
+      { url: '/ozempic-vs-mounjaro', title: 'Ozempic vs Mounjaro', icon: '📋', reason: 'Side effects, cost, weight loss data — the full comparison in one page', params: [] }
     ]
   },
   'zepbound': {

@@ -889,6 +889,61 @@ def category_hub():
         is_homepage=False
     )
 
+# ===== COMPARISON PAGES =====
+@app.route('/bmi-vs-body-fat')
+def comparison_bmi_vs_body_fat():
+    return render_template(
+        'comparison_bmi_vs_body_fat.html',
+        is_homepage=False,
+        page_title="BMI vs Body Fat Percentage: Which Metric Should You Use? | HealthCalculators.xyz",
+        meta_description="Compare BMI and body fat percentage side by side. Learn when to use each metric, healthy ranges for both, limitations, and why using both gives you the most accurate picture.",
+        meta_keywords="BMI vs body fat, body fat percentage vs BMI, BMI accuracy, body composition metrics",
+        og_title="BMI vs Body Fat Percentage: Which Metric Should You Use?",
+        og_description="Data-driven comparison of BMI and body fat percentage — when to use each, healthy ranges, and limitations.",
+        og_url="/bmi-vs-body-fat",
+        schema_name="BMI vs Body Fat Percentage Comparison",
+        schema_description="Compare BMI and body fat percentage: accuracy, healthy ranges, limitations, and when to use each body composition metric.",
+        schema_url="/bmi-vs-body-fat",
+        canonical_url="/bmi-vs-body-fat",
+        breadcrumb_title="BMI vs Body Fat"
+    )
+
+@app.route('/tdee-vs-bmr')
+def comparison_tdee_vs_bmr():
+    return render_template(
+        'comparison_tdee_vs_bmr.html',
+        is_homepage=False,
+        page_title="TDEE vs BMR: What's the Difference? | HealthCalculators.xyz",
+        meta_description="Understand the difference between TDEE and BMR. Learn how each is calculated, sample values by age and gender, and which to use for weight loss calorie targets.",
+        meta_keywords="TDEE vs BMR, BMR vs TDEE, basal metabolic rate, total daily energy expenditure, calorie calculator",
+        og_title="TDEE vs BMR: What's the Difference?",
+        og_description="BMR is calories at rest. TDEE is total daily burn. Learn the difference, see sample values, and find which to use for dieting.",
+        og_url="/tdee-vs-bmr",
+        schema_name="TDEE vs BMR Comparison",
+        schema_description="Compare Total Daily Energy Expenditure (TDEE) and Basal Metabolic Rate (BMR): formulas, sample values, and which to use for calorie targets.",
+        schema_url="/tdee-vs-bmr",
+        canonical_url="/tdee-vs-bmr",
+        breadcrumb_title="TDEE vs BMR"
+    )
+
+@app.route('/ozempic-vs-mounjaro')
+def comparison_ozempic_vs_mounjaro():
+    return render_template(
+        'comparison_ozempic_vs_mounjaro.html',
+        is_homepage=False,
+        page_title="Ozempic vs Mounjaro: Weight Loss, Cost, Side Effects Compared | HealthCalculators.xyz",
+        meta_description="Compare Ozempic and Mounjaro head-to-head: clinical trial weight loss data (14.9% vs 22.5%), dosing schedules, side effect rates, cost, and which medication may be right for you.",
+        meta_keywords="Ozempic vs Mounjaro, semaglutide vs tirzepatide, GLP-1 comparison, weight loss medication comparison",
+        og_title="Ozempic vs Mounjaro: Complete Comparison",
+        og_description="Clinical trial data shows Mounjaro produces 22.5% weight loss vs Ozempic's 14.9%. Full comparison of cost, side effects, and dosing.",
+        og_url="/ozempic-vs-mounjaro",
+        schema_name="Ozempic vs Mounjaro Weight Loss Comparison",
+        schema_description="Data-driven comparison of Ozempic (semaglutide) and Mounjaro (tirzepatide): weight loss results, mechanism, dosing, side effects, and cost.",
+        schema_url="/ozempic-vs-mounjaro",
+        canonical_url="/ozempic-vs-mounjaro",
+        breadcrumb_title="Ozempic vs Mounjaro"
+    )
+
 @app.route('/tdee-calculator')
 def tdee_calculator():
     schema_name = "TDEE Calculator"

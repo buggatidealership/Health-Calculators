@@ -5,6 +5,25 @@
     <priority>1.0</priority>
     <changefreq>weekly</changefreq>
   </url>
+  <!-- Comparison Pages -->
+  <url>
+    <loc>https://healthcalculators.xyz/bmi-vs-body-fat</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/tdee-vs-bmr</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/ozempic-vs-mounjaro</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <!-- Category Hub Pages -->
   <url>
     <loc>https://healthcalculators.xyz/nutrition-calculators</loc>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% include 'head_seo.html' %}
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container" style="padding-top: 20px; padding-bottom: 60px;">
+
+    <h1>BMI vs Body Fat Percentage: Which Metric Should You Use?</h1>
+    <p class="subtitle">Two of the most common body composition metrics serve different purposes. Here's when to use each — and why using both gives you the clearest picture of your health.</p>
+
+    {% include 'components/article-meta.html' %}
+
+    {% set ad_position = "top" %}
+    {% include 'components/ad-unit.html' with context %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#comparison">Side-by-Side Comparison</a></li>
+            <li><a href="#when-bmi">When BMI Is More Useful</a></li>
+            <li><a href="#when-bf">When Body Fat % Is More Useful</a></li>
+            <li><a href="#ranges">Healthy Ranges for Both Metrics</a></li>
+            <li><a href="#limitations">Limitations of Each</a></li>
+            <li><a href="#calculators">Calculate Both</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources</a></li>
+        </ul>
+    </div>
+
+    <!-- Core Comparison -->
+    <section id="comparison" style="margin-top: 48px;">
+        <div class="info">
+            <h2>BMI vs Body Fat: Key Differences</h2>
+            <div class="answer-capsule">
+                BMI measures weight relative to height. Body fat percentage measures how much of your total weight is fat tissue. BMI is faster and easier to calculate but cannot distinguish between muscle and fat. Body fat percentage is more accurate for assessing health risk but requires measurements or specialized equipment.
+            </div>
+
+            <table class="data-table">
+                <caption>Head-to-head comparison of BMI and Body Fat Percentage</caption>
+                <thead>
+                    <tr>
+                        <th>Factor</th>
+                        <th>BMI</th>
+                        <th>Body Fat %</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">What it measures</td><td>Weight relative to height</td><td>Fat mass as % of total weight</td></tr>
+                    <tr><td class="td-bold">Inputs needed</td><td>Height + weight only</td><td>Height, weight, neck, waist (+ hip for women)</td></tr>
+                    <tr><td class="td-bold">Distinguishes muscle from fat?</td><td class="td-danger">No</td><td class="td-good">Yes</td></tr>
+                    <tr><td class="td-bold">Accuracy for athletes</td><td class="td-danger">Poor (overestimates fat)</td><td class="td-good">Good</td></tr>
+                    <tr><td class="td-bold">Accuracy for elderly</td><td class="td-danger">Poor (underestimates fat)</td><td class="td-good">Good</td></tr>
+                    <tr><td class="td-bold">Ease of measurement</td><td class="td-good">Very easy (no tools)</td><td>Requires tape measure</td></tr>
+                    <tr><td class="td-bold">WHO classification</td><td class="td-good">Yes (standardized)</td><td>Varies by source</td></tr>
+                    <tr><td class="td-bold">Predicts metabolic disease</td><td>Moderate</td><td class="td-good">Strong</td></tr>
+                    <tr><td class="td-bold">Best for</td><td>Population screening</td><td>Individual health assessment</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    {% set ad_position = "in-article" %}
+    {% include 'components/ad-unit.html' with context %}
+
+    <!-- When BMI Is Better -->
+    <section id="when-bmi" style="margin-top: 48px;">
+        <div class="info">
+            <h2>When BMI Is the Better Choice</h2>
+            <p>BMI works well as a <strong>quick screening tool</strong> for the general population. If you're not an athlete, not elderly, and don't have an unusually muscular build, your BMI correlates closely with your actual body fat level.</p>
+            <p>BMI is preferred when:</p>
+            <ul>
+                <li>You need a fast assessment with just a scale and height measurement</li>
+                <li>Tracking weight trends over time (BMI trends track fat changes for most people)</li>
+                <li>Comparing against standardized WHO health risk categories</li>
+                <li>Clinical settings where population-level data is needed</li>
+            </ul>
+            <p>A 2012 meta-analysis in the <em>International Journal of Obesity</em> found that BMI correctly classified 83% of men and 72% of women into the correct body fat category, making it a reliable first-pass metric for non-athletes.</p>
+        </div>
+    </section>
+
+    <!-- When Body Fat Is Better -->
+    <section id="when-bf" style="margin-top: 48px;">
+        <div class="info">
+            <h2>When Body Fat Percentage Is More Useful</h2>
+            <p>Body fat percentage becomes the superior metric whenever BMI's blind spots apply:</p>
+            <ul>
+                <li><strong>Athletes and lifters:</strong> A muscular person at 5'10" and 200 lbs has a BMI of 28.7 ("overweight") despite potentially having 12% body fat</li>
+                <li><strong>Older adults:</strong> Muscle loss with aging means a "normal" BMI can mask unhealthily high body fat (sarcopenic obesity)</li>
+                <li><strong>"Skinny fat" individuals:</strong> Normal BMI but high body fat due to low muscle mass — a common pattern in sedentary adults</li>
+                <li><strong>Body recomposition tracking:</strong> When you're simultaneously losing fat and gaining muscle, weight (and BMI) may not change while body fat drops significantly</li>
+            </ul>
+            <p>The U.S. Navy circumference method used in our calculator has been validated against DEXA scanning with a standard error of ~3-4% body fat — accurate enough for tracking trends over time.</p>
+        </div>
+    </section>
+
+    <!-- Healthy Ranges -->
+    <section id="ranges" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Healthy Ranges: BMI vs Body Fat Percentage</h2>
+            <h4>BMI Categories (WHO)</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Category</th><th>BMI Range</th><th>Health Risk</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">Underweight</td><td>&lt; 18.5</td><td class="td-warning">Increased</td></tr>
+                    <tr><td class="td-bold">Normal</td><td>18.5 – 24.9</td><td class="td-good">Lowest</td></tr>
+                    <tr><td class="td-bold">Overweight</td><td>25.0 – 29.9</td><td class="td-warning">Increased</td></tr>
+                    <tr><td class="td-bold">Obese</td><td>&ge; 30.0</td><td class="td-danger">High</td></tr>
+                </tbody>
+            </table>
+            <h4>Body Fat Percentage Ranges (ACE Guidelines)</h4>
+            <table class="data-table">
+                <thead>
+                    <tr><th>Category</th><th>Women</th><th>Men</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">Essential Fat</td><td>10–13%</td><td>2–5%</td></tr>
+                    <tr><td class="td-bold">Athletic</td><td>14–20%</td><td>6–13%</td></tr>
+                    <tr><td class="td-bold">Fitness</td><td class="td-good">21–24%</td><td class="td-good">14–17%</td></tr>
+                    <tr><td class="td-bold">Average</td><td>25–31%</td><td>18–24%</td></tr>
+                    <tr><td class="td-bold">Obese</td><td class="td-danger">&gt; 32%</td><td class="td-danger">&gt; 25%</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Limitations -->
+    <section id="limitations" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Limitations of Each Metric</h2>
+            <div class="highlight-box">
+                <p><strong>Neither metric is perfect alone.</strong> The most reliable approach is using both: BMI for a quick classification, then body fat percentage if your BMI puts you in a borderline or surprising category. If both metrics agree, you can be more confident in the assessment.</p>
+            </div>
+            <p><strong>BMI limitations:</strong> Cannot account for muscle mass, bone density, age, sex, or ethnicity differences in body composition. The same BMI can represent very different health profiles.</p>
+            <p><strong>Body fat % limitations:</strong> The circumference method has a ±3-4% margin of error. Results vary with hydration, time of day, and measurement technique. DEXA scans are more accurate but cost $75-150 per scan.</p>
+        </div>
+    </section>
+
+    <!-- Calculator CTAs -->
+    <section id="calculators" style="margin-top: 48px;">
+        <div class="info" style="text-align: center;">
+            <h2>Calculate Both Metrics</h2>
+            <p>Use both calculators below to get a complete picture of your body composition.</p>
+            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
+                <a href="/bmi-calculator" class="cta-button" style="text-decoration:none;">Calculate Your BMI</a>
+                <a href="/body-fat-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%);">Calculate Body Fat %</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="faq-section" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h4>Can you have a normal BMI but high body fat?</h4>
+            <div class="faq-body"><p>Yes. This is called "normal weight obesity" or "skinny fat." A sedentary person can have a BMI of 22 (normal) but body fat above 30% due to low muscle mass. Studies suggest 20-30% of normal-BMI adults have excess body fat, placing them at higher metabolic risk than their BMI suggests.</p></div>
+        </div>
+        <div class="faq-item">
+            <h4>Can you have a high BMI but low body fat?</h4>
+            <div class="faq-body"><p>Yes. This is common in athletes and people who lift weights. An NFL running back at 5'10" and 215 lbs has a BMI of 30.9 ("obese") despite having 8-12% body fat. BMI cannot distinguish 215 lbs of muscle from 215 lbs of fat.</p></div>
+        </div>
+        <div class="faq-item">
+            <h4>Which metric better predicts heart disease?</h4>
+            <div class="faq-body"><p>Body fat percentage — particularly visceral fat — is a stronger predictor of cardiovascular disease than BMI alone. However, waist circumference may be an even better single predictor than either metric. The Body Roundness Index (BRI) captures this by measuring central adiposity specifically.</p></div>
+        </div>
+        <div class="faq-item">
+            <h4>How often should I measure?</h4>
+            <div class="faq-body"><p>BMI changes with any weight change, so tracking weekly during active weight management is reasonable. Body fat percentage should be measured every 2-4 weeks under consistent conditions (same time of day, same hydration level) because the measurement error is larger and small changes aren't reliable.</p></div>
+        </div>
+    </section>
+
+    <!-- Sources -->
+    <section id="sources" style="margin-top: 40px;">
+        <div class="sources-section">
+            <h3>Sources & References</h3>
+            <ol class="sources-list">
+                <li>Romero-Corral A, et al. "Accuracy of body mass index in diagnosing obesity in the adult general population." <em>Int J Obes</em>. 2008;32(6):959-966.</li>
+                <li>American Council on Exercise. "ACE Body Fat Percentage Ranges." ACE Fitness, 2023.</li>
+                <li>Hodgdon JA, Beckett MB. "Prediction of percent body fat for U.S. Navy men and women from body circumferences and height." Naval Health Research Center, 1984.</li>
+                <li>World Health Organization. "BMI Classification." Global Database on Body Mass Index, 2024.</li>
+                <li>Oliveros E, et al. "The concept of normal weight obesity." <em>Prog Cardiovasc Dis</em>. 2014;56(4):426-433.</li>
+            </ol>
+        </div>
+    </section>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
+{% include 'footer.html' %}
+</body>
+</html>
