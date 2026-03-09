@@ -3,7 +3,7 @@
   /* Color: Warm neutral palette */
   --color-text: #1a1a2e;
   --color-text-secondary: #4a4a68;
-  --color-text-tertiary: #8e8ea0;
+  --color-text-tertiary: #6e6e82;
   --color-bg: #faf9f7;
   --color-surface: #ffffff;
   --color-muted: #f5f3f0;
@@ -11,8 +11,8 @@
   --color-border-light: #f0ece8;
 
   /* Color: Accent — deep teal, authoritative */
-  --color-accent: #0a7e8c;
-  --color-accent-hover: #066570;
+  --color-accent: #087078; /* WCAG AA on white (5.0:1) */
+  --color-accent-hover: #065c63;
   --color-accent-bg: #eef9fa;
   --color-accent-border: #b8e8ed;
   --color-accent-glow: rgba(10, 126, 140, 0.12);
@@ -21,7 +21,7 @@
   --color-good: #1a8a4a;
   --color-good-bg: #eef8f2;
   --color-good-border: #b6e2c8;
-  --color-warning: #c27a0e;
+  --color-warning: #9e6400;
   --color-warning-bg: #fdf6e9;
   --color-warning-border: #f0d9a0;
   --color-danger: #c03030;
