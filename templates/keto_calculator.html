@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "keto-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your ideal keto macros with this free ketogenic diet calculator. Get personalized fat, protein, and carb targets for standard, modified, or high-protein keto using the Mifflin-St Jeor equation.",
+    meta_keywords="keto calculator, keto macro calculator, ketogenic diet calculator, keto macros, keto fat protein carbs, net carbs calculator, ketosis calculator",
+    og_title="Keto Macro Calculator",
+    og_description="Calculate your personalized keto macros for fat, protein, and carbs. Supports standard, modified, and high-protein ketogenic approaches.",
+    og_url="/keto-calculator",
+    page_title="Keto Macro Calculator – Personalized Ketogenic Diet Macros",
+    canonical_url="/keto-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Keto Macro Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/keto-calculator",
+  "description": "Calculate personalized keto macros using the Mifflin-St Jeor equation. Get fat, protein, and carb targets for standard, modified, or high-protein ketogenic diets based on your body metrics and goals.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How many carbs can I eat on keto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most ketogenic diets recommend limiting net carbs to 20-50 grams per day. Standard keto allocates about 5% of total calories to carbohydrates, which typically falls within this range. The exact amount depends on your total calorie intake, activity level, and individual carb tolerance. Some people can maintain ketosis at up to 50g net carbs, while others need to stay under 20g."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between standard and high-protein keto?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard keto follows a 75% fat, 20% protein, 5% carb ratio, while high-protein keto uses 60% fat, 35% protein, 5% carbs. High-protein keto is better suited for people who are physically active or want to preserve muscle mass during weight loss. Both approaches keep carbs very low to maintain ketosis, but high-protein keto provides more amino acids for muscle repair and satiety."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take to enter ketosis?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most people enter ketosis within 2-4 days of restricting carbohydrates to under 20-50g per day. However, full fat adaptation — where your body efficiently uses ketones as its primary fuel — can take 2-6 weeks. Factors that affect the timeline include your previous diet, activity level, and individual metabolism. Using a blood ketone meter (measuring beta-hydroxybutyrate) is the most accurate way to confirm ketosis."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I build muscle on a keto diet?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, muscle building is possible on keto, though it may be slightly less efficient than with a higher-carb diet. Research by Volek et al. shows that adequate protein intake (1.6-2.2g per kg body weight) and a caloric surplus are the primary drivers of muscle growth. The high-protein keto approach (60/35/5) is recommended for muscle gain. Ensure you are eating enough total calories and protein, and consider timing protein around workouts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the keto flu and how do I avoid it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The keto flu refers to a collection of symptoms — headache, fatigue, nausea, dizziness, and irritability — that some people experience during the first 1-2 weeks of a ketogenic diet. It is primarily caused by electrolyte imbalances and dehydration as your body excretes more sodium and water on low carb. To minimize symptoms, increase sodium intake (3-5g/day), supplement magnesium (200-400mg) and potassium (1,000-3,500mg from food), stay well hydrated, and transition gradually rather than cutting carbs abruptly."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Keto Macro Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Calculate your personalized ketogenic diet macros based on your body metrics, activity level, and goals. This calculator determines your optimal fat, protein, and carb targets for staying in ketosis while meeting your nutritional needs.</p>
+
+<section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label style="font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (kg/cm)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (lb/in)</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Sex</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age (years)</label>
+                <input type="number" id="age" min="18" max="100" value="30">
+            </div>
+
+            <div class="form-group metric-field">
+                <label for="weight-kg">Weight (kg)</label>
+                <input type="number" id="weight-kg" min="40" max="200" step="0.1" value="70">
+            </div>
+
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="weight-lb">Weight (lb)</label>
+                <input type="number" id="weight-lb" min="88" max="440" value="154">
+            </div>
+
+            <div class="form-group metric-field">
+                <label for="height-cm">Height (cm)</label>
+                <input type="number" id="height-cm" min="130" max="220" value="170">
+            </div>
+
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="height-ft">Height (ft)</label>
+                <input type="number" id="height-ft" min="4" max="7" value="5">
+            </div>
+
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="height-in">Height (in)</label>
+                <input type="number" id="height-in" min="0" max="11" value="7">
+            </div>
+
+            <div class="form-group">
+                <label for="activity-level">Activity Level</label>
+                <select id="activity-level">
+                    <option value="1.2">Sedentary (little or no exercise)</option>
+                    <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                    <option value="1.55" selected>Moderately active (moderate exercise 3-5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                    <option value="1.9">Extra active (very hard exercise & physical job)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="goal">Goal</label>
+                <select id="goal">
+                    <option value="-500">Lose weight (-500 cal/day deficit)</option>
+                    <option value="0" selected>Maintain weight</option>
+                    <option value="250">Gain muscle (+250 cal/day surplus)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="keto-approach">Keto Approach</label>
+                <select id="keto-approach">
+                    <option value="standard" selected>Standard Keto (75% fat / 20% protein / 5% carbs)</option>
+                    <option value="modified">Modified Keto (65% fat / 25% protein / 10% carbs)</option>
+                    <option value="high-protein">High-Protein Keto (60% fat / 35% protein / 5% carbs)</option>
+                </select>
+            </div>
+
+            <button class="calculate-btn" onclick="calculate()">Calculate Keto Macros</button>
+        </div>
+
+        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
+            <h2 id="results-section">Your Daily Keto Targets</h2>
+
+            <!-- Hero Result -->
+            <div class="result-hero" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: #fff; border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 24px;">
+                <div style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 4px;">Daily Calorie Target</div>
+                <div id="hero-calories" style="font-size: 3rem; font-weight: 700; line-height: 1.1;">0</div>
+                <div style="font-size: 0.95rem; opacity: 0.9; margin-top: 4px;">kcal/day</div>
+            </div>
+
+            <!-- Net Carb Limit Highlight -->
+            <div style="background-color: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 18px; text-align: center; margin-bottom: 24px;">
+                <div style="font-size: 0.9rem; color: #92400e; font-weight: 500;">Daily Net Carb Limit</div>
+                <div id="net-carb-limit" style="font-size: 2.2rem; font-weight: 700; color: #d97706;">0g</div>
+                <div style="font-size: 0.85rem; color: #92400e;">Stay under this to maintain ketosis</div>
+            </div>
+
+            <!-- Macro Cards -->
+            <div class="macro-card-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
+                <!-- Fat Card -->
+                <div style="background-color: #fef9f0; border-radius: 10px; padding: 20px; border-top: 4px solid #f59e0b; text-align: center;">
+                    <div style="font-size: 0.85rem; color: #92400e; font-weight: 500;">Fat</div>
+                    <div id="fat-grams" style="font-size: 1.8rem; font-weight: 700; color: #d97706;">0g</div>
+                    <div id="fat-calories" style="font-size: 0.85rem; color: #666;">0 cal</div>
+                    <div id="fat-percent" style="font-size: 0.85rem; color: #92400e; font-weight: 500;">0%</div>
+                    <div style="background: #e5e7eb; border-radius: 4px; height: 8px; margin-top: 10px; overflow: hidden;">
+                        <div id="fat-bar" style="background: #f59e0b; height: 100%; width: 0%; border-radius: 4px; transition: width 0.6s ease;"></div>
+                    </div>
+                </div>
+
+                <!-- Protein Card -->
+                <div style="background-color: #f0fdf4; border-radius: 10px; padding: 20px; border-top: 4px solid #16a34a; text-align: center;">
+                    <div style="font-size: 0.85rem; color: #166534; font-weight: 500;">Protein</div>
+                    <div id="protein-grams" style="font-size: 1.8rem; font-weight: 700; color: #16a34a;">0g</div>
+                    <div id="protein-calories" style="font-size: 0.85rem; color: #666;">0 cal</div>
+                    <div id="protein-percent" style="font-size: 0.85rem; color: #166534; font-weight: 500;">0%</div>
+                    <div style="background: #e5e7eb; border-radius: 4px; height: 8px; margin-top: 10px; overflow: hidden;">
+                        <div id="protein-bar" style="background: #16a34a; height: 100%; width: 0%; border-radius: 4px; transition: width 0.6s ease;"></div>
+                    </div>
+                </div>
+
+                <!-- Carbs Card -->
+                <div style="background-color: #eff6ff; border-radius: 10px; padding: 20px; border-top: 4px solid #3b82f6; text-align: center;">
+                    <div style="font-size: 0.85rem; color: #1e40af; font-weight: 500;">Carbs</div>
+                    <div id="carbs-grams" style="font-size: 1.8rem; font-weight: 700; color: #3b82f6;">0g</div>
+                    <div id="carbs-calories" style="font-size: 0.85rem; color: #666;">0 cal</div>
+                    <div id="carbs-percent" style="font-size: 0.85rem; color: #1e40af; font-weight: 500;">0%</div>
+                    <div style="background: #e5e7eb; border-radius: 4px; height: 8px; margin-top: 10px; overflow: hidden;">
+                        <div id="carbs-bar" style="background: #3b82f6; height: 100%; width: 0%; border-radius: 4px; transition: width 0.6s ease;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculation Breakdown -->
+            <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
+                <h3 style="margin-top: 0; font-size: 1.1rem;">Calculation Breakdown</h3>
+                <ul style="list-style: none; padding-left: 0; margin: 0;">
+                    <li style="padding: 6px 0; border-bottom: 1px solid #e5e7eb;"><strong>BMR:</strong> <span id="bmr-value">0</span> kcal</li>
+                    <li style="padding: 6px 0; border-bottom: 1px solid #e5e7eb;"><strong>TDEE:</strong> <span id="tdee-value">0</span> kcal</li>
+                    <li style="padding: 6px 0; border-bottom: 1px solid #e5e7eb;"><strong>Goal Adjustment:</strong> <span id="goal-adjustment">0</span> kcal</li>
+                    <li style="padding: 6px 0;"><strong>Keto Approach:</strong> <span id="approach-label">Standard Keto</span></li>
+                </ul>
+            </div>
+
+            <!-- Meal Timing Suggestion -->
+            <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
+                <h3 style="margin-top: 0; color: #166534; font-size: 1.05rem;">Meal Timing Suggestion</h3>
+                <p style="margin: 0; color: #333; font-size: 0.95rem;" id="meal-timing">Divide your macros across 2-3 meals per day. Many keto dieters find that higher fat intake naturally reduces appetite, making intermittent fasting (16:8) a comfortable pairing. Prioritize protein at each meal to support muscle maintenance.</p>
+            </div>
+
+            <p class="disclaimer-text" style="margin-top: 16px;">
+                These are estimates based on the Mifflin-St Jeor equation. Individual metabolism, insulin sensitivity, and carb tolerance vary. Consult a registered dietitian for personalized ketogenic guidance.
+            </p>
+
+            {% include 'components/share-card.html' %}
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule -->
+    <h2>What Is the Ketogenic Diet?</h2>
+    <div class="answer-capsule">
+      The ketogenic diet is a high-fat, low-carbohydrate eating pattern that shifts your body's primary fuel source from glucose to ketones (fat-derived molecules). By restricting carbohydrates to approximately 20-50g per day, your liver begins converting fatty acids into ketone bodies, a metabolic state called ketosis. This calculator uses the Mifflin-St Jeor equation to determine your caloric needs, then distributes macronutrients according to your chosen keto approach.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Keto Macro Calculator</a></li>
+            <li><a href="#how-keto-macros-work">How Keto Macros Work</a></li>
+            <li><a href="#keto-vs-standard">Keto vs Standard Macros</a></li>
+            <li><a href="#common-mistakes">Common Keto Mistakes</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- How Keto Macros Work -->
+    <section id="how-keto-macros-work" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How Keto Macros Work</h2>
+            <div class="answer-capsule">
+                The ketogenic diet works by drastically reducing carbohydrate intake to force the body into ketosis, a metabolic state where fat becomes the primary energy source. When carb intake drops below approximately 50g per day, glycogen stores deplete within 24-48 hours, and the liver begins producing ketone bodies (beta-hydroxybutyrate, acetoacetate, and acetone) from fatty acids.
+            </div>
+
+            <h4>Fat Adaptation and Ketosis</h4>
+            <p>The transition to fat-burning efficiency, called fat adaptation, typically takes 2-6 weeks. During this period, your body upregulates enzymes involved in fatty acid oxidation and ketone utilization. Key markers of this process:</p>
+            <ul>
+                <li><strong>Days 1-3:</strong> Glycogen depletion begins. You may experience fatigue and cravings as blood sugar normalizes.</li>
+                <li><strong>Days 3-7:</strong> Ketone production ramps up. Blood beta-hydroxybutyrate (BHB) levels rise above 0.5 mmol/L, indicating nutritional ketosis.</li>
+                <li><strong>Weeks 2-6:</strong> Fat adaptation improves. Exercise performance recovers, mental clarity often improves, and appetite naturally decreases due to the satiating effect of ketones and higher fat intake.</li>
+            </ul>
+
+            <h4>Why Macro Ratios Matter on Keto</h4>
+            <p>Unlike a standard calorie-counting diet, the ketogenic diet is uniquely sensitive to macronutrient ratios:</p>
+            <ul>
+                <li><strong>Carbs must stay very low (5-10%):</strong> Even moderate carb increases can knock you out of ketosis. A single high-carb meal can take 1-3 days to recover from.</li>
+                <li><strong>Fat provides the majority of energy (60-75%):</strong> Fat is both your fuel source and the lever for calorie adjustment. Too little fat means insufficient energy; too much can stall weight loss.</li>
+                <li><strong>Protein is a target, not a limit (20-35%):</strong> Research by Volek and Phinney shows that adequate protein (1.2-2.0 g/kg) does not impair ketosis in most people, despite the common myth about gluconeogenesis.</li>
+            </ul>
+
+            <div class="highlight-box">
+                <p><strong>BMR (Males):</strong> (10 x weight in kg) + (6.25 x height in cm) - (5 x age) + 5</p>
+                <p><strong>BMR (Females):</strong> (10 x weight in kg) + (6.25 x height in cm) - (5 x age) - 161</p>
+                <p style="margin-top: 12px;"><strong>TDEE</strong> = BMR x Activity Factor</p>
+                <p><strong>Keto Calories</strong> = TDEE + Goal Adjustment (-500, 0, or +250)</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keto vs Standard Macros -->
+    <section id="keto-vs-standard" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Keto vs Standard Macros Comparison</h2>
+            <div class="answer-capsule">
+                The ketogenic diet inverts the typical macronutrient distribution. While standard dietary guidelines recommend 45-65% of calories from carbohydrates, keto limits carbs to 5-10% and replaces them with fat. This comparison table shows how the three keto approaches differ from standard diets.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Diet Approach</th>
+                        <th style="text-align: left; padding: 8px;">Fat</th>
+                        <th style="text-align: left; padding: 8px;">Protein</th>
+                        <th style="text-align: left; padding: 8px;">Carbs</th>
+                        <th style="text-align: left; padding: 8px;">Best For</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Standard Diet (USDA)</td>
+                        <td style="padding: 8px;">20-35%</td>
+                        <td style="padding: 8px;">10-35%</td>
+                        <td style="padding: 8px;">45-65%</td>
+                        <td style="padding: 8px;">General population</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #fffbeb;">
+                        <td style="padding: 8px; font-weight: 500;">Standard Keto (SKD)</td>
+                        <td style="padding: 8px;">75%</td>
+                        <td style="padding: 8px;">20%</td>
+                        <td style="padding: 8px;">5%</td>
+                        <td style="padding: 8px;">Weight loss, appetite control, metabolic health</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee; background-color: #fffbeb;">
+                        <td style="padding: 8px; font-weight: 500;">Modified Keto</td>
+                        <td style="padding: 8px;">65%</td>
+                        <td style="padding: 8px;">25%</td>
+                        <td style="padding: 8px;">10%</td>
+                        <td style="padding: 8px;">Easier adherence, active individuals</td>
+                    </tr>
+                    <tr style="background-color: #fffbeb;">
+                        <td style="padding: 8px; font-weight: 500;">High-Protein Keto</td>
+                        <td style="padding: 8px;">60%</td>
+                        <td style="padding: 8px;">35%</td>
+                        <td style="padding: 8px;">5%</td>
+                        <td style="padding: 8px;">Athletes, muscle preservation, weight training</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 16px;">A 2013 meta-analysis by Bueno et al., analyzing 13 randomized controlled trials, found that ketogenic diets produced significantly greater long-term weight loss compared to low-fat diets, with additional improvements in triglycerides and HDL cholesterol. However, LDL cholesterol showed modest increases in some subjects.</p>
+        </div>
+    </section>
+
+    <!-- Common Keto Mistakes -->
+    <section id="common-mistakes" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Common Keto Mistakes</h2>
+
+            <div class="faq-item">
+                <h4>1. Not Tracking Net Carbs Accurately</h4>
+                <div class="faq-body">
+                    <p>Many people underestimate their carb intake because they don't account for hidden carbs in sauces, dressings, and processed foods. Net carbs = total carbs minus fiber. Use a food tracking app and weigh portions during the first few weeks until you develop an intuitive sense of carb content.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4>2. Eating Too Much or Too Little Protein</h4>
+                <div class="faq-body">
+                    <p>The myth that excess protein "kicks you out of ketosis" via gluconeogenesis is largely unfounded. Research shows gluconeogenesis is demand-driven, not supply-driven. Aim for 1.2-2.0g of protein per kg of body weight. Too little protein leads to muscle loss; adequate protein supports satiety and lean mass.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4>3. Ignoring Electrolytes</h4>
+                <div class="faq-body">
+                    <p>Low-carb diets cause increased sodium excretion through the kidneys. Without adequate sodium (3-5g/day), magnesium (200-400mg/day), and potassium (1,000-3,500mg/day from food), you may experience fatigue, headaches, cramping, and the "keto flu." Supplementation or deliberate dietary focus on electrolyte-rich foods is essential.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4>4. Eating Too Many Calories From Fat</h4>
+                <div class="faq-body">
+                    <p>Keto is not a license to eat unlimited fat. Fat is the variable macro on keto — if your goal is weight loss, your body should burn stored fat, not just dietary fat. Use the fat macro as a lever: eat enough to feel satisfied, but you don't need to hit your fat target if you aren't hungry. Protein and carb limits are more important to hit precisely.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <h4>5. Not Giving It Enough Time</h4>
+                <div class="faq-body">
+                    <p>The initial 1-2 weeks of keto can involve water weight fluctuations, energy dips, and cravings that cause many people to quit prematurely. Fat adaptation takes 2-6 weeks. Weight loss often stalls in weeks 2-3 before resuming. Commit to at least 4-6 weeks before evaluating results.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>How many carbs can I eat on keto?</h4>
+            <div class="faq-body">
+                <p>Most ketogenic diets recommend limiting net carbs to 20-50 grams per day. Standard keto allocates about 5% of total calories to carbohydrates, which typically falls within this range. The exact amount depends on your total calorie intake, activity level, and individual carb tolerance. Some people can maintain ketosis at up to 50g net carbs, while others need to stay under 20g.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is the difference between standard and high-protein keto?</h4>
+            <div class="faq-body">
+                <p>Standard keto follows a 75% fat, 20% protein, 5% carb ratio, while high-protein keto uses 60% fat, 35% protein, 5% carbs. High-protein keto is better suited for people who are physically active or want to preserve muscle mass during weight loss. Both approaches keep carbs very low to maintain ketosis, but high-protein keto provides more amino acids for muscle repair and satiety.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How long does it take to enter ketosis?</h4>
+            <div class="faq-body">
+                <p>Most people enter ketosis within 2-4 days of restricting carbohydrates to under 20-50g per day. Full fat adaptation, where your body efficiently uses ketones as its primary fuel, can take 2-6 weeks. Using a blood ketone meter (measuring beta-hydroxybutyrate) is the most accurate way to confirm ketosis. Levels of 0.5-3.0 mmol/L indicate nutritional ketosis.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can I build muscle on a keto diet?</h4>
+            <div class="faq-body">
+                <p>Yes, muscle building is possible on keto, though it may be slightly less efficient than with a higher-carb diet. Adequate protein intake (1.6-2.2g per kg body weight) and a caloric surplus are the primary drivers of muscle growth. The high-protein keto approach (60/35/5) is recommended for muscle gain. Ensure you are eating enough total calories and protein, and consider timing protein around workouts.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is the keto flu and how do I avoid it?</h4>
+            <div class="faq-body">
+                <p>The keto flu refers to symptoms like headache, fatigue, nausea, and irritability during the first 1-2 weeks. It is primarily caused by electrolyte imbalances and dehydration. To minimize symptoms: increase sodium intake (3-5g/day), supplement magnesium (200-400mg) and potassium (1,000-3,500mg from food), stay well hydrated, and consider transitioning gradually rather than cutting carbs abruptly.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Volek JS, Phinney SD. The Art and Science of Low Carbohydrate Living. Beyond Obesity LLC, 2011.", "url": "https://pubmed.ncbi.nlm.nih.gov/"},
+        {"text": "Paoli A, Rubini A, Volek JS, Grimaldi KA. Beyond weight loss: a review of the therapeutic uses of very-low-carbohydrate (ketogenic) diets. Eur J Clin Nutr. 2013;67(8):789-796.", "url": "https://pubmed.ncbi.nlm.nih.gov/23801097/"},
+        {"text": "Bueno NB, de Melo IS, de Oliveira SL, da Rocha Ataide T. Very-low-carbohydrate ketogenic diet v. low-fat diet for long-term weight loss: a meta-analysis of randomised controlled trials. Br J Nutr. 2013;110(7):1178-1187.", "url": "https://pubmed.ncbi.nlm.nih.gov/23651522/"},
+        {"text": "Mifflin MD, St Jeor ST, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241-247.", "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"},
+        {"text": "Harvey CJDC, Schofield GM, Williden M. The use of nutritional supplements to induce ketosis and reduce symptoms associated with keto-induction: a narrative review. PeerJ. 2018;6:e4488.", "url": "https://pubmed.ncbi.nlm.nih.gov/29576959/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script defer src="{{ url_for('static', filename='js/keto_calculator.js') }}"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+    <script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

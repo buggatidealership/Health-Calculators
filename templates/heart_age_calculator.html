@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "heart-age-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study. Find out if your heart is older or younger than you and get actionable tips to lower your heart age.",
+    meta_keywords="heart age calculator, cardiovascular risk, heart health, Framingham risk score, heart disease risk, vascular age",
+    og_title="Heart Age Calculator – Is Your Heart Older Than You?",
+    og_description="Find out your heart's true age based on blood pressure, cholesterol, BMI, and lifestyle factors. Based on Framingham Heart Study data.",
+    og_url="/heart-age-calculator",
+    page_title="Heart Age Calculator – Estimate Your Cardiovascular Age Based on Risk Factors",
+    canonical_url="/heart-age-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is heart age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Heart age is a concept that compares your cardiovascular risk to that of a healthy person. If your heart age is higher than your actual age, it means your risk factors give you the cardiovascular profile of someone older."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is heart age calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Heart age is calculated using cardiovascular risk factors identified in the Framingham Heart Study, including blood pressure, cholesterol levels, smoking status, diabetes, and BMI. Each factor adds or subtracts years from your actual age."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I lower my heart age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Quitting smoking, lowering blood pressure, improving cholesterol levels, losing weight, exercising regularly, and managing diabetes can all reduce your heart age significantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good heart age?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A good heart age is equal to or lower than your actual age. This means your cardiovascular risk factors are at or better than average for someone your age."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is a heart age calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Heart age calculators provide useful estimates based on population-level data from the Framingham Heart Study. They are not a substitute for clinical cardiovascular risk assessment but help communicate risk in an intuitive way."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Heart Age Calculator – Is Your Heart Older Than You?</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Estimate your heart's biological age based on cardiovascular risk factors from the Framingham Heart Study. Identify which factors are aging your heart and get evidence-based tips to lower your heart age.</p>
+
+<section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="age">Your Age:</label>
+                <input type="number" id="age" min="18" max="80" value="40" placeholder="18-80">
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Biological Sex:</label>
+                <select id="sex">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="systolic-bp">Systolic Blood Pressure (mmHg):</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="number" id="systolic-bp" min="80" max="220" value="" placeholder="e.g. 120" style="flex: 1;">
+                    <label style="font-size: 0.85rem; white-space: nowrap; display: flex; align-items: center; gap: 4px;">
+                        <input type="checkbox" id="bp-unknown"> I don't know
+                    </label>
+                </div>
+                <small>Normal: below 120 mmHg. If unknown, we'll use 120 (US average).</small>
+            </div>
+
+            <div class="form-group">
+                <label for="total-cholesterol">Total Cholesterol (mg/dL):</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="number" id="total-cholesterol" min="100" max="400" value="" placeholder="e.g. 200" style="flex: 1;">
+                    <label style="font-size: 0.85rem; white-space: nowrap; display: flex; align-items: center; gap: 4px;">
+                        <input type="checkbox" id="cholesterol-unknown"> I don't know
+                    </label>
+                </div>
+                <small>Desirable: below 200 mg/dL. If unknown, we'll use 200 (US average).</small>
+            </div>
+
+            <div class="form-group">
+                <label for="hdl-cholesterol">HDL Cholesterol (mg/dL):</label>
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <input type="number" id="hdl-cholesterol" min="10" max="120" value="" placeholder="e.g. 50" style="flex: 1;">
+                    <label style="font-size: 0.85rem; white-space: nowrap; display: flex; align-items: center; gap: 4px;">
+                        <input type="checkbox" id="hdl-unknown"> I don't know
+                    </label>
+                </div>
+                <small>Healthy: 60+ mg/dL. Low: below 40 mg/dL. If unknown, we'll use 50.</small>
+            </div>
+
+            <div class="form-group">
+                <label for="smoking">Do you currently smoke?</label>
+                <select id="smoking">
+                    <option value="no" selected>No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="diabetes">Have you been diagnosed with diabetes?</label>
+                <select id="diabetes">
+                    <option value="no" selected>No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bp-medication">Are you on blood pressure medication?</label>
+                <select id="bp-medication">
+                    <option value="no" selected>No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Body Mass Index (BMI):</label>
+                <div style="display: flex; gap: 10px; align-items: flex-end; flex-wrap: wrap;">
+                    <div style="flex: 1; min-width: 120px;">
+                        <label for="weight" style="font-size: 0.85rem;">Weight</label>
+                        <div style="display: flex; gap: 6px; align-items: center;">
+                            <input type="number" id="weight" min="60" max="600" value="" placeholder="e.g. 170" style="flex: 1;">
+                            <select id="weight-unit" style="width: auto; min-width: 55px;">
+                                <option value="lbs" selected>lbs</option>
+                                <option value="kg">kg</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div style="flex: 1; min-width: 120px;">
+                        <label for="height-ft" style="font-size: 0.85rem;">Height</label>
+                        <div id="height-imperial" style="display: flex; gap: 6px; align-items: center;">
+                            <input type="number" id="height-ft" min="3" max="8" value="" placeholder="ft" style="flex: 1;">
+                            <span style="font-size: 0.85rem;">ft</span>
+                            <input type="number" id="height-in" min="0" max="11" value="" placeholder="in" style="flex: 1;">
+                            <span style="font-size: 0.85rem;">in</span>
+                        </div>
+                        <div id="height-metric" style="display: none; gap: 6px; align-items: center;">
+                            <input type="number" id="height-cm" min="100" max="250" value="" placeholder="cm" style="flex: 1;">
+                            <span style="font-size: 0.85rem;">cm</span>
+                        </div>
+                    </div>
+                </div>
+                <small>BMI will be calculated automatically. <span id="bmi-display" style="font-weight: 600;"></span></small>
+            </div>
+
+            <div class="form-group">
+                <label for="exercise">Do you exercise regularly (150+ min/week)?</label>
+                <select id="exercise">
+                    <option value="no" selected>No</option>
+                    <option value="yes">Yes</option>
+                </select>
+            </div>
+
+            <button id="calculate-btn" type="button">Calculate My Heart Age</button>
+
+            <div id="result" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number"><span id="heart-age">—</span> years</div>
+                    <div class="result-hero-label">Your Heart Age</div>
+                    <div class="result-hero-sublabel" id="heart-age-comparison">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card" id="diff-card">
+                        <div class="result-card-title">Heart Age vs Actual Age</div>
+                        <div class="result-card-value" id="age-difference">—</div>
+                        <div class="result-card-note" id="diff-note">years difference</div>
+                    </div>
+                    <div class="result-card blue">
+                        <div class="result-card-title">10-Year CVD Risk</div>
+                        <div class="result-card-value" id="cvd-risk">—</div>
+                        <div class="result-card-note">estimated risk</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Your BMI</div>
+                        <div class="result-card-value" id="bmi-result">—</div>
+                        <div class="result-card-note" id="bmi-category">—</div>
+                    </div>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Heart Age Range</div>
+                    <div class="result-gauge-bar" style="position: relative;">
+                        <div class="result-gauge-fill" id="heart-age-gauge" style="width: 50%; background: #4caf50;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span id="gauge-min">30</span>
+                        <span></span>
+                        <span id="gauge-mid">—</span>
+                        <span></span>
+                        <span id="gauge-max">90</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Factor Breakdown: What's Aging Your Heart</div>
+                    <div id="factors"></div>
+                </div>
+
+                <div class="result-breakdown" style="border-left: 3px solid var(--color-accent);">
+                    <div class="result-breakdown-title">How to Lower Your Heart Age</div>
+                    <ul id="recommendations" style="margin: 8px 0 0; padding-left: 20px;"></ul>
+                </div>
+            </div>
+
+            <div class="footnote">
+                <p><strong>Note:</strong> This calculator provides estimates based on the Framingham Heart Study risk model and population-level data. It is not a clinical diagnosis. Individual cardiovascular risk depends on many factors not captured here, including family history, inflammatory markers, and coronary artery calcium scores.</p>
+                <p>The heart age concept was developed to communicate cardiovascular risk in an intuitive way. Consult your doctor for a comprehensive risk assessment.</p>
+            </div>
+
+            {% include 'components/share-card.html' %}
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Heart Age?</h2>
+    <div class="answer-capsule">
+      Heart age is a way of expressing your cardiovascular disease risk as an age. If your heart age is higher than your actual age, it means your combination of risk factors -- blood pressure, cholesterol, smoking, diabetes, and BMI -- gives you the cardiovascular risk profile of someone older. The concept was developed from the Framingham Heart Study to help people understand their risk in a concrete, actionable way.
+    </div>
+
+    <div class="medical-disclaimer">
+        <p><strong>Medical Disclaimer:</strong> This tool provides general educational estimates based on population-level research. It is not a clinical cardiovascular risk assessment. Consult your doctor for personalized medical advice.</p>
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Heart Age Calculator</a></li>
+            <li><a href="#how-calculated">How Heart Age Is Calculated</a></li>
+            <li><a href="#risk-factors">Risk Factors: Changeable vs Non-Changeable</a></li>
+            <li><a href="#lower-heart-age">How to Lower Your Heart Age</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="how-calculated" class="mt-60">
+      <div class="info">
+        <h2>How Heart Age Is Calculated</h2>
+        <p>This calculator uses a simplified model based on the <strong>Framingham Heart Study</strong>, one of the longest-running cardiovascular research projects in the world. Started in 1948 in Framingham, Massachusetts, it identified the major risk factors for heart disease that are still used in clinical practice today.</p>
+
+        <h4>The Framingham Risk Factors</h4>
+        <p>The original Framingham risk model (D'Agostino et al., 2008) calculates 10-year cardiovascular disease risk using these variables:</p>
+        <ul>
+          <li><strong>Age</strong> -- risk increases with each decade of life</li>
+          <li><strong>Sex</strong> -- men have higher baseline risk before age 65; women's risk rises after menopause</li>
+          <li><strong>Systolic blood pressure</strong> -- the top number, measuring arterial pressure during heartbeats</li>
+          <li><strong>Blood pressure treatment</strong> -- being on medication indicates elevated baseline risk</li>
+          <li><strong>Total cholesterol</strong> -- higher levels increase plaque buildup in arteries</li>
+          <li><strong>HDL cholesterol</strong> -- "good" cholesterol that removes LDL from arteries; higher is better</li>
+          <li><strong>Smoking status</strong> -- damages blood vessels and accelerates atherosclerosis</li>
+          <li><strong>Diabetes</strong> -- doubles cardiovascular risk through multiple mechanisms</li>
+        </ul>
+
+        <h4>From Risk Score to Heart Age</h4>
+        <p>Heart age translates your risk factor profile into a biological age. The concept works by finding the age at which a person with <em>optimal</em> risk factors would have the same cardiovascular risk as you. If you're 45 but have the risk profile of a healthy 52-year-old, your heart age is 52 -- your heart is 7 years older than you.</p>
+
+        <p>This calculator also includes <strong>BMI</strong> and <strong>regular exercise</strong>, which are recognized in the updated AHA PREVENT model (2023) as independent cardiovascular risk modifiers.</p>
+
+        <h4>10-Year Risk Estimate</h4>
+        <p>The 10-year cardiovascular disease risk percentage shown in your results is a simplified estimate based on the Framingham general CVD risk model. Clinical risk assessment tools like the ACC/AHA Pooled Cohort Equations or the AHA PREVENT calculator provide more precise estimates using additional variables.</p>
+      </div>
+    </section>
+
+    <section id="risk-factors" class="mt-60">
+      <div class="info">
+        <h2>Risk Factors You Can Change vs. Can't Change</h2>
+
+        <h4>Non-Modifiable Risk Factors</h4>
+        <ul>
+          <li><strong>Age:</strong> Cardiovascular risk increases naturally with age. After 45 for men and 55 for women, risk accelerates significantly.</li>
+          <li><strong>Sex:</strong> Men develop heart disease 7-10 years earlier on average. Estrogen provides some protection in premenopausal women.</li>
+          <li><strong>Family history:</strong> Having a first-degree relative with premature heart disease (before 55 for men, 65 for women) increases your risk.</li>
+        </ul>
+
+        <h4>Modifiable Risk Factors</h4>
+        <ul>
+          <li><strong>Blood pressure:</strong> Every 20 mmHg increase in systolic BP above 115 doubles cardiovascular risk. Lifestyle changes and medication can reduce systolic BP by 10-25 mmHg.</li>
+          <li><strong>Cholesterol:</strong> Reducing LDL cholesterol by 40 mg/dL lowers cardiovascular events by about 22%. Diet, exercise, and statins are effective interventions.</li>
+          <li><strong>Smoking:</strong> Smoking doubles cardiovascular risk. Quitting reduces risk by 50% within 1-2 years and approaches non-smoker levels within 5-15 years.</li>
+          <li><strong>Diabetes:</strong> Type 2 diabetes doubles cardiovascular risk. Good glucose control (A1C below 7%) reduces microvascular complications significantly.</li>
+          <li><strong>BMI/Obesity:</strong> A BMI above 30 increases heart disease risk by 28% in men and 64% in women. Losing 5-10% body weight produces measurable cardiovascular improvements.</li>
+          <li><strong>Physical activity:</strong> 150 minutes per week of moderate exercise reduces cardiovascular risk by 30-40%. Even light activity is better than none.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="lower-heart-age" class="mt-60">
+      <div class="info">
+        <h2>How to Lower Your Heart Age</h2>
+        <p>The good news: most of the factors that determine heart age are within your control. Here are the highest-impact changes, ranked by evidence strength:</p>
+
+        <ol class="mt-20">
+          <li><strong>Quit smoking.</strong> This is the single most impactful change. Smoking cessation can lower your heart age by up to 8 years. Within 1 year, excess cardiovascular risk drops by 50%.</li>
+          <li><strong>Lower blood pressure.</strong> Reducing systolic BP below 130 mmHg through diet (DASH diet), sodium reduction, exercise, and medication if needed can lower heart age by 2-5 years.</li>
+          <li><strong>Manage diabetes.</strong> Keeping A1C below 7%, maintaining healthy weight, and using medications as prescribed can reduce the cardiovascular impact of diabetes significantly.</li>
+          <li><strong>Improve cholesterol.</strong> Increase HDL through exercise and healthy fats. Lower total cholesterol through reduced saturated fat, increased fiber, and statins if recommended by your doctor.</li>
+          <li><strong>Lose weight if overweight.</strong> Even modest weight loss of 5-10% of body weight reduces blood pressure, improves cholesterol, and lowers diabetes risk.</li>
+          <li><strong>Exercise regularly.</strong> Aim for 150+ minutes of moderate aerobic activity per week. Brisk walking, cycling, and swimming all count. Consistency matters more than intensity.</li>
+          <li><strong>Eat a heart-healthy diet.</strong> The Mediterranean and DASH diets have the strongest evidence for cardiovascular protection. Focus on vegetables, fruits, whole grains, lean proteins, and healthy fats.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+
+            <div class="faq-item">
+                <h4>What is heart age?</h4>
+            <div class="faq-body">
+                <p>Heart age is a way of communicating your cardiovascular risk as an equivalent age. If your heart age is 55 but you are 45, it means your risk factors give you the same likelihood of a heart attack or stroke as a healthy 55-year-old. The concept was developed from the Framingham Heart Study to make abstract risk percentages more intuitive and motivating.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>How accurate is this heart age calculator?</h4>
+            <div class="faq-body">
+                <p>This calculator provides a simplified estimate based on the major Framingham risk factors. Clinical heart age calculators used by doctors may include additional variables like family history, ethnicity, and inflammatory markers. However, the core risk factors used here account for the majority of cardiovascular risk variation. Consider the result a useful approximation, not a clinical diagnosis.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>Can I lower my heart age?</h4>
+            <div class="faq-body">
+                <p>Yes, and often dramatically. Quitting smoking alone can reduce heart age by up to 8 years. Lowering blood pressure to normal, improving cholesterol, losing excess weight, and exercising regularly can each reduce heart age by several years. The Framingham Heart Study showed that eliminating modifiable risk factors can reduce cardiovascular events by over 50%.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>Why does the calculator ask about HDL separately from total cholesterol?</h4>
+            <div class="faq-body">
+                <p>Total cholesterol includes both LDL ("bad") and HDL ("good") cholesterol. HDL cholesterol actually protects against heart disease by removing LDL from your arteries. A person with high total cholesterol but very high HDL may have lower risk than someone with lower total cholesterol but very low HDL. Measuring both gives a more accurate risk picture.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>What is the difference between heart age and the 10-year risk percentage?</h4>
+            <div class="faq-body">
+                <p>Both express cardiovascular risk, but differently. The 10-year risk percentage tells you the probability of having a cardiovascular event (heart attack, stroke) in the next 10 years. Heart age translates that same risk into an age comparison, which research shows is more motivating for behavior change. A 45-year-old hearing "your heart age is 57" is more likely to act than hearing "your 10-year risk is 12%."</p>
+                        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+<!-- Script -->
+    <script>
+        // Toggle height input between imperial and metric based on weight unit
+        document.getElementById('weight-unit').addEventListener('change', function() {
+            var isMetric = this.value === 'kg';
+            document.getElementById('height-imperial').style.display = isMetric ? 'none' : 'flex';
+            document.getElementById('height-metric').style.display = isMetric ? 'flex' : 'none';
+        });
+
+        // Disable inputs when "I don't know" is checked
+        document.getElementById('bp-unknown').addEventListener('change', function() {
+            document.getElementById('systolic-bp').disabled = this.checked;
+            if (this.checked) document.getElementById('systolic-bp').value = '';
+        });
+        document.getElementById('cholesterol-unknown').addEventListener('change', function() {
+            document.getElementById('total-cholesterol').disabled = this.checked;
+            if (this.checked) document.getElementById('total-cholesterol').value = '';
+        });
+        document.getElementById('hdl-unknown').addEventListener('change', function() {
+            document.getElementById('hdl-cholesterol').disabled = this.checked;
+            if (this.checked) document.getElementById('hdl-cholesterol').value = '';
+        });
+
+        // Auto-calculate and display BMI on input changes
+        function calcBMI() {
+            var weightVal = parseFloat(document.getElementById('weight').value);
+            var weightUnit = document.getElementById('weight-unit').value;
+            if (!weightVal) { document.getElementById('bmi-display').textContent = ''; return NaN; }
+
+            var weightKg = weightUnit === 'kg' ? weightVal : weightVal * 0.453592;
+            var heightM;
+
+            if (weightUnit === 'lbs') {
+                var ft = parseFloat(document.getElementById('height-ft').value) || 0;
+                var inches = parseFloat(document.getElementById('height-in').value) || 0;
+                var totalIn = ft * 12 + inches;
+                if (totalIn < 36) { document.getElementById('bmi-display').textContent = ''; return NaN; }
+                heightM = totalIn * 0.0254;
+            } else {
+                var cm = parseFloat(document.getElementById('height-cm').value) || 0;
+                if (cm < 100) { document.getElementById('bmi-display').textContent = ''; return NaN; }
+                heightM = cm / 100;
+            }
+
+            var bmi = weightKg / (heightM * heightM);
+            document.getElementById('bmi-display').textContent = 'BMI: ' + bmi.toFixed(1);
+            return bmi;
+        }
+
+        ['weight', 'height-ft', 'height-in', 'height-cm'].forEach(function(id) {
+            document.getElementById(id).addEventListener('input', calcBMI);
+        });
+        document.getElementById('weight-unit').addEventListener('change', calcBMI);
+
+        // Calculate button
+        document.getElementById('calculate-btn').addEventListener('click', calculateHeartAge);
+
+        function calculateHeartAge() {
+            // Gather inputs
+            var actualAge = parseInt(document.getElementById('age').value);
+            if (isNaN(actualAge) || actualAge < 18 || actualAge > 80) {
+                alert('Please enter a valid age between 18 and 80.');
+                return;
+            }
+
+            var sex = document.getElementById('sex').value;
+
+            var systolicBP = document.getElementById('bp-unknown').checked ? 120 : parseFloat(document.getElementById('systolic-bp').value);
+            if (isNaN(systolicBP) || systolicBP < 80 || systolicBP > 220) {
+                if (!document.getElementById('bp-unknown').checked) {
+                    alert('Please enter a valid systolic blood pressure (80-220) or check "I don\'t know".');
+                    return;
+                }
+                systolicBP = 120;
+            }
+
+            var totalChol = document.getElementById('cholesterol-unknown').checked ? 200 : parseFloat(document.getElementById('total-cholesterol').value);
+            if (isNaN(totalChol) || totalChol < 100 || totalChol > 400) {
+                if (!document.getElementById('cholesterol-unknown').checked) {
+                    alert('Please enter valid total cholesterol (100-400) or check "I don\'t know".');
+                    return;
+                }
+                totalChol = 200;
+            }
+
+            var hdl = document.getElementById('hdl-unknown').checked ? 50 : parseFloat(document.getElementById('hdl-cholesterol').value);
+            if (isNaN(hdl) || hdl < 10 || hdl > 120) {
+                if (!document.getElementById('hdl-unknown').checked) {
+                    alert('Please enter valid HDL cholesterol (10-120) or check "I don\'t know".');
+                    return;
+                }
+                hdl = 50;
+            }
+
+            var isSmoker = document.getElementById('smoking').value === 'yes';
+            var hasDiabetes = document.getElementById('diabetes').value === 'yes';
+            var onBPMeds = document.getElementById('bp-medication').value === 'yes';
+            var exercisesRegularly = document.getElementById('exercise').value === 'yes';
+
+            var bmi = calcBMI();
+            if (isNaN(bmi)) {
+                alert('Please enter your weight and height to calculate BMI.');
+                return;
+            }
+
+            // ── Heart Age Calculation ──
+            var heartAge = actualAge;
+            var factors = [];
+
+            // Smoking: +8 years
+            var smokingEffect = 0;
+            if (isSmoker) {
+                smokingEffect = 8;
+                factors.push({ name: 'Smoking', value: smokingEffect, detail: 'Current smoker' });
+            } else {
+                factors.push({ name: 'Smoking', value: 0, detail: 'Non-smoker' });
+            }
+            heartAge += smokingEffect;
+
+            // Systolic BP
+            var bpEffect = 0;
+            if (systolicBP > 140) {
+                bpEffect = 5;
+            } else if (systolicBP >= 120) {
+                bpEffect = 2;
+            }
+            if (bpEffect > 0) {
+                factors.push({ name: 'Blood Pressure', value: bpEffect, detail: systolicBP + ' mmHg' });
+            } else {
+                factors.push({ name: 'Blood Pressure', value: 0, detail: systolicBP + ' mmHg (optimal)' });
+            }
+            heartAge += bpEffect;
+
+            // BP medication: +1 year on top
+            var bpMedEffect = 0;
+            if (onBPMeds) {
+                bpMedEffect = 1;
+                factors.push({ name: 'BP Medication', value: bpMedEffect, detail: 'Currently on medication' });
+            }
+            heartAge += bpMedEffect;
+
+            // Total cholesterol
+            var cholEffect = 0;
+            if (totalChol > 240) {
+                cholEffect = 3;
+            } else if (totalChol >= 200) {
+                cholEffect = 1;
+            }
+            if (cholEffect > 0) {
+                factors.push({ name: 'Total Cholesterol', value: cholEffect, detail: totalChol + ' mg/dL' });
+            } else {
+                factors.push({ name: 'Total Cholesterol', value: 0, detail: totalChol + ' mg/dL (desirable)' });
+            }
+            heartAge += cholEffect;
+
+            // HDL cholesterol
+            var hdlEffect = 0;
+            if (hdl < 40) {
+                hdlEffect = 3;
+            } else if (hdl < 60) {
+                hdlEffect = 1;
+            } else {
+                hdlEffect = -1;
+            }
+            factors.push({ name: 'HDL Cholesterol', value: hdlEffect, detail: hdl + ' mg/dL' + (hdl >= 60 ? ' (protective)' : hdl < 40 ? ' (low)' : '') });
+            heartAge += hdlEffect;
+
+            // Diabetes: +6 years
+            var diabetesEffect = 0;
+            if (hasDiabetes) {
+                diabetesEffect = 6;
+                factors.push({ name: 'Diabetes', value: diabetesEffect, detail: 'Diagnosed with diabetes' });
+            } else {
+                factors.push({ name: 'Diabetes', value: 0, detail: 'No diabetes' });
+            }
+            heartAge += diabetesEffect;
+
+            // BMI
+            var bmiEffect = 0;
+            if (bmi > 30) {
+                bmiEffect = 3;
+            } else if (bmi >= 25) {
+                bmiEffect = 1;
+            }
+            var bmiLabel = bmi < 18.5 ? 'Underweight' : bmi < 25 ? 'Normal' : bmi < 30 ? 'Overweight' : 'Obese';
+            if (bmiEffect > 0) {
+                factors.push({ name: 'BMI', value: bmiEffect, detail: bmi.toFixed(1) + ' (' + bmiLabel + ')' });
+            } else {
+                factors.push({ name: 'BMI', value: 0, detail: bmi.toFixed(1) + ' (' + bmiLabel + ')' });
+            }
+            heartAge += bmiEffect;
+
+            // Exercise: -2 years
+            var exerciseEffect = 0;
+            if (exercisesRegularly) {
+                exerciseEffect = -2;
+                factors.push({ name: 'Regular Exercise', value: exerciseEffect, detail: '150+ min/week' });
+            } else {
+                factors.push({ name: 'Regular Exercise', value: 0, detail: 'Not meeting guidelines' });
+            }
+            heartAge += exerciseEffect;
+
+            // Enforce minimum: heart age >= actual age - 5
+            heartAge = Math.max(heartAge, actualAge - 5);
+
+            // Also enforce minimum of 18
+            heartAge = Math.max(heartAge, 18);
+
+            var ageDiff = heartAge - actualAge;
+
+            // ── 10-Year CVD Risk Estimate (simplified Framingham) ──
+            var baseRisk;
+            if (sex === 'male') {
+                if (actualAge < 35) baseRisk = 2;
+                else if (actualAge < 45) baseRisk = 5;
+                else if (actualAge < 55) baseRisk = 10;
+                else if (actualAge < 65) baseRisk = 18;
+                else baseRisk = 25;
+            } else {
+                if (actualAge < 35) baseRisk = 1;
+                else if (actualAge < 45) baseRisk = 2;
+                else if (actualAge < 55) baseRisk = 5;
+                else if (actualAge < 65) baseRisk = 10;
+                else baseRisk = 18;
+            }
+
+            // Adjust base risk by risk factors
+            var riskMultiplier = 1.0;
+            if (isSmoker) riskMultiplier *= 1.6;
+            if (systolicBP > 140) riskMultiplier *= 1.5;
+            else if (systolicBP >= 120) riskMultiplier *= 1.15;
+            if (onBPMeds) riskMultiplier *= 1.1;
+            if (totalChol > 240) riskMultiplier *= 1.4;
+            else if (totalChol >= 200) riskMultiplier *= 1.1;
+            if (hdl < 40) riskMultiplier *= 1.4;
+            else if (hdl >= 60) riskMultiplier *= 0.85;
+            if (hasDiabetes) riskMultiplier *= 1.8;
+            if (bmi > 30) riskMultiplier *= 1.3;
+            else if (bmi >= 25) riskMultiplier *= 1.1;
+            if (exercisesRegularly) riskMultiplier *= 0.75;
+
+            var cvdRisk = Math.min(95, Math.max(1, baseRisk * riskMultiplier));
+
+            // ── Display Results ──
+            document.getElementById('heart-age').textContent = Math.round(heartAge);
+
+            // Comparison label
+            if (ageDiff > 0) {
+                document.getElementById('heart-age-comparison').textContent = 'Your heart is ' + ageDiff + ' year' + (ageDiff !== 1 ? 's' : '') + ' older than you';
+            } else if (ageDiff < 0) {
+                document.getElementById('heart-age-comparison').textContent = 'Your heart is ' + Math.abs(ageDiff) + ' year' + (Math.abs(ageDiff) !== 1 ? 's' : '') + ' younger than you';
+            } else {
+                document.getElementById('heart-age-comparison').textContent = 'Your heart age matches your actual age';
+            }
+
+            // Age difference card
+            var diffStr = ageDiff >= 0 ? '+' + ageDiff : '' + ageDiff;
+            document.getElementById('age-difference').textContent = diffStr;
+            var diffCard = document.getElementById('diff-card');
+            if (ageDiff <= 0) {
+                diffCard.className = 'result-card green';
+                document.getElementById('diff-note').textContent = ageDiff === 0 ? 'matches your age' : 'years younger';
+            } else if (ageDiff <= 5) {
+                diffCard.className = 'result-card yellow';
+                document.getElementById('diff-note').textContent = 'years older';
+            } else if (ageDiff <= 10) {
+                diffCard.className = 'result-card orange';
+                document.getElementById('diff-note').textContent = 'years older';
+            } else {
+                diffCard.className = 'result-card red';
+                document.getElementById('diff-note').textContent = 'years older';
+            }
+
+            // CVD risk
+            document.getElementById('cvd-risk').textContent = cvdRisk.toFixed(1) + '%';
+
+            // BMI result
+            document.getElementById('bmi-result').textContent = bmi.toFixed(1);
+            document.getElementById('bmi-category').textContent = bmiLabel;
+
+            // Hero color
+            var heroEl = document.getElementById('result-hero');
+            if (ageDiff <= 0) {
+                heroEl.style.borderColor = '#4caf50';
+                heroEl.style.background = 'linear-gradient(135deg, #e8f5e9, #fff)';
+            } else if (ageDiff <= 5) {
+                heroEl.style.borderColor = '#ff9800';
+                heroEl.style.background = 'linear-gradient(135deg, #fff3e0, #fff)';
+            } else if (ageDiff <= 10) {
+                heroEl.style.borderColor = '#f57c00';
+                heroEl.style.background = 'linear-gradient(135deg, #fff3e0, #fff)';
+            } else {
+                heroEl.style.borderColor = '#f44336';
+                heroEl.style.background = 'linear-gradient(135deg, #ffebee, #fff)';
+            }
+
+            // Gauge
+            var gaugeMin = Math.max(18, actualAge - 10);
+            var gaugeMax = actualAge + 30;
+            var gaugeMid = Math.round((gaugeMin + gaugeMax) / 2);
+            document.getElementById('gauge-min').textContent = gaugeMin;
+            document.getElementById('gauge-mid').textContent = gaugeMid;
+            document.getElementById('gauge-max').textContent = gaugeMax;
+            var gaugePercent = Math.max(0, Math.min(100, ((heartAge - gaugeMin) / (gaugeMax - gaugeMin)) * 100));
+            var gaugeEl = document.getElementById('heart-age-gauge');
+            gaugeEl.style.width = gaugePercent + '%';
+            if (ageDiff <= 0) gaugeEl.style.background = '#4caf50';
+            else if (ageDiff <= 5) gaugeEl.style.background = '#ff9800';
+            else if (ageDiff <= 10) gaugeEl.style.background = '#f57c00';
+            else gaugeEl.style.background = '#f44336';
+
+            // Factor breakdown
+            var factorsEl = document.getElementById('factors');
+            factorsEl.innerHTML = '';
+            factors.forEach(function(factor) {
+                var div = document.createElement('div');
+                div.className = 'factor';
+                var nameSpan = document.createElement('span');
+                nameSpan.className = 'factor-name';
+                nameSpan.textContent = factor.name + ' (' + factor.detail + '): ';
+                div.appendChild(nameSpan);
+                var valSpan = document.createElement('span');
+                if (factor.value > 0) {
+                    valSpan.className = 'negative';
+                    valSpan.textContent = '+' + factor.value + ' year' + (factor.value !== 1 ? 's' : '');
+                } else if (factor.value < 0) {
+                    valSpan.className = 'positive';
+                    valSpan.textContent = factor.value + ' year' + (Math.abs(factor.value) !== 1 ? 's' : '');
+                } else {
+                    valSpan.style.color = '#6b7280';
+                    valSpan.textContent = 'No effect';
+                }
+                div.appendChild(valSpan);
+                factorsEl.appendChild(div);
+            });
+
+            // Recommendations
+            var recs = [];
+            if (isSmoker) recs.push('Quit smoking — this is the single most impactful change, potentially reducing your heart age by up to 8 years.');
+            if (systolicBP >= 120) recs.push('Lower your blood pressure through reduced sodium intake, the DASH diet, regular exercise, and medication if prescribed. Target: below 120 mmHg.');
+            if (hasDiabetes) recs.push('Manage diabetes aggressively — maintain A1C below 7%, monitor blood glucose, and follow your treatment plan closely.');
+            if (totalChol >= 200) recs.push('Improve cholesterol levels by reducing saturated fat, increasing fiber intake, and discussing statin therapy with your doctor if levels remain elevated.');
+            if (hdl < 60) recs.push('Raise HDL cholesterol through regular aerobic exercise, healthy fats (olive oil, nuts, fatty fish), and maintaining a healthy weight.');
+            if (bmi >= 25) recs.push('Lose weight gradually — even 5-10% of body weight produces measurable improvements in blood pressure, cholesterol, and blood sugar.');
+            if (!exercisesRegularly) recs.push('Start exercising — aim for at least 150 minutes of moderate aerobic activity per week. Walking counts. Start small and build up.');
+            if (recs.length === 0) recs.push('Your heart health profile is excellent. Maintain these healthy habits and continue regular check-ups with your doctor.');
+
+            var recsEl = document.getElementById('recommendations');
+            recsEl.innerHTML = '';
+            recs.forEach(function(r) {
+                var li = document.createElement('li');
+                li.textContent = r;
+                recsEl.appendChild(li);
+            });
+
+            // Show results
+            document.getElementById('result').classList.remove('hidden');
+            if (typeof showNextSteps === 'function') showNextSteps('heart-age', collectUserData());
+        }
+    </script>
+
+    {% set sources = [
+        {"text": "D'Agostino RB Sr, Vasan RS, Pencina MJ, et al. General Cardiovascular Risk Profile for Use in Primary Care: The Framingham Heart Study. Circulation. 2008;117(6):743-753.", "url": "https://pubmed.ncbi.nlm.nih.gov/18212285/"},
+        {"text": "Khan SS, Coresh J, Engel SM, et al. The AHA/ACC PREVENT Equations: Methodology for Predicting 10- and 30-Year Risk of CVD. Circulation. 2024;148(24):1982-2004.", "url": "https://pubmed.ncbi.nlm.nih.gov/37947085/"},
+        {"text": "World Heart Federation. World Heart Report 2023: Confronting the World's Number One Killer.", "url": "https://world-heart-federation.org/world-heart-report-2023/"},
+        {"text": "Framingham Heart Study. A Project of the National Heart, Lung, and Blood Institute and Boston University.", "url": "https://www.framinghamheartstudy.org/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    </div> <!-- End of calculator-container -->
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
