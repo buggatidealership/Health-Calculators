@@ -168,6 +168,10 @@ cross_links = {
         "calculators": ["/vitamin-d-intake-calculator", "/creatine-water-calculator"],
         "guides": []
     },
+    "/a1c-calculator": {
+        "calculators": ["/tdee-calculator", "/lifespan-longevity-calculator", "/bmi-calculator"],
+        "guides": []
+    },
     "/lifespan-longevity-calculator": {
         "calculators": ["/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator", "/menopause-calculator"],
         "guides": []
@@ -1186,6 +1190,20 @@ def vitamin_d_conversion_calculator():
         schema_url=schema_url
     )
 
+@app.route('/a1c-calculator')
+@app.route('/a1c-blood-sugar-calculator')
+def a1c_calculator():
+    schema_name = "A1C / Blood Sugar Converter Calculator"
+    schema_description = "Convert between A1C percentage and estimated average glucose (eAG) in mg/dL or mmol/L. Uses the ADA-standard DCCT formula with diabetes risk categorization."
+    schema_url = "/a1c-calculator"
+    return render_template(
+        'a1c_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/ivf-due-date-calculator')
 def ivf_due_date_calculator():
     schema_name = "FET Due Date Calculator"
@@ -1284,6 +1302,19 @@ def wegovy_weight_loss_calculator():
     schema_url = "/wegovy-weight-loss-calculator"
     return render_template(
         'wegovy_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/oral-wegovy-weight-loss-calculator')
+def oral_wegovy_weight_loss_calculator():
+    schema_name = "Oral Wegovy Weight Loss Calculator"
+    schema_description = "Project your expected weight loss on oral Wegovy (semaglutide 25mg pill) based on OASIS 1 clinical trial data. Personalized by starting weight, height, and treatment duration."
+    schema_url = "/oral-wegovy-weight-loss-calculator"
+    return render_template(
+        'oral_wegovy_weight_loss_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

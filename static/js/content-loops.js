@@ -316,6 +316,13 @@ var CALCULATOR_GRAPH = {
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Vitamin D deficiency worsens cholesterol — check your heart markers', params: ['age','gender'] }
     ]
   },
+  'a1c': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight can drop A1C by 0.5% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each 1% rise in A1C increases mortality risk by 20-30% — see your estimate', params: ['age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI above 25 doubles type 2 diabetes risk — check where you stand', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'vitamin-d-conversion': {
     links: [
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Most people take the wrong dose — your weight and age change the number', params: ['age','gender','weight_kg'] },

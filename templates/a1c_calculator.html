@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "a1c-calculator-og.jpg" %}
+{% with
+    meta_description="Convert between A1C and blood sugar (eAG) instantly using the ADA-standard formula. See your diabetes risk category with color-coded results.",
+    meta_keywords="a1c calculator, a1c to blood sugar, blood sugar to a1c, hemoglobin a1c, eag calculator, a1c conversion, diabetes risk calculator",
+    og_title="A1C / Blood Sugar Converter Calculator",
+    og_description="Convert between A1C percentage and estimated average blood sugar (eAG) using the ADA-standard formula. See your diabetes risk category instantly.",
+    og_url="/a1c-calculator",
+    page_title="A1C Calculator | A1C to Blood Sugar Converter",
+    canonical_url="/a1c-calculator",
+    schema_name="A1C / Blood Sugar Converter Calculator",
+    schema_description="Convert between A1C percentage and estimated average glucose (eAG) in mg/dL or mmol/L. Uses the ADA-standard DCCT formula with diabetes risk categorization.",
+    schema_url="/a1c-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>A1C / Blood Sugar Converter Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Convert between A1C percentage and estimated average blood sugar (eAG) using the ADA-standard formula.</p>
+
+<section id="calculator">
+        <h2>A1C &amp; Blood Sugar Converter</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="conversion-mode">Conversion Direction:</label>
+                    <select id="conversion-mode">
+                        <option value="a1c-to-bs">A1C to Blood Sugar</option>
+                        <option value="bs-to-a1c">Blood Sugar to A1C</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- A1C to Blood Sugar inputs -->
+            <div id="a1c-input-group" class="calculator-row">
+                <div class="form-group">
+                    <label for="a1c-input">A1C Percentage (%):</label>
+                    <input type="number" id="a1c-input" min="4.0" max="15.0" step="0.1" placeholder="e.g. 6.5">
+                    <span class="input-hint">Normal range: 4.0 - 5.6%</span>
+                </div>
+            </div>
+
+            <!-- Blood Sugar to A1C inputs -->
+            <div id="bs-input-group" class="calculator-row hidden">
+                <div class="form-group">
+                    <label for="bs-input">Average Blood Sugar (eAG):</label>
+                    <input type="number" id="bs-input" min="0" step="1" placeholder="e.g. 126">
+                </div>
+                <div class="form-group">
+                    <label for="bs-unit">Unit:</label>
+                    <select id="bs-unit">
+                        <option value="mgdl">mg/dL</option>
+                        <option value="mmol">mmol/L</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Convert</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="conversion-result">--</div>
+                    <div class="result-hero-label" id="conversion-label">--</div>
+                </div>
+
+                <div id="risk-status" class="result-status status-good">
+                    <span class="result-status-icon" id="risk-icon"></span>
+                    <span class="result-status-text" id="risk-description">--</span>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-box before">
+                        <div class="result-comparison-label">A1C</div>
+                        <div class="result-comparison-size" id="display-a1c">--</div>
+                    </div>
+                    <div class="result-comparison-arrow">=</div>
+                    <div class="result-comparison-box after">
+                        <div class="result-comparison-label">eAG (mg/dL)</div>
+                        <div class="result-comparison-size" id="display-mgdl">--</div>
+                    </div>
+                    <div class="result-comparison-arrow">=</div>
+                    <div class="result-comparison-box after">
+                        <div class="result-comparison-label">eAG (mmol/L)</div>
+                        <div class="result-comparison-size" id="display-mmol">--</div>
+                    </div>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">A1C Risk Category</div>
+                    <div class="result-gauge-bar" style="position: relative; background: linear-gradient(to right, #4caf50 0%, #4caf50 47%, #ff9800 47%, #ff9800 58%, #f44336 58%);">
+                        <div id="gauge-marker" style="position: absolute; width: 3px; height: 18px; background: #333; border-radius: 2px; top: -3px; left: 0; transition: left 0.4s ease;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>Normal (&lt;5.7%)</span>
+                        <span>Prediabetes (5.7-6.4%)</span>
+                        <span>Diabetes (&ge;6.5%)</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">A1C Reference Ranges</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key" style="color: #16a34a;">Normal</span>
+                        <span class="result-breakdown-val">&lt; 5.7%  (eAG &lt; 117 mg/dL)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key" style="color: #d97706;">Prediabetes</span>
+                        <span class="result-breakdown-val">5.7 - 6.4%  (eAG 117-137 mg/dL)</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key" style="color: #dc2626;">Diabetes</span>
+                        <span class="result-breakdown-val">&ge; 6.5%  (eAG &ge; 140 mg/dL)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about the A1C formula
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About the A1C Formula</h4>
+                    <ul>
+                        <li><strong>Formula:</strong> eAG (mg/dL) = 28.7 x A1C - 46.7</li>
+                        <li><strong>Source:</strong> Derived from the ADAG (A1C-Derived Average Glucose) study, endorsed by the ADA</li>
+                        <li><strong>Unit conversion:</strong> eAG (mmol/L) = eAG (mg/dL) / 18.0</li>
+                        <li><strong>A1C measures:</strong> The percentage of hemoglobin proteins coated with sugar, reflecting average blood glucose over 2-3 months</li>
+                        <li><strong>Important:</strong> A1C may be less accurate in people with certain hemoglobin variants, iron deficiency, or recent blood transfusions</li>
+                    </ul>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is A1C (Hemoglobin A1C)?</h2>
+    <div class="answer-capsule">
+      A1C (also called HbA1c or glycated hemoglobin) is a blood test that measures your average blood sugar level over the past 2-3 months. Unlike a fasting glucose test that captures a single moment, A1C reflects long-term blood sugar control by measuring the percentage of hemoglobin proteins in your red blood cells that are coated with sugar (glycated).
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        The A1C test is the primary tool doctors use to diagnose prediabetes and type 2 diabetes, and to monitor how well people with diabetes are managing their blood sugar. The American Diabetes Association (ADA) recommends A1C testing at least twice a year for people with well-controlled diabetes, and quarterly for those whose treatment has changed or who are not meeting goals.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#a1c-chart">A1C Chart</a></li>
+            <li><a href="#how-to-lower">How to Lower Your A1C</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="a1c-chart" class="info">
+        <h2>A1C Chart: A1C to Blood Sugar Conversion Table</h2>
+        <p>This reference table shows A1C percentages and their corresponding estimated average glucose (eAG) values, calculated using the ADA-standard ADAG formula. Categories are based on ADA diagnostic criteria.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">A1C (%)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">eAG (mg/dL)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">eAG (mmol/L)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Category</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">97</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5.4</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #16a34a; font-weight: 600;">Normal</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">111</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.2</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #16a34a; font-weight: 600;">Normal</td></tr>
+                    <tr style="background: #fffbeb;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5.7</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">117</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #d97706; font-weight: 600;">Prediabetes</td></tr>
+                    <tr style="background: #fffbeb;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">126</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #d97706; font-weight: 600;">Prediabetes</td></tr>
+                    <tr style="background: #fffbeb;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.4</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">137</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7.6</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #d97706; font-weight: 600;">Prediabetes</td></tr>
+                    <tr style="background: #fef2f2;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">140</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #dc2626; font-weight: 600;">Diabetes</td></tr>
+                    <tr style="background: #fef2f2;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">154</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8.6</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #dc2626; font-weight: 600;">Diabetes</td></tr>
+                    <tr style="background: #fef2f2;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">183</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10.2</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #dc2626; font-weight: 600;">Diabetes</td></tr>
+                    <tr style="background: #fef2f2;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">9.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">212</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">11.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #dc2626; font-weight: 600;">Diabetes</td></tr>
+                    <tr style="background: #fef2f2;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">240</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">13.4</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #dc2626; font-weight: 600;">Diabetes</td></tr>
+                    <tr style="background: #fef2f2;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">298</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">16.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; color: #dc2626; font-weight: 600;">Diabetes</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="how-to-lower" class="info">
+        <h2>How to Lower Your A1C</h2>
+        <p>If your A1C is above the normal range, these evidence-based strategies can help bring it down. Research from the Diabetes Prevention Program (DPP) shows that lifestyle changes can reduce A1C by 0.5-2.0% over 3-6 months.</p>
+
+        <div class="important-box">
+            <h3>Lifestyle Changes That Lower A1C</h3>
+            <ul>
+                <li><strong>Reduce refined carbohydrates:</strong> Swap white bread, pasta, and sugary foods for whole grains, legumes, and non-starchy vegetables. Carbohydrate quality affects post-meal glucose spikes more than total amount.</li>
+                <li><strong>Exercise regularly:</strong> Aim for at least 150 minutes per week of moderate aerobic activity (brisk walking, cycling). Both aerobic exercise and resistance training independently lower A1C by 0.5-0.7%.</li>
+                <li><strong>Lose 5-7% of body weight:</strong> For a 200 lb person, that is 10-14 lbs. The DPP trial showed this level of weight loss reduced diabetes risk by 58% in people with prediabetes.</li>
+                <li><strong>Increase fiber intake:</strong> Target 25-30g daily from vegetables, beans, and whole grains. Soluble fiber slows glucose absorption and improves A1C.</li>
+                <li><strong>Monitor blood sugar:</strong> Regular self-monitoring helps you identify how specific foods and activities affect your glucose levels, enabling more targeted changes.</li>
+                <li><strong>Manage stress and sleep:</strong> Chronic stress and poor sleep raise cortisol, which increases blood sugar. Aim for 7-9 hours of sleep per night.</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+            <strong>Medications:</strong> If lifestyle changes alone are insufficient, your doctor may prescribe metformin (first-line for type 2 diabetes), GLP-1 receptor agonists (e.g., semaglutide), SGLT2 inhibitors, or insulin therapy. These can lower A1C by 1-2% or more. Always discuss medication options with your healthcare provider.
+        </p>
+    </section>
+
+    <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is a normal A1C level?</h3>
+            <div class="faq-answer">
+                <p>According to the American Diabetes Association, a normal A1C is below 5.7%. An A1C between 5.7% and 6.4% indicates prediabetes, and 6.5% or higher on two separate tests indicates diabetes. For people already diagnosed with diabetes, the ADA generally recommends a target A1C of below 7%, though individual targets may vary.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How often should I get my A1C tested?</h3>
+            <div class="faq-answer">
+                <p>The ADA recommends A1C testing at least twice a year for people with well-controlled diabetes, and every 3 months (quarterly) if treatment has recently changed or blood sugar goals are not being met. For people without diabetes, screening should begin at age 35, or earlier if you have risk factors like obesity, family history, or a history of gestational diabetes.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can A1C be inaccurate?</h3>
+            <div class="faq-answer">
+                <p>Yes. A1C results can be affected by conditions that change red blood cell lifespan or hemoglobin structure. These include:</p>
+                <ul>
+                    <li><strong>Hemoglobin variants:</strong> Sickle cell trait (HbAS), HbC, or HbE can cause falsely high or low results depending on the assay method.</li>
+                    <li><strong>Iron deficiency anemia:</strong> Can falsely elevate A1C.</li>
+                    <li><strong>Recent blood loss or transfusion:</strong> Changes the age distribution of red blood cells.</li>
+                    <li><strong>Kidney disease or heavy alcohol use:</strong> May interfere with some A1C testing methods.</li>
+                </ul>
+                <p>In these cases, your doctor may use fructosamine testing or continuous glucose monitoring (CGM) as alternatives.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is eAG and how is it different from fasting glucose?</h3>
+            <div class="faq-answer">
+                <p>Estimated Average Glucose (eAG) is derived from your A1C and represents your average blood sugar over 2-3 months. Fasting glucose measures your blood sugar at a single point in time (after 8+ hours without eating). eAG gives a more complete picture because it captures post-meal spikes that fasting glucose misses. The ADA formula is: eAG (mg/dL) = 28.7 x A1C - 46.7.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How quickly can A1C change?</h3>
+            <div class="faq-answer">
+                <p>A1C reflects blood sugar over the lifespan of red blood cells (about 120 days), but it is weighted toward more recent weeks. Meaningful changes in A1C typically take 2-3 months to show up. That is why the ADA recommends retesting no sooner than 3 months after a treatment change. A drop of 0.5-1.0% per quarter is considered good progress with lifestyle modifications alone.</p>
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>Calculate your daily calorie needs to support weight loss goals that can help lower A1C.</p>
+            </a>
+            <a href="/lifespan-longevity-calculator" class="related-tool-card">
+                <h4>Lifespan Calculator</h4>
+                <p>See how blood sugar management and diabetes risk affect your life expectancy.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "American Diabetes Association. Standards of Care in Diabetes - 2024. Diabetes Care. 2024;47(Supplement 1).", "url": "https://diabetesjournals.org/care/issue/47/Supplement_1"},
+        {"text": "Nathan DM, Kuenen J, Borg R, et al. Translating the A1C assay into estimated average glucose values. Diabetes Care. 2008;31(8):1473-1478.", "url": "https://pubmed.ncbi.nlm.nih.gov/18540046/"},
+        {"text": "DCCT/EDIC Research Group. The Diabetes Control and Complications Trial/Epidemiology of Diabetes Interventions and Complications Study. Diabetes Care. 2014;37(1):9-16.", "url": "https://pubmed.ncbi.nlm.nih.gov/24356592/"},
+        {"text": "National Glycohemoglobin Standardization Program (NGSP). HbA1c and Estimated Average Glucose (eAG).", "url": "http://www.ngsp.org/A1ceAG.asp"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+<script defer src="/static/js/a1c_calculator.js"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
