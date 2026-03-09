@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "intermittent-fasting-calculator-og.jpg" %}
+{% with
+    meta_description="Plan your intermittent fasting schedule based on your wake time, bedtime, and preferred protocol. Get personalized eating and fasting windows with a visual daily timeline.",
+    meta_keywords="intermittent fasting calculator, IF schedule, fasting window, eating window, 16:8 fasting, 18:6 fasting, OMAD schedule, 5:2 diet, fasting planner",
+    og_title="Intermittent Fasting Schedule Calculator",
+    og_description="Build a personalized intermittent fasting schedule based on your daily routine. See exactly when to eat and fast with a visual timeline.",
+    og_url="/intermittent-fasting-calculator",
+    page_title="Intermittent Fasting Schedule Calculator – Plan Your Eating Window",
+    canonical_url="/intermittent-fasting-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Intermittent Fasting Schedule Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/intermittent-fasting-calculator",
+  "description": "Plan your intermittent fasting schedule based on wake time, bedtime, and fasting protocol. Generates personalized eating and fasting windows with a visual daily timeline.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+<!-- Schema: FAQPage -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best intermittent fasting schedule for beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 16:8 method is widely recommended for beginners because it aligns with a natural overnight fast. Most people simply skip breakfast and eat between noon and 8 PM, making it easy to maintain without major lifestyle changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I drink coffee during my fasting window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, black coffee (without sugar, cream, or milk) is generally considered acceptable during fasting. It contains negligible calories and may actually support fasting by suppressing appetite. However, adding any caloric ingredients will break your fast."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I choose between 16:8 and 18:6 fasting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with 16:8 if you are new to fasting. Once you can comfortably maintain 16:8 for 2-3 weeks, you can try 18:6 for potentially greater metabolic benefits. The best protocol is the one you can follow consistently."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it matter when I place my eating window?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Research suggests earlier eating windows (e.g., 10 AM to 6 PM) may offer modest metabolic advantages due to circadian rhythm alignment. However, adherence matters most — choose a window that fits your social and work schedule."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the 5:2 intermittent fasting method?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The 5:2 method involves eating normally for 5 days per week and restricting calories to 500-600 on the remaining 2 non-consecutive days. It offers flexibility since you don't fast daily, making it popular for people who find daily time-restricted eating difficult."
+      }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Intermittent Fasting Schedule Calculator</h1>
+    {% include 'components/article-meta.html' %}
+<section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="wake-time">Wake-Up Time</label>
+                <select id="wake-time">
+                    <option value="04:00">4:00 AM</option>
+                    <option value="04:30">4:30 AM</option>
+                    <option value="05:00">5:00 AM</option>
+                    <option value="05:30">5:30 AM</option>
+                    <option value="06:00">6:00 AM</option>
+                    <option value="06:30">6:30 AM</option>
+                    <option value="07:00" selected>7:00 AM</option>
+                    <option value="07:30">7:30 AM</option>
+                    <option value="08:00">8:00 AM</option>
+                    <option value="08:30">8:30 AM</option>
+                    <option value="09:00">9:00 AM</option>
+                    <option value="09:30">9:30 AM</option>
+                    <option value="10:00">10:00 AM</option>
+                    <option value="10:30">10:30 AM</option>
+                    <option value="11:00">11:00 AM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bed-time">Bedtime</label>
+                <select id="bed-time">
+                    <option value="20:00">8:00 PM</option>
+                    <option value="20:30">8:30 PM</option>
+                    <option value="21:00">9:00 PM</option>
+                    <option value="21:30">9:30 PM</option>
+                    <option value="22:00">10:00 PM</option>
+                    <option value="22:30">10:30 PM</option>
+                    <option value="23:00" selected>11:00 PM</option>
+                    <option value="23:30">11:30 PM</option>
+                    <option value="00:00">12:00 AM</option>
+                    <option value="00:30">12:30 AM</option>
+                    <option value="01:00">1:00 AM</option>
+                    <option value="01:30">1:30 AM</option>
+                    <option value="02:00">2:00 AM</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="fasting-protocol">Fasting Protocol</label>
+                <select id="fasting-protocol">
+                    <option value="16:8">16:8 (16 hours fasting, 8 hours eating)</option>
+                    <option value="18:6">18:6 (18 hours fasting, 6 hours eating)</option>
+                    <option value="20:4">20:4 — Warrior Diet (20 hours fasting, 4 hours eating)</option>
+                    <option value="23:1">OMAD — One Meal A Day (23 hours fasting, 1 hour eating)</option>
+                    <option value="5:2">5:2 (5 normal days, 2 restricted days at 500–600 cal)</option>
+                </select>
+            </div>
+
+            <div class="form-group" id="meal-timing-group">
+                <label for="meal-timing">Preferred First Meal Timing</label>
+                <select id="meal-timing">
+                    <option value="early">Early (soon after waking)</option>
+                    <option value="midday" selected>Mid-day (around lunch)</option>
+                    <option value="late">Late (afternoon)</option>
+                </select>
+            </div>
+
+            <button id="calculate-btn">Build My Schedule</button>
+
+            <div class="results-section" id="results" style="display: none;">
+                <div class="result-hero">
+                    <div class="result-hero-number" id="eating-window-display">—</div>
+                    <div class="result-hero-label">Your Eating Window</div>
+                    <div class="result-hero-sublabel" id="protocol-label">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card blue">
+                        <div class="result-card-title">Fasting Hours</div>
+                        <div class="result-card-value" id="fasting-hours">—</div>
+                        <div class="result-card-note">per day</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Eating Hours</div>
+                        <div class="result-card-value" id="eating-hours">—</div>
+                        <div class="result-card-note">per day</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Last Meal By</div>
+                        <div class="result-card-value" id="last-meal">—</div>
+                        <div class="result-card-note">stop eating</div>
+                    </div>
+                    <div class="result-card pink">
+                        <div class="result-card-title">First Meal At</div>
+                        <div class="result-card-value" id="first-meal">—</div>
+                        <div class="result-card-note">break your fast</div>
+                    </div>
+                </div>
+
+                <!-- Visual Timeline -->
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Your Daily Timeline</div>
+                    <div id="timeline-container" style="margin: 16px 0;">
+                        <div id="timeline-bar" style="position: relative; height: 48px; border-radius: 8px; overflow: hidden; background: #e0e7ef; display: flex;">
+                            <!-- Segments injected by JS -->
+                        </div>
+                        <div id="timeline-labels" style="display: flex; justify-content: space-between; font-size: 0.78rem; color: #6b7280; margin-top: 4px;">
+                            <!-- Labels injected by JS -->
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 16px; font-size: 0.82rem; margin-top: 8px;">
+                        <span><span style="display:inline-block;width:12px;height:12px;background:#0891b2;border-radius:3px;vertical-align:middle;margin-right:4px;"></span> Eating window</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;background:#e0e7ef;border-radius:3px;vertical-align:middle;margin-right:4px;"></span> Fasting</span>
+                        <span><span style="display:inline-block;width:12px;height:12px;background:#1e293b;border-radius:3px;vertical-align:middle;margin-right:4px;"></span> Sleep</span>
+                    </div>
+                </div>
+
+                <!-- 5:2 Weekly Schedule (hidden by default) -->
+                <div class="result-breakdown" id="weekly-schedule" style="display: none;">
+                    <div class="result-breakdown-title">Your Weekly Schedule (5:2)</div>
+                    <div id="weekly-grid" style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; margin: 16px 0;"></div>
+                    <p style="font-size: 0.85rem; color: #6b7280; margin-top: 8px;">On fasting days, limit intake to 500 calories (women) or 600 calories (men). Eat normally on other days. Non-consecutive fasting days reduce fatigue and improve adherence.</p>
+                </div>
+
+                <!-- What's allowed during fasting -->
+                <div class="result-breakdown" id="fasting-allowed">
+                    <div class="result-breakdown-title">What You Can Have During Fasting</div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 12px;">
+                        <div style="background: #f0fdf4; padding: 12px; border-radius: 8px; border-left: 3px solid #16a34a;">
+                            <strong style="color: #16a34a; font-size: 0.85rem;">Allowed</strong>
+                            <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 0.88rem; line-height: 1.7;">
+                                <li>Water (plain or sparkling)</li>
+                                <li>Black coffee (no sugar/cream)</li>
+                                <li>Unsweetened tea</li>
+                                <li>Electrolytes (zero-calorie)</li>
+                                <li>Apple cider vinegar (diluted)</li>
+                            </ul>
+                        </div>
+                        <div style="background: #fef2f2; padding: 12px; border-radius: 8px; border-left: 3px solid #dc2626;">
+                            <strong style="color: #dc2626; font-size: 0.85rem;">Breaks Your Fast</strong>
+                            <ul style="margin: 8px 0 0; padding-left: 18px; font-size: 0.88rem; line-height: 1.7;">
+                                <li>Any caloric beverage</li>
+                                <li>Milk or cream in coffee</li>
+                                <li>Diet soda (may spike insulin)</li>
+                                <li>Bone broth (has calories)</li>
+                                <li>Gum (most contain sugar)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule: LLM-optimized definition -->
+    <h2>What Is Intermittent Fasting?</h2>
+    <div class="answer-capsule">
+      Intermittent fasting (IF) is an eating pattern that cycles between periods of fasting and eating. Unlike traditional diets that focus on <em>what</em> to eat, IF focuses on <em>when</em> to eat. The most common approaches restrict daily eating to a specific window (e.g., 8 hours) or limit calories on certain days of the week. Research published in the <em>New England Journal of Medicine</em> shows IF can improve metabolic health, reduce inflammation, and support weight management beyond simple calorie restriction.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">IF Schedule Calculator</a></li>
+            <li><a href="#protocols-compared">IF Protocols Compared</a></li>
+            <li><a href="#benefits">Benefits of Intermittent Fasting</a></li>
+            <li><a href="#tips">Tips for Starting IF</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & References</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- IF Protocols Compared -->
+    <section id="protocols-compared" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Intermittent Fasting Protocols Compared</h2>
+            <div class="answer-capsule">
+                Each fasting protocol offers a different balance of effectiveness and sustainability. The table below compares the five most studied IF methods to help you choose the right approach for your goals and lifestyle.
+            </div>
+
+            <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 0.92rem;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 10px;">Protocol</th>
+                        <th style="text-align: left; padding: 10px;">Fasting</th>
+                        <th style="text-align: left; padding: 10px;">Eating</th>
+                        <th style="text-align: left; padding: 10px;">Best For</th>
+                        <th style="text-align: left; padding: 10px;">Difficulty</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px; font-weight: 600;">16:8</td>
+                        <td style="padding: 10px;">16 hours</td>
+                        <td style="padding: 10px;">8 hours</td>
+                        <td style="padding: 10px;">Beginners, sustainable long-term adherence</td>
+                        <td style="padding: 10px;"><span style="color: #16a34a; font-weight: 500;">Easy</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px; font-weight: 600;">18:6</td>
+                        <td style="padding: 10px;">18 hours</td>
+                        <td style="padding: 10px;">6 hours</td>
+                        <td style="padding: 10px;">Intermediate, enhanced autophagy benefits</td>
+                        <td style="padding: 10px;"><span style="color: #d97706; font-weight: 500;">Moderate</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px; font-weight: 600;">20:4</td>
+                        <td style="padding: 10px;">20 hours</td>
+                        <td style="padding: 10px;">4 hours</td>
+                        <td style="padding: 10px;">Experienced fasters, aggressive fat loss</td>
+                        <td style="padding: 10px;"><span style="color: #dc2626; font-weight: 500;">Hard</span></td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px; font-weight: 600;">OMAD (23:1)</td>
+                        <td style="padding: 10px;">23 hours</td>
+                        <td style="padding: 10px;">1 hour</td>
+                        <td style="padding: 10px;">Advanced, maximum autophagy and simplicity</td>
+                        <td style="padding: 10px;"><span style="color: #dc2626; font-weight: 500;">Very Hard</span></td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; font-weight: 600;">5:2</td>
+                        <td style="padding: 10px;">2 days/week</td>
+                        <td style="padding: 10px;">5 days normal</td>
+                        <td style="padding: 10px;">Flexibility seekers, those who dislike daily restriction</td>
+                        <td style="padding: 10px;"><span style="color: #d97706; font-weight: 500;">Moderate</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <p style="margin-top: 16px;">The 16:8 protocol is the most studied and widely recommended starting point. A 2022 meta-analysis by Varady et al. found that time-restricted eating (16:8 and 18:6) produced comparable weight loss to daily calorie restriction over 8-12 weeks, with better adherence rates.</p>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Benefits of Intermittent Fasting</h2>
+            <div class="answer-capsule">
+                Research from multiple randomized controlled trials supports several health benefits of intermittent fasting beyond weight loss. The following benefits are backed by peer-reviewed evidence.
+            </div>
+
+            <ul>
+                <li><strong>Weight and fat loss:</strong> IF creates a caloric deficit naturally. A 2022 review in <em>Nature Reviews Endocrinology</em> found that 16:8 TRE produced 3-8% body weight loss over 8-12 weeks (Varady et al. 2022).</li>
+                <li><strong>Improved insulin sensitivity:</strong> Fasting periods allow insulin levels to drop, improving cellular insulin sensitivity. de Cabo & Mattson (2019) documented significant reductions in fasting insulin and insulin resistance markers.</li>
+                <li><strong>Cellular autophagy:</strong> Extended fasting (typically beyond 16 hours) activates autophagy, the body's cellular recycling process that clears damaged proteins and organelles (Longo & Panda 2016).</li>
+                <li><strong>Reduced inflammation:</strong> Multiple studies show IF reduces markers of systemic inflammation including C-reactive protein, TNF-alpha, and IL-6, independent of weight loss.</li>
+                <li><strong>Cardiovascular health:</strong> IF has been associated with improvements in blood pressure, resting heart rate, LDL cholesterol, and triglycerides in trials lasting 8 weeks or more.</li>
+                <li><strong>Cognitive function:</strong> Animal studies and preliminary human data suggest fasting promotes brain-derived neurotrophic factor (BDNF) production, supporting neuronal health and memory.</li>
+            </ul>
+
+            <p><strong>Important caveat:</strong> Most IF research has been conducted over 8-24 weeks. Long-term (multi-year) data is limited, and individual responses vary significantly based on genetics, baseline health, and adherence consistency.</p>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section id="tips" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Tips for Starting Intermittent Fasting</h2>
+
+            <ol style="line-height: 1.8;">
+                <li><strong>Start with 16:8.</strong> Begin by pushing breakfast back 1-2 hours each day until you reach a 16-hour fast. Most people adapt within 5-7 days.</li>
+                <li><strong>Stay hydrated.</strong> Drink at least 8 glasses of water during your fasting window. Dehydration is the most common cause of fasting headaches and fatigue.</li>
+                <li><strong>Keep busy during fasting hours.</strong> Hunger comes in waves lasting 15-20 minutes. Staying occupied helps you ride them out without breaking your fast.</li>
+                <li><strong>Eat nutrient-dense meals.</strong> With a smaller eating window, every meal matters more. Prioritize protein (at least 1.6g/kg body weight), healthy fats, and fiber-rich vegetables.</li>
+                <li><strong>Don't overeat in your eating window.</strong> IF is not a license to binge. Eat to satisfaction, not excess. Your body still follows the laws of energy balance.</li>
+                <li><strong>Time workouts strategically.</strong> Light exercise (walking, yoga) is fine while fasting. Schedule intense training near the start of your eating window for optimal recovery.</li>
+                <li><strong>Be consistent with your window.</strong> Your circadian rhythm adapts to regular eating patterns. Shifting your window daily undermines hormonal adaptation.</li>
+                <li><strong>Listen to your body.</strong> Dizziness, persistent nausea, or inability to concentrate are signals to eat. Fasting should challenge you, not harm you.</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Related Guide Section -->
+    <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-accent);">
+        <h3 style="color: #333; margin-top: 0;">Related Calculator</h3>
+        <p>
+            Want to estimate how much weight you could lose with intermittent fasting? Our Fasting Weight Loss Calculator uses your body composition and fasting protocol to project fat loss over time.
+            <a href="/fasting-weight-loss-calculator" style="color: var(--color-accent); text-decoration: none; font-weight: 500;">
+                Calculate Fasting Weight Loss &rarr;
+            </a>
+        </p>
+    </div>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>What is the best intermittent fasting schedule for beginners?</h4>
+            <div class="faq-body">
+            <p>The 16:8 method is widely recommended for beginners because it aligns with a natural overnight fast. Most people simply skip breakfast and eat between noon and 8 PM, making it easy to maintain without major lifestyle changes. Start by delaying breakfast by 1-2 hours and gradually extend your fasting window.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can I drink coffee during my fasting window?</h4>
+            <div class="faq-body">
+            <p>Yes, black coffee (without sugar, cream, or milk) is generally considered acceptable during fasting. It contains negligible calories and may actually support fasting by suppressing appetite and boosting metabolic rate. However, adding any caloric ingredients -- even a splash of milk -- will technically break your fast.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How do I choose between 16:8 and 18:6 fasting?</h4>
+            <div class="faq-body">
+            <p>Start with 16:8 if you are new to fasting. Once you can comfortably maintain 16:8 for 2-3 weeks, you can try 18:6 for potentially greater autophagy and metabolic benefits. The key difference is 2 fewer eating hours, which most people notice when they have to fit meals into a tighter window. The best protocol is the one you can follow consistently.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Does it matter when I place my eating window?</h4>
+            <div class="faq-body">
+            <p>Research suggests earlier eating windows (e.g., 10 AM to 6 PM) may offer modest metabolic advantages due to circadian rhythm alignment. A 2019 study found that early time-restricted eating improved insulin sensitivity and blood pressure more than late eating. However, adherence matters most -- choose a window that fits your social and work schedule.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is the 5:2 intermittent fasting method?</h4>
+            <div class="faq-body">
+            <p>The 5:2 method involves eating normally for 5 days per week and restricting calories to 500-600 on the remaining 2 non-consecutive days. It offers flexibility since you don't fast daily, making it popular for people who find daily time-restricted eating difficult. Research by Varady et al. shows similar weight loss outcomes to daily TRE over 12 weeks.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bottom Ads -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "de Cabo R, Mattson MP. Effects of Intermittent Fasting on Health, Aging, and Disease. N Engl J Med. 2019;381(26):2541-2551.", "url": "https://pubmed.ncbi.nlm.nih.gov/31881139/"},
+        {"text": "Varady KA, Cienfuegos S, Ezpeleta M, Gabel K. Clinical application of intermittent fasting for weight loss: progress and future directions. Nat Rev Endocrinol. 2022;18(5):309-321.", "url": "https://pubmed.ncbi.nlm.nih.gov/35194176/"},
+        {"text": "Longo VD, Panda S. Fasting, Circadian Rhythms, and Time-Restricted Feeding in Healthy Lifespan. Cell Metab. 2016;23(6):1048-1059.", "url": "https://pubmed.ncbi.nlm.nih.gov/27304506/"},
+        {"text": "Sutton EF, Beyl R, Early KS, et al. Early Time-Restricted Feeding Improves Insulin Sensitivity, Blood Pressure, and Oxidative Stress Even without Weight Loss in Men with Prediabetes. Cell Metab. 2018;27(6):1212-1221.", "url": "https://pubmed.ncbi.nlm.nih.gov/29754952/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    </div> <!-- End of calculator-container -->
+    {% include 'components/related-links.html' %}
+    {% include 'footer.html' %}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const protocolSelect = document.getElementById('fasting-protocol');
+            const mealTimingGroup = document.getElementById('meal-timing-group');
+
+            // Show/hide meal timing for 5:2
+            protocolSelect.addEventListener('change', function() {
+                mealTimingGroup.style.display = this.value === '5:2' ? 'none' : 'block';
+            });
+
+            document.getElementById('calculate-btn').addEventListener('click', calculateSchedule);
+
+            function parseTime(timeStr) {
+                const [h, m] = timeStr.split(':').map(Number);
+                return h * 60 + m; // minutes from midnight
+            }
+
+            function formatTime(minutes) {
+                // Normalize to 0-1440
+                let mins = ((minutes % 1440) + 1440) % 1440;
+                let h = Math.floor(mins / 60);
+                let m = mins % 60;
+                let period = h >= 12 ? 'PM' : 'AM';
+                let displayH = h % 12;
+                if (displayH === 0) displayH = 12;
+                return displayH + ':' + (m < 10 ? '0' : '') + m + ' ' + period;
+            }
+
+            function calculateSchedule() {
+                const wakeStr = document.getElementById('wake-time').value;
+                const bedStr = document.getElementById('bed-time').value;
+                const protocol = protocolSelect.value;
+                const mealTiming = document.getElementById('meal-timing').value;
+
+                let wakeMins = parseTime(wakeStr);
+                let bedMins = parseTime(bedStr);
+
+                // Handle bedtime past midnight
+                if (bedMins <= wakeMins) {
+                    bedMins += 1440;
+                }
+
+                const awakeHours = (bedMins - wakeMins) / 60;
+
+                if (protocol === '5:2') {
+                    show52Schedule(wakeMins, bedMins);
+                    return;
+                }
+
+                // Parse protocol
+                const parts = protocol.split(':');
+                const fastHours = parseInt(parts[0]);
+                const eatHours = parseInt(parts[1]);
+
+                // Calculate eating window start based on preference
+                let eatStart;
+                if (mealTiming === 'early') {
+                    // 1-2 hours after waking
+                    eatStart = wakeMins + 90; // 1.5 hours
+                } else if (mealTiming === 'midday') {
+                    // Target around noon, but adjust for wake time
+                    // At least fastHours after last meal yesterday
+                    // Simple approach: center the eating window in the awake period, shifted slightly early
+                    let midAwake = wakeMins + (bedMins - wakeMins) / 2;
+                    eatStart = midAwake - (eatHours * 60) / 2;
+                    // Ensure it's at least 2 hours after waking
+                    if (eatStart < wakeMins + 120) eatStart = wakeMins + 120;
+                } else {
+                    // Late: eating window ends 1-2 hours before bed
+                    let eatEnd = bedMins - 90;
+                    eatStart = eatEnd - (eatHours * 60);
+                    // Ensure it's at least 3 hours after waking
+                    if (eatStart < wakeMins + 180) eatStart = wakeMins + 180;
+                }
+
+                let eatEnd = eatStart + (eatHours * 60);
+
+                // Ensure eating window doesn't extend past bedtime
+                if (eatEnd > bedMins - 30) {
+                    eatEnd = bedMins - 30;
+                    eatStart = eatEnd - (eatHours * 60);
+                }
+
+                // Validate: fasting period = 24 - eating hours
+                let fastStart = eatEnd;
+                let fastEnd = eatStart + 1440; // next day
+
+                // Display results
+                document.getElementById('eating-window-display').textContent =
+                    formatTime(eatStart) + ' \u2013 ' + formatTime(eatEnd);
+                document.getElementById('protocol-label').textContent =
+                    protocol + ' Intermittent Fasting';
+                document.getElementById('fasting-hours').textContent = fastHours + 'h';
+                document.getElementById('eating-hours').textContent = eatHours + 'h';
+                document.getElementById('first-meal').textContent = formatTime(eatStart);
+                document.getElementById('last-meal').textContent = formatTime(eatEnd);
+
+                // Build timeline
+                buildTimeline(wakeMins, bedMins, eatStart, eatEnd);
+
+                // Hide 5:2 schedule, show results
+                document.getElementById('weekly-schedule').style.display = 'none';
+                document.getElementById('fasting-allowed').style.display = 'block';
+                document.getElementById('results').style.display = 'block';
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (typeof showNextSteps === 'function') showNextSteps('if-schedule', {});
+            }
+
+            function show52Schedule(wakeMins, bedMins) {
+                // For 5:2, show weekly calendar
+                document.getElementById('eating-window-display').textContent = '5 : 2';
+                document.getElementById('protocol-label').textContent =
+                    '5 normal days + 2 restricted days (500\u2013600 cal)';
+                document.getElementById('fasting-hours').textContent = '2 days';
+                document.getElementById('fasting-hours').nextElementSibling.textContent = 'restricted/week';
+                document.getElementById('eating-hours').textContent = '5 days';
+                document.getElementById('eating-hours').nextElementSibling.textContent = 'normal/week';
+                document.getElementById('first-meal').textContent = 'Any';
+                document.getElementById('first-meal').nextElementSibling.textContent = 'on normal days';
+                document.getElementById('last-meal').textContent = '500\u2013600';
+                document.getElementById('last-meal').nextElementSibling.textContent = 'cal on fast days';
+
+                // Build weekly grid
+                const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+                // Two recommended schedules
+                const fastDaysA = [0, 3]; // Mon, Thu
+                const fastDaysB = [1, 4]; // Tue, Fri
+                // Use option A by default
+                const fastDays = fastDaysA;
+
+                const grid = document.getElementById('weekly-grid');
+                grid.innerHTML = '';
+                days.forEach(function(day, i) {
+                    const isFast = fastDays.indexOf(i) !== -1;
+                    const cell = document.createElement('div');
+                    cell.style.cssText = 'text-align:center;padding:12px 4px;border-radius:8px;font-size:0.85rem;font-weight:600;' +
+                        (isFast
+                            ? 'background:#fef2f2;color:#dc2626;border:2px solid #fecaca;'
+                            : 'background:#f0fdf4;color:#16a34a;border:2px solid #bbf7d0;');
+                    cell.innerHTML = '<div>' + day + '</div><div style="font-size:0.75rem;font-weight:400;margin-top:4px;">' +
+                        (isFast ? '500\u2013600 cal' : 'Eat normally') + '</div>';
+                    grid.appendChild(cell);
+                });
+
+                // Hide daily timeline, show weekly
+                document.getElementById('timeline-container').parentElement.style.display = 'none';
+                document.getElementById('weekly-schedule').style.display = 'block';
+                document.getElementById('fasting-allowed').style.display = 'block';
+                document.getElementById('results').style.display = 'block';
+                document.getElementById('results').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (typeof showNextSteps === 'function') showNextSteps('if-schedule', {});
+            }
+
+            function buildTimeline(wakeMins, bedMins, eatStart, eatEnd) {
+                // Show the timeline section
+                document.getElementById('timeline-container').parentElement.style.display = 'block';
+
+                const bar = document.getElementById('timeline-bar');
+                const labels = document.getElementById('timeline-labels');
+                bar.innerHTML = '';
+                labels.innerHTML = '';
+
+                // Total span: from midnight to midnight (24h = 1440 min)
+                // We show a 24-hour bar from wake time
+                const totalMins = 1440;
+                // Normalize everything relative to 0 (midnight)
+                let normWake = wakeMins % 1440;
+                let normBed = bedMins % 1440;
+                let normEatStart = eatStart % 1440;
+                let normEatEnd = eatEnd % 1440;
+
+                // Build segments in order from midnight
+                // Segments: sleep-before-wake, fasting-morning, eating, fasting-evening, sleep-after-bed
+                const segments = [];
+
+                // Pre-wake sleep (midnight to wake)
+                if (normWake > 0) {
+                    segments.push({ start: 0, end: normWake, type: 'sleep' });
+                }
+
+                // From wake to eat start = fasting
+                if (normEatStart > normWake) {
+                    segments.push({ start: normWake, end: normEatStart, type: 'fasting' });
+                }
+
+                // Eating window
+                if (normEatEnd > normEatStart) {
+                    segments.push({ start: normEatStart, end: normEatEnd, type: 'eating' });
+                }
+
+                // From eat end to bed = fasting
+                if (normBed > normEatEnd) {
+                    segments.push({ start: normEatEnd, end: normBed, type: 'fasting' });
+                } else if (normBed <= normEatEnd && normBed > 0) {
+                    // Bed is past midnight - handle wrap
+                    segments.push({ start: normEatEnd, end: 1440, type: 'fasting' });
+                    // Then sleep from midnight to bed
+                }
+
+                // Post-bed sleep
+                if (bedMins > 1440) {
+                    // Bedtime after midnight
+                    let actualBed = bedMins % 1440;
+                    segments.push({ start: normBed > normEatEnd ? normBed : normEatEnd, end: 1440, type: 'fasting' });
+                    // We skip the post-midnight display for simplicity
+                } else if (normBed < 1440 && normBed > normEatEnd) {
+                    segments.push({ start: normBed, end: 1440, type: 'sleep' });
+                }
+
+                // Render segments
+                var colors = {
+                    'sleep': '#1e293b',
+                    'fasting': '#e0e7ef',
+                    'eating': '#0891b2'
+                };
+
+                segments.forEach(function(seg) {
+                    var pct = ((seg.end - seg.start) / totalMins) * 100;
+                    if (pct <= 0) return;
+                    var div = document.createElement('div');
+                    div.style.cssText = 'width:' + pct + '%;height:100%;background:' + colors[seg.type] + ';';
+                    if (seg.type === 'eating') {
+                        div.style.cssText += 'display:flex;align-items:center;justify-content:center;color:#fff;font-size:0.75rem;font-weight:600;';
+                        if (pct > 10) div.textContent = 'EAT';
+                    }
+                    bar.appendChild(div);
+                });
+
+                // Add time labels
+                var labelTimes = [0, normWake, normEatStart, normEatEnd];
+                if (normBed < 1440) labelTimes.push(normBed);
+                labelTimes.push(1440);
+                // Deduplicate and sort
+                labelTimes = labelTimes.filter(function(v, i, a) { return a.indexOf(v) === i; });
+                labelTimes.sort(function(a, b) { return a - b; });
+
+                labelTimes.forEach(function(t) {
+                    var span = document.createElement('span');
+                    span.textContent = formatTime(t);
+                    labels.appendChild(span);
+                });
+            }
+        });
+    </script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
