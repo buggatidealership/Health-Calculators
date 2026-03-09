@@ -1772,15 +1772,6 @@ articles = [
         "category": "medication"
     },
     {
-        "title": "GLP-1 Side Effects Comparison Chart",
-        "url": "/resources/glp1-side-effects-comparison",
-        "summary": "Complete side effect frequency data from STEP and SURMOUNT trials. Compare nausea, GI issues, and serious risks by drug.",
-        "icon": "⚠️",
-        "cta": "View Chart",
-        "color": "orange",
-        "category": "medication"
-    },
-    {
         "title": "Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges",
         "url": "/resources/vitamin-d-levels-chart",
         "summary": "Reference chart for vitamin D blood levels by age. Includes deficiency thresholds, daily intake recommendations, and testing guide.",
@@ -2378,16 +2369,6 @@ def glp1_weight_loss_comparison():
         schema_name="GLP-1 Weight Loss Comparison: Ozempic vs Mounjaro vs Wegovy vs Zepbound",
         schema_description="Compare GLP-1 medication weight loss results side by side. Clinical trial data from STEP and SURMOUNT trials with dosing schedules, costs, and timelines.",
         schema_url="/resources/glp1-weight-loss-comparison"
-    )
-
-@app.route('/resources/glp1-side-effects-comparison')
-def glp1_side_effects_comparison():
-    return render_template(
-        'resources/glp1_side_effects_comparison.html',
-        is_homepage=False,
-        schema_name="GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound",
-        schema_description="Complete side effect frequency data from clinical trials. Compare GI symptoms, serious risks, and management strategies for all GLP-1 medications.",
-        schema_url="/resources/glp1-side-effects-comparison"
     )
 
 @app.route('/resources/vitamin-d-levels-chart')
