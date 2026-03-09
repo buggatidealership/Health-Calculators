@@ -556,6 +556,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://healthcalculators.xyz/a1c-calculator</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://healthcalculators.xyz/wegovy-weight-loss-calculator</loc>
     <lastmod>2026-03-08</lastmod>
     <priority>0.9</priority>
