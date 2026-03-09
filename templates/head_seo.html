@@ -13,7 +13,6 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ meta_description }}">
-<meta name="keywords" content="{{ meta_keywords }}">
 <meta name="author" content="HealthCalculators.xyz">
 <meta name="robots" content="index, follow">
 <meta name="google-site-verification" content="UNgxdXemjoASqphaPyegFdYw_pfs9TXdaIpLrBdtCA4" />
@@ -40,33 +39,38 @@
 <meta property="og:description" content="{{ og_description }}">
 <meta property="og:url" content="https://healthcalculators.xyz{{ og_url }}">
 <meta property="og:image" content="https://healthcalculators.xyz/static/images/{{ og_image or 'default-calculator-og.jpg' }}">
-<meta property="og:type" content="website">
+<meta property="og:type" content="{{ 'article' if schema_type|default('') == 'Article' else 'website' }}">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="HealthCalculators.xyz">
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ og_title }}">
 <meta name="twitter:description" content="{{ og_description }}">
+<meta name="twitter:image" content="https://healthcalculators.xyz/static/images/{{ og_image or 'default-calculator-og.jpg' }}">
 
 <!-- Schema Markup -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
+  "@type": "{{ schema_type|default('MedicalWebPage') }}",
   "name": "{{ schema_name }}",
   "url": "https://healthcalculators.xyz{{ schema_url }}",
   "description": "{{ schema_description }}",
   "datePublished": "{{ date_published|default('2025-06-01') }}",
-  "dateModified": "{{ date_modified|default('2026-03-09') }}",
+  "dateModified": "{{ date_modified|default('2025-06-01') }}",
   "author": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
     "url": "https://healthcalculators.xyz"
   },
+  {% if schema_type|default('MedicalWebPage') == 'MedicalWebPage' %}
   "reviewedBy": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz Editorial Team",
     "url": "https://healthcalculators.xyz/editorial-policy"
   },
+  {% endif %}
   "publisher": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
@@ -88,12 +92,14 @@
   "about": {
     "@type": "Thing",
     "name": "{{ schema_about|default(schema_name) }}"
-  },
+  }
+  {% if schema_type|default('MedicalWebPage') == 'MedicalWebPage' %},
   "audience": {
     "@type": "MedicalAudience",
     "audienceType": "Patient"
   },
-  "lastReviewed": "{{ date_modified|default('2026-03-09') }}"
+  "lastReviewed": "{{ date_modified|default('2025-06-01') }}"
+  {% endif %}
 }
 </script>
 
@@ -108,13 +114,28 @@
       "position": 1,
       "name": "Home",
       "item": "https://healthcalculators.xyz"
-    },
+    }
+    {% if breadcrumb_category is defined and breadcrumb_category %},
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "{{ page_title }}",
+      "name": "{{ breadcrumb_category.name }}",
+      "item": "https://healthcalculators.xyz{{ breadcrumb_category.url }}"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "{{ breadcrumb_title|default(page_title) }}",
       "item": "https://healthcalculators.xyz{{ canonical_url }}"
     }
+    {% else %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{{ breadcrumb_title|default(page_title) }}",
+      "item": "https://healthcalculators.xyz{{ canonical_url }}"
+    }
+    {% endif %}
   ]
 }
 </script>
@@ -244,7 +265,15 @@ document.addEventListener('DOMContentLoaded',function(){
     });
   })();
   // Auto-generate FAQPage schema from .faq-item elements
+  // Skip if a hardcoded FAQPage schema already exists in the page
   (function(){
+    var existing=document.querySelectorAll('script[type="application/ld+json"]');
+    for(var i=0;i<existing.length;i++){
+      try{
+        var d=JSON.parse(existing[i].textContent);
+        if(d['@type']==='FAQPage'||(d['@graph']&&d['@graph'].some(function(g){return g['@type']==='FAQPage';}))) return;
+      }catch(e){}
+    }
     var items=document.querySelectorAll('.faq-item');
     if(items.length<2) return;
     var faqEntities=[];
