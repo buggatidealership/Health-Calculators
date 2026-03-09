@@ -103,6 +103,7 @@ var CALCULATOR_GRAPH = {
       { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Rapid weight loss ages the face — find out if you\'re at risk before it happens', params: ['weight_kg','height_cm','age'] },
       { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro users lost 22.5% of body weight in trials — see your projection', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/cagrisema-weight-loss-calculator', title: 'CagriSema Calculator', icon: '💊', reason: 'CagriSema combines semaglutide + cagrilintide for 20.4% weight loss — the newest option', params: ['weight_kg','height_cm'] },
       { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Ozempic cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Some doctors pair Ozempic with fasting — see how the math changes', params: ['weight_kg','height_cm','age','gender'] },
@@ -162,6 +163,18 @@ var CALCULATOR_GRAPH = {
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most tirzepatide users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'GLP-1 drugs can reduce lean mass too — track your body fat, not just weight', params: ['height_cm','gender','age'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
+  'cagrisema': {
+    links: [
+      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how CagriSema stacks up against Ozempic, Wegovy, and Mounjaro side by side', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'CagriSema contains semaglutide — see what semaglutide alone would do', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro hit 22.5% weight loss via GLP-1+GIP — compare to CagriSema\'s GLP-1+amylin', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide 2.4 mg alone — CagriSema adds cagrilintide on top', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '💊', reason: 'Zepbound is tirzepatide for weight loss — the closest competitor to CagriSema', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: '20%+ weight loss can cause significant facial volume loss — check your risk', params: ['weight_kg','height_cm','age'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'CagriSema could bring you close to your ideal weight — find out what that is', params: ['height_cm','gender'] }
     ]
   },
   'glp1-comparison': {

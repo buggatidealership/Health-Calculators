@@ -125,23 +125,27 @@ cross_links = {
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-weight-loss-calculator": {
-        "calculators": ["/wegovy-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/wegovy-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/wegovy-weight-loss-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator"],
+        "calculators": ["/ozempic-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/mounjaro-weight-loss-calculator": {
-        "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
+        "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
     },
     "/zepbound-weight-loss-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
+        "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
         "guides": []
     },
+    "/cagrisema-weight-loss-calculator": {
+        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+    },
     "/glp1-comparison-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
+        "calculators": ["/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
         "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/ozempic-face-calculator": {
@@ -497,6 +501,16 @@ cards = [
         "popular": False
     },
     {
+        "title": "Oral Wegovy Weight Loss Calculator",
+        "url": "/oral-wegovy-weight-loss-calculator",
+        "summary": "Project your expected weight loss on oral Wegovy (semaglutide 25mg pill) based on OASIS 1 clinical trial data. FDA-approved December 2025.",
+        "icon": "💊",
+        "cta": "Project Weight Loss",
+        "color": "purple",
+        "category": "medications",
+        "popular": False
+    },
+    {
         "title": "Mounjaro Weight Loss Calculator",
         "url": "/mounjaro-weight-loss-calculator",
         "summary": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on SURMOUNT clinical trial data, dose, and lifestyle factors.",
@@ -513,6 +527,16 @@ cards = [
         "icon": "💊",
         "cta": "Project Weight Loss",
         "color": "blue",
+        "category": "medications",
+        "popular": False
+    },
+    {
+        "title": "CagriSema Weight Loss Calculator",
+        "url": "/cagrisema-weight-loss-calculator",
+        "summary": "Estimate your potential weight loss on CagriSema (cagrilintide + semaglutide) based on REDEFINE 1 trial data. 20.4% mean weight loss at 68 weeks — the newest dual-agonist combination.",
+        "icon": "💊",
+        "cta": "Estimate Weight Loss",
+        "color": "purple",
         "category": "medications",
         "popular": False
     },
@@ -675,6 +699,16 @@ cards = [
         "color": "purple",
         "category": "health",
         "popular": False
+    },
+    {
+        "title": "A1C Calculator",
+        "url": "/a1c-calculator",
+        "summary": "Convert between A1C and blood sugar (eAG) using the ADA-standard formula. See your diabetes risk category with color-coded results.",
+        "icon": "🩸",
+        "cta": "Convert A1C",
+        "color": "red",
+        "category": "health",
+        "popular": True
     }
 ]
 
@@ -1263,6 +1297,19 @@ def mounjaro_weight_loss_calculator():
     schema_url = "/mounjaro-weight-loss-calculator"
     return render_template(
         'mounjaro_weight_loss_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/cagrisema-weight-loss-calculator')
+def cagrisema_weight_loss_calculator():
+    schema_name = "CagriSema Weight Loss Calculator"
+    schema_description = "Estimate your potential weight loss on CagriSema (cagrilintide + semaglutide) based on REDEFINE 1 clinical trial data. 20.4% mean weight loss at 68 weeks."
+    schema_url = "/cagrisema-weight-loss-calculator"
+    return render_template(
+        'cagrisema_weight_loss_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
