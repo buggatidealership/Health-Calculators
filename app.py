@@ -1001,7 +1001,7 @@ def category_hub():
 
     return render_template(
         'category_hub.html',
-        page_title=f"{hub['title']} | HealthCalculators.xyz",
+        page_title=hub['title'],
         meta_description=hub["description"],
         meta_keywords=f"{cat_info['label']}, health calculators, {cat_id} tools",
         og_title=hub["title"],
@@ -1027,7 +1027,7 @@ def comparison_bmi_vs_body_fat():
     return render_template(
         'comparison_bmi_vs_body_fat.html',
         is_homepage=False,
-        page_title="BMI vs Body Fat Percentage: Which Metric Should You Use? | HealthCalculators.xyz",
+        page_title="BMI vs Body Fat Percentage: Which Metric Should You Use?",
         meta_description="Compare BMI and body fat percentage side by side. Learn when to use each metric, healthy ranges for both, limitations, and why using both gives you the most accurate picture.",
         meta_keywords="BMI vs body fat, body fat percentage vs BMI, BMI accuracy, body composition metrics",
         og_title="BMI vs Body Fat Percentage: Which Metric Should You Use?",
@@ -1045,7 +1045,7 @@ def comparison_tdee_vs_bmr():
     return render_template(
         'comparison_tdee_vs_bmr.html',
         is_homepage=False,
-        page_title="TDEE vs BMR: What's the Difference? | HealthCalculators.xyz",
+        page_title="TDEE vs BMR: What's the Difference?",
         meta_description="Understand the difference between TDEE and BMR. Learn how each is calculated, sample values by age and gender, and which to use for weight loss calorie targets.",
         meta_keywords="TDEE vs BMR, BMR vs TDEE, basal metabolic rate, total daily energy expenditure, calorie calculator",
         og_title="TDEE vs BMR: What's the Difference?",
@@ -1063,7 +1063,7 @@ def comparison_ozempic_vs_mounjaro():
     return render_template(
         'comparison_ozempic_vs_mounjaro.html',
         is_homepage=False,
-        page_title="Ozempic vs Mounjaro: Weight Loss, Cost, Side Effects Compared | HealthCalculators.xyz",
+        page_title="Ozempic vs Mounjaro: Weight Loss, Cost, Side Effects Compared",
         meta_description="Compare Ozempic and Mounjaro head-to-head: clinical trial weight loss data (14.9% vs 22.5%), dosing schedules, side effect rates, cost, and which medication may be right for you.",
         meta_keywords="Ozempic vs Mounjaro, semaglutide vs tirzepatide, GLP-1 comparison, weight loss medication comparison",
         og_title="Ozempic vs Mounjaro: Complete Comparison",
@@ -2725,7 +2725,7 @@ def sitemap_xml():
 demographic_pages = {
     'tdee-calculator-for-women': {
         'url': '/tdee-calculator-for-women',
-        'page_title': 'TDEE Calculator for Women — Daily Calorie Needs by Age & Activity | HealthCalculators.xyz',
+        'page_title': 'TDEE Calculator for Women — Daily Calorie Needs by Age & Activity',
         'og_title': 'TDEE Calculator for Women — Daily Calorie Needs',
         'meta_description': 'Calculate your Total Daily Energy Expenditure as a woman. See how age, menstrual cycle, menopause, and activity level affect your calorie needs with gender-specific data.',
         'meta_keywords': 'TDEE calculator for women, female calorie calculator, women daily calories, TDEE women over 40, menopause calorie needs',
@@ -2796,7 +2796,7 @@ demographic_pages = {
     },
     'tdee-calculator-for-weight-loss': {
         'url': '/tdee-calculator-for-weight-loss',
-        'page_title': 'TDEE Calculator for Weight Loss — How to Create a Calorie Deficit | HealthCalculators.xyz',
+        'page_title': 'TDEE Calculator for Weight Loss — How to Create a Calorie Deficit',
         'og_title': 'TDEE Calculator for Weight Loss',
         'meta_description': 'Use your TDEE to create the right calorie deficit for sustainable weight loss. See how deficit size affects fat loss speed, muscle retention, and metabolic adaptation.',
         'meta_keywords': 'TDEE calculator weight loss, calorie deficit calculator, how many calories to lose weight, TDEE for fat loss, weight loss calorie calculator',
@@ -2869,7 +2869,7 @@ demographic_pages = {
     },
     'bmi-calculator-for-women': {
         'url': '/bmi-calculator-for-women',
-        'page_title': 'BMI Calculator for Women — Healthy Ranges, Limitations & What Your BMI Means | HealthCalculators.xyz',
+        'page_title': 'BMI Calculator for Women — Healthy Ranges, Limitations & What Your BMI Means',
         'og_title': 'BMI Calculator for Women',
         'meta_description': 'Calculate your BMI as a woman and understand what it means. See healthy BMI ranges for women by age, why BMI may be inaccurate during pregnancy or menopause, and better alternatives.',
         'meta_keywords': 'BMI calculator for women, female BMI chart, healthy BMI women, BMI ranges women, normal BMI for women',
@@ -2941,7 +2941,7 @@ demographic_pages = {
     },
     'protein-calculator-for-women': {
         'url': '/protein-calculator-for-women',
-        'page_title': 'Protein Calculator for Women — Daily Protein Needs by Goal & Life Stage | HealthCalculators.xyz',
+        'page_title': 'Protein Calculator for Women — Daily Protein Needs by Goal & Life Stage',
         'og_title': 'Protein Calculator for Women',
         'meta_description': 'Calculate your daily protein needs as a woman. See recommendations for weight loss, muscle building, pregnancy, menopause, and aging with evidence-based intake ranges.',
         'meta_keywords': 'protein calculator for women, how much protein women need, daily protein intake women, protein for weight loss women, protein pregnancy',
@@ -3013,7 +3013,7 @@ demographic_pages = {
     },
     'protein-calculator-for-athletes': {
         'url': '/protein-calculator-for-athletes',
-        'page_title': 'Protein Calculator for Athletes — Optimize Intake for Performance & Recovery | HealthCalculators.xyz',
+        'page_title': 'Protein Calculator for Athletes — Optimize Intake for Performance & Recovery',
         'og_title': 'Protein Calculator for Athletes',
         'meta_description': 'Calculate optimal protein intake for athletic performance. Evidence-based recommendations for endurance, strength, and team sport athletes with timing and distribution guidance.',
         'meta_keywords': 'protein calculator athletes, athlete protein intake, protein for muscle building, sports nutrition protein, how much protein athletes need',
@@ -3084,7 +3084,7 @@ demographic_pages = {
     },
     'bmi-calculator-for-teens': {
         'url': '/bmi-calculator-for-teens',
-        'page_title': 'BMI Calculator for Teens — Percentile Charts by Age & Gender | HealthCalculators.xyz',
+        'page_title': 'BMI Calculator for Teens — Percentile Charts by Age & Gender',
         'og_title': 'BMI Calculator for Teens',
         'meta_description': 'Calculate BMI for teenagers (13-19) using age and gender-specific percentile charts. Understand what your teen\'s BMI percentile means for their growth and health.',
         'meta_keywords': 'BMI calculator teens, teen BMI percentile, BMI for teenagers, adolescent BMI chart, healthy BMI teenager',
@@ -3157,7 +3157,7 @@ demographic_pages = {
     },
     'macro-calculator-for-weight-loss': {
         'url': '/macro-calculator-for-weight-loss',
-        'page_title': 'Macro Calculator for Weight Loss — Optimal Protein, Carb & Fat Ratios | HealthCalculators.xyz',
+        'page_title': 'Macro Calculator for Weight Loss — Optimal Protein, Carb & Fat Ratios',
         'og_title': 'Macro Calculator for Weight Loss',
         'meta_description': 'Calculate the ideal macronutrient ratio for weight loss. See how to split protein, carbs, and fat for maximum fat loss while preserving muscle mass.',
         'meta_keywords': 'macro calculator weight loss, macros for fat loss, weight loss macros, protein carbs fat ratio, cutting macros',
@@ -3229,7 +3229,7 @@ demographic_pages = {
     },
     'calorie-calculator-for-weight-loss': {
         'url': '/calorie-calculator-for-weight-loss',
-        'page_title': 'Calorie Calculator for Weight Loss — How Many Calories to Eat to Lose Weight | HealthCalculators.xyz',
+        'page_title': 'Calorie Calculator for Weight Loss — How Many Calories to Eat to Lose Weight',
         'og_title': 'Calorie Calculator for Weight Loss',
         'meta_description': 'Calculate exactly how many calories you should eat to lose weight. See your TDEE-based calorie target for safe, sustainable fat loss at 1-2 lbs per week.',
         'meta_keywords': 'calorie calculator weight loss, how many calories to lose weight, weight loss calorie calculator, calorie deficit calculator, calories to lose 1 pound',
@@ -3300,7 +3300,7 @@ demographic_pages = {
     },
     'body-fat-calculator-for-men': {
         'url': '/body-fat-calculator-for-men',
-        'page_title': 'Body Fat Calculator for Men — Healthy Ranges, Methods & Standards | HealthCalculators.xyz',
+        'page_title': 'Body Fat Calculator for Men — Healthy Ranges, Methods & Standards',
         'og_title': 'Body Fat Calculator for Men',
         'meta_description': 'Calculate your body fat percentage as a man using Navy, Jackson-Pollock, or skinfold methods. See healthy ranges by age, athlete standards, and how to measure accurately.',
         'meta_keywords': 'body fat calculator men, male body fat percentage, healthy body fat men, body fat percentage chart men, navy body fat calculator',
@@ -3373,7 +3373,7 @@ demographic_pages = {
     },
     'body-fat-calculator-for-women': {
         'url': '/body-fat-calculator-for-women',
-        'page_title': 'Body Fat Calculator for Women — Healthy Ranges by Age & Life Stage | HealthCalculators.xyz',
+        'page_title': 'Body Fat Calculator for Women — Healthy Ranges by Age & Life Stage',
         'og_title': 'Body Fat Calculator for Women',
         'meta_description': 'Calculate your body fat percentage as a woman. See healthy ranges by age, how pregnancy and menopause affect body fat, and why women need more essential fat than men.',
         'meta_keywords': 'body fat calculator women, female body fat percentage, healthy body fat women, body fat percentage chart women, body fat women by age',
@@ -3446,7 +3446,7 @@ demographic_pages = {
     },
     'tdee-calculator-for-men': {
         'url': '/tdee-calculator-for-men',
-        'page_title': 'TDEE Calculator for Men — Daily Calorie Needs by Age & Activity | HealthCalculators.xyz',
+        'page_title': 'TDEE Calculator for Men — Daily Calorie Needs by Age & Activity',
         'og_title': 'TDEE Calculator for Men',
         'meta_description': 'Calculate your Total Daily Energy Expenditure as a man. See how age, muscle mass, and activity level affect your daily calorie needs with evidence-based data tables.',
         'meta_keywords': 'TDEE calculator for men, male calorie calculator, men daily calories, TDEE men, how many calories men need',
@@ -3517,7 +3517,7 @@ demographic_pages = {
     },
     'tdee-calculator-for-athletes': {
         'url': '/tdee-calculator-for-athletes',
-        'page_title': 'TDEE Calculator for Athletes — Calorie Needs for Performance & Recovery | HealthCalculators.xyz',
+        'page_title': 'TDEE Calculator for Athletes — Calorie Needs for Performance & Recovery',
         'og_title': 'TDEE Calculator for Athletes',
         'meta_description': 'Calculate your Total Daily Energy Expenditure as an athlete. See how training volume, sport type, and competition phases affect calorie needs with sport-specific data.',
         'meta_keywords': 'TDEE calculator athletes, athlete calorie calculator, sports nutrition calories, how many calories athletes need, TDEE for training',
@@ -3587,7 +3587,7 @@ demographic_pages = {
     },
     'calorie-calculator-for-muscle-gain': {
         'url': '/calorie-calculator-for-muscle-gain',
-        'page_title': 'Calorie Calculator for Muscle Gain — How Many Calories to Build Muscle | HealthCalculators.xyz',
+        'page_title': 'Calorie Calculator for Muscle Gain — How Many Calories to Build Muscle',
         'og_title': 'Calorie Calculator for Muscle Gain',
         'meta_description': 'Calculate the right calorie surplus for lean muscle gain. See how much to eat above your TDEE for bulking, lean bulking, and body recomposition with macro breakdowns.',
         'meta_keywords': 'calorie calculator muscle gain, bulking calorie calculator, how many calories to build muscle, calorie surplus calculator, lean bulk calories',
@@ -3658,7 +3658,7 @@ demographic_pages = {
     },
     'bmi-calculator-for-athletes': {
         'url': '/bmi-calculator-for-athletes',
-        'page_title': 'BMI Calculator for Athletes — Why BMI Fails & Better Alternatives | HealthCalculators.xyz',
+        'page_title': 'BMI Calculator for Athletes — Why BMI Fails & Better Alternatives',
         'og_title': 'BMI Calculator for Athletes',
         'meta_description': 'Learn why BMI is unreliable for athletes and what metrics to use instead. Compare BMI limitations with body fat percentage, FFMI, and sport-specific body composition standards.',
         'meta_keywords': 'BMI calculator athletes, BMI for athletes, BMI inaccurate athletes, athlete body composition, FFMI calculator',
@@ -3766,7 +3766,7 @@ def demographic_calculator():
 chart_pages = {
     'bmi-chart': {
         'url': '/bmi-chart',
-        'page_title': 'BMI Chart for Men and Women (2026) — Full Height & Weight Table | HealthCalculators.xyz',
+        'page_title': 'BMI Chart for Men and Women (2026) — Full Height & Weight Table',
         'og_title': 'BMI Chart for Men and Women (2026)',
         'meta_description': 'Complete BMI chart showing BMI values for every height (4\'10" to 6\'4") and weight (100 to 300 lbs). Color-coded by WHO category with healthy ranges highlighted.',
         'meta_keywords': 'BMI chart, BMI table, BMI chart for men, BMI chart for women, height weight chart BMI, body mass index chart',
@@ -3879,7 +3879,7 @@ chart_pages = {
     },
     'tdee-chart': {
         'url': '/tdee-chart',
-        'page_title': 'TDEE Chart by Age, Gender & Activity Level (2026) | HealthCalculators.xyz',
+        'page_title': 'TDEE Chart by Age, Gender & Activity Level (2026)',
         'og_title': 'TDEE Chart by Age & Activity Level',
         'meta_description': 'Complete TDEE chart showing daily calorie needs for men and women by age (18-75+) and 5 activity levels. Based on the Mifflin-St Jeor equation.',
         'meta_keywords': 'TDEE chart, calorie chart by age, daily calorie needs chart, TDEE by age, how many calories by age',
@@ -3997,7 +3997,7 @@ chart_pages = {
     },
     'protein-intake-chart': {
         'url': '/protein-intake-chart',
-        'page_title': 'Protein Intake Chart by Body Weight, Age & Goal (2026) | HealthCalculators.xyz',
+        'page_title': 'Protein Intake Chart by Body Weight, Age & Goal (2026)',
         'og_title': 'Protein Intake Chart by Weight & Goal',
         'meta_description': 'Complete daily protein intake chart showing grams needed by body weight (100-250 lbs), fitness goal, and age. Based on ISSN, ACSM, and RDA recommendations.',
         'meta_keywords': 'protein intake chart, how much protein per day, protein chart by weight, daily protein needs chart, protein requirements by age',
