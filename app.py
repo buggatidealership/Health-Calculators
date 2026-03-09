@@ -50,7 +50,7 @@ cross_links = {
     },
     "/body-fat-calculator": {
         "calculators": ["/bmi-calculator", "/ideal-body-weight-calculator", "/tdee-calculator", "/protein-intake-calculator", "/army-body-fat-calculator"],
-        "guides": []
+        "guides": ["/resources/body-fat-percentage-chart"]
     },
     "/chipotle-nutrition-calculator": {
         "calculators": ["/starbucks-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
@@ -138,27 +138,27 @@ cross_links = {
     },
     "/ozempic-weight-loss-calculator": {
         "calculators": ["/wegovy-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
-        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/wegovy-weight-loss-calculator": {
         "calculators": ["/ozempic-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator"],
-        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/mounjaro-weight-loss-calculator": {
         "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
-        "guides": []
+        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison"]
     },
     "/zepbound-weight-loss-calculator": {
         "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
-        "guides": []
+        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison"]
     },
     "/cagrisema-weight-loss-calculator": {
         "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
-        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/glp1-comparison-calculator": {
         "calculators": ["/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
-        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
     },
     "/glp1-cost-calculator": {
         "calculators": ["/ozempic-weight-loss-calculator", "/oral-wegovy-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/glp1-comparison-calculator", "/tdee-calculator"],
@@ -178,11 +178,11 @@ cross_links = {
     },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
-        "guides": []
+        "guides": ["/resources/vitamin-d-levels-chart"]
     },
     "/vitamin-d-conversion-calculator": {
         "calculators": ["/vitamin-d-intake-calculator", "/creatine-water-calculator"],
-        "guides": []
+        "guides": ["/resources/vitamin-d-levels-chart"]
     },
     "/a1c-calculator": {
         "calculators": ["/tdee-calculator", "/lifespan-longevity-calculator", "/bmi-calculator"],
@@ -1700,6 +1700,15 @@ articles = [
         "category": "medications"
     },
     {
+        "title": "GLP-1 Side Effects Comparison Chart",
+        "url": "/resources/glp1-side-effects-comparison",
+        "summary": "Compare side effect rates across Ozempic, Mounjaro, Wegovy, and Zepbound with clinical trial data from STEP and SURMOUNT programs.",
+        "icon": "📋",
+        "cta": "Read Guide",
+        "color": "purple",
+        "category": "medications"
+    },
+    {
         "title": "Ozempic Weight Loss Calculator Guide",
         "url": "/resources/ozempic-weight-loss-calculator-guide",
         "summary": "Evidence-based guide to semaglutide weight loss: dosage protocols, timelines, and expected outcomes from clinical trials.",
@@ -1752,6 +1761,42 @@ articles = [
         "cta": "View Guide",
         "color": "teal",
         "category": "cosmetic"
+    },
+    {
+        "title": "GLP-1 Weight Loss Comparison: Ozempic vs Mounjaro vs Wegovy",
+        "url": "/resources/glp1-weight-loss-comparison",
+        "summary": "Side-by-side clinical trial data for all GLP-1 medications. Compare weight loss results, dosing, costs, and timelines.",
+        "icon": "📊",
+        "cta": "View Comparison",
+        "color": "teal",
+        "category": "medication"
+    },
+    {
+        "title": "GLP-1 Side Effects Comparison Chart",
+        "url": "/resources/glp1-side-effects-comparison",
+        "summary": "Complete side effect frequency data from STEP and SURMOUNT trials. Compare nausea, GI issues, and serious risks by drug.",
+        "icon": "⚠️",
+        "cta": "View Chart",
+        "color": "orange",
+        "category": "medication"
+    },
+    {
+        "title": "Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges",
+        "url": "/resources/vitamin-d-levels-chart",
+        "summary": "Reference chart for vitamin D blood levels by age. Includes deficiency thresholds, daily intake recommendations, and testing guide.",
+        "icon": "☀️",
+        "cta": "View Chart",
+        "color": "yellow",
+        "category": "health"
+    },
+    {
+        "title": "Body Fat Percentage Chart: Ranges by Age & Gender",
+        "url": "/resources/body-fat-percentage-chart",
+        "summary": "ACE and Jackson-Pollock body fat ranges for men and women by age. Includes measurement methods, health risks, and visual reference.",
+        "icon": "📐",
+        "cta": "View Chart",
+        "color": "green",
+        "category": "fitness"
     }
 ]
 
@@ -2248,6 +2293,17 @@ def who_should_not_get_breast_implants():
         schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines."
     )
 
+@app.route("/resources/glp1-side-effects-comparison")
+def glp1_side_effects_comparison():
+    return render_template(
+        "resources/glp1_side_effects_comparison.html",
+        is_homepage=False,
+        breadcrumb_title="GLP-1 Side Effects Comparison",
+        schema_name="GLP-1 Side Effects Comparison Chart",
+        schema_description="Evidence-based comparison of side effects across GLP-1 receptor agonist medications including Ozempic, Mounjaro, Wegovy, and Zepbound, with clinical trial frequency data.",
+        schema_url="/resources/glp1-side-effects-comparison"
+    )
+
 @app.route("/resources/semaglutide-vs-ozempic-guide")
 def semaglutide_vs_ozempic_guide():
     return render_template(
@@ -2312,6 +2368,46 @@ def plasma_donation_tips_first_time():
         og_image="plasma-donation-tips-first-time-og.jpg",
         schema_name="First-Time Plasma Donation Preparation Guide",
         schema_description="Checklist for your first plasma donation: meals, hydration, what to bring, what to wear, how to feel after, and safety tips."
+    )
+
+@app.route('/resources/glp1-weight-loss-comparison')
+def glp1_weight_loss_comparison():
+    return render_template(
+        'resources/glp1_weight_loss_comparison.html',
+        is_homepage=False,
+        schema_name="GLP-1 Weight Loss Comparison: Ozempic vs Mounjaro vs Wegovy vs Zepbound",
+        schema_description="Compare GLP-1 medication weight loss results side by side. Clinical trial data from STEP and SURMOUNT trials with dosing schedules, costs, and timelines.",
+        schema_url="/resources/glp1-weight-loss-comparison"
+    )
+
+@app.route('/resources/glp1-side-effects-comparison')
+def glp1_side_effects_comparison():
+    return render_template(
+        'resources/glp1_side_effects_comparison.html',
+        is_homepage=False,
+        schema_name="GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound",
+        schema_description="Complete side effect frequency data from clinical trials. Compare GI symptoms, serious risks, and management strategies for all GLP-1 medications.",
+        schema_url="/resources/glp1-side-effects-comparison"
+    )
+
+@app.route('/resources/vitamin-d-levels-chart')
+def vitamin_d_levels_chart():
+    return render_template(
+        'resources/vitamin_d_levels_chart.html',
+        is_homepage=False,
+        schema_name="Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges",
+        schema_description="Reference chart for vitamin D blood levels. Deficiency thresholds, daily intake by age, D2 vs D3 comparison, and risk factors based on IOM and Endocrine Society guidelines.",
+        schema_url="/resources/vitamin-d-levels-chart"
+    )
+
+@app.route('/resources/body-fat-percentage-chart')
+def body_fat_percentage_chart():
+    return render_template(
+        'resources/body_fat_percentage_chart.html',
+        is_homepage=False,
+        schema_name="Body Fat Percentage Chart: Healthy Ranges by Age & Gender",
+        schema_description="ACE and Jackson-Pollock body fat percentage ranges for men and women by age. Measurement methods compared, health risk data, and body fat vs BMI analysis.",
+        schema_url="/resources/body-fat-percentage-chart"
     )
 
 @app.route('/plasma-donation-earnings-calculator')

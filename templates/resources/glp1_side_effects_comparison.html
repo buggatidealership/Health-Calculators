@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Compare GLP-1 side effects across Ozempic, Mounjaro, Wegovy, and Zepbound. Clinical trial data with frequency percentages, timelines, management strategies, and dose-level breakdowns.",
+    meta_keywords="GLP-1 side effects, Ozempic side effects, Mounjaro side effects, Wegovy side effects, Zepbound side effects, semaglutide side effects, tirzepatide side effects, GLP-1 comparison chart",
+    og_title="GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound",
+    og_description="Clinical trial data comparing side effect rates across GLP-1 medications. Includes frequency percentages from STEP and SURMOUNT trials, timelines, and management tips.",
+    og_url="/resources/glp1-side-effects-comparison",
+    page_title="GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound | HealthCalculators.xyz",
+    canonical_url="/resources/glp1-side-effects-comparison",
+    schema_url="/resources/glp1-side-effects-comparison",
+    schema_name="GLP-1 Side Effects Comparison Chart",
+    schema_description="Evidence-based comparison of side effects across GLP-1 receptor agonist medications including Ozempic, Mounjaro, Wegovy, and Zepbound, with clinical trial frequency data.",
+    date_published="2026-03-09",
+    date_modified="2026-03-09"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+    .resource-article .highlight-box {
+        margin-top: 40px;
+        background-color: #fff8f8;
+        padding: 20px;
+        border-left: 4px solid var(--color-accent);
+        border-radius: 8px;
+    }
+    .resource-article .blue-box {
+        background-color: #f0f7ff;
+        border-left: 4px solid #0d6efd;
+    }
+    .resource-article .green-box {
+        background-color: #f0fff4;
+        border-left: 4px solid #28a745;
+    }
+    .resource-article .warning-box {
+        background-color: #fffbf0;
+        border-left: 4px solid #ffc107;
+    }
+    .resource-article .danger-box {
+        background-color: #fff5f5;
+        border-left: 4px solid #dc2626;
+    }
+    .comparison-table {
+        width: 100%;
+        border-collapse: collapse;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        margin: 20px 0;
+    }
+    .comparison-table th {
+        padding: 14px 12px;
+        text-align: left;
+        border-bottom: 2px solid #ddd;
+        background-color: #f8f9fa;
+        font-size: 0.95rem;
+    }
+    .comparison-table td {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        font-size: 0.93rem;
+    }
+    .comparison-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+    .comparison-table .high-rate {
+        color: #dc2626;
+        font-weight: 600;
+    }
+    .comparison-table .moderate-rate {
+        color: #d97706;
+        font-weight: 600;
+    }
+    .comparison-table .low-rate {
+        color: #16a34a;
+        font-weight: 600;
+    }
+    @media (max-width: 768px) {
+        .comparison-table {
+            font-size: 0.85rem;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 10px 8px;
+        }
+    }
+    .ref-link {
+        color: var(--color-accent);
+        text-decoration: none;
+        font-size: 0.85em;
+        vertical-align: super;
+    }
+    .ref-link:hover {
+        text-decoration: underline;
+    }
+    .references-list {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    .references-list li {
+        margin-bottom: 8px;
+    }
+</style>
+
+<!-- MedicalWebPage + FAQPage combined schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MedicalWebPage",
+      "name": "GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound",
+      "headline": "GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound",
+      "description": "Evidence-based comparison of side effects across GLP-1 receptor agonist medications including Ozempic, Mounjaro, Wegovy, and Zepbound, with clinical trial frequency data from STEP and SURMOUNT trials.",
+      "url": "https://healthcalculators.xyz/resources/glp1-side-effects-comparison",
+      "datePublished": "2026-03-09",
+      "dateModified": "2026-03-09",
+      "author": {
+        "@type": "Organization",
+        "name": "HealthCalculators.xyz",
+        "url": "https://healthcalculators.xyz"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "HealthCalculators.xyz",
+        "url": "https://healthcalculators.xyz",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://healthcalculators.xyz/static/images/logo.png",
+          "width": 512,
+          "height": 512
+        }
+      },
+      "specialty": "Endocrinology",
+      "audience": {
+        "@type": "MedicalAudience",
+        "audienceType": "Patient"
+      },
+      "lastReviewed": "2026-03-09",
+      "mainContentOfPage": {
+        "@type": "WebPageElement",
+        "cssSelector": ".article-container"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which GLP-1 medication has the fewest side effects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Based on clinical trial data, tirzepatide-based medications (Mounjaro and Zepbound) generally have lower rates of nausea (24-31%) and vomiting (12-18%) compared to semaglutide-based medications like Ozempic and Wegovy (nausea 40-44%, vomiting 24%). However, constipation rates are similar across all four medications (17-23%). Individual responses vary significantly."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long do GLP-1 side effects last?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most gastrointestinal side effects peak during the first 4-8 weeks of treatment and during dose escalation periods. In the STEP and SURMOUNT trials, approximately 80% of participants who experienced nausea found it resolved or became mild within 8-12 weeks. Side effects typically recur briefly with each dose increase before subsiding again."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What percentage of people stop taking GLP-1 medications due to side effects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Discontinuation rates due to adverse events were 7% for semaglutide 2.4mg (STEP 1) and 4.3-7.1% for tirzepatide (SURMOUNT-1), compared to approximately 2% for placebo groups. The majority of participants (over 90%) were able to continue treatment, often with dose adjustments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Ozempic or Mounjaro cause more nausea?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ozempic causes more nausea. Clinical trials show nausea rates of 40-44% with semaglutide (Ozempic/Wegovy) versus 24-31% with tirzepatide (Mounjaro/Zepbound). This difference is consistent across the STEP and SURMOUNT trial programs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can GLP-1 medications cause pancreatitis?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Acute pancreatitis has been reported in clinical trials at rates of approximately 0.1-0.3% for both semaglutide and tirzepatide, compared to similar rates in placebo groups. While a causal link has not been definitively established, GLP-1 medications carry a labeled warning for pancreatitis, and patients with a history of pancreatitis should discuss risks with their physician."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do GLP-1 side effects get worse at higher doses?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, side effect frequency generally increases with dose. For example, nausea with tirzepatide was 24% at 5mg, 27% at 10mg, and 31% at 15mg in SURMOUNT-1. Most side effects occur during the dose escalation phase rather than at maintenance doses, which is why all GLP-1 medications use a gradual titration schedule."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is hair loss a side effect of GLP-1 medications?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hair loss (alopecia) was reported in approximately 3% of participants taking semaglutide 2.4mg in the STEP trials versus 1% on placebo. This is likely related to rapid weight loss rather than the medication itself, as hair loss (telogen effluvium) commonly occurs with any significant caloric deficit or rapid weight reduction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the risk of thyroid cancer with GLP-1 medications?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GLP-1 receptor agonists carry a boxed warning about thyroid C-cell tumors based on rodent studies. In clinical trials involving over 10,000 participants, medullary thyroid carcinoma (MTC) was not observed at elevated rates in humans. However, these medications are contraindicated in patients with a personal or family history of MTC or Multiple Endocrine Neoplasia syndrome type 2 (MEN 2)."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container article-container resource-article">
+
+<h1>GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound</h1>
+<p class="subtitle">Clinical trial data from STEP and SURMOUNT programs comparing side effect rates, timelines, and management strategies across major GLP-1 medications.</p>
+
+<div class="cta-box" style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
+    <div style="flex: 1;">
+        <h3 style="margin-top: 0; color: #333;">Considering a GLP-1 Medication?</h3>
+        <p style="margin-bottom: 0;">Use our evidence-based calculators to estimate your potential weight loss timeline, compare medications head-to-head, and understand dosing schedules.</p>
+    </div>
+    <a href="/ozempic-weight-loss-calculator" style="background-color: var(--color-accent); color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; margin-left: 20px; display: inline-block;">Try Calculator</a>
+</div>
+
+<!-- Top Ad -->
+<div class="ad-container">
+    {% with ad_position="top" %}{% include 'components/ad-unit.html' %}{% endwith %}
+</div>
+
+<!-- Table of Contents -->
+<div class="table-of-contents" style="background-color: #fff; border-radius: 12px; padding: 24px; margin: 30px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <h3 style="display: flex; align-items: center; margin-top: 0;">
+        <svg width="20" height="20" viewBox="0 0 24 24" style="margin-right: 8px;"><path fill="none" stroke="currentColor" stroke-width="2" d="M9,1 L9,1 L2,1 L2,20 L9,20 M16,1 L16,10 L19,7 L22,10 L22,1 L16,1 Z M16,23 L16,10 M9,5 L9,15 L12,12 L15,15 L15,5 L9,5 Z"></path></svg>
+        Table of Contents
+    </h3>
+    <ul style="list-style-type: none; padding-left: 0; margin-bottom: 0;">
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#at-a-glance" style="text-decoration: none; color: #333;">Side Effects at a Glance</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#timeline" style="text-decoration: none; color: #333;">When Side Effects Peak and Fade</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#gi-side-effects" style="text-decoration: none; color: #333;">Gastrointestinal Side Effects</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#serious-side-effects" style="text-decoration: none; color: #333;">Serious but Rare Side Effects</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#dose-level" style="text-decoration: none; color: #333;">Side Effects by Dose Level</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#managing" style="text-decoration: none; color: #333;">Managing Common Side Effects</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#contraindications" style="text-decoration: none; color: #333;">Who Should Not Take GLP-1 Medications</a>
+        </li>
+        <li style="margin-bottom: 10px; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#faq" style="text-decoration: none; color: #333;">Frequently Asked Questions</a>
+        </li>
+        <li style="margin-bottom: 0; padding-left: 24px; position: relative;">
+            <svg width="16" height="16" viewBox="0 0 24 24" style="position: absolute; left: 0; top: 3px; color: var(--color-accent);"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12,7 L12,14 M12,17 L12,17" stroke="currentColor" stroke-width="2"/></svg>
+            <a href="#references" style="text-decoration: none; color: #333;">References</a>
+        </li>
+    </ul>
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION: Side Effects at a Glance -->
+<!-- ============================================ -->
+<section id="at-a-glance">
+    <h2>Side Effects at a Glance</h2>
+
+    <p>All four major GLP-1 receptor agonist medications share a similar side effect profile dominated by gastrointestinal symptoms, but they differ meaningfully in frequency. Semaglutide-based drugs (Ozempic and Wegovy) produce higher rates of nausea and vomiting than tirzepatide-based drugs (Mounjaro and Zepbound), according to data from the STEP<sup><a href="#ref-1" class="ref-link">1</a></sup> and SURMOUNT<sup><a href="#ref-2" class="ref-link">2</a></sup> clinical trial programs.</p>
+
+    <p>The table below presents the incidence rates of the most common side effects reported in pivotal Phase 3 trials. Rates reflect the highest approved maintenance doses: semaglutide 2.4 mg weekly (STEP 1) and tirzepatide 15 mg weekly (SURMOUNT-1).<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-2" class="ref-link">2</a></sup></p>
+
+    <div style="overflow-x: auto; margin: 24px 0;">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Side Effect</th>
+                    <th>Ozempic (semaglutide)</th>
+                    <th>Wegovy (semaglutide)</th>
+                    <th>Mounjaro (tirzepatide)</th>
+                    <th>Zepbound (tirzepatide)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nausea</strong></td>
+                    <td class="high-rate">40-44%</td>
+                    <td class="high-rate">44%</td>
+                    <td class="moderate-rate">24-31%</td>
+                    <td class="moderate-rate">24-31%</td>
+                </tr>
+                <tr>
+                    <td><strong>Diarrhea</strong></td>
+                    <td class="moderate-rate">30%</td>
+                    <td class="moderate-rate">30%</td>
+                    <td class="moderate-rate">21-23%</td>
+                    <td class="moderate-rate">21-23%</td>
+                </tr>
+                <tr>
+                    <td><strong>Vomiting</strong></td>
+                    <td class="moderate-rate">24%</td>
+                    <td class="moderate-rate">24%</td>
+                    <td class="low-rate">12-18%</td>
+                    <td class="low-rate">12-18%</td>
+                </tr>
+                <tr>
+                    <td><strong>Constipation</strong></td>
+                    <td class="moderate-rate">23%</td>
+                    <td class="moderate-rate">23%</td>
+                    <td class="moderate-rate">17-23%</td>
+                    <td class="moderate-rate">17-23%</td>
+                </tr>
+                <tr>
+                    <td><strong>Abdominal pain</strong></td>
+                    <td class="moderate-rate">20%</td>
+                    <td class="moderate-rate">20%</td>
+                    <td class="low-rate">12-14%</td>
+                    <td>--</td>
+                </tr>
+                <tr>
+                    <td><strong>Injection site reactions</strong></td>
+                    <td class="low-rate">&lt;5%</td>
+                    <td class="low-rate">&lt;5%</td>
+                    <td class="low-rate">&lt;5%</td>
+                    <td class="low-rate">&lt;5%</td>
+                </tr>
+                <tr>
+                    <td><strong>Headache</strong></td>
+                    <td>14%</td>
+                    <td>14%</td>
+                    <td>8-12%</td>
+                    <td>8-12%</td>
+                </tr>
+                <tr>
+                    <td><strong>Fatigue</strong></td>
+                    <td>11%</td>
+                    <td>11%</td>
+                    <td>5-7%</td>
+                    <td>5-7%</td>
+                </tr>
+                <tr>
+                    <td><strong>Dyspepsia</strong></td>
+                    <td>8%</td>
+                    <td>9%</td>
+                    <td>8-10%</td>
+                    <td>8-10%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="background-color: #f0f7ff; border-radius: 8px; padding: 20px; margin: 20px 0; border-left: 4px solid #0d6efd;">
+        <p style="margin: 0;"><strong>Key takeaway:</strong> Tirzepatide-based medications (Mounjaro, Zepbound) show approximately 30-50% lower nausea and vomiting rates compared to semaglutide-based medications (Ozempic, Wegovy). This may be clinically relevant for patients who are particularly sensitive to GI side effects.<sup><a href="#ref-3" class="ref-link">3</a></sup></p>
+    </div>
+
+    <p>Ozempic and Wegovy contain the same active ingredient (semaglutide) but at different maximum doses. Ozempic is FDA-approved for type 2 diabetes at up to 2 mg weekly, while Wegovy is approved for weight management at 2.4 mg weekly.<sup><a href="#ref-4" class="ref-link">4</a>,<a href="#ref-5" class="ref-link">5</a></sup> Similarly, Mounjaro and Zepbound both contain tirzepatide; Mounjaro is approved for diabetes and Zepbound for obesity.<sup><a href="#ref-6" class="ref-link">6</a>,<a href="#ref-7" class="ref-link">7</a></sup></p>
+</section>
+
+<!-- Mid Ad -->
+<div class="ad-container">
+    {% with ad_position="middle" %}{% include 'components/ad-unit.html' %}{% endwith %}
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION: When Side Effects Peak and Fade -->
+<!-- ============================================ -->
+<section id="timeline">
+    <h2>When Side Effects Peak and Fade</h2>
+
+    <p>Most GLP-1 side effects are transient and correlate with dose escalation phases. In both the STEP and SURMOUNT programs, gastrointestinal symptoms were most pronounced during the first 4-8 weeks of treatment and during each dose increase, then diminished as the body adapted.<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-2" class="ref-link">2</a></sup> Approximately 80% of patients reporting nausea described it as mild to moderate and self-limiting.<sup><a href="#ref-8" class="ref-link">8</a></sup></p>
+
+    <div style="overflow-x: auto; margin: 24px 0;">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Timeframe</th>
+                    <th>Common Symptoms</th>
+                    <th>What to Expect</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Weeks 1-4</strong><br>(Starting dose)</td>
+                    <td>Nausea, reduced appetite, mild abdominal discomfort</td>
+                    <td>Symptoms begin within 1-3 days of first injection. Most common period for nausea. Appetite suppression starts quickly.</td>
+                </tr>
+                <tr>
+                    <td><strong>Weeks 4-8</strong><br>(First dose increase)</td>
+                    <td>Nausea may recur or worsen, diarrhea, headache</td>
+                    <td>Side effects often return briefly with each dose escalation. Nausea typically peaks during this period.</td>
+                </tr>
+                <tr>
+                    <td><strong>Weeks 8-16</strong><br>(Continued titration)</td>
+                    <td>GI symptoms begin to subside, possible constipation</td>
+                    <td>Body adaptation occurs. Approximately 60-70% of patients report improvement in nausea by week 12.<sup><a href="#ref-8" class="ref-link">8</a></sup></td>
+                </tr>
+                <tr>
+                    <td><strong>Weeks 16-20</strong><br>(Approaching maintenance)</td>
+                    <td>Residual mild symptoms, hair thinning may appear</td>
+                    <td>Most GI side effects have resolved or become mild. Hair loss (if it occurs) typically appears 3-4 months after significant weight loss begins.</td>
+                </tr>
+                <tr>
+                    <td><strong>Week 20+</strong><br>(Maintenance dose)</td>
+                    <td>Mild intermittent nausea, stable appetite suppression</td>
+                    <td>Side effects are generally stable. New GI symptoms are uncommon unless dose is changed. Long-term tolerability is well-established in extension studies.<sup><a href="#ref-9" class="ref-link">9</a></sup></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="background-color: #f0fff4; border-radius: 8px; padding: 20px; margin: 20px 0; border-left: 4px solid #28a745;">
+        <p style="margin: 0;"><strong>Clinical insight:</strong> The gradual dose titration schedule used by all GLP-1 medications (typically 4-week intervals) is specifically designed to minimize side effects. Patients who skip dose escalation steps or advance doses too quickly experience significantly higher rates of nausea and vomiting.<sup><a href="#ref-10" class="ref-link">10</a></sup></p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: Gastrointestinal Side Effects -->
+<!-- ============================================ -->
+<section id="gi-side-effects">
+    <h2>Gastrointestinal Side Effects</h2>
+
+    <p>Gastrointestinal (GI) symptoms are the most frequently reported adverse events with all GLP-1 receptor agonists. These effects result directly from the mechanism of action: GLP-1 slows gastric emptying, reduces appetite, and modulates gut motility.<sup><a href="#ref-3" class="ref-link">3</a></sup></p>
+
+    <h3>Nausea</h3>
+    <p>Nausea is the single most common side effect across all four medications. In STEP 1, 44% of participants on semaglutide 2.4 mg reported nausea versus 18% on placebo.<sup><a href="#ref-1" class="ref-link">1</a></sup> In SURMOUNT-1, nausea rates were 24% (5 mg), 27% (10 mg), and 31% (15 mg) for tirzepatide versus 10% on placebo.<sup><a href="#ref-2" class="ref-link">2</a></sup> Most episodes were rated mild to moderate in severity, and fewer than 3% of participants across both trials discontinued treatment due to nausea alone.</p>
+
+    <h3>Diarrhea and Constipation</h3>
+    <p>GLP-1 medications can cause either diarrhea or constipation, sometimes both at different points during treatment. Diarrhea was reported in 30% of semaglutide patients (STEP 1) and 21-23% of tirzepatide patients (SURMOUNT-1).<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-2" class="ref-link">2</a></sup> Constipation rates were similar across medications at 17-23%. The opposing effects on bowel function likely reflect individual differences in how gastric slowing and gut motility changes manifest.</p>
+
+    <h3>Vomiting</h3>
+    <p>Vomiting occurred in 24% of semaglutide users and 12-18% of tirzepatide users at the highest doses.<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-2" class="ref-link">2</a></sup> This represents one of the largest differences between the two drug classes. Vomiting was the leading cause of treatment discontinuation in both trial programs, though discontinuation rates remained low overall (1-3%).</p>
+
+    <h3>Abdominal Pain and Dyspepsia</h3>
+    <p>Abdominal pain affected approximately 20% of semaglutide users and 12-14% of tirzepatide users.<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-2" class="ref-link">2</a></sup> Dyspepsia (indigestion) was reported at similar rates (8-10%) across all medications. These symptoms typically correlate with eating large meals or high-fat foods, which are harder to process with delayed gastric emptying.</p>
+</section>
+
+<!-- In-Article Ad -->
+<div class="ad-container">
+    {% with ad_position="in-article" %}{% include 'components/ad-unit.html' %}{% endwith %}
+</div>
+
+<!-- ============================================ -->
+<!-- SECTION: Serious but Rare Side Effects -->
+<!-- ============================================ -->
+<section id="serious-side-effects">
+    <h2>Serious but Rare Side Effects</h2>
+
+    <p>While most GLP-1 side effects are gastrointestinal and self-limiting, several serious adverse events require awareness. These are uncommon but clinically significant, and all are included in the FDA-approved labeling for these medications.<sup><a href="#ref-4" class="ref-link">4</a>,<a href="#ref-5" class="ref-link">5</a>,<a href="#ref-6" class="ref-link">6</a>,<a href="#ref-7" class="ref-link">7</a></sup></p>
+
+    <div style="overflow-x: auto; margin: 24px 0;">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Serious Side Effect</th>
+                    <th>Incidence Rate</th>
+                    <th>Clinical Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Acute pancreatitis</strong></td>
+                    <td>0.1-0.3%</td>
+                    <td>Reported in both semaglutide and tirzepatide trials at rates similar to placebo. Symptoms include severe persistent abdominal pain radiating to the back. Requires immediate medical attention.<sup><a href="#ref-4" class="ref-link">4</a>,<a href="#ref-6" class="ref-link">6</a></sup></td>
+                </tr>
+                <tr>
+                    <td><strong>Gallbladder events</strong></td>
+                    <td>1.5-2.6%</td>
+                    <td>Cholelithiasis (gallstones) and cholecystitis were reported at higher rates than placebo (0.8-1.2%) in both STEP and SURMOUNT. Rapid weight loss is an independent risk factor for gallstones.<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-11" class="ref-link">11</a></sup></td>
+                </tr>
+                <tr>
+                    <td><strong>Thyroid C-cell tumors</strong></td>
+                    <td>Boxed warning (animal data)</td>
+                    <td>GLP-1 agonists caused dose-dependent thyroid C-cell tumors in rodents. This has not been confirmed in humans across trials involving over 10,000 participants. Contraindicated in patients with MTC history or MEN 2.<sup><a href="#ref-4" class="ref-link">4</a>,<a href="#ref-6" class="ref-link">6</a></sup></td>
+                </tr>
+                <tr>
+                    <td><strong>Acute kidney injury</strong></td>
+                    <td>&lt;1%</td>
+                    <td>Reported primarily in patients who became dehydrated due to persistent vomiting or diarrhea. GLP-1 medications are not directly nephrotoxic, but volume depletion can impair kidney function.<sup><a href="#ref-5" class="ref-link">5</a></sup></td>
+                </tr>
+                <tr>
+                    <td><strong>Hypoglycemia</strong></td>
+                    <td>2-5% (monotherapy)</td>
+                    <td>Risk is low when used alone but increases significantly (up to 10-15%) when combined with insulin or sulfonylureas. Blood glucose monitoring is essential with combination therapy.<sup><a href="#ref-4" class="ref-link">4</a>,<a href="#ref-6" class="ref-link">6</a></sup></td>
+                </tr>
+                <tr>
+                    <td><strong>Allergic reactions</strong></td>
+                    <td>&lt;1%</td>
+                    <td>Anaphylaxis and angioedema have been reported rarely. Patients should seek immediate care for signs of severe allergic reaction including swelling of face, lips, or throat.<sup><a href="#ref-5" class="ref-link">5</a>,<a href="#ref-7" class="ref-link">7</a></sup></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="background-color: #fff5f5; border-radius: 8px; padding: 20px; margin: 20px 0; border-left: 4px solid #dc2626;">
+        <p style="margin: 0;"><strong>Important:</strong> Discontinue GLP-1 medications and seek immediate medical attention if you experience severe abdominal pain that does not resolve, signs of an allergic reaction, or symptoms of pancreatitis. Report any new neck lumps or difficulty swallowing to your healthcare provider promptly.</p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: Side Effects by Dose Level -->
+<!-- ============================================ -->
+<section id="dose-level">
+    <h2>Side Effects by Dose Level</h2>
+
+    <p>Side effect frequency is dose-dependent for all GLP-1 medications. The tables below show how key side effects change at each dose escalation step, based on data from SURMOUNT-1 (tirzepatide) and STEP 1 (semaglutide).<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-2" class="ref-link">2</a></sup></p>
+
+    <h3>Tirzepatide (Mounjaro / Zepbound) by Dose</h3>
+    <div style="overflow-x: auto; margin: 24px 0;">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Side Effect</th>
+                    <th>5 mg</th>
+                    <th>10 mg</th>
+                    <th>15 mg</th>
+                    <th>Placebo</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nausea</strong></td>
+                    <td class="moderate-rate">24%</td>
+                    <td class="moderate-rate">27%</td>
+                    <td class="high-rate">31%</td>
+                    <td>10%</td>
+                </tr>
+                <tr>
+                    <td><strong>Diarrhea</strong></td>
+                    <td class="moderate-rate">21%</td>
+                    <td class="moderate-rate">23%</td>
+                    <td class="moderate-rate">23%</td>
+                    <td>8%</td>
+                </tr>
+                <tr>
+                    <td><strong>Vomiting</strong></td>
+                    <td class="low-rate">12%</td>
+                    <td class="low-rate">13%</td>
+                    <td class="moderate-rate">18%</td>
+                    <td>4%</td>
+                </tr>
+                <tr>
+                    <td><strong>Constipation</strong></td>
+                    <td>17%</td>
+                    <td>20%</td>
+                    <td class="moderate-rate">23%</td>
+                    <td>6%</td>
+                </tr>
+                <tr>
+                    <td><strong>Discontinuation due to AEs</strong></td>
+                    <td>4.3%</td>
+                    <td>7.1%</td>
+                    <td>6.2%</td>
+                    <td>2.6%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="font-size: 0.9rem; color: #666;">Source: SURMOUNT-1 trial, Jastreboff et al., NEJM 2022.<sup><a href="#ref-2" class="ref-link">2</a></sup></p>
+
+    <h3>Semaglutide (Ozempic / Wegovy) Dose Escalation</h3>
+    <div style="overflow-x: auto; margin: 24px 0;">
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>Side Effect</th>
+                    <th>0.25 mg (starting)</th>
+                    <th>0.5 mg</th>
+                    <th>1.0 mg</th>
+                    <th>1.7 mg</th>
+                    <th>2.4 mg (maintenance)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Nausea</strong></td>
+                    <td>Low (titration)</td>
+                    <td class="moderate-rate">~20%</td>
+                    <td class="moderate-rate">~30%</td>
+                    <td class="high-rate">~38%</td>
+                    <td class="high-rate">44%</td>
+                </tr>
+                <tr>
+                    <td><strong>Vomiting</strong></td>
+                    <td>Low (titration)</td>
+                    <td>~8%</td>
+                    <td class="low-rate">~14%</td>
+                    <td class="moderate-rate">~20%</td>
+                    <td class="moderate-rate">24%</td>
+                </tr>
+                <tr>
+                    <td><strong>Diarrhea</strong></td>
+                    <td>Low (titration)</td>
+                    <td class="low-rate">~15%</td>
+                    <td class="moderate-rate">~22%</td>
+                    <td class="moderate-rate">~27%</td>
+                    <td class="moderate-rate">30%</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <p style="font-size: 0.9rem; color: #666;">Source: STEP 1 trial, Wilding et al., NEJM 2021. Lower-dose data aggregated from STEP program and Ozempic prescribing information.<sup><a href="#ref-1" class="ref-link">1</a>,<a href="#ref-4" class="ref-link">4</a></sup></p>
+
+    <div style="background-color: #f0f7ff; border-radius: 8px; padding: 20px; margin: 20px 0; border-left: 4px solid #0d6efd;">
+        <p style="margin: 0;"><strong>Why this matters:</strong> Dose-dependent side effects are the primary reason GLP-1 medications use a slow titration schedule (typically 16-20 weeks to reach maintenance dose). Patients who cannot tolerate a dose increase can remain at a lower dose, which still provides meaningful weight loss and metabolic benefits, though less than the full dose.</p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: Managing Common Side Effects -->
+<!-- ============================================ -->
+<section id="managing">
+    <h2>Managing Common Side Effects</h2>
+
+    <p>Evidence-based strategies can significantly reduce the impact of GLP-1 side effects. The majority of gastrointestinal symptoms respond well to dietary and behavioral modifications without requiring medication changes.<sup><a href="#ref-8" class="ref-link">8</a>,<a href="#ref-10" class="ref-link">10</a></sup></p>
+
+    <h3>For Nausea</h3>
+    <ul>
+        <li><strong>Eat smaller, more frequent meals</strong> (5-6 small meals instead of 2-3 large ones). GLP-1 medications slow gastric emptying, so smaller portions reduce the sensation of fullness and nausea.</li>
+        <li><strong>Avoid high-fat and fried foods</strong>, which take longer to digest and exacerbate delayed gastric emptying.</li>
+        <li><strong>Eat slowly and stop before feeling full.</strong> It takes longer for satiety signals to register while on GLP-1 therapy.</li>
+        <li><strong>Stay upright for 30 minutes after eating.</strong> Lying down slows gastric emptying further.</li>
+        <li><strong>Ginger supplements or ginger tea</strong> have modest evidence for anti-nausea effects and are generally safe to combine with GLP-1 medications.<sup><a href="#ref-12" class="ref-link">12</a></sup></li>
+    </ul>
+
+    <h3>For Constipation</h3>
+    <ul>
+        <li><strong>Increase fiber intake gradually</strong> (25-30 g per day from fruits, vegetables, and whole grains).</li>
+        <li><strong>Drink at least 64 oz (2 liters) of water daily.</strong> Dehydration worsens constipation and increases kidney risk.</li>
+        <li><strong>Regular physical activity</strong> (even 20-30 minutes of walking) promotes gut motility.</li>
+        <li><strong>Over-the-counter options:</strong> Polyethylene glycol (MiraLAX) or psyllium husk (Metamucil) can be used if dietary changes are insufficient.</li>
+    </ul>
+
+    <h3>For Diarrhea</h3>
+    <ul>
+        <li><strong>Maintain hydration</strong> with electrolyte-containing fluids. Dehydration from diarrhea is the most common path to kidney-related complications.</li>
+        <li><strong>Follow the BRAT diet temporarily</strong> (bananas, rice, applesauce, toast) during acute episodes.</li>
+        <li><strong>Reduce sugar alcohols and artificial sweeteners</strong>, which have osmotic effects that worsen diarrhea.</li>
+    </ul>
+
+    <h3>For Injection Site Reactions</h3>
+    <ul>
+        <li><strong>Rotate injection sites</strong> between abdomen, thigh, and upper arm.</li>
+        <li><strong>Allow the medication to reach room temperature</strong> before injecting (remove from refrigerator 15-30 minutes prior).</li>
+        <li><strong>Apply a cold pack</strong> for 10-15 minutes if redness or swelling occurs.</li>
+    </ul>
+
+    <div style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
+        <div style="flex: 1;">
+            <h3 style="margin-top: 0; color: #333;">Track Your GLP-1 Progress</h3>
+            <p style="margin-bottom: 0;">Use our weight loss calculators to compare projected results across medications and find the right dosing timeline for your goals.</p>
+        </div>
+        <a href="/wegovy-weight-loss-calculator" style="background-color: var(--color-accent); color: white; border: none; border-radius: 4px; padding: 10px 20px; font-weight: 500; text-decoration: none; text-align: center; white-space: nowrap; margin-left: 20px; display: inline-block;">Compare Options</a>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: Who Should Not Take GLP-1 Medications -->
+<!-- ============================================ -->
+<section id="contraindications">
+    <h2>Who Should Not Take GLP-1 Medications</h2>
+
+    <p>GLP-1 receptor agonists are contraindicated in several patient populations. The following conditions are listed in the FDA-approved prescribing information for all four medications.<sup><a href="#ref-4" class="ref-link">4</a>,<a href="#ref-5" class="ref-link">5</a>,<a href="#ref-6" class="ref-link">6</a>,<a href="#ref-7" class="ref-link">7</a></sup></p>
+
+    <ul>
+        <li><strong>Personal or family history of medullary thyroid carcinoma (MTC)</strong> -- GLP-1 agonists carry a boxed warning based on thyroid C-cell tumor findings in rodent studies.</li>
+        <li><strong>Multiple Endocrine Neoplasia syndrome type 2 (MEN 2)</strong> -- Associated with elevated MTC risk; GLP-1 medications are contraindicated.</li>
+        <li><strong>History of pancreatitis</strong> -- While not an absolute contraindication per labeling, most guidelines recommend caution and close monitoring. Many clinicians avoid GLP-1 medications in patients with recurrent pancreatitis.</li>
+        <li><strong>Severe gastrointestinal disease</strong> -- Conditions such as gastroparesis, inflammatory bowel disease, or bowel obstruction may be worsened by GLP-1-mediated gastric slowing.</li>
+        <li><strong>Pregnancy and breastfeeding</strong> -- GLP-1 medications should be discontinued at least 2 months before planned conception (semaglutide has a long half-life of approximately 7 days). Animal studies showed adverse embryo-fetal effects.<sup><a href="#ref-4" class="ref-link">4</a></sup></li>
+        <li><strong>Known hypersensitivity</strong> -- Prior serious allergic reaction to semaglutide, tirzepatide, or any excipient in the formulation.</li>
+        <li><strong>Type 1 diabetes</strong> -- GLP-1 receptor agonists are not approved for type 1 diabetes and should not be used as a substitute for insulin in insulin-dependent patients.</li>
+        <li><strong>End-stage renal disease (eGFR &lt;15 mL/min)</strong> -- Limited data in severe kidney impairment. Not recommended without close nephrology monitoring.</li>
+    </ul>
+
+    <div style="background-color: #fffbf0; border-left: 4px solid #ffc107; padding: 20px; border-radius: 8px; margin: 20px 0;">
+        <p style="margin: 0;"><strong>Note:</strong> Age is not a blanket contraindication. Semaglutide (Wegovy) is FDA-approved for adolescents aged 12+ with obesity as of December 2022.<sup><a href="#ref-13" class="ref-link">13</a></sup> However, tirzepatide is not yet approved for use in patients under 18.</p>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: FAQ -->
+<!-- ============================================ -->
+<section id="faq">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <h3>Which GLP-1 medication has the fewest side effects?</h3>
+        <div class="faq-answer">
+            <p>Based on clinical trial data, tirzepatide-based medications (Mounjaro and Zepbound) generally have lower rates of nausea (24-31%) and vomiting (12-18%) compared to semaglutide-based medications like Ozempic and Wegovy (nausea 40-44%, vomiting 24%). However, constipation rates are similar across all four medications (17-23%). Individual responses vary significantly, and the best medication depends on your full medical profile and treatment goals.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>How long do GLP-1 side effects last?</h3>
+        <div class="faq-answer">
+            <p>Most gastrointestinal side effects peak during the first 4-8 weeks of treatment and during dose escalation periods. In the STEP and SURMOUNT trials, approximately 80% of participants who experienced nausea found it resolved or became mild within 8-12 weeks. Side effects typically recur briefly with each dose increase before subsiding again.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>What percentage of people stop taking GLP-1 medications due to side effects?</h3>
+        <div class="faq-answer">
+            <p>Discontinuation rates due to adverse events were 7% for semaglutide 2.4 mg in STEP 1 and 4.3-7.1% for tirzepatide in SURMOUNT-1, compared to approximately 2% for placebo groups. The majority of participants (over 90%) were able to continue treatment, often with dose adjustments or temporary dose holds.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>Does Ozempic or Mounjaro cause more nausea?</h3>
+        <div class="faq-answer">
+            <p>Ozempic causes more nausea. Clinical trials show nausea rates of 40-44% with semaglutide (Ozempic/Wegovy) versus 24-31% with tirzepatide (Mounjaro/Zepbound). This difference is consistent across the STEP and SURMOUNT trial programs. However, direct head-to-head comparisons are limited, and individual patient experiences vary.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>Can GLP-1 medications cause pancreatitis?</h3>
+        <div class="faq-answer">
+            <p>Acute pancreatitis has been reported in clinical trials at rates of approximately 0.1-0.3% for both semaglutide and tirzepatide, which were similar to rates in placebo groups. While a definitive causal link has not been established, GLP-1 medications carry a labeled warning for pancreatitis. Patients with a history of pancreatitis should discuss risks carefully with their physician before starting treatment.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>Do GLP-1 side effects get worse at higher doses?</h3>
+        <div class="faq-answer">
+            <p>Yes, side effect frequency generally increases with dose. For example, nausea with tirzepatide was 24% at 5 mg, 27% at 10 mg, and 31% at 15 mg in SURMOUNT-1. Most side effects occur during the dose escalation phase rather than at steady-state maintenance doses, which is why all GLP-1 medications use a gradual titration schedule spanning 16-20 weeks.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>Is hair loss a side effect of GLP-1 medications?</h3>
+        <div class="faq-answer">
+            <p>Hair loss (alopecia) was reported in approximately 3% of participants taking semaglutide 2.4 mg in the STEP trials versus 1% on placebo. This is most likely related to rapid weight loss rather than the medication itself. Telogen effluvium (temporary hair shedding) commonly occurs with any significant caloric deficit or rapid weight reduction, regardless of the method used.</p>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <h3>What is the risk of thyroid cancer with GLP-1 medications?</h3>
+        <div class="faq-answer">
+            <p>GLP-1 receptor agonists carry a boxed warning about thyroid C-cell tumors based on rodent studies where high doses produced medullary thyroid carcinoma (MTC). In clinical trials involving over 10,000 human participants, MTC was not observed at elevated rates. However, these medications are contraindicated in patients with a personal or family history of MTC or Multiple Endocrine Neoplasia syndrome type 2 (MEN 2). Routine thyroid monitoring is not required for the general patient population.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: Related Resources -->
+<!-- ============================================ -->
+<section id="related-resources">
+    <h2>Related Resources</h2>
+
+    <div style="background-color: #f8f9fa; border-radius: 12px; padding: 24px; margin: 30px 0;">
+        <p>Explore our other GLP-1 medication tools and guides:</p>
+        <ul style="margin-bottom: 0;">
+            <li><a href="/ozempic-weight-loss-calculator" style="color: var(--color-accent); text-decoration: none;">Ozempic Weight Loss Calculator</a> -- Estimate results based on STEP trial data</li>
+            <li><a href="/mounjaro-weight-loss-calculator" style="color: var(--color-accent); text-decoration: none;">Mounjaro Weight Loss Calculator</a> -- Project weight loss based on SURMOUNT data</li>
+            <li><a href="/wegovy-weight-loss-calculator" style="color: var(--color-accent); text-decoration: none;">Wegovy Weight Loss Calculator</a> -- Compare timelines at different dose levels</li>
+            <li><a href="/ozempic-dosage-calculator" style="color: var(--color-accent); text-decoration: none;">Ozempic Dosage Calculator</a> -- Understand your dose escalation schedule</li>
+            <li><a href="/resources/semaglutide-vs-ozempic-guide" style="color: var(--color-accent); text-decoration: none;">Semaglutide vs Ozempic Guide</a> -- Understand the relationship between these medications</li>
+            <li><a href="/resources/ozempic-weight-loss-calculator-guide" style="color: var(--color-accent); text-decoration: none;">Ozempic Weight Loss Timeline Guide</a> -- What to expect month by month</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION: References -->
+<!-- ============================================ -->
+<section id="references">
+    <h2>References</h2>
+
+    <ol class="references-list">
+        <li id="ref-1">Wilding JPH, Batterham RL, Calanna S, et al. Once-weekly semaglutide in adults with overweight or obesity. <em>N Engl J Med.</em> 2021;384(11):989-1002. doi:10.1056/NEJMoa2032183 (STEP 1)</li>
+        <li id="ref-2">Jastreboff AM, Aronne LJ, Ahmad NN, et al. Tirzepatide once weekly for the treatment of obesity. <em>N Engl J Med.</em> 2022;387(3):205-216. doi:10.1056/NEJMoa2206038 (SURMOUNT-1)</li>
+        <li id="ref-3">Nauck MA, Quast DR, Wefers J, Meier JJ. GLP-1 receptor agonists in the treatment of type 2 diabetes -- state-of-the-art. <em>Mol Metab.</em> 2021;46:101102. doi:10.1016/j.molmet.2020.101102</li>
+        <li id="ref-4">Ozempic (semaglutide) injection prescribing information. Novo Nordisk. U.S. Food and Drug Administration. Revised 2024.</li>
+        <li id="ref-5">Wegovy (semaglutide) injection prescribing information. Novo Nordisk. U.S. Food and Drug Administration. Revised 2024.</li>
+        <li id="ref-6">Mounjaro (tirzepatide) injection prescribing information. Eli Lilly and Company. U.S. Food and Drug Administration. Revised 2024.</li>
+        <li id="ref-7">Zepbound (tirzepatide) injection prescribing information. Eli Lilly and Company. U.S. Food and Drug Administration. Revised 2024.</li>
+        <li id="ref-8">Rubino DM, Greenway FL, Khalid U, et al. Effect of continued weekly subcutaneous semaglutide vs placebo on weight loss maintenance in adults with overweight or obesity: the STEP 4 randomized clinical trial. <em>JAMA.</em> 2021;325(14):1414-1425. doi:10.1001/jama.2021.3224</li>
+        <li id="ref-9">Garvey WT, Batterham RL, Bhatt DL, et al. Two-year effects of semaglutide in adults with overweight or obesity: the STEP 5 trial. <em>Nat Med.</em> 2022;28(10):2083-2091. doi:10.1038/s41591-022-02026-4</li>
+        <li id="ref-10">Aroda VR, Blonde L, Engel SS. A review of GLP-1 receptor agonist tolerability and strategies for improving treatment adherence. <em>Diabetes Obes Metab.</em> 2023;25(Suppl 3):4-15.</li>
+        <li id="ref-11">Stokes CS, Gluud LL, Casper M, Lammert F. Ursodeoxycholic acid and diets higher in fat prevent gallbladder stones during weight loss: a meta-analysis of randomized controlled trials. <em>Clin Gastroenterol Hepatol.</em> 2014;12(7):1090-1100.</li>
+        <li id="ref-12">Lete I, Allue J. The effectiveness of ginger in the prevention of nausea and vomiting during pregnancy and chemotherapy. <em>Integr Med Insights.</em> 2016;11:11-17. doi:10.4137/IMI.S36273</li>
+        <li id="ref-13">Wegovy FDA approval expansion for adolescents aged 12+. U.S. Food and Drug Administration. December 2022. FDA News Release.</li>
+    </ol>
+</section>
+
+<!-- Bottom Ad -->
+<div class="ad-container">
+    {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
+</div>
+
+</div>
+
+{% include 'components/medical-disclaimer.html' %}
+
+{% include 'components/related-links.html' %}
+
+{% include 'footer.html' %}
+
+</body>
+</html>
