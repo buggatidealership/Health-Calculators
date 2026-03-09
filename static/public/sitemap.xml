@@ -73,6 +73,42 @@
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://healthcalculators.xyz/body-fat-calculator-for-men</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/body-fat-calculator-for-women</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/tdee-calculator-for-men</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/tdee-calculator-for-athletes</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/calorie-calculator-for-muscle-gain</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/bmi-calculator-for-athletes</loc>
+    <lastmod>2026-03-09</lastmod>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+  </url>
   <!-- Category Hub Pages -->
   <url>
     <loc>https://healthcalculators.xyz/nutrition-calculators</loc>
