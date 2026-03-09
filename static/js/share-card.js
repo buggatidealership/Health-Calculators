@@ -20,8 +20,8 @@
 
   var CARD_WIDTH = 600;
   var CARD_HEIGHT = 315;
-  var ACCENT = '#0891b2';
-  var FONT_FAMILY = 'Inter, system-ui, -apple-system, sans-serif';
+  var ACCENT = '#0a7e8c';
+  var FONT_FAMILY = 'DM Sans, system-ui, -apple-system, sans-serif';
 
   /**
    * Draw the share card on a canvas element.
@@ -285,6 +285,63 @@
     container.classList.remove('hidden');
   }
 
+  /**
+   * Auto-detect calculator results and generate share card.
+   * Looks for .result-hero-number / .tdee-number patterns.
+   */
+  function autoShareCard() {
+    var container = document.getElementById('share-card-output');
+    if (!container) return;
+
+    // Find the hero result element (two common patterns)
+    var heroNum = document.querySelector('.result-hero-number') || document.querySelector('.tdee-number');
+    var heroLabel = document.querySelector('.result-hero-label') || document.querySelector('.tdee-sublabel');
+    var heroSub = document.querySelector('.result-hero-sublabel') || document.querySelector('.tdee-label');
+
+    if (!heroNum) return;
+
+    var value = heroNum.textContent.trim();
+    // Skip placeholder values
+    if (!value || value === '—' || value === '--' || value === '0') return;
+
+    // Get calculator name from page title or h1
+    var h1 = document.querySelector('h1');
+    var calcName = h1 ? h1.textContent.trim().replace(/\s*Calculator\s*$/i, ' Calculator') : 'Calculator';
+
+    // Determine category color from result styling
+    var catColor = ACCENT;
+    var heroStyle = heroNum.style;
+    if (heroStyle.color) catColor = heroStyle.color;
+    // Check for semantic color classes on result container
+    var resultsEl = document.getElementById('results') || document.getElementById('result');
+    if (resultsEl) {
+      var colorEl = resultsEl.querySelector('.good, .text-good, [style*="16a34a"], [style*="green"]');
+      if (colorEl) catColor = '#16a34a';
+      var warnEl = resultsEl.querySelector('.warning, .text-warning, [style*="d97706"], [style*="orange"]');
+      if (warnEl) catColor = '#d97706';
+      var dangerEl = resultsEl.querySelector('.danger, .text-danger, [style*="dc2626"], [style*="red"]');
+      if (dangerEl) catColor = '#dc2626';
+    }
+
+    var label = heroLabel ? heroLabel.textContent.trim() : 'Your Result';
+    var category = heroSub ? heroSub.textContent.trim() : '';
+
+    // Determine if sensitive (health risk scores, fertility, etc.)
+    var sensitive = /risk|fertility|menopause|bac|alcohol/i.test(calcName);
+
+    generateShareCard({
+      calculatorName: calcName,
+      resultLabel: label,
+      resultValue: value,
+      resultCategory: category || label,
+      categoryColor: catColor,
+      details: [],
+      url: 'healthcalculators.xyz' + window.location.pathname,
+      sensitive: sensitive
+    });
+  }
+
   // Expose globally
   window.generateShareCard = generateShareCard;
+  window.autoShareCard = autoShareCard;
 })();

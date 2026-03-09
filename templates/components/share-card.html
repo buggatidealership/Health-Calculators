@@ -3,7 +3,7 @@
 
   Usage: {% include 'components/share-card.html' %}
   Place after the results section inside the calculator div.
-  Then call generateShareCard({...}) from the calculator's JS after results display.
+  Auto-detects results via MutationObserver and generates share card.
 #}
 <div id="share-card-output" class="share-card-container" style="display:none;"></div>
 
@@ -67,8 +67,8 @@
 
 .share-card-btn:hover {
   background: var(--color-accent-bg, #ecfeff);
-  border-color: var(--color-accent, #0891b2);
-  color: var(--color-accent, #0891b2);
+  border-color: var(--color-accent, #0a7e8c);
+  color: var(--color-accent, #0a7e8c);
   box-shadow: none;
   transform: none;
 }
@@ -101,3 +101,34 @@
 </style>
 
 <script defer src="/static/js/share-card.js"></script>
+<script>
+// Auto-detect results and generate share card via MutationObserver
+(function() {
+  function setup() {
+    var resultsEl = document.getElementById('results') || document.getElementById('result');
+    if (!resultsEl) return;
+
+    // Watch for results becoming visible (class/style changes)
+    var observer = new MutationObserver(function() {
+      // Check if results are visible
+      if (resultsEl.offsetHeight > 0 && !resultsEl.classList.contains('hidden')) {
+        // Small delay to let result values populate
+        setTimeout(function() {
+          if (typeof autoShareCard === 'function') autoShareCard();
+        }, 200);
+      }
+    });
+
+    observer.observe(resultsEl, {
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setup);
+  } else {
+    setup();
+  }
+})();
+</script>
