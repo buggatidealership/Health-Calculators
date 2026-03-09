@@ -89,15 +89,15 @@
 
     <h1>Keto Macro Calculator</h1>
     {% include 'components/article-meta.html' %}
-    <p class="subtitle">Calculate your personalized ketogenic diet macros based on your body metrics, activity level, and goals. This calculator determines your optimal fat, protein, and carb targets for staying in ketosis while meeting your nutritional needs.</p>
+    <p class="subtitle">Calculate your personalized ketogenic diet macros based on your body metrics, activity level, and goals.</p>
 
-<section id="calculator">
+    <section id="calculator">
         <div class="calculator">
             <div class="form-group">
-                <label style="font-weight: 600;">Measurement Units:</label>
+                <label>Measurement Units:</label>
                 <div style="display: flex; gap: 10px; margin-top: 8px;">
-                    <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (kg/cm)</button>
-                    <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (lb/in)</button>
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('keto', 'metric')">Metric (kg/cm)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('keto', 'imperial')">Imperial (lbs/ft/in)</button>
                 </div>
             </div>
 
@@ -110,142 +110,137 @@
             </div>
 
             <div class="form-group">
-                <label for="age">Age (years)</label>
-                <input type="number" id="age" min="18" max="100" value="30">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="15" max="100" placeholder="e.g. 30" required>
             </div>
 
-            <div class="form-group metric-field">
-                <label for="weight-kg">Weight (kg)</label>
-                <input type="number" id="weight-kg" min="40" max="200" step="0.1" value="70">
+            <!-- Metric Inputs -->
+            <div class="metric-inputs">
+                <div class="form-group">
+                    <label for="weight_kg">Weight (kg)</label>
+                    <input type="number" id="weight_kg" min="30" max="300" step="0.1" placeholder="e.g. 70" required>
+                </div>
+                <div class="form-group">
+                    <label for="height_cm">Height (cm)</label>
+                    <input type="number" id="height_cm" min="100" max="250" step="0.1" placeholder="e.g. 175" required>
+                </div>
             </div>
 
-            <div class="form-group imperial-field" style="display: none;">
-                <label for="weight-lb">Weight (lb)</label>
-                <input type="number" id="weight-lb" min="88" max="440" value="154">
-            </div>
-
-            <div class="form-group metric-field">
-                <label for="height-cm">Height (cm)</label>
-                <input type="number" id="height-cm" min="130" max="220" value="170">
-            </div>
-
-            <div class="form-group imperial-field" style="display: none;">
-                <label for="height-ft">Height (ft)</label>
-                <input type="number" id="height-ft" min="4" max="7" value="5">
-            </div>
-
-            <div class="form-group imperial-field" style="display: none;">
-                <label for="height-in">Height (in)</label>
-                <input type="number" id="height-in" min="0" max="11" value="7">
+            <!-- Imperial Inputs -->
+            <div class="imperial-inputs hidden">
+                <div class="form-group">
+                    <label for="weight_lb">Weight (lbs)</label>
+                    <input type="number" id="weight_lb" min="66" max="660" step="0.1" placeholder="e.g. 154" required>
+                </div>
+                <div class="form-group">
+                    <label>Height</label>
+                    <div class="imperial-height">
+                        <div>
+                            <label for="height_ft">Feet</label>
+                            <input type="number" id="height_ft" min="3" max="8" placeholder="5" required>
+                        </div>
+                        <div>
+                            <label for="height_in">Inches</label>
+                            <input type="number" id="height_in" min="0" max="11" value="0">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="form-group">
-                <label for="activity-level">Activity Level</label>
-                <select id="activity-level">
+                <label for="activity">Activity Level</label>
+                <select id="activity">
                     <option value="1.2">Sedentary (little or no exercise)</option>
-                    <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
-                    <option value="1.55" selected>Moderately active (moderate exercise 3-5 days/week)</option>
-                    <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
-                    <option value="1.9">Extra active (very hard exercise & physical job)</option>
+                    <option value="1.375">Lightly Active (exercise 1-3 days/week)</option>
+                    <option value="1.55" selected>Moderately Active (exercise 3-5 days/week)</option>
+                    <option value="1.725">Very Active (exercise 6-7 days/week)</option>
+                    <option value="1.9">Extra Active (hard exercise & physical job)</option>
                 </select>
             </div>
 
             <div class="form-group">
                 <label for="goal">Goal</label>
                 <select id="goal">
-                    <option value="-500">Lose weight (-500 cal/day deficit)</option>
-                    <option value="0" selected>Maintain weight</option>
-                    <option value="250">Gain muscle (+250 cal/day surplus)</option>
+                    <option value="lose">Lose Weight (20% calorie deficit)</option>
+                    <option value="maintain" selected>Maintain Weight</option>
+                    <option value="gain">Gain Weight (10% calorie surplus)</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="keto-approach">Keto Approach</label>
-                <select id="keto-approach">
+                <label for="keto-type">Keto Approach</label>
+                <select id="keto-type">
                     <option value="standard" selected>Standard Keto (75% fat / 20% protein / 5% carbs)</option>
                     <option value="modified">Modified Keto (65% fat / 25% protein / 10% carbs)</option>
                     <option value="high-protein">High-Protein Keto (60% fat / 35% protein / 5% carbs)</option>
                 </select>
             </div>
 
-            <button class="calculate-btn" onclick="calculate()">Calculate Keto Macros</button>
-        </div>
+            <button onclick="calculateKeto()" class="btn btn-pink">Calculate Keto Macros</button>
 
-        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
-            <h2 id="results-section">Your Daily Keto Targets</h2>
+            <div class="results hidden" id="results">
+                <div class="tdee-primary-result" id="primary-result">
+                    <div class="tdee-number" id="keto-calories-display">—</div>
+                    <div class="tdee-label">calories/day</div>
+                    <div class="tdee-sublabel" id="keto-type-label">Your Keto Daily Calories</div>
+                </div>
 
-            <!-- Hero Result -->
-            <div class="result-hero" style="background: linear-gradient(135deg, #0891b2 0%, #06b6d4 100%); color: #fff; border-radius: 12px; padding: 32px; text-align: center; margin-bottom: 24px;">
-                <div style="font-size: 0.95rem; opacity: 0.9; margin-bottom: 4px;">Daily Calorie Target</div>
-                <div id="hero-calories" style="font-size: 3rem; font-weight: 700; line-height: 1.1;">0</div>
-                <div style="font-size: 0.95rem; opacity: 0.9; margin-top: 4px;">kcal/day</div>
-            </div>
-
-            <!-- Net Carb Limit Highlight -->
-            <div style="background-color: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 18px; text-align: center; margin-bottom: 24px;">
-                <div style="font-size: 0.9rem; color: #92400e; font-weight: 500;">Daily Net Carb Limit</div>
-                <div id="net-carb-limit" style="font-size: 2.2rem; font-weight: 700; color: #d97706;">0g</div>
-                <div style="font-size: 0.85rem; color: #92400e;">Stay under this to maintain ketosis</div>
-            </div>
-
-            <!-- Macro Cards -->
-            <div class="macro-card-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px;">
-                <!-- Fat Card -->
-                <div style="background-color: #fef9f0; border-radius: 10px; padding: 20px; border-top: 4px solid #f59e0b; text-align: center;">
-                    <div style="font-size: 0.85rem; color: #92400e; font-weight: 500;">Fat</div>
-                    <div id="fat-grams" style="font-size: 1.8rem; font-weight: 700; color: #d97706;">0g</div>
-                    <div id="fat-calories" style="font-size: 0.85rem; color: #666;">0 cal</div>
-                    <div id="fat-percent" style="font-size: 0.85rem; color: #92400e; font-weight: 500;">0%</div>
-                    <div style="background: #e5e7eb; border-radius: 4px; height: 8px; margin-top: 10px; overflow: hidden;">
-                        <div id="fat-bar" style="background: #f59e0b; height: 100%; width: 0%; border-radius: 4px; transition: width 0.6s ease;"></div>
+                <div class="tdee-breakdown" id="breakdown">
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Basal Metabolic Rate (BMR)</span>
+                        <span class="tdee-breakdown-value" id="bmr-display">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">TDEE (before adjustment)</span>
+                        <span class="tdee-breakdown-value" id="tdee-display">—</span>
+                    </div>
+                    <div class="tdee-breakdown-row">
+                        <span class="tdee-breakdown-label">Goal Adjustment</span>
+                        <span class="tdee-breakdown-value" id="goal-display">—</span>
                     </div>
                 </div>
 
-                <!-- Protein Card -->
-                <div style="background-color: #f0fdf4; border-radius: 10px; padding: 20px; border-top: 4px solid #16a34a; text-align: center;">
-                    <div style="font-size: 0.85rem; color: #166534; font-weight: 500;">Protein</div>
-                    <div id="protein-grams" style="font-size: 1.8rem; font-weight: 700; color: #16a34a;">0g</div>
-                    <div id="protein-calories" style="font-size: 0.85rem; color: #666;">0 cal</div>
-                    <div id="protein-percent" style="font-size: 0.85rem; color: #166534; font-weight: 500;">0%</div>
-                    <div style="background: #e5e7eb; border-radius: 4px; height: 8px; margin-top: 10px; overflow: hidden;">
-                        <div id="protein-bar" style="background: #16a34a; height: 100%; width: 0%; border-radius: 4px; transition: width 0.6s ease;"></div>
+                <!-- Net Carb Limit Callout -->
+                <div style="background-color: #fef3c7; border: 2px solid #f59e0b; border-radius: 10px; padding: 18px; text-align: center; margin: 20px 0;">
+                    <div style="font-size: 0.9rem; color: #92400e; font-weight: 500;">Daily Net Carb Limit</div>
+                    <div id="net-carb-limit" style="font-size: 2.2rem; font-weight: 700; color: #d97706;">—</div>
+                    <div style="font-size: 0.85rem; color: #92400e;">Stay under this to maintain ketosis</div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Your Daily Keto Macros</h4>
+                <div class="tdee-goals" id="macro-cards">
+                    <div class="tdee-goal-card tdee-goal-loss" style="border-top: 4px solid #f59e0b;">
+                        <div class="tdee-goal-title">Fat</div>
+                        <div class="tdee-goal-subtitle" id="fat-pct">—</div>
+                        <div class="tdee-goal-value" id="fat-grams">—</div>
+                        <div style="font-size: 0.8rem; color: #666; margin-top: 4px;" id="fat-cal">—</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-maintain" style="border-top: 4px solid #16a34a;">
+                        <div class="tdee-goal-title">Protein</div>
+                        <div class="tdee-goal-subtitle" id="protein-pct">—</div>
+                        <div class="tdee-goal-value" id="protein-grams">—</div>
+                        <div style="font-size: 0.8rem; color: #666; margin-top: 4px;" id="protein-cal">—</div>
+                    </div>
+                    <div class="tdee-goal-card tdee-goal-gain" style="border-top: 4px solid #3b82f6;">
+                        <div class="tdee-goal-title">Net Carbs</div>
+                        <div class="tdee-goal-subtitle" id="carb-pct">—</div>
+                        <div class="tdee-goal-value" id="carb-grams">—</div>
+                        <div style="font-size: 0.8rem; color: #666; margin-top: 4px;" id="carb-cal">—</div>
                     </div>
                 </div>
 
-                <!-- Carbs Card -->
-                <div style="background-color: #eff6ff; border-radius: 10px; padding: 20px; border-top: 4px solid #3b82f6; text-align: center;">
-                    <div style="font-size: 0.85rem; color: #1e40af; font-weight: 500;">Carbs</div>
-                    <div id="carbs-grams" style="font-size: 1.8rem; font-weight: 700; color: #3b82f6;">0g</div>
-                    <div id="carbs-calories" style="font-size: 0.85rem; color: #666;">0 cal</div>
-                    <div id="carbs-percent" style="font-size: 0.85rem; color: #1e40af; font-weight: 500;">0%</div>
-                    <div style="background: #e5e7eb; border-radius: 4px; height: 8px; margin-top: 10px; overflow: hidden;">
-                        <div id="carbs-bar" style="background: #3b82f6; height: 100%; width: 0%; border-radius: 4px; transition: width 0.6s ease;"></div>
-                    </div>
+                <!-- Meal Timing Suggestion -->
+                <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 8px; padding: 18px; margin-top: 20px;">
+                    <h4 style="margin-top: 0; color: #166534; font-size: 1.05rem;">Meal Timing Suggestion</h4>
+                    <p style="margin: 0; color: #333; font-size: 0.95rem;" id="meal-timing">Divide your macros across 2-3 meals per day. Many keto dieters find that higher fat intake naturally reduces appetite, making intermittent fasting (16:8) a comfortable pairing.</p>
                 </div>
+
+                <p class="disclaimer-text" style="margin-top: 16px;">
+                    These are estimates based on the Mifflin-St Jeor equation. Individual metabolism, insulin sensitivity, and carb tolerance vary. Consult a registered dietitian or physician before starting a ketogenic diet, especially if you have diabetes, kidney disease, or other medical conditions.
+                </p>
+
+                {% include 'components/share-card.html' %}
             </div>
-
-            <!-- Calculation Breakdown -->
-            <div style="background-color: #f8f9fa; border-radius: 8px; padding: 20px; margin-bottom: 20px;">
-                <h3 style="margin-top: 0; font-size: 1.1rem;">Calculation Breakdown</h3>
-                <ul style="list-style: none; padding-left: 0; margin: 0;">
-                    <li style="padding: 6px 0; border-bottom: 1px solid #e5e7eb;"><strong>BMR:</strong> <span id="bmr-value">0</span> kcal</li>
-                    <li style="padding: 6px 0; border-bottom: 1px solid #e5e7eb;"><strong>TDEE:</strong> <span id="tdee-value">0</span> kcal</li>
-                    <li style="padding: 6px 0; border-bottom: 1px solid #e5e7eb;"><strong>Goal Adjustment:</strong> <span id="goal-adjustment">0</span> kcal</li>
-                    <li style="padding: 6px 0;"><strong>Keto Approach:</strong> <span id="approach-label">Standard Keto</span></li>
-                </ul>
-            </div>
-
-            <!-- Meal Timing Suggestion -->
-            <div style="background-color: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 8px; padding: 18px; margin-bottom: 20px;">
-                <h3 style="margin-top: 0; color: #166534; font-size: 1.05rem;">Meal Timing Suggestion</h3>
-                <p style="margin: 0; color: #333; font-size: 0.95rem;" id="meal-timing">Divide your macros across 2-3 meals per day. Many keto dieters find that higher fat intake naturally reduces appetite, making intermittent fasting (16:8) a comfortable pairing. Prioritize protein at each meal to support muscle maintenance.</p>
-            </div>
-
-            <p class="disclaimer-text" style="margin-top: 16px;">
-                These are estimates based on the Mifflin-St Jeor equation. Individual metabolism, insulin sensitivity, and carb tolerance vary. Consult a registered dietitian for personalized ketogenic guidance.
-            </p>
-
-            {% include 'components/share-card.html' %}
         </div>
     </section>
 
@@ -304,7 +299,7 @@
                 <p><strong>BMR (Males):</strong> (10 x weight in kg) + (6.25 x height in cm) - (5 x age) + 5</p>
                 <p><strong>BMR (Females):</strong> (10 x weight in kg) + (6.25 x height in cm) - (5 x age) - 161</p>
                 <p style="margin-top: 12px;"><strong>TDEE</strong> = BMR x Activity Factor</p>
-                <p><strong>Keto Calories</strong> = TDEE + Goal Adjustment (-500, 0, or +250)</p>
+                <p><strong>Keto Calories</strong> = TDEE x Goal Modifier (deficit, maintenance, or surplus)</p>
             </div>
         </div>
     </section>
@@ -317,45 +312,21 @@
                 The ketogenic diet inverts the typical macronutrient distribution. While standard dietary guidelines recommend 45-65% of calories from carbohydrates, keto limits carbs to 5-10% and replaces them with fat. This comparison table shows how the three keto approaches differ from standard diets.
             </div>
 
-            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+            <table class="data-table">
                 <thead>
-                    <tr style="border-bottom: 2px solid #ddd;">
-                        <th style="text-align: left; padding: 8px;">Diet Approach</th>
-                        <th style="text-align: left; padding: 8px;">Fat</th>
-                        <th style="text-align: left; padding: 8px;">Protein</th>
-                        <th style="text-align: left; padding: 8px;">Carbs</th>
-                        <th style="text-align: left; padding: 8px;">Best For</th>
+                    <tr>
+                        <th>Diet Approach</th>
+                        <th>Fat</th>
+                        <th>Protein</th>
+                        <th>Carbs</th>
+                        <th>Best For</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr style="border-bottom: 1px solid #eee;">
-                        <td style="padding: 8px; font-weight: 500;">Standard Diet (USDA)</td>
-                        <td style="padding: 8px;">20-35%</td>
-                        <td style="padding: 8px;">10-35%</td>
-                        <td style="padding: 8px;">45-65%</td>
-                        <td style="padding: 8px;">General population</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; background-color: #fffbeb;">
-                        <td style="padding: 8px; font-weight: 500;">Standard Keto (SKD)</td>
-                        <td style="padding: 8px;">75%</td>
-                        <td style="padding: 8px;">20%</td>
-                        <td style="padding: 8px;">5%</td>
-                        <td style="padding: 8px;">Weight loss, appetite control, metabolic health</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid #eee; background-color: #fffbeb;">
-                        <td style="padding: 8px; font-weight: 500;">Modified Keto</td>
-                        <td style="padding: 8px;">65%</td>
-                        <td style="padding: 8px;">25%</td>
-                        <td style="padding: 8px;">10%</td>
-                        <td style="padding: 8px;">Easier adherence, active individuals</td>
-                    </tr>
-                    <tr style="background-color: #fffbeb;">
-                        <td style="padding: 8px; font-weight: 500;">High-Protein Keto</td>
-                        <td style="padding: 8px;">60%</td>
-                        <td style="padding: 8px;">35%</td>
-                        <td style="padding: 8px;">5%</td>
-                        <td style="padding: 8px;">Athletes, muscle preservation, weight training</td>
-                    </tr>
+                    <tr><td class="td-bold">Standard Diet (USDA)</td><td>20-35%</td><td>10-35%</td><td class="td-accent">45-65%</td><td>General population</td></tr>
+                    <tr><td class="td-bold">Standard Keto (SKD)</td><td>75%</td><td>20%</td><td class="td-accent">5%</td><td>Weight loss, appetite control</td></tr>
+                    <tr><td class="td-bold">Modified Keto</td><td>65%</td><td>25%</td><td class="td-accent">10%</td><td>Easier adherence, active individuals</td></tr>
+                    <tr><td class="td-bold">High-Protein Keto</td><td>60%</td><td>35%</td><td class="td-accent">5%</td><td>Athletes, muscle preservation</td></tr>
                 </tbody>
             </table>
 
@@ -470,9 +441,21 @@
     {% include 'components/related-links.html' %}
     {% include 'footer.html' %}
 
-    <script defer src="{{ url_for('static', filename='js/keto_calculator.js') }}"></script>
     <script defer src="/static/js/result-animations.js"></script>
     <script defer src="/static/js/content-loops.js"></script>
     <script defer src="/static/js/sidebar-toc.js"></script>
+    <script defer src="/static/js/keto_calculator.js"></script>
+    <script src="/static/js/example-prefill.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      prefillExample({
+        unit: 'imperial',
+        fields: { age: '30', weight_lb: '170', height_ft: '5', height_in: '9' },
+        selects: { gender: 'male', activity: '1.55', goal: 'maintain', 'keto-type': 'standard' },
+        calculateFn: calculateKeto,
+        resultsId: 'results'
+      });
+    });
+    </script>
 </body>
 </html>
