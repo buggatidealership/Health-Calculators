@@ -519,7 +519,7 @@
 
                 // Show results
                 document.getElementById('results').style.display = 'block';
-    showNextSteps('fasting', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('fasting', collectUserData());
 
                 // Create chart
                 createResultsChart(waterLossKg, fatLossKg, isMetric);

@@ -503,7 +503,7 @@
             
             // Show results
             resultsSection.style.display = 'block';
-    showNextSteps('breast-implant-size', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('breast-implant-size', collectUserData());
         }
     </script>
     

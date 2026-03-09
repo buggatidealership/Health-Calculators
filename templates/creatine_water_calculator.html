@@ -399,7 +399,7 @@
             
             // Show results
             document.getElementById('result').style.display = 'block';
-    showNextSteps('creatine', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('creatine', collectUserData());
         }
     </script>
     {% include 'components/related-links.html' %}

@@ -283,7 +283,7 @@
             // Display results
             let result = document.getElementById('result');
             result.style.display = 'block';
-    showNextSteps('alcohol-impact', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('alcohol-impact', collectUserData());
            
             // Update result text
             document.getElementById('resultText').textContent = resultText;

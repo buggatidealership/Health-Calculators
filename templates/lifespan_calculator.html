@@ -580,7 +580,7 @@
            
             // Show results
             document.getElementById('result').classList.remove('hidden');
-    showNextSteps('lifespan', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('lifespan', collectUserData());
         }
     </script>
     

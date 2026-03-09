@@ -390,7 +390,7 @@
             }
 
             document.getElementById('result').style.display = 'block';
-    showNextSteps('adult-height', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('adult-height', collectUserData());
         }
        
         function getGrowthPercentile(gender, age, height) {

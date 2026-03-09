@@ -303,7 +303,7 @@
                         field.style.display = 'block';
                     } else if (field.classList.contains('metric-field') && unitSystem === 'metric') {
                         field.style.display = 'block';
-    showNextSteps('army-body-fat', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('army-body-fat', collectUserData());
                     }
                 });
             } else {

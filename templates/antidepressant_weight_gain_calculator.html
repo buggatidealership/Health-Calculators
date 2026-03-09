@@ -132,7 +132,7 @@
         
         // Scroll to results
         resultsDiv.scrollIntoView({ behavior: 'smooth' });
-    showNextSteps('antidepressant', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('antidepressant', collectUserData());
       });
     });
   </script>

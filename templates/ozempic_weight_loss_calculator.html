@@ -564,7 +564,7 @@
 
                 // Show result div
                 document.getElementById('result').classList.remove('hidden');
-    showNextSteps('ozempic', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('ozempic', collectUserData());
 
                 // Create chart
                 createChart(weightKg, finalWeightKg, duration, currentUnits);

@@ -360,7 +360,7 @@
             document.getElementById('touchup-display').textContent = touchupCost > 0 ? '$' + Math.round(touchupCost) : 'None selected';
             document.getElementById('annual-cost').textContent = '$' + Math.round(totalCost * 1.5) + ' – $' + Math.round(totalCost * 2.4);
             document.getElementById('result').style.display = 'block';
-    showNextSteps('lip-filler', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('lip-filler', collectUserData());
         }
        
         function getLocationText() {

@@ -514,7 +514,7 @@
 
             // Show results
             document.getElementById('result').style.display = 'block';
-    showNextSteps('ideal-body-weight', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('ideal-body-weight', collectUserData());
         }
     </script>
     {% set sources = [

@@ -530,7 +530,7 @@
                         this.classList.remove('active');
                     } else {
                         answer.style.display = 'block';
-    showNextSteps('ozempic-pen', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('ozempic-pen', collectUserData());
                         this.classList.add('active');
                     }
                 });

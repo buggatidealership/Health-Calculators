@@ -709,7 +709,7 @@
             
             // Show results
             document.getElementById('results').style.display = 'block';
-    showNextSteps('breast-implant-cost', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('breast-implant-cost', collectUserData());
         }
     </script>
     

@@ -457,7 +457,7 @@
                 
                 // Show results
                 resultsDiv.style.display = 'block';
-    showNextSteps('ivf-due-date', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('ivf-due-date', collectUserData());
             });
         });
     </script>

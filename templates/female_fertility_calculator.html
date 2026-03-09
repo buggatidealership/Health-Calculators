@@ -323,7 +323,7 @@
                
                 // Scroll to results
                 document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
-    showNextSteps('fertility', collectUserData());
+    if (typeof showNextSteps === 'function') showNextSteps('fertility', collectUserData());
             });
         });
        
