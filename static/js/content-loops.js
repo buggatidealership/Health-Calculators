@@ -337,6 +337,7 @@ var CALCULATOR_GRAPH = {
   },
   'lifespan': {
     links: [
+      { url: '/diabetes-risk-calculator', title: 'Diabetes Risk', icon: '🩺', reason: 'Diabetes cuts life expectancy by 6-7 years — find out if you\'re at risk', params: ['age','gender','weight_kg','height_cm'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Heart disease is the #1 killer — your lipid numbers reveal your risk', params: ['age','gender'] },
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: '42% of Americans are vitamin D deficient — it cuts lifespan silently', params: ['age','gender','weight_kg'] },
       { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Even "moderate" drinking affects lifespan differently than you\'d expect', params: ['age','gender'] },
@@ -362,9 +363,19 @@ var CALCULATOR_GRAPH = {
   },
   'a1c': {
     links: [
+      { url: '/diabetes-risk-calculator', title: 'Diabetes Risk Calculator', icon: '🩺', reason: '96 million Americans are prediabetic and don\'t know it — assess your full risk profile', params: ['age','gender','weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight can drop A1C by 0.5% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each 1% rise in A1C increases mortality risk by 20-30% — see your estimate', params: ['age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI above 25 doubles type 2 diabetes risk — check where you stand', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
+  'diabetes-risk': {
+    links: [
+      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'Your risk score says get tested — convert your A1C to see your diabetes category', params: [] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI is the strongest modifiable diabetes risk factor — track yours precisely', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight cuts diabetes risk by 58% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Diabetes reduces life expectancy by 6-7 years on average — see your full estimate', params: ['age','gender'] },
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: '75% of diabetics also have high blood pressure — check your cardiovascular targets', params: ['age','gender'] }
     ]
   },
   'vitamin-d-conversion': {
@@ -457,6 +468,16 @@ var CALCULATOR_GRAPH = {
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI affects menopause timing and symptom severity — check yours', params: [] },
       { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Night sweats and insomnia disrupt sleep cycles — optimize your sleep timing', params: ['age'] },
       { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Menopause age correlates with longevity — earlier menopause links to shorter lifespan', params: ['age','gender'] }
+    ]
+  },
+  'metabolic-age': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your metabolic age sets the baseline — TDEE shows your total daily burn', params: ['weight_kg','height_cm','age','gender','activity'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI and metabolic age tell different stories — see how yours compare', params: ['weight_kg','height_cm'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Body fat % drives metabolic age more than weight alone — measure yours', params: ['height_cm','gender','age'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Building muscle lowers metabolic age — are you eating enough protein?', params: ['weight_kg','age','gender'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Exercise boosts metabolism for hours after — see your actual burn', params: ['weight_kg'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'A younger metabolic age predicts longer lifespan — check your estimate', params: ['age','gender'] }
     ]
   }
 };

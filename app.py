@@ -651,6 +651,16 @@ cards = [
         "popular": True
     },
     {
+        "title": "Heart Age Calculator",
+        "url": "/heart-age-calculator",
+        "summary": "Find out if your heart is older or younger than you based on cardiovascular risk factors.",
+        "icon": "🫀",
+        "cta": "Check Your Heart Age",
+        "color": "red",
+        "category": "health",
+        "popular": False
+    },
+    {
         "title": "Fasting Weight Loss Calculator",
         "url": "/fasting-weight-loss-calculator",
         "summary": "Calculate potential weight loss from intermittent fasting protocols.",
@@ -737,6 +747,16 @@ cards = [
         "icon": "📏",
         "cta": "Calculate BRI",
         "color": "green",
+        "category": "fitness",
+        "popular": False
+    },
+    {
+        "title": "Metabolic Age Calculator",
+        "url": "/metabolic-age-calculator",
+        "summary": "Calculate your metabolic age by comparing your BMR to population averages. Find out if your metabolism is younger or older than your actual age.",
+        "icon": "🧬",
+        "cta": "Calculate Metabolic Age",
+        "color": "blue",
         "category": "fitness",
         "popular": False
     },
@@ -3773,6 +3793,19 @@ def chart_reference():
         canonical_url=page['url']
     )
 
+
+@app.route('/heart-age-calculator')
+def heart_age_calculator():
+    schema_name = "Heart Age Calculator"
+    schema_description = "Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study. Find out if your heart is older or younger than you and get actionable tips to lower your heart age."
+    schema_url = "/heart-age-calculator"
+    return render_template(
+        'heart_age_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

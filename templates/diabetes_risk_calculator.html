@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "diabetes-risk-calculator-og.jpg" %}
+{% with
+    meta_description="Assess your risk of developing type 2 diabetes with this evidence-based screening tool. Based on the ADA risk test and Finnish Diabetes Risk Score (FINDRISC).",
+    meta_keywords="diabetes risk calculator, type 2 diabetes risk test, prediabetes screening, diabetes risk assessment, ADA diabetes risk, FINDRISC",
+    og_title="Diabetes Risk Calculator – Type 2 Diabetes Risk Assessment",
+    og_description="Find out your risk of developing type 2 diabetes based on age, BMI, family history, activity level, and other clinical risk factors.",
+    og_url="/diabetes-risk-calculator",
+    page_title="Diabetes Risk Calculator – Assess Your Type 2 Diabetes Risk",
+    canonical_url="/diabetes-risk-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How accurate is a diabetes risk calculator?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Point-based diabetes risk calculators like the ADA risk test and FINDRISC have been validated in large population studies with sensitivity of 72-87% for detecting prediabetes or undiagnosed diabetes. They are screening tools, not diagnostic tests — a high score means you should get blood work done, not that you have diabetes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is prediabetes and how common is it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prediabetes means your blood sugar is higher than normal but not yet in the diabetes range (A1C 5.7-6.4% or fasting glucose 100-125 mg/dL). An estimated 96 million American adults — more than 1 in 3 — have prediabetes, and over 80% don't know they have it."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can type 2 diabetes be prevented?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The landmark Diabetes Prevention Program (DPP) trial showed that modest lifestyle changes — losing 5-7% of body weight and exercising 150 minutes per week — reduced the risk of developing type 2 diabetes by 58%. For adults over 60, the risk reduction was 71%."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "At what age should I start screening for diabetes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The ADA recommends screening all adults starting at age 35, or earlier if you have risk factors such as overweight/obesity, family history, or belonging to a high-risk ethnic group. If results are normal, repeat testing every 3 years (or more frequently if risk factors are present)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does race or ethnicity really affect diabetes risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. African Americans, Hispanic/Latino Americans, Asian Americans, Pacific Islanders, and Native Americans have significantly higher rates of type 2 diabetes compared to non-Hispanic whites, even after controlling for BMI and other factors. This is due to a combination of genetic predisposition, metabolic differences, and socioeconomic factors."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    {% include 'header.html' %}
+
+    <div class="calculator-container">
+
+    <h1>Diabetes Risk Calculator – Type 2 Diabetes Risk Assessment</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Estimate your risk of developing type 2 diabetes based on clinically validated risk factors. This tool is adapted from the ADA Diabetes Risk Test and Finnish Diabetes Risk Score (FINDRISC), used by physicians worldwide for early screening.</p>
+
+<section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label for="age-group">Age:</label>
+                <select id="age-group">
+                    <option value="0">Under 40</option>
+                    <option value="1">40–49</option>
+                    <option value="2">50–59</option>
+                    <option value="3" selected>60 or older</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="sex">Biological Sex:</label>
+                <select id="sex">
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="bmi-method">BMI Input Method:</label>
+                <select id="bmi-method">
+                    <option value="direct">I know my BMI</option>
+                    <option value="calculate" selected>Calculate from height & weight</option>
+                </select>
+            </div>
+
+            <div id="bmi-direct-group" class="form-group" style="display:none;">
+                <label for="bmi-direct">Your BMI:</label>
+                <input type="number" id="bmi-direct" min="10" max="60" step="0.1" placeholder="e.g. 27.5">
+            </div>
+
+            <div id="bmi-calc-group">
+                <div class="form-group">
+                    <label for="height-unit">Height Unit:</label>
+                    <select id="height-unit">
+                        <option value="imperial" selected>Feet & Inches</option>
+                        <option value="metric">Centimeters</option>
+                    </select>
+                </div>
+
+                <div id="height-imperial" class="form-group">
+                    <label>Height:</label>
+                    <div style="display:flex;gap:10px;align-items:center;">
+                        <input type="number" id="height-ft" min="3" max="8" value="5" style="width:70px;"> <span>ft</span>
+                        <input type="number" id="height-in" min="0" max="11" value="8" style="width:70px;"> <span>in</span>
+                    </div>
+                </div>
+
+                <div id="height-metric" class="form-group" style="display:none;">
+                    <label for="height-cm">Height (cm):</label>
+                    <input type="number" id="height-cm" min="100" max="250" value="173">
+                </div>
+
+                <div class="form-group">
+                    <label for="weight-unit">Weight Unit:</label>
+                    <select id="weight-unit">
+                        <option value="lbs" selected>Pounds (lbs)</option>
+                        <option value="kg">Kilograms (kg)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="weight">Weight:</label>
+                    <input type="number" id="weight" min="50" max="700" value="170">
+                    <span id="weight-label">lbs</span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="family-history">Family History of Diabetes:</label>
+                <select id="family-history">
+                    <option value="0">None</option>
+                    <option value="1">Parent OR Sibling</option>
+                    <option value="2">Parent AND Sibling (or multiple)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Physical Activity Level:</label>
+                <select id="activity">
+                    <option value="1">Less than 30 minutes per day</option>
+                    <option value="0">30 or more minutes per day</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="blood-pressure">History of High Blood Pressure:</label>
+                <select id="blood-pressure">
+                    <option value="0">No</option>
+                    <option value="1">Yes (diagnosed or on medication)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="ethnicity">Race / Ethnicity:</label>
+                <select id="ethnicity">
+                    <option value="0">White / Caucasian</option>
+                    <option value="1">African American / Black</option>
+                    <option value="1">Hispanic / Latino</option>
+                    <option value="1">Asian American</option>
+                    <option value="1">Native Hawaiian / Pacific Islander</option>
+                    <option value="1">American Indian / Alaska Native</option>
+                    <option value="0">Other</option>
+                </select>
+            </div>
+
+            <div id="gestational-group" class="form-group">
+                <label for="gestational">History of Gestational Diabetes:</label>
+                <select id="gestational">
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                    <option value="0">Not applicable</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="a1c-known">Do you know your A1C or fasting glucose? (optional)</label>
+                <select id="a1c-known">
+                    <option value="none" selected>No / Skip</option>
+                    <option value="a1c">I know my A1C</option>
+                    <option value="glucose">I know my fasting glucose</option>
+                </select>
+            </div>
+
+            <div id="a1c-input-group" class="form-group" style="display:none;">
+                <label for="a1c-value">A1C (%):</label>
+                <input type="number" id="a1c-value" min="3" max="15" step="0.1" placeholder="e.g. 5.7">
+            </div>
+
+            <div id="glucose-input-group" class="form-group" style="display:none;">
+                <label for="glucose-value">Fasting Glucose (mg/dL):</label>
+                <input type="number" id="glucose-value" min="50" max="400" step="1" placeholder="e.g. 100">
+            </div>
+
+            <button id="calculate-btn" type="button">Assess My Diabetes Risk</button>
+
+            <div id="result" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="risk-level-text">Moderate Risk</div>
+                    <div class="result-hero-label" id="risk-score-display">Risk Score: 6 / 15</div>
+                    <div class="result-hero-sublabel" id="risk-percentage">—</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card" id="score-card">
+                        <div class="result-card-title">Total Score</div>
+                        <div class="result-card-value" id="total-score">—</div>
+                        <div class="result-card-note">out of 15 possible</div>
+                    </div>
+                    <div class="result-card" id="bmi-card">
+                        <div class="result-card-title">Your BMI</div>
+                        <div class="result-card-value" id="bmi-display">—</div>
+                        <div class="result-card-note" id="bmi-category">—</div>
+                    </div>
+                    <div class="result-card" id="factors-card">
+                        <div class="result-card-title">Risk Factors</div>
+                        <div class="result-card-value" id="factor-count">—</div>
+                        <div class="result-card-note">contributing factors</div>
+                    </div>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Risk Level</div>
+                    <div class="result-gauge-bar" style="position: relative;">
+                        <div class="result-gauge-fill" id="risk-gauge" style="width: 50%; background: #4caf50;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>Low</span>
+                        <span>Moderate</span>
+                        <span>High</span>
+                        <span>Very High</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Point Breakdown</div>
+                    <div id="point-breakdown"></div>
+                </div>
+
+                <div class="result-breakdown" id="risk-description-section">
+                    <div class="result-breakdown-title">What Your Score Means</div>
+                    <p id="risk-description"></p>
+                </div>
+
+                <div class="result-breakdown" style="border-left: 3px solid var(--color-accent);">
+                    <div class="result-breakdown-title">Recommended Next Steps</div>
+                    <ul id="recommendations" style="margin: 8px 0 0; padding-left: 20px;"></ul>
+                </div>
+
+                <div id="lab-result-section" class="result-breakdown" style="display:none; border-left: 3px solid var(--color-warning, #d97706);">
+                    <div class="result-breakdown-title">Your Lab Values</div>
+                    <p id="lab-result-text"></p>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Related Tool</div>
+                    <p>Track and convert your A1C values with our <a href="/a1c-calculator" style="color: var(--color-accent); font-weight: 600;">A1C & Blood Sugar Calculator</a> — see how your A1C maps to daily blood sugar and diabetes risk categories.</p>
+                </div>
+            </div>
+
+            <div class="footnote">
+                <p><strong>Note:</strong> This calculator is a screening tool adapted from the ADA Diabetes Risk Test and Finnish Diabetes Risk Score. It does not diagnose diabetes. A high score indicates that laboratory testing (A1C, fasting glucose, or oral glucose tolerance test) is warranted. Consult a healthcare provider for evaluation.</p>
+            </div>
+
+            {% include 'components/share-card.html' %}
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>Understanding Type 2 Diabetes Risk</h2>
+    <div class="answer-capsule">
+      Type 2 diabetes develops when the body becomes resistant to insulin or the pancreas can no longer produce enough insulin to maintain normal blood sugar levels. Unlike type 1 diabetes, which is autoimmune, type 2 is strongly influenced by modifiable risk factors. An estimated 96 million American adults have prediabetes — elevated blood sugar that precedes type 2 diabetes — and over 80% are unaware of their condition. Early identification through risk screening allows intervention before irreversible damage occurs.
+    </div>
+
+    <div class="medical-disclaimer">
+        <p><strong>Medical Disclaimer:</strong> This tool is for educational screening purposes only. It does not diagnose diabetes or prediabetes. Consult a qualified healthcare provider for medical evaluation and blood testing.</p>
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Diabetes Risk Calculator</a></li>
+            <li><a href="#risk-factors">Risk Factor Breakdown</a></li>
+            <li><a href="#reduce-risk">How to Reduce Your Risk</a></li>
+            <li><a href="#screening">ADA Screening Guidelines</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="risk-factors" class="mt-60">
+      <div class="info">
+        <h2>Risk Factor Breakdown</h2>
+        <p>Each factor in this calculator reflects established clinical evidence linking it to type 2 diabetes development. Here is what the research shows for each:</p>
+
+        <h4>Age</h4>
+        <p>Risk increases substantially after age 45, with the highest prevalence in adults over 65. Aging is associated with declining beta-cell function, increased insulin resistance, and accumulated metabolic stress. The CDC reports that 29.2% of adults aged 65+ have diagnosed diabetes.</p>
+
+        <h4>Body Mass Index (BMI)</h4>
+        <p>Excess body fat, especially visceral (abdominal) fat, is the strongest modifiable risk factor for type 2 diabetes. A BMI of 25-29.9 (overweight) approximately doubles diabetes risk, while a BMI over 30 (obese) increases risk 3-7 times compared to normal weight. Even modest weight loss of 5-7% significantly reduces risk.</p>
+
+        <h4>Family History</h4>
+        <p>Having a first-degree relative (parent or sibling) with type 2 diabetes increases your risk 2-3 times. If both parents are affected, lifetime risk may exceed 70%. This reflects shared genetic variants affecting insulin secretion and sensitivity, as well as shared environmental factors.</p>
+
+        <h4>Physical Inactivity</h4>
+        <p>Sedentary behavior independently increases diabetes risk by 20-30%, even after adjusting for BMI. Skeletal muscle is the primary site of glucose disposal — regular physical activity improves insulin sensitivity, glucose uptake, and metabolic flexibility. The DPP trial used 150 minutes/week of moderate activity as a key intervention.</p>
+
+        <h4>High Blood Pressure</h4>
+        <p>Hypertension and type 2 diabetes share underlying mechanisms including insulin resistance, endothelial dysfunction, and chronic inflammation. People with high blood pressure are 2-3 times more likely to develop diabetes, and the two conditions frequently co-occur — up to 75% of adults with diabetes also have hypertension.</p>
+
+        <h4>Race and Ethnicity</h4>
+        <p>Diabetes prevalence varies significantly by race/ethnicity in the US. Compared to non-Hispanic whites (7.4%), rates are substantially higher among American Indians/Alaska Natives (14.5%), non-Hispanic Blacks (12.1%), Hispanics (11.8%), and Asian Americans (9.1%). These disparities reflect a combination of genetic susceptibility, socioeconomic factors, and differences in how the body stores and processes fat at different BMI thresholds.</p>
+
+        <h4>Gestational Diabetes</h4>
+        <p>Women who developed gestational diabetes during pregnancy have a 50-60% higher lifetime risk of developing type 2 diabetes. The ADA recommends lifelong screening every 3 years for women with a history of gestational diabetes. The risk is highest in the first 5 years postpartum.</p>
+
+        <h4>A1C and Fasting Glucose (Optional)</h4>
+        <p>If you know your lab values, they provide the most direct assessment. An A1C of 5.7-6.4% or fasting glucose of 100-125 mg/dL indicates prediabetes. Values at or above 6.5% (A1C) or 126 mg/dL (fasting glucose) meet diagnostic criteria for diabetes and warrant immediate medical evaluation.</p>
+      </div>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="reduce-risk" class="mt-60">
+      <div class="info">
+        <h2>How to Reduce Your Risk</h2>
+        <p>Type 2 diabetes is one of the most preventable chronic diseases. The Diabetes Prevention Program (DPP) — a landmark NIH-funded clinical trial — demonstrated that intensive lifestyle intervention reduced diabetes incidence by <strong>58%</strong> over 3 years, compared to only 31% for the medication metformin. For adults over 60, lifestyle changes reduced risk by <strong>71%</strong>.</p>
+
+        <h4>Weight Management</h4>
+        <p>Losing just 5-7% of body weight (10-14 lbs for a 200-lb person) was the primary driver of risk reduction in the DPP trial. The mechanism: reducing visceral fat improves insulin sensitivity and decreases chronic inflammation. Even partial weight loss that doesn't reach a "normal" BMI provides meaningful metabolic benefit.</p>
+
+        <h4>Physical Activity</h4>
+        <p>150 minutes per week of moderate-intensity activity (brisk walking, cycling, swimming) was the DPP target. Subsequent research shows that both aerobic exercise and resistance training improve glucose metabolism, with the combination being most effective. Even short bouts of 10-15 minutes post-meal can significantly reduce blood sugar spikes.</p>
+
+        <h4>Dietary Changes</h4>
+        <p>No single "diabetes prevention diet" exists, but consistent evidence supports: increasing fiber intake (especially from whole grains, legumes, and vegetables), reducing refined carbohydrates and added sugars, limiting processed meats, and following Mediterranean or DASH dietary patterns. These patterns improve insulin sensitivity independently of weight loss.</p>
+
+        <h4>Sleep and Stress</h4>
+        <p>Short sleep duration (under 6 hours) and poor sleep quality increase diabetes risk by 28-40% through disruption of glucose metabolism and appetite-regulating hormones. Chronic stress elevates cortisol, which directly promotes insulin resistance and visceral fat storage. Addressing these factors supports — and sometimes is necessary for — successful weight management.</p>
+
+        <h4>Medical Monitoring</h4>
+        <p>If you are at elevated risk, the ADA recommends A1C or fasting glucose testing every 1-3 years. Early detection of prediabetes creates a window for intervention before beta-cell damage becomes irreversible. Some physicians may also recommend metformin for high-risk individuals, particularly those with BMI over 35 or a history of gestational diabetes.</p>
+      </div>
+    </section>
+
+    <section id="screening" class="mt-60">
+      <div class="info">
+        <h2>ADA Screening Guidelines (2024 Standards of Care)</h2>
+        <p>The American Diabetes Association recommends the following screening protocol for type 2 diabetes and prediabetes:</p>
+
+        <ul>
+          <li><strong>All adults age 35+:</strong> Screen with A1C, fasting plasma glucose, or 2-hour oral glucose tolerance test (OGTT). Repeat every 3 years if results are normal.</li>
+          <li><strong>Adults of any age with BMI 25+ (23+ for Asian Americans) and one or more additional risk factors:</strong> Screen regardless of age. Risk factors include physical inactivity, first-degree relative with diabetes, high-risk ethnicity, history of gestational diabetes or delivery of a baby over 9 lbs, hypertension, HDL below 35 mg/dL, triglycerides above 250 mg/dL, polycystic ovary syndrome, A1C 5.7%+ or prediabetes on prior testing, and conditions associated with insulin resistance (severe obesity, acanthosis nigricans).</li>
+          <li><strong>Women with gestational diabetes:</strong> Test at 4-12 weeks postpartum and every 3 years thereafter for life.</li>
+          <li><strong>Children and adolescents with overweight/obesity:</strong> Screen after onset of puberty or age 10+ with additional risk factors.</li>
+        </ul>
+
+        <p>Diagnostic thresholds: A1C of 6.5%+ or fasting glucose of 126+ mg/dL or 2-hour OGTT of 200+ mg/dL confirms diabetes. Prediabetes is defined as A1C 5.7-6.4%, fasting glucose 100-125 mg/dL, or 2-hour OGTT 140-199 mg/dL.</p>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="faq-section">
+            <h3><svg class="section-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>Frequently Asked Questions</h3>
+
+            <div class="faq-item">
+                <h4>How accurate is this diabetes risk calculator?</h4>
+            <div class="faq-body">
+                <p>This calculator is adapted from validated screening instruments (ADA risk test and FINDRISC) with sensitivity of 72-87% for detecting prediabetes or undiagnosed diabetes. It is a screening tool — not a diagnostic test. A high score means you should get blood work done, not that you have diabetes. No risk calculator can replace laboratory testing.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>What is prediabetes and how common is it?</h4>
+            <div class="faq-body">
+                <p>Prediabetes is a condition where blood sugar levels are higher than normal but not high enough to be classified as type 2 diabetes. It is defined by an A1C of 5.7-6.4%, fasting glucose of 100-125 mg/dL, or 2-hour oral glucose tolerance test of 140-199 mg/dL. An estimated 96 million American adults (38% of the adult population) have prediabetes, and over 80% are unaware. Without intervention, 15-30% of people with prediabetes develop type 2 diabetes within 5 years.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>Can type 2 diabetes be prevented?</h4>
+            <div class="faq-body">
+                <p>Yes. The Diabetes Prevention Program (DPP) trial — one of the largest diabetes prevention studies ever conducted — showed that lifestyle modifications (5-7% weight loss + 150 min/week exercise) reduced type 2 diabetes incidence by 58% over 3 years, and by 71% in adults over 60. These benefits persisted at 10- and 15-year follow-up. Even the medication arm (metformin) achieved 31% risk reduction. Subsequent real-world programs have replicated these findings.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>At what age should I start screening for diabetes?</h4>
+            <div class="faq-body">
+                <p>The ADA recommends screening all adults beginning at age 35, with repeat testing every 3 years if results are normal. However, screening should start earlier — at any age — for individuals who are overweight (BMI 25+, or 23+ for Asian Americans) and have one or more additional risk factors. These include family history, high-risk ethnicity, physical inactivity, history of gestational diabetes, high blood pressure, or abnormal lipid levels.</p>
+                        </div>
+        </div>
+
+            <div class="faq-item">
+                <h4>Does race or ethnicity really affect diabetes risk?</h4>
+            <div class="faq-body">
+                <p>Yes, significantly. Non-Hispanic Blacks, Hispanic/Latino Americans, Asian Americans, Pacific Islanders, and American Indians/Alaska Natives all have higher rates of type 2 diabetes compared to non-Hispanic whites, even after controlling for BMI and socioeconomic factors. For example, Asian Americans develop type 2 diabetes at lower BMI thresholds, which is why the ADA uses a lower BMI cutoff (23 vs. 25) for screening in this population. These differences reflect genetic, metabolic, and environmental interactions.</p>
+                        </div>
+        </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+<!-- Script -->
+    <script>
+        // Toggle BMI input method
+        document.getElementById('bmi-method').addEventListener('change', function() {
+            const method = this.value;
+            document.getElementById('bmi-direct-group').style.display = method === 'direct' ? '' : 'none';
+            document.getElementById('bmi-calc-group').style.display = method === 'calculate' ? '' : 'none';
+        });
+
+        // Toggle height unit
+        document.getElementById('height-unit').addEventListener('change', function() {
+            const unit = this.value;
+            document.getElementById('height-imperial').style.display = unit === 'imperial' ? '' : 'none';
+            document.getElementById('height-metric').style.display = unit === 'metric' ? '' : 'none';
+        });
+
+        // Toggle weight label
+        document.getElementById('weight-unit').addEventListener('change', function() {
+            document.getElementById('weight-label').textContent = this.value;
+        });
+
+        // Toggle gestational diabetes visibility based on sex
+        document.getElementById('sex').addEventListener('change', function() {
+            const gestGroup = document.getElementById('gestational-group');
+            if (this.value === 'male') {
+                gestGroup.style.display = 'none';
+                document.getElementById('gestational').value = '0';
+            } else {
+                gestGroup.style.display = '';
+            }
+        });
+
+        // Toggle A1C / glucose inputs
+        document.getElementById('a1c-known').addEventListener('change', function() {
+            document.getElementById('a1c-input-group').style.display = this.value === 'a1c' ? '' : 'none';
+            document.getElementById('glucose-input-group').style.display = this.value === 'glucose' ? '' : 'none';
+        });
+
+        // Calculate button
+        document.getElementById('calculate-btn').addEventListener('click', calculateDiabetesRisk);
+
+        function getBMI() {
+            const method = document.getElementById('bmi-method').value;
+            if (method === 'direct') {
+                return parseFloat(document.getElementById('bmi-direct').value) || 0;
+            }
+            // Calculate from height + weight
+            let heightM;
+            const heightUnit = document.getElementById('height-unit').value;
+            if (heightUnit === 'imperial') {
+                const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+                const inches = parseFloat(document.getElementById('height-in').value) || 0;
+                const totalInches = ft * 12 + inches;
+                heightM = totalInches * 0.0254;
+            } else {
+                heightM = (parseFloat(document.getElementById('height-cm').value) || 0) / 100;
+            }
+
+            let weightKg;
+            const weightUnit = document.getElementById('weight-unit').value;
+            const weightVal = parseFloat(document.getElementById('weight').value) || 0;
+            if (weightUnit === 'lbs') {
+                weightKg = weightVal * 0.453592;
+            } else {
+                weightKg = weightVal;
+            }
+
+            if (heightM <= 0 || weightKg <= 0) return 0;
+            return weightKg / (heightM * heightM);
+        }
+
+        function calculateDiabetesRisk() {
+            // Get input values
+            const agePoints = parseInt(document.getElementById('age-group').value);
+            const sex = document.getElementById('sex').value;
+            const bmi = getBMI();
+            const familyHistory = parseInt(document.getElementById('family-history').value);
+            const inactivity = parseInt(document.getElementById('activity').value);
+            const highBP = parseInt(document.getElementById('blood-pressure').value);
+            const ethnicity = parseInt(document.getElementById('ethnicity').value);
+            const gestational = parseInt(document.getElementById('gestational').value);
+            const a1cKnown = document.getElementById('a1c-known').value;
+
+            // Validate BMI
+            if (bmi < 10 || bmi > 70) {
+                alert('Please enter valid height and weight values.');
+                return;
+            }
+
+            // BMI points
+            let bmiPoints = 0;
+            let bmiCategory = '';
+            if (bmi < 25) {
+                bmiPoints = 0;
+                bmiCategory = 'Normal weight';
+            } else if (bmi < 30) {
+                bmiPoints = 1;
+                bmiCategory = 'Overweight';
+            } else if (bmi < 35) {
+                bmiPoints = 2;
+                bmiCategory = 'Obese (Class I)';
+            } else if (bmi < 40) {
+                bmiPoints = 3;
+                bmiCategory = 'Obese (Class II)';
+            } else {
+                bmiPoints = 4;
+                bmiCategory = 'Obese (Class III)';
+            }
+
+            // Total score
+            const totalScore = agePoints + bmiPoints + familyHistory + inactivity + highBP + ethnicity + gestational;
+
+            // Risk level
+            let riskLevel, riskColor, riskBg, riskDescription, gaugePercent;
+            if (totalScore <= 3) {
+                riskLevel = 'Low Risk';
+                riskColor = '#16a34a';
+                riskBg = 'linear-gradient(135deg, #e8f5e9, #fff)';
+                gaugePercent = Math.max(5, (totalScore / 3) * 25);
+                riskDescription = 'Your current risk profile for type 2 diabetes is low based on the factors assessed. This does not mean zero risk — it means that the common modifiable and demographic risk factors are largely in your favor. Continue maintaining a healthy lifestyle with regular physical activity and balanced nutrition.';
+            } else if (totalScore <= 6) {
+                riskLevel = 'Moderate Risk';
+                riskColor = '#d97706';
+                riskBg = 'linear-gradient(135deg, #fff3e0, #fff)';
+                gaugePercent = 25 + ((totalScore - 3) / 3) * 25;
+                riskDescription = 'You have a moderate risk of developing type 2 diabetes. Several risk factors are present that warrant attention. The ADA recommends laboratory screening (A1C or fasting glucose) for individuals in this risk range. Lifestyle modifications — particularly weight management and increased physical activity — can meaningfully reduce your risk.';
+            } else if (totalScore <= 9) {
+                riskLevel = 'High Risk';
+                riskColor = '#ea580c';
+                riskBg = 'linear-gradient(135deg, #fff7ed, #fff)';
+                gaugePercent = 50 + ((totalScore - 6) / 3) * 25;
+                riskDescription = 'Your risk profile indicates a high likelihood of prediabetes or type 2 diabetes. Multiple significant risk factors are present. You should get laboratory testing (A1C, fasting glucose, or oral glucose tolerance test) as soon as possible. If prediabetes is confirmed, structured lifestyle intervention — as demonstrated in the DPP trial — can reduce progression to diabetes by 58%.';
+            } else {
+                riskLevel = 'Very High Risk';
+                riskColor = '#dc2626';
+                riskBg = 'linear-gradient(135deg, #fef2f2, #fff)';
+                gaugePercent = 75 + Math.min(25, ((totalScore - 9) / 6) * 25);
+                riskDescription = 'Your risk profile is very high. The combination of risk factors present suggests a strong probability that prediabetes or undiagnosed type 2 diabetes may already be present. Immediate medical evaluation with blood testing is strongly recommended. Early intervention can prevent or delay complications including cardiovascular disease, kidney damage, vision loss, and nerve damage.';
+            }
+
+            // Approximate 10-year risk percentage (estimated from FINDRISC validation studies)
+            let tenYearRisk;
+            if (totalScore <= 1) tenYearRisk = '~1%';
+            else if (totalScore <= 3) tenYearRisk = '~4%';
+            else if (totalScore <= 5) tenYearRisk = '~10%';
+            else if (totalScore <= 7) tenYearRisk = '~17%';
+            else if (totalScore <= 9) tenYearRisk = '~25%';
+            else if (totalScore <= 11) tenYearRisk = '~33%';
+            else tenYearRisk = '~50%';
+
+            // Update UI
+            document.getElementById('risk-level-text').textContent = riskLevel;
+            document.getElementById('risk-level-text').style.color = riskColor;
+            document.getElementById('risk-score-display').textContent = 'Risk Score: ' + totalScore + ' / 15';
+            document.getElementById('risk-percentage').textContent = 'Estimated 10-year risk: ' + tenYearRisk;
+
+            const heroEl = document.getElementById('result-hero');
+            heroEl.style.borderColor = riskColor;
+            heroEl.style.background = riskBg;
+
+            // Result cards
+            const scoreCard = document.getElementById('score-card');
+            scoreCard.className = totalScore <= 3 ? 'result-card green' : totalScore <= 6 ? 'result-card orange' : 'result-card red';
+            document.getElementById('total-score').textContent = totalScore;
+
+            document.getElementById('bmi-display').textContent = bmi.toFixed(1);
+            document.getElementById('bmi-category').textContent = bmiCategory;
+            const bmiCardEl = document.getElementById('bmi-card');
+            bmiCardEl.className = bmi < 25 ? 'result-card green' : bmi < 30 ? 'result-card orange' : 'result-card red';
+
+            // Count contributing factors
+            const contributingFactors = [agePoints > 0, bmiPoints > 0, familyHistory > 0, inactivity > 0, highBP > 0, ethnicity > 0, gestational > 0].filter(Boolean).length;
+            document.getElementById('factor-count').textContent = contributingFactors;
+            const factorsCardEl = document.getElementById('factors-card');
+            factorsCardEl.className = contributingFactors <= 2 ? 'result-card green' : contributingFactors <= 4 ? 'result-card orange' : 'result-card red';
+
+            // Gauge
+            const gaugeEl = document.getElementById('risk-gauge');
+            gaugeEl.style.width = gaugePercent + '%';
+            gaugeEl.style.background = riskColor;
+
+            // Point breakdown
+            const breakdownEl = document.getElementById('point-breakdown');
+            breakdownEl.innerHTML = '';
+            const factors = [
+                { name: 'Age', value: agePoints, max: 3 },
+                { name: 'BMI (' + bmi.toFixed(1) + ')', value: bmiPoints, max: 4 },
+                { name: 'Family history', value: familyHistory, max: 2 },
+                { name: 'Physical inactivity', value: inactivity, max: 1 },
+                { name: 'High blood pressure', value: highBP, max: 1 },
+                { name: 'High-risk ethnicity', value: ethnicity, max: 1 },
+                { name: 'Gestational diabetes', value: gestational, max: 1 }
+            ];
+
+            factors.forEach(function(factor) {
+                const factorEl = document.createElement('div');
+                factorEl.className = 'factor';
+                const nameEl = document.createElement('span');
+                nameEl.className = 'factor-name';
+                nameEl.textContent = factor.name + ': ';
+                factorEl.appendChild(nameEl);
+                const valueEl = document.createElement('span');
+                if (factor.value > 0) {
+                    valueEl.className = 'negative';
+                    valueEl.textContent = '+' + factor.value + ' pt' + (factor.value > 1 ? 's' : '');
+                } else {
+                    valueEl.className = 'positive';
+                    valueEl.textContent = '0 pts';
+                }
+                factorEl.appendChild(valueEl);
+                breakdownEl.appendChild(factorEl);
+            });
+
+            // Risk description
+            document.getElementById('risk-description').textContent = riskDescription;
+
+            // Recommendations
+            const recsEl = document.getElementById('recommendations');
+            recsEl.innerHTML = '';
+            const recs = [];
+
+            if (totalScore >= 4) {
+                recs.push('Get screened: Ask your doctor for an A1C test or fasting blood glucose. <a href="/a1c-calculator" style="color: var(--color-accent);">Use our A1C Calculator</a> to understand your results.');
+            }
+            if (totalScore >= 7) {
+                recs.push('Schedule a medical evaluation soon. Your risk profile warrants professional assessment and may qualify you for a structured diabetes prevention program (covered by most insurance).');
+            }
+            if (bmiPoints >= 1) {
+                recs.push('Weight management: Losing just 5-7% of your body weight (' + Math.round(getBMIWeight() * 0.05) + '-' + Math.round(getBMIWeight() * 0.07) + ' lbs) can reduce diabetes risk by up to 58% (DPP trial).');
+            }
+            if (inactivity > 0) {
+                recs.push('Start with 150 minutes/week of moderate activity (brisk walking counts). Even 10-minute walks after meals reduce blood sugar spikes significantly.');
+            }
+            if (highBP > 0) {
+                recs.push('Monitor and manage blood pressure. Hypertension and diabetes share underlying mechanisms — controlling one helps control the other.');
+            }
+            if (familyHistory > 0) {
+                recs.push('Family history increases your genetic risk, but the DPP trial showed lifestyle changes are effective regardless of family history. Consider more frequent screening (every 1-2 years).');
+            }
+            if (totalScore <= 3) {
+                recs.push('Continue your current healthy habits. Maintain regular physical activity and a balanced diet to keep your risk low.');
+                recs.push('Even at low risk, get baseline screening at age 35 (ADA recommendation) so you have reference values for future comparison.');
+            }
+
+            recs.forEach(function(rec) {
+                const li = document.createElement('li');
+                li.innerHTML = rec;
+                li.style.marginBottom = '8px';
+                recsEl.appendChild(li);
+            });
+
+            // Optional lab values section
+            const labSection = document.getElementById('lab-result-section');
+            const labText = document.getElementById('lab-result-text');
+            if (a1cKnown === 'a1c') {
+                const a1c = parseFloat(document.getElementById('a1c-value').value);
+                if (a1c && a1c > 0) {
+                    labSection.style.display = '';
+                    let labMsg = 'Your A1C of ' + a1c.toFixed(1) + '% ';
+                    if (a1c < 5.7) {
+                        labMsg += 'is in the <strong style="color:#16a34a;">normal range</strong>. This is reassuring, but continue monitoring if you have other risk factors.';
+                        labSection.style.borderColor = '#16a34a';
+                    } else if (a1c < 6.5) {
+                        labMsg += 'indicates <strong style="color:#d97706;">prediabetes</strong> (5.7-6.4%). This means your blood sugar is elevated but not yet in the diabetic range. Lifestyle intervention now can prevent progression — the DPP trial showed 58% risk reduction with diet and exercise changes.';
+                        labSection.style.borderColor = '#d97706';
+                    } else {
+                        labMsg += 'meets the diagnostic threshold for <strong style="color:#dc2626;">diabetes</strong> (6.5%+). Please consult a healthcare provider promptly for confirmatory testing and treatment planning.';
+                        labSection.style.borderColor = '#dc2626';
+                    }
+                    labText.innerHTML = labMsg;
+                } else {
+                    labSection.style.display = 'none';
+                }
+            } else if (a1cKnown === 'glucose') {
+                const glucose = parseFloat(document.getElementById('glucose-value').value);
+                if (glucose && glucose > 0) {
+                    labSection.style.display = '';
+                    let labMsg = 'Your fasting glucose of ' + Math.round(glucose) + ' mg/dL ';
+                    if (glucose < 100) {
+                        labMsg += 'is in the <strong style="color:#16a34a;">normal range</strong>. This is a good sign, but continue monitoring if other risk factors are present.';
+                        labSection.style.borderColor = '#16a34a';
+                    } else if (glucose < 126) {
+                        labMsg += 'indicates <strong style="color:#d97706;">prediabetes</strong> (100-125 mg/dL). Your blood sugar is elevated. Lifestyle changes — weight loss and exercise — can prevent or delay progression to diabetes.';
+                        labSection.style.borderColor = '#d97706';
+                    } else {
+                        labMsg += 'meets the diagnostic threshold for <strong style="color:#dc2626;">diabetes</strong> (126+ mg/dL). Please consult a healthcare provider promptly for confirmatory testing and treatment planning.';
+                        labSection.style.borderColor = '#dc2626';
+                    }
+                    labText.innerHTML = labMsg;
+                } else {
+                    labSection.style.display = 'none';
+                }
+            } else {
+                labSection.style.display = 'none';
+            }
+
+            // Show results
+            document.getElementById('result').classList.remove('hidden');
+            if (typeof showNextSteps === 'function') showNextSteps('diabetes-risk', collectUserData());
+        }
+
+        function getBMIWeight() {
+            // Return weight in lbs for recommendation text
+            const weightUnit = document.getElementById('weight-unit').value;
+            const weightVal = parseFloat(document.getElementById('weight').value) || 170;
+            if (weightUnit === 'kg') return Math.round(weightVal * 2.205);
+            return weightVal;
+        }
+
+        function collectUserData() {
+            const bmi = getBMI();
+            const weightUnit = document.getElementById('weight-unit').value;
+            const weightVal = parseFloat(document.getElementById('weight').value) || 0;
+            const weightKg = weightUnit === 'lbs' ? weightVal * 0.453592 : weightVal;
+            let heightCm;
+            const heightUnit = document.getElementById('height-unit').value;
+            if (heightUnit === 'imperial') {
+                const ft = parseFloat(document.getElementById('height-ft').value) || 0;
+                const inches = parseFloat(document.getElementById('height-in').value) || 0;
+                heightCm = Math.round((ft * 12 + inches) * 2.54);
+            } else {
+                heightCm = parseFloat(document.getElementById('height-cm').value) || 0;
+            }
+            const ageMap = {'0': 30, '1': 45, '2': 55, '3': 65};
+            const ageVal = ageMap[document.getElementById('age-group').value] || 45;
+            return {
+                age: ageVal,
+                gender: document.getElementById('sex').value,
+                weight_kg: Math.round(weightKg),
+                height_cm: heightCm
+            };
+        }
+    </script>
+
+    {% set sources = [
+        {"text": "American Diabetes Association. Standards of Care in Diabetes — 2024. Diabetes Care. 2024;47(Suppl 1).", "url": "https://diabetesjournals.org/care/issue/47/Supplement_1"},
+        {"text": "Knowler WC, Barrett-Connor E, et al. Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin (DPP). N Engl J Med. 2002;346(6):393-403.", "url": "https://pubmed.ncbi.nlm.nih.gov/11832527/"},
+        {"text": "Lindström J, Tuomilehto J. The Diabetes Risk Score: a practical tool to predict type 2 diabetes risk (FINDRISC). Diabetes Care. 2003;26(3):725-731.", "url": "https://pubmed.ncbi.nlm.nih.gov/12610029/"},
+        {"text": "CDC. National Diabetes Statistics Report, 2022. Centers for Disease Control and Prevention.", "url": "https://www.cdc.gov/diabetes/data/statistics-report/index.html"},
+        {"text": "Diabetes Prevention Program Research Group. Long-term effects of lifestyle intervention or metformin on diabetes development and microvascular complications (DPP Outcomes Study). Lancet Diabetes Endocrinol. 2015;3(11):866-875.", "url": "https://pubmed.ncbi.nlm.nih.gov/26377054/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    </div> <!-- End of calculator-container -->
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+    <script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
