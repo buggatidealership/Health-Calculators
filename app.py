@@ -89,7 +89,11 @@ cross_links = {
         "guides": ["/resources/fasting-weight-loss-chart"]
     },
     "/caloric-intake-macronutrient-calculator": {
-        "calculators": ["/tdee-calculator", "/carb-cycling-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator"],
+        "calculators": ["/tdee-calculator", "/carb-cycling-calculator", "/keto-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator"],
+        "guides": ["/resources/how-to-start-carb-cycling"]
+    },
+    "/keto-calculator": {
+        "calculators": ["/caloric-intake-macronutrient-calculator", "/tdee-calculator", "/carb-cycling-calculator", "/protein-intake-calculator"],
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/baldness-risk-calculator": {
@@ -111,6 +115,10 @@ cross_links = {
     "/dog-pregnancy-due-date-calculator": {
         "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator"],
         "guides": []
+    },
+    "/pregnancy-weight-gain-calculator": {
+        "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator", "/newborn-weight-loss-calculator", "/child-growth-calculator"],
+        "guides": ["/resources/fertility-after-35"]
     },
     "/liposuction-weight-loss-calculator": {
         "calculators": ["/ideal-body-weight-calculator", "/tdee-calculator", "/lip-filler-cost-calculator", "/breast-implant-cost-calculator"],
@@ -173,11 +181,19 @@ cross_links = {
         "guides": []
     },
     "/lifespan-longevity-calculator": {
-        "calculators": ["/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator", "/menopause-calculator"],
+        "calculators": ["/heart-age-calculator", "/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator", "/menopause-calculator"],
+        "guides": []
+    },
+    "/heart-age-calculator": {
+        "calculators": ["/lifespan-longevity-calculator", "/lipid-panel-goals-calculator", "/bmi-calculator", "/a1c-calculator", "/tdee-calculator"],
         "guides": []
     },
     "/fasting-weight-loss-calculator": {
-        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/ozempic-weight-loss-calculator", "/carb-cycling-calculator"],
+        "calculators": ["/intermittent-fasting-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/ozempic-weight-loss-calculator", "/carb-cycling-calculator"],
+        "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
+    },
+    "/intermittent-fasting-calculator": {
+        "calculators": ["/fasting-weight-loss-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/carb-cycling-calculator"],
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
     "/bmi-calculator": {
@@ -311,6 +327,16 @@ cards = [
         "icon": "🍽️",
         "cta": "Create Carb Cycle",
         "color": "orange",
+        "category": "nutrition",
+        "popular": False
+    },
+    {
+        "title": "Keto Macro Calculator",
+        "url": "/keto-calculator",
+        "summary": "Calculate your personalized ketogenic diet macros for fat, protein, and carbs. Supports standard, modified, and high-protein keto approaches.",
+        "icon": "🥑",
+        "cta": "Calculate Keto Macros",
+        "color": "green",
         "category": "nutrition",
         "popular": False
     },
@@ -463,6 +489,16 @@ cards = [
         "color": "pink",
         "category": "fertility",
         "popular": False
+    },
+    {
+        "title": "Pregnancy Weight Gain Calculator",
+        "url": "/pregnancy-weight-gain-calculator",
+        "summary": "Calculate your recommended pregnancy weight gain by week based on pre-pregnancy BMI. Uses IOM 2009 guidelines for singles and twins.",
+        "icon": "🤰",
+        "cta": "Calculate Weight Gain",
+        "color": "pink",
+        "category": "fertility",
+        "popular": True
     },
     {
         "title": "Breast Implant Calculator",
@@ -625,6 +661,16 @@ cards = [
         "popular": False
     },
     {
+        "title": "Intermittent Fasting Schedule Calculator",
+        "url": "/intermittent-fasting-calculator",
+        "summary": "Plan your personalized fasting and eating windows based on your wake time, bedtime, and preferred IF protocol.",
+        "icon": "🕐",
+        "cta": "Build My Schedule",
+        "color": "green",
+        "category": "nutrition",
+        "popular": False
+    },
+    {
         "title": "Caloric & Macronutrient Calculator",
         "url": "/caloric-intake-macronutrient-calculator",
         "summary": "Calculate your daily caloric needs and optimal macronutrient ratios.",
@@ -710,6 +756,16 @@ cards = [
         "summary": "Convert between A1C and blood sugar (eAG) using the ADA-standard formula. See your diabetes risk category with color-coded results.",
         "icon": "🩸",
         "cta": "Convert A1C",
+        "color": "red",
+        "category": "health",
+        "popular": True
+    },
+    {
+        "title": "Diabetes Risk Calculator",
+        "url": "/diabetes-risk-calculator",
+        "summary": "Assess your risk of developing type 2 diabetes based on ADA and FINDRISC screening criteria. Get personalized risk level, point breakdown, and prevention recommendations.",
+        "icon": "🩺",
+        "cta": "Assess Risk",
         "color": "red",
         "category": "health",
         "popular": True
@@ -1204,6 +1260,19 @@ def a1c_calculator():
         schema_url=schema_url
     )
 
+@app.route('/diabetes-risk-calculator')
+def diabetes_risk_calculator():
+    schema_name = "Diabetes Risk Calculator"
+    schema_description = "Assess your risk of developing type 2 diabetes based on age, BMI, family history, activity level, and other clinical risk factors. Adapted from the ADA risk test and Finnish Diabetes Risk Score (FINDRISC)."
+    schema_url = "/diabetes-risk-calculator"
+    return render_template(
+        'diabetes_risk_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
 @app.route('/ivf-due-date-calculator')
 def ivf_due_date_calculator():
     schema_name = "FET Due Date Calculator"
@@ -1224,6 +1293,19 @@ def carb_cycling_calculator():
     schema_url = "/carb-cycling-calculator"
     return render_template(
         'carb_cycling_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/keto-calculator')
+def keto_calculator():
+    schema_name = "Keto Macro Calculator"
+    schema_description = "Calculate your personalized ketogenic diet macros for fat, protein, and carbs. Supports standard, modified, and high-protein keto approaches."
+    schema_url = "/keto-calculator"
+    return render_template(
+        'keto_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1269,6 +1351,19 @@ def fasting_weight_loss_calculator():
         schema_url=schema_url
     )
 
+
+@app.route('/intermittent-fasting-calculator')
+def intermittent_fasting_calculator():
+    schema_name = "Intermittent Fasting Schedule Calculator"
+    schema_description = "Plan your personalized intermittent fasting schedule based on wake time, bedtime, and fasting protocol. Get a visual daily timeline showing exactly when to eat and fast."
+    schema_url = "/intermittent-fasting-calculator"
+    return render_template(
+        'intermittent_fasting_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
 @app.route('/ozempic-pen-click-calculator')
 def ozempic_pen_click_calculator():
     schema_name = "Ozempic Pen Click Calculator"
@@ -1367,6 +1462,19 @@ def glp1_comparison_calculator():
     schema_url = "/glp1-comparison-calculator"
     return render_template(
         'glp1_comparison_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+@app.route('/metabolic-age-calculator')
+def metabolic_age_calculator():
+    schema_name = "Metabolic Age Calculator"
+    schema_description = "Calculate your metabolic age by comparing your BMR to population averages. Find out if your metabolism is younger or older than your actual age using Mifflin-St Jeor and Katch-McArdle formulas."
+    schema_url = "/metabolic-age-calculator"
+    return render_template(
+        'metabolic_age_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2150,6 +2258,20 @@ def lipid_panel_goals_calculator():
     schema_url = "/lipid-panel-goals-calculator"
     return render_template(
         'lipid_panel_goals_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url
+    )
+
+
+@app.route('/pregnancy-weight-gain-calculator')
+def pregnancy_weight_gain_calculator():
+    schema_name = "Pregnancy Weight Gain Calculator"
+    schema_description = "Calculate your recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines. Week-by-week tracker for single and twin pregnancies."
+    schema_url = "/pregnancy-weight-gain-calculator"
+    return render_template(
+        'pregnancy_weight_gain_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

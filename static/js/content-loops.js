@@ -40,15 +40,34 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your carb cycle only works if your TDEE baseline is accurate', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Stacking fasting with carb cycling doubled fat loss in one study', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your fat-to-protein ratio matters more than total calories', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your fat-to-protein ratio matters more than total calories', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/keto-calculator', title: 'Keto Calculator', icon: '🥑', reason: 'Keto is the ultimate low-carb day — see your exact macros for ketosis', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
+  'keto': {
+    links: [
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Compare your keto macros to a standard balanced split — the protein gap may surprise you', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your keto deficit only works if your TDEE baseline is accurate', params: ['weight_kg','height_cm','age','gender','activity'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Cycling between keto and higher-carb days can break weight loss plateaus', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Too little protein on keto costs muscle — find your minimum threshold', params: ['weight_kg','age','gender'] },
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Keto + intermittent fasting accelerates ketone production — see your timeline', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'fasting': {
     links: [
+      { url: '/intermittent-fasting-calculator', title: 'IF Schedule Planner', icon: '🕐', reason: 'Know your weight loss — now plan exactly when to eat and fast each day', params: [] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Fasting without knowing your TDEE? You might be undereating', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'How far are you from your ideal weight? The answer sets your timeline', params: ['height_cm','gender'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'High-carb days on workout days can boost fasting results by 20%', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/creatine-water-calculator', title: 'Hydration Calculator', icon: '💧', reason: 'Dehydration during fasting drops metabolism — find your water target', params: ['weight_kg'] }
+    ]
+  },
+  'if-schedule': {
+    links: [
+      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Now that you have your schedule — see how much fat you could lose', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your fasting deficit depends on your TDEE — is yours accurate?', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Stack carb cycling with IF for faster results', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'With a shorter eating window, hitting your macros matters more', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'ideal-body-weight': {
@@ -65,6 +84,7 @@ var CALCULATOR_GRAPH = {
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your macros mean nothing if your calorie baseline is off — is it?', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'The 0.8g/kg protein RDA is a minimum, not optimal — find yours', params: ['weight_kg','age','gender'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Same weekly macros, different daily splits — the results surprised researchers', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/keto-calculator', title: 'Keto Calculator', icon: '🥑', reason: 'Keto flips your macros — 75% fat changes everything about meal planning', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'A Chipotle bowl can hit your macros perfectly — or blow them by 800 cal' }
     ]
   },
@@ -256,6 +276,7 @@ var CALCULATOR_GRAPH = {
   },
   'fertility': {
     links: [
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Gaining too much or too little affects your baby — check the IOM range', params: [] },
       { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Fertility and menopause are linked — knowing your timeline helps you plan', params: ['age'] },
       { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'IVF due dates differ from natural conception dates — find yours', params: [] },
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Is your child in the 50th percentile? That might not mean what you think', params: [] },
@@ -266,13 +287,24 @@ var CALCULATOR_GRAPH = {
   'ivf-due-date': {
     links: [
       { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility drops 50% between age 30 and 40 — where do you stand?', params: ['age'] },
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'IVF pregnancies follow the same weight gain guidelines — track yours', params: [] },
       { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'All newborns lose weight after birth — know when to worry and when not to', params: [] },
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'IVF babies follow different early growth curves — track yours', params: [] }
+    ]
+  },
+  'pregnancy-weight': {
+    links: [
+      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'IVF due dates differ from natural conception — know your timeline', params: [] },
+      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Age affects both fertility and pregnancy outcomes — check your window', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Newborns lose 5-10% of birth weight in the first days — is that normal?', params: [] },
+      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: "After birth, track your baby's growth percentile against CDC/WHO data", params: [] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your postpartum BMI to track your recovery', params: ['weight_kg','height_cm'] }
     ]
   },
   'newborn-weight': {
     links: [
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Birth weight predicts growth trajectory — see your child\'s percentile', params: [] },
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Planning another pregnancy? Know your recommended weight gain range', params: [] },
       { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Spacing pregnancies 18+ months apart improves outcomes — check your window', params: [] }
     ]
   },
