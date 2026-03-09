@@ -1,6 +1,7 @@
 import os
 import logging
 from flask import Flask, render_template, send_from_directory, redirect, Response, request
+from request_logger import init_request_logger
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -8,6 +9,9 @@ logging.basicConfig(level=logging.DEBUG)
 # Create Flask app
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
+
+# Initialize request logging (SQLite, no IPs stored)
+init_request_logger(app)
 
 # Cross-linking map: each calculator URL -> related calculators + guides
 # Used by the related_links component template
