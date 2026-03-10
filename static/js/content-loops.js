@@ -476,6 +476,16 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Creatine adds 2-5 lbs of water weight — your real target is different', params: ['height_cm','gender'] }
     ]
   },
+  'one-rep-max': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Building strength requires a calorie surplus — find out how much you need', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Strength gains plateau without 1.6-2.2g protein per kg — are you hitting it?', params: ['weight_kg','age','gender'] },
+      { url: '/creatine-dosage-calculator', title: 'Creatine Calculator', icon: '💪', reason: 'Creatine adds 5-10% to your 1RM in 4 weeks — calculate your dose', params: ['weight_kg'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your macro ratio determines whether strength gains come with fat or without it', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Strength-to-bodyweight ratio matters more than absolute strength for most goals', params: ['height_cm','gender','age'] },
+      { url: '/waist-to-hip-ratio-calculator', title: 'Waist-to-Hip Ratio', icon: '📏', reason: 'Stronger lifters carry weight differently — check if your ratio is healthy', params: [] }
+    ]
+  },
   'starbucks': {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A Frappuccino can be 25% of your daily calories — do you know your limit?', params: [] },

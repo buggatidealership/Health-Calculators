@@ -204,6 +204,10 @@ cross_links = {
         "calculators": ["/bmi-calculator", "/body-roundness-index-calculator", "/body-fat-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/body-fat-percentage-chart"]
     },
+    "/one-rep-max-calculator": {
+        "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -435,6 +439,16 @@ cards = [
         "color": "teal",
         "category": "health",
         "popular": False
+    },
+    {
+        "title": "One Rep Max (1RM) Calculator",
+        "url": "/one-rep-max-calculator",
+        "summary": "Estimate your one rep max using 7 proven formulas. Full training load table for bench press, squat, deadlift, and more.",
+        "icon": "🏋️",
+        "cta": "Calculate 1RM",
+        "color": "red",
+        "category": "fitness",
+        "popular": True
     },
     {
         "title": "Creatine Dosage Calculator",
@@ -4363,6 +4377,23 @@ def heart_age_calculator():
         schema_url=schema_url,
         date_modified='2025-06-01'
     )
+
+@app.route('/one-rep-max-calculator')
+def one_rep_max_calculator():
+    schema_name = "One Rep Max (1RM) Calculator"
+    schema_description = "Estimate your one repetition maximum for any barbell exercise using 7 validated prediction formulas (Epley, Brzycki, Lander, Lombardi, Mayhew, O'Conner, Wathen). Includes training load percentage table."
+    schema_url = "/one-rep-max-calculator"
+    return render_template(
+        'one_rep_max_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
