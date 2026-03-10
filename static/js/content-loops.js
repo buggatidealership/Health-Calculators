@@ -286,6 +286,13 @@ var CALCULATOR_GRAPH = {
       { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Dog pregnancies last only 63 days — is your pup on schedule?', params: [] }
     ]
   },
+  'caffeine-half-life': {
+    links: [
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '😴', reason: 'Caffeine disrupts sleep quality even when you don\'t notice — optimize your sleep cycles', params: [] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Caffeine boosts metabolism by 3-11% — see your total daily calorie burn', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Mixing caffeine and alcohol? Caffeine masks impairment but doesn\'t lower BAC', params: [] }
+    ]
+  },
   'hcg-doubling': {
     links: [
       { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '👶', reason: 'hCG confirmed your pregnancy is on track — now calculate your due date', params: [] },

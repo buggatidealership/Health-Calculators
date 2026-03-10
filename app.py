@@ -80,6 +80,10 @@ cross_links = {
         "calculators": ["/hcg-doubling-time-calculator", "/female-fertility-calculator", "/newborn-weight-loss-calculator", "/dog-pregnancy-due-date-calculator"],
         "guides": ["/resources/ivf-due-date-calculator-guide", "/resources/fertility-after-35"]
     },
+    "/caffeine-half-life-calculator": {
+        "calculators": ["/sleep-calculator", "/tdee-calculator", "/bac-calculator"],
+        "guides": []
+    },
     "/hcg-doubling-time-calculator": {
         "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator", "/pregnancy-weight-gain-calculator"],
         "guides": ["/resources/fertility-after-35"]
@@ -375,6 +379,16 @@ cards = [
         "color": "pink",
         "category": "fertility",
         "popular": True
+    },
+    {
+        "title": "Caffeine Half Life Calculator",
+        "url": "/caffeine-half-life-calculator",
+        "summary": "Find out how long caffeine stays in your system. See a personalized decay timeline and how much caffeine is left at bedtime.",
+        "icon": "☕",
+        "cta": "Calculate Caffeine Decay",
+        "color": "orange",
+        "category": "health",
+        "popular": False
     },
     {
         "title": "hCG Doubling Time Calculator",
@@ -2619,6 +2633,23 @@ def lipid_panel_goals_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         date_modified='2025-06-01'
+    )
+
+
+@app.route('/caffeine-half-life-calculator')
+def caffeine_half_life_calculator():
+    schema_name = "Caffeine Half Life Calculator"
+    schema_description = "Calculate how long caffeine stays in your system using pharmacokinetic half-life. See a personalized decay timeline and how much caffeine remains at bedtime."
+    schema_url = "/caffeine-half-life-calculator"
+    return render_template(
+        'caffeine_half_life_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Health',
+        date_modified='2026-03-10'
     )
 
 

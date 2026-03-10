@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate how long caffeine stays in your system. Enter your dose and see a personalized decay timeline showing exactly when caffeine wears off before bedtime.",
+    meta_keywords="caffeine half life calculator, how long does caffeine last, caffeine calculator, caffeine half life, caffeine decay calculator, when does caffeine wear off, caffeine and sleep",
+    og_title="Caffeine Half Life Calculator — When Does Caffeine Wear Off?",
+    og_description="Enter your caffeine dose and see exactly how long it stays in your system. Personalized decay curve shows caffeine remaining at bedtime.",
+    og_url="/caffeine-half-life-calculator",
+    page_title="Caffeine Half Life Calculator — When Does It Wear Off?",
+    canonical_url="/caffeine-half-life-calculator",
+    schema_name="Caffeine Half Life Calculator",
+    schema_description="Calculate caffeine decay over time using pharmacokinetic half-life. Shows how much caffeine remains in your system at any time point, with a focus on sleep impact.",
+    schema_url="/caffeine-half-life-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Caffeine Half Life Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Find out exactly how much caffeine is still in your system at bedtime — and when it fully wears off.</p>
+
+<section id="calculator">
+        <h2>Calculate Your Caffeine Decay</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="caffeine-source">Caffeine Source:</label>
+                    <select id="caffeine-source">
+                        <option value="custom">Custom amount</option>
+                        <optgroup label="Coffee">
+                            <option value="coffee-8" selected>Coffee — 8 oz cup (95 mg)</option>
+                            <option value="coffee-12">Coffee — 12 oz tall (142 mg)</option>
+                            <option value="coffee-16">Coffee — 16 oz grande (190 mg)</option>
+                            <option value="espresso-single">Espresso — single shot (63 mg)</option>
+                            <option value="espresso-double">Espresso — double shot (126 mg)</option>
+                            <option value="cold-brew-12">Cold Brew — 12 oz (200 mg)</option>
+                            <option value="decaf">Decaf Coffee (5 mg)</option>
+                        </optgroup>
+                        <optgroup label="Tea">
+                            <option value="tea-black">Black Tea — 8 oz (47 mg)</option>
+                            <option value="tea-green">Green Tea — 8 oz (28 mg)</option>
+                        </optgroup>
+                        <optgroup label="Energy & Supplements">
+                            <option value="energy-drink">Energy Drink — 16 oz (160 mg)</option>
+                            <option value="energy-drink-large">Energy Drink — large/Bang (300 mg)</option>
+                            <option value="pre-workout">Pre-Workout Supplement (200 mg)</option>
+                            <option value="caffeine-pill">Caffeine Pill (200 mg)</option>
+                        </optgroup>
+                        <optgroup label="Soda">
+                            <option value="soda-12">Cola — 12 oz can (34 mg)</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="caffeine-mg">Caffeine Amount (mg):</label>
+                    <input type="number" id="caffeine-mg" min="0" step="1" value="95" placeholder="e.g. 95">
+                    <span class="input-hint">FDA recommends &le;400 mg/day for healthy adults</span>
+                </div>
+                <div class="form-group">
+                    <label for="time-consumed">Time Consumed:</label>
+                    <input type="time" id="time-consumed">
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="half-life">Your Caffeine Half-Life (hours):</label>
+                    <input type="number" id="half-life" min="1" max="15" step="0.5" value="5">
+                    <span class="input-hint">Average: 5 hours. Range: 1.5-9.5 hours. <a href="#factors" style="color: var(--color-accent);">See factors</a></span>
+                </div>
+                <div class="form-group">
+                    <label for="target-time">Bedtime / Target Time:</label>
+                    <input type="time" id="target-time" value="22:00">
+                    <span class="input-hint">We'll show how much caffeine remains at this time</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Caffeine Decay</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="remaining-result">--</div>
+                    <div class="result-hero-label" id="remaining-label">Caffeine at bedtime</div>
+                </div>
+
+                <div id="caffeine-status" class="result-status status-good">
+                    <span class="result-status-icon" id="caffeine-icon"></span>
+                    <span class="result-status-text" id="caffeine-description">--</span>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Caffeine at Bedtime</div>
+                    <div class="result-gauge-bar" style="position: relative; background: linear-gradient(to right, #4caf50 0%, #4caf50 12%, #8bc34a 12%, #8bc34a 25%, #ff9800 25%, #ff9800 50%, #f44336 50%);">
+                        <div id="gauge-marker" style="position: absolute; width: 3px; height: 18px; background: #333; border-radius: 2px; top: -3px; left: 0; transition: left 0.4s ease;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>&lt;25 mg</span>
+                        <span>&lt;50 mg</span>
+                        <span>&lt;100 mg</span>
+                        <span>&gt;100 mg</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Your Caffeine Timeline</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Starting Dose</span>
+                        <span class="result-breakdown-val" id="display-initial">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Half-Life</span>
+                        <span class="result-breakdown-val" id="display-half-life">--</span>
+                    </div>
+                    <div class="result-breakdown-row" id="row-elapsed">
+                        <span class="result-breakdown-key">Time to Bedtime</span>
+                        <span class="result-breakdown-val" id="display-elapsed">--</span>
+                    </div>
+                    <div class="result-breakdown-row" id="row-target">
+                        <span class="result-breakdown-key">At Bedtime</span>
+                        <span class="result-breakdown-val" id="display-at-target">--</span>
+                    </div>
+                    <div class="result-breakdown-row" id="row-to-50">
+                        <span class="result-breakdown-key">Below 50 mg</span>
+                        <span class="result-breakdown-val" id="display-to-50">--</span>
+                    </div>
+                    <div class="result-breakdown-row" id="row-to-25">
+                        <span class="result-breakdown-key">Below 25 mg</span>
+                        <span class="result-breakdown-val" id="display-to-25">--</span>
+                    </div>
+                </div>
+
+                <!-- Decay timeline table -->
+                <div style="margin-top: 16px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Hour-by-Hour Caffeine Decay</div>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Elapsed</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Clock</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Remaining</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">% Left</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb; min-width: 80px;"></th>
+                                </tr>
+                            </thead>
+                            <tbody id="decay-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about the caffeine half-life formula
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About the Caffeine Half-Life Formula</h4>
+                    <ul>
+                        <li><strong>Formula:</strong> Remaining = Dose &times; 0.5^(time / half-life)</li>
+                        <li><strong>Half-life:</strong> The time it takes for your body to eliminate half the caffeine. Average is 5 hours in healthy adults, but ranges from 1.5 to 9.5 hours.</li>
+                        <li><strong>First-order kinetics:</strong> Caffeine follows first-order elimination kinetics at normal doses — the rate of elimination is proportional to the amount remaining.</li>
+                        <li><strong>Important:</strong> This is a simplified model. Actual caffeine metabolism varies based on genetics (CYP1A2 gene), liver function, medications, pregnancy, smoking, and other factors.</li>
+                    </ul>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Caffeine Half-Life?</h2>
+    <div class="answer-capsule">
+      Caffeine half-life is the time it takes for your body to eliminate half the caffeine in your system. For most healthy adults, caffeine's half-life is about 5 hours — meaning if you drink 200 mg of caffeine at noon, you'll still have about 100 mg in your system at 5 PM, 50 mg at 10 PM, and 25 mg at 3 AM. This is why afternoon coffee can disrupt sleep even if you feel alert.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        Caffeine is metabolized primarily by the CYP1A2 enzyme in the liver. The speed of this enzyme varies significantly between individuals — some people are "fast metabolizers" (half-life as low as 1.5 hours) while others are "slow metabolizers" (half-life up to 9.5 hours). This genetic variation explains why some people can drink coffee at dinner with no sleep issues, while others are wired from a single morning cup.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#caffeine-chart">Caffeine Content Chart</a></li>
+            <li><a href="#factors">Factors That Change Your Half-Life</a></li>
+            <li><a href="#sleep-impact">Caffeine and Sleep</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="caffeine-chart" class="info">
+        <h2>Caffeine Content by Source</h2>
+        <p>Common caffeine sources and their approximate caffeine content. Actual amounts vary by brand, brew method, and serving size.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Source</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Serving Size</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Caffeine (mg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Brewed coffee</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8 oz (240 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">95 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Starbucks Grande</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">16 oz (473 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">190 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Cold Brew</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12 oz (355 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">200 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Espresso</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 shot (30 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">63 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Black Tea</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8 oz (240 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">47 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Green Tea</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8 oz (240 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">28 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Energy Drink (Monster/Red Bull)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">16 oz (473 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">160 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Bang/Reign Energy</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">16 oz (473 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">300 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Cola (Coca-Cola)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12 oz (355 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">34 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Pre-Workout Supplement</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 scoop</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">150-300 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Caffeine Pill (NoDoz)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 tablet</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">200 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Decaf Coffee</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8 oz (240 mL)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">2-15 mg</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Dark Chocolate</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 oz (28g)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">12 mg</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> USDA FoodData Central, FDA caffeine content data. Values are averages; actual content varies by brand and preparation.</p>
+    </section>
+
+    <section id="factors" class="info">
+        <h2>Factors That Change Your Caffeine Half-Life</h2>
+        <p>The average half-life is 5 hours, but your individual rate depends on several factors:</p>
+
+        <div class="important-box">
+            <h3>Factors That Speed Up Caffeine Metabolism (Shorter Half-Life)</h3>
+            <ul>
+                <li><strong>Smoking:</strong> Smokers metabolize caffeine 50% faster (half-life ~3 hours). Tobacco induces the CYP1A2 enzyme.</li>
+                <li><strong>CYP1A2 fast metabolizer genotype:</strong> About 50% of people carry variants that significantly speed caffeine clearance.</li>
+                <li><strong>Regular high caffeine intake:</strong> Chronic consumption modestly induces faster metabolism.</li>
+                <li><strong>Cruciferous vegetables:</strong> Broccoli, cabbage, and Brussels sprouts induce CYP1A2.</li>
+            </ul>
+        </div>
+
+        <div class="important-box" style="border-left-color: #dc2626;">
+            <h3>Factors That Slow Down Caffeine Metabolism (Longer Half-Life)</h3>
+            <ul>
+                <li><strong>Pregnancy:</strong> Half-life doubles to ~10-12 hours in the third trimester. This is the primary reason ACOG recommends limiting caffeine to 200 mg/day during pregnancy.</li>
+                <li><strong>Oral contraceptives:</strong> Birth control pills nearly double caffeine half-life (~7-10 hours).</li>
+                <li><strong>Liver disease:</strong> Significantly impaired caffeine clearance (half-life can exceed 96 hours in severe cirrhosis).</li>
+                <li><strong>CYP1A2 slow metabolizer genotype:</strong> About 10-15% of people have slow variants.</li>
+                <li><strong>Certain medications:</strong> Fluvoxamine (SSRI), ciprofloxacin (antibiotic), and cimetidine (antacid) inhibit CYP1A2 and can dramatically increase half-life.</li>
+                <li><strong>Age:</strong> Caffeine half-life increases modestly with age, particularly above 65.</li>
+                <li><strong>Newborns:</strong> Half-life is ~80 hours in newborns due to immature liver enzymes, decreasing to adult levels by age 5-6 months.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="sleep-impact" class="info">
+        <h2>Caffeine and Sleep: What Research Shows</h2>
+        <p>A 2013 study in the <em>Journal of Clinical Sleep Medicine</em> by Drake et al. found that consuming 400 mg of caffeine even 6 hours before bedtime significantly disrupted sleep. Participants lost over 1 hour of total sleep time and had reduced sleep quality — even when they didn't subjectively notice impairment.</p>
+
+        <div class="important-box">
+            <h3>Key Research Findings</h3>
+            <ul>
+                <li><strong>6-hour rule:</strong> Caffeine consumed 6 hours before bed still reduced total sleep by &gt;1 hour (Drake et al., 2013)</li>
+                <li><strong>Sleep quality vs. quantity:</strong> Even when total sleep time wasn't affected, caffeine reduced deep sleep (slow-wave sleep) by up to 20% (Landolt et al., 1995)</li>
+                <li><strong>You may not notice:</strong> Participants often reported their sleep was fine, but sleep monitors showed significant disruption — caffeine impairs sleep quality more than you realize</li>
+                <li><strong>Expert recommendation:</strong> Stop caffeine 8-10 hours before bedtime for optimal sleep. The Sleep Foundation recommends a cutoff of at least 6 hours.</li>
+                <li><strong>FDA safe limit:</strong> Up to 400 mg/day for healthy adults. Pregnant women should limit to 200 mg/day (ACOG recommendation).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How long does caffeine stay in your system?</h3>
+            <div class="faq-answer">
+                <p>Caffeine's half-life averages 5 hours, meaning it takes about 5 hours for half the caffeine to be eliminated. After 5 half-lives (about 25 hours), approximately 97% is gone. For practical purposes, a morning coffee is mostly eliminated by bedtime, but an afternoon coffee at 2 PM will still leave about 50% in your system at 7 PM and 25% at midnight.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why does coffee affect me more than my friends?</h3>
+            <div class="faq-answer">
+                <p>Caffeine sensitivity is largely genetic. The CYP1A2 gene controls how fast your liver metabolizes caffeine. About 50% of people are "fast metabolizers" (half-life ~3-4 hours), while ~10-15% are "slow metabolizers" (half-life ~7-9 hours). Additionally, your adenosine receptor genetics (ADORA2A gene) affect how strongly you feel caffeine's effects. There's no reliable way to know your type without genetic testing — but if coffee keeps you up at night, you're likely a slower metabolizer.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is the half-life of caffeine during pregnancy?</h3>
+            <div class="faq-answer">
+                <p>Caffeine half-life approximately doubles during pregnancy — from ~5 hours to ~10-12 hours in the third trimester. This means a single cup of coffee takes twice as long to clear. ACOG recommends limiting caffeine intake to 200 mg/day during pregnancy (about one 12-oz cup of coffee). If you're pregnant, set the half-life in the calculator to 10-12 hours for a more accurate estimate.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does caffeine tolerance affect half-life?</h3>
+            <div class="faq-answer">
+                <p>Tolerance and half-life are different things. Tolerance means you need more caffeine to feel the same alerting effect — your brain produces more adenosine receptors to compensate. Half-life is how quickly your liver eliminates caffeine. Regular caffeine consumption may modestly increase metabolism speed, but the effect is small compared to genetic factors. You can be tolerant to caffeine's alertness effects while still having sleep disruption from the same dose.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>When should I stop drinking coffee to sleep well?</h3>
+            <div class="faq-answer">
+                <p>The general recommendation is 8-10 hours before bedtime for optimal sleep quality. For a 10 PM bedtime, that means no caffeine after noon to 2 PM. If you're a fast metabolizer, you might tolerate caffeine until 4-6 PM. If you're a slow metabolizer or take oral contraceptives, you may need to stop by 10 AM. Use the calculator above with your estimated half-life to find your personal cutoff.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How much caffeine is too much per day?</h3>
+            <div class="faq-answer">
+                <p>The FDA considers up to 400 mg per day safe for healthy adults — roughly four 8-oz cups of brewed coffee. Consuming more than 600 mg/day is associated with increased anxiety, restlessness, and insomnia. Doses above 1,200 mg can cause toxic effects (rapid heartbeat, seizures). Pregnant women should stay under 200 mg/day per ACOG guidelines. Children and adolescents have no established safe limit, but the American Academy of Pediatrics discourages caffeine consumption in children.</p>
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/sleep-calculator" class="related-tool-card">
+                <h4>Sleep Calculator</h4>
+                <p>Find the optimal bedtime and wake time based on your sleep cycles.</p>
+            </a>
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>Calculate your daily calorie needs — caffeine can boost metabolic rate by 3-11%.</p>
+            </a>
+            <a href="/bac-calculator" class="related-tool-card">
+                <h4>BAC Calculator</h4>
+                <p>Caffeine doesn't sober you up — but calculate how long alcohol stays in your system.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "Nehlig A. Interindividual Differences in Caffeine Metabolism and Factors Driving Caffeine Consumption. Pharmacol Rev. 2018;70(2):384-411.", "url": "https://pubmed.ncbi.nlm.nih.gov/29514871/"},
+        {"text": "Drake C, Roehrs T, Shambroom J, Roth T. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med. 2013;9(11):1195-1200.", "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"},
+        {"text": "US Food and Drug Administration. Spilling the Beans: How Much Caffeine Is Too Much? 2023.", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much"},
+        {"text": "Institute of Medicine. Caffeine for the Sustainment of Mental Task Performance: Formulations for Military Operations. National Academies Press. 2001.", "url": "https://pubmed.ncbi.nlm.nih.gov/25057579/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+<script defer src="/static/js/caffeine_half_life_calculator.js"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
