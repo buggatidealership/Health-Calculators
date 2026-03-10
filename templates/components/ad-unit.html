@@ -6,18 +6,19 @@
   Pass: ad_position = "top" | "middle" | "bottom" | "in-article"
 
   Active positions:
+  - "top": after calculator results, before educational content (natural content break)
   - "middle": first ad after TOC/intro content, loaded eagerly
   - "in-article": native in-article format after FAQ, lazy-loaded (highest CTR)
 
   Disabled positions (UX optimization):
-  - "top": disabled — was between calculator results and explanation, too disruptive
   - "bottom": disabled — low viewability, not worth the CLS cost
 
   The min-height on each container prevents Cumulative Layout Shift.
   Ad format "auto" with full-width-responsive lets AdSense choose optimal size.
+  Optimal density: 3 manual units per page (health niche best practice).
 #}
 {% set position = ad_position|default("middle") %}
-{% if position == "top" or position == "bottom" %}
+{% if position == "bottom" %}
 <!-- ad: {{ position }} disabled -->
 {% else %}
 <div class="ad-container ad-container-{{ position }}" role="complementary" aria-label="Advertisement">
