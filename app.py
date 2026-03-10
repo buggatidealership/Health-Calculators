@@ -80,6 +80,10 @@ cross_links = {
         "calculators": ["/hcg-doubling-time-calculator", "/female-fertility-calculator", "/newborn-weight-loss-calculator", "/dog-pregnancy-due-date-calculator"],
         "guides": ["/resources/ivf-due-date-calculator-guide", "/resources/fertility-after-35"]
     },
+    "/semaglutide-reconstitution-calculator": {
+        "calculators": ["/ozempic-weight-loss-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
+        "guides": ["/resources/semaglutide-vs-ozempic-guide"]
+    },
     "/caffeine-half-life-calculator": {
         "calculators": ["/sleep-calculator", "/tdee-calculator", "/bac-calculator"],
         "guides": []
@@ -566,6 +570,16 @@ cards = [
         "summary": "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool.",
         "icon": "💉",
         "cta": "Check Dosing",
+        "color": "blue",
+        "category": "medications",
+        "popular": False
+    },
+    {
+        "title": "Semaglutide Reconstitution Calculator",
+        "url": "/semaglutide-reconstitution-calculator",
+        "summary": "Calculate exactly how many units to inject from your reconstituted semaglutide vial. Enter peptide amount, water volume, and desired dose.",
+        "icon": "💉",
+        "cta": "Calculate Units",
         "color": "blue",
         "category": "medications",
         "popular": False
@@ -2633,6 +2647,24 @@ def lipid_panel_goals_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         date_modified='2025-06-01'
+    )
+
+
+@app.route('/semaglutide-reconstitution-calculator')
+@app.route('/peptide-reconstitution-calculator')
+def semaglutide_reconstitution_calculator():
+    schema_name = "Semaglutide Reconstitution Calculator"
+    schema_description = "Calculate injection volume in insulin syringe units from reconstituted semaglutide or tirzepatide vials. Enter peptide amount, bacteriostatic water volume, and desired dose."
+    schema_url = "/semaglutide-reconstitution-calculator"
+    return render_template(
+        'semaglutide_reconstitution_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Weight Loss Medications',
+        date_modified='2026-03-10'
     )
 
 

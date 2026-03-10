@@ -286,6 +286,14 @@ var CALCULATOR_GRAPH = {
       { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Dog pregnancies last only 63 days — is your pup on schedule?', params: [] }
     ]
   },
+  'semaglutide-reconstitution': {
+    links: [
+      { url: '/ozempic-weight-loss-calculator', title: 'Weight Loss Estimator', icon: '📉', reason: 'See how much weight you can expect to lose on your semaglutide dose', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Using brand Ozempic pens too? Track remaining doses by counting clicks', params: [] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Combining semaglutide with a calorie deficit doubles weight loss results', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'GLP-1 medications can cause muscle loss — ensure you\'re getting enough protein', params: ['weight_kg','age','gender'] }
+    ]
+  },
   'caffeine-half-life': {
     links: [
       { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '😴', reason: 'Caffeine disrupts sleep quality even when you don\'t notice — optimize your sleep cycles', params: [] },
