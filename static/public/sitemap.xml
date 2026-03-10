@@ -670,6 +670,63 @@
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
+  <!-- Niche Calculators (Tier 1) -->
+  <url>
+    <loc>https://healthcalculators.xyz/caffeine-half-life-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/semaglutide-reconstitution-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/hcg-doubling-time-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/cholesterol-ratio-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/creatine-dosage-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- Niche Calculators (Tier 2) -->
+  <url>
+    <loc>https://healthcalculators.xyz/waist-to-hip-ratio-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/gestational-age-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.9</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <!-- Legal/Trust Pages -->
+  <url>
+    <loc>https://healthcalculators.xyz/privacy</loc>
+    <lastmod>2025-06-01</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/terms</loc>
+    <lastmod>2025-06-01</lastmod>
+    <priority>0.5</priority>
+    <changefreq>yearly</changefreq>
+  </url>
   <!-- New ChatGPT-optimized resource guides -->
   <url>
     <loc>https://healthcalculators.xyz/resources/glp1-weight-loss-comparison</loc>
