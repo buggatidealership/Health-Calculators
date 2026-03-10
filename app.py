@@ -21,7 +21,11 @@ cross_links = {
         "guides": ["/resources/plasma-vs-platelet-donation", "/resources/plasma-donation-tips-first-time"]
     },
     "/lipid-panel-goals-calculator": {
-        "calculators": ["/tdee-calculator", "/plasma-donation-earnings-calculator", "/lifespan-longevity-calculator"],
+        "calculators": ["/cholesterol-ratio-calculator", "/tdee-calculator", "/plasma-donation-earnings-calculator", "/lifespan-longevity-calculator"],
+        "guides": []
+    },
+    "/cholesterol-ratio-calculator": {
+        "calculators": ["/lipid-panel-goals-calculator", "/heart-age-calculator", "/a1c-calculator", "/lifespan-longevity-calculator"],
         "guides": []
     },
     "/antidepressant-weight-gain-calculator": {
@@ -254,6 +258,16 @@ cards = [
         "summary": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines for LDL, HDL, triglycerides, and non-HDL.",
         "icon": "❤️",
         "cta": "Get Targets",
+        "color": "red",
+        "category": "health",
+        "popular": False
+    },
+    {
+        "title": "Cholesterol Ratio Calculator",
+        "url": "/cholesterol-ratio-calculator",
+        "summary": "Calculate your Total/HDL, LDL/HDL, and Triglyceride/HDL ratios from your lipid panel. See your cardiovascular risk level instantly.",
+        "icon": "🫀",
+        "cta": "Calculate Ratios",
         "color": "red",
         "category": "health",
         "popular": False
@@ -2591,6 +2605,23 @@ def lipid_panel_goals_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         date_modified='2025-06-01'
+    )
+
+
+@app.route('/cholesterol-ratio-calculator')
+def cholesterol_ratio_calculator():
+    schema_name = "Cholesterol Ratio Calculator"
+    schema_description = "Calculate Total/HDL ratio, LDL/HDL ratio, Triglyceride/HDL ratio, and Non-HDL cholesterol from your lipid panel results. Risk categories based on AHA and ATP III guidelines."
+    schema_url = "/cholesterol-ratio-calculator"
+    return render_template(
+        'cholesterol_ratio_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Health',
+        date_modified='2026-03-10'
     )
 
 

@@ -366,6 +366,15 @@ var CALCULATOR_GRAPH = {
       { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'DHT and cholesterol share metabolic pathways — your risk may be connected', params: ['age','gender'] }
     ]
   },
+  'cholesterol-ratio': {
+    links: [
+      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Your ratios reveal risk — now see your personalized cholesterol targets', params: ['age','gender'] },
+      { url: '/heart-age-calculator', title: 'Heart Age', icon: '🫀', reason: 'Cholesterol ratios drive heart age — see how old your heart really is', params: ['age','gender'] },
+      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'High triglyceride/HDL ratio signals insulin resistance — check your blood sugar', params: [] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal cholesterol ratios add years to life expectancy — see your estimate', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5% body weight improves every cholesterol ratio — find your calorie target', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'vitamin-d-intake': {
     links: [
       { url: '/vitamin-d-conversion-calculator', title: 'Vitamin D Units', icon: '🔄', reason: 'Your lab uses nmol/L but your supplement says IU — they\'re not the same', params: [] },
