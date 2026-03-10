@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your optimal creatine dose based on body weight and training goal. ISSN-backed loading and maintenance protocols with teaspoon conversions and monthly supply estimates.",
+    meta_keywords="creatine dosage calculator, how much creatine should i take, creatine loading phase, creatine maintenance dose, creatine calculator, creatine dose by weight",
+    og_title="Creatine Dosage Calculator — Loading & Maintenance Dose by Weight",
+    og_description="Calculate your personalized creatine dose based on body weight. ISSN-backed loading and maintenance protocols with teaspoon and monthly supply estimates.",
+    og_url="/creatine-dosage-calculator",
+    page_title="Creatine Dosage Calculator — How Much Creatine Should You Take?",
+    canonical_url="/creatine-dosage-calculator",
+    schema_name="Creatine Dosage Calculator",
+    schema_description="Calculate personalized creatine monohydrate dosing based on body weight. Covers ISSN-recommended loading phase (0.3 g/kg/day) and maintenance dose (3-5 g/day) protocols.",
+    schema_url="/creatine-dosage-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Creatine Dosage Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Find your optimal creatine monohydrate dose — backed by ISSN research. Loading phase, maintenance dose, and monthly supply estimates based on your body weight.</p>
+
+<section id="calculator">
+        <h2>Calculate Your Creatine Dose</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight">Body Weight:</label>
+                    <input type="number" id="weight" min="1" step="0.1" placeholder="e.g. 70">
+                </div>
+                <div class="form-group">
+                    <label for="weight-unit">Unit:</label>
+                    <select id="weight-unit">
+                        <option value="kg">kg</option>
+                        <option value="lbs">lbs</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="goal">Training Goal:</label>
+                    <select id="goal">
+                        <option value="general">General fitness / health</option>
+                        <option value="strength">Strength / power / muscle building</option>
+                        <option value="endurance">Endurance / cardio</option>
+                    </select>
+                    <span class="input-hint">Strength athletes benefit from slightly higher doses</span>
+                </div>
+                <div class="form-group">
+                    <label for="phase">Protocol:</label>
+                    <select id="phase">
+                        <option value="maintenance">Maintenance only (no loading)</option>
+                        <option value="loading">Loading phase + maintenance</option>
+                    </select>
+                    <span class="input-hint">Loading saturates stores in 5-7 days vs. 3-4 weeks</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Creatine Dose</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="dose-result">--</div>
+                    <div class="result-hero-label" id="dose-label">Recommended daily dose</div>
+                </div>
+
+                <div id="dose-status" class="result-status status-good">
+                    <span class="result-status-icon" id="dose-icon"></span>
+                    <span class="result-status-text" id="dose-description">--</span>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Dosing Breakdown</div>
+                    <div class="result-breakdown-row hidden" id="row-loading">
+                        <span class="result-breakdown-key">Loading Dose</span>
+                        <span class="result-breakdown-val" id="display-loading">--</span>
+                    </div>
+                    <div class="result-breakdown-row hidden" id="row-loading-split">
+                        <span class="result-breakdown-key">Split Into</span>
+                        <span class="result-breakdown-val" id="display-loading-split">--</span>
+                    </div>
+                    <div class="result-breakdown-row hidden" id="row-loading-days">
+                        <span class="result-breakdown-key">Loading Duration</span>
+                        <span class="result-breakdown-val" id="display-loading-days">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Maintenance Dose</span>
+                        <span class="result-breakdown-val" id="display-maintenance">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Teaspoon Equivalent</span>
+                        <span class="result-breakdown-val" id="display-tsp">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Water Intake</span>
+                        <span class="result-breakdown-val" id="display-water">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Monthly Supply</span>
+                        <span class="result-breakdown-val" id="display-monthly">--</span>
+                    </div>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Your Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Body Weight</span>
+                            <span class="result-comparison-value" id="comp-weight">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Daily Dose</span>
+                            <span class="result-comparison-value" id="comp-daily">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Monthly Need</span>
+                            <span class="result-comparison-value" id="comp-monthly">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about the creatine dosing formula
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About the Creatine Dosing Formula</h4>
+                    <ul>
+                        <li><strong>Loading phase:</strong> 0.3 g/kg/day for 5-7 days, split into 4 equal doses (ISSN Position Stand, 2017). This rapidly saturates muscle creatine stores within one week.</li>
+                        <li><strong>Maintenance:</strong> 3-5 g/day (or 0.03 g/kg/day) to maintain saturated stores. Strength/power athletes may benefit from slightly higher doses (0.04 g/kg/day).</li>
+                        <li><strong>No loading option:</strong> Taking 3-5 g/day without loading will saturate muscle stores in approximately 3-4 weeks instead of 5-7 days. The end result is identical.</li>
+                        <li><strong>Teaspoon conversion:</strong> One level teaspoon of creatine monohydrate powder is approximately 5 grams.</li>
+                    </ul>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Much Creatine Should You Take?</h2>
+    <div class="answer-capsule">
+      Most people should take 3-5 grams of creatine monohydrate per day. That is the dose supported by the International Society of Sports Nutrition (ISSN), the most extensively studied supplement dose in sports science. If you want faster results, a loading phase of 0.3 g/kg/day (about 20 g/day for a 70 kg person) for 5-7 days saturates muscle stores in one week instead of 3-4 weeks.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        Creatine monohydrate is the most researched ergogenic supplement in history, with over 500 peer-reviewed studies confirming its safety and effectiveness. It increases phosphocreatine stores in muscle, allowing faster regeneration of ATP during high-intensity exercise — translating to more reps, more power, and faster recovery between sets.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#loading-vs-maintenance">Loading vs. Maintenance</a></li>
+            <li><a href="#dosing-by-goal">Dosing by Training Goal</a></li>
+            <li><a href="#timing">When to Take Creatine</a></li>
+            <li><a href="#safety">Safety & Side Effects</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="loading-vs-maintenance" class="info">
+        <h2>Loading Phase vs. Maintenance Only</h2>
+        <p>There are two evidence-based approaches to creatine supplementation. Both reach the same endpoint — fully saturated muscle creatine stores — but differ in how fast you get there.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Protocol</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Dose</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Duration</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Time to Saturation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Loading + Maintenance</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">~20 g/day (4 &times; 5g), then 3-5 g/day</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5-7 days loading, then ongoing</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">5-7 days</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Maintenance Only</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">3-5 g/day</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Ongoing</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">3-4 weeks</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="important-box">
+            <h3>When to Use Loading</h3>
+            <ul>
+                <li><strong>Competition prep:</strong> If you need saturated stores within a week (e.g., before a powerlifting meet or athletic event)</li>
+                <li><strong>Starting a new training block:</strong> Faster saturation means earlier performance benefits</li>
+                <li><strong>Note:</strong> Loading can cause temporary water retention (1-2 kg) and GI discomfort in some people. Splitting into 4 doses per day minimizes stomach issues.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="dosing-by-goal" class="info">
+        <h2>Creatine Dosing by Training Goal</h2>
+
+        <div class="important-box">
+            <h3>Strength / Power / Muscle Building</h3>
+            <ul>
+                <li><strong>Recommended:</strong> 5 g/day or 0.04 g/kg/day (whichever is higher)</li>
+                <li><strong>Why:</strong> Creatine's primary benefit is in short-duration, high-intensity activities (sprints, heavy lifts, explosive movements). Higher body mass athletes may need slightly more to fully saturate larger muscle volumes.</li>
+                <li><strong>Evidence:</strong> A meta-analysis by Lanhers et al. (2017) found creatine increased maximum strength by 8% and reps-to-failure by 14% compared to placebo.</li>
+            </ul>
+        </div>
+
+        <div class="important-box">
+            <h3>Endurance / Cardio</h3>
+            <ul>
+                <li><strong>Recommended:</strong> 3 g/day or 0.03 g/kg/day</li>
+                <li><strong>Why:</strong> Endurance exercise relies primarily on oxidative metabolism, not the phosphocreatine system. Creatine still benefits interval training within endurance sports and aids recovery, but high doses offer diminishing returns.</li>
+                <li><strong>Evidence:</strong> Benefits are modest for steady-state endurance but meaningful for repeated sprint ability within endurance sports (e.g., cycling sprints, soccer).</li>
+            </ul>
+        </div>
+
+        <div class="important-box">
+            <h3>General Health / Cognitive</h3>
+            <ul>
+                <li><strong>Recommended:</strong> 3-5 g/day</li>
+                <li><strong>Why:</strong> Emerging research suggests creatine supports brain health — the brain uses ~20% of the body's ATP. Studies show benefits for cognitive performance under stress, sleep deprivation, and aging.</li>
+                <li><strong>Evidence:</strong> Avgerinos et al. (2018) found creatine supplementation improved short-term memory and reasoning in healthy individuals.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="timing" class="info">
+        <h2>When to Take Creatine</h2>
+        <p>Timing is less important than consistency. Creatine works through chronic saturation of muscle stores, not acute effects like caffeine.</p>
+
+        <div class="important-box">
+            <h3>Key Timing Findings</h3>
+            <ul>
+                <li><strong>Post-workout may be slightly better:</strong> Antonio & Ciccone (2013) found a small advantage for post-workout creatine vs. pre-workout, likely due to increased blood flow and nutrient uptake.</li>
+                <li><strong>With carbs or protein:</strong> Taking creatine with a meal containing carbohydrates or protein may enhance uptake through insulin-mediated transport. However, the effect is small.</li>
+                <li><strong>Consistency matters most:</strong> Daily supplementation is the key factor. Missing a day occasionally is fine — it takes ~4-6 weeks of no supplementation for stores to return to baseline.</li>
+                <li><strong>With water:</strong> Always take creatine with adequate water (~250-500 mL per dose). Creatine pulls water into muscle cells, increasing your hydration needs.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="safety" class="info">
+        <h2>Safety & Side Effects</h2>
+        <p>Creatine monohydrate has an excellent safety profile. The ISSN (2017) concluded that creatine is one of the most well-studied and safest supplements available.</p>
+
+        <div class="important-box">
+            <h3>Common Concerns Addressed</h3>
+            <ul>
+                <li><strong>Kidney safety:</strong> Creatine does NOT damage healthy kidneys. Multiple long-term studies (up to 5 years) show no adverse effects on kidney function in healthy individuals. People with pre-existing kidney disease should consult their doctor.</li>
+                <li><strong>Water retention:</strong> Creatine increases intracellular water (inside muscle cells), typically 1-2 kg during loading. This is not bloating — it is water stored within muscle tissue.</li>
+                <li><strong>GI discomfort:</strong> Large single doses (>10g) can cause stomach cramping or diarrhea. Splitting loading doses into 4 servings and taking with food prevents this.</li>
+                <li><strong>Hair loss:</strong> One 2009 study (Vellinga et al.) on rugby players found increased DHT levels. However, no follow-up studies have replicated this finding, and no study has directly measured hair loss from creatine. The link remains unproven.</li>
+                <li><strong>Creatine type:</strong> Creatine monohydrate is the gold standard. Other forms (HCl, ethyl ester, buffered) have no proven superiority and are more expensive.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How much creatine should I take per day?</h3>
+            <div class="faq-answer">
+                <p>The ISSN recommends 3-5 grams of creatine monohydrate per day for maintenance, or approximately 0.03 g/kg of body weight. For a 70 kg (154 lb) person, this means about 3-5 grams daily. An optional loading phase of 0.3 g/kg/day (~20 g/day split into 4 doses) for 5-7 days saturates stores faster but is not required.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do I need a loading phase?</h3>
+            <div class="faq-answer">
+                <p>No. Loading is optional. Taking 3-5 g/day without loading will fully saturate your muscle creatine stores within 3-4 weeks — the same end result as loading. Loading simply gets you there in 5-7 days instead. Use loading if you want results faster (e.g., competition prep) or skip it for simplicity and to avoid potential GI discomfort.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Should I cycle creatine?</h3>
+            <div class="faq-answer">
+                <p>No. There is no scientific evidence supporting creatine cycling. The ISSN position stand states that long-term creatine supplementation (up to 5 years studied) is safe and effective. Your body does not build a tolerance to creatine — it works through maintaining saturated muscle stores, not through a dose-response curve that diminishes over time.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many teaspoons of creatine is 5 grams?</h3>
+            <div class="faq-answer">
+                <p>One level teaspoon of creatine monohydrate powder is approximately 5 grams. So a standard 5g maintenance dose is about 1 level teaspoon. For a 3g dose, use about ⅔ of a teaspoon. A kitchen scale is most accurate, but a level teaspoon is a reliable approximation for creatine monohydrate specifically.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does creatine cause kidney damage?</h3>
+            <div class="faq-answer">
+                <p>No — in healthy individuals, creatine does not damage kidneys. This myth persists because creatine supplementation raises creatinine levels (a kidney function marker), which can be confused with kidney dysfunction on blood tests. Multiple studies lasting up to 5 years show no adverse effects on kidney function. However, individuals with pre-existing kidney disease should consult their physician before supplementing.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does creatine cause hair loss?</h3>
+            <div class="faq-answer">
+                <p>The evidence is insufficient to conclude that creatine causes hair loss. A single 2009 study on rugby players found elevated DHT levels after 3 weeks of creatine loading, but no study has directly measured hair loss or follicle changes from creatine supplementation. Multiple subsequent studies have failed to replicate the DHT finding. The ISSN does not list hair loss as a side effect of creatine.</p>
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/creatine-water-calculator" class="related-tool-card">
+                <h4>Creatine Water Calculator</h4>
+                <p>Calculate how much extra water you need when taking creatine supplements.</p>
+            </a>
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>Find your total daily energy expenditure — creatine supports performance but calories drive results.</p>
+            </a>
+            <a href="/protein-intake-calculator" class="related-tool-card">
+                <h4>Protein Intake Calculator</h4>
+                <p>Creatine and protein work together — make sure you are hitting your daily protein target.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "Kreider RB, Kalman DS, Antonio J, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. J Int Soc Sports Nutr. 2017;14:18.", "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/"},
+        {"text": "Lanhers C, Pereira B, Naughton G, et al. Creatine Supplementation and Upper Limb Strength Performance: A Systematic Review and Meta-Analysis. Sports Med. 2017;47(1):163-173.", "url": "https://pubmed.ncbi.nlm.nih.gov/27328852/"},
+        {"text": "Avgerinos KI, Spyrou N, Bougioukas KI, et al. Effects of creatine supplementation on cognitive function of healthy individuals: A systematic review of randomized controlled trials. Exp Gerontol. 2018;108:166-173.", "url": "https://pubmed.ncbi.nlm.nih.gov/29704637/"},
+        {"text": "Antonio J, Ciccone V. The effects of pre versus post workout supplementation of creatine monohydrate on body composition and strength. J Int Soc Sports Nutr. 2013;10:36.", "url": "https://pubmed.ncbi.nlm.nih.gov/23919405/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+<script defer src="/static/js/creatine_dosage_calculator.js"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

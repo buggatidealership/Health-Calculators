@@ -294,6 +294,13 @@ var CALCULATOR_GRAPH = {
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'GLP-1 medications can cause muscle loss — ensure you\'re getting enough protein', params: ['weight_kg','age','gender'] }
     ]
   },
+  'creatine-dosage': {
+    links: [
+      { url: '/creatine-water-calculator', title: 'Creatine Water Calculator', icon: '💧', reason: 'Creatine pulls water into muscle cells — calculate your extra hydration needs', params: ['weight_kg'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Creatine and protein work together — are you hitting your daily target?', params: ['weight_kg','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Creatine fuels performance but calories drive results — know your daily burn', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'caffeine-half-life': {
     links: [
       { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '😴', reason: 'Caffeine disrupts sleep quality even when you don\'t notice — optimize your sleep cycles', params: [] },

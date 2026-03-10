@@ -189,7 +189,11 @@ cross_links = {
         "guides": ["/resources/botox-dosage-guide"]
     },
     "/creatine-water-calculator": {
-        "calculators": ["/tdee-calculator", "/vitamin-d-intake-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/creatine-dosage-calculator", "/tdee-calculator", "/vitamin-d-intake-calculator", "/ideal-body-weight-calculator"],
+        "guides": []
+    },
+    "/creatine-dosage-calculator": {
+        "calculators": ["/creatine-water-calculator", "/tdee-calculator", "/protein-intake-calculator", "/ideal-body-weight-calculator"],
         "guides": []
     },
     "/vitamin-d-intake-calculator": {
@@ -402,6 +406,16 @@ cards = [
         "cta": "Calculate Doubling Time",
         "color": "pink",
         "category": "fertility",
+        "popular": False
+    },
+    {
+        "title": "Creatine Dosage Calculator",
+        "url": "/creatine-dosage-calculator",
+        "summary": "Calculate your optimal creatine dose based on body weight. ISSN-backed loading and maintenance protocols with teaspoon conversions.",
+        "icon": "💪",
+        "cta": "Calculate Dose",
+        "color": "blue",
+        "category": "fitness",
         "popular": False
     },
     {
@@ -2699,6 +2713,23 @@ def hcg_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Fertility',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/creatine-dosage-calculator')
+def creatine_dosage_calculator():
+    schema_name = "Creatine Dosage Calculator"
+    schema_description = "Calculate your optimal creatine monohydrate dose based on body weight. ISSN-backed loading phase (0.3 g/kg/day) and maintenance dose (3-5 g/day) protocols with teaspoon conversions."
+    schema_url = "/creatine-dosage-calculator"
+    return render_template(
+        'creatine_dosage_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Fitness',
         date_modified='2026-03-10'
     )
 
