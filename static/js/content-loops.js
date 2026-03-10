@@ -476,6 +476,15 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Creatine adds 2-5 lbs of water weight — your real target is different', params: ['height_cm','gender'] }
     ]
   },
+  'glycemic-index': {
+    links: [
+      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'GI affects long-term blood sugar — see what your A1C means for diabetes risk', params: [] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Low-GI diets improve satiety — know your calorie target to match', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your carb-to-protein-to-fat ratio affects glycemic response more than GI alone', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/diabetes-risk-calculator', title: 'Diabetes Risk', icon: '⚠️', reason: 'High-GL diets increase type 2 diabetes risk — check your overall risk score', params: ['age','gender'] },
+      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Timing your carbs around training can blunt blood sugar spikes', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'formula-feeding': {
     links: [
       { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Your pregnancy weight gain affects birth weight — which determines formula needs', params: [] },

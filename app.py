@@ -220,6 +220,10 @@ cross_links = {
         "calculators": ["/pregnancy-weight-gain-calculator", "/newborn-weight-loss-calculator", "/child-growth-percentile-calculator", "/gestational-age-calculator"],
         "guides": []
     },
+    "/glycemic-index-calculator": {
+        "calculators": ["/a1c-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/diabetes-risk-calculator"],
+        "guides": []
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -440,6 +444,16 @@ cards = [
         "cta": "Calculate Gestational Age",
         "color": "pink",
         "category": "fertility",
+        "popular": False
+    },
+    {
+        "title": "Glycemic Index Calculator",
+        "url": "/glycemic-index-calculator",
+        "summary": "Look up the glycemic index and glycemic load of 100+ foods. Meal builder shows total GL. University of Sydney sourced data.",
+        "icon": "📊",
+        "cta": "Look Up GI",
+        "color": "green",
+        "category": "nutrition",
         "popular": False
     },
     {
@@ -4450,6 +4464,23 @@ def one_rep_max_calculator():
         schema_url=schema_url,
         schema_type='WebPage',
         breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/glycemic-index-calculator')
+def glycemic_index_calculator():
+    schema_name = "Glycemic Index Calculator"
+    schema_description = "Look up the glycemic index and calculate glycemic load of over 100 common foods. Includes a meal builder for total glycemic load. Data from University of Sydney GI database."
+    schema_url = "/glycemic-index-calculator"
+    return render_template(
+        'glycemic_index_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Nutrition & Diet',
         date_modified='2026-03-10'
     )
 
