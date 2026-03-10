@@ -224,6 +224,18 @@ cross_links = {
         "calculators": ["/a1c-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/diabetes-risk-calculator"],
         "guides": []
     },
+    "/ffmi-calculator": {
+        "calculators": ["/body-fat-calculator", "/one-rep-max-calculator", "/bmi-calculator", "/protein-intake-calculator"],
+        "guides": ["/resources/body-fat-percentage-chart"]
+    },
+    "/hcg-injection-dosage-calculator": {
+        "calculators": ["/hcg-doubling-time-calculator", "/semaglutide-reconstitution-calculator", "/female-fertility-calculator", "/ivf-due-date-calculator"],
+        "guides": []
+    },
+    "/electrolyte-calculator": {
+        "calculators": ["/tdee-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator", "/glycemic-index-calculator"],
+        "guides": ["/resources/vitamin-d-levels-chart"]
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -444,6 +456,36 @@ cards = [
         "cta": "Calculate Gestational Age",
         "color": "pink",
         "category": "fertility",
+        "popular": False
+    },
+    {
+        "title": "FFMI Calculator",
+        "url": "/ffmi-calculator",
+        "summary": "Calculate your Fat-Free Mass Index and normalized FFMI. See how your muscularity compares to the natural genetic limit.",
+        "icon": "💪",
+        "cta": "Calculate FFMI",
+        "color": "teal",
+        "category": "fitness",
+        "popular": False
+    },
+    {
+        "title": "HCG Injection Dosage Calculator",
+        "url": "/hcg-injection-dosage-calculator",
+        "summary": "Calculate your HCG injection volume from vial strength and bacteriostatic water amount. Shows mL and insulin syringe units.",
+        "icon": "💉",
+        "cta": "Calculate Dose",
+        "color": "blue",
+        "category": "medication",
+        "popular": False
+    },
+    {
+        "title": "Electrolyte Calculator",
+        "url": "/electrolyte-calculator",
+        "summary": "Calculate your daily sodium, potassium, magnesium, and calcium needs based on activity, diet, and climate. Keto and fasting modes included.",
+        "icon": "⚡",
+        "cta": "Calculate Needs",
+        "color": "green",
+        "category": "nutrition",
         "popular": False
     },
     {
@@ -4515,6 +4557,57 @@ def bulking_calorie_calculator():
         schema_url=schema_url,
         schema_type='WebPage',
         breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/ffmi-calculator')
+def ffmi_calculator():
+    schema_name = "FFMI Calculator"
+    schema_description = "Calculate your Fat-Free Mass Index (FFMI) and normalized FFMI. See how your lean muscle mass compares to natural limits based on the Kouri et al. study. Classification for men and women."
+    schema_url = "/ffmi-calculator"
+    return render_template(
+        'ffmi_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/hcg-injection-dosage-calculator')
+def hcg_injection_dosage_calculator():
+    schema_name = "HCG Injection Dosage Calculator"
+    schema_description = "Calculate HCG injection volume from vial strength and bacteriostatic water volume. Shows mL, insulin syringe units, concentration, and doses per vial."
+    schema_url = "/hcg-injection-dosage-calculator"
+    return render_template(
+        'hcg_injection_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Medication & Dosage',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/electrolyte-calculator')
+def electrolyte_calculator():
+    schema_name = "Electrolyte Calculator"
+    schema_description = "Calculate your personalized daily electrolyte needs for sodium, potassium, magnesium, and calcium based on age, activity level, climate, and diet type."
+    schema_url = "/electrolyte-calculator"
+    return render_template(
+        'electrolyte_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category='Nutrition & Diet',
         date_modified='2026-03-10'
     )
 

@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your personalized daily electrolyte needs based on age, activity level, climate, and diet type. Includes keto, fasting, and athlete adjustments. NIH-sourced RDA values.",
+    meta_keywords="electrolyte calculator, daily electrolyte needs, keto electrolytes, how much sodium per day, how much potassium per day, electrolyte intake calculator, signs of electrolyte imbalance",
+    og_title="Electrolyte Calculator — Personalized Daily Needs",
+    og_description="Calculate your personalized daily electrolyte needs based on age, activity level, climate, and diet type. Includes keto, fasting, and athlete adjustments.",
+    og_url="/electrolyte-calculator",
+    page_title="Electrolyte Calculator — Daily Sodium, Potassium, Magnesium & Calcium Needs",
+    canonical_url="/electrolyte-calculator",
+    schema_name="Electrolyte Calculator",
+    schema_description="Calculate personalized daily electrolyte needs for sodium, potassium, magnesium, and calcium based on age, sex, activity level, climate, diet type, and special conditions. NIH-sourced RDA and AI values.",
+    schema_url="/electrolyte-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Electrolyte Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Calculate your personalized daily sodium, potassium, magnesium, and calcium targets based on your age, activity level, climate, diet, and special conditions.</p>
+
+<section id="calculator">
+        <h2>Calculate Your Electrolyte Needs</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" min="9" max="120" placeholder="e.g. 30">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select id="sex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="activity">Activity Level:</label>
+                    <select id="activity">
+                        <option value="sedentary">Sedentary</option>
+                        <option value="light">Lightly Active (1-3 days/week)</option>
+                        <option value="moderate">Moderately Active (3-5 days/week)</option>
+                        <option value="intense">Very Active (6-7 days/week)</option>
+                        <option value="endurance">Endurance Athlete</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="exercise-minutes">Exercise Duration (minutes/day):</label>
+                    <input type="number" id="exercise-minutes" min="0" max="480" placeholder="e.g. 60">
+                    <span class="input-hint">Average daily exercise duration including warmup</span>
+                </div>
+                <div class="form-group">
+                    <label for="climate">Climate:</label>
+                    <select id="climate">
+                        <option value="temperate">Temperate</option>
+                        <option value="warm">Warm (25-32&deg;C / 77-90&deg;F)</option>
+                        <option value="hot">Hot/Humid (&gt;32&deg;C / &gt;90&deg;F)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="diet">Diet Type:</label>
+                    <select id="diet">
+                        <option value="standard">Standard</option>
+                        <option value="keto">Keto / Low-Carb</option>
+                        <option value="fasting">Fasting / Intermittent Fasting</option>
+                        <option value="vegan">Vegan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="condition">Special Conditions:</label>
+                    <select id="condition">
+                        <option value="none">None</option>
+                        <option value="pregnant">Pregnant</option>
+                        <option value="lactating">Breastfeeding</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Electrolyte Needs</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" style="font-size:1.5rem;">Your Daily Electrolyte Targets</div>
+                </div>
+
+                <div id="elec-status" class="result-status status-good">
+                    <span class="result-status-icon" id="elec-icon"></span>
+                    <span class="result-status-text" id="elec-description">--</span>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Daily Targets</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Sodium</span>
+                            <span class="result-comparison-value" id="comp-sodium">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Potassium</span>
+                            <span class="result-comparison-value" id="comp-potassium">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Magnesium</span>
+                            <span class="result-comparison-value" id="comp-magnesium">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="elec-breakdown"></div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Sodium : Potassium Ratio</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Ratio</span>
+                        <span class="result-breakdown-val" id="display-ratio">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Assessment</span>
+                        <span class="result-breakdown-val" id="ratio-status" style="font-size: 0.85rem;">--</span>
+                    </div>
+                </div>
+
+                <div class="important-box hidden" style="margin-top: 16px;">
+                    <span id="diet-note"></span>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about electrolyte calculations
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>How This Calculator Works</h4>
+                    <ul>
+                        <li><strong>Baseline values</strong> come from NIH Adequate Intake (AI) and Recommended Dietary Allowance (RDA) by age and sex.</li>
+                        <li><strong>Exercise adjustment</strong> estimates sweat electrolyte losses based on activity level, duration, and climate using published sweat composition data (sodium ~920 mg/L, potassium ~200 mg/L).</li>
+                        <li><strong>Diet adjustment</strong> accounts for increased sodium excretion on keto/low-carb diets and reduced intake on fasting or vegan diets.</li>
+                        <li><strong>Special conditions</strong> use pregnancy- and lactation-specific AI values from the 2019 NASEM DRI update.</li>
+                    </ul>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>Why Electrolytes Matter</h2>
+    <div class="answer-capsule">
+      Electrolytes are minerals that carry an electrical charge in your body. Sodium, potassium, magnesium, and calcium regulate nerve and muscle function, maintain hydration, balance blood pH, and support heart rhythm. Even mild imbalances can cause fatigue, muscle cramps, headaches, and irregular heartbeat. Athletes, people on restrictive diets, and those in hot climates are at highest risk for electrolyte depletion.
+    </div>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#daily-requirements">Daily Electrolyte Requirements</a></li>
+            <li><a href="#exercise-electrolytes">Electrolytes and Exercise</a></li>
+            <li><a href="#keto-electrolytes">Keto and Electrolytes</a></li>
+            <li><a href="#imbalance-signs">Signs of Electrolyte Imbalance</a></li>
+            <li><a href="#food-sources">Food Sources</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="daily-requirements" class="info">
+        <h2>Daily Electrolyte Requirements</h2>
+        <p>The National Institutes of Health (NIH) and National Academies of Sciences, Engineering, and Medicine (NASEM) set Adequate Intake (AI) values for sodium and potassium, and Recommended Dietary Allowances (RDA) for magnesium and calcium. These represent baseline needs for healthy adults and do not account for exercise or environmental losses.</p>
+
+        <h3>Sodium — Adequate Intake (AI)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Age Group</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">AI (mg/day)</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">UL (mg/day)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">19-50 years</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,500</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,300</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">51-70 years</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,300</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,300</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">71+ years</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,200</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,300</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top: 20px;">Potassium — Adequate Intake (AI)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Group</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">AI (mg/day)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Men 19+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">3,400</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Women 19+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,600</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Pregnant</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,900</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Lactating</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,800</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top: 20px;">Magnesium — Recommended Dietary Allowance (RDA)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Group</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">RDA (mg/day)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Men 19-30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">400</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Men 31+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">420</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Women 19-30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">310</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Women 31+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">320</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top: 20px;">Calcium — Recommended Dietary Allowance (RDA)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Group</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">RDA (mg/day)</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">UL (mg/day)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Adults 19-50</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,000</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,500</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Women 51+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,200</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,000</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Men 51-70</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,000</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,000</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Men 71+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1,200</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2,000</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Source: NIH Office of Dietary Supplements Fact Sheets; NASEM Dietary Reference Intakes, 2019 update.</p>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="exercise-electrolytes" class="info">
+        <h2>Electrolytes and Exercise</h2>
+        <p>Sweat contains significant amounts of electrolytes, particularly sodium. Average sweat sodium concentration ranges from 460-1,840 mg per liter, with a commonly cited average of 920 mg/L. Potassium losses are lower at approximately 200 mg/L, while magnesium and calcium losses through sweat are relatively small.</p>
+
+        <p>Sweat rates vary widely based on exercise intensity, fitness level, body size, and environmental conditions. A moderately active person exercising in temperate conditions may lose 0.5-1.0 liters per hour, while an endurance athlete training in heat can lose 1.5-2.5 liters per hour. This means a 2-hour training session in hot conditions could result in sodium losses exceeding 3,000 mg — well above the standard daily AI.</p>
+
+        <div class="important-box">
+            <h3>Exercise Replacement Guidelines</h3>
+            <ul>
+                <li><strong>Under 60 minutes:</strong> Water alone is usually sufficient for moderate-intensity exercise in temperate conditions.</li>
+                <li><strong>60-90 minutes:</strong> Consider an electrolyte drink containing 300-600 mg sodium per liter, especially in warm or hot conditions.</li>
+                <li><strong>Over 90 minutes:</strong> Electrolyte replacement is strongly recommended. The ACSM advises 300-600 mg sodium per hour for prolonged exercise.</li>
+                <li><strong>Heavy sweaters:</strong> Some individuals lose sodium at rates 2-3 times the average. White salt stains on clothing after exercise indicate higher sweat sodium concentration.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="keto-electrolytes" class="info">
+        <h2>Keto and Electrolytes</h2>
+        <div class="important-box">
+            <h3>Why Keto Increases Electrolyte Needs</h3>
+            <p>When carbohydrate intake drops below approximately 50 grams per day, insulin levels fall significantly. Lower insulin signals the kidneys to excrete more sodium, which in turn pulls water and other electrolytes with it. This is why rapid weight loss in the first week of keto is primarily water weight — and why many people experience "keto flu" symptoms including headache, fatigue, muscle cramps, and brain fog.</p>
+            <ul>
+                <li><strong>Sodium:</strong> Keto dieters may need 3,000-5,000 mg/day (roughly double the standard AI). Broth, pickles, and deliberate salting of food can help.</li>
+                <li><strong>Potassium:</strong> Target 3,500-4,700 mg/day. Avocado, spinach, and mushrooms are keto-friendly potassium sources.</li>
+                <li><strong>Magnesium:</strong> Target 400-600 mg/day. Nuts, seeds, and dark chocolate (85%+) are good sources. Magnesium glycinate or citrate supplements are well-absorbed if food sources are insufficient.</li>
+                <li><strong>Calcium:</strong> Usually adequate if consuming dairy. Vegans on keto should consider fortified foods or supplements.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="imbalance-signs" class="info">
+        <h2>Signs of Electrolyte Imbalance</h2>
+        <p>Electrolyte imbalances can range from mild symptoms to medical emergencies. The following signs may indicate deficiency, though they can also have other causes. Persistent symptoms warrant medical evaluation and blood testing.</p>
+
+        <h3>Sodium (Hyponatremia / Hypernatremia)</h3>
+        <ul>
+            <li><strong>Low sodium:</strong> Headache, nausea, confusion, fatigue, muscle cramps, seizures in severe cases. Can occur from excessive water intake without electrolytes (water intoxication).</li>
+            <li><strong>High sodium:</strong> Excessive thirst, dry mouth, restlessness, irritability. Usually caused by dehydration rather than overconsumption.</li>
+        </ul>
+
+        <h3>Potassium (Hypokalemia / Hyperkalemia)</h3>
+        <ul>
+            <li><strong>Low potassium:</strong> Muscle weakness, cramps, fatigue, constipation, irregular heartbeat. Common with diuretic use, vomiting, or diarrhea.</li>
+            <li><strong>High potassium:</strong> Tingling, muscle weakness, nausea, irregular or slow heartbeat. Dangerous and requires immediate medical attention.</li>
+        </ul>
+
+        <h3>Magnesium (Hypomagnesemia)</h3>
+        <ul>
+            <li><strong>Low magnesium:</strong> Muscle twitches and cramps, fatigue, irritability, poor sleep, heart palpitations. Often underdiagnosed because standard blood tests measure serum levels, which represent only 1% of total body magnesium.</li>
+        </ul>
+
+        <h3>Calcium (Hypocalcemia / Hypercalcemia)</h3>
+        <ul>
+            <li><strong>Low calcium:</strong> Numbness and tingling in fingers, muscle spasms, brittle nails, poor dental health. Long-term deficiency increases osteoporosis risk.</li>
+            <li><strong>High calcium:</strong> Nausea, constipation, excessive thirst, kidney stones. Usually caused by hyperparathyroidism, not diet.</li>
+        </ul>
+    </section>
+
+    <section id="food-sources" class="info">
+        <h2>Food Sources of Electrolytes</h2>
+        <p>Meeting electrolyte needs through whole foods is preferred over supplements when possible, as foods provide cofactors that improve absorption and reduce the risk of overconsumption.</p>
+
+        <h3>Top Sodium Sources</h3>
+        <ul>
+            <li>Table salt (1 tsp = 2,300 mg sodium)</li>
+            <li>Pickles, olives, sauerkraut</li>
+            <li>Broth and bouillon</li>
+            <li>Cheese (especially feta, parmesan)</li>
+            <li>Soy sauce, fish sauce</li>
+        </ul>
+
+        <h3>Top Potassium Sources</h3>
+        <ul>
+            <li>Potato, baked with skin (926 mg per medium)</li>
+            <li>Avocado (690 mg per fruit)</li>
+            <li>Spinach, cooked (840 mg per cup)</li>
+            <li>Banana (422 mg per medium)</li>
+            <li>Sweet potato (542 mg per medium)</li>
+            <li>Coconut water (600 mg per cup)</li>
+        </ul>
+
+        <h3>Top Magnesium Sources</h3>
+        <ul>
+            <li>Pumpkin seeds (156 mg per oz)</li>
+            <li>Almonds (80 mg per oz)</li>
+            <li>Spinach, cooked (157 mg per cup)</li>
+            <li>Dark chocolate, 70-85% (65 mg per oz)</li>
+            <li>Black beans (120 mg per cup)</li>
+        </ul>
+
+        <h3>Top Calcium Sources</h3>
+        <ul>
+            <li>Yogurt, plain (415 mg per cup)</li>
+            <li>Milk (300 mg per cup)</li>
+            <li>Sardines with bones (325 mg per 3 oz)</li>
+            <li>Kale, cooked (177 mg per cup)</li>
+            <li>Fortified plant milks (300-450 mg per cup)</li>
+            <li>Tofu, calcium-set (253 mg per half cup)</li>
+        </ul>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">How much sodium should I eat per day?</h3>
+            <div class="faq-answer">
+                <p>The NIH Adequate Intake for sodium is 1,500 mg/day for adults aged 19-50, with an upper limit of 2,300 mg/day for the general population. However, athletes, people on keto diets, and those working in hot environments often need significantly more. The average American consumes about 3,400 mg/day, which is above the upper limit but may be appropriate for active individuals. People with hypertension or kidney disease should follow their doctor's specific sodium guidance.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Do I need electrolyte supplements?</h3>
+            <div class="faq-answer">
+                <p>Most people eating a varied diet can meet their electrolyte needs through food alone. Supplementation may be beneficial for endurance athletes (especially in heat), people on keto or fasting diets, those taking diuretics, and anyone experiencing symptoms of deficiency like persistent cramps or fatigue. Magnesium is the most commonly deficient electrolyte — an estimated 50% of Americans do not meet the RDA through diet. If supplementing, magnesium glycinate or citrate are better absorbed than magnesium oxide.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Why does keto cause electrolyte imbalance?</h3>
+            <div class="faq-answer">
+                <p>When carbohydrate intake drops below ~50g/day, insulin levels decrease significantly. Insulin normally signals the kidneys to retain sodium. With less insulin, the kidneys excrete more sodium, which pulls water and potassium with it. This is why the first week of keto often involves rapid water weight loss and "keto flu" symptoms. Deliberately increasing sodium intake to 3,000-5,000 mg/day and supplementing potassium and magnesium can prevent or resolve these symptoms.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What is the sodium-to-potassium ratio and why does it matter?</h3>
+            <div class="faq-answer">
+                <p>The sodium-to-potassium ratio reflects the balance between these two electrolytes, which have opposing effects on blood pressure. A lower ratio (more potassium relative to sodium) is associated with reduced cardiovascular risk. The WHO recommends a sodium-to-potassium molar ratio below 1.0, roughly equivalent to consuming at least as much potassium (in mg) as sodium. Most Western diets have an inverted ratio due to high processed food intake and low fruit/vegetable consumption.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can you have too many electrolytes?</h3>
+            <div class="faq-answer">
+                <p>Yes. While the body can regulate electrolyte levels through kidney excretion, excessive intake can overwhelm this system. Sodium overconsumption is linked to hypertension and cardiovascular disease. Excessive potassium (hyperkalemia) can cause dangerous cardiac arrhythmias, especially in people with kidney disease. Calcium supplements above 1,000-1,200 mg/day may increase kidney stone risk. Magnesium from supplements (not food) above 350 mg/day can cause diarrhea and GI distress. People with kidney disease are at highest risk because impaired kidneys cannot efficiently excrete excess electrolytes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources-section" class="info">
+        <h2>Sources</h2>
+        <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
+            <li>NIH Office of Dietary Supplements. "Sodium — Fact Sheet for Health Professionals." Updated 2024.</li>
+            <li>NIH Office of Dietary Supplements. "Potassium — Fact Sheet for Health Professionals." Updated 2024.</li>
+            <li>NIH Office of Dietary Supplements. "Magnesium — Fact Sheet for Health Professionals." Updated 2024.</li>
+            <li>NIH Office of Dietary Supplements. "Calcium — Fact Sheet for Health Professionals." Updated 2024.</li>
+            <li>National Academies of Sciences, Engineering, and Medicine. <em>Dietary Reference Intakes for Sodium and Potassium.</em> Washington, DC: The National Academies Press, 2019.</li>
+            <li>American College of Sports Medicine. "Exercise and Fluid Replacement — Position Stand." <em>Med Sci Sports Exerc</em>, 39(2), 377-390, 2007.</li>
+            <li>Baker, L.B. (2017). "Sweating Rate and Sweat Sodium Concentration in Athletes." <em>Sports Medicine</em>, 47(Suppl 1), 111-128.</li>
+        </ol>
+    </section>
+
+</div>
+
+<div id="next-steps-container"></div>
+
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/electrolyte_calculator.js"></script>
+</body>
+</html>

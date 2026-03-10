@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your HCG injection volume from vial strength and bacteriostatic water volume. See exact mL and insulin syringe units for any prescribed dose. Reconstitution math made simple.",
+    meta_keywords="hcg injection dosage calculator, hcg mixing calculator, hcg reconstitution calculator, hcg injection calculator, hcg dosage calculator, how to mix hcg",
+    og_title="HCG Injection Dosage Calculator — Reconstitution & Dose Volume",
+    og_description="Calculate your exact HCG injection volume in mL and insulin syringe units. Enter your vial strength, water volume, and prescribed dose.",
+    og_url="/hcg-injection-dosage-calculator",
+    page_title="HCG Injection Dosage Calculator — Mixing & Dose Volume",
+    canonical_url="/hcg-injection-dosage-calculator",
+    schema_name="HCG Injection Dosage Calculator",
+    schema_description="Calculate HCG injection volume from vial strength and bacteriostatic water volume. Shows mL, insulin syringe units, concentration, and doses per vial.",
+    schema_url="/hcg-injection-dosage-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>HCG Injection Dosage Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Calculate your exact HCG injection volume from your vial strength and bacteriostatic water amount. Enter your prescribed dose to see how much to draw in mL and insulin syringe units.</p>
+
+<section id="calculator">
+        <h2>Calculate Injection Volume</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="vial-strength">HCG Vial Strength:</label>
+                    <select id="vial-strength">
+                        <option value="5000">5,000 IU</option>
+                        <option value="10000">10,000 IU</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div class="form-group hidden" id="custom-vial-group">
+                    <label for="custom-vial">Custom Vial Strength (IU):</label>
+                    <input type="number" id="custom-vial" min="1" step="1" placeholder="e.g. 11000">
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="water-volume">Bacteriostatic Water Added:</label>
+                    <select id="water-volume">
+                        <option value="1">1 mL</option>
+                        <option value="2" selected>2 mL</option>
+                        <option value="5">5 mL</option>
+                        <option value="10">10 mL</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <span class="input-hint">The amount of bacteriostatic water you mixed (or will mix) into the vial</span>
+                </div>
+                <div class="form-group hidden" id="custom-water-group">
+                    <label for="custom-water">Custom Water Volume (mL):</label>
+                    <input type="number" id="custom-water" min="0.1" step="0.1" placeholder="e.g. 3">
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="desired-dose">Prescribed Dose Per Injection (IU):</label>
+                    <input type="number" id="desired-dose" min="1" step="1" placeholder="e.g. 500">
+                    <span class="input-hint">Enter the dose your doctor prescribed (e.g. 250, 500, 1000, 5000, 10000 IU)</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Injection Volume</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number"><span id="dose-result">--</span></div>
+                    <div class="result-hero-label" id="dose-label">per injection</div>
+                </div>
+
+                <div id="dose-status" class="result-status status-good">
+                    <span class="result-status-icon" id="dose-icon">--</span>
+                    <span class="result-status-text" id="dose-description">--</span>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Draw Volume</span>
+                            <span class="result-comparison-value" id="comp-volume">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Syringe Units</span>
+                            <span class="result-comparison-value" id="comp-units">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Doses/Vial</span>
+                            <span class="result-comparison-value" id="comp-doses">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Concentration</span>
+                        <span class="result-breakdown-val" id="display-concentration">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Injection Volume</span>
+                        <span class="result-breakdown-val" id="display-injection-ml">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Syringe Units</span>
+                        <span class="result-breakdown-val" id="display-syringe-units">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Doses Per Vial</span>
+                        <span class="result-breakdown-val" id="display-doses">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Remaining/Waste</span>
+                        <span class="result-breakdown-val" id="display-waste">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Your Mix</span>
+                        <span class="result-breakdown-val" id="display-vial">--</span>
+                    </div>
+                </div>
+
+                <!-- Quick reference table -->
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 1.05rem; margin-bottom: 12px;">Quick Reference: All Doses for Your Mix</h3>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Dose</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Volume</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Syringe Units</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Doses/Vial</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ref-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 6px;">Syringe units assume a standard U-100 insulin syringe (100 units = 1 mL).</p>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about HCG reconstitution
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>How Reconstitution Works</h4>
+                    <p>HCG comes as a freeze-dried powder that must be mixed with bacteriostatic water before injection. The amount of water you add determines the <strong>concentration</strong>:</p>
+                    <ul>
+                        <li><strong>Concentration</strong> = Vial strength (IU) &divide; Water volume (mL)</li>
+                        <li><strong>Injection volume</strong> = Desired dose (IU) &divide; Concentration (IU/mL)</li>
+                    </ul>
+                    <p>More water = lower concentration = larger (easier to measure) injection volumes. Less water = higher concentration = smaller volumes. For small doses (250-500 IU), using more water (5-10 mL) makes accurate measurement easier.</p>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How to Calculate HCG Injection Dosage</h2>
+    <div class="answer-capsule">
+        To calculate your HCG injection volume: <strong>divide your prescribed dose (IU) by the concentration (IU/mL)</strong>. The concentration is determined by how much bacteriostatic water you add to the vial. For example, a 5,000 IU vial mixed with 2 mL of water gives a concentration of 2,500 IU/mL. A 500 IU dose would then require 0.20 mL (20 units on a U-100 insulin syringe).
+    </div>
+
+    <div class="important-box" style="margin-top: 16px; border-left: 4px solid #c03030;">
+        <h3>Medical Disclaimer</h3>
+        <p><strong>HCG is a prescription medication.</strong> This calculator is for educational purposes only and does not replace your doctor's instructions. Always follow the specific dosing, mixing, and injection instructions from your prescribing physician or pharmacist. Do not use HCG without medical supervision.</p>
+    </div>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-to-mix">How to Mix HCG Step by Step</a></li>
+            <li><a href="#common-mixes">Common Reconstitution Examples</a></li>
+            <li><a href="#storage">Storage & Handling</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="how-to-mix" class="info">
+        <h2>How to Mix HCG: Step by Step</h2>
+        <ol>
+            <li><strong>Gather supplies:</strong> HCG vial (powder), bacteriostatic water vial, alcohol swabs, syringe for mixing (3 mL syringe with 18-21 gauge needle), and insulin syringe for injecting (29-31 gauge).</li>
+            <li><strong>Clean vial tops:</strong> Swab both the HCG vial and bacteriostatic water vial tops with alcohol pads. Let dry.</li>
+            <li><strong>Draw water:</strong> Using the mixing syringe, draw the prescribed amount of bacteriostatic water (e.g. 2 mL).</li>
+            <li><strong>Inject into HCG vial:</strong> Insert the needle into the HCG vial and slowly inject the water. Aim the stream at the glass wall, not directly onto the powder.</li>
+            <li><strong>Gently mix:</strong> Roll the vial between your palms for 30-60 seconds. <strong>Do not shake</strong> &mdash; shaking can damage the HCG molecules. The solution should become clear.</li>
+            <li><strong>Label the vial:</strong> Write the date of reconstitution and the concentration on the vial. Store in the refrigerator.</li>
+            <li><strong>Draw your dose:</strong> Using an insulin syringe, draw the calculated volume for your prescribed dose.</li>
+        </ol>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="common-mixes" class="info">
+        <h2>Common Reconstitution Examples</h2>
+
+        <h3>5,000 IU Vial</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">Water Added</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">Concentration</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">250 IU =</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">500 IU =</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">1,000 IU =</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">1 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">5,000 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.05 mL (5 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.10 mL (10 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.20 mL (20 units)</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">2 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">2,500 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.10 mL (10 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.20 mL (20 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.40 mL (40 units)</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">5 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">1,000 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.25 mL (25 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.50 mL (50 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">1.00 mL (100 units)</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top: 20px;">10,000 IU Vial</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">Water Added</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">Concentration</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">250 IU =</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">500 IU =</th>
+                        <th style="padding: 8px 12px; border-bottom: 2px solid #e5e7eb;">1,000 IU =</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">1 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">10,000 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.025 mL (2.5 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.05 mL (5 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.10 mL (10 units)</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">2 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">5,000 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.05 mL (5 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.10 mL (10 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.20 mL (20 units)</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">5 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">2,000 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.125 mL (12.5 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.25 mL (25 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.50 mL (50 units)</td></tr>
+                    <tr><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">10 mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">1,000 IU/mL</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.25 mL (25 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">0.50 mL (50 units)</td><td style="padding:6px 12px;border-bottom:1px solid #f0f0f0;">1.00 mL (100 units)</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="storage" class="info">
+        <h2>Storage & Handling</h2>
+        <div class="important-box">
+            <ul>
+                <li><strong>Before reconstitution:</strong> Store the powder vial at room temperature (up to 25&deg;C / 77&deg;F). Protect from light.</li>
+                <li><strong>After reconstitution:</strong> Refrigerate immediately at 2-8&deg;C (36-46&deg;F). Use within 30-60 days per your pharmacist's instructions.</li>
+                <li><strong>Do not freeze</strong> reconstituted HCG.</li>
+                <li><strong>Discard</strong> if the solution is cloudy, discolored, or contains particles.</li>
+                <li><strong>Use bacteriostatic water</strong> (contains benzyl alcohol preservative), not sterile water, if the vial will be used for multiple doses. Sterile water has no preservative and risks contamination with repeated needle entries.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">How much bacteriostatic water should I add to HCG?</h3>
+            <div class="faq-answer">
+                <p>There is no single "correct" amount &mdash; it depends on your prescribed dose. The key principle: more water = lower concentration = larger injection volumes that are easier to measure. For small doses (250-500 IU), 5-10 mL of water is practical because it produces measurable volumes. For larger doses (5,000-10,000 IU as a single injection), 1-2 mL is typical. Follow your prescriber's specific instructions.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What do "units" on an insulin syringe mean?</h3>
+            <div class="faq-answer">
+                <p>A standard U-100 insulin syringe has 100 units per 1 mL. So 10 units = 0.10 mL, 25 units = 0.25 mL, 50 units = 0.50 mL, and 100 units = 1.00 mL. These "units" refer to volume markings, not IU of HCG. The number of IU per syringe unit depends entirely on how you mixed your vial.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How long does reconstituted HCG last?</h3>
+            <div class="faq-answer">
+                <p>When mixed with bacteriostatic water and refrigerated, HCG typically lasts 30-60 days. Some pharmacies label it for 30 days to be conservative. If mixed with plain sterile water (no preservative), use within 24-48 hours. Always check your pharmacy's specific instructions. Discard if cloudy or past the expiration date.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What is the typical HCG dose for fertility?</h3>
+            <div class="faq-answer">
+                <p>For ovulation trigger shots (IVF or timed intercourse), the standard dose is 5,000-10,000 IU as a single injection, given 34-36 hours before egg retrieval or intercourse. Some protocols use 5,000 IU for patients at risk of ovarian hyperstimulation. Pre-filled Ovidrel (250 mcg, approximately 5,000-6,000 IU equivalent) does not require reconstitution. Always follow your fertility specialist's protocol.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Can I use this calculator for peptide reconstitution?</h3>
+            <div class="faq-answer">
+                <p>The math is the same for any reconstituted peptide: concentration = total amount &divide; water volume, and injection volume = desired dose &divide; concentration. However, peptides use micrograms (mcg) rather than IU. We have a dedicated <a href="/semaglutide-reconstitution-calculator">Semaglutide Reconstitution Calculator</a> for GLP-1 peptides.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources-section" class="info">
+        <h2>Sources</h2>
+        <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
+            <li>Drugs.com. "HCG (Human Chorionic Gonadotropin) Injection." Prescribing information, reviewed 2024.</li>
+            <li>Cleveland Clinic. "Human Chorionic Gonadotropin (HCG) Injection." <em>My.ClevelandClinic.org</em>, 2024.</li>
+            <li>Kailasam, C. et al. (2008). "A review of the safety, efficacy, and patient acceptability of human chorionic gonadotropin." <em>Therapeutics and Clinical Risk Management</em>, 4(4), 755-760.</li>
+            <li>Coviello, A.D. et al. (2008). "Low-Dose Human Chorionic Gonadotropin Maintains Intratesticular Testosterone in Normal Men with Testosterone-Induced Gonadotropin Suppression." <em>Journal of Clinical Endocrinology & Metabolism</em>, 93(5), 1834-1840.</li>
+            <li>SART. "Mixing and Administration of hCG." <em>Society for Assisted Reproductive Technology</em>.</li>
+        </ol>
+    </section>
+
+</div>
+
+<div id="next-steps-container"></div>
+
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/hcg_injection_calculator.js"></script>
+</body>
+</html>

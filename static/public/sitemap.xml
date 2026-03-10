@@ -728,6 +728,24 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://healthcalculators.xyz/ffmi-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/hcg-injection-dosage-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://healthcalculators.xyz/electrolyte-calculator</loc>
+    <lastmod>2026-03-10</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://healthcalculators.xyz/glycemic-index-calculator</loc>
     <lastmod>2026-03-10</lastmod>
     <priority>0.8</priority>

@@ -476,6 +476,33 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Creatine adds 2-5 lbs of water weight — your real target is different', params: ['height_cm','gender'] }
     ]
   },
+  'ffmi': {
+    links: [
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'FFMI requires body fat percentage — estimate yours if you don\'t know it', params: ['height_cm','gender','age'] },
+      { url: '/one-rep-max-calculator', title: '1RM Calculator', icon: '🏋️', reason: 'Strength relative to FFMI matters — calculate your training loads', params: [] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Maximizing FFMI requires 1.6-2.2g protein per kg — are you hitting it?', params: ['weight_kg','age','gender'] },
+      { url: '/bulking-calorie-calculator', title: 'Bulking Calories', icon: '🍽️', reason: 'Building lean mass requires a calorie surplus — find your target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '⚖️', reason: 'BMI ignores muscle mass — FFMI is the better metric, but compare both', params: ['weight_kg','height_cm'] }
+    ]
+  },
+  'hcg-injection': {
+    links: [
+      { url: '/hcg-doubling-time-calculator', title: 'HCG Doubling Time', icon: '🤰', reason: 'Already pregnant? Track your hCG blood levels to check doubling time', params: [] },
+      { url: '/semaglutide-reconstitution-calculator', title: 'Semaglutide Calculator', icon: '💉', reason: 'Same reconstitution math — calculate semaglutide peptide dosing', params: [] },
+      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '📅', reason: 'Using HCG for fertility? Estimate your fertility window', params: [] },
+      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'After your trigger shot — calculate your IVF due date', params: [] },
+      { url: '/gestational-age-calculator', title: 'Gestational Age', icon: '🤰', reason: 'Track how far along you are after a successful cycle', params: [] }
+    ]
+  },
+  'electrolyte': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs and electrolyte needs both scale with activity level', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/creatine-dosage-calculator', title: 'Creatine Calculator', icon: '💪', reason: 'Creatine increases water retention — your electrolyte balance matters more', params: ['weight_kg'] },
+      { url: '/glycemic-index-calculator', title: 'Glycemic Index', icon: '📊', reason: 'On keto for blood sugar control? Check the GI of foods you\'re considering', params: [] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your carb intake directly affects electrolyte excretion — check your macros', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Calculator', icon: '☀️', reason: 'Vitamin D aids calcium absorption — are you getting enough?', params: [] }
+    ]
+  },
   'glycemic-index': {
     links: [
       { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'GI affects long-term blood sugar — see what your A1C means for diabetes risk', params: [] },
