@@ -208,6 +208,10 @@ cross_links = {
         "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
     },
+    "/vo2-max-calculator": {
+        "calculators": ["/tdee-calculator", "/heart-age-calculator", "/bmi-calculator", "/calories-burned-calculator"],
+        "guides": []
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -439,6 +443,16 @@ cards = [
         "color": "teal",
         "category": "health",
         "popular": False
+    },
+    {
+        "title": "VO2 Max Calculator",
+        "url": "/vo2-max-calculator",
+        "summary": "Estimate your VO2 max with 6 validated methods: Cooper run, walking test, step test, or no-exercise estimate. See fitness classification by age.",
+        "icon": "🫀",
+        "cta": "Calculate VO2 Max",
+        "color": "teal",
+        "category": "fitness",
+        "popular": True
     },
     {
         "title": "One Rep Max (1RM) Calculator",
@@ -4377,6 +4391,23 @@ def heart_age_calculator():
         schema_url=schema_url,
         date_modified='2025-06-01'
     )
+
+@app.route('/vo2-max-calculator')
+def vo2_max_calculator():
+    schema_name = "VO2 Max Calculator"
+    schema_description = "Estimate your maximal oxygen uptake (VO2 max) using 6 validated methods: Cooper 12-minute run, 1.5-mile run, Rockport walking test, Queens College step test, heart rate ratio, or non-exercise estimation. Fitness classification by age and sex."
+    schema_url = "/vo2-max-calculator"
+    return render_template(
+        'vo2_max_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
 
 @app.route('/one-rep-max-calculator')
 def one_rep_max_calculator():

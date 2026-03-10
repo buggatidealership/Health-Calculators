@@ -486,6 +486,16 @@ var CALCULATOR_GRAPH = {
       { url: '/waist-to-hip-ratio-calculator', title: 'Waist-to-Hip Ratio', icon: '📏', reason: 'Stronger lifters carry weight differently — check if your ratio is healthy', params: [] }
     ]
   },
+  'vo2-max': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Higher VO2 max means you burn more calories during exercise — find your daily target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/one-rep-max-calculator', title: '1RM Calculator', icon: '🏋️', reason: 'Strength training boosts VO2 max by up to 8% — find your training loads', params: [] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Every 5% body fat drop improves VO2 max by ~2.5 ml/kg/min', params: ['height_cm','gender','age'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Your VO2 max determines how many calories you actually burn per workout', params: ['weight_kg'] },
+      { url: '/metabolic-age-calculator', title: 'Metabolic Age', icon: '🧬', reason: 'VO2 max is the strongest predictor of biological age — see your metabolic age too', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Poor sleep drops VO2 max by up to 11% — are you recovering enough?', params: ['age'] }
+    ]
+  },
   'starbucks': {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A Frappuccino can be 25% of your daily calories — do you know your limit?', params: [] },
