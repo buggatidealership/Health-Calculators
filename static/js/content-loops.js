@@ -476,6 +476,16 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Creatine adds 2-5 lbs of water weight — your real target is different', params: ['height_cm','gender'] }
     ]
   },
+  'bulking-calories': {
+    links: [
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Your bulk needs 1g protein per lb bodyweight — are you hitting that target?', params: ['weight_kg','age','gender'] },
+      { url: '/one-rep-max-calculator', title: '1RM Calculator', icon: '🏋️', reason: 'A surplus without progressive overload just adds fat — find your training loads', params: [] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your bulking calories are built on your TDEE — double-check that number', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/creatine-dosage-calculator', title: 'Creatine Calculator', icon: '💪', reason: 'Creatine adds 5-10% strength and 2-5 lbs water weight during a bulk', params: ['weight_kg'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Start bulking above 15% body fat and more calories go to fat than muscle', params: ['height_cm','gender','age'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Fine-tune your carb and fat split for training performance', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'one-rep-max': {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Building strength requires a calorie surplus — find out how much you need', params: ['weight_kg','height_cm','age','gender'] },

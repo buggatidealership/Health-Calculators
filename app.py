@@ -212,6 +212,10 @@ cross_links = {
         "calculators": ["/tdee-calculator", "/heart-age-calculator", "/bmi-calculator", "/calories-burned-calculator"],
         "guides": []
     },
+    "/bulking-calorie-calculator": {
+        "calculators": ["/protein-intake-calculator", "/one-rep-max-calculator", "/tdee-calculator", "/creatine-dosage-calculator"],
+        "guides": []
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -463,6 +467,16 @@ cards = [
         "color": "red",
         "category": "fitness",
         "popular": True
+    },
+    {
+        "title": "Bulking Calorie Calculator",
+        "url": "/bulking-calorie-calculator",
+        "summary": "Calculate your ideal calorie surplus for lean muscle gain. Get bulking calories, macro breakdown, and weekly weight gain estimate.",
+        "icon": "🍽️",
+        "cta": "Calculate Surplus",
+        "color": "green",
+        "category": "fitness",
+        "popular": False
     },
     {
         "title": "Creatine Dosage Calculator",
@@ -4416,6 +4430,23 @@ def one_rep_max_calculator():
     schema_url = "/one-rep-max-calculator"
     return render_template(
         'one_rep_max_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/bulking-calorie-calculator')
+def bulking_calorie_calculator():
+    schema_name = "Bulking Calorie Calculator"
+    schema_description = "Calculate your optimal calorie surplus for muscle gain using the Mifflin-St Jeor equation. Includes lean bulk, moderate, and aggressive surplus options with macro breakdowns and weekly weight gain estimates."
+    schema_url = "/bulking-calorie-calculator"
+    return render_template(
+        'bulking_calorie_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
