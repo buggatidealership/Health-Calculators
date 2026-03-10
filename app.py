@@ -196,6 +196,10 @@ cross_links = {
         "calculators": ["/creatine-water-calculator", "/tdee-calculator", "/protein-intake-calculator", "/ideal-body-weight-calculator"],
         "guides": []
     },
+    "/gestational-age-calculator": {
+        "calculators": ["/ivf-due-date-calculator", "/pregnancy-weight-gain-calculator", "/hcg-doubling-time-calculator", "/female-fertility-calculator"],
+        "guides": ["/resources/fertility-after-35"]
+    },
     "/waist-to-hip-ratio-calculator": {
         "calculators": ["/bmi-calculator", "/body-roundness-index-calculator", "/body-fat-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/body-fat-percentage-chart"]
@@ -408,6 +412,16 @@ cards = [
         "summary": "Calculate your hCG doubling time from two blood test results. See if your levels are rising normally for early pregnancy.",
         "icon": "🤰",
         "cta": "Calculate Doubling Time",
+        "color": "pink",
+        "category": "fertility",
+        "popular": False
+    },
+    {
+        "title": "Gestational Age Calculator",
+        "url": "/gestational-age-calculator",
+        "summary": "Calculate how many weeks pregnant you are from LMP, ultrasound, or IVF date. Shows due date, trimester, and milestone timeline.",
+        "icon": "🤰",
+        "cta": "Calculate Gestational Age",
         "color": "pink",
         "category": "fertility",
         "popular": False
@@ -2721,6 +2735,23 @@ def hcg_calculator():
     schema_url = "/hcg-doubling-time-calculator"
     return render_template(
         'hcg_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Pregnancy & Fertility',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/gestational-age-calculator')
+def gestational_age_calculator():
+    schema_name = "Gestational Age Calculator"
+    schema_description = "Calculate gestational age from last menstrual period (LMP), ultrasound, or IVF transfer date. Shows weeks and days pregnant, estimated due date, trimester, and ACOG term classification."
+    schema_url = "/gestational-age-calculator"
+    return render_template(
+        'gestational_age_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

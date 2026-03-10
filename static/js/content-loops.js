@@ -294,6 +294,14 @@ var CALCULATOR_GRAPH = {
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'GLP-1 medications can cause muscle loss — ensure you\'re getting enough protein', params: ['weight_kg','age','gender'] }
     ]
   },
+  'gestational-age': {
+    links: [
+      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '👶', reason: 'Know your gestational age — now calculate your exact due date', params: [] },
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Your trimester determines your healthy weight gain target — check yours', params: [] },
+      { url: '/hcg-doubling-time-calculator', title: 'hCG Doubling Time', icon: '🔬', reason: 'Tracking early pregnancy? Check if your hCG levels are rising normally', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Planning ahead? Know that all newborns lose 5-10% of birth weight', params: [] }
+    ]
+  },
   'waist-to-hip-ratio': {
     links: [
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'WHR shows where fat is stored — BMI shows how much. Use both for a complete picture.', params: ['weight_kg','height_cm'] },

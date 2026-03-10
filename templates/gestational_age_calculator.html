@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your gestational age, due date, and trimester from your last menstrual period, ultrasound, or IVF transfer date. ACOG-based term classifications and pregnancy milestone timeline.",
+    meta_keywords="gestational age calculator, how many weeks pregnant am I, pregnancy week calculator, gestational age from LMP, due date calculator, pregnancy calculator",
+    og_title="Gestational Age Calculator — How Many Weeks Pregnant Am I?",
+    og_description="Calculate your exact gestational age, estimated due date, and trimester. Works with LMP, ultrasound dating, or IVF transfer date.",
+    og_url="/gestational-age-calculator",
+    page_title="Gestational Age Calculator — How Many Weeks Pregnant Am I?",
+    canonical_url="/gestational-age-calculator",
+    schema_name="Gestational Age Calculator",
+    schema_description="Calculate gestational age from last menstrual period (LMP), ultrasound, or IVF transfer date. Shows weeks and days pregnant, estimated due date, trimester, and ACOG term classification.",
+    schema_url="/gestational-age-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Gestational Age Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Find out exactly how many weeks pregnant you are, your estimated due date, and which trimester you're in — from LMP, ultrasound, or IVF transfer date.</p>
+
+<section id="calculator">
+        <h2>Calculate Your Gestational Age</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="method">Dating Method:</label>
+                    <select id="method">
+                        <option value="lmp">Last Menstrual Period (LMP)</option>
+                        <option value="ultrasound">Ultrasound Dating</option>
+                        <option value="ivf">IVF Transfer Date</option>
+                    </select>
+                    <span class="input-hint">LMP is most common. Ultrasound is most accurate in the first trimester.</span>
+                </div>
+            </div>
+
+            <div id="lmp-group">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="lmp-date">First Day of Last Menstrual Period:</label>
+                        <input type="date" id="lmp-date">
+                        <span class="input-hint">The first day of bleeding, not the last</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ultrasound-group" class="hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="us-date">Ultrasound Date:</label>
+                        <input type="date" id="us-date">
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="us-weeks">Gestational Age at Ultrasound (weeks):</label>
+                        <input type="number" id="us-weeks" min="0" max="42" step="1" value="8" placeholder="e.g. 8">
+                    </div>
+                    <div class="form-group">
+                        <label for="us-days">Days:</label>
+                        <input type="number" id="us-days" min="0" max="6" step="1" value="0" placeholder="e.g. 3">
+                        <span class="input-hint">From ultrasound report (e.g., 8w3d = 8 weeks, 3 days)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ivf-group" class="hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="ivf-date">Embryo Transfer Date:</label>
+                        <input type="date" id="ivf-date">
+                    </div>
+                    <div class="form-group">
+                        <label for="ivf-type">Embryo Type:</label>
+                        <select id="ivf-type">
+                            <option value="5">Day 5 (blastocyst)</option>
+                            <option value="3">Day 3 (cleavage stage)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Gestational Age</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="ga-result">--</div>
+                    <div class="result-hero-label" id="ga-label">Gestational Age</div>
+                </div>
+
+                <div id="ga-status" class="result-status status-good">
+                    <span class="result-status-icon" id="ga-icon"></span>
+                    <span class="result-status-text" id="ga-description">--</span>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Pregnancy Progress: <span id="progress-pct">0%</span></div>
+                    <div class="result-gauge-bar" style="position: relative; background: linear-gradient(to right, #e8f5e9 0%, #4caf50 33%, #8bc34a 66%, #ff9800 90%, #f44336 100%);">
+                        <div id="gauge-marker" style="position: absolute; width: 3px; height: 18px; background: #333; border-radius: 2px; top: -3px; left: 0; transition: left 0.4s ease;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>Week 0</span>
+                        <span>Week 13</span>
+                        <span>Week 27</span>
+                        <span>Week 40</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Pregnancy Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Gestational Age</span>
+                        <span class="result-breakdown-val" id="display-ga">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Fetal Age</span>
+                        <span class="result-breakdown-val" id="display-fetal-age">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Estimated Due Date</span>
+                        <span class="result-breakdown-val" id="display-edd">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Days Remaining</span>
+                        <span class="result-breakdown-val" id="display-remaining">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Trimester</span>
+                        <span class="result-breakdown-val" id="display-trimester">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">ACOG Classification</span>
+                        <span class="result-breakdown-val" id="display-term-class">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Progress</span>
+                        <span class="result-breakdown-val" id="display-progress">--</span>
+                    </div>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Gestational Age</span>
+                            <span class="result-comparison-value" id="comp-ga">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Due Date</span>
+                            <span class="result-comparison-value" id="comp-edd">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Trimester</span>
+                            <span class="result-comparison-value" id="comp-trimester">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Milestone timeline -->
+                <div style="margin-top: 16px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Pregnancy Milestone Timeline</div>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb; width: 30px;"></th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Week</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Milestone</th>
+                                </tr>
+                            </thead>
+                            <tbody id="milestone-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about gestational age calculation
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About Gestational Age Calculation</h4>
+                    <ul>
+                        <li><strong>Naegele's rule:</strong> Due date = LMP + 280 days (40 weeks). This assumes a 28-day menstrual cycle with ovulation on day 14.</li>
+                        <li><strong>Gestational vs. fetal age:</strong> Gestational age counts from the first day of the last menstrual period. Fetal age (conceptional age) counts from fertilization — typically 2 weeks less than gestational age.</li>
+                        <li><strong>Ultrasound dating:</strong> First-trimester ultrasound (before 14 weeks) is the most accurate dating method, with accuracy of &plusmn;5-7 days. It measures crown-rump length (CRL) to estimate gestational age.</li>
+                        <li><strong>IVF dating:</strong> The most precise method because the exact date of fertilization/transfer is known. Gestational age = transfer date minus (14 + embryo age at transfer).</li>
+                    </ul>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Gestational Age?</h2>
+    <div class="answer-capsule">
+      Gestational age is the number of weeks and days since the first day of your last menstrual period (LMP). It is how doctors date pregnancies and schedule prenatal care. A full-term pregnancy is 39-40 weeks gestational age, with the estimated due date at exactly 40 weeks (280 days) from the LMP. Note that gestational age is about 2 weeks longer than the actual fetal age because it starts counting before conception occurs.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        Accurate dating is one of the most important elements of prenatal care. Gestational age determines screening test timing, fetal growth assessment, and delivery planning. ACOG recommends that all pregnancies be dated using a combination of LMP and first-trimester ultrasound when available.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#dating-methods">Dating Methods Compared</a></li>
+            <li><a href="#trimester-guide">Trimester Guide</a></li>
+            <li><a href="#term-definitions">ACOG Term Definitions</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="dating-methods" class="info">
+        <h2>Pregnancy Dating Methods Compared</h2>
+        <p>There are three main ways to calculate gestational age. Each has different accuracy and appropriate use cases.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Method</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Accuracy</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Best Used When</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Limitations</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">LMP (Naegele's Rule)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">&plusmn;2-3 weeks</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Regular 28-day cycles, known LMP date</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Assumes ovulation on day 14; inaccurate with irregular cycles</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">First Trimester Ultrasound</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">&plusmn;5-7 days</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Before 14 weeks; gold standard for dating</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Less accurate in 2nd/3rd trimester (&plusmn;2-3 weeks)</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">IVF Transfer Date</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">&plusmn;1-2 days</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">IVF pregnancies (most precise method)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Only applicable to IVF pregnancies</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="trimester-guide" class="info">
+        <h2>Trimester Guide</h2>
+
+        <div class="important-box">
+            <h3>First Trimester (Weeks 1-12)</h3>
+            <ul>
+                <li><strong>Week 4:</strong> Implantation completes. Pregnancy test becomes positive.</li>
+                <li><strong>Week 6:</strong> Heartbeat detectable on ultrasound (transvaginal).</li>
+                <li><strong>Week 8:</strong> All major organs have begun to form. The embryo is now called a fetus.</li>
+                <li><strong>Week 10-12:</strong> First trimester screening (nuchal translucency, blood tests). Risk of miscarriage drops significantly after a heartbeat is confirmed at 8+ weeks.</li>
+            </ul>
+        </div>
+
+        <div class="important-box">
+            <h3>Second Trimester (Weeks 13-26)</h3>
+            <ul>
+                <li><strong>Week 16:</strong> Sex may be visible on ultrasound. Many women begin to show.</li>
+                <li><strong>Week 18-20:</strong> Quickening — first fetal movements felt. Anatomy scan (20-week ultrasound) checks for structural abnormalities.</li>
+                <li><strong>Week 24:</strong> Viability threshold — survival outside the womb becomes possible with intensive care (~50-70% survival at specialized centers).</li>
+            </ul>
+        </div>
+
+        <div class="important-box">
+            <h3>Third Trimester (Weeks 27-40)</h3>
+            <ul>
+                <li><strong>Week 28:</strong> Survival rate exceeds 90% if born prematurely. GBS screening and Rh immunoglobulin (if needed) are given.</li>
+                <li><strong>Week 32-34:</strong> Lungs are developing surfactant. Rapid brain growth. Fetus gains ~0.5 lb per week.</li>
+                <li><strong>Week 37:</strong> Early term. Previously considered "term," but ACOG now recommends waiting until 39 weeks for elective delivery.</li>
+                <li><strong>Week 39-40:</strong> Full term. Brain and lungs complete final maturation. Optimal window for delivery.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- In-article Ad (native format, highest CTR) -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="term-definitions" class="info">
+        <h2>ACOG Term Definitions (2013)</h2>
+        <p>In 2013, ACOG and SMFM replaced the single "term" designation with more precise categories to discourage elective early delivery:</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Classification</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Gestational Age</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Clinical Significance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Preterm</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">&lt;37w0d</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Increased risk of respiratory, neurological, and developmental complications</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #c27a0e;">Early Term</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">37w0d - 38w6d</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Elective delivery not recommended unless medically indicated</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #1a8a4a;">Full Term</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">39w0d - 40w6d</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Optimal outcomes. Lowest risk of neonatal complications.</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #c27a0e;">Late Term</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">41w0d - 41w6d</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Increased monitoring. Consider induction.</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #c03030;">Post Term</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">&ge;42w0d</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Increased risk of stillbirth. Delivery recommended.</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> ACOG Committee Opinion No. 579 (2013), reaffirmed 2021.</p>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How many weeks pregnant am I?</h3>
+            <div class="faq-answer">
+                <p>Count the number of days from the first day of your last menstrual period (LMP) to today, then divide by 7. For example, if your LMP was 56 days ago, you are 8 weeks and 0 days pregnant. Use the calculator above for an exact result, including fetal age, due date, and trimester.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is the difference between gestational age and fetal age?</h3>
+            <div class="faq-answer">
+                <p>Gestational age counts from the first day of your last period — about 2 weeks before conception actually occurred. Fetal age (conceptional age) counts from fertilization. So a pregnancy at 10 weeks gestational age has a fetus that is approximately 8 weeks old. Doctors use gestational age for all clinical decisions and scheduling.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How accurate is an LMP-based due date?</h3>
+            <div class="faq-answer">
+                <p>LMP-based dating assumes a 28-day cycle with ovulation on day 14 — which is true for only about 30% of women. If your cycles are longer or shorter, or irregular, LMP dating can be off by 2-3 weeks. First-trimester ultrasound (&plusmn;5-7 days accuracy) is recommended to confirm or adjust the due date. ACOG states that if ultrasound dating differs from LMP by more than 7 days in the first trimester, the ultrasound date should be used.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What percentage of babies are born on their due date?</h3>
+            <div class="faq-answer">
+                <p>Only about 4-5% of babies are born on their exact due date. The due date is an estimate — most babies are born within a 5-week window (37-42 weeks). About 57% are born within 1 week of the due date. First-time mothers tend to deliver slightly later on average than experienced mothers.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why does gestational age start before conception?</h3>
+            <div class="faq-answer">
+                <p>Historically, the last menstrual period was the only reliable date available before ultrasound technology existed. Since ovulation and conception dates were rarely known, counting from the LMP became the standard convention. This convention persists today because it provides a consistent framework that all healthcare providers use, even though it means "week 1" and "week 2" of pregnancy occur before fertilization.</p>
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/ivf-due-date-calculator" class="related-tool-card">
+                <h4>IVF Due Date Calculator</h4>
+                <p>Calculate your due date from IVF transfer or egg retrieval date.</p>
+            </a>
+            <a href="/pregnancy-weight-gain-calculator" class="related-tool-card">
+                <h4>Pregnancy Weight Gain Calculator</h4>
+                <p>Track your recommended weight gain by trimester based on IOM guidelines.</p>
+            </a>
+            <a href="/hcg-doubling-time-calculator" class="related-tool-card">
+                <h4>hCG Doubling Time Calculator</h4>
+                <p>Check if your hCG levels are rising at a normal rate in early pregnancy.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "American College of Obstetricians and Gynecologists. Methods for Estimating the Due Date. Committee Opinion No. 700. Obstet Gynecol. 2017;129(5):e150-e154.", "url": "https://pubmed.ncbi.nlm.nih.gov/28426621/"},
+        {"text": "ACOG Committee Opinion No. 579. Definition of Term Pregnancy. Obstet Gynecol. 2013;122(5):1139-1140.", "url": "https://pubmed.ncbi.nlm.nih.gov/24150030/"},
+        {"text": "Butt K, Lim K. Determination of Gestational Age by Ultrasound. J Obstet Gynaecol Can. 2014;36(2):171-181.", "url": "https://pubmed.ncbi.nlm.nih.gov/24518917/"},
+        {"text": "Mongelli M, Wilcox M, Gardosi J. Estimating the date of confinement: ultrasonographic biometry versus certain menstrual dates. Am J Obstet Gynecol. 1996;174(1):278-281.", "url": "https://pubmed.ncbi.nlm.nih.gov/8572021/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+<script defer src="/static/js/gestational_age_calculator.js"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
