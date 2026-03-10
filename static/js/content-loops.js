@@ -286,6 +286,14 @@ var CALCULATOR_GRAPH = {
       { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Dog pregnancies last only 63 days — is your pup on schedule?', params: [] }
     ]
   },
+  'hcg-doubling': {
+    links: [
+      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '👶', reason: 'hCG confirmed your pregnancy is on track — now calculate your due date', params: [] },
+      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Age affects hCG patterns — understand your full fertility picture', params: ['age'] },
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Now that pregnancy is confirmed — find your healthy weight gain target', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Planning ahead? Know that all newborns lose 5-10% of birth weight — here is what is normal', params: [] }
+    ]
+  },
   'ivf-due-date': {
     links: [
       { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility drops 50% between age 30 and 40 — where do you stand?', params: ['age'] },

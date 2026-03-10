@@ -77,8 +77,12 @@ cross_links = {
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/ivf-due-date-calculator": {
-        "calculators": ["/female-fertility-calculator", "/newborn-weight-loss-calculator", "/dog-pregnancy-due-date-calculator"],
+        "calculators": ["/hcg-doubling-time-calculator", "/female-fertility-calculator", "/newborn-weight-loss-calculator", "/dog-pregnancy-due-date-calculator"],
         "guides": ["/resources/ivf-due-date-calculator-guide", "/resources/fertility-after-35"]
+    },
+    "/hcg-doubling-time-calculator": {
+        "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator", "/pregnancy-weight-gain-calculator"],
+        "guides": ["/resources/fertility-after-35"]
     },
     "/female-fertility-calculator": {
         "calculators": ["/ivf-due-date-calculator", "/menopause-calculator", "/lifespan-longevity-calculator", "/newborn-weight-loss-calculator"],
@@ -371,6 +375,16 @@ cards = [
         "color": "pink",
         "category": "fertility",
         "popular": True
+    },
+    {
+        "title": "hCG Doubling Time Calculator",
+        "url": "/hcg-doubling-time-calculator",
+        "summary": "Calculate your hCG doubling time from two blood test results. See if your levels are rising normally for early pregnancy.",
+        "icon": "🤰",
+        "cta": "Calculate Doubling Time",
+        "color": "pink",
+        "category": "fertility",
+        "popular": False
     },
     {
         "title": "Retirement Savings Calculator",
@@ -2605,6 +2619,24 @@ def lipid_panel_goals_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         date_modified='2025-06-01'
+    )
+
+
+@app.route('/hcg-doubling-time-calculator')
+@app.route('/hcg-calculator')
+def hcg_calculator():
+    schema_name = "hCG Doubling Time Calculator"
+    schema_description = "Calculate hCG doubling time from two beta-hCG blood draws. Shows whether levels are rising at a normal rate for early pregnancy based on established clinical reference ranges."
+    schema_url = "/hcg-doubling-time-calculator"
+    return render_template(
+        'hcg_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Pregnancy & Fertility',
+        date_modified='2026-03-10'
     )
 
 
