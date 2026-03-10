@@ -143,6 +143,10 @@
     <p>We do not use blog posts, social media claims, manufacturer marketing materials, or unverified user testimonials as sources for calculator formulas or health claims.</p>
 </div>
 
+{% with ad_position="middle" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
+
 <div class="editorial-section">
     <h2>Review Process</h2>
     <p>Each calculator and guide goes through a structured review process before publication:</p>
@@ -193,6 +197,10 @@
         <li>User feedback highlights areas where clarity or accuracy can be improved</li>
     </ul>
 </div>
+
+{% with ad_position="in-article" %}
+{% include 'components/ad-unit.html' %}
+{% endwith %}
 
 <div class="editorial-disclaimer">
     <h2>Medical Disclaimer</h2>

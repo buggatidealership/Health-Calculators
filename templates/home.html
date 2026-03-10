@@ -450,6 +450,10 @@
     </div>
     {% endfor %}
 
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
     <!-- Resources -->
     <div class="hp-resources">
         <div class="hp-resources-icon">&#128218;</div>
