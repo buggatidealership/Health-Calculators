@@ -294,6 +294,14 @@ var CALCULATOR_GRAPH = {
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'GLP-1 medications can cause muscle loss — ensure you\'re getting enough protein', params: ['weight_kg','age','gender'] }
     ]
   },
+  'waist-to-hip-ratio': {
+    links: [
+      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'WHR shows where fat is stored — BMI shows how much. Use both for a complete picture.', params: ['weight_kg','height_cm'] },
+      { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI uses your waist and height to assess body roundness — another angle on visceral fat risk', params: ['height_cm','age','gender'] },
+      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Know your WHR — now estimate your actual body fat percentage', params: ['height_cm','gender','age'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'High WHR? Reducing abdominal fat starts with knowing your calorie needs', params: ['weight_kg','height_cm','age','gender'] }
+    ]
+  },
   'creatine-dosage': {
     links: [
       { url: '/creatine-water-calculator', title: 'Creatine Water Calculator', icon: '💧', reason: 'Creatine pulls water into muscle cells — calculate your extra hydration needs', params: ['weight_kg'] },

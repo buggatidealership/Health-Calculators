@@ -196,6 +196,10 @@ cross_links = {
         "calculators": ["/creatine-water-calculator", "/tdee-calculator", "/protein-intake-calculator", "/ideal-body-weight-calculator"],
         "guides": []
     },
+    "/waist-to-hip-ratio-calculator": {
+        "calculators": ["/bmi-calculator", "/body-roundness-index-calculator", "/body-fat-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/body-fat-percentage-chart"]
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -406,6 +410,16 @@ cards = [
         "cta": "Calculate Doubling Time",
         "color": "pink",
         "category": "fertility",
+        "popular": False
+    },
+    {
+        "title": "Waist to Hip Ratio Calculator",
+        "url": "/waist-to-hip-ratio-calculator",
+        "summary": "Calculate your waist-to-hip ratio and check your cardiovascular risk category. WHO-based thresholds with body shape classification.",
+        "icon": "📏",
+        "cta": "Calculate WHR",
+        "color": "teal",
+        "category": "health",
         "popular": False
     },
     {
@@ -2713,6 +2727,23 @@ def hcg_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Fertility',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/waist-to-hip-ratio-calculator')
+def waist_to_hip_ratio_calculator():
+    schema_name = "Waist to Hip Ratio Calculator"
+    schema_description = "Calculate your waist-to-hip ratio (WHR) and health risk category. WHO-based thresholds for men and women with body shape classification and waist circumference risk assessment."
+    schema_url = "/waist-to-hip-ratio-calculator"
+    return render_template(
+        'waist_to_hip_ratio_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Health',
         date_modified='2026-03-10'
     )
 
