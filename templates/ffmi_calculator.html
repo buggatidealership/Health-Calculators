@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate your Fat-Free Mass Index (FFMI) and normalized FFMI. See how your lean muscle mass compares to natural limits based on the Kouri et al. study. Classification for men and women.",
+    meta_keywords="ffmi calculator, fat free mass index, ffmi chart, natural ffmi limit, normalized ffmi, ffmi scale, ffmi women, ffmi calculator metric",
+    og_title="FFMI Calculator — Are You at Your Natural Muscular Limit?",
+    og_description="Calculate your Fat-Free Mass Index (FFMI) and normalized FFMI. See how your lean muscle mass compares to natural limits based on the Kouri et al. study.",
+    og_url="/ffmi-calculator",
+    page_title="FFMI Calculator — Fat-Free Mass Index with Natural Limit",
+    canonical_url="/ffmi-calculator",
+    schema_name="FFMI Calculator",
+    schema_description="Calculate your Fat-Free Mass Index (FFMI) and normalized FFMI. Compares your lean muscle mass to natural genetic limits using the Kouri et al. classification. Tables for men and women.",
+    schema_url="/ffmi-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>FFMI Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Calculate your Fat-Free Mass Index and normalized FFMI to see how your lean muscle mass compares to natural genetic limits. Classification tables for men and women.</p>
+
+<section id="calculator">
+        <h2>Calculate Your FFMI</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight">Body Weight:</label>
+                    <input type="number" id="weight" min="1" step="0.1" placeholder="e.g. 180">
+                </div>
+                <div class="form-group">
+                    <label for="weight-unit">Weight Unit:</label>
+                    <select id="weight-unit">
+                        <option value="lbs">Pounds (lbs)</option>
+                        <option value="kg">Kilograms (kg)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="height-system">Height System:</label>
+                    <select id="height-system">
+                        <option value="imperial">Imperial (ft/in)</option>
+                        <option value="metric">Metric (cm)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="imperial-height">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="height-ft">Height — Feet:</label>
+                        <input type="number" id="height-ft" min="1" max="8" placeholder="e.g. 5">
+                    </div>
+                    <div class="form-group">
+                        <label for="height-in">Inches:</label>
+                        <input type="number" id="height-in" min="0" max="11" step="1" placeholder="e.g. 10">
+                    </div>
+                </div>
+            </div>
+
+            <div id="metric-height" class="hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="height-cm">Height (cm):</label>
+                        <input type="number" id="height-cm" min="50" max="250" step="0.1" placeholder="e.g. 178">
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="body-fat">Body Fat Percentage (%):</label>
+                    <input type="number" id="body-fat" min="1" max="60" step="0.1" placeholder="e.g. 15">
+                    <span class="input-hint">Don't know your body fat? Use our <a href="/body-fat-calculator">Body Fat Calculator</a> to estimate it.</span>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select id="sex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate FFMI</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number"><span id="ffmi-result">--</span></div>
+                    <div class="result-hero-label" id="ffmi-label">Normalized FFMI</div>
+                </div>
+
+                <div id="ffmi-status" class="result-status status-good">
+                    <span class="result-status-icon" id="ffmi-icon"></span>
+                    <span class="result-status-text" id="ffmi-description">--</span>
+                </div>
+
+                <!-- Gauge -->
+                <div style="position:relative;margin:12px 0 20px;">
+                    <div style="width:100%;height:10px;background:#f0f0f0;border-radius:5px;overflow:hidden;">
+                        <div id="ffmi-gauge-fill" style="height:100%;border-radius:5px;width:0%;transition:width .5s ease;"></div>
+                    </div>
+                    <div id="ffmi-limit-marker" style="position:absolute;top:-4px;width:2px;height:18px;background:#333;"></div>
+                    <div style="display:flex;justify-content:space-between;font-size:0.75rem;color:var(--color-text-tertiary);margin-top:4px;">
+                        <span>0</span>
+                        <span id="ffmi-limit-label">Natural limit ~25</span>
+                        <span id="ffmi-gauge-label">--</span>
+                    </div>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Normalized FFMI</span>
+                            <span class="result-comparison-value" id="comp-ffmi">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Lean Mass</span>
+                            <span class="result-comparison-value" id="comp-lean">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Classification</span>
+                            <span class="result-comparison-value" id="comp-class">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Raw FFMI</span>
+                        <span class="result-breakdown-val" id="display-ffmi-raw">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Normalized FFMI</span>
+                        <span class="result-breakdown-val" id="display-ffmi-norm">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Lean Mass</span>
+                        <span class="result-breakdown-val" id="display-lean-kg">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Fat Mass</span>
+                        <span class="result-breakdown-val" id="display-fat-kg">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Body Fat</span>
+                        <span class="result-breakdown-val" id="display-bf">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Classification</span>
+                        <span class="result-breakdown-val" id="display-classification">--</span>
+                    </div>
+                </div>
+
+                <!-- Classification table -->
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 1.05rem; margin-bottom: 12px;">Your Classification Table</h3>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">FFMI Range</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Classification</th>
+                                </tr>
+                            </thead>
+                            <tbody id="class-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 6px;">Based on normalized FFMI. Natural limit references Kouri et al. (1995).</p>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about FFMI and normalized FFMI
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>How FFMI Is Calculated</h4>
+                    <p><strong>Fat-Free Mass (FFM)</strong> = Body Weight x (1 - Body Fat % / 100)</p>
+                    <p><strong>FFMI</strong> = FFM (kg) / Height (m)<sup>2</sup></p>
+                    <p><strong>Normalized FFMI</strong> = FFMI + 6.1 x (1.8 - Height in meters)</p>
+                    <p>The normalized formula adjusts for height so that taller and shorter individuals can be compared fairly. A height of 1.80 m (5'11") is the reference point — if you are exactly 1.80 m, your raw and normalized FFMI are identical.</p>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is FFMI?</h2>
+    <div class="answer-capsule">
+        The Fat-Free Mass Index (FFMI) measures how much lean (non-fat) mass you carry relative to your height. While BMI treats all weight equally — muscle, fat, bone — FFMI isolates lean tissue, making it far more useful for anyone who lifts weights. An FFMI of 25 is widely cited as the approximate natural limit for men, based on research comparing steroid-free and steroid-using athletes. For women, the estimated natural ceiling is around 21.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        FFMI was popularized by a landmark 1995 study by Kouri et al. that measured the body composition of 157 male athletes — both natural and steroid-using. The study found that no steroid-free athlete exceeded an FFMI of 25, while many steroid users did. Since then, FFMI has become the standard metric for evaluating muscularity relative to natural genetic potential.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-calculated">How FFMI Is Calculated</a></li>
+            <li><a href="#natural-limit">The Natural Limit</a></li>
+            <li><a href="#classification">FFMI Classification</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="how-calculated" class="info">
+        <h2>How FFMI Is Calculated</h2>
+        <p>FFMI is derived in three steps from your body weight, height, and body fat percentage:</p>
+
+        <div class="important-box">
+            <h3>The Three Formulas</h3>
+            <ul>
+                <li><strong>Step 1 — Fat-Free Mass (FFM):</strong> FFM = Body Weight (kg) x (1 - Body Fat % / 100). This gives the total weight of everything in your body that is not fat: muscle, bone, water, and organs.</li>
+                <li><strong>Step 2 — Raw FFMI:</strong> FFMI = FFM (kg) / Height (m)<sup>2</sup>. This is analogous to BMI but uses lean mass instead of total mass. Units are kg/m<sup>2</sup>.</li>
+                <li><strong>Step 3 — Normalized FFMI:</strong> Adjusted FFMI = FFMI + 6.1 x (1.8 - Height in meters). This correction factor, proposed by Kouri et al., adjusts for height so that taller individuals are not penalized and shorter individuals are not inflated. The reference height is 1.80 m (5'11").</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 12px;">The normalized value is what most researchers and fitness professionals reference when discussing FFMI thresholds. All classifications on this page use normalized FFMI.</p>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="natural-limit" class="info">
+        <h2>The Natural Limit</h2>
+        <p>The concept of a "natural FFMI limit" comes from one of the most cited studies in sports science:</p>
+
+        <div class="important-box">
+            <h3>Kouri et al. (1995)</h3>
+            <ul>
+                <li><strong>Study design:</strong> Measured 157 male athletes — 74 non-users and 83 steroid users — using hydrostatic weighing (the gold standard at the time).</li>
+                <li><strong>Key finding:</strong> No steroid-free athlete had an FFMI above 25. The highest natural FFMI recorded was 24.9. Meanwhile, many steroid users exceeded 25, with some reaching 30+.</li>
+                <li><strong>Historical validation:</strong> The researchers also analyzed pre-steroid-era Mr. America winners (1939-1959), before anabolic steroids were available. Their estimated FFMI values topped out at approximately 25, consistent with the modern natural athletes.</li>
+                <li><strong>Practical threshold:</strong> An FFMI above 25 in men (or ~21 in women) is generally considered suspicious for performance-enhancing drug use, though rare genetic outliers may exist.</li>
+            </ul>
+        </div>
+
+        <p style="margin-top: 12px;">It is important to note that 25 is not a hard ceiling — it is a statistical boundary. A small number of genetically exceptional individuals may slightly exceed it naturally. However, values well above 25 (e.g., 27+) are almost exclusively associated with anabolic steroid use.</p>
+    </section>
+
+    <section id="classification" class="info">
+        <h2>FFMI Classification</h2>
+        <p>The following tables provide normalized FFMI classifications for men and women. These ranges are based on published research and commonly used benchmarks in the fitness community.</p>
+
+        <h3>Men (Normalized FFMI)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">FFMI Range</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Classification</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt; 17</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c27a0e;">Below Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Untrained or underweight</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">17 &ndash; 18</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c27a0e;">Below Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Minimal training history</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">18 &ndash; 20</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#555;">Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">General population with some activity</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">20 &ndash; 22</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#1a8a4a;">Above Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Regular resistance training (1-3 years)</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">22 &ndash; 23</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#1a8a4a;">Excellent</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Dedicated training (3-5+ years)</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">23 &ndash; 25</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#0a7e8c;">Superior</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Near natural genetic limit</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">25 &ndash; 27</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c03030;">Suspicious</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Above commonly cited natural limit</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt; 27</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c03030;">Very Likely Enhanced</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Almost exclusively steroid-assisted</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top: 20px;">Women (Normalized FFMI)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">FFMI Range</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Classification</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt; 13</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c27a0e;">Below Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Underweight or very low muscle mass</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">13 &ndash; 14</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c27a0e;">Below Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Minimal training history</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">14 &ndash; 17</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#555;">Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">General population with some activity</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">17 &ndash; 18</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#1a8a4a;">Above Average</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Regular resistance training</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">18 &ndash; 19</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#1a8a4a;">Excellent</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Dedicated training over several years</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">19 &ndash; 21</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#0a7e8c;">Superior</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Near natural genetic limit for women</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">21 &ndash; 23</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c03030;">Suspicious</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Above estimated natural female limit</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt; 23</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0; color:#c03030;">Very Likely Enhanced</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Extremely rare without PEDs</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Female thresholds are less studied than male thresholds. Values are estimated from available literature (Hull et al., 2011; Schutz et al., 2002) and commonly used fitness benchmarks.</p>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <h3 class="faq-question">What is a good FFMI?</h3>
+            <div class="faq-answer">
+                <p>For men, an FFMI of 20-22 indicates above-average muscularity consistent with regular weight training. An FFMI of 22-25 reflects excellent to superior muscularity, typically requiring years of dedicated training and good genetics. For women, an FFMI of 17-19 is above average to excellent. Context matters: a "good" FFMI depends on your training history and goals.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">What is the natural FFMI limit?</h3>
+            <div class="faq-answer">
+                <p>The most cited natural limit for men is an FFMI of approximately 25, based on the Kouri et al. (1995) study of 157 athletes. No steroid-free participant exceeded 25, and analysis of pre-steroid-era Mr. America winners confirmed this ceiling. For women, the estimated natural limit is around 21, though fewer studies have specifically examined this threshold.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">How accurate is FFMI?</h3>
+            <div class="faq-answer">
+                <p>FFMI is only as accurate as the body fat percentage you input. If your body fat estimate is off by 3-5%, your FFMI will shift by roughly 1-2 points. For the most reliable results, use a validated body composition method such as DEXA scan, hydrostatic weighing, or a well-calibrated skinfold measurement. Online visual estimates and bioelectrical impedance scales can be off by 3-8%.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">FFMI vs BMI — what is the difference?</h3>
+            <div class="faq-answer">
+                <p>BMI divides total body weight by height squared, treating muscle and fat identically. A muscular person with 12% body fat and a sedentary person with 30% body fat can have the same BMI. FFMI solves this by using only lean (fat-free) mass in the calculation, making it a much better metric for anyone who trains with weights. BMI is useful for population-level screening, while FFMI is more meaningful at the individual level for assessing muscularity.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <h3 class="faq-question">Does FFMI work for women?</h3>
+            <div class="faq-answer">
+                <p>Yes, but with different classification thresholds. Women naturally carry less muscle mass relative to height, so the scale is shifted lower. An FFMI of 17-18 for a woman is roughly equivalent to 20-22 for a man in terms of relative muscularity. The female FFMI ranges on this page are based on available research (Hull et al., 2011) and fitness community benchmarks, though fewer large-scale studies exist compared to men.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sources-section" class="info">
+        <h2>Sources</h2>
+        <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
+            <li>Kouri, E.M. et al. (1995). "Fat-Free Mass Index in Users and Nonusers of Anabolic-Androgenic Steroids." <em>Clinical Journal of Sport Medicine</em>, 5(4), 223-228.</li>
+            <li>Schutz, Y. et al. (2002). "Fat-Free Mass Index and Fat Mass Index Percentiles in Caucasians Aged 18-98 y." <em>International Journal of Obesity</em>, 26(7), 953-960.</li>
+            <li>Hull, H.R. et al. (2011). "Fat-Free Mass Index: Changes and Race/Ethnic Differences in Adulthood." <em>International Journal of Obesity</em>, 35(1), 121-127.</li>
+        </ol>
+    </section>
+
+</div>
+
+<div id="next-steps-container"></div>
+
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/ffmi_calculator.js"></script>
+</body>
+</html>
