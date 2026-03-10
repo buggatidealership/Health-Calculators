@@ -216,6 +216,10 @@ cross_links = {
         "calculators": ["/protein-intake-calculator", "/one-rep-max-calculator", "/tdee-calculator", "/creatine-dosage-calculator"],
         "guides": []
     },
+    "/formula-feeding-calculator": {
+        "calculators": ["/pregnancy-weight-gain-calculator", "/newborn-weight-loss-calculator", "/child-growth-percentile-calculator", "/gestational-age-calculator"],
+        "guides": []
+    },
     "/vitamin-d-intake-calculator": {
         "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/vitamin-d-levels-chart"]
@@ -436,6 +440,16 @@ cards = [
         "cta": "Calculate Gestational Age",
         "color": "pink",
         "category": "fertility",
+        "popular": False
+    },
+    {
+        "title": "Formula Feeding Calculator",
+        "url": "/formula-feeding-calculator",
+        "summary": "Calculate how much formula your baby needs per feeding and per day. AAP-based guidelines by age and weight, birth to 12 months.",
+        "icon": "🍼",
+        "cta": "Calculate Amount",
+        "color": "pink",
+        "category": "parenting",
         "popular": False
     },
     {
@@ -4436,6 +4450,23 @@ def one_rep_max_calculator():
         schema_url=schema_url,
         schema_type='WebPage',
         breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-10'
+    )
+
+
+@app.route('/formula-feeding-calculator')
+def formula_feeding_calculator():
+    schema_name = "Formula Feeding Calculator"
+    schema_description = "Calculate how much formula your baby needs per feeding and per day based on age and weight. Follows AAP guidelines with feeding schedule from birth to 12 months."
+    schema_url = "/formula-feeding-calculator"
+    return render_template(
+        'formula_feeding_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Pregnancy & Parenting',
         date_modified='2026-03-10'
     )
 

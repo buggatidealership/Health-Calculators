@@ -476,6 +476,15 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Creatine adds 2-5 lbs of water weight — your real target is different', params: ['height_cm','gender'] }
     ]
   },
+  'formula-feeding': {
+    links: [
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Your pregnancy weight gain affects birth weight — which determines formula needs', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight Loss', icon: '👶', reason: 'Newborns lose 5-10% of birth weight in the first week — track if they are regaining', params: [] },
+      { url: '/child-growth-percentile-calculator', title: 'Growth Percentile', icon: '📈', reason: 'Is your baby growing on track? Check their weight and length percentile', params: [] },
+      { url: '/gestational-age-calculator', title: 'Gestational Age', icon: '📅', reason: 'Premature babies may need different formula amounts — confirm your baby\'s adjusted age', params: [] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Calorie Calculator', icon: '🔥', reason: 'Planning your own postpartum nutrition? Calculate your calorie needs', params: [] }
+    ]
+  },
   'bulking-calories': {
     links: [
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Your bulk needs 1g protein per lb bodyweight — are you hitting that target?', params: ['weight_kg','age','gender'] },
