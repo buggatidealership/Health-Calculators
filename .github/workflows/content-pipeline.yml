@@ -1,0 +1,128 @@
+name: Automated Content Pipeline
+
+on:
+  schedule:
+    # 10:03 AM Berlin (9:03 AM UTC) — morning run
+    - cron: '3 9 * * *'
+    # 10:03 PM Berlin (9:03 PM UTC) — evening run
+    - cron: '3 21 * * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI
+
+permissions:
+  contents: write
+
+jobs:
+  build-content:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: |
+          pip install flask google-auth google-api-python-client
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Write Google service account key
+        run: |
+          mkdir -p /home/runner/.config/gcloud
+          echo '${{ secrets.GOOGLE_SA_KEY }}' > /home/runner/.config/gcloud/healthcalc-sa-key.json
+
+      - name: Configure git
+        run: |
+          git config user.name "Claude"
+          git config user.email "noreply@anthropic.com"
+
+      - name: Run content pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KEYWORDS_EVERYWHERE_KEY: ${{ secrets.KEYWORDS_EVERYWHERE_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          claude --print --dangerously-skip-permissions "$(cat <<'PROMPT'
+          You are executing an automated content pipeline for healthcalculators.xyz.
+          No human in the loop. Quality over quantity.
+
+          Working directory: $GITHUB_WORKSPACE
+          Google SA key: /home/runner/.config/gcloud/healthcalc-sa-key.json
+          Keywords Everywhere API key: from env var KEYWORDS_EVERYWHERE_KEY
+          Gmail app password: from env var GMAIL_APP_PASSWORD
+
+          Read the full pipeline instructions at tools/content_pipeline_prompt.md and follow every phase:
+
+          PHASE 1 - RESEARCH:
+          1. List existing calculator routes to avoid duplicates
+          2. Use WebSearch to find 10 candidate niche health calculator ideas
+             Focus on: niche tools nobody else builds, health/fitness/nutrition/cosmetic topics
+          3. Score candidates using Keywords Everywhere API:
+             curl -X POST https://api.keywordseverywhere.com/v1/get_keyword_data \
+               -H "Authorization: Bearer $KEYWORDS_EVERYWHERE_KEY" \
+               -H "Content-Type: application/json" \
+               -d '{"country":"us","currency":"USD","dataSource":"gkp","kw":["keyword1","keyword2"]}'
+          4. SERP check top candidates via WebSearch - prefer indie-dominated SERPs
+          5. Pick ONE calculator (vol>100, comp<0.15, not already built) + one companion guide topic
+
+          PHASE 2 - BUILD CALCULATOR:
+          - Create JS file at static/js/{name}.js
+          - Create Jinja2 template at templates/{name}.html (match quality of templates/caffeine_half_life_calculator.html)
+          - Add Flask route to app.py
+          - Add card entry to app.py cards array
+          - Add node to static/js/content-loops.js
+          - Add to static/public/sitemap.xml
+          - Verify: python3 -c "from app import app; c=app.test_client(); r=c.get('/url'); assert r.status_code==200"
+
+          PHASE 3 - BUILD COMPANION GUIDE:
+          - Create template at templates/resources/{name}.html
+          - Add Flask route + articles entry in app.py
+          - Add to sitemap.xml
+          - Verify 200 status
+
+          PHASE 4 - PUBLISH:
+          - git add the specific new/changed files (NOT git add -A)
+          - git commit with descriptive message + "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+          - git push origin main
+          - Submit both URLs to Google Indexing API using the service account key
+          - Submit to Bing IndexNow: python3 tools/indexnow_submit.py
+          - Log to tools/pipeline_log.txt
+
+          PHASE 5 - NOTIFY:
+          Send email notification using Python smtplib:
+            import smtplib
+            from email.mime.text import MIMEText
+            import os
+            msg = MIMEText("Content pipeline completed. New pages pushed to GitHub.\n\nPlease sync Replit to deploy.\n\n[summary of what was built]")
+            msg['Subject'] = 'HealthCalc Pipeline: New content ready for deploy'
+            msg['From'] = 'calculatordirectory@gmail.com'
+            msg['To'] = 'alistairjdb@gmail.com'
+            with smtplib.SMTP('smtp.gmail.com', 587) as s:
+                s.starttls()
+                s.login('calculatordirectory@gmail.com', os.environ['GMAIL_APP_PASSWORD'])
+                s.send_message(msg)
+
+          CRITICAL RULES:
+          - Quality over quantity. Skip if no good topic found. Log why.
+          - Real medical/scientific sources only. No made-up citations.
+          - Every calculator needs proper input validation, FAQ section, methodology explanation.
+          - If any phase fails, log the error and stop. Do not push broken code.
+          PROMPT
+          )"
+
+      - name: Push any remaining changes
+        run: |
+          git push origin main || echo "Nothing additional to push"
