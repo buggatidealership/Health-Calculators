@@ -1,1 +1,2 @@
 2026-03-11T10:08:15Z | CALC: /breastfeeding-calorie-calculator (vol=2400, comp=0.05) | GUIDE: /resources/breastfeeding-nutrition-guide | SMOKE: 149/149 passed | INDEXNOW: 134 URLs | GOOGLE_INDEX: SKIPPED (SA key JSON error) | STATUS: success
+2026-03-11T21:52:57Z | CALC: /zone2-heart-rate-calculator (vol=5400, comp=0.01) | GUIDE: /resources/zone2-training-guide | SMOKE: 151/151 passed | INDEXNOW: 429 rate-limited | GOOGLE_INDEX: SKIPPED (SA key JSON error) | STATUS: success
