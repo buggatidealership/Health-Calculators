@@ -112,7 +112,7 @@ jobs:
             import smtplib
             from email.mime.text import MIMEText
             import os
-            msg = MIMEText("Content pipeline completed. New pages pushed to GitHub.\n\nPlease sync Replit to deploy.\n\n[summary of what was built]")
+            msg = MIMEText("Content pipeline completed. New pages pushed to GitHub.\n\nRender will auto-deploy from GitHub.\n\n[summary of what was built]")
             msg['Subject'] = 'HealthCalc Pipeline: New content ready for deploy'
             msg['From'] = 'calculatordirectory@gmail.com'
             msg['To'] = 'alistairjdb@gmail.com'
