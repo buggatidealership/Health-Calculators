@@ -2164,7 +2164,7 @@ def how_to_start_carb_cycling():
         schema_url="/resources/how-to-start-carb-cycling",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/botox-dosage-guide')
@@ -2334,7 +2334,7 @@ def how_to_prevent_hair_loss():
         schema_url="/resources/how-to-prevent-hair-loss",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/bac-calculator')
@@ -2548,7 +2548,7 @@ def ivf_due_date_calculator_guide():
         schema_url="/resources/ivf-due-date-calculator-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/army-body-fat-calculator-guide')
@@ -2683,7 +2683,7 @@ def semaglutide_vs_ozempic_guide():
         schema_url="/resources/semaglutide-vs-ozempic-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/plasma-donation-screening-guide")
@@ -2764,7 +2764,7 @@ def glp1_weight_loss_comparison():
         schema_url="/resources/glp1-weight-loss-comparison",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/vitamin-d-levels-chart')

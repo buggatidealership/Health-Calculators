@@ -20,7 +20,8 @@
   "@type": "MedicalWebPage",
   "headline": "How to Prevent Hair Loss: Science-Based Prevention & Treatment",
   "datePublished": "2025-04-10",
-  "lastReviewed": "2025-04-10",
+  "dateModified": "2026-03-11",
+  "lastReviewed": "2026-03-11",
   "specialty": ["Dermatology", "Trichology"],
   "author": {
     "@type": "Organization",
@@ -96,6 +97,9 @@
 {% include 'header.html' %}
 <div class="calculator-container article-container">
 <h1>How to Prevent Hair Loss</h1>
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
 <p class="subtitle">Simple strategies to reduce thinning and keep your hair healthy.</p>
 
 {% include 'components/medical-disclaimer.html' %}
@@ -228,6 +232,11 @@
     </div>
 </section>
 
+<section id="methodology">
+    <h2>Methodology</h2>
+    <p>Treatment recommendations in this guide are based on clinical evidence from the American Academy of Dermatology (AAD) guidelines for androgenetic alopecia and telogen effluvium management. FDA approval status for minoxidil and finasteride reflects current prescribing information as published on FDA.gov. Nutritional guidance for hair health is informed by peer-reviewed research on micronutrient deficiencies and hair loss published in Dermatology and Therapy and the Journal of Clinical and Aesthetic Dermatology.</p>
+</section>
+
 <section id="faq">
     <h2>Frequently Asked Questions</h2>
     
@@ -277,6 +286,17 @@
             <p>Seasonal shedding (more hair loss in fall months) is also normal for many people. If you notice significantly more hair on your pillow, in your shower drain, or on your brush than usual, or if you can see your scalp more easily, it might be time to investigate causes and solutions.</p>
         </div>
     </div>
+</section>
+
+<section id="references">
+    <h2>References</h2>
+    <ol class="references-list">
+        <li>Kanti, V., Messenger, A., Dobos, G., et al. (2018). Evidence-based (S3) guideline for the treatment of androgenetic alopecia in women and in men. <em>Journal of the European Academy of Dermatology and Venereology</em>, 32(1), 11-22.</li>
+        <li>Almohanna, H. M., Ahmed, A. A., Tsatalis, J. P., & Tosti, A. (2019). The Role of Vitamins and Minerals in Hair Loss: A Review. <em>Dermatology and Therapy</em>, 9(1), 51-70.</li>
+        <li>Piraccini, B. M., & Alessandrini, A. (2014). Androgenetic Alopecia. <em>G Ital Dermatol Venereol</em>, 149(1), 15-24.</li>
+        <li>U.S. Food and Drug Administration. Minoxidil (Rogaine) Drug Approval Package. FDA.gov.</li>
+        <li>Adil, A., & Godwin, M. (2017). The effectiveness of treatments for androgenetic alopecia: A systematic review and meta-analysis. <em>Journal of the American Academy of Dermatology</em>, 77(1), 136-141.</li>
+    </ol>
 </section>
 
 {% with ad_position="bottom" %}

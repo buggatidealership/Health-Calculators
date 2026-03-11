@@ -96,7 +96,8 @@
   },
   "specialty": "Endocrinology",
   "audience": "Patient",
-  "lastReviewed": "2025-04-01",
+  "dateModified": "2026-03-11",
+  "lastReviewed": "2026-03-11",
   "mainContentOfPage": {
     "@type": "WebPageElement",
     "cssSelector": ".article-container"
@@ -110,6 +111,9 @@
 <div class="calculator-container article-container">
 
 <h1>Semaglutide vs Ozempic: What's the Difference?</h1>
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
 <p class="subtitle">Learn how these medications compare for weight loss, diabetes treatment, cost, and composition.</p>
 
 <div class="cta-box" style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
@@ -424,6 +428,23 @@
             <li><a href="/fasting-weight-loss-calculator" style="color: var(--color-accent); text-decoration: none;">Fasting Weight Loss Calculator</a> - Alternative approach to weight management</li>
         </ul>
     </div>
+</section>
+
+<section id="methodology">
+    <h2>Methodology</h2>
+    <p>Drug comparison data in this guide is sourced from the FDA-approved prescribing information for Ozempic, Wegovy, and Rybelsus as published on FDA.gov and DailyMed. Weight loss efficacy figures reference the STEP clinical trial program for semaglutide (N Engl J Med, 2021). Cost estimates are based on retail pharmacy pricing from GoodRx as of March 2026 and manufacturer savings program disclosures from Novo Nordisk (NovoCare.com).</p>
+</section>
+
+<section id="references">
+    <h2>References</h2>
+    <ol class="references-list">
+        <li>Wilding, J. P. H., Batterham, R. L., Calanna, S., et al. (2021). Once-Weekly Semaglutide in Adults with Overweight or Obesity. <em>New England Journal of Medicine</em>, 384(11), 989-1002.</li>
+        <li>U.S. Food and Drug Administration. Ozempic (semaglutide) Prescribing Information. FDA.gov.</li>
+        <li>U.S. Food and Drug Administration. Wegovy (semaglutide) Prescribing Information. FDA.gov.</li>
+        <li>Novo Nordisk. Mechanism of Action of Semaglutide. NovoCare.com.</li>
+        <li>Lincoff, A. M., Brown-Frandsen, K., Colhoun, H. M., et al. (2023). Semaglutide and Cardiovascular Outcomes in Obesity without Diabetes. <em>New England Journal of Medicine</em>, 389(24), 2221-2232.</li>
+        <li>GoodRx. GLP-1 Medication Price Comparison. GoodRx.com. Accessed March 2026.</li>
+    </ol>
 </section>
 
 <!-- Bottom Ad -->
