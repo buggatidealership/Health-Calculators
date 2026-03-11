@@ -54,7 +54,7 @@
         }
       },
       "datePublished": "2025-04-03",
-      "dateModified": "2025-04-03",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://healthcalculators.xyz/resources/are-height-predictors-accurate"
@@ -101,6 +101,9 @@
     <div class="calculator-container article-container">
     
     <h1>Are Height Predictors Accurate?</h1>
+    {% with date_modified="March 11, 2026" %}
+    {% include 'components/article-meta.html' %}
+    {% endwith %}
     <p class="subtitle">Explore the science behind child and adult height prediction models — how reliable they are, how they're calculated, and what affects accuracy.</p>
 
     {% include 'components/medical-disclaimer.html' %}
@@ -514,6 +517,15 @@
         </div>
     </section>
     
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This guide evaluates height prediction accuracy by reviewing validation studies of major prediction methods, including the Khamis-Roche regression equations (derived from the Fels Longitudinal Study), the Greulich-Pyle bone age atlas, and mid-parental height formulas. Accuracy figures are drawn from peer-reviewed studies in Pediatrics, Archives of Disease in Childhood, and Twin Research that compared predicted heights against measured adult heights in longitudinal cohorts.</p>
+            <p>Error margins and percentage-within-range statistics reflect published standard deviations from these validation studies, not theoretical estimates.</p>
+            <p style="margin-bottom: 0;">This guide is for informational purposes only and does not constitute medical advice.</p>
+        </div>
+    </section>
+
     <section id="references">
         <h2>Scientific References</h2>
         <ul class="reference-list">

@@ -27,6 +27,7 @@
     "name": "HealthCalculators.xyz",
     "url": "https://healthcalculators.xyz"
   },
+  "dateModified": "2026-03-11",
   "mainEntity": {
     "@type": "MedicalEntity",
     "name": "Antidepressant-associated weight gain"
@@ -50,6 +51,9 @@
     
     
     <h1>Antidepressants and Body Fat: Understanding the Connection</h1>
+    {% with date_modified="March 11, 2026" %}
+    {% include 'components/article-meta.html' %}
+    {% endwith %}
     <p class="subtitle">Learn how different types of antidepressants impact body fat percentage, weight, and metabolism.</p>
     
     {% include 'components/medical-disclaimer.html' %}
@@ -441,6 +445,28 @@
         <p>For a complete picture of your metabolic needs, also use our <a href="/tdee-calculator" class="pink-link">calorie needs calculator</a> to understand how your energy requirements may change during treatment.</p>
     </section>
     
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This guide is based on clinical evidence from meta-analyses and longitudinal studies published in JAMA Psychiatry, JAMA Network Open, the British Journal of Psychiatry, and Frontiers in Endocrinology. Weight change data by medication class are drawn from randomized controlled trials and large observational cohort studies tracking patients over 6-24 months of antidepressant therapy.</p>
+            <p>Mechanism-of-action data are sourced from pharmacological research on serotonergic, histaminergic, and metabolic pathways affected by psychiatric medications.</p>
+            <p style="margin-bottom: 0;">This guide is for informational purposes only and does not constitute medical advice.</p>
+        </div>
+    </section>
+
+    <section id="references">
+        <h2>Sources &amp; References</h2>
+        <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <ol style="margin-bottom: 0;">
+                <li>Gafoor R, Booth HP, Gulliford MC. Antidepressant utilisation and incidence of weight gain during 10 years' follow-up: population based cohort study. <em>BMJ</em>. 2018;361:k1951. doi:10.1136/bmj.k1951</li>
+                <li>Serretti A, Mandelli L. Antidepressants and body weight: a comprehensive review and meta-analysis. <em>J Clin Psychiatry</em>. 2010;71(10):1259-1272. doi:10.4088/JCP.09r05346blu</li>
+                <li>Blumenthal SR, Castro VM, Clements CC, et al. An electronic health records study of long-term weight gain following antidepressant use. <em>JAMA Psychiatry</em>. 2014;71(8):889-896. doi:10.1001/jamapsychiatry.2014.414</li>
+                <li>Arterburn D, Sofer T, Boudreau DM, et al. Long-term weight change after initiating second-generation antidepressants. <em>J Clin Med</em>. 2016;5(4):48. doi:10.3390/jcm5040048</li>
+                <li>Dent R, Blackmore A, Peterson J, et al. Changes in body weight and psychotropic drugs: a systematic synthesis of the literature. <em>PLoS ONE</em>. 2012;7(6):e36889. doi:10.1371/journal.pone.0036889</li>
+            </ol>
+        </div>
+    </section>
+
     <!-- FAQ Section -->
     <section id="faq">
         <h2>Frequently Asked Questions</h2>

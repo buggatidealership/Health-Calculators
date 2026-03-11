@@ -49,7 +49,7 @@
         }
       },
       "datePublished": "2026-03-09",
-      "dateModified": "2026-03-09",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://healthcalculators.xyz/resources/body-fat-percentage-chart"
@@ -62,7 +62,7 @@
         "@type": "MedicalAudience",
         "audienceType": "Patient"
       },
-      "lastReviewed": "2026-03-09"
+      "lastReviewed": "2026-03-11"
     }
     </script>
 
@@ -153,6 +153,9 @@
 <div class="calculator-container article-container">
 
 <h1>Body Fat Percentage Chart: Healthy Ranges by Age & Gender</h1>
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
 <p class="subtitle">Evidence-based reference charts for body fat classification, age-adjusted healthy ranges, and measurement methods. Data sourced from ACE, ACSM, and peer-reviewed research.</p>
 
 <div class="cta-box" style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
@@ -495,6 +498,15 @@
     <p>Relative risk values are approximate and drawn from large epidemiological studies examining body fat and all-cause mortality.<sup><a href="#ref-14">14</a></sup> Individual risk depends on many factors including fat distribution (visceral vs. subcutaneous), fitness level, genetics, and existing health conditions. Visceral fat (stored around internal organs) carries substantially higher metabolic risk than subcutaneous fat (stored under the skin), even at the same total body fat percentage.<sup><a href="#ref-11">11</a></sup></p>
 
     <p>Notably, a phenomenon called the "obesity paradox" has been observed in older adults (65+): slightly higher body fat may be protective against frailty, falls, and acute illness recovery.<sup><a href="#ref-6">6</a></sup> This is reflected in the wider healthy ranges for the 60+ age group in the age-adjusted table above.</p>
+</section>
+
+<section id="methodology">
+    <h2>Methodology</h2>
+    <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+        <p>Body fat classification ranges in this guide are sourced from the American Council on Exercise (ACE) and the American College of Sports Medicine (ACSM) guidelines. Age-adjusted healthy ranges are compiled from longitudinal body composition studies using DEXA scanning data. Measurement method accuracy figures are drawn from validation studies comparing each technique against hydrostatic weighing or DEXA as reference standards.</p>
+        <p>Health risk associations are based on epidemiological research published in the Annals of Internal Medicine and the New England Journal of Medicine examining body fat percentage and all-cause mortality across large population cohorts.</p>
+        <p style="margin-bottom: 0;">This guide is for informational purposes only and does not constitute medical advice.</p>
+    </div>
 </section>
 
 <!-- Section 7: FAQ -->
