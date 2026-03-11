@@ -33,21 +33,6 @@
 }
 </script>
 
-<!-- Schema: MedicalWebPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
-  "name": "{{ demo.page_title }}",
-  "url": "https://healthcalculators.xyz{{ demo.url }}",
-  "description": "{{ demo.meta_description }}",
-  "lastReviewed": "2026-03-01",
-  "medicalAudience": {
-    "@type": "MedicalAudience",
-    "audienceType": "Patient"
-  }
-}
-</script>
 </head>
 <body>
 {% set breadcrumb_items = demo.breadcrumbs %}

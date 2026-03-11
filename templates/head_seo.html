@@ -55,14 +55,24 @@
   "@context": "https://schema.org",
   "@type": "{{ schema_type|default('MedicalWebPage') }}",
   "name": "{{ schema_name }}",
+  "headline": "{{ schema_name }}",
   "url": "https://healthcalculators.xyz{{ schema_url }}",
   "description": "{{ schema_description }}",
+  "image": {
+    "@type": "ImageObject",
+    "url": "https://healthcalculators.xyz/static/images/{{ og_image or 'default-calculator-og.jpg' }}",
+    "width": 1200,
+    "height": 628
+  },
   "datePublished": "{{ date_published|default('2025-06-01') }}",
   "dateModified": "{{ date_modified|default('2025-06-01') }}",
   "author": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
-    "url": "https://healthcalculators.xyz"
+    "url": "https://healthcalculators.xyz",
+    "sameAs": [
+      "https://github.com/buggatidealership/Health-Calculators"
+    ]
   },
   {% if schema_type|default('MedicalWebPage') == 'MedicalWebPage' %}
   "reviewedBy": {
@@ -80,10 +90,7 @@
       "url": "https://healthcalculators.xyz/static/images/logo.png",
       "width": 512,
       "height": 512
-    },
-    "sameAs": [
-      "https://github.com/buggatidealership/Health-Calculators"
-    ]
+    }
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
@@ -219,16 +226,16 @@ document.addEventListener('DOMContentLoaded',function(){
       }
     }
   })();
-  // Collapsible FAQ on mobile
+  // FAQ: start expanded on all devices (required for FAQPage schema compliance)
+  // On mobile, allow collapsing on tap after initial render
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.classList.add('faq-open');
+  });
   if(window.innerWidth<=600){
     document.querySelectorAll('.faq-item h4, .faq-item h3').forEach(function(h){
       h.addEventListener('click',function(){
         h.parentElement.classList.toggle('faq-open');
       });
-    });
-  } else {
-    document.querySelectorAll('.faq-item').forEach(function(item){
-      item.classList.add('faq-open');
     });
   }
   // Sticky mobile CTA: show when calculator form scrolls out of view

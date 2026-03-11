@@ -14,18 +14,33 @@
 {% include 'head_seo.html' %}
 {% endwith %}
 
-    <!-- Schema Markup -->
+    <!-- Schema: WebSite -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "HealthCalculators.xyz",
+      "url": "https://healthcalculators.xyz"
+    }
+    </script>
+
+    <!-- Schema: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "HealthCalculators.xyz",
       "url": "https://healthcalculators.xyz",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://healthcalculators.xyz/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://healthcalculators.xyz/static/images/logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Evidence-based health calculators built on peer-reviewed formulas and clinical guidelines.",
+      "sameAs": [
+        "https://github.com/buggatidealership/Health-Calculators"
+      ]
     }
     </script>
 

@@ -1322,7 +1322,8 @@ def tdee_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/sleep-calculator')
@@ -1336,7 +1337,8 @@ def sleep_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/calories-burned-calculator')
@@ -1351,7 +1353,8 @@ def calories_burned_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/bmi-calculator')
@@ -1366,7 +1369,8 @@ def bmi_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/body-roundness-index-calculator')
@@ -1381,7 +1385,8 @@ def body_roundness_index_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/protein-intake-calculator')
@@ -1396,7 +1401,8 @@ def protein_intake_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/water-intake-calculator')
@@ -1411,7 +1417,8 @@ def water_intake_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/caloric-intake-macronutrient-calculator')
@@ -1426,7 +1433,8 @@ def caloric_macronutrient_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/botox-dosage-calculator')
@@ -1455,7 +1463,8 @@ def lifespan_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/creatine-water-calculator')
@@ -1470,7 +1479,8 @@ def creatine_water_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/breast-implant-calculator')
@@ -1515,7 +1525,8 @@ def breast_implant_cost_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/vitamin-d-intake-calculator')
@@ -1543,7 +1554,8 @@ def vitamin_d_conversion_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/a1c-calculator')
@@ -1601,7 +1613,8 @@ def carb_cycling_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/keto-calculator')
@@ -1616,7 +1629,8 @@ def keto_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/retirement-savings-calculator')
@@ -1646,7 +1660,8 @@ def ideal_body_weight_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/fasting-weight-loss-calculator')
@@ -1661,7 +1676,8 @@ def fasting_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 
@@ -1677,7 +1693,8 @@ def intermittent_fasting_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 @app.route('/ozempic-pen-click-calculator')
 def ozempic_pen_click_calculator():
@@ -1826,7 +1843,8 @@ def metabolic_age_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/ozempic-face-calculator')
@@ -2272,7 +2290,8 @@ def lip_filler_cost_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/adult-height-predictor-calculator')
@@ -2301,7 +2320,8 @@ def cc_to_bra_size_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/dog-pregnancy-due-date-calculator')
@@ -2344,7 +2364,8 @@ def baldness_risk_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/resources/how-to-prevent-hair-loss')
@@ -2371,7 +2392,8 @@ def bac_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/chipotle-nutrition-calculator')
@@ -2432,7 +2454,8 @@ def army_body_fat_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/body-fat-calculator')
@@ -2447,7 +2470,8 @@ def body_fat_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/alcohol-impact-calculator')
@@ -2461,7 +2485,8 @@ def alcohol_impact_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        schema_type='WebPage'
     )
 
 @app.route('/ads.txt')

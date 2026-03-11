@@ -754,15 +754,15 @@ button:active { transform: translateY(0); box-shadow: 0 2px 8px rgba(14, 122, 12
 }
 .faq-item .faq-body,
 .faq-item .faq-answer {
-  max-height: 0;
+  max-height: 500px;
   overflow: hidden;
   transition: max-height 0.3s ease, padding 0.3s ease;
-  padding: 0;
-}
-.faq-item.faq-open .faq-body,
-.faq-item.faq-open .faq-answer {
-  max-height: 500px;
   padding-bottom: 16px;
+}
+.faq-item:not(.faq-open) .faq-body,
+.faq-item:not(.faq-open) .faq-answer {
+  max-height: 0;
+  padding: 0;
 }
 .faq-answer { color: var(--color-text-secondary); line-height: var(--line-height); }
 
