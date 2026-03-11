@@ -518,7 +518,16 @@ var CALCULATOR_GRAPH = {
       { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight Loss', icon: '👶', reason: 'Newborns lose 5-10% of birth weight in the first week — track if they are regaining', params: [] },
       { url: '/child-growth-percentile-calculator', title: 'Growth Percentile', icon: '📈', reason: 'Is your baby growing on track? Check their weight and length percentile', params: [] },
       { url: '/gestational-age-calculator', title: 'Gestational Age', icon: '📅', reason: 'Premature babies may need different formula amounts — confirm your baby\'s adjusted age', params: [] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Calorie Calculator', icon: '🔥', reason: 'Planning your own postpartum nutrition? Calculate your calorie needs', params: [] }
+      { url: '/breastfeeding-calorie-calculator', title: 'Breastfeeding Calories', icon: '🤱', reason: 'Switching from formula to breast? Find out how many extra calories nursing requires', params: [] }
+    ]
+  },
+  'breastfeeding-calorie': {
+    links: [
+      { url: '/formula-feeding-calculator', title: 'Formula Feeding', icon: '🍼', reason: 'Combo feeding? Calculate exactly how much formula to add', params: [] },
+      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'How much weight did you gain? That affects how quickly you\'ll lose postpartum', params: [] },
+      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'All newborns lose 5-10% of birth weight — is yours regaining on schedule?', params: [] },
+      { url: '/water-intake-calculator', title: 'Water Intake', icon: '💧', reason: 'Breastfeeding women need ~128 oz of fluid per day — are you hydrating enough?', params: [] },
+      { url: '/calorie-calculator-for-weight-loss', title: 'Calorie for Weight Loss', icon: '🔥', reason: 'Once you stop nursing, your calorie needs change — plan your next phase', params: [] }
     ]
   },
   'bulking-calories': {

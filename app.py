@@ -509,6 +509,16 @@ cards = [
         "popular": False
     },
     {
+        "title": "Breastfeeding Calorie Calculator",
+        "url": "/breastfeeding-calorie-calculator",
+        "summary": "How many calories do you need while nursing? Personalized estimate by activity, months postpartum, and feeding type — with safe weight loss guidance.",
+        "icon": "🤱",
+        "cta": "Calculate Calories",
+        "color": "pink",
+        "category": "parenting",
+        "popular": False
+    },
+    {
         "title": "Waist to Hip Ratio Calculator",
         "url": "/waist-to-hip-ratio-calculator",
         "summary": "Calculate your waist-to-hip ratio and check your cardiovascular risk category. WHO-based thresholds with body shape classification.",
@@ -1821,6 +1831,15 @@ def ozempic_face_calculator():
     )
 
 articles = [
+    {
+        "title": "Breastfeeding Nutrition Guide: What to Eat, How Much, and Why",
+        "url": "/resources/breastfeeding-nutrition-guide",
+        "summary": "A complete, evidence-based guide to nutrition during lactation — calorie needs, critical micronutrients, safe weight loss, and the best foods to eat while nursing.",
+        "icon": "🤱",
+        "cta": "Read Guide",
+        "color": "pink",
+        "category": "health"
+    },
     {
         "title": "Plasma vs Platelet Donation: Which Makes a Bigger Impact?",
         "url": "/resources/plasma-vs-platelet-donation",
@@ -4609,6 +4628,37 @@ def electrolyte_calculator():
         schema_type='WebPage',
         breadcrumb_category='Nutrition & Diet',
         date_modified='2026-03-10'
+    )
+
+
+@app.route('/resources/breastfeeding-nutrition-guide')
+def breastfeeding_nutrition_guide():
+    return render_template(
+        'resources/breastfeeding_nutrition_guide.html',
+        is_homepage=False,
+        schema_name="Breastfeeding Nutrition Guide: What to Eat, How Much, and Why",
+        schema_description="A complete, evidence-based guide to nutrition during lactation — calorie needs, critical micronutrients, safe weight loss, and the best foods to eat while nursing.",
+        schema_url="/resources/breastfeeding-nutrition-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-11'
+    )
+
+
+@app.route('/breastfeeding-calorie-calculator')
+def breastfeeding_calorie_calculator():
+    schema_name = "Breastfeeding Calorie Calculator"
+    schema_description = "Calculate how many calories you need while breastfeeding. Personalized estimate using the Mifflin-St Jeor equation and IOM lactation guidelines, with safe weight loss guidance and key nutrient targets."
+    schema_url = "/breastfeeding-calorie-calculator"
+    return render_template(
+        'breastfeeding_calorie_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='MedicalWebPage',
+        breadcrumb_category='Pregnancy & Parenting',
+        date_modified='2026-03-11'
     )
 
 

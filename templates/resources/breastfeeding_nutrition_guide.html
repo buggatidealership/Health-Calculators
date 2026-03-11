@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="A complete guide to breastfeeding nutrition: how many calories you need, which nutrients matter most, safe weight loss while nursing, and what to eat and avoid.",
+    meta_keywords="breastfeeding nutrition, what to eat while breastfeeding, breastfeeding diet, calories while nursing, lactation nutrition, breastfeeding weight loss",
+    og_title="Breastfeeding Nutrition Guide: Calories, Key Nutrients & What to Eat",
+    og_description="Everything you need to know about nutrition while breastfeeding — calories, key micronutrients, safe weight loss, and the best foods to eat while nursing.",
+    og_url="/resources/breastfeeding-nutrition-guide",
+    page_title="Breastfeeding Nutrition Guide: What to Eat, How Much, and Why",
+    canonical_url="/resources/breastfeeding-nutrition-guide",
+    schema_name="Breastfeeding Nutrition Guide",
+    schema_description="A comprehensive, evidence-based guide to nutrition during lactation covering calorie needs, critical micronutrients, hydration, safe postpartum weight loss, and food choices for nursing mothers.",
+    schema_url="/resources/breastfeeding-nutrition-guide"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Breastfeeding Nutrition Guide</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">What to eat, how much, and why — a complete, evidence-based nutrition guide for nursing mothers.</p>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#overview">Overview: Why Nutrition Matters During Lactation</a></li>
+            <li><a href="#calories">How Many Calories Do You Need?</a></li>
+            <li><a href="#macros">Macronutrient Needs While Breastfeeding</a></li>
+            <li><a href="#micronutrients">Critical Micronutrients for Nursing Mothers</a></li>
+            <li><a href="#weight-loss">Losing Weight Safely While Breastfeeding</a></li>
+            <li><a href="#foods">Best Foods to Eat While Breastfeeding</a></li>
+            <li><a href="#avoid">What to Avoid or Limit</a></li>
+            <li><a href="#hydration">Hydration During Lactation</a></li>
+            <li><a href="#supplements">Supplements for Breastfeeding Mothers</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="overview" class="info">
+        <h2>Why Nutrition Matters During Lactation</h2>
+        <div class="answer-capsule">
+          Breastfeeding nutrition refers to the dietary requirements of a nursing mother to support both her own health and the production of adequate, nutritious breast milk. During lactation, a woman's body diverts significant energy and micronutrients toward milk production — approximately 750–800 mL of milk per day in exclusive breastfeeding — making nutritional intake more demanding than during pregnancy for many nutrients including iodine, choline, and DHA.
+        </div>
+
+        <p>Human breast milk is a dynamic fluid that adapts to the infant's developmental stage. Its composition — including fat content, immunoglobulin levels, and micronutrient concentrations — is influenced by the mother's diet. While the body prioritizes certain nutrients in milk even at maternal expense (calcium is mobilized from bones regardless of dietary intake), others like iodine, vitamin B12, DHA, and vitamin D reflect maternal status directly. Deficiencies in these nutrients in breast milk can have measurable effects on infant neurological development.</p>
+
+        <p>At the same time, the postpartum period places unique demands on the mother: physical recovery from birth, potential sleep deprivation, hormonal shifts, and often the psychological pressures of new parenthood. Getting nutrition right during this window supports milk production, mood, energy, long-term bone health, and — when desired — safe gradual return to pre-pregnancy weight.</p>
+
+        {% include 'components/medical-disclaimer.html' %}
+    </section>
+
+    <section id="calories" class="info">
+        <h2>How Many Calories Do You Need While Breastfeeding?</h2>
+        <div class="answer-capsule">
+          Breastfeeding women require approximately 500 extra calories per day above their pre-pregnancy maintenance needs during the first 6 months of exclusive nursing. From 6 to 12 months, as the infant begins eating solid foods, calorie needs decrease slightly to about 400 extra calories per day. The safe minimum calorie intake for any breastfeeding woman is 1,500 kcal/day; intakes below this threshold risk reducing milk supply and depleting maternal nutrient stores.
+        </div>
+
+        <p>These figures come from the National Academy of Medicine's Dietary Reference Intakes for Energy, which account for the energy cost of milk synthesis (approximately 670 kcal/day) offset by the caloric contribution of postpartum fat stores that were laid down during pregnancy (approximately 170 kcal/day). The net dietary requirement is therefore roughly 500 kcal/day.</p>
+
+        <h3>Individual Calorie Needs Vary</h3>
+        <p>Total calorie needs depend on your specific body size, activity level, and the extent of breastfeeding. A small, sedentary woman may need only 1,800 kcal/day, while a tall, active woman may need 2,800 kcal/day or more. Use the <a href="/breastfeeding-calorie-calculator">Breastfeeding Calorie Calculator</a> to get a personalized estimate based on your Mifflin-St. Jeor basal metabolic rate, activity multiplier, and lactation adjustment.</p>
+
+        <div class="table-responsive" style="overflow-x: auto; margin-top: 16px;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Stage</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Extra kcal/day</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Typical total range</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Exclusive breastfeeding (months 1–6)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">+500 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1,800–2,500 kcal/day</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Exclusive breastfeeding (months 7–12)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">+400 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1,700–2,400 kcal/day</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Partial / combo feeding</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">+250 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1,500–2,200 kcal/day</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Safe absolute minimum (any stage)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">—</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">≥ 1,500 kcal/day</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> National Academy of Medicine, Dietary Reference Intakes for Energy, 2023.</p>
+    </section>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="macros" class="info">
+        <h2>Macronutrient Needs While Breastfeeding</h2>
+
+        <h3>Protein</h3>
+        <p>The Recommended Dietary Allowance (RDA) for protein during lactation is <strong>71 g/day</strong> — 25 g more than the non-pregnant baseline of 46 g/day. In practice, most recommendations suggest aiming for <strong>1.1–1.3 g per kg of body weight</strong>, which aligns with higher-quality protein synthesis and satiety. For a 65 kg (143 lb) woman, this translates to roughly 72–85 g/day. Protein from breast milk transfers amino acids essential for infant muscle and organ development.</p>
+
+        <p>Excellent protein sources: eggs, poultry, fish, lean beef, Greek yogurt, legumes, tofu, and edamame.</p>
+
+        <h3>Dietary Fat</h3>
+        <p>There is no specific fat RDA for lactation, but fat quality matters enormously. The fat content of breast milk reflects the mother's fat intake — particularly the long-chain polyunsaturated fatty acids DHA and arachidonic acid (ARA), which are critical for infant brain and retinal development. <strong>Aim for 30% of total calories from fat</strong>, with an emphasis on unsaturated sources and at least 200–300 mg/day of DHA.</p>
+
+        <p>Best fat sources: fatty fish (salmon, sardines), avocado, olive oil, nuts, seeds, and eggs.</p>
+
+        <h3>Carbohydrates</h3>
+        <p>The RDA for carbohydrates during lactation is <strong>210 g/day</strong> — higher than the 130 g/day for non-pregnant women — reflecting the glucose cost of lactose synthesis in breast milk (lactose is the primary carbohydrate in human milk). Low-carbohydrate diets such as strict ketogenic diets are not recommended during breastfeeding due to this increased glucose requirement, though moderate carbohydrate reduction is generally acceptable if calorie intake is adequate.</p>
+    </section>
+
+    <section id="micronutrients" class="info">
+        <h2>Critical Micronutrients for Nursing Mothers</h2>
+        <p>Breastfeeding places higher demands on several micronutrients than pregnancy itself. The following are the most critical to address during lactation:</p>
+
+        <div class="important-box">
+            <h3>Iodine — 290 mcg/day (highest of any life stage)</h3>
+            <p>Iodine is the most under-consumed nutrient in breastfeeding women. It is essential for the production of thyroid hormones, which regulate infant brain development and metabolic function. Breast milk iodine concentration directly reflects maternal intake. Iodine deficiency in infants — even subclinical — is associated with cognitive impairment. The American Thyroid Association recommends that breastfeeding women take a supplement containing 150 mcg of iodine, in addition to dietary sources. Many prenatal vitamins do not contain iodine — check your label.</p>
+            <p><strong>Best sources:</strong> Seaweed (highly variable), fish, shrimp, dairy products, eggs, iodized salt (1/4 tsp = ~95 mcg), iodine-containing prenatal vitamin.</p>
+        </div>
+
+        <div class="important-box">
+            <h3>DHA (Docosahexaenoic Acid) — 200–300 mg/day</h3>
+            <p>DHA is an omega-3 fatty acid that concentrates in the brain and retina. During the first year of life, the infant brain nearly triples in size — DHA is a critical structural component of this growth. Breast milk DHA content is directly proportional to maternal dietary DHA intake. Studies show that higher maternal DHA intake is associated with better infant visual acuity and cognitive outcomes at 12 months. The World Health Organization recommends that breastfeeding women consume at least 200–300 mg of DHA per day.</p>
+            <p><strong>Best sources:</strong> Fatty fish (salmon, 3 oz = ~1,000 mg; sardines, anchovies), DHA-fortified eggs (~100 mg), algae-derived DHA supplement (suitable for vegans).</p>
+        </div>
+
+        <div class="important-box">
+            <h3>Choline — 550 mg/day (highest of all life stages)</h3>
+            <p>Choline is an essential nutrient for infant brain development, liver function, and cell membrane synthesis. Breast milk choline content reflects maternal intake, and the lactation RDA is 550 mg/day — substantially higher than the pregnancy RDA of 450 mg/day. Most prenatal vitamins contain little or no choline, making dietary sources critical. A 2023 survey found that most breastfeeding women consume well below the RDA.</p>
+            <p><strong>Best sources:</strong> Eggs (1 large egg ≈ 147 mg), beef liver (3 oz ≈ 356 mg), beef, chicken, fish, soybeans, cruciferous vegetables. Two eggs per day provides about 294 mg — a significant portion of the RDA.</p>
+        </div>
+
+        <div class="important-box">
+            <h3>Calcium — 1,000 mg/day</h3>
+            <p>During breastfeeding, the body mobilizes calcium from maternal bones to maintain consistent breast milk calcium levels regardless of dietary intake. This temporary bone density loss (typically 3–5% in the lumbar spine) is largely reversed within 6 months after weaning. However, chronically low calcium intake or multiple successive pregnancies can increase the risk of long-term bone loss. The RDA remains 1,000 mg/day for breastfeeding women under 50.</p>
+            <p><strong>Best sources:</strong> Dairy (8 oz milk ≈ 300 mg), fortified plant milks, sardines with bones, kale, bok choy, fortified orange juice, calcium-set tofu.</p>
+        </div>
+
+        <div class="important-box">
+            <h3>Vitamin D — 600 IU/day (maternal); infant supplement needed</h3>
+            <p>Human breast milk is notoriously low in vitamin D — typically 5–80 IU/L — far below what infants need for bone health and immune function. The American Academy of Pediatrics (AAP) recommends that all breastfed infants receive a separate vitamin D supplement of 400 IU/day starting within the first few days of life, regardless of maternal vitamin D status. This is one area where maternal intake alone cannot reliably meet infant needs. The mother should still maintain adequate vitamin D for her own bone health.</p>
+            <p><strong>Best maternal sources:</strong> Sunlight exposure (10–15 min/day), fatty fish, fortified dairy, fortified plant milks, vitamin D3 supplement.</p>
+        </div>
+
+        <div class="important-box">
+            <h3>B12 — 2.8 mcg/day (critical for vegan/vegetarian mothers)</h3>
+            <p>Vitamin B12 is found almost exclusively in animal products. Breast milk B12 content reflects maternal stores and intake. Infants of vegan or strict vegetarian mothers who do not supplement are at serious risk for B12 deficiency, which can cause irreversible neurological damage, developmental regression, and megaloblastic anemia. Symptoms may not be apparent for months. Any breastfeeding mother following a vegan or vegetarian diet must supplement B12.</p>
+            <p><strong>Sources:</strong> Meat, poultry, fish, dairy, eggs; cyanocobalamin or methylcobalamin supplement for vegans (at least 2.8 mcg/day, or higher doses due to absorption limits).</p>
+        </div>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="weight-loss" class="info">
+        <h2>Losing Weight Safely While Breastfeeding</h2>
+        <div class="answer-capsule">
+          Safe postpartum weight loss while breastfeeding involves waiting until at least 6–8 weeks after birth, maintaining a calorie deficit no greater than 500 kcal/day, and never going below 1,500 kcal/day total. This supports approximately 0.5 kg (1 lb) of weight loss per week without reducing milk supply, affecting milk quality, or depleting maternal nutrient stores. More aggressive restriction can decrease milk volume and fat content.
+        </div>
+
+        <p>The research on postpartum weight loss and breastfeeding shows nuanced results. A landmark study by Lovelady et al. (2000) in the <em>New England Journal of Medicine</em> found that breastfeeding women who reduced calories by 500 kcal/day and exercised moderately lost weight at a rate of approximately 0.5 kg/week without affecting infant growth or milk composition. However, more aggressive restriction (1,000+ kcal/day deficit) was associated with reduced milk volume and altered fat content.</p>
+
+        <h3>The Role of Breastfeeding in Natural Weight Loss</h3>
+        <p>Even without intentional restriction, many breastfeeding women lose weight gradually. Milk production burns approximately 500 kcal/day. Studies show that exclusive breastfeeding for 6 months is associated with approximately 1 kg greater postpartum weight loss compared to formula feeding, though the effect size varies considerably between individuals. Factors that reduce the weight loss benefit of breastfeeding include increased appetite and caloric compensation, reduced physical activity with a newborn, and metabolic adaptations.</p>
+
+        <h3>Exercise During Breastfeeding</h3>
+        <p>Moderate aerobic exercise does not affect milk volume, composition, or infant acceptance of breast milk. Lactic acid concentrations in breast milk increase briefly after high-intensity exercise, and some studies suggest infants may prefer milk expressed before vigorous exercise over post-exercise milk — though this is a subtle effect. Practical recommendation: nurse or pump before intense exercise sessions. Resistance training and cardio are both safe and beneficial during the postpartum period.</p>
+
+        <p>Use the <a href="/breastfeeding-calorie-calculator">Breastfeeding Calorie Calculator</a> to find your safe weight loss calorie target — it applies a maximum 500 kcal/day deficit and enforces the 1,500 kcal/day floor automatically.</p>
+    </section>
+
+    <section id="foods" class="info">
+        <h2>Best Foods to Eat While Breastfeeding</h2>
+        <p>There is no special "breastfeeding diet." The principles of nutrient density, variety, and calorie adequacy apply. The foods below are highlighted because they address the specific micronutrient gaps most common in nursing mothers.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Food</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Key Nutrients</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Why It Matters for Breastfeeding</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Salmon (cooked)</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">DHA, protein, iodine, vitamin D, B12</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Addresses 5 high-priority lactation nutrients in one food; target 2 servings/week</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Eggs</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Choline, DHA (if enriched), B12, vitamin D, protein, iodine</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Best single food for choline; 2 eggs/day covers ~53% of lactation choline RDA</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Greek yogurt</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Calcium, iodine, protein, B12, probiotics</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8 oz provides ~300 mg calcium (~30% RDA) and ~75 mcg iodine</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Lentils</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Iron, folate, protein, fiber, zinc</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Plant-based iron; combine with vitamin C foods to enhance absorption; excellent folate source</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Dark leafy greens (kale, spinach)</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Calcium, folate, vitamin K, iron, vitamin C</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Kale provides more bioavailable calcium per calorie than milk; great non-dairy calcium source</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Sardines (with bones)</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">DHA, calcium, vitamin D, iodine, B12, protein</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Low mercury; the bones provide substantial calcium (~350 mg per 3.75 oz can)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Oats</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Complex carbs, beta-glucan fiber, iron, B vitamins</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Traditional galactagogue (evidence limited but safe); high satiety and sustained energy</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Avocado</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Healthy monounsaturated fats, folate, potassium, fiber</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Calorie-dense healthy fat source that supports breast milk fat content</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Fortified plant milks</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Calcium, vitamin D, B12 (if fortified)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Dairy alternative for those who cannot or prefer not to eat dairy; check iodine content</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="avoid" class="info">
+        <h2>What to Avoid or Limit While Breastfeeding</h2>
+
+        <div class="important-box" style="border-left-color: #dc2626;">
+            <h3>High-Mercury Fish</h3>
+            <p>Mercury is a neurotoxin that concentrates in large predatory fish and transfers into breast milk. The FDA advises breastfeeding women to avoid shark, swordfish, king mackerel, orange roughy, bigeye tuna, marlin, and tilefish. Canned light tuna (not albacore/white tuna), salmon, sardines, catfish, pollock, and shrimp are considered low-mercury and safe to eat 2–3 times per week.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #dc2626;">
+            <h3>Alcohol</h3>
+            <p>Alcohol passes freely into breast milk, reaching approximately the same concentration as the mother's blood alcohol level. Peak breast milk alcohol occurs 30–60 minutes after consumption. The AAP states that "not drinking alcohol is the safest option." If you choose to drink occasionally, the safest approach is to wait at least 2 hours per standard drink before nursing. "Pump and dump" removes alcohol from milk at the same rate as waiting — it does not speed clearance. Alcohol exposure has been associated with reduced milk letdown, altered infant sleep patterns, and impaired infant motor development with regular exposure.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #f59e0b;">
+            <h3>Caffeine</h3>
+            <p>Moderate caffeine consumption — up to 300 mg/day (about 2–3 cups of coffee) — is generally considered safe during breastfeeding. Caffeine does pass into breast milk but in small amounts: breast milk caffeine is approximately 1% of the maternal dose. However, newborns metabolize caffeine very slowly (half-life of ~80 hours at birth, decreasing to adult levels by 6 months), making them more sensitive to accumulation. Signs that your baby may be caffeine-sensitive: unusual wakefulness, irritability, or refusal to sleep. To minimize exposure, time your caffeine intake to occur right after nursing rather than before.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #f59e0b;">
+            <h3>Certain Herbal Supplements</h3>
+            <p>Many herbal products have not been tested for safety during lactation. Those with potential concerns include: sage (large amounts may reduce milk supply), peppermint in high concentrations, parsley in large amounts, and ginseng. Herbs claimed to boost milk supply (fenugreek, blessed thistle, brewer's yeast) have limited evidence; fenugreek has been associated with GI distress in both mother and infant in some cases. Discuss all supplements with your healthcare provider before use.</p>
+        </div>
+    </section>
+
+    <section id="hydration" class="info">
+        <h2>Hydration During Lactation</h2>
+        <div class="answer-capsule">
+          Breastfeeding women need approximately 128 oz (3.8 liters, or 16 cups) of total fluid per day — about 3 cups more than the recommendation for non-pregnant women. Breast milk is approximately 87% water, and producing 750–800 mL of milk per day places significant demands on maternal fluid balance. Dehydration can reduce milk volume. Thirst alone is not a reliable guide during lactation — many nursing mothers are mildly dehydrated without feeling thirsty.
+        </div>
+
+        <p>A practical strategy: keep a water bottle within reach during every feeding session and drink one full glass (8–12 oz) each time you nurse or pump. Your urine should be pale yellow. Dark yellow or amber urine is a sign of inadequate hydration. Water, herbal teas (check safety), milk, and fruits and vegetables all contribute to fluid intake. Caffeinated beverages count but have a mild diuretic effect; they still contribute net fluid.</p>
+
+        <p>Use the <a href="/water-intake-calculator">Water Intake Calculator</a> to estimate your personalized hydration needs based on body weight and activity level.</p>
+    </section>
+
+    <section id="supplements" class="info">
+        <h2>Supplements for Breastfeeding Mothers</h2>
+        <p>In an ideal world, a varied whole-food diet would cover all nutritional needs during lactation. In practice, the demands of new parenthood make dietary gaps common. The following supplements are most clinically relevant for breastfeeding women:</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Supplement</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Recommendation</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Prenatal vitamin (continued)</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Continue postpartum; check for iodine content</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Many prenatal vitamins lack adequate iodine and choline; supplement separately if needed</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Iodine (potassium iodide)</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">150 mcg/day supplement (ATA recommendation)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Only if prenatal vitamin doesn't contain iodine; don't take kelp supplements (dose is unpredictable)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>DHA / Omega-3</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">200–300 mg DHA/day if not eating 2 servings of fatty fish/week</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Fish oil or algae-derived DHA (vegan-friendly); look for products certified for purity/mercury testing</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Vitamin D3</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">600–2,000 IU/day for mother; 400 IU/day separately for infant</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Infant D3 drops are AAP-recommended for all breastfed babies; maternal supplement alone is insufficient for infant needs</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Vitamin B12</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">At least 2.8 mcg/day (essential for vegans/vegetarians)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">B12 deficiency in breastfed infants of vegan mothers is a serious risk; do not skip this supplement</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Choline</strong></td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Consider supplementing if not eating eggs and meat regularly</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Most prenatal vitamins lack adequate choline; look for 250–450 mg choline bitartrate in a standalone supplement</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;">Always discuss supplementation with your healthcare provider before starting new supplements while breastfeeding.</p>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>Does what you eat affect your breast milk?</h3>
+            <div class="faq-answer">
+                <p>Yes — partially. The concentration of fat-soluble vitamins (A, D, E, K), iodine, DHA, B12, and choline in breast milk is directly influenced by maternal dietary intake. The body prioritizes calcium in milk even at the expense of maternal bones. Protein and lactose content of breast milk remain relatively stable regardless of maternal diet, within normal intake ranges. Severe protein malnutrition or total calorie restriction can reduce milk volume. Foods and substances that transfer into breast milk include caffeine, alcohol, and certain herbal compounds.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is it safe to diet while breastfeeding?</h3>
+            <div class="faq-answer">
+                <p>Modest calorie restriction — no more than 500 kcal/day below maintenance needs, and never below 1,500 kcal/day total — is generally safe after 6–8 weeks postpartum. Studies show this level of restriction does not reduce milk supply or impair infant growth. More aggressive dieting risks reducing milk volume, changing milk fat content, and depleting maternal micronutrient stores. Rapid weight loss (more than 1–2 lbs/week) is not recommended. Use the <a href="/breastfeeding-calorie-calculator">Breastfeeding Calorie Calculator</a> to find your safe weight loss target.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can certain foods make a baby gassy or fussy?</h3>
+            <div class="faq-answer">
+                <p>The evidence for specific foods causing infant colic or gas through breast milk is weak. The proteins in cow's milk are the strongest-supported offenders — a small percentage of infants have cow's milk protein sensitivity, and eliminating dairy from the maternal diet can help in these cases. For most foods (cruciferous vegetables, beans, spicy foods, garlic), the molecular compounds responsible for gas in adults are too large to pass into breast milk. If you notice a pattern between a specific food and infant fussiness, try eliminating it for 2–3 weeks. Random elimination diets without evidence are not recommended.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How long should you breastfeed for health benefits?</h3>
+            <div class="faq-answer">
+                <p>The WHO and AAP recommend exclusive breastfeeding for the first 6 months, followed by continued breastfeeding with appropriate solid foods through at least 12 months (AAP) or 2 years or beyond (WHO). Research shows diminishing but persistent benefits with longer duration: reduced risk of ear infections, respiratory illness, GI illness, obesity, and type 1 diabetes in infants; reduced risk of breast cancer, ovarian cancer, type 2 diabetes, and postpartum depression in mothers. Even partial breastfeeding provides benefits. Duration should be decided based on the health and preferences of both mother and infant.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Will breastfeeding help me lose weight?</h3>
+            <div class="faq-answer">
+                <p>Breastfeeding burns roughly 500 kcal/day, which creates a caloric deficit that can support weight loss — but the effect is highly individual. Many women experience increased hunger that compensates for the extra energy expenditure. On average, studies show breastfeeding is associated with 1–2 kg greater postpartum weight loss compared to non-breastfeeding at 6 months. The effect is more pronounced when breastfeeding is exclusive and prolonged. Breastfeeding alone is unlikely to return you to pre-pregnancy weight for most women — combining it with moderate calorie awareness and physical activity is more effective.</p>
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Tools & Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/breastfeeding-calorie-calculator" class="related-tool-card">
+                <h4>Breastfeeding Calorie Calculator</h4>
+                <p>Get your personalized daily calorie target while nursing — with safe weight loss guidance.</p>
+            </a>
+            <a href="/formula-feeding-calculator" class="related-tool-card">
+                <h4>Formula Feeding Calculator</h4>
+                <p>How much formula does your baby need? Calculate by age and weight.</p>
+            </a>
+            <a href="/pregnancy-weight-gain-calculator" class="related-tool-card">
+                <h4>Pregnancy Weight Gain Calculator</h4>
+                <p>Track healthy weight gain during pregnancy based on IOM guidelines.</p>
+            </a>
+            <a href="/water-intake-calculator" class="related-tool-card">
+                <h4>Water Intake Calculator</h4>
+                <p>Personalized hydration needs — especially important during lactation.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "National Academy of Medicine. Dietary Reference Intakes for Energy. Washington, DC: National Academies Press; 2023.", "url": "https://www.nationalacademies.org/our-work/dietary-reference-intakes-for-energy"},
+        {"text": "Otten JJ, Hellwig JP, Meyers LD, eds. Dietary Reference Intakes: The Essential Guide to Nutrient Requirements. Washington, DC: National Academies Press; 2006.", "url": "https://www.ncbi.nlm.nih.gov/books/NBK56068/"},
+        {"text": "Lovelady CA, Garner KE, Moreno KL, Williams JP. The effect of weight loss in overweight, lactating women on the growth of their infants. N Engl J Med. 2000;342(7):449-453.", "url": "https://pubmed.ncbi.nlm.nih.gov/10675424/"},
+        {"text": "Larson-Meyer DE. A systematic review of the energy cost and metabolic power of maternal and infant activities. Nutrients. 2016;8(8):487.", "url": "https://pubmed.ncbi.nlm.nih.gov/27527213/"},
+        {"text": "Zimmermann MB, Andersson M. Assessment of iodine nutrition in populations: past, present, and future. Nutr Rev. 2012;70(10):553-570.", "url": "https://pubmed.ncbi.nlm.nih.gov/23035804/"},
+        {"text": "AAP Section on Breastfeeding. Breastfeeding and the use of human milk. Pediatrics. 2012;129(3):e827-e841.", "url": "https://pubmed.ncbi.nlm.nih.gov/22371471/"},
+        {"text": "CDC. Maternal Diet and Breastfeeding. Centers for Disease Control and Prevention. 2023.", "url": "https://www.cdc.gov/breastfeeding-special-circumstances/hcp/diet-micronutrients/maternal-diet.html"},
+        {"text": "Dewey KG. Energy and protein requirements during lactation. Annu Rev Nutr. 1997;17:19-36.", "url": "https://pubmed.ncbi.nlm.nih.gov/9240920/"},
+        {"text": "Mennella JA, Beauchamp GK. The effects of repeated exposure to garlic-flavored milk on the nursling's behavior. Pediatr Res. 1993;34(6):805-808.", "url": "https://pubmed.ncbi.nlm.nih.gov/8108190/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+{% include 'components/related-links.html' %}
+{% include 'footer.html' %}
+
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
