@@ -2138,7 +2138,7 @@ def fasting_weight_loss_chart():
         schema_url="/resources/fasting-weight-loss-chart",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/how-many-ccs-is-a-c-cup')
@@ -2492,7 +2492,7 @@ def breast_implant_size_guide():
         schema_url="/resources/breast-implant-size-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/breast-implant-sizing-guide')
