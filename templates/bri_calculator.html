@@ -488,6 +488,15 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator implements the Body Roundness Index formula developed by Thomas et al. (2013): BRI = 364.2 - 365.5 x sqrt(1 - ((WC / (2*pi))^2 / (0.5 * H)^2)), where WC is waist circumference in meters and H is height in meters. The formula models the human body cross-section as an ellipse, with the semi-major axis derived from height and the semi-minor axis derived from waist circumference. The eccentricity of this ellipse produces a dimensionless score that quantifies body roundness. Category thresholds (Lean/Healthy: 1.0-3.40, Overweight: 3.41-4.44, Obese: 4.45-5.72, High Risk: 5.73+) are derived from Thomas et al. and subsequent validation studies using NHANES population data.</p>
+            <p style="margin-bottom: 0;">BRI cutoff values are not yet universally standardized like WHO BMI categories. Optimal thresholds may vary by age, sex, and ethnicity, and research on population-specific cutoffs is ongoing. BRI is a screening tool for central adiposity risk and does not replace comprehensive clinical assessment including imaging or metabolic testing.</p>
+        </div>
+    </section>
+
     <!-- Bottom Ad -->
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}

@@ -249,6 +249,15 @@
     </section>
     </div> <!-- End of calculator div -->
     
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator estimates daily water intake during creatine supplementation using a three-component model. First, baseline water needs are calculated at 30-35 mL per kilogram of body weight (30 mL/kg for females, 35 mL/kg for males), consistent with general hydration guidelines from the National Academies of Sciences. Second, an activity multiplier (1.0-1.4x) adjusts for exercise-induced sweat loss based on workout frequency and intensity. Third, a creatine-specific adjustment adds 30 mL per gram of creatine during maintenance and 50 mL per gram during loading, reflecting creatine's osmotic effect of drawing water into muscle cells (intracellular hydration shift) as described in the ISSN position stand (Kreider et al., 2017).</p>
+            <p style="margin-bottom: 0;">Individual hydration needs vary based on climate, altitude, body composition, and dietary water content. Urine color (pale yellow = adequate) remains the most practical indicator of hydration status. This calculator provides general estimates and should not replace personalized guidance from a healthcare provider or sports dietitian.</p>
+        </div>
+    </section>
+
         <!-- In-article Ad (native format, highest CTR) -->
     {% with ad_position="in-article" %}
     {% include 'components/ad-unit.html' %}
@@ -257,7 +266,7 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
+
     {% set sources = [
         {"text": "Kreider RB, Kalman DS, Antonio J, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. J Int Soc Sports Nutr. 2017;14:18.", "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/"},
         {"text": "Buford TW, Kreider RB, Stout JR, et al. International Society of Sports Nutrition position stand: creatine supplementation and exercise. J Int Soc Sports Nutr. 2007;4:6.", "url": "https://pubmed.ncbi.nlm.nih.gov/17908288/"}

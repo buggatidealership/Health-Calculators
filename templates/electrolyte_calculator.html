@@ -371,6 +371,30 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator estimates personalized daily electrolyte targets using a three-layer approach. Baseline values are set from NIH Adequate Intake (AI) and Recommended Dietary Allowance (RDA) values stratified by age and sex, sourced from the National Academies of Sciences, Engineering, and Medicine Dietary Reference Intakes (2019 update for sodium and potassium; 2011 for calcium). Exercise-related sweat losses are estimated using published sweat composition data: approximately 920 mg sodium, 200 mg potassium, 5 mg magnesium, and 30 mg calcium per liter of sweat (Baker, Sports Medicine, 2017). Sweat volume is modeled from activity level, exercise duration, and climate using published sweat rates of 0.5-1.8 L/hr. Diet-specific adjustments account for increased renal sodium excretion on ketogenic diets (+150% sodium, +30% potassium, +20% magnesium) and reduced mineral intake on fasting and vegan diets.</p>
+            <p style="margin-bottom: 0;">Sweat electrolyte concentration varies substantially between individuals (sodium range: 460-1,840 mg/L). These estimates use population averages and may not reflect your individual sweat composition. People with kidney disease, heart failure, or those taking diuretics should consult their healthcare provider rather than relying on general calculators.</p>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% set sources = [
+        {"text": "National Academies of Sciences, Engineering, and Medicine. Dietary Reference Intakes for Sodium and Potassium. Washington, DC: The National Academies Press; 2019.", "url": "https://pubmed.ncbi.nlm.nih.gov/30844154/"},
+        {"text": "Baker LB. Sweating Rate and Sweat Sodium Concentration in Athletes: A Review of Methodology and Intra/Interindividual Variability. Sports Med. 2017;47(Suppl 1):111-128.", "url": "https://pubmed.ncbi.nlm.nih.gov/28332116/"},
+        {"text": "Institute of Medicine. Dietary Reference Intakes for Calcium and Vitamin D. Washington, DC: The National Academies Press; 2011.", "url": "https://pubmed.ncbi.nlm.nih.gov/21796828/"},
+        {"text": "American College of Sports Medicine. Exercise and Fluid Replacement — Position Stand. Med Sci Sports Exerc. 2007;39(2):377-390.", "url": "https://pubmed.ncbi.nlm.nih.gov/17277604/"},
+        {"text": "NIH Office of Dietary Supplements. Magnesium — Fact Sheet for Health Professionals. National Institutes of Health. Updated 2024.", "url": "https://ods.od.nih.gov/factsheets/Magnesium-HealthProfessional/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
