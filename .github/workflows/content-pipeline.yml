@@ -49,86 +49,69 @@ jobs:
           git config user.name "Claude"
           git config user.email "noreply@anthropic.com"
 
-      - name: Run content pipeline
-        env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          KEYWORDS_EVERYWHERE_KEY: ${{ secrets.KEYWORDS_EVERYWHERE_KEY }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+      - name: Write pipeline prompt
         run: |
-          claude --print --dangerously-skip-permissions "$(cat <<'PROMPT'
+          cat > /tmp/pipeline-prompt.txt <<'PROMPT'
           You are executing an automated content pipeline for healthcalculators.xyz.
           No human in the loop. Quality over quantity.
 
-          Working directory: $GITHUB_WORKSPACE
           Google SA key: /home/runner/.config/gcloud/healthcalc-sa-key.json
-          Keywords Everywhere API key: from env var KEYWORDS_EVERYWHERE_KEY
-          Gmail app password: from env var GMAIL_APP_PASSWORD
 
           Read the full pipeline instructions at tools/content_pipeline_prompt.md and follow every phase:
 
           PHASE 1 - RESEARCH:
-          1. List existing calculator routes to avoid duplicates
-          2. Use WebSearch to find 10 candidate niche health calculator ideas
-             Focus on: niche tools nobody else builds, health/fitness/nutrition/cosmetic topics
-          3. Score candidates using Keywords Everywhere API:
-             curl -X POST https://api.keywordseverywhere.com/v1/get_keyword_data \
-               -H "Authorization: Bearer $KEYWORDS_EVERYWHERE_KEY" \
-               -H "Content-Type: application/json" \
-               -d '{"country":"us","currency":"USD","dataSource":"gkp","kw":["keyword1","keyword2"]}'
-          4. SERP check top candidates via WebSearch - prefer indie-dominated SERPs
-          5. Pick ONE calculator (vol>100, comp<0.15, not already built) + one companion guide topic
+          1. List existing calculator routes to avoid duplicates:
+             python3 -c "from app import app; routes = sorted([r.rule for r in app.url_map.iter_rules() if 'GET' in r.methods and not r.rule.startswith('/static')]); [print(r) for r in routes]"
+          2. Use the Bash tool to query Keywords Everywhere API for candidate keywords:
+             curl -s -X POST https://api.keywordseverywhere.com/v1/get_keyword_data -H "Authorization: Bearer $KEYWORDS_EVERYWHERE_KEY" -H "Content-Type: application/json" -d '{"country":"us","currency":"USD","dataSource":"gkp","kw":["keyword1","keyword2"]}'
+          3. Use WebSearch to find trending niche health calculator ideas and check SERPs
+          4. Pick ONE calculator (vol>100, comp<0.15, indie SERP, not already built) + one companion guide
 
           PHASE 2 - BUILD CALCULATOR:
-          - Create JS file at static/js/{name}.js
-          - Create Jinja2 template at templates/{name}.html (match quality of templates/caffeine_half_life_calculator.html)
-          - Add Flask route to app.py
+          - Create JS file at static/js/{name}.js with proper calculation logic
+          - Create Jinja2 template at templates/{name}.html (use templates/caffeine_half_life_calculator.html as quality reference)
+          - Add Flask route to app.py with schema_type, breadcrumb_category, date_modified
           - Add card entry to app.py cards array
-          - Add node to static/js/content-loops.js
+          - Add node to static/js/content-loops.js with 3-5 cross-links
           - Add to static/public/sitemap.xml
           - Verify: python3 -c "from app import app; c=app.test_client(); r=c.get('/url'); assert r.status_code==200"
 
           PHASE 3 - BUILD COMPANION GUIDE:
-          - Create template at templates/resources/{name}.html
+          - Create template at templates/resources/{name}.html (1000-2000 words, real citations)
           - Add Flask route + articles entry in app.py
           - Add to sitemap.xml
           - Verify 200 status
 
           PHASE 3.5 - SMOKE TEST (MANDATORY before push):
           - Run: python3 tools/smoke_test.py
-          - This tests ALL existing routes (not just new ones) return HTTP 200
-          - If ANY route fails, DO NOT push. Fix the issue first, re-run smoke test.
-          - Only proceed to Phase 4 when smoke test passes with 0 failures.
+          - If ANY route fails, fix the issue, do NOT push broken code.
 
           PHASE 4 - PUBLISH:
           - git add the specific new/changed files (NOT git add -A)
-          - git commit with descriptive message + "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
+          - git commit with message including "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
           - git push origin main
-          - Submit both URLs to Google Indexing API using the service account key
-          - Submit to Bing IndexNow: python3 tools/indexnow_submit.py
+          - Submit new URLs to Google Indexing API using the service account key at /home/runner/.config/gcloud/healthcalc-sa-key.json
+          - Run: python3 tools/indexnow_submit.py
           - Log to tools/pipeline_log.txt
 
           PHASE 5 - NOTIFY:
-          Send email notification using Python smtplib:
-            import smtplib
-            from email.mime.text import MIMEText
-            import os
-            msg = MIMEText("Content pipeline completed. New pages pushed to GitHub.\n\nRender will auto-deploy from GitHub.\n\n[summary of what was built]")
-            msg['Subject'] = 'HealthCalc Pipeline: New content ready for deploy'
-            msg['From'] = 'calculatordirectory@gmail.com'
-            msg['To'] = 'alistairjdb@gmail.com'
-            with smtplib.SMTP('smtp.gmail.com', 587) as s:
-                s.starttls()
-                s.login('calculatordirectory@gmail.com', os.environ['GMAIL_APP_PASSWORD'])
-                s.send_message(msg)
+          Run: python3 tools/notify.py "HealthCalc Pipeline: New content built" "Summary of what was built. Render will auto-deploy."
 
           CRITICAL RULES:
           - Quality over quantity. Skip if no good topic found. Log why.
-          - Real medical/scientific sources only. No made-up citations.
-          - Every calculator needs proper input validation, FAQ section, methodology explanation.
-          - If any phase fails, log the error and stop. Do not push broken code.
+          - Real medical/scientific sources only.
+          - Every calculator needs input validation, FAQ section, methodology.
+          - If any phase fails, log the error and stop.
           PROMPT
-          )"
+
+      - name: Run content pipeline
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          KEYWORDS_EVERYWHERE_KEY: ${{ secrets.KEYWORDS_EVERYWHERE_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          cat /tmp/pipeline-prompt.txt | claude --dangerously-skip-permissions -p
 
       - name: Push any remaining changes
         run: |
-          git push origin main || echo "Nothing additional to push"
+          git diff --quiet && git diff --cached --quiet || (git add -A && git commit -m "Pipeline: auto-commit remaining changes" && git push origin main) || echo "Nothing additional to push"
