@@ -15,6 +15,24 @@
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
+<!-- Schema: SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Adult Height Predictor Calculator",
+  "applicationCategory": "HealthApplication",
+  "operatingSystem": "All",
+  "url": "https://healthcalculators.xyz/adult-height-predictor-calculator",
+  "description": "Predict a child's future adult height based on current age, height, and parental height using validated models.",
+  "offers": {
+    "@type": "Offer",
+    "price": 0,
+    "priceCurrency": "USD"
+  },
+  "isAccessibleForFree": true
+}
+</script>
 <body>
     {% include 'header.html' %}
     
@@ -276,7 +294,10 @@
 
     {% set sources = [
         {"text": "Khamis HJ, Roche AF. Predicting adult stature without using skeletal age: the Khamis-Roche method. Pediatrics. 1994;94(4):504-507.", "url": "https://pubmed.ncbi.nlm.nih.gov/7936860/"},
-        {"text": "Khamis HJ, Roche AF. Erratum. Pediatrics. 1995;95(3):457.", "url": "https://pubmed.ncbi.nlm.nih.gov/7862497/"}
+        {"text": "Khamis HJ, Roche AF. Erratum. Pediatrics. 1995;95(3):457.", "url": "https://pubmed.ncbi.nlm.nih.gov/7862497/"},
+        {"text": "Tanner JM, Goldstein H, Whitehouse RH. Standards for children's height at ages 2-9 years allowing for heights of parents. Arch Dis Child. 1970;45(244):755-762.", "url": "https://pubmed.ncbi.nlm.nih.gov/5491878/"},
+        {"text": "Hermanussen M, Cole J. The calculation of target height reconsidered. Horm Res. 2003;59(4):180-183.", "url": "https://pubmed.ncbi.nlm.nih.gov/12649571/"},
+        {"text": "CDC. Clinical Growth Charts. Centers for Disease Control and Prevention. National Center for Health Statistics.", "url": "https://www.cdc.gov/growthcharts/clinical_charts.htm"}
     ] %}
     {% include 'components/sources.html' %}
 

@@ -1068,7 +1068,8 @@ def home():
         categories=categories,
         schema_name=schema_name,
         schema_description=schema_description,
-        schema_url=schema_url
+        schema_url=schema_url,
+        schema_type='WebPage'
     )
 
 # ===== CATEGORY HUB PAGES =====
@@ -1252,6 +1253,7 @@ def category_hub():
         hub_cards=hub_cards,
         hub_content=hub["content"],
         other_categories=other_cats,
+        schema_type='WebPage',
         is_homepage=False
     )
 
@@ -1270,6 +1272,7 @@ def comparison_bmi_vs_body_fat():
         schema_name="BMI vs Body Fat Percentage Comparison",
         schema_description="Compare BMI and body fat percentage: accuracy, healthy ranges, limitations, and when to use each body composition metric.",
         schema_url="/bmi-vs-body-fat",
+        schema_type='WebPage',
         canonical_url="/bmi-vs-body-fat",
         breadcrumb_title="BMI vs Body Fat"
     )
@@ -1288,6 +1291,7 @@ def comparison_tdee_vs_bmr():
         schema_name="TDEE vs BMR Comparison",
         schema_description="Compare Total Daily Energy Expenditure (TDEE) and Basal Metabolic Rate (BMR): formulas, sample values, and which to use for calorie targets.",
         schema_url="/tdee-vs-bmr",
+        schema_type='WebPage',
         canonical_url="/tdee-vs-bmr",
         breadcrumb_title="TDEE vs BMR"
     )
@@ -1306,6 +1310,7 @@ def comparison_ozempic_vs_mounjaro():
         schema_name="Ozempic vs Mounjaro Weight Loss Comparison",
         schema_description="Data-driven comparison of Ozempic (semaglutide) and Mounjaro (tirzepatide): weight loss results, mechanism, dosing, side effects, and cost.",
         schema_url="/ozempic-vs-mounjaro",
+        schema_type='WebPage',
         canonical_url="/ozempic-vs-mounjaro",
         breadcrumb_title="Ozempic vs Mounjaro"
     )
@@ -2166,7 +2171,8 @@ def resources():
         articles=articles,
         schema_name=schema_name,
         schema_description=schema_description,
-        schema_url=schema_url
+        schema_url=schema_url,
+        schema_type='WebPage'
     )
 
 @app.route('/resources/fasting-weight-loss-chart')
@@ -4525,7 +4531,8 @@ def chart_reference():
         og_title=page['og_title'],
         og_description=page['meta_description'],
         og_url=page['url'],
-        canonical_url=page['url']
+        canonical_url=page['url'],
+        schema_type='WebPage'
     )
 
 
