@@ -171,6 +171,16 @@ Create a comprehensive resource guide tied to the calculator's topic. This is op
 - Add to sitemap.xml
 - Verify with test client (200 status)
 
+## PHASE 3.5: SMOKE TEST (MANDATORY — blocks push if anything is broken)
+
+Before publishing, run the full site smoke test to verify EVERY route still returns 200:
+```bash
+python3 tools/smoke_test.py
+```
+
+This tests ALL existing routes, not just the new ones. If ANY route fails, DO NOT push.
+Fix the issue first, then re-run the smoke test. Only proceed to Phase 4 when all routes pass.
+
 ## PHASE 4: PUBLISH
 
 ### Step 4A: Git commit and push

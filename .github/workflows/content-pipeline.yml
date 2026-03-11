@@ -93,6 +93,12 @@ jobs:
           - Add to sitemap.xml
           - Verify 200 status
 
+          PHASE 3.5 - SMOKE TEST (MANDATORY before push):
+          - Run: python3 tools/smoke_test.py
+          - This tests ALL existing routes (not just new ones) return HTTP 200
+          - If ANY route fails, DO NOT push. Fix the issue first, re-run smoke test.
+          - Only proceed to Phase 4 when smoke test passes with 0 failures.
+
           PHASE 4 - PUBLISH:
           - git add the specific new/changed files (NOT git add -A)
           - git commit with descriptive message + "Co-Authored-By: Claude Opus 4.6 <noreply@anthropic.com>"
