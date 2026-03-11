@@ -15,7 +15,7 @@
     schema_url="/resources/vitamin-d-levels-chart",
     schema_about="Vitamin D Blood Levels and Recommended Intake",
     date_published="2026-03-09",
-    date_modified="2026-03-09"
+    date_modified="2026-03-11"
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
@@ -151,6 +151,11 @@
 <div class="calculator-container article-container">
 
 <h1>Vitamin D Levels Chart: Normal, Deficient & Optimal Ranges</h1>
+
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
+
 <p class="subtitle">A comprehensive, evidence-based reference guide to vitamin D blood levels, recommended daily intake by age, global deficiency prevalence, and practical supplementation guidance -- sourced from the Institute of Medicine, Endocrine Society, and WHO.</p>
 
 <div class="cta-box" style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
@@ -664,6 +669,11 @@
     <p>The Endocrine Society recommends 25(OH)D testing for individuals at risk for deficiency, including those with osteoporosis, chronic kidney disease, malabsorption syndromes, obesity, darker skin, and older adults with a history of falls.<sup><a href="#ref1">1</a></sup> Routine population screening is not recommended by the IOM for healthy individuals at low risk. After starting supplementation for deficiency, recheck levels at 8-12 weeks to confirm response to treatment.</p>
 
     <p><strong>Timing note:</strong> Vitamin D levels fluctuate seasonally. If tested in summer, levels may be 10-20 ng/mL higher than winter values at the same supplementation dose, due to cutaneous synthesis from sun exposure. For the most clinically useful result, consider testing in late winter (February-March in the Northern Hemisphere) when levels are at their nadir.</p>
+</section>
+
+<section id="methodology">
+    <h2>Methodology</h2>
+    <p>Blood level classifications and recommended daily intake values in this chart are drawn from the Endocrine Society Clinical Practice Guideline on vitamin D (Holick et al., 2011) and the Institute of Medicine Dietary Reference Intakes for Calcium and Vitamin D (2011). Global deficiency prevalence data is sourced from peer-reviewed epidemiological studies indexed in PubMed, including national surveys from the U.S. (NHANES), UK, and India. All threshold values distinguish between the more conservative IOM recommendations (designed for general population bone health) and the Endocrine Society guidelines (targeted at patients at risk for deficiency), and discrepancies between these two frameworks are noted throughout.</p>
 </section>
 
 <!-- Section 9: FAQ -->

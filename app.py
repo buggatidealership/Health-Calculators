@@ -2700,7 +2700,7 @@ def plasma_donation_screening_guide():
         schema_description="Step-by-step overview of the initial physical screening process for new plasma donors. Includes ID requirements, health exam checklist, and FAQs.",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-09'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/plasma-donation-college-guide")
@@ -2717,7 +2717,7 @@ def plasma_donation_college_guide():
         schema_description="Straightforward advice for students donating plasma. Learn how it affects your veins, workout recovery, study routine, and how to donate safely.",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-09'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/plasma-vs-platelet-donation")
@@ -2734,7 +2734,7 @@ def plasma_vs_platelet_donation():
         schema_description="Should you donate plasma or platelets? This guide compares donation volume, frequency, and which one helps more based on real data and Red Cross guidelines.",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-09'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/plasma-donation-tips-first-time")
@@ -2751,7 +2751,7 @@ def plasma_donation_tips_first_time():
         schema_description="Checklist for your first plasma donation: meals, hydration, what to bring, what to wear, how to feel after, and safety tips.",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-09'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/glp1-weight-loss-comparison')
@@ -2777,7 +2777,7 @@ def vitamin_d_levels_chart():
         schema_url="/resources/vitamin-d-levels-chart",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/body-fat-percentage-chart')

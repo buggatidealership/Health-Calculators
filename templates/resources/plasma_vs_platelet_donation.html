@@ -57,7 +57,7 @@
         }
       },
       "datePublished": "2025-04-10",
-      "dateModified": "2025-04-10",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://healthcalculators.xyz/resources/plasma-vs-platelet-donation"
@@ -120,6 +120,11 @@
 <div class="calculator-container article-container">
 
 <h1>Plasma vs Platelet Donation: Which Makes a Bigger Impact?</h1>
+
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
+
 <p class="subtitle">A data-driven comparison of plasma and platelet donation frequency, volume, compensation, and which helps more people based on clinical need.</p>
 
 {% include 'components/medical-disclaimer.html' %}
@@ -711,9 +716,26 @@
 
 <hr style="margin: 40px 0; border: none; border-top: 1px solid #eee;" />
 
+<section id="methodology">
+    <h2>Methodology</h2>
+    <p>Comparison data in this guide is sourced from the American Red Cross blood component collection standards, the AABB Technical Manual (20th edition), and FDA regulations governing both source plasma and platelet apheresis collection (21 CFR 606, 640). Platelet shelf life, donation frequency limits, and volume collection data are based on published guidelines from the American Red Cross and the Plasma Protein Therapeutics Association. Clinical need comparisons reflect blood product utilization data reported by the AABB National Blood Collection and Utilization Survey.</p>
+</section>
+
+<section id="references">
+    <h2>References</h2>
+    <ol style="padding-left: 20px; line-height: 1.8;">
+        <li>American Red Cross. "Types of Blood Donations." <em>redcrossblood.org</em>. Accessed March 2026.</li>
+        <li>AABB. <em>Technical Manual</em>. 20th ed. Bethesda, MD: AABB; 2020.</li>
+        <li>U.S. Food and Drug Administration. "21 CFR Part 606 — Current Good Manufacturing Practice for Blood and Blood Components." <em>Code of Federal Regulations</em>. Accessed March 2026.</li>
+        <li>Whitaker BI, Hinkins S. "The 2019 AABB Blood Collection, Utilization, and Patient Blood Management Survey Report." <em>AABB</em>. 2021.</li>
+        <li>Plasma Protein Therapeutics Association. "Source Plasma Collection and Fractionation Standards." <em>pptaglobal.org</em>. Accessed March 2026.</li>
+        <li>Vassallo RR, Murphy S. "A critical comparison of platelet preparation methods." <em>Current Opinion in Hematology</em>. 2006;13(6):220-227.</li>
+    </ol>
+</section>
+
 <section id="faq" class="info">
     <h2>Frequently Asked Questions</h2>
-    
+
     <div class="faq-item">
         <h3>What helps more, donating plasma or platelets?</h3>
         <div class="faq-answer">

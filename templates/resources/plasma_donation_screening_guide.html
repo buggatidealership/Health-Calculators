@@ -57,7 +57,7 @@
         }
       },
       "datePublished": "2025-04-10",
-      "dateModified": "2025-04-10",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://healthcalculators.xyz/resources/plasma-donation-screening-guide"
@@ -120,6 +120,11 @@
 <div class="calculator-container article-container">
 
 <h1>Plasma Donation Screening: What to Expect at Your First Visit</h1>
+
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
+
 <p class="subtitle">A comprehensive guide to the plasma donation screening process, including ID requirements, health checks, and eligibility factors.</p>
 
 {% include 'components/medical-disclaimer.html' %}
@@ -374,9 +379,25 @@
     <p>Following these preparation tips not only helps ensure you pass the screening but also contributes to a more comfortable donation experience. Being well-hydrated is particularly important as it makes vein access easier and helps maintain healthy blood pressure during donation.</p>
 </section>
 
+<section id="methodology">
+    <h2>Methodology</h2>
+    <p>Screening process details in this guide are based on FDA regulations for source plasma establishments (21 CFR 630 and 640), which mandate specific donor eligibility criteria, physical examination requirements, and deferral standards. Disqualification criteria and deferral periods were cross-referenced with current policies published by CSL Plasma, BioLife Plasma Services, and the American Red Cross. Documentation requirements reflect HIPAA-compliant identity verification standards required by the Centers for Medicare &amp; Medicaid Services for plasma collection facilities.</p>
+</section>
+
+<section id="references">
+    <h2>References</h2>
+    <ol style="padding-left: 20px; line-height: 1.8;">
+        <li>U.S. Food and Drug Administration. "21 CFR Part 630 — Requirements for Blood and Blood Components Intended for Transfusion or for Further Manufacturing Use." <em>Code of Federal Regulations</em>. Accessed March 2026.</li>
+        <li>U.S. Food and Drug Administration. "21 CFR Part 640 — Additional Standards for Human Blood and Blood Products, Subpart G — Source Plasma." <em>Code of Federal Regulations</em>. Accessed March 2026.</li>
+        <li>AABB (Association for the Advancement of Blood &amp; Biotherapies). "Standards for Blood Banks and Transfusion Services." 33rd ed. Bethesda, MD: AABB; 2023.</li>
+        <li>Plasma Protein Therapeutics Association. "Donor Health and Screening Standards." <em>pptaglobal.org</em>. Accessed March 2026.</li>
+        <li>American Red Cross. "Eligibility Requirements — Alphabetical." <em>redcrossblood.org</em>. Accessed March 2026.</li>
+    </ol>
+</section>
+
 <section id="faq" class="info">
     <h2>Frequently Asked Questions</h2>
-    
+
     <div class="faq-item">
         <h3>What is the physical exam like at a plasma donation center?</h3>
         <div class="faq-answer">
