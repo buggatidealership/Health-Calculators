@@ -371,6 +371,16 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator estimates bulking calories in three steps. First, basal metabolic rate (BMR) is calculated using the Mifflin-St Jeor equation (1990): BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) + 5 for men, or -161 for women. This equation was validated as the most accurate BMR predictor in a 2005 systematic review by Frankenfield et al. (173 studies). Second, BMR is multiplied by a physical activity level (PAL) factor (1.2 to 1.9) to estimate Total Daily Energy Expenditure (TDEE). Third, a calorie surplus is added: +250 kcal (lean bulk), +400 kcal (moderate), or +700 kcal (aggressive), based on sports nutrition recommendations from Iraki et al. (2019) and Slater et al. (2019).</p>
+            <p>Macronutrient targets are set at 1 g protein per pound of bodyweight (supported by Morton et al., 2018 meta-analysis), 25% of total calories from fat (per ISSN guidelines), and remaining calories from carbohydrates. Weekly weight gain is estimated using the standard conversion of 3,500 kcal per pound of body weight.</p>
+            <p style="margin-bottom: 0;">All estimates are based on population-level equations and may not account for individual metabolic variation, body composition differences, or adaptive thermogenesis. These results are intended for educational purposes and do not constitute medical or nutritional advice.</p>
+        </div>
+    </section>
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
@@ -381,6 +391,15 @@
             <li>Slater, G.J. et al. (2019). "Is an Energy Surplus Required to Maximize Skeletal Muscle Hypertrophy Associated With Resistance Training?" <em>Frontiers in Nutrition</em>, 6, 131.</li>
         </ol>
     </section>
+
+    {% set sources = [
+        {"text": "Mifflin MD, St Jeor ST, Hill LA, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241-247.", "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"},
+        {"text": "Morton RW, Murphy KT, McKellar SR, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. Br J Sports Med. 2018;52(6):376-384.", "url": "https://pubmed.ncbi.nlm.nih.gov/28698222/"},
+        {"text": "Iraki J, Fitschen P, Espinar S, Helms E. Nutrition Recommendations for Bodybuilders in the Off-Season: A Narrative Review. Sports (Basel). 2019;7(7):154.", "url": "https://pubmed.ncbi.nlm.nih.gov/31247944/"},
+        {"text": "Slater GJ, Dieter BP, Marsh DJ, et al. Is an Energy Surplus Required to Maximize Skeletal Muscle Hypertrophy Associated With Resistance Training. Front Nutr. 2019;6:131.", "url": "https://pubmed.ncbi.nlm.nih.gov/31482093/"},
+        {"text": "Aragon AA, Schoenfeld BJ, Wildman R, et al. International society of sports nutrition position stand: diets and body composition. J Int Soc Sports Nutr. 2017;14:16.", "url": "https://pubmed.ncbi.nlm.nih.gov/28630601/"}
+    ] %}
+    {% include 'components/sources.html' %}
 
 </div>
 

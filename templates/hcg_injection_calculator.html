@@ -221,6 +221,15 @@
         <p style="margin-top: 12px;">The amount of bacteriostatic water you add is flexible &mdash; it does not change the total IU in the vial, only the concentration. Adding more water means a larger injection volume per dose, which can be easier to measure accurately. Adding less water means a smaller, more concentrated injection.</p>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses basic reconstitution pharmacology: Concentration (IU/mL) = Vial Strength (IU) / Bacteriostatic Water Volume (mL), and Injection Volume (mL) = Desired Dose (IU) / Concentration (IU/mL). Syringe units are calculated by multiplying the injection volume in mL by 100, based on the standard U-100 insulin syringe where 100 graduated units equal 1 mL. Doses per vial are determined by dividing the total vial strength by the desired dose per injection. These are standard pharmaceutical reconstitution formulas used in clinical practice.</p>
+            <p style="margin-bottom: 0;">This calculator assumes the use of U-100 insulin syringes and standard HCG lyophilized powder vials reconstituted with bacteriostatic water. Actual reconstitution should follow the specific instructions provided by your prescribing physician or compounding pharmacy. Slight volume losses from dead space in needles and syringes are not accounted for.</p>
+        </div>
+    </section>
+
     {% with ad_position="in-article" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
@@ -340,16 +349,13 @@
         </div>
     </section>
 
-    <section id="sources-section" class="info">
-        <h2>Sources</h2>
-        <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
-            <li>Pregnyl (chorionic gonadotropin for injection) prescribing information. Organon LLC. U.S. Food and Drug Administration.</li>
-            <li>Novarel (chorionic gonadotropin for injection, USP) product monograph. Ferring Pharmaceuticals.</li>
-            <li>Coviello, A.D. et al. (2008). "Low-Dose Human Chorionic Gonadotropin Maintains Intratesticular Testosterone in Normal Men with Testosterone-Induced Gonadotropin Suppression." <em>Journal of Clinical Endocrinology &amp; Metabolism</em>, 93(5), 1834-1840.</li>
-            <li>United States Pharmacopeia (USP). Chapter 797: Pharmaceutical Compounding &mdash; Sterile Preparations. Beyond-use dating for reconstituted sterile products.</li>
-            <li>American Society of Health-System Pharmacists (ASHP). Guidelines on compounding sterile preparations.</li>
-        </ol>
-    </section>
+    {% set sources = [
+        {"text": "Pregnyl (chorionic gonadotropin for injection) prescribing information. Organon LLC. U.S. Food and Drug Administration."},
+        {"text": "Coviello AD, Matsumoto AM, Bremner WJ, et al. Low-dose human chorionic gonadotropin maintains intratesticular testosterone in normal men with testosterone-induced gonadotropin suppression. J Clin Endocrinol Metab. 2005;90(5):2595-2602.", "url": "https://pubmed.ncbi.nlm.nih.gov/15713727/"},
+        {"text": "United States Pharmacopeia (USP). Chapter 797: Pharmaceutical Compounding — Sterile Preparations. Beyond-use dating for reconstituted sterile products."},
+        {"text": "American Society of Health-System Pharmacists (ASHP). Guidelines on compounding sterile preparations."}
+    ] %}
+    {% include 'components/sources.html' %}
 
     <div class="important-box" style="margin-top: 32px; border-left-color: #c03030;">
         <h3 style="color: #c03030;">Important Medical Disclaimer</h3>

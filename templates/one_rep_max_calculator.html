@@ -362,6 +362,16 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator estimates one repetition maximum (1RM) using seven validated prediction formulas from exercise science literature. Three are linear models: Epley (1985) uses 1RM = W x (1 + r/30), Brzycki (1993) uses 1RM = W x 36/(37 - r), and Lander (1985) uses 1RM = 100W / (101.3 - 2.67r). O'Conner et al. (1989) uses the conservative linear formula 1RM = W x (1 + r/40). Three are exponential models: Lombardi (1989) uses 1RM = W x r^0.10, Mayhew et al. (1992) uses 1RM = 100W / (52.2 + 41.9e^(-0.055r)), and Wathen (1994) uses 1RM = 100W / (48.8 + 53.8e^(-0.075r)). The calculator displays results from all seven formulas and reports their average as the primary estimate.</p>
+            <p>Training load percentages are based on NSCA (National Strength and Conditioning Association) guidelines, mapping 1RM percentages to rep ranges and training goals (strength, hypertrophy, endurance, power).</p>
+            <p style="margin-bottom: 0;">All formulas are most accurate in the 2-10 rep range with a typical prediction error of 2-5% versus actual tested 1RM. Accuracy degrades above 10 reps due to confounding fatigue factors (cardiovascular, grip, core stability). LeSuer et al. (1997) found that all prediction equations significantly underestimate deadlift 1RM. The formulas were validated on compound barbell exercises and may be less reliable for machine or isolation exercises.</p>
+        </div>
+    </section>
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
@@ -377,6 +387,15 @@
             <li>National Strength and Conditioning Association. Training Load Chart. <em>Essentials of Strength Training and Conditioning</em>.</li>
         </ol>
     </section>
+
+    {% set sources = [
+        {"text": "Epley B. Poundage Chart. Boyd Epley Workout. Lincoln, NE: Body Enterprises; 1985:86.", "url": "https://pubmed.ncbi.nlm.nih.gov/"},
+        {"text": "Brzycki M. Strength Testing: Predicting a One-Rep Max from Repetitions-to-Fatigue. JOPERD. 1993;64(1):88-90.", "url": "https://pubmed.ncbi.nlm.nih.gov/"},
+        {"text": "LeSuer DA, McCormick JH, Mayhew JL, Wasserstein RL, Arnold MD. The Accuracy of Prediction Equations for Estimating 1-RM Performance in the Bench Press, Squat, and Deadlift. J Strength Cond Res. 1997;11(4):211-213.", "url": "https://pubmed.ncbi.nlm.nih.gov/"},
+        {"text": "Mayhew JL, Ball TE, Arnold MD, Bowen JC. Relative Muscular Endurance Performance as a Predictor of Bench Press Strength in College Men and Women. J Sports Med Phys Fitness. 1992;32(4):328-334.", "url": "https://pubmed.ncbi.nlm.nih.gov/1293418/"},
+        {"text": "Baechle TR, Earle RW, eds. Essentials of Strength Training and Conditioning. 4th ed. NSCA/Human Kinetics; 2016.", "url": "https://pubmed.ncbi.nlm.nih.gov/"}
+    ] %}
+    {% include 'components/sources.html' %}
 
 </div>
 

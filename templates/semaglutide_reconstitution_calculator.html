@@ -344,6 +344,15 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses standard pharmaceutical reconstitution math. Concentration is calculated as the total peptide amount (mg) divided by the volume of bacteriostatic water added (mL), yielding mg/mL. The injection volume is then determined by dividing the desired dose (mg) by the concentration (mg/mL), giving the volume in mL. For insulin syringe units, the volume in mL is multiplied by 100 (since U-100 syringes have 100 units per mL). Doses per vial are calculated by dividing the total peptide amount by the dose per injection. The titration schedule follows the FDA-approved Wegovy (semaglutide) label: 0.25 mg (weeks 1-4), 0.5 mg (weeks 5-8), 1.0 mg (weeks 9-12), 1.7 mg (weeks 13-16), and 2.4 mg maintenance (week 17+).</p>
+            <p style="margin-bottom: 0;">This calculator assumes complete dissolution of the lyophilized peptide and does not account for dead volume in the syringe or vial (typically 0.02-0.05 mL per injection). Actual injectable doses may be slightly less than calculated due to this dead space. Compounded semaglutide potency may vary by pharmacy and is not FDA-verified. Always follow your prescriber's specific dosing instructions.</p>
+        </div>
+    </section>
+
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}

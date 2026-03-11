@@ -486,6 +486,15 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator implements six validated VO2 max estimation equations. The Cooper 12-minute run test (1968) uses the formula: VO2 max = (distance_in_meters - 504.9) / 44.73. The 1.5-mile run test converts time to VO2 max using the Balke regression. The Rockport 1-mile walking test (Kline et al., 1987) uses a multiple regression equation incorporating walk time, heart rate, body weight, age, and sex: VO2 max = 132.853 - 0.1692(weight_kg) - 0.3877(age) + 6.315(sex) - 3.2649(time_min) - 0.1565(HR). The Queens College step test (McArdle et al., 1972) estimates VO2 max from recovery heart rate with sex-specific equations. The heart rate ratio method (Uth et al., 2004) uses: VO2 max = 15.3 x (HRmax / HRrest). The non-exercise model (Jackson et al., 1990) predicts VO2 max from age, sex, BMI, and physical activity rating. Fitness classification uses Cooper Institute norms by age and sex.</p>
+            <p style="margin-bottom: 0;">All field test equations are regression-based estimates with standard errors of estimate (SEE) ranging from 2.5 ml/kg/min (Cooper test) to 5.5 ml/kg/min (non-exercise). These estimates are less precise than laboratory indirect calorimetry, which is the gold standard. Accuracy depends on maximal effort during running tests and correct heart rate measurement for submaximal tests. Classification norms are based on North American populations and may not apply equally to all ethnic groups.</p>
+        </div>
+    </section>
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
@@ -500,6 +509,15 @@
             <li>ACSM. <em>Guidelines for Exercise Testing and Prescription</em>, 11th edition.</li>
         </ol>
     </section>
+
+    {% set sources = [
+        {"text": "Cooper KH. A Means of Assessing Maximal Oxygen Intake: Correlation Between Field and Treadmill Testing. JAMA. 1968;203(3):201-204.", "url": "https://pubmed.ncbi.nlm.nih.gov/5694044/"},
+        {"text": "Kline GM, Porcari JP, Hintermeister R, et al. Estimation of VO2max from a One-Mile Track Walk, Gender, Age, and Body Weight. Med Sci Sports Exerc. 1987;19(3):253-259.", "url": "https://pubmed.ncbi.nlm.nih.gov/3600239/"},
+        {"text": "Uth N, Sorensen H, Overgaard K, Pedersen PK. Estimation of VO2max from the Ratio Between HRmax and HRrest — the Heart Rate Ratio Method. Eur J Appl Physiol. 2004;91(1):111-115.", "url": "https://pubmed.ncbi.nlm.nih.gov/14624296/"},
+        {"text": "Mandsager K, Harb S, Cremer P, et al. Association of Cardiorespiratory Fitness With Long-term Mortality Among Adults Undergoing Exercise Treadmill Testing. JAMA Network Open. 2018;1(6):e183605.", "url": "https://pubmed.ncbi.nlm.nih.gov/30646252/"},
+        {"text": "Jackson AS, Blair SN, Mahar MT, et al. Prediction of Functional Aerobic Capacity Without Exercise Testing. Med Sci Sports Exerc. 1990;22(6):863-870.", "url": "https://pubmed.ncbi.nlm.nih.gov/2287267/"}
+    ] %}
+    {% include 'components/sources.html' %}
 
 </div>
 

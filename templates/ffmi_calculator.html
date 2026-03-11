@@ -353,6 +353,22 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator computes the Fat-Free Mass Index using the formulas established by Kouri et al. (1995). First, fat-free mass (FFM) is derived as body weight in kilograms multiplied by (1 - body fat percentage / 100). Raw FFMI is then calculated as FFM divided by height in meters squared (kg/m²), analogous to BMI but using lean mass only. The normalized FFMI applies a height correction: Adjusted FFMI = FFMI + 6.1 × (1.8 - height in meters), which adjusts for height so that taller and shorter individuals can be compared fairly against a 1.80 m reference point. Classification thresholds for men are based on the Kouri et al. study of 157 athletes; female thresholds are estimated from Hull et al. (2011) and Schutz et al. (2002).</p>
+            <p style="margin-bottom: 0;">FFMI accuracy depends entirely on the body fat percentage input. Errors of 3-5% in body fat estimation shift FFMI by approximately 1-2 points. DEXA or hydrostatic weighing provide the most reliable body fat values; bioelectrical impedance scales and visual estimates can be off by 3-8%. The natural limit of 25 for men is a statistical boundary from a single study, not a hard physiological ceiling, and the female thresholds are less well-validated due to fewer large-scale studies.</p>
+        </div>
+    </section>
+
+    {% set sources = [
+        {"text": "Kouri EM, Pope HG Jr, Katz DL, Oliva P. Fat-Free Mass Index in Users and Nonusers of Anabolic-Androgenic Steroids. Clin J Sport Med. 1995;5(4):223-228.", "url": "https://pubmed.ncbi.nlm.nih.gov/7496846/"},
+        {"text": "Schutz Y, Kyle UU, Pichard C. Fat-Free Mass Index and Fat Mass Index Percentiles in Caucasians Aged 18-98 y. Int J Obes. 2002;26(7):953-960.", "url": "https://pubmed.ncbi.nlm.nih.gov/12080449/"},
+        {"text": "Hull HR, Thornton J, Wang J, et al. Fat-Free Mass Index: Changes and Race/Ethnic Differences in Adulthood. Int J Obes. 2011;35(1):121-127.", "url": "https://pubmed.ncbi.nlm.nih.gov/20531353/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">

@@ -1544,7 +1544,7 @@ def a1c_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/diabetes-risk-calculator')
@@ -2258,12 +2258,12 @@ def adult_height_predictor_calculator():
     schema_description = "Predict a child's future adult height based on their age, current height, gender, and parental height using validated models like mid-parental height and Khamis-Roche."
     schema_url = "/adult-height-predictor-calculator"
     return render_template(
-        'adult_height_predictor_calculator.html', 
+        'adult_height_predictor_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/cc-to-bra-size-calculator')
@@ -2316,12 +2316,12 @@ def baldness_risk_calculator():
     schema_description = "Estimate your risk of going bald based on family history, age, lifestyle, and health. Backed by clinical studies."
     schema_url = "/baldness-risk-calculator"
     return render_template(
-        'baldness_risk_calculator.html', 
+        'baldness_risk_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/how-to-prevent-hair-loss')
@@ -2343,12 +2343,12 @@ def bac_calculator():
     schema_description = "Use this BAC calculator to estimate your blood alcohol content based on number of drinks, body weight, gender, and time."
     schema_url = "/bac-calculator"
     return render_template(
-        'bac_calculator.html', 
+        'bac_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/chipotle-nutrition-calculator')
@@ -2394,7 +2394,7 @@ def antidepressant_weight_gain_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/army-body-fat-calculator')
@@ -2409,7 +2409,7 @@ def army_body_fat_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/body-fat-calculator')
@@ -2424,7 +2424,7 @@ def body_fat_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/alcohol-impact-calculator')
@@ -2433,12 +2433,12 @@ def alcohol_impact_calculator():
     schema_description = "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration. Based on current research."
     schema_url = "/alcohol-impact-calculator"
     return render_template(
-        'alcohol_impact_calculator.html', 
+        'alcohol_impact_calculator.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/ads.txt')

@@ -354,6 +354,23 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses the widely accepted weight-based formula guideline of approximately 2.5 oz per pound of body weight per day (150 ml/kg/day) for infants from birth to 4 months. The rate is then adjusted by age bracket as babies become more efficient and begin transitioning to solid foods: 120 ml/kg/day (2.0 oz/lb) at 4-6 months, 100 ml/kg/day (1.6 oz/lb) at 6-9 months, and 75 ml/kg/day (1.2 oz/lb) at 9-12 months. A maximum daily cap of 32 oz (960 ml) is applied per AAP recommendations. Feeding frequency is estimated from age-based norms published by the AAP (HealthyChildren.org) and CDC infant nutrition guidelines.</p>
+            <p style="margin-bottom: 0;">These are population-level averages, not prescriptions for individual babies. Actual intake varies based on growth rate, activity level, whether solid foods have been introduced, and individual metabolism. The calculator does not account for premature infants (who have different caloric needs), babies with medical conditions, or mixed feeding with breast milk. Always follow your baby's hunger and fullness cues and consult your pediatrician for personalized guidance.</p>
+        </div>
+    </section>
+
+    {% set sources = [
+        {"text": "American Academy of Pediatrics. Amount and Schedule of Baby Formula Feedings. HealthyChildren.org. Updated 2024.", "url": "https://www.healthychildren.org/English/ages-stages/baby/formula-feeding/Pages/Amount-and-Schedule-of-Formula-Feedings.aspx"},
+        {"text": "Centers for Disease Control and Prevention. How Much and How Often to Feed Infant Formula. CDC.gov. Updated 2023.", "url": "https://www.cdc.gov/nutrition/infantandtoddlernutrition/formula-feeding/how-much-how-often.html"},
+        {"text": "Nemours KidsHealth. Formula Feeding FAQs: How Much and How Often. KidsHealth.org. Reviewed 2023.", "url": "https://kidshealth.org/en/parents/formulafeed-faq.html"},
+        {"text": "Seattle Children's Hospital. Bottle-Feeding (Formula) Questions. SeattleChildrens.org. 2024.", "url": "https://www.seattlechildrens.org/conditions/a-z/bottle-feeding-formula-questions/"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">

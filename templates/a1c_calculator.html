@@ -228,6 +228,15 @@
         </p>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses the ADAG (A1C-Derived Average Glucose) formula endorsed by the American Diabetes Association: eAG (mg/dL) = 28.7 × A1C − 46.7. This equation was derived from the 2008 ADAG study (Nathan et al., Diabetes Care 2008;31:1473-1478), which correlated continuous glucose monitoring data with A1C values across 507 participants. The reverse conversion (blood sugar to A1C) uses the algebraic inverse of the same formula: A1C = (eAG + 46.7) / 28.7. Unit conversion between mg/dL and mmol/L uses the standard factor of 18.0. Risk categories follow ADA diagnostic thresholds: normal (<5.7%), prediabetes (5.7-6.4%), and diabetes (≥6.5%).</p>
+            <p style="margin-bottom: 0;">A1C accuracy can be affected by hemoglobin variants (HbS, HbC, HbE), iron deficiency anemia, recent blood transfusions, and chronic kidney disease. These results are estimates for educational purposes and should not replace laboratory testing or clinical evaluation by a healthcare provider.</p>
+        </div>
+    </section>
+
     <!-- In-article Ad (native format, highest CTR) -->
     {% with ad_position="in-article" %}
     {% include 'components/ad-unit.html' %}

@@ -342,6 +342,15 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses the first-order elimination kinetics equation to model caffeine decay: Remaining = Dose x 0.5^(elapsed time / half-life). Caffeine follows first-order kinetics at normal dietary doses (under ~500 mg), meaning the rate of elimination is proportional to the amount remaining in the body. The default half-life of 5 hours is the population mean for healthy adults, as established by Nehlig (2018) in a comprehensive review of interindividual caffeine metabolism. Users can adjust the half-life from 1.5 to 9.5 hours to account for known modifiers including CYP1A2 genotype, pregnancy, oral contraceptive use, smoking status, and liver function.</p>
+            <p style="margin-bottom: 0;">This model is a simplified pharmacokinetic approximation. It does not account for caffeine absorption kinetics (peak plasma levels occur 30-60 minutes post-ingestion), two-compartment distribution, or interactions with other substances. Caffeine content values are from USDA FoodData Central and FDA data. Results are estimates and should not be used for medical decision-making.</p>
+        </div>
+    </section>
+
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}

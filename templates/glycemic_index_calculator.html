@@ -311,6 +311,23 @@
         </div>
     </section>
 
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>The glycemic index (GI) values in this calculator are sourced from the University of Sydney GI database and the International Tables of Glycemic Index and Glycemic Load Values (Atkinson et al., 2008; 2021 update), cross-referenced with data from Oregon State University's Linus Pauling Institute. GI is measured experimentally by feeding 10-12 subjects a portion of food containing 50g of available carbohydrate, measuring their blood glucose response over 2 hours, and comparing the area under the curve to that of pure glucose (GI = 100). Glycemic load (GL) is calculated using the formula: GL = (GI x grams of available carbohydrate per serving) / 100. The meal builder sums individual food GLs to estimate total meal glycemic load.</p>
+            <p style="margin-bottom: 0;">GI values are population averages and can vary significantly between individuals based on gut microbiome, insulin sensitivity, and genetics. Cooking method, ripeness, processing, and food combinations also alter effective GI. The carbohydrate and serving size data represent standard reference portions and may not match your actual intake. This tool is for general dietary guidance and does not replace individualized medical nutrition therapy for diabetes management.</p>
+        </div>
+    </section>
+
+    {% set sources = [
+        {"text": "Jenkins DJ, Wolever TM, Taylor RH, et al. Glycemic index of foods: a physiological basis for carbohydrate exchange. Am J Clin Nutr. 1981;34(3):362-366.", "url": "https://pubmed.ncbi.nlm.nih.gov/6259925/"},
+        {"text": "Atkinson FS, Foster-Powell K, Brand-Miller JC. International Tables of Glycemic Index and Glycemic Load Values: 2008. Diabetes Care. 2008;31(12):2281-2283.", "url": "https://pubmed.ncbi.nlm.nih.gov/18835944/"},
+        {"text": "Atkinson FS, Brand-Miller JC, Foster-Powell K, Buyken AE, Goletzke J. International Tables of Glycemic Index and Glycemic Load Values 2021. Am J Clin Nutr. 2021;114(5):1625-1632.", "url": "https://pubmed.ncbi.nlm.nih.gov/34258626/"},
+        {"text": "Linus Pauling Institute, Oregon State University. Glycemic Index and Glycemic Load. Micronutrient Information Center. Reviewed 2023.", "url": "https://lpi.oregonstate.edu/mic/food-beverages/glycemic-index-glycemic-load"}
+    ] %}
+    {% include 'components/sources.html' %}
+
     <section id="sources-section" class="info">
         <h2>Sources</h2>
         <ol style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">

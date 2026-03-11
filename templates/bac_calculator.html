@@ -295,6 +295,15 @@
         </div>
     </section>
     
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses the Widmark formula (1932), the standard method in forensic toxicology for estimating blood alcohol concentration: BAC = (Alcohol in grams / (Body weight in grams × r)) − (0.015 × hours elapsed). The gender-specific Widmark factor (r) is 0.68 for males and 0.55 for females, reflecting differences in body water distribution. Alcohol content is calculated from each drink's volume and ABV percentage using the ethanol density of 0.789 g/mL. The elimination rate of 0.015% BAC per hour represents the population average metabolic clearance rate, as established by Jones (Int J Legal Med, 1993) and validated across multiple forensic studies.</p>
+            <p style="margin-bottom: 0;">BAC estimates are inherently approximate. Actual BAC varies based on individual metabolism, liver enzyme activity, stomach contents, medications, and rate of consumption. This calculator is for educational purposes only and must never be used to determine fitness to drive or operate machinery. Even BAC levels below the legal limit can impair judgment and reaction time.</p>
+        </div>
+    </section>
+
         <!-- In-article Ad (native format, highest CTR) -->
     {% with ad_position="in-article" %}
     {% include 'components/ad-unit.html' %}
@@ -303,7 +312,7 @@
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
-    
+
     <!-- Related Guide Section -->
 <div class="highlight" style="margin-top: 40px; background-color: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid var(--color-accent);">
   <h3 style="color: #333; margin-top: 0;">📘 Related Guide</h3>
