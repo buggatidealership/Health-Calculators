@@ -1469,7 +1469,8 @@ def lifespan_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         date_modified='2026-03-11',
-        schema_type='WebPage'
+        schema_type='WebPage',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/creatine-water-calculator')
@@ -1575,7 +1576,8 @@ def a1c_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/diabetes-risk-calculator')
@@ -1589,7 +1591,8 @@ def diabetes_risk_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/ivf-due-date-calculator')
@@ -1728,7 +1731,8 @@ def ozempic_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/wegovy-weight-loss-calculator')
@@ -1743,7 +1747,8 @@ def wegovy_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/oral-wegovy-weight-loss-calculator')
@@ -1758,7 +1763,8 @@ def oral_wegovy_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/mounjaro-weight-loss-calculator')
@@ -1773,7 +1779,8 @@ def mounjaro_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/cagrisema-weight-loss-calculator')
@@ -1788,7 +1795,8 @@ def cagrisema_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/zepbound-weight-loss-calculator')
@@ -1803,7 +1811,8 @@ def zepbound_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/glp1-cost-calculator')
@@ -1818,7 +1827,8 @@ def glp1_cost_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/glp1-comparison-calculator')
@@ -1833,7 +1843,8 @@ def glp1_comparison_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/metabolic-age-calculator')
@@ -1864,7 +1875,8 @@ def ozempic_face_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 articles = [
@@ -2224,7 +2236,8 @@ def botox_dosage_guide():
         schema_url="/resources/botox-dosage-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/female-fertility-calculator')
@@ -2238,7 +2251,8 @@ def female_fertility_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/menopause-calculator')
@@ -2252,7 +2266,8 @@ def menopause_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/child-growth-calculator')
@@ -2356,7 +2371,8 @@ def newborn_weight_loss_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/baldness-risk-calculator')
@@ -2399,7 +2415,8 @@ def bac_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         date_modified='2026-03-11',
-        schema_type='WebPage'
+        schema_type='WebPage',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/chipotle-nutrition-calculator')
@@ -2445,7 +2462,8 @@ def antidepressant_weight_gain_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/army-body-fat-calculator')
@@ -2576,7 +2594,8 @@ def ozempic_weight_loss_calculator_guide():
         schema_url="/resources/ozempic-weight-loss-calculator-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/starbucks-nutrition-guide')
@@ -2602,7 +2621,8 @@ def ivf_due_date_calculator_guide():
         schema_url="/resources/ivf-due-date-calculator-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/army-body-fat-calculator-guide')
@@ -2628,7 +2648,8 @@ def alcohol_absorption_bac_guide():
         schema_url="/resources/how-alcohol-affects-your-bac",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/fertility-after-35')
@@ -2641,7 +2662,8 @@ def fertility_after_35():
         schema_url="/resources/fertility-after-35",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/chipotle-nutrition-guide')
@@ -2667,7 +2689,8 @@ def antidepressants_and_body_fat():
         schema_url="/resources/antidepressants-and-body-fat",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/can-a-mammogram-pop-breast-implants')
@@ -2710,7 +2733,8 @@ def who_should_not_get_breast_implants():
         schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines.",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route("/resources/glp1-side-effects-comparison")
@@ -2724,7 +2748,8 @@ def glp1_side_effects_comparison():
         schema_url="/resources/glp1-side-effects-comparison",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route("/resources/semaglutide-vs-ozempic-guide")
@@ -2737,7 +2762,8 @@ def semaglutide_vs_ozempic_guide():
         schema_url="/resources/semaglutide-vs-ozempic-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route("/resources/plasma-donation-screening-guide")
@@ -2818,7 +2844,8 @@ def glp1_weight_loss_comparison():
         schema_url="/resources/glp1-weight-loss-comparison",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/vitamin-d-levels-chart')
@@ -2831,7 +2858,8 @@ def vitamin_d_levels_chart():
         schema_url="/resources/vitamin-d-levels-chart",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/resources/body-fat-percentage-chart')
@@ -2891,7 +2919,8 @@ def semaglutide_reconstitution_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Weight Loss Medications',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -2926,7 +2955,8 @@ def hcg_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Fertility',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -2943,7 +2973,8 @@ def gestational_age_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Fertility',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -2960,7 +2991,8 @@ def waist_to_hip_ratio_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Health',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -2994,7 +3026,8 @@ def cholesterol_ratio_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Health',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -3009,7 +3042,8 @@ def pregnancy_weight_gain_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/about')
@@ -4547,7 +4581,8 @@ def heart_age_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/vo2-max-calculator')
@@ -4597,7 +4632,8 @@ def glycemic_index_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Nutrition & Diet',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -4614,7 +4650,8 @@ def formula_feeding_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Parenting',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -4665,7 +4702,8 @@ def hcg_injection_dosage_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Medication & Dosage',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -4696,7 +4734,8 @@ def breastfeeding_nutrition_guide():
         schema_url="/resources/breastfeeding-nutrition-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 
@@ -4713,7 +4752,8 @@ def breastfeeding_calorie_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Parenting',
-        date_modified='2026-03-11'
+        date_modified='2026-03-11',
+        robots_meta='noindex, nofollow'
     )
 
 

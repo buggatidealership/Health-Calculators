@@ -2,6 +2,33 @@
 
 You are executing an automated content pipeline for healthcalculators.xyz. This runs on a schedule with NO human in the loop. Quality over quantity.
 
+## Topic Restrictions — YMYL Guardrails
+
+**DO NOT build calculators or guides on these topics.** They fall into Google's "clearly YMYL" category and require physician authorship to rank. Without it, they hurt site-wide quality signals.
+
+### Off-limits topics:
+- **Prescription medication:** dosing, weight loss projections, side effects, cost comparisons, reconstitution (e.g., Ozempic, Wegovy, Mounjaro, Zepbound, CagriSema, any GLP-1 drug, antidepressants, Botox)
+- **Clinical biomarkers:** A1C, cholesterol ratios, lipid panels, blood glucose, HCG levels, vitamin D levels (lab interpretation)
+- **Disease diagnosis/screening:** diabetes risk, heart age, cardiovascular risk scoring
+- **Pregnancy/fertility diagnostics:** gestational age, IVF due dates, HCG doubling, fertility windows, newborn weight loss, pregnancy weight gain
+- **Medication dosing:** any calculator that helps users determine drug doses or injection amounts
+- **Blood alcohol content:** BAC calculators (used for safety-critical driving decisions)
+- **Medical contraindications:** who should/shouldn't get procedures
+
+### Allowed topics (build these instead):
+- **Fitness/exercise:** calorie burn, strength training (1RM), VO2 max, heart rate zones, FFMI, workout planning
+- **Nutrition/diet:** TDEE, macros, meal planning, carb cycling, keto macros, protein intake, water intake, electrolytes
+- **Body composition:** BMI, body fat %, ideal weight, army body fat, body roundness index
+- **Lifestyle/wellness:** sleep calculator, caffeine timing, metabolic age, intermittent fasting schedules
+- **Cosmetic (non-medical):** breast implant sizing/cost, lip filler cost, CC to bra size
+- **Restaurant nutrition:** Chipotle, Starbucks, other chain menu calculators
+- **Finance:** retirement savings, cost estimators
+- **Pet health:** dog pregnancy, pet nutrition
+- **Sports/performance:** running pace, vertical jump, grip strength
+
+### When in doubt:
+Ask: "Would a Google quality rater expect a physician's name on this page?" If yes, don't build it.
+
 ## PHASE 1: RESEARCH (find the best calculator topic to build)
 
 ### Step 1A: Get existing calculators (avoid duplicates)
