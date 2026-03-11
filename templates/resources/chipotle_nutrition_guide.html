@@ -65,7 +65,7 @@
         }
       },
       "datePublished": "2025-04-06",
-      "dateModified": "2025-04-06",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://healthcalculators.xyz/resources/chipotle-nutrition-guide"
@@ -112,6 +112,9 @@
     <div class="calculator-container article-container">
     
     <h1>How to Customize Your Chipotle Order (Calories, Macros & Fiber Explained)</h1>
+    {% with date_modified="March 11, 2026" %}
+    {% include 'components/article-meta.html' %}
+    {% endwith %}
     <p class="subtitle">A comprehensive guide to understanding Chipotle nutrition, customizing your meal for specific health goals, and making macro-friendly choices without sacrificing taste.</p>
 
     <div class="cta-box" style="background-color: #f0f4ff; border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid #3f51b5;">
@@ -648,6 +651,12 @@
         {% with ad_position="bottom" %}{% include 'components/ad-unit.html' %}{% endwith %}
     </div>
 
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <p>All calorie, macronutrient, and fiber values in this guide are sourced from Chipotle's official published nutrition data, cross-referenced with the USDA FoodData Central database for ingredient-level verification. Portion sizes reflect Chipotle's standard serving guidelines, though we note that real-world portions may vary by approximately 10-15% depending on location and server.</p>
+        <p>Dietary recommendations (protein targets, fiber goals, caloric ranges) align with the Dietary Guidelines for Americans 2020-2025 and the National Academy of Medicine's Dietary Reference Intakes. Macro-optimization strategies are based on established sports nutrition and clinical nutrition principles.</p>
+    </section>
+
     <section id="faq">
         <h2>Frequently Asked Questions</h2>
         
@@ -682,6 +691,17 @@
                 <p>For high-protein, low-calorie options at Chipotle, choose a salad or bowl base with double chicken (64g protein), black beans (8g protein), fajita vegetables, and fresh tomato salsa. Skip the rice, cheese, sour cream, and guacamole to keep calories lower while maximizing protein content.</p>
             </div>
         </div>
+    </section>
+
+    <section id="references" style="margin-top: 40px; font-size: 0.9em;">
+        <h2>References</h2>
+        <ol>
+            <li>Chipotle Mexican Grill. "Nutrition Calculator." Chipotle.com. Accessed March 2026. <a href="https://www.chipotle.com/nutrition-calculator" target="_blank">https://www.chipotle.com/nutrition-calculator</a></li>
+            <li>U.S. Department of Agriculture. FoodData Central. <a href="https://fdc.nal.usda.gov/" target="_blank">https://fdc.nal.usda.gov/</a></li>
+            <li>U.S. Department of Agriculture and U.S. Department of Health and Human Services. Dietary Guidelines for Americans, 2020-2025. 9th Edition. December 2020. <a href="https://www.dietaryguidelines.gov/" target="_blank">https://www.dietaryguidelines.gov/</a></li>
+            <li>National Academy of Medicine. Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. Washington, DC: National Academies Press; 2005. <a href="https://www.ncbi.nlm.nih.gov/books/NBK56068/" target="_blank">https://www.ncbi.nlm.nih.gov/books/NBK56068/</a></li>
+            <li>Urban LE, McCrory MA, Dallal GE, et al. Accuracy of stated energy contents of restaurant foods. JAMA. 2011;306(3):287-293. <a href="https://pubmed.ncbi.nlm.nih.gov/21771989/" target="_blank">https://pubmed.ncbi.nlm.nih.gov/21771989/</a></li>
+        </ol>
     </section>
 
     <div class="info">

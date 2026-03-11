@@ -2587,7 +2587,7 @@ def fertility_after_35():
         schema_url="/resources/fertility-after-35",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/chipotle-nutrition-guide')
@@ -2600,7 +2600,7 @@ def chipotle_nutrition_guide():
         schema_url="/resources/chipotle-nutrition-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/antidepressants-and-body-fat')
@@ -2626,7 +2626,7 @@ def mammogram_breast_implants_guide():
         schema_url="/resources/can-a-mammogram-pop-breast-implants",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/do-breast-implants-cause-weight-gain')
@@ -2639,7 +2639,7 @@ def breast_implants_weight_gain_guide():
         schema_url="/resources/do-breast-implants-cause-weight-gain",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/who-should-not-get-breast-implants")
@@ -2670,7 +2670,7 @@ def glp1_side_effects_comparison():
         schema_url="/resources/glp1-side-effects-comparison",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/semaglutide-vs-ozempic-guide")

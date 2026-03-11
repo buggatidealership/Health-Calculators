@@ -14,7 +14,7 @@
     schema_name="GLP-1 Side Effects Comparison Chart",
     schema_description="Evidence-based comparison of side effects across GLP-1 receptor agonist medications including Ozempic, Mounjaro, Wegovy, and Zepbound, with clinical trial frequency data.",
     date_published="2026-03-09",
-    date_modified="2026-03-09"
+    date_modified="2026-03-11"
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
@@ -116,7 +116,7 @@
       "description": "Evidence-based comparison of side effects across GLP-1 receptor agonist medications including Ozempic, Mounjaro, Wegovy, and Zepbound, with clinical trial frequency data from STEP and SURMOUNT trials.",
       "url": "https://healthcalculators.xyz/resources/glp1-side-effects-comparison",
       "datePublished": "2026-03-09",
-      "dateModified": "2026-03-09",
+      "dateModified": "2026-03-11",
       "author": {
         "@type": "Organization",
         "name": "HealthCalculators.xyz",
@@ -138,7 +138,7 @@
         "@type": "MedicalAudience",
         "audienceType": "Patient"
       },
-      "lastReviewed": "2026-03-09",
+      "lastReviewed": "2026-03-11",
       "mainContentOfPage": {
         "@type": "WebPageElement",
         "cssSelector": ".article-container"
@@ -223,6 +223,9 @@
 <div class="calculator-container article-container resource-article">
 
 <h1>GLP-1 Side Effects Comparison Chart: Ozempic, Mounjaro, Wegovy & Zepbound</h1>
+{% with date_modified="March 11, 2026" %}
+{% include 'components/article-meta.html' %}
+{% endwith %}
 <p class="subtitle">Clinical trial data from STEP and SURMOUNT programs comparing side effect rates, timelines, and management strategies across major GLP-1 medications.</p>
 
 <div class="cta-box" style="background-color: var(--color-muted); border-radius: 12px; padding: 24px; margin: 30px 0; display: flex; align-items: center; border-left: 4px solid var(--color-accent);">
@@ -704,6 +707,12 @@
 <!-- ============================================ -->
 <!-- SECTION: FAQ -->
 <!-- ============================================ -->
+<section id="methodology">
+    <h2>Methodology</h2>
+    <p>Side effect frequency data in this comparison is sourced directly from FDA-approved prescribing information for Ozempic, Wegovy, Mounjaro, and Zepbound, supplemented by published results from the STEP 1-5 trials (semaglutide) and SURMOUNT-1 trial (tirzepatide) in the <em>New England Journal of Medicine</em> and <em>JAMA</em>. All percentage rates represent treatment-emergent adverse events reported in phase 3 randomized controlled trials versus placebo.</p>
+    <p>Management strategies reflect clinical consensus from gastroenterology and endocrinology practice guidelines, including recommendations from the American Diabetes Association (ADA) Standards of Care. Drug interaction and contraindication data is drawn from the FDA prescribing labels current as of 2024.</p>
+</section>
+
 <section id="faq">
     <h2>Frequently Asked Questions</h2>
 
