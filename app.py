@@ -292,6 +292,10 @@ cross_links = {
         "calculators": ["/female-fertility-calculator", "/bmi-calculator", "/sleep-calculator", "/lifespan-longevity-calculator"],
         "guides": []
     },
+    "/zone2-heart-rate-calculator": {
+        "calculators": ["/vo2-max-calculator", "/calories-burned-calculator", "/heart-age-calculator", "/tdee-calculator", "/lifespan-longevity-calculator"],
+        "guides": ["/resources/zone2-training-guide"]
+    },
 }
 
 # Build a title lookup from cards and articles arrays (populated after they are defined)
@@ -1027,6 +1031,16 @@ cards = [
         "color": "red",
         "category": "health",
         "popular": True
+    },
+    {
+        "title": "Zone 2 Heart Rate Calculator",
+        "url": "/zone2-heart-rate-calculator",
+        "summary": "Calculate your Zone 2 heart rate training range for aerobic base building, fat burning, and mitochondrial health. Supports % Max HR, Karvonen, and Maffetone methods.",
+        "icon": "❤️",
+        "cta": "Calculate Zone 2",
+        "color": "red",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -1831,6 +1845,15 @@ def ozempic_face_calculator():
     )
 
 articles = [
+    {
+        "title": "Zone 2 Training Guide: The Science of Aerobic Base Building",
+        "url": "/resources/zone2-training-guide",
+        "summary": "A complete, evidence-based guide to Zone 2 heart rate training — mitochondrial biogenesis, fat oxidation, weekly volume recommendations, and how to calculate your zone.",
+        "icon": "❤️",
+        "cta": "Read Guide",
+        "color": "red",
+        "category": "fitness"
+    },
     {
         "title": "Breastfeeding Nutrition Guide: What to Eat, How Much, and Why",
         "url": "/resources/breastfeeding-nutrition-guide",
@@ -4658,6 +4681,37 @@ def breastfeeding_calorie_calculator():
         schema_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category='Pregnancy & Parenting',
+        date_modified='2026-03-11'
+    )
+
+
+@app.route('/zone2-heart-rate-calculator')
+def zone2_heart_rate_calculator():
+    schema_name = "Zone 2 Heart Rate Calculator"
+    schema_description = "Calculate your Zone 2 heart rate training range for aerobic base building and fat oxidation. Supports percentage of max HR, Karvonen heart rate reserve, and Maffetone MAF methods. Shows all 5 heart rate zones."
+    schema_url = "/zone2-heart-rate-calculator"
+    return render_template(
+        'zone2_heart_rate_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category='Fitness & Body Composition',
+        date_modified='2026-03-11'
+    )
+
+
+@app.route('/resources/zone2-training-guide')
+def zone2_training_guide():
+    return render_template(
+        'resources/zone2_training_guide.html',
+        is_homepage=False,
+        schema_name="Zone 2 Training Guide: The Science of Aerobic Base Building",
+        schema_description="A comprehensive, evidence-based guide to Zone 2 heart rate training covering aerobic base building, mitochondrial biogenesis, fat oxidation, weekly training volume, and how to calculate your Zone 2 range.",
+        schema_url="/resources/zone2-training-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-11'
     )
 

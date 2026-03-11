@@ -639,6 +639,15 @@ var CALCULATOR_GRAPH = {
       { url: '/cagrisema-weight-loss-calculator', title: 'CagriSema Calculator', icon: '💊', reason: 'The newest dual-agonist achieved 20.4% weight loss — see your projection', params: ['weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Know your calorie baseline to maximize results alongside medication', params: ['weight_kg','height_cm','age','gender'] }
     ]
+  },
+  'zone2-heart-rate': {
+    links: [
+      { url: '/vo2-max-calculator', title: 'VO₂ Max Calculator', icon: '🫁', reason: 'Zone 2 training is the primary driver of VO₂ max — estimate your current level', params: ['age','gender'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See exactly how many calories your Zone 2 sessions burn per hour', params: ['weight_kg'] },
+      { url: '/heart-age-calculator', title: 'Heart Age Calculator', icon: '❤️', reason: 'Zone 2 training reduces cardiovascular age — see where you stand now', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Pair your Zone 2 training with accurate calorie targets for best results', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Longevity Calculator', icon: '🧬', reason: 'VO₂ max — which Zone 2 builds — is one of the strongest predictors of lifespan', params: ['age','gender'] }
+    ]
   }
 };
 
