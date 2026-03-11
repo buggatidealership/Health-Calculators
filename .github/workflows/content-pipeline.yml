@@ -40,9 +40,11 @@ jobs:
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Write Google service account key
+        env:
+          SA_KEY: ${{ secrets.GOOGLE_SA_KEY }}
         run: |
           mkdir -p /home/runner/.config/gcloud
-          echo '${{ secrets.GOOGLE_SA_KEY }}' > /home/runner/.config/gcloud/healthcalc-sa-key.json
+          python3 -c "import os; open('/home/runner/.config/gcloud/healthcalc-sa-key.json','w').write(os.environ['SA_KEY'])"
 
       - name: Configure git
         run: |
