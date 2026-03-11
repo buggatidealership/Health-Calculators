@@ -54,7 +54,7 @@
         }
       },
       "datePublished": "2025-04-06",
-      "dateModified": "2025-04-06",
+      "dateModified": "2026-03-11",
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://healthcalculators.xyz/resources/starbucks-nutrition-guide"
@@ -101,6 +101,11 @@
     <div class="calculator-container article-container">
     
     <h1>Starbucks Drink Nutrition Guide: Calories, Sugar, and Custom Macros</h1>
+
+    {% with date_modified="March 11, 2026" %}
+    {% include 'components/article-meta.html' %}
+    {% endwith %}
+
     <p class="subtitle">Learn how to customize Starbucks drinks for better nutrition with our calculator. Understand the impact of milk choices, syrup pumps, and size options on calories, sugar, and macros.</p>
 
     <p style="font-size: 0.95rem; color: #555; margin-top: 10px;">
@@ -451,6 +456,27 @@
         <p>By using these tools together with the Starbucks Nutrition Calculator, you can make informed decisions about how to incorporate your favorite drinks into a balanced nutritional approach, whether your goal is weight loss, maintenance, or performance optimization.</p>
     </section>
     
+    <section id="methodology">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>All nutrition data in this guide is sourced from Starbucks' official U.S. nutrition information (starbucks.com/menu), last verified March 2026. Calorie, sugar, fat, and protein values reflect standard recipes for Grande (16 oz) sizes with default ingredients unless otherwise noted. Milk comparison data uses Starbucks' published per-serving nutrition for each milk option.</p>
+            <p style="margin-bottom: 0;">Syrup pump counts and calorie-per-pump estimates are based on Starbucks' standard recipes and barista training materials. Low-calorie and high-protein recommendations were compiled by comparing all standard menu items and identifying options meeting the stated criteria. This guide is for informational purposes only and does not constitute dietary or medical advice.</p>
+        </div>
+    </section>
+
+    <section id="references">
+        <h2>Sources &amp; References</h2>
+        <div style="background-color: #f5f5f5; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <ol style="margin-bottom: 0;">
+                <li>Starbucks Corporation. Starbucks Beverage Nutrition Information. <em>starbucks.com/menu</em>. Accessed March 2026.</li>
+                <li>U.S. Food and Drug Administration. Added Sugars on the New Nutrition Facts Label. <em>fda.gov</em>. 2022.</li>
+                <li>American Heart Association. Added Sugars and Cardiovascular Disease Risk in Children. <em>Circulation</em>. 2017;135(19):e1017-e1034.</li>
+                <li>Malik VS, Hu FB. Sugar-Sweetened Beverages and Cardiometabolic Health: An Update of the Evidence. <em>Nutrients</em>. 2019;11(8):1840.</li>
+                <li>Drewnowski A, Rehm CD. Consumption of added sugars among US children and adults by food purchase location and food source. <em>Am J Clin Nutr</em>. 2014;100(3):901-907.</li>
+            </ol>
+        </div>
+    </section>
+
     <section id="faq">
         <div class="faq-section">
             <h2>Frequently Asked Questions</h2>

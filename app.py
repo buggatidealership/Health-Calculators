@@ -2151,7 +2151,7 @@ def how_many_ccs_is_a_c_cup():
         schema_url="/resources/how-many-ccs-is-a-c-cup",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/how-to-start-carb-cycling')
@@ -2522,7 +2522,7 @@ def ozempic_weight_loss_calculator_guide():
         schema_url="/resources/ozempic-weight-loss-calculator-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/starbucks-nutrition-guide')
@@ -2535,7 +2535,7 @@ def starbucks_nutrition_guide():
         schema_url="/resources/starbucks-nutrition-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route('/resources/ivf-due-date-calculator-guide')
@@ -2656,7 +2656,7 @@ def who_should_not_get_breast_implants():
         schema_description="A clinical and aesthetic guide to who may be disqualified from breast augmentation surgery. Based on FDA and plastic surgery society guidelines.",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2025-06-01'
+        date_modified='2026-03-11'
     )
 
 @app.route("/resources/glp1-side-effects-comparison")
