@@ -9,6 +9,7 @@ Usage:
 
 import base64
 import json
+import os
 import sys
 import urllib.request
 
