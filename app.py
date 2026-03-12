@@ -2918,7 +2918,7 @@ def semaglutide_reconstitution_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Weight Loss Medications',
+        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -2936,7 +2936,7 @@ def caffeine_half_life_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Health',
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -2954,7 +2954,7 @@ def hcg_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Pregnancy & Fertility',
+        breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -2972,7 +2972,7 @@ def gestational_age_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Pregnancy & Fertility',
+        breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -2990,7 +2990,7 @@ def waist_to_hip_ratio_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Health',
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -3008,7 +3008,7 @@ def creatine_dosage_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Fitness',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -3025,7 +3025,7 @@ def cholesterol_ratio_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Health',
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -4646,7 +4646,7 @@ def vo2_max_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        breadcrumb_category='Fitness & Body Composition',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -4663,7 +4663,7 @@ def one_rep_max_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        breadcrumb_category='Fitness & Body Composition',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -4680,7 +4680,7 @@ def glycemic_index_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Nutrition & Diet',
+        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -4698,7 +4698,7 @@ def formula_feeding_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Pregnancy & Parenting',
+        breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -4716,7 +4716,7 @@ def bulking_calorie_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        breadcrumb_category='Fitness & Body Composition',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -4733,7 +4733,7 @@ def ffmi_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        breadcrumb_category='Fitness & Body Composition',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -4750,7 +4750,7 @@ def hcg_injection_dosage_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Medication & Dosage',
+        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -4768,7 +4768,7 @@ def electrolyte_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        breadcrumb_category='Nutrition & Diet',
+        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
         date_modified='2026-03-11'
     )
 
@@ -4800,7 +4800,7 @@ def breastfeeding_calorie_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='MedicalWebPage',
-        breadcrumb_category='Pregnancy & Parenting',
+        breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -4818,7 +4818,7 @@ def zone2_heart_rate_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        breadcrumb_category='Fitness & Body Composition',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
     )
 

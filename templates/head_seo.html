@@ -126,8 +126,12 @@
     {
       "@type": "ListItem",
       "position": 2,
+      {% if breadcrumb_category is mapping %}
       "name": "{{ breadcrumb_category.name }}",
       "item": "https://healthcalculators.xyz{{ breadcrumb_category.url }}"
+      {% else %}
+      "name": "{{ breadcrumb_category }}"
+      {% endif %}
     },
     {
       "@type": "ListItem",
