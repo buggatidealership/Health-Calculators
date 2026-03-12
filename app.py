@@ -1083,7 +1083,8 @@ def home():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        schema_type='WebPage'
+        schema_type='WebPage',
+        date_modified='2026-03-12'
     )
 
 # ===== CATEGORY HUB PAGES =====
@@ -1590,6 +1591,7 @@ def a1c_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
+        canonical_url=schema_url,
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
     )
@@ -2969,6 +2971,7 @@ def semaglutide_reconstitution_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
+        canonical_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
         date_modified='2026-03-11',
@@ -3005,6 +3008,7 @@ def hcg_calculator():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
+        canonical_url=schema_url,
         schema_type='MedicalWebPage',
         breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
         date_modified='2026-03-11',
@@ -4300,6 +4304,7 @@ def demographic_calculator():
         schema_description=page['meta_description'],
         schema_url=page['url'],
         schema_type='WebPage',
+        breadcrumb_category=page['breadcrumbs'][0] if page.get('breadcrumbs') else None,
         date_modified='2026-03-12'
     )
 
@@ -4674,6 +4679,7 @@ def chart_reference():
         schema_description=page['meta_description'],
         schema_url=page['url'],
         schema_type='WebPage',
+        breadcrumb_category=page['breadcrumbs'][0] if page.get('breadcrumbs') else None,
         date_modified='2026-03-12'
     )
 
