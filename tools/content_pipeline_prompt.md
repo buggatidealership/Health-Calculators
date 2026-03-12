@@ -165,9 +165,10 @@ def your_calculator_function():
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
+        canonical_url=schema_url,
         schema_type='WebPage',  # or 'MedicalWebPage'
-        breadcrumb_category='Category Name',
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Category Name', 'url': '/category-url'},
+        date_modified='2026-03-12'
     )
 ```
 
@@ -180,8 +181,8 @@ Add to the `cards` array (around line 300):
 ### Step 2E: Add to content-loops.js
 Add a node with 3-5 cross-links to existing calculators.
 
-### Step 2F: Add to sitemap.xml
-Add entry to `/root/healthcalculators-full/static/public/sitemap.xml`
+### Step 2F: Sitemap (automatic)
+The sitemap is auto-generated from the `cards` array in app.py — no manual sitemap edits needed. Adding the card in Step 2D is sufficient.
 
 ### Step 2G: Verify the build
 ```bash
@@ -212,18 +213,25 @@ Create a comprehensive resource guide tied to the calculator's topic. This is op
 - Create template at `/root/healthcalculators-full/templates/resources/{guide_name}.html`
 - Add Flask route in app.py
 - Add to articles array in app.py
-- Add to sitemap.xml
+- Sitemap auto-includes from `articles` array — no manual edit needed
 - Verify with test client (200 status)
 
 ## PHASE 3.5: SMOKE TEST (MANDATORY — blocks push if anything is broken)
 
-Before publishing, run the full site smoke test to verify EVERY route still returns 200:
+Before publishing, run the full site smoke test AND the SEO verification:
 ```bash
 python3 tools/smoke_test.py
+python3 verify_seo.py
 ```
 
-This tests ALL existing routes, not just the new ones. If ANY route fails, DO NOT push.
-Fix the issue first, then re-run the smoke test. Only proceed to Phase 4 when all routes pass.
+The smoke test verifies all routes return 200. The SEO verification checks every page for:
+- No duplicate schema types (WebPage/Article/MedicalWebPage)
+- No duplicate BreadcrumbList
+- No SoftwareApplication without aggregateRating
+- Non-empty breadcrumb names, title tags, meta descriptions
+- Canonical URL present on every page
+
+If EITHER script fails, DO NOT push. Fix the issue first, then re-run both. Only proceed to Phase 4 when all checks pass.
 
 ## PHASE 4: PUBLISH
 
