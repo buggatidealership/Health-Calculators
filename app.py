@@ -21,20 +21,12 @@ cross_links = {
         "guides": ["/resources/plasma-vs-platelet-donation", "/resources/plasma-donation-tips-first-time"]
     },
     "/lipid-panel-goals-calculator": {
-        "calculators": ["/cholesterol-ratio-calculator", "/tdee-calculator", "/plasma-donation-earnings-calculator", "/lifespan-longevity-calculator"],
+        "calculators": ["/tdee-calculator", "/plasma-donation-earnings-calculator"],
         "guides": []
-    },
-    "/cholesterol-ratio-calculator": {
-        "calculators": ["/lipid-panel-goals-calculator", "/heart-age-calculator", "/a1c-calculator", "/lifespan-longevity-calculator"],
-        "guides": []
-    },
-    "/antidepressant-weight-gain-calculator": {
-        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator"],
-        "guides": ["/resources/antidepressants-and-body-fat"]
     },
     "/breast-implant-calculator": {
         "calculators": ["/breast-implant-size-calculator", "/breast-implant-cost-calculator", "/cc-to-bra-size-calculator"],
-        "guides": ["/resources/breast-implant-size-guide", "/resources/who-should-not-get-breast-implants"]
+        "guides": ["/resources/breast-implant-size-guide"]
     },
     "/breast-implant-size-calculator": {
         "calculators": ["/breast-implant-calculator", "/cc-to-bra-size-calculator", "/breast-implant-cost-calculator"],
@@ -42,7 +34,7 @@ cross_links = {
     },
     "/breast-implant-cost-calculator": {
         "calculators": ["/breast-implant-calculator", "/breast-implant-size-calculator", "/lip-filler-cost-calculator"],
-        "guides": ["/resources/do-breast-implants-cause-weight-gain", "/resources/who-should-not-get-breast-implants"]
+        "guides": ["/resources/do-breast-implants-cause-weight-gain"]
     },
     "/cc-to-bra-size-calculator": {
         "calculators": ["/breast-implant-size-calculator", "/breast-implant-calculator", "/breast-implant-cost-calculator"],
@@ -68,40 +60,24 @@ cross_links = {
         "calculators": ["/chipotle-nutrition-calculator", "/starbucks-nutrition-calculator", "/tdee-calculator"],
         "guides": ["/resources/subway-nutrition-guide"]
     },
-    "/bac-calculator": {
-        "calculators": ["/alcohol-impact-calculator", "/ideal-body-weight-calculator", "/lifespan-longevity-calculator"],
-        "guides": ["/resources/how-alcohol-affects-your-bac"]
-    },
     "/alcohol-impact-calculator": {
-        "calculators": ["/bac-calculator", "/lifespan-longevity-calculator", "/tdee-calculator"],
-        "guides": ["/resources/how-alcohol-affects-your-bac"]
+        "calculators": ["/tdee-calculator"],
+        "guides": []
     },
     "/carb-cycling-calculator": {
         "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/fasting-weight-loss-calculator"],
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/ivf-due-date-calculator": {
-        "calculators": ["/hcg-doubling-time-calculator", "/female-fertility-calculator", "/newborn-weight-loss-calculator", "/dog-pregnancy-due-date-calculator"],
-        "guides": ["/resources/ivf-due-date-calculator-guide", "/resources/fertility-after-35"]
-    },
-    "/semaglutide-reconstitution-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
-        "guides": ["/resources/semaglutide-vs-ozempic-guide"]
-    },
-    "/caffeine-half-life-calculator": {
-        "calculators": ["/sleep-calculator", "/tdee-calculator", "/bac-calculator"],
+        "calculators": ["/dog-pregnancy-due-date-calculator"],
         "guides": []
     },
-    "/hcg-doubling-time-calculator": {
-        "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator", "/pregnancy-weight-gain-calculator"],
-        "guides": ["/resources/fertility-after-35"]
-    },
-    "/female-fertility-calculator": {
-        "calculators": ["/ivf-due-date-calculator", "/menopause-calculator", "/lifespan-longevity-calculator", "/newborn-weight-loss-calculator"],
-        "guides": ["/resources/fertility-after-35", "/resources/ivf-due-date-calculator-guide"]
+    "/caffeine-half-life-calculator": {
+        "calculators": ["/sleep-calculator", "/tdee-calculator"],
+        "guides": []
     },
     "/retirement-savings-calculator": {
-        "calculators": ["/lifespan-longevity-calculator", "/plasma-donation-earnings-calculator"],
+        "calculators": ["/plasma-donation-earnings-calculator"],
         "guides": []
     },
     "/tdee-calculator": {
@@ -121,28 +97,20 @@ cross_links = {
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/baldness-risk-calculator": {
-        "calculators": ["/lifespan-longevity-calculator", "/antidepressant-weight-gain-calculator"],
+        "calculators": [],
         "guides": ["/resources/how-to-prevent-hair-loss"]
     },
-    "/newborn-weight-loss-calculator": {
-        "calculators": ["/child-growth-calculator", "/adult-height-predictor-calculator", "/ivf-due-date-calculator"],
-        "guides": ["/resources/are-height-predictors-accurate"]
-    },
     "/child-growth-calculator": {
-        "calculators": ["/adult-height-predictor-calculator", "/newborn-weight-loss-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/adult-height-predictor-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/are-height-predictors-accurate"]
     },
     "/adult-height-predictor-calculator": {
-        "calculators": ["/child-growth-calculator", "/newborn-weight-loss-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/child-growth-calculator", "/ideal-body-weight-calculator"],
         "guides": ["/resources/are-height-predictors-accurate"]
     },
     "/dog-pregnancy-due-date-calculator": {
-        "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator"],
+        "calculators": ["/ivf-due-date-calculator"],
         "guides": []
-    },
-    "/pregnancy-weight-gain-calculator": {
-        "calculators": ["/ivf-due-date-calculator", "/female-fertility-calculator", "/newborn-weight-loss-calculator", "/child-growth-calculator"],
-        "guides": ["/resources/fertility-after-35"]
     },
     "/liposuction-weight-loss-calculator": {
         "calculators": ["/ideal-body-weight-calculator", "/tdee-calculator", "/lip-filler-cost-calculator", "/breast-implant-cost-calculator"],
@@ -150,47 +118,15 @@ cross_links = {
     },
     "/lip-filler-cost-calculator": {
         "calculators": ["/botox-dosage-calculator", "/breast-implant-cost-calculator", "/liposuction-weight-loss-calculator"],
-        "guides": ["/resources/botox-dosage-guide"]
+        "guides": []
     },
     "/ozempic-pen-click-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator"],
-        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
-    },
-    "/ozempic-weight-loss-calculator": {
-        "calculators": ["/wegovy-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-pen-click-calculator", "/ozempic-face-calculator", "/mounjaro-weight-loss-calculator", "/fasting-weight-loss-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
-        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
-    },
-    "/wegovy-weight-loss-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/glp1-comparison-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator"],
-        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
-    },
-    "/mounjaro-weight-loss-calculator": {
-        "calculators": ["/zepbound-weight-loss-calculator", "/glp1-comparison-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
-        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison"]
-    },
-    "/zepbound-weight-loss-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/mounjaro-weight-loss-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/bmi-calculator", "/body-fat-calculator"],
-        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison"]
-    },
-    "/cagrisema-weight-loss-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/ozempic-face-calculator", "/tdee-calculator", "/ideal-body-weight-calculator"],
-        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
-    },
-    "/glp1-comparison-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/zepbound-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/ozempic-face-calculator", "/ozempic-pen-click-calculator", "/tdee-calculator"],
-        "guides": ["/resources/glp1-weight-loss-comparison", "/resources/glp1-side-effects-comparison", "/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
-    },
-    "/glp1-cost-calculator": {
-        "calculators": ["/ozempic-weight-loss-calculator", "/oral-wegovy-weight-loss-calculator", "/cagrisema-weight-loss-calculator", "/glp1-comparison-calculator", "/tdee-calculator"],
-        "guides": ["/resources/semaglutide-vs-ozempic-guide", "/resources/ozempic-weight-loss-calculator-guide"]
-    },
-    "/ozempic-face-calculator": {
-        "calculators": ["/glp1-comparison-calculator", "/ozempic-weight-loss-calculator", "/wegovy-weight-loss-calculator", "/mounjaro-weight-loss-calculator", "/bmi-calculator", "/body-fat-calculator"],
-        "guides": ["/resources/ozempic-weight-loss-calculator-guide", "/resources/semaglutide-vs-ozempic-guide"]
+        "calculators": ["/fasting-weight-loss-calculator", "/tdee-calculator"],
+        "guides": []
     },
     "/botox-dosage-calculator": {
         "calculators": ["/lip-filler-cost-calculator", "/breast-implant-cost-calculator", "/liposuction-weight-loss-calculator"],
-        "guides": ["/resources/botox-dosage-guide"]
+        "guides": []
     },
     "/creatine-water-calculator": {
         "calculators": ["/creatine-dosage-calculator", "/tdee-calculator", "/vitamin-d-intake-calculator", "/ideal-body-weight-calculator"],
@@ -200,68 +136,36 @@ cross_links = {
         "calculators": ["/creatine-water-calculator", "/tdee-calculator", "/protein-intake-calculator", "/ideal-body-weight-calculator"],
         "guides": []
     },
-    "/gestational-age-calculator": {
-        "calculators": ["/ivf-due-date-calculator", "/pregnancy-weight-gain-calculator", "/hcg-doubling-time-calculator", "/female-fertility-calculator"],
-        "guides": ["/resources/fertility-after-35"]
-    },
-    "/waist-to-hip-ratio-calculator": {
-        "calculators": ["/bmi-calculator", "/body-roundness-index-calculator", "/body-fat-calculator", "/ideal-body-weight-calculator"],
-        "guides": ["/resources/body-fat-percentage-chart"]
-    },
     "/one-rep-max-calculator": {
         "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
     },
     "/vo2-max-calculator": {
-        "calculators": ["/tdee-calculator", "/heart-age-calculator", "/bmi-calculator", "/calories-burned-calculator"],
+        "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator"],
         "guides": []
     },
     "/bulking-calorie-calculator": {
         "calculators": ["/protein-intake-calculator", "/one-rep-max-calculator", "/tdee-calculator", "/creatine-dosage-calculator"],
         "guides": []
     },
-    "/formula-feeding-calculator": {
-        "calculators": ["/pregnancy-weight-gain-calculator", "/newborn-weight-loss-calculator", "/child-growth-percentile-calculator", "/gestational-age-calculator"],
-        "guides": []
-    },
-    "/glycemic-index-calculator": {
-        "calculators": ["/a1c-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/diabetes-risk-calculator"],
-        "guides": []
-    },
     "/ffmi-calculator": {
         "calculators": ["/body-fat-calculator", "/one-rep-max-calculator", "/bmi-calculator", "/protein-intake-calculator"],
         "guides": ["/resources/body-fat-percentage-chart"]
     },
-    "/hcg-injection-dosage-calculator": {
-        "calculators": ["/hcg-doubling-time-calculator", "/semaglutide-reconstitution-calculator", "/female-fertility-calculator", "/ivf-due-date-calculator"],
+    "/electrolyte-calculator": {
+        "calculators": ["/tdee-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator"],
         "guides": []
     },
-    "/electrolyte-calculator": {
-        "calculators": ["/tdee-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator", "/glycemic-index-calculator"],
-        "guides": ["/resources/vitamin-d-levels-chart"]
-    },
     "/vitamin-d-intake-calculator": {
-        "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator", "/lifespan-longevity-calculator"],
-        "guides": ["/resources/vitamin-d-levels-chart"]
+        "calculators": ["/vitamin-d-conversion-calculator", "/creatine-water-calculator"],
+        "guides": []
     },
     "/vitamin-d-conversion-calculator": {
         "calculators": ["/vitamin-d-intake-calculator", "/creatine-water-calculator"],
-        "guides": ["/resources/vitamin-d-levels-chart"]
-    },
-    "/a1c-calculator": {
-        "calculators": ["/tdee-calculator", "/lifespan-longevity-calculator", "/bmi-calculator"],
-        "guides": []
-    },
-    "/lifespan-longevity-calculator": {
-        "calculators": ["/heart-age-calculator", "/retirement-savings-calculator", "/tdee-calculator", "/alcohol-impact-calculator", "/lipid-panel-goals-calculator", "/menopause-calculator"],
-        "guides": []
-    },
-    "/heart-age-calculator": {
-        "calculators": ["/lifespan-longevity-calculator", "/lipid-panel-goals-calculator", "/bmi-calculator", "/a1c-calculator", "/tdee-calculator"],
         "guides": []
     },
     "/fasting-weight-loss-calculator": {
-        "calculators": ["/intermittent-fasting-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/ozempic-weight-loss-calculator", "/carb-cycling-calculator"],
+        "calculators": ["/intermittent-fasting-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/carb-cycling-calculator"],
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
     "/intermittent-fasting-calculator": {
@@ -269,7 +173,7 @@ cross_links = {
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
     "/bmi-calculator": {
-        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator", "/menopause-calculator"],
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator"],
         "guides": []
     },
     "/body-roundness-index-calculator": {
@@ -289,15 +193,11 @@ cross_links = {
         "guides": []
     },
     "/sleep-calculator": {
-        "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator", "/menopause-calculator"],
-        "guides": []
-    },
-    "/menopause-calculator": {
-        "calculators": ["/female-fertility-calculator", "/bmi-calculator", "/sleep-calculator", "/lifespan-longevity-calculator"],
+        "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator"],
         "guides": []
     },
     "/zone2-heart-rate-calculator": {
-        "calculators": ["/vo2-max-calculator", "/calories-burned-calculator", "/heart-age-calculator", "/tdee-calculator", "/lifespan-longevity-calculator"],
+        "calculators": ["/vo2-max-calculator", "/calories-burned-calculator", "/tdee-calculator"],
         "guides": ["/resources/zone2-training-guide"]
     },
 }

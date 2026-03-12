@@ -14,14 +14,12 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI catches health risks that BMI misses — see your score', params: ['height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your BMI shows where you are — not how many calories it takes to change it', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'On a GLP-1 medication? Your BMI affects how much facial fat you could lose', params: ['weight_kg','height_cm','age'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Most people eat 40% less protein than they need — are you one of them?', params: ['weight_kg','age','gender'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Your "ideal" weight depends on 3 factors most people overlook', params: ['height_cm','gender'] },
       { url: '/army-body-fat-calculator', title: 'Army Body Fat', icon: '⭐', reason: 'The military uses a different standard than BMI — would you pass?', params: ['height_cm','gender','age'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: '30% of "healthy" BMIs hide unhealthy body fat levels', params: ['height_cm','gender','age'] },
       { url: '/bmi-vs-body-fat', title: 'BMI vs Body Fat %', icon: '📋', reason: 'BMI missed the mark? See which metric actually predicts your health risk', params: [] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: '16:8 fasting burns fat without cutting calories — see your timeline', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Low BMI can trigger menopause up to 1 year earlier — check your timeline', params: ['age'] },
       { url: '/metabolic-age-calculator', title: 'Metabolic Age', icon: '🧬', reason: 'Two people with the same BMI can have metabolic ages 10 years apart', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
@@ -103,7 +101,6 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI catches health risks that body fat % and BMI both miss — see your score', params: ['height_cm','age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your body fat and BMI often tell different stories — see yours', params: ['weight_kg','height_cm'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Your body fat % affects where you lose fat first — face or body?', params: ['weight_kg','height_cm','age'] },
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'At your body fat %, your ideal weight is probably not what you expect', params: ['height_cm','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Muscle burns 3x more calories than fat — your TDEE reflects that', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Recomposition requires a specific protein threshold — are you hitting it?', params: ['weight_kg','age','gender'] },
@@ -119,113 +116,9 @@ var CALCULATOR_GRAPH = {
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Reducing your BRI requires a calorie target — find yours', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
-  'ozempic': {
-    links: [
-      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is the same drug at a higher dose (2.4 mg) — see your projection with full weight-loss approval', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Rapid weight loss ages the face — find out if you\'re at risk before it happens', params: ['weight_kg','height_cm','age'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro users lost 22.5% of body weight in trials — see your projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/cagrisema-weight-loss-calculator', title: 'CagriSema Calculator', icon: '💊', reason: 'CagriSema combines semaglutide + cagrilintide for 20.4% weight loss — the newest option', params: ['weight_kg','height_cm'] },
-      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Ozempic cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Some doctors pair Ozempic with fasting — see how the math changes', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/antidepressant-weight-gain-calculator', title: 'Antidepressant Weight', icon: '💊', reason: 'Some antidepressants add 7+ lbs — could that be offsetting your results?', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-vs-mounjaro', title: 'Ozempic vs Mounjaro', icon: '📋', reason: 'Mounjaro produced 22.5% weight loss vs Ozempic\'s 14.9% — see the full comparison', params: [] }
-    ]
-  },
-  'wegovy': {
-    links: [
-      { url: '/oral-wegovy-weight-loss-calculator', title: 'Oral Wegovy Calculator', icon: '\ud83d\udc8a', reason: 'The FDA-approved Wegovy pill (25mg daily) avoids needles — see your oral projection', params: ['weight_kg','height_cm'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '\ud83d\udcc9', reason: 'Same drug, lower dose — see how Ozempic\'s projection compares at 1.0 mg', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '\ud83d\udcca', reason: 'See how your projected loss compares across all GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '\ud83d\ude2e', reason: 'Wegovy causes the most weight loss of any semaglutide dose — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '\ud83d\udc8a', reason: 'Mounjaro users lost 22.5% body weight vs Wegovy\'s 14.9% — see your projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '\ud83d\udc8a', reason: 'Zepbound hits two receptors vs Wegovy\'s one — does that change your outcome?', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '\ud83d\udd25', reason: 'Wegovy cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '\ud83d\udcca', reason: 'Track your BMI category shift as you lose weight on Wegovy', params: ['weight_kg','height_cm'] }
-    ]
-  },
-  'oral-wegovy': {
-    links: [
-      { url: '/wegovy-weight-loss-calculator', title: 'Injectable Wegovy Calculator', icon: '\ud83d\udc89', reason: 'Injectable Wegovy achieved ~15% loss vs oral\'s ~14% — see the difference for your weight', params: ['weight_kg','height_cm'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '\ud83d\udcc9', reason: 'Same drug, lower dose — see how Ozempic\'s projection compares at 1.0 mg', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '\ud83d\udcca', reason: 'See how your projected loss compares across all GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '\ud83d\udc8a', reason: 'Mounjaro users lost 22.5% body weight — see your tirzepatide projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '\ud83d\ude2e', reason: 'Rapid weight loss on GLP-1 drugs can age the face — check your risk', params: ['weight_kg','height_cm','age'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '\ud83d\udcca', reason: 'Track your BMI category shift as you lose weight on oral Wegovy', params: ['weight_kg','height_cm'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '\ud83d\udd25', reason: 'Oral Wegovy cuts appetite but not your calorie floor — know the number', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
-  'ozempic-face': {
-    links: [
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'See how much weight you can expect to lose — then weigh the tradeoff', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide at the full weight-loss dose — check your projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro causes faster weight loss than Ozempic — does that change your face risk?', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI determines how much facial fat you have to lose — check yours', params: ['weight_kg','height_cm'] },
-      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Body fat % predicts where you lose fat first — face or body', params: ['height_cm','gender','age'] }
-    ]
-  },
   'ozempic-pen': {
     links: [
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'The average Ozempic user loses 15% body weight — where do you land?', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Eating below your calorie floor on Ozempic causes muscle loss — find it', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
-  'mounjaro': {
-    links: [
-      { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '💊', reason: 'Same drug, different label — Zepbound is tirzepatide approved for weight loss, not diabetes', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Mounjaro causes faster loss than Ozempic — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic averages 15% loss vs Mounjaro\'s 22.5% — see your comparison', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide at the weight-loss dose — compare your projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most Mounjaro users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'GLP-1 drugs slash appetite — but the wrong macros cost you muscle', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'When should you stop losing? Your frame determines the answer', params: ['height_cm','gender'] },
-      { url: '/ozempic-vs-mounjaro', title: 'Ozempic vs Mounjaro', icon: '📋', reason: 'Side effects, cost, weight loss data — the full comparison in one page', params: [] }
-    ]
-  },
-  'zepbound': {
-    links: [
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how your projected loss compares across all 3 GLP-1 medications', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro is the same drug prescribed for diabetes — see how the projection differs', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Ozempic targets GLP-1 only — Zepbound hits two receptors and loses 50% more weight', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide approved for weight loss — compare your dual-agonist projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Zepbound causes the fastest weight loss of any GLP-1 — your face risk may be higher', params: ['weight_kg','height_cm','age'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Most tirzepatide users drop 2+ BMI categories — where will you land?', params: ['weight_kg','height_cm'] },
-      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'GLP-1 drugs can reduce lean mass too — track your body fat, not just weight', params: ['height_cm','gender','age'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
-  'cagrisema': {
-    links: [
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'See how CagriSema stacks up against Ozempic, Wegovy, and Mounjaro side by side', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'CagriSema contains semaglutide — see what semaglutide alone would do', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Mounjaro hit 22.5% weight loss via GLP-1+GIP — compare to CagriSema\'s GLP-1+amylin', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide 2.4 mg alone — CagriSema adds cagrilintide on top', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/zepbound-weight-loss-calculator', title: 'Zepbound Calculator', icon: '💊', reason: 'Zepbound is tirzepatide for weight loss — the closest competitor to CagriSema', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: '20%+ weight loss can cause significant facial volume loss — check your risk', params: ['weight_kg','height_cm','age'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'CagriSema could bring you close to your ideal weight — find out what that is', params: ['height_cm','gender'] }
-    ]
-  },
-  'glp1-comparison': {
-    links: [
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '📉', reason: 'Get a detailed Ozempic projection with dose-specific data and weekly timeline', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/wegovy-weight-loss-calculator', title: 'Wegovy Calculator', icon: '💊', reason: 'Wegovy is semaglutide at the full 2.4 mg weight-loss dose — injectable or oral pill', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/mounjaro-weight-loss-calculator', title: 'Mounjaro Calculator', icon: '💊', reason: 'Get a detailed Mounjaro projection with dose escalation and lifestyle factors', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-face-calculator', title: 'Ozempic Face Risk', icon: '😮', reason: 'Fast weight loss on GLP-1 drugs can age the face — check your risk', params: ['weight_kg','height_cm','age'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs drop as you lose weight — stay ahead of the plateau', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Wrong pen clicks waste medication worth $50+ per dose', params: [] }
-    ]
-  },
-  'antidepressant': {
-    links: [
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Medication weight gain is partly metabolic — your true calorie need may differ', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Weight Loss', icon: '📉', reason: 'Ozempic is now prescribed alongside antidepressants — see your projection', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'A realistic target weight accounts for medication — is yours accurate?', params: ['height_cm','gender'] }
     ]
   },
   'breast-implant-size': {
@@ -276,40 +169,6 @@ var CALCULATOR_GRAPH = {
       { url: '/army-body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Lipo changes your body fat % — see where you\'d land after', params: ['height_cm','gender'] }
     ]
   },
-  'fertility': {
-    links: [
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Gaining too much or too little affects your baby — check the IOM range', params: [] },
-      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Fertility and menopause are linked — knowing your timeline helps you plan', params: ['age'] },
-      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'IVF due dates differ from natural conception dates — find yours', params: [] },
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Is your child in the 50th percentile? That might not mean what you think', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Newborns lose up to 10% of birth weight — is yours on track?', params: [] },
-      { url: '/dog-pregnancy-due-date-calculator', title: 'Dog Pregnancy', icon: '🐕', reason: 'Dog pregnancies last only 63 days — is your pup on schedule?', params: [] }
-    ]
-  },
-  'semaglutide-reconstitution': {
-    links: [
-      { url: '/ozempic-weight-loss-calculator', title: 'Weight Loss Estimator', icon: '📉', reason: 'See how much weight you can expect to lose on your semaglutide dose', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/ozempic-pen-click-calculator', title: 'Pen Click Calculator', icon: '💉', reason: 'Using brand Ozempic pens too? Track remaining doses by counting clicks', params: [] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Combining semaglutide with a calorie deficit doubles weight loss results', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'GLP-1 medications can cause muscle loss — ensure you\'re getting enough protein', params: ['weight_kg','age','gender'] }
-    ]
-  },
-  'gestational-age': {
-    links: [
-      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '👶', reason: 'Know your gestational age — now calculate your exact due date', params: [] },
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Your trimester determines your healthy weight gain target — check yours', params: [] },
-      { url: '/hcg-doubling-time-calculator', title: 'hCG Doubling Time', icon: '🔬', reason: 'Tracking early pregnancy? Check if your hCG levels are rising normally', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Planning ahead? Know that all newborns lose 5-10% of birth weight', params: [] }
-    ]
-  },
-  'waist-to-hip-ratio': {
-    links: [
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'WHR shows where fat is stored — BMI shows how much. Use both for a complete picture.', params: ['weight_kg','height_cm'] },
-      { url: '/body-roundness-index-calculator', title: 'Body Roundness Index', icon: '📏', reason: 'BRI uses your waist and height to assess body roundness — another angle on visceral fat risk', params: ['height_cm','age','gender'] },
-      { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Know your WHR — now estimate your actual body fat percentage', params: ['height_cm','gender','age'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'High WHR? Reducing abdominal fat starts with knowing your calorie needs', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
   'creatine-dosage': {
     links: [
       { url: '/creatine-water-calculator', title: 'Creatine Water Calculator', icon: '💧', reason: 'Creatine pulls water into muscle cells — calculate your extra hydration needs', params: ['weight_kg'] },
@@ -321,45 +180,16 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '😴', reason: 'Caffeine disrupts sleep quality even when you don\'t notice — optimize your sleep cycles', params: [] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Caffeine boosts metabolism by 3-11% — see your total daily calorie burn', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Mixing caffeine and alcohol? Caffeine masks impairment but doesn\'t lower BAC', params: [] }
-    ]
-  },
-  'hcg-doubling': {
-    links: [
-      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '👶', reason: 'hCG confirmed your pregnancy is on track — now calculate your due date', params: [] },
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Age affects hCG patterns — understand your full fertility picture', params: ['age'] },
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Now that pregnancy is confirmed — find your healthy weight gain target', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Planning ahead? Know that all newborns lose 5-10% of birth weight — here is what is normal', params: [] }
     ]
   },
   'ivf-due-date': {
     links: [
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility drops 50% between age 30 and 40 — where do you stand?', params: ['age'] },
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'IVF pregnancies follow the same weight gain guidelines — track yours', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'All newborns lose weight after birth — know when to worry and when not to', params: [] },
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'IVF babies follow different early growth curves — track yours', params: [] }
-    ]
-  },
-  'pregnancy-weight': {
-    links: [
-      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'IVF due dates differ from natural conception — know your timeline', params: [] },
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Age affects both fertility and pregnancy outcomes — check your window', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Newborns lose 5-10% of birth weight in the first days — is that normal?', params: [] },
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: "After birth, track your baby's growth percentile against CDC/WHO data", params: [] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Check your postpartum BMI to track your recovery', params: ['weight_kg','height_cm'] }
-    ]
-  },
-  'newborn-weight': {
-    links: [
-      { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Birth weight predicts growth trajectory — see your child\'s percentile', params: [] },
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Planning another pregnancy? Know your recommended weight gain range', params: [] },
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Spacing pregnancies 18+ months apart improves outcomes — check your window', params: [] }
     ]
   },
   'child-growth': {
     links: [
       { url: '/adult-height-predictor-calculator', title: 'Height Predictor', icon: '📐', reason: 'A child\'s current percentile doesn\'t predict adult height — this formula does', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Up to 10% weight loss is normal for newborns — was yours in range?', params: [] }
     ]
   },
   'adult-height': {
@@ -368,99 +198,38 @@ var CALCULATOR_GRAPH = {
       { url: '/ideal-body-weight-calculator', title: 'Ideal Body Weight', icon: '⚖️', reason: 'Every inch of height shifts ideal weight by 5-10 lbs — see the target', params: ['height_cm','gender'] }
     ]
   },
-  'bac': {
-    links: [
-      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: '2 drinks/day raises disease risk by 20% — see your personal impact', params: ['weight_kg','gender','age'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each drink pattern maps to a different lifespan estimate — find yours', params: ['age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A beer has 150+ invisible calories — see what that does to your budget', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
   'alcohol-impact': {
     links: [
-      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Your weight and gender change BAC more than the number of drinks', params: ['weight_kg','gender'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Moderate drinking adds years in some studies, costs them in others — see yours', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel', icon: '❤️', reason: 'Alcohol raises HDL but also triglycerides — is the tradeoff worth it?', params: ['age','gender'] },
       { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Living longer means needing more savings — does your plan match?', params: ['age'] }
     ]
   },
-  'heart-age': {
-    links: [
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Heart disease is the #1 killer — see how your heart age affects your lifespan estimate', params: ['age','gender'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Your cholesterol numbers directly determine heart age — check your targets', params: ['age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI over 30 adds 3 years to heart age — get your precise number', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'Diabetes adds 6 years to heart age — track your blood sugar control', params: ['age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5% body weight measurably lowers heart age — find your calorie target', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
-  'lifespan': {
-    links: [
-      { url: '/heart-age-calculator', title: 'Heart Age', icon: '🫀', reason: 'Heart disease is the #1 cause of death — find out if your heart is aging faster than you', params: ['age','gender'] },
-      { url: '/diabetes-risk-calculator', title: 'Diabetes Risk', icon: '🩺', reason: 'Diabetes cuts life expectancy by 6-7 years — find out if you\'re at risk', params: ['age','gender','weight_kg','height_cm'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Heart disease is the #1 killer — your lipid numbers reveal your risk', params: ['age','gender'] },
-      { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: '42% of Americans are vitamin D deficient — it cuts lifespan silently', params: ['age','gender','weight_kg'] },
-      { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: 'Even "moderate" drinking affects lifespan differently than you\'d expect', params: ['age','gender'] },
-      { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'Early baldness correlates with heart risk — it\'s not just cosmetic', params: ['age','gender'] },
-      { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Your projected lifespan determines how much savings you actually need', params: ['age'] },
-      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Earlier menopause is linked to shorter lifespan — predict your menopause age', params: ['age'] }
-    ]
-  },
   'lipid-panel': {
     links: [
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal LDL adds up to 10 years of life expectancy — check your estimate', params: ['age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing just 5% body weight can drop LDL by 10% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Low vitamin D is linked to worse lipid profiles — are you getting enough?', params: ['age','gender','weight_kg'] },
       { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'DHT and cholesterol share metabolic pathways — your risk may be connected', params: ['age','gender'] }
     ]
   },
-  'cholesterol-ratio': {
-    links: [
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Your ratios reveal risk — now see your personalized cholesterol targets', params: ['age','gender'] },
-      { url: '/heart-age-calculator', title: 'Heart Age', icon: '🫀', reason: 'Cholesterol ratios drive heart age — see how old your heart really is', params: ['age','gender'] },
-      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'High triglyceride/HDL ratio signals insulin resistance — check your blood sugar', params: [] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal cholesterol ratios add years to life expectancy — see your estimate', params: ['age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5% body weight improves every cholesterol ratio — find your calorie target', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
   'vitamin-d-intake': {
     links: [
       { url: '/vitamin-d-conversion-calculator', title: 'Vitamin D Units', icon: '🔄', reason: 'Your lab uses nmol/L but your supplement says IU — they\'re not the same', params: [] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal vitamin D levels correlate with 7+ years longer lifespan', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Vitamin D deficiency worsens cholesterol — check your heart markers', params: ['age','gender'] }
-    ]
-  },
-  'a1c': {
-    links: [
-      { url: '/diabetes-risk-calculator', title: 'Diabetes Risk Calculator', icon: '🩺', reason: '96 million Americans are prediabetic and don\'t know it — assess your full risk profile', params: ['age','gender','weight_kg','height_cm'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight can drop A1C by 0.5% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each 1% rise in A1C increases mortality risk by 20-30% — see your estimate', params: ['age','gender'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI above 25 doubles type 2 diabetes risk — check where you stand', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
-  'diabetes-risk': {
-    links: [
-      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'Your risk score says get tested — convert your A1C to see your diabetes category', params: [] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI is the strongest modifiable diabetes risk factor — track yours precisely', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight cuts diabetes risk by 58% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Diabetes reduces life expectancy by 6-7 years on average — see your full estimate', params: ['age','gender'] },
-      { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: '75% of diabetics also have high blood pressure — check your cardiovascular targets', params: ['age','gender'] }
     ]
   },
   'vitamin-d-conversion': {
     links: [
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Most people take the wrong dose — your weight and age change the number', params: ['age','gender','weight_kg'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Vitamin D levels above 40 ng/mL link to significantly longer lifespan', params: ['age','gender'] }
     ]
   },
   'baldness': {
     links: [
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Early hair loss shares genetic markers with longevity — see your estimate', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Men with vertex baldness have 36% higher heart disease risk — check yours', params: ['age','gender'] }
     ]
   },
   'dog-pregnancy': {
     links: [
       { url: '/child-growth-calculator', title: 'Child Growth', icon: '📏', reason: 'Growing kids at home too? See if they\'re hitting their percentiles', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'Human newborns lose 5-10% of birth weight — know what\'s normal', params: [] }
     ]
   },
   'plasma-donation': {
@@ -485,49 +254,12 @@ var CALCULATOR_GRAPH = {
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '⚖️', reason: 'BMI ignores muscle mass — FFMI is the better metric, but compare both', params: ['weight_kg','height_cm'] }
     ]
   },
-  'hcg-injection': {
-    links: [
-      { url: '/hcg-doubling-time-calculator', title: 'HCG Doubling Time', icon: '🤰', reason: 'Already pregnant? Track your hCG blood levels to check doubling time', params: [] },
-      { url: '/semaglutide-reconstitution-calculator', title: 'Semaglutide Calculator', icon: '💉', reason: 'Same reconstitution math — calculate semaglutide peptide dosing', params: [] },
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '📅', reason: 'Using HCG for fertility? Estimate your fertility window', params: [] },
-      { url: '/ivf-due-date-calculator', title: 'IVF Due Date', icon: '📅', reason: 'After your trigger shot — calculate your IVF due date', params: [] },
-      { url: '/gestational-age-calculator', title: 'Gestational Age', icon: '🤰', reason: 'Track how far along you are after a successful cycle', params: [] }
-    ]
-  },
   'electrolyte': {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs and electrolyte needs both scale with activity level', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/creatine-dosage-calculator', title: 'Creatine Calculator', icon: '💪', reason: 'Creatine increases water retention — your electrolyte balance matters more', params: ['weight_kg'] },
-      { url: '/glycemic-index-calculator', title: 'Glycemic Index', icon: '📊', reason: 'On keto for blood sugar control? Check the GI of foods you\'re considering', params: [] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your carb intake directly affects electrolyte excretion — check your macros', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Calculator', icon: '☀️', reason: 'Vitamin D aids calcium absorption — are you getting enough?', params: [] }
-    ]
-  },
-  'glycemic-index': {
-    links: [
-      { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'GI affects long-term blood sugar — see what your A1C means for diabetes risk', params: [] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Low-GI diets improve satiety — know your calorie target to match', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your carb-to-protein-to-fat ratio affects glycemic response more than GI alone', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/diabetes-risk-calculator', title: 'Diabetes Risk', icon: '⚠️', reason: 'High-GL diets increase type 2 diabetes risk — check your overall risk score', params: ['age','gender'] },
-      { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Timing your carbs around training can blunt blood sugar spikes', params: ['weight_kg','height_cm','age','gender'] }
-    ]
-  },
-  'formula-feeding': {
-    links: [
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Your pregnancy weight gain affects birth weight — which determines formula needs', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight Loss', icon: '👶', reason: 'Newborns lose 5-10% of birth weight in the first week — track if they are regaining', params: [] },
-      { url: '/child-growth-calculator', title: 'Growth Percentile', icon: '📈', reason: 'Is your baby growing on track? Check their weight and length percentile', params: [] },
-      { url: '/gestational-age-calculator', title: 'Gestational Age', icon: '📅', reason: 'Premature babies may need different formula amounts — confirm your baby\'s adjusted age', params: [] },
-      { url: '/breastfeeding-calorie-calculator', title: 'Breastfeeding Calories', icon: '🤱', reason: 'Switching from formula to breast? Find out how many extra calories nursing requires', params: [] }
-    ]
-  },
-  'breastfeeding-calorie': {
-    links: [
-      { url: '/formula-feeding-calculator', title: 'Formula Feeding', icon: '🍼', reason: 'Combo feeding? Calculate exactly how much formula to add', params: [] },
-      { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'How much weight did you gain? That affects how quickly you\'ll lose postpartum', params: [] },
-      { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight', icon: '👶', reason: 'All newborns lose 5-10% of birth weight — is yours regaining on schedule?', params: [] },
-      { url: '/water-intake-calculator', title: 'Water Intake', icon: '💧', reason: 'Breastfeeding women need ~128 oz of fluid per day — are you hydrating enough?', params: [] },
-      { url: '/calorie-calculator-for-weight-loss', title: 'Calorie for Weight Loss', icon: '🔥', reason: 'Once you stop nursing, your calorie needs change — plan your next phase', params: [] }
     ]
   },
   'bulking-calories': {
@@ -547,7 +279,6 @@ var CALCULATOR_GRAPH = {
       { url: '/creatine-dosage-calculator', title: 'Creatine Calculator', icon: '💪', reason: 'Creatine adds 5-10% to your 1RM in 4 weeks — calculate your dose', params: ['weight_kg'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your macro ratio determines whether strength gains come with fat or without it', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Strength-to-bodyweight ratio matters more than absolute strength for most goals', params: ['height_cm','gender','age'] },
-      { url: '/waist-to-hip-ratio-calculator', title: 'Waist-to-Hip Ratio', icon: '📏', reason: 'Stronger lifters carry weight differently — check if your ratio is healthy', params: [] }
     ]
   },
   'vo2-max': {
@@ -565,7 +296,6 @@ var CALCULATOR_GRAPH = {
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A Frappuccino can be 25% of your daily calories — do you know your limit?', params: [] },
       { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Your Chipotle order could be 500 or 1,200 cal — the difference is 3 choices', params: [] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'That latte has almost no protein — see what your daily macros need', params: [] },
-      { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Coffee masks alcohol effects but doesn\'t lower BAC — know your real level', params: [] }
     ]
   },
   'chipotle': {
@@ -587,7 +317,6 @@ var CALCULATOR_GRAPH = {
   },
   'retirement': {
     links: [
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Most people underestimate their lifespan by 5+ years — can your savings cover it?', params: ['age','gender'] }
     ]
   },
   'protein-intake': {
@@ -620,15 +349,6 @@ var CALCULATOR_GRAPH = {
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Sleeping under 7 hours changes your calorie burn — see the real number', params: ['age'] },
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Exercise improves sleep quality, but timing matters — check your burn', params: [] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Poor sleepers are 55% more likely to be obese — where\'s your BMI?', params: [] },
-      { url: '/menopause-calculator', title: 'Menopause Calculator', icon: '🌡️', reason: 'Sleep disruption is one of the earliest signs of perimenopause — check your timeline', params: ['age'] }
-    ]
-  },
-  'menopause': {
-    links: [
-      { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility declines years before menopause — see where you stand in the transition', params: ['age'] },
-      { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI affects menopause timing and symptom severity — check yours', params: [] },
-      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Night sweats and insomnia disrupt sleep cycles — optimize your sleep timing', params: ['age'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Menopause age correlates with longevity — earlier menopause links to shorter lifespan', params: ['age','gender'] }
     ]
   },
   'metabolic-age': {
@@ -638,25 +358,13 @@ var CALCULATOR_GRAPH = {
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Body fat % drives metabolic age more than weight alone — measure yours', params: ['height_cm','gender','age'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Building muscle lowers metabolic age — are you eating enough protein?', params: ['weight_kg','age','gender'] },
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'Exercise boosts metabolism for hours after — see your actual burn', params: ['weight_kg'] },
-      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'A younger metabolic age predicts longer lifespan — check your estimate', params: ['age','gender'] }
-    ]
-  },
-  'glp1-cost': {
-    links: [
-      { url: '/ozempic-weight-loss-calculator', title: 'Ozempic Calculator', icon: '💊', reason: 'See your projected weight loss on semaglutide — does the cost justify the outcome?', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/glp1-comparison-calculator', title: 'GLP-1 Comparison', icon: '📊', reason: 'Compare projected weight loss across GLP-1 medications side by side', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/oral-wegovy-weight-loss-calculator', title: 'Oral Wegovy Calculator', icon: '💊', reason: 'The oral pill avoids needles — see your projected results', params: ['weight_kg','height_cm'] },
-      { url: '/cagrisema-weight-loss-calculator', title: 'CagriSema Calculator', icon: '💊', reason: 'The newest dual-agonist achieved 20.4% weight loss — see your projection', params: ['weight_kg','height_cm'] },
-      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Know your calorie baseline to maximize results alongside medication', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'zone2-heart-rate': {
     links: [
       { url: '/vo2-max-calculator', title: 'VO₂ Max Calculator', icon: '🫁', reason: 'Zone 2 training is the primary driver of VO₂ max — estimate your current level', params: ['age','gender'] },
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See exactly how many calories your Zone 2 sessions burn per hour', params: ['weight_kg'] },
-      { url: '/heart-age-calculator', title: 'Heart Age Calculator', icon: '❤️', reason: 'Zone 2 training reduces cardiovascular age — see where you stand now', params: ['age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Pair your Zone 2 training with accurate calorie targets for best results', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/lifespan-longevity-calculator', title: 'Longevity Calculator', icon: '🧬', reason: 'VO₂ max — which Zone 2 builds — is one of the strongest predictors of lifespan', params: ['age','gender'] }
     ]
   }
 };

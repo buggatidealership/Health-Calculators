@@ -135,6 +135,23 @@ Must include:
 - `{% include 'footer.html' %}`
 - Script includes: the calculator JS, result-animations.js, content-loops.js, sidebar-toc.js
 
+## Schema & Structured Data Rules
+
+When creating HTML templates:
+
+- **Do NOT add inline `<script type="application/ld+json">` blocks** for MedicalWebPage, Article, WebPage, or BreadcrumbList — `head_seo.html` generates these automatically.
+- **Do NOT add SoftwareApplication schema** — we don't have aggregateRating data, so it provides zero value.
+- **FAQPage schema is OK** to include inline if the page has visible FAQ content with real questions and answers.
+- **breadcrumb_category format:** Use dict format in the Jinja `{% with %}` block: `breadcrumb_category={'name': 'Category Name', 'url': '/category-url'}`
+
+### Valid category names and URLs:
+- Nutrition & Diet → `/nutrition-calculators`
+- Weight Loss Medications → `/weight-loss-medication-calculators`
+- Fitness & Body Composition → `/fitness-body-composition-calculators`
+- Pregnancy & Fertility → `/pregnancy-fertility-calculators`
+- Health & Longevity → `/health-longevity-calculators`
+- Appearance & Cosmetic → `/appearance-cosmetic-calculators`
+
 ### Step 2C: Add Flask route to app.py
 Add at the end of the calculator routes section:
 ```python
