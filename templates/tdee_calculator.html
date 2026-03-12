@@ -13,67 +13,6 @@
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
-
-<!-- Schema: SoftwareApplication -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "TDEE Calculator",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "All",
-  "url": "https://healthcalculators.xyz/tdee-calculator",
-  "description": "Estimate your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor formula. Input age, gender, height, weight, and activity level.",
-  "offers": {
-    "@type": "Offer",
-    "price": 0,
-    "priceCurrency": "USD"
-  },
-  "isAccessibleForFree": true
-}
-</script>
-
-<!-- Schema: FAQPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is TDEE?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "TDEE stands for Total Daily Energy Expenditure — the total number of calories your body burns per day, combining your Basal Metabolic Rate (BMR) with calories burned through physical activity, digestion, and non-exercise movement."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How accurate is the Mifflin-St Jeor equation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The Mifflin-St Jeor equation predicts BMR within 10% of measured values for approximately 82% of individuals, making it the most accurate predictive equation for non-obese and obese individuals according to the American Dietetic Association."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I use TDEE for weight loss?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "To lose weight, eat fewer calories than your TDEE. A deficit of 500 calories per day produces approximately 1 pound of fat loss per week. The NIH recommends deficits of 500-1000 kcal/day for safe weight loss of 1-2 lbs/week."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the difference between BMR and TDEE?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BMR (Basal Metabolic Rate) is the number of calories your body burns at complete rest to maintain vital functions like breathing and circulation. TDEE adds your physical activity, thermic effect of food, and non-exercise activity thermogenesis (NEAT) to your BMR."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
     {% include 'header.html' %}

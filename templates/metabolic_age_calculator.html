@@ -13,73 +13,8 @@
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
-<!-- Schema: SoftwareApplication -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Metabolic Age Calculator",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "All",
-  "url": "https://healthcalculators.xyz/metabolic-age-calculator",
-  "description": "Calculate your metabolic age based on BMR compared to population averages. Find out if your metabolism is younger or older than your actual age using Mifflin-St Jeor and Katch-McArdle formulas.",
-  "offers": {
-    "@type": "Offer",
-    "price": 0,
-    "priceCurrency": "USD"
-  },
-  "isAccessibleForFree": true
-}
-</script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is metabolic age?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Metabolic age compares your basal metabolic rate (BMR) to population averages for different age groups. If your BMR is higher than average for your chronological age, your metabolic age is younger — meaning your metabolism functions like a younger person's."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is metabolic age calculated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Metabolic age is calculated by first determining your BMR using the Mifflin-St Jeor equation (or Katch-McArdle if body fat percentage is known), then comparing it to reference BMR values for different age groups. The age whose reference BMR matches yours is your metabolic age."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can I improve my metabolic age?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Building lean muscle mass through resistance training is the most effective way to boost BMR and lower your metabolic age. Regular exercise, adequate sleep, proper hydration, and a protein-rich diet all support a healthier metabolism."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Is metabolic age the same as biological age?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. Metabolic age focuses specifically on your basal metabolic rate compared to population norms. Biological age is a broader concept that includes epigenetic markers, organ function, and cellular aging. Metabolic age is one component of overall biological age."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How accurate is a metabolic age calculator?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "BMR-based metabolic age provides a reasonable estimate using validated formulas (Mifflin-St Jeor, Katch-McArdle). However, individual variation in metabolism can be 10-15% due to genetics, thyroid function, and other factors. For clinical precision, indirect calorimetry is the gold standard."
-          }
-        }
-      ]
-    }
-    </script>
+    
 </head>
 <body>
     {% include 'header.html' %}

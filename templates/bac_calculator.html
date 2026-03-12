@@ -14,66 +14,9 @@
 {% include 'head_seo.html' %}
 {% endwith %}
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "BAC Calculator",
-      "applicationCategory": "HealthApplication",
-      "operatingSystem": "All",
-      "url": "https://healthcalculators.xyz/bac-calculator",
-      "description": "Estimate your blood alcohol content based on drinks consumed, body weight, gender, and time."
-    }
-    </script>
     
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "How is BAC calculated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "BAC is calculated using the Widmark formula, which considers body weight, gender, alcohol consumed, and time elapsed. The formula accounts for alcohol distribution in the body and average metabolic rates."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is the legal BAC limit for driving?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "In most U.S. states and many countries, the legal limit is 0.08%. However, some regions have zero-tolerance policies or lower limits like 0.05% or 0.02%."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How long does it take to metabolize alcohol?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "On average, the human body metabolizes alcohol at a rate of about 0.015% BAC per hour, though this varies by individual based on factors like liver function, medications, and genetics."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Can BAC calculators determine if I'm safe to drive?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. BAC calculators provide educational estimates only and should never be used to determine if you're safe to drive. Even low BAC levels can impair driving ability."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Why does gender affect BAC?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Gender affects BAC because biological males typically have a higher percentage of water in their bodies and more of the enzyme that metabolizes alcohol (alcohol dehydrogenase), resulting in lower BAC from the same amount of alcohol compared to biological females."
-          }
-        }
-      ]
-    }
-    </script>
+    
+    
 </head>
 <body>
     {% include 'header.html' %}

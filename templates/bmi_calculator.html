@@ -13,67 +13,6 @@
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
-
-<!-- Schema: SoftwareApplication -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "BMI Calculator",
-  "applicationCategory": "HealthApplication",
-  "operatingSystem": "All",
-  "url": "https://healthcalculators.xyz/bmi-calculator",
-  "description": "Calculate your Body Mass Index (BMI) using weight and height. Determine your weight category based on WHO guidelines.",
-  "offers": {
-    "@type": "Offer",
-    "price": 0,
-    "priceCurrency": "USD"
-  },
-  "isAccessibleForFree": true
-}
-</script>
-
-<!-- Schema: FAQPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is BMI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Body Mass Index (BMI) is a numerical value calculated from your weight and height. It is used as a screening tool to categorize individuals into weight categories: underweight (below 18.5), normal weight (18.5–24.9), overweight (25–29.9), and obese (30 and above)."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How is BMI calculated?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BMI is calculated by dividing your weight in kilograms by your height in meters squared: BMI = weight (kg) / height (m)². For imperial units, the formula is: BMI = 703 × weight (lbs) / height (inches)²."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is BMI accurate for everyone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "BMI does not directly measure body fat and may misclassify muscular individuals as overweight. It also does not account for age, sex, ethnicity, or body fat distribution. It is best used as an initial screening tool alongside other measurements like waist circumference."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What is a healthy BMI range?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "According to the World Health Organization, a BMI between 18.5 and 24.9 is considered normal weight. However, optimal BMI may vary by age and ethnicity. Some studies suggest a BMI of 22–25 is associated with the lowest mortality risk in most populations."
-      }
-    }
-  ]
-}
-</script>
 </head>
 <body>
     {% include 'header.html' %}

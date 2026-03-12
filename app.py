@@ -4185,10 +4185,19 @@ demographic_pages = {
 @app.route('/calorie-calculator-for-muscle-gain')
 @app.route('/bmi-calculator-for-athletes')
 def demographic_calculator():
+    # Map parent calculator URLs to their breadcrumb categories
+    _calc_to_category = {
+        '/tdee-calculator': {'name': 'Nutrition', 'url': '/nutrition-calculators'},
+        '/bmi-calculator': {'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        '/protein-intake-calculator': {'name': 'Nutrition', 'url': '/nutrition-calculators'},
+        '/body-fat-calculator': {'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        '/caloric-intake-macronutrient-calculator': {'name': 'Nutrition', 'url': '/nutrition-calculators'},
+    }
     path = request.path.lstrip('/')
     page = demographic_pages.get(path)
     if not page:
         return "Not found", 404
+    bc = _calc_to_category.get(page.get('calculator_url'))
     return render_template(
         'demographic_calculator.html',
         demo=page,
@@ -4204,7 +4213,7 @@ def demographic_calculator():
         schema_description=page['meta_description'],
         schema_url=page['url'],
         schema_type='WebPage',
-        breadcrumb_category=page['breadcrumbs'][0] if page.get('breadcrumbs') else None,
+        breadcrumb_category=bc,
         date_modified='2026-03-12'
     )
 

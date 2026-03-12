@@ -15,37 +15,7 @@
 
 <!-- Schema: FAQPage -->
 {% if chart.faqs %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {% for faq in chart.faqs %}
-    {
-      "@type": "Question",
-      "name": "{{ faq.q }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ faq.a }}"
-      }
-    }{% if not loop.last %},{% endif %}
-    {% endfor %}
-  ]
-}
-</script>
 {% endif %}
-
-<!-- Schema: MedicalWebPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MedicalWebPage",
-  "name": "{{ chart.page_title }}",
-  "url": "https://healthcalculators.xyz{{ chart.url }}",
-  "description": "{{ chart.meta_description }}",
-  "lastReviewed": "2026-03-01"
-}
-</script>
 </head>
 <body>
 {% set breadcrumb_items = chart.breadcrumbs %}

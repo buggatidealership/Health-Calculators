@@ -13,26 +13,6 @@
 {% include 'head_seo.html' %}
 {% endwith %}
 
-<!-- Schema: FAQPage -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {% for faq in demo.faqs %}
-    {
-      "@type": "Question",
-      "name": "{{ faq.q }}",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "{{ faq.a }}"
-      }
-    }{% if not loop.last %},{% endif %}
-    {% endfor %}
-  ]
-}
-</script>
-
 </head>
 <body>
 {% set breadcrumb_items = demo.breadcrumbs %}
