@@ -42,13 +42,13 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your carb cycle only works if your TDEE baseline is accurate', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Stacking fasting with carb cycling doubled fat loss in one study', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your fat-to-protein ratio matters more than total calories', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your fat-to-protein ratio matters more than total calories', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/keto-calculator', title: 'Keto Calculator', icon: '🥑', reason: 'Keto is the ultimate low-carb day — see your exact macros for ketosis', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'keto': {
     links: [
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Compare your keto macros to a standard balanced split — the protein gap may surprise you', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Compare your keto macros to a standard balanced split — the protein gap may surprise you', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your keto deficit only works if your TDEE baseline is accurate', params: ['weight_kg','height_cm','age','gender','activity'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling', icon: '🔄', reason: 'Cycling between keto and higher-carb days can break weight loss plateaus', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Too little protein on keto costs muscle — find your minimum threshold', params: ['weight_kg','age','gender'] },
@@ -69,7 +69,7 @@ var CALCULATOR_GRAPH = {
       { url: '/fasting-weight-loss-calculator', title: 'Fasting Weight Loss', icon: '⏱️', reason: 'Now that you have your schedule — see how much fat you could lose', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your fasting deficit depends on your TDEE — is yours accurate?', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/carb-cycling-calculator', title: 'Carb Cycling Calculator', icon: '🔄', reason: 'Stack carb cycling with IF for faster results', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'With a shorter eating window, hitting your macros matters more', params: ['weight_kg','height_cm','age','gender'] }
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'With a shorter eating window, hitting your macros matters more', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'ideal-body-weight': {
@@ -246,7 +246,7 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/breast-implant-size-calculator', title: 'Implant Size Calculator', icon: '📐', reason: 'Size affects cost — but the "right" size depends on 4 body measurements', params: [] },
       { url: '/cc-to-bra-size-calculator', title: 'CC to Bra Size', icon: '📏', reason: 'The same CCs produce different cup sizes on different frames', params: [] },
-      { url: '/botox-calculator', title: 'Botox Cost', icon: '💉', reason: 'Bundling procedures saves 15-20% on average — see your Botox estimate', params: [] }
+      { url: '/botox-dosage-calculator', title: 'Botox Cost', icon: '💉', reason: 'Bundling procedures saves 15-20% on average — see your Botox estimate', params: [] }
     ]
   },
   'breast-implant': {
@@ -265,7 +265,7 @@ var CALCULATOR_GRAPH = {
   },
   'lip-filler': {
     links: [
-      { url: '/botox-calculator', title: 'Botox Calculator', icon: '💉', reason: '68% of filler patients also get Botox — see what yours would cost', params: [] },
+      { url: '/botox-dosage-calculator', title: 'Botox Calculator', icon: '💉', reason: '68% of filler patients also get Botox — see what yours would cost', params: [] },
       { url: '/breast-implant-cost-calculator', title: 'Implant Cost', icon: '💰', reason: 'Combining procedures in one visit cuts total cost significantly', params: [] }
     ]
   },
@@ -371,14 +371,14 @@ var CALCULATOR_GRAPH = {
   'bac': {
     links: [
       { url: '/alcohol-impact-calculator', title: 'Alcohol Impact', icon: '🍷', reason: '2 drinks/day raises disease risk by 20% — see your personal impact', params: ['weight_kg','gender','age'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each drink pattern maps to a different lifespan estimate — find yours', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each drink pattern maps to a different lifespan estimate — find yours', params: ['age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A beer has 150+ invisible calories — see what that does to your budget', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
   'alcohol-impact': {
     links: [
       { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Your weight and gender change BAC more than the number of drinks', params: ['weight_kg','gender'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Moderate drinking adds years in some studies, costs them in others — see yours', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Moderate drinking adds years in some studies, costs them in others — see yours', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel', icon: '❤️', reason: 'Alcohol raises HDL but also triglycerides — is the tradeoff worth it?', params: ['age','gender'] },
       { url: '/retirement-savings-calculator', title: 'Retirement Savings', icon: '💰', reason: 'Living longer means needing more savings — does your plan match?', params: ['age'] }
     ]
@@ -406,7 +406,7 @@ var CALCULATOR_GRAPH = {
   },
   'lipid-panel': {
     links: [
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal LDL adds up to 10 years of life expectancy — check your estimate', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal LDL adds up to 10 years of life expectancy — check your estimate', params: ['age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing just 5% body weight can drop LDL by 10% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Low vitamin D is linked to worse lipid profiles — are you getting enough?', params: ['age','gender','weight_kg'] },
       { url: '/baldness-risk-calculator', title: 'Baldness Risk', icon: '👨‍🦲', reason: 'DHT and cholesterol share metabolic pathways — your risk may be connected', params: ['age','gender'] }
@@ -424,7 +424,7 @@ var CALCULATOR_GRAPH = {
   'vitamin-d-intake': {
     links: [
       { url: '/vitamin-d-conversion-calculator', title: 'Vitamin D Units', icon: '🔄', reason: 'Your lab uses nmol/L but your supplement says IU — they\'re not the same', params: [] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal vitamin D levels correlate with 7+ years longer lifespan', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Optimal vitamin D levels correlate with 7+ years longer lifespan', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Vitamin D deficiency worsens cholesterol — check your heart markers', params: ['age','gender'] }
     ]
   },
@@ -432,7 +432,7 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/diabetes-risk-calculator', title: 'Diabetes Risk Calculator', icon: '🩺', reason: '96 million Americans are prediabetic and don\'t know it — assess your full risk profile', params: ['age','gender','weight_kg','height_cm'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight can drop A1C by 0.5% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each 1% rise in A1C increases mortality risk by 20-30% — see your estimate', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Each 1% rise in A1C increases mortality risk by 20-30% — see your estimate', params: ['age','gender'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI above 25 doubles type 2 diabetes risk — check where you stand', params: ['weight_kg','height_cm','age','gender'] }
     ]
   },
@@ -441,19 +441,19 @@ var CALCULATOR_GRAPH = {
       { url: '/a1c-calculator', title: 'A1C Calculator', icon: '🩸', reason: 'Your risk score says get tested — convert your A1C to see your diabetes category', params: [] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'BMI is the strongest modifiable diabetes risk factor — track yours precisely', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Losing 5-7% body weight cuts diabetes risk by 58% — find your calorie target', params: ['weight_kg','height_cm','age','gender'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Diabetes reduces life expectancy by 6-7 years on average — see your full estimate', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Diabetes reduces life expectancy by 6-7 years on average — see your full estimate', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: '75% of diabetics also have high blood pressure — check your cardiovascular targets', params: ['age','gender'] }
     ]
   },
   'vitamin-d-conversion': {
     links: [
       { url: '/vitamin-d-intake-calculator', title: 'Vitamin D Intake', icon: '☀️', reason: 'Most people take the wrong dose — your weight and age change the number', params: ['age','gender','weight_kg'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Vitamin D levels above 40 ng/mL link to significantly longer lifespan', params: ['age','gender'] }
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Vitamin D levels above 40 ng/mL link to significantly longer lifespan', params: ['age','gender'] }
     ]
   },
   'baldness': {
     links: [
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Early hair loss shares genetic markers with longevity — see your estimate', params: ['age','gender'] },
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Early hair loss shares genetic markers with longevity — see your estimate', params: ['age','gender'] },
       { url: '/lipid-panel-goals-calculator', title: 'Lipid Panel Goals', icon: '❤️', reason: 'Men with vertex baldness have 36% higher heart disease risk — check yours', params: ['age','gender'] }
     ]
   },
@@ -516,7 +516,7 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/pregnancy-weight-gain-calculator', title: 'Pregnancy Weight Gain', icon: '🤰', reason: 'Your pregnancy weight gain affects birth weight — which determines formula needs', params: [] },
       { url: '/newborn-weight-loss-calculator', title: 'Newborn Weight Loss', icon: '👶', reason: 'Newborns lose 5-10% of birth weight in the first week — track if they are regaining', params: [] },
-      { url: '/child-growth-percentile-calculator', title: 'Growth Percentile', icon: '📈', reason: 'Is your baby growing on track? Check their weight and length percentile', params: [] },
+      { url: '/child-growth-calculator', title: 'Growth Percentile', icon: '📈', reason: 'Is your baby growing on track? Check their weight and length percentile', params: [] },
       { url: '/gestational-age-calculator', title: 'Gestational Age', icon: '📅', reason: 'Premature babies may need different formula amounts — confirm your baby\'s adjusted age', params: [] },
       { url: '/breastfeeding-calorie-calculator', title: 'Breastfeeding Calories', icon: '🤱', reason: 'Switching from formula to breast? Find out how many extra calories nursing requires', params: [] }
     ]
@@ -564,7 +564,7 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A Frappuccino can be 25% of your daily calories — do you know your limit?', params: [] },
       { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Your Chipotle order could be 500 or 1,200 cal — the difference is 3 choices', params: [] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'That latte has almost no protein — see what your daily macros need', params: [] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'That latte has almost no protein — see what your daily macros need', params: [] },
       { url: '/bac-calculator', title: 'BAC Calculator', icon: '🍺', reason: 'Coffee masks alcohol effects but doesn\'t lower BAC — know your real level', params: [] }
     ]
   },
@@ -572,12 +572,12 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A burrito can eat 50%+ of your daily calories — find your actual budget', params: [] },
       { url: '/starbucks-nutrition-calculator', title: 'Starbucks Nutrition', icon: '☕', reason: 'Your afternoon Starbucks might have more calories than your Chipotle bowl', params: [] },
-      { url: '/caloric-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Chipotle is high-protein but the carb/fat ratio varies wildly by order', params: [] }
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Chipotle is high-protein but the carb/fat ratio varies wildly by order', params: [] }
     ]
   },
   'retirement': {
     links: [
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Most people underestimate their lifespan by 5+ years — can your savings cover it?', params: ['age','gender'] }
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Most people underestimate their lifespan by 5+ years — can your savings cover it?', params: ['age','gender'] }
     ]
   },
   'protein-intake': {
@@ -618,7 +618,7 @@ var CALCULATOR_GRAPH = {
       { url: '/female-fertility-calculator', title: 'Fertility Calculator', icon: '🌸', reason: 'Fertility declines years before menopause — see where you stand in the transition', params: ['age'] },
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '📊', reason: 'Your BMI affects menopause timing and symptom severity — check yours', params: [] },
       { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Night sweats and insomnia disrupt sleep cycles — optimize your sleep timing', params: ['age'] },
-      { url: '/lifespan-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Menopause age correlates with longevity — earlier menopause links to shorter lifespan', params: ['age','gender'] }
+      { url: '/lifespan-longevity-calculator', title: 'Lifespan Calculator', icon: '🧬', reason: 'Menopause age correlates with longevity — earlier menopause links to shorter lifespan', params: ['age','gender'] }
     ]
   },
   'metabolic-age': {

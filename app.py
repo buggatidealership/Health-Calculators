@@ -3098,8 +3098,51 @@ def editorial_policy():
 @app.route('/sitemap.xml')
 def sitemap_xml():
     """Auto-generate sitemap from registered routes."""
-    from datetime import date
-    today = date.today().isoformat()
+    lastmod = '2026-03-12'
+
+    # Noindexed pages — exclude from sitemap
+    noindex_urls = {
+        '/cholesterol-ratio-calculator',
+        '/antidepressant-weight-gain-calculator',
+        '/bac-calculator',
+        '/hcg-doubling-time-calculator',
+        '/gestational-age-calculator',
+        '/hcg-injection-dosage-calculator',
+        '/glycemic-index-calculator',
+        '/formula-feeding-calculator',
+        '/breastfeeding-calorie-calculator',
+        '/waist-to-hip-ratio-calculator',
+        '/newborn-weight-loss-calculator',
+        '/female-fertility-calculator',
+        '/menopause-calculator',
+        '/pregnancy-weight-gain-calculator',
+        '/semaglutide-reconstitution-calculator',
+        '/ozempic-weight-loss-calculator',
+        '/wegovy-weight-loss-calculator',
+        '/oral-wegovy-weight-loss-calculator',
+        '/mounjaro-weight-loss-calculator',
+        '/zepbound-weight-loss-calculator',
+        '/cagrisema-weight-loss-calculator',
+        '/glp1-comparison-calculator',
+        '/glp1-cost-calculator',
+        '/ozempic-face-calculator',
+        '/lifespan-longevity-calculator',
+        '/heart-age-calculator',
+        '/a1c-calculator',
+        '/diabetes-risk-calculator',
+        '/resources/breastfeeding-nutrition-guide',
+        '/resources/antidepressants-and-body-fat',
+        '/resources/who-should-not-get-breast-implants',
+        '/resources/how-alcohol-affects-your-bac',
+        '/resources/ivf-due-date-calculator-guide',
+        '/resources/fertility-after-35',
+        '/resources/semaglutide-vs-ozempic-guide',
+        '/resources/glp1-side-effects-comparison',
+        '/resources/ozempic-weight-loss-calculator-guide',
+        '/resources/botox-dosage-guide',
+        '/resources/glp1-weight-loss-comparison',
+        '/resources/vitamin-d-levels-chart',
+    }
 
     # Collect all public page URLs
     pages = []
@@ -3109,30 +3152,36 @@ def sitemap_xml():
 
     # Calculator pages (from cards array)
     for card in cards:
-        pages.append({'loc': card['url'], 'priority': '0.8', 'changefreq': 'monthly', 'lastmod': today})
+        if card['url'] not in noindex_urls:
+            pages.append({'loc': card['url'], 'priority': '0.8', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Resource listing page
     pages.append({'loc': '/resources', 'priority': '0.7', 'changefreq': 'weekly'})
 
     # Resource guide pages (from articles array)
     for article in articles:
-        pages.append({'loc': article['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
+        if article['url'] not in noindex_urls:
+            pages.append({'loc': article['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Category hub pages
     for cid, data in category_hub_data.items():
-        pages.append({'loc': data['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
+        if data['url'] not in noindex_urls:
+            pages.append({'loc': data['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Comparison pages
     for path in ['/bmi-vs-body-fat', '/tdee-vs-bmr', '/ozempic-vs-mounjaro']:
-        pages.append({'loc': path, 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': today})
+        if path not in noindex_urls:
+            pages.append({'loc': path, 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Demographic pages
     for slug, data in demographic_pages.items():
-        pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': today})
+        if data['url'] not in noindex_urls:
+            pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Chart reference pages
     for slug, data in chart_pages.items():
-        pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': today})
+        if data['url'] not in noindex_urls:
+            pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Editorial policy
     pages.append({'loc': '/editorial-policy', 'priority': '0.4', 'changefreq': 'yearly'})
