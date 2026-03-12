@@ -3203,8 +3203,7 @@ def sitemap_xml():
     xml += '</urlset>'
 
     return Response(xml, mimetype='application/xml', headers={
-        'Cache-Control': 'public, max-age=3600',
-        'X-Robots-Tag': 'noindex'
+        'Cache-Control': 'public, max-age=3600'
     })
 
 # ===== DEMOGRAPHIC CALCULATOR PAGES =====
