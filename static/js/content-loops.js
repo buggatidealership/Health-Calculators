@@ -572,7 +572,17 @@ var CALCULATOR_GRAPH = {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'A burrito can eat 50%+ of your daily calories — find your actual budget', params: [] },
       { url: '/starbucks-nutrition-calculator', title: 'Starbucks Nutrition', icon: '☕', reason: 'Your afternoon Starbucks might have more calories than your Chipotle bowl', params: [] },
+      { url: '/subway-calorie-calculator', title: 'Subway Nutrition', icon: '🥖', reason: 'Subway seems lighter — but a footlong with mayo tops 900 cal', params: [] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Chipotle is high-protein but the carb/fat ratio varies wildly by order', params: [] }
+    ]
+  },
+  'subway': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Know your daily calorie budget before you order', params: [] },
+      { url: '/chipotle-nutrition-calculator', title: 'Chipotle Nutrition', icon: '🌯', reason: 'Compare your Subway order to a Chipotle bowl calorie for calorie', params: [] },
+      { url: '/starbucks-nutrition-calculator', title: 'Starbucks Nutrition', icon: '☕', reason: 'Your afternoon Frappuccino might match your entire sandwich in calories', params: [] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Turkey on wheat is lean — but are you hitting your protein target?', params: [] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '💪', reason: 'Rotisserie chicken subs pack 24g protein — see how that fits your daily goal', params: [] }
     ]
   },
   'retirement': {

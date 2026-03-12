@@ -64,6 +64,10 @@ cross_links = {
         "calculators": ["/chipotle-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
         "guides": ["/resources/starbucks-nutrition-guide"]
     },
+    "/subway-calorie-calculator": {
+        "calculators": ["/chipotle-nutrition-calculator", "/starbucks-nutrition-calculator", "/tdee-calculator"],
+        "guides": ["/resources/subway-nutrition-guide"]
+    },
     "/bac-calculator": {
         "calculators": ["/alcohol-impact-calculator", "/ideal-body-weight-calculator", "/lifespan-longevity-calculator"],
         "guides": ["/resources/how-alcohol-affects-your-bac"]
@@ -387,6 +391,16 @@ cards = [
         "url": "/starbucks-nutrition-calculator",
         "summary": "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and toppings.",
         "icon": "☕",
+        "cta": "Calculate Nutrition",
+        "color": "green",
+        "category": "nutrition",
+        "popular": True
+    },
+    {
+        "title": "Subway Calorie Calculator",
+        "url": "/subway-calorie-calculator",
+        "summary": "Build any Subway sandwich and see real-time nutrition facts. Choose bread, protein, cheese, veggies, and sauces for 6-inch or footlong orders.",
+        "icon": "🥖",
         "cta": "Calculate Nutrition",
         "color": "green",
         "category": "nutrition",
@@ -2016,6 +2030,15 @@ articles = [
         "category": "nutrition"
     },
     {
+        "title": "Subway Nutrition Guide: Healthiest Orders, Calorie Traps & Macro Hacks",
+        "url": "/resources/subway-nutrition-guide",
+        "summary": "The complete guide to ordering Subway for your goals. Compare every bread, protein, and sauce by calories and find the healthiest options.",
+        "icon": "🥖",
+        "cta": "Read Guide",
+        "color": "green",
+        "category": "nutrition"
+    },
+    {
         "title": "How to Use the Army Body Fat Calculator (Tape Test Explained)",
         "url": "/resources/army-body-fat-calculator-guide",
         "summary": "Learn how the Army tape test works, how to measure body fat for military compliance, and understand the accuracy compared to other methods.",
@@ -2451,6 +2474,22 @@ def starbucks_nutrition_calculator():
         date_modified='2026-03-11'
     )
 
+@app.route('/subway-calorie-calculator')
+def subway_calorie_calculator():
+    schema_name = "Subway Calorie Calculator"
+    schema_description = "Build your Subway sandwich and see real-time calories, protein, carbs, fat, fiber, and sodium. Covers all breads, proteins, cheeses, veggies, and sauces for 6-inch and footlong orders."
+    schema_url = "/subway-calorie-calculator"
+    return render_template(
+        'subway_nutrition_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+        date_modified='2026-03-12'
+    )
+
 @app.route('/antidepressant-weight-gain-calculator')
 def antidepressant_weight_gain_calculator():
     schema_name = "Antidepressant Weight Gain Calculator"
@@ -2664,6 +2703,19 @@ def fertility_after_35():
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-11',
         robots_meta='noindex, nofollow'
+    )
+
+@app.route('/resources/subway-nutrition-guide')
+def subway_nutrition_guide():
+    return render_template(
+        'resources/subway_nutrition_guide.html',
+        is_homepage=False,
+        schema_name="Subway Nutrition Guide: Healthiest Orders, Calorie Traps & Macro Hacks",
+        schema_description="Complete guide to Subway nutrition. Find the healthiest sandwiches, avoid hidden calorie bombs, and optimize your order for protein, fiber, or weight loss.",
+        schema_url="/resources/subway-nutrition-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-12'
     )
 
 @app.route('/resources/chipotle-nutrition-guide')
