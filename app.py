@@ -45,7 +45,8 @@ cross_links = {
         "guides": ["/resources/army-body-fat-calculator-guide"]
     },
     "/body-fat-calculator": {
-        "calculators": ["/bmi-calculator", "/ideal-body-weight-calculator", "/tdee-calculator", "/protein-intake-calculator", "/army-body-fat-calculator"],
+        "calculators": ["/bmi-calculator", "/ideal-body-weight-calculator", "/tdee-calculator", "/protein-intake-calculator", "/army-body-fat-calculator",
+                        "/body-fat-calculator-for-men", "/body-fat-calculator-for-women", "/bmi-vs-body-fat"],
         "guides": ["/resources/body-fat-percentage-chart"]
     },
     "/chipotle-nutrition-calculator": {
@@ -81,7 +82,9 @@ cross_links = {
         "guides": []
     },
     "/tdee-calculator": {
-        "calculators": ["/caloric-intake-macronutrient-calculator", "/ideal-body-weight-calculator", "/carb-cycling-calculator", "/fasting-weight-loss-calculator", "/calories-burned-calculator"],
+        "calculators": ["/caloric-intake-macronutrient-calculator", "/ideal-body-weight-calculator", "/carb-cycling-calculator", "/fasting-weight-loss-calculator", "/calories-burned-calculator",
+                        "/tdee-calculator-for-women", "/tdee-calculator-for-men", "/tdee-calculator-for-athletes", "/tdee-calculator-for-weight-loss",
+                        "/calorie-calculator-for-weight-loss", "/calorie-calculator-for-muscle-gain", "/tdee-chart", "/tdee-vs-bmr"],
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/ideal-body-weight-calculator": {
@@ -89,7 +92,8 @@ cross_links = {
         "guides": ["/resources/fasting-weight-loss-chart"]
     },
     "/caloric-intake-macronutrient-calculator": {
-        "calculators": ["/tdee-calculator", "/carb-cycling-calculator", "/keto-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator"],
+        "calculators": ["/tdee-calculator", "/carb-cycling-calculator", "/keto-calculator", "/ideal-body-weight-calculator", "/fasting-weight-loss-calculator",
+                        "/macro-calculator-for-weight-loss"],
         "guides": ["/resources/how-to-start-carb-cycling"]
     },
     "/keto-calculator": {
@@ -121,7 +125,7 @@ cross_links = {
         "guides": []
     },
     "/ozempic-pen-click-calculator": {
-        "calculators": ["/fasting-weight-loss-calculator", "/tdee-calculator"],
+        "calculators": ["/fasting-weight-loss-calculator", "/tdee-calculator", "/ozempic-vs-mounjaro"],
         "guides": []
     },
     "/botox-dosage-calculator": {
@@ -173,7 +177,8 @@ cross_links = {
         "guides": ["/resources/fasting-weight-loss-chart", "/resources/how-to-start-carb-cycling"]
     },
     "/bmi-calculator": {
-        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator"],
+        "calculators": ["/tdee-calculator", "/ideal-body-weight-calculator", "/caloric-intake-macronutrient-calculator", "/army-body-fat-calculator", "/body-roundness-index-calculator",
+                        "/bmi-calculator-for-women", "/bmi-calculator-for-teens", "/bmi-calculator-for-athletes", "/bmi-chart", "/bmi-vs-body-fat"],
         "guides": []
     },
     "/body-roundness-index-calculator": {
@@ -181,7 +186,8 @@ cross_links = {
         "guides": []
     },
     "/protein-intake-calculator": {
-        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/bmi-calculator", "/ideal-body-weight-calculator"],
+        "calculators": ["/tdee-calculator", "/caloric-intake-macronutrient-calculator", "/bmi-calculator", "/ideal-body-weight-calculator",
+                        "/protein-calculator-for-women", "/protein-calculator-for-athletes", "/protein-intake-chart"],
         "guides": []
     },
     "/water-intake-calculator": {
@@ -199,6 +205,89 @@ cross_links = {
     "/zone2-heart-rate-calculator": {
         "calculators": ["/vo2-max-calculator", "/calories-burned-calculator", "/tdee-calculator"],
         "guides": ["/resources/zone2-training-guide"]
+    },
+    # Demographic variant pages — link back to parent + siblings
+    "/tdee-calculator-for-women": {
+        "calculators": ["/tdee-calculator", "/tdee-calculator-for-men", "/tdee-calculator-for-athletes", "/calorie-calculator-for-weight-loss"],
+        "guides": []
+    },
+    "/tdee-calculator-for-men": {
+        "calculators": ["/tdee-calculator", "/tdee-calculator-for-women", "/tdee-calculator-for-athletes", "/calorie-calculator-for-muscle-gain"],
+        "guides": []
+    },
+    "/tdee-calculator-for-athletes": {
+        "calculators": ["/tdee-calculator", "/tdee-calculator-for-men", "/tdee-calculator-for-women", "/protein-calculator-for-athletes"],
+        "guides": []
+    },
+    "/tdee-calculator-for-weight-loss": {
+        "calculators": ["/tdee-calculator", "/calorie-calculator-for-weight-loss", "/fasting-weight-loss-calculator", "/macro-calculator-for-weight-loss"],
+        "guides": []
+    },
+    "/calorie-calculator-for-weight-loss": {
+        "calculators": ["/tdee-calculator", "/tdee-calculator-for-weight-loss", "/macro-calculator-for-weight-loss", "/fasting-weight-loss-calculator"],
+        "guides": []
+    },
+    "/calorie-calculator-for-muscle-gain": {
+        "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/protein-calculator-for-athletes", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
+    "/macro-calculator-for-weight-loss": {
+        "calculators": ["/caloric-intake-macronutrient-calculator", "/tdee-calculator-for-weight-loss", "/calorie-calculator-for-weight-loss", "/keto-calculator"],
+        "guides": []
+    },
+    "/bmi-calculator-for-women": {
+        "calculators": ["/bmi-calculator", "/bmi-calculator-for-teens", "/bmi-calculator-for-athletes", "/ideal-body-weight-calculator"],
+        "guides": []
+    },
+    "/bmi-calculator-for-teens": {
+        "calculators": ["/bmi-calculator", "/bmi-calculator-for-women", "/child-growth-calculator", "/adult-height-predictor-calculator"],
+        "guides": []
+    },
+    "/bmi-calculator-for-athletes": {
+        "calculators": ["/bmi-calculator", "/body-fat-calculator", "/ffmi-calculator", "/bmi-vs-body-fat"],
+        "guides": []
+    },
+    "/protein-calculator-for-women": {
+        "calculators": ["/protein-intake-calculator", "/protein-calculator-for-athletes", "/tdee-calculator-for-women", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
+    "/protein-calculator-for-athletes": {
+        "calculators": ["/protein-intake-calculator", "/protein-calculator-for-women", "/tdee-calculator-for-athletes", "/calorie-calculator-for-muscle-gain"],
+        "guides": []
+    },
+    "/body-fat-calculator-for-men": {
+        "calculators": ["/body-fat-calculator", "/body-fat-calculator-for-women", "/bmi-calculator", "/ffmi-calculator"],
+        "guides": ["/resources/body-fat-percentage-chart"]
+    },
+    "/body-fat-calculator-for-women": {
+        "calculators": ["/body-fat-calculator", "/body-fat-calculator-for-men", "/bmi-calculator", "/ideal-body-weight-calculator"],
+        "guides": ["/resources/body-fat-percentage-chart"]
+    },
+    # Chart pages — link back to parent calculator
+    "/bmi-chart": {
+        "calculators": ["/bmi-calculator", "/bmi-calculator-for-women", "/bmi-calculator-for-athletes", "/ideal-body-weight-calculator"],
+        "guides": []
+    },
+    "/tdee-chart": {
+        "calculators": ["/tdee-calculator", "/tdee-calculator-for-women", "/tdee-calculator-for-men", "/calories-burned-calculator"],
+        "guides": []
+    },
+    "/protein-intake-chart": {
+        "calculators": ["/protein-intake-calculator", "/protein-calculator-for-women", "/protein-calculator-for-athletes", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
+    # Comparison pages — link to both calculators
+    "/bmi-vs-body-fat": {
+        "calculators": ["/bmi-calculator", "/body-fat-calculator", "/bmi-calculator-for-athletes", "/ffmi-calculator"],
+        "guides": ["/resources/body-fat-percentage-chart"]
+    },
+    "/tdee-vs-bmr": {
+        "calculators": ["/tdee-calculator", "/metabolic-age-calculator", "/calories-burned-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": []
+    },
+    "/ozempic-vs-mounjaro": {
+        "calculators": ["/ozempic-pen-click-calculator", "/vitamin-d-conversion-calculator", "/fasting-weight-loss-calculator"],
+        "guides": []
     },
 }
 
@@ -2073,6 +2162,7 @@ for card in cards:
     _title_lookup[card['url']] = card['title']
 for article in articles:
     _title_lookup[article['url']] = article['title']
+
 
 @app.context_processor
 def inject_cross_links():
@@ -4564,6 +4654,15 @@ chart_pages = {
         ]
     }
 }
+
+# Add demographic, chart, and comparison pages to title lookup
+for _slug, _data in demographic_pages.items():
+    _title_lookup[_data['url']] = _data['page_title'].split(' — ')[0]
+for _slug, _data in chart_pages.items():
+    _title_lookup[_data['url']] = _data['page_title'].split(' — ')[0]
+_title_lookup['/bmi-vs-body-fat'] = 'BMI vs Body Fat'
+_title_lookup['/tdee-vs-bmr'] = 'TDEE vs BMR'
+_title_lookup['/ozempic-vs-mounjaro'] = 'Ozempic vs Mounjaro'
 
 @app.route('/bmi-chart')
 @app.route('/tdee-chart')
