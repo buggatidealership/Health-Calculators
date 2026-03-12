@@ -4755,6 +4755,22 @@ def one_rep_max_calculator():
     )
 
 
+@app.route('/mockup')
+def mockup():
+    return render_template(
+        'mockup.html',
+        is_homepage=False,
+        schema_name="Training Volume Advisor",
+        schema_description="AI-powered training volume advisor concept.",
+        schema_url="/mockup",
+        canonical_url="/mockup",
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-12',
+        robots_meta='noindex, nofollow'
+    )
+
+
 @app.route('/training-volume-calculator')
 def training_volume_calculator():
     schema_name = "Training Volume Calculator"
