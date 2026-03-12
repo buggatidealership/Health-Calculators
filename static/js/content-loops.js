@@ -274,11 +274,21 @@ var CALCULATOR_GRAPH = {
   },
   'one-rep-max': {
     links: [
+      { url: '/training-volume-calculator', title: 'Training Volume', icon: '📊', reason: 'Knowing your 1RM means nothing without the right number of sets — find your volume', params: [] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Building strength requires a calorie surplus — find out how much you need', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Strength gains plateau without 1.6-2.2g protein per kg — are you hitting it?', params: ['weight_kg','age','gender'] },
       { url: '/creatine-dosage-calculator', title: 'Creatine Calculator', icon: '💪', reason: 'Creatine adds 5-10% to your 1RM in 4 weeks — calculate your dose', params: ['weight_kg'] },
       { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your macro ratio determines whether strength gains come with fat or without it', params: ['weight_kg','height_cm','age','gender'] },
       { url: '/body-fat-calculator', title: 'Body Fat Calculator', icon: '📐', reason: 'Strength-to-bodyweight ratio matters more than absolute strength for most goals', params: ['height_cm','gender','age'] },
+    ]
+  },
+  'training-volume': {
+    links: [
+      { url: '/one-rep-max-calculator', title: '1RM Calculator', icon: '🏋️', reason: 'Volume only works if intensity is right — calculate your training loads', params: [] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'High training volume without adequate protein is wasted work — check your target', params: ['weight_kg','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'More sets burn more calories — make sure you are eating enough to recover', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/caloric-intake-macronutrient-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Your carb-to-protein ratio determines how well you recover between sessions', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/sleep-calculator', title: 'Sleep Calculator', icon: '🌙', reason: 'Sleep under 7 hours cuts your muscle protein synthesis by 18%', params: ['age'] },
     ]
   },
   'vo2-max': {

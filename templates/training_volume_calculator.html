@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Get personalized weekly set recommendations per muscle group based on your experience, goals, recovery, and schedule. Backed by Schoenfeld and Israetel research.",
+    meta_keywords="training volume calculator, how many sets per muscle group, sets per week, hypertrophy volume, workout volume calculator, training volume per muscle group, optimal training volume",
+    og_title="Training Volume Calculator — Sets Per Muscle Group Per Week",
+    og_description="Personalized weekly set recommendations for every muscle group. Adjusts for experience level, training days, age, sleep, and recovery.",
+    og_url="/training-volume-calculator",
+    page_title="Training Volume Calculator — How Many Sets Per Muscle Group",
+    canonical_url="/training-volume-calculator",
+    schema_name="Training Volume Calculator",
+    schema_description="Calculate your optimal weekly training volume per muscle group based on experience level, goals, training frequency, age, sleep quality, and recovery capacity.",
+    schema_url="/training-volume-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Training Volume Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">How many sets per muscle group per week do you actually need? Get personalized volume recommendations based on your experience, goals, schedule, and recovery — backed by peer-reviewed research.</p>
+
+{% set ad_position = "top" %}
+{% include 'components/ad-unit.html' with context %}
+
+<section id="calculator">
+    <h2>Calculate Your Training Volume</h2>
+    <div class="calculator">
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="experience">Training Experience:</label>
+                <select id="experience">
+                    <option value="beginner">Beginner (less than 1 year)</option>
+                    <option value="intermediate" selected>Intermediate (1–3 years)</option>
+                    <option value="advanced">Advanced (3+ years)</option>
+                </select>
+                <span class="input-hint">Years of consistent, structured resistance training</span>
+            </div>
+            <div class="form-group">
+                <label for="goal">Primary Goal:</label>
+                <select id="goal">
+                    <option value="hypertrophy" selected>Muscle Growth (Hypertrophy)</option>
+                    <option value="strength">Strength</option>
+                    <option value="general">General Fitness</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="days">Training Days Per Week:</label>
+                <select id="days">
+                    <option value="2">2 days</option>
+                    <option value="3">3 days</option>
+                    <option value="4" selected>4 days</option>
+                    <option value="5">5 days</option>
+                    <option value="6">6 days</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age Range:</label>
+                <select id="age">
+                    <option value="18-30">18–30</option>
+                    <option value="31-40" selected>31–40</option>
+                    <option value="41-50">41–50</option>
+                    <option value="51-60">51–60</option>
+                    <option value="60+">60+</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="sleep">Sleep Quality:</label>
+                <select id="sleep">
+                    <option value="good" selected>Good (7–9 hours)</option>
+                    <option value="fair">Fair (5–6 hours)</option>
+                    <option value="poor">Poor (under 5 hours)</option>
+                </select>
+                <span class="input-hint">Consistent nightly average, not last night</span>
+            </div>
+            <div class="form-group">
+                <label for="stress">Life Stress Level:</label>
+                <select id="stress">
+                    <option value="low">Low</option>
+                    <option value="moderate" selected>Moderate</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top: 8px;">
+            <label>Prioritize Up to 3 Muscle Groups <span style="font-weight:400;color:#666;">(optional — adds ~20% volume)</span>:</label>
+            <div id="priority-muscles" style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px;">
+                <label class="chip-label"><input type="checkbox" value="chest"> Chest</label>
+                <label class="chip-label"><input type="checkbox" value="back"> Back</label>
+                <label class="chip-label"><input type="checkbox" value="quads"> Quads</label>
+                <label class="chip-label"><input type="checkbox" value="hamstrings"> Hamstrings</label>
+                <label class="chip-label"><input type="checkbox" value="glutes"> Glutes</label>
+                <label class="chip-label"><input type="checkbox" value="shoulders"> Shoulders</label>
+                <label class="chip-label"><input type="checkbox" value="biceps"> Biceps</label>
+                <label class="chip-label"><input type="checkbox" value="triceps"> Triceps</label>
+                <label class="chip-label"><input type="checkbox" value="calves"> Calves</label>
+                <label class="chip-label"><input type="checkbox" value="abs"> Abs</label>
+            </div>
+        </div>
+
+        <button class="calculate-btn" onclick="calculateVolume()">Calculate My Volume</button>
+    </div>
+
+    <div id="results" class="results-section" style="display:none; min-height: 400px;">
+        <h3>Your Weekly Training Volume</h3>
+
+        <div class="answer-capsule" id="results-summary"></div>
+
+        <h4 style="margin-top: 24px;">Sets Per Muscle Group Per Week</h4>
+        <table class="data-table" id="volume-table">
+            <thead>
+                <tr>
+                    <th>Muscle Group</th>
+                    <th>Sets/Week</th>
+                    <th>Range (MEV–MRV)</th>
+                    <th>Per Session</th>
+                    <th>Priority</th>
+                </tr>
+            </thead>
+            <tbody id="volume-tbody"></tbody>
+        </table>
+
+        <div id="total-row" style="text-align:right; font-weight:600; margin-top:4px; color: var(--accent-color);"></div>
+
+        {% set ad_position = "in-article" %}
+        {% include 'components/ad-unit.html' with context %}
+
+        <h4 style="margin-top: 32px;">Suggested Weekly Split</h4>
+        <div id="split-container"></div>
+
+        <div class="highlight-box" id="recovery-notes" style="margin-top: 24px;"></div>
+    </div>
+</section>
+
+<section id="methodology" style="margin-top: 48px;">
+    <div class="info">
+        <h2>How This Calculator Works</h2>
+        <p>This calculator uses evidence-based volume landmarks from peer-reviewed research to generate personalized recommendations. Here's what drives each number:</p>
+
+        <h4>Base Volume (from Israetel & Schoenfeld research)</h4>
+        <p>Each muscle group has a research-backed volume range defined by three landmarks:</p>
+        <ul>
+            <li><strong>MEV (Minimum Effective Volume)</strong> — the fewest sets per week that still produce measurable growth</li>
+            <li><strong>MAV (Maximum Adaptive Volume)</strong> — the "sweet spot" where most growth occurs relative to effort</li>
+            <li><strong>MRV (Maximum Recoverable Volume)</strong> — the ceiling above which recovery fails and progress reverses</li>
+        </ul>
+        <p>Your recommended sets target the midpoint of MAV, adjusted for your inputs.</p>
+
+        <h4>Recovery Modifiers</h4>
+        <p>Base volume is scaled by three recovery factors:</p>
+        <ul>
+            <li><strong>Age:</strong> Recovery capacity declines with age due to reduced satellite cell availability and slower muscle protein synthesis. Volume is scaled from 100% (18–30) down to 70% (60+), based on Angleri et al. (2024).</li>
+            <li><strong>Sleep:</strong> Sleep deprivation reduces muscle protein synthesis by ~18% and elevates cortisol by ~21% (Lamon et al., 2021). Fair sleep applies a 0.85x modifier; poor sleep applies 0.70x.</li>
+            <li><strong>Stress:</strong> Chronic stress elevates cortisol, blunting hypertrophic adaptation. High stress applies a 0.80x modifier.</li>
+        </ul>
+
+        <h4>Per-Session Distribution</h4>
+        <p>Research shows diminishing returns beyond ~10 hard sets per muscle per session (Schoenfeld et al., 2016). Weekly volume is distributed across your training days with a cap of 10 sets per muscle per session. If your target volume exceeds what your frequency can handle, the calculator recommends increasing frequency.</p>
+
+        <h4>What Counts as a "Set"</h4>
+        <p>A "set" means a working set taken to RPE 7+ (1–3 reps in reserve). Warm-up sets, sets with less than 40% 1RM, and sets stopped well short of failure do not count toward these targets.</p>
+    </div>
+</section>
+
+<section id="volume-landmarks" style="margin-top: 48px;">
+    <div class="info">
+        <h2>Volume Landmarks by Muscle Group</h2>
+        <p>These ranges represent the research consensus from Israetel et al. and meta-analyses by Schoenfeld, Krieger, and Baz-Valle. All values are weekly hard sets.</p>
+        <table class="data-table">
+            <caption>Weekly set ranges per muscle group (trained individuals)</caption>
+            <thead>
+                <tr><th>Muscle Group</th><th>MEV</th><th>MAV</th><th>MRV</th><th>Frequency</th></tr>
+            </thead>
+            <tbody>
+                <tr><td class="td-bold">Chest</td><td>10</td><td>12–20</td><td>22+</td><td>2–3x/wk</td></tr>
+                <tr><td class="td-bold">Back</td><td>10</td><td>14–22</td><td>25+</td><td>2–4x/wk</td></tr>
+                <tr><td class="td-bold">Quads</td><td>8</td><td>12–18</td><td>20+</td><td>2–3x/wk</td></tr>
+                <tr><td class="td-bold">Hamstrings</td><td>6</td><td>10–16</td><td>20+</td><td>2–3x/wk</td></tr>
+                <tr><td class="td-bold">Glutes</td><td>0</td><td>4–12</td><td>16+</td><td>2–3x/wk</td></tr>
+                <tr><td class="td-bold">Shoulders (side/rear)</td><td>8</td><td>16–22</td><td>26+</td><td>2–6x/wk</td></tr>
+                <tr><td class="td-bold">Biceps</td><td>8</td><td>14–20</td><td>26+</td><td>2–6x/wk</td></tr>
+                <tr><td class="td-bold">Triceps</td><td>6</td><td>10–14</td><td>18+</td><td>2–4x/wk</td></tr>
+                <tr><td class="td-bold">Calves</td><td>8</td><td>12–16</td><td>20+</td><td>2–4x/wk</td></tr>
+                <tr><td class="td-bold">Abs</td><td>0</td><td>16–20</td><td>25+</td><td>3–5x/wk</td></tr>
+            </tbody>
+        </table>
+        <p style="margin-top: 12px; font-size: 0.9em; color: #666;">Note: Glutes and abs show MEV of 0 because they receive significant indirect stimulus from compound movements (squats, deadlifts, presses). Direct work is optional for maintenance but recommended for growth.</p>
+    </div>
+</section>
+
+<section id="faq" class="faq-section" style="margin-top: 48px;">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+        <h4>How many sets per muscle group per week should I do?</h4>
+        <div class="faq-body"><p>Research consistently shows that 10–20 hard sets per muscle group per week is the optimal range for most people. Beginners grow well with 8–12 sets, while advanced lifters may need 16–22 sets. A 2017 meta-analysis by Schoenfeld found a graded dose-response relationship — more sets produce more growth up to roughly 20 sets per week, after which diminishing returns and recovery issues set in. The exact number depends on your experience level, recovery capacity, and which muscle group you're training.</p></div>
+    </div>
+    <div class="faq-item">
+        <h4>Does training frequency matter if weekly volume is the same?</h4>
+        <div class="faq-body"><p>Frequency is primarily a tool for distributing volume, not an independent growth driver. A 2018 review by Schoenfeld and Grgic found no significant hypertrophy difference between training a muscle 2x vs 3x per week when total weekly sets were equal. The practical rule: train each muscle at least twice per week, and cap sessions at roughly 10 hard sets per muscle. If your weekly target is 16 sets, do 8 sets across 2 sessions rather than 16 in one session.</p></div>
+    </div>
+    <div class="faq-item">
+        <h4>What counts as a "hard set" for training volume?</h4>
+        <div class="faq-body"><p>A hard set is a working set performed at RPE 7 or higher — meaning you stop with roughly 1 to 3 reps left in the tank (or to failure). Warm-up sets, feeder sets, and sets stopped well short of failure do not count. Sets with less than approximately 40% of your one-rep max are too light to count regardless of effort. The research on volume-hypertrophy relationships specifically measured sets taken close to failure.</p></div>
+    </div>
+    <div class="faq-item">
+        <h4>Should I train differently as I get older?</h4>
+        <div class="faq-body"><p>Yes, but not as drastically as many people think. Adults lose 3–5% of muscle mass per decade after 30 without resistance training, and recovery capacity does decline with age. Research by Angleri et al. (2024) shows that older adults can still build muscle effectively — they may just need slightly fewer total sets and more recovery time between sessions. The key adjustment is reducing volume by 10–30% compared to younger lifters and allowing more rest days, while maintaining training intensity (how hard each set is).</p></div>
+    </div>
+    <div class="faq-item">
+        <h4>How does sleep affect training volume?</h4>
+        <div class="faq-body"><p>Significantly. A study by Lamon et al. (2021) found that acute sleep deprivation reduced muscle protein synthesis by 18%, increased cortisol by 21%, and decreased testosterone by 24%. If you consistently sleep under 6 hours, you cannot recover from the same training volume as someone sleeping 7–9 hours. The practical recommendation is to reduce weekly volume by 15–30% during periods of poor sleep rather than training through it — the sets you can't recover from aren't helping you grow.</p></div>
+    </div>
+</section>
+
+<section id="sources" style="margin-top: 40px;">
+    <div class="sources-section">
+        <h3>Sources & References</h3>
+        <ol class="sources-list">
+            <li>Schoenfeld BJ, Ogborn D, Krieger JW. "Dose-response relationship between weekly resistance training volume and increases in muscle mass." <em>Sports Med</em>. 2017;47(12):2585-2601.</li>
+            <li>Krieger JW. "Single vs. multiple sets of resistance exercise for muscle hypertrophy: a meta-analysis." <em>J Strength Cond Res</em>. 2010;24(4):1150-1159.</li>
+            <li>Baz-Valle E, et al. "A systematic review of the effects of different resistance training volumes on muscle hypertrophy." <em>J Hum Kinet</em>. 2022;81:199-210.</li>
+            <li>Schoenfeld BJ, et al. "Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis." <em>Sports Med</em>. 2016;46(11):1689-1697.</li>
+            <li>Schoenfeld BJ, Grgic J. "Evidence-based guidelines for resistance training volume to maximize muscle hypertrophy." <em>Strength Cond J</em>. 2018;40(4):107-112.</li>
+            <li>Angleri V, et al. "Higher resistance training volume offsets muscle hypertrophy nonresponsiveness in older adults." <em>J Appl Physiol</em>. 2024;136(1):198-209.</li>
+            <li>Lamon S, et al. "The effect of acute sleep deprivation on skeletal muscle protein synthesis and the hormonal environment." <em>Physiol Rep</em>. 2021;9(1):e14660.</li>
+            <li>Israetel M, Hoffmann J, Smith CW. "Scientific Principles of Hypertrophy Training." Renaissance Periodization, 2021.</li>
+        </ol>
+    </div>
+</section>
+
+</div>
+
+{% include 'components/related-links.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+
+<style>
+.chip-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: all 0.2s;
+    user-select: none;
+}
+.chip-label:hover { border-color: var(--accent-color); }
+.chip-label:has(input:checked) {
+    background: var(--accent-color);
+    color: #fff;
+    border-color: var(--accent-color);
+}
+.chip-label input { display: none; }
+.split-day {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+.split-day h5 {
+    margin: 0 0 8px 0;
+    color: var(--accent-color);
+    font-size: 1em;
+}
+.split-day ul {
+    margin: 0;
+    padding-left: 20px;
+}
+.split-day li {
+    margin-bottom: 4px;
+    font-size: 0.95em;
+}
+.vol-bar {
+    display: inline-block;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--accent-color);
+    vertical-align: middle;
+    margin-left: 6px;
+    transition: width 0.4s ease;
+}
+.priority-badge {
+    display: inline-block;
+    font-size: 0.75em;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+.priority-badge.boosted { background: #e8f5e9; color: #2e7d32; }
+.priority-badge.normal { background: #f5f5f5; color: #888; }
+</style>
+
+<script>
+(function() {
+    // Limit priority checkboxes to 3
+    const boxes = document.querySelectorAll('#priority-muscles input[type=checkbox]');
+    boxes.forEach(function(box) {
+        box.addEventListener('change', function() {
+            var checked = document.querySelectorAll('#priority-muscles input:checked');
+            if (checked.length > 3) {
+                this.checked = false;
+            }
+        });
+    });
+})();
+
+function calculateVolume() {
+    var exp = document.getElementById('experience').value;
+    var goal = document.getElementById('goal').value;
+    var days = parseInt(document.getElementById('days').value);
+    var age = document.getElementById('age').value;
+    var sleep = document.getElementById('sleep').value;
+    var stress = document.getElementById('stress').value;
+
+    var priorities = [];
+    document.querySelectorAll('#priority-muscles input:checked').forEach(function(cb) {
+        priorities.push(cb.value);
+    });
+
+    // Base MAV midpoints by experience level (sets/week)
+    var baseVolume = {
+        beginner: {
+            chest: 10, back: 12, quads: 10, hamstrings: 8, glutes: 6,
+            shoulders: 12, biceps: 10, triceps: 8, calves: 10, abs: 10
+        },
+        intermediate: {
+            chest: 14, back: 16, quads: 14, hamstrings: 12, glutes: 8,
+            shoulders: 18, biceps: 16, triceps: 12, calves: 14, abs: 16
+        },
+        advanced: {
+            chest: 18, back: 20, quads: 16, hamstrings: 14, glutes: 12,
+            shoulders: 20, biceps: 18, triceps: 14, calves: 16, abs: 20
+        }
+    };
+
+    // MEV floors
+    var mev = {
+        chest: 10, back: 10, quads: 8, hamstrings: 6, glutes: 0,
+        shoulders: 8, biceps: 8, triceps: 6, calves: 8, abs: 0
+    };
+
+    // MRV ceilings
+    var mrv = {
+        chest: 22, back: 25, quads: 20, hamstrings: 20, glutes: 16,
+        shoulders: 26, biceps: 26, triceps: 18, calves: 20, abs: 25
+    };
+
+    // Goal modifier
+    var goalMod = { hypertrophy: 1.0, strength: 0.75, general: 0.7 };
+
+    // Age modifier
+    var ageMod = { '18-30': 1.0, '31-40': 0.95, '41-50': 0.88, '51-60': 0.80, '60+': 0.70 };
+
+    // Sleep modifier
+    var sleepMod = { good: 1.0, fair: 0.85, poor: 0.70 };
+
+    // Stress modifier
+    var stressMod = { low: 1.0, moderate: 0.92, high: 0.80 };
+
+    var totalMod = goalMod[goal] * ageMod[age] * sleepMod[sleep] * stressMod[stress];
+
+    var muscleNames = {
+        chest: 'Chest', back: 'Back', quads: 'Quads', hamstrings: 'Hamstrings',
+        glutes: 'Glutes', shoulders: 'Shoulders', biceps: 'Biceps',
+        triceps: 'Triceps', calves: 'Calves', abs: 'Abs'
+    };
+
+    var muscleOrder = ['chest', 'back', 'quads', 'hamstrings', 'glutes', 'shoulders', 'biceps', 'triceps', 'calves', 'abs'];
+
+    var results = {};
+    var totalSets = 0;
+
+    muscleOrder.forEach(function(m) {
+        var base = baseVolume[exp][m];
+        var adjusted = Math.round(base * totalMod);
+        var isPriority = priorities.indexOf(m) !== -1;
+        if (isPriority) {
+            adjusted = Math.round(adjusted * 1.2);
+        }
+        // Clamp between MEV and MRV
+        var floor = Math.max(mev[m], Math.round(mev[m] * (goal === 'general' ? 0.7 : 1)));
+        if (goal === 'general' && (m === 'glutes' || m === 'abs')) {
+            floor = 0;
+        }
+        adjusted = Math.max(floor, Math.min(mrv[m], adjusted));
+
+        // Per-session distribution
+        var freq = getFrequency(m, days);
+        var perSession = Math.min(10, Math.ceil(adjusted / freq));
+
+        results[m] = {
+            sets: adjusted,
+            mevVal: mev[m],
+            mrvVal: mrv[m],
+            perSession: perSession,
+            freq: freq,
+            priority: isPriority
+        };
+        totalSets += adjusted;
+    });
+
+    // Render results
+    renderResults(results, muscleNames, muscleOrder, totalSets, days, exp, goal, totalMod, age, sleep, stress);
+}
+
+function getFrequency(muscle, days) {
+    // How many times per week each muscle is hit based on training days
+    if (days <= 2) return days; // full body
+    if (days === 3) return 2; // most muscles hit 2x in PPL or full body
+    if (days === 4) return 2; // upper/lower 2x
+    if (days === 5) {
+        // PPL + UL: most muscles hit 2-3x
+        var highFreq = ['shoulders', 'biceps', 'triceps', 'abs'];
+        return highFreq.indexOf(muscle) !== -1 ? 3 : 2;
+    }
+    if (days === 6) {
+        // PPL x2: everything hit 2x
+        var canDoMore = ['shoulders', 'biceps', 'abs', 'calves'];
+        return canDoMore.indexOf(muscle) !== -1 ? 3 : 2;
+    }
+    return 2;
+}
+
+function renderResults(results, names, order, total, days, exp, goal, mod, age, sleep, stress) {
+    var resultsEl = document.getElementById('results');
+    resultsEl.style.display = 'block';
+
+    // Summary
+    var modPct = Math.round((1 - mod) * 100);
+    var summaryParts = [];
+    if (modPct > 0) {
+        var factors = [];
+        if (age !== '18-30') factors.push('age');
+        if (sleep !== 'good') factors.push('sleep');
+        if (stress !== 'low') factors.push('stress');
+        if (goal !== 'hypertrophy') factors.push('goal');
+        summaryParts.push('Volume adjusted <strong>' + modPct + '% lower</strong> than max hypertrophy baseline due to ' + factors.join(', ') + '.');
+    }
+    document.getElementById('results-summary').innerHTML =
+        '<strong>' + total + ' total hard sets per week</strong> across ' + days + ' training days. ' +
+        summaryParts.join(' ') +
+        ' Each set should be taken to RPE 7+ (1–3 reps in reserve).';
+
+    // Volume table
+    var tbody = document.getElementById('volume-tbody');
+    tbody.innerHTML = '';
+    var maxSets = 0;
+    order.forEach(function(m) { if (results[m].sets > maxSets) maxSets = results[m].sets; });
+
+    order.forEach(function(m) {
+        var r = results[m];
+        if (r.sets === 0) return;
+        var barWidth = Math.round((r.sets / maxSets) * 80);
+        var row = '<tr>' +
+            '<td class="td-bold">' + names[m] + '</td>' +
+            '<td><strong>' + r.sets + '</strong> <span class="vol-bar" style="width:' + barWidth + 'px;"></span></td>' +
+            '<td>' + r.mevVal + '–' + r.mrvVal + '</td>' +
+            '<td>' + r.perSession + ' sets × ' + r.freq + 'x</td>' +
+            '<td>' + (r.priority ? '<span class="priority-badge boosted">Prioritized</span>' : '<span class="priority-badge normal">Standard</span>') + '</td>' +
+            '</tr>';
+        tbody.innerHTML += row;
+    });
+
+    document.getElementById('total-row').textContent = 'Total: ' + total + ' sets/week';
+
+    // Split recommendation
+    renderSplit(results, names, days, exp);
+
+    // Recovery notes
+    renderRecoveryNotes(age, sleep, stress, exp);
+
+    // Scroll to results
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderSplit(results, names, days, exp) {
+    var container = document.getElementById('split-container');
+    var splits = getSplitTemplate(days, exp);
+    var html = '';
+
+    splits.forEach(function(day, i) {
+        html += '<div class="split-day">';
+        html += '<h5>' + day.name + '</h5>';
+        html += '<ul>';
+        day.muscles.forEach(function(m) {
+            if (results[m] && results[m].sets > 0) {
+                html += '<li>' + names[m] + ': <strong>' + results[m].perSession + ' sets</strong></li>';
+            }
+        });
+        html += '</ul>';
+        html += '</div>';
+    });
+
+    container.innerHTML = html;
+}
+
+function getSplitTemplate(days, exp) {
+    if (days === 2) {
+        return [
+            { name: 'Day 1 — Full Body A', muscles: ['chest', 'back', 'quads', 'shoulders', 'biceps', 'abs'] },
+            { name: 'Day 2 — Full Body B', muscles: ['chest', 'back', 'hamstrings', 'glutes', 'triceps', 'calves'] }
+        ];
+    }
+    if (days === 3) {
+        if (exp === 'beginner') {
+            return [
+                { name: 'Day 1 — Full Body A', muscles: ['chest', 'back', 'quads', 'shoulders', 'abs'] },
+                { name: 'Day 2 — Full Body B', muscles: ['chest', 'back', 'hamstrings', 'glutes', 'biceps', 'calves'] },
+                { name: 'Day 3 — Full Body C', muscles: ['shoulders', 'back', 'quads', 'triceps', 'abs'] }
+            ];
+        }
+        return [
+            { name: 'Day 1 — Push', muscles: ['chest', 'shoulders', 'triceps'] },
+            { name: 'Day 2 — Pull', muscles: ['back', 'biceps', 'abs'] },
+            { name: 'Day 3 — Legs', muscles: ['quads', 'hamstrings', 'glutes', 'calves'] }
+        ];
+    }
+    if (days === 4) {
+        return [
+            { name: 'Day 1 — Upper A', muscles: ['chest', 'back', 'shoulders', 'biceps'] },
+            { name: 'Day 2 — Lower A', muscles: ['quads', 'hamstrings', 'glutes', 'calves', 'abs'] },
+            { name: 'Day 3 — Upper B', muscles: ['chest', 'back', 'shoulders', 'triceps'] },
+            { name: 'Day 4 — Lower B', muscles: ['quads', 'hamstrings', 'glutes', 'calves', 'abs'] }
+        ];
+    }
+    if (days === 5) {
+        return [
+            { name: 'Day 1 — Push', muscles: ['chest', 'shoulders', 'triceps'] },
+            { name: 'Day 2 — Pull', muscles: ['back', 'biceps', 'abs'] },
+            { name: 'Day 3 — Legs', muscles: ['quads', 'hamstrings', 'glutes', 'calves'] },
+            { name: 'Day 4 — Upper', muscles: ['chest', 'back', 'shoulders', 'biceps', 'triceps'] },
+            { name: 'Day 5 — Lower', muscles: ['quads', 'hamstrings', 'glutes', 'calves', 'abs'] }
+        ];
+    }
+    if (days === 6) {
+        return [
+            { name: 'Day 1 — Push A', muscles: ['chest', 'shoulders', 'triceps'] },
+            { name: 'Day 2 — Pull A', muscles: ['back', 'biceps', 'abs'] },
+            { name: 'Day 3 — Legs A', muscles: ['quads', 'hamstrings', 'glutes', 'calves'] },
+            { name: 'Day 4 — Push B', muscles: ['chest', 'shoulders', 'triceps'] },
+            { name: 'Day 5 — Pull B', muscles: ['back', 'biceps', 'abs'] },
+            { name: 'Day 6 — Legs B', muscles: ['quads', 'hamstrings', 'glutes', 'calves'] }
+        ];
+    }
+    return [];
+}
+
+function renderRecoveryNotes(age, sleep, stress, exp) {
+    var notes = [];
+
+    if (age === '51-60' || age === '60+') {
+        notes.push('<strong>Age-adjusted recovery:</strong> Allow at least 48–72 hours between sessions targeting the same muscle group. Consider adding an extra rest day each week compared to younger lifters.');
+    } else if (age === '41-50') {
+        notes.push('<strong>Age note:</strong> Recovery capacity begins declining meaningfully in your 40s. Prioritize sleep and nutrition to maintain training volume — these become more important, not less.');
+    }
+
+    if (sleep === 'poor') {
+        notes.push('<strong>Sleep warning:</strong> Under 5 hours of sleep reduces muscle protein synthesis by ~18% (Lamon et al., 2021). Your volume has been reduced accordingly, but fixing sleep will do more for your results than any training program change.');
+    } else if (sleep === 'fair') {
+        notes.push('<strong>Sleep note:</strong> 5–6 hours is below the 7–9 hour range where recovery is optimal. Volume has been reduced by 15%. Improving sleep quality is the single highest-ROI change you can make.');
+    }
+
+    if (stress === 'high') {
+        notes.push('<strong>Stress note:</strong> High life stress elevates cortisol chronically, which directly impairs muscle recovery. Volume has been reduced by 20%. During high-stress periods, maintain intensity (how hard each set is) but reduce total volume.');
+    }
+
+    if (exp === 'beginner') {
+        notes.push('<strong>Beginner tip:</strong> Start at the lower end of your recommended ranges. Add 1–2 sets per muscle group every 2–3 weeks if you\'re recovering well (not excessively sore, performance is improving). This progressive overload in volume is how you find your personal sweet spot.');
+    }
+
+    if (notes.length === 0) {
+        notes.push('<strong>Recovery looks good.</strong> Your age, sleep, and stress levels support full training capacity. Focus on progressive overload — gradually increasing weight or reps before adding volume.');
+    }
+
+    document.getElementById('recovery-notes').innerHTML = '<h4 style="margin-top:0;">Recovery Notes</h4>' + notes.map(function(n) { return '<p>' + n + '</p>'; }).join('');
+}
+</script>
+
+{% include 'footer.html' %}
+</body>
+</html>

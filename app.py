@@ -141,19 +141,23 @@ cross_links = {
         "guides": []
     },
     "/one-rep-max-calculator": {
-        "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/creatine-dosage-calculator", "/caloric-intake-macronutrient-calculator"],
+        "calculators": ["/tdee-calculator", "/protein-intake-calculator", "/creatine-dosage-calculator", "/training-volume-calculator"],
         "guides": []
+    },
+    "/training-volume-calculator": {
+        "calculators": ["/one-rep-max-calculator", "/protein-intake-calculator", "/tdee-calculator", "/caloric-intake-macronutrient-calculator"],
+        "guides": ["/resources/body-fat-percentage-chart"]
     },
     "/vo2-max-calculator": {
         "calculators": ["/tdee-calculator", "/bmi-calculator", "/calories-burned-calculator"],
         "guides": []
     },
     "/bulking-calorie-calculator": {
-        "calculators": ["/protein-intake-calculator", "/one-rep-max-calculator", "/tdee-calculator", "/creatine-dosage-calculator"],
+        "calculators": ["/protein-intake-calculator", "/one-rep-max-calculator", "/tdee-calculator", "/training-volume-calculator"],
         "guides": []
     },
     "/ffmi-calculator": {
-        "calculators": ["/body-fat-calculator", "/one-rep-max-calculator", "/bmi-calculator", "/protein-intake-calculator"],
+        "calculators": ["/body-fat-calculator", "/one-rep-max-calculator", "/training-volume-calculator", "/protein-intake-calculator"],
         "guides": ["/resources/body-fat-percentage-chart"]
     },
     "/electrolyte-calculator": {
@@ -552,6 +556,16 @@ cards = [
         "icon": "🏋️",
         "cta": "Calculate 1RM",
         "color": "red",
+        "category": "fitness",
+        "popular": True
+    },
+    {
+        "title": "Training Volume Calculator",
+        "url": "/training-volume-calculator",
+        "summary": "Get personalized weekly set recommendations per muscle group based on your experience, goals, age, sleep, and recovery. With suggested workout splits.",
+        "icon": "📊",
+        "cta": "Get My Volume",
+        "color": "teal",
         "category": "fitness",
         "popular": True
     },
@@ -4738,6 +4752,24 @@ def one_rep_max_calculator():
         schema_type='WebPage',
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
         date_modified='2026-03-11'
+    )
+
+
+@app.route('/training-volume-calculator')
+def training_volume_calculator():
+    schema_name = "Training Volume Calculator"
+    schema_description = "Calculate your optimal weekly training volume per muscle group based on experience level, goals, training frequency, age, sleep quality, and recovery capacity. Backed by Schoenfeld and Israetel research."
+    schema_url = "/training-volume-calculator"
+    return render_template(
+        'training_volume_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-12'
     )
 
 
