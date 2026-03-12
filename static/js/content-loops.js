@@ -373,8 +373,17 @@ var CALCULATOR_GRAPH = {
   'zone2-heart-rate': {
     links: [
       { url: '/vo2-max-calculator', title: 'VO₂ Max Calculator', icon: '🫁', reason: 'Zone 2 training is the primary driver of VO₂ max — estimate your current level', params: ['age','gender'] },
-      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🏃', reason: 'See exactly how many calories your Zone 2 sessions burn per hour', params: ['weight_kg'] },
+      { url: '/running-calorie-calculator', title: 'Running Calorie Calculator', icon: '🏃', reason: 'See exactly how many calories your Zone 2 runs burn by distance and pace', params: ['weight_kg'] },
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Pair your Zone 2 training with accurate calorie targets for best results', params: ['weight_kg','height_cm','age','gender'] },
+    ]
+  },
+  'running-calories': {
+    links: [
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Running is only part of your total burn — know your full daily calorie target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/zone2-heart-rate-calculator', title: 'Zone 2 Heart Rate', icon: '❤️', reason: 'Running in Zone 2 maximizes fat oxidation — find your ideal training pace', params: ['age','gender'] },
+      { url: '/protein-intake-calculator', title: 'Protein Calculator', icon: '🥩', reason: 'Running breaks down muscle — eat enough protein to rebuild stronger', params: ['weight_kg','age','gender'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🔥', reason: 'Compare running to cycling, swimming, and 30+ other activities', params: ['weight_kg'] },
+      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Runners lose 1–2 liters of sweat per hour — are you hydrating enough?', params: ['weight_kg'] },
     ]
   }
 };

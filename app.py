@@ -1058,6 +1058,16 @@ cards = [
         "color": "red",
         "category": "fitness",
         "popular": False
+    },
+    {
+        "title": "Running Calorie Calculator",
+        "url": "/running-calorie-calculator",
+        "summary": "Calculate calories burned running by distance, pace, and terrain. Covers 5K through marathon with MET-based formula from the Compendium of Physical Activities.",
+        "icon": "🏃",
+        "cta": "Calculate Running Calories",
+        "color": "orange",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -2593,7 +2603,7 @@ def redirect_bmr_calculator():
 
 @app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
 def redirect_ozempic_article():
-    return Response('This page has been removed.', status=410)
+    return redirect('/resources/ozempic-weight-loss-calculator-guide', code=301)
 
 @app.route('/resources/creatine-hydration-guide')
 def redirect_creatine_article():
@@ -4955,6 +4965,37 @@ def zone2_training_guide():
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-11'
+    )
+
+@app.route('/running-calorie-calculator')
+def running_calorie_calculator():
+    schema_name = "Running Calorie Calculator"
+    schema_description = "Calculate calories burned running by distance, time, and pace. Uses MET values from the Ainsworth et al. Compendium of Physical Activities. Supports 5K, 10K, half marathon, marathon, and custom distances with terrain adjustments."
+    schema_url = "/running-calorie-calculator"
+    return render_template(
+        'running_calorie_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-12'
+    )
+
+
+@app.route('/resources/running-calorie-guide')
+def running_calorie_guide():
+    return render_template(
+        'resources/running_calorie_guide.html',
+        is_homepage=False,
+        schema_name="Running Calorie Burn Guide: How Many Calories Does Running Burn?",
+        schema_description="A comprehensive, science-backed guide to how many calories running burns — covering body weight, pace, terrain, race distances, and how to use your burn rate for weight loss.",
+        schema_url="/resources/running-calorie-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-12'
     )
 
 

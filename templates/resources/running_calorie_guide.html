@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="How many calories does running burn? A complete, science-backed guide covering calories per mile, pace effects, race distances, weight loss math, and MET values for every running speed.",
+    meta_keywords="how many calories does running burn, calories burned running per mile, running calorie burn, running weight loss, running MET values, calories burned 5K, calories burned marathon",
+    og_title="How Many Calories Does Running Burn? The Complete Guide",
+    og_description="Everything you need to know about running calorie burn: calories per mile by weight, how pace affects burn rate, race calorie estimates, and the science behind MET values.",
+    og_url="/resources/running-calorie-guide",
+    page_title="How Many Calories Does Running Burn? Complete Science-Backed Guide",
+    canonical_url="/resources/running-calorie-guide",
+    schema_name="Running Calorie Burn Guide",
+    schema_description="A comprehensive, evidence-based guide to how many calories running burns — covering body weight, pace, terrain, race distances, and how to apply running calorie data to weight loss goals.",
+    schema_url="/resources/running-calorie-guide"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>How Many Calories Does Running Burn?</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">The complete science-backed guide to running calorie expenditure — how body weight, pace, terrain, and distance determine your actual burn rate.</p>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#short-answer">Short Answer</a></li>
+            <li><a href="#how-calculated">How Running Calories Are Calculated</a></li>
+            <li><a href="#weight-factor">Why Body Weight Is the #1 Factor</a></li>
+            <li><a href="#pace-vs-distance">Pace vs Distance: Which Matters More?</a></li>
+            <li><a href="#terrain">How Terrain Changes Calorie Burn</a></li>
+            <li><a href="#race-distances">Calories for Common Race Distances</a></li>
+            <li><a href="#weight-loss">Running for Weight Loss: The Math</a></li>
+            <li><a href="#after-burn">The Afterburn Effect (EPOC)</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="short-answer" class="info">
+        <h2>Short Answer: How Many Calories Does Running Burn?</h2>
+        <div class="answer-capsule">
+          Running burns approximately 80–140 calories per mile depending on body weight, or 400–700 calories per hour depending on pace. A 155-pound (70 kg) person burns roughly 100 calories per mile at a 10-minute/mile pace, totaling about 600 calories per hour. Heavier runners burn proportionally more; lighter runners burn less. Use the <a href="/running-calorie-calculator">Running Calorie Calculator</a> for a personalized estimate.
+        </div>
+
+        <p>The variation in these numbers is real — a 120-pound runner burns about 80 calories per mile while a 220-pound runner burns about 140 calories per mile at the same pace. This difference is entirely explained by physics: moving a heavier body through space requires more work per unit distance.</p>
+    </section>
+
+    <section id="how-calculated" class="info">
+        <h2>How Running Calories Are Calculated: MET Values Explained</h2>
+
+        <p>Exercise scientists use a standardized unit called the <strong>MET (Metabolic Equivalent of Task)</strong> to measure exercise intensity. One MET equals the energy your body uses at rest — roughly 1 kcal per kg of body weight per hour, or 3.5 mL of oxygen per kg per minute.</p>
+
+        <p>The formula for calculating calories burned is: <strong>Calories = MET × Weight (kg) × Duration (hours)</strong></p>
+
+        <p>For running, MET values are taken from the <em>Compendium of Physical Activities</em>, published by Barbara Ainsworth and colleagues and updated through 2011. This compendium is the gold-standard reference used in public health research, clinical exercise physiology, and epidemiology worldwide.</p>
+
+        <div class="table-responsive" style="overflow-x: auto; margin: 20px 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Running Pace</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Speed (mph)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">MET Value</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Intensity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">13:00 min/mile</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">4.6 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">7.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Vigorous</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12:00 min/mile</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">8.3</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Vigorous</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10:00 min/mile</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">9.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Vigorous</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8:00 min/mile</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7.5 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">11.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Very Vigorous</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6:00 min/mile</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">14.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Near Max</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5:00 min/mile</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">17.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Elite</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary);">Source: Ainsworth et al. 2011 Compendium of Physical Activities.</p>
+
+        <p>At MET 9.8 (10-minute mile pace), a 70 kg person burns: 9.8 × 70 × 1 = 686 kcal/hour. That's about 114 kcal per mile.</p>
+    </section>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="weight-factor" class="info">
+        <h2>Why Body Weight Is the #1 Factor in Running Calorie Burn</h2>
+
+        <div class="answer-capsule">
+          Body weight is the single most important factor in running calorie expenditure. A heavier runner burns proportionally more calories at every pace because they are moving more mass through space with each stride. A 220-pound runner burns approximately 83% more calories per mile than a 120-pound runner at the same pace.
+        </div>
+
+        <p>This relationship is linear: calorie burn scales directly with body weight (assuming the same MET/pace). If Runner A weighs twice as much as Runner B, Runner A burns twice as many calories per mile at the same pace. This has several important implications:</p>
+
+        <ul style="padding-left: 20px; line-height: 1.8;">
+            <li><strong>Weight loss creates a paradox:</strong> As you lose weight from running, your calorie burn per run decreases. A runner who goes from 200 lbs to 160 lbs will burn about 20% fewer calories running the same distance at the same pace. To maintain the same calorie burn, they need to run faster or farther.</li>
+            <li><strong>Heavier beginners get more benefit per run:</strong> A 250-lb beginner who walks/jogs a mile burns approximately 175 calories. A 130-lb experienced runner covering the same mile burns only about 90 calories. Running is often most calorically efficient early in a weight-loss journey.</li>
+            <li><strong>The "calories per mile" rule:</strong> A useful shorthand is that running burns approximately 0.63 × body weight (lbs) in net calories per mile, or 0.72 × body weight in gross calories per mile. This formula works reasonably well across paces from 9 to 12 minutes per mile.</li>
+        </ul>
+    </section>
+
+    <section id="pace-vs-distance" class="info">
+        <h2>Pace vs. Distance: Which Matters More for Calorie Burn?</h2>
+
+        <p>One of the most counterintuitive findings in exercise physiology is that <strong>running pace has surprisingly little effect on calories burned per mile</strong>. The dominant factor is distance, not speed.</p>
+
+        <p>Here is why: running calorie burn per mile is primarily determined by the mechanical work of moving your body mass horizontally against gravity and air resistance. Whether you run a mile in 6 minutes or 12 minutes, you are moving the same body mass across the same distance — the same work, in thermodynamic terms. The main difference is how quickly you complete that work.</p>
+
+        <p>The data confirms this. For a 155-lb runner:</p>
+        <ul style="padding-left: 20px; line-height: 1.8;">
+            <li>At 12:00/mile (8.3 MET): ~116 kcal/mile</li>
+            <li>At 10:00/mile (9.8 MET): ~114 kcal/mile</li>
+            <li>At 8:00/mile (11.8 MET): ~110 kcal/mile</li>
+            <li>At 6:00/mile (14.5 MET): ~102 kcal/mile</li>
+        </ul>
+
+        <p>A slower pace actually burns <em>slightly more</em> calories per mile because of mechanical inefficiency — slower running involves more vertical oscillation relative to horizontal movement. Faster runners also tend to be more mechanically efficient, their stride patterns wasting less energy.</p>
+
+        <div class="important-box">
+            <h3>Practical Implication</h3>
+            <p>To maximize total calorie burn from running, <strong>focus on increasing distance, not pace</strong>. Running 5 miles at 10:00/mile burns almost the same calories as running 5 miles at 8:00/mile — but the slower version is more sustainable for most runners, with lower injury risk, and can be done more frequently.</p>
+            <p style="margin-bottom: 0;">Pace matters more for time efficiency: running faster lets you burn the same calories in less time. But it's not the superior strategy for maximizing weekly calorie burn from running.</p>
+        </div>
+    </section>
+
+    <section id="terrain" class="info">
+        <h2>How Terrain Affects Running Calorie Burn</h2>
+
+        <p>Running terrain significantly affects calorie expenditure. The American College of Sports Medicine (ACSM) metabolic equations quantify the additional oxygen cost of uphill running, which increases approximately proportionally to grade and speed.</p>
+
+        <div class="table-responsive" style="overflow-x: auto; margin: 20px 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Terrain Type</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Grade</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Calorie Increase</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Flat road/track/treadmill</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">0%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Baseline</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Road race</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Slight incline</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">~2%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">+8%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Treadmill at 1° incline</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Moderate hills</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">~5%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">+18%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Rolling suburban roads</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Hilly terrain</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">~8%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">+30%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Mountain trail, hilly park</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Trail (uneven surface)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Variable</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">+12%</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Dirt trail, soft ground</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <p>Note that downhill running reduces calorie burn but is not zero-cost: the muscles work eccentrically to control descent, and the metabolic cost is approximately 1/3 the caloric benefit of climbing the same grade. A complete out-and-back hilly run averages somewhat higher than flat-road running overall.</p>
+
+        <p>Trail running's +12% estimate accounts for the additional neuromuscular work of stabilizing on uneven surfaces, the energy cost of varying stride patterns, and softer surfaces that return less elastic energy than asphalt or concrete.</p>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="race-distances" class="info">
+        <h2>Calories Burned in Common Race Distances</h2>
+
+        <div class="answer-capsule">
+          A 5K burns approximately 240–450 calories, a 10K burns 480–900 calories, a half marathon burns 1,000–1,900 calories, and a full marathon burns 2,000–3,800 calories — depending on body weight. These estimates assume a moderate 10-minute/mile pace on flat terrain. Use the <a href="/running-calorie-calculator">Running Calorie Calculator</a> for estimates based on your exact weight, pace, and terrain.
+        </div>
+
+        <h3>5K Calorie Burn (3.1 miles)</h3>
+        <p>The 5K is the most popular race distance in the United States. At a 10:00/mile pace on flat terrain, a 155-lb runner burns approximately 303 kcal. At a faster 8:00/mile pace, the same runner burns about 290 kcal — only 4% less per mile. Elite runners completing a 5K in under 16 minutes burn approximately the same total calories as recreational runners finishing in 35 minutes, because distance is the primary driver.</p>
+
+        <h3>10K Calorie Burn (6.2 miles)</h3>
+        <p>A 10K at 10:00/mile pace burns approximately 600 kcal for a 155-lb runner. This represents roughly one-third of an average person's daily calorie needs. For runners targeting weight loss through running, the 10K distance provides an excellent training-to-calorie-burn ratio without the recovery demands of longer distances.</p>
+
+        <h3>Half Marathon Calorie Burn (13.1 miles)</h3>
+        <p>A half marathon burns approximately 1,000–1,600 calories for most runners (weight-dependent). This is enough to justify a significant post-race meal — and is one reason many half marathon runners report weight gain around their race if they "eat back" their calories too liberally. A 155-lb runner burning 1,282 kcal in a half marathon does not have license to eat an extra 1,282 kcal that day, since their daily maintenance calories already account for baseline activity.</p>
+
+        <h3>Marathon Calorie Burn (26.2 miles)</h3>
+        <p>A marathon is the calorie-burning pinnacle of road racing. A 155-lb runner burns approximately 2,562 kcal completing a marathon — slightly more than their entire daily calorie requirement. Elite marathoners finishing in under 2.5 hours burn similar totals due to high MET values at race pace (approximately 14.5 MET at 6:00/mile). This explains the well-documented phenomenon of marathon "bonking" or hitting the wall: glycogen stores are depleted at approximately 18–20 miles (roughly 1,500–1,800 kcal in), requiring fat oxidation which proceeds more slowly.</p>
+    </section>
+
+    <section id="weight-loss" class="info">
+        <h2>Running for Weight Loss: The Calorie Math</h2>
+
+        <p>One pound of body fat contains approximately 3,500 kcal of stored energy. To lose one pound per week through running alone, you would need to burn approximately 500 kcal per day above your current activity level.</p>
+
+        <p>For a 155-lb runner burning 600 kcal per hour at a 10:00/mile pace, this translates to approximately 50 minutes of running per day — or about 35 miles per week. That is a significant training volume, well above what many beginning runners can safely handle.</p>
+
+        <div class="important-box">
+            <h3>Why Running Alone Is Often Less Effective for Weight Loss Than Expected</h3>
+            <ul>
+                <li><strong>Compensation eating:</strong> Running increases appetite. Research by Blundell et al. (2015) found that running increases calorie intake by 30–50% of the calories burned — meaning a 600-kcal run may result in only 300–400 kcal net deficit after compensatory eating.</li>
+                <li><strong>Non-exercise activity suppression:</strong> High-volume runners often unconsciously reduce other physical activity (fidgeting, walking, standing) to compensate. This "activity compensation" can eliminate 20–40% of the calorie benefit.</li>
+                <li><strong>Metabolic adaptation:</strong> After 4–8 weeks of consistent running, the body becomes more metabolically efficient. The same run burns fewer calories over time as running economy improves.</li>
+                <li><strong>The effective strategy:</strong> Combining running with dietary management (a moderate calorie deficit) is far more effective for weight loss than running alone. A 250 kcal/day dietary deficit paired with 250 kcal/day of running creates the same 500 kcal daily deficit with less hunger and less injury risk.</li>
+            </ul>
+        </div>
+
+        <p>To calculate your specific weight-loss running requirements, use the <a href="/running-calorie-calculator">Running Calorie Calculator</a> for your per-run calorie burn, then pair with the <a href="/tdee-calculator">TDEE Calculator</a> to understand your baseline needs.</p>
+    </section>
+
+    <section id="after-burn" class="info">
+        <h2>The Afterburn Effect: EPOC and Running</h2>
+
+        <p>Running does not stop burning calories when you stop running. The body continues to consume elevated oxygen (and therefore burn calories) for 1–24 hours after exercise in a phenomenon called <strong>EPOC (Excess Post-Exercise Oxygen Consumption)</strong>, commonly called the "afterburn effect."</p>
+
+        <p>EPOC from running scales with intensity:</p>
+        <ul style="padding-left: 20px; line-height: 1.8;">
+            <li><strong>Easy jogging (Zone 1-2):</strong> EPOC adds approximately 6–7% to total calorie expenditure, lasting 30–60 minutes post-run</li>
+            <li><strong>Moderate steady-state (Zone 3):</strong> EPOC adds approximately 10–12%, lasting 1–3 hours</li>
+            <li><strong>High-intensity intervals (Zone 4-5):</strong> EPOC adds approximately 13–15%, lasting up to 24 hours</li>
+            <li><strong>Long runs (marathon distance):</strong> EPOC can last 12–24 hours as the body replenishes glycogen stores and repairs muscle tissue</li>
+        </ul>
+
+        <p>For a typical 45-minute moderate run burning 450 kcal, EPOC contributes approximately 40–55 additional calories — meaningful but not transformative. The primary calorie-burning benefit of running comes from the run itself.</p>
+
+        <p>High-intensity interval running (HIIT) generates substantially more EPOC, which is one reason interval training is often recommended for weight loss. However, HIIT carries higher injury risk and requires more recovery time — meaning most runners can perform fewer high-intensity sessions per week than steady-state sessions, potentially negating the EPOC advantage in total weekly calorie burn.</p>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How many calories does running a mile burn?</h3>
+            <div class="faq-answer">
+                <p>Running burns approximately 80–140 calories per mile depending on body weight. Use the rule of thumb: multiply your weight in pounds by 0.72 for a gross calorie estimate per mile, or by 0.63 for a net estimate (above resting). A 150-lb runner burns roughly 108 gross calories per mile; a 200-lb runner burns roughly 144 calories per mile.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many calories does running burn per hour?</h3>
+            <div class="faq-answer">
+                <p>Running burns approximately 400–800 calories per hour for most people, depending on weight and pace. A 155-lb runner burns about 590 kcal/hr at 10:00/mile pace, 820 kcal/hr at 8:00/mile pace, and 1,000+ kcal/hr at 6:00/mile pace. Heavier runners burn more per hour at every pace.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does running on a treadmill burn the same calories as running outside?</h3>
+            <div class="faq-answer">
+                <p>At the same speed, treadmill running burns slightly fewer calories than outdoor running because there is no wind resistance and the belt assists leg turnover. To approximate outdoor running effort, most exercise physiologists recommend setting treadmill incline to 1–2%, which adds approximately 3–8% to calorie burn and closely mimics outdoor flat-road effort. Trail running outdoors burns significantly more (up to 12% extra) than treadmill running at the same pace.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many calories does running burn compared to walking?</h3>
+            <div class="faq-answer">
+                <p>Running burns approximately 2–3× more calories per minute than walking, but only about 25–35% more calories per mile. For a 155-lb person, walking a mile burns about 80–90 kcal while running the same mile burns 98–115 kcal. The per-minute advantage of running is much larger than the per-mile advantage. If time is limited, running is far more efficient. If time allows, walking 4 miles burns nearly the same calories as running 3 miles.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does running burn more calories than cycling or swimming?</h3>
+            <div class="faq-answer">
+                <p>Running burns more calories per hour than cycling or swimming at moderate intensities. Running at 6 mph (MET ~9.8) burns more than cycling at 12 mph (MET ~8.0) or recreational swimming (MET ~6.0). However, high-intensity cycling (competitive, 20+ mph) can match or exceed running's calorie burn. The advantage of running is its accessibility — no equipment required — and the higher calorie burn at equivalent perceived effort levels.</p>
+            </div>
+        </div>
+    </section>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many calories does running a mile burn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Running burns approximately 80–140 calories per mile depending on body weight. Multiply your weight in pounds by 0.72 for a gross calorie estimate per mile. A 150-lb runner burns roughly 108 calories per mile; a 200-lb runner burns roughly 144 calories per mile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many calories does running burn per hour?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Running burns approximately 400–800 calories per hour depending on weight and pace. A 155-lb runner burns about 590 kcal/hr at a 10-minute/mile pace and about 820 kcal/hr at an 8-minute/mile pace."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does running on a treadmill burn the same calories as outdoors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Treadmill running burns slightly fewer calories than outdoor running at the same speed due to absence of wind resistance. Setting the treadmill to 1–2% incline closely mimics flat outdoor running energy expenditure."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <div class="related-tools" style="margin-top: 40px;">
+        <h3>Related Tools</h3>
+        <div class="related-tools-grid">
+            <a href="/running-calorie-calculator" class="related-tool-card">
+                <h4>Running Calorie Calculator</h4>
+                <p>Get your personalized running calorie estimate by weight, distance, pace, and terrain.</p>
+            </a>
+            <a href="/calories-burned-calculator" class="related-tool-card">
+                <h4>Calories Burned Calculator</h4>
+                <p>Compare running against 30+ other activities — cycling, swimming, strength training, and more.</p>
+            </a>
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>Know your total daily calorie burn — the baseline your running calories must be measured against.</p>
+            </a>
+            <a href="/zone2-heart-rate-calculator" class="related-tool-card">
+                <h4>Zone 2 Heart Rate Calculator</h4>
+                <p>Run in Zone 2 to maximize fat oxidation — find your ideal training heart rate range.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "Ainsworth BE, Haskell WL, Herrmann SD, et al. 2011 Compendium of Physical Activities: a second update of codes and MET values. Med Sci Sports Exerc. 2011;43(8):1575-1581.", "url": "https://pubmed.ncbi.nlm.nih.gov/21681120/"},
+        {"text": "Margaria R, Cerretelli P, Aghemo P, Sassi G. Energy cost of running. J Appl Physiol. 1963;18(2):367-370.", "url": "https://pubmed.ncbi.nlm.nih.gov/13932253/"},
+        {"text": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription, 11th ed. Wolters Kluwer; 2022.", "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"},
+        {"text": "Blundell JE, Gibbons C, Caudwell P, Finlayson G, Hopkins M. Appetite control and energy balance: impact of exercise. Obes Rev. 2015;16 Suppl 1:67-76.", "url": "https://pubmed.ncbi.nlm.nih.gov/25614205/"},
+        {"text": "Bahr R. Excess postexercise oxygen consumption—magnitude, mechanisms and practical implications. Acta Physiol Scand. 1992;605(Suppl):1-70.", "url": "https://pubmed.ncbi.nlm.nih.gov/1605265/"},
+        {"text": "Jetté M, Sidney K, Blümchen G. Metabolic equivalents (METS) in exercise testing, exercise prescription, and evaluation of functional capacity. Clin Cardiol. 1990;13(8):555-565.", "url": "https://pubmed.ncbi.nlm.nih.gov/2204507/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+{% include 'components/related-links.html' %}
+{% include 'footer.html' %}
+
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

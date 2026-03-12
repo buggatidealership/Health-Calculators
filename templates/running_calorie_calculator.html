@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Calculate calories burned running by distance, time, and pace. Accurate MET-based formula from the Compendium of Physical Activities. Supports 5K, 10K, half marathon, and marathon distances.",
+    meta_keywords="running calorie calculator, calories burned running, how many calories does running burn, running calorie burn calculator, calories burned per mile running",
+    og_title="Running Calorie Calculator — Calories Burned Running by Distance & Pace",
+    og_description="Enter your weight, distance, and pace to instantly calculate calories burned running. Supports flat, hilly, and trail terrain. Based on validated MET values.",
+    og_url="/running-calorie-calculator",
+    page_title="Running Calorie Calculator — How Many Calories Does Running Burn?",
+    canonical_url="/running-calorie-calculator",
+    schema_name="Running Calorie Calculator",
+    schema_description="Calculate calories burned running using MET values from the Ainsworth et al. Compendium of Physical Activities. Accounts for weight, distance, pace, and terrain.",
+    schema_url="/running-calorie-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Running Calorie Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Find out exactly how many calories you burn running — by distance, pace, and terrain. Covers 5K through marathon and every training run in between.</p>
+
+    <section id="calculator">
+        <h2>Calculate Calories Burned Running</h2>
+        <div class="calculator">
+
+            <!-- Mode selector -->
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label>Calculation Method:</label>
+                    <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px;">
+                        <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                            <input type="radio" name="calc-mode" value="distance-time" checked>
+                            Distance + Time
+                        </label>
+                        <label style="font-weight: normal; cursor: pointer; display: flex; align-items: center; gap: 6px;">
+                            <input type="radio" name="calc-mode" value="distance-pace">
+                            Distance + Pace
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Weight -->
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight">Body Weight:</label>
+                    <input type="number" id="weight" min="50" max="700" step="1" value="155" placeholder="e.g. 155">
+                </div>
+                <div class="form-group">
+                    <label for="weight-unit">Unit:</label>
+                    <select id="weight-unit">
+                        <option value="lbs" selected>lbs</option>
+                        <option value="kg">kg</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Distance -->
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="distance">Distance:</label>
+                    <input type="number" id="distance" min="0.1" max="200" step="0.1" value="3.1" placeholder="e.g. 3.1">
+                </div>
+                <div class="form-group">
+                    <label for="distance-unit">Unit:</label>
+                    <select id="distance-unit">
+                        <option value="miles" selected>miles</option>
+                        <option value="km">km</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Time row (distance-time mode) -->
+            <div class="calculator-row" id="row-time">
+                <div class="form-group">
+                    <label for="time-minutes">Total Run Time (minutes):</label>
+                    <input type="number" id="time-minutes" min="1" max="1440" step="1" value="31" placeholder="e.g. 31">
+                    <span class="input-hint">Enter total run duration in minutes</span>
+                </div>
+            </div>
+
+            <!-- Pace row (distance-pace mode) -->
+            <div class="calculator-row hidden" id="row-pace">
+                <div class="form-group">
+                    <label for="pace-min">Pace (min:</label>
+                    <input type="number" id="pace-min" min="3" max="30" step="1" value="10" placeholder="10">
+                </div>
+                <div class="form-group">
+                    <label for="pace-sec">:sec per mile/km):</label>
+                    <input type="number" id="pace-sec" min="0" max="59" step="1" value="0" placeholder="00">
+                    <span class="input-hint">e.g. 10:00 min/mile = 10 min, 0 sec</span>
+                </div>
+            </div>
+
+            <!-- Terrain -->
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="terrain">Terrain:</label>
+                    <select id="terrain">
+                        <option value="flat" selected>Flat (road, track, treadmill)</option>
+                        <option value="slight">Slight Hills (~2% grade)</option>
+                        <option value="moderate">Moderate Hills (~5% grade)</option>
+                        <option value="hilly">Hilly (~8% grade)</option>
+                        <option value="trail">Trail (uneven surface)</option>
+                    </select>
+                    <span class="input-hint">Hills and trails increase calorie burn by 8–30%</span>
+                </div>
+            </div>
+
+            <!-- Quick presets -->
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label>Quick Presets:</label>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+                        <button type="button" class="preset-btn" data-preset="5k">5K</button>
+                        <button type="button" class="preset-btn" data-preset="10k">10K</button>
+                        <button type="button" class="preset-btn" data-preset="half">Half Marathon</button>
+                        <button type="button" class="preset-btn" data-preset="marathon">Full Marathon</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error -->
+            <div id="calc-error" class="error-message hidden" style="color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; border-radius: 6px; padding: 10px 14px; margin: 8px 0; font-size: 0.9rem;"></div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Calories Burned</button>
+            </div>
+
+            <!-- Results -->
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="result-calories">--</div>
+                    <div class="result-hero-label">Calories Burned (Gross)</div>
+                </div>
+
+                <!-- Burn bar -->
+                <div style="margin: 16px 0;">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--color-text-secondary);">Calorie Burn Gauge</div>
+                    <div style="background: #e5e7eb; border-radius: 20px; height: 14px; overflow: hidden; position: relative;">
+                        <div id="burn-bar-fill" style="height: 100%; width: 0%; background: linear-gradient(to right, #f97316, #ef4444); border-radius: 20px; transition: width 0.6s ease;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.75rem; color: #9ca3af; margin-top: 3px;">
+                        <span>0</span><span>200</span><span>400</span><span>600</span><span>800+ kcal</span>
+                    </div>
+                    <div id="burn-bar-label" style="font-size: 0.82rem; color: #6b7280; margin-top: 4px; text-align: center;"></div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Full Breakdown</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Gross Calories Burned</span>
+                        <span class="result-breakdown-val" id="result-calories-dup">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Net Calories (above resting)</span>
+                        <span class="result-breakdown-val" id="result-net-calories">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Calories per Mile</span>
+                        <span class="result-breakdown-val" id="result-cal-per-mile">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Calories per Hour</span>
+                        <span class="result-breakdown-val" id="result-cal-per-hour">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Total Distance</span>
+                        <span class="result-breakdown-val" id="result-distance">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Total Duration</span>
+                        <span class="result-breakdown-val" id="result-duration">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Average Pace</span>
+                        <span class="result-breakdown-val" id="result-pace">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">MET Value Used</span>
+                        <span class="result-breakdown-val" id="result-met">--</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about the running calorie formula
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About the Running Calorie Formula</h4>
+                    <ul>
+                        <li><strong>Formula:</strong> Calories = MET &times; Weight (kg) &times; Duration (hours)</li>
+                        <li><strong>MET values:</strong> From the Ainsworth et al. (2011) Compendium of Physical Activities — the gold-standard reference for exercise energy expenditure.</li>
+                        <li><strong>Gross vs net:</strong> Gross calories include resting metabolism; net calories subtract what you'd burn just sitting still (MET 1.0 × kg × hours).</li>
+                        <li><strong>Terrain:</strong> Uphill running increases calorie burn proportionally to grade using ACSM metabolic equations. Trail adds ~12% for uneven surface resistance.</li>
+                    </ul>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Top Ad -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Many Calories Does Running Burn?</h2>
+    <div class="answer-capsule">
+      Running burns approximately 80–140 calories per mile depending on body weight and pace. A 155-pound (70 kg) person burns roughly 100 calories per mile at a 10-minute/mile pace, or about 600 calories during a 60-minute run. Heavier runners burn more; faster runners burn more per minute but similar amounts per mile.
+    </div>
+
+    <p>The number of calories burned running depends primarily on three factors: your <strong>body weight</strong>, the <strong>distance</strong> covered, and your <strong>pace</strong>. Heavier runners do more mechanical work with each stride, burning more calories. Faster running increases intensity (higher MET) and burns more calories per minute — but the calorie-per-mile advantage is smaller than most people assume.</p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#calories-by-weight">Calories Burned by Weight &amp; Distance</a></li>
+            <li><a href="#calories-by-pace">How Pace Affects Calorie Burn</a></li>
+            <li><a href="#races">Calorie Burn for Common Race Distances</a></li>
+            <li><a href="#methodology">Methodology</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="calories-by-weight" class="info">
+        <h2>Calories Burned Running by Weight and Distance</h2>
+        <p>The table below shows estimated gross calories burned running at a moderate 10-minute/mile pace on flat terrain, by body weight and distance.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Weight</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">1 Mile</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">5K (3.1 mi)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">10K (6.2 mi)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Half (13.1 mi)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Marathon (26.2 mi)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">120 lbs (54 kg)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~80 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~249 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~498 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,054 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~2,106 kcal</td>
+                    </tr>
+                    <tr style="background: #fafafa;">
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">155 lbs (70 kg)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~98 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~303 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~606 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,282 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~2,562 kcal</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">185 lbs (84 kg)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~120 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~372 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~744 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,574 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~3,144 kcal</td>
+                    </tr>
+                    <tr style="background: #fafafa;">
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">220 lbs (100 kg)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~143 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~443 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~886 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,874 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~3,745 kcal</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">250 lbs (113 kg)</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~163 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~505 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,011 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~2,138 kcal</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~4,273 kcal</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Based on MET 9.8 (10:00/mile pace), flat terrain. Source: Ainsworth et al. 2011 Compendium.</p>
+    </section>
+
+    <section id="calories-by-pace" class="info">
+        <h2>How Running Pace Affects Calorie Burn</h2>
+        <p>Faster running is more intense — it uses more oxygen and burns more calories per minute. However, <strong>calorie burn per mile stays relatively constant</strong> regardless of pace, because you cover the same distance. The main advantage of running faster is finishing your workout sooner, not burning more calories per mile.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Pace (min/mile)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Speed (mph)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">MET</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Cal/min (155 lb)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Cal/mile (155 lb)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">13:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">4.6 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">7.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~8.2</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~107</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">8.3</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~9.7</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~116</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">9.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~11.4</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~114</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">9:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.7 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">10.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~12.3</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~111</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7.5 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">11.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~13.8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~110</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8.5 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">12.3</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~14.4</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~101</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">14.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~17.0</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~102</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5:00</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12.0 mph</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">17.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~20.5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~102</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Estimates for a 155 lb (70 kg) runner on flat terrain. Cal/min values are gross (include resting metabolism).</p>
+
+        <div class="important-box" style="margin-top: 20px;">
+            <h3>Key Insight: Calories Per Mile vs Per Minute</h3>
+            <p>Notice that calories per mile (right column) stays relatively consistent across paces — roughly 100–116 kcal/mile for a 155-lb runner. This is because running is primarily a <strong>distance-dependent</strong> activity: you do approximately the same mechanical work per mile regardless of speed. Running faster simply completes that work in less time.</p>
+            <p style="margin-bottom: 0;">The practical takeaway: to burn more calories running, <strong>run farther</strong>. Running faster burns more calories per minute but not dramatically more per mile.</p>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="races" class="info">
+        <h2>Calories Burned in Common Race Distances</h2>
+
+        <div class="answer-capsule">
+          A 5K burns approximately 240–380 calories, a 10K burns 480–760 calories, a half marathon burns 1,000–1,600 calories, and a full marathon burns 2,100–3,500 calories — all depending on body weight and pace.
+        </div>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Race</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Distance</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">130 lbs</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">155 lbs</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">185 lbs</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">220 lbs</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">5K</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">3.1 miles</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~236</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~303</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~372</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~443</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">10K</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6.2 miles</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~472</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~606</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~744</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~886</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Half Marathon</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">13.1 miles</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~998</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,282</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,574</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,874</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Marathon</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">26.2 miles</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~1,996</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~2,562</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~3,144</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">~3,745</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Based on 10:00/mile pace, flat terrain. Actual calories vary with individual pace, terrain, and running economy. Use the calculator above for personalized estimates.</p>
+    </section>
+
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses the MET (Metabolic Equivalent of Task) method to estimate calorie expenditure from running. The formula is: <strong>Calories = MET × Weight (kg) × Duration (hours)</strong>. MET values are drawn from the Ainsworth et al. (2011) Compendium of Physical Activities — the gold-standard reference used by exercise physiologists and published in the journal <em>Medicine &amp; Science in Sports &amp; Exercise</em>.</p>
+            <p>Running pace is converted to miles per hour, and the corresponding MET is interpolated from the Compendium table. Terrain adjustments use ACSM (American College of Sports Medicine) metabolic equations for uphill walking/running, which estimate approximately 0.9 mL/kg/min additional VO₂ per percent grade per meter/second of speed.</p>
+            <p>Two calorie outputs are provided: <strong>gross calories</strong> (total energy expenditure including resting metabolism) and <strong>net calories</strong> (energy above what you'd expend at rest). Fitness trackers typically report gross calories; food-logging apps often compare against net calories. The difference is approximately 1 MET × weight_kg × hours.</p>
+            <p style="margin-bottom: 0;">Accuracy: MET-based formulas are accurate to within ±15% for most runners (Jetté et al., 1990). Actual values vary with individual running economy, terrain, altitude, temperature, and fitness level. This calculator does not account for post-exercise oxygen consumption (EPOC), which adds approximately 6–15% to total calorie burn for high-intensity runs.</p>
+        </div>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How many calories does running burn per mile?</h3>
+            <div class="faq-answer">
+                <p>Running burns approximately 80–140 calories per mile, depending on your body weight. A useful rule of thumb: multiply your weight in pounds by 0.63 for an estimate of net calories per mile, or 0.72 for gross calories. For example, a 155-lb runner burns roughly 98–112 calories per mile on flat terrain. Heavier runners burn more per mile because they do more mechanical work against gravity with each stride.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does running speed affect how many calories I burn?</h3>
+            <div class="faq-answer">
+                <p>Running faster burns more calories per minute but only marginally more calories per mile. A 155-lb runner burns about 114 kcal/mile at 6 mph (10:00 pace) versus 102 kcal/mile at 10 mph (6:00 pace) — a difference of only ~12%. The main practical difference: faster running finishes the same distance in less time, so it's a more time-efficient workout. For maximizing total calorie burn, focus on running farther rather than faster.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do you burn more calories running uphill?</h3>
+            <div class="faq-answer">
+                <p>Yes — significantly more. Running up a 5% grade increases calorie burn by approximately 18%, and an 8% grade increases it by about 30%, compared to flat running at the same pace. This is because uphill running requires additional work against gravity. Trail running adds roughly 12% due to uneven surface resistance and the additional stabilizing muscle engagement required. Use the terrain selector in the calculator above to account for this.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What is the difference between gross and net calories burned running?</h3>
+            <div class="faq-answer">
+                <p>Gross calories represent your total energy expenditure during the run, including the calories you would have burned just resting. Net calories represent only the additional energy above your resting metabolic rate — the calories "caused by" the exercise itself. For a 155-lb person running 30 minutes, gross calories might be 290 kcal while net calories are 270 kcal (with ~20 kcal subtracted for resting metabolism). Most fitness trackers report gross calories.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How accurate are running calorie calculators?</h3>
+            <div class="faq-answer">
+                <p>MET-based running calorie calculators are accurate within approximately ±10–15% for most runners (Jetté et al., 1990). The main sources of error are individual running economy (more efficient runners burn fewer calories at the same pace), exact terrain and grade, and post-exercise oxygen consumption (EPOC). Wrist-based fitness trackers are often less accurate (±20–30%) due to the difficulty of measuring heart rate precisely during vigorous exercise. For the most accurate measurement, a chest-strap heart rate monitor combined with VO₂ data provides the best results.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How many calories does a 30-minute run burn?</h3>
+            <div class="faq-answer">
+                <p>A 30-minute run burns approximately 240–400 calories for most people, depending on weight and pace. A 155-lb runner at a 10-minute/mile pace covers 3 miles and burns roughly 295 calories gross. At a faster 8-minute/mile pace (3.75 miles in 30 min), the same runner burns about 414 calories. At a slow 12-minute/mile jog (2.5 miles), they burn about 245 calories.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is running an efficient way to burn calories?</h3>
+            <div class="faq-answer">
+                <p>Running is one of the most calorie-efficient exercises available — it burns 9–14 calories per minute for most runners, compared to 4–6 for walking and 7–11 for cycling. Running's high MET value (8–14 depending on pace) means it burns significantly more calories per unit of time than most other activities. Additionally, high-intensity running produces EPOC (excess post-exercise oxygen consumption), elevating your metabolic rate for 1–6 hours after the run and adding 6–15% to total calorie expenditure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schema: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How many calories does running burn per mile?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Running burns approximately 80–140 calories per mile depending on body weight. A 155-lb runner burns roughly 98–112 calories per mile at a moderate pace on flat terrain."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does running speed affect how many calories I burn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Running faster burns more calories per minute but only marginally more per mile. The difference in calories per mile between a slow jog and a fast run is only about 10–12%. To burn more total calories, focus on running farther."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How many calories does a 30-minute run burn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A 30-minute run burns approximately 240–400 calories for most people. A 155-lb runner at a 10-minute/mile pace burns roughly 295 calories in 30 minutes."
+          }
+        }
+      ]
+    }
+    </script>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/calories-burned-calculator" class="related-tool-card">
+                <h4>Calories Burned Calculator</h4>
+                <p>Calculate calorie burn for 30+ activities beyond running — cycling, swimming, strength training, and more.</p>
+            </a>
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>Find your total daily energy expenditure — the baseline your running calories must be measured against.</p>
+            </a>
+            <a href="/zone2-heart-rate-calculator" class="related-tool-card">
+                <h4>Zone 2 Heart Rate Calculator</h4>
+                <p>Running in Zone 2 maximizes fat oxidation — find your optimal training heart rate range.</p>
+            </a>
+            <a href="/protein-intake-calculator" class="related-tool-card">
+                <h4>Protein Calculator</h4>
+                <p>Runners need adequate protein for muscle repair — find your daily protein target.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "Ainsworth BE, Haskell WL, Herrmann SD, et al. 2011 Compendium of Physical Activities: a second update of codes and MET values. Med Sci Sports Exerc. 2011;43(8):1575-1581.", "url": "https://pubmed.ncbi.nlm.nih.gov/21681120/"},
+        {"text": "Jetté M, Sidney K, Blümchen G. Metabolic equivalents (METS) in exercise testing, exercise prescription, and evaluation of functional capacity. Clin Cardiol. 1990;13(8):555-565.", "url": "https://pubmed.ncbi.nlm.nih.gov/2204507/"},
+        {"text": "American College of Sports Medicine. ACSM's Guidelines for Exercise Testing and Prescription, 11th ed. Wolters Kluwer; 2022.", "url": "https://www.acsm.org/education-resources/books/guidelines-exercise-testing-prescription"},
+        {"text": "Bahr R. Excess postexercise oxygen consumption—magnitude, mechanisms and practical implications. Acta Physiol Scand. 1992;605(Suppl):1-70.", "url": "https://pubmed.ncbi.nlm.nih.gov/1605265/"},
+        {"text": "Margaria R, Cerretelli P, Aghemo P, Sassi G. Energy cost of running. J Appl Physiol. 1963;18(2):367-370.", "url": "https://pubmed.ncbi.nlm.nih.gov/13932253/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+{% include 'components/related-links.html' %}
+{% include 'footer.html' %}
+
+<script defer src="/static/js/running_calorie_calculator.js"></script>
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>
