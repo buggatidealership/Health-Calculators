@@ -2587,7 +2587,7 @@ def redirect_bmr_calculator():
 
 @app.route('/resources/how-to-use-the-ozempic-weight-loss-calculator')
 def redirect_ozempic_article():
-    return redirect('/ozempic-weight-loss-calculator', code=301)
+    return Response('This page has been removed.', status=410)
 
 @app.route('/resources/creatine-hydration-guide')
 def redirect_creatine_article():
@@ -4295,7 +4295,12 @@ def demographic_calculator():
         og_title=page['og_title'],
         og_description=page['meta_description'],
         og_url=page['url'],
-        canonical_url=page['url']
+        canonical_url=page['url'],
+        schema_name=page['page_title'],
+        schema_description=page['meta_description'],
+        schema_url=page['url'],
+        schema_type='WebPage',
+        date_modified='2026-03-12'
     )
 
 
@@ -4665,7 +4670,11 @@ def chart_reference():
         og_description=page['meta_description'],
         og_url=page['url'],
         canonical_url=page['url'],
-        schema_type='WebPage'
+        schema_name=page['page_title'],
+        schema_description=page['meta_description'],
+        schema_url=page['url'],
+        schema_type='WebPage',
+        date_modified='2026-03-12'
     )
 
 
