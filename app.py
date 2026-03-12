@@ -1910,6 +1910,15 @@ def ozempic_face_calculator():
 
 articles = [
     {
+        "title": "Running Calorie Burn Guide: How Many Calories Does Running Burn?",
+        "url": "/resources/running-calorie-guide",
+        "summary": "The science-backed guide to running calorie expenditure — calories per mile by weight, how pace and terrain affect burn rate, race distance estimates, and weight loss math.",
+        "icon": "🏃",
+        "cta": "Read Guide",
+        "color": "orange",
+        "category": "fitness"
+    },
+    {
         "title": "Zone 2 Training Guide: The Science of Aerobic Base Building",
         "url": "/resources/zone2-training-guide",
         "summary": "A complete, evidence-based guide to Zone 2 heart rate training — mitochondrial biogenesis, fat oxidation, weekly volume recommendations, and how to calculate your zone.",
