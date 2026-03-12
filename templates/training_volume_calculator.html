@@ -260,7 +260,7 @@
     user-select: none;
 }
 .chip-label:hover { border-color: var(--accent-color); }
-.chip-label:has(input:checked) {
+.chip-label.selected {
     background: var(--accent-color);
     color: #fff;
     border-color: var(--accent-color);
@@ -308,14 +308,16 @@
 
 <script>
 (function() {
-    // Limit priority checkboxes to 3
-    const boxes = document.querySelectorAll('#priority-muscles input[type=checkbox]');
+    var boxes = document.querySelectorAll('#priority-muscles input[type=checkbox]');
     boxes.forEach(function(box) {
         box.addEventListener('change', function() {
             var checked = document.querySelectorAll('#priority-muscles input:checked');
             if (checked.length > 3) {
                 this.checked = false;
+                return;
             }
+            // Toggle selected class on parent label
+            this.parentElement.classList.toggle('selected', this.checked);
         });
     });
 })();
