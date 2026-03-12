@@ -3148,7 +3148,7 @@ def sitemap_xml():
     pages = []
 
     # Homepage
-    pages.append({'loc': '/', 'priority': '1.0', 'changefreq': 'weekly'})
+    pages.append({'loc': '/', 'priority': '1.0', 'changefreq': 'weekly', 'lastmod': lastmod})
 
     # Calculator pages (from cards array)
     for card in cards:
@@ -3156,7 +3156,7 @@ def sitemap_xml():
             pages.append({'loc': card['url'], 'priority': '0.8', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Resource listing page
-    pages.append({'loc': '/resources', 'priority': '0.7', 'changefreq': 'weekly'})
+    pages.append({'loc': '/resources', 'priority': '0.7', 'changefreq': 'weekly', 'lastmod': lastmod})
 
     # Resource guide pages (from articles array)
     for article in articles:
@@ -3184,11 +3184,11 @@ def sitemap_xml():
             pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': lastmod})
 
     # Editorial policy
-    pages.append({'loc': '/editorial-policy', 'priority': '0.4', 'changefreq': 'yearly'})
+    pages.append({'loc': '/editorial-policy', 'priority': '0.4', 'changefreq': 'yearly', 'lastmod': lastmod})
 
     # Static pages
     for path in ['/about', '/privacy', '/terms']:
-        pages.append({'loc': path, 'priority': '0.3', 'changefreq': 'yearly'})
+        pages.append({'loc': path, 'priority': '0.3', 'changefreq': 'yearly', 'lastmod': lastmod})
 
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -3203,9 +3203,8 @@ def sitemap_xml():
     xml += '</urlset>'
 
     return Response(xml, mimetype='application/xml', headers={
-        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
-        'Pragma': 'no-cache',
-        'Expires': '0'
+        'Cache-Control': 'public, max-age=3600',
+        'X-Robots-Tag': 'noindex'
     })
 
 # ===== DEMOGRAPHIC CALCULATOR PAGES =====
