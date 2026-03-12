@@ -33,7 +33,7 @@ USER_AGENT = "HealthCalcResearch/1.0 (by /u/IllustriousCover1050)"
 # Calculator URLs mapped to relevant topics
 CALCULATOR_MAP = {
     "ozempic weight loss": "https://healthcalculators.xyz/ozempic-weight-loss-calculator",
-    "ozempic dosage": "https://healthcalculators.xyz/ozempic-dosage-calculator",
+    "ozempic dosage": "https://healthcalculators.xyz/ozempic-pen-click-calculator",
     "ozempic face": "https://healthcalculators.xyz/ozempic-face-calculator",
     "mounjaro weight loss": "https://healthcalculators.xyz/mounjaro-weight-loss-calculator",
     "wegovy weight loss": "https://healthcalculators.xyz/wegovy-weight-loss-calculator",

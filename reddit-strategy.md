@@ -50,7 +50,7 @@ Search in: r/Ozempic | Sort by: New
 **Comment template:**
 > Standard titration is: 0.25mg for 4 weeks → 0.5mg for 4 weeks → 1mg. Some doctors go up to 2mg if needed. The 0.25mg is just to get your body used to it — it's not a therapeutic dose for weight loss.
 >
-> Here's a dosage timeline tool that maps it out: https://healthcalculators.xyz/ozempic-dosage-calculator
+> Here's a dosage timeline tool that maps it out: https://healthcalculators.xyz/ozempic-pen-click-calculator
 >
 > Talk to your doctor before changing doses. Some people do fine on 0.5mg and never need to go higher.
 
@@ -186,7 +186,7 @@ Happy to hear if the projections match what people here are actually experiencin
 **Body:**
 Created a couple of tools that might be useful:
 
-- **Dosage calculator** — maps the standard titration schedule and what to expect at each stage: https://healthcalculators.xyz/ozempic-dosage-calculator
+- **Dosage calculator** — maps the standard titration schedule and what to expect at each stage: https://healthcalculators.xyz/ozempic-pen-click-calculator
 - **Weight loss projections** — estimates monthly weight loss based on your starting weight using STEP trial data: https://healthcalculators.xyz/ozempic-weight-loss-calculator
 - **"Ozempic face" estimator** — estimates facial volume loss risk based on age and projected weight loss: https://healthcalculators.xyz/ozempic-face-calculator
 
