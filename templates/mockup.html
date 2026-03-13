@@ -3,15 +3,15 @@
 <head>
 {% set og_image = "default-calculator-og.jpg" %}
 {% with
-    meta_description="AI-powered training advisor. Describe your situation, get a personalized program with specific recommendations — not ranges. Like having a coach who knows the research.",
-    meta_keywords="training advisor, AI workout advisor, personalized training plan, how many sets should I do, training volume",
-    og_title="Training Advisor — Judgment, Not Just Information",
-    og_description="Describe your training situation. The advisor infers your context, asks only what matters, and delivers specific recommendations with reasoning.",
+    meta_description="AI-powered training advisor. Describe your situation, get a complete gym-ready program — exercises, sets, reps, progression rules. Not ranges. Not theory. Your actual workouts.",
+    meta_keywords="training advisor, AI workout advisor, personalized training plan, workout program generator, custom workout plan",
+    og_title="Training Advisor — Your Program, Not Just Numbers",
+    og_description="Describe your training situation. Get a complete program you can take to the gym tomorrow — with the reasoning behind every decision.",
     og_url="/mockup",
     page_title="Training Advisor (Concept)",
     canonical_url="/mockup",
     schema_name="Training Advisor",
-    schema_description="LLM-native training advisor that infers context from freeform input, asks minimal follow-ups, and delivers personalized judgment — not ranges.",
+    schema_description="LLM-native training advisor that builds a complete, gym-ready program from a freeform description of your training situation.",
     schema_url="/mockup"
 %}
 {% include 'head_seo.html' %}
@@ -26,7 +26,7 @@
     <div style="text-align:center; margin-bottom: 36px;">
         <span class="mv-badge">Concept Preview</span>
         <h1 style="margin-bottom: 8px;">Training Advisor</h1>
-        <p class="subtitle" style="max-width: 560px; margin: 0 auto;">Describe your training situation. I'll infer what I can, ask only what would change my recommendations, and give you specific numbers with reasoning — not ranges.</p>
+        <p class="subtitle" style="max-width: 560px; margin: 0 auto;">Describe your situation. Get a complete program you can take to the gym tomorrow — exercises, sets, reps, and when to change what.</p>
     </div>
 
     <!-- PHASE 1: Intake -->
@@ -48,65 +48,50 @@
                 <button class="mv-chip" onclick="prefill('returning')">Coming back after time off</button>
                 <button class="mv-chip" onclick="prefill('optimize')">I want to optimize my program</button>
             </div>
-            <button id="intake-submit" class="mv-submit" onclick="submitIntake()">Analyze my situation</button>
+            <button id="intake-submit" class="mv-submit" onclick="submitIntake()">Build my program</button>
         </div>
     </div>
 
     <!-- PHASE 2: Context + Follow-ups -->
     <div id="phase-context" class="mv-phase" style="display:none;">
-
-        <!-- What I inferred -->
         <div class="mv-section" id="inferred-section">
             <div class="mv-section-label">What I picked up</div>
             <div class="mv-section-sublabel">Click any tag to correct it</div>
             <div id="inferred-tags" class="mv-tag-grid"></div>
         </div>
-
-        <!-- What I need -->
         <div class="mv-section" id="followup-section" style="display:none;">
             <div class="mv-section-label" id="followup-title">I need a few more things</div>
-            <div class="mv-section-sublabel">These are the questions whose answers would most change your plan</div>
+            <div class="mv-section-sublabel">These are the questions whose answers would most change your program</div>
             <div id="followup-cards"></div>
         </div>
-
-        <button id="generate-btn" class="mv-submit" style="display:none;" onclick="generateOutput()">Build my plan</button>
+        <button id="generate-btn" class="mv-submit" style="display:none;" onclick="generateOutput()">Build my program</button>
     </div>
 
     <!-- PHASE 3: Output -->
     <div id="phase-output" class="mv-phase" style="display:none;">
 
-        <!-- Profile summary -->
-        <div id="output-profile" class="mv-output-card"></div>
+        <!-- Quick diagnosis (polymorphic) -->
+        <div id="output-diagnosis" class="mv-output-card"></div>
 
-        <!-- Primary judgment card (polymorphic) -->
-        <div id="output-primary" class="mv-output-card"></div>
+        <!-- THE PROGRAM — the primary deliverable -->
+        <div id="output-program" class="mv-output-card"></div>
 
-        <!-- Volume plan -->
-        <div id="output-volume" class="mv-output-card"></div>
+        <!-- Progression rules -->
+        <div id="output-progression" class="mv-output-card"></div>
 
-        <!-- Reasoning trace -->
-        <div id="output-reasoning" class="mv-output-card"></div>
+        <!-- Why these decisions (collapsible depth) -->
+        <div id="output-why" class="mv-output-card"></div>
 
-        <!-- Weekly split -->
-        <div id="output-split" class="mv-output-card"></div>
+        <!-- What I'm not covering -->
+        <div id="output-boundaries" class="mv-output-card"></div>
 
-        <!-- Accuracy envelope -->
-        <div id="output-envelope" class="mv-output-card"></div>
-
-        <!-- Sensitivity analysis -->
-        <div id="output-sensitivity" class="mv-output-card"></div>
-
-        <!-- Return hook -->
-        <div id="output-return" class="mv-output-card"></div>
-
-        <!-- Feedback -->
-        <div id="output-feedback" class="mv-output-card"></div>
+        <!-- What's next / when to come back -->
+        <div id="output-next" class="mv-output-card"></div>
     </div>
 
 </div>
 
 <style>
-/* === Mockup-specific styles === */
 .mv-badge {
     display: inline-block;
     background: var(--color-warm-bg);
@@ -117,44 +102,36 @@
     border-radius: 20px;
     margin-bottom: 12px;
 }
-
 .mv-phase {
-    max-width: 680px;
+    max-width: 720px;
     margin: 0 auto;
     animation: mvFadeIn 0.4s ease;
 }
-
 @keyframes mvFadeIn {
     from { opacity: 0; transform: translateY(12px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
 @keyframes mvSlideIn {
     from { opacity: 0; transform: translateY(16px); }
     to { opacity: 1; transform: translateY(0); }
 }
-
-/* Intake */
 .mv-intake-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     padding: 28px;
 }
-
 .mv-intake-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 14px;
 }
-
 .mv-intake-label {
     font-family: var(--font-display);
     font-size: 1.15em;
     color: var(--color-text);
 }
-
 .mv-example-toggle {
     background: none;
     border: none;
@@ -165,7 +142,6 @@
     text-decoration: underline;
     text-underline-offset: 2px;
 }
-
 .mv-example-box {
     background: var(--color-accent-bg);
     border: 1px solid var(--color-accent-border);
@@ -176,9 +152,7 @@
     line-height: 1.6;
     color: var(--color-text-secondary);
 }
-
 .mv-example-box p { margin: 0 0 10px; font-style: italic; }
-
 .mv-example-use {
     background: var(--color-accent);
     color: #fff;
@@ -190,7 +164,6 @@
     font-family: var(--font-body);
     font-weight: 500;
 }
-
 .mv-textarea {
     width: 100%;
     padding: 14px 16px;
@@ -205,7 +178,6 @@
     min-height: 100px;
 }
 .mv-textarea:focus { border-color: var(--color-accent); }
-
 .mv-quick-starts {
     display: flex;
     flex-wrap: wrap;
@@ -213,13 +185,11 @@
     gap: 8px;
     margin-top: 14px;
 }
-
 .mv-qs-label {
     font-size: 0.85em;
     color: var(--color-text-tertiary);
     margin-right: 4px;
 }
-
 .mv-chip {
     background: var(--color-muted);
     color: var(--color-text-secondary);
@@ -236,7 +206,6 @@
     color: var(--color-accent);
     border-color: var(--color-accent-border);
 }
-
 .mv-submit {
     display: block;
     width: 100%;
@@ -253,35 +222,28 @@
     transition: background 0.2s;
 }
 .mv-submit:hover { background: var(--color-accent-hover); }
-.mv-submit:disabled {
-    background: var(--color-border);
-    cursor: not-allowed;
-}
+.mv-submit:disabled { background: var(--color-border); cursor: not-allowed; }
 
 /* Context phase */
 .mv-section {
     margin-bottom: 28px;
     animation: mvSlideIn 0.4s ease;
 }
-
 .mv-section-label {
     font-family: var(--font-display);
     font-size: 1.15em;
     margin-bottom: 4px;
 }
-
 .mv-section-sublabel {
     font-size: 0.88em;
     color: var(--color-text-tertiary);
     margin-bottom: 16px;
 }
-
 .mv-tag-grid {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
-
 .mv-tag {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -294,18 +256,10 @@
     transition: all 0.2s;
     min-width: 120px;
 }
-.mv-tag:hover {
-    border-color: var(--color-accent-border);
-    box-shadow: var(--shadow-sm);
-}
+.mv-tag:hover { border-color: var(--color-accent-border); box-shadow: var(--shadow-sm); }
 .mv-tag.mv-tag-inferred {
     border-color: var(--color-accent-border);
     background: var(--color-accent-bg);
-}
-.mv-tag.mv-tag-missing {
-    border: 1px dashed var(--color-border);
-    background: var(--color-muted);
-    opacity: 0.7;
 }
 .mv-tag-key {
     font-size: 0.75em;
@@ -314,18 +268,10 @@
     color: var(--color-text-tertiary);
     font-weight: 600;
 }
-.mv-tag-value {
-    font-size: 0.95em;
-    font-weight: 600;
-    color: var(--color-text);
-}
-.mv-tag-source {
-    font-size: 0.72em;
-    color: var(--color-accent);
-    font-style: italic;
-}
+.mv-tag-value { font-size: 0.95em; font-weight: 600; color: var(--color-text); }
+.mv-tag-source { font-size: 0.72em; color: var(--color-accent); font-style: italic; }
 
-/* Follow-up cards */
+/* Follow-ups */
 .mv-followup {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -334,26 +280,14 @@
     margin-bottom: 14px;
     animation: mvSlideIn 0.4s ease;
 }
-
-.mv-followup-q {
-    font-weight: 600;
-    font-size: 0.95em;
-    margin-bottom: 6px;
-}
-
+.mv-followup-q { font-weight: 600; font-size: 0.95em; margin-bottom: 6px; }
 .mv-followup-why {
     font-size: 0.85em;
     color: var(--color-text-tertiary);
     margin-bottom: 14px;
     line-height: 1.5;
 }
-
-.mv-followup-options {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
+.mv-followup-options { display: flex; flex-wrap: wrap; gap: 8px; }
 .mv-opt-btn {
     background: var(--color-muted);
     color: var(--color-text-secondary);
@@ -366,17 +300,10 @@
     font-family: var(--font-body);
     transition: all 0.2s;
 }
-.mv-opt-btn:hover {
-    background: var(--color-accent-bg);
-    color: var(--color-accent);
-}
-.mv-opt-btn.selected {
-    background: var(--color-accent);
-    color: #fff;
-    border-color: var(--color-accent);
-}
+.mv-opt-btn:hover { background: var(--color-accent-bg); color: var(--color-accent); }
+.mv-opt-btn.selected { background: var(--color-accent); color: #fff; border-color: var(--color-accent); }
 
-/* Output */
+/* Output cards */
 .mv-output-card {
     background: var(--color-surface);
     border: 1px solid var(--color-border);
@@ -386,194 +313,180 @@
     animation: mvSlideIn 0.5s ease;
 }
 .mv-output-card:empty { display: none; }
-
-.mv-card-head {
-    padding: 22px 26px;
-    color: #fff;
-}
-.mv-card-head h3 {
-    margin: 0 0 4px;
-    font-family: var(--font-display);
-    font-size: 1.25em;
-}
-.mv-card-head p {
-    margin: 0;
-    opacity: 0.85;
-    font-size: 0.9em;
-}
-
+.mv-card-head { padding: 22px 26px; color: #fff; }
+.mv-card-head h3 { margin: 0 0 4px; font-family: var(--font-display); font-size: 1.25em; }
+.mv-card-head p { margin: 0; opacity: 0.85; font-size: 0.9em; }
 .mv-card-body { padding: 22px 26px; }
-
-/* Gradient variants */
 .mv-grad-teal { background: linear-gradient(135deg, #0e7a7e 0%, #064e52 100%); }
 .mv-grad-green { background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%); }
 .mv-grad-warm { background: linear-gradient(135deg, #c2703e 0%, #8b4c2a 100%); }
 .mv-grad-slate { background: linear-gradient(135deg, #4d4d6a 0%, #2d2d42 100%); }
 
-/* Volume table */
-.mv-vol-row {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--color-border-light);
-    gap: 12px;
-}
-.mv-vol-row:last-child { border-bottom: none; }
+/* Diagnosis */
+.mv-diag-body { font-size: 0.93em; line-height: 1.7; }
+.mv-diag-body p { margin: 0 0 12px; }
+.mv-diag-body p:last-child { margin: 0; }
 
-.mv-vol-name {
-    font-weight: 600;
-    font-size: 0.92em;
-    width: 110px;
-    flex-shrink: 0;
-}
-
-.mv-vol-sets {
-    font-weight: 700;
-    color: var(--color-accent);
-    font-size: 1em;
-    width: 70px;
-    text-align: center;
-    flex-shrink: 0;
-}
-
-.mv-vol-bar-wrap {
-    flex: 1;
-    height: 8px;
-    background: var(--color-muted);
-    border-radius: 4px;
+/* Program: workout days */
+.mv-day {
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    margin-bottom: 14px;
     overflow: hidden;
-    position: relative;
 }
-
-.mv-vol-bar {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.8s ease;
+.mv-day:last-child { margin-bottom: 0; }
+.mv-day-header {
+    background: var(--color-muted);
+    padding: 14px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
 }
-
-.mv-vol-bar-fill { background: var(--color-accent); }
-.mv-vol-bar-potential {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    border-radius: 4px;
-    background: var(--color-accent-border);
-    opacity: 0.5;
+.mv-day-header:hover { background: var(--color-accent-bg); }
+.mv-day-title {
+    font-weight: 700;
+    font-size: 0.95em;
+    color: var(--color-text);
 }
+.mv-day-meta {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+}
+.mv-day-toggle {
+    font-size: 0.8em;
+    color: var(--color-text-tertiary);
+    transition: transform 0.2s;
+}
+.mv-day.open .mv-day-toggle { transform: rotate(180deg); }
+.mv-day-body { display: none; }
+.mv-day.open .mv-day-body { display: block; }
 
-.mv-vol-badge {
-    font-size: 0.72em;
+/* Exercise table */
+.mv-ex-table { width: 100%; border-collapse: collapse; }
+.mv-ex-table th {
+    text-align: left;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
     font-weight: 600;
-    padding: 2px 8px;
-    border-radius: 10px;
-    flex-shrink: 0;
+    padding: 10px 16px 8px;
+    border-bottom: 1px solid var(--color-border-light);
 }
-.mv-vol-badge-priority {
+.mv-ex-table td {
+    padding: 11px 16px;
+    font-size: 0.9em;
+    border-bottom: 1px solid var(--color-border-light);
+    vertical-align: top;
+}
+.mv-ex-table tr:last-child td { border-bottom: none; }
+.mv-ex-name { font-weight: 600; color: var(--color-text); }
+.mv-ex-target {
+    font-size: 0.78em;
+    color: var(--color-text-tertiary);
+    margin-top: 1px;
+}
+.mv-ex-sets { font-weight: 700; color: var(--color-accent); white-space: nowrap; }
+.mv-ex-rpe {
+    font-size: 0.82em;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+.mv-ex-rest {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    white-space: nowrap;
+}
+.mv-ex-note {
+    font-size: 0.8em;
+    color: var(--color-text-tertiary);
+    padding: 6px 16px 12px;
+    line-height: 1.5;
+    font-style: italic;
+}
+.mv-ex-priority {
+    display: inline-block;
     background: var(--color-good-bg);
     color: var(--color-good);
+    font-size: 0.7em;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 8px;
+    margin-left: 6px;
+    vertical-align: middle;
 }
-.mv-vol-badge-reduced {
+.mv-day-summary {
+    padding: 12px 16px;
+    background: var(--color-accent-bg);
+    font-size: 0.82em;
+    color: var(--color-accent-deep);
+    line-height: 1.5;
+    border-top: 1px solid var(--color-accent-border);
+}
+
+/* Progression rules */
+.mv-rule {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+.mv-rule:last-child { border-bottom: none; }
+.mv-rule-title {
+    font-weight: 700;
+    font-size: 0.92em;
+    margin-bottom: 4px;
+    color: var(--color-text);
+}
+.mv-rule-body {
+    font-size: 0.88em;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+}
+.mv-rule-trigger {
+    display: inline-block;
     background: var(--color-warning-bg);
     color: var(--color-warning);
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin-top: 6px;
 }
 
-/* Reasoning blocks */
-.mv-reasoning {
-    background: var(--color-accent-bg);
-    border-left: 3px solid var(--color-accent);
-    padding: 16px 20px;
-    margin: 14px 0;
-    border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
-    font-size: 0.9em;
-    line-height: 1.65;
-}
-
-.mv-reasoning strong { color: var(--color-accent-deep); }
-
-/* Confidence indicators */
-.mv-confidence-row {
+/* Why section — collapsible */
+.mv-why-toggle {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    gap: 12px;
-    padding: 10px 0;
+    padding: 16px 0;
+    cursor: pointer;
     border-bottom: 1px solid var(--color-border-light);
-    font-size: 0.9em;
 }
-.mv-confidence-row:last-child { border-bottom: none; }
-
-.mv-conf-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    flex-shrink: 0;
-}
-.mv-conf-high { background: var(--color-good); }
-.mv-conf-moderate { background: var(--color-warning); }
-.mv-conf-low { background: var(--color-danger); }
-
-.mv-conf-label {
+.mv-why-toggle:last-of-type { border-bottom: none; }
+.mv-why-toggle-title {
     font-weight: 600;
-    width: 180px;
-    flex-shrink: 0;
-}
-
-.mv-conf-note {
-    color: var(--color-text-secondary);
-    flex: 1;
-}
-
-/* Sensitivity table */
-.mv-sens-row {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 14px 0;
-    border-bottom: 1px solid var(--color-border-light);
-    font-size: 0.9em;
-}
-.mv-sens-row:last-child { border-bottom: none; }
-
-.mv-sens-change {
-    background: var(--color-muted);
-    border-radius: var(--radius-sm);
-    padding: 4px 12px;
-    font-weight: 600;
-    font-size: 0.85em;
-    white-space: nowrap;
-    flex-shrink: 0;
-    min-width: 130px;
-    text-align: center;
-}
-
-.mv-sens-effect {
-    color: var(--color-text-secondary);
-    line-height: 1.5;
-}
-
-/* Split day */
-.mv-split-day {
-    background: var(--color-muted);
-    border-radius: var(--radius);
-    padding: 14px 18px;
-    margin-bottom: 10px;
-}
-.mv-split-day h5 {
-    margin: 0 0 8px;
-    color: var(--color-accent);
     font-size: 0.92em;
+    color: var(--color-text);
 }
-.mv-split-day ul {
-    margin: 0;
-    padding-left: 18px;
+.mv-why-toggle-arrow {
+    font-size: 0.8em;
+    color: var(--color-text-tertiary);
+    transition: transform 0.2s;
 }
-.mv-split-day li {
+.mv-why-content {
+    display: none;
+    padding: 0 0 16px;
     font-size: 0.88em;
-    margin-bottom: 3px;
-    line-height: 1.5;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    border-bottom: 1px solid var(--color-border-light);
 }
+.mv-why-toggle.open + .mv-why-content { display: block; }
+.mv-why-toggle.open .mv-why-toggle-arrow { transform: rotate(180deg); }
 
-/* Envelope - not providing */
-.mv-not-providing {
+/* Boundaries */
+.mv-boundary {
     display: flex;
     gap: 12px;
     align-items: flex-start;
@@ -581,137 +494,61 @@
     border-bottom: 1px solid var(--color-border-light);
     font-size: 0.9em;
 }
-.mv-not-providing:last-child { border-bottom: none; }
-
-.mv-np-icon {
-    width: 28px;
-    height: 28px;
+.mv-boundary:last-child { border-bottom: none; }
+.mv-boundary-icon {
+    width: 28px; height: 28px;
     border-radius: 50%;
     background: var(--color-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.85em;
-    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85em; flex-shrink: 0;
     color: var(--color-text-tertiary);
 }
+.mv-boundary-text strong { display: block; font-size: 0.92em; margin-bottom: 2px; }
+.mv-boundary-text span { color: var(--color-text-tertiary); font-size: 0.88em; line-height: 1.5; }
 
-.mv-np-text strong {
-    display: block;
-    font-size: 0.92em;
-    margin-bottom: 2px;
-}
-.mv-np-text span {
-    color: var(--color-text-tertiary);
-    font-size: 0.88em;
-    line-height: 1.5;
-}
-
-/* Return hook */
-.mv-return-timeline {
+/* Next section */
+.mv-timeline {
     display: flex;
     gap: 0;
     margin: 18px 0;
 }
-
-.mv-return-week {
+.mv-tl-week {
     flex: 1;
     text-align: center;
     position: relative;
     padding-top: 24px;
 }
-
-.mv-return-week::before {
+.mv-tl-week::before {
     content: '';
     position: absolute;
-    top: 8px;
-    left: 0;
-    right: 0;
+    top: 8px; left: 0; right: 0;
     height: 3px;
     background: var(--color-border);
 }
-
-.mv-return-week:first-child::before { left: 50%; }
-.mv-return-week:last-child::before { right: 50%; }
-
-.mv-return-week::after {
+.mv-tl-week:first-child::before { left: 50%; }
+.mv-tl-week:last-child::before { right: 50%; }
+.mv-tl-week::after {
     content: '';
     position: absolute;
-    top: 4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 12px;
-    height: 12px;
+    top: 4px; left: 50%; transform: translateX(-50%);
+    width: 12px; height: 12px;
     border-radius: 50%;
     background: var(--color-border);
     border: 2px solid var(--color-surface);
     z-index: 1;
 }
-
-.mv-return-week.mv-rw-now::after { background: var(--color-accent); }
-.mv-return-week.mv-rw-future::after { background: var(--color-border); }
-
-.mv-return-week span {
-    display: block;
-    font-size: 0.78em;
-    color: var(--color-text-tertiary);
-}
-.mv-return-week strong {
-    display: block;
-    font-size: 0.82em;
-    color: var(--color-text-secondary);
-}
-
-/* Feedback */
-.mv-fb-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--color-border-light);
-    font-size: 0.9em;
-}
-.mv-fb-row:last-child { border-bottom: none; }
-
-.mv-fb-btns {
-    display: flex;
-    gap: 6px;
-}
-
-.mv-fb-btn {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    border: 1px solid var(--color-border);
-    background: var(--color-surface);
-    cursor: pointer;
-    font-size: 0.85em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.2s;
-}
-.mv-fb-btn:hover { border-color: var(--color-accent); }
-.mv-fb-btn.mv-fb-selected-yes {
-    background: var(--color-good-bg);
-    border-color: var(--color-good);
-}
-.mv-fb-btn.mv-fb-selected-no {
-    background: var(--color-danger-bg);
-    border-color: var(--color-danger);
-}
+.mv-tl-week.now::after { background: var(--color-accent); }
+.mv-tl-week span { display: block; font-size: 0.78em; color: var(--color-text-tertiary); }
+.mv-tl-week strong { display: block; font-size: 0.82em; color: var(--color-text-secondary); }
 
 /* Responsive */
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .mv-intake-card { padding: 20px; }
     .mv-card-body { padding: 18px; }
-    .mv-vol-name { width: 80px; font-size: 0.85em; }
-    .mv-vol-sets { width: 55px; font-size: 0.9em; }
-    .mv-sens-row { flex-direction: column; gap: 6px; }
-    .mv-sens-change { min-width: 0; }
-    .mv-conf-label { width: auto; }
-    .mv-confidence-row { flex-wrap: wrap; }
+    .mv-ex-table th, .mv-ex-table td { padding: 8px 10px; font-size: 0.82em; }
+    .mv-ex-table th:nth-child(5), .mv-ex-table td:nth-child(5) { display: none; }
     .mv-tag { min-width: 100px; }
+    .mv-day-header { padding: 12px 14px; }
 }
 </style>
 
@@ -719,9 +556,393 @@
 // ============================================================
 // STATE
 // ============================================================
-var ctx = {};        // inferred + answered context
-var gaps = [];       // identified gaps
+var ctx = {};
+var gaps = [];
 var answeredGaps = 0;
+
+// ============================================================
+// EXERCISE DATABASE
+// ============================================================
+var EXERCISES = {
+    // Compound movements
+    bench_press:       { name: 'Barbell Bench Press',     targets: 'Chest, triceps, front delts',   primary: 'Chest' },
+    incline_bench:     { name: 'Incline Dumbbell Press',  targets: 'Upper chest, front delts',      primary: 'Chest' },
+    db_fly:            { name: 'Cable Fly',               targets: 'Chest (stretch focus)',          primary: 'Chest' },
+    overhead_press:    { name: 'Overhead Press',          targets: 'Shoulders, triceps',             primary: 'Shoulders' },
+    lateral_raise:     { name: 'Lateral Raise',           targets: 'Side delts',                     primary: 'Shoulders' },
+    face_pull:         { name: 'Face Pull',               targets: 'Rear delts, external rotators',  primary: 'Shoulders' },
+    barbell_row:       { name: 'Barbell Row',             targets: 'Back, biceps',                   primary: 'Back' },
+    pullup:            { name: 'Pull-up / Lat Pulldown',  targets: 'Lats, biceps',                   primary: 'Back' },
+    cable_row:         { name: 'Seated Cable Row',        targets: 'Mid-back, rear delts',           primary: 'Back' },
+    squat:             { name: 'Barbell Squat',           targets: 'Quads, glutes',                  primary: 'Quads' },
+    leg_press:         { name: 'Leg Press',               targets: 'Quads, glutes',                  primary: 'Quads' },
+    leg_ext:           { name: 'Leg Extension',           targets: 'Quads (isolation)',              primary: 'Quads' },
+    rdl:               { name: 'Romanian Deadlift',       targets: 'Hamstrings, glutes',             primary: 'Hamstrings' },
+    leg_curl:          { name: 'Lying Leg Curl',          targets: 'Hamstrings',                     primary: 'Hamstrings' },
+    hip_thrust:        { name: 'Hip Thrust',              targets: 'Glutes',                         primary: 'Glutes' },
+    barbell_curl:      { name: 'Barbell Curl',            targets: 'Biceps',                         primary: 'Biceps' },
+    incline_curl:      { name: 'Incline Dumbbell Curl',   targets: 'Biceps (long head)',             primary: 'Biceps' },
+    hammer_curl:       { name: 'Hammer Curl',             targets: 'Biceps, brachialis',             primary: 'Biceps' },
+    tricep_pushdown:   { name: 'Tricep Pushdown',         targets: 'Triceps',                        primary: 'Triceps' },
+    overhead_ext:      { name: 'Overhead Tricep Extension',targets: 'Triceps (long head)',           primary: 'Triceps' },
+    skullcrusher:      { name: 'Skullcrusher',            targets: 'Triceps',                        primary: 'Triceps' },
+    calf_raise:        { name: 'Standing Calf Raise',     targets: 'Calves',                         primary: 'Calves' },
+    seated_calf:       { name: 'Seated Calf Raise',       targets: 'Soleus',                         primary: 'Calves' },
+    cable_crunch:      { name: 'Cable Crunch',            targets: 'Abs',                            primary: 'Abs' },
+    hanging_leg:       { name: 'Hanging Leg Raise',       targets: 'Abs, hip flexors',               primary: 'Abs' },
+    // Beginner-friendly alternatives
+    db_bench:          { name: 'Dumbbell Bench Press',    targets: 'Chest, triceps',                 primary: 'Chest' },
+    db_row:            { name: 'Dumbbell Row',            targets: 'Back, biceps',                   primary: 'Back' },
+    goblet_squat:      { name: 'Goblet Squat',            targets: 'Quads, glutes',                  primary: 'Quads' },
+    db_rdl:            { name: 'Dumbbell Romanian Deadlift', targets: 'Hamstrings, glutes',          primary: 'Hamstrings' },
+    db_ohp:            { name: 'Dumbbell Shoulder Press',  targets: 'Shoulders, triceps',            primary: 'Shoulders' },
+    lat_pulldown:      { name: 'Lat Pulldown',            targets: 'Lats, biceps',                   primary: 'Back' },
+    plank:             { name: 'Plank (3 sets x 30-60s)', targets: 'Core stability',                primary: 'Abs' },
+    deadlift:          { name: 'Conventional Deadlift',   targets: 'Full posterior chain',           primary: 'Back' }
+};
+
+// ============================================================
+// PROGRAM TEMPLATES — full workout day definitions
+// ============================================================
+function buildProgram(s, volumePlan) {
+    var days = parseInt(s.frequency) || 4;
+    var exp = s.experience;
+    var goal = s.goal;
+    var priorities = (s.weak_points || '').split(',').map(function(p) { return p.trim(); });
+    var hasPriority = s.weak_points && s.weak_points !== 'none';
+    var isPriority = function(muscle) {
+        var map = { chest: 'Chest', shoulders: 'Shoulders', back: 'Back', biceps: 'Biceps', triceps: 'Triceps', quads: 'Quads', hamstrings: 'Hamstrings', glutes: 'Glutes' };
+        for (var i = 0; i < priorities.length; i++) {
+            if (map[priorities[i]] === muscle) return true;
+        }
+        return false;
+    };
+
+    var repRange = goal === 'strength' ? '4-6' : '8-12';
+    var repHigh = goal === 'strength' ? '6-8' : '10-15';
+    var restMain = goal === 'strength' ? '3-4 min' : '2-3 min';
+    var restAcc = goal === 'strength' ? '2-3 min' : '60-90s';
+    var rpeMain = exp === 'beginner' ? 'RPE 7-8' : (exp === 'returning' ? 'RPE 6-7 (wk 1-2)' : 'RPE 8-9');
+    var rpeAcc = exp === 'beginner' ? 'RPE 7-8' : (exp === 'returning' ? 'RPE 7 (wk 1-2)' : 'RPE 8-9');
+
+    // Helper to get sets for a muscle, split across sessions
+    function setsFor(muscle, sessionsPerWeek) {
+        var total = volumePlan.muscles[muscle] ? volumePlan.muscles[muscle].sets : 8;
+        return Math.ceil(total / sessionsPerWeek);
+    }
+
+    function ex(key, sets, reps, rpe, rest, note) {
+        var e = EXERCISES[key];
+        return {
+            name: e.name,
+            targets: e.targets,
+            primary: e.primary,
+            sets: sets,
+            reps: reps,
+            rpe: rpe,
+            rest: rest,
+            note: note || null,
+            priority: hasPriority && isPriority(e.primary)
+        };
+    }
+
+    var program = [];
+
+    if (days === 3) {
+        // Full body 3x or PPL depending on experience
+        if (exp === 'beginner') {
+            // Full body 3x — keeps it simple, hits everything 3x/wk
+            var fbSets = function(muscle) { return setsFor(muscle, 3); };
+            program = [
+                {
+                    name: 'Day 1 — Full Body A',
+                    focus: 'Squat emphasis',
+                    estTime: '45-55 min',
+                    exercises: [
+                        ex('goblet_squat', fbSets('Quads'), repRange, rpeMain, restMain, 'Progress to barbell squat when you can do 3x10 with a 50lb dumbbell'),
+                        ex('db_bench', fbSets('Chest'), repRange, rpeMain, restMain),
+                        ex('db_row', fbSets('Back'), repRange, rpeAcc, restAcc),
+                        ex('db_ohp', fbSets('Shoulders'), repHigh, rpeAcc, restAcc),
+                        ex('plank', 3, '30-60s', 'Hold to effort', '60s')
+                    ]
+                },
+                {
+                    name: 'Day 2 — Full Body B',
+                    focus: 'Hinge emphasis',
+                    estTime: '45-55 min',
+                    exercises: [
+                        ex('db_rdl', fbSets('Hamstrings'), repRange, rpeMain, restMain, 'Keep slight bend in knees, feel stretch in hamstrings'),
+                        ex('lat_pulldown', fbSets('Back'), repRange, rpeMain, restMain),
+                        ex('db_bench', fbSets('Chest'), repRange, rpeAcc, restAcc),
+                        ex('lateral_raise', fbSets('Shoulders'), '12-15', rpeAcc, '60s'),
+                        ex('barbell_curl', Math.max(2, fbSets('Biceps')), repHigh, rpeAcc, '60s')
+                    ]
+                },
+                {
+                    name: 'Day 3 — Full Body C',
+                    focus: 'Upper emphasis',
+                    estTime: '45-55 min',
+                    exercises: [
+                        ex('goblet_squat', fbSets('Quads'), repRange, rpeMain, restMain),
+                        ex('db_bench', fbSets('Chest'), repRange, rpeMain, restMain),
+                        ex('db_row', fbSets('Back'), repRange, rpeAcc, restAcc),
+                        ex('db_rdl', fbSets('Hamstrings'), repRange, rpeAcc, restAcc),
+                        ex('face_pull', 3, '15-20', rpeAcc, '60s', 'Shoulder health — don\'t skip this')
+                    ]
+                }
+            ];
+        } else {
+            // PPL for intermediates+
+            program = [
+                {
+                    name: 'Day 1 — Push',
+                    focus: 'Chest, shoulders, triceps',
+                    estTime: '55-70 min',
+                    exercises: [
+                        ex('bench_press', setsFor('Chest', 1) > 5 ? 4 : 3, repRange, rpeMain, restMain),
+                        ex('incline_bench', Math.max(2, setsFor('Chest', 1) - 4), repHigh, rpeAcc, restAcc, isPriority('Chest') ? 'Priority muscle — extra volume here' : null),
+                        ex('overhead_press', Math.min(4, setsFor('Shoulders', 1) > 6 ? 4 : 3), repRange, rpeMain, restMain),
+                        ex('lateral_raise', Math.max(2, setsFor('Shoulders', 1) - 4), '12-15', rpeAcc, '60s'),
+                        ex('tricep_pushdown', setsFor('Triceps', 1), repHigh, rpeAcc, '60s')
+                    ]
+                },
+                {
+                    name: 'Day 2 — Pull',
+                    focus: 'Back, biceps, rear delts',
+                    estTime: '55-70 min',
+                    exercises: [
+                        ex('barbell_row', setsFor('Back', 1) > 6 ? 4 : 3, repRange, rpeMain, restMain),
+                        ex('pullup', Math.max(2, setsFor('Back', 1) - 4), repHigh, rpeAcc, restAcc),
+                        ex('cable_row', Math.max(2, Math.min(3, setsFor('Back', 1) - 6)), repHigh, rpeAcc, restAcc),
+                        ex('face_pull', 3, '15-20', rpeAcc, '60s'),
+                        ex('barbell_curl', setsFor('Biceps', 1) > 5 ? 3 : 2, repHigh, rpeAcc, '60s'),
+                        ex('hammer_curl', Math.max(2, setsFor('Biceps', 1) - 3), repHigh, rpeAcc, '60s')
+                    ]
+                },
+                {
+                    name: 'Day 3 — Legs',
+                    focus: 'Quads, hamstrings, glutes, calves',
+                    estTime: '60-75 min',
+                    exercises: [
+                        ex('squat', setsFor('Quads', 1) > 5 ? 4 : 3, repRange, rpeMain, restMain),
+                        ex('leg_press', Math.max(2, setsFor('Quads', 1) - 4), repHigh, rpeAcc, restAcc),
+                        ex('rdl', setsFor('Hamstrings', 1) > 4 ? 3 : 2, repRange, rpeMain, restMain),
+                        ex('leg_curl', Math.max(2, setsFor('Hamstrings', 1) - 3), repHigh, rpeAcc, '60s'),
+                        ex('hip_thrust', setsFor('Glutes', 1), repHigh, rpeAcc, restAcc),
+                        ex('calf_raise', setsFor('Calves', 1), '10-15', rpeAcc, '60s')
+                    ]
+                }
+            ];
+        }
+    } else if (days === 4) {
+        // Upper / Lower
+        var uSets = function(m) { return setsFor(m, 2); };
+        var lSets = function(m) { return setsFor(m, 2); };
+        program = [
+            {
+                name: 'Day 1 — Upper A (strength)',
+                focus: exp === 'beginner' ? 'Learning the movements' : 'Heavier loads, lower reps',
+                estTime: '55-65 min',
+                exercises: [
+                    ex(exp === 'beginner' ? 'db_bench' : 'bench_press', Math.min(4, uSets('Chest')), goal === 'hypertrophy' ? '6-8' : '4-6', rpeMain, restMain),
+                    ex(exp === 'beginner' ? 'db_row' : 'barbell_row', Math.min(4, uSets('Back')), goal === 'hypertrophy' ? '6-8' : '4-6', rpeMain, restMain),
+                    ex(exp === 'beginner' ? 'db_ohp' : 'overhead_press', Math.min(3, uSets('Shoulders')), '6-8', rpeAcc, restAcc),
+                    ex('face_pull', 3, '15-20', rpeAcc, '60s', 'Shoulder health — every upper day'),
+                    ex('barbell_curl', Math.max(2, uSets('Biceps')), repHigh, rpeAcc, '60s'),
+                    ex('tricep_pushdown', Math.max(2, uSets('Triceps')), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 2 — Lower A (quad focus)',
+                focus: 'Squat pattern emphasis',
+                estTime: '50-60 min',
+                exercises: [
+                    ex(exp === 'beginner' ? 'goblet_squat' : 'squat', Math.min(4, lSets('Quads')), repRange, rpeMain, restMain, exp === 'beginner' ? 'Progress to barbell when comfortable' : null),
+                    ex('leg_press', Math.max(2, lSets('Quads') - 3), repHigh, rpeAcc, restAcc),
+                    ex('rdl', Math.min(3, lSets('Hamstrings')), repRange, rpeAcc, restAcc),
+                    ex('hip_thrust', lSets('Glutes'), repHigh, rpeAcc, restAcc),
+                    ex('calf_raise', lSets('Calves'), '10-15', rpeAcc, '60s'),
+                    ex(exp === 'beginner' ? 'plank' : 'cable_crunch', Math.max(2, lSets('Abs')), exp === 'beginner' ? '30-60s hold' : '12-15', rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 3 — Upper B (volume)',
+                focus: exp === 'beginner' ? 'Same movements, getting reps in' : 'Higher reps, more isolation',
+                estTime: '55-65 min',
+                exercises: [
+                    ex('incline_bench', uSets('Chest'), repHigh, rpeAcc, restAcc, isPriority('Chest') ? 'Priority — push volume here' : null),
+                    ex(exp === 'beginner' ? 'lat_pulldown' : 'pullup', uSets('Back'), repHigh, rpeAcc, restAcc),
+                    ex('lateral_raise', Math.max(2, uSets('Shoulders')), '12-15', rpeAcc, '60s'),
+                    ex('cable_row', Math.max(2, Math.min(3, uSets('Back'))), repHigh, rpeAcc, restAcc),
+                    ex('incline_curl', Math.max(2, uSets('Biceps')), repHigh, rpeAcc, '60s'),
+                    ex('overhead_ext', Math.max(2, uSets('Triceps')), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 4 — Lower B (hinge focus)',
+                focus: 'Hamstring/glute emphasis',
+                estTime: '50-60 min',
+                exercises: [
+                    ex(exp === 'beginner' ? 'db_rdl' : 'rdl', Math.min(4, lSets('Hamstrings')), repRange, rpeMain, restMain),
+                    ex('leg_curl', Math.max(2, lSets('Hamstrings') - 3), repHigh, rpeAcc, '60s'),
+                    ex('leg_press', lSets('Quads'), repHigh, rpeAcc, restAcc, 'Feet high and wide for more glute'),
+                    ex('hip_thrust', lSets('Glutes'), repHigh, rpeAcc, restAcc),
+                    ex('seated_calf', lSets('Calves'), '12-15', rpeAcc, '60s'),
+                    ex('hanging_leg', Math.max(2, lSets('Abs')), '10-15', rpeAcc, '60s')
+                ]
+            }
+        ];
+    } else if (days === 5) {
+        // PPL + Upper + Lower
+        var pSets = function(m, freq) { return setsFor(m, freq || 2); };
+        program = [
+            {
+                name: 'Day 1 — Push',
+                focus: 'Chest + shoulders + triceps',
+                estTime: '55-65 min',
+                exercises: [
+                    ex('bench_press', Math.min(4, pSets('Chest')), repRange, rpeMain, restMain),
+                    ex('incline_bench', Math.max(2, pSets('Chest') - 3), repHigh, rpeAcc, restAcc),
+                    ex('overhead_press', Math.min(3, pSets('Shoulders')), repRange, rpeMain, restMain),
+                    ex('lateral_raise', Math.max(2, pSets('Shoulders') - 3), '12-15', rpeAcc, '60s'),
+                    ex('tricep_pushdown', pSets('Triceps'), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 2 — Pull',
+                focus: 'Back + biceps + rear delts',
+                estTime: '55-65 min',
+                exercises: [
+                    ex('barbell_row', Math.min(4, pSets('Back')), repRange, rpeMain, restMain),
+                    ex('pullup', Math.max(2, pSets('Back') - 3), repHigh, rpeAcc, restAcc),
+                    ex('face_pull', 3, '15-20', rpeAcc, '60s'),
+                    ex('barbell_curl', Math.min(3, pSets('Biceps')), repHigh, rpeAcc, '60s'),
+                    ex('hammer_curl', Math.max(2, pSets('Biceps') - 3), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 3 — Legs',
+                focus: 'Full lower body',
+                estTime: '60-70 min',
+                exercises: [
+                    ex('squat', Math.min(4, pSets('Quads')), repRange, rpeMain, restMain),
+                    ex('leg_press', Math.max(2, pSets('Quads') - 3), repHigh, rpeAcc, restAcc),
+                    ex('rdl', Math.min(3, pSets('Hamstrings')), repRange, rpeMain, restMain),
+                    ex('leg_curl', Math.max(2, pSets('Hamstrings') - 3), repHigh, rpeAcc, '60s'),
+                    ex('hip_thrust', pSets('Glutes'), repHigh, rpeAcc, restAcc),
+                    ex('calf_raise', pSets('Calves'), '10-15', rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 4 — Upper',
+                focus: 'Strength emphasis + priority work',
+                estTime: '55-65 min',
+                exercises: [
+                    ex('bench_press', 3, goal === 'hypertrophy' ? '6-8' : '3-5', rpeMain, restMain, 'Heavier than Day 1 — fewer reps'),
+                    ex('barbell_row', 3, goal === 'hypertrophy' ? '6-8' : '3-5', rpeMain, restMain),
+                    ex('db_fly', isPriority('Chest') ? 3 : 2, '12-15', rpeAcc, '60s', isPriority('Chest') ? 'Priority — extra stretch-focused volume' : null),
+                    ex('lateral_raise', 3, '12-15', rpeAcc, '60s'),
+                    ex('incline_curl', 2, repHigh, rpeAcc, '60s'),
+                    ex('overhead_ext', 2, repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 5 — Lower + Core',
+                focus: 'Volume emphasis',
+                estTime: '50-60 min',
+                exercises: [
+                    ex('leg_press', pSets('Quads'), repHigh, rpeAcc, restAcc),
+                    ex('leg_ext', 3, '12-15', rpeAcc, '60s'),
+                    ex('leg_curl', pSets('Hamstrings'), repHigh, rpeAcc, '60s'),
+                    ex('hip_thrust', pSets('Glutes'), repHigh, rpeAcc, restAcc),
+                    ex('seated_calf', pSets('Calves'), '12-15', rpeAcc, '60s'),
+                    ex('cable_crunch', 3, '12-15', rpeAcc, '60s'),
+                    ex('hanging_leg', 3, '10-15', rpeAcc, '60s')
+                ]
+            }
+        ];
+    } else {
+        // 6-day PPL x2
+        var p6 = function(m) { return setsFor(m, 2); };
+        program = [
+            {
+                name: 'Day 1 — Push A (strength)',
+                focus: 'Heavier pressing',
+                estTime: '50-60 min',
+                exercises: [
+                    ex('bench_press', Math.min(4, p6('Chest')), goal === 'hypertrophy' ? '6-8' : '4-6', rpeMain, restMain),
+                    ex('overhead_press', Math.min(3, p6('Shoulders')), '6-8', rpeMain, restMain),
+                    ex('incline_bench', Math.max(2, p6('Chest') - 3), repHigh, rpeAcc, restAcc),
+                    ex('lateral_raise', 3, '12-15', rpeAcc, '60s'),
+                    ex('tricep_pushdown', p6('Triceps'), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 2 — Pull A (strength)',
+                focus: 'Heavier pulling',
+                estTime: '50-60 min',
+                exercises: [
+                    ex('barbell_row', Math.min(4, p6('Back')), goal === 'hypertrophy' ? '6-8' : '4-6', rpeMain, restMain),
+                    ex('pullup', Math.max(2, p6('Back') - 3), repHigh, rpeAcc, restAcc),
+                    ex('face_pull', 3, '15-20', rpeAcc, '60s'),
+                    ex('barbell_curl', Math.min(3, p6('Biceps')), repHigh, rpeAcc, '60s'),
+                    ex('hammer_curl', Math.max(2, p6('Biceps') - 3), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 3 — Legs A (quad focus)',
+                focus: 'Squat patterns',
+                estTime: '55-65 min',
+                exercises: [
+                    ex('squat', Math.min(4, p6('Quads')), repRange, rpeMain, restMain),
+                    ex('leg_press', Math.max(2, p6('Quads') - 3), repHigh, rpeAcc, restAcc),
+                    ex('rdl', Math.min(3, p6('Hamstrings')), repRange, rpeAcc, restAcc),
+                    ex('hip_thrust', p6('Glutes'), repHigh, rpeAcc, restAcc),
+                    ex('calf_raise', p6('Calves'), '10-15', rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 4 — Push B (volume)',
+                focus: 'Higher reps, more isolation',
+                estTime: '50-60 min',
+                exercises: [
+                    ex('incline_bench', p6('Chest'), repHigh, rpeAcc, restAcc),
+                    ex('db_fly', isPriority('Chest') ? 3 : 2, '12-15', rpeAcc, '60s'),
+                    ex('lateral_raise', Math.max(3, p6('Shoulders')), '12-15', rpeAcc, '60s'),
+                    ex('face_pull', 3, '15-20', rpeAcc, '60s'),
+                    ex('overhead_ext', p6('Triceps'), repHigh, rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 5 — Pull B (volume)',
+                focus: 'Higher reps, more isolation',
+                estTime: '50-60 min',
+                exercises: [
+                    ex('cable_row', p6('Back'), repHigh, rpeAcc, restAcc),
+                    ex('lat_pulldown', Math.max(2, p6('Back') - 3), repHigh, rpeAcc, restAcc),
+                    ex('face_pull', 3, '15-20', rpeAcc, '60s'),
+                    ex('incline_curl', p6('Biceps'), repHigh, rpeAcc, '60s'),
+                    ex('cable_crunch', 3, '12-15', rpeAcc, '60s')
+                ]
+            },
+            {
+                name: 'Day 6 — Legs B (hinge focus)',
+                focus: 'Hamstring/glute emphasis',
+                estTime: '55-65 min',
+                exercises: [
+                    ex('rdl', Math.min(4, p6('Hamstrings')), repRange, rpeMain, restMain),
+                    ex('leg_curl', Math.max(2, p6('Hamstrings') - 3), repHigh, rpeAcc, '60s'),
+                    ex('leg_press', Math.max(2, p6('Quads')), repHigh, rpeAcc, restAcc, 'Feet high and wide'),
+                    ex('hip_thrust', p6('Glutes'), repHigh, rpeAcc, restAcc),
+                    ex('seated_calf', p6('Calves'), '12-15', rpeAcc, '60s'),
+                    ex('hanging_leg', 3, '10-15', rpeAcc, '60s')
+                ]
+            }
+        ];
+    }
+
+    return program;
+}
 
 // ============================================================
 // INTAKE PREFILLS
@@ -737,12 +958,10 @@ function prefill(key) {
     document.getElementById('intake-input').value = PREFILLS[key];
     document.getElementById('intake-input').focus();
 }
-
 function toggleExample() {
     var box = document.getElementById('example-box');
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
-
 function useExample() {
     document.getElementById('intake-input').value = "I've been lifting for about 2 years, doing PPL 5 days a week. My bench has been stuck at 205 for months. I sleep maybe 6 hours. I'm 28 and I want to prioritize chest and shoulders.";
     document.getElementById('example-box').style.display = 'none';
@@ -750,7 +969,7 @@ function useExample() {
 }
 
 // ============================================================
-// TEXT PARSER — extract context from freeform input
+// TEXT PARSER
 // ============================================================
 function parseInput(text) {
     var t = text.toLowerCase();
@@ -767,11 +986,10 @@ function parseInput(text) {
         result.goal = { value: 'hypertrophy', label: 'Build muscle (recomp)', source: 'recomp still needs hypertrophy training' };
     }
 
-    // Experience — years
+    // Experience
     var yearsMatch = t.match(/(\d+)\s*(?:years?|yrs?)\s*(?:of\s*)?(?:training|lifting|experience|in(?:to)?|consistently)/);
     if (!yearsMatch) yearsMatch = t.match(/(?:lifting|training|been at it)\s*(?:for\s*)?(?:about\s*)?(\d+)\s*(?:years?|yrs?)/);
     if (!yearsMatch) yearsMatch = t.match(/(?:about|around|maybe|roughly)\s*(\d+)\s*(?:years?|yrs?)/);
-
     if (yearsMatch) {
         var yrs = parseInt(yearsMatch[1]);
         if (yrs < 1) result.experience = { value: 'beginner', label: 'Beginner (<1 yr)', source: yrs + ' year' + (yrs === 1 ? '' : 's') + ' training' };
@@ -832,7 +1050,7 @@ function parseInput(text) {
         result.recovery = { value: 'moderate', label: 'Moderate recovery', source: 'moderate stress mentioned' };
     }
 
-    // Weak points / priorities
+    // Weak points
     var muscleNames = {
         'chest': 'chest', 'pec': 'chest',
         'back': 'back', 'lat': 'back',
@@ -845,7 +1063,6 @@ function parseInput(text) {
         'calf': 'calves', 'calve': 'calves',
         'ab': 'abs', 'core': 'abs'
     };
-
     var priorityContext = /\b(prioriti[sz]e|bring\s*up|focus\s*on|lagging|weak|grow\s*my|want\s*(bigger|more)|need\s*(bigger|more))\b/i;
     if (priorityContext.test(t)) {
         var foundMuscles = [];
@@ -862,18 +1079,16 @@ function parseInput(text) {
         }
     }
 
-    // Split type (informational)
+    // Split type
     if (/\bppl\b|push\s*pull\s*legs?\b/.test(t)) {
         result.split_info = { value: 'ppl', label: 'Push/Pull/Legs', source: 'current split' };
     } else if (/\bupper\s*\/?\s*lower\b/.test(t)) {
         result.split_info = { value: 'ul', label: 'Upper/Lower', source: 'current split' };
     } else if (/\bfull\s*body\b/.test(t)) {
         result.split_info = { value: 'fb', label: 'Full body', source: 'current split' };
-    } else if (/\bbro\s*split\b/.test(t)) {
-        result.split_info = { value: 'bro', label: 'Bro split', source: 'current split' };
     }
 
-    // Issue detection
+    // Issues
     if (/\b(stall|stuck|plateau|not\s*(?:going\s*up|progressing|moving)|haven'?t\s*improved)\b/.test(t)) {
         result.issue = { value: 'plateau', label: 'Plateau / stalling', source: 'you described stalled progress' };
     } else if (/\b(pain|injur|hurt|sore\s*all\s*the\s*time)\b/.test(t)) {
@@ -886,18 +1101,15 @@ function parseInput(text) {
 }
 
 // ============================================================
-// GAP ANALYSIS — what's missing, ranked by output impact
+// GAP ANALYSIS
 // ============================================================
 function analyzeGaps(context) {
-    // Impact scores: how much does knowing this change the output?
     var allGaps = [];
-
     if (!context.experience) {
         allGaps.push({
-            id: 'experience',
-            impact: 10,
+            id: 'experience', impact: 10,
             question: 'How long have you been lifting consistently?',
-            why: 'This changes everything — volume, progression model, exercise complexity, recovery expectations.',
+            why: 'This changes everything — exercise selection, volume, rep ranges, progression model.',
             options: [
                 { text: 'Less than a year', value: 'beginner' },
                 { text: '1-3 years', value: 'intermediate' },
@@ -906,13 +1118,11 @@ function analyzeGaps(context) {
             ]
         });
     }
-
     if (!context.goal) {
         allGaps.push({
-            id: 'goal',
-            impact: 8,
+            id: 'goal', impact: 8,
             question: 'What\'s the primary goal?',
-            why: 'Hypertrophy and strength training have different volume, rep ranges, and rest requirements.',
+            why: 'Determines rep ranges, rest periods, exercise order, and total volume.',
             options: [
                 { text: 'Build muscle', value: 'hypertrophy' },
                 { text: 'Get stronger', value: 'strength' },
@@ -920,13 +1130,11 @@ function analyzeGaps(context) {
             ]
         });
     }
-
     if (!context.frequency) {
         allGaps.push({
-            id: 'frequency',
-            impact: 7,
+            id: 'frequency', impact: 7,
             question: 'How many days per week can you train?',
-            why: 'This determines your split architecture and how volume gets distributed across sessions.',
+            why: 'Determines your entire program structure — which split, which exercises on which days.',
             options: [
                 { text: '3 days', value: '3' },
                 { text: '4 days', value: '4' },
@@ -935,13 +1143,11 @@ function analyzeGaps(context) {
             ]
         });
     }
-
     if (!context.recovery) {
         allGaps.push({
-            id: 'recovery',
-            impact: 6,
+            id: 'recovery', impact: 6,
             question: 'How\'s your sleep and stress?',
-            why: 'Recovery capacity sets your volume ceiling. Bad sleep can reduce it by 15-20%.',
+            why: 'Sets your volume ceiling — bad sleep can reduce it by 15-20%.',
             options: [
                 { text: 'Good — 7+ hrs, low stress', value: 'good' },
                 { text: 'Decent — some stress', value: 'moderate' },
@@ -950,14 +1156,11 @@ function analyzeGaps(context) {
             ]
         });
     }
-
     if (!context.age) {
-        // Lower impact — age matters but less than the above
         allGaps.push({
-            id: 'age',
-            impact: 4,
+            id: 'age', impact: 4,
             question: 'What\'s your age range?',
-            why: 'Recovery capacity shifts with age. A 25-year-old and a 48-year-old need different volume ceilings.',
+            why: 'Recovery capacity shifts with age — changes volume ceiling and rest needs.',
             options: [
                 { text: 'Under 30', value: 'young' },
                 { text: '30-40', value: 'thirties' },
@@ -966,14 +1169,11 @@ function analyzeGaps(context) {
             ]
         });
     }
-
-    // Weak points — only ask if not specified AND user isn't a total beginner
     if (!context.weak_points && context.experience && context.experience.value !== 'beginner') {
         allGaps.push({
-            id: 'weak_points',
-            impact: 3,
+            id: 'weak_points', impact: 3,
             question: 'Any muscle groups to prioritize?',
-            why: 'This shifts volume distribution — 20% more sets to priority muscles, borrowed from others.',
+            why: 'Shifts volume and exercise selection toward your priorities.',
             options: [
                 { text: 'Chest + shoulders', value: 'chest,shoulders' },
                 { text: 'Back + arms', value: 'back,biceps' },
@@ -982,57 +1182,32 @@ function analyzeGaps(context) {
             ]
         });
     }
-
-    // Sort by impact descending
     allGaps.sort(function(a, b) { return b.impact - a.impact; });
-
-    // The inflection point: stop asking when marginal value drops
-    // Top 3 variables (experience, goal, frequency) are multiplicative
-    // After that, returns diminish fast
-    // Cap at 3 follow-ups max, but drop questions below impact threshold
-    var threshold = 4;  // don't ask questions with impact < this
-    var maxQuestions = 3;
-    return allGaps.filter(function(g) { return g.impact >= threshold; }).slice(0, maxQuestions);
+    return allGaps.filter(function(g) { return g.impact >= 4; }).slice(0, 3);
 }
 
 // ============================================================
-// SUBMIT INTAKE
+// SUBMIT / FOLLOW-UP HANDLERS
 // ============================================================
 function submitIntake() {
     var text = document.getElementById('intake-input').value.trim();
     if (!text) return;
-
-    // Parse
     ctx = parseInput(text);
     ctx._rawInput = text;
-
-    // Show context phase
     document.getElementById('phase-intake').style.display = 'none';
     document.getElementById('phase-context').style.display = 'block';
-
-    // Render inferred tags
     renderTags();
-
-    // Analyze gaps
     gaps = analyzeGaps(ctx);
-
     if (gaps.length > 0) {
-        setTimeout(function() {
-            renderFollowUps();
-        }, 500);
+        setTimeout(function() { renderFollowUps(); }, 500);
     } else {
-        // No gaps — go straight to generate
         showGenerateButton();
     }
 }
 
-// ============================================================
-// RENDER INFERRED CONTEXT TAGS
-// ============================================================
 function renderTags() {
     var container = document.getElementById('inferred-tags');
     container.innerHTML = '';
-
     var fields = [
         { key: 'experience', label: 'Experience' },
         { key: 'goal', label: 'Goal' },
@@ -1043,83 +1218,50 @@ function renderTags() {
         { key: 'split_info', label: 'Current split' },
         { key: 'issue', label: 'Issue' }
     ];
-
     var anyInferred = false;
     fields.forEach(function(f) {
         if (ctx[f.key]) {
             anyInferred = true;
             var tag = document.createElement('div');
             tag.className = 'mv-tag mv-tag-inferred';
-            tag.innerHTML =
-                '<span class="mv-tag-key">' + f.label + '</span>' +
-                '<span class="mv-tag-value">' + ctx[f.key].label + '</span>' +
-                '<span class="mv-tag-source">' + ctx[f.key].source + '</span>';
+            tag.innerHTML = '<span class="mv-tag-key">' + f.label + '</span><span class="mv-tag-value">' + ctx[f.key].label + '</span><span class="mv-tag-source">' + ctx[f.key].source + '</span>';
             container.appendChild(tag);
         }
     });
-
     if (!anyInferred) {
         document.getElementById('inferred-section').querySelector('.mv-section-label').textContent = "I couldn't extract much from that";
         document.getElementById('inferred-section').querySelector('.mv-section-sublabel').textContent = "No problem — I'll ask what I need below";
     }
 }
 
-// ============================================================
-// RENDER FOLLOW-UP QUESTIONS
-// ============================================================
 function renderFollowUps() {
     var section = document.getElementById('followup-section');
     var container = document.getElementById('followup-cards');
     section.style.display = 'block';
-
     var title = document.getElementById('followup-title');
-    if (gaps.length === 1) title.textContent = 'One more thing that would change your plan';
-    else title.textContent = gaps.length + ' things that would most change your plan';
-
+    title.textContent = gaps.length === 1 ? 'One thing that would change your program' : gaps.length + ' things that would most change your program';
     answeredGaps = 0;
-
     gaps.forEach(function(gap, i) {
         var card = document.createElement('div');
         card.className = 'mv-followup';
-        card.style.animationDelay = (i * 0.15) + 's';
         card.id = 'followup-' + gap.id;
-
         var optHtml = '';
         gap.options.forEach(function(opt) {
-            optHtml += '<button class="mv-opt-btn" onclick="selectOption(\'' + gap.id + '\', this, \'' + opt.value + '\', \'' + escHtml(opt.text) + '\')">' + opt.text + '</button>';
+            optHtml += '<button class="mv-opt-btn" onclick="selectOption(\'' + gap.id + '\', this, \'' + opt.value + '\', \'' + opt.text.replace(/'/g, "\\'") + '\')">' + opt.text + '</button>';
         });
-
-        card.innerHTML =
-            '<div class="mv-followup-q">' + gap.question + '</div>' +
-            '<div class="mv-followup-why">' + gap.why + '</div>' +
-            '<div class="mv-followup-options">' + optHtml + '</div>';
-
+        card.innerHTML = '<div class="mv-followup-q">' + gap.question + '</div><div class="mv-followup-why">' + gap.why + '</div><div class="mv-followup-options">' + optHtml + '</div>';
         container.appendChild(card);
     });
 }
 
-function escHtml(s) {
-    return s.replace(/'/g, "\\'").replace(/"/g, '&quot;');
-}
-
 function selectOption(gapId, btn, value, label) {
-    // Highlight selected
     var card = document.getElementById('followup-' + gapId);
     card.querySelectorAll('.mv-opt-btn').forEach(function(b) { b.classList.remove('selected'); });
     btn.classList.add('selected');
-
-    // Store in context
     ctx[gapId] = { value: value, label: label, source: 'you selected' };
-
-    // Check if all answered
     answeredGaps = 0;
-    gaps.forEach(function(g) {
-        if (ctx[g.id]) answeredGaps++;
-    });
-
-    if (answeredGaps === gaps.length) {
-        showGenerateButton();
-    }
+    gaps.forEach(function(g) { if (ctx[g.id]) answeredGaps++; });
+    if (answeredGaps === gaps.length) showGenerateButton();
 }
 
 function showGenerateButton() {
@@ -1129,30 +1271,53 @@ function showGenerateButton() {
 }
 
 // ============================================================
-// OUTPUT GENERATION — polymorphic
+// VOLUME CALCULATION
+// ============================================================
+function buildVolumePlan(s) {
+    var expMod = { beginner: 0.65, intermediate: 1.0, advanced: 1.25, returning: 0.80 };
+    var recMod = { good: 1.0, moderate: 0.92, poor_sleep: 0.82, high_stress: 0.78 };
+    var ageMod = { young: 1.0, thirties: 0.95, forties: 0.87, fifties_plus: 0.75 };
+    var base = { Chest: 14, Back: 16, Quads: 14, Hamstrings: 12, Glutes: 8, Shoulders: 16, Biceps: 12, Triceps: 10, Calves: 10, Abs: 10 };
+    var mod = (expMod[s.experience] || 1) * (recMod[s.recovery] || 1) * (ageMod[s.age] || 1);
+    if (s.goal === 'strength') mod *= 0.82;
+    var priorities = (s.weak_points || '').split(',').map(function(p) { return p.trim(); });
+    var priorityMap = { chest: 'Chest', shoulders: 'Shoulders', back: 'Back', biceps: 'Biceps', triceps: 'Triceps', quads: 'Quads', hamstrings: 'Hamstrings', glutes: 'Glutes', calves: 'Calves', abs: 'Abs' };
+    var muscles = {};
+    var order = ['Chest', 'Back', 'Quads', 'Hamstrings', 'Glutes', 'Shoulders', 'Biceps', 'Triceps', 'Calves', 'Abs'];
+    var totalSets = 0;
+    order.forEach(function(m) {
+        var v = Math.round(base[m] * mod);
+        var isPriority = false;
+        priorities.forEach(function(p) { if (priorityMap[p] === m) isPriority = true; });
+        if (isPriority && s.weak_points !== 'none') v = Math.round(v * 1.2);
+        v = Math.max(4, Math.min(26, v));
+        muscles[m] = { sets: v, priority: isPriority && s.weak_points !== 'none' };
+        totalSets += v;
+    });
+    return { muscles: muscles, order: order, totalSets: totalSets };
+}
+
+// ============================================================
+// OUTPUT GENERATION
 // ============================================================
 function generateOutput() {
     document.getElementById('phase-context').style.display = 'none';
     var phase = document.getElementById('phase-output');
     phase.style.display = 'block';
-
     var s = buildState();
-    var plan = buildVolumePlan(s);
+    var vp = buildVolumePlan(s);
+    var program = buildProgram(s, vp);
 
-    renderProfile(s);
-    renderPrimaryJudgment(s);
-    renderVolumePlan(s, plan);
-    renderReasoning(s, plan);
-    renderSplit(s, plan);
-    renderEnvelope(s);
-    renderSensitivity(s, plan);
-    renderReturnHook(s);
-    renderFeedback(s);
+    renderDiagnosis(s, vp);
+    renderProgram(s, program, vp);
+    renderProgression(s);
+    renderWhy(s, vp);
+    renderBoundaries(s);
+    renderNext(s);
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-// Build flat state from context
 function buildState() {
     return {
         goal: (ctx.goal || {}).value || 'hypertrophy',
@@ -1162,566 +1327,310 @@ function buildState() {
         age: (ctx.age || {}).value || 'young',
         weak_points: (ctx.weak_points || {}).value || 'none',
         split_info: (ctx.split_info || {}).value || null,
-        issue: (ctx.issue || {}).value || null,
-        ageRaw: (ctx.age || {}).raw || null
+        issue: (ctx.issue || {}).value || null
     };
 }
 
 // ============================================================
-// VOLUME CALCULATION
+// RENDER: Quick diagnosis (short, polymorphic)
 // ============================================================
-function buildVolumePlan(s) {
-    var expMod = { beginner: 0.65, intermediate: 1.0, advanced: 1.25, returning: 0.80 };
-    var recMod = { good: 1.0, moderate: 0.92, poor_sleep: 0.82, high_stress: 0.78 };
-    var ageMod = { young: 1.0, thirties: 0.95, forties: 0.87, fifties_plus: 0.75 };
-
-    // Base volumes (intermediate, good recovery, hypertrophy)
-    var base = {
-        Chest: 14, Back: 16, Quads: 14, Hamstrings: 12, Glutes: 8,
-        Shoulders: 16, Biceps: 12, Triceps: 10, Calves: 10, Abs: 10
-    };
-
-    var mod = (expMod[s.experience] || 1) * (recMod[s.recovery] || 1) * (ageMod[s.age] || 1);
-    if (s.goal === 'strength') mod *= 0.82;
-
-    var priorities = (s.weak_points || '').split(',').map(function(p) { return p.trim(); });
-    var priorityMap = {
-        chest: 'Chest', shoulders: 'Shoulders', back: 'Back',
-        biceps: 'Biceps', triceps: 'Triceps',
-        quads: 'Quads', hamstrings: 'Hamstrings', glutes: 'Glutes',
-        calves: 'Calves', abs: 'Abs'
-    };
-
-    var muscles = {};
-    var maxSets = 0;
-    var totalSets = 0;
-    var order = ['Chest', 'Back', 'Quads', 'Hamstrings', 'Glutes', 'Shoulders', 'Biceps', 'Triceps', 'Calves', 'Abs'];
-
-    order.forEach(function(m) {
-        var v = Math.round(base[m] * mod);
-        var isPriority = false;
-        priorities.forEach(function(p) {
-            if (priorityMap[p] === m) isPriority = true;
-        });
-        if (isPriority && s.weak_points !== 'none') v = Math.round(v * 1.2);
-        v = Math.max(4, Math.min(26, v));
-        muscles[m] = { sets: v, priority: isPriority && s.weak_points !== 'none' };
-        if (v > maxSets) maxSets = v;
-        totalSets += v;
-    });
-
-    // Potential volume (what they could do with better recovery)
-    var potentialMod = (expMod[s.experience] || 1) * 1.0 * (ageMod[s.age] || 1);
-    if (s.goal === 'strength') potentialMod *= 0.82;
-    var potentialTotal = 0;
-    order.forEach(function(m) {
-        var v = Math.round(base[m] * potentialMod);
-        potentialTotal += Math.max(4, Math.min(26, v));
-    });
-
-    return {
-        muscles: muscles,
-        order: order,
-        maxSets: maxSets,
-        totalSets: totalSets,
-        potentialTotal: potentialTotal,
-        mod: mod,
-        expMod: expMod[s.experience] || 1,
-        recMod: recMod[s.recovery] || 1,
-        ageMod: ageMod[s.age] || 1
-    };
-}
-
-// ============================================================
-// RENDER: Profile summary
-// ============================================================
-function renderProfile(s) {
-    var el = document.getElementById('output-profile');
-    var tags = '';
-    var items = [
-        { label: 'Goal', value: s.goal === 'hypertrophy' ? 'Hypertrophy' : s.goal === 'strength' ? 'Strength' : 'Strength + Hypertrophy' },
-        { label: 'Level', value: s.experience.charAt(0).toUpperCase() + s.experience.slice(1) },
-        { label: 'Days', value: s.frequency + '/week' },
-        { label: 'Recovery', value: s.recovery === 'good' ? 'Good' : s.recovery === 'moderate' ? 'Moderate' : s.recovery === 'poor_sleep' ? 'Limited (sleep)' : 'Limited (stress)' },
-        { label: 'Age', value: s.age === 'young' ? '<30' : s.age === 'thirties' ? '30s' : s.age === 'forties' ? '40s' : '50+' }
-    ];
-    items.forEach(function(item) {
-        tags += '<div class="mv-tag mv-tag-inferred" style="cursor:default;min-width:auto;"><span class="mv-tag-key">' + item.label + '</span><span class="mv-tag-value">' + item.value + '</span></div>';
-    });
-
-    el.innerHTML =
-        '<div class="mv-card-body">' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:10px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Your profile</div>' +
-            '<div class="mv-tag-grid">' + tags + '</div>' +
-        '</div>';
-}
-
-// ============================================================
-// RENDER: Primary judgment card (POLYMORPHIC)
-// ============================================================
-function renderPrimaryJudgment(s) {
-    var el = document.getElementById('output-primary');
+function renderDiagnosis(s, vp) {
+    var el = document.getElementById('output-diagnosis');
     var title, body, grad;
 
     if (s.experience === 'beginner') {
         grad = 'mv-grad-green';
-        title = 'You\'re in the best position for growth';
-        body = '<p>Beginners have the highest dose-response to training — you\'ll grow from less volume than any internet program suggests. Most online advice is written for intermediates and will have you doing <strong>twice the volume you need</strong>.</p>' +
-            '<p>I\'m giving you the <strong>minimum effective dose</strong>. This isn\'t conservative — it\'s optimal. You\'ll add volume later when you actually need it, not because a subreddit said so.</p>' +
-            (s.issue === 'uncertain' ? '<p style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.2);"><strong>You said you\'re not sure what you\'re doing.</strong> That\'s fine — that\'s what this is for. Follow the plan below for 8 weeks before changing anything. The biggest beginner mistake is program-hopping.</p>' : '');
+        title = 'Your starter program';
+        body = '<p>You don\'t need high volume — you need the right movements done consistently. This program gives you <strong>' + vp.totalSets + ' sets/week</strong> across ' + s.frequency + ' days with exercises chosen for a beginner: simpler movement patterns, room to learn, and fast progress.</p>';
+        if (s.issue === 'uncertain') body += '<p><strong>You said you\'re not sure what you\'re doing.</strong> That\'s what this is for. Follow the program below for 8 weeks before changing anything.</p>';
     } else if (s.experience === 'returning') {
         grad = 'mv-grad-warm';
-        title = 'Muscle memory is real — here\'s your ramp-up';
-        body = '<p>Your muscles remember. Myonuclei from your previous training persist for years — you\'ll regain size faster than you built it originally. But your <strong>connective tissue doesn\'t have the same memory</strong>.</p>' +
-            '<p>I\'m starting you at <strong>~80% of intermediate volume</strong>. Your muscles can handle more, but your tendons and joints need 3-4 weeks to readapt. The plan below has a built-in ramp.</p>' +
-            '<p style="margin-top:12px;padding-top:12px;border-top:1px solid rgba(255,255,255,0.2);">Weeks 1-2: run the volumes below at <strong>RPE 6-7</strong>. Weeks 3-4: push to <strong>RPE 8-9</strong>. Week 5+: add 1-2 sets/muscle/week if recovery allows.</p>';
-    } else if (s.issue === 'plateau' && (s.experience === 'intermediate' || s.experience === 'advanced')) {
+        title = 'Your comeback program';
+        body = '<p>Muscle memory is real — you\'ll regain size faster than you built it. But your tendons need time. This program starts at <strong>80% of intermediate volume</strong> with a built-in ramp: RPE 6-7 for weeks 1-2, then push to RPE 8-9. Week 5+ you can add sets.</p>';
+    } else if (s.issue === 'plateau') {
         grad = 'mv-grad-teal';
-        title = 'Your plateau is probably a volume management problem';
-        body = '<p>Stalling after 1-3 years is the most common training problem, and it\'s almost never about effort. It\'s usually one of three things:</p>' +
-            '<ol style="margin:10px 0;padding-left:20px;"><li><strong>Volume accumulated past your MRV</strong> — you\'re doing so many sets that you can\'t recover between sessions</li>' +
-            '<li><strong>Volume too evenly distributed</strong> — everything is "moderate" and nothing is getting enough stimulus to grow</li>' +
-            '<li><strong>No periodization</strong> — same volume week after week with no deload or progression structure</li></ol>' +
-            '<p>The plan below addresses all three. I\'ve set volume at your <strong>estimated MAV</strong> (maximum adaptive volume) and concentrated it on your priorities.</p>';
+        title = 'Breaking your plateau';
+        body = '<p>Stalling at your level usually means one of three things: volume past your recovery capacity, no periodization, or volume spread too thin. This program concentrates <strong>' + vp.totalSets + ' weekly sets</strong> with priority on your weak points and a clear progression framework to get you moving again.</p>';
     } else if (s.experience === 'advanced') {
         grad = 'mv-grad-slate';
-        title = 'At your level, the margins are thin';
-        body = '<p>After 3+ years of consistent training, the dose-response curve flattens significantly. Each additional set gives diminishing returns, and <strong>recovery management becomes the primary skill</strong>.</p>' +
-            '<p>I\'ve pushed volume toward the upper research-supported range for your priority muscles and kept maintenance volume elsewhere. The key insight at your level: <strong>you can\'t specialize everywhere simultaneously</strong>. Pick 2-3 muscles to push, maintain everything else, rotate next mesocycle.</p>';
+        title = 'Your specialization block';
+        body = '<p>At 3+ years, the margins are thin. This program pushes volume on your priorities and maintains everything else. <strong>' + vp.totalSets + ' weekly sets</strong> across ' + s.frequency + ' days with strength/volume day pairing. Run it for 4-5 weeks, deload, reassess.</p>';
     } else {
-        // Default intermediate
         grad = 'mv-grad-teal';
-        title = 'Your personalized volume plan';
-        body = '<p>You\'re past beginner gains but still have significant room to grow with <strong>moderate-to-high volume</strong>. The numbers below are specific to your recovery capacity, goals, and training frequency.</p>' +
-            '<p>These are <strong>not ranges</strong> — they\'re starting points. Run them for 4-6 weeks, then adjust based on the criteria I\'ll give you below.</p>';
+        title = 'Your program';
+        body = '<p><strong>' + vp.totalSets + ' weekly sets</strong> across ' + s.frequency + ' days, built around your recovery capacity and goals. Every exercise, set, and rep count is specific to you — not a template.</p>';
     }
 
-    // Recovery overlay
     if (s.recovery === 'poor_sleep' || s.recovery === 'high_stress') {
-        var recTitle = s.recovery === 'poor_sleep' ? 'Sleep is your ceiling right now' : 'Stress is capping your recovery';
-        var recBody = s.recovery === 'poor_sleep'
-            ? 'Chronic sleep under 7 hours reduces muscle protein synthesis by ~18% and elevates cortisol (Lamon et al., 2021). <strong>I\'ve reduced your volume 15-18% below what I\'d give someone sleeping 8 hours.</strong> Fix sleep first — it\'s worth more than any set count optimization.'
-            : 'High life stress means elevated cortisol competing directly with recovery. <strong>I\'ve pulled volume back ~20%.</strong> During high-stress periods, maintain intensity (how hard each set is) but reduce total volume. You\'re better off doing fewer sets well than grinding through a program your body can\'t recover from.';
-
-        body += '<div style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.2);">' +
-            '<strong>' + recTitle + '.</strong> ' + recBody + '</div>';
+        var adj = s.recovery === 'poor_sleep' ? 'Sleep is capping your recovery — I\'ve reduced volume ~18%. Fixing sleep is worth more than any program change.' : 'High stress = reduced recovery. Volume is pulled back ~20%. Maintain intensity, reduce total work.';
+        body += '<p style="margin-top:8px;padding-top:8px;border-top:1px solid rgba(255,255,255,0.15);font-size:0.92em;opacity:0.9;">' + adj + '</p>';
     }
 
-    el.innerHTML =
-        '<div class="mv-card-head ' + grad + '">' +
-            '<h3>' + title + '</h3>' +
-        '</div>' +
-        '<div class="mv-card-body" style="font-size:0.93em;line-height:1.7;">' + body + '</div>';
+    el.innerHTML = '<div class="mv-card-head ' + grad + '"><h3>' + title + '</h3></div><div class="mv-card-body mv-diag-body">' + body + '</div>';
 }
 
 // ============================================================
-// RENDER: Volume plan
+// RENDER: The actual program (PRIMARY DELIVERABLE)
 // ============================================================
-function renderVolumePlan(s, plan) {
-    var el = document.getElementById('output-volume');
-    var rows = '';
+function renderProgram(s, program, vp) {
+    var el = document.getElementById('output-program');
+    var days = parseInt(s.frequency);
+    var splitName = days <= 3 ? (s.experience === 'beginner' ? 'Full Body 3x' : 'Push/Pull/Legs') : days <= 4 ? 'Upper/Lower' : days <= 5 ? 'PPL + Upper/Lower' : 'PPL x2';
 
-    plan.order.forEach(function(m) {
-        var d = plan.muscles[m];
-        var pct = Math.round((d.sets / plan.maxSets) * 100);
+    var daysHtml = '';
+    program.forEach(function(day, i) {
+        var isFirst = i === 0;
 
-        var badge = '';
-        if (d.priority) badge = '<span class="mv-vol-badge mv-vol-badge-priority">priority</span>';
-        else if ((s.recovery === 'poor_sleep' || s.recovery === 'high_stress') && d.sets < 10) badge = '<span class="mv-vol-badge mv-vol-badge-reduced">adjusted</span>';
+        // Build exercise table
+        var rows = '';
+        var dayTotalSets = 0;
+        day.exercises.forEach(function(ex) {
+            dayTotalSets += ex.sets;
+            rows += '<tr>' +
+                '<td><span class="mv-ex-name">' + ex.name + (ex.priority ? '<span class="mv-ex-priority">priority</span>' : '') + '</span><div class="mv-ex-target">' + ex.targets + '</div></td>' +
+                '<td class="mv-ex-sets">' + ex.sets + ' x ' + ex.reps + '</td>' +
+                '<td class="mv-ex-rpe">' + ex.rpe + '</td>' +
+                '<td class="mv-ex-rest">' + ex.rest + '</td>' +
+                '</tr>';
+            if (ex.note) {
+                rows += '<tr><td colspan="4" class="mv-ex-note">' + ex.note + '</td></tr>';
+            }
+        });
 
-        rows += '<div class="mv-vol-row">' +
-            '<span class="mv-vol-name">' + m + '</span>' +
-            '<span class="mv-vol-sets">' + d.sets + '</span>' +
-            '<div class="mv-vol-bar-wrap"><div class="mv-vol-bar mv-vol-bar-fill" style="width:' + pct + '%"></div></div>' +
-            badge +
-            '</div>';
+        daysHtml += '<div class="mv-day' + (isFirst ? ' open' : '') + '">' +
+            '<div class="mv-day-header" onclick="toggleDay(this)">' +
+                '<div><span class="mv-day-title">' + day.name + '</span></div>' +
+                '<div style="display:flex;align-items:center;gap:12px;"><span class="mv-day-meta">' + day.estTime + ' &middot; ' + dayTotalSets + ' sets</span><span class="mv-day-toggle">&#9660;</span></div>' +
+            '</div>' +
+            '<div class="mv-day-body">' +
+                '<table class="mv-ex-table">' +
+                    '<thead><tr><th>Exercise</th><th>Sets x Reps</th><th>Effort</th><th>Rest</th></tr></thead>' +
+                    '<tbody>' + rows + '</tbody>' +
+                '</table>' +
+                '<div class="mv-day-summary"><strong>Session focus:</strong> ' + day.focus + '</div>' +
+            '</div>' +
+        '</div>';
     });
-
-    var subtitle = plan.totalSets + ' hard sets/week across ' + s.frequency + ' days';
-    if (plan.totalSets < plan.potentialTotal && (s.recovery === 'poor_sleep' || s.recovery === 'high_stress')) {
-        subtitle += ' (could be ' + plan.potentialTotal + ' with better recovery)';
-    }
 
     el.innerHTML =
         '<div class="mv-card-head mv-grad-teal">' +
-            '<h3>Weekly Volume</h3>' +
-            '<p>' + subtitle + '</p>' +
+            '<h3>Your ' + days + '-Day Program</h3>' +
+            '<p>' + splitName + ' &middot; ' + vp.totalSets + ' hard sets/week &middot; Tap each day to expand</p>' +
         '</div>' +
-        '<div class="mv-card-body">' + rows +
-            '<div style="margin-top:14px;font-size:0.82em;color:var(--color-text-tertiary);line-height:1.5;">' +
-                '<strong>What counts as a set:</strong> Working sets at RPE 7+ (1-3 reps from failure). Warm-ups, feeder sets, and easy sets stopped well short of failure don\'t count.' +
-            '</div>' +
-        '</div>';
+        '<div class="mv-card-body" style="padding:14px 18px;">' + daysHtml + '</div>';
+}
+
+function toggleDay(header) {
+    header.parentElement.classList.toggle('open');
 }
 
 // ============================================================
-// RENDER: Reasoning trace
+// RENDER: Progression rules
 // ============================================================
-function renderReasoning(s, plan) {
-    var el = document.getElementById('output-reasoning');
+function renderProgression(s) {
+    var el = document.getElementById('output-progression');
+    var rules = [];
+
+    if (s.experience === 'beginner') {
+        rules.push({
+            title: 'How to progress (every session)',
+            body: 'If you completed all prescribed sets and reps last session, <strong>add 5 lbs to the bar</strong> (2.5 lbs for isolation exercises). If you failed to hit the top of the rep range on 2+ sets, repeat the same weight.',
+            trigger: 'When to add volume: after 8 weeks, if progression has slowed on 3+ exercises'
+        });
+        rules.push({
+            title: 'What "RPE 7-8" means for you',
+            body: 'Stop each set when you could do 2-3 more reps with good form. You should never grind a rep or have your form break down. <strong>Learning the movements well matters more than how much weight is on the bar right now.</strong>',
+            trigger: null
+        });
+    } else if (s.experience === 'returning') {
+        rules.push({
+            title: 'Weeks 1-2: Ramp-up phase',
+            body: 'Run every exercise at <strong>RPE 6-7</strong> (3-4 reps in reserve). Your muscles will want to do more — resist. Tendons and joints need these two weeks. Use this time to re-learn movement patterns.',
+            trigger: null
+        });
+        rules.push({
+            title: 'Weeks 3-4: Push to working intensity',
+            body: 'Move to <strong>RPE 8-9</strong> on compounds, RPE 8 on isolation. Weight should increase rapidly — this is your muscle memory window. Add weight every session when possible.',
+            trigger: null
+        });
+        rules.push({
+            title: 'Week 5+: Standard progression',
+            body: 'Add 1-2 sets per muscle per week if recovery allows. Progress weight when you hit the top of the rep range on all sets.',
+            trigger: 'When to deload: if session quality drops for 2 consecutive weeks'
+        });
+    } else {
+        rules.push({
+            title: 'Weight progression',
+            body: 'When you hit the <strong>top of the rep range on all working sets</strong>, increase weight by the smallest increment available next session. For compound lifts: 5 lbs. For isolation: 2.5 lbs or add 1 rep.',
+            trigger: null
+        });
+        rules.push({
+            title: 'Volume progression',
+            body: 'Start with the sets listed. After 2 weeks, if you\'re recovering between sessions (not sore >48 hours) and progressing, <strong>add 1 set per muscle per week</strong> up to your MRV ceiling.',
+            trigger: 'Stop adding when: soreness lasts >48 hours, strength drops, or sleep quality decreases'
+        });
+        rules.push({
+            title: 'When to deload',
+            body: 'After ' + (s.experience === 'advanced' ? '4-5' : '5-6') + ' weeks, or earlier if: performance drops on 3+ exercises for 2 consecutive sessions, motivation/sleep tanks, or joints start aching. <strong>Deload = same exercises, 50% volume, 70% load for 1 week.</strong>',
+            trigger: null
+        });
+    }
+
+    // Universal rule
+    rules.push({
+        title: 'What counts as a working set',
+        body: 'Only sets at the prescribed RPE count. Warm-ups, feeder sets, and sets stopped well short of effort <strong>don\'t count</strong> toward your targets. Do 2-3 warm-up sets before your first compound each day.',
+        trigger: null
+    });
+
+    var html = '';
+    rules.forEach(function(r) {
+        html += '<div class="mv-rule"><div class="mv-rule-title">' + r.title + '</div><div class="mv-rule-body">' + r.body + '</div>' +
+            (r.trigger ? '<span class="mv-rule-trigger">' + r.trigger + '</span>' : '') +
+            '</div>';
+    });
+
+    el.innerHTML = '<div class="mv-card-head mv-grad-green"><h3>How to Progress</h3><p>When to add weight, when to add sets, when to back off</p></div><div class="mv-card-body">' + html + '</div>';
+}
+
+// ============================================================
+// RENDER: Why these decisions (collapsible depth)
+// ============================================================
+function renderWhy(s, vp) {
+    var el = document.getElementById('output-why');
     var items = [];
 
+    var expMod = { beginner: 0.65, intermediate: 1.0, advanced: 1.25, returning: 0.80 };
+    var recMod = { good: 1.0, moderate: 0.92, poor_sleep: 0.82, high_stress: 0.78 };
+    var ageMod = { young: 1.0, thirties: 0.95, forties: 0.87, fifties_plus: 0.75 };
+
     // Volume reasoning
-    var baseNote = 'Base volumes from Schoenfeld et al. meta-analyses on hypertrophy dose-response.';
-    if (plan.expMod !== 1) {
-        var expDir = plan.expMod < 1 ? 'reduced' : 'increased';
-        var expPct = Math.abs(Math.round((plan.expMod - 1) * 100));
-        items.push('Experience modifier: <strong>' + expDir + ' by ' + expPct + '%</strong> — ' +
-            (s.experience === 'beginner' ? 'beginners respond to less stimulus; more isn\'t better at this stage (Rhea et al., 2003).' :
-             s.experience === 'advanced' ? 'advanced lifters need more volume per unit of growth (diminishing returns above 3 years).' :
-             s.experience === 'returning' ? 'starting conservatively due to connective tissue readaptation needs despite muscle memory.' :
-             'intermediate baseline.'));
+    var expVal = expMod[s.experience] || 1;
+    if (expVal !== 1) {
+        var dir = expVal < 1 ? 'reduced' : 'increased';
+        var pct = Math.abs(Math.round((expVal - 1) * 100));
+        items.push({
+            title: 'Volume ' + dir + ' ' + pct + '% for ' + s.experience + ' level',
+            body: s.experience === 'beginner' ? 'Beginners respond to less stimulus — more volume doesn\'t mean faster growth at this stage. It means more fatigue for the same result (Rhea et al., 2003).' :
+                  s.experience === 'advanced' ? 'Advanced lifters need more total volume per unit of growth. The dose-response curve flattens significantly after year 3.' :
+                  s.experience === 'returning' ? 'Starting conservative due to connective tissue readaptation. Muscle memory means you\'ll ramp faster than a true beginner, but tendons don\'t have the same memory.' :
+                  'Standard intermediate baseline.'
+        });
     }
 
-    if (plan.recMod !== 1) {
-        var recPct = Math.round((1 - plan.recMod) * 100);
-        items.push('Recovery modifier: <strong>reduced by ' + recPct + '%</strong> — ' +
-            (s.recovery === 'poor_sleep' ? 'sleep deprivation reduces MPS by ~18% (Lamon et al., 2021) and increases injury risk.' :
-             'elevated cortisol from chronic stress competes directly with muscle recovery (Kraemer & Ratamess, 2005).'));
+    var recVal = recMod[s.recovery] || 1;
+    if (recVal !== 1) {
+        var recPct = Math.round((1 - recVal) * 100);
+        items.push({
+            title: 'Volume reduced ' + recPct + '% for recovery status',
+            body: s.recovery === 'poor_sleep' ? 'Sleep deprivation reduces muscle protein synthesis by ~18% and elevates cortisol by ~21% (Lamon et al., 2021). Training volume must match recovery capacity, not ambition.' :
+                  'Elevated cortisol from chronic stress directly competes with muscle recovery (Kraemer & Ratamess, 2005). Reduced volume protects against digging a recovery hole.'
+        });
     }
 
-    if (plan.ageMod !== 1) {
-        var agePct = Math.round((1 - plan.ageMod) * 100);
-        items.push('Age modifier: <strong>reduced by ' + agePct + '%</strong> — fewer satellite cells, slower protein synthesis rates, longer inflammation resolution with age (Distefano & Bhatt, 2020).');
+    var ageVal = ageMod[s.age] || 1;
+    if (ageVal !== 1) {
+        var agePct = Math.round((1 - ageVal) * 100);
+        items.push({
+            title: 'Volume reduced ' + agePct + '% for age-related recovery',
+            body: 'Fewer satellite cells, slower protein synthesis, longer inflammation resolution with age (Distefano & Bhatt, 2020). Same training principles, adjusted dose.'
+        });
+    }
+
+    // Split reasoning
+    var days = parseInt(s.frequency);
+    if (s.experience === 'beginner' && days <= 3) {
+        items.push({ title: 'Full body instead of a split', body: 'At your level, hitting each muscle 3x/week with moderate volume beats hitting it 1x/week with high volume. Neural learning (getting better at the movements) benefits from frequency. Full body 3x is the fastest path for beginners.' });
+    } else if (s.split_info === 'ppl' && days <= 4) {
+        items.push({ title: 'Switched from PPL to Upper/Lower', body: 'PPL on ' + days + ' days means each muscle gets hit once per week. Upper/Lower at ' + days + ' days gives ~2x/week frequency. Research shows 2x/week frequency is superior for hypertrophy at matched volume (Schoenfeld et al., 2016).' });
+    }
+
+    // Exercise selection reasoning
+    if (s.experience === 'beginner') {
+        items.push({ title: 'Dumbbell-dominant exercise selection', body: 'Dumbbells are more forgiving on form, build stabilizer strength, and let each side work independently. You\'ll progress to barbell movements when your movement patterns are solid.' });
     }
 
     if (s.goal === 'strength') {
-        items.push('Strength goal: <strong>reduced total volume by ~18%</strong> — strength adaptations come more from intensity and neural efficiency than from volume. Fewer sets, heavier loads, more rest (Schoenfeld et al., 2017).');
+        items.push({ title: 'Lower rep ranges on compounds', body: 'Strength adaptations come primarily from neural efficiency and high-threshold motor unit recruitment, which require heavier loads (Schoenfeld et al., 2017). Rep ranges of 3-6 on compounds with longer rest periods.' });
     }
 
-    if (s.weak_points && s.weak_points !== 'none') {
-        items.push('Priority muscles get <strong>+20% volume</strong>. This is borrowed from non-priority muscles that maintain on less.');
-    }
+    items.push({ title: 'Base volume from research', body: 'Starting volumes derived from Schoenfeld et al. meta-analyses on hypertrophy dose-response, adjusted by the modifiers above. Individual variance is ~15% — the progression rules tell you when to adjust.' });
 
-    items.push(baseNote);
-
-    var html = '<div class="mv-card-body">' +
-        '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">How I got these numbers</div>';
-
+    var html = '';
     items.forEach(function(item) {
-        html += '<div class="mv-reasoning">' + item + '</div>';
+        html += '<div class="mv-why-toggle" onclick="this.classList.toggle(\'open\')"><span class="mv-why-toggle-title">' + item.title + '</span><span class="mv-why-toggle-arrow">&#9660;</span></div>' +
+            '<div class="mv-why-content">' + item.body + '</div>';
     });
 
-    html += '</div>';
-    el.innerHTML = html;
+    el.innerHTML = '<div class="mv-card-head mv-grad-slate"><h3>Why These Decisions</h3><p>The reasoning behind your program — expand any item</p></div><div class="mv-card-body">' + html + '</div>';
 }
 
 // ============================================================
-// RENDER: Weekly split
+// RENDER: What I'm not covering
 // ============================================================
-function renderSplit(s, plan) {
-    var el = document.getElementById('output-split');
-    var days = parseInt(s.frequency) || 4;
-
-    var splits = {
-        3: [
-            { name: 'Day 1 — Push', groups: ['Chest', 'Shoulders', 'Triceps'] },
-            { name: 'Day 2 — Pull', groups: ['Back', 'Biceps', 'Abs'] },
-            { name: 'Day 3 — Legs', groups: ['Quads', 'Hamstrings', 'Glutes', 'Calves'] }
-        ],
-        4: [
-            { name: 'Day 1 — Upper (strength)', groups: ['Chest', 'Back', 'Shoulders'] },
-            { name: 'Day 2 — Lower (quad focus)', groups: ['Quads', 'Glutes', 'Calves', 'Abs'] },
-            { name: 'Day 3 — Upper (volume)', groups: ['Chest', 'Back', 'Shoulders', 'Biceps', 'Triceps'] },
-            { name: 'Day 4 — Lower (hinge focus)', groups: ['Hamstrings', 'Glutes', 'Calves', 'Abs'] }
-        ],
-        5: [
-            { name: 'Day 1 — Push', groups: ['Chest', 'Shoulders', 'Triceps'] },
-            { name: 'Day 2 — Pull', groups: ['Back', 'Biceps'] },
-            { name: 'Day 3 — Legs', groups: ['Quads', 'Hamstrings', 'Glutes', 'Calves'] },
-            { name: 'Day 4 — Upper', groups: ['Chest', 'Back', 'Shoulders', 'Biceps', 'Triceps'] },
-            { name: 'Day 5 — Lower + Core', groups: ['Quads', 'Hamstrings', 'Glutes', 'Calves', 'Abs'] }
-        ],
-        6: [
-            { name: 'Day 1 — Push A', groups: ['Chest', 'Shoulders', 'Triceps'] },
-            { name: 'Day 2 — Pull A', groups: ['Back', 'Biceps', 'Abs'] },
-            { name: 'Day 3 — Legs A', groups: ['Quads', 'Hamstrings', 'Glutes', 'Calves'] },
-            { name: 'Day 4 — Push B', groups: ['Chest', 'Shoulders', 'Triceps'] },
-            { name: 'Day 5 — Pull B', groups: ['Back', 'Biceps', 'Abs'] },
-            { name: 'Day 6 — Legs B', groups: ['Quads', 'Hamstrings', 'Glutes', 'Calves'] }
-        ]
-    };
-
-    var split = splits[days] || splits[4];
-
-    // Reasoning for split choice
-    var splitReason = '';
-    if (s.split_info && s.split_info === 'ppl' && days < 5) {
-        splitReason = '<div class="mv-reasoning" style="margin-bottom:16px;">You\'re currently on PPL, but with ' + days + ' days that only hits each muscle once per week. I\'ve switched you to an <strong>Upper/Lower split</strong> — at ' + days + ' days, this gives each muscle ~2x/week frequency, which the research shows is superior for hypertrophy (Schoenfeld et al., 2016).</div>';
-    } else if (days <= 3) {
-        splitReason = '<div class="mv-reasoning" style="margin-bottom:16px;">At 3 days per week, a <strong>Push/Pull/Legs</strong> split is your best architecture. Each muscle gets hit once with full recovery between sessions. As you progress, moving to 4 days will be the single biggest variable change.</div>';
-    }
-
-    var splitHtml = '';
-    split.forEach(function(day) {
-        splitHtml += '<div class="mv-split-day"><h5>' + day.name + '</h5><ul>';
-        day.groups.forEach(function(g) {
-            if (plan.muscles[g]) {
-                var freq = 1;
-                // Count how many days this muscle appears in the split
-                var appearances = 0;
-                split.forEach(function(d) { if (d.groups.indexOf(g) >= 0) appearances++; });
-                freq = Math.max(1, appearances);
-                var perSession = Math.ceil(plan.muscles[g].sets / freq);
-                splitHtml += '<li>' + g + ': ' + perSession + ' sets' + (plan.muscles[g].priority ? ' <span style="color:var(--color-good);font-size:0.8em;">(priority)</span>' : '') + '</li>';
-            }
-        });
-        splitHtml += '</ul></div>';
-    });
-
-    el.innerHTML =
-        '<div class="mv-card-head mv-grad-green">' +
-            '<h3>Weekly Split</h3>' +
-            '<p>' + days + '-day ' + (days <= 3 ? 'Push/Pull/Legs' : days <= 4 ? 'Upper/Lower' : 'PPL hybrid') + '</p>' +
-        '</div>' +
-        '<div class="mv-card-body">' + splitReason + splitHtml + '</div>';
-}
-
-// ============================================================
-// RENDER: Accuracy envelope
-// ============================================================
-function renderEnvelope(s) {
-    var el = document.getElementById('output-envelope');
-
-    // Confidence levels for what we ARE providing
-    var providing = [
-        { label: 'Volume per muscle group', level: 'high', note: 'Backed by multiple meta-analyses (Schoenfeld, Krieger). Individual variance ~15%.' },
-        { label: 'Split architecture', level: 'high', note: 'Well-studied. Frequency 2x/week superior to 1x for hypertrophy.' },
-        { label: 'Recovery adjustments', level: 'moderate', note: 'Based on population-level studies. Your individual response may differ.' },
-        { label: 'Priority redistribution', level: 'moderate', note: 'The 20% boost is a heuristic. Optimal depends on your specific deficit.' }
+function renderBoundaries(s) {
+    var el = document.getElementById('output-boundaries');
+    var items = [
+        { icon: '&#127860;', title: 'Nutrition', reason: 'Your program will work without nutrition advice, but it won\'t work optimally. Caloric surplus/deficit and protein intake are separate decisions that need their own intake.' },
+        { icon: '&#128137;', title: 'Injuries / pain', reason: 'If you have joint pain or injuries, you need assessment — not a volume prescription. Substitute exercises around pain, don\'t push through it.' },
+        { icon: '&#128138;', title: 'Supplements', reason: 'Outside what I can reliably recommend from your profile alone. Creatine monohydrate (5g/day) is the only supplement with strong enough evidence to recommend generically.' }
     ];
-
-    if (s.experience === 'advanced') {
-        providing.push({ label: 'Periodization timing', level: 'moderate', note: 'Mesocycle length is a best estimate. Monitor performance markers.' });
-    }
-
-    var confRows = '';
-    providing.forEach(function(p) {
-        confRows += '<div class="mv-confidence-row">' +
-            '<span class="mv-conf-dot mv-conf-' + p.level + '"></span>' +
-            '<span class="mv-conf-label">' + p.label + '</span>' +
-            '<span class="mv-conf-note">' + p.note + '</span>' +
-            '</div>';
-    });
-
-    // What we're NOT providing (and why)
-    var notProviding = [
-        { icon: '&#9949;', title: 'Exercise selection', reason: 'Depends on your anatomy, injury history, equipment, and movement quality — I can\'t assess these without seeing you move.' },
-        { icon: '&#127860;', title: 'Nutrition recommendations', reason: 'Not enough data. Caloric needs, macro timing, and body composition goals require a separate intake. Giving generic advice would be irresponsible.' },
-        { icon: '&#128137;', title: 'Injury management', reason: 'If you have pain, you need assessment, not a volume prescription. This falls outside what a training advisor can reliably handle remotely.' },
-        { icon: '&#128138;', title: 'Supplement recommendations', reason: 'Outside our validated accuracy envelope. Will be added when we can reliably match supplements to individual contexts.' }
-    ];
-
     if (s.experience === 'beginner') {
-        notProviding.push({ icon: '&#127916;', title: 'Form/technique coaching', reason: 'This requires visual feedback. No text-based system can reliably correct form. Find a coach for your first 3-6 months or film your lifts for feedback.' });
+        items.push({ icon: '&#127916;', title: 'Form coaching', reason: 'Text can\'t correct form. Film your main lifts and compare to reference videos, or get a few sessions with a coach for squat/bench/deadlift.' });
     }
 
-    var npRows = '';
-    notProviding.forEach(function(np) {
-        npRows += '<div class="mv-not-providing">' +
-            '<div class="mv-np-icon">' + np.icon + '</div>' +
-            '<div class="mv-np-text"><strong>' + np.title + '</strong><span>' + np.reason + '</span></div>' +
-            '</div>';
+    var html = '';
+    items.forEach(function(item) {
+        html += '<div class="mv-boundary"><div class="mv-boundary-icon">' + item.icon + '</div><div class="mv-boundary-text"><strong>' + item.title + '</strong><span>' + item.reason + '</span></div></div>';
     });
 
-    el.innerHTML =
-        '<div class="mv-card-body">' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Confidence levels</div>' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:16px;">How reliable each part of this plan is — and what I chose not to give you</div>' +
-            confRows +
-            '<div style="margin-top:22px;padding-top:18px;border-top:1px solid var(--color-border);">' +
-                '<div style="font-size:0.88em;font-weight:600;margin-bottom:14px;color:var(--color-text);">What I\'m deliberately NOT recommending</div>' +
-                npRows +
-            '</div>' +
-        '</div>';
+    el.innerHTML = '<div class="mv-card-body"><div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">What this program doesn\'t cover</div><div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:14px;">And why — these aren\'t oversights, they\'re deliberate scope boundaries</div>' + html + '</div>';
 }
 
 // ============================================================
-// RENDER: Sensitivity analysis
+// RENDER: What's next
 // ============================================================
-function renderSensitivity(s, plan) {
-    var el = document.getElementById('output-sensitivity');
-    var rows = [];
-
-    // Frequency change
-    var altDays = parseInt(s.frequency) < 5 ? parseInt(s.frequency) + 1 : parseInt(s.frequency) - 1;
-    var dirLabel = altDays > parseInt(s.frequency) ? '+1 training day' : '-1 training day';
-    rows.push({
-        change: dirLabel,
-        effect: altDays > parseInt(s.frequency)
-            ? 'Each muscle gets hit ~' + (altDays >= 5 ? '2-3' : '2') + 'x/week instead of ' + (parseInt(s.frequency) <= 3 ? '1' : '~2') + 'x. Higher frequency = better stimulus distribution. <strong>Would change split architecture.</strong>'
-            : 'Reduces frequency per muscle group. Volume stays similar but distributed across fewer sessions — each session gets longer.'
-    });
-
-    // Recovery change
-    if (s.recovery !== 'good') {
-        var recGain = Math.round((1 - plan.recMod) * plan.totalSets / plan.recMod);
-        rows.push({
-            change: 'Better recovery',
-            effect: 'With good sleep + low stress: <strong>+' + recGain + ' sets/week</strong> (' + plan.potentialTotal + ' total). This is the single biggest lever you\'re not pulling.'
-        });
-    }
-
-    // Goal change
-    if (s.goal !== 'both') {
-        var altGoal = s.goal === 'hypertrophy' ? 'strength' : 'hypertrophy';
-        rows.push({
-            change: 'Switch to ' + altGoal,
-            effect: altGoal === 'strength'
-                ? 'Volume drops ~18%, rep ranges shift to 3-6, rest periods increase to 3-5 min. Fewer sets but heavier.'
-                : 'Volume increases ~18%, rep ranges shift to 8-15, more isolation work. More sets, moderate loads.'
-        });
-    }
-
-    // Experience progression
-    if (s.experience === 'beginner') {
-        rows.push({
-            change: 'After 6-12 months',
-            effect: 'Your volume tolerance will increase ~35-50%. The plan I\'d give you then looks completely different — more volume, more exercises, more specialization.'
-        });
-    } else if (s.experience === 'returning') {
-        rows.push({
-            change: 'After 4-6 weeks',
-            effect: 'Once connective tissue readapts, you\'ll move to full intermediate volume (+20-25%). The ramp-up period is the only thing holding your plan back.'
-        });
-    }
-
-    // Age (if young, show the other direction)
-    if (s.age === 'young' && (s.experience === 'intermediate' || s.experience === 'advanced')) {
-        rows.push({
-            change: 'At age 40+',
-            effect: 'Volume ceiling drops ~13%, recovery between sessions takes longer. Same principles, lower dose. Important to know if you\'re building long-term training habits.'
-        });
-    }
-
-    var rowsHtml = '';
-    rows.forEach(function(r) {
-        rowsHtml += '<div class="mv-sens-row">' +
-            '<span class="mv-sens-change">' + r.change + '</span>' +
-            '<span class="mv-sens-effect">' + r.effect + '</span>' +
-            '</div>';
-    });
-
-    el.innerHTML =
-        '<div class="mv-card-body">' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">What would change this plan</div>' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:16px;">If any of these changed, here\'s how the output shifts</div>' +
-            rowsHtml +
-        '</div>';
-}
-
-// ============================================================
-// RENDER: Return hook (session persistence concept)
-// ============================================================
-function renderReturnHook(s) {
-    var el = document.getElementById('output-return');
-
-    var mesocycleWeeks = s.experience === 'beginner' ? 8 : s.experience === 'returning' ? 6 : s.experience === 'advanced' ? 4 : 5;
+function renderNext(s) {
+    var el = document.getElementById('output-next');
+    var weeks = s.experience === 'beginner' ? 8 : s.experience === 'returning' ? 6 : s.experience === 'advanced' ? 5 : 6;
 
     var timeline = '';
-    for (var w = 1; w <= mesocycleWeeks; w++) {
-        var cls = w === 1 ? 'mv-rw-now' : 'mv-rw-future';
-        var label = '';
-        if (w === 1) label = 'Start';
-        else if (w === Math.ceil(mesocycleWeeks / 2)) label = 'Check-in';
-        else if (w === mesocycleWeeks - 1) label = 'Deload?';
-        else if (w === mesocycleWeeks) label = 'Transition';
-        timeline += '<div class="mv-return-week ' + cls + '"><strong>' + (label || '') + '</strong><span>Wk ' + w + '</span></div>';
+    var labels = {};
+    labels[1] = 'Start';
+    labels[Math.ceil(weeks / 2)] = 'Check-in';
+    labels[weeks - 1] = 'Deload';
+    labels[weeks] = 'Reassess';
+    for (var w = 1; w <= weeks; w++) {
+        timeline += '<div class="mv-tl-week' + (w === 1 ? ' now' : '') + '"><strong>' + (labels[w] || '') + '</strong><span>Wk ' + w + '</span></div>';
     }
 
-    var checkInQs = '';
+    var checkin = '';
     if (s.experience === 'beginner') {
-        checkInQs = '<li>Are you still progressing on your main lifts? (adding weight or reps each week)</li>' +
-            '<li>Any persistent joint soreness lasting more than 48 hours?</li>' +
-            '<li>Are sessions taking longer than 60-75 minutes?</li>';
+        checkin = 'At week 4: Are you adding weight most sessions? Any persistent joint pain? Sessions under 60 min? If yes/no/yes — keep going. If no — we adjust.';
     } else if (s.issue === 'plateau') {
-        checkInQs = '<li>Has your bench/squat/deadlift moved in the past 2 weeks?</li>' +
-            '<li>Rate your session quality 1-5 for the past week</li>' +
-            '<li>Any signs of overreaching? (disrupted sleep, loss of motivation, joint aches)</li>';
+        checkin = 'At week 3: Have your stalled lifts moved? Rate session quality 1-5 for the past week. Any overreaching signs (disrupted sleep, loss of motivation)?';
     } else {
-        checkInQs = '<li>How are your priority muscles responding? (strength going up, pump quality, soreness pattern)</li>' +
-            '<li>Are you recovering between sessions for the same muscle group?</li>' +
-            '<li>Any lifts where form is breaking down in the last 2 reps?</li>';
+        checkin = 'At week ' + Math.ceil(weeks / 2) + ': Are priority muscles responding? Recovering between sessions? Any lifts where form breaks down in the last reps?';
     }
 
     el.innerHTML =
-        '<div class="mv-card-head mv-grad-warm">' +
-            '<h3>This Plan Evolves</h3>' +
-            '<p>A good plan adapts to your results — here\'s when and how</p>' +
-        '</div>' +
+        '<div class="mv-card-head mv-grad-warm"><h3>Run This for ' + weeks + ' Weeks</h3><p>Then come back — the next mesocycle adapts based on your results</p></div>' +
         '<div class="mv-card-body">' +
-            '<div class="mv-return-timeline">' + timeline + '</div>' +
-            '<div style="margin-top:18px;">' +
-                '<div class="mv-reasoning"><strong>Mesocycle length: ' + mesocycleWeeks + ' weeks.</strong> ' +
-                    (s.experience === 'beginner' ? 'Beginners can run the same program longer before needing changes — your body is still adapting to everything.' :
-                     s.experience === 'advanced' ? 'Advanced lifters accumulate fatigue faster. Shorter mesocycles with planned deloads keep you progressing.' :
-                     s.experience === 'returning' ? 'Slightly longer cycle to account for the readaptation ramp in weeks 1-3.' :
-                     'Standard intermediate mesocycle. Progress should be visible by week 3.') +
-                '</div>' +
+            '<div class="mv-timeline">' + timeline + '</div>' +
+            '<div style="margin-top:18px;font-size:0.9em;line-height:1.6;color:var(--color-text-secondary);">' +
+                '<strong>Mid-cycle check-in:</strong> ' + checkin +
             '</div>' +
-            '<div style="margin-top:18px;">' +
-                '<strong style="font-size:0.92em;">At your mid-cycle check-in, I\'d ask you:</strong>' +
-                '<ul style="margin:10px 0 0;padding-left:20px;font-size:0.9em;line-height:1.7;">' + checkInQs + '</ul>' +
-            '</div>' +
-            '<div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--color-border-light);font-size:0.88em;color:var(--color-text-secondary);line-height:1.6;">' +
-                '<strong>What happens at transition:</strong> Volume is re-evaluated. Exercises rotate. Priority muscles may shift. Deload week if accumulated fatigue markers are present. ' +
-                'The next mesocycle isn\'t a repeat — it\'s an adaptation based on what this one revealed.' +
+            '<div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--color-border-light);font-size:0.88em;color:var(--color-text-secondary);line-height:1.6;">' +
+                '<strong>What happens at week ' + weeks + ':</strong> Volume gets re-evaluated, exercises rotate, priority muscles may shift, deload week if fatigue has accumulated. The next cycle isn\'t a repeat — it\'s an adaptation based on what this one revealed.' +
             '</div>' +
         '</div>';
-}
-
-// ============================================================
-// RENDER: Feedback mechanism (progressive loop closure)
-// ============================================================
-function renderFeedback(s) {
-    var el = document.getElementById('output-feedback');
-
-    var feedbackItems = [
-        'Volume recommendations feel appropriate',
-        'Split matches my schedule reality',
-        'Recovery adjustment seems right',
-        'Reasoning was useful, not just the numbers',
-        'I\'d trust this to adjust my plan over time'
-    ];
-
-    var rows = '';
-    feedbackItems.forEach(function(item, i) {
-        rows += '<div class="mv-fb-row">' +
-            '<span>' + item + '</span>' +
-            '<div class="mv-fb-btns">' +
-                '<button class="mv-fb-btn" onclick="handleFeedback(this, ' + i + ', \'yes\')" title="Agree">&#10003;</button>' +
-                '<button class="mv-fb-btn" onclick="handleFeedback(this, ' + i + ', \'no\')" title="Disagree">&#10007;</button>' +
-            '</div>' +
-            '</div>';
-    });
-
-    el.innerHTML =
-        '<div class="mv-card-body">' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:4px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600;">Did this work?</div>' +
-            '<div style="font-size:0.85em;color:var(--color-text-tertiary);margin-bottom:16px;">Your feedback teaches the system which judgments to trust and which to improve</div>' +
-            rows +
-            '<div style="margin-top:16px;padding-top:14px;border-top:1px solid var(--color-border-light);font-size:0.82em;color:var(--color-text-tertiary);line-height:1.5;">' +
-                '<strong>How this works:</strong> Categories with high agreement rates graduate to higher autonomy — the system makes those decisions with less checking. Categories with low agreement get flagged for human review and recalibration. Trust is earned category by category, not all at once.' +
-            '</div>' +
-        '</div>';
-}
-
-function handleFeedback(btn, index, type) {
-    var row = btn.closest('.mv-fb-row');
-    row.querySelectorAll('.mv-fb-btn').forEach(function(b) {
-        b.classList.remove('mv-fb-selected-yes', 'mv-fb-selected-no');
-    });
-    btn.classList.add(type === 'yes' ? 'mv-fb-selected-yes' : 'mv-fb-selected-no');
 }
 
 // ============================================================
 // INIT
 // ============================================================
 document.getElementById('intake-input').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && !e.shiftKey) {
-        e.preventDefault();
-        submitIntake();
-    }
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitIntake(); }
 });
 </script>
 
