@@ -126,12 +126,19 @@
    */
   function buildShareText(opts, platform) {
     var url = 'https://' + (opts.url || 'healthcalculators.xyz');
+    var via = ' via @GetHealthC';
     if (opts.sensitive) {
+      if (platform === 'twitter') {
+        return 'I just used the ' + opts.calculatorName + ' \u2014 check yours' + via;
+      }
       return 'I just used the ' + opts.calculatorName + ' \u2014 check yours: ' + url;
     }
-    var text = opts.calculatorName + ': My ' + opts.resultLabel.replace(/^Your\s*/i, '') +
-      ' is ' + opts.resultValue + ' (' + opts.resultCategory + '). Check yours: ' + url;
-    return text;
+    var result = opts.calculatorName + ': My ' + opts.resultLabel.replace(/^Your\s*/i, '') +
+      ' is ' + opts.resultValue + ' (' + opts.resultCategory + ').';
+    if (platform === 'twitter') {
+      return result + ' Check yours' + via;
+    }
+    return result + ' Check yours: ' + url;
   }
 
   /**
@@ -191,7 +198,8 @@
         icon: '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M9.52 6.775L15.48 0h-1.41L8.895 5.882 4.764 0H0l6.247 9.09L0 16h1.41l5.463-6.352L11.236 16H16L9.52 6.775zm-1.934 2.248l-.633-.906L1.92 1.04h2.17l4.065 5.816.633.906 5.284 7.558h-2.17L7.586 9.023z"/></svg>',
         cls: 'share-btn-twitter',
         action: function() {
-          window.open('https://twitter.com/intent/tweet?text=' + encodedText, '_blank', 'width=550,height=420');
+          var twitterText = encodeURIComponent(buildShareText(opts, 'twitter'));
+          window.open('https://twitter.com/intent/tweet?text=' + twitterText, '_blank', 'width=550,height=420');
           trackShare('twitter', opts.calculatorName);
         }
       },
