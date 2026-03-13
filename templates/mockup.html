@@ -89,6 +89,15 @@
         <div id="output-next" class="mv-output-card"></div>
     </div>
 
+    <!-- PHASE: Welcome back (returning user) -->
+    <div id="phase-welcome" class="mv-phase" style="display:none;"></div>
+
+    <!-- PHASE: Gym mode (active workout) -->
+    <div id="phase-gym" class="mv-phase" style="display:none;"></div>
+
+    <!-- PHASE: Workout complete -->
+    <div id="phase-complete" class="mv-phase" style="display:none;"></div>
+
 </div>
 
 <style>
@@ -549,6 +558,551 @@
     .mv-ex-table th:nth-child(5), .mv-ex-table td:nth-child(5) { display: none; }
     .mv-tag { min-width: 100px; }
     .mv-day-header { padding: 12px 14px; }
+}
+
+/* ============================================================
+   GYM MODE STYLES
+   ============================================================ */
+.mv-start-workout {
+    display: block;
+    width: calc(100% - 32px);
+    margin: 14px 16px;
+    padding: 12px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.95em;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.mv-start-workout:hover { background: var(--color-accent-hover); }
+
+/* Gym phase wrapper */
+.gym-header {
+    background: linear-gradient(135deg, #0e7a7e 0%, #064e52 100%);
+    color: #fff;
+    padding: 20px 24px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.gym-header-left { display: flex; flex-direction: column; gap: 2px; }
+.gym-counter { font-size: 0.82em; opacity: 0.8; }
+.gym-day-name { font-size: 0.88em; opacity: 0.75; }
+.gym-close-btn {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: #fff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+.gym-close-btn:hover { background: rgba(255,255,255,0.25); }
+
+.gym-body {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 24px;
+}
+
+.gym-ex-name {
+    font-family: var(--font-display);
+    font-size: 1.5em;
+    color: var(--color-text);
+    margin-bottom: 4px;
+    line-height: 1.2;
+}
+.gym-ex-targets {
+    font-size: 0.85em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 18px;
+}
+.gym-prescription {
+    display: inline-block;
+    background: var(--color-accent-bg);
+    color: var(--color-accent-deep);
+    border: 1px solid var(--color-accent-border);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+/* Session context */
+.gym-session-context {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.gym-context-card {
+    flex: 1;
+    min-width: 140px;
+    background: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 12px 14px;
+}
+.gym-context-label {
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+.gym-context-value {
+    font-size: 0.92em;
+    font-weight: 600;
+    color: var(--color-text);
+    line-height: 1.3;
+}
+.gym-context-note {
+    font-size: 0.78em;
+    color: var(--color-text-tertiary);
+    margin-top: 3px;
+}
+.gym-target-increase { color: var(--color-good); }
+.gym-target-hold { color: var(--color-text-secondary); }
+
+/* Set circles */
+.gym-sets-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+.gym-sets-label {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    margin-right: 4px;
+}
+.gym-set-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 2px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--color-text-tertiary);
+    background: var(--color-muted);
+    transition: all 0.2s;
+}
+.gym-set-circle.logged {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: #fff;
+}
+.gym-set-circle.active {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+}
+
+/* Log inputs */
+.gym-log-row {
+    display: flex;
+    gap: 12px;
+    align-items: flex-end;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+.gym-input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.gym-input-label {
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+}
+.gym-input-controls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.gym-input-controls input {
+    width: 64px;
+    padding: 10px 8px;
+    text-align: center;
+    border: none;
+    font-size: 1.1em;
+    font-weight: 700;
+    font-family: var(--font-body);
+    color: var(--color-text);
+    background: var(--color-surface);
+    outline: none;
+}
+.gym-stepper {
+    background: var(--color-muted);
+    border: none;
+    padding: 10px 12px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    transition: background 0.15s;
+    line-height: 1;
+}
+.gym-stepper:hover { background: var(--color-accent-bg); color: var(--color-accent); }
+
+.gym-log-btn {
+    padding: 12px 28px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1em;
+    font-weight: 700;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+}
+.gym-log-btn:hover { background: var(--color-accent-hover); }
+.gym-log-btn:disabled { background: var(--color-border); cursor: not-allowed; }
+
+/* Rest timer */
+.gym-rest-area {
+    display: none;
+    background: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+.gym-rest-area.active { display: block; }
+.gym-rest-countdown {
+    font-family: var(--font-display);
+    font-size: 2.5em;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 6px;
+}
+.gym-rest-label {
+    font-size: 0.85em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 10px;
+}
+.gym-rest-skip {
+    background: none;
+    border: 1px solid var(--color-accent-border);
+    color: var(--color-accent);
+    padding: 5px 16px;
+    border-radius: 16px;
+    font-size: 0.82em;
+    cursor: pointer;
+    font-family: var(--font-body);
+}
+.gym-rest-skip:hover { background: var(--color-accent-bg); }
+
+/* Form tips */
+.gym-tips-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    margin-bottom: 8px;
+    font-size: 0.85em;
+    color: var(--color-text-secondary);
+}
+.gym-tips-toggle:hover { background: var(--color-accent-bg); }
+.gym-tips-content {
+    display: none;
+    padding: 12px 14px;
+    background: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 var(--radius) var(--radius);
+    margin-bottom: 16px;
+}
+.gym-tips-content.open { display: block; }
+.gym-tip {
+    font-size: 0.85em;
+    color: var(--color-text-secondary);
+    padding: 5px 0;
+    border-bottom: 1px solid var(--color-border-light);
+    line-height: 1.5;
+}
+.gym-tip:last-child { border-bottom: none; padding-bottom: 0; }
+.gym-tip::before { content: '\2022 '; color: var(--color-accent); font-weight: 700; }
+
+/* Nav + swap */
+.gym-nav {
+    display: flex;
+    gap: 10px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+}
+.gym-nav-btn {
+    flex: 1;
+    min-width: 100px;
+    padding: 11px 14px;
+    background: var(--color-muted);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.9em;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+}
+.gym-nav-btn:hover { background: var(--color-accent-bg); color: var(--color-accent); border-color: var(--color-accent-border); }
+.gym-nav-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.gym-swap-area {
+    display: none;
+    margin-top: 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 14px;
+}
+.gym-swap-area.open { display: block; }
+.gym-swap-label {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.gym-swap-btn {
+    display: block;
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 6px;
+    background: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-align: left;
+    font-size: 0.9em;
+    font-family: var(--font-body);
+    cursor: pointer;
+    color: var(--color-text);
+    transition: all 0.15s;
+}
+.gym-swap-btn:last-child { margin-bottom: 0; }
+.gym-swap-btn:hover { background: var(--color-accent-bg); border-color: var(--color-accent-border); color: var(--color-accent); }
+
+/* Welcome phase */
+.gym-welcome-header {
+    margin-bottom: 24px;
+}
+.gym-welcome-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.4em;
+    margin: 0 0 6px;
+}
+.gym-welcome-header p {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+    margin: 0;
+}
+.gym-day-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 18px 20px;
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+.gym-day-card-info { flex: 1; }
+.gym-day-card-name {
+    font-weight: 700;
+    font-size: 0.95em;
+    color: var(--color-text);
+    margin-bottom: 2px;
+}
+.gym-day-card-focus {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 4px;
+}
+.gym-day-card-last {
+    font-size: 0.8em;
+    color: var(--color-text-tertiary);
+}
+.gym-day-card-last.suggested { color: var(--color-accent); font-weight: 600; }
+.gym-day-start-btn {
+    padding: 9px 20px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.88em;
+    font-weight: 600;
+    font-family: var(--font-body);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background 0.2s;
+}
+.gym-day-start-btn:hover { background: var(--color-accent-hover); }
+.gym-day-start-btn.suggested {
+    background: var(--color-accent);
+    box-shadow: 0 2px 8px rgba(10,126,140,0.25);
+}
+.gym-welcome-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+.gym-welcome-action-btn {
+    flex: 1;
+    min-width: 140px;
+    padding: 11px 16px;
+    background: var(--color-muted);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.88em;
+    font-family: var(--font-body);
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.2s;
+}
+.gym-welcome-action-btn:hover { background: var(--color-accent-bg); color: var(--color-accent); border-color: var(--color-accent-border); }
+
+/* Complete phase */
+.gym-complete-header {
+    background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
+    color: #fff;
+    padding: 24px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    text-align: center;
+}
+.gym-complete-header h2 {
+    font-family: var(--font-display);
+    font-size: 1.5em;
+    margin: 0 0 4px;
+}
+.gym-complete-duration {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+.gym-complete-body {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    padding: 22px 24px;
+}
+.gym-complete-ex {
+    padding: 12px 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+.gym-complete-ex:last-child { border-bottom: none; }
+.gym-complete-ex-name {
+    font-weight: 700;
+    font-size: 0.92em;
+    margin-bottom: 6px;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+.gym-complete-sets {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.gym-complete-set {
+    font-size: 0.82em;
+    padding: 3px 10px;
+    border-radius: 12px;
+    background: var(--color-muted);
+    border: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+}
+.gym-complete-set.pr {
+    background: var(--color-good-bg);
+    border-color: var(--color-good);
+    color: var(--color-good);
+    font-weight: 700;
+}
+.gym-trend-up { color: var(--color-good); font-size: 0.85em; }
+.gym-trend-same { color: var(--color-text-tertiary); font-size: 0.85em; }
+.gym-trend-down { color: var(--color-danger, #c03030); font-size: 0.85em; }
+.gym-pr-badge {
+    display: inline-block;
+    background: #ffd700;
+    color: #5a4500;
+    font-size: 0.7em;
+    font-weight: 800;
+    padding: 1px 7px;
+    border-radius: 8px;
+    letter-spacing: 0.03em;
+}
+.gym-progressions {
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid var(--color-border-light);
+}
+.gym-progressions-title {
+    font-size: 0.78em;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+.gym-progression-item {
+    font-size: 0.85em;
+    color: var(--color-good);
+    padding: 4px 0;
+}
+.gym-done-btn {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 1em;
+    font-weight: 700;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.gym-done-btn:hover { background: var(--color-accent-hover); }
+
+@media (max-width: 480px) {
+    .gym-log-row { flex-direction: column; align-items: stretch; }
+    .gym-log-btn { width: 100%; }
+    .gym-session-context { flex-direction: column; }
 }
 </style>
 
@@ -1627,11 +2181,1130 @@ function renderNext(s) {
 }
 
 // ============================================================
+// STORE — localStorage wrapper
+// ============================================================
+var STORE = {
+    get: function(key) { try { return JSON.parse(localStorage.getItem('ta_' + key)); } catch(e) { return null; } },
+    set: function(key, val) { localStorage.setItem('ta_' + key, JSON.stringify(val)); },
+    remove: function(key) { localStorage.removeItem('ta_' + key); }
+};
+
+// ============================================================
+// EXERCISE TIPS — 3 cues per exercise (keyed by exercise name)
+// ============================================================
+var EXERCISE_TIPS = {
+    'Barbell Bench Press': [
+        'Retract and depress your shoulder blades before unracking — keep them pinched throughout.',
+        'Bar path should travel in a slight arc: touch chest at nipple line, press back toward the rack.',
+        'Drive your feet into the floor and think "push the bench away from the bar" for full-body tension.'
+    ],
+    'Incline Dumbbell Press': [
+        'Set the bench at 30-45 degrees — higher than that shifts too much load to front delts.',
+        'Start with dumbbells at shoulder height, neutral grip, then rotate to overhand at the top.',
+        'Lower slowly (2-3 sec) to maximize chest stretch; press in a slight arc rather than straight up.'
+    ],
+    'Cable Fly': [
+        'Keep a slight bend in your elbows throughout — locking them out shifts load to triceps.',
+        'Focus on squeezing your chest at the peak contraction, pausing 1 second.',
+        'Let your arms travel back until you feel a strong stretch in the pecs, not just to shoulder level.'
+    ],
+    'Overhead Press': [
+        'Grip just outside shoulder width; elbows slightly in front of the bar at the bottom.',
+        'As the bar passes your forehead, push your head forward and "reach tall" at the top.',
+        'Brace your glutes and abs to prevent lower back arch — treat it like a standing plank.'
+    ],
+    'Lateral Raise': [
+        'Lead with your elbows, not your hands — imagine you\'re pouring a pitcher of water.',
+        'Keep a slight forward lean (10-15 degrees) to better target the lateral (middle) delt head.',
+        'Slow the lowering phase (3-4 sec) — this is where the muscle actually grows.'
+    ],
+    'Face Pull': [
+        'Set the cable at or slightly above forehead height, use a rope attachment.',
+        'Pull to your face, externally rotating so your knuckles face the ceiling at the end.',
+        'Pause at the end of each rep and squeeze your rear delts before releasing.'
+    ],
+    'Barbell Row': [
+        'Keep your torso 45-70 degrees from horizontal — more horizontal = more lat, more upright = more upper back.',
+        'Pull to your lower chest/upper abdomen; your elbows should travel back and slightly out.',
+        'Control the eccentric: fight gravity on the way down rather than letting the weight drop.'
+    ],
+    'Pull-up / Lat Pulldown': [
+        'Initiate by depressing your shoulder blades (pull shoulders down) before bending your elbows.',
+        'Lean back slightly (10-15 degrees) and pull toward your upper chest to maximize lat engagement.',
+        'Full dead hang at the bottom for maximum stretch before the next rep.'
+    ],
+    'Seated Cable Row': [
+        'Sit tall with a neutral spine — do not rock your torso back to "help" the weight.',
+        'Pull to your lower abdomen, keeping elbows close to your body.',
+        'Fully extend your arms at the bottom to get a complete lat stretch before each rep.'
+    ],
+    'Barbell Squat': [
+        'Set the bar across your upper traps (high bar) or rear delts (low bar) — choose based on torso comfort.',
+        'Break at the hips and knees simultaneously; push your knees out in line with your toes throughout.',
+        'Keep your chest tall and eyes slightly above horizontal — looking up too much causes neck strain.'
+    ],
+    'Leg Press': [
+        'Foot position determines emphasis: shoulder-width mid-plate = balanced quads+glutes; high and wide = more glutes.',
+        'Do NOT lock out your knees at the top — keep a slight bend to maintain tension.',
+        'Lower until your lower back just starts to round, then press back — that\'s your full range.'
+    ],
+    'Leg Extension': [
+        'Point your toes slightly outward to hit the outer sweep of the quad (vastus lateralis).',
+        'Pause at the top for 1-2 seconds to maximize the quad contraction.',
+        'Lower with a 3-second count — the lowering phase is the most productive part of this exercise.'
+    ],
+    'Romanian Deadlift': [
+        'Push your hips back (not down) — you should feel a deep stretch in your hamstrings, not your lower back.',
+        'Keep the bar in contact with your legs throughout the entire movement.',
+        'Maintain a neutral spine — if your back rounds, you\'ve gone too deep.'
+    ],
+    'Lying Leg Curl': [
+        'Flex your feet (toes toward shins) to pre-stretch the hamstrings before each rep.',
+        'Don\'t let your hips rise off the pad — keep your pelvis pressed down throughout.',
+        'Pause and squeeze hard at full contraction before lowering slowly.'
+    ],
+    'Hip Thrust': [
+        'Position the bar directly over your hip crease, use a pad for comfort.',
+        'Drive through your heels and squeeze your glutes hard at the top — your shins should be vertical.',
+        'At the top, your torso and thighs should form a straight line parallel to the floor.'
+    ],
+    'Barbell Curl': [
+        'Keep your elbows pinned to your sides — letting them drift forward turns this into a front-delt movement.',
+        'Supinate (rotate palms up) fully at the top and squeeze your biceps hard before lowering.',
+        'Lower with a 3-second eccentric — this is where most of the hypertrophy stimulus comes from.'
+    ],
+    'Incline Dumbbell Curl': [
+        'The incline puts your arms behind your torso, stretching the long head of the bicep — lean back fully.',
+        'Start with palms facing each other; supinate as you curl up for maximum long-head activation.',
+        'Do not swing or use momentum — this exercise is all about the stretched position.'
+    ],
+    'Hammer Curl': [
+        'Keep your palms facing each other (neutral grip) throughout the entire movement.',
+        'This targets the brachialis (under the bicep) and brachioradialis — treat it as a different muscle, not a variant.',
+        'Can be done alternating or simultaneously; alternating lets you focus on each arm\'s peak contraction.'
+    ],
+    'Tricep Pushdown': [
+        'Keep your elbows at your sides and fixed — they should not swing forward or backward.',
+        'At the bottom, straighten your arms fully and flex your triceps hard for 1 second.',
+        'A rope attachment lets your hands rotate and flare out at the bottom for a better contraction.'
+    ],
+    'Overhead Tricep Extension': [
+        'Keep your elbows close together and pointing straight up — they should not flare out.',
+        'Lower the weight behind your head slowly to maximize the stretch on the long head of the tricep.',
+        'This is the best exercise for the long head (largest portion of the tricep) — the stretch position is the key.'
+    ],
+    'Skullcrusher': [
+        'Lower the bar to your forehead or slightly behind your head — not directly on your skull.',
+        'Keep your upper arms perpendicular to the floor throughout; only your forearms move.',
+        'Pair with close-grip bench at the end of a set ("french press to close-grip") to extend the set.'
+    ],
+    'Standing Calf Raise': [
+        'Full range of motion is essential: let your heel sink below the platform at the bottom.',
+        'Pause for 2 seconds at the bottom stretch — calves respond to time under tension and full ROM.',
+        'At the top, dorsiflex slightly (flex the ankle toward your shin) to fully contract the gastroc.'
+    ],
+    'Seated Calf Raise': [
+        'The seated variation targets the soleus (the flat muscle under the gastrocnemius) — do not skip this.',
+        'Use a full range of motion: deep stretch at the bottom, full contraction at the top.',
+        'Heavier weight with slower reps tends to work well here — the soleus is a slow-twitch muscle.'
+    ],
+    'Cable Crunch': [
+        'Kneel facing the cable, rope at forehead height — curl your spine down, not just your hips.',
+        'Think about bringing your ribcage toward your pelvis, not your head toward the floor.',
+        'Pause at the bottom and exhale fully to maximize the ab contraction.'
+    ],
+    'Hanging Leg Raise': [
+        'Start from a dead hang, then raise your legs by tilting your pelvis posteriorly (tuck your hips under).',
+        'Keep the movement controlled — use your abs to lift, not momentum.',
+        'If straight legs are too hard, bend your knees; this reduces the lever arm significantly.'
+    ],
+    'Dumbbell Bench Press': [
+        'Dumbbells allow a greater range of motion than a barbell — take advantage by lowering deeper.',
+        'Press in a slight arc rather than straight up; the weights should be close at the top.',
+        'Squeeze the dumbbells together at the top (even though they don\'t touch) to maximize chest contraction.'
+    ],
+    'Dumbbell Row': [
+        'Place one hand and one knee on the bench; your back should be parallel to the floor.',
+        'Pull the dumbbell to your hip, not your shoulder — this keeps the load on your lat.',
+        'Let the weight hang and stretch your lat fully at the bottom before each rep.'
+    ],
+    'Goblet Squat': [
+        'Hold the dumbbell vertically against your chest; use it as a counterbalance to sit more upright.',
+        'Drive your knees out over your toes throughout — use your elbows to push them open at the bottom.',
+        'Use this to build squat mechanics before transitioning to a barbell.'
+    ],
+    'Dumbbell Romanian Deadlift': [
+        'Dumbbells travel close to your legs as you hinge — think of them as sliding down your shins.',
+        'Push your hips back (not down) until you feel the hamstring stretch, then drive hips forward to stand.',
+        'Maintain a neutral spine throughout — do not round your lower back at the bottom.'
+    ],
+    'Dumbbell Shoulder Press': [
+        'Start with dumbbells at ear level, palms forward — this is more shoulder-friendly than behind-the-neck.',
+        'Press in a slight arc, bringing the dumbbells slightly together at the top without touching.',
+        'Avoid excessive lower back arch — if you\'re leaning back significantly, the weight is too heavy.'
+    ],
+    'Lat Pulldown': [
+        'Lean back slightly (10-15 degrees) and pull to your upper chest — think "elbows to your back pockets".',
+        'Initiate by depressing your scapulae (pull shoulders down) before bending your elbows.',
+        'Control the return: your arms should be fully extended before each rep to maximize lat stretch.'
+    ],
+    'Plank (3 sets x 30-60s)': [
+        'Your body should form a straight line from head to heels — no sagging hips or raised butt.',
+        'Squeeze your glutes and abs simultaneously; brace like you\'re about to get punched.',
+        'If 60s feels easy, add a 5 lbs plate to your back rather than extending the duration further.'
+    ],
+    'Conventional Deadlift': [
+        'Set the bar over your mid-foot, grip just outside your shins, push the floor away rather than "pulling up".',
+        'Keep your lats tight — pull the slack out of the bar before the weight leaves the floor.',
+        'Lock out by driving your hips forward and squeezing your glutes — do not hyperextend at the top.'
+    ]
+};
+
+// ============================================================
+// EXERCISE SUBS — 2 substitute names per exercise
+// ============================================================
+var EXERCISE_SUBS = {
+    'Barbell Bench Press': ['Dumbbell Bench Press', 'Incline Dumbbell Press'],
+    'Incline Dumbbell Press': ['Barbell Bench Press', 'Cable Fly'],
+    'Cable Fly': ['Incline Dumbbell Press', 'Dumbbell Bench Press'],
+    'Overhead Press': ['Dumbbell Shoulder Press', 'Lateral Raise'],
+    'Lateral Raise': ['Dumbbell Shoulder Press', 'Face Pull'],
+    'Face Pull': ['Lateral Raise', 'Seated Cable Row'],
+    'Barbell Row': ['Dumbbell Row', 'Seated Cable Row'],
+    'Pull-up / Lat Pulldown': ['Lat Pulldown', 'Seated Cable Row'],
+    'Seated Cable Row': ['Dumbbell Row', 'Barbell Row'],
+    'Barbell Squat': ['Goblet Squat', 'Leg Press'],
+    'Leg Press': ['Goblet Squat', 'Barbell Squat'],
+    'Leg Extension': ['Leg Press', 'Goblet Squat'],
+    'Romanian Deadlift': ['Dumbbell Romanian Deadlift', 'Lying Leg Curl'],
+    'Lying Leg Curl': ['Romanian Deadlift', 'Dumbbell Romanian Deadlift'],
+    'Hip Thrust': ['Romanian Deadlift', 'Dumbbell Romanian Deadlift'],
+    'Barbell Curl': ['Incline Dumbbell Curl', 'Hammer Curl'],
+    'Incline Dumbbell Curl': ['Barbell Curl', 'Hammer Curl'],
+    'Hammer Curl': ['Barbell Curl', 'Incline Dumbbell Curl'],
+    'Tricep Pushdown': ['Overhead Tricep Extension', 'Skullcrusher'],
+    'Overhead Tricep Extension': ['Tricep Pushdown', 'Skullcrusher'],
+    'Skullcrusher': ['Tricep Pushdown', 'Overhead Tricep Extension'],
+    'Standing Calf Raise': ['Seated Calf Raise', 'Leg Press'],
+    'Seated Calf Raise': ['Standing Calf Raise', 'Leg Press'],
+    'Cable Crunch': ['Hanging Leg Raise', 'Plank (3 sets x 30-60s)'],
+    'Hanging Leg Raise': ['Cable Crunch', 'Plank (3 sets x 30-60s)'],
+    'Dumbbell Bench Press': ['Barbell Bench Press', 'Incline Dumbbell Press'],
+    'Dumbbell Row': ['Barbell Row', 'Seated Cable Row'],
+    'Goblet Squat': ['Leg Press', 'Barbell Squat'],
+    'Dumbbell Romanian Deadlift': ['Romanian Deadlift', 'Lying Leg Curl'],
+    'Dumbbell Shoulder Press': ['Overhead Press', 'Lateral Raise'],
+    'Lat Pulldown': ['Pull-up / Lat Pulldown', 'Seated Cable Row'],
+    'Plank (3 sets x 30-60s)': ['Hanging Leg Raise', 'Cable Crunch'],
+    'Conventional Deadlift': ['Romanian Deadlift', 'Barbell Row']
+};
+
+// ============================================================
+// EXERCISE KEY LOOKUP — reverse map name -> EXERCISES key
+// ============================================================
+function getExerciseKey(name) {
+    for (var k in EXERCISES) {
+        if (EXERCISES[k].name === name) return k;
+    }
+    return null;
+}
+
+// ============================================================
+// MODIFY generateOutput — save to localStorage after rendering
+// ============================================================
+var _origGenerateOutput = generateOutput;
+generateOutput = function() {
+    document.getElementById('phase-context').style.display = 'none';
+    var phase = document.getElementById('phase-output');
+    phase.style.display = 'block';
+    var s = buildState();
+    var vp = buildVolumePlan(s);
+    var program = buildProgram(s, vp);
+
+    renderDiagnosis(s, vp);
+    renderProgram(s, program, vp);
+    renderProgression(s);
+    renderWhy(s, vp);
+    renderBoundaries(s);
+    renderNext(s);
+
+    STORE.set('program', { state: s, volumePlan: vp, program: program, generatedAt: Date.now() });
+    STORE.set('ctx', ctx);
+
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// ============================================================
+// MODIFY renderProgram — add Start Workout button per day
+// ============================================================
+var _origRenderProgram = renderProgram;
+renderProgram = function(s, program, vp) {
+    var el = document.getElementById('output-program');
+    var days = parseInt(s.frequency);
+    var splitName = days <= 3 ? (s.experience === 'beginner' ? 'Full Body 3x' : 'Push/Pull/Legs') : days <= 4 ? 'Upper/Lower' : days <= 5 ? 'PPL + Upper/Lower' : 'PPL x2';
+
+    var daysHtml = '';
+    program.forEach(function(day, i) {
+        var isFirst = i === 0;
+        var rows = '';
+        var dayTotalSets = 0;
+        day.exercises.forEach(function(ex) {
+            dayTotalSets += ex.sets;
+            rows += '<tr>' +
+                '<td><span class="mv-ex-name">' + ex.name + (ex.priority ? '<span class="mv-ex-priority">priority</span>' : '') + '</span><div class="mv-ex-target">' + ex.targets + '</div></td>' +
+                '<td class="mv-ex-sets">' + ex.sets + ' x ' + ex.reps + '</td>' +
+                '<td class="mv-ex-rpe">' + ex.rpe + '</td>' +
+                '<td class="mv-ex-rest">' + ex.rest + '</td>' +
+                '</tr>';
+            if (ex.note) {
+                rows += '<tr><td colspan="4" class="mv-ex-note">' + ex.note + '</td></tr>';
+            }
+        });
+
+        daysHtml += '<div class="mv-day' + (isFirst ? ' open' : '') + '">' +
+            '<div class="mv-day-header" onclick="toggleDay(this)">' +
+                '<div><span class="mv-day-title">' + day.name + '</span></div>' +
+                '<div style="display:flex;align-items:center;gap:12px;"><span class="mv-day-meta">' + day.estTime + ' &middot; ' + dayTotalSets + ' sets</span><span class="mv-day-toggle">&#9660;</span></div>' +
+            '</div>' +
+            '<div class="mv-day-body">' +
+                '<table class="mv-ex-table">' +
+                    '<thead><tr><th>Exercise</th><th>Sets x Reps</th><th>Effort</th><th>Rest</th></tr></thead>' +
+                    '<tbody>' + rows + '</tbody>' +
+                '</table>' +
+                '<div class="mv-day-summary"><strong>Session focus:</strong> ' + day.focus + '</div>' +
+                '<button class="mv-start-workout" onclick="startWorkout(' + i + ')">Start Workout</button>' +
+            '</div>' +
+        '</div>';
+    });
+
+    el.innerHTML =
+        '<div class="mv-card-head mv-grad-teal">' +
+            '<h3>Your ' + days + '-Day Program</h3>' +
+            '<p>' + splitName + ' &middot; ' + vp.totalSets + ' hard sets/week &middot; Tap each day to expand</p>' +
+        '</div>' +
+        '<div class="mv-card-body" style="padding:14px 18px;">' + daysHtml + '</div>';
+};
+
+// ============================================================
+// GYM STATE
+// ============================================================
+var gym = {
+    active: false,
+    dayIndex: 0,
+    exerciseIndex: 0,
+    currentDay: null,
+    setsLogged: [],
+    restTimer: null,
+    restSeconds: 0,
+    workoutStartTime: null
+};
+
+// ============================================================
+// COMPOUNDS SET — for progression logic
+// ============================================================
+var COMPOUNDS = {
+    bench_press: 1, incline_bench: 1, overhead_press: 1, barbell_row: 1,
+    pullup: 1, squat: 1, leg_press: 1, rdl: 1, hip_thrust: 1, deadlift: 1,
+    db_bench: 1, db_row: 1, goblet_squat: 1, db_rdl: 1, db_ohp: 1, lat_pulldown: 1
+};
+
+// ============================================================
+// HIDE ALL PHASES
+// ============================================================
+function hideAllPhases() {
+    var ids = ['phase-intake', 'phase-context', 'phase-output', 'phase-gym', 'phase-complete', 'phase-welcome'];
+    for (var i = 0; i < ids.length; i++) {
+        var el = document.getElementById(ids[i]);
+        if (el) el.style.display = 'none';
+    }
+}
+
+// ============================================================
+// startWorkout
+// ============================================================
+function startWorkout(dayIndex) {
+    var saved = STORE.get('program');
+    if (!saved || !saved.program) {
+        alert('No saved program found. Please generate your program first.');
+        return;
+    }
+    gym.active = true;
+    gym.dayIndex = dayIndex;
+    gym.exerciseIndex = 0;
+    gym.currentDay = saved.program[dayIndex];
+    gym.setsLogged = [];
+    for (var i = 0; i < gym.currentDay.exercises.length; i++) {
+        gym.setsLogged.push([]);
+    }
+    gym.workoutStartTime = Date.now();
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+
+    hideAllPhases();
+    document.getElementById('phase-gym').style.display = 'block';
+    renderGymExercise();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// renderGymExercise
+// ============================================================
+function renderGymExercise() {
+    var container = document.getElementById('phase-gym');
+    var day = gym.currentDay;
+    var exIdx = gym.exerciseIndex;
+    var exercise = day.exercises[exIdx];
+    var total = day.exercises.length;
+    var logged = gym.setsLogged[exIdx] || [];
+
+    var lastSession = getLastSession(gym.dayIndex, exercise.name);
+    var target = getTarget(lastSession, exercise.reps, exercise);
+
+    // Set circles HTML
+    var circlesHtml = '<span class="gym-sets-label">Sets:</span>';
+    for (var s = 0; s < exercise.sets; s++) {
+        var cls = 'gym-set-circle';
+        if (s < logged.length) cls += ' logged';
+        else if (s === logged.length) cls += ' active';
+        circlesHtml += '<div class="' + cls + '">' + (s + 1) + '</div>';
+    }
+
+    // Last session HTML
+    var lastHtml = '';
+    if (lastSession && lastSession.length > 0) {
+        var setStrs = [];
+        for (var ls = 0; ls < lastSession.length; ls++) {
+            setStrs.push(lastSession[ls].weight + 'lb x ' + lastSession[ls].reps);
+        }
+        lastHtml = setStrs.join(', ');
+    } else {
+        lastHtml = 'No previous data';
+    }
+
+    // Target HTML
+    var targetCls = target.type === 'increase' ? 'gym-target-increase' : 'gym-target-hold';
+    var targetWeightDisplay = target.weight > 0 ? target.weight + ' lbs' : 'Pick a weight';
+
+    // Pre-fill weight input
+    var defaultWeight = target.weight > 0 ? target.weight : (lastSession && lastSession.length > 0 ? lastSession[0].weight : 0);
+    var defaultReps = '';
+    var repParts = exercise.reps.split('-');
+    defaultReps = repParts[0] ? repParts[0].replace(/[^0-9]/g, '') : '8';
+
+    // Form tips
+    var tips = EXERCISE_TIPS[exercise.name] || ['Focus on controlled movement.', 'Breathe out on the effort.', 'Maintain good form throughout.'];
+    var tipsHtml = '';
+    for (var t = 0; t < tips.length; t++) {
+        tipsHtml += '<div class="gym-tip">' + tips[t] + '</div>';
+    }
+
+    // Subs
+    var subs = EXERCISE_SUBS[exercise.name] || [];
+    var swapBtnsHtml = '';
+    for (var sb = 0; sb < subs.length; sb++) {
+        swapBtnsHtml += '<button class="gym-swap-btn" onclick="swapExercise(\'' + subs[sb].replace(/'/g, "\\'") + '\')">' + subs[sb] + '</button>';
+    }
+    var swapHtml = subs.length > 0 ? '<div class="gym-swap-area" id="gym-swap-area"><div class="gym-swap-label">Swap with:</div>' + swapBtnsHtml + '</div>' : '';
+
+    var allSetsLogged = logged.length >= exercise.sets;
+    var logBtnDisabled = allSetsLogged ? ' disabled' : '';
+
+    container.innerHTML =
+        '<div style="background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);overflow:hidden;">' +
+            '<div class="gym-header">' +
+                '<div class="gym-header-left">' +
+                    '<span class="gym-counter">Exercise ' + (exIdx + 1) + ' of ' + total + '</span>' +
+                    '<span class="gym-day-name">' + day.name + '</span>' +
+                '</div>' +
+                '<button class="gym-close-btn" onclick="closeGym()">Exit</button>' +
+            '</div>' +
+            '<div class="gym-body">' +
+                '<div class="gym-ex-name">' + exercise.name + '</div>' +
+                '<div class="gym-ex-targets">' + exercise.targets + '</div>' +
+                '<div class="gym-prescription">' + exercise.sets + ' x ' + exercise.reps + ' @ ' + exercise.rpe + '</div>' +
+
+                '<div class="gym-session-context">' +
+                    '<div class="gym-context-card">' +
+                        '<div class="gym-context-label">Last session</div>' +
+                        '<div class="gym-context-value">' + lastHtml + '</div>' +
+                    '</div>' +
+                    '<div class="gym-context-card">' +
+                        '<div class="gym-context-label">Today\'s target</div>' +
+                        '<div class="gym-context-value ' + targetCls + '">' + targetWeightDisplay + '</div>' +
+                        '<div class="gym-context-note">' + target.message + '</div>' +
+                    '</div>' +
+                '</div>' +
+
+                '<div class="gym-sets-row">' + circlesHtml + '</div>' +
+
+                '<div class="gym-tips-toggle" onclick="this.nextElementSibling.classList.toggle(\'open\')">' +
+                    '<span>Form cues</span><span>&#9660;</span>' +
+                '</div>' +
+                '<div class="gym-tips-content">' + tipsHtml + '</div>' +
+
+                '<div id="gym-rest-area" class="gym-rest-area">' +
+                    '<div class="gym-rest-countdown" id="gym-rest-countdown">0:00</div>' +
+                    '<div class="gym-rest-label">Rest — next set soon</div>' +
+                    '<button class="gym-rest-skip" onclick="skipRest()">Skip rest</button>' +
+                '</div>' +
+
+                '<div class="gym-log-row">' +
+                    '<div class="gym-input-group">' +
+                        '<div class="gym-input-label">Weight (lbs)</div>' +
+                        '<div class="gym-input-controls">' +
+                            '<button class="gym-stepper" onclick="stepInput(\'gym-weight\', -5)">-</button>' +
+                            '<input type="number" id="gym-weight" value="' + defaultWeight + '" min="0" step="5">' +
+                            '<button class="gym-stepper" onclick="stepInput(\'gym-weight\', 5)">+</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="gym-input-group">' +
+                        '<div class="gym-input-label">Reps</div>' +
+                        '<div class="gym-input-controls">' +
+                            '<button class="gym-stepper" onclick="stepInput(\'gym-reps\', -1)">-</button>' +
+                            '<input type="number" id="gym-reps" value="' + defaultReps + '" min="1" step="1">' +
+                            '<button class="gym-stepper" onclick="stepInput(\'gym-reps\', 1)">+</button>' +
+                        '</div>' +
+                    '</div>' +
+                    '<button class="gym-log-btn" id="gym-log-btn" onclick="logSet()"' + logBtnDisabled + '>' +
+                        (allSetsLogged ? 'Done' : 'Log Set ' + (logged.length + 1) + ' / ' + exercise.sets) +
+                    '</button>' +
+                '</div>' +
+
+                '<div class="gym-nav">' +
+                    '<button class="gym-nav-btn" onclick="prevExercise()"' + (exIdx === 0 ? ' disabled' : '') + '>&larr; Previous</button>' +
+                    '<button class="gym-nav-btn" onclick="toggleSwap()">Swap exercise</button>' +
+                    '<button class="gym-nav-btn" onclick="nextExercise()">' + (exIdx === total - 1 ? 'Finish workout' : 'Next &rarr;') + '</button>' +
+                '</div>' +
+
+                swapHtml +
+            '</div>' +
+        '</div>';
+}
+
+// ============================================================
+// stepInput — +/- buttons for weight and reps
+// ============================================================
+function stepInput(id, delta) {
+    var input = document.getElementById(id);
+    if (!input) return;
+    var val = parseFloat(input.value) || 0;
+    val += delta;
+    if (val < 0) val = 0;
+    input.value = val;
+}
+
+// ============================================================
+// logSet
+// ============================================================
+function logSet() {
+    var weightInput = document.getElementById('gym-weight');
+    var repsInput = document.getElementById('gym-reps');
+    if (!weightInput || !repsInput) return;
+
+    var weight = parseFloat(weightInput.value) || 0;
+    var reps = parseInt(repsInput.value) || 0;
+
+    if (reps < 1) { alert('Enter the number of reps completed.'); return; }
+
+    if (!gym.setsLogged[gym.exerciseIndex]) gym.setsLogged[gym.exerciseIndex] = [];
+    gym.setsLogged[gym.exerciseIndex].push({ weight: weight, reps: reps });
+
+    saveWorkoutProgress();
+
+    var exercise = gym.currentDay.exercises[gym.exerciseIndex];
+    var logged = gym.setsLogged[gym.exerciseIndex];
+
+    // Update circles without full re-render
+    var circles = document.querySelectorAll('.gym-set-circle');
+    for (var c = 0; c < circles.length; c++) {
+        circles[c].className = 'gym-set-circle';
+        if (c < logged.length) circles[c].className += ' logged';
+        else if (c === logged.length) circles[c].className += ' active';
+    }
+
+    // Update log button
+    var btn = document.getElementById('gym-log-btn');
+    if (logged.length >= exercise.sets) {
+        if (btn) { btn.textContent = 'Done'; btn.disabled = true; }
+        var restSecs = parseRestSeconds(exercise.rest);
+        startRest(restSecs);
+        // Auto-advance after rest if not the last exercise
+        if (gym.exerciseIndex < gym.currentDay.exercises.length - 1) {
+            gym._autoAdvanceAfterRest = true;
+        }
+    } else {
+        if (btn) btn.textContent = 'Log Set ' + (logged.length + 1) + ' / ' + exercise.sets;
+        var restSecs2 = parseRestSeconds(exercise.rest);
+        startRest(restSecs2);
+    }
+}
+
+// ============================================================
+// parseRestSeconds
+// ============================================================
+function parseRestSeconds(restStr) {
+    if (!restStr) return 90;
+    var s = restStr.toLowerCase();
+    // "2-3 min" or "3-4 min"
+    var minRange = s.match(/(\d+(?:\.\d+)?)\s*-\s*(\d+(?:\.\d+)?)\s*min/);
+    if (minRange) return Math.round((parseFloat(minRange[1]) + parseFloat(minRange[2])) / 2 * 60);
+    // "2 min"
+    var minSingle = s.match(/(\d+(?:\.\d+)?)\s*min/);
+    if (minSingle) return Math.round(parseFloat(minSingle[1]) * 60);
+    // "60-90s"
+    var secRange = s.match(/(\d+)\s*-\s*(\d+)\s*s/);
+    if (secRange) return Math.round((parseInt(secRange[1]) + parseInt(secRange[2])) / 2);
+    // "60s" or "90s"
+    var secSingle = s.match(/(\d+)\s*s/);
+    if (secSingle) return parseInt(secSingle[1]);
+    return 90;
+}
+
+// ============================================================
+// startRest
+// ============================================================
+function startRest(seconds) {
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+
+    var area = document.getElementById('gym-rest-area');
+    var display = document.getElementById('gym-rest-countdown');
+    if (!area || !display) return;
+
+    gym.restSeconds = seconds;
+    area.className = 'gym-rest-area active';
+
+    function formatTime(sec) {
+        var m = Math.floor(sec / 60);
+        var s = sec % 60;
+        return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    display.textContent = formatTime(gym.restSeconds);
+
+    gym.restTimer = setInterval(function() {
+        gym.restSeconds--;
+        if (display) display.textContent = formatTime(gym.restSeconds);
+        if (gym.restSeconds <= 0) {
+            clearInterval(gym.restTimer);
+            gym.restTimer = null;
+            playBeep();
+            if (display) display.textContent = 'Go!';
+            var label = area.querySelector('.gym-rest-label');
+            if (label) label.textContent = 'Rest complete — log your next set';
+            // Auto-advance if all sets logged and not last exercise
+            if (gym._autoAdvanceAfterRest) {
+                gym._autoAdvanceAfterRest = false;
+                setTimeout(function() {
+                    area.className = 'gym-rest-area';
+                    nextExercise();
+                }, 1500);
+            }
+        }
+    }, 1000);
+}
+
+// ============================================================
+// skipRest
+// ============================================================
+function skipRest() {
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+    var area = document.getElementById('gym-rest-area');
+    if (area) area.className = 'gym-rest-area';
+    gym._autoAdvanceAfterRest = false;
+}
+
+// ============================================================
+// playBeep — AudioContext beep
+// ============================================================
+function playBeep() {
+    try {
+        var AudioCtx = window.AudioContext || window.webkitAudioContext;
+        if (!AudioCtx) return;
+        var ctx2 = new AudioCtx();
+        var osc = ctx2.createOscillator();
+        var gain = ctx2.createGain();
+        osc.connect(gain);
+        gain.connect(ctx2.destination);
+        osc.type = 'sine';
+        osc.frequency.value = 880;
+        gain.gain.setValueAtTime(0.4, ctx2.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx2.currentTime + 0.5);
+        osc.start(ctx2.currentTime);
+        osc.stop(ctx2.currentTime + 0.5);
+    } catch(e) {}
+}
+
+// ============================================================
+// Navigation
+// ============================================================
+function nextExercise() {
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+    gym.exerciseIndex++;
+    if (gym.exerciseIndex >= gym.currentDay.exercises.length) {
+        finishWorkout();
+        return;
+    }
+    renderGymExercise();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function prevExercise() {
+    if (gym.exerciseIndex <= 0) return;
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+    gym.exerciseIndex--;
+    renderGymExercise();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function closeGym() {
+    var hasLogged = false;
+    for (var i = 0; i < gym.setsLogged.length; i++) {
+        if (gym.setsLogged[i] && gym.setsLogged[i].length > 0) { hasLogged = true; break; }
+    }
+    if (hasLogged && !confirm('Exit workout? Your logged sets will not be saved unless you finish.')) return;
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+    gym.active = false;
+    STORE.remove('workout_progress');
+    hideAllPhases();
+    document.getElementById('phase-output').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleSwap() {
+    var area = document.getElementById('gym-swap-area');
+    if (!area) return;
+    area.classList.toggle('open');
+}
+
+function swapExercise(subName) {
+    var exercise = gym.currentDay.exercises[gym.exerciseIndex];
+    // Find the exercise data
+    var found = null;
+    for (var k in EXERCISES) {
+        if (EXERCISES[k].name === subName) { found = EXERCISES[k]; break; }
+    }
+    if (!found) return;
+    exercise.name = found.name;
+    exercise.targets = found.targets;
+    exercise.primary = found.primary;
+    // Reset logged sets for this exercise
+    gym.setsLogged[gym.exerciseIndex] = [];
+    saveWorkoutProgress();
+    renderGymExercise();
+}
+
+// ============================================================
+// PROGRESSION ENGINE
+// ============================================================
+function getLastSession(dayIndex, exerciseName) {
+    var sessions = STORE.get('sessions');
+    if (!sessions || !sessions.length) return null;
+    // Find most recent matching session
+    var match = null;
+    for (var i = sessions.length - 1; i >= 0; i--) {
+        var sess = sessions[i];
+        if (sess.dayIndex !== dayIndex) continue;
+        for (var j = 0; j < sess.exercises.length; j++) {
+            if (sess.exercises[j].name === exerciseName) {
+                if (!match || sess.date > match.date) {
+                    match = { date: sess.date, sets: sess.exercises[j].sets };
+                }
+                break;
+            }
+        }
+        if (match) break;
+    }
+    return match ? match.sets : null;
+}
+
+function getTarget(lastSets, targetReps, exercise) {
+    // Parse rep range
+    var repStr = String(targetReps);
+    var parts = repStr.match(/(\d+)\s*-\s*(\d+)/);
+    var lowRep = parts ? parseInt(parts[1]) : parseInt(repStr.replace(/[^0-9]/, '')) || 8;
+    var topRep = parts ? parseInt(parts[2]) : lowRep + 2;
+
+    // Determine if compound
+    var exKey = getExerciseKey(exercise.name);
+    var isCompound = exKey && COMPOUNDS[exKey] ? true : false;
+    var weightIncrement = isCompound ? 5 : 2.5;
+
+    if (!lastSets || lastSets.length === 0) {
+        return {
+            type: 'first',
+            weight: 0,
+            message: 'Start light — find a weight where the last 2 reps are challenging'
+        };
+    }
+
+    var lastWeight = lastSets[lastSets.length - 1].weight;
+    // Use the most common weight from last session
+    var weightCounts = {};
+    for (var i = 0; i < lastSets.length; i++) {
+        var w = lastSets[i].weight;
+        weightCounts[w] = (weightCounts[w] || 0) + 1;
+    }
+    var maxCount = 0;
+    for (var w2 in weightCounts) {
+        if (weightCounts[w2] > maxCount) { maxCount = weightCounts[w2]; lastWeight = parseFloat(w2); }
+    }
+
+    // Did ALL sets hit topRep?
+    var allHitTop = true;
+    for (var s = 0; s < lastSets.length; s++) {
+        if (lastSets[s].reps < topRep) { allHitTop = false; break; }
+    }
+    // Did ALL sets hit lowRep?
+    var allHitLow = true;
+    for (var s2 = 0; s2 < lastSets.length; s2++) {
+        if (lastSets[s2].reps < lowRep) { allHitLow = false; break; }
+    }
+
+    if (allHitTop) {
+        return {
+            type: 'increase',
+            weight: lastWeight + weightIncrement,
+            message: 'Add weight — you hit ' + topRep + ' on all sets last time'
+        };
+    } else if (allHitLow) {
+        return {
+            type: 'hold',
+            weight: lastWeight,
+            message: 'Same weight — push for ' + topRep + ' reps on every set'
+        };
+    } else {
+        return {
+            type: 'hold',
+            weight: lastWeight,
+            message: 'Repeat — didn\'t hit ' + lowRep + ' reps on all sets'
+        };
+    }
+}
+
+// ============================================================
+// saveWorkoutProgress — crash recovery
+// ============================================================
+function saveWorkoutProgress() {
+    STORE.set('workout_progress', {
+        dayIndex: gym.dayIndex,
+        exerciseIndex: gym.exerciseIndex,
+        setsLogged: gym.setsLogged,
+        workoutStartTime: gym.workoutStartTime
+    });
+}
+
+// ============================================================
+// saveSession
+// ============================================================
+function saveSession() {
+    var sessions = STORE.get('sessions') || [];
+    var exercisesData = [];
+    for (var i = 0; i < gym.currentDay.exercises.length; i++) {
+        var exSets = gym.setsLogged[i] || [];
+        if (exSets.length > 0) {
+            exercisesData.push({
+                name: gym.currentDay.exercises[i].name,
+                sets: exSets
+            });
+        }
+    }
+    sessions.push({
+        dayIndex: gym.dayIndex,
+        dayName: gym.currentDay.name,
+        exercises: exercisesData,
+        date: Date.now(),
+        duration: Date.now() - gym.workoutStartTime
+    });
+    STORE.set('sessions', sessions);
+}
+
+// ============================================================
+// finishWorkout
+// ============================================================
+function finishWorkout() {
+    if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
+    saveSession();
+    STORE.remove('workout_progress');
+    hideAllPhases();
+    document.getElementById('phase-complete').style.display = 'block';
+    renderWorkoutComplete();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
+// renderWorkoutComplete
+// ============================================================
+function renderWorkoutComplete() {
+    var container = document.getElementById('phase-complete');
+    var duration = Date.now() - gym.workoutStartTime;
+    var totalMin = Math.round(duration / 60000);
+    var durationStr = totalMin >= 60
+        ? Math.floor(totalMin / 60) + 'h ' + (totalMin % 60) + 'm'
+        : totalMin + ' min';
+
+    // Load all sessions for PR detection
+    var allSessions = STORE.get('sessions') || [];
+
+    // Build per-exercise all-time max weight map
+    var allTimePR = {};
+    for (var si = 0; si < allSessions.length - 1; si++) { // exclude the one we just added
+        var sess = allSessions[si];
+        for (var ei = 0; ei < sess.exercises.length; ei++) {
+            var exName = sess.exercises[ei].name;
+            for (var sti = 0; sti < sess.exercises[ei].sets.length; sti++) {
+                var w = sess.exercises[ei].sets[sti].weight;
+                if (!allTimePR[exName] || w > allTimePR[exName]) allTimePR[exName] = w;
+            }
+        }
+    }
+
+    var progressionTriggers = [];
+    var exercisesHtml = '';
+
+    for (var i = 0; i < gym.currentDay.exercises.length; i++) {
+        var exercise = gym.currentDay.exercises[i];
+        var loggedSets = gym.setsLogged[i] || [];
+        if (loggedSets.length === 0) continue;
+
+        var lastSession = getLastSession(gym.dayIndex, exercise.name);
+        // getLastSession now includes the one we just saved, so get the second-to-last
+        var sessionsForEx = [];
+        var allSess2 = STORE.get('sessions') || [];
+        for (var as = 0; as < allSess2.length - 1; as++) {
+            if (allSess2[as].dayIndex === gym.dayIndex) {
+                for (var ae = 0; ae < allSess2[as].exercises.length; ae++) {
+                    if (allSess2[as].exercises[ae].name === exercise.name) {
+                        sessionsForEx.push({ date: allSess2[as].date, sets: allSess2[as].exercises[ae].sets });
+                    }
+                }
+            }
+        }
+        sessionsForEx.sort(function(a, b) { return b.date - a.date; });
+        var prevSets = sessionsForEx.length > 0 ? sessionsForEx[0].sets : null;
+
+        // Calculate current avg weight
+        var curTotal = 0;
+        for (var cs = 0; cs < loggedSets.length; cs++) curTotal += loggedSets[cs].weight * loggedSets[cs].reps;
+        var prevTotal = 0;
+        if (prevSets) {
+            for (var ps = 0; ps < prevSets.length; ps++) prevTotal += prevSets[ps].weight * prevSets[ps].reps;
+        }
+
+        var trend = '';
+        if (!prevSets) {
+            trend = '';
+        } else if (curTotal > prevTotal * 1.01) {
+            trend = '<span class="gym-trend-up">&#8593; Improved</span>';
+        } else if (curTotal < prevTotal * 0.99) {
+            trend = '<span class="gym-trend-down">&#8595; Lower</span>';
+        } else {
+            trend = '<span class="gym-trend-same">&#8594; Same</span>';
+        }
+
+        // Check progression trigger
+        var repStr = exercise.reps;
+        var rParts = repStr.match(/(\d+)\s*-\s*(\d+)/);
+        var topRepForTrigger = rParts ? parseInt(rParts[2]) : parseInt(repStr) + 2;
+        var allHitTopForTrigger = true;
+        for (var ts = 0; ts < loggedSets.length; ts++) {
+            if (loggedSets[ts].reps < topRepForTrigger) { allHitTopForTrigger = false; break; }
+        }
+        if (allHitTopForTrigger && loggedSets.length > 0) {
+            progressionTriggers.push(exercise.name);
+        }
+
+        // Set badges
+        var setBadgesHtml = '';
+        for (var sb2 = 0; sb2 < loggedSets.length; sb2++) {
+            var setW = loggedSets[sb2].weight;
+            var setR = loggedSets[sb2].reps;
+            var isPR = setW > 0 && (!allTimePR[exercise.name] || setW > allTimePR[exercise.name]);
+            var setCls = 'gym-complete-set' + (isPR ? ' pr' : '');
+            setBadgesHtml += '<div class="' + setCls + '">' + setW + 'lb x ' + setR + (isPR ? ' PR' : '') + '</div>';
+        }
+
+        exercisesHtml +=
+            '<div class="gym-complete-ex">' +
+                '<div class="gym-complete-ex-name">' + exercise.name + ' ' + trend + '</div>' +
+                '<div class="gym-complete-sets">' + setBadgesHtml + '</div>' +
+            '</div>';
+    }
+
+    var progressionsHtml = '';
+    if (progressionTriggers.length > 0) {
+        progressionsHtml = '<div class="gym-progressions"><div class="gym-progressions-title">Add weight next session</div>';
+        for (var pt = 0; pt < progressionTriggers.length; pt++) {
+            progressionsHtml += '<div class="gym-progression-item">&#8593; ' + progressionTriggers[pt] + ' — hit top of rep range on all sets</div>';
+        }
+        progressionsHtml += '</div>';
+    }
+
+    container.innerHTML =
+        '<div class="gym-complete-header">' +
+            '<h2>Workout Complete</h2>' +
+            '<div class="gym-complete-duration">' + gym.currentDay.name + ' &middot; ' + durationStr + '</div>' +
+        '</div>' +
+        '<div class="gym-complete-body">' +
+            exercisesHtml +
+            progressionsHtml +
+            '<button class="gym-done-btn" onclick="checkReturningUser()">Done</button>' +
+        '</div>';
+}
+
+// ============================================================
+// RETURNING USER FLOW
+// ============================================================
+function checkReturningUser() {
+    var saved = STORE.get('program');
+    if (saved && saved.program) {
+        hideAllPhases();
+        document.getElementById('phase-welcome').style.display = 'block';
+        renderWelcome();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+        hideAllPhases();
+        document.getElementById('phase-intake').style.display = 'block';
+    }
+}
+
+function renderWelcome() {
+    var container = document.getElementById('phase-welcome');
+    var saved = STORE.get('program');
+    if (!saved || !saved.program) {
+        container.innerHTML = '<p>No saved program found.</p><button class="mv-submit" onclick="buildNewProgram()">Build a program</button>';
+        return;
+    }
+    var program = saved.program;
+    var sessions = STORE.get('sessions') || [];
+
+    // Find last session date per dayIndex
+    var lastDates = {};
+    for (var si = 0; si < sessions.length; si++) {
+        var s = sessions[si];
+        if (!lastDates[s.dayIndex] || s.date > lastDates[s.dayIndex]) {
+            lastDates[s.dayIndex] = s.date;
+        }
+    }
+
+    // Determine suggested day: least recently done
+    var suggestedIdx = 0;
+    var oldestDate = Infinity;
+    for (var di = 0; di < program.length; di++) {
+        var ld = lastDates[di] || 0;
+        if (ld < oldestDate) { oldestDate = ld; suggestedIdx = di; }
+    }
+
+    function timeAgo(ts) {
+        if (!ts) return 'Not yet started';
+        var diff = Date.now() - ts;
+        var days = Math.floor(diff / 86400000);
+        if (days === 0) return 'Today';
+        if (days === 1) return 'Yesterday';
+        return days + ' days ago';
+    }
+
+    var daysHtml = '';
+    for (var i = 0; i < program.length; i++) {
+        var day = program[i];
+        var isSuggested = (i === suggestedIdx);
+        var lastStr = timeAgo(lastDates[i]);
+        var lastCls = 'gym-day-card-last' + (isSuggested ? ' suggested' : '');
+        var btnCls = 'gym-day-start-btn' + (isSuggested ? ' suggested' : '');
+        var suggestion = isSuggested ? ' (Suggested)' : '';
+        daysHtml +=
+            '<div class="gym-day-card">' +
+                '<div class="gym-day-card-info">' +
+                    '<div class="gym-day-card-name">' + day.name + '</div>' +
+                    '<div class="gym-day-card-focus">' + day.focus + '</div>' +
+                    '<div class="' + lastCls + '">Last: ' + lastStr + suggestion + '</div>' +
+                '</div>' +
+                '<button class="' + btnCls + '" onclick="startWorkout(' + i + ')">Start</button>' +
+            '</div>';
+    }
+
+    var generatedDate = saved.generatedAt ? new Date(saved.generatedAt).toLocaleDateString() : 'unknown date';
+
+    container.innerHTML =
+        '<div class="gym-welcome-header">' +
+            '<h2>Welcome back</h2>' +
+            '<p>Your program from ' + generatedDate + ' &middot; ' + program.length + ' training days</p>' +
+        '</div>' +
+        daysHtml +
+        '<div class="gym-welcome-actions">' +
+            '<button class="gym-welcome-action-btn" onclick="viewFullProgram()">View full program</button>' +
+            '<button class="gym-welcome-action-btn" onclick="buildNewProgram()">Build new program</button>' +
+        '</div>';
+}
+
+function viewFullProgram() {
+    var saved = STORE.get('program');
+    if (!saved) return;
+    // Restore ctx
+    var savedCtx = STORE.get('ctx');
+    if (savedCtx) ctx = savedCtx;
+    hideAllPhases();
+    var phase = document.getElementById('phase-output');
+    phase.style.display = 'block';
+    var s = saved.state;
+    var vp = saved.volumePlan;
+    var program = saved.program;
+    renderDiagnosis(s, vp);
+    renderProgram(s, program, vp);
+    renderProgression(s);
+    renderWhy(s, vp);
+    renderBoundaries(s);
+    renderNext(s);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function buildNewProgram() {
+    STORE.remove('program');
+    STORE.remove('ctx');
+    STORE.remove('workout_progress');
+    ctx = {};
+    gaps = [];
+    answeredGaps = 0;
+    document.getElementById('intake-input').value = '';
+    hideAllPhases();
+    document.getElementById('phase-intake').style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ============================================================
 // INIT
 // ============================================================
 document.getElementById('intake-input').addEventListener('keydown', function(e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); submitIntake(); }
 });
+
+(function() {
+    // Check for crash recovery first
+    var progress = STORE.get('workout_progress');
+    if (progress) {
+        var saved = STORE.get('program');
+        if (saved && saved.program && saved.program[progress.dayIndex]) {
+            if (confirm('You have an unfinished workout. Resume it?')) {
+                gym.active = true;
+                gym.dayIndex = progress.dayIndex;
+                gym.exerciseIndex = progress.exerciseIndex || 0;
+                gym.currentDay = saved.program[progress.dayIndex];
+                gym.setsLogged = progress.setsLogged || [];
+                // Pad setsLogged if needed
+                while (gym.setsLogged.length < gym.currentDay.exercises.length) {
+                    gym.setsLogged.push([]);
+                }
+                gym.workoutStartTime = progress.workoutStartTime || Date.now();
+                hideAllPhases();
+                document.getElementById('phase-gym').style.display = 'block';
+                renderGymExercise();
+                return;
+            } else {
+                STORE.remove('workout_progress');
+            }
+        }
+    }
+    // Normal flow
+    checkReturningUser();
+})();
 </script>
 
 {% include 'footer.html' %}
