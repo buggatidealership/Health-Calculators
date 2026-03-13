@@ -2128,6 +2128,8 @@ document.addEventListener('DOMContentLoaded', function() {
         td.target = profile.target; td.bmr = profile.bmr;
         td.protein_g = profile.protein_g; td.fat_g = profile.fat_g;
         td.carb_g = profile.carb_g;
+        if (td.goal === 'lose') td.deficit = td.tdee - td.target;
+        if (td.goal === 'gain') td.surplus = td.target - td.tdee;
 
         var checkins = STORE.get('checkins') || [];
         if (checkins.length > 0) {
