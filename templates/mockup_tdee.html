@@ -1653,33 +1653,38 @@ function trackerEditToday() {
 
 function trackerToCheckin() {
     // Pre-fill the check-in form with tracker data
+    // Check-in grid: Mon=0, Tue=1, Wed=2, Thu=3, Fri=4, Sat=5, Sun=6
+    // JS getDay(): Sun=0, Mon=1, Tue=2, Wed=3, Thu=4, Fri=5, Sat=6
+    // Map: JS day → checkin index: Mon(1)→0, Tue(2)→1, ... Sat(6)→5, Sun(0)→6
     var logs = STORE.get('daily_logs') || {};
     var today = new Date();
     var weekKeys = [];
     for (var i = 6; i >= 0; i--) {
         var d = new Date(today);
         d.setDate(d.getDate() - i);
-        weekKeys.push(d.toISOString().slice(0, 10));
+        weekKeys.push({ key: d.toISOString().slice(0, 10), jsDay: d.getDay() });
     }
 
     showCheckin();
 
-    // Auto-fill calorie fields from tracker data
     setTimeout(function() {
-        weekKeys.forEach(function(key, idx) {
-            if (logs[key]) {
-                var el = document.getElementById('td-ci-cal-' + idx);
-                if (el) el.value = logs[key].cals;
+        weekKeys.forEach(function(item) {
+            if (logs[item.key]) {
+                // Convert JS day to checkin grid index (Mon=0 ... Sun=6)
+                var ciIdx = item.jsDay === 0 ? 6 : item.jsDay - 1;
+                var el = document.getElementById('td-ci-cal-' + ciIdx);
+                if (el) el.value = logs[item.key].cals;
             }
         });
-        // Fill weight from first and last logged days
-        var weights = weekKeys.map(function(k) { return logs[k] && logs[k].weight ? logs[k].weight : null; }).filter(function(w) { return w; });
-        if (weights.length > 0) {
+        // Fill weight from first and last logged days with weight data
+        var loggedWeights = weekKeys
+            .filter(function(item) { return logs[item.key] && logs[item.key].weight; })
+            .map(function(item) { return logs[item.key].weight; });
+        if (loggedWeights.length > 0) {
             var wStart = document.getElementById('td-ci-w-start');
             var wEnd = document.getElementById('td-ci-w-end');
-            if (wStart) wStart.value = weights[0];
-            if (wEnd && weights.length > 1) wEnd.value = weights[weights.length - 1];
-            else if (wEnd) wEnd.value = weights[0];
+            if (wStart) wStart.value = loggedWeights[0];
+            if (wEnd) wEnd.value = loggedWeights[loggedWeights.length - 1];
         }
     }, 100);
 }
