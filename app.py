@@ -4808,6 +4808,21 @@ def mockup():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup/tdee')
+def mockup_tdee():
+    return render_template(
+        'mockup_tdee.html',
+        is_homepage=False,
+        schema_name="TDEE Calculator Concept",
+        schema_description="LLM-native TDEE calculator concept — personalized output based on user situation.",
+        schema_url="/mockup/tdee",
+        canonical_url="/mockup/tdee",
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-13',
+        robots_meta='noindex, nofollow'
+    )
+
 
 @app.route('/training-volume-calculator')
 def training_volume_calculator():

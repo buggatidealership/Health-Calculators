@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Tell us your situation — get your TDEE, what it means for YOUR goal, and exactly what to do with it. Not just a number.",
+    meta_keywords="TDEE calculator, personalized TDEE, calorie calculator, total daily energy expenditure, smart TDEE",
+    og_title="TDEE Calculator — Personalized to Your Situation",
+    og_description="Not just your number. What it means for you, what to do with it, and when to recalculate.",
+    og_url="/mockup/tdee",
+    page_title="TDEE Calculator (Concept)",
+    canonical_url="/mockup/tdee",
+    schema_name="TDEE Calculator Concept",
+    schema_description="LLM-native TDEE calculator that personalizes output to the user's situation, goal, and history.",
+    schema_url="/mockup/tdee"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container" style="padding-bottom: 80px;">
+
+    <!-- Header -->
+    <div style="text-align:center; margin-bottom: 36px;">
+        <span class="td-badge">Concept Preview</span>
+        <h1 style="margin-bottom: 8px;">TDEE Calculator</h1>
+        <p class="subtitle" style="max-width: 560px; margin: 0 auto;">Tell me your situation. I'll calculate your number <em>and</em> tell you what to do with it.</p>
+    </div>
+
+    <!-- PHASE 1: Intake -->
+    <div id="phase-intake" class="td-phase">
+        <div class="td-intake-card">
+            <div class="td-intake-header">
+                <div class="td-intake-label">What's going on?</div>
+                <button class="td-example-toggle" onclick="tdToggleExample()">See an example</button>
+            </div>
+            <div id="td-example-box" class="td-example-box" style="display:none;">
+                <p>I'm 32, female, 5'5, 155 lbs. I work a desk job and go to the gym 2-3x a week, mostly cardio. I want to lose about 15-20 lbs but every time I try to diet I fall off after a few weeks.</p>
+                <button class="td-example-use" onclick="tdUseExample()">Use this</button>
+            </div>
+            <textarea id="td-input" class="td-textarea" rows="3" placeholder="Your age, weight, height, activity, goal — and anything else that matters. Write naturally."></textarea>
+            <div class="td-quick-starts">
+                <span class="td-qs-label">Or start here:</span>
+                <button class="td-chip" onclick="tdPrefill('lose')">I want to lose weight</button>
+                <button class="td-chip" onclick="tdPrefill('gain')">I want to build muscle</button>
+                <button class="td-chip" onclick="tdPrefill('maintain')">I just want to know my number</button>
+                <button class="td-chip" onclick="tdPrefill('stuck')">I'm eating less but not losing</button>
+            </div>
+            <button id="td-submit" class="td-submit" onclick="tdSubmit()">Calculate</button>
+        </div>
+    </div>
+
+    <!-- PHASE 2: Collect missing math inputs -->
+    <div id="phase-collect" class="td-phase" style="display:none;">
+        <div class="td-section" id="td-inferred">
+            <div class="td-section-label">What I picked up</div>
+            <div class="td-section-sublabel">Click to correct anything</div>
+            <div id="td-inferred-tags" class="td-tag-grid"></div>
+        </div>
+        <div id="td-missing-section" class="td-section" style="display:none;">
+            <div class="td-section-label">I still need a few things</div>
+            <div class="td-section-sublabel">Just the math — I need these to calculate your number</div>
+            <div id="td-missing-fields" class="td-missing-grid"></div>
+        </div>
+        <div id="td-context-q" class="td-section" style="display:none;">
+            <div class="td-followup">
+                <div class="td-followup-q" id="td-context-question"></div>
+                <div class="td-followup-why" id="td-context-why"></div>
+                <div id="td-context-options" class="td-option-grid"></div>
+            </div>
+        </div>
+        <button id="td-calc-btn" class="td-submit" onclick="tdCalculate()">Show my results</button>
+    </div>
+
+    <!-- PHASE 3: Personalized output -->
+    <div id="phase-output" class="td-phase" style="display:none;">
+        <!-- Section 1: The number — immediate value -->
+        <div id="td-result" class="td-result-card"></div>
+
+        <!-- Dynamic ad slot 1: after primary value delivery -->
+        <div id="td-ad-1" class="td-ad-slot" style="display:none;">
+            <div class="td-ad-placeholder">Ad Position 1 — after primary answer (highest attention)</div>
+        </div>
+
+        <!-- Section 2: What this means for YOU -->
+        <div id="td-context-section" class="td-output-card"></div>
+
+        <!-- Section 3: Your plan -->
+        <div id="td-plan-section" class="td-output-card"></div>
+
+        <!-- Dynamic ad slot 2: after action plan -->
+        <div id="td-ad-2" class="td-ad-slot" style="display:none;">
+            <div class="td-ad-placeholder">Ad Position 2 — after action plan (high engagement)</div>
+        </div>
+
+        <!-- Section 4: What changes this -->
+        <div id="td-changes-section" class="td-output-card"></div>
+
+        <!-- Section 5: Related tools -->
+        <div id="td-related-section" class="td-output-card"></div>
+
+        <!-- Dynamic ad slot 3: deep page, engaged users only -->
+        <div id="td-ad-3" class="td-ad-slot" style="display:none;">
+            <div class="td-ad-placeholder">Ad Position 3 — deep page (most engaged users)</div>
+        </div>
+
+        <!-- Recalculate -->
+        <div class="td-recalc">
+            <button class="td-submit-outline" onclick="tdReset()">Start over with new info</button>
+        </div>
+    </div>
+
+</div>
+
+<style>
+/* ========== BASE ========== */
+.td-badge {
+    display: inline-block;
+    background: var(--color-warm-bg);
+    color: var(--color-warm);
+    font-size: 0.85em;
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+}
+.td-phase {
+    max-width: 720px;
+    margin: 0 auto;
+    animation: tdFadeIn 0.4s ease;
+}
+@keyframes tdFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes tdSlideIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ========== INTAKE ========== */
+.td-intake-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+}
+.td-intake-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+.td-intake-label {
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    color: var(--color-text);
+}
+.td-example-toggle {
+    background: none; border: none;
+    color: var(--color-accent);
+    font-size: 0.88em; cursor: pointer;
+    font-family: var(--font-body);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+.td-example-box {
+    background: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
+    border-radius: var(--radius);
+    padding: 16px; margin-bottom: 14px;
+    font-size: 0.92em; line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+.td-example-box p { margin: 0 0 10px; font-style: italic; }
+.td-example-use {
+    background: var(--color-accent); color: #fff;
+    border: none; padding: 6px 16px;
+    border-radius: 20px; font-size: 0.85em;
+    cursor: pointer; font-family: var(--font-body); font-weight: 500;
+}
+.td-textarea {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.95em; font-family: var(--font-body);
+    line-height: 1.6; resize: vertical; outline: none;
+    transition: border-color 0.2s; min-height: 80px;
+}
+.td-textarea:focus { border-color: var(--color-accent); }
+.td-quick-starts {
+    display: flex; flex-wrap: wrap;
+    align-items: center; gap: 8px; margin-top: 14px;
+}
+.td-qs-label {
+    font-size: 0.85em;
+    color: var(--color-text-tertiary);
+    margin-right: 4px;
+}
+.td-chip {
+    background: var(--color-muted);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 0.85em; cursor: pointer;
+    font-family: var(--font-body); transition: all 0.2s;
+}
+.td-chip:hover {
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+    border-color: var(--color-accent-border);
+}
+.td-submit {
+    display: block; width: 100%; margin-top: 18px;
+    padding: 14px; background: var(--color-accent);
+    color: #fff; border: none; border-radius: var(--radius);
+    font-size: 1em; font-weight: 600;
+    font-family: var(--font-body); cursor: pointer;
+    transition: background 0.2s;
+}
+.td-submit:hover { background: var(--color-accent-hover); }
+.td-submit:disabled { background: var(--color-border); cursor: not-allowed; }
+.td-submit-outline {
+    display: block; width: 100%; margin-top: 18px;
+    padding: 14px; background: transparent;
+    color: var(--color-accent); border: 2px solid var(--color-accent);
+    border-radius: var(--radius);
+    font-size: 1em; font-weight: 600;
+    font-family: var(--font-body); cursor: pointer;
+    transition: all 0.2s;
+}
+.td-submit-outline:hover { background: var(--color-accent-bg); }
+
+/* ========== COLLECT PHASE ========== */
+.td-section {
+    margin-bottom: 28px;
+    animation: tdSlideIn 0.4s ease;
+}
+.td-section-label {
+    font-family: var(--font-display);
+    font-size: 1.15em; margin-bottom: 4px;
+}
+.td-section-sublabel {
+    font-size: 0.88em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 16px;
+}
+.td-tag-grid {
+    display: flex; flex-wrap: wrap; gap: 10px;
+}
+.td-tag {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 10px 16px;
+    display: flex; flex-direction: column; gap: 2px;
+    cursor: pointer; transition: all 0.2s; min-width: 100px;
+}
+.td-tag:hover { border-color: var(--color-accent-border); box-shadow: var(--shadow-sm); }
+.td-tag.td-tag-found {
+    border-color: var(--color-accent-border);
+    background: var(--color-accent-bg);
+}
+.td-tag-key {
+    font-size: 0.75em; text-transform: uppercase;
+    letter-spacing: 0.05em; color: var(--color-text-tertiary); font-weight: 600;
+}
+.td-tag-value { font-size: 0.95em; font-weight: 600; color: var(--color-text); }
+.td-tag-source { font-size: 0.72em; color: var(--color-accent); font-style: italic; }
+
+.td-missing-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+.td-missing-field {
+    display: flex; flex-direction: column; gap: 4px;
+}
+.td-missing-field label {
+    font-size: 0.82em; font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase; letter-spacing: 0.03em;
+}
+.td-missing-field input, .td-missing-field select {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.95em; font-family: var(--font-body);
+    outline: none; transition: border-color 0.2s;
+}
+.td-missing-field input:focus, .td-missing-field select:focus {
+    border-color: var(--color-accent);
+}
+
+/* Follow-up */
+.td-followup {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 22px; animation: tdSlideIn 0.4s ease;
+}
+.td-followup-q { font-weight: 600; font-size: 0.95em; margin-bottom: 6px; }
+.td-followup-why {
+    font-size: 0.85em; color: var(--color-text-tertiary);
+    margin-bottom: 14px; line-height: 1.5;
+}
+.td-option-grid {
+    display: flex; flex-wrap: wrap; gap: 8px;
+}
+.td-option {
+    padding: 8px 16px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.88em; cursor: pointer;
+    font-family: var(--font-body);
+    background: var(--color-surface);
+    transition: all 0.2s;
+}
+.td-option:hover {
+    border-color: var(--color-accent-border);
+    background: var(--color-accent-bg);
+}
+.td-option.td-option-selected {
+    background: var(--color-accent);
+    color: #fff; border-color: var(--color-accent);
+}
+
+/* ========== OUTPUT ========== */
+.td-result-card {
+    text-align: center;
+    padding: 36px 28px;
+    background: linear-gradient(135deg, var(--color-accent), #0a6e7c);
+    border-radius: var(--radius-lg);
+    color: #fff;
+    margin-bottom: 24px;
+    animation: tdSlideIn 0.5s ease;
+}
+.td-result-number {
+    font-family: var(--font-display);
+    font-size: 3.5em;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.td-result-unit {
+    font-size: 0.95em;
+    opacity: 0.85;
+    margin-bottom: 20px;
+}
+.td-result-target {
+    display: inline-block;
+    background: rgba(255,255,255,0.2);
+    padding: 10px 24px;
+    border-radius: var(--radius);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+.td-result-target-label {
+    font-size: 0.8em;
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 2px;
+    font-weight: 400;
+}
+
+.td-output-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+    animation: tdSlideIn 0.5s ease;
+}
+.td-output-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    margin-bottom: 14px;
+    color: var(--color-text);
+}
+.td-output-card p {
+    font-size: 0.92em;
+    line-height: 1.7;
+    color: var(--color-text-secondary);
+    margin-bottom: 12px;
+}
+.td-output-card p:last-child { margin-bottom: 0; }
+.td-highlight {
+    background: var(--color-accent-bg);
+    border-left: 3px solid var(--color-accent);
+    padding: 14px 18px;
+    border-radius: 0 var(--radius) var(--radius) 0;
+    margin: 16px 0;
+    font-size: 0.92em;
+    line-height: 1.6;
+    color: var(--color-text);
+}
+.td-action-list {
+    list-style: none; padding: 0; margin: 12px 0 0;
+}
+.td-action-list li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--color-border);
+    font-size: 0.92em;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    display: flex; align-items: flex-start; gap: 10px;
+}
+.td-action-list li:last-child { border-bottom: none; }
+.td-action-num {
+    flex-shrink: 0;
+    width: 24px; height: 24px;
+    background: var(--color-accent);
+    color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.78em; font-weight: 700;
+    margin-top: 2px;
+}
+.td-macro-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px; margin-top: 16px;
+}
+.td-macro-card {
+    text-align: center;
+    padding: 16px 12px;
+    background: var(--color-muted);
+    border-radius: var(--radius);
+}
+.td-macro-value {
+    font-family: var(--font-display);
+    font-size: 1.5em;
+    color: var(--color-text);
+}
+.td-macro-label {
+    font-size: 0.78em;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-top: 2px;
+}
+.td-macro-grams {
+    font-size: 0.82em;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+}
+.td-change-item {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.td-change-item:last-child { border-bottom: none; }
+.td-change-trigger {
+    font-weight: 600; font-size: 0.92em;
+    color: var(--color-text); margin-bottom: 4px;
+}
+.td-change-effect {
+    font-size: 0.85em;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+}
+.td-related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px; margin-top: 12px;
+}
+.td-related-link {
+    display: block;
+    padding: 16px;
+    background: var(--color-muted);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    text-decoration: none;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+.td-related-link:hover {
+    border-color: var(--color-accent-border);
+    box-shadow: var(--shadow-sm);
+}
+.td-related-link strong {
+    display: block; font-size: 0.92em;
+    margin-bottom: 4px;
+}
+.td-related-link span {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    line-height: 1.4;
+}
+.td-recalc { margin-top: 8px; }
+
+/* Ad placeholders */
+.td-ad-slot { margin-bottom: 20px; }
+.td-ad-placeholder {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--color-muted),
+        var(--color-muted) 10px,
+        var(--color-surface) 10px,
+        var(--color-surface) 20px
+    );
+    border: 2px dashed var(--color-border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    font-family: var(--font-body);
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    .td-intake-card { padding: 20px; }
+    .td-result-number { font-size: 2.8em; }
+    .td-macro-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .td-related-grid { grid-template-columns: 1fr; }
+    .td-missing-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+{% include 'footer.html' %}
+
+<script>
+/* ================================================================
+   TDEE MOCKUP — Persona-first, LLM-composed page concept
+   ================================================================
+   Design principle: Start from the user's reasoning chain.
+   Who are they? Why today? What do they believe? What do they need?
+   The page structure emerges from their journey, not from content categories.
+   ================================================================ */
+
+/* ---- State ---- */
+var td = {
+    // Math inputs (required for TDEE)
+    age: null, sex: null, weight_lbs: null, height_in: null, activity: null,
+    // Context inputs (drive personalization)
+    goal: null, history: null, obstacle: null,
+    // Computed
+    bmr: null, tdee: null, target: null,
+    // Persona path
+    persona: null // 'sarah' | 'newbie' | 'optimizer' | 'plateau'
+};
+
+/* ---- Prefills ---- */
+var TD_PREFILLS = {
+    lose: "I want to lose weight. I'm not sure how many calories I should be eating — I've heard different numbers and I don't know which to trust.",
+    gain: "I want to build muscle. I've been lifting for a while but I think I'm not eating enough. I'm not sure how much of a surplus I actually need.",
+    maintain: "I just want to know how many calories I burn in a day. I'm not trying to lose or gain — I want a baseline number.",
+    stuck: "I've been eating around 1,400 calories and exercising 4-5 times a week but the scale hasn't moved in 3 weeks. Something isn't adding up."
+};
+
+/* ---- Intake ---- */
+function tdToggleExample() {
+    var box = document.getElementById('td-example-box');
+    box.style.display = box.style.display === 'none' ? 'block' : 'none';
+}
+function tdUseExample() {
+    document.getElementById('td-input').value = "I'm 32, female, 5'5, 155 lbs. I work a desk job and go to the gym 2-3x a week, mostly cardio. I want to lose about 15-20 lbs but every time I try to diet I fall off after a few weeks.";
+    document.getElementById('td-example-box').style.display = 'none';
+}
+function tdPrefill(key) {
+    document.getElementById('td-input').value = TD_PREFILLS[key];
+    document.getElementById('td-input').focus();
+}
+
+/* ---- Parser ---- */
+function tdParse(text) {
+    var t = text.toLowerCase();
+
+    // Age
+    var ageMatch = t.match(/(?:i'?m|i am|age)\s*(\d{2})/);
+    if (ageMatch) td.age = parseInt(ageMatch[1]);
+
+    // Sex
+    if (/\b(female|woman|girl|she|her)\b/.test(t)) td.sex = 'female';
+    else if (/\b(male|man|guy|he|his)\b/.test(t)) td.sex = 'male';
+
+    // Weight
+    var wMatch = t.match(/(\d{2,3})\s*(lbs?|pounds?)/);
+    if (wMatch) td.weight_lbs = parseInt(wMatch[1]);
+    var wKg = t.match(/(\d{2,3})\s*kg/);
+    if (wKg) td.weight_lbs = Math.round(parseInt(wKg[1]) * 2.205);
+
+    // Height
+    var hMatch = t.match(/(\d)'?\s*(\d{1,2})?(?:"|'')?/);
+    if (hMatch && parseInt(hMatch[1]) >= 4 && parseInt(hMatch[1]) <= 7) {
+        td.height_in = parseInt(hMatch[1]) * 12 + (parseInt(hMatch[2]) || 0);
+    }
+    var hCm = t.match(/(\d{3})\s*cm/);
+    if (hCm) td.height_in = Math.round(parseInt(hCm[1]) / 2.54);
+
+    // Activity
+    if (/sedentary|desk job|don'?t exercise|no exercise|inactive/.test(t)) td.activity = 1.2;
+    else if (/(\d)\s*(?:x|times)\s*(?:a|per)\s*week/.test(t)) {
+        var freq = parseInt(t.match(/(\d)\s*(?:x|times)\s*(?:a|per)\s*week/)[1]);
+        if (freq <= 1) td.activity = 1.2;
+        else if (freq <= 3) td.activity = 1.375;
+        else if (freq <= 5) td.activity = 1.55;
+        else if (freq <= 6) td.activity = 1.725;
+        else td.activity = 1.9;
+    }
+    else if (/lightly|light exercise|occasional/.test(t)) td.activity = 1.375;
+    else if (/moderate|regular/.test(t)) td.activity = 1.55;
+    else if (/very active|intense|hard/.test(t)) td.activity = 1.725;
+    // Combine desk job mention with gym frequency
+    if (/desk job/.test(t) && !td.activity) td.activity = 1.2;
+    if (/desk job/.test(t) && /gym|exercise|workout|train/.test(t)) {
+        // Has a desk job but also exercises — bump up from sedentary
+        if (td.activity === 1.2) td.activity = 1.375;
+    }
+
+    // Goal
+    if (/lose|cut|fat loss|lean out|drop|shed|slim/.test(t)) td.goal = 'lose';
+    else if (/gain|bulk|build muscle|muscle|surplus|mass/.test(t)) td.goal = 'gain';
+    else if (/maintain|baseline|just.*(know|number)/.test(t)) td.goal = 'maintain';
+    else if (/stuck|plateau|not losing|scale.*move|hasn'?t.*moved/.test(t)) { td.goal = 'lose'; td.obstacle = 'plateau'; }
+
+    // History/obstacles
+    if (/fall off|quit|stop|gave up|can'?t stick|binge|restrict/.test(t)) td.history = 'adherence';
+    else if (/tried|before|again|back/.test(t)) td.history = 'retry';
+    if (/stuck|plateau|not.*(losing|working)|scale.*move/.test(t)) td.obstacle = 'plateau';
+    if (/confused|different numbers|don'?t know|not sure|heard/.test(t)) td.obstacle = 'confusion';
+
+    // Detect specific calorie mentions (they're telling us what they eat)
+    var calMatch = t.match(/(\d[,.]?\d{3})\s*(?:cal|kcal|calories)/);
+    if (calMatch) td.currentIntake = parseInt(calMatch[1].replace(/[,.]/, ''));
+
+    // Assign persona
+    if (td.history === 'adherence' || (td.obstacle === 'plateau' && td.history)) {
+        td.persona = 'sarah'; // Has tried, has obstacles
+    } else if (td.obstacle === 'plateau') {
+        td.persona = 'plateau'; // Eating less but not losing
+    } else if (td.obstacle === 'confusion' || (!td.history && td.goal === 'lose')) {
+        td.persona = 'newbie'; // First time or confused
+    } else if (td.goal === 'gain' || td.goal === 'maintain') {
+        td.persona = 'optimizer'; // Knows what they're doing, wants precision
+    } else {
+        td.persona = 'newbie'; // Default
+    }
+}
+
+/* ---- Submit intake ---- */
+function tdSubmit() {
+    var text = document.getElementById('td-input').value.trim();
+    if (!text) return;
+
+    tdParse(text);
+
+    // Show collect phase
+    document.getElementById('phase-intake').style.display = 'none';
+    document.getElementById('phase-collect').style.display = '';
+
+    // Render inferred tags
+    renderInferredTags();
+
+    // Show missing fields
+    renderMissingFields();
+
+    // Show context question (persona-specific)
+    renderContextQuestion();
+}
+
+function renderInferredTags() {
+    var container = document.getElementById('td-inferred-tags');
+    var tags = [];
+    if (td.age) tags.push({ key: 'Age', value: td.age, source: 'from your input' });
+    if (td.sex) tags.push({ key: 'Sex', value: td.sex === 'female' ? 'Female' : 'Male', source: 'from your input' });
+    if (td.weight_lbs) tags.push({ key: 'Weight', value: td.weight_lbs + ' lbs', source: 'from your input' });
+    if (td.height_in) {
+        var ft = Math.floor(td.height_in / 12);
+        var inches = td.height_in % 12;
+        tags.push({ key: 'Height', value: ft + "'" + inches + '"', source: 'from your input' });
+    }
+    if (td.activity) {
+        var actLabels = { 1.2: 'Sedentary', 1.375: 'Lightly active', 1.55: 'Moderately active', 1.725: 'Very active', 1.9: 'Extra active' };
+        tags.push({ key: 'Activity', value: actLabels[td.activity] || 'Moderate', source: 'from your description' });
+    }
+    if (td.goal) {
+        var goalLabels = { lose: 'Lose fat', gain: 'Build muscle', maintain: 'Maintain' };
+        tags.push({ key: 'Goal', value: goalLabels[td.goal], source: 'from your input' });
+    }
+    if (td.obstacle) {
+        var obsLabels = { plateau: 'Hit a plateau', confusion: 'Needs clarity', adherence: 'Sticking to it' };
+        tags.push({ key: 'Challenge', value: obsLabels[td.obstacle] || td.obstacle, source: 'I picked this up' });
+    }
+
+    container.innerHTML = tags.map(function(t) {
+        return '<div class="td-tag td-tag-found">' +
+            '<span class="td-tag-key">' + t.key + '</span>' +
+            '<span class="td-tag-value">' + t.value + '</span>' +
+            '<span class="td-tag-source">' + t.source + '</span>' +
+        '</div>';
+    }).join('');
+}
+
+function renderMissingFields() {
+    var missing = [];
+    if (!td.age) missing.push({ id: 'td-f-age', label: 'Age', type: 'number', placeholder: 'e.g. 30', field: 'age' });
+    if (!td.sex) missing.push({ id: 'td-f-sex', label: 'Sex', type: 'select', options: [['female','Female'],['male','Male']], field: 'sex' });
+    if (!td.weight_lbs) missing.push({ id: 'td-f-weight', label: 'Weight (lbs)', type: 'number', placeholder: 'e.g. 155', field: 'weight_lbs' });
+    if (!td.height_in) missing.push({ id: 'td-f-height-ft', label: 'Height (ft)', type: 'number', placeholder: '5', field: 'height_ft' });
+    if (!td.activity) missing.push({ id: 'td-f-activity', label: 'Activity', type: 'select', options: [
+        ['1.2','Sedentary'],['1.375','Light (1-3x/wk)'],['1.55','Moderate (3-5x/wk)'],['1.725','Very active (6-7x/wk)']
+    ], field: 'activity' });
+
+    if (missing.length === 0) {
+        document.getElementById('td-missing-section').style.display = 'none';
+        return;
+    }
+
+    document.getElementById('td-missing-section').style.display = '';
+    var container = document.getElementById('td-missing-fields');
+    container.innerHTML = missing.map(function(f) {
+        if (f.type === 'select') {
+            return '<div class="td-missing-field">' +
+                '<label for="' + f.id + '">' + f.label + '</label>' +
+                '<select id="' + f.id + '" data-field="' + f.field + '">' +
+                f.options.map(function(o) { return '<option value="' + o[0] + '">' + o[1] + '</option>'; }).join('') +
+                '</select></div>';
+        }
+        return '<div class="td-missing-field">' +
+            '<label for="' + f.id + '">' + f.label + '</label>' +
+            '<input type="number" id="' + f.id + '" data-field="' + f.field + '" placeholder="' + f.placeholder + '">' +
+        '</div>';
+    }).join('');
+
+    // Add height inches if height feet was missing
+    if (!td.height_in) {
+        var heightField = document.getElementById('td-f-height-ft');
+        if (heightField) {
+            heightField.parentNode.insertAdjacentHTML('afterend',
+                '<div class="td-missing-field">' +
+                '<label for="td-f-height-in">Height (in)</label>' +
+                '<input type="number" id="td-f-height-in" data-field="height_in" placeholder="8" value="0">' +
+                '</div>'
+            );
+        }
+    }
+}
+
+function renderContextQuestion() {
+    // Only ask ONE question — the one that most changes the output
+    // This is persona-dependent
+    var q = null;
+
+    if (td.persona === 'sarah' || td.persona === 'plateau') {
+        if (!td.currentIntake) {
+            q = {
+                question: "Roughly how many calories are you eating now?",
+                why: "This tells me whether to adjust your target up or down — and whether tracking accuracy is the real issue.",
+                options: [
+                    { label: "Under 1,500", value: 'under1500' },
+                    { label: "1,500 - 1,800", value: '1500-1800' },
+                    { label: "1,800 - 2,200", value: '1800-2200' },
+                    { label: "Not tracking", value: 'untracked' }
+                ]
+            };
+        }
+    } else if (td.persona === 'newbie') {
+        if (!td.goal || td.goal === 'maintain') {
+            q = {
+                question: "What's driving this?",
+                why: "Your goal changes the output significantly — I'll give you a different plan for fat loss vs muscle gain vs just knowing your number.",
+                options: [
+                    { label: "I want to lose fat", value: 'lose' },
+                    { label: "I want to gain muscle", value: 'gain' },
+                    { label: "Just curious", value: 'maintain' }
+                ]
+            };
+        }
+    } else if (td.persona === 'optimizer') {
+        q = {
+            question: "What's your training like?",
+            why: "Heavy resistance training changes macro recommendations and how I calculate your surplus.",
+            options: [
+                { label: "Lifting 3-4x/week", value: 'moderate_lift' },
+                { label: "Lifting 5-6x/week", value: 'heavy_lift' },
+                { label: "Mixed (lifting + cardio)", value: 'mixed' },
+                { label: "Mostly cardio", value: 'cardio' }
+            ]
+        };
+    }
+
+    if (!q) {
+        document.getElementById('td-context-q').style.display = 'none';
+        return;
+    }
+
+    document.getElementById('td-context-q').style.display = '';
+    document.getElementById('td-context-question').textContent = q.question;
+    document.getElementById('td-context-why').textContent = q.why;
+    document.getElementById('td-context-options').innerHTML = q.options.map(function(o) {
+        return '<button class="td-option" onclick="tdSelectOption(this, \'' + o.value + '\')">' + o.label + '</button>';
+    }).join('');
+}
+
+function tdSelectOption(el, value) {
+    // Deselect siblings
+    var siblings = el.parentNode.querySelectorAll('.td-option');
+    for (var i = 0; i < siblings.length; i++) siblings[i].classList.remove('td-option-selected');
+    el.classList.add('td-option-selected');
+    td.contextAnswer = value;
+
+    // If the question was about goal, update it
+    if (value === 'lose' || value === 'gain' || value === 'maintain') td.goal = value;
+}
+
+/* ---- Calculate ---- */
+function tdCalculate() {
+    // Collect missing fields
+    var fields = document.querySelectorAll('#td-missing-fields [data-field]');
+    for (var i = 0; i < fields.length; i++) {
+        var f = fields[i];
+        var val = f.value;
+        var field = f.getAttribute('data-field');
+        if (field === 'age') td.age = parseInt(val);
+        else if (field === 'sex') td.sex = val;
+        else if (field === 'weight_lbs') td.weight_lbs = parseInt(val);
+        else if (field === 'height_ft') td.height_in = parseInt(val) * 12;
+        else if (field === 'height_in') td.height_in = (td.height_in || 0) + parseInt(val || 0);
+        else if (field === 'activity') td.activity = parseFloat(val);
+    }
+
+    // Validate
+    if (!td.age || !td.sex || !td.weight_lbs || !td.height_in || !td.activity) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    // Mifflin-St Jeor
+    var weightKg = td.weight_lbs / 2.205;
+    var heightCm = td.height_in * 2.54;
+    if (td.sex === 'male') {
+        td.bmr = Math.round(10 * weightKg + 6.25 * heightCm - 5 * td.age + 5);
+    } else {
+        td.bmr = Math.round(10 * weightKg + 6.25 * heightCm - 5 * td.age - 161);
+    }
+    td.tdee = Math.round(td.bmr * td.activity);
+
+    // Goal-specific target
+    if (td.goal === 'lose') {
+        // Moderate deficit: 20% below TDEE (evidence-based, not the arbitrary 500 cal)
+        td.target = Math.round(td.tdee * 0.80);
+        td.deficit = td.tdee - td.target;
+    } else if (td.goal === 'gain') {
+        td.target = Math.round(td.tdee * 1.10); // 10% surplus for lean gains
+        td.surplus = td.target - td.tdee;
+    } else {
+        td.target = td.tdee;
+    }
+
+    // Protein (g) — 0.8-1g per lb for active individuals
+    td.protein_g = Math.round(td.weight_lbs * 0.85);
+    td.fat_g = Math.round((td.target * 0.28) / 9);
+    td.carb_g = Math.round((td.target - td.protein_g * 4 - td.fat_g * 9) / 4);
+
+    // Show output
+    document.getElementById('phase-collect').style.display = 'none';
+    document.getElementById('phase-output').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    renderOutput();
+}
+
+/* ---- Render output (persona-driven) ---- */
+function renderOutput() {
+    renderResult();
+    renderContext();
+    renderPlan();
+    renderChanges();
+    renderRelated();
+
+    // Show ad slots
+    document.getElementById('td-ad-1').style.display = '';
+    document.getElementById('td-ad-2').style.display = '';
+    document.getElementById('td-ad-3').style.display = '';
+}
+
+function renderResult() {
+    var goalLabels = { lose: 'For fat loss', gain: 'For lean muscle gain', maintain: 'Maintenance' };
+    var el = document.getElementById('td-result');
+    el.innerHTML =
+        '<div class="td-result-number">' + td.tdee.toLocaleString() + '</div>' +
+        '<div class="td-result-unit">calories/day — your total daily expenditure</div>' +
+        (td.goal !== 'maintain' ?
+            '<div class="td-result-target">' +
+                '<span class="td-result-target-label">' + goalLabels[td.goal] + '</span>' +
+                td.target.toLocaleString() + ' cal/day' +
+            '</div>' : '');
+}
+
+function renderContext() {
+    var el = document.getElementById('td-context-section');
+    var html = '<h3>What this means for you</h3>';
+
+    if (td.persona === 'sarah') {
+        // Adherence persona — address the real problem
+        html += '<p>You said you fall off after a few weeks. That pattern usually comes from one of two places: <strong>the target is too aggressive</strong>, or <strong>weekend tracking drops off</strong> and the weekly average is higher than the weekday number.</p>';
+        if (td.currentIntake || td.contextAnswer === 'under1500') {
+            html += '<div class="td-highlight">';
+            html += 'You mentioned eating around ' + (td.currentIntake || '~1,400') + ' calories. That\'s already ' +
+                (td.target > (td.currentIntake || 1400) ? '<strong>below your fat loss target of ' + td.target + '</strong>. If you\'re not losing at that intake, you\'re almost certainly eating more than that on some days — which is normal and doesn\'t mean you\'re broken. It means tracking accuracy is the fix, not eating less.' :
+                'close to your target. The math is right — the execution is where it breaks down.') +
+            '</div>';
+        } else if (td.contextAnswer === 'untracked') {
+            html += '<div class="td-highlight">';
+            html += 'You\'re not currently tracking. That\'s actually useful to know — it means the first step isn\'t a calorie target, it\'s <strong>7 days of tracking what you already eat</strong>. Your real starting point is your actual intake, not a calculated goal.';
+            html += '</div>';
+        }
+        html += '<p>Your TDEE of ' + td.tdee + ' means a sustainable fat loss target is <strong>' + td.target + ' cal/day</strong>. That\'s a ' + td.deficit + '-calorie deficit — enough to lose ~' + (td.deficit * 7 / 3500).toFixed(1) + ' lbs/week without the restrict-binge cycle.</p>';
+
+    } else if (td.persona === 'plateau') {
+        html += '<p>You\'re eating less but not losing. There are three explanations, in order of likelihood:</p>';
+        html += '<div class="td-highlight">';
+        html += '<strong>1. Tracking accuracy.</strong> Research consistently shows people underestimate intake by 30-50%. At ' + (td.currentIntake || '1,400') + ' cal/day reported, your actual average might be ' + Math.round((td.currentIntake || 1400) * 1.35) + '. That would explain the plateau completely.';
+        html += '</div>';
+        html += '<p><strong>2. Weekend offset.</strong> Five days at 1,400 + two days at 2,500 = weekly average of 1,714. The deficit disappears.</p>';
+        html += '<p><strong>3. Metabolic adaptation.</strong> Real, but usually accounts for only 100-200 cal — not enough to explain a full stall unless you\'ve been dieting for 3+ months straight.</p>';
+        html += '<p>Your actual TDEE is <strong>' + td.tdee + ' cal/day</strong>. For reliable fat loss: <strong>' + td.target + ' cal/day</strong>, tracked daily including weekends.</p>';
+
+    } else if (td.persona === 'optimizer') {
+        html += '<p>Your TDEE is <strong>' + td.tdee + ' cal/day</strong>. ';
+        if (td.goal === 'gain') {
+            html += 'For lean gains, a 10% surplus puts you at <strong>' + td.target + ' cal/day</strong> — enough for ~0.5 lb/week of gain with minimized fat accumulation.</p>';
+            html += '<div class="td-highlight">A common mistake is overshooting the surplus. Beyond +300-500 cal, additional calories convert almost entirely to fat — faster gain ≠ more muscle.</div>';
+        } else {
+            html += 'At maintenance, this is your baseline for planning cuts and bulks. Track for 2 weeks at this number and compare to scale trend — if weight is stable, this number is calibrated.</p>';
+        }
+
+    } else {
+        // Newbie
+        html += '<p>Your body burns about <strong>' + td.tdee + ' calories per day</strong> when you account for your activity level. This is your maintenance — the amount where your weight stays roughly the same.</p>';
+        if (td.goal === 'lose') {
+            html += '<p>For fat loss, you need to eat <em>less</em> than this — but not dramatically less. <strong>' + td.target + ' cal/day</strong> creates a moderate deficit that\'s sustainable.</p>';
+            html += '<div class="td-highlight">Ignore anyone telling you to eat 1,200 calories. That\'s below your BMR of ' + td.bmr + ' — your body needs that just to function at rest. Aggressive deficits lead to muscle loss, energy crashes, and the exact binge-restrict cycle that makes diets fail.</div>';
+        } else if (td.goal === 'gain') {
+            html += '<p>For muscle gain, eat <em>slightly</em> above this — <strong>' + td.target + ' cal/day</strong>. The emphasis is on "slightly." Your body can only build ~0.5 lb of muscle per week even under ideal conditions.</p>';
+        } else {
+            html += '<p>This is your baseline number. If your weight is stable over 2 weeks at this intake, the calculation is accurate for you.</p>';
+        }
+    }
+
+    el.innerHTML = html;
+}
+
+function renderPlan() {
+    var el = document.getElementById('td-plan-section');
+    var html = '<h3>Your plan</h3>';
+
+    // Macros — universal but presentation varies
+    html += '<div class="td-macro-grid">';
+    html += '<div class="td-macro-card"><div class="td-macro-value">' + Math.round(td.protein_g * 4 / td.target * 100) + '%</div><div class="td-macro-label">Protein</div><div class="td-macro-grams">' + td.protein_g + 'g/day</div></div>';
+    html += '<div class="td-macro-card"><div class="td-macro-value">' + Math.round(td.carb_g * 4 / td.target * 100) + '%</div><div class="td-macro-label">Carbs</div><div class="td-macro-grams">' + td.carb_g + 'g/day</div></div>';
+    html += '<div class="td-macro-card"><div class="td-macro-value">' + Math.round(td.fat_g * 9 / td.target * 100) + '%</div><div class="td-macro-label">Fat</div><div class="td-macro-grams">' + td.fat_g + 'g/day</div></div>';
+    html += '</div>';
+
+    // Action items — persona-specific
+    html += '<ul class="td-action-list">';
+
+    if (td.persona === 'sarah') {
+        html += actionItem(1, '<strong>Track everything for 7 days</strong> — including weekends, snacks, oils, drinks. Don\'t change anything yet. Just observe. The gap between perceived and actual intake is where the answer lives.');
+        html += actionItem(2, '<strong>Then eat ' + td.target + ' cal/day for 2 weeks</strong>. Weigh daily, use the weekly average. Expect 0.5-1 lb/week. If nothing moves after 2 real weeks of accurate tracking, drop another 100 cal.');
+        html += actionItem(3, '<strong>Protein first: ' + td.protein_g + 'g/day</strong>. This preserves muscle in a deficit and keeps you full. Hit this number before worrying about carbs vs fat.');
+        html += actionItem(4, '<strong>Build in a planned "free meal" weekly</strong>. Not a cheat day — a single meal where you don\'t track. This prevents the restrict→binge pattern you described.');
+    } else if (td.persona === 'plateau') {
+        html += actionItem(1, '<strong>Weigh and log everything for 7 days</strong> — with a food scale, not estimates. Include sauces, oils, and "bites" of things. This is a diagnostic week, not a diet.');
+        html += actionItem(2, '<strong>Compare your tracked average to ' + td.target + ' cal/day</strong>. If your actual average is above this, the plateau is explained. Adjust tracking accuracy, not the target.');
+        html += actionItem(3, '<strong>If tracking is accurate and you\'re truly at ' + (td.currentIntake || 1400) + '</strong>, take a 2-week diet break at ' + td.tdee + ' cal/day (maintenance), then resume the deficit. This reverses metabolic adaptation.');
+    } else if (td.persona === 'optimizer') {
+        if (td.goal === 'gain') {
+            html += actionItem(1, '<strong>Start at ' + td.target + ' cal/day</strong>. Weigh daily, track weekly averages. Target 0.5-1 lb/week gain. If gaining faster, you\'re gaining fat — pull back 100 cal.');
+            html += actionItem(2, '<strong>Protein: ' + td.protein_g + 'g/day</strong> (0.85g/lb). Beyond ~1g/lb shows diminishing returns in research. Spend the remaining calories on carbs for training performance.');
+            html += actionItem(3, '<strong>Time carbs around training</strong>. 30-40% of daily carbs pre/post workout. This isn\'t magic — it just helps performance and recovery when surplus calories are modest.');
+        } else {
+            html += actionItem(1, '<strong>Eat at ' + td.tdee + ' cal/day for 2 weeks</strong>. Track weight daily and use the weekly average. If weight is stable (±0.5 lb), this number is calibrated to you.');
+            html += actionItem(2, '<strong>If weight trends up or down</strong>, adjust by 100 cal and retest for another 2 weeks. The calculator gives an estimate — your body gives the truth.');
+            html += actionItem(3, '<strong>Once calibrated</strong>, use this as your anchor for future cuts (-20%) or bulks (+10%).');
+        }
+    } else {
+        // Newbie
+        html += actionItem(1, '<strong>Download a food tracking app</strong> (MyFitnessPal, Cronometer, MacroFactor). Track what you currently eat for 5 days before making changes. This shows you where you actually are.');
+        if (td.goal === 'lose') {
+            html += actionItem(2, '<strong>Target ' + td.target + ' cal/day with ' + td.protein_g + 'g protein</strong>. Protein first, then fill the rest with foods you actually like. Sustainability beats optimization.');
+            html += actionItem(3, '<strong>Weigh yourself daily, look at weekly averages</strong>. Day-to-day fluctuations of 1-3 lbs are water — they mean nothing. The weekly trend is what matters.');
+            html += actionItem(4, '<strong>Expect 0.5-1 lb/week</strong>. Faster than that means you\'re losing muscle. Slower is fine — you\'re still making progress.');
+        } else if (td.goal === 'gain') {
+            html += actionItem(2, '<strong>Eat ' + td.target + ' cal/day</strong>. If this feels like a lot of food, add calorie-dense options: nuts, olive oil, whole milk, peanut butter.');
+            html += actionItem(3, '<strong>Prioritize ' + td.protein_g + 'g protein/day</strong>. Split across 3-4 meals. Each meal should have a palm-sized protein source minimum.');
+        } else {
+            html += actionItem(2, '<strong>Track at ' + td.tdee + ' cal/day for 2 weeks</strong> and see if your weight stays stable. That confirms the number is right for you.');
+        }
+    }
+
+    html += '</ul>';
+    el.innerHTML = html;
+}
+
+function actionItem(num, text) {
+    return '<li><span class="td-action-num">' + num + '</span><span>' + text + '</span></li>';
+}
+
+function renderChanges() {
+    var el = document.getElementById('td-changes-section');
+    var html = '<h3>When to recalculate</h3>';
+    var changes = [];
+
+    if (td.goal === 'lose') {
+        changes.push({
+            trigger: 'Every 10 lbs lost',
+            effect: 'Your TDEE drops ~70-100 cal for every 10 lbs. A target that worked at ' + td.weight_lbs + ' lbs won\'t create a deficit at ' + (td.weight_lbs - 15) + ' lbs. Recalculate or your weight loss stalls — and it\'s not a plateau, it\'s math.'
+        });
+        changes.push({
+            trigger: 'If you add strength training',
+            effect: 'Muscle is metabolically expensive. Adding 2-3 lifting sessions/week raises your TDEE by ~100-200 cal/day, which means you can eat more and still lose — or lose faster at the same intake.'
+        });
+        changes.push({
+            trigger: 'After 12+ weeks of continuous dieting',
+            effect: 'Metabolic adaptation is real but modest (~5-10% reduction in TDEE). If progress stalls after 3 months, take 2 weeks at maintenance before resuming. This isn\'t weakness — it\'s physiology.'
+        });
+    } else if (td.goal === 'gain') {
+        changes.push({
+            trigger: 'Every 10 lbs gained',
+            effect: 'More mass = higher TDEE. Recalculate to maintain the same relative surplus, or you\'ll slowly stop gaining.'
+        });
+        changes.push({
+            trigger: 'If gaining more than 1 lb/week',
+            effect: 'You\'re gaining fat faster than muscle. Pull surplus back by 200 cal and reassess over 2 weeks.'
+        });
+        changes.push({
+            trigger: 'When transitioning to a cut',
+            effect: 'Recalculate at your new weight and activity level. Don\'t assume your TDEE from 20 lbs ago is still accurate.'
+        });
+    } else {
+        changes.push({
+            trigger: 'If your activity level changes',
+            effect: 'Going from 3x/week to 5x/week exercise can shift your TDEE by 200-400 cal/day. That\'s significant.'
+        });
+        changes.push({
+            trigger: 'Seasonal changes',
+            effect: 'Activity patterns shift with seasons. A summer cycling habit vs winter hibernation can mean a 300+ cal/day TDEE difference.'
+        });
+    }
+
+    // Universal
+    changes.push({
+        trigger: 'Major life changes',
+        effect: 'New job, new schedule, injury, pregnancy, menopause — any major shift in daily activity or physiology warrants a recalculation.'
+    });
+
+    html += changes.map(function(c) {
+        return '<div class="td-change-item">' +
+            '<div class="td-change-trigger">' + c.trigger + '</div>' +
+            '<div class="td-change-effect">' + c.effect + '</div>' +
+        '</div>';
+    }).join('');
+
+    el.innerHTML = html;
+}
+
+function renderRelated() {
+    var el = document.getElementById('td-related-section');
+    var html = '<h3>Tools that connect to this</h3>';
+    html += '<div class="td-related-grid">';
+
+    // Persona-specific related tools
+    var links = [];
+
+    if (td.goal === 'lose' || td.persona === 'sarah' || td.persona === 'plateau') {
+        links.push({ url: '/protein-intake-calculator', title: 'Protein Calculator', desc: 'Dial in your ' + td.protein_g + 'g target by meal' });
+        links.push({ url: '/calories-burned-calculator', title: 'Calories Burned', desc: 'See what your workouts actually burn' });
+        links.push({ url: '/body-fat-calculator', title: 'Body Fat Calculator', desc: 'Track composition, not just weight' });
+    } else if (td.goal === 'gain') {
+        links.push({ url: '/protein-intake-calculator', title: 'Protein Calculator', desc: 'Optimize protein timing for muscle gain' });
+        links.push({ url: '/bulking-calorie-calculator', title: 'Bulking Calculator', desc: 'Fine-tune your surplus by phase' });
+        links.push({ url: '/one-rep-max-calculator', title: 'One Rep Max', desc: 'Track strength progress alongside weight' });
+    } else {
+        links.push({ url: '/protein-intake-calculator', title: 'Protein Calculator', desc: 'Get your macro targets' });
+        links.push({ url: '/bmi-calculator', title: 'BMI Calculator', desc: 'Another data point for context' });
+        links.push({ url: '/calories-burned-calculator', title: 'Calories Burned', desc: 'Understand your activity contribution' });
+    }
+
+    html += links.map(function(l) {
+        return '<a href="' + l.url + '" class="td-related-link">' +
+            '<strong>' + l.title + '</strong>' +
+            '<span>' + l.desc + '</span>' +
+        '</a>';
+    }).join('');
+
+    html += '</div>';
+    el.innerHTML = html;
+}
+
+/* ---- Reset ---- */
+function tdReset() {
+    td = { age: null, sex: null, weight_lbs: null, height_in: null, activity: null,
+           goal: null, history: null, obstacle: null, bmr: null, tdee: null, target: null, persona: null };
+    document.getElementById('phase-output').style.display = 'none';
+    document.getElementById('phase-intake').style.display = '';
+    document.getElementById('td-input').value = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ---- Init ---- */
+document.addEventListener('DOMContentLoaded', function() {
+    document.getElementById('td-input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            tdSubmit();
+        }
+    });
+});
+</script>
+
+</body>
+</html>
