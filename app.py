@@ -4812,6 +4812,47 @@ def one_rep_max_calculator():
     )
 
 
+@app.route('/twitter-assets')
+def twitter_assets():
+    return '''<!DOCTYPE html>
+<html><head><meta name="robots" content="noindex,nofollow"><title>Twitter Assets</title>
+<style>
+body{font-family:system-ui;max-width:900px;margin:40px auto;padding:0 20px;background:#f5f5f5;color:#333}
+h1{color:#0a7e8c}
+.asset{background:#fff;border-radius:12px;padding:24px;margin:24px 0;box-shadow:0 2px 8px rgba(0,0,0,0.08)}
+.asset h2{margin-top:0;font-size:18px}
+.asset img{max-width:100%;border-radius:8px;border:1px solid #eee}
+.asset p{color:#666;font-size:14px;margin:8px 0}
+a.dl{display:inline-block;margin-top:12px;padding:10px 24px;background:#0a7e8c;color:#fff;text-decoration:none;border-radius:8px;font-weight:600}
+a.dl:hover{background:#086a73}
+</style></head><body>
+<h1>Twitter/X Design Assets</h1>
+<p>Right-click and "Save image as" or use the download buttons.</p>
+
+<div class="asset">
+<h2>Profile Picture (512x512)</h2>
+<p>Upload as Twitter profile photo.</p>
+<img src="/static/images/logo-512x512.png" alt="Logo" style="max-width:200px">
+<br><a class="dl" href="/static/images/logo-512x512.png" download="healthcalculators-logo.png">Download Logo PNG</a>
+</div>
+
+<div class="asset">
+<h2>Banner (1500x500)</h2>
+<p>Upload as Twitter header/banner image.</p>
+<img src="/static/images/twitter-banner.png" alt="Banner">
+<br><a class="dl" href="/static/images/twitter-banner.png" download="healthcalculators-banner.png">Download Banner PNG</a>
+</div>
+
+<div class="asset">
+<h2>Setup Guide</h2>
+<p><strong>Display Name:</strong> HealthCalculators.xyz</p>
+<p><strong>Handle:</strong> @HealthCalcsXYZ (check availability)</p>
+<p><strong>Bio:</strong> Free evidence-based health calculators. TDEE, BMI, body fat, macros, and 90+ tools — personalized to your situation. Built by humans, powered by science.</p>
+<p><strong>Website:</strong> https://healthcalculators.xyz</p>
+<p><strong>Category:</strong> Health & Wellness</p>
+</div>
+</body></html>'''
+
 @app.route('/mockup')
 def mockup():
     return render_template(
