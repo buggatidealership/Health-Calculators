@@ -1117,9 +1117,9 @@ function tdParse(text) {
     td.signals = [];
 
     // Sleep domain
-    if (/sleep\s*(\d)\s*hours?|(\d)\s*hours?\s*(?:of\s*)?sleep|terrible\s*sleep|insomnia|can'?t\s*sleep|poor\s*sleep|night\s*shift/.test(t)) {
+    if (/sleep\s*(?:maybe\s*|about\s*|around\s*|only\s*|like\s*)?(\d)\s*[-–]?\s*\d?\s*hours?|(\d)\s*hours?\s*(?:of\s*)?sleep|terrible\s*sleep|insomnia|can'?t\s*sleep|poor\s*sleep|night\s*shift/.test(t)) {
         td.sleep = 'poor';
-        var sleepHrs = t.match(/sleep\s*(\d)\s*hours?|(\d)\s*hours?\s*(?:of\s*)?sleep/);
+        var sleepHrs = t.match(/sleep\s*(?:maybe\s*|about\s*|around\s*|only\s*|like\s*)?(\d)\s*[-–]?\s*\d?\s*hours?|(\d)\s*hours?\s*(?:of\s*)?sleep/);
         if (sleepHrs) td.sleepHours = parseInt(sleepHrs[1] || sleepHrs[2]);
         if (/night\s*shift/.test(t)) td.sleep = 'shift_work';
         td.signals.push({ domain: 'physiology', label: td.sleep === 'shift_work' ? 'Night shift worker' : (td.sleepHours ? td.sleepHours + 'h sleep' : 'Poor sleep'), raw: 'sleep' });
