@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="How much fiber do you need per day? A complete, evidence-based guide covering IOM fiber recommendations by age and sex, soluble vs. insoluble fiber, proven health benefits, the top high-fiber foods, and how to close the fiber gap.",
+    meta_keywords="how much fiber per day, daily fiber intake, recommended fiber intake by age, soluble vs insoluble fiber, fiber benefits, high fiber foods, dietary fiber guide",
+    og_title="Daily Fiber Intake Guide: How Much Fiber You Need by Age & Sex",
+    og_description="Complete guide to dietary fiber intake — IOM recommendations by age, soluble vs. insoluble fiber, cardiovascular and diabetes research, and the top 20 high-fiber foods to close the fiber gap.",
+    og_url="/resources/daily-fiber-intake-guide",
+    page_title="Daily Fiber Intake Guide: How Much Fiber You Need by Age & Sex",
+    canonical_url="/resources/daily-fiber-intake-guide",
+    schema_name="Daily Fiber Intake Guide",
+    schema_description="A complete, evidence-based guide to dietary fiber intake — IOM recommendations by age and sex, soluble vs. insoluble fiber types, health benefits, high-fiber foods, and the fiber gap.",
+    schema_url="/resources/daily-fiber-intake-guide"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Daily Fiber Intake Guide: How Much Fiber Do You Need?</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">A complete, evidence-based guide to dietary fiber — recommended intakes by age and sex, the two types of fiber, proven health benefits, and the top foods to hit your daily target.</p>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#short-answer">Short Answer</a></li>
+            <li><a href="#dri-table">IOM Recommendations by Age &amp; Sex</a></li>
+            <li><a href="#soluble-vs-insoluble">Soluble vs. Insoluble Fiber</a></li>
+            <li><a href="#fiber-gap">The Fiber Gap: Why Americans Fall Short</a></li>
+            <li><a href="#health-benefits">Evidence-Based Health Benefits</a></li>
+            <li><a href="#top-foods">Top High-Fiber Foods</a></li>
+            <li><a href="#how-to-increase">How to Increase Fiber Without GI Distress</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="short-answer" class="info">
+        <h2>Short Answer: How Much Fiber Per Day?</h2>
+        <div class="answer-capsule">
+          The Institute of Medicine recommends <strong>38g/day for men under 50</strong> and <strong>25g/day for women under 50</strong>. After age 50, recommendations decrease to <strong>30g (men)</strong> and <strong>21g (women)</strong>. An alternative guideline is <strong>14g of fiber per 1,000 calories</strong> consumed. The average American eats only about 16g/day — roughly half the recommended amount. Use the <a href="/fiber-intake-calculator">Daily Fiber Intake Calculator</a> to find your precise personalized target.
+        </div>
+
+        <p style="margin-top: 14px;">These recommendations represent <strong>Adequate Intakes (AIs)</strong> — not Recommended Dietary Allowances (RDAs) — because the scientific evidence, while strong, was not sufficient to establish a precise dose-response relationship. The AIs were set at the level associated with the lowest observed risk of coronary heart disease in large epidemiological studies.</p>
+    </section>
+
+    <section id="dri-table" class="info">
+        <h2>IOM Dietary Fiber Recommendations by Age &amp; Sex</h2>
+        <p>The following Adequate Intake (AI) values come from the Institute of Medicine's 2005 report, <em>Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids</em>. These remain the definitive U.S. fiber recommendations.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Life Stage</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Male (g/day)</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Female (g/day)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Ages 1–3</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">19g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">19g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Toddlers</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Ages 4–8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">25g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">25g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Children</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Ages 9–13</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">31g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">26g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Pre-teens</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Ages 14–18</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">38g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">26g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Adolescents</td></tr>
+                    <tr style="background: #f0fdf4;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Ages 19–50</strong></td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 700; color: #16a34a;">38g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 700; color: #16a34a;">25g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Most adults</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Ages 51+</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">30g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">21g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Lower calorie needs with age</td></tr>
+                    <tr style="background: #fef9c3;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Pregnancy</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">—</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">28g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Increased needs</td></tr>
+                    <tr style="background: #fef9c3;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Lactation</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">—</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">29g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-size: 0.85rem;">Highest need for women</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> Institute of Medicine. Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. National Academies Press, 2005.</p>
+
+        <p style="margin-top: 14px;">The <strong>calorie-based method</strong> (14g per 1,000 kcal) is useful for highly active individuals who eat significantly more than average. For example, an endurance athlete consuming 3,800 kcal/day would target 53g of fiber — well above the age-sex DRI of 38g.</p>
+    </section>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="soluble-vs-insoluble" class="info">
+        <h2>Soluble vs. Insoluble Fiber: The Two Types Explained</h2>
+        <div class="answer-capsule">
+          Dietary fiber is classified as <strong>soluble</strong> (dissolves in water to form a gel) or <strong>insoluble</strong> (does not dissolve, adds bulk). Soluble fiber lowers LDL cholesterol and stabilizes blood sugar. Insoluble fiber prevents constipation and speeds intestinal transit. Both types are essential, and most whole-plant foods contain both. The typical ratio in a mixed diet is approximately 25% soluble to 75% insoluble.
+        </div>
+
+        <div class="important-box" style="margin-top: 16px;">
+            <h3>Soluble Fiber — The Cholesterol and Blood Sugar Manager</h3>
+            <p>Soluble fiber dissolves in water to form a viscous gel in the small intestine. This gel slows the absorption of glucose and cholesterol, producing two of the most clinically significant effects of dietary fiber:</p>
+            <ul>
+                <li><strong>Cholesterol reduction:</strong> The FDA has authorized a health claim that "diets low in saturated fat and cholesterol that include soluble fiber from whole oats may reduce the risk of heart disease." Clinical trials consistently show 3–5g/day of oat beta-glucan reduces LDL by 5–10%.</li>
+                <li><strong>Blood sugar control:</strong> Soluble fiber blunts postprandial glucose spikes by slowing carbohydrate digestion. This is particularly relevant for individuals with insulin resistance or type 2 diabetes.</li>
+                <li><strong>Prebiotic effect:</strong> Fermentable soluble fibers (inulin, FOS, pectin) feed beneficial gut bacteria such as <em>Bifidobacterium</em> and <em>Lactobacillus</em>, producing short-chain fatty acids (butyrate, propionate, acetate) that reduce gut inflammation and maintain colon cell integrity.</li>
+            </ul>
+            <p><strong>Best sources:</strong> Oats, oat bran, psyllium husk, beans and lentils, apples, pears, citrus fruits, barley, flaxseeds, chia seeds.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #3b82f6; margin-top: 16px;">
+            <h3>Insoluble Fiber — The Digestive Regulator</h3>
+            <p>Insoluble fiber does not dissolve in water and remains largely intact as it passes through the digestive tract. It adds bulk and water to stool, speeding its movement through the colon.</p>
+            <ul>
+                <li><strong>Constipation prevention:</strong> Adequate insoluble fiber intake is the first-line dietary recommendation for chronic constipation. It increases stool frequency and softens stool consistency.</li>
+                <li><strong>Diverticular disease:</strong> A high-fiber, predominantly insoluble-fiber diet is strongly associated with lower rates of diverticulitis (inflammation of intestinal pouches) in large prospective cohort studies.</li>
+                <li><strong>Colorectal cancer:</strong> The World Cancer Research Fund rates evidence that dietary fiber reduces colorectal cancer risk as "convincing" — one of only a handful of dietary factors to receive this designation.</li>
+            </ul>
+            <p><strong>Best sources:</strong> Wheat bran, whole wheat bread and pasta, vegetables (especially root vegetables with skins), nuts, seeds, brown rice, potato skins.</p>
+        </div>
+    </section>
+
+    <section id="fiber-gap" class="info">
+        <h2>The Fiber Gap: Why Americans Fall Dramatically Short</h2>
+        <p>Despite fiber's well-documented health benefits, fiber intake in the United States is among the lowest of any high-income country. The 2015–2020 Dietary Guidelines Advisory Committee identified dietary fiber as a <strong>"nutrient of public health concern"</strong> — one of only four nutrients (alongside calcium, vitamin D, and potassium) singled out for inadequate intake across the population.</p>
+
+        <div class="table-responsive" style="overflow-x: auto; margin: 16px 0;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Population Group</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Average Intake</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">IOM Target</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Gap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">U.S. men 20–50</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">18g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">38g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; color: #dc2626; font-weight: 600;">–20g</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">U.S. women 20–50</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">15g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">25g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; color: #dc2626; font-weight: 600;">–10g</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">U.S. adults 50+</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">16g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">21–30g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; color: #dc2626; font-weight: 600;">–5 to –14g</td></tr>
+                    <tr style="background: #fafafa;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">U.S. adolescents</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">13g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">26–38g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; color: #dc2626; font-weight: 600;">–13 to –25g</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary);">Sources: NHANES 2013–2016 data; IOM DRI 2005.</p>
+
+        <p style="margin-top: 14px;">The primary reason for the fiber gap is the dominance of ultra-processed foods in the American diet. Refining and processing strips naturally occurring fiber from grains, fruits, and vegetables. White bread, white rice, fruit juice (without pulp), and most packaged snack foods contain little to no dietary fiber. A single swap — choosing whole grain bread over white bread, or a whole apple over apple juice — can add 3–5g of fiber per serving.</p>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="health-benefits" class="info">
+        <h2>Evidence-Based Health Benefits of Dietary Fiber</h2>
+        <p>Fiber's health effects are among the most replicated findings in nutritional epidemiology. The following benefits are supported by large prospective cohort studies and randomized controlled trials:</p>
+
+        <div class="important-box">
+            <h3>1. Cardiovascular Disease Reduction</h3>
+            <p>A landmark 2013 meta-analysis in <em>The BMJ</em> (Threapleton et al.) pooled 22 prospective studies and found that each additional <strong>7g of fiber per day</strong> was associated with a <strong>9% reduction in cardiovascular disease risk</strong>. Soluble fiber showed the strongest association with coronary heart disease, particularly from cereals and fruit sources.</p>
+            <p>The mechanism involves soluble fiber's ability to bind bile acids in the intestine, reducing cholesterol reabsorption and lowering circulating LDL. Oat beta-glucan has the most clinical trial evidence and the FDA's authorized health claim.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #3b82f6;">
+            <h3>2. Type 2 Diabetes Prevention</h3>
+            <p>A 2007 meta-analysis by Schulze et al. in <em>Archives of Internal Medicine</em> found that each 10g/day increase in total fiber intake was associated with a <strong>25% lower risk of type 2 diabetes</strong>. Whole grain fiber showed a particularly strong protective effect.</p>
+            <p>Fiber slows the digestion and absorption of carbohydrates, blunting postprandial blood glucose and insulin spikes. Over time, this reduces pancreatic beta-cell stress and improves insulin sensitivity.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #8b5cf6;">
+            <h3>3. Weight Management</h3>
+            <p>A 2019 randomized controlled trial in <em>Annals of Internal Medicine</em> (Hjorth et al.) found that simply increasing fiber intake to <strong>30g/day</strong> produced significant weight loss — comparable to a more complex dietary intervention — without any calorie counting, food restriction, or tracking. Fiber increases satiety through multiple mechanisms: slowing gastric emptying, increasing chewing time, releasing satiety hormones (GLP-1, PYY), and physically filling the stomach.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #f59e0b;">
+            <h3>4. Colorectal Cancer Risk Reduction</h3>
+            <p>The World Cancer Research Fund's 2018 continuous update project classified the evidence that dietary fiber reduces <strong>colorectal cancer risk</strong> as "convincing" — one of the highest confidence ratings in cancer prevention research. The proposed mechanisms include faster intestinal transit (reducing carcinogen contact time), SCFA production from fiber fermentation, and dilution of potential carcinogens by increased stool bulk.</p>
+        </div>
+
+        <div class="important-box" style="border-left-color: #22c55e;">
+            <h3>5. Gut Microbiome Health</h3>
+            <p>Fermentable dietary fibers serve as prebiotics — food for beneficial bacteria in the colon. A 2017 review in <em>Gut Microbes</em> (Holscher) summarized extensive evidence that fiber-rich diets increase the abundance of <em>Bifidobacterium</em>, <em>Lactobacillus</em>, and other beneficial species, while the fermentation byproducts — particularly <strong>butyrate</strong> — maintain intestinal barrier integrity, reduce systemic inflammation, and may protect against inflammatory bowel conditions.</p>
+        </div>
+    </section>
+
+    <section id="top-foods" class="info">
+        <h2>Top High-Fiber Foods to Close Your Fiber Gap</h2>
+        <p>The most effective strategy for increasing fiber intake is to emphasize whole plant foods — particularly legumes, which are by far the most fiber-dense common foods. Data below from USDA FoodData Central.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Food</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Serving</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Fiber</th>
+                        <th style="padding: 10px 12px; text-align: center; border-bottom: 2px solid #e5e7eb;">Dominant Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="background: #f0fdf4;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Split peas (cooked)</strong></td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 700;">16.3g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Soluble</td></tr>
+                    <tr style="background: #f0fdf4;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Lentils (cooked)</strong></td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 700;">15.6g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr style="background: #f0fdf4;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;"><strong>Black beans (cooked)</strong></td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 700;">15.0g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Kidney beans (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">13.6g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Chickpeas (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">12.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Avocado (1 medium)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">9.2g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Insoluble</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Edamame (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">8.1g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Raspberries</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">8.0g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Artichoke (medium, cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">6.8g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Insoluble</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Oat bran (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">5.7g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Soluble</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Pear (medium, with skin)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">5.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Broccoli (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">5.1g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Insoluble</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Apple (medium, with skin)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">4.4g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Both</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Chia seeds (1 tbsp)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 tbsp</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">4.1g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Soluble</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Oatmeal (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center; font-weight: 600;">4.0g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; text-align: center;">Soluble</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> USDA FoodData Central. Values per listed serving size.</p>
+
+        <p style="margin-top: 14px;"><strong>Key insight:</strong> A single cup of lentils delivers over 40% of the daily fiber target for most adult men, and over 60% for most adult women. Legumes are the single most effective food category for closing the fiber gap — and one of the cheapest sources of protein and fiber per dollar in any grocery store.</p>
+    </section>
+
+    <section id="how-to-increase" class="info">
+        <h2>How to Increase Fiber Intake Without GI Distress</h2>
+        <p>The most common mistake when increasing fiber intake is doing so too rapidly. Gut bacteria need time to adapt to increased fermentation — adding 20g of fiber overnight will cause significant bloating, gas, and cramping in most people. The right approach is gradual:</p>
+
+        <div class="important-box">
+            <h3>The 5g-Per-Week Rule</h3>
+            <ol>
+                <li><strong>Baseline first:</strong> Estimate your current fiber intake for 3–7 days. The average American eats ~16g/day. Most people are surprised by how low their baseline actually is.</li>
+                <li><strong>Add 5g per week:</strong> Add approximately 5g of additional fiber each week until you reach your target. At 5g/week, a man starting at 16g would reach 38g in about 4–5 weeks.</li>
+                <li><strong>Increase water simultaneously:</strong> Fiber absorbs water; insufficient hydration can worsen constipation. Add at least 8 oz (240 mL) of water for every 5g of fiber added. See the <a href="/water-intake-calculator">Water Intake Calculator</a> for your personalized hydration target.</li>
+                <li><strong>Prioritize whole foods over supplements:</strong> Whole-food fiber sources come with vitamins, minerals, antioxidants, and phytochemicals that supplements lack. Use supplements (psyllium, wheat dextrin) only to fill gaps that diet alone cannot close.</li>
+                <li><strong>Distribute throughout the day:</strong> Spreading fiber across meals (rather than eating all of it at once) reduces GI discomfort and produces more stable blood sugar throughout the day.</li>
+            </ol>
+        </div>
+
+        <p>If you experience significant ongoing bloating despite gradual increases, consider whether high-FODMAP fiber sources (certain beans and vegetables) are the culprit. These contain rapidly fermentable short-chain carbohydrates that can cause symptoms in sensitive individuals. Lower-FODMAP alternatives include oats, rice, carrots, and zucchini.</p>
+
+        <p>Use the <a href="/fiber-intake-calculator">Daily Fiber Intake Calculator</a> to find your exact target, then track your current intake for one week to measure the gap. Pair with the <a href="/macro-calculator">Macro Calculator</a> to see how fiber fits into your complete nutritional picture, and the <a href="/water-intake-calculator">Water Intake Calculator</a> to ensure you are drinking enough to support higher fiber intake.</p>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>What is dietary fiber and why does the body need it?</h3>
+            <div class="faq-answer">
+                <p>Dietary fiber refers to the indigestible carbohydrate components of plant foods — primarily the structural materials in plant cell walls (cellulose, hemicellulose, pectin, lignin) and storage carbohydrates that resist digestion (resistant starch, inulin, fructooligosaccharides). Unlike digestible carbohydrates, fiber passes through the small intestine without being absorbed. In the large intestine, some types are fermented by bacteria, producing beneficial compounds including short-chain fatty acids. Fiber's health importance relates to its physical effects on digestion (slowing absorption, adding bulk), its fermentation byproducts, and the fact that high-fiber diets naturally displace high-energy, nutrient-poor foods.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is the fiber in supplements the same as food fiber?</h3>
+            <div class="faq-answer">
+                <p>Functionally, many fiber supplements provide similar specific benefits to their food-source equivalents. Psyllium husk (the active ingredient in Metamucil) is a soluble fiber with strong clinical evidence for lowering LDL cholesterol and improving bowel regularity — effects that match food-source soluble fiber. However, whole-food fiber comes packaged with vitamins, minerals, antioxidants, and other phytochemicals that supplements cannot replicate. Observational studies consistently show stronger health benefits from food-source fiber than from supplements at equivalent fiber doses, suggesting that associated food components (not fiber alone) drive much of the benefit. Supplements are a reasonable adjunct when dietary intake is insufficient, but they should not replace whole-food sources.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Does cooking reduce fiber content in vegetables?</h3>
+            <div class="faq-answer">
+                <p>Cooking has a modest and somewhat variable effect on fiber content. Water-soluble fiber (pectin, hemicellulose) can leach out into cooking water, reducing fiber slightly in boiled vegetables. However, cooking also softens plant cell walls and breaks down anti-nutrients like phytates and lectins, which can actually improve the digestibility and availability of nutrients in high-fiber legumes. For most vegetables, the difference in fiber between raw and cooked (steamed or roasted) is small — generally under 10%. Boiling vegetables in large amounts of water and discarding the water causes the greatest fiber losses. Steaming, roasting, and stir-frying retain fiber better than boiling.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can a high-fiber diet help with constipation?</h3>
+            <div class="faq-answer">
+                <p>Yes — for most types of constipation, increasing insoluble fiber is the first-line dietary treatment. Insoluble fiber adds bulk to stool and speeds transit through the colon, increasing stool frequency and softening consistency. The most effective approach is to increase fiber gradually (5g/week), ensure adequate water intake (fiber absorbs water and needs hydration to work properly), and combine fiber with regular physical activity. For individuals with slow-transit constipation or pelvic floor dysfunction, fiber alone may not be sufficient, and a gastroenterologist's evaluation may be appropriate. Notably, soluble fiber can sometimes worsen certain types of constipation if water intake is insufficient.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How does fiber affect blood sugar?</h3>
+            <div class="faq-answer">
+                <p>Fiber — particularly soluble fiber — reduces postprandial blood glucose spikes through two main mechanisms. First, the gel formed by soluble fiber in the small intestine slows gastric emptying, meaning carbohydrates are delivered to the intestine more slowly and absorbed more gradually. Second, this gel physically traps digestive enzymes and reduces their contact with carbohydrate molecules, slowing glucose release. The result is a lower, slower rise in blood glucose after eating — reflected in lower glycemic index (GI) values for high-fiber foods. This mechanism is why foods like oatmeal, lentils, and apples have dramatically lower GI values than their refined grain or juice equivalents, despite containing similar total carbohydrate. Check the <a href="/glycemic-index-calculator">Glycemic Index Calculator</a> to compare GI values for specific foods.</p>
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators &amp; Guides</h3>
+        <div class="related-tools-grid">
+            <a href="/fiber-intake-calculator" class="related-tool-card">
+                <h4>Fiber Intake Calculator</h4>
+                <p>Get your personalized daily fiber target based on age and sex, with a high-fiber food breakdown.</p>
+            </a>
+            <a href="/macro-calculator" class="related-tool-card">
+                <h4>Macro Calculator</h4>
+                <p>See how fiber fits into your complete carbohydrate, protein, and fat targets.</p>
+            </a>
+            <a href="/water-intake-calculator" class="related-tool-card">
+                <h4>Water Intake Calculator</h4>
+                <p>Higher fiber needs mean higher water needs. Find your daily hydration target.</p>
+            </a>
+            <a href="/glycemic-index-calculator" class="related-tool-card">
+                <h4>Glycemic Index Calculator</h4>
+                <p>High-fiber foods have a lower glycemic impact. Look up GI values for specific foods.</p>
+            </a>
+            <a href="/electrolyte-calculator" class="related-tool-card">
+                <h4>Electrolyte Calculator</h4>
+                <p>A plant-rich, high-fiber diet affects sodium and potassium balance. Check your electrolyte needs.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "Institute of Medicine (IOM). Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. Washington, DC: National Academies Press; 2005.", "url": "https://www.ncbi.nlm.nih.gov/books/NBK56990/"},
+        {"text": "Threapleton DE, Greenwood DC, Evans CEL, et al. Dietary fibre intake and risk of cardiovascular disease: systematic review and meta-analysis. BMJ. 2013;347:f6879.", "url": "https://pubmed.ncbi.nlm.nih.gov/24355537/"},
+        {"text": "Schulze MB, Schulz M, Heidemann C, Schienkiewitz A, Hoffmann K, Boeing H. Fiber and magnesium intake and incidence of type 2 diabetes: a prospective study and meta-analysis. Arch Intern Med. 2007;167(9):956–965.", "url": "https://pubmed.ncbi.nlm.nih.gov/17502538/"},
+        {"text": "World Cancer Research Fund / American Institute for Cancer Research. Diet, Nutrition, Physical Activity and Cancer: a Global Perspective. Continuous Update Project Expert Report 2018.", "url": "https://www.wcrf.org/diet-activity-and-cancer/"},
+        {"text": "Holscher HD. Dietary fiber and prebiotics and the gastrointestinal microbiota. Gut Microbes. 2017;8(2):172–184.", "url": "https://pubmed.ncbi.nlm.nih.gov/28165863/"},
+        {"text": "Dietary Guidelines Advisory Committee. Scientific Report of the 2015 Dietary Guidelines Advisory Committee. Washington, DC: USDA and HHS; 2015.", "url": "https://health.gov/our-work/nutrition-physical-activity/dietary-guidelines/previous-dietary-guidelines/2015"},
+        {"text": "USDA FoodData Central. U.S. Department of Agriculture. fdc.nal.usda.gov. Accessed March 2026.", "url": "https://fdc.nal.usda.gov/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+{% include 'components/related-links.html' %}
+{% include 'footer.html' %}
+
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

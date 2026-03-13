@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="Find your recommended daily fiber intake by age and sex. Uses IOM Dietary Reference Intakes (14g per 1,000 calories). Shows soluble vs. insoluble targets, high-fiber foods, and how to hit your goal.",
+    meta_keywords="fiber intake calculator, daily fiber intake, how much fiber per day, recommended fiber intake, dietary fiber calculator, fiber needs by age",
+    og_title="Daily Fiber Intake Calculator — How Much Fiber Do You Need?",
+    og_description="Get your personalized fiber target based on age and sex. Backed by IOM Dietary Reference Intakes. Includes soluble/insoluble breakdown and top high-fiber foods.",
+    og_url="/fiber-intake-calculator",
+    page_title="Daily Fiber Intake Calculator — How Much Fiber Do You Need?",
+    canonical_url="/fiber-intake-calculator",
+    schema_name="Daily Fiber Intake Calculator",
+    schema_description="Calculate your recommended daily dietary fiber intake by age and sex using IOM Dietary Reference Intakes. Shows soluble vs. insoluble fiber targets and high-fiber food sources.",
+    schema_url="/fiber-intake-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Daily Fiber Intake Calculator</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Find out exactly how much dietary fiber you need per day — based on your age and sex, using Institute of Medicine Dietary Reference Intakes.</p>
+
+    <section id="calculator">
+        <h2>Calculate Your Daily Fiber Target</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" min="1" max="120" step="1" placeholder="e.g. 35" value="35">
+                    <span class="error-message" id="age-error" style="display:none; color: #dc2626; font-size: 0.85rem;"></span>
+                </div>
+                <div class="form-group">
+                    <label for="sex">Biological Sex:</label>
+                    <select id="sex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="calories">Daily Calorie Intake (optional):</label>
+                    <input type="number" id="calories" min="500" max="8000" step="50" placeholder="e.g. 2000">
+                    <span class="input-hint">If entered, we'll also show your calorie-based fiber target (14g per 1,000 kcal). Leave blank to use IOM age/sex DRI only.</span>
+                    <span class="error-message" id="calories-error" style="display:none; color: #dc2626; font-size: 0.85rem;"></span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate My Fiber Target</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="result-fiber-dri">--</div>
+                    <div class="result-hero-label">Daily Fiber Target (IOM DRI)</div>
+                </div>
+
+                <div id="fiber-status" class="result-status status-good" style="font-size: 0.95rem; padding: 12px 16px; background: #f0fdf4; border-left: 4px solid #22c55e; border-radius: 6px; margin: 12px 0;">
+                </div>
+
+                <p id="context-note" style="font-size: 0.9rem; color: #555; margin: 8px 0 16px;"></p>
+
+                <!-- Visual bar -->
+                <div style="margin: 16px 0;">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: #374151;">Daily Fiber Target vs. Maximum Reference (50g)</div>
+                    <div style="background: #e5e7eb; border-radius: 8px; height: 14px; overflow: hidden;">
+                        <div id="fiber-bar-fill" style="height: 100%; background: linear-gradient(to right, #22c55e, #16a34a); border-radius: 8px; width: 0%; transition: width 0.6s ease;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-size: 0.78rem; color: #9ca3af; margin-top: 3px;"><span>0g</span><span>25g</span><span>50g</span></div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Your Fiber Breakdown</div>
+
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Total Daily Fiber (IOM DRI)</span>
+                        <span class="result-breakdown-val" id="result-fiber-dri-repeat">--</span>
+                    </div>
+                    <div class="result-breakdown-row" id="calorie-based-row">
+                        <span class="result-breakdown-key">Calorie-Based Target (14g/1,000 kcal)</span>
+                        <span class="result-breakdown-val" id="result-calorie-based">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Soluble Fiber (~25% of total)</span>
+                        <span class="result-breakdown-val" id="result-soluble">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Insoluble Fiber (~75% of total)</span>
+                        <span class="result-breakdown-val" id="result-insoluble">--</span>
+                    </div>
+                </div>
+
+                <p id="calorie-note" style="font-size: 0.85rem; color: #6b7280; margin: 8px 0 0; font-style: italic;"></p>
+
+                <!-- High-fiber food table -->
+                <div style="margin-top: 20px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">High-Fiber Foods to Help You Hit Your Target</div>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.87rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Food</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Fiber</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">% of Target</th>
+                                </tr>
+                            </thead>
+                            <tbody id="food-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.8rem; color: #9ca3af; margin-top: 6px;">Source: USDA FoodData Central. Values per listed serving size.</p>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    How is this calculated?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About the Fiber Intake Formula</h4>
+                    <ul>
+                        <li><strong>IOM DRI Method:</strong> Fiber recommendations by age and sex come from the 2005 Institute of Medicine Dietary Reference Intakes. These are Adequate Intakes (AI), meaning they represent the amount associated with the lowest risk of chronic disease.</li>
+                        <li><strong>Calorie-Based Method:</strong> The IOM also established 14g of fiber per 1,000 calories consumed as a secondary reference. This method automatically adjusts for higher-calorie diets (e.g., active athletes needing 3,000+ kcal/day need more fiber too).</li>
+                        <li><strong>Soluble vs. Insoluble:</strong> The typical Western diet ratio is approximately 25% soluble to 75% insoluble fiber. Both types are important — soluble fiber (oats, beans, apples) lowers LDL cholesterol; insoluble fiber (whole grains, vegetables) supports bowel regularity.</li>
+                        <li><strong>Average American Intake:</strong> The CDC reports that average U.S. adults consume only about 16g/day — well below recommended levels.</li>
+                    </ul>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Much Fiber Do You Need Per Day?</h2>
+    <div class="answer-capsule">
+      Daily fiber needs depend on age and sex. The Institute of Medicine recommends <strong>38g/day for men under 50</strong> and <strong>25g/day for women under 50</strong>. After age 50, needs decrease to 30g (men) and 21g (women). An alternative guideline is 14g of fiber for every 1,000 calories consumed. Most Americans get only about 16g/day — less than half the recommended amount.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        Dietary fiber refers to the indigestible parts of plant foods. Unlike other carbohydrates, fiber passes through the digestive system largely intact, providing a range of health benefits from improved bowel function to reduced risk of heart disease, type 2 diabetes, and colorectal cancer. The gap between recommended and actual intake — often called the "fiber gap" — is one of the most consistent nutritional shortfalls in the American diet.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#fiber-by-age">Fiber Recommendations by Age &amp; Sex</a></li>
+            <li><a href="#types-of-fiber">Soluble vs. Insoluble Fiber</a></li>
+            <li><a href="#health-benefits">Health Benefits of Dietary Fiber</a></li>
+            <li><a href="#top-fiber-foods">Top 20 High-Fiber Foods</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="fiber-by-age" class="info">
+        <h2>Fiber Recommendations by Age &amp; Sex (IOM DRI)</h2>
+        <p>The Institute of Medicine's Adequate Intake (AI) values for total dietary fiber, from the 2005 Dietary Reference Intakes publication:</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.92rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Age Group</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Male (g/day)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Female (g/day)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1–3 years</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">19g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">19g</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">4–8 years</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">25g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">25g</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">9–13 years</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">31g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">26g</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">14–18 years</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">38g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">26g</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">19–50 years</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">38g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">25g</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">51+ years</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">30g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">21g</td></tr>
+                    <tr style="background: #fef9c3;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Pregnancy</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">—</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">28g</td></tr>
+                    <tr style="background: #fef9c3;"><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Lactation</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">—</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">29g</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> Institute of Medicine (IOM). Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. National Academies Press, 2005.</p>
+        <p style="font-size: 0.88rem; margin-top: 8px;">These values are <strong>Adequate Intakes (AIs)</strong> — the amount estimated to be sufficient for good health and associated with reduced risk of coronary heart disease. There is no established Tolerable Upper Intake Level (UL) for fiber from food.</p>
+    </section>
+
+    <section id="types-of-fiber" class="info">
+        <h2>Soluble vs. Insoluble Fiber: What's the Difference?</h2>
+        <div class="answer-capsule">
+          Dietary fiber is classified as soluble or insoluble based on whether it dissolves in water. <strong>Soluble fiber</strong> dissolves to form a gel, slowing digestion and lowering LDL cholesterol. <strong>Insoluble fiber</strong> adds bulk to stool and speeds transit through the colon, reducing constipation risk. Most high-fiber foods contain both types; the typical ratio is about 25% soluble to 75% insoluble.
+        </div>
+
+        <div class="important-box">
+            <h3>Soluble Fiber (Goal: ~25% of total)</h3>
+            <p>Soluble fiber dissolves in water to form a thick, gel-like substance in the digestive tract. This slows the absorption of sugar and cholesterol.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Lowers LDL ("bad") cholesterol, stabilizes blood sugar, feeds beneficial gut bacteria (acts as prebiotic), increases satiety</li>
+                <li><strong>Best sources:</strong> Oats and oat bran, psyllium husk, apples, citrus fruits, pears, beans, lentils, barley, flaxseeds</li>
+                <li><strong>Key compound:</strong> Beta-glucan (oats) is one of the most studied soluble fibers for cholesterol reduction</li>
+            </ul>
+        </div>
+
+        <div class="important-box" style="border-left-color: #3b82f6;">
+            <h3>Insoluble Fiber (Goal: ~75% of total)</h3>
+            <p>Insoluble fiber does not dissolve in water. It adds bulk to stool and helps food move through the digestive tract more quickly.</p>
+            <ul>
+                <li><strong>Benefits:</strong> Prevents constipation, reduces risk of diverticular disease, may lower colorectal cancer risk</li>
+                <li><strong>Best sources:</strong> Whole wheat flour, wheat bran, nuts, beans, cauliflower, green beans, potatoes (with skin), dark leafy vegetables</li>
+                <li><strong>Key types:</strong> Cellulose, hemicellulose, and lignin are the main insoluble fibers in plant cell walls</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="health-benefits" class="info">
+        <h2>Health Benefits of Dietary Fiber</h2>
+        <p>Fiber's health effects are among the most consistently replicated findings in nutritional epidemiology. The following benefits are supported by large prospective studies and meta-analyses:</p>
+
+        <div class="important-box">
+            <h3>Evidence-Based Benefits</h3>
+            <ul>
+                <li><strong>Cardiovascular disease:</strong> Each additional 7g of fiber per day is associated with a 9% reduction in cardiovascular disease risk (Threapleton et al., 2013, BMJ). The FDA allows a health claim that soluble fiber from oats reduces heart disease risk.</li>
+                <li><strong>Type 2 diabetes:</strong> High dietary fiber intake is associated with significantly lower risk of type 2 diabetes. A meta-analysis found each 10g/day increase in total fiber reduced diabetes risk by 25% (Schulze et al., 2007).</li>
+                <li><strong>Colorectal cancer:</strong> The World Cancer Research Fund (WCRF) classifies evidence for whole grains and dietary fiber reducing colorectal cancer risk as "probable" — one of the highest confidence ratings in cancer prevention research.</li>
+                <li><strong>Weight management:</strong> High-fiber foods slow gastric emptying and increase feelings of fullness. A 2019 study in <em>Annals of Internal Medicine</em> found that simply increasing fiber to 30g/day produced significant weight loss without any other dietary restriction.</li>
+                <li><strong>Gut microbiome:</strong> Fermentable fibers (found in beans, oats, and vegetables) feed beneficial bacteria in the colon, producing short-chain fatty acids (SCFAs) like butyrate that reduce inflammation and maintain colon cell health.</li>
+                <li><strong>Cholesterol reduction:</strong> 3g of beta-glucan daily (about 1.5 cups of cooked oatmeal) lowers LDL cholesterol by 5–10% in most studies (FDA-authorized health claim).</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="top-fiber-foods" class="info">
+        <h2>Top 20 High-Fiber Foods (USDA FoodData Central)</h2>
+        <p>The following foods are ranked by fiber density per typical serving. Data sourced from the USDA FoodData Central database.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">#</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Food</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Serving</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Fiber (g)</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Split peas (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">16.3g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Legume</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">2</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Lentils (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">15.6g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Legume</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">3</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Black beans (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">15.0g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Legume</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">4</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Kidney beans (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">13.6g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Legume</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Chickpeas (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">12.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Legume</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Avocado (medium)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">9.2g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Fruit</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">7</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Edamame (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">8.1g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Legume</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Raspberries</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">8.0g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Fruit</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">9</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Artichoke (medium, cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">6.8g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Vegetable</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Pear (medium, with skin)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">5.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Fruit</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">11</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Broccoli (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">5.1g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Vegetable</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">12</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Oat bran (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">5.7g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Grain</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">13</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Apple (medium, with skin)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">4.4g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Fruit</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">14</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Chia seeds</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 tbsp (12g)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">4.1g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Seed</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">15</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Oatmeal (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">4.0g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Grain</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">16</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Almonds</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 oz (~23 nuts)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">3.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Nut</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">17</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Brown rice (cooked)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 cup</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">3.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Grain</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">18</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Sweet potato (medium, with skin)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 medium</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">3.8g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Vegetable</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">19</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Psyllium husk</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1 tsp (5g)</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">3.5g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Supplement</td></tr>
+                    <tr><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">20</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Whole wheat bread</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">2 slices</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">3.8g</td><td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Grain</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;"><strong>Source:</strong> USDA FoodData Central (fdc.nal.usda.gov). Values are averages; actual content varies by variety and preparation.</p>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How much fiber should I eat per day?</h3>
+            <div class="faq-answer">
+                <p>The Institute of Medicine recommends 38g/day for men under 50, 25g/day for women under 50, 30g/day for men over 50, and 21g/day for women over 50. A second guideline is 14g of fiber per 1,000 calories you eat. Most Americans only consume about 16g/day — roughly half the recommended amount. Use the calculator above to find your personalized target.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What happens if I eat too much fiber?</h3>
+            <div class="faq-answer">
+                <p>There is no established Tolerable Upper Intake Level (UL) for dietary fiber from food — meaning there is no known toxicity level. However, consuming fiber too quickly (especially as a supplement) can cause bloating, gas, cramping, and diarrhea. The key is to increase fiber intake gradually — add 5g per week — and drink plenty of water. Fiber supplements like psyllium can also interfere with certain medication absorption; take medications 1–2 hours before or after fiber supplements.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is soluble or insoluble fiber better?</h3>
+            <div class="faq-answer">
+                <p>Both types are essential and serve different functions. Soluble fiber (oats, beans, apples, citrus) dissolves in water to form a gel, which slows digestion, lowers LDL cholesterol, and stabilizes blood sugar. Insoluble fiber (wheat bran, vegetables, whole grains) does not dissolve; it adds bulk to stool and speeds transit through the colon, preventing constipation. Most high-fiber whole foods contain both types, so eating a varied plant-rich diet naturally provides the right balance.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Can fiber help with weight loss?</h3>
+            <div class="faq-answer">
+                <p>Yes — multiple mechanisms support fiber's role in weight management. High-fiber foods take longer to eat and digest, increasing feelings of fullness and reducing calorie intake at subsequent meals. A 2019 randomized controlled trial in the <em>Annals of Internal Medicine</em> found that simply increasing fiber intake to 30g/day produced significant weight loss comparable to a more complex diet intervention, without requiring calorie counting or food restriction.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Why do men need more fiber than women?</h3>
+            <div class="faq-answer">
+                <p>The sex difference in fiber recommendations (38g vs. 25g for ages 19–50) is primarily explained by caloric needs. Men generally eat more calories than women, and since one guideline is 14g of fiber per 1,000 calories, higher caloric intake leads to higher fiber recommendations. The IOM set the age-sex specific DRI values to reflect observed dietary intake levels associated with the lowest disease risk in population studies, not an intrinsic biological difference between male and female digestive systems.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Do fiber supplements count toward my daily target?</h3>
+            <div class="faq-answer">
+                <p>Yes — fiber supplements (psyllium, methylcellulose, inulin, wheat dextrin) do count toward your daily fiber total. However, whole-food fiber sources are generally preferred because they come packaged with vitamins, minerals, antioxidants, and other phytonutrients that supplements lack. Psyllium is the best-studied supplement and has an FDA-authorized health claim for reducing heart disease risk. Supplements are most useful when dietary fiber intake is difficult to achieve through food alone (e.g., during illness or with certain gastrointestinal conditions).</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator uses two validated methods for estimating daily fiber needs. The primary method uses the Institute of Medicine (IOM) Adequate Intake (AI) values for total dietary fiber, published in the 2005 Dietary Reference Intakes report. These AIs were set based on the level of fiber intake observed to be associated with the lowest risk of coronary heart disease in large epidemiological studies, adjusted for different age and sex groups.</p>
+            <p>The secondary method uses the IOM's calorie-based guideline of 14 grams of total fiber per 1,000 kcal of energy consumed. This method accounts for the fact that larger, more active individuals who consume more calories also need more fiber to maintain the same dietary fiber density. When users enter their daily calorie intake, both methods are shown for comparison.</p>
+            <p style="margin-bottom: 0;">Fiber type estimates (soluble/insoluble) are approximations based on the typical ~25%/75% ratio observed in a mixed Western diet. Actual ratios vary significantly depending on food choices. Values in the high-fiber food table are from the USDA FoodData Central database, National Nutrient Database for Standard Reference. Results are informational estimates and do not constitute medical or dietary advice.</p>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/macro-calculator" class="related-tool-card">
+                <h4>Macro Calculator</h4>
+                <p>Set your complete macronutrient targets — protein, carbs, and fat — to complement your fiber goals.</p>
+            </a>
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>Find your daily calorie needs. Use it with the 14g/1,000 kcal method for a personalized fiber target.</p>
+            </a>
+            <a href="/water-intake-calculator" class="related-tool-card">
+                <h4>Water Intake Calculator</h4>
+                <p>Higher fiber intake requires more hydration. Find your daily water target.</p>
+            </a>
+            <a href="/electrolyte-calculator" class="related-tool-card">
+                <h4>Electrolyte Calculator</h4>
+                <p>A high-fiber, plant-rich diet affects your electrolyte balance — check your sodium and potassium needs.</p>
+            </a>
+            <a href="/glycemic-index-calculator" class="related-tool-card">
+                <h4>Glycemic Index Calculator</h4>
+                <p>High-fiber foods typically have a lower glycemic impact. Look up GI values for your favorite foods.</p>
+            </a>
+        </div>
+    </div>
+
+    {% set sources = [
+        {"text": "Institute of Medicine (IOM). Dietary Reference Intakes for Energy, Carbohydrate, Fiber, Fat, Fatty Acids, Cholesterol, Protein, and Amino Acids. Washington, DC: National Academies Press; 2005.", "url": "https://www.ncbi.nlm.nih.gov/books/NBK56990/"},
+        {"text": "Threapleton DE, et al. Dietary fibre intake and risk of cardiovascular disease: systematic review and meta-analysis. BMJ. 2013;347:f6879.", "url": "https://pubmed.ncbi.nlm.nih.gov/24355537/"},
+        {"text": "Schulze MB, et al. Fiber and magnesium intake and incidence of type 2 diabetes: a prospective study and meta-analysis. Arch Intern Med. 2007;167(9):956–965.", "url": "https://pubmed.ncbi.nlm.nih.gov/17502538/"},
+        {"text": "Micha R, et al. Etiologic effects and optimal intakes of foods and nutrients for risk of cardiovascular diseases and diabetes. PLOS ONE. 2017.", "url": "https://pubmed.ncbi.nlm.nih.gov/28296962/"},
+        {"text": "Higgins JA. Resistant starch and energy balance: impact on weight loss and maintenance. Crit Rev Food Sci Nutr. 2014;54(9):1158–1166.", "url": "https://pubmed.ncbi.nlm.nih.gov/24499148/"},
+        {"text": "Holscher HD. Dietary fiber and prebiotics and the gastrointestinal microbiota. Gut Microbes. 2017;8(2):172–184.", "url": "https://pubmed.ncbi.nlm.nih.gov/28165863/"},
+        {"text": "USDA FoodData Central. U.S. Department of Agriculture. fdc.nal.usda.gov. Accessed March 2026.", "url": "https://fdc.nal.usda.gov/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+{% include 'components/related-links.html' %}
+{% include 'footer.html' %}
+
+<script defer src="/static/js/fiber_intake_calculator.js"></script>
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

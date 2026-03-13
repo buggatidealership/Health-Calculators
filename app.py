@@ -490,6 +490,16 @@ cards = [
         "popular": False
     },
     {
+        "title": "Daily Fiber Intake Calculator",
+        "url": "/fiber-intake-calculator",
+        "summary": "Find your recommended daily fiber intake by age and sex using IOM Dietary Reference Intakes. Shows soluble vs. insoluble targets and top high-fiber foods.",
+        "icon": "🌾",
+        "cta": "Find My Target",
+        "color": "green",
+        "category": "nutrition",
+        "popular": False
+    },
+    {
         "title": "Electrolyte Calculator",
         "url": "/electrolyte-calculator",
         "summary": "Calculate your daily sodium, potassium, magnesium, and calcium needs based on activity, diet, and climate. Keto and fasting modes included.",
@@ -1909,6 +1919,15 @@ def ozempic_face_calculator():
     )
 
 articles = [
+    {
+        "title": "Daily Fiber Intake Guide: How Much Fiber You Need by Age & Sex",
+        "url": "/resources/daily-fiber-intake-guide",
+        "summary": "A complete, evidence-based guide to dietary fiber — IOM recommendations by age, soluble vs. insoluble fiber, health benefits backed by research, and the top 20 high-fiber foods to close the fiber gap.",
+        "icon": "🌾",
+        "cta": "Read Guide",
+        "color": "green",
+        "category": "nutrition"
+    },
     {
         "title": "Running Calorie Burn Guide: How Many Calories Does Running Burn?",
         "url": "/resources/running-calorie-guide",
@@ -5005,6 +5024,38 @@ def running_calorie_guide():
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-12'
+    )
+
+
+@app.route('/fiber-intake-calculator')
+def fiber_intake_calculator():
+    schema_name = "Daily Fiber Intake Calculator"
+    schema_description = "Calculate your recommended daily dietary fiber intake by age and sex using IOM Dietary Reference Intakes. Shows soluble vs. insoluble fiber targets and high-fiber food sources."
+    schema_url = "/fiber-intake-calculator"
+    return render_template(
+        'fiber_intake_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Nutrition & Diet', 'url': '/nutrition-calculators'},
+        date_modified='2026-03-13'
+    )
+
+
+@app.route('/resources/daily-fiber-intake-guide')
+def daily_fiber_intake_guide():
+    return render_template(
+        'resources/daily_fiber_intake_guide.html',
+        is_homepage=False,
+        schema_name="Daily Fiber Intake Guide: How Much Fiber You Need by Age & Sex",
+        schema_description="A complete, evidence-based guide to dietary fiber intake — IOM recommendations by age and sex, soluble vs. insoluble fiber, health benefits, top food sources, and how to close the fiber gap.",
+        schema_url="/resources/daily-fiber-intake-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-13'
     )
 
 

@@ -254,6 +254,15 @@ var CALCULATOR_GRAPH = {
       { url: '/bmi-calculator', title: 'BMI Calculator', icon: '⚖️', reason: 'BMI ignores muscle mass — FFMI is the better metric, but compare both', params: ['weight_kg','height_cm'] }
     ]
   },
+  'fiber': {
+    links: [
+      { url: '/macro-calculator', title: 'Macro Calculator', icon: '🥗', reason: 'Fiber is a carbohydrate — see how it fits your complete macro target', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your fiber target scales with calories — use your TDEE to get the precise number', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Higher fiber intake requires more water — find your daily hydration target', params: ['weight_kg'] },
+      { url: '/electrolyte-calculator', title: 'Electrolyte Calculator', icon: '⚡', reason: 'A plant-rich, high-fiber diet changes your sodium and potassium balance', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/glycemic-index-calculator', title: 'Glycemic Index Calculator', icon: '📊', reason: 'High-fiber foods typically have a lower glycemic impact — check your favorite foods', params: [] }
+    ]
+  },
   'electrolyte': {
     links: [
       { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'Your calorie needs and electrolyte needs both scale with activity level', params: ['weight_kg','height_cm','age','gender'] },
