@@ -561,6 +561,72 @@
 }
 
 /* ============================================================
+   ANIMATIONS LIBRARY
+   ============================================================ */
+@keyframes mvPop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+@keyframes mvBounceIn {
+    0% { opacity: 0; transform: scale(0.3); }
+    50% { opacity: 1; transform: scale(1.05); }
+    70% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+}
+@keyframes mvShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+@keyframes mvPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(10,126,140,0.4); }
+    50% { box-shadow: 0 0 0 12px rgba(10,126,140,0); }
+}
+@keyframes mvGlow {
+    0%, 100% { box-shadow: 0 0 8px rgba(255,215,0,0.3); }
+    50% { box-shadow: 0 0 24px rgba(255,215,0,0.6); }
+}
+@keyframes mvCountUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes mvSlideLeft {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes mvSlideRight {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes mvRingPulse {
+    0% { stroke-opacity: 1; }
+    50% { stroke-opacity: 0.5; }
+    100% { stroke-opacity: 1; }
+}
+@keyframes mvConfetti {
+    0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-80px) rotate(720deg); opacity: 0; }
+}
+@keyframes mvStaggerIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes mvCheckmark {
+    0% { stroke-dashoffset: 50; }
+    100% { stroke-dashoffset: 0; }
+}
+@keyframes mvProgressFill {
+    from { width: 0%; }
+}
+@keyframes mvHeartbeat {
+    0%, 100% { transform: scale(1); }
+    14% { transform: scale(1.06); }
+    28% { transform: scale(1); }
+    42% { transform: scale(1.06); }
+    70% { transform: scale(1); }
+}
+
+/* ============================================================
    GYM MODE STYLES
    ============================================================ */
 .mv-start-workout {
@@ -576,9 +642,20 @@
     font-weight: 600;
     font-family: var(--font-body);
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.15s;
+    position: relative;
+    overflow: hidden;
 }
-.mv-start-workout:hover { background: var(--color-accent-hover); }
+.mv-start-workout:hover { background: var(--color-accent-hover); transform: translateY(-1px); }
+.mv-start-workout:active { transform: translateY(0) scale(0.98); }
+.mv-start-workout::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.15) 50%, transparent 100%);
+    background-size: 200% 100%;
+    animation: mvShimmer 2.5s ease-in-out infinite;
+}
 
 /* Gym phase wrapper */
 .gym-header {
@@ -589,6 +666,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.gym-header::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.gym-exercise-transition {
+    animation: mvSlideLeft 0.3s ease;
+}
+.gym-exercise-transition-back {
+    animation: mvSlideRight 0.3s ease;
 }
 .gym-header-left { display: flex; flex-direction: column; gap: 2px; }
 .gym-counter { font-size: 0.82em; opacity: 0.8; }
@@ -705,11 +801,13 @@
     background: var(--color-accent);
     border-color: var(--color-accent);
     color: #fff;
+    animation: mvBounceIn 0.4s ease;
 }
 .gym-set-circle.active {
     border-color: var(--color-accent);
     color: var(--color-accent);
     background: var(--color-accent-bg);
+    animation: mvPulse 2s ease infinite;
 }
 
 /* Log inputs */
@@ -755,50 +853,95 @@
 .gym-stepper {
     background: var(--color-muted);
     border: none;
-    padding: 10px 12px;
-    font-size: 1.1em;
+    padding: 10px 14px;
+    font-size: 1.2em;
     cursor: pointer;
     color: var(--color-text-secondary);
     font-family: var(--font-body);
-    transition: background 0.15s;
+    transition: all 0.15s;
     line-height: 1;
+    min-width: 44px;
+    min-height: 44px;
 }
 .gym-stepper:hover { background: var(--color-accent-bg); color: var(--color-accent); }
+.gym-stepper:active { transform: scale(0.9); background: var(--color-accent); color: #fff; }
 
 .gym-log-btn {
-    padding: 12px 28px;
+    padding: 14px 28px;
     background: var(--color-accent);
     color: #fff;
     border: none;
     border-radius: var(--radius);
-    font-size: 1em;
+    font-size: 1.05em;
     font-weight: 700;
     font-family: var(--font-body);
     cursor: pointer;
-    transition: background 0.2s;
+    transition: background 0.2s, transform 0.12s, box-shadow 0.2s;
     white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    min-height: 48px;
 }
-.gym-log-btn:hover { background: var(--color-accent-hover); }
-.gym-log-btn:disabled { background: var(--color-border); cursor: not-allowed; }
+.gym-log-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); box-shadow: 0 4px 12px rgba(10,126,140,0.3); }
+.gym-log-btn:active { transform: scale(0.96); }
+.gym-log-btn:disabled { background: var(--color-border); cursor: not-allowed; transform: none; box-shadow: none; }
+.gym-log-btn:not(:disabled) { animation: mvPulse 2.5s ease infinite; }
+.gym-log-btn.just-logged {
+    background: var(--color-good);
+    animation: mvPop 0.35s ease;
+}
 
 /* Rest timer */
 .gym-rest-area {
     display: none;
-    background: var(--color-accent-bg);
+    background: linear-gradient(135deg, rgba(10,126,140,0.08) 0%, rgba(10,126,140,0.03) 100%);
     border: 1px solid var(--color-accent-border);
-    border-radius: var(--radius);
-    padding: 16px 20px;
+    border-radius: var(--radius-lg);
+    padding: 24px 20px;
     margin-bottom: 16px;
     text-align: center;
+    animation: mvFadeIn 0.3s ease;
 }
 .gym-rest-area.active { display: block; }
-.gym-rest-countdown {
-    font-family: var(--font-display);
-    font-size: 2.5em;
-    color: var(--color-accent);
-    line-height: 1;
-    margin-bottom: 6px;
+.gym-rest-ring-wrap {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 12px;
 }
+.gym-rest-ring-wrap svg {
+    transform: rotate(-90deg);
+    width: 120px;
+    height: 120px;
+}
+.gym-rest-ring-bg {
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 6;
+}
+.gym-rest-ring-fg {
+    fill: none;
+    stroke: var(--color-accent);
+    stroke-width: 6;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 1s linear;
+}
+.gym-rest-ring-fg.done {
+    stroke: var(--color-good);
+    animation: mvRingPulse 0.6s ease 3;
+}
+.gym-rest-ring-time {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 2em;
+    color: var(--color-accent);
+    font-weight: 700;
+}
+.gym-rest-ring-time.done { color: var(--color-good); font-size: 1.6em; }
 .gym-rest-label {
     font-size: 0.85em;
     color: var(--color-text-tertiary);
@@ -808,13 +951,15 @@
     background: none;
     border: 1px solid var(--color-accent-border);
     color: var(--color-accent);
-    padding: 5px 16px;
-    border-radius: 16px;
-    font-size: 0.82em;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.85em;
     cursor: pointer;
     font-family: var(--font-body);
+    transition: all 0.2s;
+    min-height: 40px;
 }
-.gym-rest-skip:hover { background: var(--color-accent-bg); }
+.gym-rest-skip:hover { background: var(--color-accent); color: #fff; }
 
 /* Form tips */
 .gym-tips-toggle {
@@ -914,16 +1059,35 @@
 /* Welcome phase */
 .gym-welcome-header {
     margin-bottom: 24px;
+    animation: mvFadeIn 0.5s ease;
 }
 .gym-welcome-header h2 {
     font-family: var(--font-display);
-    font-size: 1.4em;
+    font-size: 1.5em;
     margin: 0 0 6px;
+    background: linear-gradient(135deg, var(--color-text) 0%, var(--color-accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 .gym-welcome-header p {
     font-size: 0.9em;
     color: var(--color-text-secondary);
     margin: 0;
+}
+.gym-streak-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: linear-gradient(135deg, #fff3e0, #ffe0b2);
+    border: 1px solid #ffb74d;
+    color: #e65100;
+    font-size: 0.82em;
+    font-weight: 700;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-top: 10px;
+    animation: mvBounceIn 0.5s ease 0.3s both;
 }
 .gym-day-card {
     background: var(--color-surface);
@@ -936,6 +1100,26 @@
     align-items: center;
     gap: 12px;
     flex-wrap: wrap;
+    animation: mvStaggerIn 0.4s ease both;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+.gym-day-card:nth-child(1) { animation-delay: 0s; }
+.gym-day-card:nth-child(2) { animation-delay: 0.08s; }
+.gym-day-card:nth-child(3) { animation-delay: 0.16s; }
+.gym-day-card:nth-child(4) { animation-delay: 0.24s; }
+.gym-day-card:nth-child(5) { animation-delay: 0.32s; }
+.gym-day-card:nth-child(6) { animation-delay: 0.40s; }
+.gym-day-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.08); border-color: var(--color-accent-border); }
+.gym-day-card .day-progress-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    background: var(--color-accent);
+    border-radius: 0 2px 0 0;
+    transition: width 0.6s ease;
 }
 .gym-day-card-info { flex: 1; }
 .gym-day-card-name {
@@ -998,14 +1182,46 @@
 .gym-complete-header {
     background: linear-gradient(135deg, #2d6a4f 0%, #1b4332 100%);
     color: #fff;
-    padding: 24px;
+    padding: 32px 24px;
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.gym-complete-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.08) 0%, transparent 60%),
+                radial-gradient(circle at 70% 50%, rgba(255,255,255,0.05) 0%, transparent 50%);
+    pointer-events: none;
+}
+.gym-complete-checkmark {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 14px;
+    animation: mvBounceIn 0.6s ease;
+}
+.gym-complete-checkmark circle {
+    fill: rgba(255,255,255,0.15);
+    stroke: rgba(255,255,255,0.5);
+    stroke-width: 2;
+}
+.gym-complete-checkmark polyline {
+    fill: none;
+    stroke: #fff;
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 50;
+    stroke-dashoffset: 0;
+    animation: mvCheckmark 0.6s ease 0.3s both;
 }
 .gym-complete-header h2 {
     font-family: var(--font-display);
     font-size: 1.5em;
     margin: 0 0 4px;
+    animation: mvCountUp 0.4s ease 0.2s both;
 }
 .gym-complete-duration {
     font-size: 0.9em;
@@ -1046,23 +1262,38 @@
     color: var(--color-text-secondary);
 }
 .gym-complete-set.pr {
-    background: var(--color-good-bg);
-    border-color: var(--color-good);
-    color: var(--color-good);
+    background: linear-gradient(135deg, #fff9e0 0%, #fff3c4 100%);
+    border-color: #daa520;
+    color: #8b6914;
     font-weight: 700;
+    animation: mvGlow 2s ease infinite;
+    position: relative;
 }
-.gym-trend-up { color: var(--color-good); font-size: 0.85em; }
+.gym-complete-ex {
+    animation: mvStaggerIn 0.4s ease both;
+}
+.gym-complete-ex:nth-child(1) { animation-delay: 0.1s; }
+.gym-complete-ex:nth-child(2) { animation-delay: 0.2s; }
+.gym-complete-ex:nth-child(3) { animation-delay: 0.3s; }
+.gym-complete-ex:nth-child(4) { animation-delay: 0.4s; }
+.gym-complete-ex:nth-child(5) { animation-delay: 0.5s; }
+.gym-complete-ex:nth-child(6) { animation-delay: 0.6s; }
+.gym-complete-ex:nth-child(7) { animation-delay: 0.7s; }
+.gym-trend-up { color: var(--color-good); font-size: 0.85em; font-weight: 600; }
+.gym-trend-up::before { content: ''; display: inline-block; width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-bottom: 6px solid var(--color-good); margin-right: 3px; vertical-align: middle; }
 .gym-trend-same { color: var(--color-text-tertiary); font-size: 0.85em; }
 .gym-trend-down { color: var(--color-danger, #c03030); font-size: 0.85em; }
 .gym-pr-badge {
     display: inline-block;
-    background: #ffd700;
+    background: linear-gradient(135deg, #ffd700, #ffb800);
     color: #5a4500;
     font-size: 0.7em;
     font-weight: 800;
-    padding: 1px 7px;
-    border-radius: 8px;
-    letter-spacing: 0.03em;
+    padding: 2px 9px;
+    border-radius: 10px;
+    letter-spacing: 0.04em;
+    animation: mvHeartbeat 2s ease infinite;
+    box-shadow: 0 1px 4px rgba(218,165,32,0.3);
 }
 .gym-progressions {
     margin-top: 18px;
@@ -1097,7 +1328,76 @@
     cursor: pointer;
     transition: background 0.2s;
 }
-.gym-done-btn:hover { background: var(--color-accent-hover); }
+.gym-done-btn:hover { background: var(--color-accent-hover); transform: translateY(-1px); }
+.gym-done-btn { transition: all 0.2s; }
+
+/* Confetti container */
+.gym-confetti-wrap {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 2;
+}
+.gym-confetti-piece {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    animation: mvConfettiFall 1.5s ease-out forwards;
+}
+@keyframes mvConfettiFall {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(200px) rotate(720deg) scale(0.4); opacity: 0; }
+}
+
+/* Volume bar in welcome cards */
+.gym-volume-bar-wrap {
+    height: 4px;
+    background: var(--color-muted);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 6px;
+}
+.gym-volume-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent), #2dd4a8);
+    border-radius: 2px;
+    animation: mvProgressFill 0.8s ease both;
+}
+
+/* Muscle tag pills */
+.gym-muscle-tag {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-size: 0.72em;
+    font-weight: 600;
+    margin-right: 4px;
+    margin-top: 4px;
+}
+.gym-muscle-tag.chest { background: #fce4ec; color: #c62828; }
+.gym-muscle-tag.back { background: #e3f2fd; color: #1565c0; }
+.gym-muscle-tag.shoulders { background: #fff3e0; color: #e65100; }
+.gym-muscle-tag.quads, .gym-muscle-tag.legs { background: #e8f5e9; color: #2e7d32; }
+.gym-muscle-tag.hamstrings { background: #f1f8e9; color: #558b2f; }
+.gym-muscle-tag.glutes { background: #fce4ec; color: #ad1457; }
+.gym-muscle-tag.biceps { background: #e8eaf6; color: #283593; }
+.gym-muscle-tag.triceps { background: #ede7f6; color: #4527a0; }
+.gym-muscle-tag.abs, .gym-muscle-tag.core { background: #e0f2f1; color: #00695c; }
+.gym-muscle-tag.calves { background: #f3e5f5; color: #6a1b9a; }
+
+/* Progression arrow in context card */
+.gym-context-card.increase {
+    border-left: 3px solid var(--color-good);
+}
+.gym-context-card.hold {
+    border-left: 3px solid var(--color-text-tertiary);
+}
+.gym-context-card.first {
+    border-left: 3px solid var(--color-accent);
+}
 
 @media (max-width: 480px) {
     .gym-log-row { flex-direction: column; align-items: stretch; }
@@ -2617,17 +2917,17 @@ function renderGymExercise() {
                 '</div>' +
                 '<button class="gym-close-btn" onclick="closeGym()">Exit</button>' +
             '</div>' +
-            '<div class="gym-body">' +
+            '<div class="gym-body ' + (gym._transitionDir === 'back' ? 'gym-exercise-transition-back' : 'gym-exercise-transition') + '">' +
                 '<div class="gym-ex-name">' + exercise.name + '</div>' +
-                '<div class="gym-ex-targets">' + exercise.targets + '</div>' +
-                '<div class="gym-prescription">' + exercise.sets + ' x ' + exercise.reps + ' @ ' + exercise.rpe + '</div>' +
+                '<div class="gym-ex-targets">' + buildMuscleTags(exercise.targets) + '</div>' +
+                '<div class="gym-prescription">' + exercise.sets + ' &times; ' + exercise.reps + ' @ ' + exercise.rpe + ' &bull; ' + exercise.rest + ' rest</div>' +
 
                 '<div class="gym-session-context">' +
                     '<div class="gym-context-card">' +
                         '<div class="gym-context-label">Last session</div>' +
                         '<div class="gym-context-value">' + lastHtml + '</div>' +
                     '</div>' +
-                    '<div class="gym-context-card">' +
+                    '<div class="gym-context-card ' + target.type + '">' +
                         '<div class="gym-context-label">Today\'s target</div>' +
                         '<div class="gym-context-value ' + targetCls + '">' + targetWeightDisplay + '</div>' +
                         '<div class="gym-context-note">' + target.message + '</div>' +
@@ -2642,8 +2942,14 @@ function renderGymExercise() {
                 '<div class="gym-tips-content">' + tipsHtml + '</div>' +
 
                 '<div id="gym-rest-area" class="gym-rest-area">' +
-                    '<div class="gym-rest-countdown" id="gym-rest-countdown">0:00</div>' +
-                    '<div class="gym-rest-label">Rest — next set soon</div>' +
+                    '<div class="gym-rest-ring-wrap">' +
+                        '<svg viewBox="0 0 120 120">' +
+                            '<circle class="gym-rest-ring-bg" cx="60" cy="60" r="52"/>' +
+                            '<circle class="gym-rest-ring-fg" id="gym-rest-ring" cx="60" cy="60" r="52" stroke-dasharray="326.73" stroke-dashoffset="0"/>' +
+                        '</svg>' +
+                        '<div class="gym-rest-ring-time" id="gym-rest-countdown">0:00</div>' +
+                    '</div>' +
+                    '<div class="gym-rest-label" id="gym-rest-label">Rest — next set soon</div>' +
                     '<button class="gym-rest-skip" onclick="skipRest()">Skip rest</button>' +
                 '</div>' +
 
@@ -2678,6 +2984,56 @@ function renderGymExercise() {
                 swapHtml +
             '</div>' +
         '</div>';
+}
+
+// ============================================================
+// buildMuscleTags — colored pills for target muscles
+// ============================================================
+function buildMuscleTags(targetsStr) {
+    var parts = targetsStr.split(',');
+    var html = '';
+    for (var i = 0; i < parts.length; i++) {
+        var t = parts[i].trim().toLowerCase();
+        var cls = 'gym-muscle-tag';
+        if (t.indexOf('chest') >= 0) cls += ' chest';
+        else if (t.indexOf('back') >= 0 || t.indexOf('lat') >= 0 || t.indexOf('mid-back') >= 0) cls += ' back';
+        else if (t.indexOf('shoulder') >= 0 || t.indexOf('delt') >= 0 || t.indexOf('rotator') >= 0) cls += ' shoulders';
+        else if (t.indexOf('quad') >= 0) cls += ' quads';
+        else if (t.indexOf('hamstring') >= 0) cls += ' hamstrings';
+        else if (t.indexOf('glute') >= 0) cls += ' glutes';
+        else if (t.indexOf('bicep') >= 0 || t.indexOf('brachialis') >= 0) cls += ' biceps';
+        else if (t.indexOf('tricep') >= 0) cls += ' triceps';
+        else if (t.indexOf('ab') >= 0 || t.indexOf('core') >= 0 || t.indexOf('hip flexor') >= 0) cls += ' abs';
+        else if (t.indexOf('calf') >= 0 || t.indexOf('soleus') >= 0) cls += ' calves';
+        html += '<span class="' + cls + '">' + parts[i].trim() + '</span>';
+    }
+    return html;
+}
+
+// ============================================================
+// spawnConfetti — celebratory burst for workout complete
+// ============================================================
+function spawnConfetti(container) {
+    var wrap = document.createElement('div');
+    wrap.className = 'gym-confetti-wrap';
+    container.appendChild(wrap);
+    var colors = ['#0a7e8c', '#1a8a4a', '#ffd700', '#c27a0e', '#c03030', '#6a1b9a', '#1565c0', '#e65100'];
+    for (var i = 0; i < 40; i++) {
+        var piece = document.createElement('div');
+        piece.className = 'gym-confetti-piece';
+        piece.style.background = colors[i % colors.length];
+        piece.style.left = (10 + Math.random() * 80) + '%';
+        piece.style.top = '0px';
+        piece.style.animationDelay = (Math.random() * 0.5) + 's';
+        piece.style.animationDuration = (1 + Math.random() * 1) + 's';
+        if (Math.random() > 0.5) {
+            piece.style.borderRadius = '50%';
+        }
+        piece.style.width = (5 + Math.random() * 6) + 'px';
+        piece.style.height = (5 + Math.random() * 6) + 'px';
+        wrap.appendChild(piece);
+    }
+    setTimeout(function() { if (wrap.parentNode) wrap.parentNode.removeChild(wrap); }, 2500);
 }
 
 // ============================================================
@@ -2721,13 +3077,16 @@ function logSet() {
         else if (c === logged.length) circles[c].className += ' active';
     }
 
-    // Update log button
+    // Update log button with flash animation
     var btn = document.getElementById('gym-log-btn');
+    if (btn) {
+        btn.classList.add('just-logged');
+        setTimeout(function() { if (btn) btn.classList.remove('just-logged'); }, 400);
+    }
     if (logged.length >= exercise.sets) {
-        if (btn) { btn.textContent = 'Done'; btn.disabled = true; }
+        if (btn) { btn.textContent = 'All sets logged!'; btn.disabled = true; }
         var restSecs = parseRestSeconds(exercise.rest);
         startRest(restSecs);
-        // Auto-advance after rest if not the last exercise
         if (gym.exerciseIndex < gym.currentDay.exercises.length - 1) {
             gym._autoAdvanceAfterRest = true;
         }
@@ -2767,10 +3126,16 @@ function startRest(seconds) {
 
     var area = document.getElementById('gym-rest-area');
     var display = document.getElementById('gym-rest-countdown');
+    var ring = document.getElementById('gym-rest-ring');
     if (!area || !display) return;
 
     gym.restSeconds = seconds;
+    gym._restTotal = seconds;
     area.className = 'gym-rest-area active';
+    if (display) display.className = 'gym-rest-ring-time';
+    if (ring) { ring.className = 'gym-rest-ring-fg'; ring.style.strokeDashoffset = '0'; }
+
+    var circumference = 326.73; // 2 * PI * 52
 
     function formatTime(sec) {
         var m = Math.floor(sec / 60);
@@ -2782,15 +3147,22 @@ function startRest(seconds) {
 
     gym.restTimer = setInterval(function() {
         gym.restSeconds--;
-        if (display) display.textContent = formatTime(gym.restSeconds);
+        if (display) display.textContent = formatTime(Math.max(0, gym.restSeconds));
+
+        // Animate ring
+        if (ring && gym._restTotal > 0) {
+            var progress = 1 - (gym.restSeconds / gym._restTotal);
+            ring.style.strokeDashoffset = (circumference * progress).toFixed(1);
+        }
+
         if (gym.restSeconds <= 0) {
             clearInterval(gym.restTimer);
             gym.restTimer = null;
             playBeep();
-            if (display) display.textContent = 'Go!';
-            var label = area.querySelector('.gym-rest-label');
+            if (display) { display.textContent = 'Go!'; display.className = 'gym-rest-ring-time done'; }
+            if (ring) ring.className = 'gym-rest-ring-fg done';
+            var label = document.getElementById('gym-rest-label');
             if (label) label.textContent = 'Rest complete — log your next set';
-            // Auto-advance if all sets logged and not last exercise
             if (gym._autoAdvanceAfterRest) {
                 gym._autoAdvanceAfterRest = false;
                 setTimeout(function() {
@@ -2843,6 +3215,7 @@ function nextExercise() {
         finishWorkout();
         return;
     }
+    gym._transitionDir = 'forward';
     renderGymExercise();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -2851,6 +3224,7 @@ function prevExercise() {
     if (gym.exerciseIndex <= 0) return;
     if (gym.restTimer) { clearInterval(gym.restTimer); gym.restTimer = null; }
     gym.exerciseIndex--;
+    gym._transitionDir = 'back';
     renderGymExercise();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
@@ -3138,16 +3512,33 @@ function renderWorkoutComplete() {
         progressionsHtml += '</div>';
     }
 
+    // Count total volume
+    var totalVolume = 0;
+    var totalSetsLogged = 0;
+    for (var vi = 0; vi < gym.setsLogged.length; vi++) {
+        var vSets = gym.setsLogged[vi] || [];
+        totalSetsLogged += vSets.length;
+        for (var vsi = 0; vsi < vSets.length; vsi++) {
+            totalVolume += vSets[vsi].weight * vSets[vsi].reps;
+        }
+    }
+    var volumeStr = totalVolume > 0 ? ' &middot; ' + totalVolume.toLocaleString() + ' lb total volume' : '';
+
     container.innerHTML =
         '<div class="gym-complete-header">' +
-            '<h2>Workout Complete</h2>' +
-            '<div class="gym-complete-duration">' + gym.currentDay.name + ' &middot; ' + durationStr + '</div>' +
+            '<svg class="gym-complete-checkmark" viewBox="0 0 56 56"><circle cx="28" cy="28" r="26"/><polyline points="17 28 25 36 39 20"/></svg>' +
+            '<h2>Workout Complete!</h2>' +
+            '<div class="gym-complete-duration">' + gym.currentDay.name + ' &middot; ' + durationStr + ' &middot; ' + totalSetsLogged + ' sets' + volumeStr + '</div>' +
         '</div>' +
         '<div class="gym-complete-body">' +
             exercisesHtml +
             progressionsHtml +
             '<button class="gym-done-btn" onclick="checkReturningUser()">Done</button>' +
         '</div>';
+
+    // Confetti burst
+    var header = container.querySelector('.gym-complete-header');
+    if (header) spawnConfetti(header);
 }
 
 // ============================================================
@@ -3210,11 +3601,18 @@ function renderWelcome() {
         var lastCls = 'gym-day-card-last' + (isSuggested ? ' suggested' : '');
         var btnCls = 'gym-day-start-btn' + (isSuggested ? ' suggested' : '');
         var suggestion = isSuggested ? ' (Suggested)' : '';
+        // Count total sessions for this day
+        var daySessionCount = 0;
+        for (var sc = 0; sc < sessions.length; sc++) {
+            if (sessions[sc].dayIndex === i) daySessionCount++;
+        }
+        var sessCountStr = daySessionCount > 0 ? ' &middot; ' + daySessionCount + 'x completed' : '';
+
         daysHtml +=
             '<div class="gym-day-card">' +
                 '<div class="gym-day-card-info">' +
                     '<div class="gym-day-card-name">' + day.name + '</div>' +
-                    '<div class="gym-day-card-focus">' + day.focus + '</div>' +
+                    '<div class="gym-day-card-focus">' + day.focus + sessCountStr + '</div>' +
                     '<div class="' + lastCls + '">Last: ' + lastStr + suggestion + '</div>' +
                 '</div>' +
                 '<button class="' + btnCls + '" onclick="startWorkout(' + i + ')">Start</button>' +
@@ -3223,10 +3621,35 @@ function renderWelcome() {
 
     var generatedDate = saved.generatedAt ? new Date(saved.generatedAt).toLocaleDateString() : 'unknown date';
 
+    // Calculate streak (consecutive days with at least one session)
+    var streak = 0;
+    if (sessions.length > 0) {
+        var sortedSess = sessions.slice().sort(function(a, b) { return b.date - a.date; });
+        var today = new Date(); today.setHours(0,0,0,0);
+        var checkDate = today.getTime();
+        for (var si2 = 0; si2 < 30; si2++) { // max 30 day lookback
+            var dayStart = checkDate - (si2 * 86400000);
+            var dayEnd = dayStart + 86400000;
+            var found = false;
+            for (var sj = 0; sj < sortedSess.length; sj++) {
+                if (sortedSess[sj].date >= dayStart && sortedSess[sj].date < dayEnd) { found = true; break; }
+            }
+            if (found) streak++;
+            else if (si2 > 0) break; // allow today to be missed (might not have trained yet)
+        }
+    }
+    var streakHtml = streak > 0 ? '<div class="gym-streak-badge">&#128293; ' + streak + ' day streak</div>' : '';
+
+    // Total workouts count
+    var totalWorkouts = sessions.length;
+    var statsHtml = totalWorkouts > 0 ? '<p style="font-size:0.82em;color:var(--color-text-tertiary);margin-top:6px;">' + totalWorkouts + ' workout' + (totalWorkouts !== 1 ? 's' : '') + ' logged</p>' : '';
+
     container.innerHTML =
         '<div class="gym-welcome-header">' +
             '<h2>Welcome back</h2>' +
-            '<p>Your program from ' + generatedDate + ' &middot; ' + program.length + ' training days</p>' +
+            '<p>Your ' + program.length + '-day program &middot; created ' + generatedDate + '</p>' +
+            streakHtml +
+            statsHtml +
         '</div>' +
         daysHtml +
         '<div class="gym-welcome-actions">' +
