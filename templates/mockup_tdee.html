@@ -582,7 +582,10 @@ function tdParse(text) {
     if (wKg) td.weight_lbs = Math.round(parseInt(wKg[1]) * 2.205);
 
     // Height
-    var hMatch = t.match(/(\d)'?\s*(\d{1,2})?(?:"|'')?/);
+    // Match patterns: 5'5, 5'5", 5 foot 5, 5ft 5in, 5'05"
+    var hMatch = t.match(/(\d)['']\s*(\d{1,2})\s*[""'']?/) ||
+                 t.match(/(\d)\s*(?:foot|feet|ft)\s*(\d{1,2})\s*(?:inch|inches|in)?/) ||
+                 t.match(/(\d)['']\s*$/m);
     if (hMatch && parseInt(hMatch[1]) >= 4 && parseInt(hMatch[1]) <= 7) {
         td.height_in = parseInt(hMatch[1]) * 12 + (parseInt(hMatch[2]) || 0);
     }
