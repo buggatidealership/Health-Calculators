@@ -37,7 +37,7 @@
                 <button class="td-example-toggle" onclick="tdToggleExample()">See an example</button>
             </div>
             <div id="td-example-box" class="td-example-box" style="display:none;">
-                <p>I'm 32, female, 5'5, 155 lbs. I work a desk job and go to the gym 2-3x a week, mostly cardio. I want to lose about 15-20 lbs but every time I try to diet I fall off after a few weeks.</p>
+                <p>I'm 32, female, 5'5, 155 lbs. I work a desk job and go to the gym 2-3x a week, mostly cardio. I want to lose about 15-20 lbs but every time I try to diet I fall off after a few weeks. I sleep maybe 5-6 hours and I tend to stress eat when work gets hectic. Weekends are the worst — I eat well during the week but it falls apart Friday night through Sunday.</p>
                 <button class="td-example-use" onclick="tdUseExample()">Use this</button>
             </div>
             <textarea id="td-input" class="td-textarea" rows="3" placeholder="Your age, weight, height, activity, goal — and anything else that matters. Write naturally."></textarea>
@@ -84,10 +84,13 @@
             <div class="td-ad-placeholder">Ad Position 1 — after primary answer (highest attention)</div>
         </div>
 
-        <!-- Section 2: What this means for YOU -->
+        <!-- Section 2: Reasoning trace — what was detected and how domains connect -->
+        <div id="td-reasoning-section" class="td-output-card"></div>
+
+        <!-- Section 3: What this means for YOU -->
         <div id="td-context-section" class="td-output-card"></div>
 
-        <!-- Section 3: Your plan -->
+        <!-- Section 4: Your plan (sections reorder based on cross-domain signals) -->
         <div id="td-plan-section" class="td-output-card"></div>
 
         <!-- Dynamic ad slot 2: after action plan -->
@@ -679,6 +682,118 @@
     margin: 0 auto;
 }
 
+/* ========== REASONING TRACE ========== */
+.td-reasoning-label {
+    font-size: 0.78em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-tertiary);
+    margin-bottom: 12px;
+}
+.td-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+.td-signal {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.82em;
+    font-weight: 500;
+}
+.td-signal-nutrition { background: #e8f5e9; color: #1a5c2e; }
+.td-signal-behavior { background: #e3f2fd; color: #1565c0; }
+.td-signal-physiology { background: #fce4ec; color: #c62828; }
+.td-signal-lifestyle { background: #fff8e1; color: #7a5600; }
+.td-signal-training { background: #f3e5f5; color: #6a1b9a; }
+.td-connections {
+    border-top: 1px solid var(--color-border);
+    padding-top: 14px;
+}
+.td-connection {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    font-size: 0.88em;
+    line-height: 1.55;
+    color: var(--color-text-secondary);
+}
+.td-connection-arrow {
+    color: var(--color-accent);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+.td-connection strong { color: var(--color-text); }
+
+/* ========== CROSS-DOMAIN PRIORITY SECTION ========== */
+.td-priority-section {
+    background: linear-gradient(135deg, #f0f9fa, #e8f4f5);
+    border: 1px solid var(--color-accent-border);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+}
+.td-priority-label {
+    font-size: 0.72em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+}
+.td-priority-title {
+    font-family: var(--font-display);
+    font-size: 1.1em;
+    margin-bottom: 8px;
+    color: var(--color-text);
+}
+.td-priority-body {
+    font-size: 0.9em;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+.td-priority-body strong { color: var(--color-text); }
+
+/* ========== TRACKER NOTES ========== */
+.td-tracker-notes {
+    margin-top: 12px;
+}
+.td-tracker-notes-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.88em;
+    resize: none;
+    outline: none;
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+}
+.td-tracker-notes-input:focus { border-color: var(--color-accent); }
+.td-tracker-notes-input::placeholder { color: var(--color-text-tertiary); }
+.td-tracker-note-saved {
+    font-size: 0.85em;
+    color: var(--color-text-secondary);
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.5;
+}
+.td-tracker-note-saved::before {
+    content: '"';
+    color: var(--color-accent);
+}
+.td-tracker-note-saved::after {
+    content: '"';
+    color: var(--color-accent);
+}
+
 /* ========== MEAL FRAMEWORK ========== */
 .td-meal-row {
     display: grid;
@@ -925,7 +1040,7 @@ function tdToggleExample() {
     box.style.display = box.style.display === 'none' ? 'block' : 'none';
 }
 function tdUseExample() {
-    document.getElementById('td-input').value = "I'm 32, female, 5'5, 155 lbs. I work a desk job and go to the gym 2-3x a week, mostly cardio. I want to lose about 15-20 lbs but every time I try to diet I fall off after a few weeks.";
+    document.getElementById('td-input').value = "I'm 32, female, 5'5, 155 lbs. I work a desk job and go to the gym 2-3x a week, mostly cardio. I want to lose about 15-20 lbs but every time I try to diet I fall off after a few weeks. I sleep maybe 5-6 hours and I tend to stress eat when work gets hectic. Weekends are the worst — I eat well during the week but it falls apart Friday night through Sunday.";
     document.getElementById('td-example-box').style.display = 'none';
 }
 function tdPrefill(key) {
@@ -997,6 +1112,73 @@ function tdParse(text) {
     // Detect specific calorie mentions (they're telling us what they eat)
     var calMatch = t.match(/(\d[,.]?\d{3})\s*(?:cal|kcal|calories)/);
     if (calMatch) td.currentIntake = parseInt(calMatch[1].replace(/[,.]/, ''));
+
+    // Cross-domain signals — beyond nutrition
+    td.signals = [];
+
+    // Sleep domain
+    if (/sleep\s*(\d)\s*hours?|(\d)\s*hours?\s*(?:of\s*)?sleep|terrible\s*sleep|insomnia|can'?t\s*sleep|poor\s*sleep|night\s*shift/.test(t)) {
+        td.sleep = 'poor';
+        var sleepHrs = t.match(/sleep\s*(\d)\s*hours?|(\d)\s*hours?\s*(?:of\s*)?sleep/);
+        if (sleepHrs) td.sleepHours = parseInt(sleepHrs[1] || sleepHrs[2]);
+        if (/night\s*shift/.test(t)) td.sleep = 'shift_work';
+        td.signals.push({ domain: 'physiology', label: td.sleep === 'shift_work' ? 'Night shift worker' : (td.sleepHours ? td.sleepHours + 'h sleep' : 'Poor sleep'), raw: 'sleep' });
+    }
+
+    // Stress / emotional domain
+    if (/stress|anxious|anxiety|emotional\s*eat|eat\s*when.*(?:sad|bored|stressed|anxious|upset)|comfort\s*food|cope/.test(t)) {
+        td.stress = 'emotional_eating';
+        td.signals.push({ domain: 'behavior', label: 'Stress/emotional eating', raw: 'stress' });
+    } else if (/stress|busy|overwhelm|hectic|crazy\s*schedule/.test(t)) {
+        td.stress = 'high';
+        td.signals.push({ domain: 'lifestyle', label: 'High stress', raw: 'stress' });
+    }
+
+    // Schedule / time constraints
+    if (/no\s*time|busy|don'?t\s*(?:have\s*)?time|quick|fast\s*meals?|can'?t\s*cook|hate\s*cooking|don'?t\s*cook/.test(t)) {
+        td.timeConstrained = true;
+        td.signals.push({ domain: 'lifestyle', label: 'Time-constrained', raw: 'time' });
+    }
+
+    // Social environment
+    if (/partner|spouse|husband|wife|family.*eats?|social|eat\s*out|restaurant|dining\s*out|work\s*lunch/.test(t)) {
+        td.socialFactor = true;
+        if (/partner|spouse|husband|wife|family/.test(t)) td.socialType = 'household';
+        else td.socialType = 'social';
+        td.signals.push({ domain: 'behavior', label: td.socialType === 'household' ? 'Household food environment' : 'Social eating patterns', raw: 'social' });
+    }
+
+    // Training specifics (beyond just frequency)
+    if (/lift|weight\s*train|resistance|strength|barbell|squat|deadlift|bench/.test(t)) {
+        td.trainingType = 'resistance';
+        td.signals.push({ domain: 'training', label: 'Resistance training', raw: 'training_type' });
+    } else if (/run|cardio|cycling|swim|jog|hiit|crossfit/.test(t)) {
+        td.trainingType = 'cardio';
+        td.signals.push({ domain: 'training', label: /crossfit/.test(t) ? 'CrossFit' : 'Cardio-focused', raw: 'training_type' });
+    }
+
+    // Medical / medication
+    if (/pcos|thyroid|hypothyroid|insulin\s*resist|diabetes|metformin|ozempic|wegovy|mounjaro|medication/.test(t)) {
+        td.medical = true;
+        if (/pcos/.test(t)) td.medicalType = 'pcos';
+        else if (/thyroid|hypothyroid/.test(t)) td.medicalType = 'thyroid';
+        else if (/insulin|diabetes|metformin/.test(t)) td.medicalType = 'metabolic';
+        else if (/ozempic|wegovy|mounjaro/.test(t)) td.medicalType = 'glp1';
+        else td.medicalType = 'other';
+        td.signals.push({ domain: 'physiology', label: td.medicalType === 'pcos' ? 'PCOS' : td.medicalType === 'thyroid' ? 'Thyroid condition' : td.medicalType === 'glp1' ? 'GLP-1 medication' : 'Medical factor', raw: 'medical' });
+    }
+
+    // All-or-nothing / perfectionism pattern
+    if (/all\s*or\s*nothing|perfect|one\s*bad\s*(?:day|meal).*(?:give up|quit|ruin)|cheat\s*day.*(?:spiral|binge)|start\s*over\s*monday/.test(t)) {
+        td.perfectionism = true;
+        td.signals.push({ domain: 'behavior', label: 'All-or-nothing pattern', raw: 'perfectionism' });
+    }
+
+    // Weekend pattern
+    if (/weekend|saturday|sunday|fri.*night/.test(t) && /(?:eat|drink|overeat|binge|go off|fall off|bad)/.test(t)) {
+        td.weekendPattern = true;
+        td.signals.push({ domain: 'behavior', label: 'Weekend compliance drop', raw: 'weekend' });
+    }
 
     // Assign persona
     if (td.history === 'adherence' || (td.obstacle === 'plateau' && td.history)) {
@@ -1245,6 +1427,7 @@ var STORE = {
 /* ---- Render output (persona-driven) ---- */
 function renderOutput() {
     renderResult();
+    renderReasoning();
     renderContext();
     renderPlan();
     renderMeals();
@@ -1257,6 +1440,10 @@ function renderOutput() {
         activity: td.activity, goal: td.goal, persona: td.persona,
         tdee: td.tdee, target: td.target, bmr: td.bmr,
         protein_g: td.protein_g, fat_g: td.fat_g, carb_g: td.carb_g,
+        signals: td.signals || [], sleep: td.sleep, sleepHours: td.sleepHours,
+        stress: td.stress, timeConstrained: td.timeConstrained, socialFactor: td.socialFactor,
+        socialType: td.socialType, trainingType: td.trainingType, medical: td.medical,
+        medicalType: td.medicalType, perfectionism: td.perfectionism, weekendPattern: td.weekendPattern,
         created: new Date().toISOString()
     });
 
@@ -1264,6 +1451,111 @@ function renderOutput() {
     document.getElementById('td-ad-1').style.display = '';
     document.getElementById('td-ad-2').style.display = '';
     document.getElementById('td-ad-3').style.display = '';
+}
+
+function renderReasoning() {
+    var el = document.getElementById('td-reasoning-section');
+    var signals = td.signals || [];
+
+    // Always add core nutrition signals
+    var coreSignals = [
+        { domain: 'nutrition', label: td.goal === 'lose' ? 'Fat loss goal' : td.goal === 'gain' ? 'Muscle gain goal' : 'Maintenance goal', raw: 'goal' }
+    ];
+    if (td.history) coreSignals.push({ domain: 'behavior', label: td.history === 'adherence' ? 'Prior diet attempts' : 'Has tried before', raw: 'history' });
+    if (td.obstacle) coreSignals.push({ domain: td.obstacle === 'plateau' ? 'physiology' : 'behavior', label: td.obstacle === 'plateau' ? 'Weight plateau' : 'Information overload', raw: 'obstacle' });
+
+    var allSignals = coreSignals.concat(signals);
+
+    // Build connections — this is the cross-domain reasoning
+    var connections = [];
+
+    // Sleep + fat loss
+    if (td.sleep && td.goal === 'lose') {
+        if (td.sleep === 'shift_work') {
+            connections.push('Night shift disrupts circadian rhythm → <strong>ghrelin (hunger) spikes 28%, leptin (satiety) drops 18%</strong> → standard deficit calculations underestimate how hard your hunger will fight back. Your plan adjusts meal timing to your shift schedule, not a 9-5 assumption.');
+        } else {
+            connections.push((td.sleepHours ? td.sleepHours + ' hours of sleep' : 'Poor sleep') + ' → <strong>cortisol stays elevated, insulin sensitivity drops ~30%</strong> → your body partitions more calories toward fat storage even in a deficit. Fixing sleep may do more for fat loss than perfecting your diet.');
+        }
+    }
+
+    // Stress/emotional eating + adherence
+    if (td.stress === 'emotional_eating') {
+        connections.push('Emotional eating pattern → <strong>the problem isn\'t nutritional knowledge, it\'s a coping mechanism</strong> → calorie targets alone won\'t fix this. Your plan starts with identifying triggers and building alternative responses before optimizing macros.');
+        if (td.history === 'adherence') {
+            connections.push('Emotional eating + prior diet failures → <strong>restriction increases emotional eating frequency</strong> → aggressive deficits will make this worse, not better. Plan uses a smaller deficit with higher adherence probability.');
+        }
+    }
+
+    // Social environment + compliance
+    if (td.socialFactor && td.goal === 'lose') {
+        if (td.socialType === 'household') {
+            connections.push('Household food environment conflict → <strong>willpower is a finite resource</strong> → if your home is full of foods you\'re trying to avoid, no amount of discipline fixes that long-term. Plan includes environment design strategies, not just calorie rules.');
+        } else {
+            connections.push('Frequent social eating → <strong>restaurant meals average 200-300 cal over home-cooked equivalents</strong> → your weekly average matters more than daily targets. Plan builds in a social meal budget rather than pretending you\'ll skip dinners out.');
+        }
+    }
+
+    // Time constraints + meal approach
+    if (td.timeConstrained) {
+        connections.push('Time-constrained → <strong>meal prep compliance drops 60% when prep exceeds 30 min</strong> → complex meal plans are a fiction for your schedule. Plan uses simple, repeatable meals with minimal prep over optimized but unsustainable recipes.');
+    }
+
+    // Training type + nutrition interaction
+    if (td.trainingType === 'resistance' && td.goal === 'lose') {
+        connections.push('Resistance training + fat loss → <strong>protein timing matters more than for cardio</strong> → 30-40g within 2 hours post-training preserves muscle in a deficit. Your protein target is set higher than a sedentary deficit.');
+    } else if (td.trainingType === 'cardio' && td.goal === 'lose') {
+        connections.push('Cardio-focused + fat loss → <strong>cardio increases appetite disproportionately to calories burned</strong> → the "earned calories" feeling after a run often leads to overeating by 200-400 cal. Adding 2 resistance sessions/week would raise your BMR permanently rather than burning calories you eat back.');
+    }
+
+    // Medical factors
+    if (td.medical) {
+        if (td.medicalType === 'pcos') {
+            connections.push('PCOS → <strong>insulin resistance affects how your body handles carbohydrates</strong> → standard macro splits may not work. Consider a higher protein, moderate carb approach. The calculator gives you a starting point, but your response may differ from the standard prediction.');
+        } else if (td.medicalType === 'thyroid') {
+            connections.push('Thyroid condition → <strong>BMR calculation may be 10-15% less accurate</strong> → Mifflin-St Jeor assumes normal thyroid function. Treat the TDEE as a rougher estimate than usual and rely more heavily on the weekly check-in data to calibrate.');
+        } else if (td.medicalType === 'glp1') {
+            connections.push('GLP-1 medication → <strong>appetite suppression changes the game</strong> → your challenge shifts from "how to eat less" to "how to eat enough protein while appetite is low." Protein target is non-negotiable — muscle loss on GLP-1s without adequate protein is significant.');
+        }
+    }
+
+    // Perfectionism + adherence
+    if (td.perfectionism) {
+        connections.push('All-or-nothing pattern → <strong>one "bad" meal doesn\'t matter mathematically</strong> — 500 extra calories on one day is 71 cal/day averaged over a week, or about 0.15 lbs of fat. The damage comes from the spiral, not the meal. Plan builds in imperfection as a feature, not a failure.');
+    }
+
+    // Weekend pattern
+    if (td.weekendPattern && td.goal === 'lose') {
+        connections.push('Weekend compliance drop → <strong>5 days at 1500 cal + 2 days at 2500 cal = 1786 cal/day average</strong> — your "1500 calorie diet" is actually an 1800 calorie diet. The tracker below shows weekday vs weekend so you can see this pattern in your own data.');
+    }
+
+    // If no cross-domain signals, don't show the section
+    if (connections.length === 0 && signals.length === 0) {
+        el.style.display = 'none';
+        return;
+    }
+
+    var html = '';
+
+    // Signals detected
+    html += '<div class="td-reasoning-label">What I detected</div>';
+    html += '<div class="td-signals">';
+    allSignals.forEach(function(s) {
+        html += '<span class="td-signal td-signal-' + s.domain + '">' + s.label + '</span>';
+    });
+    html += '</div>';
+
+    // Connections (cross-domain reasoning)
+    if (connections.length > 0) {
+        html += '<div class="td-connections">';
+        html += '<div class="td-reasoning-label">How these connect</div>';
+        connections.forEach(function(c) {
+            html += '<div class="td-connection"><span class="td-connection-arrow">→</span><span>' + c + '</span></div>';
+        });
+        html += '</div>';
+    }
+
+    el.innerHTML = html;
+    el.style.display = '';
 }
 
 function renderResult() {
@@ -1343,6 +1635,46 @@ function renderPlan() {
     html += '<div class="td-macro-card"><div class="td-macro-value">' + Math.round(td.carb_g * 4 / td.target * 100) + '%</div><div class="td-macro-label">Carbs</div><div class="td-macro-grams">' + td.carb_g + 'g/day</div></div>';
     html += '<div class="td-macro-card"><div class="td-macro-value">' + Math.round(td.fat_g * 9 / td.target * 100) + '%</div><div class="td-macro-label">Fat</div><div class="td-macro-grams">' + td.fat_g + 'g/day</div></div>';
     html += '</div>';
+
+    // Cross-domain priority sections — appear ONLY when relevant signals exist
+    // These reorder the plan: the most impactful non-nutrition intervention comes first
+    if (td.sleep === 'poor' && td.goal === 'lose' && td.sleepHours && td.sleepHours < 7) {
+        html += '<div class="td-priority-section">';
+        html += '<div class="td-priority-label">Priority — before optimizing diet</div>';
+        html += '<div class="td-priority-title">Fix your sleep first</div>';
+        html += '<div class="td-priority-body">At ' + td.sleepHours + ' hours/night, your body is hormonally fighting fat loss — elevated cortisol, increased ghrelin, reduced insulin sensitivity. <strong>Getting to 7+ hours may be worth more than a perfect diet.</strong> Start here: fixed wake time (even weekends), no screens 30 min before bed, dark/cool room. Track sleep alongside calories below.</div>';
+        html += '</div>';
+    } else if (td.sleep === 'shift_work') {
+        html += '<div class="td-priority-section">';
+        html += '<div class="td-priority-label">Shift work adjustment</div>';
+        html += '<div class="td-priority-title">Your body doesn\'t run on a 9-5 clock</div>';
+        html += '<div class="td-priority-body">Standard meal timing advice doesn\'t apply. <strong>Eat your largest meal before your shift, protein-rich meal during, light meal after.</strong> Your TDEE may be 5-10% higher than calculated due to circadian disruption — the tracker below will calibrate this with real data.</div>';
+        html += '</div>';
+    }
+
+    if (td.stress === 'emotional_eating') {
+        html += '<div class="td-priority-section">';
+        html += '<div class="td-priority-label">Priority — this matters more than calories</div>';
+        html += '<div class="td-priority-title">Build a trigger-response protocol</div>';
+        html += '<div class="td-priority-body">When you feel the urge to eat outside hunger: <strong>(1) name the emotion, (2) set a 10-minute timer, (3) do one alternative — walk, call someone, drink water.</strong> If you still want to eat after 10 minutes, eat — but log it with a note in the tracker below. The data will show you your triggers over time. This isn\'t willpower; it\'s pattern recognition.</div>';
+        html += '</div>';
+    }
+
+    if (td.timeConstrained) {
+        html += '<div class="td-priority-section">';
+        html += '<div class="td-priority-label">Adapted for your schedule</div>';
+        html += '<div class="td-priority-title">5-minute default meals</div>';
+        html += '<div class="td-priority-body"><strong>Pick 2-3 meals you can make in 5 minutes and rotate them.</strong> Eggs + toast (3 min). Greek yogurt + nuts + fruit (1 min). Rotisserie chicken + premade salad (2 min). Perfection in meal variety is the enemy of consistency in a busy schedule. The meal framework below is built around this principle.</div>';
+        html += '</div>';
+    }
+
+    if (td.perfectionism) {
+        html += '<div class="td-priority-section">';
+        html += '<div class="td-priority-label">Pattern interrupt</div>';
+        html += '<div class="td-priority-title">The 80% rule</div>';
+        html += '<div class="td-priority-body">If you hit your target 5-6 days out of 7, you\'re succeeding. <strong>One off day costs ~0.15 lbs of fat. The spiral after it costs 2-3 lbs.</strong> The tracker below doesn\'t judge red days. It shows you that one bad day disappears in the weekly average — mathematically proving that perfection isn\'t required.</div>';
+        html += '</div>';
+    }
 
     // Action items — persona-specific
     html += '<ul class="td-action-list">';
@@ -1558,6 +1890,9 @@ function renderTracker() {
         }
         html += '<button class="td-tracker-log-btn" style="background:var(--color-text-tertiary);" onclick="trackerEditToday()">Edit</button>';
         html += '</div>';
+        if (logs[todayKey].note) {
+            html += '<div class="td-tracker-note-saved">' + logs[todayKey].note + '</div>';
+        }
     } else {
         html += '<div class="td-tracker-today-label">What did you eat today?</div>';
         html += '<div class="td-tracker-inputs">';
@@ -1565,6 +1900,7 @@ function renderTracker() {
         html += '<div class="td-tracker-field"><label>Weight <span style="color:var(--color-text-tertiary); font-weight:400;">(optional)</span></label><input type="number" id="td-trk-weight" placeholder="lbs" step="0.1"></div>';
         html += '<button class="td-tracker-log-btn" onclick="trackerLogToday()">Log</button>';
         html += '</div>';
+        html += '<div class="td-tracker-notes"><textarea id="td-trk-note" class="td-tracker-notes-input" rows="1" placeholder="How was today? (tired, social dinner, skipped gym, felt great...)"></textarea></div>';
     }
     html += '</div>';
 
@@ -1619,6 +1955,7 @@ function renderTracker() {
 function trackerLogToday() {
     var calsEl = document.getElementById('td-trk-cals');
     var weightEl = document.getElementById('td-trk-weight');
+    var noteEl = document.getElementById('td-trk-note');
     var cals = parseInt(calsEl.value);
     if (!cals || cals < 100 || cals > 10000) {
         calsEl.style.borderColor = 'var(--color-danger)';
@@ -1626,9 +1963,10 @@ function trackerLogToday() {
         return;
     }
     var weight = parseFloat(weightEl.value) || null;
+    var note = noteEl ? noteEl.value.trim() : '';
     var todayKey = new Date().toISOString().slice(0, 10);
     var logs = STORE.get('daily_logs') || {};
-    logs[todayKey] = { cals: cals, weight: weight, ts: Date.now() };
+    logs[todayKey] = { cals: cals, weight: weight, note: note || null, ts: Date.now() };
     STORE.set('daily_logs', logs);
     renderTracker();
 }
@@ -1878,6 +2216,57 @@ function analyzeCheckin() {
         } else {
             html += 'Simplify: track just calories and protein. Skip weighing food — use hand portions (palm = protein, fist = carbs, thumb = fat). Precision matters less than consistency.</div>';
         }
+    }
+
+    // Note synthesis — schemaless pattern detection from freeform notes
+    var logs = STORE.get('daily_logs') || {};
+    var weekNotes = [];
+    var today = new Date();
+    for (var ni = 6; ni >= 0; ni--) {
+        var nd = new Date(today);
+        nd.setDate(nd.getDate() - ni);
+        var nk = nd.toISOString().slice(0, 10);
+        if (logs[nk] && logs[nk].note) {
+            weekNotes.push({ day: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][nd.getDay()], note: logs[nk].note, cals: logs[nk].cals });
+        }
+    }
+
+    if (weekNotes.length >= 2) {
+        html += '<div style="margin-top:16px; padding-top:16px; border-top:1px solid var(--color-border);">';
+        html += '<div style="font-weight:700; font-size:0.88em; margin-bottom:10px;">From your daily notes</div>';
+
+        // Correlate notes with calorie data
+        var overTargetNotes = weekNotes.filter(function(n) { return n.cals > td.target + 100; });
+        var underTargetNotes = weekNotes.filter(function(n) { return n.cals <= td.target; });
+
+        if (overTargetNotes.length > 0) {
+            html += '<div style="font-size:0.88em; line-height:1.6; color:var(--color-text-secondary); margin-bottom:8px;">';
+            html += '<strong>On over-target days you wrote:</strong> ';
+            html += overTargetNotes.map(function(n) { return '"' + n.note + '" (' + n.day + ', ' + n.cals + ' cal)'; }).join(' · ');
+            html += '</div>';
+
+            // Try to detect patterns in notes
+            var allOverNotes = overTargetNotes.map(function(n) { return n.note.toLowerCase(); }).join(' ');
+            if (/social|dinner|restaurant|party|birthday|friend|date|eat out|went out/.test(allOverNotes)) {
+                html += '<div class="td-insight-caution" style="font-size:0.88em;"><strong>Pattern: social situations correlate with over-target days.</strong> This isn\'t a willpower problem — restaurant portions average 200-300 cal over home cooking. Strategy: eat lighter earlier on days you know you\'re going out. Budget the calories, don\'t fight the event.</div>';
+            }
+            if (/tired|sleep|exhaust|late|insomnia|bad night/.test(allOverNotes)) {
+                html += '<div class="td-insight-caution" style="font-size:0.88em;"><strong>Pattern: fatigue correlates with over-target days.</strong> Sleep deprivation increases ghrelin (hunger hormone) by ~28%. On low-sleep days, your body literally signals more hunger. This isn\'t a discipline issue — it\'s hormonal. Prioritize sleep as a weight loss intervention.</div>';
+            }
+            if (/stress|work|anxious|upset|emotional|bad day|rough/.test(allOverNotes)) {
+                html += '<div class="td-insight-caution" style="font-size:0.88em;"><strong>Pattern: stress correlates with over-target days.</strong> Stress-driven eating is a coping mechanism, not a nutrition problem. Next time you notice the pattern: name the emotion, set a 10-minute timer, do one alternative activity. If you still want to eat after, eat — but the pause breaks the automatic loop.</div>';
+            }
+        }
+
+        if (underTargetNotes.length > 0 && overTargetNotes.length > 0) {
+            html += '<div style="font-size:0.88em; line-height:1.6; color:var(--color-text-secondary); margin-top:8px;">';
+            html += '<strong>On on-target days you wrote:</strong> ';
+            html += underTargetNotes.map(function(n) { return '"' + n.note + '"'; }).join(' · ');
+            html += '<div style="margin-top:4px; color:var(--color-text-tertiary); font-style:italic;">This contrast shows your pattern. The goal isn\'t to eliminate the over-target days — it\'s to build more of whatever the on-target days have in common.</div>';
+            html += '</div>';
+        }
+
+        html += '</div>';
     }
 
     el.innerHTML = html;
@@ -2130,6 +2519,12 @@ document.addEventListener('DOMContentLoaded', function() {
         td.carb_g = profile.carb_g;
         if (td.goal === 'lose') td.deficit = td.tdee - td.target;
         if (td.goal === 'gain') td.surplus = td.target - td.tdee;
+        td.signals = profile.signals || []; td.sleep = profile.sleep;
+        td.sleepHours = profile.sleepHours; td.stress = profile.stress;
+        td.timeConstrained = profile.timeConstrained; td.socialFactor = profile.socialFactor;
+        td.socialType = profile.socialType; td.trainingType = profile.trainingType;
+        td.medical = profile.medical; td.medicalType = profile.medicalType;
+        td.perfectionism = profile.perfectionism; td.weekendPattern = profile.weekendPattern;
 
         var checkins = STORE.get('checkins') || [];
         if (checkins.length > 0) {
