@@ -95,21 +95,43 @@
             <div class="td-ad-placeholder">Ad Position 2 — after action plan (high engagement)</div>
         </div>
 
-        <!-- Section 4: What changes this -->
+        <!-- Section 4: What this looks like as food — NEXT SYSTEM -->
+        <div id="td-meals-section" class="td-output-card"></div>
+
+        <!-- Dynamic ad slot 3: after meal framework (deep engagement) -->
+        <div id="td-ad-3" class="td-ad-slot" style="display:none;">
+            <div class="td-ad-placeholder">Ad Position 3 — after meal framework (deep engagement)</div>
+        </div>
+
+        <!-- Section 5: When to recalculate -->
         <div id="td-changes-section" class="td-output-card"></div>
 
-        <!-- Section 5: Related tools -->
-        <div id="td-related-section" class="td-output-card"></div>
+        <!-- Next step CTA: check-in system -->
+        <div id="td-next-cta" class="td-next-cta-card"></div>
+    </div>
 
-        <!-- Dynamic ad slot 3: deep page, engaged users only -->
-        <div id="td-ad-3" class="td-ad-slot" style="display:none;">
-            <div class="td-ad-placeholder">Ad Position 3 — deep page (most engaged users)</div>
+    <!-- PHASE 4: Weekly check-in -->
+    <div id="phase-checkin" class="td-phase" style="display:none;">
+        <div id="td-checkin-header" class="td-result-card" style="padding: 24px 28px;"></div>
+        <div id="td-checkin-form" class="td-output-card"></div>
+        <div id="td-checkin-result" class="td-output-card" style="display:none;"></div>
+        <!-- Ad after check-in analysis -->
+        <div id="td-ad-checkin" class="td-ad-slot" style="display:none;">
+            <div class="td-ad-placeholder">Ad Position — after check-in analysis (returning user, high value)</div>
         </div>
+        <div id="td-checkin-next" style="display:none;"></div>
+    </div>
 
-        <!-- Recalculate -->
-        <div class="td-recalc">
-            <button class="td-submit-outline" onclick="tdReset()">Start over with new info</button>
+    <!-- PHASE 5: Progress dashboard -->
+    <div id="phase-progress" class="td-phase" style="display:none;">
+        <div id="td-progress-header" class="td-result-card" style="padding: 24px 28px;"></div>
+        <div id="td-progress-chart" class="td-output-card"></div>
+        <div id="td-progress-insight" class="td-output-card"></div>
+        <!-- Ad in progress view -->
+        <div id="td-ad-progress" class="td-ad-slot" style="display:none;">
+            <div class="td-ad-placeholder">Ad Position — progress dashboard (loyal user, highest LTV)</div>
         </div>
+        <div id="td-progress-actions" class="td-output-card"></div>
     </div>
 
 </div>
@@ -508,6 +530,227 @@
     font-family: var(--font-body);
 }
 
+/* ========== NEXT CTA ========== */
+.td-next-cta-card {
+    background: linear-gradient(135deg, #f0f9fa, #e8f4f5);
+    border: 2px solid var(--color-accent-border);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: tdSlideIn 0.5s ease;
+}
+.td-next-cta-card h3 {
+    font-family: var(--font-display);
+    font-size: 1.15em;
+    margin-bottom: 8px;
+    color: var(--color-text);
+}
+.td-next-cta-card p {
+    font-size: 0.9em;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+.td-next-cta-card .td-submit {
+    max-width: 320px;
+    margin: 0 auto;
+}
+
+/* ========== MEAL FRAMEWORK ========== */
+.td-meal-row {
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    gap: 12px;
+    align-items: start;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--color-border);
+}
+.td-meal-row:last-child { border-bottom: none; }
+.td-meal-label {
+    font-weight: 700;
+    font-size: 0.88em;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.td-meal-foods {
+    font-size: 0.92em;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+.td-meal-foods strong { color: var(--color-text); }
+.td-meal-cals {
+    text-align: right;
+    font-size: 0.88em;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+}
+.td-meal-total {
+    display: flex;
+    justify-content: space-between;
+    padding: 14px 0 0;
+    margin-top: 8px;
+    border-top: 2px solid var(--color-accent);
+    font-weight: 700;
+    font-size: 0.95em;
+}
+.td-meal-note {
+    font-size: 0.82em;
+    color: var(--color-text-tertiary);
+    margin-top: 12px;
+    line-height: 1.5;
+    font-style: italic;
+}
+
+/* ========== CHECK-IN ========== */
+.td-checkin-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+.td-checkin-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.td-checkin-field label {
+    font-size: 0.82em;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+.td-checkin-field input {
+    padding: 12px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 1em;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 0.2s;
+}
+.td-checkin-field input:focus { border-color: var(--color-accent); }
+.td-checkin-day-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+}
+.td-checkin-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+.td-checkin-day label {
+    font-size: 0.7em;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+}
+.td-checkin-day input {
+    width: 100%;
+    padding: 8px 4px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    font-size: 0.85em;
+    text-align: center;
+    font-family: var(--font-body);
+    outline: none;
+}
+.td-checkin-day input:focus { border-color: var(--color-accent); }
+.td-checkin-options {
+    display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0;
+}
+
+/* ========== PROGRESS ========== */
+.td-progress-bar-container {
+    background: var(--color-muted);
+    border-radius: 20px;
+    height: 28px;
+    overflow: hidden;
+    margin: 16px 0;
+    position: relative;
+}
+.td-progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-accent), #1a8a4a);
+    border-radius: 20px;
+    transition: width 1s ease;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+    font-size: 0.78em;
+    font-weight: 700;
+    color: #fff;
+    min-width: 40px;
+}
+.td-week-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+    margin: 16px 0;
+}
+.td-week-cell {
+    text-align: center;
+    padding: 12px 8px;
+    background: var(--color-muted);
+    border-radius: var(--radius);
+    border: 1px solid var(--color-border);
+}
+.td-week-cell.td-week-current {
+    border-color: var(--color-accent);
+    background: var(--color-accent-bg);
+}
+.td-week-cell.td-week-done {
+    background: #e8f5e9;
+    border-color: #1a8a4a;
+}
+.td-week-label {
+    font-size: 0.72em;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+}
+.td-week-value {
+    font-family: var(--font-display);
+    font-size: 1.1em;
+    color: var(--color-text);
+    margin-top: 2px;
+}
+.td-week-delta {
+    font-size: 0.72em;
+    margin-top: 2px;
+}
+.td-week-delta.td-down { color: #1a8a4a; }
+.td-week-delta.td-up { color: var(--color-danger); }
+.td-week-delta.td-flat { color: var(--color-text-tertiary); }
+.td-insight-box {
+    padding: 18px;
+    border-radius: var(--radius);
+    margin: 12px 0;
+    line-height: 1.6;
+    font-size: 0.92em;
+}
+.td-insight-good {
+    background: #e8f5e9;
+    border-left: 3px solid #1a8a4a;
+    color: #1a5c2e;
+}
+.td-insight-caution {
+    background: #fff8e1;
+    border-left: 3px solid var(--color-warning);
+    color: #7a5600;
+}
+.td-insight-alert {
+    background: #fce8e8;
+    border-left: 3px solid var(--color-danger);
+    color: #8c1c1c;
+}
+
 /* ========== RESPONSIVE ========== */
 @media (max-width: 600px) {
     .td-intake-card { padding: 20px; }
@@ -515,6 +758,11 @@
     .td-macro-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
     .td-related-grid { grid-template-columns: 1fr; }
     .td-missing-grid { grid-template-columns: 1fr 1fr; }
+    .td-meal-row { grid-template-columns: 60px 1fr 60px; gap: 8px; }
+    .td-checkin-grid { grid-template-columns: 1fr; }
+    .td-checkin-day-grid { grid-template-columns: repeat(7, 1fr); gap: 4px; }
+    .td-checkin-day input { padding: 6px 2px; font-size: 0.78em; }
+    .td-week-grid { grid-template-columns: repeat(4, 1fr); }
 }
 </style>
 
@@ -865,13 +1113,30 @@ function tdCalculate() {
     renderOutput();
 }
 
+/* ---- localStorage helpers ---- */
+var STORE = {
+    get: function(k) { try { return JSON.parse(localStorage.getItem('tdee_' + k)); } catch(e) { return null; } },
+    set: function(k, v) { localStorage.setItem('tdee_' + k, JSON.stringify(v)); },
+    remove: function(k) { localStorage.removeItem('tdee_' + k); }
+};
+
 /* ---- Render output (persona-driven) ---- */
 function renderOutput() {
     renderResult();
     renderContext();
     renderPlan();
+    renderMeals();
     renderChanges();
-    renderRelated();
+    renderNextCTA();
+
+    // Save profile to localStorage for returning visits
+    STORE.set('profile', {
+        age: td.age, sex: td.sex, weight_lbs: td.weight_lbs, height_in: td.height_in,
+        activity: td.activity, goal: td.goal, persona: td.persona,
+        tdee: td.tdee, target: td.target, bmr: td.bmr,
+        protein_g: td.protein_g, fat_g: td.fat_g, carb_g: td.carb_g,
+        created: new Date().toISOString()
+    });
 
     // Show ad slots
     document.getElementById('td-ad-1').style.display = '';
@@ -1060,50 +1325,520 @@ function renderChanges() {
     el.innerHTML = html;
 }
 
-function renderRelated() {
-    var el = document.getElementById('td-related-section');
-    var html = '<h3>Tools that connect to this</h3>';
-    html += '<div class="td-related-grid">';
+/* ==================================================================
+   SYSTEM 2: MEAL FRAMEWORK
+   User's next question: "What does [target] cal/day look like as food?"
+   ================================================================== */
+function renderMeals() {
+    var el = document.getElementById('td-meals-section');
+    var html = '<h3>What ' + td.target + ' calories looks like</h3>';
+    html += '<p style="font-size:0.88em; color:var(--color-text-tertiary); margin-bottom:16px;">A sample day — not a meal plan. Swap any food for something similar you actually like.</p>';
 
-    // Persona-specific related tools
-    var links = [];
+    var meals = buildMealDay(td.target, td.protein_g, td.goal);
 
-    if (td.goal === 'lose' || td.persona === 'sarah' || td.persona === 'plateau') {
-        links.push({ url: '/protein-intake-calculator', title: 'Protein Calculator', desc: 'Dial in your ' + td.protein_g + 'g target by meal' });
-        links.push({ url: '/calories-burned-calculator', title: 'Calories Burned', desc: 'See what your workouts actually burn' });
-        links.push({ url: '/body-fat-calculator', title: 'Body Fat Calculator', desc: 'Track composition, not just weight' });
+    meals.forEach(function(m) {
+        html += '<div class="td-meal-row">';
+        html += '<div class="td-meal-label">' + m.label + '</div>';
+        html += '<div class="td-meal-foods">' + m.foods + '</div>';
+        html += '<div class="td-meal-cals">' + m.cals + ' cal</div>';
+        html += '</div>';
+    });
+
+    var totalCals = meals.reduce(function(s, m) { return s + m.cals; }, 0);
+    html += '<div class="td-meal-total"><span>Total</span><span>' + totalCals + ' cal · ~' + td.protein_g + 'g protein</span></div>';
+
+    if (td.persona === 'sarah' || td.history === 'adherence') {
+        html += '<div class="td-meal-note">This isn\'t meant to be followed exactly. The point is to show you that ' + td.target + ' cal is a real amount of food — you\'re not starving. The specific foods matter less than hitting the calorie and protein targets.</div>';
     } else if (td.goal === 'gain') {
-        links.push({ url: '/protein-intake-calculator', title: 'Protein Calculator', desc: 'Optimize protein timing for muscle gain' });
-        links.push({ url: '/bulking-calorie-calculator', title: 'Bulking Calculator', desc: 'Fine-tune your surplus by phase' });
-        links.push({ url: '/one-rep-max-calculator', title: 'One Rep Max', desc: 'Track strength progress alongside weight' });
-    } else {
-        links.push({ url: '/protein-intake-calculator', title: 'Protein Calculator', desc: 'Get your macro targets' });
-        links.push({ url: '/bmi-calculator', title: 'BMI Calculator', desc: 'Another data point for context' });
-        links.push({ url: '/calories-burned-calculator', title: 'Calories Burned', desc: 'Understand your activity contribution' });
+        html += '<div class="td-meal-note">If this feels like a lot, you don\'t have to eat it all in 3 meals. Add a 4th meal or increase portion sizes gradually over 1-2 weeks.</div>';
     }
 
-    html += links.map(function(l) {
-        return '<a href="' + l.url + '" class="td-related-link">' +
-            '<strong>' + l.title + '</strong>' +
-            '<span>' + l.desc + '</span>' +
-        '</a>';
-    }).join('');
-
-    html += '</div>';
     el.innerHTML = html;
+}
+
+function buildMealDay(targetCal, proteinG, goal) {
+    // Build realistic meals scaled to target
+    var scale = targetCal / 1800; // normalize around 1800
+    var meals = [];
+
+    if (goal === 'gain') {
+        meals = [
+            { label: 'Breakfast', foods: '<strong>3 eggs scrambled</strong> + 2 slices whole grain toast + 1 tbsp butter + ' + Math.round(150 * scale) + 'g Greek yogurt', cals: Math.round(550 * scale) },
+            { label: 'Lunch', foods: '<strong>' + Math.round(170 * scale) + 'g chicken breast</strong> + 1 cup rice + roasted vegetables + olive oil drizzle', cals: Math.round(600 * scale) },
+            { label: 'Snack', foods: '<strong>Protein shake</strong> (1 scoop) + banana + 2 tbsp peanut butter', cals: Math.round(350 * scale) },
+            { label: 'Dinner', foods: '<strong>' + Math.round(170 * scale) + 'g salmon</strong> + sweet potato + side salad with dressing', cals: Math.round(550 * scale) }
+        ];
+    } else {
+        meals = [
+            { label: 'Breakfast', foods: '<strong>2 eggs</strong> + 1 slice whole grain toast + ' + Math.round(100 * scale) + 'g Greek yogurt (plain)', cals: Math.round(380 * scale) },
+            { label: 'Lunch', foods: '<strong>' + Math.round(140 * scale) + 'g chicken breast</strong> + large mixed salad + 1 tbsp olive oil + vinegar', cals: Math.round(450 * scale) },
+            { label: 'Snack', foods: '<strong>Apple</strong> + ' + Math.round(20 * scale) + 'g almonds (' + Math.round(15 * scale) + ' almonds)', cals: Math.round(220 * scale) },
+            { label: 'Dinner', foods: '<strong>' + Math.round(140 * scale) + 'g ground turkey</strong> + 1 cup vegetables + ' + Math.round(100 * scale) + 'g brown rice', cals: Math.round(480 * scale) }
+        ];
+    }
+
+    // Adjust to hit target more closely
+    var total = meals.reduce(function(s, m) { return s + m.cals; }, 0);
+    var diff = targetCal - total;
+    if (Math.abs(diff) > 30) {
+        // Distribute difference across meals proportionally
+        meals.forEach(function(m) {
+            m.cals = Math.round(m.cals + (diff * m.cals / total));
+        });
+    }
+
+    return meals;
+}
+
+/* ==================================================================
+   NEXT STEP CTA — bridges output to check-in system
+   User's question after meals: "Now what? How do I know if it's working?"
+   ================================================================== */
+function renderNextCTA() {
+    var el = document.getElementById('td-next-cta');
+    var html = '';
+
+    if (td.persona === 'sarah' || td.persona === 'plateau') {
+        html += '<h3>Step 1 of your plan starts now</h3>';
+        html += '<p>Track what you actually eat for 7 days. Come back and I\'ll analyze your week — show you the gap between your target and reality, and tell you exactly what to adjust.</p>';
+        html += '<button class="td-submit" onclick="showCheckin()">Log my first week</button>';
+    } else if (td.goal === 'gain') {
+        html += '<h3>Start eating at ' + td.target + ' cal/day</h3>';
+        html += '<p>After 1-2 weeks, come back with your daily weigh-ins. I\'ll tell you if your surplus is right or needs adjusting.</p>';
+        html += '<button class="td-submit" onclick="showCheckin()">Log my first week</button>';
+    } else if (td.goal === 'maintain') {
+        html += '<h3>Eat at ' + td.tdee + ' for 2 weeks</h3>';
+        html += '<p>Track your weight daily. Come back and I\'ll tell you if this number is calibrated or needs adjustment.</p>';
+        html += '<button class="td-submit" onclick="showCheckin()">Log my first check-in</button>';
+    } else {
+        html += '<h3>Your plan starts today</h3>';
+        html += '<p>Follow your targets for a week. Come back and I\'ll tell you if you\'re on track, what to adjust, and what comes next.</p>';
+        html += '<button class="td-submit" onclick="showCheckin()">Log my first week</button>';
+    }
+
+    el.innerHTML = html;
+}
+
+/* ==================================================================
+   SYSTEM 3: WEEKLY CHECK-IN
+   User's question: "I tracked for a week — how'd I do?"
+   ================================================================== */
+function showCheckin() {
+    hideAllPhases();
+    document.getElementById('phase-checkin').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    renderCheckinForm();
+}
+
+function renderCheckinForm() {
+    // Header
+    var header = document.getElementById('td-checkin-header');
+    var weekNum = (STORE.get('checkins') || []).length + 1;
+    header.innerHTML =
+        '<div style="font-size:0.85em; opacity:0.85;">Week ' + weekNum + ' Check-in</div>' +
+        '<div style="font-family:var(--font-display); font-size:1.8em; margin:4px 0;">How did it go?</div>' +
+        '<div style="font-size:0.9em; opacity:0.8;">Target: ' + td.target + ' cal/day · ' + td.protein_g + 'g protein</div>';
+
+    // Form
+    var form = document.getElementById('td-checkin-form');
+    var html = '<h3>Your week</h3>';
+
+    // Daily calories
+    html += '<div style="margin-bottom:20px;">';
+    html += '<div style="font-weight:600; font-size:0.92em; margin-bottom:10px;">Daily calories (approximate is fine)</div>';
+    html += '<div class="td-checkin-day-grid">';
+    var days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'];
+    days.forEach(function(d, i) {
+        html += '<div class="td-checkin-day">';
+        html += '<label>' + d + '</label>';
+        html += '<input type="number" id="td-ci-cal-' + i + '" placeholder="—">';
+        html += '</div>';
+    });
+    html += '</div></div>';
+
+    // Weight
+    html += '<div class="td-checkin-grid">';
+    html += '<div class="td-checkin-field"><label>Weight start of week (lbs)</label><input type="number" id="td-ci-w-start" placeholder="e.g. ' + td.weight_lbs + '" step="0.1"></div>';
+    html += '<div class="td-checkin-field"><label>Weight end of week (lbs)</label><input type="number" id="td-ci-w-end" placeholder="e.g. ' + (td.weight_lbs - 1) + '" step="0.1"></div>';
+    html += '</div>';
+
+    // How did it feel?
+    html += '<div style="margin-top:16px;">';
+    html += '<div style="font-weight:600; font-size:0.92em; margin-bottom:10px;">How did the week feel?</div>';
+    html += '<div class="td-checkin-options">';
+    var feelings = ['Manageable', 'Hungry a lot', 'Low energy', 'Great actually', 'Hard on weekends', 'Couldn\'t stick to it'];
+    feelings.forEach(function(f) {
+        html += '<button class="td-option" onclick="tdToggleCheckinOption(this)">' + f + '</button>';
+    });
+    html += '</div></div>';
+
+    // Anything else?
+    html += '<div style="margin-top:16px;">';
+    html += '<div style="font-weight:600; font-size:0.92em; margin-bottom:8px;">Anything else? <span style="font-weight:400; color:var(--color-text-tertiary);">(optional)</span></div>';
+    html += '<textarea id="td-ci-notes" class="td-textarea" rows="2" placeholder="Skipped meals, social events, felt different, etc."></textarea>';
+    html += '</div>';
+
+    html += '<button class="td-submit" onclick="analyzeCheckin()" style="margin-top:20px;">Analyze my week</button>';
+
+    form.innerHTML = html;
+}
+
+function tdToggleCheckinOption(el) {
+    el.classList.toggle('td-option-selected');
+}
+
+function analyzeCheckin() {
+    // Collect data
+    var dailyCals = [];
+    for (var i = 0; i < 7; i++) {
+        var v = document.getElementById('td-ci-cal-' + i).value;
+        if (v) dailyCals.push(parseInt(v));
+    }
+    var wStart = parseFloat(document.getElementById('td-ci-w-start').value) || td.weight_lbs;
+    var wEnd = parseFloat(document.getElementById('td-ci-w-end').value) || wStart;
+    var weightChange = wEnd - wStart;
+
+    var selectedFeelings = [];
+    document.querySelectorAll('#td-checkin-form .td-option-selected').forEach(function(el) {
+        selectedFeelings.push(el.textContent);
+    });
+    var notes = (document.getElementById('td-ci-notes').value || '').trim();
+
+    // Compute
+    var avgCal = dailyCals.length > 0 ? Math.round(dailyCals.reduce(function(a,b){return a+b;}, 0) / dailyCals.length) : null;
+    var daysTracked = dailyCals.length;
+    var weekendCals = (dailyCals[5] || 0) + (dailyCals[6] || 0);
+    var weekdayCals = dailyCals.slice(0, 5).reduce(function(a,b){return a+b;}, 0);
+    var weekendAvg = dailyCals.length >= 7 ? Math.round(weekendCals / 2) : null;
+    var weekdayAvg = dailyCals.length >= 5 ? Math.round(weekdayCals / Math.min(5, dailyCals.slice(0,5).filter(function(x){return x>0;}).length || 1)) : null;
+    var calGap = avgCal ? avgCal - td.target : null;
+
+    // Save check-in
+    var checkinData = {
+        week: (STORE.get('checkins') || []).length + 1,
+        date: new Date().toISOString(),
+        dailyCals: dailyCals,
+        avgCal: avgCal,
+        wStart: wStart,
+        wEnd: wEnd,
+        weightChange: weightChange,
+        feelings: selectedFeelings,
+        notes: notes
+    };
+    var checkins = STORE.get('checkins') || [];
+    checkins.push(checkinData);
+    STORE.set('checkins', checkins);
+
+    // Update weight in profile
+    td.weight_lbs = wEnd;
+
+    // Render analysis
+    var el = document.getElementById('td-checkin-result');
+    el.style.display = '';
+    var html = '<h3>Your week, analyzed</h3>';
+
+    // Calorie analysis
+    if (avgCal) {
+        html += '<div class="td-checkin-grid" style="margin-bottom:16px;">';
+        html += '<div class="td-macro-card"><div class="td-macro-value">' + avgCal + '</div><div class="td-macro-label">Daily avg</div><div class="td-macro-grams">Target: ' + td.target + '</div></div>';
+        html += '<div class="td-macro-card"><div class="td-macro-value">' + (weightChange > 0 ? '+' : '') + weightChange.toFixed(1) + '</div><div class="td-macro-label">lbs change</div><div class="td-macro-grams">' + daysTracked + '/7 days tracked</div></div>';
+        html += '</div>';
+
+        // Weekend vs weekday gap
+        if (weekendAvg && weekdayAvg && Math.abs(weekendAvg - weekdayAvg) > 200) {
+            html += '<div class="td-insight-caution"><strong>Weekend pattern detected.</strong> Your weekday average was ' + weekdayAvg + ' cal but weekends averaged ' + weekendAvg + ' cal — a ' + Math.abs(weekendAvg - weekdayAvg) + ' cal/day swing. ';
+            if (weekendAvg > weekdayAvg) {
+                html += 'This is the most common reason deficits disappear. Your weekly average matters more than any single day.</div>';
+            } else {
+                html += 'You were actually more disciplined on weekends — unusual but solid.</div>';
+            }
+        }
+
+        // Overall assessment
+        if (calGap !== null) {
+            if (Math.abs(calGap) <= 100) {
+                html += '<div class="td-insight-good"><strong>On target.</strong> Your average of ' + avgCal + ' is within 100 cal of your ' + td.target + ' target. ';
+                if (td.goal === 'lose' && weightChange < -0.3) {
+                    html += 'And you lost ' + Math.abs(weightChange).toFixed(1) + ' lbs — the deficit is working. Keep going.</div>';
+                } else if (td.goal === 'lose' && weightChange >= -0.3) {
+                    html += 'Weight didn\'t move much yet — that\'s normal for week 1. Water retention, digestion timing, and cycle phase all mask fat loss. Give it 2 more weeks before adjusting.</div>';
+                } else if (td.goal === 'gain' && weightChange > 0.3) {
+                    html += 'Gaining ' + weightChange.toFixed(1) + ' lbs/week — right in the sweet spot for lean gains.</div>';
+                } else {
+                    html += 'Keep this up for another week and we\'ll have enough data to see a clear trend.</div>';
+                }
+            } else if (calGap > 100) {
+                html += '<div class="td-insight-caution"><strong>Over target by ~' + calGap + ' cal/day.</strong> ';
+                if (td.goal === 'lose') {
+                    html += 'At ' + avgCal + ' cal/day, your deficit is smaller than planned. You\'re still below maintenance (' + td.tdee + '), so you may lose weight — just slower. ';
+                    if (selectedFeelings.indexOf('Hard on weekends') >= 0) {
+                        html += 'You mentioned weekends were hard — that\'s where most of the overshoot is. One strategy: bank 100 cal from weekdays (eat ' + (td.target - 100) + ') and use them on Saturday.</div>';
+                    } else {
+                        html += 'Check if sauces, oils, and drinks are being tracked — these are the most commonly missed calories.</div>';
+                    }
+                } else {
+                    html += 'If this was intentional for a bulk, check the weight trend. If gaining &gt;1 lb/week, the surplus is too high.</div>';
+                }
+            } else {
+                html += '<div class="td-insight-caution"><strong>Under target by ~' + Math.abs(calGap) + ' cal/day.</strong> ';
+                if (td.goal === 'lose') {
+                    html += 'Eating less than planned isn\'t always better. Below ' + td.bmr + ' cal (your BMR), you risk muscle loss, metabolic slowdown, and the exact cycle of restrict→binge→quit. Aim for the target, not below it.</div>';
+                } else if (td.goal === 'gain') {
+                    html += 'You\'re not hitting your surplus. If the volume of food is the problem, try calorie-dense additions: nuts, olive oil, whole milk. Or add a 4th meal.</div>';
+                } else {
+                    html += 'You\'re under your maintenance target. If weight is dropping and you want to maintain, increase intake by ' + Math.abs(calGap) + ' cal.</div>';
+                }
+            }
+        }
+    } else {
+        html += '<div class="td-insight-caution"><strong>No calorie data entered.</strong> That\'s OK — even just the weight data is useful. But tracking calories for at least 5 of 7 days next week will give me much more to work with.</div>';
+    }
+
+    // Feeling-based insights
+    if (selectedFeelings.indexOf('Hungry a lot') >= 0) {
+        html += '<div class="td-highlight"><strong>You were hungry a lot.</strong> Three things to try: (1) More protein — it\'s the most satiating macro. Push toward ' + Math.round(td.weight_lbs * 1) + 'g/day. (2) More fiber from vegetables — volume without calories. (3) Front-load calories earlier in the day if you tend to snack at night.</div>';
+    }
+    if (selectedFeelings.indexOf('Low energy') >= 0) {
+        html += '<div class="td-highlight"><strong>Low energy.</strong> If this is new since starting the deficit, make sure you\'re not skipping carbs around workouts. Pre-workout carbs (banana, oats, toast) can fix this without changing total calories. If it persists into week 2, the deficit may be too aggressive — we\'ll reassess.</div>';
+    }
+    if (selectedFeelings.indexOf('Couldn\'t stick to it') >= 0) {
+        html += '<div class="td-highlight"><strong>You couldn\'t stick to it.</strong> That\'s data, not failure. Was it the calorie target (too restrictive?), the food choices (not enjoyable?), or the tracking (too tedious?)? ';
+        if (td.persona === 'sarah') {
+            html += 'For the adherence pattern you described, try this: track only protein and total calories. Ignore carbs vs fat for now. Two numbers instead of four makes it sustainable.</div>';
+        } else {
+            html += 'Simplify: track just calories and protein. Skip weighing food — use hand portions (palm = protein, fist = carbs, thumb = fat). Precision matters less than consistency.</div>';
+        }
+    }
+
+    el.innerHTML = html;
+
+    // Show next step
+    var next = document.getElementById('td-checkin-next');
+    next.style.display = '';
+    var nextHtml = '<div class="td-next-cta-card">';
+    if (checkins.length >= 2) {
+        nextHtml += '<h3>You have ' + checkins.length + ' weeks of data</h3>';
+        nextHtml += '<p>That\'s enough to see a trend. Let me show you your progress and whether anything needs to change.</p>';
+        nextHtml += '<button class="td-submit" onclick="showProgress()">See my progress</button>';
+    } else {
+        nextHtml += '<h3>Week 1 done</h3>';
+        nextHtml += '<p>One week isn\'t enough for conclusions — weight fluctuates too much day to day. Follow the same plan next week and check in again. Two data points makes a trend.</p>';
+        nextHtml += '<button class="td-submit" onclick="showCheckin()">Log week 2</button>';
+    }
+    nextHtml += '<div style="margin-top:12px;"><button class="td-submit-outline" style="max-width:280px; margin:0 auto; padding:10px;" onclick="showOutputPhase()">Back to my plan</button></div>';
+    nextHtml += '</div>';
+    next.innerHTML = nextHtml;
+
+    // Show ad
+    document.getElementById('td-ad-checkin').style.display = '';
+
+    // Scroll to results
+    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* ==================================================================
+   SYSTEM 4: PROGRESS DASHBOARD
+   User's question: "Am I on track? Should I change anything?"
+   ================================================================== */
+function showProgress() {
+    hideAllPhases();
+    document.getElementById('phase-progress').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    renderProgress();
+}
+
+function renderProgress() {
+    var checkins = STORE.get('checkins') || [];
+    if (checkins.length === 0) { showCheckin(); return; }
+
+    // Header
+    var header = document.getElementById('td-progress-header');
+    var firstWeight = checkins[0].wStart;
+    var lastWeight = checkins[checkins.length - 1].wEnd;
+    var totalChange = lastWeight - firstWeight;
+    var weeks = checkins.length;
+
+    header.innerHTML =
+        '<div style="font-size:0.85em; opacity:0.85;">' + weeks + ' week' + (weeks > 1 ? 's' : '') + ' tracked</div>' +
+        '<div style="font-family:var(--font-display); font-size:2.2em; margin:4px 0;">' + (totalChange > 0 ? '+' : '') + totalChange.toFixed(1) + ' lbs</div>' +
+        '<div style="font-size:0.9em; opacity:0.8;">' + firstWeight + ' → ' + lastWeight + ' lbs · Target: ' + td.target + ' cal/day</div>';
+
+    // Chart (week cells)
+    var chart = document.getElementById('td-progress-chart');
+    var html = '<h3>Week by week</h3>';
+    html += '<div class="td-week-grid">';
+    checkins.forEach(function(c, i) {
+        var delta = c.weightChange;
+        var deltaClass = delta < -0.3 ? 'td-down' : (delta > 0.3 ? 'td-up' : 'td-flat');
+        var isLast = i === checkins.length - 1;
+        html += '<div class="td-week-cell ' + (isLast ? 'td-week-current' : 'td-week-done') + '">';
+        html += '<div class="td-week-label">Wk ' + (i + 1) + '</div>';
+        html += '<div class="td-week-value">' + c.wEnd.toFixed(1) + '</div>';
+        html += '<div class="td-week-delta ' + deltaClass + '">' + (delta > 0 ? '+' : '') + delta.toFixed(1) + ' lb</div>';
+        if (c.avgCal) html += '<div style="font-size:0.68em; color:var(--color-text-tertiary); margin-top:2px;">' + c.avgCal + ' cal</div>';
+        html += '</div>';
+    });
+    // Upcoming weeks
+    for (var j = checkins.length; j < 8; j++) {
+        html += '<div class="td-week-cell"><div class="td-week-label">Wk ' + (j + 1) + '</div><div class="td-week-value" style="color:var(--color-text-tertiary);">—</div></div>';
+    }
+    html += '</div>';
+
+    // Progress bar toward goal
+    if (td.goal === 'lose') {
+        var goalLoss = 15; // default target
+        var progress = Math.min(100, Math.round(Math.abs(totalChange) / goalLoss * 100));
+        html += '<div style="margin-top:16px;">';
+        html += '<div style="font-size:0.88em; font-weight:600; margin-bottom:8px;">Progress toward goal (' + Math.abs(totalChange).toFixed(1) + ' of ~' + goalLoss + ' lbs)</div>';
+        html += '<div class="td-progress-bar-container"><div class="td-progress-bar-fill" style="width:' + progress + '%">' + progress + '%</div></div>';
+        html += '</div>';
+    }
+
+    chart.innerHTML = html;
+
+    // Insight engine
+    var insight = document.getElementById('td-progress-insight');
+    var ihtml = '<h3>What the data says</h3>';
+
+    var avgWeeklyChange = totalChange / weeks;
+    var avgCals = checkins.filter(function(c){return c.avgCal;}).map(function(c){return c.avgCal;});
+    var overallAvgCal = avgCals.length > 0 ? Math.round(avgCals.reduce(function(a,b){return a+b;},0) / avgCals.length) : null;
+
+    if (td.goal === 'lose') {
+        if (avgWeeklyChange <= -0.5 && avgWeeklyChange >= -1.5) {
+            ihtml += '<div class="td-insight-good"><strong>Rate is on track.</strong> You\'re losing ' + Math.abs(avgWeeklyChange).toFixed(1) + ' lbs/week — right in the sustainable range. Don\'t change anything. This is working.</div>';
+        } else if (avgWeeklyChange > -0.3) {
+            ihtml += '<div class="td-insight-caution"><strong>Progress is slow.</strong> At ' + Math.abs(avgWeeklyChange).toFixed(1) + ' lbs/week, the deficit might be too small. ';
+            if (overallAvgCal && overallAvgCal > td.target + 100) {
+                ihtml += 'Your calorie average (' + overallAvgCal + ') is above target (' + td.target + '). Tighten tracking before dropping calories.</div>';
+            } else if (weeks <= 2) {
+                ihtml += 'But it\'s only been ' + weeks + ' week' + (weeks > 1 ? 's' : '') + ' — water weight and fluctuations can mask real progress this early. Give it one more week.</div>';
+            } else {
+                ihtml += 'If tracking is accurate, drop your target by 100 cal to ' + (td.target - 100) + ' cal/day and reassess after 2 more weeks.</div>';
+                td.suggestedTarget = td.target - 100;
+            }
+        } else if (avgWeeklyChange < -1.5) {
+            ihtml += '<div class="td-insight-alert"><strong>Losing too fast.</strong> At ' + Math.abs(avgWeeklyChange).toFixed(1) + ' lbs/week, you\'re likely losing muscle alongside fat. Increase intake by 200 cal to ' + (td.target + 200) + ' cal/day. Slower loss preserves muscle and is more sustainable.</div>';
+            td.suggestedTarget = td.target + 200;
+        }
+    } else if (td.goal === 'gain') {
+        if (avgWeeklyChange >= 0.3 && avgWeeklyChange <= 1.0) {
+            ihtml += '<div class="td-insight-good"><strong>Gaining at the right pace.</strong> ' + avgWeeklyChange.toFixed(1) + ' lbs/week is ideal for muscle gain with minimal fat. Stay the course.</div>';
+        } else if (avgWeeklyChange > 1.0) {
+            ihtml += '<div class="td-insight-caution"><strong>Gaining too fast.</strong> Beyond ~1 lb/week, extra weight is almost all fat. Reduce surplus by 200 cal to ' + (td.target - 200) + ' cal/day.</div>';
+            td.suggestedTarget = td.target - 200;
+        } else if (avgWeeklyChange < 0.3) {
+            ihtml += '<div class="td-insight-caution"><strong>Not gaining enough.</strong> Add 200 cal to bring your target to ' + (td.target + 200) + ' cal/day. Focus the extra calories on carbs around training.</div>';
+            td.suggestedTarget = td.target + 200;
+        }
+    } else {
+        if (Math.abs(avgWeeklyChange) <= 0.3) {
+            ihtml += '<div class="td-insight-good"><strong>Weight is stable.</strong> Your TDEE estimate of ' + td.tdee + ' is well-calibrated. This is your real maintenance number.</div>';
+        } else {
+            var dir = avgWeeklyChange > 0 ? 'gaining' : 'losing';
+            ihtml += '<div class="td-insight-caution"><strong>Weight is trending ' + (avgWeeklyChange > 0 ? 'up' : 'down') + '.</strong> You\'re ' + dir + ' ~' + Math.abs(avgWeeklyChange).toFixed(1) + ' lbs/week. Adjust intake by ' + Math.round(Math.abs(avgWeeklyChange) * 500) + ' cal ' + (avgWeeklyChange > 0 ? 'down' : 'up') + ' to stabilize.</div>';
+        }
+    }
+
+    // Adherence patterns across weeks
+    var allFeelings = checkins.reduce(function(a, c) { return a.concat(c.feelings || []); }, []);
+    var hungerCount = allFeelings.filter(function(f){return f === 'Hungry a lot';}).length;
+    var stickCount = allFeelings.filter(function(f){return f === 'Couldn\'t stick to it';}).length;
+
+    if (hungerCount >= 2) {
+        ihtml += '<div class="td-highlight"><strong>Recurring hunger.</strong> You\'ve reported this ' + hungerCount + ' out of ' + weeks + ' weeks. Consider: (1) increasing protein to ' + Math.round(td.weight_lbs * 1) + 'g/day, (2) eating larger meals less frequently instead of many small ones, or (3) increasing your target by 100 cal — a slightly slower rate of loss that you can actually sustain beats a faster rate you can\'t.</div>';
+    }
+    if (stickCount >= 2) {
+        ihtml += '<div class="td-highlight"><strong>Adherence is the bottleneck.</strong> You\'ve struggled to stick to the plan ' + stickCount + ' out of ' + weeks + ' weeks. The plan needs to change — not your willpower. Options: raise the calorie target by 150 cal, simplify tracking to just protein + total calories, or switch to a weekly calorie budget (' + (td.target * 7) + '/week) so you can flex between days.</div>';
+    }
+
+    insight.innerHTML = ihtml;
+
+    // Actions
+    var actions = document.getElementById('td-progress-actions');
+    var ahtml = '<h3>What\'s next</h3>';
+
+    if (td.suggestedTarget) {
+        ahtml += '<div class="td-next-cta-card">';
+        ahtml += '<h3>Adjust your target to ' + td.suggestedTarget + ' cal/day?</h3>';
+        ahtml += '<p>Based on ' + weeks + ' weeks of data, your current target of ' + td.target + ' needs adjustment. This recalculates your macros too.</p>';
+        ahtml += '<button class="td-submit" onclick="adjustTarget(' + td.suggestedTarget + ')">Update my target</button>';
+        ahtml += '</div>';
+    }
+
+    ahtml += '<div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:16px;">';
+    ahtml += '<button class="td-submit" onclick="showCheckin()" style="flex:1; min-width:140px;">Log next week</button>';
+    ahtml += '<button class="td-submit-outline" onclick="showOutputPhase()" style="flex:1; min-width:140px;">Back to my plan</button>';
+    ahtml += '</div>';
+
+    actions.innerHTML = ahtml;
+
+    // Show ad
+    document.getElementById('td-ad-progress').style.display = '';
+}
+
+/* ==================================================================
+   SYSTEM 5: ADJUSTMENT ENGINE
+   User's need: "Update my plan based on what actually happened"
+   ================================================================== */
+function adjustTarget(newTarget) {
+    td.target = newTarget;
+    td.deficit = td.tdee - td.target;
+    td.surplus = td.target - td.tdee;
+    td.protein_g = Math.round(td.weight_lbs * 0.85);
+    td.fat_g = Math.round((td.target * 0.28) / 9);
+    td.carb_g = Math.round((td.target - td.protein_g * 4 - td.fat_g * 9) / 4);
+
+    // Update stored profile
+    var profile = STORE.get('profile') || {};
+    profile.target = td.target;
+    profile.protein_g = td.protein_g;
+    profile.fat_g = td.fat_g;
+    profile.carb_g = td.carb_g;
+    profile.weight_lbs = td.weight_lbs;
+    profile.adjusted = new Date().toISOString();
+    STORE.set('profile', profile);
+
+    // Show updated plan
+    showOutputPhase();
+
+    // Scroll to plan and flash it
+    setTimeout(function() {
+        var planEl = document.getElementById('td-plan-section');
+        planEl.style.transition = 'box-shadow 0.3s';
+        planEl.style.boxShadow = '0 0 0 3px var(--color-accent)';
+        planEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(function() { planEl.style.boxShadow = ''; }, 2000);
+    }, 100);
+}
+
+/* ---- Phase navigation ---- */
+function hideAllPhases() {
+    ['phase-intake','phase-collect','phase-output','phase-checkin','phase-progress'].forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+    });
+}
+
+function showOutputPhase() {
+    hideAllPhases();
+    document.getElementById('phase-output').style.display = '';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Re-render with potentially updated targets
+    renderOutput();
 }
 
 /* ---- Reset ---- */
 function tdReset() {
     td = { age: null, sex: null, weight_lbs: null, height_in: null, activity: null,
            goal: null, history: null, obstacle: null, bmr: null, tdee: null, target: null, persona: null };
-    document.getElementById('phase-output').style.display = 'none';
+    hideAllPhases();
     document.getElementById('phase-intake').style.display = '';
     document.getElementById('td-input').value = '';
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
-/* ---- Init ---- */
+/* ---- Init: returning user detection ---- */
 document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('td-input').addEventListener('keydown', function(e) {
         if (e.key === 'Enter' && !e.shiftKey) {
@@ -1111,6 +1846,33 @@ document.addEventListener('DOMContentLoaded', function() {
             tdSubmit();
         }
     });
+
+    // Check for returning user with saved profile
+    var profile = STORE.get('profile');
+    if (profile && profile.tdee) {
+        // Restore state
+        td.age = profile.age; td.sex = profile.sex;
+        td.weight_lbs = profile.weight_lbs; td.height_in = profile.height_in;
+        td.activity = profile.activity; td.goal = profile.goal;
+        td.persona = profile.persona; td.tdee = profile.tdee;
+        td.target = profile.target; td.bmr = profile.bmr;
+        td.protein_g = profile.protein_g; td.fat_g = profile.fat_g;
+        td.carb_g = profile.carb_g;
+
+        var checkins = STORE.get('checkins') || [];
+        if (checkins.length > 0) {
+            // Has check-in data — go to progress or check-in
+            td.weight_lbs = checkins[checkins.length - 1].wEnd || td.weight_lbs;
+            if (checkins.length >= 2) {
+                showProgress();
+            } else {
+                showCheckin();
+            }
+        } else {
+            // Has profile but no check-ins — show plan
+            showOutputPhase();
+        }
+    }
 });
 </script>
 
