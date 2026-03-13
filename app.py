@@ -1078,6 +1078,16 @@ cards = [
         "color": "orange",
         "category": "fitness",
         "popular": False
+    },
+    {
+        "title": "Running Pace Calculator",
+        "url": "/running-pace-calculator",
+        "summary": "Calculate your running pace per mile or per km, predict finish time from pace, or estimate distance covered. Includes mile-by-mile splits and race time equivalents for 5K, 10K, half marathon, and marathon.",
+        "icon": "⏱️",
+        "cta": "Calculate Pace",
+        "color": "blue",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -1944,6 +1954,15 @@ articles = [
         "icon": "❤️",
         "cta": "Read Guide",
         "color": "red",
+        "category": "fitness"
+    },
+    {
+        "title": "Running Pace Guide: How to Calculate & Improve Your Running Pace",
+        "url": "/resources/running-pace-guide",
+        "summary": "A comprehensive guide to running pace — how to calculate pace per mile and per km, race pacing strategy, training zones, typical pace benchmarks for 5K through marathon, and evidence-based tips for running faster.",
+        "icon": "⏱️",
+        "cta": "Read Guide",
+        "color": "blue",
         "category": "fitness"
     },
     {
@@ -5068,6 +5087,38 @@ def daily_fiber_intake_guide():
         schema_name="Daily Fiber Intake Guide: How Much Fiber You Need by Age & Sex",
         schema_description="A complete, evidence-based guide to dietary fiber intake — IOM recommendations by age and sex, soluble vs. insoluble fiber, health benefits, top food sources, and how to close the fiber gap.",
         schema_url="/resources/daily-fiber-intake-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-13'
+    )
+
+
+@app.route('/running-pace-calculator')
+def running_pace_calculator():
+    schema_name = "Running Pace Calculator"
+    schema_description = "Calculate running pace per mile or per km from distance and time, predict finish time from pace, or estimate distance from pace and duration. Includes split tables and race equivalents for 5K, 10K, half marathon, and marathon."
+    schema_url = "/running-pace-calculator"
+    return render_template(
+        'running_pace_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-13'
+    )
+
+
+@app.route('/resources/running-pace-guide')
+def running_pace_guide():
+    return render_template(
+        'resources/running_pace_guide.html',
+        is_homepage=False,
+        schema_name="Running Pace Guide: How to Calculate & Improve Your Running Pace",
+        schema_description="A comprehensive, evidence-based guide to running pace — how to calculate pace per mile and per km, pacing strategy for 5K through marathon, training zones, and how to run faster over time.",
+        schema_url="/resources/running-pace-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-13'

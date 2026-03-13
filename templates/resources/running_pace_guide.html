@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = "default-calculator-og.jpg" %}
+{% with
+    meta_description="The complete guide to running pace: how to calculate pace per mile and per km, typical paces by distance and experience level, race pacing strategy, training zones, and evidence-based ways to run faster.",
+    meta_keywords="running pace guide, what is a good running pace, how to calculate running pace, pace per mile, pace per km, running pace zones, 5k pace, marathon pace, how to run faster",
+    og_title="Running Pace Guide: Calculate, Understand & Improve Your Pace",
+    og_description="Everything you need to know about running pace — how to calculate it, what counts as a good pace, pacing strategy for every race distance, training zones, and science-backed tips to get faster.",
+    og_url="/resources/running-pace-guide",
+    page_title="Running Pace Guide: How to Calculate & Improve Your Running Pace",
+    canonical_url="/resources/running-pace-guide",
+    schema_name="Running Pace Guide",
+    schema_description="A comprehensive, evidence-based guide to running pace — how to calculate pace per mile and per km, race pacing strategy, training zones, typical pace benchmarks for 5K through marathon, and science-backed tips for running faster.",
+    schema_url="/resources/running-pace-guide"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+</head>
+<body>
+{% include 'header.html' %}
+<div class="calculator-container">
+    <h1>Running Pace Guide: How to Calculate &amp; Improve Your Running Pace</h1>
+    {% include 'components/article-meta.html' %}
+    <p class="subtitle">Everything you need to know about running pace — from the basic formula to race-day pacing strategy, training zones, and science-backed methods for getting faster.</p>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#what-is-pace">What Is Running Pace?</a></li>
+            <li><a href="#how-to-calculate">How to Calculate Running Pace</a></li>
+            <li><a href="#good-pace">What Is a Good Running Pace?</a></li>
+            <li><a href="#race-pacing">Race Pacing Strategy</a></li>
+            <li><a href="#training-zones">Training Pace Zones</a></li>
+            <li><a href="#how-to-improve">How to Improve Your Running Pace</a></li>
+            <li><a href="#heat-altitude">How Heat and Altitude Affect Pace</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="what-is-pace" class="info">
+        <h2>What Is Running Pace?</h2>
+        <div class="answer-capsule">
+          Running pace is the time required to cover one unit of distance — expressed as minutes per mile (min/mile) in the United States, or minutes per kilometer (min/km) internationally. A pace of 9:00/mile means it takes exactly 9 minutes to complete one mile. Pace is the inverse of speed: a 9:00/mile pace equals 6.7 mph (10.7 km/h). Knowing your pace is fundamental to predicting race finish times, executing proper pacing strategy, and designing effective training workouts.
+        </div>
+
+        <p>Pace and speed describe the same movement from different angles. Speed (mph or km/h) answers "how fast?" while pace (min/mile or min/km) answers "how long per distance unit?" Runners typically use pace because it directly maps to race planning: knowing you run a 10:00/mile pace immediately tells you a 5K will take about 31 minutes.</p>
+
+        <p>The relationship between pace, time, and distance is expressed by three equivalent formulas:</p>
+
+        <div style="background: #f8f9fa; border-radius: 8px; padding: 20px; margin: 16px 0;">
+            <ul style="margin: 0; padding-left: 20px; line-height: 2;">
+                <li><strong>Pace = Time ÷ Distance</strong> &nbsp;(find pace from a known run)</li>
+                <li><strong>Time = Pace × Distance</strong> &nbsp;(predict finish time for any race)</li>
+                <li><strong>Distance = Time ÷ Pace</strong> &nbsp;(how far can you run in a set time?)</li>
+            </ul>
+        </div>
+
+        <p>Use the <a href="/running-pace-calculator">Running Pace Calculator</a> to solve any of these instantly, including a full splits table and race equivalents.</p>
+    </section>
+
+    <section id="how-to-calculate" class="info">
+        <h2>How to Calculate Running Pace</h2>
+        <div class="answer-capsule">
+          To calculate running pace, divide your total running time (in minutes) by the distance covered. For example, if you ran 3.1 miles (5K) in 30 minutes, your pace is 30 ÷ 3.1 = 9:41 per mile (or 6:00 per km). To convert between units: divide min/mile by 1.60934 to get min/km, or multiply min/km by 1.60934 to get min/mile.
+        </div>
+
+        <h3>Step-by-Step Example</h3>
+        <p>Suppose you completed a 10K race in 55 minutes flat. Here's how to calculate your pace:</p>
+
+        <ol>
+            <li><strong>Distance in miles:</strong> 10K = 6.2137 miles</li>
+            <li><strong>Pace (min/mile):</strong> 55 minutes ÷ 6.2137 miles = <strong>8:51 per mile</strong></li>
+            <li><strong>Pace (min/km):</strong> 55 minutes ÷ 10 km = <strong>5:30 per km</strong></li>
+            <li><strong>Speed:</strong> 60 min/hr ÷ 8.85 min/mile = <strong>6.8 mph</strong></li>
+        </ol>
+
+        <h3>Mile-to-Kilometer Conversions for Common Paces</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Min/Mile</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Min/Km</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">MPH</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Km/h</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">5K Finish</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Marathon Finish</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">5:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">3:06</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">12.0</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">19.3</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">15:32</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">2:11:06</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">6:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">3:44</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10.0</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">16.1</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">18:38</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">2:37:19</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">7:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">4:21</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">8.6</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">13.8</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">21:45</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">3:03:31</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">8:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">4:58</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">7.5</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">12.1</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">24:51</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">3:29:44</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">9:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">5:35</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">6.7</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10.7</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">27:58</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">3:55:57</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">6:13</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">6.0</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">9.7</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">31:05</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">4:22:10</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">11:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">6:50</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">5.5</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">8.8</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">34:11</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">4:48:22</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">12:00</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">7:27</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">5.0</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">8.0</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">37:17</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">5:14:35</td></tr>
+                    <tr><td style="padding: 7px 12px;">15:00</td><td style="padding: 7px 12px;">9:19</td><td style="padding: 7px 12px;">4.0</td><td style="padding: 7px 12px;">6.4</td><td style="padding: 7px 12px;">46:37</td><td style="padding: 7px 12px;">6:33:14</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="good-pace" class="info">
+        <h2>What Is a Good Running Pace?</h2>
+        <div class="answer-capsule">
+          A "good" running pace is highly relative — it depends on age, sex, experience level, and race distance. The average recreational runner completes a 5K in 28–35 minutes (9:00–11:15/mile), a 10K in 58–75 minutes, and a half marathon in 2:05–2:40. Running USA data shows the median U.S. marathon finish time is approximately 4:30 for men and 4:55 for women. Elite runners are 3–4 times faster. The most useful benchmark is your own progress over time.
+        </div>
+
+        <p>According to data from Running USA's annual State of Running report, 56.5% of U.S. race finishers are women, and participation spans all paces. Rather than chasing an arbitrary "good" pace, coaches recommend setting age-graded performance goals — comparing your time to age-group and sex norms rather than absolute times.</p>
+
+        <h3>Average 5K Times by Age and Sex (United States)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Age Group</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Male Avg</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Female Avg</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Male Pace</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Female Pace</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">20–29</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">29:27</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">33:02</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">9:30/mi</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10:39/mi</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">30–39</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">31:27</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">34:44</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10:08/mi</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">11:12/mi</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">40–49</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">32:26</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">35:06</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10:27/mi</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">11:19/mi</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">50–59</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">34:30</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">37:24</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">11:07/mi</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">12:03/mi</td></tr>
+                    <tr><td style="padding: 7px 12px;">60+</td><td style="padding: 7px 12px;">37:33</td><td style="padding: 7px 12px;">40:01</td><td style="padding: 7px 12px;">12:06/mi</td><td style="padding: 7px 12px;">12:54/mi</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;">Source: RunRepeat Race Statistics 2019, aggregated from over 107 million race results. Values are medians for U.S. runners.</p>
+    </section>
+
+    <section id="race-pacing" class="info">
+        <h2>Race Pacing Strategy</h2>
+        <div class="answer-capsule">
+          The most effective race pacing strategy is even-split or slight negative-split pacing — running the second half of a race at the same speed or slightly faster than the first half. Research by Tucker et al. (2006) found that all world-record performances in track athletics used negative or even splits. Positive-split pacing (starting too fast) is the most common cause of finishing well below your potential, particularly in marathon racing where glycogen depletion in miles 18–26 can cause dramatic pace drops of 1–2 min/mile.
+        </div>
+
+        <div class="important-box">
+            <h3>Pacing by Race Distance</h3>
+            <ul>
+                <li><strong>5K:</strong> Start at goal pace or 5 sec/mile slower. The race is short enough that a mild positive split is manageable, but most runners still go out too fast. Mile 1 should feel "comfortably hard." Miles 2–3 build effort. Final 0.1 at max effort.</li>
+                <li><strong>10K:</strong> Treat the first 3 miles as moderately hard — conversational effort is gone but you should feel controlled. Miles 4–6 increase effort progressively. Even or negative splits dramatically improve performance over the common "go out fast, hang on" approach.</li>
+                <li><strong>Half Marathon:</strong> Patience is critical. Most half marathon PRs are set by runners who ran miles 1–6 slightly slower than goal pace and picked it up from mile 8 onward. A 10–15 second buffer in the first half pays dividends.</li>
+                <li><strong>Marathon:</strong> The most punishing distance for poor pacing. Every minute too fast in the first half typically costs 3–5 minutes in the final 10K due to glycogen depletion. Experienced marathon coaches universally recommend starting 20–30 seconds per mile slower than goal pace for the first 10 miles.</li>
+            </ul>
+        </div>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="training-zones" class="info">
+        <h2>Training Pace Zones</h2>
+        <div class="answer-capsule">
+          Training pace zones are effort levels defined relative to your current race fitness. The most widely used framework (based on Jack Daniels' Running Formula) defines five zones: easy (E), marathon pace (M), threshold/tempo (T), interval (I), and repetition (R). The fundamental principle — supported by decades of research — is the 80/20 rule: roughly 80% of weekly mileage should be at easy pace, with only 20% at harder efforts. See the <a href="/zone2-heart-rate-calculator">Zone 2 Heart Rate Calculator</a> for heart rate-based zone training.
+        </div>
+
+        <h3>Jack Daniels' Training Pace Definitions (based on VDOT/current fitness)</h3>
+        <p>VDOT is Jack Daniels' shorthand for an adjusted VO₂ max score derived from race performances. Each VDOT score corresponds to specific training paces. Below are sample paces for a runner with a 30-minute 5K:</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Zone</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Name</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Sample Pace (30-min 5K runner)</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">E</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Easy</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">11:30–12:30/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Recovery, long runs, base building (80% of mileage)</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">M</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Marathon Pace</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">10:15–10:45/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Marathon-specific long runs</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">T</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Tempo / Threshold</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">9:30–9:45/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Lactate threshold development, comfortably hard 20–40 min</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">I</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Interval (VO₂ max)</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">8:40–8:55/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Improve VO₂ max, 3–5 min hard reps with recovery</td></tr>
+                    <tr><td style="padding: 7px 12px; font-weight: 600;">R</td><td style="padding: 7px 12px;">Repetition (Speed)</td><td style="padding: 7px 12px;">7:45–8:00/mile</td><td style="padding: 7px 12px;">Running economy, neuromuscular speed, short fast reps</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;">Source: Daniels J. Daniels' Running Formula, 4th Edition. Human Kinetics, 2022. VDOT ~42 for a 30-minute 5K runner.</p>
+    </section>
+
+    <section id="how-to-improve" class="info">
+        <h2>How to Improve Your Running Pace</h2>
+        <div class="answer-capsule">
+          Improving running pace requires building aerobic base, increasing lactate threshold, and improving running economy. The single most evidence-backed intervention is increasing weekly mileage at easy pace — studies show that runners who increase mileage by 10% per week for 12–16 weeks show significant VO₂ max improvement even without adding speed work. Once a base is established, adding one tempo run and one interval session per week produces faster gains in race pace (Billat et al., 1999).
+        </div>
+
+        <div class="important-box" style="border-left-color: #059669;">
+            <h3>The Four Evidence-Based Levers for Faster Pace</h3>
+            <ol>
+                <li>
+                    <strong>Increase weekly mileage (base building):</strong> Research consistently shows that higher mileage at easy pace — the strategy used by elite Kenyan and Ethiopian runners — is the strongest predictor of race pace improvement for recreational runners. Start with the 10% rule: never increase weekly mileage by more than 10% in a single week.
+                </li>
+                <li>
+                    <strong>Add one tempo run per week:</strong> Tempo runs at lactate threshold pace (a comfortably hard effort you can sustain for 20–40 minutes) are the most time-efficient workout for improving race pace. A study by Weltman et al. (1992) found that lactate threshold training improved 5K pace by 3.1% in just 12 weeks.
+                </li>
+                <li>
+                    <strong>Add one VO₂ max interval session per week:</strong> Short, hard intervals at 5K effort or faster (e.g., 4 × 1 mile at 5K pace) raise your aerobic ceiling — the maximum pace you can sustain aerobically. Billat (2001) demonstrated that VO₂ max intervals produce faster improvement than threshold training alone.
+                </li>
+                <li>
+                    <strong>Lose excess body weight:</strong> Running economy research shows that every 1 kg (2.2 lb) of excess weight costs approximately 1 second per mile. A modest 5 kg weight loss at the same fitness level translates to roughly a 5-second/mile improvement, or ~3 minutes off a marathon time.
+                </li>
+            </ol>
+        </div>
+
+        <h3>What Doesn't Work (Common Myths)</h3>
+        <ul>
+            <li><strong>Running every run hard:</strong> Running all workouts at race effort leads to accumulated fatigue, injury, and paradoxically slower race times. The 80/20 principle (80% easy, 20% hard) is supported by studies of elite athlete training distribution (Seiler, 2010).</li>
+            <li><strong>Skipping rest days:</strong> Physiological adaptations from training occur during recovery, not during the run itself. Rest and easy days are when the body rebuilds and strengthens.</li>
+            <li><strong>Treadmill-only training:</strong> Treadmill running reduces ground reaction forces and wind resistance. Outdoor running at the same perceived effort typically yields better race outcomes since races are outdoors.</li>
+        </ul>
+
+        <p>Track your calorie needs during training with the <a href="/running-calorie-calculator">Running Calorie Calculator</a> and support your mileage increases with adequate protein using the <a href="/protein-intake-calculator">Protein Intake Calculator</a>.</p>
+    </section>
+
+    <section id="heat-altitude" class="info">
+        <h2>How Heat, Humidity, and Altitude Affect Pace</h2>
+        <div class="answer-capsule">
+          Heat and humidity are among the biggest performance factors in running. Research by Ely et al. (2007) found that marathon performance degrades by 0.4% for every 1°C rise in temperature above 10°C (50°F). At 25°C (77°F), expect roughly 6% pace degradation — equivalent to about 3 minutes slower in a 2:00 half marathon. High altitude (above ~1,500m / 5,000ft) reduces oxygen availability and forces a 1–4% pace reduction for every additional 1,000m gained above sea level.
+        </div>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Condition</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Approximate Pace Impact</th>
+                        <th style="padding: 9px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Temp 10°C / 50°F (ideal)</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">0 sec/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Optimal race temperature range</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Temp 20°C / 68°F</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">+10–15 sec/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">~3% pace degradation</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Temp 25°C / 77°F</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">+20–30 sec/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">~6% degradation; hydration critical</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Humidity &gt;80%</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Additional +5–15 sec/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Impairs sweat evaporation and cooling</td></tr>
+                    <tr><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Altitude 1,500m (5,000ft)</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">+10–20 sec/mile</td><td style="padding: 7px 12px; border-bottom: 1px solid #f0f0f0;">Without acclimatization</td></tr>
+                    <tr><td style="padding: 7px 12px;">Altitude 2,500m (8,200ft)</td><td style="padding: 7px 12px;">+30–60 sec/mile</td><td style="padding: 7px 12px;">Full acclimatization takes 2–3 weeks</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;">Pace adjustments are approximate for recreational runners. Elite runners show smaller adjustments due to superior thermoregulation. Source: Ely et al. (2007), J Appl Physiol.</p>
+    </section>
+
+    <section id="faq" class="info">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h3>How do I find my current running pace?</h3>
+            <div class="faq-answer">
+                <p>The most accurate way to find your current pace is to run a recent race or time trial and divide your finishing time by the distance. For example, if you ran a 5K in 27 minutes, your pace was 27 ÷ 3.107 = 8:41/mile. If you don't have race data, run a measured mile at a hard (but sustainable) effort and record the time — that's a rough estimate of your threshold pace. Use the <a href="/running-pace-calculator">Running Pace Calculator</a> to instantly convert any distance/time combination into pace per mile and per km.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>Is 10 minutes per mile a good pace?</h3>
+            <div class="faq-answer">
+                <p>A 10:00/mile pace is a solid recreational running pace — placing most adults in the 45th–55th percentile of U.S. race finishers. At 10:00/mile, you'd finish a 5K in 31 minutes, a 10K in 62 minutes, and a half marathon in 2:11. For beginner runners (first 3–6 months of running), 10:00/mile is an excellent target. For runners with 1–2 years of experience, working toward 8:00–9:00/mile is a reasonable goal. Pace "goodness" is always relative to your age, sex, training history, and goals.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How do I calculate my pace from a Garmin or Apple Watch?</h3>
+            <div class="faq-answer">
+                <p>GPS watches display pace automatically during runs (typically updated every second or averaged over a recent window). After a run, your watch calculates average pace as total time ÷ total distance. Be aware that GPS accuracy can vary by ±2–5% depending on satellite signal, tree cover, and building density. For the most accurate pace data, run an official measured course or use a certified track (400 meters per lap). The <a href="/running-pace-calculator">Running Pace Calculator</a> lets you manually input distance and time to get an exact pace regardless of GPS accuracy.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>What pace do I need for a Boston Qualifier?</h3>
+            <div class="faq-answer">
+                <p>Boston Qualifier (BQ) standards vary by age and sex. For 2025–2026, the general BQ standard is under 3:00 for men 18–34 (6:51/mile) and under 3:30 for women 18–34 (8:01/mile). Standards loosen with age — at 60+, standards are 3:50 for men and 4:20 for women. However, the actual cutoff time is typically 3–5 minutes faster than the official standard due to high application volumes. Most runners targeting a BQ need to train at 7:00–9:00/mile for 16–20 weeks with specific marathon-pace long runs. Visit the Boston Athletic Association website for official current standards.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h3>How much does pace decrease in a marathon versus a 5K?</h3>
+            <div class="faq-answer">
+                <p>Most recreational runners complete a marathon at a pace 1:30–2:30 per mile slower than their 5K pace. For example, a runner with a 28-minute 5K (9:01/mile) would typically target a marathon in the 4:00–4:30 range (9:10–10:18/mile). The slowdown is due to glycogen depletion, heat accumulation, and muscle fatigue over the extended duration. Experienced marathoners trained in long-run endurance can limit the gap to 1:00–1:30/mile, while untrained runners may slow 3–5 min/mile in the final 10K. Training with marathon-specific long runs (18–22 miles) is the most effective way to close this gap.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="margin-top: 40px;">
+        <h2>Related Running Tools</h2>
+        <div class="related-tools-grid">
+            <a href="/running-pace-calculator" class="related-tool-card">
+                <h4>Running Pace Calculator</h4>
+                <p>Calculate pace, finish time, or distance with full splits table and race equivalents.</p>
+            </a>
+            <a href="/running-calorie-calculator" class="related-tool-card">
+                <h4>Running Calorie Calculator</h4>
+                <p>See exactly how many calories your run burns based on weight, distance, and pace.</p>
+            </a>
+            <a href="/zone2-heart-rate-calculator" class="related-tool-card">
+                <h4>Zone 2 Heart Rate Calculator</h4>
+                <p>Find the heart rate range that corresponds to aerobic base training pace.</p>
+            </a>
+            <a href="/vo2-max-calculator" class="related-tool-card">
+                <h4>VO₂ Max Calculator</h4>
+                <p>Estimate your aerobic capacity — the physiological ceiling on your running pace.</p>
+            </a>
+        </div>
+    </section>
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% set sources = [
+        {"text": "Daniels J. Daniels' Running Formula, 4th Edition. Human Kinetics. 2022.", "url": "https://humankinetics.com/"},
+        {"text": "Tucker R, Lambert MI, Noakes TD. An analysis of pacing strategies during men's world record performances in track athletics. Int J Sports Physiol Perform. 2006;1(3):233-245.", "url": "https://pubmed.ncbi.nlm.nih.gov/19116440/"},
+        {"text": "Ely MR, Cheuvront SN, Roberts WO, Montain SJ. Impact of weather on marathon-running performance. Med Sci Sports Exerc. 2007;39(3):487-93.", "url": "https://pubmed.ncbi.nlm.nih.gov/17473775/"},
+        {"text": "Billat VL. Interval Training for Performance: A Scientific and Empirical Practice. Special Recommendations for Middle- and Long-Distance Running. Part I. Sports Med. 2001;31(1):13-31.", "url": "https://pubmed.ncbi.nlm.nih.gov/11219499/"},
+        {"text": "Seiler S. What is best practice for training intensity and duration distribution in endurance athletes? Int J Sports Physiol Perform. 2010;5(3):276-291.", "url": "https://pubmed.ncbi.nlm.nih.gov/20861519/"},
+        {"text": "Running USA. 2022 State of Running Report. RunningUSA.org.", "url": "https://www.runningusa.org/"},
+        {"text": "Minetti AE, Moia C, Roi GS, Susta D, Ferretti G. Energy cost of walking and running at extreme uphill and downhill slopes. J Appl Physiol. 2002;93(3):1039-1046.", "url": "https://pubmed.ncbi.nlm.nih.gov/12183501/"}
+    ] %}
+    {% include 'components/sources.html' %}
+</div>
+
+    {% include 'components/related-links.html' %}
+
+    {% include 'footer.html' %}
+
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

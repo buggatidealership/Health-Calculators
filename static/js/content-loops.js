@@ -394,6 +394,15 @@ var CALCULATOR_GRAPH = {
       { url: '/calories-burned-calculator', title: 'Calories Burned', icon: '🔥', reason: 'Compare running to cycling, swimming, and 30+ other activities', params: ['weight_kg'] },
       { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Runners lose 1–2 liters of sweat per hour — are you hydrating enough?', params: ['weight_kg'] },
     ]
+  },
+  'running-pace': {
+    links: [
+      { url: '/running-calorie-calculator', title: 'Running Calorie Calculator', icon: '🏃', reason: 'See how many calories your run burns at your current pace', params: ['weight_kg'] },
+      { url: '/zone2-heart-rate-calculator', title: 'Zone 2 Heart Rate Calculator', icon: '❤️', reason: 'Find the heart rate zone that matches your easy training pace', params: ['age','gender'] },
+      { url: '/vo2-max-calculator', title: 'VO₂ Max Calculator', icon: '🫁', reason: 'Estimate your aerobic capacity — the engine behind your race pace', params: ['age','gender'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned Calculator', icon: '🔥', reason: 'Compare calorie burn across different activities and intensities', params: ['weight_kg'] },
+      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Pace affects sweat rate — calculate your hydration needs for training', params: ['weight_kg'] },
+    ]
   }
 };
 
