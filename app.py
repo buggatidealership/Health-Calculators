@@ -1118,6 +1118,16 @@ cards = [
         "color": "green",
         "category": "fitness",
         "popular": False
+    },
+    {
+        "title": "Treadmill Calorie Calculator",
+        "url": "/treadmill-calorie-calculator",
+        "summary": "Calculate calories burned on a treadmill by speed, incline, duration, and body weight. Uses the ACSM metabolic equation — the gold standard for treadmill calorie estimation. Includes incline comparison table.",
+        "icon": "🏃",
+        "cta": "Calculate Calories",
+        "color": "blue",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -2020,6 +2030,15 @@ articles = [
         "icon": "👣",
         "cta": "Read Guide",
         "color": "green",
+        "category": "fitness"
+    },
+    {
+        "title": "Treadmill Calorie Guide: How Many Calories Does a Treadmill Burn?",
+        "url": "/resources/treadmill-calorie-guide",
+        "summary": "Science-backed guide to treadmill calorie expenditure — ACSM metabolic equations, incline effects at every grade, walking vs. running comparison, the 12-3-30 workout, and how to maximize calorie burn.",
+        "icon": "🏃",
+        "cta": "Read Guide",
+        "color": "blue",
         "category": "fitness"
     },
     {
@@ -5283,6 +5302,38 @@ def steps_calories_guide():
         schema_name="Steps to Calories Guide: How Many Calories Do Your Daily Steps Burn?",
         schema_description="A science-backed guide to how daily step counts translate to calorie burn — with reference charts, stride length tables, and evidence-based step count targets for health and weight loss.",
         schema_url="/resources/steps-calories-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-14'
+    )
+
+
+@app.route('/treadmill-calorie-calculator')
+def treadmill_calorie_calculator():
+    schema_name = "Treadmill Calorie Calculator"
+    schema_description = "Calculate calories burned on a treadmill by speed, incline, duration, and body weight. Uses the ACSM metabolic equation — the gold standard for treadmill calorie estimation. Includes incline comparison table."
+    schema_url = "/treadmill-calorie-calculator"
+    return render_template(
+        'treadmill_calorie_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-14'
+    )
+
+
+@app.route('/resources/treadmill-calorie-guide')
+def treadmill_calorie_guide():
+    return render_template(
+        'resources/treadmill_calorie_guide.html',
+        is_homepage=False,
+        schema_name="Treadmill Calorie Guide: How Many Calories Does a Treadmill Burn?",
+        schema_description="Science-backed guide to treadmill calorie burn — ACSM equations, incline effects, walking vs. running comparison, and how to maximize calorie expenditure on a treadmill.",
+        schema_url="/resources/treadmill-calorie-guide",
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-14'

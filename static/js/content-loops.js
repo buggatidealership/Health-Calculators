@@ -412,6 +412,15 @@ var CALCULATOR_GRAPH = {
       { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Walking increases sweat loss — make sure you are hydrating enough', params: ['weight_kg'] },
       { url: '/zone2-heart-rate-calculator', title: 'Zone 2 Heart Rate Calculator', icon: '❤️', reason: 'Brisk walking often falls in Zone 2 — the fat-burning sweet spot', params: ['age','gender'] },
     ]
+  },
+  'treadmill-calories': {
+    links: [
+      { url: '/running-calorie-calculator', title: 'Running Calorie Calculator', icon: '🏃', reason: 'Compare treadmill calorie burn to outdoor running by distance and pace', params: ['weight_kg'] },
+      { url: '/zone2-heart-rate-calculator', title: 'Zone 2 Heart Rate Calculator', icon: '❤️', reason: 'Find the treadmill speed that puts you in the fat-burning Zone 2 sweet spot', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'See how your treadmill sessions fit into your daily calorie budget', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/steps-to-calories-calculator', title: 'Steps to Calories Calculator', icon: '👣', reason: 'Estimate calories from your step count on or off the treadmill', params: ['weight_kg'] },
+      { url: '/calories-burned-calculator', title: 'Calories Burned Calculator', icon: '💪', reason: 'Compare treadmill to cycling, rowing, HIIT, and 100+ other activities', params: ['weight_kg'] },
+    ]
   }
 };
 
