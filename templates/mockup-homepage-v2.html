@@ -406,29 +406,114 @@
     line-height: 1.5;
   }
 
-  /* Right: 3D hero illustration */
-  .v2-hero-3d {
+  /* Right: product showcase */
+  .v2-showcase {
+    position: relative;
+  }
+
+  .v2-showcase-frame {
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow:
+      0 4px 8px rgba(27, 27, 50, 0.04),
+      0 16px 48px rgba(27, 27, 50, 0.08);
+    overflow: hidden;
+  }
+
+  .v2-showcase-bar {
     display: flex;
     align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--color-muted);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-showcase-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+
+  .v2-showcase-url {
+    flex: 1;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .v2-showcase-body {
+    padding: 32px 28px 28px;
+    text-align: center;
+    background: linear-gradient(160deg, #fafcfc 0%, var(--color-accent-bg) 100%);
+  }
+
+  .v2-showcase-calc-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  .v2-showcase-heartbeat {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .v2-showcase-number {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .v2-showcase-unit {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .v2-showcase-context {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0 8px;
+  }
+
+  .v2-showcase-inputs {
+    display: flex;
+    gap: 8px;
     justify-content: center;
+    flex-wrap: wrap;
   }
 
-  .v2-3d-composed {
-    width: 100%;
-    max-width: 480px;
-    height: auto;
-    animation: v2-float 6s ease-in-out infinite;
-    will-change: transform;
-    pointer-events: none;
+  .v2-showcase-input-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
   }
 
-  @keyframes v2-float {
-    0%, 100% { transform: translateY(0) rotate(0deg); }
-    50% { transform: translateY(-12px) rotate(1deg); }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .v2-3d-composed { animation: none; }
+  .v2-showcase-input-pill strong {
+    color: var(--color-text);
+    font-weight: 600;
   }
 
   /* --- Trust strip (below hero) --- */
@@ -881,18 +966,15 @@
       margin: 0 auto;
     }
     .v2-hero h1 { font-size: 2.6rem; }
-    .v2-hero-3d {
-      min-height: 300px;
-      max-width: 400px;
-      margin: 0 auto;
-    }
+    .v2-showcase-number { font-size: 4rem; }
   }
 
   @media (max-width: 768px) {
     .v2-hero { padding: 40px 20px 36px; }
     .v2-hero h1 { font-size: 2.2rem; }
     .v2-hero-sub { font-size: 1rem; }
-    .v2-hero-3d { min-height: 260px; }
+    .v2-showcase-body { padding: 24px 20px 20px; }
+    .v2-showcase-number { font-size: 3.5rem; }
     .v2-steps { grid-template-columns: 1fr; gap: 14px; }
     .v2-how-heading { font-size: 1.7rem; }
     .v2-tools-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -906,7 +988,7 @@
 
   @media (max-width: 480px) {
     .v2-hero h1 { font-size: 1.9rem; }
-    .v2-hero-3d { min-height: 220px; }
+    .v2-showcase-number { font-size: 3rem; }
     .v2-hero-actions {
       flex-direction: column;
     }
@@ -975,12 +1057,34 @@
         </div>
       </div>
 
-      <!-- Right: 3D hero illustration -->
-      <div class="v2-hero-3d v2-reveal" aria-hidden="true">
-        <picture>
-          <source srcset="{{ url_for('static', filename='images/hero3d/hero_composed.webp') }}" type="image/webp">
-          <img class="v2-3d-composed" src="{{ url_for('static', filename='images/hero3d/hero_composed.png') }}" alt="3D illustration of a health calculator with floating numbers" loading="eager" width="900" height="800">
-        </picture>
+      <!-- Right: Product showcase -->
+      <div class="v2-showcase v2-reveal">
+        <div class="v2-showcase-frame">
+          <div class="v2-showcase-bar">
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-url">healthcalculators.xyz/tdee-calculator</span>
+          </div>
+          <div class="v2-showcase-body">
+            <div class="v2-showcase-calc-name">TDEE Calculator</div>
+            <svg class="v2-showcase-heartbeat" width="80" height="12" viewBox="0 0 80 12" fill="none">
+              <path d="M0 6 L24 6 L32 2 L38 10 L44 4 L50 6 L80 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+            </svg>
+            <div class="v2-showcase-number" id="v2-hero-num">2,340</div>
+            <div class="v2-showcase-unit">calories / day</div>
+            <div class="v2-showcase-context">
+              Your maintenance calories based on the Mifflin-St Jeor equation.
+              Moderately active — higher than average for your profile.
+            </div>
+            <div class="v2-showcase-inputs">
+              <span class="v2-showcase-input-pill"><strong>28</strong> years</span>
+              <span class="v2-showcase-input-pill"><strong>165</strong> lbs</span>
+              <span class="v2-showcase-input-pill"><strong>5'10"</strong></span>
+              <span class="v2-showcase-input-pill"><strong>Active</strong></span>
+            </div>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -1198,7 +1302,25 @@
   els.forEach(function(el) { obs.observe(el); });
 })();
 
-// 3D elements are static images with CSS animations — no JS needed
+// Count-up for showcase number
+(function() {
+  var el = document.getElementById('v2-hero-num');
+  if (!el) return;
+  var target = 2340, dur = 1000;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      var start = performance.now();
+      (function tick(now) {
+        var p = Math.min((now - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      })(performance.now());
+      obs.unobserve(el);
+    }
+  }, { threshold: 0.5 });
+  obs.observe(el);
+})();
 
 // Request form toggle
 (function() {
