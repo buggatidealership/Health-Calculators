@@ -4877,6 +4877,16 @@ a.dl:hover{background:#086a73}
 </div>
 </body></html>'''
 
+@app.route('/mockup-homepage')
+def mockup_homepage():
+    return render_template(
+        'mockup-homepage.html',
+        is_homepage=True,
+        schema_type='WebPage',
+        canonical_url='/mockup-homepage',
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup')
 def mockup():
     return render_template(

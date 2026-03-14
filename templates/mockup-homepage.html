@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="90+ free health calculators built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+    meta_keywords="health calculators, AI health tools, TDEE calculator, BMI calculator, nutrition calculator",
+    og_title="HealthCalculators.xyz — The Intelligent Health Calculator",
+    og_description="90+ free tools built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+    og_url="/",
+    og_image="health-calculators-homepage-og.jpg",
+    page_title="HealthCalculators.xyz — The Intelligent Health Calculator",
+    canonical_url="/",
+    robots_meta="noindex, nofollow"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+  /* ========== MOCKUP HOMEPAGE ========== */
+
+  /* --- Hero --- */
+  .m-hero {
+    position: relative;
+    padding: 80px 24px 72px;
+    text-align: center;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(14, 122, 126, 0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 50% at 80% 100%, rgba(194, 112, 62, 0.04) 0%, transparent 60%),
+      var(--color-bg);
+  }
+
+  /* Subtle grid texture in hero */
+  .m-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14, 122, 126, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 122, 126, 0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+    pointer-events: none;
+  }
+
+  .m-hero-inner {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    z-index: 1;
+  }
+
+  .m-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px 6px 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 28px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .m-hero-badge-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: m-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes m-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .m-hero h1 {
+    font-family: var(--font-display);
+    font-size: 3.8rem;
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1.08;
+    margin: 0 0 20px;
+    letter-spacing: -0.02em;
+  }
+
+  .m-hero h1 em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .m-hero-sub {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--color-text-secondary);
+    max-width: 560px;
+    margin: 0 auto 36px;
+  }
+
+  .m-hero-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+  }
+
+  .m-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .m-btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .m-btn-primary {
+    background: var(--color-text);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(27, 27, 50, 0.2);
+  }
+
+  .m-btn-primary:hover {
+    box-shadow: 0 8px 24px rgba(27, 27, 50, 0.28);
+  }
+
+  .m-btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1.5px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .m-btn-secondary:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .m-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Trust strip */
+  .m-trust {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+
+  .m-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .m-trust-icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+  }
+
+  .m-trust-icon svg {
+    width: 18px;
+    height: 18px;
+    color: var(--color-accent);
+  }
+
+  .m-trust-num {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 1rem;
+  }
+
+  /* --- Product showcase --- */
+  .m-showcase {
+    max-width: 900px;
+    margin: -20px auto 0;
+    padding: 0 24px 64px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .m-showcase-frame {
+    background: var(--color-surface);
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    box-shadow:
+      0 4px 8px rgba(27, 27, 50, 0.04),
+      0 16px 48px rgba(27, 27, 50, 0.08),
+      0 32px 80px rgba(27, 27, 50, 0.06);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .m-showcase-bar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 20px;
+    background: var(--color-muted);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .m-showcase-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+
+  .m-showcase-url {
+    flex: 1;
+    text-align: center;
+    font-size: 0.78rem;
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .m-showcase-content {
+    padding: 40px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .m-showcase-left h3 {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin: 0 0 8px;
+    color: var(--color-text);
+  }
+
+  .m-showcase-left p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+
+  .m-showcase-result {
+    text-align: center;
+    padding: 32px 24px;
+    background: linear-gradient(135deg, var(--color-accent-bg) 0%, #f0fafa 100%);
+    border-radius: 16px;
+    border: 1px solid var(--color-accent-border);
+  }
+
+  .m-showcase-result-num {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .m-showcase-result-unit {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 12px;
+  }
+
+  .m-showcase-result-label {
+    font-size: 0.82rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .m-showcase-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .m-showcase-input-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    background: var(--color-muted);
+    border-radius: 8px;
+    font-size: 0.85rem;
+  }
+
+  .m-showcase-input-label {
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+    min-width: 60px;
+  }
+
+  .m-showcase-input-val {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  /* --- How It Works / AI Narrative --- */
+  .m-narrative {
+    padding: 80px 24px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .m-narrative-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .m-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 12px;
+  }
+
+  .m-section-label::before {
+    content: '';
+    width: 20px;
+    height: 1.5px;
+    background: var(--color-accent);
+    border-radius: 1px;
+  }
+
+  .m-narrative-heading {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 12px;
+    line-height: 1.15;
+  }
+
+  .m-narrative-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-secondary);
+    line-height: 1.65;
+    max-width: 540px;
+    margin-bottom: 48px;
+  }
+
+  .m-process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .m-process-card {
+    position: relative;
+    padding: 32px 28px 28px;
+    background: var(--color-bg);
+    border-radius: 16px;
+    border: 1px solid var(--color-border-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .m-process-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 24px;
+    right: 24px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), rgba(14, 122, 126, 0.3));
+    border-radius: 0 0 3px 3px;
+  }
+
+  .m-process-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .m-process-num {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+  }
+
+  .m-process-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    margin-bottom: 18px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .m-process-icon svg {
+    width: 22px;
+    height: 22px;
+    color: var(--color-accent);
+  }
+
+  .m-process-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 8px;
+  }
+
+  .m-process-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* --- Featured Tools --- */
+  .m-tools {
+    padding: 80px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .m-tools-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .m-tools-heading {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .m-tools-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .m-tools-link:hover {
+    gap: 10px;
+  }
+
+  .m-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+
+  .m-tool-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 28px 24px 22px;
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border-light);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .m-tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border);
+  }
+
+  .m-tool-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-bg);
+    border-radius: 10px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+  }
+
+  .m-tool-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+  }
+
+  .m-tool-title {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 6px;
+  }
+
+  .m-tool-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    flex-grow: 1;
+    margin-bottom: 16px;
+  }
+
+  .m-tool-cta {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+  }
+
+  .m-tool-card:hover .m-tool-cta {
+    gap: 8px;
+  }
+
+  /* --- Categories --- */
+  .m-categories {
+    padding: 64px 24px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .m-categories-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .m-categories-heading {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 24px;
+  }
+
+  .m-cat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  .m-cat-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 22px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .m-cat-tag:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .m-cat-tag svg {
+    width: 18px;
+    height: 18px;
+    opacity: 0.5;
+  }
+
+  .m-cat-count {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    background: var(--color-surface);
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  /* --- Resources Banner --- */
+  .m-resources {
+    padding: 80px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .m-resources-card {
+    position: relative;
+    padding: 48px 40px;
+    background: var(--color-text);
+    border-radius: 20px;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .m-resources-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(14, 122, 126, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .m-resources-card::after {
+    content: '';
+    position: absolute;
+    bottom: -20%;
+    left: -5%;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(194, 112, 62, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .m-resources-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .m-resources-heading {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 12px;
+    line-height: 1.2;
+  }
+
+  .m-resources-desc {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 28px;
+    max-width: 480px;
+  }
+
+  .m-resources-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: #fff;
+    color: var(--color-text);
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .m-resources-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* --- Heartbeat divider --- */
+  .m-divider {
+    text-align: center;
+    padding: 48px 0;
+  }
+
+  .m-divider svg {
+    width: 160px;
+    height: 20px;
+  }
+
+  /* --- Scroll animations --- */
+  .m-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .m-reveal.m-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Staggered children */
+  .m-stagger > .m-reveal:nth-child(1) { transition-delay: 0s; }
+  .m-stagger > .m-reveal:nth-child(2) { transition-delay: 0.1s; }
+  .m-stagger > .m-reveal:nth-child(3) { transition-delay: 0.2s; }
+  .m-stagger > .m-reveal:nth-child(4) { transition-delay: 0.3s; }
+  .m-stagger > .m-reveal:nth-child(5) { transition-delay: 0.4s; }
+  .m-stagger > .m-reveal:nth-child(6) { transition-delay: 0.5s; }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .m-hero {
+      padding: 48px 20px 48px;
+    }
+
+    .m-hero h1 {
+      font-size: 2.4rem;
+    }
+
+    .m-hero-sub {
+      font-size: 1rem;
+    }
+
+    .m-showcase-content {
+      grid-template-columns: 1fr;
+      padding: 28px 24px;
+      gap: 24px;
+    }
+
+    .m-showcase-result-num {
+      font-size: 3rem;
+    }
+
+    .m-process {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .m-narrative-heading {
+      font-size: 1.8rem;
+    }
+
+    .m-tools-grid {
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .m-tools-heading {
+      font-size: 1.5rem;
+    }
+
+    .m-trust {
+      gap: 16px;
+    }
+
+    .m-trust-item {
+      font-size: 0.8rem;
+    }
+
+    .m-resources-card {
+      padding: 32px 24px;
+    }
+
+    .m-resources-heading {
+      font-size: 1.5rem;
+    }
+
+    .m-cat-tag {
+      padding: 10px 16px;
+      font-size: 0.85rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .m-hero h1 {
+      font-size: 2rem;
+    }
+
+    .m-hero-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .m-btn {
+      width: 100%;
+      justify-content: center;
+      max-width: 280px;
+    }
+
+    .m-showcase-frame {
+      border-radius: 14px;
+    }
+  }
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container" style="max-width: none; padding: 0;">
+
+  <!-- ===== HERO ===== -->
+  <section class="m-hero">
+    <div class="m-hero-inner">
+      <div class="m-hero-badge m-reveal">
+        <span class="m-hero-badge-dot"></span>
+        Built by AI. Updated continuously.
+      </div>
+
+      <h1 class="m-reveal">The <em>Intelligent</em><br>Health Calculator</h1>
+
+      <p class="m-hero-sub m-reveal">
+        90+ free tools built by AI, backed by 220+ peer-reviewed citations.
+        Get a clear answer in under 60 seconds.
+      </p>
+
+      <div class="m-hero-actions m-reveal">
+        <a href="/tdee-calculator" class="m-btn m-btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Try TDEE Calculator
+        </a>
+        <a href="#m-tools-section" class="m-btn m-btn-secondary">
+          Browse All Tools
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+
+      <div class="m-trust m-reveal">
+        <div class="m-trust-item">
+          <div class="m-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+          <div>
+            <div class="m-trust-num">220+</div>
+            Peer-Reviewed Citations
+          </div>
+        </div>
+        <div class="m-trust-item">
+          <div class="m-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/><path d="M9 1v3"/><path d="M15 1v3"/><path d="M9 20v3"/><path d="M15 20v3"/><path d="M20 9h3"/><path d="M20 14h3"/><path d="M1 9h3"/><path d="M1 14h3"/></svg>
+          </div>
+          <div>
+            <div class="m-trust-num">90+</div>
+            Free Tools
+          </div>
+        </div>
+        <div class="m-trust-item">
+          <div class="m-trust-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <div>
+            <div class="m-trust-num">28</div>
+            Evidence-Based Guides
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT SHOWCASE ===== -->
+  <section class="m-showcase">
+    <div class="m-showcase-frame m-reveal">
+      <div class="m-showcase-bar">
+        <span class="m-showcase-dot"></span>
+        <span class="m-showcase-dot"></span>
+        <span class="m-showcase-dot"></span>
+        <span class="m-showcase-url">healthcalculators.xyz/tdee-calculator</span>
+      </div>
+      <div class="m-showcase-content">
+        <div class="m-showcase-left">
+          <h3>TDEE Calculator</h3>
+          <p>Your Total Daily Energy Expenditure, personalized using the Mifflin-St Jeor equation and your activity level.</p>
+          <div class="m-showcase-inputs">
+            <div class="m-showcase-input-row">
+              <span class="m-showcase-input-label">Age</span>
+              <span class="m-showcase-input-val">28 years</span>
+            </div>
+            <div class="m-showcase-input-row">
+              <span class="m-showcase-input-label">Weight</span>
+              <span class="m-showcase-input-val">165 lbs</span>
+            </div>
+            <div class="m-showcase-input-row">
+              <span class="m-showcase-input-label">Height</span>
+              <span class="m-showcase-input-val">5'10"</span>
+            </div>
+            <div class="m-showcase-input-row">
+              <span class="m-showcase-input-label">Activity</span>
+              <span class="m-showcase-input-val">Moderately Active</span>
+            </div>
+          </div>
+        </div>
+        <div class="m-showcase-result">
+          <div class="m-showcase-result-num" id="m-showcase-num">2,340</div>
+          <div class="m-showcase-result-unit">calories / day</div>
+          <div class="m-showcase-result-label">Your maintenance TDEE</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== HEARTBEAT DIVIDER ===== -->
+  <div class="m-divider" aria-hidden="true">
+    <svg viewBox="0 0 240 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 10 L80 10 L96 3 L108 17 L118 7 L126 10 L240 10"
+            stroke="var(--color-accent)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <!-- ===== HOW IT WORKS ===== -->
+  <section class="m-narrative">
+    <div class="m-narrative-inner">
+      <div class="m-section-label m-reveal">How it works</div>
+      <h2 class="m-narrative-heading m-reveal">Built different. By design.</h2>
+      <p class="m-narrative-desc m-reveal">
+        Every calculator starts with research and ends with a citation.
+        No guesswork. No paywalls. No ads hiding the answer.
+      </p>
+
+      <div class="m-process m-stagger">
+        <div class="m-process-card m-reveal">
+          <div class="m-process-num">Step 01</div>
+          <div class="m-process-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <div class="m-process-title">Reads the Research</div>
+          <p class="m-process-desc">
+            AI analyzes peer-reviewed papers from PubMed, NIH, and WHO to find validated clinical formulas.
+          </p>
+        </div>
+
+        <div class="m-process-card m-reveal">
+          <div class="m-process-num">Step 02</div>
+          <div class="m-process-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14.5" y1="4" x2="9.5" y2="20"/></svg>
+          </div>
+          <div class="m-process-title">Builds the Tool</div>
+          <p class="m-process-desc">
+            Transforms clinical equations into instant calculators with clear inputs, validated ranges, and real-time results.
+          </p>
+        </div>
+
+        <div class="m-process-card m-reveal">
+          <div class="m-process-num">Step 03</div>
+          <div class="m-process-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+          </div>
+          <div class="m-process-title">Cites Every Source</div>
+          <p class="m-process-desc">
+            Every result links back to the original research. You can verify the science yourself, always.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED TOOLS ===== -->
+  <section class="m-tools" id="m-tools-section">
+    <div class="m-tools-header m-reveal">
+      <div>
+        <div class="m-section-label">Popular</div>
+        <h2 class="m-tools-heading">Most Used Tools</h2>
+      </div>
+      <a href="/" class="m-tools-link">
+        View all 90+ tools <span>&rarr;</span>
+      </a>
+    </div>
+
+    <div class="m-tools-grid m-stagger">
+      <a href="/tdee-calculator" class="m-tool-card m-reveal">
+        <div class="m-tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="m-tool-title">TDEE Calculator</div>
+        <div class="m-tool-desc">Calculate your total daily energy expenditure based on the Mifflin-St Jeor equation.</div>
+        <div class="m-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/bmi-calculator" class="m-tool-card m-reveal">
+        <div class="m-tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <div class="m-tool-title">BMI Calculator</div>
+        <div class="m-tool-desc">Body Mass Index with WHO classification and health risk context.</div>
+        <div class="m-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/protein-intake-calculator" class="m-tool-card m-reveal">
+        <div class="m-tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="m-tool-title">Protein Intake</div>
+        <div class="m-tool-desc">Personalized daily protein target based on your weight, goals, and activity level.</div>
+        <div class="m-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/calories-burned-calculator" class="m-tool-card m-reveal">
+        <div class="m-tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+        </div>
+        <div class="m-tool-title">Calories Burned</div>
+        <div class="m-tool-desc">Estimate calories burned for 100+ activities using validated MET values.</div>
+        <div class="m-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/ozempic-weight-loss-calculator" class="m-tool-card m-reveal">
+        <div class="m-tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="m-tool-title">Ozempic Weight Loss</div>
+        <div class="m-tool-desc">Project your weight loss timeline on semaglutide based on clinical trial data.</div>
+        <div class="m-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/sleep-calculator" class="m-tool-card m-reveal">
+        <div class="m-tool-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </div>
+        <div class="m-tool-title">Sleep Calculator</div>
+        <div class="m-tool-desc">Optimal bedtime and wake times aligned with your natural sleep cycles.</div>
+        <div class="m-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== CATEGORIES ===== -->
+  <section class="m-categories">
+    <div class="m-categories-inner">
+      <div class="m-section-label m-reveal">Explore</div>
+      <h2 class="m-categories-heading m-reveal">Browse by Category</h2>
+      <div class="m-cat-grid m-stagger">
+        <a href="/nutrition-calculators" class="m-cat-tag m-reveal">
+          Nutrition & Diet
+          <span class="m-cat-count">20+</span>
+        </a>
+        <a href="/weight-loss-medication-calculators" class="m-cat-tag m-reveal">
+          Weight Loss Medications
+          <span class="m-cat-count">12+</span>
+        </a>
+        <a href="/fitness-body-composition-calculators" class="m-cat-tag m-reveal">
+          Fitness & Body Composition
+          <span class="m-cat-count">15+</span>
+        </a>
+        <a href="/cosmetic-procedure-calculators" class="m-cat-tag m-reveal">
+          Cosmetic & Aesthetic
+          <span class="m-cat-count">10+</span>
+        </a>
+        <a href="/pregnancy-fertility-calculators" class="m-cat-tag m-reveal">
+          Pregnancy & Fertility
+          <span class="m-cat-count">12+</span>
+        </a>
+        <a href="/health-longevity-calculators" class="m-cat-tag m-reveal">
+          Health & Longevity
+          <span class="m-cat-count">15+</span>
+        </a>
+        <a href="/financial-earnings-calculators" class="m-cat-tag m-reveal">
+          Financial & Earnings
+          <span class="m-cat-count">6+</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESOURCES BANNER ===== -->
+  <section class="m-resources">
+    <div class="m-resources-card m-reveal">
+      <div class="m-resources-inner">
+        <div class="m-section-label" style="color: rgba(255,255,255,0.5);">Guides</div>
+        <h2 class="m-resources-heading">Understand What Your<br>Numbers Mean</h2>
+        <p class="m-resources-desc">
+          28 evidence-based guides that explain your results, what to do next, and when to talk to a doctor.
+        </p>
+        <a href="/resources" class="m-resources-btn">
+          Browse All Guides
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+// Scroll-triggered reveal animations
+(function() {
+  var reveals = document.querySelectorAll('.m-reveal');
+  if (!('IntersectionObserver' in window)) {
+    reveals.forEach(function(el) { el.classList.add('m-visible'); });
+    return;
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('m-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+// Count-up animation for showcase number
+(function() {
+  var el = document.getElementById('m-showcase-num');
+  if (!el) return;
+  var target = 2340;
+  var duration = 1200;
+  var observer = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      var start = performance.now();
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var val = Math.round(target * eased);
+        el.textContent = val.toLocaleString();
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+      observer.unobserve(el);
+    }
+  }, { threshold: 0.5 });
+  observer.observe(el);
+})();
+</script>
+</body>
+</html>
