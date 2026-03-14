@@ -1,148 +1,267 @@
 /**
- * Share Card System — Generates visual, shareable result cards from calculator output.
+ * Share Card System v2 — Generates dark, bold, shareable result cards.
+ * Optimized for Twitter/X native image posting (1200x675, 16:9).
  *
- * Usage: call generateShareCard(options) after displaying calculator results.
+ * Design: Dark background, hero number, percentile context, subtle branding.
+ * Inspired by Spotify Wrapped card format — one insight, one visual statement.
  *
  * Options:
- *   calculatorName: string — display name of the calculator
- *   resultLabel: string — e.g. "Your BMI"
- *   resultValue: string — e.g. "24.3"
- *   resultCategory: string — e.g. "Healthy Weight"
- *   categoryColor: string — hex color for the category
- *   details: array of {label, value} — key input details shown on card
+ *   calculatorName: string — display name
+ *   resultLabel: string — e.g. "Your TDEE"
+ *   resultValue: string — e.g. "2,340"
+ *   resultUnit: string — e.g. "kcal/day" (shown smaller beside value)
+ *   resultCategory: string — e.g. "Moderately Active"
+ *   categoryColor: string — hex color for semantic meaning
+ *   context: string — e.g. "Higher than 65% of adults your age" (optional)
+ *   details: array of {label, value} — key input details
  *   url: string — page URL for sharing (without protocol)
- *   sensitive: boolean — if true, share text omits the actual result value
+ *   sensitive: boolean — if true, share text omits actual result value
  *   containerId: string — optional, defaults to 'share-card-output'
  */
 
 (function() {
   'use strict';
 
-  var CARD_WIDTH = 600;
-  var CARD_HEIGHT = 315;
-  var ACCENT = '#0a7e8c';
-  var FONT_FAMILY = 'DM Sans, system-ui, -apple-system, sans-serif';
+  // Card dimensions — Twitter-optimized 16:9
+  var CARD_W = 1200;
+  var CARD_H = 675;
+
+  // Brand colors
+  var BG_DARK = '#1b1b32';
+  var BG_GRADIENT_END = '#0f2027';
+  var ACCENT = '#0e7a7e';
+  var TEXT_WHITE = '#ffffff';
+  var TEXT_MUTED = 'rgba(255,255,255,0.5)';
+  var TEXT_LIGHT = 'rgba(255,255,255,0.75)';
+  var FONT = 'DM Sans, system-ui, -apple-system, sans-serif';
+
+  // Semantic colors (bright on dark)
+  var COLORS = {
+    accent: '#2dd4bf',   // teal-bright
+    good: '#4ade80',     // green-bright
+    warning: '#fbbf24',  // amber-bright
+    danger: '#f87171'    // red-bright
+  };
 
   /**
-   * Draw the share card on a canvas element.
+   * Map a category color from the page's light-mode palette to a bright-on-dark variant.
    */
-  function drawCard(canvas, opts) {
-    var ctx = canvas.getContext('2d');
-    canvas.width = CARD_WIDTH;
-    canvas.height = CARD_HEIGHT;
-
-    // White background
-    ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, CARD_WIDTH, CARD_HEIGHT);
-
-    // Header bar
-    ctx.fillStyle = ACCENT;
-    ctx.fillRect(0, 0, CARD_WIDTH, 56);
-
-    // Calculator name in header
-    ctx.fillStyle = '#ffffff';
-    ctx.font = 'bold 18px ' + FONT_FAMILY;
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'middle';
-    ctx.fillText(opts.calculatorName, 24, 28);
-
-    // Site branding in header (right side)
-    ctx.font = '13px ' + FONT_FAMILY;
-    ctx.textAlign = 'right';
-    ctx.fillStyle = 'rgba(255,255,255,0.85)';
-    ctx.fillText('healthcalculators.xyz', CARD_WIDTH - 24, 28);
-
-    // Result label
-    ctx.textAlign = 'center';
-    ctx.fillStyle = '#64748b';
-    ctx.font = '15px ' + FONT_FAMILY;
-    ctx.fillText(opts.resultLabel, CARD_WIDTH / 2, 90);
-
-    // Large result value
-    ctx.fillStyle = opts.categoryColor || ACCENT;
-    ctx.font = 'bold 52px ' + FONT_FAMILY;
-    ctx.fillText(opts.resultValue, CARD_WIDTH / 2, 145);
-
-    // Category with color indicator
-    var catText = opts.resultCategory;
-    var catMetrics = ctx.measureText(catText);
-
-    // Draw category dot
-    ctx.fillStyle = opts.categoryColor || ACCENT;
-    var dotX = (CARD_WIDTH / 2) - (catMetrics.width / 2) - 14;
-    ctx.beginPath();
-    ctx.arc(dotX, 177, 6, 0, 2 * Math.PI);
-    ctx.fill();
-
-    // Category text
-    ctx.font = '600 16px ' + FONT_FAMILY;
-    ctx.fillStyle = '#1e293b';
-    ctx.textAlign = 'center';
-    ctx.fillText(catText, CARD_WIDTH / 2 + 2, 182);
-
-    // Details row
-    if (opts.details && opts.details.length > 0) {
-      var detailY = 218;
-      var totalDetails = opts.details.length;
-      var spacing = CARD_WIDTH / (totalDetails + 1);
-
-      ctx.font = '12px ' + FONT_FAMILY;
-      ctx.fillStyle = '#94a3b8';
-
-      for (var i = 0; i < totalDetails; i++) {
-        var dx = spacing * (i + 1);
-        ctx.textAlign = 'center';
-        ctx.font = '12px ' + FONT_FAMILY;
-        ctx.fillStyle = '#94a3b8';
-        ctx.fillText(opts.details[i].label, dx, detailY);
-
-        ctx.font = '600 14px ' + FONT_FAMILY;
-        ctx.fillStyle = '#334155';
-        ctx.fillText(opts.details[i].value, dx, detailY + 18);
-      }
-    }
-
-    // Separator line
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.lineWidth = 1;
-    ctx.beginPath();
-    ctx.moveTo(24, 256);
-    ctx.lineTo(CARD_WIDTH - 24, 256);
-    ctx.stroke();
-
-    // Bottom: CTA text
-    ctx.textAlign = 'center';
-    ctx.font = '600 14px ' + FONT_FAMILY;
-    ctx.fillStyle = ACCENT;
-    ctx.fillText('Try it yourself \u2192 ' + (opts.url || 'healthcalculators.xyz'), CARD_WIDTH / 2, 280);
-
-    // Bottom border accent
-    ctx.fillStyle = ACCENT;
-    ctx.fillRect(0, CARD_HEIGHT - 4, CARD_WIDTH, 4);
+  function brightColor(hex) {
+    if (!hex) return COLORS.accent;
+    hex = hex.toLowerCase();
+    if (hex.indexOf('16a34a') > -1 || hex.indexOf('1a8a4a') > -1 || hex.indexOf('green') > -1) return COLORS.good;
+    if (hex.indexOf('d97706') > -1 || hex.indexOf('c27a0e') > -1 || hex.indexOf('orange') > -1 || hex.indexOf('amber') > -1) return COLORS.warning;
+    if (hex.indexOf('dc2626') > -1 || hex.indexOf('c03030') > -1 || hex.indexOf('red') > -1) return COLORS.danger;
+    return COLORS.accent;
   }
 
   /**
-   * Build share text. If sensitive, omit the actual value.
+   * Draw rounded rectangle.
+   */
+  function roundRect(ctx, x, y, w, h, r) {
+    ctx.beginPath();
+    ctx.moveTo(x + r, y);
+    ctx.lineTo(x + w - r, y);
+    ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+    ctx.lineTo(x + w, y + h - r);
+    ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+    ctx.lineTo(x + r, y + h);
+    ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+    ctx.lineTo(x, y + r);
+    ctx.quadraticCurveTo(x, y, x + r, y);
+    ctx.closePath();
+  }
+
+  /**
+   * Draw the share card on canvas.
+   */
+  function drawCard(canvas, opts) {
+    var ctx = canvas.getContext('2d');
+    canvas.width = CARD_W;
+    canvas.height = CARD_H;
+
+    var color = brightColor(opts.categoryColor);
+
+    // -- Background: dark gradient --
+    var grad = ctx.createLinearGradient(0, 0, CARD_W, CARD_H);
+    grad.addColorStop(0, BG_DARK);
+    grad.addColorStop(1, BG_GRADIENT_END);
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+    // -- Subtle grid texture --
+    ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+    ctx.lineWidth = 1;
+    for (var gx = 0; gx < CARD_W; gx += 60) {
+      ctx.beginPath(); ctx.moveTo(gx, 0); ctx.lineTo(gx, CARD_H); ctx.stroke();
+    }
+    for (var gy = 0; gy < CARD_H; gy += 60) {
+      ctx.beginPath(); ctx.moveTo(0, gy); ctx.lineTo(CARD_W, gy); ctx.stroke();
+    }
+
+    // -- Accent glow (top-right) --
+    var glow = ctx.createRadialGradient(CARD_W * 0.8, CARD_H * 0.15, 0, CARD_W * 0.8, CARD_H * 0.15, 350);
+    glow.addColorStop(0, color.replace(')', ',0.12)').replace('rgb', 'rgba'));
+    glow.addColorStop(1, 'transparent');
+    ctx.fillStyle = glow;
+    ctx.fillRect(0, 0, CARD_W, CARD_H);
+
+    // -- Top: Calculator name (small, muted) --
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'top';
+    ctx.font = '600 20px ' + FONT;
+    ctx.fillStyle = TEXT_MUTED;
+    ctx.fillText(opts.calculatorName.toUpperCase(), 64, 48);
+
+    // -- Heartbeat accent line under name --
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.globalAlpha = 0.4;
+    ctx.beginPath();
+    ctx.moveTo(64, 80);
+    ctx.lineTo(114, 80);
+    ctx.lineTo(122, 70);
+    ctx.lineTo(130, 88);
+    ctx.lineTo(138, 74);
+    ctx.lineTo(144, 80);
+    ctx.lineTo(200, 80);
+    ctx.stroke();
+    ctx.globalAlpha = 1;
+
+    // -- Result label (above the number) --
+    ctx.textAlign = 'left';
+    ctx.font = '400 26px ' + FONT;
+    ctx.fillStyle = TEXT_LIGHT;
+    var labelY = 120;
+    ctx.fillText(opts.resultLabel, 64, labelY);
+
+    // -- Hero number --
+    ctx.font = '800 96px ' + FONT;
+    ctx.fillStyle = TEXT_WHITE;
+    var numY = labelY + 50;
+    var numText = opts.resultValue;
+    ctx.fillText(numText, 64, numY);
+
+    // -- Unit (smaller, beside or below number) --
+    if (opts.resultUnit) {
+      var numWidth = ctx.measureText(numText).width;
+      ctx.font = '400 32px ' + FONT;
+      ctx.fillStyle = TEXT_MUTED;
+      ctx.fillText(opts.resultUnit, 64 + numWidth + 16, numY + 68);
+    }
+
+    // -- Category badge --
+    if (opts.resultCategory) {
+      var badgeY = numY + (opts.resultUnit ? 108 : 90);
+      var badgeText = opts.resultCategory;
+
+      ctx.font = '600 22px ' + FONT;
+      var badgeWidth = ctx.measureText(badgeText).width;
+      var badgePadH = 20;
+      var badgePadV = 10;
+
+      // Badge background
+      ctx.fillStyle = color.replace(')', ',0.15)').replace('rgb', 'rgba');
+      // Fallback for hex colors
+      if (ctx.fillStyle.indexOf('rgba') === -1) {
+        ctx.globalAlpha = 0.15;
+        ctx.fillStyle = color;
+      }
+      roundRect(ctx, 64, badgeY - badgePadV, badgeWidth + badgePadH * 2, 36, 8);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+
+      // Badge text
+      ctx.fillStyle = color;
+      ctx.textBaseline = 'middle';
+      ctx.fillText(badgeText, 64 + badgePadH, badgeY + 8);
+      ctx.textBaseline = 'top';
+    }
+
+    // -- Context line (percentile/comparison) --
+    if (opts.context) {
+      var ctxY = CARD_H - 140;
+      ctx.font = '400 22px ' + FONT;
+      ctx.fillStyle = TEXT_LIGHT;
+      ctx.fillText(opts.context, 64, ctxY);
+    }
+
+    // -- Details chips (bottom-left) --
+    if (opts.details && opts.details.length > 0) {
+      var chipY = CARD_H - 90;
+      var chipX = 64;
+      ctx.font = '500 18px ' + FONT;
+
+      for (var i = 0; i < Math.min(opts.details.length, 4); i++) {
+        var chipText = opts.details[i].label + ': ' + opts.details[i].value;
+        var cw = ctx.measureText(chipText).width + 24;
+
+        // Chip background
+        ctx.fillStyle = 'rgba(255,255,255,0.08)';
+        roundRect(ctx, chipX, chipY, cw, 32, 6);
+        ctx.fill();
+
+        // Chip text
+        ctx.fillStyle = TEXT_LIGHT;
+        ctx.textBaseline = 'middle';
+        ctx.fillText(chipText, chipX + 12, chipY + 16);
+        ctx.textBaseline = 'top';
+
+        chipX += cw + 10;
+      }
+    }
+
+    // -- Branding (bottom-right, subtle) --
+    ctx.textAlign = 'right';
+    ctx.textBaseline = 'bottom';
+
+    // "Powered by Pulse" text
+    ctx.font = '500 18px ' + FONT;
+    ctx.fillStyle = TEXT_MUTED;
+    ctx.fillText('Powered by Pulse', CARD_W - 64, CARD_H - 56);
+
+    // Site URL
+    ctx.font = '400 16px ' + FONT;
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.fillText('healthcalculators.xyz', CARD_W - 64, CARD_H - 32);
+
+    // -- Top accent line --
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, CARD_W, 4);
+  }
+
+  /**
+   * Build conversational share text optimized for engagement.
    */
   function buildShareText(opts, platform) {
     var url = 'https://' + (opts.url || 'healthcalculators.xyz');
     var via = ' via @GetHealthC';
+
     if (opts.sensitive) {
       if (platform === 'twitter') {
         return 'I just used the ' + opts.calculatorName + ' \u2014 check yours' + via;
       }
       return 'I just used the ' + opts.calculatorName + ' \u2014 check yours: ' + url;
     }
-    var result = opts.calculatorName + ': My ' + opts.resultLabel.replace(/^Your\s*/i, '') +
-      ' is ' + opts.resultValue + ' (' + opts.resultCategory + ').';
+
+    // Conversational format for Twitter (hook-first, no calculator name in text)
     if (platform === 'twitter') {
-      return result + ' Check yours' + via;
+      var hook = 'My ' + opts.resultLabel.replace(/^Your\s*/i, '').toLowerCase() +
+        ' is ' + opts.resultValue;
+      if (opts.resultUnit) hook += ' ' + opts.resultUnit;
+      hook += '. What\u2019s yours?' + via;
+      return hook;
     }
+
+    // Other platforms: include URL
+    var result = opts.calculatorName + ': ' + opts.resultLabel + ' is ' +
+      opts.resultValue + (opts.resultUnit ? ' ' + opts.resultUnit : '') +
+      (opts.resultCategory ? ' (' + opts.resultCategory + ')' : '') + '.';
     return result + ' Check yours: ' + url;
   }
 
   /**
-   * Track share event with GA4 if available.
+   * Track share event with GA4 via consent queue.
    */
   function trackShare(method, calculatorName) {
     if (typeof hcTrackEvent === 'function') {
@@ -161,7 +280,7 @@
   }
 
   /**
-   * Create share buttons HTML and attach event listeners.
+   * Create share buttons.
    */
   function createShareButtons(container, canvas, opts) {
     var btnWrap = document.createElement('div');
@@ -172,8 +291,19 @@
     var encodedText = encodeURIComponent(text);
     var encodedUrl = encodeURIComponent(url);
 
-    // Button definitions
     var buttons = [
+      {
+        label: 'Download',
+        icon: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8m0 0l-3-3m3 3l3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>',
+        cls: 'share-btn-download',
+        action: function() {
+          var link = document.createElement('a');
+          link.download = opts.calculatorName.toLowerCase().replace(/\s+/g, '-') + '-result.png';
+          link.href = canvas.toDataURL('image/png');
+          link.click();
+          trackShare('download_image', opts.calculatorName);
+        }
+      },
       {
         label: 'Copy Link',
         icon: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6.5 9.5l3-3M5.5 7L4 8.5a2.12 2.12 0 003 3L8.5 10M10.5 9l1.5-1.5a2.12 2.12 0 00-3-3L7.5 6"/></svg>',
@@ -185,7 +315,6 @@
               showCopied(btn);
             });
           } else {
-            // Fallback
             var ta = document.createElement('textarea');
             ta.value = copyUrl;
             ta.style.position = 'fixed';
@@ -200,7 +329,7 @@
         }
       },
       {
-        label: 'Twitter',
+        label: 'Post on X',
         icon: '<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M9.52 6.775L15.48 0h-1.41L8.895 5.882 4.764 0H0l6.247 9.09L0 16h1.41l5.463-6.352L11.236 16H16L9.52 6.775zm-1.934 2.248l-.633-.906L1.92 1.04h2.17l4.065 5.816.633.906 5.284 7.558h-2.17L7.586 9.023z"/></svg>',
         cls: 'share-btn-twitter',
         action: function() {
@@ -225,18 +354,6 @@
         action: function() {
           window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodedUrl, '_blank', 'width=550,height=420');
           trackShare('facebook', opts.calculatorName);
-        }
-      },
-      {
-        label: 'Download',
-        icon: '<svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 2v8m0 0l-3-3m3 3l3-3M2 12v1a1 1 0 001 1h10a1 1 0 001-1v-1"/></svg>',
-        cls: 'share-btn-download',
-        action: function() {
-          var link = document.createElement('a');
-          link.download = opts.calculatorName.toLowerCase().replace(/\s+/g, '-') + '-result.png';
-          link.href = canvas.toDataURL('image/png');
-          link.click();
-          trackShare('download_image', opts.calculatorName);
         }
       }
     ];
@@ -265,49 +382,40 @@
   }
 
   /**
-   * Main entry point. Generates the share card and buttons.
+   * Main entry point.
    */
   function generateShareCard(opts) {
     var containerId = opts.containerId || 'share-card-output';
     var container = document.getElementById(containerId);
     if (!container) return;
 
-    // Clear previous content
     container.innerHTML = '';
 
-    // Create title
     var title = document.createElement('div');
     title.className = 'share-card-title';
     title.textContent = 'Share Your Results';
     container.appendChild(title);
 
-    // Create canvas wrapper (for responsive scaling)
     var canvasWrap = document.createElement('div');
     canvasWrap.className = 'share-card-canvas-wrap';
     var canvas = document.createElement('canvas');
     canvasWrap.appendChild(canvas);
     container.appendChild(canvasWrap);
 
-    // Draw the card
     drawCard(canvas, opts);
-
-    // Create share buttons
     createShareButtons(container, canvas, opts);
 
-    // Show the container
     container.style.display = 'block';
     container.classList.remove('hidden');
   }
 
   /**
    * Auto-detect calculator results and generate share card.
-   * Looks for .result-hero-number / .tdee-number patterns.
    */
   function autoShareCard() {
     var container = document.getElementById('share-card-output');
     if (!container) return;
 
-    // Find the hero result element (two common patterns)
     var heroNum = document.querySelector('.result-hero-number') || document.querySelector('.tdee-number');
     var heroLabel = document.querySelector('.result-hero-label') || document.querySelector('.tdee-sublabel');
     var heroSub = document.querySelector('.result-hero-sublabel') || document.querySelector('.tdee-label');
@@ -315,18 +423,15 @@
     if (!heroNum) return;
 
     var value = heroNum.textContent.trim();
-    // Skip placeholder values
-    if (!value || value === '—' || value === '--' || value === '0') return;
+    if (!value || value === '\u2014' || value === '--' || value === '0') return;
 
-    // Get calculator name from page title or h1
     var h1 = document.querySelector('h1');
     var calcName = h1 ? h1.textContent.trim().replace(/\s*Calculator\s*$/i, ' Calculator') : 'Calculator';
 
-    // Determine category color from result styling
+    // Detect category color
     var catColor = ACCENT;
     var heroStyle = heroNum.style;
     if (heroStyle.color) catColor = heroStyle.color;
-    // Check for semantic color classes on result container
     var resultsEl = document.getElementById('results') || document.getElementById('result');
     if (resultsEl) {
       var colorEl = resultsEl.querySelector('.good, .text-good, [style*="16a34a"], [style*="green"]');
@@ -340,22 +445,32 @@
     var label = heroLabel ? heroLabel.textContent.trim() : 'Your Result';
     var category = heroSub ? heroSub.textContent.trim() : '';
 
-    // Determine if sensitive (health risk scores, fertility, etc.)
+    // Try to extract unit from the result value or label
+    var unit = '';
+    var cleanValue = value;
+    var unitMatch = value.match(/^([\d,\.]+)\s*(.+)$/);
+    if (unitMatch) {
+      cleanValue = unitMatch[1];
+      unit = unitMatch[2];
+    }
+
+    // Detect sensitive calculators
     var sensitive = /risk|fertility|menopause|bac|alcohol/i.test(calcName);
 
     generateShareCard({
       calculatorName: calcName,
       resultLabel: label,
-      resultValue: value,
-      resultCategory: category || label,
+      resultValue: cleanValue,
+      resultUnit: unit,
+      resultCategory: category || '',
       categoryColor: catColor,
+      context: '',
       details: [],
       url: 'healthcalculators.xyz' + window.location.pathname,
       sensitive: sensitive
     });
   }
 
-  // Expose globally
   window.generateShareCard = generateShareCard;
   window.autoShareCard = autoShareCard;
 })();
