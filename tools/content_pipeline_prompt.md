@@ -121,7 +121,6 @@ Write to `/root/healthcalculators-full/templates/{calculator_name}.html`
 Must include:
 - `{% include 'head_seo.html' %}` with proper meta tags
 - `{% include 'header.html' %}`
-- `{% include 'components/article-meta.html' %}`
 - Calculator form with proper input validation
 - Results section with `id="results-section"` and `class="hidden"`
 - Ad units: top, middle, in-article, bottom positions
