@@ -112,10 +112,10 @@
     var observer = new MutationObserver(function() {
       // Check if results are visible
       if (resultsEl.offsetHeight > 0 && !resultsEl.classList.contains('hidden')) {
-        // Small delay to let result values populate
+        // Wait for count-up animations to complete before capturing values
         setTimeout(function() {
           if (typeof autoShareCard === 'function') autoShareCard();
-        }, 200);
+        }, 1500);
       }
     });
 
