@@ -1,0 +1,33 @@
+# HealthCalculators.xyz
+
+> 90+ free, evidence-based health calculators built on peer-reviewed research. Covers nutrition, fitness, body composition, weight loss medications, cosmetic procedures, pregnancy & fertility, and health & longevity.
+
+## Top Calculators
+- [TDEE Calculator](https://healthcalculators.xyz/tdee-calculator): Estimate Total Daily Energy Expenditure using the Mifflin-St Jeor equation to determine maintenance calories
+- [BMI Calculator](https://healthcalculators.xyz/bmi-calculator): Calculate Body Mass Index and weight category based on WHO guidelines with healthy weight range for your height
+- [One Rep Max (1RM) Calculator](https://healthcalculators.xyz/one-rep-max-calculator): Estimate one rep max using 7 proven formulas with full training load table for bench press, squat, and deadlift
+- [VO2 Max Calculator](https://healthcalculators.xyz/vo2-max-calculator): Estimate VO2 max with 6 validated methods including Cooper run, walking test, step test, and no-exercise estimate
+- [Training Volume Calculator](https://healthcalculators.xyz/training-volume-calculator): Personalized weekly set recommendations per muscle group based on experience, goals, age, sleep, and recovery
+- [Chipotle Nutrition Calculator](https://healthcalculators.xyz/chipotle-nutrition-calculator): Build a Chipotle order and see real-time nutrition facts for calories, protein, carbs, fat, and fiber
+- [Starbucks Nutrition Calculator](https://healthcalculators.xyz/starbucks-nutrition-calculator): Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar
+- [Subway Calorie Calculator](https://healthcalculators.xyz/subway-calorie-calculator): Build any Subway sandwich and see real-time nutrition facts with bread, protein, cheese, veggies, and sauces
+- [BAC Calculator](https://healthcalculators.xyz/bac-calculator): Estimate blood alcohol content based on drinks consumed, weight, gender, and time with impairment levels
+- [Ozempic Weight Loss Calculator](https://healthcalculators.xyz/ozempic-weight-loss-calculator): Estimate fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy)
+- [Lifespan Calculator](https://healthcalculators.xyz/lifespan-longevity-calculator): Estimate life expectancy based on health and lifestyle factors
+- [Baldness Risk Calculator](https://healthcalculators.xyz/baldness-risk-calculator): Estimate risk of going bald based on family history, age, lifestyle, and health factors
+- [Female Fertility Calculator](https://healthcalculators.xyz/female-fertility-calculator): Predict most fertile days and ovulation window based on menstrual cycle
+- [IVF Due Date Calculator](https://healthcalculators.xyz/ivf-due-date-calculator): Predict baby's due date after IVF for both fresh and frozen embryo transfers
+- [Breast Implant Cost Calculator](https://healthcalculators.xyz/breast-implant-cost-calculator): Estimate total breast augmentation cost based on implant type, region, and surgeon experience
+
+## Resource Guides
+- [Zone 2 Training Guide](https://healthcalculators.xyz/resources/zone2-training-guide): The science of aerobic base building — mitochondrial biogenesis, fat oxidation, and weekly volume recommendations
+- [Running Calorie Burn Guide](https://healthcalculators.xyz/resources/running-calorie-guide): Calories per mile by weight, how pace and terrain affect burn rate, and weight loss math
+- [Daily Fiber Intake Guide](https://healthcalculators.xyz/resources/daily-fiber-intake-guide): IOM recommendations by age, soluble vs. insoluble fiber, and the top 20 high-fiber foods
+- [How to Start Carb Cycling](https://healthcalculators.xyz/resources/how-to-start-carb-cycling): Carb cycling for weight loss and performance with sample plans and macro breakdowns
+- [How to Prevent Hair Loss](https://healthcalculators.xyz/resources/how-to-prevent-hair-loss): Science-based prevention and treatment strategies for both men and women
+- [How Alcohol Affects Your BAC](https://healthcalculators.xyz/resources/how-alcohol-affects-your-bac): How alcohol is absorbed and eliminated, and how weight, gender, and time affect BAC levels
+- [Fertility After 35](https://healthcalculators.xyz/resources/fertility-after-35): Age-related fertility facts, egg reserve decline, and pregnancy chances after 35
+
+## About
+- [About Us](https://healthcalculators.xyz/about)
+- [Editorial Policy](https://healthcalculators.xyz/editorial-policy)
