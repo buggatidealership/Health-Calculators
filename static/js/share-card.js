@@ -160,13 +160,9 @@
       var badgePadH = 20;
       var badgePadV = 10;
 
-      // Badge background
-      ctx.fillStyle = color.replace(')', ',0.15)').replace('rgb', 'rgba');
-      // Fallback for hex colors
-      if (ctx.fillStyle.indexOf('rgba') === -1) {
-        ctx.globalAlpha = 0.15;
-        ctx.fillStyle = color;
-      }
+      // Badge background — always use globalAlpha for consistency
+      ctx.globalAlpha = 0.15;
+      ctx.fillStyle = color;
       roundRect(ctx, 64, badgeY - badgePadV, badgeWidth + badgePadH * 2, 36, 8);
       ctx.fill();
       ctx.globalAlpha = 1;
@@ -428,17 +424,34 @@
     var h1 = document.querySelector('h1');
     var calcName = h1 ? h1.textContent.trim().replace(/\s*Calculator\s*$/i, ' Calculator') : 'Calculator';
 
-    // Detect category color
+    // Detect category color from the primary result element, not the whole results container
     var catColor = ACCENT;
     var heroStyle = heroNum.style;
     if (heroStyle.color) catColor = heroStyle.color;
-    var resultsEl = document.getElementById('results') || document.getElementById('result');
-    if (resultsEl) {
-      var colorEl = resultsEl.querySelector('.good, .text-good, [style*="16a34a"], [style*="green"]');
-      if (colorEl) catColor = '#16a34a';
-      var warnEl = resultsEl.querySelector('.warning, .text-warning, [style*="d97706"], [style*="orange"]');
+    // Check the category label element for semantic color
+    var catLabel = heroSub || heroLabel;
+    if (catLabel) {
+      var catStyle = window.getComputedStyle(catLabel);
+      var catColorVal = catStyle.color;
+      // Parse rgb to detect semantic colors
+      if (catColorVal) {
+        var rgbMatch = catColorVal.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/);
+        if (rgbMatch) {
+          var r = parseInt(rgbMatch[1]), g = parseInt(rgbMatch[2]), b = parseInt(rgbMatch[3]);
+          if (g > 100 && r < 80 && b < 100) catColor = '#16a34a'; // green
+          else if (r > 150 && g > 80 && b < 50) catColor = '#d97706'; // amber/orange
+          else if (r > 150 && g < 80 && b < 80) catColor = '#dc2626'; // red
+        }
+      }
+    }
+    // Fallback: check primary result container only (not gauge/table children)
+    var primaryResult = document.querySelector('.tdee-primary-result, .result-hero');
+    if (primaryResult && catColor === ACCENT) {
+      var goodEl = primaryResult.querySelector('.good, .text-good, [style*="16a34a"]');
+      if (goodEl) catColor = '#16a34a';
+      var warnEl = primaryResult.querySelector('.warning, .text-warning, [style*="d97706"]');
       if (warnEl) catColor = '#d97706';
-      var dangerEl = resultsEl.querySelector('.danger, .text-danger, [style*="dc2626"], [style*="red"]');
+      var dangerEl = primaryResult.querySelector('.danger, .text-danger, [style*="dc2626"]');
       if (dangerEl) catColor = '#dc2626';
     }
 
