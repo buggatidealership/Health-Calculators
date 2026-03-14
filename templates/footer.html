@@ -1,4 +1,4 @@
-{% if not is_homepage|default(false) and request.path != '/resources' %}
+{% if not is_homepage|default(false) and not is_catalog|default(false) and request.path != '/resources' %}
   </div><!-- /.page-content -->
   <aside class="page-sidebar" aria-label="Sidebar">
     <div class="sidebar-ad-sticky">

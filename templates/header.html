@@ -51,7 +51,7 @@
 </nav>
 {% endif %}
 <main>
-{% if not is_homepage|default(false) and request.path != '/resources' %}
+{% if not is_homepage|default(false) and not is_catalog|default(false) and request.path != '/resources' %}
 <div class="page-layout">
   <div class="page-content">
 {% endif %}

@@ -1148,22 +1148,24 @@ def home():
 
 @app.route('/calculators')
 def all_calculators():
-    schema_name = "All Calculators — HealthCalculators.xyz"
-    schema_description = "Browse all 90+ science-backed health calculators for nutrition, fitness, medications, fertility, and more."
+    schema_name = "90+ Free Health Calculators — Browse All Tools"
+    schema_description = "Browse all 90+ science-backed health calculators for nutrition, fitness, medications, fertility, and more. Free, evidence-based, no signup required."
     schema_url = "/calculators"
     popular_cards = [c for c in cards if c.get("popular")]
     return render_template(
         'home.html',
         is_homepage=False,
+        is_catalog=True,
         cards=cards,
         popular_cards=popular_cards,
         categories=categories,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        schema_type='WebPage',
+        schema_type='CollectionPage',
         date_modified='2026-03-14',
-        breadcrumb_title='All Calculators'
+        breadcrumb_title='All Calculators',
+        page_heading='Browse All Health Calculators'
     )
 
 # ===== CATEGORY HUB PAGES =====

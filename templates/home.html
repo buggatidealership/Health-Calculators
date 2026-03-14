@@ -378,6 +378,7 @@
 
     <div class="calculator-container">
 
+    {% if not is_catalog|default(false) %}
     <!-- Hero -->
     <div class="hp-hero">
         <h1>Know Your Numbers. Own Your Health.</h1>
@@ -396,6 +397,11 @@
             <div class="hp-trust-item"><strong>28</strong> Evidence-Based Guides</div>
         </div>
     </div>
+    {% else %}
+    <!-- Catalog heading -->
+    <h1 style="font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--color-text); text-align: center; margin: 24px 0 8px;">{{ page_heading|default('Browse All Health Calculators') }}</h1>
+    <p style="text-align: center; color: var(--color-text-secondary); font-size: 0.95rem; margin: 0 0 24px;">Search or filter by category to find the right tool.</p>
+    {% endif %}
 
     <!-- Search -->
     <div class="hp-search">
