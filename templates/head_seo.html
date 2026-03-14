@@ -25,11 +25,28 @@
 <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='apple-touch-icon.png') }}">
 <link rel="manifest" href="{{ url_for('static', filename='site.webmanifest') }}">
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QBF9RR49T"></script>
+<!-- GDPR Consent: default denied for EU, granted elsewhere -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'wait_for_update': 500
+  });
+  gtag('consent', 'default', {
+    'analytics_storage': 'granted',
+    'ad_storage': 'granted',
+    'ad_user_data': 'granted',
+    'ad_personalization': 'granted',
+    'region': ['US', 'CA', 'AU', 'NZ', 'JP', 'KR', 'SG', 'BR', 'MX', 'IN']
+  });
+</script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-7QBF9RR49T"></script>
+<script>
   gtag('js', new Date());
   gtag('config', 'G-7QBF9RR49T');
 </script>
@@ -313,6 +330,54 @@ document.addEventListener('DOMContentLoaded',function(){
       });
       document.head.appendChild(script);
     }
+  })();
+  // Track calculator_complete: fires when a result renders on any calculator page
+  (function(){
+    var resultsEl=document.getElementById('results')||document.getElementById('result');
+    if(!resultsEl) return;
+    var fired=false;
+    var observer=new MutationObserver(function(){
+      if(fired) return;
+      // Check if results container now has visible content
+      if(resultsEl.offsetHeight>50 && resultsEl.textContent.trim().length>10){
+        fired=true;
+        if(typeof gtag==='function'){
+          var h1=document.querySelector('h1');
+          gtag('event','calculator_complete',{
+            calculator_name: h1?h1.textContent.trim():'Unknown',
+            page_path: window.location.pathname
+          });
+        }
+      }
+    });
+    observer.observe(resultsEl,{childList:true,subtree:true,attributes:true});
+  })();
+  // GDPR consent banner for EU visitors
+  (function(){
+    if(localStorage.getItem('hc_consent')!=null) {
+      if(localStorage.getItem('hc_consent')==='granted'){
+        gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});
+      }
+      return;
+    }
+    var tz;
+    try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){tz='';}
+    var euZones=/^(Europe|Atlantic)\//;
+    if(!euZones.test(tz)) return; // Only show banner to likely-EU visitors
+    var bar=document.createElement('div');
+    bar.id='consent-bar';
+    bar.style.cssText='position:fixed;bottom:0;left:0;right:0;background:#1a1a1a;color:#fff;padding:14px 20px;display:flex;align-items:center;justify-content:center;gap:16px;font-size:14px;z-index:9999;font-family:DM Sans,system-ui,sans-serif;flex-wrap:wrap;';
+    bar.innerHTML='<span>We use cookies for analytics and ads. </span><button id="consent-accept" style="background:#0a7e8c;color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px;font-weight:600;">Accept</button><button id="consent-deny" style="background:transparent;color:#aaa;border:1px solid #555;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:14px;">Decline</button>';
+    document.body.appendChild(bar);
+    document.getElementById('consent-accept').addEventListener('click',function(){
+      localStorage.setItem('hc_consent','granted');
+      gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});
+      bar.remove();
+    });
+    document.getElementById('consent-deny').addEventListener('click',function(){
+      localStorage.setItem('hc_consent','denied');
+      bar.remove();
+    });
   })();
 });
 </script>
