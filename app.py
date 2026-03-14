@@ -1103,7 +1103,7 @@ categories = [
 
 @app.route('/')
 def home():
-    schema_name = "Longevity Calculator - Health & Wellness Calculators"
+    schema_name = "HealthCalculators.xyz — Science-Backed Health Tools & Calculators"
     schema_description = "Explore our collection of science-based health calculators for nutrition, longevity, fitness, and wellness. Get personalized insights to optimize your health."
     schema_url = "/"
     popular_cards = [c for c in cards if c.get("popular")]
