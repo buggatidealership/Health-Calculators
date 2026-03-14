@@ -1108,6 +1108,16 @@ cards = [
         "color": "blue",
         "category": "fitness",
         "popular": False
+    },
+    {
+        "title": "Steps to Calories Calculator",
+        "url": "/steps-to-calories-calculator",
+        "summary": "Convert any step count to calories burned using your weight, stride length, and walking pace. Works with any fitness tracker. Includes steps-to-calories chart for 1,000–20,000 steps.",
+        "icon": "👣",
+        "cta": "Calculate Calories",
+        "color": "green",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -1983,6 +1993,15 @@ articles = [
         "icon": "⏱️",
         "cta": "Read Guide",
         "color": "blue",
+        "category": "fitness"
+    },
+    {
+        "title": "Steps to Calories Guide: How Many Calories Do Your Daily Steps Burn?",
+        "url": "/resources/steps-calories-guide",
+        "summary": "Science-backed guide to how daily step counts translate to calorie burn — with reference charts by weight, stride length tables, evidence-based step targets for health, and how to maximize calorie burn from walking.",
+        "icon": "👣",
+        "cta": "Read Guide",
+        "color": "green",
         "category": "fitness"
     },
     {
@@ -5197,6 +5216,38 @@ def running_pace_guide():
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-13'
+    )
+
+
+@app.route('/steps-to-calories-calculator')
+def steps_to_calories_calculator():
+    schema_name = "Steps to Calories Calculator"
+    schema_description = "Calculate calories burned from step count using your body weight, stride length, and walking pace. Based on MET values from the Ainsworth Compendium of Physical Activities."
+    schema_url = "/steps-to-calories-calculator"
+    return render_template(
+        'steps_to_calories_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-14'
+    )
+
+
+@app.route('/resources/steps-calories-guide')
+def steps_calories_guide():
+    return render_template(
+        'resources/steps_calories_guide.html',
+        is_homepage=False,
+        schema_name="Steps to Calories Guide: How Many Calories Do Your Daily Steps Burn?",
+        schema_description="A science-backed guide to how daily step counts translate to calorie burn — with reference charts, stride length tables, and evidence-based step count targets for health and weight loss.",
+        schema_url="/resources/steps-calories-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-14'
     )
 
 

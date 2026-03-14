@@ -403,6 +403,15 @@ var CALCULATOR_GRAPH = {
       { url: '/calories-burned-calculator', title: 'Calories Burned Calculator', icon: '🔥', reason: 'Compare calorie burn across different activities and intensities', params: ['weight_kg'] },
       { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Pace affects sweat rate — calculate your hydration needs for training', params: ['weight_kg'] },
     ]
+  },
+  'steps-to-calories': {
+    links: [
+      { url: '/calories-burned-calculator', title: 'Calories Burned Calculator', icon: '🔥', reason: 'Compare walking calorie burn to cycling, swimming, and 100+ other activities', params: ['weight_kg'] },
+      { url: '/running-calorie-calculator', title: 'Running Calorie Calculator', icon: '🏃', reason: 'See how much more you burn by running the same distance', params: ['weight_kg'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '⚡', reason: 'See how your daily steps fit into your total calorie budget for weight loss', params: ['weight_kg'] },
+      { url: '/water-intake-calculator', title: 'Water Intake Calculator', icon: '💧', reason: 'Walking increases sweat loss — make sure you are hydrating enough', params: ['weight_kg'] },
+      { url: '/zone2-heart-rate-calculator', title: 'Zone 2 Heart Rate Calculator', icon: '❤️', reason: 'Brisk walking often falls in Zone 2 — the fat-burning sweet spot', params: ['age','gender'] },
+    ]
   }
 };
 
