@@ -136,11 +136,11 @@
             border-radius: 12px;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.15s, box-shadow 0.15s;
         }
         .hp-popular-card:hover {
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.15s, box-shadow 0.15s;
         }
         .hp-popular-icon {
             font-size: 1.6rem;
@@ -186,12 +186,12 @@
             border-radius: 10px;
             text-decoration: none;
             color: inherit;
-            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
         }
         .hp-cat-card:hover {
             transform: translateY(-2px);
             border-color: var(--card-color, var(--color-accent));
             box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
         }
         .hp-cat-icon {
             font-size: 1.4rem;
@@ -220,11 +220,16 @@
             color: #ccc;
             font-size: 1.1rem;
             flex-shrink: 0;
-            transition: color 0.15s, transform 0.15s;
         }
         .hp-cat-card:hover .hp-cat-arrow {
             color: var(--card-color, var(--color-accent));
             transform: translateX(3px);
+        }
+
+        /* Skip layout for off-screen category sections */
+        .hp-section[data-section]:not([data-section="popular"]) {
+            content-visibility: auto;
+            contain-intrinsic-size: auto 400px;
         }
 
         /* Category nav pills */
@@ -244,7 +249,6 @@
             color: #555;
             text-decoration: none;
             background: #fff;
-            transition: all 0.15s;
             cursor: pointer;
         }
         .hp-cat-pill:hover, .hp-cat-pill.active {
