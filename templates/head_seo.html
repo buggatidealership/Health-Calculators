@@ -269,8 +269,8 @@ document.addEventListener('DOMContentLoaded',function(){
     document.body.appendChild(sticky);
     sticky.querySelector('button').addEventListener('click',function(){
       calcForm.scrollIntoView({behavior:'smooth',block:'start'});
-      if(typeof gtag==='function'){
-        gtag('event','sticky_cta_click',{event_category:'engagement',page:window.location.pathname});
+      if(typeof hcTrackEvent==='function'){
+        hcTrackEvent('sticky_cta_click',{event_category:'engagement',page:window.location.pathname});
       }
     });
     // Show/hide based on scroll position
@@ -358,6 +358,47 @@ document.addEventListener('DOMContentLoaded',function(){
     try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){tz='';}
     if(!/^(Europe|Atlantic)\//.test(tz)){hcFlushEvents(true);return;}
     // EU first visit: consent pending, events will queue until banner action
+  })();
+  // UTM parameter tracking: capture campaign source and pass to GA4
+  (function(){
+    var params=new URLSearchParams(window.location.search);
+    var utmFields=['utm_source','utm_medium','utm_campaign','utm_content','utm_term'];
+    var campaign={};
+    var hasUtm=false;
+    utmFields.forEach(function(f){
+      var v=params.get(f);
+      if(v){campaign[f]=v;hasUtm=true;}
+    });
+    if(hasUtm){
+      // Store UTM params in sessionStorage for cross-page attribution
+      sessionStorage.setItem('hc_utm',JSON.stringify(campaign));
+      if(typeof gtag==='function'){
+        gtag('set',{
+          campaign_source:campaign.utm_source||'(not set)',
+          campaign_medium:campaign.utm_medium||'(not set)',
+          campaign_name:campaign.utm_campaign||'(not set)',
+          campaign_content:campaign.utm_content||undefined,
+          campaign_term:campaign.utm_term||undefined
+        });
+      }
+    } else {
+      // Restore UTM from sessionStorage for subsequent pages in same session
+      var stored=sessionStorage.getItem('hc_utm');
+      if(stored){
+        try{
+          var c=JSON.parse(stored);
+          if(typeof gtag==='function'){
+            gtag('set',{
+              campaign_source:c.utm_source||'(not set)',
+              campaign_medium:c.utm_medium||'(not set)',
+              campaign_name:c.utm_campaign||'(not set)',
+              campaign_content:c.utm_content||undefined,
+              campaign_term:c.utm_term||undefined
+            });
+          }
+        }catch(e){}
+      }
+    }
   })();
   // Track calculator_complete: fires when a result renders on any calculator page
   (function(){

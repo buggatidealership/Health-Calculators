@@ -145,7 +145,13 @@
    * Track share event with GA4 if available.
    */
   function trackShare(method, calculatorName) {
-    if (typeof gtag === 'function') {
+    if (typeof hcTrackEvent === 'function') {
+      hcTrackEvent('share', {
+        method: method,
+        content_type: 'calculator_result',
+        content_id: calculatorName
+      });
+    } else if (typeof gtag === 'function') {
       gtag('event', 'share', {
         method: method,
         content_type: 'calculator_result',

@@ -460,7 +460,13 @@ function showNextSteps(calculatorId, userData, resultData, containerId) {
     a.className = 'next-step-card';
     // GA4 event tracking for content loop clicks
     a.addEventListener('click', function() {
-      if (typeof gtag === 'function') {
+      if (typeof hcTrackEvent === 'function') {
+        hcTrackEvent('content_loop_click', {
+          'source_calculator': calculatorId,
+          'destination': link.url,
+          'event_category': 'engagement'
+        });
+      } else if (typeof gtag === 'function') {
         gtag('event', 'content_loop_click', {
           'source_calculator': calculatorId,
           'destination': link.url,
@@ -565,7 +571,13 @@ function addShareButton(container, userData) {
   copyBtn.innerHTML = '&#128279; Copy Link';
   copyBtn.addEventListener('click', function() {
     // GA4 event tracking
-    if (typeof gtag === 'function') {
+    if (typeof hcTrackEvent === 'function') {
+      hcTrackEvent('share_results', {
+        'method': 'copy_link',
+        'calculator': window.location.pathname,
+        'event_category': 'engagement'
+      });
+    } else if (typeof gtag === 'function') {
       gtag('event', 'share_results', {
         'method': 'copy_link',
         'calculator': window.location.pathname,
@@ -675,7 +687,12 @@ function checkReturnVisit() {
     });
 
     // GA4 tracking
-    if (typeof gtag === 'function') {
+    if (typeof hcTrackEvent === 'function') {
+      hcTrackEvent('return_visit_prompt', {
+        'previous_calculator': entry.page,
+        'event_category': 'engagement'
+      });
+    } else if (typeof gtag === 'function') {
       gtag('event', 'return_visit_prompt', {
         'previous_calculator': entry.page,
         'event_category': 'engagement'
