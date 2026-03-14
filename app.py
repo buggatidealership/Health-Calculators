@@ -1133,13 +1133,28 @@ categories = [
 
 @app.route('/')
 def home():
-    schema_name = "HealthCalculators.xyz — Science-Backed Health Tools & Calculators"
-    schema_description = "Explore our collection of science-based health calculators for nutrition, longevity, fitness, and wellness. Get personalized insights to optimize your health."
+    schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"
+    schema_description = "90+ free health calculators built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds."
     schema_url = "/"
+    return render_template(
+        'mockup-homepage-v2.html',
+        is_homepage=True,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        schema_type='WebPage',
+        date_modified='2026-03-14'
+    )
+
+@app.route('/calculators')
+def all_calculators():
+    schema_name = "All Calculators — HealthCalculators.xyz"
+    schema_description = "Browse all 90+ science-backed health calculators for nutrition, fitness, medications, fertility, and more."
+    schema_url = "/calculators"
     popular_cards = [c for c in cards if c.get("popular")]
     return render_template(
         'home.html',
-        is_homepage=True,
+        is_homepage=False,
         cards=cards,
         popular_cards=popular_cards,
         categories=categories,
@@ -1147,7 +1162,8 @@ def home():
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        date_modified='2026-03-12'
+        date_modified='2026-03-14',
+        breadcrumb_title='All Calculators'
     )
 
 # ===== CATEGORY HUB PAGES =====
@@ -3315,6 +3331,9 @@ def sitemap_xml():
         if card['url'] not in noindex_urls:
             pages.append({'loc': card['url'], 'priority': '0.8', 'changefreq': 'monthly', 'lastmod': lastmod})
 
+    # All calculators listing page
+    pages.append({'loc': '/calculators', 'priority': '0.8', 'changefreq': 'weekly', 'lastmod': lastmod})
+
     # Resource listing page
     pages.append({'loc': '/resources', 'priority': '0.7', 'changefreq': 'weekly', 'lastmod': lastmod})
 
@@ -4908,13 +4927,7 @@ def mockup_homepage():
 
 @app.route('/mockup-homepage-v2')
 def mockup_homepage_v2():
-    return render_template(
-        'mockup-homepage-v2.html',
-        is_homepage=True,
-        schema_type='WebPage',
-        canonical_url='/mockup-homepage-v2',
-        robots_meta='noindex, nofollow'
-    )
+    return redirect('/', code=301)
 
 @app.route('/api/request-calculator', methods=['POST'])
 def request_calculator():

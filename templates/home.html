@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 {% with
-    meta_description="Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers.",
+    meta_description=schema_description|default("Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers."),
     meta_keywords="health calculators, lifespan calculator, nutrition calculator, wellness tools, tdee calculator",
-    og_title="HealthCalculators.xyz – Smart Health Starts Here",
-    og_description="Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action.",
-    og_url="/",
+    og_title=schema_name|default("HealthCalculators.xyz – Smart Health Starts Here"),
+    og_description=schema_description|default("Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action."),
+    og_url=canonical_url|default("/calculators"),
     og_image="default-calculator-og.jpg",
-    page_title="HealthCalculators.xyz — Science-Backed Health Tools & Calculators",
-    canonical_url="/"
+    page_title=schema_name|default("HealthCalculators.xyz — Science-Backed Health Tools & Calculators"),
+    canonical_url=canonical_url|default("/calculators")
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
