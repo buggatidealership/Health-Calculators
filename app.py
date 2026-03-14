@@ -3475,7 +3475,7 @@ demographic_pages = {
     },
     'bmi-calculator-for-women': {
         'url': '/bmi-calculator-for-women',
-        'page_title': 'BMI Calculator for Women — Healthy Ranges, Limitations & What Your BMI Means',
+        'page_title': 'BMI Calculator for Women — Healthy Ranges & Limitations',
         'og_title': 'BMI Calculator for Women',
         'meta_description': 'Calculate your BMI as a woman and understand what it means. See healthy BMI ranges for women by age, why BMI may be inaccurate during pregnancy or menopause, and better alternatives.',
         'meta_keywords': 'BMI calculator for women, female BMI chart, healthy BMI women, BMI ranges women, normal BMI for women',
@@ -3547,7 +3547,7 @@ demographic_pages = {
     },
     'protein-calculator-for-women': {
         'url': '/protein-calculator-for-women',
-        'page_title': 'Protein Calculator for Women — Daily Protein Needs by Goal & Life Stage',
+        'page_title': 'Protein Calculator for Women — Daily Needs by Goal & Age',
         'og_title': 'Protein Calculator for Women',
         'meta_description': 'Calculate your daily protein needs as a woman. See recommendations for weight loss, muscle building, pregnancy, menopause, and aging with evidence-based intake ranges.',
         'meta_keywords': 'protein calculator for women, how much protein women need, daily protein intake women, protein for weight loss women, protein pregnancy',
@@ -3619,7 +3619,7 @@ demographic_pages = {
     },
     'protein-calculator-for-athletes': {
         'url': '/protein-calculator-for-athletes',
-        'page_title': 'Protein Calculator for Athletes — Optimize Intake for Performance & Recovery',
+        'page_title': 'Protein Calculator for Athletes — Intake for Performance',
         'og_title': 'Protein Calculator for Athletes',
         'meta_description': 'Calculate optimal protein intake for athletic performance. Evidence-based recommendations for endurance, strength, and team sport athletes with timing and distribution guidance.',
         'meta_keywords': 'protein calculator athletes, athlete protein intake, protein for muscle building, sports nutrition protein, how much protein athletes need',
@@ -3763,7 +3763,7 @@ demographic_pages = {
     },
     'macro-calculator-for-weight-loss': {
         'url': '/macro-calculator-for-weight-loss',
-        'page_title': 'Macro Calculator for Weight Loss — Optimal Protein, Carb & Fat Ratios',
+        'page_title': 'Macro Calculator for Weight Loss — Protein, Carb & Fat Split',
         'og_title': 'Macro Calculator for Weight Loss',
         'meta_description': 'Calculate the ideal macronutrient ratio for weight loss. See how to split protein, carbs, and fat for maximum fat loss while preserving muscle mass.',
         'meta_keywords': 'macro calculator weight loss, macros for fat loss, weight loss macros, protein carbs fat ratio, cutting macros',
@@ -3835,7 +3835,7 @@ demographic_pages = {
     },
     'calorie-calculator-for-weight-loss': {
         'url': '/calorie-calculator-for-weight-loss',
-        'page_title': 'Calorie Calculator for Weight Loss — How Many Calories to Eat to Lose Weight',
+        'page_title': 'Calorie Calculator for Weight Loss — Daily Calorie Target',
         'og_title': 'Calorie Calculator for Weight Loss',
         'meta_description': 'Calculate exactly how many calories you should eat to lose weight. See your TDEE-based calorie target for safe, sustainable fat loss at 1-2 lbs per week.',
         'meta_keywords': 'calorie calculator weight loss, how many calories to lose weight, weight loss calorie calculator, calorie deficit calculator, calories to lose 1 pound',
@@ -3979,7 +3979,7 @@ demographic_pages = {
     },
     'body-fat-calculator-for-women': {
         'url': '/body-fat-calculator-for-women',
-        'page_title': 'Body Fat Calculator for Women — Healthy Ranges by Age & Life Stage',
+        'page_title': 'Body Fat Calculator for Women — Healthy Ranges by Age',
         'og_title': 'Body Fat Calculator for Women',
         'meta_description': 'Calculate your body fat percentage as a woman. See healthy ranges by age, how pregnancy and menopause affect body fat, and why women need more essential fat than men.',
         'meta_keywords': 'body fat calculator women, female body fat percentage, healthy body fat women, body fat percentage chart women, body fat women by age',
@@ -4123,7 +4123,7 @@ demographic_pages = {
     },
     'tdee-calculator-for-athletes': {
         'url': '/tdee-calculator-for-athletes',
-        'page_title': 'TDEE Calculator for Athletes — Calorie Needs for Performance & Recovery',
+        'page_title': 'TDEE Calculator for Athletes — Daily Calorie Needs',
         'og_title': 'TDEE Calculator for Athletes',
         'meta_description': 'Calculate your Total Daily Energy Expenditure as an athlete. See how training volume, sport type, and competition phases affect calorie needs with sport-specific data.',
         'meta_keywords': 'TDEE calculator athletes, athlete calorie calculator, sports nutrition calories, how many calories athletes need, TDEE for training',
@@ -4193,7 +4193,7 @@ demographic_pages = {
     },
     'calorie-calculator-for-muscle-gain': {
         'url': '/calorie-calculator-for-muscle-gain',
-        'page_title': 'Calorie Calculator for Muscle Gain — How Many Calories to Build Muscle',
+        'page_title': 'Calorie Calculator for Muscle Gain — Bulk & Lean Gain',
         'og_title': 'Calorie Calculator for Muscle Gain',
         'meta_description': 'Calculate the right calorie surplus for lean muscle gain. See how much to eat above your TDEE for bulking, lean bulking, and body recomposition with macro breakdowns.',
         'meta_keywords': 'calorie calculator muscle gain, bulking calorie calculator, how many calories to build muscle, calorie surplus calculator, lean bulk calories',
