@@ -331,6 +331,36 @@ document.addEventListener('DOMContentLoaded',function(){
       document.head.appendChild(script);
     }
   })();
+  // Consent-aware event queue: buffers events until analytics consent is resolved
+  // Non-EU visitors: consent auto-granted, events fire immediately
+  // EU visitors: events queue until Accept/Decline on cookie banner
+  window._hcEventQueue=[];
+  window._hcConsentResolved=false;
+  function hcTrackEvent(eventName,params){
+    if(typeof gtag!=='function') return;
+    if(window._hcConsentResolved){
+      gtag('event',eventName,params);
+    } else {
+      window._hcEventQueue.push({name:eventName,params:params});
+    }
+  }
+  function hcFlushEvents(granted){
+    window._hcConsentResolved=true;
+    if(!granted){window._hcEventQueue=[];return;}
+    window._hcEventQueue.forEach(function(e){
+      gtag('event',e.name,e.params);
+    });
+    window._hcEventQueue=[];
+  }
+  // Resolve consent state: non-EU or returning visitors resolve immediately
+  (function(){
+    var stored=localStorage.getItem('hc_consent');
+    if(stored!=null){hcFlushEvents(stored==='granted');return;}
+    var tz;
+    try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||'';}catch(e){tz='';}
+    if(!/^(Europe|Atlantic)\//.test(tz)){hcFlushEvents(true);return;}
+    // EU first visit: consent pending, events will queue until banner action
+  })();
   // Track calculator_complete: fires when a result renders on any calculator page
   (function(){
     var resultsEl=document.getElementById('results')||document.getElementById('result');
@@ -341,13 +371,11 @@ document.addEventListener('DOMContentLoaded',function(){
       // Check if results container now has visible content
       if(resultsEl.offsetHeight>50 && resultsEl.textContent.trim().length>10){
         fired=true;
-        if(typeof gtag==='function'){
-          var h1=document.querySelector('h1');
-          gtag('event','calculator_complete',{
-            calculator_name: h1?h1.textContent.trim():'Unknown',
-            page_path: window.location.pathname
-          });
-        }
+        var h1=document.querySelector('h1');
+        hcTrackEvent('calculator_complete',{
+          calculator_name: h1?h1.textContent.trim():'Unknown',
+          page_path: window.location.pathname
+        });
       }
     });
     observer.observe(resultsEl,{childList:true,subtree:true,attributes:true});
@@ -372,10 +400,12 @@ document.addEventListener('DOMContentLoaded',function(){
     document.getElementById('consent-accept').addEventListener('click',function(){
       localStorage.setItem('hc_consent','granted');
       gtag('consent','update',{'analytics_storage':'granted','ad_storage':'granted','ad_user_data':'granted','ad_personalization':'granted'});
+      hcFlushEvents(true);
       bar.remove();
     });
     document.getElementById('consent-deny').addEventListener('click',function(){
       localStorage.setItem('hc_consent','denied');
+      hcFlushEvents(false);
       bar.remove();
     });
   })();
