@@ -1,6 +1,6 @@
 import os
 import logging
-from flask import Flask, render_template, send_from_directory, redirect, Response, request
+from flask import Flask, render_template, send_from_directory, redirect, Response, request, jsonify
 from request_logger import init_request_logger
 
 # Configure logging
@@ -4915,6 +4915,19 @@ def mockup_homepage_v2():
         canonical_url='/mockup-homepage-v2',
         robots_meta='noindex, nofollow'
     )
+
+@app.route('/api/request-calculator', methods=['POST'])
+def request_calculator():
+    import logging
+    data = request.get_json(silent=True) or {}
+    what = data.get('what', '').strip()
+    email = data.get('email', '').strip()
+    if not what:
+        return jsonify({'error': 'Missing request'}), 400
+    # Log to stdout — Render captures this in logs
+    logging.info(f"CALCULATOR_REQUEST | what={what} | email={email}")
+    print(f"[CALCULATOR REQUEST] what={what!r} email={email!r}")
+    return jsonify({'status': 'ok'})
 
 @app.route('/mockup')
 def mockup():
