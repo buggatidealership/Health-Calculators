@@ -2,23 +2,49 @@
 function toggleUnit(form, unit) {
   var metricBtn = document.getElementById('metric-btn');
   var imperialBtn = document.getElementById('imperial-btn');
-  var metricFields = document.querySelector('.metric-inputs');
-  var imperialFields = document.querySelector('.imperial-inputs');
+  var metricFields = document.querySelectorAll('.metric-inputs');
+  var imperialFields = document.querySelectorAll('.imperial-inputs');
 
   if (unit === 'metric') {
     metricBtn.classList.add('active');
     imperialBtn.classList.remove('active');
-    metricFields.classList.remove('hidden');
-    imperialFields.classList.add('hidden');
+    metricFields.forEach(function(el) { el.classList.remove('hidden'); });
+    imperialFields.forEach(function(el) { el.classList.add('hidden'); });
   } else {
     imperialBtn.classList.add('active');
     metricBtn.classList.remove('active');
-    imperialFields.classList.remove('hidden');
-    metricFields.classList.add('hidden');
+    imperialFields.forEach(function(el) { el.classList.remove('hidden'); });
+    metricFields.forEach(function(el) { el.classList.add('hidden'); });
+  }
+  autoRecalc();
+}
+
+// Sex pill toggle
+function setSex(value) {
+  document.getElementById('gender').value = value;
+  document.querySelectorAll('.sex-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-value') === value);
+  });
+  autoRecalc();
+}
+
+// Activity card selector
+function setActivity(el) {
+  document.querySelectorAll('.activity-card').forEach(function(c) { c.classList.remove('active'); });
+  el.classList.add('active');
+  document.getElementById('activity').value = el.getAttribute('data-value');
+  autoRecalc();
+}
+
+// Auto-recalculate after first calculation
+var _tdeeCalculated = false;
+function autoRecalc() {
+  if (_tdeeCalculated) {
+    calculateTDEE(true);
   }
 }
 
-function calculateTDEE() {
+function calculateTDEE(silent) {
     var age = parseInt(document.getElementById('age').value);
     var gender = document.getElementById('gender').value;
     var activity = parseFloat(document.getElementById('activity').value);
@@ -37,14 +63,16 @@ function calculateTDEE() {
     }
 
     if (!age || !weight || !height || isNaN(weight) || isNaN(height)) {
-        alert('Please fill all required fields with valid numbers.');
+        if (!silent) alert('Please fill all required fields with valid numbers.');
         return;
     }
 
     if (age < 15 || age > 100) {
-        alert('Please enter an age between 15 and 100.');
+        if (!silent) alert('Please enter an age between 15 and 100.');
         return;
     }
+
+    _tdeeCalculated = true;
 
     // Mifflin-St Jeor Equation
     var bmr;
@@ -94,13 +122,26 @@ function calculateTDEE() {
 
     // Show results
     var resultsEl = document.getElementById('results');
+    var wasHidden = resultsEl.classList.contains('hidden');
     resultsEl.classList.remove('hidden');
-    resultsEl.classList.remove('results-reveal');
-    void resultsEl.offsetWidth;
-    resultsEl.classList.add('results-reveal');
-    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (wasHidden) {
+        resultsEl.classList.remove('results-reveal');
+        void resultsEl.offsetWidth;
+        resultsEl.classList.add('results-reveal');
+    }
+    if (!silent) {
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     // Content loop: contextual next steps
     var userData = collectUserData();
     showNextSteps('tdee', userData, { tdee: tdee.toLocaleString() });
 }
+
+// Wire up auto-recalc on input change
+document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('#age, #weight_kg, #height_cm, #weight_lb, #height_ft, #height_in');
+    inputs.forEach(function(input) {
+        input.addEventListener('input', autoRecalc);
+    });
+});
