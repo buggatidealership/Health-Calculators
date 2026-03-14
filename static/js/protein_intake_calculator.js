@@ -2,23 +2,66 @@
 function toggleUnit(form, unit) {
   var metricBtn = document.getElementById('metric-btn');
   var imperialBtn = document.getElementById('imperial-btn');
-  var metricFields = document.querySelector('.metric-inputs');
-  var imperialFields = document.querySelector('.imperial-inputs');
+  var metricFields = document.querySelectorAll('.metric-inputs');
+  var imperialFields = document.querySelectorAll('.imperial-inputs');
 
   if (unit === 'metric') {
     metricBtn.classList.add('active');
     imperialBtn.classList.remove('active');
-    metricFields.classList.remove('hidden');
-    imperialFields.classList.add('hidden');
+    metricFields.forEach(function(el) { el.classList.remove('hidden'); });
+    imperialFields.forEach(function(el) { el.classList.add('hidden'); });
   } else {
     imperialBtn.classList.add('active');
     metricBtn.classList.remove('active');
-    imperialFields.classList.remove('hidden');
-    metricFields.classList.add('hidden');
+    imperialFields.forEach(function(el) { el.classList.remove('hidden'); });
+    metricFields.forEach(function(el) { el.classList.add('hidden'); });
+  }
+  autoRecalc();
+}
+
+// Sex pill toggle
+function setSex(value) {
+  document.getElementById('gender').value = value;
+  document.querySelectorAll('.sex-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn.getAttribute('data-value') === value);
+  });
+  autoRecalc();
+}
+
+// Activity card selector
+function setActivity(el) {
+  document.querySelectorAll('#activity-cards .activity-card').forEach(function(c) { c.classList.remove('active'); });
+  el.classList.add('active');
+  document.getElementById('activity').value = el.getAttribute('data-value');
+  autoRecalc();
+}
+
+// Goal card selector
+function setGoal(el) {
+  document.querySelectorAll('#goal-cards .goal-card').forEach(function(c) { c.classList.remove('active'); });
+  el.classList.add('active');
+  document.getElementById('goal').value = el.getAttribute('data-value');
+  autoRecalc();
+}
+
+// Body type toggle
+function setBodyType(el) {
+  document.querySelectorAll('.bodytype-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn === el);
+  });
+  document.getElementById('body_type').value = el.getAttribute('data-value');
+  autoRecalc();
+}
+
+// Auto-recalculate after first calculation
+var _proteinCalculated = false;
+function autoRecalc() {
+  if (_proteinCalculated) {
+    calculateProtein(true);
   }
 }
 
-function calculateProtein() {
+function calculateProtein(silent) {
     var age = parseInt(document.getElementById('age').value);
     var gender = document.getElementById('gender').value;
     var activity = document.getElementById('activity').value;
@@ -37,9 +80,11 @@ function calculateProtein() {
 
     // Validate inputs
     if (!weightKg || weightKg <= 0 || !age || age < 1 || age > 120) {
-        alert('Please enter valid values for all fields.');
+        if (!silent) alert('Please enter valid values for all fields.');
         return;
     }
+
+    _proteinCalculated = true;
 
     // Determine effective weight for calculation
     // For overweight body type, use an adjusted body weight estimate (lean mass approximation)
@@ -149,8 +194,27 @@ function calculateProtein() {
         document.getElementById('protein-bodytype-note').classList.add('hidden');
     }
 
-    document.getElementById('results').classList.remove('hidden');
+    // Show results
+    var resultsEl = document.getElementById('results');
+    var wasHidden = resultsEl.classList.contains('hidden');
+    resultsEl.classList.remove('hidden');
+    if (wasHidden) {
+        resultsEl.classList.remove('results-reveal');
+        void resultsEl.offsetWidth;
+        resultsEl.classList.add('results-reveal');
+    }
+    if (!silent) {
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     // Content loops integration
     showNextSteps('protein-intake', collectUserData());
 }
+
+// Wire up auto-recalc on input change
+document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('#age, #weight_kg, #weight_lb');
+    inputs.forEach(function(input) {
+        input.addEventListener('input', autoRecalc);
+    });
+});

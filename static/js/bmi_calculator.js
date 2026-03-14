@@ -2,23 +2,32 @@
 function toggleUnit(form, unit) {
   var metricBtn = document.getElementById('metric-btn');
   var imperialBtn = document.getElementById('imperial-btn');
-  var metricFields = document.querySelector('.metric-inputs');
-  var imperialFields = document.querySelector('.imperial-inputs');
+  var metricFields = document.querySelectorAll('.metric-inputs');
+  var imperialFields = document.querySelectorAll('.imperial-inputs');
 
   if (unit === 'metric') {
     metricBtn.classList.add('active');
     imperialBtn.classList.remove('active');
-    metricFields.classList.remove('hidden');
-    imperialFields.classList.add('hidden');
+    metricFields.forEach(function(el) { el.classList.remove('hidden'); });
+    imperialFields.forEach(function(el) { el.classList.add('hidden'); });
   } else {
     imperialBtn.classList.add('active');
     metricBtn.classList.remove('active');
-    imperialFields.classList.remove('hidden');
-    metricFields.classList.add('hidden');
+    imperialFields.forEach(function(el) { el.classList.remove('hidden'); });
+    metricFields.forEach(function(el) { el.classList.add('hidden'); });
+  }
+  autoRecalc();
+}
+
+// Auto-recalculate after first calculation
+var _bmiCalculated = false;
+function autoRecalc() {
+  if (_bmiCalculated) {
+    calculateBMI(true);
   }
 }
 
-function calculateBMI() {
+function calculateBMI(silent) {
     var isMetric = document.getElementById('metric-btn').classList.contains('active');
 
     var weightKg, heightM;
@@ -27,7 +36,7 @@ function calculateBMI() {
         weightKg = parseFloat(document.getElementById('weight_kg').value);
         var heightCm = parseFloat(document.getElementById('height_cm').value);
         if (!weightKg || !heightCm || isNaN(weightKg) || isNaN(heightCm)) {
-            alert('Please fill all required fields with valid numbers.');
+            if (!silent) alert('Please fill all required fields with valid numbers.');
             return;
         }
         heightM = heightCm / 100;
@@ -36,7 +45,7 @@ function calculateBMI() {
         var feet = parseFloat(document.getElementById('height_ft').value);
         var inches = parseFloat(document.getElementById('height_in').value) || 0;
         if (!weightLb || !feet || isNaN(weightLb) || isNaN(feet)) {
-            alert('Please fill all required fields with valid numbers.');
+            if (!silent) alert('Please fill all required fields with valid numbers.');
             return;
         }
         weightKg = weightLb * 0.453592;
@@ -45,9 +54,11 @@ function calculateBMI() {
     }
 
     if (heightM <= 0) {
-        alert('Please enter a valid height.');
+        if (!silent) alert('Please enter a valid height.');
         return;
     }
+
+    _bmiCalculated = true;
 
     // BMI formula: weight(kg) / height(m)^2
     var bmi = weightKg / (heightM * heightM);
@@ -144,11 +155,16 @@ function calculateBMI() {
 
     // Show results with reveal animation
     var resultsEl = document.getElementById('results');
+    var wasHidden = resultsEl.classList.contains('hidden');
     resultsEl.classList.remove('hidden');
-    resultsEl.classList.remove('results-reveal');
-    void resultsEl.offsetWidth;
-    resultsEl.classList.add('results-reveal');
-    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (wasHidden) {
+        resultsEl.classList.remove('results-reveal');
+        void resultsEl.offsetWidth;
+        resultsEl.classList.add('results-reveal');
+    }
+    if (!silent) {
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     // Content loop: contextual next steps
     var userData = collectUserData();
@@ -181,3 +197,11 @@ function calculateBMI() {
         });
     }
 }
+
+// Wire up auto-recalc on input change
+document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('#weight_kg, #height_cm, #weight_lb, #height_ft, #height_in');
+    inputs.forEach(function(input) {
+        input.addEventListener('input', autoRecalc);
+    });
+});

@@ -22,34 +22,88 @@
     <h1>BMI Calculator</h1>
     <p class="subtitle">Calculate your Body Mass Index and see where you fall on the WHO weight classification scale.</p>
 
+    <style>
+        /* --- BMI form personality (matches TDEE pattern) --- */
+        .bmi-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .pill-toggle {
+            display: flex;
+            gap: 0;
+            background: var(--color-muted);
+            border-radius: 8px;
+            padding: 3px;
+            margin-top: 6px;
+        }
+        .pill-toggle button {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: none;
+            transition: all 0.2s;
+            width: auto;
+        }
+        .pill-toggle button:hover {
+            transform: none;
+            box-shadow: none;
+            filter: none;
+            color: var(--color-text);
+        }
+        .pill-toggle button::after { display: none; }
+        .pill-toggle button.active {
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .bmi-calc-btn {
+            margin-top: 8px;
+        }
+        @media (max-width: 600px) {
+            .bmi-form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+
     <section id="calculator">
         <div class="calculator">
+            <!-- Unit toggle -->
             <div class="form-group">
-                <label>Measurement Units:</label>
-                <div style="display: flex; gap: 10px; margin-top: 8px;">
-                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('bmi', 'metric')">Metric (kg/cm)</button>
-                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('bmi', 'imperial')">Imperial (lbs/ft/in)</button>
+                <label>Units</label>
+                <div class="pill-toggle">
+                    <button type="button" id="imperial-btn" class="active" onclick="toggleUnit('bmi', 'imperial')">lbs / ft</button>
+                    <button type="button" id="metric-btn" onclick="toggleUnit('bmi', 'metric')">kg / cm</button>
                 </div>
             </div>
 
-            <!-- Metric Inputs -->
-            <div class="metric-inputs">
+            <!-- Weight + Height side by side (metric) -->
+            <div class="bmi-form-row metric-inputs hidden">
                 <div class="form-group">
                     <label for="weight_kg">Weight (kg)</label>
-                    <input type="number" id="weight_kg" min="20" max="500" step="0.1" placeholder="e.g. 70" required>
+                    <input type="number" id="weight_kg" min="20" max="500" step="0.1" placeholder="70" required>
                 </div>
                 <div class="form-group">
                     <label for="height_cm">Height (cm)</label>
-                    <input type="number" id="height_cm" min="50" max="275" step="0.1" placeholder="e.g. 175" required>
+                    <input type="number" id="height_cm" min="50" max="275" step="0.1" placeholder="175" required>
                 </div>
             </div>
 
-            <!-- Imperial Inputs -->
-            <div class="imperial-inputs hidden">
+            <!-- Weight (imperial) -->
+            <div class="imperial-inputs">
                 <div class="form-group">
                     <label for="weight_lb">Weight (lbs)</label>
-                    <input type="number" id="weight_lb" min="44" max="1100" step="0.1" placeholder="e.g. 154" required>
+                    <input type="number" id="weight_lb" min="44" max="1100" step="0.1" placeholder="154" required>
                 </div>
+            </div>
+            <!-- Height (imperial) -->
+            <div class="imperial-inputs">
                 <div class="form-group">
                     <label>Height</label>
                     <div class="imperial-height">
@@ -65,7 +119,7 @@
                 </div>
             </div>
 
-            <button onclick="calculateBMI()" class="btn btn-pink">Calculate BMI</button>
+            <button onclick="calculateBMI()" class="btn btn-pink bmi-calc-btn">Calculate BMI</button>
 
             <div class="results hidden" id="results">
                 <div class="tdee-primary-result" id="primary-result">

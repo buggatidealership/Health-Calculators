@@ -22,34 +22,83 @@
     <h1>Calories Burned Calculator</h1>
     <p class="subtitle">Calculate how many calories you burn during exercise and daily activities using MET values.</p>
 
+    <style>
+        /* --- Calories burned form personality (matches TDEE pattern) --- */
+        .cals-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .pill-toggle {
+            display: flex;
+            gap: 0;
+            background: var(--color-muted);
+            border-radius: 8px;
+            padding: 3px;
+            margin-top: 6px;
+        }
+        .pill-toggle button {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: none;
+            transition: all 0.2s;
+            width: auto;
+        }
+        .pill-toggle button:hover {
+            transform: none;
+            box-shadow: none;
+            filter: none;
+            color: var(--color-text);
+        }
+        .pill-toggle button::after { display: none; }
+        .pill-toggle button.active {
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .cals-calc-btn {
+            margin-top: 8px;
+        }
+        @media (max-width: 600px) {
+            .cals-form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+
     <section id="calculator">
         <div class="calculator">
-            <div class="form-group">
-                <label>Measurement Units:</label>
-                <div style="display: flex; gap: 10px; margin-top: 8px;">
-                    <button type="button" id="metric-btn" class="unit-btn active" onclick="toggleUnit('calories-burned', 'metric')">Metric (kg)</button>
-                    <button type="button" id="imperial-btn" class="unit-btn" onclick="toggleUnit('calories-burned', 'imperial')">Imperial (lbs)</button>
-                </div>
-            </div>
-
-            <!-- Metric Inputs -->
-            <div class="metric-inputs">
+            <!-- Unit toggle + Weight on same row -->
+            <div class="cals-form-row">
                 <div class="form-group">
-                    <label for="weight_kg">Weight (kg)</label>
-                    <input type="number" id="weight_kg" min="30" max="300" step="0.1" placeholder="e.g. 70" required>
+                    <label>Units</label>
+                    <div class="pill-toggle">
+                        <button type="button" id="imperial-btn" class="active" onclick="toggleUnit('calories-burned', 'imperial')">lbs</button>
+                        <button type="button" id="metric-btn" onclick="toggleUnit('calories-burned', 'metric')">kg</button>
+                    </div>
                 </div>
-            </div>
-
-            <!-- Imperial Inputs -->
-            <div class="imperial-inputs hidden">
-                <div class="form-group">
-                    <label for="weight_lb">Weight (lbs)</label>
-                    <input type="number" id="weight_lb" min="66" max="660" step="0.1" placeholder="e.g. 154" required>
+                <div>
+                    <!-- Metric weight -->
+                    <div class="form-group metric-inputs hidden">
+                        <label for="weight_kg">Weight (kg)</label>
+                        <input type="number" id="weight_kg" min="30" max="300" step="0.1" placeholder="70" required>
+                    </div>
+                    <!-- Imperial weight -->
+                    <div class="form-group imperial-inputs">
+                        <label for="weight_lb">Weight (lbs)</label>
+                        <input type="number" id="weight_lb" min="66" max="660" step="0.1" placeholder="170" required>
+                    </div>
                 </div>
             </div>
 
             <div class="form-group">
-                <label for="activity">Activity Type</label>
+                <label for="activity">Activity</label>
                 <select id="activity">
                     <option value="" disabled selected>Select an activity...</option>
                     <optgroup label="Running">
@@ -102,21 +151,28 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="duration">Duration (minutes)</label>
-                <input type="number" id="duration" min="1" max="600" step="1" placeholder="e.g. 30" required>
+            <!-- Duration + Intensity on same row -->
+            <div class="cals-form-row">
+                <div class="form-group">
+                    <label for="duration">Duration (minutes)</label>
+                    <input type="number" id="duration" min="1" max="600" step="1" placeholder="30" required>
+                </div>
+                <div class="form-group">
+                    <label>Intensity</label>
+                    <div class="pill-toggle">
+                        <button type="button" class="intensity-btn" data-value="light" onclick="setIntensity(this)">Light</button>
+                        <button type="button" class="intensity-btn active" data-value="moderate" onclick="setIntensity(this)">Moderate</button>
+                        <button type="button" class="intensity-btn" data-value="vigorous" onclick="setIntensity(this)">Vigorous</button>
+                    </div>
+                    <select id="intensity" class="hidden" aria-hidden="true">
+                        <option value="light">Light</option>
+                        <option value="moderate" selected>Moderate</option>
+                        <option value="vigorous">Vigorous</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="intensity">Intensity Modifier</label>
-                <select id="intensity">
-                    <option value="light">Light (easy pace, low effort)</option>
-                    <option value="moderate" selected>Moderate (steady effort)</option>
-                    <option value="vigorous">Vigorous (high effort, breathless)</option>
-                </select>
-            </div>
-
-            <button onclick="calculateCaloriesBurned()" class="btn btn-pink">Calculate Calories Burned</button>
+            <button onclick="calculateCaloriesBurned()" class="btn btn-pink cals-calc-btn">Calculate Calories Burned</button>
 
             <div class="results hidden" id="results">
                 <div class="tdee-primary-result" id="primary-result">

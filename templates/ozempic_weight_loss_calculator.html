@@ -20,69 +20,144 @@
     <div class="calculator-container">
 
     <h1>Ozempic Weight Loss Calculator</h1>
+
+    <style>
+        /* --- Ozempic form personality (matches TDEE pattern) --- */
+        .oz-form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .pill-toggle {
+            display: flex;
+            gap: 0;
+            background: var(--color-muted);
+            border-radius: 8px;
+            padding: 3px;
+            margin-top: 6px;
+        }
+        .pill-toggle button {
+            flex: 1;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 6px;
+            background: transparent;
+            color: var(--color-text-secondary);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            box-shadow: none;
+            transition: all 0.2s;
+            width: auto;
+        }
+        .pill-toggle button:hover {
+            transform: none;
+            box-shadow: none;
+            filter: none;
+            color: var(--color-text);
+        }
+        .pill-toggle button::after { display: none; }
+        .pill-toggle button.active {
+            background: var(--color-surface);
+            color: var(--color-text);
+            font-weight: 600;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .oz-calc-btn {
+            margin-top: 8px;
+        }
+        .oz-bmi-display {
+            font-size: 0.85rem;
+            color: var(--color-text-tertiary);
+            margin-top: 4px;
+            min-height: 1.2em;
+        }
+        @media (max-width: 600px) {
+            .oz-form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+
 <section id="calculator">
         <div class="calculator">
+            <!-- Unit toggle -->
             <div class="form-group">
-                <label>Measurement Units:</label>
-                <div style="display: flex; gap: 10px; margin-top: 8px;">
-                    <button type="button" id="metricBtn" class="unit-btn active">Metric (kg/cm)</button>
-                    <button type="button" id="imperialBtn" class="unit-btn">Imperial (lb/ft/in)</button>
+                <label>Units</label>
+                <div class="pill-toggle">
+                    <button type="button" id="imperialBtn" class="active">lbs / ft</button>
+                    <button type="button" id="metricBtn">kg / cm</button>
                 </div>
             </div>
 
-            <div class="form-group" id="weight-metric">
-                <label for="weight-kg">Current Weight (kg)</label>
-                <input type="number" id="weight-kg" min="30" max="300" step="0.1" required>
+            <!-- Weight + Height side by side (metric) -->
+            <div class="oz-form-row" id="weight-metric" style="display:none;">
+                <div class="form-group">
+                    <label for="weight-kg">Weight (kg)</label>
+                    <input type="number" id="weight-kg" min="30" max="300" step="0.1" placeholder="90" required>
+                </div>
+                <div class="form-group">
+                    <label for="height-cm">Height (cm)</label>
+                    <input type="number" id="height-cm" min="120" max="250" placeholder="175" required>
+                </div>
             </div>
 
-            <div class="form-group hidden" id="weight-imperial">
-                <label for="weight-lb">Current Weight (lbs)</label>
-                <input type="number" id="weight-lb" min="66" max="660" step="1" required>
+            <!-- Weight (imperial) -->
+            <div id="weight-imperial">
+                <div class="form-group">
+                    <label for="weight-lb">Weight (lbs)</label>
+                    <input type="number" id="weight-lb" min="66" max="660" step="1" placeholder="220" required>
+                </div>
             </div>
-
-            <div class="form-group" id="height-metric">
-                <label for="height-cm">Height (cm)</label>
-                <input type="number" id="height-cm" min="120" max="250" required>
-            </div>
-
-            <div class="form-group hidden" id="height-imperial">
-                <label>Height (ft/in)</label>
-                <div class="imperial-height">
-                    <div>
-                        <label for="height-ft">Feet</label>
-                        <input type="number" id="height-ft" min="3" max="8" value="5" required>
-                    </div>
-                    <div>
-                        <label for="height-in">Inches</label>
-                        <input type="number" id="height-in" min="0" max="11" value="9" required>
+            <!-- Height (imperial) -->
+            <div id="height-imperial">
+                <div class="form-group">
+                    <label>Height</label>
+                    <div class="imperial-height">
+                        <div>
+                            <label for="height-ft">Feet</label>
+                            <input type="number" id="height-ft" min="3" max="8" value="5" required>
+                        </div>
+                        <div>
+                            <label for="height-in">Inches</label>
+                            <input type="number" id="height-in" min="0" max="11" value="9" required>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="bmi">Current BMI (calculated automatically)</label>
-                <input type="number" id="bmi" readonly>
-            </div>
+            <!-- BMI auto-display -->
+            <div class="oz-bmi-display" id="bmi-display-text"></div>
+            <input type="hidden" id="bmi">
 
+            <!-- Duration + Dose -->
             <div class="form-group">
-                <label for="duration">Planned Treatment Duration (weeks)</label>
-                <select id="duration">
-                    <option value="20">20 weeks (~5 months)</option>
-                    <option value="40">40 weeks (~10 months)</option>
-                    <option value="68" selected>68 weeks (~16 months)</option>
+                <label>Treatment duration</label>
+                <div class="pill-toggle">
+                    <button type="button" class="duration-btn" data-value="20" onclick="setDuration(this)">20 wks</button>
+                    <button type="button" class="duration-btn" data-value="40" onclick="setDuration(this)">40 wks</button>
+                    <button type="button" class="duration-btn active" data-value="68" onclick="setDuration(this)">68 wks</button>
+                </div>
+                <select id="duration" class="hidden" aria-hidden="true">
+                    <option value="20">20 weeks</option>
+                    <option value="40">40 weeks</option>
+                    <option value="68" selected>68 weeks</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="dose">Maximum Planned Dose</label>
-                <select id="dose">
-                    <option value="0.5">0.5 mg (typical Ozempic dose for diabetes)</option>
-                    <option value="1.0">1.0 mg (higher Ozempic dose)</option>
-                    <option value="2.4" selected>2.4 mg (Wegovy dose for weight loss)</option>
+                <label>Maximum dose</label>
+                <div class="pill-toggle">
+                    <button type="button" class="dose-btn" data-value="0.5" onclick="setDose(this)">0.5 mg</button>
+                    <button type="button" class="dose-btn" data-value="1.0" onclick="setDose(this)">1.0 mg</button>
+                    <button type="button" class="dose-btn active" data-value="2.4" onclick="setDose(this)">2.4 mg</button>
+                </div>
+                <select id="dose" class="hidden" aria-hidden="true">
+                    <option value="0.5">0.5 mg</option>
+                    <option value="1.0">1.0 mg</option>
+                    <option value="2.4" selected>2.4 mg</option>
                 </select>
             </div>
 
-            <button id="calculate-btn" class="btn btn-pink">Calculate Projected Weight Loss</button>
+            <button id="calculate-btn" class="btn btn-pink oz-calc-btn">Calculate Projected Weight Loss</button>
 
             <div id="result" class="results-section hidden">
                 <div class="result-hero" id="result-hero">
@@ -441,187 +516,182 @@
     <!-- Chart.js for the results visualization -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
+        // Pill toggle helpers (global for onclick handlers)
+        function setDuration(el) {
+            document.querySelectorAll('.duration-btn').forEach(function(b) { b.classList.toggle('active', b === el); });
+            document.getElementById('duration').value = el.getAttribute('data-value');
+            _ozAutoRecalc();
+        }
+        function setDose(el) {
+            document.querySelectorAll('.dose-btn').forEach(function(b) { b.classList.toggle('active', b === el); });
+            document.getElementById('dose').value = el.getAttribute('data-value');
+            _ozAutoRecalc();
+        }
+
+        var _ozCalculated = false;
+        function _ozAutoRecalc() {
+            if (_ozCalculated) _ozCalculate(true);
+        }
+
         document.addEventListener('DOMContentLoaded', function() {
-            // Unit toggle functionality
-            const metricBtn = document.getElementById('metricBtn');
-            const imperialBtn = document.getElementById('imperialBtn');
-            const weightMetric = document.getElementById('weight-metric');
-            const weightImperial = document.getElementById('weight-imperial');
-            const heightMetric = document.getElementById('height-metric');
-            const heightImperial = document.getElementById('height-imperial');
+            var metricBtn = document.getElementById('metricBtn');
+            var imperialBtn = document.getElementById('imperialBtn');
+            var weightMetric = document.getElementById('weight-metric');
+            var weightImperial = document.getElementById('weight-imperial');
+            var heightImperial = document.getElementById('height-imperial');
 
-            let currentUnits = 'metric';
+            var currentUnits = 'imperial';
 
-            document.getElementById("metricBtn").addEventListener("click", () => {
+            metricBtn.addEventListener("click", function() {
                 currentUnits = 'metric';
-                document.getElementById("metricBtn").classList.add("active");
-                document.getElementById("imperialBtn").classList.remove("active");
-                weightMetric.classList.remove('hidden');
-                weightImperial.classList.add('hidden');
-                heightMetric.classList.remove('hidden');
-                heightImperial.classList.add('hidden');
-
-                // Recalculate BMI when switching units
+                metricBtn.classList.add("active");
+                imperialBtn.classList.remove("active");
+                weightMetric.style.display = '';
+                weightImperial.style.display = 'none';
+                if (heightImperial) heightImperial.style.display = 'none';
                 calculateBMI();
+                _ozAutoRecalc();
             });
 
-            document.getElementById("imperialBtn").addEventListener("click", () => {
+            imperialBtn.addEventListener("click", function() {
                 currentUnits = 'imperial';
-                document.getElementById("imperialBtn").classList.add("active");
-                document.getElementById("metricBtn").classList.remove("active");
-                weightImperial.classList.remove('hidden');
-                weightMetric.classList.add('hidden');
-                heightImperial.classList.remove('hidden');
-                heightMetric.classList.add('hidden');
-
-                // Recalculate BMI when switching units
+                imperialBtn.classList.add("active");
+                metricBtn.classList.remove("active");
+                weightImperial.style.display = '';
+                weightMetric.style.display = 'none';
+                if (heightImperial) heightImperial.style.display = '';
                 calculateBMI();
+                _ozAutoRecalc();
             });
 
             // Calculate BMI when weight or height changes
-            document.getElementById('weight-kg').addEventListener('input', calculateBMI);
-            document.getElementById('weight-lb').addEventListener('input', calculateBMI);
-            document.getElementById('height-cm').addEventListener('input', calculateBMI);
-            document.getElementById('height-ft').addEventListener('input', calculateBMI);
-            document.getElementById('height-in').addEventListener('input', calculateBMI);
+            ['weight-kg', 'weight-lb', 'height-cm', 'height-ft', 'height-in'].forEach(function(id) {
+                var el = document.getElementById(id);
+                if (el) el.addEventListener('input', function() { calculateBMI(); _ozAutoRecalc(); });
+            });
 
             function calculateBMI() {
-                let weightKg, heightM;
+                var weightKg, heightM;
 
                 if (currentUnits === 'metric') {
                     weightKg = parseFloat(document.getElementById('weight-kg').value);
-                    const heightCm = parseFloat(document.getElementById('height-cm').value);
+                    var heightCm = parseFloat(document.getElementById('height-cm').value);
                     heightM = heightCm / 100;
                 } else {
-                    const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                    var weightLb = parseFloat(document.getElementById('weight-lb').value);
                     weightKg = weightLb / 2.20462;
-
-                    const heightFt = parseFloat(document.getElementById('height-ft').value);
-                    const heightIn = parseFloat(document.getElementById('height-in').value);
+                    var heightFt = parseFloat(document.getElementById('height-ft').value);
+                    var heightIn = parseFloat(document.getElementById('height-in').value);
                     heightM = (heightFt * 12 + heightIn) * 0.0254;
                 }
 
-                if (weightKg && heightM) {
-                    const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+                var bmiText = document.getElementById('bmi-display-text');
+                if (weightKg && heightM && heightM > 0) {
+                    var bmi = (weightKg / (heightM * heightM)).toFixed(1);
                     document.getElementById('bmi').value = bmi;
+                    bmiText.textContent = 'Your BMI: ' + bmi;
+                } else {
+                    bmiText.textContent = '';
                 }
             }
 
             // Calculate button functionality
-            document.getElementById('calculate-btn').addEventListener('click', calculate);
+            document.getElementById('calculate-btn').addEventListener('click', function() { _ozCalculate(); });
 
-            function calculate() {
-                let weightKg, heightM;
+            window._ozCalculate = function(silent) {
+                var weightKg, heightM;
 
-                // Get weight in kg regardless of input units
                 if (currentUnits === 'metric') {
                     weightKg = parseFloat(document.getElementById('weight-kg').value);
-                    const heightCm = parseFloat(document.getElementById('height-cm').value);
+                    var heightCm = parseFloat(document.getElementById('height-cm').value);
                     heightM = heightCm / 100;
                 } else {
-                    const weightLb = parseFloat(document.getElementById('weight-lb').value);
+                    var weightLb = parseFloat(document.getElementById('weight-lb').value);
                     weightKg = weightLb / 2.20462;
-
-                    const heightFt = parseFloat(document.getElementById('height-ft').value);
-                    const heightIn = parseFloat(document.getElementById('height-in').value);
+                    var heightFt = parseFloat(document.getElementById('height-ft').value);
+                    var heightIn = parseFloat(document.getElementById('height-in').value);
                     heightM = (heightFt * 12 + heightIn) * 0.0254;
                 }
 
-                const duration = parseInt(document.getElementById('duration').value);
-                const dose = parseFloat(document.getElementById('dose').value);
+                var duration = parseInt(document.getElementById('duration').value);
+                var dose = parseFloat(document.getElementById('dose').value);
 
                 if (!weightKg || !heightM) {
-                    alert("Please enter your weight and height");
+                    if (!silent) alert("Please enter your weight and height");
                     return;
                 }
 
-                // Calculate BMI
-                const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+                _ozCalculated = true;
 
-                // Calculate projected weight loss based on clinical trial data
-                // These percentages are based on the STEP trials (Wilding et al., NEJM 2021)
-                let weightLossPercent;
+                var bmi = (weightKg / (heightM * heightM)).toFixed(1);
 
+                var weightLossPercent;
                 if (dose === 2.4) {
-                    // Wegovy dose - average 14.9% weight loss at 68 weeks in STEP 1 trial
                     weightLossPercent = Math.min(0.25, 0.149 * (duration/68));
                 } else if (dose === 1.0) {
-                    // Higher Ozempic dose - approximately 8% weight loss at 1 year
                     weightLossPercent = Math.min(0.12, 0.08 * (duration/52));
                 } else {
-                    // Standard Ozempic dose - approximately 5% weight loss at 1 year
                     weightLossPercent = Math.min(0.08, 0.05 * (duration/52));
                 }
 
-                const weightLossKg = (weightKg * weightLossPercent).toFixed(1);
-                const finalWeightKg = (weightKg - weightLossKg).toFixed(1);
-                const finalBMI = (finalWeightKg / (heightM * heightM)).toFixed(1);
+                var weightLossKg = (weightKg * weightLossPercent).toFixed(1);
+                var finalWeightKg = (weightKg - weightLossKg).toFixed(1);
+                var finalBMI = (finalWeightKg / (heightM * heightM)).toFixed(1);
 
-                // Display results in the appropriate units
                 if (currentUnits === 'metric') {
                     document.getElementById('startWeight').textContent = weightKg + ' kg';
                     document.getElementById('weightLoss').textContent = weightLossKg + ' kg';
                     document.getElementById('finalWeight').textContent = finalWeightKg + ' kg';
                 } else {
-                    const weightLb = (weightKg * 2.20462).toFixed(1);
-                    const weightLossLb = (weightLossKg * 2.20462).toFixed(1);
-                    const finalWeightLb = (finalWeightKg * 2.20462).toFixed(1);
-
-                    document.getElementById('startWeight').textContent = weightLb + ' lbs';
-                    document.getElementById('weightLoss').textContent = weightLossLb + ' lbs';
-                    document.getElementById('finalWeight').textContent = finalWeightLb + ' lbs';
+                    var wLb = (weightKg * 2.20462).toFixed(1);
+                    var wlLb = (weightLossKg * 2.20462).toFixed(1);
+                    var fwLb = (finalWeightKg * 2.20462).toFixed(1);
+                    document.getElementById('startWeight').textContent = wLb + ' lbs';
+                    document.getElementById('weightLoss').textContent = wlLb + ' lbs';
+                    document.getElementById('finalWeight').textContent = fwLb + ' lbs';
                 }
 
                 document.getElementById('startBMI').textContent = bmi;
                 document.getElementById('finalBMI').textContent = finalBMI;
-
-                // Populate new result elements
                 document.getElementById('loss-pct-label').textContent = (weightLossPercent * 100).toFixed(1) + '% of starting body weight';
 
-                const durationSelect = document.getElementById('duration');
+                var durationSelect = document.getElementById('duration');
                 document.getElementById('duration-display').textContent = durationSelect.options[durationSelect.selectedIndex].text;
-
-                const doseSelect = document.getElementById('dose');
+                var doseSelect = document.getElementById('dose');
                 document.getElementById('dose-display').textContent = doseSelect.options[doseSelect.selectedIndex].text;
 
-                // Set trial basis based on dose
-                if (dose === 2.4) {
-                    document.getElementById('trial-basis').textContent = 'STEP 1 Trial';
-                } else {
-                    document.getElementById('trial-basis').textContent = 'SUSTAIN Trials';
+                document.getElementById('trial-basis').textContent = dose === 2.4 ? 'STEP 1 Trial' : 'SUSTAIN Trials';
+
+                var resultEl = document.getElementById('result');
+                var wasHidden = resultEl.classList.contains('hidden');
+                resultEl.classList.remove('hidden');
+                if (wasHidden) {
+                    resultEl.classList.remove('results-reveal');
+                    void resultEl.offsetWidth;
+                    resultEl.classList.add('results-reveal');
+                }
+                if (!silent) {
+                    resultEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
                 }
 
-                // Show result div
-                document.getElementById('result').classList.remove('hidden');
-    if (typeof showNextSteps === 'function') showNextSteps('ozempic', collectUserData());
-
-                // Create chart
+                if (typeof showNextSteps === 'function') showNextSteps('ozempic', collectUserData());
                 createChart(weightKg, finalWeightKg, duration, currentUnits);
-            }
+            };
 
             function createChart(startWeightKg, finalWeightKg, duration, units) {
-                const ctx = document.getElementById('chart').getContext('2d');
+                var ctx = document.getElementById('chart').getContext('2d');
+                if (window.weightChart) window.weightChart.destroy();
 
-                // Clear previous chart if it exists
-                if (window.weightChart) {
-                    window.weightChart.destroy();
-                }
+                var labels = [];
+                var data = [];
+                var steps = 5;
+                var stepWeeks = duration/steps;
 
-                // Generate data points
-                const labels = [];
-                const data = [];
-                const steps = 5;
-                const stepWeeks = duration/steps;
-
-                for (let i = 0; i <= steps; i++) {
-                    const weeks = i * stepWeeks;
+                for (var i = 0; i <= steps; i++) {
+                    var weeks = i * stepWeeks;
                     labels.push(weeks.toFixed(0) + ' weeks');
-
-                    // Linear progression for simplicity (actual weight loss would be more rapid early on)
-                    const progress = i/steps;
-                    const currentWeightKg = startWeightKg - (startWeightKg - finalWeightKg) * progress;
-
-                    // Convert to lbs if using imperial units
+                    var progress = i/steps;
+                    var currentWeightKg = startWeightKg - (startWeightKg - finalWeightKg) * progress;
                     if (units === 'imperial') {
                         data.push((currentWeightKg * 2.20462).toFixed(1));
                     } else {
@@ -636,8 +706,8 @@
                         datasets: [{
                             label: 'Projected Weight (' + (units === 'metric' ? 'kg' : 'lbs') + ')',
                             data: data,
-                            borderColor: 'var(--color-accent)',
-                            backgroundColor: 'rgba(214, 51, 132, 0.1)',
+                            borderColor: '#0e7a7e',
+                            backgroundColor: 'rgba(14, 122, 126, 0.1)',
                             fill: true,
                             tension: 0.4
                         }]
@@ -664,9 +734,18 @@
       prefillExample({
         unit: 'imperial',
         fields: { 'weight-lb': '220', 'height-ft': '5', 'height-in': '9' },
-        selects: { duration: '52', dose: '1.0' },
+        selects: { duration: '68', dose: '2.4' },
         calculateFn: function() { document.getElementById('calculate-btn').click(); },
         resultsId: 'result'
+      });
+      // Sync pill toggles with prefilled values
+      var dv = document.getElementById('duration').value;
+      document.querySelectorAll('.duration-btn').forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-value') === dv);
+      });
+      var dosev = document.getElementById('dose').value;
+      document.querySelectorAll('.dose-btn').forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-value') === dosev);
       });
     });
     </script>

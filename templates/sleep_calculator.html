@@ -15,38 +15,56 @@
 {% endwith %}
 
 <style>
-.sleep-mode-toggle {
+/* --- Sleep form personality (matches TDEE pattern) --- */
+.pill-toggle {
     display: flex;
     gap: 0;
-    margin-bottom: 20px;
+    background: var(--color-muted);
     border-radius: 8px;
-    overflow: hidden;
-    border: 2px solid #e0e0e0;
+    padding: 3px;
+    margin-top: 6px;
 }
-.sleep-mode-toggle button {
+.pill-toggle button {
     flex: 1;
-    padding: 12px 16px;
+    padding: 10px 12px;
     border: none;
-    background: #f5f5f5;
-    font-size: 0.95rem;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-size: 0.88rem;
     font-weight: 500;
     cursor: pointer;
+    box-shadow: none;
     transition: all 0.2s;
-    color: #555;
+    width: auto;
 }
-.sleep-mode-toggle button.active {
-    background: #6c5ce7;
-    color: #fff;
+.pill-toggle button:hover {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+    color: var(--color-text);
 }
-.sleep-mode-toggle button:hover:not(.active) {
-    background: #e8e8e8;
+.pill-toggle button::after { display: none; }
+.pill-toggle button.active {
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+.sleep-mode-toggle {
+    margin-bottom: 16px;
+}
+.sleep-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
 }
 .sleep-result-card {
     position: relative;
     border-radius: 10px;
     padding: 20px 16px;
     text-align: center;
-    border: 2px solid #e0e0e0;
+    border: 2px solid var(--color-border);
     transition: transform 0.15s;
 }
 .sleep-result-card:hover {
@@ -55,18 +73,19 @@
 .sleep-recommended {
     border-width: 2px;
 }
-.sleep-green { border-color: #27ae60; background: #f0faf4; }
-.sleep-yellow { border-color: #d97706; background: #fffbeb; }
-.sleep-red { border-color: #dc2626; background: #fef2f2; }
+.sleep-green { border-color: var(--color-good, #27ae60); background: var(--color-good-bg, #f0faf4); }
+.sleep-yellow { border-color: var(--color-warning, #d97706); background: var(--color-warning-bg, #fffbeb); }
+.sleep-red { border-color: var(--color-danger, #dc2626); background: var(--color-danger-bg, #fef2f2); }
 .sleep-time {
     font-size: 1.6rem;
     font-weight: 700;
+    font-variant-numeric: tabular-nums;
     margin-bottom: 6px;
-    color: #222;
+    color: var(--color-text);
 }
 .sleep-detail {
     font-size: 0.9rem;
-    color: #666;
+    color: var(--color-text-secondary);
     margin-bottom: 8px;
 }
 .sleep-label {
@@ -76,14 +95,14 @@
     font-size: 0.8rem;
     font-weight: 600;
 }
-.sleep-label-green { background: #27ae60; color: #fff; }
-.sleep-label-yellow { background: #d97706; color: #fff; }
-.sleep-label-red { background: #dc2626; color: #fff; }
+.sleep-label-green { background: var(--color-good, #27ae60); color: #fff; }
+.sleep-label-yellow { background: var(--color-warning, #d97706); color: #fff; }
+.sleep-label-red { background: var(--color-danger, #dc2626); color: #fff; }
 .sleep-badge {
     position: absolute;
     top: -10px;
     right: 12px;
-    background: #6c5ce7;
+    background: var(--color-accent, #0e7a7e);
     color: #fff;
     font-size: 0.7rem;
     font-weight: 700;
@@ -100,8 +119,8 @@
     margin-bottom: 20px;
 }
 #age-recommendation {
-    background: #f8f9fa;
-    border-left: 4px solid #6c5ce7;
+    background: var(--color-muted, #f8f9fa);
+    border-left: 4px solid var(--color-accent, #0e7a7e);
     padding: 14px 18px;
     border-radius: 6px;
     margin-top: 16px;
@@ -117,14 +136,20 @@
 .sleep-age-table td {
     text-align: left;
     padding: 10px 12px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid var(--color-border, #eee);
 }
 .sleep-age-table th {
-    border-bottom: 2px solid #ddd;
+    border-bottom: 2px solid var(--color-border, #ddd);
     font-weight: 600;
 }
 .sleep-age-table tr:last-child td {
     border-bottom: none;
+}
+.sleep-calc-btn {
+    margin-top: 8px;
+}
+@media (max-width: 600px) {
+    .sleep-form-row { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -138,14 +163,18 @@
 
     <section id="calculator">
         <div class="calculator">
-            <div class="sleep-mode-toggle">
-                <button type="button" id="tab-wake" class="active" onclick="setMode('wake')">I need to wake up at...</button>
-                <button type="button" id="tab-bed" onclick="setMode('bed')">I'm going to bed at...</button>
+            <!-- Mode toggle -->
+            <div class="form-group sleep-mode-toggle">
+                <label>I want to...</label>
+                <div class="pill-toggle">
+                    <button type="button" id="tab-wake" class="active" onclick="setMode('wake')">Wake up at a set time</button>
+                    <button type="button" id="tab-bed" onclick="setMode('bed')">Go to bed now</button>
+                </div>
             </div>
 
             <div id="wake-input">
                 <div class="form-group">
-                    <label for="wake-time">Wake-up Time</label>
+                    <label for="wake-time">Wake-up time</label>
                     <input type="time" id="wake-time" value="07:00">
                 </div>
             </div>
@@ -157,23 +186,32 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <label for="age">Age</label>
-                <input type="number" id="age" min="0" max="120" placeholder="e.g. 30" required>
+            <!-- Age + Fall asleep on same row -->
+            <div class="sleep-form-row">
+                <div class="form-group">
+                    <label for="age">Age</label>
+                    <input type="number" id="age" min="0" max="120" placeholder="30" required>
+                </div>
+                <div class="form-group">
+                    <label>Time to fall asleep</label>
+                    <div class="pill-toggle">
+                        <button type="button" class="fall-asleep-btn" data-value="5" onclick="setFallAsleep(this)">5m</button>
+                        <button type="button" class="fall-asleep-btn" data-value="10" onclick="setFallAsleep(this)">10m</button>
+                        <button type="button" class="fall-asleep-btn active" data-value="15" onclick="setFallAsleep(this)">15m</button>
+                        <button type="button" class="fall-asleep-btn" data-value="20" onclick="setFallAsleep(this)">20m</button>
+                        <button type="button" class="fall-asleep-btn" data-value="30" onclick="setFallAsleep(this)">30m</button>
+                    </div>
+                    <select id="fall-asleep" class="hidden" aria-hidden="true">
+                        <option value="5">5 minutes</option>
+                        <option value="10">10 minutes</option>
+                        <option value="15" selected>15 minutes</option>
+                        <option value="20">20 minutes</option>
+                        <option value="30">30 minutes</option>
+                    </select>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="fall-asleep">Time to Fall Asleep</label>
-                <select id="fall-asleep">
-                    <option value="5">5 minutes</option>
-                    <option value="10">10 minutes</option>
-                    <option value="15" selected>15 minutes (average)</option>
-                    <option value="20">20 minutes</option>
-                    <option value="30">30 minutes</option>
-                </select>
-            </div>
-
-            <button onclick="calculateSleep()" class="btn btn-pink">Calculate Sleep Times</button>
+            <button onclick="calculateSleep()" class="btn btn-pink sleep-calc-btn">Calculate Sleep Times</button>
 
             <div class="results hidden" id="results">
                 <h3 id="results-header" style="margin-bottom: 4px; color: #333;"></h3>

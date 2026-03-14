@@ -67,11 +67,27 @@ function setMode(mode) {
     bedInput.classList.remove('hidden');
     wakeInput.classList.add('hidden');
   }
-  // Clear results when switching
-  document.getElementById('results').classList.add('hidden');
+  autoRecalc();
 }
 
-function calculateSleep() {
+// Fall asleep pill toggle
+function setFallAsleep(el) {
+  document.querySelectorAll('.fall-asleep-btn').forEach(function(btn) {
+    btn.classList.toggle('active', btn === el);
+  });
+  document.getElementById('fall-asleep').value = el.getAttribute('data-value');
+  autoRecalc();
+}
+
+// Auto-recalculate after first calculation
+var _sleepCalculated = false;
+function autoRecalc() {
+  if (_sleepCalculated) {
+    calculateSleep(true);
+  }
+}
+
+function calculateSleep(silent) {
   var wakeTab = document.getElementById('tab-wake');
   var mode = wakeTab.classList.contains('active') ? 'wake' : 'bed';
 
@@ -82,18 +98,20 @@ function calculateSleep() {
   var fallAsleepMin = parseInt(fallAsleepEl.value);
 
   if (isNaN(age) || age < 0 || age > 120) {
-    alert('Please enter a valid age.');
+    if (!silent) alert('Please enter a valid age.');
     return;
   }
 
   var timeValue;
   if (mode === 'wake') {
     timeValue = document.getElementById('wake-time').value;
-    if (!timeValue) { alert('Please enter a wake-up time.'); return; }
+    if (!timeValue) { if (!silent) alert('Please enter a wake-up time.'); return; }
   } else {
     timeValue = document.getElementById('bed-time').value;
-    if (!timeValue) { alert('Please enter a bedtime.'); return; }
+    if (!timeValue) { if (!silent) alert('Please enter a bedtime.'); return; }
   }
+
+  _sleepCalculated = true;
 
   var parts = timeValue.split(':');
   var hours = parseInt(parts[0]);
@@ -137,9 +155,17 @@ function calculateSleep() {
 
   // Show results
   var resultsDiv = document.getElementById('results');
+  var wasHidden = resultsDiv.classList.contains('hidden');
   resultsDiv.classList.remove('hidden');
+  if (wasHidden) {
+    resultsDiv.classList.remove('results-reveal');
+    void resultsDiv.offsetWidth;
+    resultsDiv.classList.add('results-reveal');
+  }
+  if (!silent) {
+    resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 
-  var modeLabel = mode === 'wake' ? 'Go to bed at' : 'Wake up at';
   var headerEl = document.getElementById('results-header');
   headerEl.textContent = mode === 'wake'
     ? 'Recommended bedtimes to wake up at ' + formatTime12(baseDate)
@@ -178,7 +204,7 @@ function calculateSleep() {
   showNextSteps('sleep', collectUserData());
 }
 
-// Initialize
+// Initialize and wire up auto-recalc
 document.addEventListener('DOMContentLoaded', function() {
   // Set default wake time to 7:00 AM
   var wakeTime = document.getElementById('wake-time');
@@ -186,4 +212,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Set default bed time to 22:00
   var bedTime = document.getElementById('bed-time');
   if (bedTime && !bedTime.value) bedTime.value = '22:00';
+
+  // Auto-recalc on input change
+  var inputs = document.querySelectorAll('#wake-time, #bed-time, #age');
+  inputs.forEach(function(input) {
+    input.addEventListener('input', autoRecalc);
+  });
 });

@@ -75,23 +75,41 @@ var INTENSITY_MODIFIERS = {
 function toggleUnit(form, unit) {
     var metricBtn = document.getElementById('metric-btn');
     var imperialBtn = document.getElementById('imperial-btn');
-    var metricFields = document.querySelector('.metric-inputs');
-    var imperialFields = document.querySelector('.imperial-inputs');
+    var metricFields = document.querySelectorAll('.metric-inputs');
+    var imperialFields = document.querySelectorAll('.imperial-inputs');
 
     if (unit === 'metric') {
         metricBtn.classList.add('active');
         imperialBtn.classList.remove('active');
-        metricFields.classList.remove('hidden');
-        imperialFields.classList.add('hidden');
+        metricFields.forEach(function(el) { el.classList.remove('hidden'); });
+        imperialFields.forEach(function(el) { el.classList.add('hidden'); });
     } else {
         imperialBtn.classList.add('active');
         metricBtn.classList.remove('active');
-        imperialFields.classList.remove('hidden');
-        metricFields.classList.add('hidden');
+        imperialFields.forEach(function(el) { el.classList.remove('hidden'); });
+        metricFields.forEach(function(el) { el.classList.add('hidden'); });
+    }
+    autoRecalc();
+}
+
+// Intensity pill toggle
+function setIntensity(el) {
+    document.querySelectorAll('.intensity-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn === el);
+    });
+    document.getElementById('intensity').value = el.getAttribute('data-value');
+    autoRecalc();
+}
+
+// Auto-recalculate after first calculation
+var _calsCalculated = false;
+function autoRecalc() {
+    if (_calsCalculated) {
+        calculateCaloriesBurned(true);
     }
 }
 
-function calculateCaloriesBurned() {
+function calculateCaloriesBurned(silent) {
     var isMetric = document.getElementById('metric-btn').classList.contains('active');
     var weightKg;
 
@@ -100,14 +118,14 @@ function calculateCaloriesBurned() {
     } else {
         var weightLb = parseFloat(document.getElementById('weight_lb').value);
         if (!weightLb || isNaN(weightLb)) {
-            alert('Please enter your weight.');
+            if (!silent) alert('Please enter your weight.');
             return;
         }
         weightKg = weightLb * 0.453592;
     }
 
     if (!weightKg || isNaN(weightKg) || weightKg <= 0) {
-        alert('Please enter a valid weight.');
+        if (!silent) alert('Please enter a valid weight.');
         return;
     }
 
@@ -116,19 +134,21 @@ function calculateCaloriesBurned() {
     var intensity = document.getElementById('intensity').value;
 
     if (!activity) {
-        alert('Please select an activity.');
+        if (!silent) alert('Please select an activity.');
         return;
     }
 
     if (!duration || isNaN(duration) || duration <= 0) {
-        alert('Please enter a valid duration in minutes.');
+        if (!silent) alert('Please enter a valid duration in minutes.');
         return;
     }
+
+    _calsCalculated = true;
 
     // Get base MET value
     var baseMet = MET_VALUES[activity];
     if (!baseMet) {
-        alert('Activity not found.');
+        if (!silent) alert('Activity not found.');
         return;
     }
 
@@ -177,14 +197,27 @@ function calculateCaloriesBurned() {
 
     // Show results
     var resultsEl = document.getElementById('results');
+    var wasHidden = resultsEl.classList.contains('hidden');
     resultsEl.classList.remove('hidden');
-    resultsEl.classList.remove('results-reveal');
-    void resultsEl.offsetWidth;
-    resultsEl.classList.add('results-reveal');
-    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (wasHidden) {
+        resultsEl.classList.remove('results-reveal');
+        void resultsEl.offsetWidth;
+        resultsEl.classList.add('results-reveal');
+    }
+    if (!silent) {
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
 
     // Content loop: contextual next steps
     var userData = collectUserData();
     userData.weight_kg = weightKg.toFixed(1);
     showNextSteps('calories-burned', userData, { calories: Math.round(totalCalories).toLocaleString() });
 }
+
+// Wire up auto-recalc on input change
+document.addEventListener('DOMContentLoaded', function() {
+    var inputs = document.querySelectorAll('#weight_kg, #weight_lb, #duration, #activity');
+    inputs.forEach(function(input) {
+        input.addEventListener(input.tagName === 'SELECT' ? 'change' : 'input', autoRecalc);
+    });
+});
