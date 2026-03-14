@@ -413,7 +413,7 @@
     <div class="hp-cat-nav">
         <span class="hp-cat-pill active" data-cat="all">All</span>
         {% for cat in categories %}
-        <span class="hp-cat-pill" data-cat="{{ cat.id }}">{{ cat.label }}</span>
+        <span class="hp-cat-pill" data-cat="{{ cat.id }}">{{ cat.icon }} {{ cat.label }}</span>
         {% endfor %}
     </div>
 

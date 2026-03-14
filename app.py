@@ -1122,13 +1122,13 @@ cards = [
 ]
 
 categories = [
-    {"id": "nutrition", "label": "Nutrition & Diet", "icon": ""},
-    {"id": "medications", "label": "Weight Loss Medications", "icon": ""},
-    {"id": "fitness", "label": "Fitness & Body Composition", "icon": ""},
-    {"id": "cosmetic", "label": "Cosmetic & Aesthetic", "icon": ""},
-    {"id": "fertility", "label": "Pregnancy & Fertility", "icon": ""},
-    {"id": "health", "label": "Health & Longevity", "icon": ""},
-    {"id": "financial", "label": "Financial & Earnings", "icon": ""},
+    {"id": "nutrition", "label": "Nutrition & Diet", "icon": "🥗"},
+    {"id": "medications", "label": "Weight Loss Medications", "icon": "💊"},
+    {"id": "fitness", "label": "Fitness & Body Composition", "icon": "💪"},
+    {"id": "cosmetic", "label": "Cosmetic & Aesthetic", "icon": "✨"},
+    {"id": "fertility", "label": "Pregnancy & Fertility", "icon": "🤰"},
+    {"id": "health", "label": "Health & Longevity", "icon": "❤️"},
+    {"id": "financial", "label": "Financial & Earnings", "icon": "💰"},
 ]
 
 @app.route('/')
