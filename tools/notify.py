@@ -12,7 +12,7 @@ import smtplib
 import sys
 from email.mime.text import MIMEText
 
-SENDER = "calculatordirectory@gmail.com"
+SENDER = "contact@healthcalculators.xyz"
 RECIPIENT = "alistairjdb@gmail.com"
 SMTP_HOST = "smtp.gmail.com"
 SMTP_PORT = 587
