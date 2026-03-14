@@ -1,0 +1,1023 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="90+ free health calculators built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+    meta_keywords="health calculators, AI health tools, TDEE calculator, BMI calculator, nutrition calculator",
+    og_title="HealthCalculators.xyz — The Intelligent Health Calculator",
+    og_description="90+ free tools built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+    og_url="/",
+    og_image="health-calculators-homepage-og.jpg",
+    page_title="HealthCalculators.xyz — The Intelligent Health Calculator",
+    canonical_url="/",
+    robots_meta="noindex, nofollow"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+  /* ========== HOMEPAGE V2 — Twitter-Optimized Synthesis ========== */
+
+  /* --- Hero: Split layout (Option C) --- */
+  .v2-hero {
+    position: relative;
+    padding: 64px 24px 56px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(14, 122, 126, 0.05) 0%, transparent 70%),
+      var(--color-bg);
+  }
+
+  /* Subtle grid texture */
+  .v2-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14, 122, 126, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 122, 126, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+    pointer-events: none;
+  }
+
+  .v2-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* Left: copy */
+  .v2-hero-copy {
+    max-width: 480px;
+  }
+
+  .v2-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px 6px 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .v2-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: v2-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes v2-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .v2-hero h1 {
+    font-family: var(--font-display);
+    font-size: 3.4rem;
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .v2-hero h1 em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .v2-hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0 0 28px;
+  }
+
+  .v2-hero-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    background: var(--color-text);
+    color: #fff;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 14px rgba(27, 27, 50, 0.2);
+  }
+
+  .v2-hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(27, 27, 50, 0.28);
+  }
+
+  .v2-hero-cta svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* Right: product showcase — THIS is the social-capturable element */
+  .v2-showcase {
+    position: relative;
+  }
+
+  .v2-showcase-frame {
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow:
+      0 4px 8px rgba(27, 27, 50, 0.04),
+      0 16px 48px rgba(27, 27, 50, 0.08);
+    overflow: hidden;
+  }
+
+  .v2-showcase-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--color-muted);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-showcase-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+
+  .v2-showcase-url {
+    flex: 1;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .v2-showcase-body {
+    padding: 32px 28px 28px;
+    text-align: center;
+    background: linear-gradient(160deg, #fafcfc 0%, var(--color-accent-bg) 100%);
+  }
+
+  .v2-showcase-calc-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  /* Heartbeat line under calc name */
+  .v2-showcase-heartbeat {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .v2-showcase-number {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .v2-showcase-unit {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .v2-showcase-context {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0 8px;
+  }
+
+  /* Input summary row */
+  .v2-showcase-inputs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .v2-showcase-input-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+
+  .v2-showcase-input-pill strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  /* --- Trust strip (below hero) --- */
+  .v2-trust {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .v2-trust-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+  }
+
+  .v2-trust-icon svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent);
+  }
+
+  .v2-trust-num {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  /* Pulse activity line */
+  .v2-pulse-line {
+    text-align: center;
+    padding: 14px 24px;
+    font-size: 0.78rem;
+    color: var(--color-text-tertiary);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-pulse-line strong {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* --- Heartbeat divider --- */
+  .v2-divider {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .v2-divider svg {
+    width: 140px;
+    height: 16px;
+  }
+
+  /* --- How It Works --- */
+  .v2-how {
+    padding: 64px 24px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-how-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .v2-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+
+  .v2-section-label::before {
+    content: '';
+    width: 20px;
+    height: 1.5px;
+    background: var(--color-accent);
+    border-radius: 1px;
+  }
+
+  .v2-how-heading {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 10px;
+    line-height: 1.15;
+  }
+
+  .v2-how-desc {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 40px;
+  }
+
+  .v2-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .v2-step {
+    position: relative;
+    padding: 28px 24px 24px;
+    background: var(--color-bg);
+    border-radius: 14px;
+    border: 1px solid var(--color-border-light);
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .v2-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), rgba(14, 122, 126, 0.2));
+    border-radius: 0 0 3px 3px;
+  }
+
+  .v2-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .v2-step-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+
+  .v2-step-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .v2-step-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+  }
+
+  .v2-step-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 6px;
+  }
+
+  .v2-step-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* --- Featured Tools --- */
+  .v2-tools {
+    padding: 64px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .v2-tools-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .v2-tools-heading {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .v2-tools-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .v2-tools-link:hover { gap: 10px; }
+
+  .v2-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .v2-tool {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 22px 20px;
+    background: var(--color-surface);
+    border-radius: 14px;
+    border: 1px solid var(--color-border-light);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .v2-tool:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border);
+  }
+
+  .v2-tool-emoji {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+    line-height: 1;
+  }
+
+  .v2-tool-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 5px;
+  }
+
+  .v2-tool-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 14px;
+  }
+
+  .v2-tool-cta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+  }
+
+  .v2-tool:hover .v2-tool-cta { gap: 8px; }
+
+  /* --- Categories --- */
+  .v2-categories {
+    padding: 56px 24px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-categories-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .v2-categories-heading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 24px;
+  }
+
+  .v2-cat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .v2-cat-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .v2-cat-tag:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .v2-cat-count {
+    font-size: 0.72rem;
+    color: var(--color-text-tertiary);
+    background: var(--color-surface);
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  /* --- Resources banner --- */
+  .v2-resources {
+    padding: 64px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .v2-resources-card {
+    position: relative;
+    padding: 44px 36px;
+    background: var(--color-text);
+    border-radius: 18px;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .v2-resources-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(14, 122, 126, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .v2-resources-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-resources-heading {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+
+  .v2-resources-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 460px;
+  }
+
+  .v2-resources-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: #fff;
+    color: var(--color-text);
+    border-radius: 10px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .v2-resources-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  }
+
+  /* --- Scroll reveal --- */
+  .v2-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .v2-reveal.v2-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .v2-stagger > .v2-reveal:nth-child(1) { transition-delay: 0s; }
+  .v2-stagger > .v2-reveal:nth-child(2) { transition-delay: 0.08s; }
+  .v2-stagger > .v2-reveal:nth-child(3) { transition-delay: 0.16s; }
+  .v2-stagger > .v2-reveal:nth-child(4) { transition-delay: 0.24s; }
+  .v2-stagger > .v2-reveal:nth-child(5) { transition-delay: 0.32s; }
+  .v2-stagger > .v2-reveal:nth-child(6) { transition-delay: 0.4s; }
+
+  /* --- Responsive --- */
+  @media (max-width: 900px) {
+    .v2-hero-inner {
+      grid-template-columns: 1fr;
+      gap: 36px;
+      text-align: center;
+    }
+    .v2-hero-copy {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .v2-hero h1 { font-size: 2.6rem; }
+    .v2-showcase-number { font-size: 4rem; }
+  }
+
+  @media (max-width: 768px) {
+    .v2-hero { padding: 40px 20px 36px; }
+    .v2-hero h1 { font-size: 2.2rem; }
+    .v2-hero-sub { font-size: 1rem; }
+    .v2-showcase-body { padding: 24px 20px 20px; }
+    .v2-showcase-number { font-size: 3.5rem; }
+    .v2-steps { grid-template-columns: 1fr; gap: 14px; }
+    .v2-how-heading { font-size: 1.7rem; }
+    .v2-tools-grid { grid-template-columns: 1fr; gap: 12px; }
+    .v2-tools-heading { font-size: 1.4rem; }
+    .v2-trust { gap: 16px; }
+    .v2-trust-item { font-size: 0.8rem; }
+    .v2-resources-card { padding: 32px 24px; }
+    .v2-resources-heading { font-size: 1.4rem; }
+    .v2-cat-tag { padding: 9px 16px; font-size: 0.82rem; }
+  }
+
+  @media (max-width: 480px) {
+    .v2-hero h1 { font-size: 1.9rem; }
+    .v2-showcase-number { font-size: 3rem; }
+    .v2-hero-cta {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container" style="max-width: none; padding: 0;">
+
+  <!-- ===== HERO: Split layout ===== -->
+  <section class="v2-hero">
+    <div class="v2-hero-inner">
+
+      <!-- Left: Copy -->
+      <div class="v2-hero-copy v2-reveal">
+        <div class="v2-hero-badge">
+          <span class="v2-pulse-dot"></span>
+          Pulse · Built by AI, updated continuously
+        </div>
+
+        <h1>The <em>Intelligent</em><br>Health Calculator</h1>
+
+        <p class="v2-hero-sub">
+          90+ free tools backed by 220+ peer-reviewed citations.
+          Get a clear, personalized answer in under 60 seconds.
+        </p>
+
+        <a href="/tdee-calculator" class="v2-hero-cta">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          Try TDEE Calculator
+        </a>
+      </div>
+
+      <!-- Right: Product showcase (capturable as social image) -->
+      <div class="v2-showcase v2-reveal">
+        <div class="v2-showcase-frame">
+          <div class="v2-showcase-bar">
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-url">healthcalculators.xyz/tdee-calculator</span>
+          </div>
+          <div class="v2-showcase-body">
+            <div class="v2-showcase-calc-name">TDEE Calculator</div>
+            <svg class="v2-showcase-heartbeat" width="80" height="12" viewBox="0 0 80 12" fill="none">
+              <path d="M0 6 L24 6 L32 2 L38 10 L44 4 L50 6 L80 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+            </svg>
+            <div class="v2-showcase-number" id="v2-hero-num">2,340</div>
+            <div class="v2-showcase-unit">calories / day</div>
+            <div class="v2-showcase-context">
+              Your maintenance calories based on the Mifflin-St Jeor equation.
+              Moderately active — higher than average for your profile.
+            </div>
+            <div class="v2-showcase-inputs">
+              <span class="v2-showcase-input-pill"><strong>28</strong> years</span>
+              <span class="v2-showcase-input-pill"><strong>165</strong> lbs</span>
+              <span class="v2-showcase-input-pill"><strong>5'10"</strong></span>
+              <span class="v2-showcase-input-pill"><strong>Active</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== Trust strip ===== -->
+  <div class="v2-trust v2-reveal">
+    <div class="v2-trust-item">
+      <div class="v2-trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div><span class="v2-trust-num">220+</span> Peer-Reviewed Citations</div>
+    </div>
+    <div class="v2-trust-item">
+      <div class="v2-trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+      </div>
+      <div><span class="v2-trust-num">90+</span> Free Tools</div>
+    </div>
+    <div class="v2-trust-item">
+      <div class="v2-trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+      </div>
+      <div><span class="v2-trust-num">28</span> Evidence-Based Guides</div>
+    </div>
+  </div>
+
+  <!-- Pulse activity line -->
+  <div class="v2-pulse-line v2-reveal">
+    <strong>Pulse</strong> verified 227 citations across 92 calculators · Last updated March 2026
+  </div>
+
+  <!-- ===== Heartbeat divider ===== -->
+  <div class="v2-divider" aria-hidden="true">
+    <svg viewBox="0 0 200 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 8 L70 8 L80 3 L88 13 L96 5 L102 8 L200 8"
+            stroke="var(--color-accent)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" opacity="0.2"/>
+    </svg>
+  </div>
+
+  <!-- ===== How It Works ===== -->
+  <section class="v2-how">
+    <div class="v2-how-inner">
+      <div class="v2-section-label v2-reveal">How it works</div>
+      <h2 class="v2-how-heading v2-reveal">Built different. By design.</h2>
+      <p class="v2-how-desc v2-reveal">
+        Every calculator starts with research and ends with a citation.
+        No guesswork. No paywalls. No ads hiding the answer.
+      </p>
+
+      <div class="v2-steps v2-stagger">
+        <div class="v2-step v2-reveal">
+          <div class="v2-step-num">Step 01</div>
+          <div class="v2-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <div class="v2-step-title">Reads the Research</div>
+          <p class="v2-step-desc">Pulse analyzes peer-reviewed papers from PubMed, NIH, and WHO to find validated clinical formulas.</p>
+        </div>
+
+        <div class="v2-step v2-reveal">
+          <div class="v2-step-num">Step 02</div>
+          <div class="v2-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14.5" y1="4" x2="9.5" y2="20"/></svg>
+          </div>
+          <div class="v2-step-title">Builds the Tool</div>
+          <p class="v2-step-desc">Transforms clinical equations into instant calculators with clear inputs, validated ranges, and real-time results.</p>
+        </div>
+
+        <div class="v2-step v2-reveal">
+          <div class="v2-step-num">Step 03</div>
+          <div class="v2-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="v2-step-title">Cites Every Source</div>
+          <p class="v2-step-desc">Every result links back to the original research. You can verify the science yourself, always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Featured Tools (emoji on cards) ===== -->
+  <section class="v2-tools" id="v2-tools-section">
+    <div class="v2-tools-header v2-reveal">
+      <div>
+        <div class="v2-section-label">Popular</div>
+        <h2 class="v2-tools-heading">Most Used Tools</h2>
+      </div>
+      <a href="/" class="v2-tools-link">
+        View all 90+ tools <span>&rarr;</span>
+      </a>
+    </div>
+
+    <div class="v2-tools-grid v2-stagger">
+      <a href="/tdee-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">⚡</div>
+        <div class="v2-tool-title">TDEE Calculator</div>
+        <div class="v2-tool-desc">Your total daily energy expenditure based on the Mifflin-St Jeor equation.</div>
+        <div class="v2-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/bmi-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">📊</div>
+        <div class="v2-tool-title">BMI Calculator</div>
+        <div class="v2-tool-desc">Body Mass Index with WHO classification and health risk context.</div>
+        <div class="v2-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/protein-intake-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">🥩</div>
+        <div class="v2-tool-title">Protein Intake</div>
+        <div class="v2-tool-desc">Personalized daily protein target based on your weight, goals, and activity.</div>
+        <div class="v2-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/calories-burned-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">🔥</div>
+        <div class="v2-tool-title">Calories Burned</div>
+        <div class="v2-tool-desc">Estimate calories burned for 100+ activities using validated MET values.</div>
+        <div class="v2-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/ozempic-weight-loss-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">💉</div>
+        <div class="v2-tool-title">Ozempic Weight Loss</div>
+        <div class="v2-tool-desc">Project your weight loss timeline on semaglutide from clinical trial data.</div>
+        <div class="v2-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+
+      <a href="/sleep-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">🌙</div>
+        <div class="v2-tool-title">Sleep Calculator</div>
+        <div class="v2-tool-desc">Optimal bedtime and wake times aligned with your natural sleep cycles.</div>
+        <div class="v2-tool-cta">Calculate <span>&rarr;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Categories ===== -->
+  <section class="v2-categories">
+    <div class="v2-categories-inner">
+      <div class="v2-section-label v2-reveal">Explore</div>
+      <h2 class="v2-categories-heading v2-reveal">Browse by Category</h2>
+      <div class="v2-cat-grid v2-stagger">
+        <a href="/nutrition-calculators" class="v2-cat-tag v2-reveal">
+          🥗 Nutrition & Diet
+          <span class="v2-cat-count">20+</span>
+        </a>
+        <a href="/weight-loss-medication-calculators" class="v2-cat-tag v2-reveal">
+          💊 Weight Loss Medications
+          <span class="v2-cat-count">12+</span>
+        </a>
+        <a href="/fitness-body-composition-calculators" class="v2-cat-tag v2-reveal">
+          💪 Fitness & Body Composition
+          <span class="v2-cat-count">15+</span>
+        </a>
+        <a href="/cosmetic-procedure-calculators" class="v2-cat-tag v2-reveal">
+          ✨ Cosmetic & Aesthetic
+          <span class="v2-cat-count">10+</span>
+        </a>
+        <a href="/pregnancy-fertility-calculators" class="v2-cat-tag v2-reveal">
+          🤰 Pregnancy & Fertility
+          <span class="v2-cat-count">12+</span>
+        </a>
+        <a href="/health-longevity-calculators" class="v2-cat-tag v2-reveal">
+          ❤️ Health & Longevity
+          <span class="v2-cat-count">15+</span>
+        </a>
+        <a href="/financial-earnings-calculators" class="v2-cat-tag v2-reveal">
+          💰 Financial & Earnings
+          <span class="v2-cat-count">6+</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Resources Banner ===== -->
+  <section class="v2-resources">
+    <div class="v2-resources-card v2-reveal">
+      <div class="v2-resources-inner">
+        <div class="v2-section-label" style="color: rgba(255,255,255,0.5);">Guides</div>
+        <h2 class="v2-resources-heading">Understand What Your<br>Numbers Mean</h2>
+        <p class="v2-resources-desc">
+          28 evidence-based guides that explain your results, what to do next, and when to talk to a doctor.
+        </p>
+        <a href="/resources" class="v2-resources-btn">
+          Browse All Guides
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+// Scroll-triggered reveal
+(function() {
+  var els = document.querySelectorAll('.v2-reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('v2-visible'); });
+    return;
+  }
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('v2-visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
+
+// Count-up for showcase number
+(function() {
+  var el = document.getElementById('v2-hero-num');
+  if (!el) return;
+  var target = 2340, dur = 1000;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      var start = performance.now();
+      (function tick(now) {
+        var p = Math.min((now - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      })(performance.now());
+      obs.unobserve(el);
+    }
+  }, { threshold: 0.5 });
+  obs.observe(el);
+})();
+</script>
+</body>
+</html>

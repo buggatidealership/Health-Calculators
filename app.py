@@ -4906,6 +4906,16 @@ def mockup_homepage():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup-homepage-v2')
+def mockup_homepage_v2():
+    return render_template(
+        'mockup-homepage-v2.html',
+        is_homepage=True,
+        schema_type='WebPage',
+        canonical_url='/mockup-homepage-v2',
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup')
 def mockup():
     return render_template(
