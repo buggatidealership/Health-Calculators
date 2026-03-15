@@ -147,7 +147,7 @@
 .oz-ref-row.active .oz-ref-label,
 .oz-ref-row.active .oz-ref-value { color: var(--color-accent); font-weight: 600; }
 
-/* Layer 5: Share — Twitter-optimized */
+/* Layer 5: Share — multi-channel */
 .oz-share {
   text-align: center;
   padding: 20px;
@@ -159,14 +159,21 @@
 .oz-share-text {
   font-size: 0.88rem;
   color: var(--color-accent-deep, #065f63);
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 .oz-share-text strong { color: var(--color-accent); }
+.oz-share-buttons {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
 .oz-share-btn {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 10px 20px;
+  padding: 10px 16px;
   background: var(--color-accent);
   color: #fff;
   border: none;
@@ -181,6 +188,23 @@
 }
 .oz-share-btn:hover { opacity: 0.9; transform: none; box-shadow: none; filter: none; }
 .oz-share-btn::after { display: none; }
+.oz-share-btn.whatsapp { background: #25D366; }
+.oz-share-btn.copy-img { background: var(--color-text); }
+.oz-share-card-preview {
+  margin-top: 12px;
+  text-align: center;
+}
+.oz-share-card-preview canvas {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.oz-share-hint {
+  font-size: 0.72rem;
+  color: var(--color-text-tertiary);
+  margin-top: 8px;
+}
 
 /* Inline select cards — replaces dropdowns for 3-4 options */
 .oz-select-cards {
@@ -274,16 +298,38 @@
   .oz-select-cards { flex-direction: column; }
 }
 
+/* Answer + Safety side by side */
+.oz-answer-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.oz-answer-row .oz-answer {
+  flex: 1;
+  margin-bottom: 0;
+}
+.oz-answer-row .oz-safety {
+  flex: 0 0 45%;
+  margin-bottom: 0;
+}
+.oz-answer-row.no-warning .oz-answer { flex: 1; }
+@media (max-width: 600px) {
+  .oz-answer-row { flex-direction: column; }
+  .oz-answer-row .oz-safety { flex: none; }
+}
+
 /* Safety alerts */
-.oz-safety { margin-bottom: 16px; }
+.oz-safety {}
 .oz-safety-box {
   background: var(--color-warning-bg);
   border: 1px solid var(--color-warning-border);
   border-radius: 12px;
   padding: 16px 20px;
+  height: 100%;
+  box-sizing: border-box;
 }
 .oz-safety-title {
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   font-weight: 700;
   color: var(--color-warning);
   margin-bottom: 8px;
@@ -294,9 +340,9 @@
 .oz-safety-list {
   margin: 0;
   padding-left: 18px;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   color: var(--color-text-secondary);
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 @media (max-width: 600px) {
@@ -350,21 +396,21 @@
     {# ===== 5-LAYER RESULT SYSTEM (reference mode) ===== #}
     <div class="oz-results" id="oz-results">
 
-        {# Layer 0: Safety alerts (if any) #}
-        <div class="oz-safety" id="oz-safety" style="display:none;">
-            <div class="oz-safety-box">
-                <div class="oz-safety-title">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                    Safety Alert
-                </div>
-                <ul class="oz-safety-list" id="oz-safety-list"></ul>
+        {# Layer 0+1: Answer + Safety side by side #}
+        <div class="oz-answer-row" id="oz-answer-row">
+            <div class="oz-answer" id="oz-answer">
+                <div class="oz-answer-text" id="oz-answer-text">You need 2 clicks</div>
+                <div class="oz-answer-sub" id="oz-answer-sub">0.5 mg using the Blue pen</div>
             </div>
-        </div>
-
-        {# Layer 1: The answer — "You need X clicks" #}
-        <div class="oz-answer" id="oz-answer">
-            <div class="oz-answer-text" id="oz-answer-text">You need 2 clicks</div>
-            <div class="oz-answer-sub" id="oz-answer-sub">0.5 mg using the Blue pen</div>
+            <div class="oz-safety" id="oz-safety" style="display:none;">
+                <div class="oz-safety-box">
+                    <div class="oz-safety-title">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                        Safety Alert
+                    </div>
+                    <ul class="oz-safety-list" id="oz-safety-list"></ul>
+                </div>
+            </div>
         </div>
 
         {# Layer 2: The number — large, visual, screenshot-worthy #}
@@ -435,18 +481,28 @@
             </div>
         </div>
 
-        {# Layer 5: Share — Twitter-optimized #}
+        {# Layer 5: Share — multi-channel with media #}
         <div class="oz-share">
             <div class="oz-share-text" id="oz-share-text">
                 I take <strong id="oz-share-dose">0.5 mg</strong> Ozempic — that's <strong id="oz-share-clicks">2 clicks</strong> on the <strong id="oz-share-pen">Blue</strong> pen.
             </div>
-            <button class="oz-share-btn" id="oz-share-btn">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-                Share my dose
-            </button>
+            <div class="oz-share-buttons">
+                <button class="oz-share-btn" id="oz-share-twitter">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    Share on X
+                </button>
+                <button class="oz-share-btn whatsapp" id="oz-share-whatsapp">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    WhatsApp
+                </button>
+                <button class="oz-share-btn copy-img" id="oz-share-copy">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy image
+                </button>
+            </div>
+            <div class="oz-share-card-preview" id="oz-share-preview"></div>
+            <div class="oz-share-hint">Tip: Copy the image above, then paste it into your post for better engagement</div>
         </div>
-
-        {% include 'components/share-card.html' %}
     </div>
 {% endblock %}
 
@@ -521,18 +577,20 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!spec.recommendedDoses.includes(dose)) warnings.push(dose + "mg is non-standard for the " + spec.penColor + " pen. Higher risk of dosing error.");
         if (clicks % 1 !== 0) warnings.push("Requires " + clicks + " clicks (fractional). May cause inaccurate dosing.");
 
-        // Layer 0: Safety
+        // Layer 0+1: Answer + Safety side by side
         var safetyEl = document.getElementById('oz-safety');
+        var answerRow = document.getElementById('oz-answer-row');
         if (warnings.length) {
             safetyEl.style.display = '';
+            answerRow.classList.remove('no-warning');
             var list = document.getElementById('oz-safety-list');
             list.innerHTML = '';
             warnings.forEach(function(w) { var li = document.createElement('li'); li.textContent = w; list.appendChild(li); });
         } else {
             safetyEl.style.display = 'none';
+            answerRow.classList.add('no-warning');
         }
 
-        // Layer 1: The answer
         var answerEl = document.getElementById('oz-answer');
         answerEl.classList.toggle('has-warning', warnings.length > 0);
         document.getElementById('oz-answer-text').textContent = "You need " + clicks + (clicks === 1 ? " click" : " clicks");
@@ -585,15 +643,115 @@ document.addEventListener('DOMContentLoaded', function() {
         var resultsEl = document.getElementById('oz-results');
         resultsEl.classList.add('visible');
         resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        // Generate share card image
+        setTimeout(renderSharePreview, 700);
     });
 
-    // Share button
-    document.getElementById('oz-share-btn').addEventListener('click', function() {
+    // Generate result card image
+    function generateShareCard() {
         var dose = document.getElementById('oz-share-dose').textContent;
         var clicks = document.getElementById('oz-share-clicks').textContent;
         var pen = document.getElementById('oz-share-pen').textContent;
-        var text = "I take " + dose + " Ozempic — " + clicks + " on the " + pen + " pen. What dose are you on?";
+        var nextDate = document.getElementById('oz-next-date').textContent;
+        var penLasts = document.getElementById('oz-pen-lasts').textContent;
+
+        var canvas = document.createElement('canvas');
+        canvas.width = 1200; canvas.height = 675;
+        var ctx = canvas.getContext('2d');
+
+        // Background
+        ctx.fillStyle = '#0e1b2d';
+        ctx.fillRect(0, 0, 1200, 675);
+
+        // Accent bar
+        ctx.fillStyle = '#0e7a7e';
+        ctx.fillRect(0, 0, 1200, 6);
+
+        // Title
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '600 16px system-ui, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText('MY OZEMPIC DOSE', 600, 80);
+
+        // Big number
+        ctx.fillStyle = '#0e7a7e';
+        ctx.font = '400 120px Georgia, serif';
+        ctx.fillText(clicks, 600, 240);
+
+        // Dose detail
+        ctx.fillStyle = '#e2e8f0';
+        ctx.font = '400 28px Georgia, serif';
+        ctx.fillText(dose + ' semaglutide — ' + pen + ' pen', 600, 300);
+
+        // Divider
+        ctx.strokeStyle = '#1e3a5f';
+        ctx.lineWidth = 1;
+        ctx.beginPath(); ctx.moveTo(300, 350); ctx.lineTo(900, 350); ctx.stroke();
+
+        // Schedule info
+        ctx.fillStyle = '#94a3b8';
+        ctx.font = '500 18px system-ui, sans-serif';
+        ctx.fillText('Next injection: ' + nextDate + '  •  Pen lasts ' + penLasts, 600, 400);
+
+        // Hook
+        ctx.fillStyle = '#0e7a7e';
+        ctx.font = '600 24px system-ui, sans-serif';
+        ctx.fillText('What dose are you on?', 600, 480);
+
+        // Branding
+        ctx.fillStyle = '#475569';
+        ctx.font = '500 14px system-ui, sans-serif';
+        ctx.fillText('healthcalculators.xyz/ozempic-pen-click-calculator', 600, 630);
+
+        return canvas;
+    }
+
+    // Render card when results show
+    function renderSharePreview() {
+        var canvas = generateShareCard();
+        var preview = document.getElementById('oz-share-preview');
+        preview.innerHTML = '';
+        preview.appendChild(canvas);
+    }
+
+    // Share: Twitter/X
+    document.getElementById('oz-share-twitter').addEventListener('click', function() {
+        var dose = document.getElementById('oz-share-dose').textContent;
+        var clicks = document.getElementById('oz-share-clicks').textContent;
+        var pen = document.getElementById('oz-share-pen').textContent;
+        var text = "I take " + dose + " Ozempic — " + clicks + " on the " + pen + " pen. What dose are you on?\n\nhealthcalculators.xyz/ozempic-pen-click-calculator";
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+    });
+
+    // Share: WhatsApp
+    document.getElementById('oz-share-whatsapp').addEventListener('click', function() {
+        var dose = document.getElementById('oz-share-dose').textContent;
+        var clicks = document.getElementById('oz-share-clicks').textContent;
+        var pen = document.getElementById('oz-share-pen').textContent;
+        var text = "My Ozempic dose: " + dose + " (" + clicks + " on the " + pen + " pen). Check yours: https://healthcalculators.xyz/ozempic-pen-click-calculator";
+        window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
+    });
+
+    // Copy image to clipboard
+    document.getElementById('oz-share-copy').addEventListener('click', function() {
+        var canvas = document.querySelector('#oz-share-preview canvas');
+        if (!canvas) return;
+        canvas.toBlob(function(blob) {
+            if (navigator.clipboard && navigator.clipboard.write) {
+                navigator.clipboard.write([new ClipboardItem({'image/png': blob})]).then(function() {
+                    var btn = document.getElementById('oz-share-copy');
+                    btn.textContent = 'Copied!';
+                    setTimeout(function() { btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy image'; }, 2000);
+                });
+            } else {
+                // Fallback: download
+                var a = document.createElement('a');
+                a.href = canvas.toDataURL('image/png');
+                a.download = 'my-ozempic-dose.png';
+                a.click();
+            }
+        }, 'image/png');
     });
 
     // Initialize dose cards for default pen
