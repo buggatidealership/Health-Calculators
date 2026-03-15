@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 {% with
-    meta_description="How Pulse builds health calculators — animated visualization",
+    meta_description="In a world of noise, Pulse sees your signal.",
     meta_keywords="",
     og_title="How Pulse Works — HealthCalculators.xyz",
-    og_description="Watch how AI reads research, finds patterns, and builds tools.",
+    og_description="In a world of noise, Pulse sees your signal.",
     og_url="/mockup-pulse-story",
     og_image="default-calculator-og.jpg",
     page_title="How Pulse Works — Mockup",
@@ -16,7 +16,6 @@
 {% endwith %}
 
 <style>
-  /* ===== Pulse Story Animation ===== */
   .ps-section {
     max-width: 900px;
     margin: 40px auto;
@@ -25,42 +24,30 @@
 
   .ps-stage {
     position: relative;
-    background: var(--color-text);
+    background: #0e0e1a;
     border-radius: 20px;
     padding: 48px 40px 56px;
     overflow: hidden;
-    min-height: 420px;
+    min-height: 480px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
 
-  /* Subtle grid bg */
-  .ps-stage::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(14, 122, 126, 0.06) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(14, 122, 126, 0.06) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-  }
-
   /* Step indicator */
   .ps-steps {
     display: flex;
     gap: 6px;
-    margin-bottom: 32px;
-    z-index: 2;
+    margin-bottom: 28px;
+    z-index: 5;
   }
 
   .ps-step-dot {
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.15);
     transition: all 0.5s ease;
   }
 
@@ -70,147 +57,171 @@
     border-radius: 4px;
   }
 
-  /* Animation canvas */
+  /* Canvas */
   .ps-canvas {
     position: relative;
     width: 100%;
-    max-width: 600px;
-    height: 260px;
+    max-width: 640px;
+    height: 280px;
     z-index: 2;
   }
 
-  /* Step label */
+  /* Label */
   .ps-label {
     text-align: center;
     margin-top: 28px;
-    z-index: 2;
+    z-index: 5;
   }
 
   .ps-label-step {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
+    letter-spacing: 0.14em;
     color: var(--color-accent);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
+    opacity: 0.8;
   }
 
   .ps-label-title {
     font-family: var(--font-display);
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     font-weight: 400;
     color: #fff;
-    margin-bottom: 6px;
-    transition: opacity 0.4s ease;
+    margin-bottom: 8px;
   }
 
   .ps-label-desc {
     font-size: 0.85rem;
-    color: rgba(255,255,255,0.55);
-    max-width: 400px;
+    color: rgba(255,255,255,0.45);
+    max-width: 420px;
     margin: 0 auto;
-    line-height: 1.5;
-    transition: opacity 0.4s ease;
+    line-height: 1.55;
   }
 
-  /* ===== ANIMATED ELEMENTS ===== */
-
-  /* Data particles — small dots that flow */
-  .ps-particle {
+  /* ===== NOISE FRAGMENTS ===== */
+  .ps-noise {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    opacity: 0;
+    font-size: 0.6rem;
+    font-family: var(--font-body);
+    color: rgba(255,255,255,0.12);
+    white-space: nowrap;
+    pointer-events: none;
+    transition: all 1s ease;
   }
 
-  /* Document icons — represent papers */
-  .ps-doc {
-    position: absolute;
-    width: 32px;
-    height: 40px;
-    border-radius: 4px;
-    border: 1.5px solid rgba(255,255,255,0.15);
-    background: rgba(255,255,255,0.05);
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .ps-noise.signal {
+    color: var(--color-accent);
+    opacity: 1 !important;
+    text-shadow: 0 0 8px rgba(14, 122, 126, 0.4);
   }
 
-  .ps-doc-lines {
-    width: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
+  .ps-noise.fade { opacity: 0 !important; }
+
+  .ps-noise.converge {
+    transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
   }
 
-  .ps-doc-line {
-    height: 1.5px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 1px;
-  }
-
-  .ps-doc-line:nth-child(2) { width: 80%; }
-  .ps-doc-line:nth-child(3) { width: 60%; }
-
-  /* Connection lines between nodes */
-  .ps-connection {
-    position: absolute;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
-    opacity: 0;
-    transform-origin: left center;
-  }
-
-  /* Central node — Pulse */
-  .ps-pulse-node {
+  /* Pulse node */
+  .ps-node {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
-    width: 56px;
-    height: 56px;
+    transform: translate(-50%, -50%) scale(0);
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
     background: var(--color-accent);
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 0 0 0 rgba(14, 122, 126, 0.3);
-    z-index: 3;
-    transition: all 0.6s ease;
+    z-index: 4;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
-  .ps-pulse-node svg {
-    width: 24px;
-    height: 24px;
+  .ps-node.visible {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+
+  .ps-node.scanning {
+    animation: ps-scan-pulse 2s ease-in-out infinite;
+  }
+
+  .ps-node svg {
+    width: 22px;
+    height: 22px;
     color: #fff;
   }
 
-  .ps-pulse-node.thinking {
-    animation: ps-think 1.5s ease-in-out infinite;
+  @keyframes ps-scan-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 122, 126, 0.5); }
+    50% { box-shadow: 0 0 0 20px rgba(14, 122, 126, 0); }
   }
 
-  @keyframes ps-think {
-    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 122, 126, 0.4); }
-    50% { box-shadow: 0 0 0 18px rgba(14, 122, 126, 0); }
+  /* Scan line — sweeps across canvas */
+  .ps-scanline {
+    position: absolute;
+    top: 0;
+    left: -2px;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, var(--color-accent), transparent);
+    opacity: 0;
+    z-index: 3;
+    transition: opacity 0.3s;
   }
 
-  /* Output card — the final calculator */
+  .ps-scanline.active {
+    opacity: 0.6;
+    animation: ps-sweep 2.5s ease-in-out forwards;
+  }
+
+  @keyframes ps-sweep {
+    0% { left: -2px; }
+    100% { left: 100%; }
+  }
+
+  /* Ring burst on convergence */
+  .ps-ring {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-accent);
+    opacity: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .ps-ring.burst {
+    animation: ps-ring-burst 1s ease-out forwards;
+  }
+
+  @keyframes ps-ring-burst {
+    0% { width: 10px; height: 10px; opacity: 0.8; }
+    100% { width: 200px; height: 200px; opacity: 0; }
+  }
+
+  /* Output card */
   .ps-output {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%) scale(0.8);
-    width: 200px;
-    background: var(--color-surface);
-    border-radius: 14px;
-    padding: 20px;
+    transform: translate(-50%, -50%) scale(0.7);
+    width: 220px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 20px 20px;
     text-align: center;
     opacity: 0;
-    z-index: 4;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 6;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+    transition: all 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
   }
 
   .ps-output.visible {
@@ -218,66 +229,62 @@
     transform: translate(-50%, -50%) scale(1);
   }
 
-  .ps-output-name {
-    font-size: 0.65rem;
+  .ps-output-label {
+    font-size: 0.62rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     color: var(--color-accent);
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   .ps-output-num {
     font-family: var(--font-display);
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 400;
     color: var(--color-accent);
     line-height: 1;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
+    font-variant-numeric: tabular-nums;
   }
 
   .ps-output-unit {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     font-weight: 600;
     color: var(--color-accent-deep);
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
   .ps-output-cite {
-    font-size: 0.62rem;
+    font-size: 0.6rem;
     color: var(--color-text-tertiary);
     border-top: 1px solid var(--color-border-light);
     padding-top: 8px;
   }
 
-  /* Stick figure */
-  .ps-person {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    z-index: 5;
+  .ps-output-heartbeat {
+    display: block;
+    margin: 0 auto 10px;
+    opacity: 0.3;
   }
 
-  .ps-person.visible { opacity: 1; }
-
-  /* Replay button */
+  /* Replay */
   .ps-replay {
     margin-top: 24px;
     padding: 10px 24px;
     background: transparent;
-    border: 1.5px solid rgba(255,255,255,0.2);
+    border: 1.5px solid rgba(255,255,255,0.15);
     border-radius: 10px;
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.4);
     font-family: var(--font-body);
     font-size: 0.82rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s;
-    z-index: 2;
+    z-index: 5;
+    display: none;
   }
 
   .ps-replay:hover {
@@ -285,12 +292,20 @@
     color: var(--color-accent);
   }
 
+  @media (prefers-reduced-motion: reduce) {
+    .ps-scanline, .ps-noise, .ps-node, .ps-ring, .ps-output {
+      transition: none !important;
+      animation: none !important;
+    }
+  }
+
   @media (max-width: 600px) {
-    .ps-stage { padding: 32px 20px 40px; min-height: 360px; }
-    .ps-canvas { height: 200px; }
-    .ps-label-title { font-size: 1.15rem; }
-    .ps-output { width: 160px; padding: 16px; }
-    .ps-output-num { font-size: 2.2rem; }
+    .ps-stage { padding: 32px 16px 40px; min-height: 400px; }
+    .ps-canvas { height: 220px; }
+    .ps-label-title { font-size: 1.2rem; }
+    .ps-output { width: 180px; padding: 18px 16px 16px; }
+    .ps-output-num { font-size: 2.4rem; }
+    .ps-noise { font-size: 0.5rem; }
   }
 </style>
 </head>
@@ -298,11 +313,9 @@
 {% include 'header.html' %}
 
 <div class="calculator-container" style="max-width: none; padding: 0;">
-
   <div class="ps-section">
     <div class="ps-stage" id="ps-stage">
 
-      <!-- Step dots -->
       <div class="ps-steps" id="ps-steps">
         <div class="ps-step-dot active"></div>
         <div class="ps-step-dot"></div>
@@ -310,63 +323,41 @@
         <div class="ps-step-dot"></div>
       </div>
 
-      <!-- Animation canvas -->
       <div class="ps-canvas" id="ps-canvas">
+        <!-- Scan line -->
+        <div class="ps-scanline" id="ps-scanline"></div>
 
-        <!-- Central Pulse node -->
-        <div class="ps-pulse-node" id="ps-node">
+        <!-- Pulse node -->
+        <div class="ps-node" id="ps-node">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
           </svg>
         </div>
 
-        <!-- Documents (step 1) -->
-        <div class="ps-doc" id="ps-doc-1" style="left:5%;top:15%">
-          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
-        </div>
-        <div class="ps-doc" id="ps-doc-2" style="left:15%;top:60%">
-          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
-        </div>
-        <div class="ps-doc" id="ps-doc-3" style="right:10%;top:20%">
-          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
-        </div>
-        <div class="ps-doc" id="ps-doc-4" style="right:5%;top:65%">
-          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
-        </div>
-        <div class="ps-doc" id="ps-doc-5" style="left:30%;top:5%">
-          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
-        </div>
+        <!-- Ring burst -->
+        <div class="ps-ring" id="ps-ring"></div>
 
-        <!-- Output card (step 4) -->
+        <!-- Output -->
         <div class="ps-output" id="ps-output">
-          <div class="ps-output-name">TDEE Calculator</div>
-          <div class="ps-output-num" id="ps-output-num">0</div>
+          <div class="ps-output-label">TDEE Calculator</div>
+          <svg class="ps-output-heartbeat" width="60" height="10" viewBox="0 0 60 10" fill="none">
+            <path d="M0 5 L18 5 L24 2 L28 8 L33 3 L37 5 L60 5" stroke="var(--color-accent)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="ps-output-num" id="ps-out-num">0</div>
           <div class="ps-output-unit">calories / day</div>
-          <div class="ps-output-cite">Based on Mifflin-St Jeor (1990)</div>
+          <div class="ps-output-cite">Mifflin-St Jeor et al., 1990</div>
         </div>
-
-        <!-- Stick person receiving result -->
-        <svg class="ps-person" id="ps-person" width="48" height="72" viewBox="0 0 48 72" fill="none">
-          <circle cx="24" cy="10" r="8" stroke="white" stroke-width="2"/>
-          <line x1="24" y1="18" x2="24" y2="46" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <line x1="24" y1="28" x2="10" y2="38" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <line x1="24" y1="28" x2="38" y2="38" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <line x1="24" y1="46" x2="14" y2="64" stroke="white" stroke-width="2" stroke-linecap="round"/>
-          <line x1="24" y1="46" x2="34" y2="64" stroke="white" stroke-width="2" stroke-linecap="round"/>
-        </svg>
       </div>
 
-      <!-- Label -->
       <div class="ps-label">
-        <div class="ps-label-step" id="ps-step-label">Step 1 of 4</div>
-        <div class="ps-label-title" id="ps-title">Reading the research</div>
-        <div class="ps-label-desc" id="ps-desc">Pulse scans peer-reviewed papers from PubMed, NIH, and WHO to find validated formulas.</div>
+        <div class="ps-label-step" id="ps-step-label">The noise</div>
+        <div class="ps-label-title" id="ps-title">A world of information</div>
+        <div class="ps-label-desc" id="ps-desc">Thousands of health claims, conflicting studies, unverified advice. All talking. None personalized.</div>
       </div>
 
-      <button class="ps-replay" id="ps-replay" style="display:none">Watch again</button>
+      <button class="ps-replay" id="ps-replay">Watch again</button>
     </div>
   </div>
-
 </div>
 
 {% include 'footer.html' %}
@@ -375,221 +366,175 @@
 (function() {
   var canvas = document.getElementById('ps-canvas');
   var node = document.getElementById('ps-node');
+  var scanline = document.getElementById('ps-scanline');
+  var ring = document.getElementById('ps-ring');
   var output = document.getElementById('ps-output');
-  var person = document.getElementById('ps-person');
   var stepLabel = document.getElementById('ps-step-label');
-  var title = document.getElementById('ps-title');
-  var desc = document.getElementById('ps-desc');
+  var titleEl = document.getElementById('ps-title');
+  var descEl = document.getElementById('ps-desc');
   var dots = document.querySelectorAll('.ps-step-dot');
   var replay = document.getElementById('ps-replay');
-  var docs = [1,2,3,4,5].map(function(i) { return document.getElementById('ps-doc-' + i); });
 
-  var steps = [
-    {
-      step: 'Step 1 of 4',
-      title: 'Reading the research',
-      desc: 'Pulse scans peer-reviewed papers from PubMed, NIH, and WHO to find validated formulas.'
-    },
-    {
-      step: 'Step 2 of 4',
-      title: 'Finding patterns',
-      desc: 'Connections emerge between data points. Pulse identifies which equations are most accurate and widely validated.'
-    },
-    {
-      step: 'Step 3 of 4',
-      title: 'Building accuracy',
-      desc: 'Cross-referencing multiple sources, validating edge cases, ensuring the formula works for real people.'
-    },
-    {
-      step: 'Step 4 of 4',
-      title: 'Your tool is ready',
-      desc: 'A personalized calculator, backed by science, built in seconds. Every result links back to the research.'
-    }
+  // Noise data — real health fragments mixed with junk
+  var noiseTexts = [
+    'drink 8 glasses of water', 'BMR = 10×weight + 6.25×height', 'lose 10 lbs in a week',
+    'keto is the best diet', 'calories in vs calories out', 'TDEE = BMR × activity',
+    'eat clean gain lean', 'Mifflin-St Jeor (1990)', '2000 cal/day recommended',
+    'intermittent fasting works', 'carbs are bad for you', 'protein: 0.8g per kg',
+    'study n=4,489 adults', 'p < 0.001', 'WHO guidelines 2024',
+    'one weird trick', 'doctors hate this', 'metabolism booster',
+    'Harris-Benedict equation', 'RMR vs BMR difference', 'PubMed PMID:28630601',
+    'moderate activity: 1.55×', 'thermic effect of food', 'NEAT variance ±300cal',
+    'just eat less move more', 'cortisol and weight gain', 'n=392 meta-analysis',
+    'supplements not regulated', 'clinical trial phase III', 'body composition matters',
+    'AMA dietary guidelines', 'fiber: 25-30g/day', 'NIH reference ranges',
+    'detox your body naturally', 'superfood antioxidants', 'evidence level: A',
+    'sedentary: 1.2× multiplier', 'VO2max correlation', 'visceral fat index'
   ];
 
-  function setStep(i) {
-    stepLabel.textContent = steps[i].step;
-    title.textContent = steps[i].title;
-    desc.textContent = steps[i].desc;
-    dots.forEach(function(d, j) {
-      d.classList.toggle('active', j === i);
-    });
+  // Which indices are "signal" (real science)
+  var signalIndices = [1, 5, 7, 12, 13, 14, 18, 20, 22, 23, 27, 30, 32, 33, 35, 37];
+
+  var noiseEls = [];
+
+  function setStep(i, label, title, desc) {
+    stepLabel.textContent = label;
+    titleEl.textContent = title;
+    descEl.textContent = desc;
+    dots.forEach(function(d, j) { d.classList.toggle('active', j === i); });
   }
 
-  // Particles helper
-  function spawnParticles(fromEl, toEl, count, color, delay) {
-    var fromRect = fromEl.getBoundingClientRect();
-    var toRect = toEl.getBoundingClientRect();
-    var canvasRect = canvas.getBoundingClientRect();
-
-    for (var i = 0; i < count; i++) {
-      var p = document.createElement('div');
-      p.className = 'ps-particle';
-      p.style.background = color;
-      var startX = fromRect.left - canvasRect.left + fromRect.width/2;
-      var startY = fromRect.top - canvasRect.top + fromRect.height/2;
-      var endX = toRect.left - canvasRect.left + toRect.width/2 + (Math.random() - 0.5) * 10;
-      var endY = toRect.top - canvasRect.top + toRect.height/2 + (Math.random() - 0.5) * 10;
-
-      p.style.left = startX + 'px';
-      p.style.top = startY + 'px';
-      canvas.appendChild(p);
-
-      (function(particle, ex, ey, d) {
-        setTimeout(function() {
-          particle.style.opacity = '1';
-          particle.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
-          particle.style.left = ex + 'px';
-          particle.style.top = ey + 'px';
-          setTimeout(function() {
-            particle.style.opacity = '0';
-            setTimeout(function() { particle.remove(); }, 400);
-          }, 700);
-        }, delay + i * 120);
-      })(p, endX, endY, delay);
-    }
+  function clearNoise() {
+    noiseEls.forEach(function(el) { el.remove(); });
+    noiseEls = [];
   }
 
-  // Connection line helper
-  function drawConnection(fromEl, toEl, delay) {
-    var fromRect = fromEl.getBoundingClientRect();
-    var toRect = toEl.getBoundingClientRect();
-    var canvasRect = canvas.getBoundingClientRect();
-
-    var x1 = fromRect.left - canvasRect.left + fromRect.width/2;
-    var y1 = fromRect.top - canvasRect.top + fromRect.height/2;
-    var x2 = toRect.left - canvasRect.left + toRect.width/2;
-    var y2 = toRect.top - canvasRect.top + toRect.height/2;
-
-    var dx = x2 - x1, dy = y2 - y1;
-    var len = Math.sqrt(dx*dx + dy*dy);
-    var angle = Math.atan2(dy, dx) * 180 / Math.PI;
-
-    var line = document.createElement('div');
-    line.className = 'ps-connection';
-    line.style.left = x1 + 'px';
-    line.style.top = y1 + 'px';
-    line.style.width = '0px';
-    line.style.transform = 'rotate(' + angle + 'deg)';
-    canvas.appendChild(line);
-
-    setTimeout(function() {
-      line.style.opacity = '1';
-      line.style.transition = 'width 0.6s ease';
-      line.style.width = len + 'px';
-      setTimeout(function() {
-        line.style.transition = 'opacity 0.5s ease';
-        line.style.opacity = '0';
-        setTimeout(function() { line.remove(); }, 500);
-      }, 1200);
-    }, delay);
-  }
-
-  function runAnimation() {
-    // Reset
+  function run() {
     replay.style.display = 'none';
     output.classList.remove('visible');
-    person.classList.remove('visible');
-    node.classList.remove('thinking');
-    node.style.transform = 'translate(-50%, -50%) scale(1)';
-    node.style.opacity = '1';
-    docs.forEach(function(d) { d.style.opacity = '0'; d.style.transform = ''; });
+    node.classList.remove('visible', 'scanning');
+    scanline.classList.remove('active');
+    ring.classList.remove('burst');
+    clearNoise();
 
-    // Remove old particles/connections
-    canvas.querySelectorAll('.ps-particle, .ps-connection').forEach(function(el) { el.remove(); });
+    var cw = canvas.offsetWidth;
+    var ch = canvas.offsetHeight;
 
-    // === STEP 1: Documents appear, particles flow to Pulse ===
-    setStep(0);
+    // === STEP 1: Noise appears — chaotic, scattered text ===
+    setStep(0, 'The noise', 'A world of information',
+      'Thousands of health claims, conflicting studies, unverified advice. All talking. None personalized.');
 
-    docs.forEach(function(d, i) {
+    noiseTexts.forEach(function(txt, i) {
+      var el = document.createElement('div');
+      el.className = 'ps-noise';
+      el.textContent = txt;
+      el.style.left = (Math.random() * (cw - 120)) + 'px';
+      el.style.top = (Math.random() * (ch - 16)) + 'px';
+      el.style.opacity = '0';
+      el.style.transform = 'rotate(' + (Math.random() * 16 - 8) + 'deg)';
+      canvas.appendChild(el);
+      noiseEls.push(el);
+
       setTimeout(function() {
-        d.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        d.style.opacity = '1';
-        d.style.transform = 'translateY(0)';
-      }, i * 200);
+        el.style.transition = 'opacity 0.6s ease';
+        el.style.opacity = (0.08 + Math.random() * 0.12).toString();
+      }, 100 + i * 60);
     });
 
-    // Particles from docs to center
+    // === STEP 2: Pulse appears, scans — signal lights up ===
     setTimeout(function() {
-      docs.forEach(function(d, i) {
-        spawnParticles(d, node, 3, 'rgba(14, 122, 126, 0.7)', i * 150);
-      });
-    }, 1200);
+      setStep(1, 'The scan', 'Pulse looks at everything',
+        'Scanning thousands of sources. The AI reads what humans can\'t — every study, every formula, every claim.');
 
-    // === STEP 2: Connections between docs (finding patterns) ===
-    setTimeout(function() {
-      setStep(1);
-      node.classList.add('thinking');
+      // Node appears
+      node.classList.add('visible');
 
-      // Draw connections between pairs of docs
-      drawConnection(docs[0], docs[2], 0);
-      drawConnection(docs[1], docs[3], 300);
-      drawConnection(docs[4], docs[0], 600);
-      drawConnection(docs[2], docs[4], 900);
-      drawConnection(docs[1], node, 1200);
-      drawConnection(docs[3], node, 1400);
-    }, 3000);
+      // Scanline sweeps
+      setTimeout(function() {
+        scanline.classList.add('active');
+      }, 400);
 
-    // === STEP 3: Building accuracy — docs fade, pulse intensifies ===
-    setTimeout(function() {
-      setStep(2);
-
-      // Docs fade out
-      docs.forEach(function(d, i) {
-        setTimeout(function() {
-          d.style.opacity = '0';
-        }, i * 100);
-      });
-
-      // Pulse node pulses stronger
-      node.style.transition = 'all 0.6s ease';
-      node.style.boxShadow = '0 0 0 24px rgba(14, 122, 126, 0.15)';
-
-      // Orbit particles around node
-      for (var i = 0; i < 12; i++) {
-        (function(idx) {
-          setTimeout(function() {
-            var angle = (idx / 12) * Math.PI * 2;
-            var r = 60;
-            var p = document.createElement('div');
-            p.className = 'ps-particle';
-            p.style.background = idx % 3 === 0 ? 'rgba(194, 112, 62, 0.8)' : 'rgba(14, 122, 126, 0.7)';
-            p.style.width = '4px';
-            p.style.height = '4px';
-
-            var cx = canvas.offsetWidth / 2;
-            var cy = canvas.offsetHeight / 2;
-            p.style.left = (cx + Math.cos(angle) * r) + 'px';
-            p.style.top = (cy + Math.sin(angle) * r) + 'px';
-            p.style.opacity = '0.8';
-            canvas.appendChild(p);
-
-            // Spiral inward
+      // Signal fragments light up progressively as scan passes
+      setTimeout(function() {
+        signalIndices.forEach(function(idx, i) {
+          if (noiseEls[idx]) {
             setTimeout(function() {
-              p.style.transition = 'all 0.8s ease-in';
-              p.style.left = cx + 'px';
-              p.style.top = cy + 'px';
-              p.style.opacity = '0';
-              setTimeout(function() { p.remove(); }, 800);
-            }, 50);
-          }, idx * 100);
-        })(i);
-      }
-    }, 6000);
+              noiseEls[idx].classList.add('signal');
+              noiseEls[idx].style.opacity = '1';
+              noiseEls[idx].style.transform = 'rotate(0deg)';
+              noiseEls[idx].style.fontSize = '0.68rem';
+              noiseEls[idx].style.fontWeight = '600';
+            }, i * 140);
+          }
+        });
 
-    // === STEP 4: Output appears ===
+        // Non-signal fades
+        noiseEls.forEach(function(el, idx) {
+          if (signalIndices.indexOf(idx) === -1) {
+            setTimeout(function() {
+              el.classList.add('fade');
+            }, 800 + idx * 30);
+          }
+        });
+      }, 800);
+    }, 3200);
+
+    // === STEP 3: Convergence — signal pulls to center ===
     setTimeout(function() {
-      setStep(3);
-      node.classList.remove('thinking');
-      node.style.opacity = '0';
-      node.style.transform = 'translate(-50%, -50%) scale(0.5)';
+      setStep(2, 'The signal', 'Finding what matters',
+        'Noise falls away. What remains: validated formulas, peer-reviewed data, clinical evidence. The signal.');
+
+      node.classList.add('scanning');
+
+      var cx = cw / 2;
+      var cy = ch / 2;
+
+      // Signal fragments converge to center
+      signalIndices.forEach(function(idx, i) {
+        if (noiseEls[idx]) {
+          var el = noiseEls[idx];
+          el.classList.add('converge');
+          setTimeout(function() {
+            var angle = (i / signalIndices.length) * Math.PI * 2;
+            var r = 65 + Math.random() * 20;
+            el.style.left = (cx + Math.cos(angle) * r - 40) + 'px';
+            el.style.top = (cy + Math.sin(angle) * r - 8) + 'px';
+            el.style.fontSize = '0.55rem';
+          }, i * 80);
+        }
+      });
+
+      // After convergence, fade signal text and pulse ring
+      setTimeout(function() {
+        signalIndices.forEach(function(idx) {
+          if (noiseEls[idx]) {
+            noiseEls[idx].style.transition = 'opacity 0.6s ease';
+            noiseEls[idx].style.opacity = '0';
+          }
+        });
+
+        ring.classList.add('burst');
+
+        setTimeout(function() {
+          node.classList.remove('scanning');
+          node.style.transition = 'all 0.5s ease';
+          node.style.opacity = '0';
+          node.style.transform = 'translate(-50%, -50%) scale(0.3)';
+        }, 400);
+      }, 1800);
+    }, 7500);
+
+    // === STEP 4: Value — clean output emerges ===
+    setTimeout(function() {
+      setStep(3, 'Your signal', 'In a world of noise, Pulse sees yours',
+        'One clear answer. Personalized. Cited. Built from the signal, not the noise.');
 
       setTimeout(function() {
         output.classList.add('visible');
 
-        // Count up the number
-        var target = 2340, dur = 800;
-        var numEl = document.getElementById('ps-output-num');
+        // Count up
+        var target = 2340, dur = 900;
+        var numEl = document.getElementById('ps-out-num');
         var start = performance.now();
         (function tick(now) {
           var p = Math.min((now - start) / dur, 1);
@@ -598,34 +543,24 @@
           if (p < 1) requestAnimationFrame(tick);
         })(performance.now());
 
-        // Person appears
-        setTimeout(function() {
-          person.classList.add('visible');
-        }, 600);
-
-        // Show replay
         setTimeout(function() {
           replay.style.display = '';
         }, 1500);
-      }, 400);
-    }, 8500);
+      }, 500);
+    }, 10500);
   }
 
-  // Start on scroll into view
+  // Trigger on scroll
   var started = false;
   var obs = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting && !started) {
       started = true;
-      setTimeout(runAnimation, 500);
+      setTimeout(run, 400);
     }
   }, { threshold: 0.3 });
   obs.observe(document.getElementById('ps-stage'));
 
-  // Replay
-  replay.addEventListener('click', function() {
-    started = true;
-    runAnimation();
-  });
+  replay.addEventListener('click', function() { run(); });
 })();
 </script>
 </body>
