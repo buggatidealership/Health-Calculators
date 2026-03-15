@@ -8,32 +8,7 @@
 .oz-results.visible { display: block; animation: oz-fade 0.5s ease; }
 @keyframes oz-fade { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
 
-/* Layer 1: The answer — what you came here for */
-.oz-answer {
-  text-align: center;
-  padding: 28px 24px;
-  border-radius: 16px;
-  margin-bottom: 16px;
-  background: var(--color-good-bg);
-  border: 1px solid var(--color-good-border);
-}
-.oz-answer.has-warning {
-  background: var(--color-warning-bg);
-  border-color: var(--color-warning-border);
-}
-.oz-answer-text {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--color-text);
-  margin-bottom: 4px;
-}
-.oz-answer-sub {
-  font-size: 0.88rem;
-  color: var(--color-text-secondary);
-}
-
-/* Layer 2: The number — large, visual, screenshot-worthy */
+/* Hero number — large, visual, screenshot-worthy */
 .oz-number-row {
   display: flex;
   align-items: center;
@@ -298,56 +273,33 @@
   .oz-select-cards { flex-direction: column; }
 }
 
-/* Answer + Safety side by side */
-.oz-answer-row {
+/* Safety alert — slim inline bar, doesn't compete with hero number */
+.oz-safety {
+  margin-bottom: 12px;
+}
+.oz-safety-bar {
   display: flex;
-  gap: 12px;
-  margin-bottom: 16px;
-}
-.oz-answer-row .oz-answer {
-  flex: 1;
-  margin-bottom: 0;
-}
-.oz-answer-row .oz-safety {
-  flex: 0 0 45%;
-  margin-bottom: 0;
-}
-.oz-answer-row.no-warning .oz-answer { flex: 1; }
-@media (max-width: 600px) {
-  .oz-answer-row { flex-direction: column; }
-  .oz-answer-row .oz-safety { flex: none; }
-}
-
-/* Safety alerts */
-.oz-safety {}
-.oz-safety-box {
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px 14px;
   background: var(--color-warning-bg);
   border: 1px solid var(--color-warning-border);
-  border-radius: 12px;
-  padding: 16px 20px;
-  height: 100%;
-  box-sizing: border-box;
-}
-.oz-safety-title {
-  font-size: 0.82rem;
-  font-weight: 700;
-  color: var(--color-warning);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.oz-safety-list {
-  margin: 0;
-  padding-left: 18px;
-  font-size: 0.82rem;
+  border-radius: 8px;
+  font-size: 0.8rem;
   color: var(--color-text-secondary);
-  line-height: 1.5;
+  line-height: 1.45;
+}
+.oz-safety-icon {
+  flex-shrink: 0;
+  color: var(--color-warning);
+  margin-top: 1px;
+}
+.oz-safety-text {
+  flex: 1;
 }
 
 @media (max-width: 600px) {
   .oz-number { font-size: 3rem; }
-  .oz-answer-text { font-size: 1.25rem; }
   .oz-schedule { grid-template-columns: 1fr; }
 }
 </style>
@@ -396,20 +348,11 @@
     {# ===== 5-LAYER RESULT SYSTEM (reference mode) ===== #}
     <div class="oz-results" id="oz-results">
 
-        {# Layer 0+1: Answer + Safety side by side #}
-        <div class="oz-answer-row" id="oz-answer-row">
-            <div class="oz-answer" id="oz-answer">
-                <div class="oz-answer-text" id="oz-answer-text">You need 2 clicks</div>
-                <div class="oz-answer-sub" id="oz-answer-sub">0.5 mg using the Blue pen</div>
-            </div>
-            <div class="oz-safety" id="oz-safety" style="display:none;">
-                <div class="oz-safety-box">
-                    <div class="oz-safety-title">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                        Safety Alert
-                    </div>
-                    <ul class="oz-safety-list" id="oz-safety-list"></ul>
-                </div>
+        {# Safety alert — slim bar, only when needed #}
+        <div class="oz-safety" id="oz-safety" style="display:none;">
+            <div class="oz-safety-bar">
+                <svg class="oz-safety-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                <span class="oz-safety-text" id="oz-safety-text"></span>
             </div>
         </div>
 
@@ -577,24 +520,14 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!spec.recommendedDoses.includes(dose)) warnings.push(dose + "mg is non-standard for the " + spec.penColor + " pen. Higher risk of dosing error.");
         if (clicks % 1 !== 0) warnings.push("Requires " + clicks + " clicks (fractional). May cause inaccurate dosing.");
 
-        // Layer 0+1: Answer + Safety side by side
+        // Safety alert — slim inline bar
         var safetyEl = document.getElementById('oz-safety');
-        var answerRow = document.getElementById('oz-answer-row');
         if (warnings.length) {
             safetyEl.style.display = '';
-            answerRow.classList.remove('no-warning');
-            var list = document.getElementById('oz-safety-list');
-            list.innerHTML = '';
-            warnings.forEach(function(w) { var li = document.createElement('li'); li.textContent = w; list.appendChild(li); });
+            document.getElementById('oz-safety-text').textContent = warnings.join(' · ');
         } else {
             safetyEl.style.display = 'none';
-            answerRow.classList.add('no-warning');
         }
-
-        var answerEl = document.getElementById('oz-answer');
-        answerEl.classList.toggle('has-warning', warnings.length > 0);
-        document.getElementById('oz-answer-text').textContent = "You need " + clicks + (clicks === 1 ? " click" : " clicks");
-        document.getElementById('oz-answer-sub').textContent = dose + " mg using the " + spec.penColor + " pen";
 
         // Layer 2: The number (count-up)
         var numEl = document.getElementById('oz-clicks-num');
