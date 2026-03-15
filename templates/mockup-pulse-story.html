@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="How Pulse builds health calculators — animated visualization",
+    meta_keywords="",
+    og_title="How Pulse Works — HealthCalculators.xyz",
+    og_description="Watch how AI reads research, finds patterns, and builds tools.",
+    og_url="/mockup-pulse-story",
+    og_image="default-calculator-og.jpg",
+    page_title="How Pulse Works — Mockup",
+    canonical_url="/mockup-pulse-story",
+    robots_meta="noindex, nofollow"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+  /* ===== Pulse Story Animation ===== */
+  .ps-section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 24px;
+  }
+
+  .ps-stage {
+    position: relative;
+    background: var(--color-text);
+    border-radius: 20px;
+    padding: 48px 40px 56px;
+    overflow: hidden;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Subtle grid bg */
+  .ps-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14, 122, 126, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 122, 126, 0.06) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+  }
+
+  /* Step indicator */
+  .ps-steps {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 32px;
+    z-index: 2;
+  }
+
+  .ps-step-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.5s ease;
+  }
+
+  .ps-step-dot.active {
+    background: var(--color-accent);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  /* Animation canvas */
+  .ps-canvas {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 260px;
+    z-index: 2;
+  }
+
+  /* Step label */
+  .ps-label {
+    text-align: center;
+    margin-top: 28px;
+    z-index: 2;
+  }
+
+  .ps-label-step {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+    margin-bottom: 6px;
+  }
+
+  .ps-label-title {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 6px;
+    transition: opacity 0.4s ease;
+  }
+
+  .ps-label-desc {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.55);
+    max-width: 400px;
+    margin: 0 auto;
+    line-height: 1.5;
+    transition: opacity 0.4s ease;
+  }
+
+  /* ===== ANIMATED ELEMENTS ===== */
+
+  /* Data particles — small dots that flow */
+  .ps-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0;
+  }
+
+  /* Document icons — represent papers */
+  .ps-doc {
+    position: absolute;
+    width: 32px;
+    height: 40px;
+    border-radius: 4px;
+    border: 1.5px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .ps-doc-lines {
+    width: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+  }
+
+  .ps-doc-line {
+    height: 1.5px;
+    background: rgba(255,255,255,0.2);
+    border-radius: 1px;
+  }
+
+  .ps-doc-line:nth-child(2) { width: 80%; }
+  .ps-doc-line:nth-child(3) { width: 60%; }
+
+  /* Connection lines between nodes */
+  .ps-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
+    opacity: 0;
+    transform-origin: left center;
+  }
+
+  /* Central node — Pulse */
+  .ps-pulse-node {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 0 rgba(14, 122, 126, 0.3);
+    z-index: 3;
+    transition: all 0.6s ease;
+  }
+
+  .ps-pulse-node svg {
+    width: 24px;
+    height: 24px;
+    color: #fff;
+  }
+
+  .ps-pulse-node.thinking {
+    animation: ps-think 1.5s ease-in-out infinite;
+  }
+
+  @keyframes ps-think {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(14, 122, 126, 0.4); }
+    50% { box-shadow: 0 0 0 18px rgba(14, 122, 126, 0); }
+  }
+
+  /* Output card — the final calculator */
+  .ps-output {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    width: 200px;
+    background: var(--color-surface);
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    opacity: 0;
+    z-index: 4;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .ps-output.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  .ps-output-name {
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  .ps-output-num {
+    font-family: var(--font-display);
+    font-size: 2.8rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .ps-output-unit {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 10px;
+  }
+
+  .ps-output-cite {
+    font-size: 0.62rem;
+    color: var(--color-text-tertiary);
+    border-top: 1px solid var(--color-border-light);
+    padding-top: 8px;
+  }
+
+  /* Stick figure */
+  .ps-person {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 5;
+  }
+
+  .ps-person.visible { opacity: 1; }
+
+  /* Replay button */
+  .ps-replay {
+    margin-top: 24px;
+    padding: 10px 24px;
+    background: transparent;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 2;
+  }
+
+  .ps-replay:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 600px) {
+    .ps-stage { padding: 32px 20px 40px; min-height: 360px; }
+    .ps-canvas { height: 200px; }
+    .ps-label-title { font-size: 1.15rem; }
+    .ps-output { width: 160px; padding: 16px; }
+    .ps-output-num { font-size: 2.2rem; }
+  }
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container" style="max-width: none; padding: 0;">
+
+  <div class="ps-section">
+    <div class="ps-stage" id="ps-stage">
+
+      <!-- Step dots -->
+      <div class="ps-steps" id="ps-steps">
+        <div class="ps-step-dot active"></div>
+        <div class="ps-step-dot"></div>
+        <div class="ps-step-dot"></div>
+        <div class="ps-step-dot"></div>
+      </div>
+
+      <!-- Animation canvas -->
+      <div class="ps-canvas" id="ps-canvas">
+
+        <!-- Central Pulse node -->
+        <div class="ps-pulse-node" id="ps-node">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+          </svg>
+        </div>
+
+        <!-- Documents (step 1) -->
+        <div class="ps-doc" id="ps-doc-1" style="left:5%;top:15%">
+          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
+        </div>
+        <div class="ps-doc" id="ps-doc-2" style="left:15%;top:60%">
+          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
+        </div>
+        <div class="ps-doc" id="ps-doc-3" style="right:10%;top:20%">
+          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
+        </div>
+        <div class="ps-doc" id="ps-doc-4" style="right:5%;top:65%">
+          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
+        </div>
+        <div class="ps-doc" id="ps-doc-5" style="left:30%;top:5%">
+          <div class="ps-doc-lines"><div class="ps-doc-line"></div><div class="ps-doc-line"></div><div class="ps-doc-line"></div></div>
+        </div>
+
+        <!-- Output card (step 4) -->
+        <div class="ps-output" id="ps-output">
+          <div class="ps-output-name">TDEE Calculator</div>
+          <div class="ps-output-num" id="ps-output-num">0</div>
+          <div class="ps-output-unit">calories / day</div>
+          <div class="ps-output-cite">Based on Mifflin-St Jeor (1990)</div>
+        </div>
+
+        <!-- Stick person receiving result -->
+        <svg class="ps-person" id="ps-person" width="48" height="72" viewBox="0 0 48 72" fill="none">
+          <circle cx="24" cy="10" r="8" stroke="white" stroke-width="2"/>
+          <line x1="24" y1="18" x2="24" y2="46" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="10" y2="38" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="28" x2="38" y2="38" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="46" x2="14" y2="64" stroke="white" stroke-width="2" stroke-linecap="round"/>
+          <line x1="24" y1="46" x2="34" y2="64" stroke="white" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+
+      <!-- Label -->
+      <div class="ps-label">
+        <div class="ps-label-step" id="ps-step-label">Step 1 of 4</div>
+        <div class="ps-label-title" id="ps-title">Reading the research</div>
+        <div class="ps-label-desc" id="ps-desc">Pulse scans peer-reviewed papers from PubMed, NIH, and WHO to find validated formulas.</div>
+      </div>
+
+      <button class="ps-replay" id="ps-replay" style="display:none">Watch again</button>
+    </div>
+  </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+(function() {
+  var canvas = document.getElementById('ps-canvas');
+  var node = document.getElementById('ps-node');
+  var output = document.getElementById('ps-output');
+  var person = document.getElementById('ps-person');
+  var stepLabel = document.getElementById('ps-step-label');
+  var title = document.getElementById('ps-title');
+  var desc = document.getElementById('ps-desc');
+  var dots = document.querySelectorAll('.ps-step-dot');
+  var replay = document.getElementById('ps-replay');
+  var docs = [1,2,3,4,5].map(function(i) { return document.getElementById('ps-doc-' + i); });
+
+  var steps = [
+    {
+      step: 'Step 1 of 4',
+      title: 'Reading the research',
+      desc: 'Pulse scans peer-reviewed papers from PubMed, NIH, and WHO to find validated formulas.'
+    },
+    {
+      step: 'Step 2 of 4',
+      title: 'Finding patterns',
+      desc: 'Connections emerge between data points. Pulse identifies which equations are most accurate and widely validated.'
+    },
+    {
+      step: 'Step 3 of 4',
+      title: 'Building accuracy',
+      desc: 'Cross-referencing multiple sources, validating edge cases, ensuring the formula works for real people.'
+    },
+    {
+      step: 'Step 4 of 4',
+      title: 'Your tool is ready',
+      desc: 'A personalized calculator, backed by science, built in seconds. Every result links back to the research.'
+    }
+  ];
+
+  function setStep(i) {
+    stepLabel.textContent = steps[i].step;
+    title.textContent = steps[i].title;
+    desc.textContent = steps[i].desc;
+    dots.forEach(function(d, j) {
+      d.classList.toggle('active', j === i);
+    });
+  }
+
+  // Particles helper
+  function spawnParticles(fromEl, toEl, count, color, delay) {
+    var fromRect = fromEl.getBoundingClientRect();
+    var toRect = toEl.getBoundingClientRect();
+    var canvasRect = canvas.getBoundingClientRect();
+
+    for (var i = 0; i < count; i++) {
+      var p = document.createElement('div');
+      p.className = 'ps-particle';
+      p.style.background = color;
+      var startX = fromRect.left - canvasRect.left + fromRect.width/2;
+      var startY = fromRect.top - canvasRect.top + fromRect.height/2;
+      var endX = toRect.left - canvasRect.left + toRect.width/2 + (Math.random() - 0.5) * 10;
+      var endY = toRect.top - canvasRect.top + toRect.height/2 + (Math.random() - 0.5) * 10;
+
+      p.style.left = startX + 'px';
+      p.style.top = startY + 'px';
+      canvas.appendChild(p);
+
+      (function(particle, ex, ey, d) {
+        setTimeout(function() {
+          particle.style.opacity = '1';
+          particle.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+          particle.style.left = ex + 'px';
+          particle.style.top = ey + 'px';
+          setTimeout(function() {
+            particle.style.opacity = '0';
+            setTimeout(function() { particle.remove(); }, 400);
+          }, 700);
+        }, delay + i * 120);
+      })(p, endX, endY, delay);
+    }
+  }
+
+  // Connection line helper
+  function drawConnection(fromEl, toEl, delay) {
+    var fromRect = fromEl.getBoundingClientRect();
+    var toRect = toEl.getBoundingClientRect();
+    var canvasRect = canvas.getBoundingClientRect();
+
+    var x1 = fromRect.left - canvasRect.left + fromRect.width/2;
+    var y1 = fromRect.top - canvasRect.top + fromRect.height/2;
+    var x2 = toRect.left - canvasRect.left + toRect.width/2;
+    var y2 = toRect.top - canvasRect.top + toRect.height/2;
+
+    var dx = x2 - x1, dy = y2 - y1;
+    var len = Math.sqrt(dx*dx + dy*dy);
+    var angle = Math.atan2(dy, dx) * 180 / Math.PI;
+
+    var line = document.createElement('div');
+    line.className = 'ps-connection';
+    line.style.left = x1 + 'px';
+    line.style.top = y1 + 'px';
+    line.style.width = '0px';
+    line.style.transform = 'rotate(' + angle + 'deg)';
+    canvas.appendChild(line);
+
+    setTimeout(function() {
+      line.style.opacity = '1';
+      line.style.transition = 'width 0.6s ease';
+      line.style.width = len + 'px';
+      setTimeout(function() {
+        line.style.transition = 'opacity 0.5s ease';
+        line.style.opacity = '0';
+        setTimeout(function() { line.remove(); }, 500);
+      }, 1200);
+    }, delay);
+  }
+
+  function runAnimation() {
+    // Reset
+    replay.style.display = 'none';
+    output.classList.remove('visible');
+    person.classList.remove('visible');
+    node.classList.remove('thinking');
+    node.style.transform = 'translate(-50%, -50%) scale(1)';
+    node.style.opacity = '1';
+    docs.forEach(function(d) { d.style.opacity = '0'; d.style.transform = ''; });
+
+    // Remove old particles/connections
+    canvas.querySelectorAll('.ps-particle, .ps-connection').forEach(function(el) { el.remove(); });
+
+    // === STEP 1: Documents appear, particles flow to Pulse ===
+    setStep(0);
+
+    docs.forEach(function(d, i) {
+      setTimeout(function() {
+        d.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        d.style.opacity = '1';
+        d.style.transform = 'translateY(0)';
+      }, i * 200);
+    });
+
+    // Particles from docs to center
+    setTimeout(function() {
+      docs.forEach(function(d, i) {
+        spawnParticles(d, node, 3, 'rgba(14, 122, 126, 0.7)', i * 150);
+      });
+    }, 1200);
+
+    // === STEP 2: Connections between docs (finding patterns) ===
+    setTimeout(function() {
+      setStep(1);
+      node.classList.add('thinking');
+
+      // Draw connections between pairs of docs
+      drawConnection(docs[0], docs[2], 0);
+      drawConnection(docs[1], docs[3], 300);
+      drawConnection(docs[4], docs[0], 600);
+      drawConnection(docs[2], docs[4], 900);
+      drawConnection(docs[1], node, 1200);
+      drawConnection(docs[3], node, 1400);
+    }, 3000);
+
+    // === STEP 3: Building accuracy — docs fade, pulse intensifies ===
+    setTimeout(function() {
+      setStep(2);
+
+      // Docs fade out
+      docs.forEach(function(d, i) {
+        setTimeout(function() {
+          d.style.opacity = '0';
+        }, i * 100);
+      });
+
+      // Pulse node pulses stronger
+      node.style.transition = 'all 0.6s ease';
+      node.style.boxShadow = '0 0 0 24px rgba(14, 122, 126, 0.15)';
+
+      // Orbit particles around node
+      for (var i = 0; i < 12; i++) {
+        (function(idx) {
+          setTimeout(function() {
+            var angle = (idx / 12) * Math.PI * 2;
+            var r = 60;
+            var p = document.createElement('div');
+            p.className = 'ps-particle';
+            p.style.background = idx % 3 === 0 ? 'rgba(194, 112, 62, 0.8)' : 'rgba(14, 122, 126, 0.7)';
+            p.style.width = '4px';
+            p.style.height = '4px';
+
+            var cx = canvas.offsetWidth / 2;
+            var cy = canvas.offsetHeight / 2;
+            p.style.left = (cx + Math.cos(angle) * r) + 'px';
+            p.style.top = (cy + Math.sin(angle) * r) + 'px';
+            p.style.opacity = '0.8';
+            canvas.appendChild(p);
+
+            // Spiral inward
+            setTimeout(function() {
+              p.style.transition = 'all 0.8s ease-in';
+              p.style.left = cx + 'px';
+              p.style.top = cy + 'px';
+              p.style.opacity = '0';
+              setTimeout(function() { p.remove(); }, 800);
+            }, 50);
+          }, idx * 100);
+        })(i);
+      }
+    }, 6000);
+
+    // === STEP 4: Output appears ===
+    setTimeout(function() {
+      setStep(3);
+      node.classList.remove('thinking');
+      node.style.opacity = '0';
+      node.style.transform = 'translate(-50%, -50%) scale(0.5)';
+
+      setTimeout(function() {
+        output.classList.add('visible');
+
+        // Count up the number
+        var target = 2340, dur = 800;
+        var numEl = document.getElementById('ps-output-num');
+        var start = performance.now();
+        (function tick(now) {
+          var p = Math.min((now - start) / dur, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          numEl.textContent = Math.round(target * eased).toLocaleString();
+          if (p < 1) requestAnimationFrame(tick);
+        })(performance.now());
+
+        // Person appears
+        setTimeout(function() {
+          person.classList.add('visible');
+        }, 600);
+
+        // Show replay
+        setTimeout(function() {
+          replay.style.display = '';
+        }, 1500);
+      }, 400);
+    }, 8500);
+  }
+
+  // Start on scroll into view
+  var started = false;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting && !started) {
+      started = true;
+      setTimeout(runAnimation, 500);
+    }
+  }, { threshold: 0.3 });
+  obs.observe(document.getElementById('ps-stage'));
+
+  // Replay
+  replay.addEventListener('click', function() {
+    started = true;
+    runAnimation();
+  });
+})();
+</script>
+</body>
+</html>

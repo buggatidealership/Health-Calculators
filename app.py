@@ -4950,6 +4950,21 @@ def mockup_homepage():
 def mockup_homepage_v2():
     return redirect('/', code=301)
 
+@app.route('/mockup-pulse-story')
+def mockup_pulse_story():
+    return render_template(
+        'mockup-pulse-story.html',
+        is_homepage=False,
+        is_catalog=True,
+        schema_type='WebPage',
+        schema_name='How Pulse Works',
+        schema_description='Animated visualization of how Pulse builds health calculators.',
+        schema_url='/mockup-pulse-story',
+        canonical_url='/mockup-pulse-story',
+        robots_meta='noindex, nofollow',
+        breadcrumb_title='How Pulse Works'
+    )
+
 @app.route('/api/request-calculator', methods=['POST'])
 def request_calculator():
     import logging
