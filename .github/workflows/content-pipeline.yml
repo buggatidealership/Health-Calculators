@@ -1,12 +1,14 @@
 name: Automated Content Pipeline
 
 on:
-  schedule:
-    # 10:03 AM Berlin (9:03 AM UTC) — morning run
-    - cron: '3 9 * * *'
-    # 10:03 PM Berlin (9:03 PM UTC) — evening run
-    - cron: '3 21 * * *'
-  workflow_dispatch: # Allow manual trigger from GitHub UI
+  # PAUSED 2026-03-15: Schedule disabled during semantic demand research phase.
+  # Pipeline architecture preserved. Will re-enable with demand-verified build logic.
+  # schedule:
+  #   # 10:03 AM Berlin (9:03 AM UTC) — morning run
+  #   - cron: '3 9 * * *'
+  #   # 10:03 PM Berlin (9:03 PM UTC) — evening run
+  #   - cron: '3 21 * * *'
+  workflow_dispatch: # Allow manual trigger from GitHub UI (still works for testing)
 
 permissions:
   contents: write
