@@ -1836,6 +1836,67 @@ def ozempic_pen_click_calculator():
         date_modified='2026-03-11'
     )
 
+# === V2 TEMPLATE MOCKUP (noindex, for evaluation) ===
+@app.route('/mockup-ozempic-pen-v2')
+def mockup_ozempic_pen_v2():
+    cfg = {
+        'route': '/mockup-ozempic-pen-v2',
+        'meta_description': 'How many pen clicks for your Ozempic dose? Get exact clicks, next injection date, and safety checks. Based on FDA prescribing information.',
+        'meta_keywords': 'ozempic pen clicks, ozempic dosing, semaglutide pen, ozempic injection, ozempic dose calculator',
+        'og_image': 'ozempic-pen-click-calculator-og.jpg',
+        'page_title': 'How Many Clicks for My Ozempic Dose?',
+        'headline': 'How Many Clicks for My Ozempic Dose?',
+        'subtitle': 'Get your exact pen clicks, next injection date, and safety checks — based on FDA prescribing information.',
+        'trust_text': 'Based on Novo Nordisk prescribing information, verified against 5 clinical sources',
+        'answer_capsule': 'This calculator tells you exactly how many pen clicks you need for your prescribed Ozempic (semaglutide) dose. Select your pen color and prescribed dose to get your click count, next injection date, remaining doses, and safety alerts. Each Ozempic pen has a fixed click-to-dose ratio: Blue pen = 0.25 mg/click, Gray pen = 0.5 mg/click, Green pen = 1 mg/click.',
+        'how_to_use': {
+            'title': 'How to Use This Calculator',
+            'html': '<p>Follow these steps to get accurate information about your Ozempic dosing:</p><ol><li><strong>Select your pen</strong> — choose between the Blue (0.25-0.5mg), Gray (1-2mg), or Green (2-4mg) pen.</li><li><strong>Enter your prescribed dose</strong> — standard doses are recommended to reduce errors.</li><li><strong>Input weeks at current dose</strong> — helps track your progression.</li><li><strong>Enter your last injection date</strong> — determines your next injection date.</li><li><strong>Click "Calculate My Clicks"</strong> — get personalized dosing information and safety checks.</li></ol><div class="info-box alert-info"><h3>Understanding Ozempic Pen Colors</h3><p>Ozempic pens are color-coded for different dose ranges:</p><ul><li><strong>Blue Pen (0.25-0.5mg):</strong> Each click delivers 0.25mg. For initial doses and titration.</li><li><strong>Gray Pen (1-2mg):</strong> Each click delivers 0.5mg. For maintenance doses of 1mg+.</li><li><strong>Green Pen (2-4mg):</strong> Each click delivers 1mg. For higher maintenance doses.</li></ul></div>'
+        },
+        'faq': [
+            {'question': 'How many clicks do I need for my Ozempic dose?', 'answer': '<p>It depends on your pen:</p><ul><li><strong>Blue Pen:</strong> 1 click = 0.25mg, 2 clicks = 0.5mg</li><li><strong>Gray Pen:</strong> 2 clicks = 1mg, 4 clicks = 2mg</li><li><strong>Green Pen:</strong> 2 clicks = 2mg, 4 clicks = 4mg</li></ul><p>Each click must be complete until you hear or feel the "click."</p>'},
+            {'question': 'What should I do if I miss an Ozempic dose?', 'answer': '<p>If 5 days or less since the missed dose: take it as soon as possible. If more than 5 days: skip it and take your next dose on the regularly scheduled day. Never take two doses within 48 hours.</p>'},
+            {'question': 'How long will my Ozempic pen last?', 'answer': '<p>Depends on your dose:</p><ul><li><strong>Blue Pen at 0.25mg weekly:</strong> ~8 weeks</li><li><strong>Blue Pen at 0.5mg weekly:</strong> ~4 weeks</li><li><strong>Gray Pen at 1mg weekly:</strong> ~4 weeks</li><li><strong>Gray Pen at 2mg weekly:</strong> ~2 weeks</li></ul>'},
+            {'question': 'Can I use any Ozempic pen for my dose?', 'answer': '<p>No. Each pen is designed for specific dose ranges. Using the wrong pen can lead to significant under or overdosing. Always use the pen prescribed for your dose range.</p>'},
+            {'question': 'What causes Ozempic dosing errors?', 'answer': '<p>Common causes: using the wrong pen strength, incomplete clicks, miscounting clicks, attempting non-standard doses. This calculator flags potential issues automatically.</p>'}
+        ],
+        'methodology': '<p>This calculator determines pen click counts based on the dose-per-click specifications in the FDA-approved Ozempic (semaglutide) prescribing information by Novo Nordisk. The three pen strengths have fixed click-to-dose ratios: Blue pen delivers 0.25 mg per click, Gray pen delivers 0.5 mg per click, Green pen delivers 1 mg per click.</p><p>Injection scheduling follows the standard once-weekly (every 7 days) administration interval, with missed-dose guidance based on the 5-day rule. Novo Nordisk explicitly advises against click-counting for off-label microdosing. This tool is for educational reference only.</p>',
+        'related_guide': {
+            'label': 'Related Guide',
+            'teaser': 'Want a detailed understanding of how Ozempic works for weight loss? Our guide covers week-by-week results, dosage protocols, side effects, and maintenance strategies.',
+            'route': '/resources/ozempic-weight-loss-calculator-guide',
+            'cta': 'Read the full Ozempic Guide'
+        }
+    }
+    sources = [
+        {"text": "Novo Nordisk. Ozempic (semaglutide) injection prescribing information. FDA.gov. Revised 2024.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/209637s009lbl.pdf"},
+        {"text": "Wilding JPH, et al. Once-weekly semaglutide in adults with overweight or obesity (STEP 1). N Engl J Med. 2021;384(11):989-1002.", "url": "https://pubmed.ncbi.nlm.nih.gov/33567185/"},
+        {"text": "Novo Nordisk. Ozempic (semaglutide) Pen Instructions for Use.", "url": "https://www.ozempic.com/how-to-take/pen-instructions.html"},
+        {"text": "Marso SP, et al. Semaglutide and cardiovascular outcomes (SUSTAIN-6). N Engl J Med. 2016;375(19):1834-1844.", "url": "https://pubmed.ncbi.nlm.nih.gov/27633186/"},
+        {"text": "Davies MJ, et al. Efficacy of liraglutide for weight loss (SCALE). JAMA. 2015;314(7):687-699.", "url": "https://pubmed.ncbi.nlm.nih.gov/26284720/"}
+    ]
+    return render_template(
+        'ozempic_pen_click_v2.html',
+        cfg=cfg,
+        sources=sources,
+        related_calculators=[
+            {"url": "/ozempic-weight-loss-calculator", "title": "Ozempic Weight Loss Calculator"},
+            {"url": "/glp1-comparison-calculator", "title": "GLP-1 Comparison Calculator"},
+            {"url": "/semaglutide-reconstitution-calculator", "title": "Semaglutide Reconstitution Calculator"}
+        ],
+        related_guides=[
+            {"url": "/resources/ozempic-weight-loss-calculator-guide", "title": "Complete Ozempic Weight Loss Guide"},
+            {"url": "/resources/semaglutide-vs-ozempic-guide", "title": "Semaglutide vs Ozempic: What's the Difference?"}
+        ],
+        is_homepage=False,
+        schema_name='Ozempic Pen Click Calculator',
+        schema_description=cfg['meta_description'],
+        schema_url=cfg['route'],
+        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+        date_modified='2026-03-15',
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/ozempic-weight-loss-calculator')
 def ozempic_weight_loss_calculator():
     schema_name = "Ozempic Weight Loss Calculator"
