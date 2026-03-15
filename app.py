@@ -4965,6 +4965,21 @@ def mockup_pulse_story():
         breadcrumb_title='How Pulse Works'
     )
 
+@app.route('/mockup-bmi-redesign')
+def mockup_bmi_redesign():
+    return render_template(
+        'mockup-bmi-redesign.html',
+        is_homepage=False,
+        is_catalog=True,
+        schema_type='WebPage',
+        schema_name='Is My Weight Healthy?',
+        schema_description='Find out in 10 seconds. Free BMI check backed by WHO data.',
+        schema_url='/mockup-bmi-redesign',
+        canonical_url='/mockup-bmi-redesign',
+        robots_meta='noindex, nofollow',
+        breadcrumb_title='BMI Check'
+    )
+
 @app.route('/api/request-calculator', methods=['POST'])
 def request_calculator():
     import logging

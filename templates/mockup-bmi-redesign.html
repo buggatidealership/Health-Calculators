@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="Is your weight healthy? Find out in 10 seconds. Free BMI check backed by WHO data — no signup, no judgment.",
+    meta_keywords="BMI calculator, is my weight healthy, body mass index, healthy weight check",
+    og_title="Is My Weight Healthy? — Free BMI Check",
+    og_description="Find out in 10 seconds. No judgment, just numbers backed by WHO data.",
+    og_url="/mockup-bmi-redesign",
+    og_image="default-calculator-og.jpg",
+    page_title="Is My Weight Healthy? — BMI Calculator",
+    canonical_url="/mockup-bmi-redesign",
+    robots_meta="noindex, nofollow"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+  /* Scoped redesign — semantic demand derived */
+
+  .bmi-intro {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+
+  .bmi-intro h1 {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 8px;
+  }
+
+  .bmi-intro p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    max-width: 440px;
+    margin: 0 auto;
+    line-height: 1.55;
+  }
+
+  /* Form — minimal, conversational */
+  .bmi-form {
+    max-width: 480px;
+    margin: 0 auto 32px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 16px;
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow-md);
+  }
+
+  .bmi-unit-toggle {
+    display: flex;
+    gap: 0;
+    background: var(--color-muted);
+    border-radius: 8px;
+    padding: 3px;
+    margin-bottom: 20px;
+  }
+
+  .bmi-unit-toggle button {
+    flex: 1;
+    padding: 9px 12px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--color-text-secondary);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .bmi-unit-toggle button.active {
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: 600;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  }
+
+  .bmi-field {
+    margin-bottom: 16px;
+  }
+
+  .bmi-field-label {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  .bmi-field-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .bmi-input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background: var(--color-bg);
+    transition: border-color 0.2s;
+    box-sizing: border-box;
+  }
+
+  .bmi-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(14, 122, 126, 0.1);
+  }
+
+  .bmi-input::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  .bmi-submit {
+    width: 100%;
+    padding: 14px;
+    background: var(--color-text);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 4px;
+  }
+
+  .bmi-submit:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(27, 27, 50, 0.2);
+  }
+
+  /* ===== RESULTS — the product ===== */
+  .bmi-results {
+    display: none;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+
+  .bmi-results.visible {
+    display: block;
+    animation: bmi-fade-in 0.5s ease;
+  }
+
+  @keyframes bmi-fade-in {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Layer 1: The answer */
+  .bmi-answer {
+    text-align: center;
+    padding: 32px 24px;
+    border-radius: 16px;
+    margin-bottom: 20px;
+  }
+
+  .bmi-answer-text {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 6px;
+  }
+
+  .bmi-answer-sub {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .bmi-answer.healthy {
+    background: var(--color-good-bg);
+    color: var(--color-good);
+    border: 1px solid var(--color-good-border);
+  }
+
+  .bmi-answer.caution {
+    background: var(--color-warning-bg);
+    color: var(--color-warning);
+    border: 1px solid var(--color-warning-border);
+  }
+
+  .bmi-answer.concern {
+    background: var(--color-danger-bg);
+    color: var(--color-danger);
+    border: 1px solid var(--color-danger-border);
+  }
+
+  .bmi-answer.underweight {
+    background: #eef0ff;
+    color: #4a50c7;
+    border: 1px solid #c8cbf0;
+  }
+
+  /* Layer 2: The number */
+  .bmi-number-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+  }
+
+  .bmi-number {
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .bmi-number-context {
+    text-align: left;
+  }
+
+  .bmi-number-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-text-tertiary);
+  }
+
+  .bmi-number-cat {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  .bmi-number-range {
+    font-size: 0.78rem;
+    color: var(--color-text-tertiary);
+    margin-top: 2px;
+  }
+
+  /* Layer 3: The honesty (addresses frustration) */
+  .bmi-honesty {
+    background: var(--color-muted);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+
+  .bmi-honesty-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .bmi-honesty p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  /* Layer 4: What now */
+  .bmi-actions {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+  }
+
+  .bmi-actions-title {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 10px;
+  }
+
+  .bmi-action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 0;
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  .bmi-action-icon {
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Layer 5: Compare (sharing trigger) */
+  .bmi-compare {
+    text-align: center;
+    padding: 20px;
+    background: var(--color-accent-bg);
+    border: 1px solid var(--color-accent-border);
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+
+  .bmi-compare-text {
+    font-size: 0.88rem;
+    color: var(--color-accent-deep);
+    margin-bottom: 12px;
+  }
+
+  .bmi-compare-text strong {
+    color: var(--color-accent);
+  }
+
+  .bmi-share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .bmi-share-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(14, 122, 126, 0.25);
+  }
+
+  /* Demand capture */
+  .bmi-demand {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid var(--color-border-light);
+    margin-top: 24px;
+  }
+
+  .bmi-demand-text {
+    font-size: 0.82rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: 8px;
+  }
+
+  .bmi-demand-input {
+    display: inline-flex;
+    gap: 8px;
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .bmi-demand-input input {
+    flex: 1;
+    padding: 10px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    box-sizing: border-box;
+  }
+
+  .bmi-demand-input input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .bmi-demand-input button {
+    padding: 10px 16px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+
+  /* Responsive */
+  @media (max-width: 600px) {
+    .bmi-intro h1 { font-size: 1.7rem; }
+    .bmi-form { padding: 20px; }
+    .bmi-number { font-size: 2.8rem; }
+    .bmi-answer-text { font-size: 1.3rem; }
+  }
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+
+  <!-- Intro — derived from "Am I overweight?" pattern -->
+  <div class="bmi-intro">
+    <h1>Is My Weight Healthy?</h1>
+    <p>Find out in 10 seconds. No judgment, just numbers backed by WHO data.</p>
+  </div>
+
+  <!-- Form — conversational labels -->
+  <div class="bmi-form">
+    <div class="bmi-unit-toggle">
+      <button class="active" id="bmi-imperial" onclick="setBMIUnit('imperial')">lbs / ft</button>
+      <button id="bmi-metric" onclick="setBMIUnit('metric')">kg / cm</button>
+    </div>
+
+    <div class="bmi-field" id="bmi-weight-field">
+      <span class="bmi-field-label">How much do you weigh?</span>
+      <input type="number" class="bmi-input" id="bmi-weight" placeholder="165">
+    </div>
+
+    <div class="bmi-field" id="bmi-height-imperial">
+      <span class="bmi-field-label">How tall are you?</span>
+      <div class="bmi-field-row">
+        <input type="number" class="bmi-input" id="bmi-feet" placeholder="5" style="max-width: 80px;">
+        <input type="number" class="bmi-input" id="bmi-inches" placeholder="10">
+      </div>
+    </div>
+
+    <div class="bmi-field" id="bmi-height-metric" style="display: none;">
+      <span class="bmi-field-label">How tall are you?</span>
+      <input type="number" class="bmi-input" id="bmi-cm" placeholder="178">
+    </div>
+
+    <button class="bmi-submit" onclick="calculateBMI()">Check My Weight</button>
+  </div>
+
+  <!-- Results — 5 layers, emotion first -->
+  <div class="bmi-results" id="bmi-results">
+
+    <!-- Layer 1: The answer (am I okay?) -->
+    <div class="bmi-answer" id="bmi-answer">
+      <div class="bmi-answer-text" id="bmi-answer-text">Your weight is in the healthy range</div>
+      <div class="bmi-answer-sub" id="bmi-answer-sub">Based on WHO classification for your height and weight</div>
+    </div>
+
+    <!-- Layer 2: The number -->
+    <div class="bmi-number-row">
+      <div class="bmi-number" id="bmi-value">0</div>
+      <div class="bmi-number-context">
+        <div class="bmi-number-label">Your BMI</div>
+        <div class="bmi-number-cat" id="bmi-cat-label">Normal weight</div>
+        <div class="bmi-number-range" id="bmi-range">Healthy range: 18.5 – 24.9</div>
+      </div>
+    </div>
+
+    <!-- Layer 3: BMI doesn't tell the whole story (addresses frustration) -->
+    <div class="bmi-honesty">
+      <div class="bmi-honesty-title">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+        BMI doesn't tell the whole story
+      </div>
+      <p>BMI can't distinguish between muscle and fat, doesn't account for bone density or body frame, and wasn't designed for all ethnicities or body types. It's a starting point — not the final word on your health.</p>
+    </div>
+
+    <!-- Layer 4: What should I do? -->
+    <div class="bmi-actions" id="bmi-actions">
+      <div class="bmi-actions-title">What people ask next</div>
+      <div class="bmi-action-item">
+        <span class="bmi-action-icon">→</span>
+        <span><strong>Want a fuller picture?</strong> Try our <a href="/body-fat-calculator" style="color: var(--color-accent); font-weight: 600;">Body Fat Calculator</a> — it accounts for what BMI misses.</span>
+      </div>
+      <div class="bmi-action-item">
+        <span class="bmi-action-icon">→</span>
+        <span><strong>Trying to lose or gain weight?</strong> Your <a href="/tdee-calculator" style="color: var(--color-accent); font-weight: 600;">TDEE</a> tells you how many calories you need daily.</span>
+      </div>
+      <div class="bmi-action-item">
+        <span class="bmi-action-icon">→</span>
+        <span><strong>Concerned about your result?</strong> Talk to your doctor. A single number doesn't define your health.</span>
+      </div>
+    </div>
+
+    <!-- Layer 5: How do I compare? (sharing trigger) -->
+    <div class="bmi-compare">
+      <div class="bmi-compare-text" id="bmi-compare-text">
+        Your BMI of <strong id="bmi-compare-val">22.3</strong> puts you in the <strong>healthy range</strong>. The average American adult BMI is 26.5.
+      </div>
+      <button class="bmi-share-btn" onclick="shareBMI()">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        Share my result
+      </button>
+    </div>
+
+    <!-- Demand capture -->
+    <div class="bmi-demand">
+      <div class="bmi-demand-text">Have another health question? Tell Pulse.</div>
+      <div class="bmi-demand-input">
+        <input type="text" placeholder="e.g. How do I calculate body fat?" id="bmi-demand-q">
+        <button onclick="submitDemand()">Ask</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+var bmiUnit = 'imperial';
+
+function setBMIUnit(unit) {
+  bmiUnit = unit;
+  document.getElementById('bmi-imperial').classList.toggle('active', unit === 'imperial');
+  document.getElementById('bmi-metric').classList.toggle('active', unit === 'metric');
+  document.getElementById('bmi-height-imperial').style.display = unit === 'imperial' ? '' : 'none';
+  document.getElementById('bmi-height-metric').style.display = unit === 'metric' ? '' : 'none';
+  document.getElementById('bmi-weight').placeholder = unit === 'imperial' ? '165' : '75';
+}
+
+function calculateBMI() {
+  var weight, heightM;
+
+  if (bmiUnit === 'imperial') {
+    weight = parseFloat(document.getElementById('bmi-weight').value);
+    var feet = parseFloat(document.getElementById('bmi-feet').value) || 0;
+    var inches = parseFloat(document.getElementById('bmi-inches').value) || 0;
+    var totalInches = feet * 12 + inches;
+    if (!weight || !totalInches) return;
+    heightM = totalInches * 0.0254;
+    weight = weight * 0.453592;
+  } else {
+    weight = parseFloat(document.getElementById('bmi-weight').value);
+    var cm = parseFloat(document.getElementById('bmi-cm').value);
+    if (!weight || !cm) return;
+    heightM = cm / 100;
+  }
+
+  var bmi = weight / (heightM * heightM);
+  bmi = Math.round(bmi * 10) / 10;
+
+  // Determine category
+  var cat, answer, answerSub, cls;
+  if (bmi < 18.5) {
+    cat = 'Underweight';
+    answer = 'Your weight is below the typical healthy range';
+    answerSub = 'This may or may not be a concern — talk to your doctor for personalized advice.';
+    cls = 'underweight';
+  } else if (bmi < 25) {
+    cat = 'Normal weight';
+    answer = 'Your weight is in the healthy range';
+    answerSub = 'Based on WHO classification for your height and weight. Keep doing what you\'re doing.';
+    cls = 'healthy';
+  } else if (bmi < 30) {
+    cat = 'Overweight';
+    answer = 'Your weight is above the typical healthy range';
+    answerSub = 'This is common — over 70% of American adults are in this range or above. Small changes can help.';
+    cls = 'caution';
+  } else {
+    cat = 'Obese';
+    answer = 'Your weight is significantly above the healthy range';
+    answerSub = 'This may increase health risks. Talking to your doctor is a good next step.';
+    cls = 'concern';
+  }
+
+  // Update results
+  var results = document.getElementById('bmi-results');
+  results.classList.add('visible');
+  results.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  // Layer 1: Answer
+  var answerEl = document.getElementById('bmi-answer');
+  answerEl.className = 'bmi-answer ' + cls;
+  document.getElementById('bmi-answer-text').textContent = answer;
+  document.getElementById('bmi-answer-sub').textContent = answerSub;
+
+  // Layer 2: Number (count-up)
+  var numEl = document.getElementById('bmi-value');
+  var start = performance.now();
+  var dur = 800;
+  (function tick(now) {
+    var p = Math.min((now - start) / dur, 1);
+    var eased = 1 - Math.pow(1 - p, 3);
+    numEl.textContent = (bmi * eased).toFixed(1);
+    if (p < 1) requestAnimationFrame(tick);
+  })(performance.now());
+
+  document.getElementById('bmi-cat-label').textContent = cat;
+  document.getElementById('bmi-range').textContent = 'Healthy range: 18.5 – 24.9';
+
+  // Layer 5: Compare
+  document.getElementById('bmi-compare-val').textContent = bmi.toFixed(1);
+  var compareText = 'Your BMI of <strong>' + bmi.toFixed(1) + '</strong> puts you in the <strong>' +
+    cat.toLowerCase() + '</strong> range. The average American adult BMI is 26.5.';
+  document.getElementById('bmi-compare-text').innerHTML = compareText;
+}
+
+function shareBMI() {
+  var val = document.getElementById('bmi-value').textContent;
+  var cat = document.getElementById('bmi-cat-label').textContent;
+  var text = 'My BMI is ' + val + ' (' + cat.toLowerCase() + '). What\'s yours? via @GetHealthC';
+  window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+}
+
+function submitDemand() {
+  var q = document.getElementById('bmi-demand-q').value.trim();
+  if (!q) return;
+  fetch('/api/request-calculator', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ what: q, email: '' })
+  });
+  document.getElementById('bmi-demand-q').value = '';
+  document.getElementById('bmi-demand-q').placeholder = 'Thanks! Pulse will look into it.';
+}
+</script>
+</body>
+</html>
