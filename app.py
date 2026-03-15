@@ -1996,6 +1996,26 @@ def mockup_tdee_v2():
 @app.route('/share/ozempic/image')
 def share_ozempic_image():
     """Generate a 1200x675 PNG result card for Twitter/OG sharing."""
+    try:
+        return _generate_ozempic_share_image()
+    except Exception as e:
+        app.logger.error(f"Share image generation failed: {e}")
+        # Return a 1x1 transparent PNG as fallback
+        import struct, zlib
+        def minimal_png():
+            sig = b'\x89PNG\r\n\x1a\n'
+            ihdr = struct.pack('>IIBBBBB', 1, 1, 8, 2, 0, 0, 0)
+            ihdr_crc = zlib.crc32(b'IHDR' + ihdr) & 0xffffffff
+            raw = zlib.compress(b'\x00\x00\x00\x00')
+            idat_crc = zlib.crc32(b'IDAT' + raw) & 0xffffffff
+            iend_crc = zlib.crc32(b'IEND') & 0xffffffff
+            return (sig +
+                    struct.pack('>I', 13) + b'IHDR' + ihdr + struct.pack('>I', ihdr_crc) +
+                    struct.pack('>I', len(raw)) + b'IDAT' + raw + struct.pack('>I', idat_crc) +
+                    struct.pack('>I', 0) + b'IEND' + struct.pack('>I', iend_crc))
+        return Response(minimal_png(), mimetype='image/png')
+
+def _generate_ozempic_share_image():
     from PIL import Image, ImageDraw, ImageFont
     dose = request.args.get('dose', '0.5')
     clicks = request.args.get('clicks', '2')
