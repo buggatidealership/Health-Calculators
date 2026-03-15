@@ -1849,16 +1849,32 @@ def mockup_ozempic_pen_v2():
         'subtitle': 'Get your exact pen clicks, next injection date, and safety checks — based on FDA prescribing information.',
         'trust_text': 'Based on Novo Nordisk prescribing information, verified against 5 clinical sources',
         'answer_capsule': 'This calculator tells you exactly how many pen clicks you need for your prescribed Ozempic (semaglutide) dose. Select your pen color and prescribed dose to get your click count, next injection date, remaining doses, and safety alerts. Each Ozempic pen has a fixed click-to-dose ratio: Blue pen = 0.25 mg/click, Gray pen = 0.5 mg/click, Green pen = 1 mg/click.',
-        'how_to_use': {
-            'title': 'How to Use This Calculator',
-            'html': '<p>Follow these steps to get accurate information about your Ozempic dosing:</p><ol><li><strong>Select your pen</strong> — choose between the Blue (0.25-0.5mg), Gray (1-2mg), or Green (2-4mg) pen.</li><li><strong>Enter your prescribed dose</strong> — standard doses are recommended to reduce errors.</li><li><strong>Input weeks at current dose</strong> — helps track your progression.</li><li><strong>Enter your last injection date</strong> — determines your next injection date.</li><li><strong>Click "Calculate My Clicks"</strong> — get personalized dosing information and safety checks.</li></ol><div class="info-box alert-info"><h3>Understanding Ozempic Pen Colors</h3><p>Ozempic pens are color-coded for different dose ranges:</p><ul><li><strong>Blue Pen (0.25-0.5mg):</strong> Each click delivers 0.25mg. For initial doses and titration.</li><li><strong>Gray Pen (1-2mg):</strong> Each click delivers 0.5mg. For maintenance doses of 1mg+.</li><li><strong>Green Pen (2-4mg):</strong> Each click delivers 1mg. For higher maintenance doses.</li></ul></div>'
-        },
         'faq': [
-            {'question': 'How many clicks do I need for my Ozempic dose?', 'answer': '<p>It depends on your pen:</p><ul><li><strong>Blue Pen:</strong> 1 click = 0.25mg, 2 clicks = 0.5mg</li><li><strong>Gray Pen:</strong> 2 clicks = 1mg, 4 clicks = 2mg</li><li><strong>Green Pen:</strong> 2 clicks = 2mg, 4 clicks = 4mg</li></ul><p>Each click must be complete until you hear or feel the "click."</p>'},
-            {'question': 'What should I do if I miss an Ozempic dose?', 'answer': '<p>If 5 days or less since the missed dose: take it as soon as possible. If more than 5 days: skip it and take your next dose on the regularly scheduled day. Never take two doses within 48 hours.</p>'},
-            {'question': 'How long will my Ozempic pen last?', 'answer': '<p>Depends on your dose:</p><ul><li><strong>Blue Pen at 0.25mg weekly:</strong> ~8 weeks</li><li><strong>Blue Pen at 0.5mg weekly:</strong> ~4 weeks</li><li><strong>Gray Pen at 1mg weekly:</strong> ~4 weeks</li><li><strong>Gray Pen at 2mg weekly:</strong> ~2 weeks</li></ul>'},
-            {'question': 'Can I use any Ozempic pen for my dose?', 'answer': '<p>No. Each pen is designed for specific dose ranges. Using the wrong pen can lead to significant under or overdosing. Always use the pen prescribed for your dose range.</p>'},
-            {'question': 'What causes Ozempic dosing errors?', 'answer': '<p>Common causes: using the wrong pen strength, incomplete clicks, miscounting clicks, attempting non-standard doses. This calculator flags potential issues automatically.</p>'}
+            {
+                'question': 'How many clicks do I need for my Ozempic dose?',
+                'direct': 'Blue pen: 1 click = 0.25 mg, 2 clicks = 0.5 mg. Gray pen: 2 clicks = 1 mg, 4 clicks = 2 mg. Green pen: 2 clicks = 2 mg, 4 clicks = 4 mg.',
+                'detail': '<p>Each click must be a complete, audible click. Partial clicks cause inaccurate dosing. The click count is determined by the fixed dose-per-click ratio for each pen color, as specified in Novo Nordisk\'s prescribing information.</p>'
+            },
+            {
+                'question': 'What should I do if I miss an Ozempic dose?',
+                'direct': 'If 5 days or less since the missed dose, take it as soon as possible. If more than 5 days, skip it and take your next dose on the regular day. Never take two doses within 48 hours.',
+                'detail': '<p>After taking a missed dose, resume your regular once-weekly schedule based on the day you took the missed dose. This guidance comes from the FDA-approved Ozempic prescribing information.</p>'
+            },
+            {
+                'question': 'How long does an Ozempic pen last?',
+                'direct': 'At 0.25 mg weekly: ~8 weeks. At 0.5 mg weekly: ~4 weeks. At 1 mg weekly: ~4 weeks (Gray pen). At 2 mg weekly: ~2 weeks.',
+                'detail': '<p>Duration depends on your dose and pen strength. Each pen contains a fixed total amount of semaglutide. Higher doses use it faster. This calculator estimates remaining doses based on your current dosing.</p>'
+            },
+            {
+                'question': 'Can I use any Ozempic pen for my dose?',
+                'direct': 'No. Each pen is designed for specific dose ranges. Using the wrong pen causes significant under or overdosing.',
+                'detail': '<p>Blue pen covers 0.25-0.5 mg, Gray pen covers 1-2 mg, Green pen covers 2-4 mg. The dose-per-click ratio is different for each pen. Always use the pen that matches your prescribed dose range.</p>'
+            },
+            {
+                'question': 'Is click-counting safe for Ozempic dosing?',
+                'direct': 'For standard doses (0.25, 0.5, 1, 2, 4 mg), click-counting is reliable. Novo Nordisk explicitly advises against click-counting for off-label microdosing, as click-to-dose ratios may vary between pens.',
+                'detail': '<p>This calculator is designed for standard FDA-approved doses only. Non-standard doses (shown with a "non-standard" label) carry higher risk of dosing error and should only be used under direct medical supervision.</p>'
+            }
         ],
         'methodology': '<p>This calculator determines pen click counts based on the dose-per-click specifications in the FDA-approved Ozempic (semaglutide) prescribing information by Novo Nordisk. The three pen strengths have fixed click-to-dose ratios: Blue pen delivers 0.25 mg per click, Gray pen delivers 0.5 mg per click, Green pen delivers 1 mg per click.</p><p>Injection scheduling follows the standard once-weekly (every 7 days) administration interval, with missed-dose guidance based on the 5-day rule. Novo Nordisk explicitly advises against click-counting for off-label microdosing. This tool is for educational reference only.</p>',
         'related_guide': {
