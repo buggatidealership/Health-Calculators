@@ -688,6 +688,9 @@ function checkReturnVisit() {
     // Only show if we found a name for the calculator
     if (!calcName) return;
 
+    // Skip return-visit banner on v2 pages (they have their own UX flow)
+    if (document.querySelector('.calc-v2-hero')) return;
+
     // Create a subtle banner below the header
     var banner = document.createElement('div');
     banner.className = 'return-visit-banner';
