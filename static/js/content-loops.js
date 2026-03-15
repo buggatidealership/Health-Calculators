@@ -421,6 +421,15 @@ var CALCULATOR_GRAPH = {
       { url: '/steps-to-calories-calculator', title: 'Steps to Calories Calculator', icon: '👣', reason: 'Estimate calories from your step count on or off the treadmill', params: ['weight_kg'] },
       { url: '/calories-burned-calculator', title: 'Calories Burned Calculator', icon: '💪', reason: 'Compare treadmill to cycling, rowing, HIIT, and 100+ other activities', params: ['weight_kg'] },
     ]
+  },
+  'cycling-calories': {
+    links: [
+      { url: '/calories-burned-calculator', title: 'Calories Burned Calculator', icon: '💪', reason: 'Compare cycling to running, swimming, strength training, and 100+ activities', params: ['weight_kg'] },
+      { url: '/running-calorie-calculator', title: 'Running Calorie Calculator', icon: '🏃', reason: 'Is running or cycling more efficient for calorie burn? See your numbers side by side', params: ['weight_kg'] },
+      { url: '/zone2-heart-rate-calculator', title: 'Zone 2 Heart Rate Calculator', icon: '❤️', reason: 'Find the cycling intensity that maximizes fat burning — your Zone 2 target', params: ['age','gender'] },
+      { url: '/tdee-calculator', title: 'TDEE Calculator', icon: '🔥', reason: 'See how your cycling sessions fit into your total daily calorie budget', params: ['weight_kg','height_cm','age','gender'] },
+      { url: '/treadmill-calorie-calculator', title: 'Treadmill Calorie Calculator', icon: '🏃', reason: 'Compare indoor cycling burn to treadmill walking and running', params: ['weight_kg'] },
+    ]
   }
 };
 

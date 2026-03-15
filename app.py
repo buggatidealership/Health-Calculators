@@ -1128,6 +1128,16 @@ cards = [
         "color": "blue",
         "category": "fitness",
         "popular": False
+    },
+    {
+        "title": "Cycling Calorie Calculator",
+        "url": "/cycling-calorie-calculator",
+        "summary": "Calculate calories burned cycling by intensity, duration, and body weight. Covers road cycling at every speed, mountain biking, and stationary bike. Uses the 2011 Compendium of Physical Activities MET values.",
+        "icon": "🚴",
+        "cta": "Calculate Calories",
+        "color": "green",
+        "category": "fitness",
+        "popular": False
     }
 ]
 
@@ -2039,6 +2049,15 @@ articles = [
         "icon": "🏃",
         "cta": "Read Guide",
         "color": "blue",
+        "category": "fitness"
+    },
+    {
+        "title": "Cycling Calorie Guide: How Many Calories Does Cycling Burn?",
+        "url": "/resources/cycling-calorie-guide",
+        "summary": "Science-backed guide to cycling calorie expenditure — MET values for every cycling speed, road vs. stationary bike comparison, fat burning zones, and how to maximize calorie burn on a bike.",
+        "icon": "🚴",
+        "cta": "Read Guide",
+        "color": "green",
         "category": "fitness"
     },
     {
@@ -5367,6 +5386,38 @@ def treadmill_calorie_guide():
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-14'
+    )
+
+
+@app.route('/cycling-calorie-calculator')
+def cycling_calorie_calculator():
+    schema_name = "Cycling Calorie Calculator"
+    schema_description = "Calculate calories burned cycling by intensity, duration, and body weight. Covers road cycling at every speed, mountain biking, and stationary bike. Uses the 2011 Compendium of Physical Activities MET values."
+    schema_url = "/cycling-calorie-calculator"
+    return render_template(
+        'cycling_calorie_calculator.html',
+        is_homepage=False,
+        schema_name=schema_name,
+        schema_description=schema_description,
+        schema_url=schema_url,
+        canonical_url=schema_url,
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-15'
+    )
+
+
+@app.route('/resources/cycling-calorie-guide')
+def cycling_calorie_guide():
+    return render_template(
+        'resources/cycling_calorie_guide.html',
+        is_homepage=False,
+        schema_name="Cycling Calorie Guide: How Many Calories Does Cycling Burn?",
+        schema_description="Science-backed guide to cycling calorie expenditure — MET values for every cycling intensity, road vs. stationary bike comparison, fat burning zones, and how to maximize calorie burn on a bike.",
+        schema_url="/resources/cycling-calorie-guide",
+        schema_type='Article',
+        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
+        date_modified='2026-03-15'
     )
 
 
