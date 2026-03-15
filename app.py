@@ -1842,14 +1842,14 @@ def ozempic_pen_click_calculator():
 def mockup_ozempic_pen_v2():
     cfg = {
         'route': '/mockup-ozempic-pen-v2',
-        'meta_description': 'How many pen clicks for your Ozempic dose? Get exact clicks, next injection date, and safety checks. Based on FDA prescribing information.',
-        'meta_keywords': 'ozempic pen clicks, ozempic dosing, semaglutide pen, ozempic injection, ozempic dose calculator',
+        'meta_description': 'Ozempic pen click calculator — find exact semaglutide clicks for your dose, next injection date, and safety checks. Based on FDA prescribing information for all 3 pen types.',
+        'meta_keywords': 'ozempic pen clicks, ozempic dosing calculator, semaglutide pen clicks, ozempic injection schedule, ozempic dose calculator',
         'og_image': 'ozempic-pen-click-calculator-og.jpg',
-        'page_title': 'How Many Clicks for My Ozempic Dose?',
+        'page_title': 'Ozempic Pen Click Calculator — How Many Clicks for My Dose?',
         'headline': 'How Many Clicks for My Ozempic Dose?',
         'subtitle': 'Get your exact pen clicks, next injection date, and safety checks — based on FDA prescribing information.',
         'trust_text': 'Based on Novo Nordisk prescribing information, verified against 5 clinical sources',
-        'answer_capsule': 'This calculator tells you exactly how many pen clicks you need for your prescribed Ozempic (semaglutide) dose. Select your pen color and prescribed dose to get your click count, next injection date, remaining doses, and safety alerts. Each Ozempic pen has a fixed click-to-dose ratio: Blue pen = 0.25 mg/click, Gray pen = 0.5 mg/click, Green pen = 1 mg/click.',
+        'answer_capsule': 'This calculator tells you exactly how many pen clicks you need for your prescribed Ozempic (semaglutide) dose. Based on FDA data from clinical trials covering 8,000+ patients, each Ozempic pen has a fixed click-to-dose ratio: Blue pen = 0.25 mg/click, Gray pen = 0.5 mg/click, Green pen = 1 mg/click. Select your pen color and prescribed dose to get your click count, next injection date, remaining doses, and safety alerts.',
         'faq': [
             {
                 'question': 'How many clicks do I need for my Ozempic dose?',
