@@ -2007,32 +2007,56 @@ def share_ozempic_image():
     img = Image.new('RGB', (W, H), '#0e1b2d')
     draw = ImageDraw.Draw(img)
 
-    # Try to load fonts, fall back to default
-    try:
-        font_big = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf", 100)
-        font_med = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 26)
-        font_sm = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
-        font_xs = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14)
-        font_label = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16)
-    except (OSError, IOError):
-        font_big = ImageFont.load_default()
-        font_med = font_big
-        font_sm = font_big
-        font_xs = font_big
-        font_label = font_big
+    # Load fonts with multiple fallback paths (Render may not have DejaVu)
+    font_paths = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSerif.ttf",
+    ]
+    sans_paths = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSans.ttf",
+    ]
+    bold_paths = [
+        "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+        "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+        "/usr/share/fonts/truetype/freefont/FreeSansBold.ttf",
+    ]
+
+    def load_font(paths, size):
+        for p in paths:
+            try:
+                return ImageFont.truetype(p, size)
+            except (OSError, IOError):
+                continue
+        return ImageFont.load_default(size=size)
+
+    font_big = load_font(font_paths, 100)
+    font_med = load_font(sans_paths, 26)
+    font_sm = load_font(sans_paths, 18)
+    font_xs = load_font(sans_paths, 14)
+    font_label = load_font(bold_paths, 16)
+
+    def centered_text(y, text, fill, font):
+        """Draw centered text without relying on anchor='mm'."""
+        bbox = draw.textbbox((0, 0), text, font=font)
+        tw = bbox[2] - bbox[0]
+        th = bbox[3] - bbox[1]
+        draw.text(((W - tw) // 2, y - th // 2), text, fill=fill, font=font)
 
     # Accent bar top
     draw.rectangle([0, 0, W, 6], fill='#0e7a7e')
 
     # Title
-    draw.text((W//2, 70), 'MY OZEMPIC DOSE', fill='#94a3b8', font=font_label, anchor='mm')
+    centered_text(70, 'MY OZEMPIC DOSE', '#94a3b8', font_label)
 
     # Big number
     clicks_text = f"{clicks} click{'s' if clicks != '1' else ''}"
-    draw.text((W//2, 220), clicks_text, fill='#0e7a7e', font=font_big, anchor='mm')
+    centered_text(220, clicks_text, '#0e7a7e', font_big)
 
     # Dose detail
-    draw.text((W//2, 300), f'{dose} mg semaglutide — {pen} pen', fill='#e2e8f0', font=font_med, anchor='mm')
+    centered_text(300, f'{dose} mg semaglutide — {pen} pen', '#e2e8f0', font_med)
 
     # Divider
     draw.line([(300, 355), (900, 355)], fill='#1e3a5f', width=1)
@@ -2044,13 +2068,13 @@ def share_ozempic_image():
     if pen_lasts:
         schedule_parts.append(f'Pen lasts: {pen_lasts}')
     if schedule_parts:
-        draw.text((W//2, 400), '  •  '.join(schedule_parts), fill='#94a3b8', font=font_sm, anchor='mm')
+        centered_text(400, '  •  '.join(schedule_parts), '#94a3b8', font_sm)
 
     # Hook
-    draw.text((W//2, 480), 'What dose are you on?', fill='#0e7a7e', font=font_med, anchor='mm')
+    centered_text(480, 'What dose are you on?', '#0e7a7e', font_med)
 
     # Branding
-    draw.text((W//2, 630), 'healthcalculators.xyz', fill='#475569', font=font_xs, anchor='mm')
+    centered_text(630, 'healthcalculators.xyz', '#475569', font_xs)
 
     # Output
     buf = io.BytesIO()
