@@ -1914,6 +1914,84 @@ def mockup_ozempic_pen_v2():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup-tdee-v2')
+def mockup_tdee_v2():
+    cfg = {
+        'route': '/mockup-tdee-v2',
+        'meta_description': 'TDEE calculator — find how many calories you burn daily using the Mifflin-St Jeor equation. Personalized estimates for weight loss, maintenance, or muscle gain based on 5 clinical studies.',
+        'meta_keywords': 'TDEE calculator, total daily energy expenditure, calorie calculator, BMR calculator, maintenance calories, Mifflin-St Jeor, how many calories should I eat',
+        'og_image': 'tdee-calculator-og.jpg',
+        'page_title': 'TDEE Calculator — How Many Calories Do I Burn Per Day?',
+        'headline': 'How Many Calories Do You Burn Per Day?',
+        'subtitle': 'Calculate your Total Daily Energy Expenditure — personalized for your body, activity level, and goals.',
+        'trust_text': 'Mifflin-St Jeor equation — recommended by the American Dietetic Association, validated in 5 studies',
+        'answer_capsule': 'Your Total Daily Energy Expenditure (TDEE) is the total calories your body burns per day. This calculator uses the Mifflin-St Jeor equation — validated against 498 subjects with 82% accuracy (within 10% of measured values) — to estimate your TDEE based on age, sex, weight, height, and activity level. The American Dietetic Association recommends it as the most accurate predictive formula for caloric needs.',
+        'faq': [
+            {
+                'question': 'What is TDEE?',
+                'direct': 'TDEE (Total Daily Energy Expenditure) is the total number of calories your body burns per day. It combines your BMR (basal metabolic rate) with calories from physical activity, digestion, and non-exercise movement.',
+                'detail': '<p>For most people, BMR accounts for 60-75% of TDEE. The rest comes from physical activity (15-30%), thermic effect of food (~10%), and NEAT (non-exercise activity thermogenesis).</p>'
+            },
+            {
+                'question': 'How accurate is the Mifflin-St Jeor equation?',
+                'direct': 'It predicts BMR within 10% of measured values for 82% of individuals. The American Dietetic Association identified it as the most accurate predictive equation in a 2005 systematic review.',
+                'detail': '<p>Accuracy decreases for very muscular, very lean, or morbidly obese individuals. For highest accuracy, track your weight over 2-4 weeks and adjust based on actual results rather than relying solely on calculated estimates.</p>'
+            },
+            {
+                'question': 'How do I use TDEE for weight loss?',
+                'direct': 'Eat 500 calories below your TDEE for safe weight loss of about 1 lb (0.5 kg) per week. Never go below 1,200 cal/day (women) or 1,500 cal/day (men) without medical supervision.',
+                'detail': '<p>A deficit of 500-1,000 cal/day produces 1-2 lbs of weight loss per week, per NIH guidelines. Larger deficits increase muscle loss and metabolic adaptation.</p>'
+            },
+            {
+                'question': "What's the difference between BMR and TDEE?",
+                'direct': 'BMR is calories burned at complete rest (breathing, circulation, cell repair). TDEE adds activity, digestion, and movement on top of BMR. Your TDEE is always higher than your BMR.',
+                'detail': '<p>Example: a 30-year-old male, 170 lbs, 5\'9" has a BMR of ~1,750 cal/day. At moderate activity (1.55x), his TDEE is ~2,713 cal/day.</p>'
+            },
+            {
+                'question': 'Should I eat back exercise calories?',
+                'direct': "If your activity level selection already includes exercise, your TDEE accounts for it — don't add calories again. If you chose Sedentary and track exercise separately, add back 50-75% of burned calories (trackers overestimate).",
+            },
+            {
+                'question': 'How often should I recalculate?',
+                'direct': 'Recalculate every 10 lbs (4.5 kg) of weight change or every 4-6 weeks during active dieting. As you lose weight, your TDEE decreases — failing to recalculate is a common reason weight loss plateaus.',
+            }
+        ],
+        'methodology': '<p>This calculator uses the Mifflin-St Jeor equation (Mifflin et al., 1990): BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) + 5 for males, or - 161 for females. TDEE = BMR x activity factor (1.2 sedentary through 1.9 extra active). The ADA identified this as the most accurate predictive BMR formula in a 2005 systematic review of 498 subjects (Frankenfield et al.).</p><p>Calorie targets: weight loss at -500 cal/day and lean bulk at +250 cal/day follow NIH guidelines. Macros use a 30/40/30 (protein/carbs/fat) split at maintenance. Activity factors are broad categories — for highest accuracy, adjust based on 2-4 weeks of real weight tracking.</p>',
+        'related_guide': {
+            'label': 'Related Guide',
+            'teaser': 'Learn how to use your TDEE for a structured fat loss plan — including how to set up a calorie deficit, track macros, and handle plateaus.',
+            'route': '/resources/tdee-calculator-guide',
+            'cta': 'Read the TDEE Guide'
+        }
+    }
+    sources = [
+        {"text": "Mifflin MD, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241-247.", "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"},
+        {"text": "Frankenfield D, et al. Comparison of predictive equations for resting metabolic rate. J Am Diet Assoc. 2005;105(5):775-789.", "url": "https://pubmed.ncbi.nlm.nih.gov/15883556/"},
+        {"text": "Hall KD, et al. Energy balance and its components: implications for body weight regulation. Am J Clin Nutr. 2012;95(4):989-994.", "url": "https://pubmed.ncbi.nlm.nih.gov/22434603/"},
+        {"text": "National Institutes of Health. Aim for a Healthy Weight. NIH Publication No. 05-5213.", "url": "https://www.nhlbi.nih.gov/health/educational/lose_wt/"},
+        {"text": "Ainsworth BE, et al. Compendium of Physical Activities: MET intensities. Med Sci Sports Exerc. 2000;32(9 Suppl):S498-516.", "url": "https://pubmed.ncbi.nlm.nih.gov/10993420/"}
+    ]
+    return render_template(
+        'tdee_calculator_v2.html',
+        cfg=cfg,
+        sources=sources,
+        related_calculators=[
+            {"url": "/caloric-intake-macronutrient-calculator", "title": "Macro Calculator"},
+            {"url": "/protein-intake-calculator", "title": "Protein Intake Calculator"},
+            {"url": "/fasting-weight-loss-calculator", "title": "Fasting Weight Loss Calculator"}
+        ],
+        related_guides=[
+            {"url": "/resources/tdee-calculator-guide", "title": "Complete TDEE Guide"}
+        ],
+        is_homepage=False,
+        schema_name='TDEE Calculator',
+        schema_description=cfg['meta_description'],
+        schema_url=cfg['route'],
+        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+        date_modified='2026-03-15',
+        robots_meta='noindex, nofollow'
+    )
+
 # === SHARE CARD IMAGE GENERATOR (server-side, for Twitter Cards) ===
 @app.route('/share/ozempic/image')
 def share_ozempic_image():
