@@ -31,6 +31,27 @@
 <style>
 /* V2 Calculator — demand-derived styles */
 
+/* V2 form inputs — bolder, accent-colored borders */
+.calculator-container input,
+.calculator-container select {
+  border: 2px solid var(--color-accent-border, rgba(14, 122, 126, 0.35));
+  border-radius: 10px;
+  background: var(--color-surface);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.calculator-container input:focus,
+.calculator-container select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(14, 122, 126, 0.12);
+  background: #fafffe;
+}
+
+.calculator-container input:hover,
+.calculator-container select:hover {
+  border-color: var(--color-accent, #0e7a7e);
+}
+
 /* Hero block — user-language headline */
 .calc-v2-hero {
   text-align: center;
