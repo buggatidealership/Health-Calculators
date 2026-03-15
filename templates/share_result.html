@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="robots" content="noindex, nofollow">
+
+<!-- Twitter Card — summary_large_image shows the result card prominently -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@GetHealthC">
+<meta name="twitter:title" content="{{ title }}">
+<meta name="twitter:description" content="{{ description }}">
+<meta name="twitter:image" content="{{ image_url }}">
+
+<!-- Open Graph — for WhatsApp, iMessage, Slack, etc. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ image_url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="675">
+<meta property="og:url" content="https://healthcalculators.xyz/share/ozempic?dose={{ dose }}&clicks={{ clicks }}&pen={{ pen }}">
+<meta property="og:site_name" content="HealthCalculators.xyz">
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<style>
+  .share-page { max-width: 540px; margin: 60px auto; padding: 0 20px; text-align: center; }
+  .share-page h1 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 400; margin-bottom: 8px; }
+  .share-page p { color: var(--color-text-secondary); margin-bottom: 24px; }
+  .share-page img { width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); margin-bottom: 24px; }
+  .share-cta { display: inline-block; padding: 14px 28px; background: var(--color-accent); color: #fff; border-radius: 10px; font-weight: 600; text-decoration: none; font-size: 1rem; }
+  .share-cta:hover { opacity: 0.9; }
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+<div class="share-page">
+  <h1>{{ dose }} mg Ozempic — {{ clicks }} clicks</h1>
+  <p>{{ description }}</p>
+  <img src="{{ image_url }}" alt="Ozempic dose result: {{ dose }} mg, {{ clicks }} clicks on {{ pen }} pen" width="1200" height="675">
+  <a href="{{ calculator_url }}" class="share-cta">Calculate your Ozempic dose</a>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

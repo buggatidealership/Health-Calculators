@@ -1,4 +1,5 @@
 import os
+import io
 import logging
 from flask import Flask, render_template, send_from_directory, redirect, Response, request, jsonify
 from request_logger import init_request_logger
@@ -1911,6 +1912,94 @@ def mockup_ozempic_pen_v2():
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
         date_modified='2026-03-15',
         robots_meta='noindex, nofollow'
+    )
+
+# === SHARE CARD IMAGE GENERATOR (server-side, for Twitter Cards) ===
+@app.route('/share/ozempic/image')
+def share_ozempic_image():
+    """Generate a 1200x675 PNG result card for Twitter/OG sharing."""
+    from PIL import Image, ImageDraw, ImageFont
+    dose = request.args.get('dose', '0.5')
+    clicks = request.args.get('clicks', '2')
+    pen = request.args.get('pen', 'Blue')
+    next_date = request.args.get('next', '')
+    pen_lasts = request.args.get('lasts', '')
+
+    W, H = 1200, 675
+    img = Image.new('RGB', (W, H), '#0e1b2d')
+    draw = ImageDraw.Draw(img)
+
+    # Try to load fonts, fall back to default
+    try:
+        font_big = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf", 100)
+        font_med = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 26)
+        font_sm = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 18)
+        font_xs = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 14)
+        font_label = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 16)
+    except (OSError, IOError):
+        font_big = ImageFont.load_default()
+        font_med = font_big
+        font_sm = font_big
+        font_xs = font_big
+        font_label = font_big
+
+    # Accent bar top
+    draw.rectangle([0, 0, W, 6], fill='#0e7a7e')
+
+    # Title
+    draw.text((W//2, 70), 'MY OZEMPIC DOSE', fill='#94a3b8', font=font_label, anchor='mm')
+
+    # Big number
+    clicks_text = f"{clicks} click{'s' if clicks != '1' else ''}"
+    draw.text((W//2, 220), clicks_text, fill='#0e7a7e', font=font_big, anchor='mm')
+
+    # Dose detail
+    draw.text((W//2, 300), f'{dose} mg semaglutide — {pen} pen', fill='#e2e8f0', font=font_med, anchor='mm')
+
+    # Divider
+    draw.line([(300, 355), (900, 355)], fill='#1e3a5f', width=1)
+
+    # Schedule info
+    schedule_parts = []
+    if next_date:
+        schedule_parts.append(f'Next: {next_date}')
+    if pen_lasts:
+        schedule_parts.append(f'Pen lasts: {pen_lasts}')
+    if schedule_parts:
+        draw.text((W//2, 400), '  •  '.join(schedule_parts), fill='#94a3b8', font=font_sm, anchor='mm')
+
+    # Hook
+    draw.text((W//2, 480), 'What dose are you on?', fill='#0e7a7e', font=font_med, anchor='mm')
+
+    # Branding
+    draw.text((W//2, 630), 'healthcalculators.xyz', fill='#475569', font=font_xs, anchor='mm')
+
+    # Output
+    buf = io.BytesIO()
+    img.save(buf, format='PNG', optimize=True)
+    buf.seek(0)
+    return Response(buf.getvalue(), mimetype='image/png',
+                    headers={'Cache-Control': 'public, max-age=86400'})
+
+@app.route('/share/ozempic')
+def share_ozempic_page():
+    """Minimal share page with dynamic OG tags for Twitter Card."""
+    dose = request.args.get('dose', '0.5')
+    clicks = request.args.get('clicks', '2')
+    pen = request.args.get('pen', 'Blue')
+    next_date = request.args.get('next', '')
+    pen_lasts = request.args.get('lasts', '')
+    img_params = f'dose={dose}&clicks={clicks}&pen={pen}'
+    if next_date:
+        img_params += f'&next={next_date}'
+    if pen_lasts:
+        img_params += f'&lasts={pen_lasts}'
+    return render_template('share_result.html',
+        title=f'My Ozempic dose: {dose} mg — {clicks} clicks on the {pen} pen',
+        description=f'I take {dose} mg Ozempic ({clicks} clicks on the {pen} pen). What dose are you on? Calculate yours free.',
+        image_url=f'https://healthcalculators.xyz/share/ozempic/image?{img_params}',
+        calculator_url='/ozempic-pen-click-calculator',
+        dose=dose, clicks=clicks, pen=pen
     )
 
 @app.route('/ozempic-weight-loss-calculator')

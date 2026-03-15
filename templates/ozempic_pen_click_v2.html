@@ -651,33 +651,27 @@ document.addEventListener('DOMContentLoaded', function() {
         preview.appendChild(canvas);
     }
 
-    // Share: Twitter/X — copies image to clipboard first, then opens compose
+    // Share: Twitter/X — uses share URL with dynamic OG image (Twitter Card)
     document.getElementById('oz-share-twitter').addEventListener('click', function() {
         var dose = document.getElementById('oz-share-dose').textContent;
         var clicks = document.getElementById('oz-share-clicks').textContent;
         var pen = document.getElementById('oz-share-pen').textContent;
+        var nextDate = document.getElementById('oz-next-date').textContent;
+        var penLasts = document.getElementById('oz-pen-lasts').textContent;
         var text = "I take " + dose + " Ozempic — " + clicks + " on the " + pen + " pen. What dose are you on?";
-        var canvas = document.querySelector('#oz-share-preview canvas');
-        // Copy image to clipboard first, then open Twitter
-        if (canvas && navigator.clipboard && navigator.clipboard.write) {
-            canvas.toBlob(function(blob) {
-                navigator.clipboard.write([new ClipboardItem({'image/png': blob})]).then(function() {
-                    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + '\n\n(image copied — paste it!)'), '_blank');
-                }).catch(function() {
-                    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
-                });
-            }, 'image/png');
-        } else {
-            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
-        }
+        var shareUrl = "https://healthcalculators.xyz/share/ozempic?dose=" + encodeURIComponent(dose.replace(' mg','')) + "&clicks=" + encodeURIComponent(clicks.replace(/ clicks?/,'')) + "&pen=" + encodeURIComponent(pen) + "&next=" + encodeURIComponent(nextDate) + "&lasts=" + encodeURIComponent(penLasts);
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text) + '&url=' + encodeURIComponent(shareUrl), '_blank');
     });
 
-    // Share: WhatsApp
+    // Share: WhatsApp — uses share URL for rich OG preview
     document.getElementById('oz-share-whatsapp').addEventListener('click', function() {
         var dose = document.getElementById('oz-share-dose').textContent;
         var clicks = document.getElementById('oz-share-clicks').textContent;
         var pen = document.getElementById('oz-share-pen').textContent;
-        var text = "My Ozempic dose: " + dose + " (" + clicks + " on the " + pen + " pen). Check yours: https://healthcalculators.xyz/ozempic-pen-click-calculator";
+        var nextDate = document.getElementById('oz-next-date').textContent;
+        var penLasts = document.getElementById('oz-pen-lasts').textContent;
+        var shareUrl = "https://healthcalculators.xyz/share/ozempic?dose=" + encodeURIComponent(dose.replace(' mg','')) + "&clicks=" + encodeURIComponent(clicks.replace(/ clicks?/,'')) + "&pen=" + encodeURIComponent(pen) + "&next=" + encodeURIComponent(nextDate) + "&lasts=" + encodeURIComponent(penLasts);
+        var text = "My Ozempic dose: " + dose + " (" + clicks + " on the " + pen + " pen). What's yours? " + shareUrl;
         window.open('https://wa.me/?text=' + encodeURIComponent(text), '_blank');
     });
 
