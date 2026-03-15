@@ -346,7 +346,9 @@
     <button id="calculate-btn" class="calculate-button">Calculate My Clicks</button>
 
     {# ===== 5-LAYER RESULT SYSTEM (reference mode) ===== #}
+    {# id="result" bridges to head_seo.html calculator_complete event tracking #}
     <div class="oz-results" id="oz-results">
+    <div id="result" style="display:contents;">
 
         {# Safety alert — slim bar, only when needed #}
         <div class="oz-safety" id="oz-safety" style="display:none;">
@@ -446,7 +448,8 @@
             <div class="oz-share-card-preview" id="oz-share-preview"></div>
             <div class="oz-share-hint">Tip: Copy the image above, then paste it into your post for better engagement</div>
         </div>
-    </div>
+    </div>{# /result #}
+    </div>{# /oz-results #}
 {% endblock %}
 
 {% block calculator_script %}
@@ -648,13 +651,25 @@ document.addEventListener('DOMContentLoaded', function() {
         preview.appendChild(canvas);
     }
 
-    // Share: Twitter/X
+    // Share: Twitter/X — copies image to clipboard first, then opens compose
     document.getElementById('oz-share-twitter').addEventListener('click', function() {
         var dose = document.getElementById('oz-share-dose').textContent;
         var clicks = document.getElementById('oz-share-clicks').textContent;
         var pen = document.getElementById('oz-share-pen').textContent;
-        var text = "I take " + dose + " Ozempic — " + clicks + " on the " + pen + " pen. What dose are you on?\n\nhealthcalculators.xyz/ozempic-pen-click-calculator";
-        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        var text = "I take " + dose + " Ozempic — " + clicks + " on the " + pen + " pen. What dose are you on?";
+        var canvas = document.querySelector('#oz-share-preview canvas');
+        // Copy image to clipboard first, then open Twitter
+        if (canvas && navigator.clipboard && navigator.clipboard.write) {
+            canvas.toBlob(function(blob) {
+                navigator.clipboard.write([new ClipboardItem({'image/png': blob})]).then(function() {
+                    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text + '\n\n(image copied — paste it!)'), '_blank');
+                }).catch(function() {
+                    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+                });
+            }, 'image/png');
+        } else {
+            window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
+        }
     });
 
     // Share: WhatsApp

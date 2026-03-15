@@ -397,6 +397,28 @@
     {% include 'components/sources.html' %}
   </div>
 
+  {# === FAQPage SCHEMA (server-side, visible to all crawlers without JS) === #}
+  {% if cfg.faq and cfg.faq|length >= 2 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in cfg.faq %}
+      {
+        "@type": "Question",
+        "name": {{ item.question|tojson }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ (item.direct ~ (' ' ~ item.detail|default('')|striptags))|tojson }}
+        }
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+
   {# === DEMAND CAPTURE === #}
   <div class="calc-v2-demand-capture" id="demand-capture">
     <div class="calc-v2-demand-capture-title">Have another health question?</div>
