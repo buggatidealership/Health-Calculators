@@ -1,5 +1,220 @@
 {% extends 'calculator_v2_base.html' %}
 
+{% block extra_styles %}
+<style>
+/* Ozempic v2 — 5-layer result system (reference mode) */
+
+.oz-results { display: none; max-width: 540px; margin: 0 auto; }
+.oz-results.visible { display: block; animation: oz-fade 0.5s ease; }
+@keyframes oz-fade { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* Layer 1: The answer — what you came here for */
+.oz-answer {
+  text-align: center;
+  padding: 28px 24px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  background: var(--color-good-bg);
+  border: 1px solid var(--color-good-border);
+}
+.oz-answer.has-warning {
+  background: var(--color-warning-bg);
+  border-color: var(--color-warning-border);
+}
+.oz-answer-text {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+.oz-answer-sub {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+/* Layer 2: The number — large, visual, screenshot-worthy */
+.oz-number-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  margin-bottom: 16px;
+}
+.oz-number {
+  font-family: var(--font-display);
+  font-size: 4rem;
+  font-weight: 400;
+  color: var(--color-accent);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.oz-number-unit {
+  font-size: 1.4rem;
+  color: var(--color-text-tertiary);
+  margin-left: 2px;
+}
+.oz-number-context {
+  text-align: left;
+}
+.oz-number-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-tertiary);
+}
+.oz-number-detail {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.oz-number-hint {
+  font-size: 0.78rem;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+/* Layer 3: Schedule details — reference data */
+.oz-schedule {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.oz-schedule-card {
+  background: var(--color-muted);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+.oz-schedule-card-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-tertiary);
+  margin-bottom: 4px;
+}
+.oz-schedule-card-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+.oz-schedule-card-hint {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+}
+
+/* Layer 4: Quick reference — comparison table with your row highlighted */
+.oz-reference {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+.oz-reference-title {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-tertiary);
+  margin: 0 0 10px;
+}
+.oz-ref-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  transition: background 0.2s;
+}
+.oz-ref-row + .oz-ref-row { border-top: 1px solid var(--color-border-light, #f1f5f9); }
+.oz-ref-label { color: var(--color-text-secondary); }
+.oz-ref-value { font-weight: 600; color: var(--color-text); }
+.oz-ref-row.active {
+  background: var(--color-accent-bg);
+  border-top: none;
+  margin: 2px -4px;
+  padding: 7px 14px;
+}
+.oz-ref-row.active .oz-ref-label,
+.oz-ref-row.active .oz-ref-value { color: var(--color-accent); font-weight: 600; }
+
+/* Layer 5: Share — Twitter-optimized */
+.oz-share {
+  text-align: center;
+  padding: 20px;
+  background: var(--color-accent-bg);
+  border: 1px solid var(--color-accent-border);
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+.oz-share-text {
+  font-size: 0.88rem;
+  color: var(--color-accent-deep, #065f63);
+  margin-bottom: 12px;
+}
+.oz-share-text strong { color: var(--color-accent); }
+.oz-share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 20px;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s;
+  width: auto;
+  box-shadow: none;
+}
+.oz-share-btn:hover { opacity: 0.9; transform: none; box-shadow: none; filter: none; }
+.oz-share-btn::after { display: none; }
+
+/* Safety alerts */
+.oz-safety { margin-bottom: 16px; }
+.oz-safety-box {
+  background: var(--color-warning-bg);
+  border: 1px solid var(--color-warning-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+.oz-safety-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--color-warning);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.oz-safety-list {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.55;
+}
+
+@media (max-width: 600px) {
+  .oz-number { font-size: 3rem; }
+  .oz-answer-text { font-size: 1.25rem; }
+  .oz-schedule { grid-template-columns: 1fr; }
+}
+</style>
+{% endblock %}
+
 {% block calculator_form %}
     <div class="form-group">
         <label for="pen-strength">Which pen do you have?</label>
@@ -15,7 +230,6 @@
         <select id="current-dose" required>
             <option value="0.25">0.25 mg</option>
             <option value="0.5">0.5 mg</option>
-            <option value="0.75">0.75 mg (non-standard)</option>
         </select>
         <small class="hint">Standard doses recommended to prevent dosing errors</small>
     </div>
@@ -32,80 +246,106 @@
 
     <button id="calculate-btn" class="calculate-button">Calculate My Clicks</button>
 
-    <div id="result" class="results hidden">
-        <h2>Your Dosing Information</h2>
+    {# ===== 5-LAYER RESULT SYSTEM (reference mode) ===== #}
+    <div class="oz-results" id="oz-results">
 
-        <div id="safety-alerts" class="alert alert-warning hidden">
-            <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Safety Alerts</h3>
-            <ul id="safety-warnings"></ul>
+        {# Layer 0: Safety alerts (if any) #}
+        <div class="oz-safety" id="oz-safety" style="display:none;">
+            <div class="oz-safety-box">
+                <div class="oz-safety-title">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    Safety Alert
+                </div>
+                <ul class="oz-safety-list" id="oz-safety-list"></ul>
+            </div>
         </div>
 
-        <div class="result-item">
-            <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg> Pen Clicks for Your Dose</h3>
-            <p id="clicks-needed" class="result-value"></p>
-            <p id="clicks-warning" class="warning-text hidden">Fractional clicks may cause dosing errors</p>
+        {# Layer 1: The answer — "You need X clicks" #}
+        <div class="oz-answer" id="oz-answer">
+            <div class="oz-answer-text" id="oz-answer-text">You need 2 clicks</div>
+            <div class="oz-answer-sub" id="oz-answer-sub">0.5 mg using the Blue pen</div>
         </div>
 
-        <div class="result-item">
-            <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg> Next Injection Date</h3>
-            <p id="next-injection-date" class="result-value"></p>
-            <p class="hint">Based on standard once-weekly administration</p>
+        {# Layer 2: The number — large, visual, screenshot-worthy #}
+        <div class="oz-number-row">
+            <div>
+                <span class="oz-number" id="oz-clicks-num">2</span>
+                <span class="oz-number-unit">clicks</span>
+            </div>
+            <div class="oz-number-context">
+                <div class="oz-number-label">Your Dose</div>
+                <div class="oz-number-detail" id="oz-dose-detail">0.5 mg semaglutide</div>
+                <div class="oz-number-hint" id="oz-pen-hint">Blue Pen — 0.25 mg per click</div>
+            </div>
         </div>
 
-        <div class="result-item">
-            <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg> Days Since Last Injection</h3>
-            <p id="days-since" class="result-value"></p>
-            <p id="days-warning" class="warning-text hidden">Recommended interval is 7 days between injections</p>
+        {# Layer 3: Schedule — reference data cards #}
+        <div class="oz-schedule">
+            <div class="oz-schedule-card">
+                <div class="oz-schedule-card-label">Next Injection</div>
+                <div class="oz-schedule-card-value" id="oz-next-date">—</div>
+                <div class="oz-schedule-card-hint">Every 7 days</div>
+            </div>
+            <div class="oz-schedule-card">
+                <div class="oz-schedule-card-label">Days Since Last</div>
+                <div class="oz-schedule-card-value" id="oz-days-since">—</div>
+                <div class="oz-schedule-card-hint" id="oz-days-hint">On schedule</div>
+            </div>
+            <div class="oz-schedule-card">
+                <div class="oz-schedule-card-label">Pen Lasts</div>
+                <div class="oz-schedule-card-value" id="oz-pen-lasts">—</div>
+                <div class="oz-schedule-card-hint">At current dose</div>
+            </div>
+            <div class="oz-schedule-card">
+                <div class="oz-schedule-card-label">Weeks at Dose</div>
+                <div class="oz-schedule-card-value" id="oz-weeks">—</div>
+                <div class="oz-schedule-card-hint" id="oz-titration-hint">—</div>
+            </div>
         </div>
 
-        <div class="result-item">
-            <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg> Remaining Doses in Pen</h3>
-            <p id="remaining-doses" class="result-value"></p>
-        </div>
-
-        {# === COMPARISON LAYER (demand-derived: comparison is #1 question type) === #}
-        <div class="calc-v2-comparison">
-            <div class="calc-v2-comparison-title">Quick Dosing Reference</div>
-            <div id="comparison-rows">
-                <div class="calc-v2-comparison-row">
-                    <span class="calc-v2-comparison-label">Blue Pen: 0.25 mg</span>
-                    <span class="calc-v2-comparison-value">1 click</span>
+        {# Layer 4: Quick reference table — your row highlighted #}
+        <div class="oz-reference">
+            <div class="oz-reference-title">All Ozempic Doses — Quick Reference</div>
+            <div id="oz-ref-rows">
+                <div class="oz-ref-row" data-pen="Blue" data-dose="0.25">
+                    <span class="oz-ref-label">Blue Pen: 0.25 mg</span>
+                    <span class="oz-ref-value">1 click</span>
                 </div>
-                <div class="calc-v2-comparison-row">
-                    <span class="calc-v2-comparison-label">Blue Pen: 0.5 mg</span>
-                    <span class="calc-v2-comparison-value">2 clicks</span>
+                <div class="oz-ref-row" data-pen="Blue" data-dose="0.5">
+                    <span class="oz-ref-label">Blue Pen: 0.5 mg</span>
+                    <span class="oz-ref-value">2 clicks</span>
                 </div>
-                <div class="calc-v2-comparison-row">
-                    <span class="calc-v2-comparison-label">Gray Pen: 1 mg</span>
-                    <span class="calc-v2-comparison-value">2 clicks</span>
+                <div class="oz-ref-row" data-pen="Gray" data-dose="1">
+                    <span class="oz-ref-label">Gray Pen: 1 mg</span>
+                    <span class="oz-ref-value">2 clicks</span>
                 </div>
-                <div class="calc-v2-comparison-row">
-                    <span class="calc-v2-comparison-label">Gray Pen: 2 mg</span>
-                    <span class="calc-v2-comparison-value">4 clicks</span>
+                <div class="oz-ref-row" data-pen="Gray" data-dose="2">
+                    <span class="oz-ref-label">Gray Pen: 2 mg</span>
+                    <span class="oz-ref-value">4 clicks</span>
                 </div>
-                <div class="calc-v2-comparison-row">
-                    <span class="calc-v2-comparison-label">Green Pen: 2 mg</span>
-                    <span class="calc-v2-comparison-value">2 clicks</span>
+                <div class="oz-ref-row" data-pen="Green" data-dose="2">
+                    <span class="oz-ref-label">Green Pen: 2 mg</span>
+                    <span class="oz-ref-value">2 clicks</span>
                 </div>
-                <div class="calc-v2-comparison-row">
-                    <span class="calc-v2-comparison-label">Green Pen: 4 mg</span>
-                    <span class="calc-v2-comparison-value">4 clicks</span>
+                <div class="oz-ref-row" data-pen="Green" data-dose="4">
+                    <span class="oz-ref-label">Green Pen: 4 mg</span>
+                    <span class="oz-ref-value">4 clicks</span>
                 </div>
             </div>
         </div>
 
-        <div class="info-box">
-            <h3>Dosing Best Practices</h3>
-            <ul>
-                <li>Use the correct pen for your prescribed dose range</li>
-                <li>Count clicks carefully - each click must be complete until you hear/feel a "click"</li>
-                <li>Maintain a consistent 7-day interval between injections</li>
-                <li>If you miss a dose and it's more than 5 days until your next scheduled dose, take the missed dose as soon as possible</li>
-                <li>Keep a log of injections with dates, doses, and any side effects</li>
-            </ul>
-
-            {% include 'components/share-card.html' %}
+        {# Layer 5: Share — Twitter-optimized #}
+        <div class="oz-share">
+            <div class="oz-share-text" id="oz-share-text">
+                I take <strong id="oz-share-dose">0.5 mg</strong> Ozempic — that's <strong id="oz-share-clicks">2 clicks</strong> on the <strong id="oz-share-pen">Blue</strong> pen.
+            </div>
+            <button class="oz-share-btn" id="oz-share-btn">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+                Share my dose
+            </button>
         </div>
+
+        {% include 'components/share-card.html' %}
     </div>
 {% endblock %}
 
@@ -113,14 +353,13 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var penSpecs = {
-        "0.25-0.5": { clicks: 4, dosesPerClick: 0.25, maxDose: 2, penColor: "Blue", recommendedDoses: [0.25, 0.5] },
-        "1-2": { clicks: 4, dosesPerClick: 0.5, maxDose: 4, penColor: "Gray", recommendedDoses: [1, 1.5, 2] },
-        "2-4": { clicks: 4, dosesPerClick: 1, maxDose: 8, penColor: "Green", recommendedDoses: [2, 3, 4] }
+        "0.25-0.5": { dosesPerClick: 0.25, maxDose: 2, penColor: "Blue", recommendedDoses: [0.25, 0.5], totalClicks: 4 },
+        "1-2": { dosesPerClick: 0.5, maxDose: 4, penColor: "Gray", recommendedDoses: [1, 1.5, 2], totalClicks: 4 },
+        "2-4": { dosesPerClick: 1, maxDose: 8, penColor: "Green", recommendedDoses: [2, 3, 4], totalClicks: 4 }
     };
 
     var penSelect = document.getElementById('pen-strength');
     var doseSelect = document.getElementById('current-dose');
-
     penSelect.addEventListener('change', updateDoseOptions);
 
     function updateDoseOptions() {
@@ -138,69 +377,102 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Set today as default
-    var today = new Date().toISOString().split('T')[0];
-    document.getElementById('last-injection-date').value = today;
+    document.getElementById('last-injection-date').value = new Date().toISOString().split('T')[0];
 
     document.getElementById('calculate-btn').addEventListener('click', function() {
         var ps = penSelect.value;
         var dose = parseFloat(doseSelect.value);
         var weeks = parseInt(document.getElementById('weeks-at-current-dose').value);
         var lastDate = document.getElementById('last-injection-date').value;
-
         if (!ps || isNaN(dose) || isNaN(weeks) || !lastDate) { alert("Please fill in all fields"); return; }
 
         var spec = penSpecs[ps];
         var clicks = dose / spec.dosesPerClick;
-
-        document.getElementById('clicks-needed').textContent = clicks + " clicks";
-        var cw = document.getElementById('clicks-warning');
-        cw.classList.toggle('hidden', clicks % 1 === 0);
-
-        // Next injection date
-        var nd = new Date(lastDate);
-        nd.setDate(nd.getDate() + 7);
-        document.getElementById('next-injection-date').textContent = nd.toLocaleDateString();
-
-        // Days since
         var ds = Math.floor((new Date() - new Date(lastDate)) / 86400000);
-        document.getElementById('days-since').textContent = ds + " days";
-        var dw = document.getElementById('days-warning');
-        dw.classList.toggle('hidden', ds >= 6 && ds <= 10);
+        var nd = new Date(lastDate); nd.setDate(nd.getDate() + 7);
+        var totalClicksInPen = spec.totalClicks * (spec.maxDose / spec.dosesPerClick);
+        var remDoses = Math.floor(totalClicksInPen / clicks);
 
-        // Remaining doses
-        var totalClicks = spec.clicks * (spec.maxDose / spec.dosesPerClick);
-        var rem = Math.floor(totalClicks / clicks);
-        document.getElementById('remaining-doses').textContent = "Approximately " + rem + " doses";
-
-        // Safety warnings
+        // Warnings
         var warnings = [];
-        if (ds < 6) warnings.push("It's only been " + ds + " days since your last injection. Ozempic is typically taken once weekly (every 7 days).");
-        if (ds > 10) warnings.push("It's been " + ds + " days since your last injection. Taking doses too far apart may affect medication effectiveness.");
-        if (!spec.recommendedDoses.includes(dose)) warnings.push("The dose of " + dose + "mg is not a standard dose for the " + spec.penColor + " pen. This increases risk of dosing errors.");
-        if (clicks % 1 !== 0) warnings.push("Your dose requires " + clicks + " clicks, which is not a whole number. This may lead to inaccurate dosing.");
+        if (ds < 6) warnings.push("Only " + ds + " days since last injection. Standard interval is 7 days.");
+        if (ds > 10) warnings.push(ds + " days since last injection. Doses too far apart may reduce effectiveness.");
+        if (!spec.recommendedDoses.includes(dose)) warnings.push(dose + "mg is non-standard for the " + spec.penColor + " pen. Higher risk of dosing error.");
+        if (clicks % 1 !== 0) warnings.push("Requires " + clicks + " clicks (fractional). May cause inaccurate dosing.");
 
-        var safetyEl = document.getElementById('safety-alerts');
-        var warnList = document.getElementById('safety-warnings');
+        // Layer 0: Safety
+        var safetyEl = document.getElementById('oz-safety');
         if (warnings.length) {
-            safetyEl.classList.remove('hidden');
-            warnList.innerHTML = '';
-            warnings.forEach(function(w) { var li = document.createElement('li'); li.textContent = w; warnList.appendChild(li); });
+            safetyEl.style.display = '';
+            var list = document.getElementById('oz-safety-list');
+            list.innerHTML = '';
+            warnings.forEach(function(w) { var li = document.createElement('li'); li.textContent = w; list.appendChild(li); });
         } else {
-            safetyEl.classList.add('hidden');
+            safetyEl.style.display = 'none';
         }
 
-        // Highlight active comparison row
-        var rows = document.querySelectorAll('.calc-v2-comparison-row');
-        rows.forEach(function(r) { r.classList.remove('active'); });
-        var penLabel = spec.penColor + " Pen: " + dose + " mg";
-        rows.forEach(function(r) {
-            if (r.querySelector('.calc-v2-comparison-label').textContent === penLabel) {
+        // Layer 1: The answer
+        var answerEl = document.getElementById('oz-answer');
+        answerEl.classList.toggle('has-warning', warnings.length > 0);
+        document.getElementById('oz-answer-text').textContent = "You need " + clicks + (clicks === 1 ? " click" : " clicks");
+        document.getElementById('oz-answer-sub').textContent = dose + " mg using the " + spec.penColor + " pen";
+
+        // Layer 2: The number (count-up)
+        var numEl = document.getElementById('oz-clicks-num');
+        var start = performance.now(), dur = 600;
+        (function tick(now) {
+            var p = Math.min((now - start) / dur, 1);
+            var eased = 1 - Math.pow(1 - p, 3);
+            numEl.textContent = Math.round(clicks * eased) || (p > 0.5 ? clicks : 0);
+            if (p < 1) requestAnimationFrame(tick);
+            else numEl.textContent = clicks % 1 === 0 ? clicks : clicks.toFixed(1);
+        })(performance.now());
+
+        document.getElementById('oz-dose-detail').textContent = dose + " mg semaglutide";
+        document.getElementById('oz-pen-hint').textContent = spec.penColor + " Pen — " + spec.dosesPerClick + " mg per click";
+
+        // Layer 3: Schedule cards
+        document.getElementById('oz-next-date').textContent = nd.toLocaleDateString('en-US', {month:'short', day:'numeric'});
+        document.getElementById('oz-days-since').textContent = ds + " days";
+        var daysHint = document.getElementById('oz-days-hint');
+        if (ds >= 6 && ds <= 8) { daysHint.textContent = "On schedule"; daysHint.style.color = ''; }
+        else if (ds < 6) { daysHint.textContent = "Too soon"; daysHint.style.color = 'var(--color-warning)'; }
+        else { daysHint.textContent = "Overdue"; daysHint.style.color = 'var(--color-danger)'; }
+
+        var penWeeks = Math.floor(remDoses);
+        document.getElementById('oz-pen-lasts').textContent = "~" + penWeeks + " weeks";
+        document.getElementById('oz-weeks').textContent = weeks + " weeks";
+
+        var titHint = document.getElementById('oz-titration-hint');
+        if (weeks < 4) titHint.textContent = "Still titrating";
+        else titHint.textContent = "Titration complete";
+
+        // Layer 4: Highlight active reference row
+        document.querySelectorAll('.oz-ref-row').forEach(function(r) {
+            r.classList.remove('active');
+            if (r.dataset.pen === spec.penColor && parseFloat(r.dataset.dose) === dose) {
                 r.classList.add('active');
             }
         });
 
-        document.getElementById('result').classList.remove('hidden');
+        // Layer 5: Share text
+        document.getElementById('oz-share-dose').textContent = dose + " mg";
+        document.getElementById('oz-share-clicks').textContent = clicks + (clicks === 1 ? " click" : " clicks");
+        document.getElementById('oz-share-pen').textContent = spec.penColor;
+
+        // Show results
+        var resultsEl = document.getElementById('oz-results');
+        resultsEl.classList.add('visible');
+        resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+
+    // Share button
+    document.getElementById('oz-share-btn').addEventListener('click', function() {
+        var dose = document.getElementById('oz-share-dose').textContent;
+        var clicks = document.getElementById('oz-share-clicks').textContent;
+        var pen = document.getElementById('oz-share-pen').textContent;
+        var text = "I take " + dose + " Ozempic — " + clicks + " on the " + pen + " pen. What dose are you on?";
+        window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
     });
 
     updateDoseOptions();
