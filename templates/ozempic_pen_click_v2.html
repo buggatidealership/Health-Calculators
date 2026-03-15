@@ -182,6 +182,98 @@
 .oz-share-btn:hover { opacity: 0.9; transform: none; box-shadow: none; filter: none; }
 .oz-share-btn::after { display: none; }
 
+/* Inline select cards — replaces dropdowns for 3-4 options */
+.oz-select-cards {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+}
+.oz-select-card {
+  flex: 1;
+  padding: 12px 10px;
+  border: 2px solid var(--color-accent-border, rgba(14, 122, 126, 0.35));
+  border-radius: 10px;
+  background: var(--color-surface);
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.15s;
+  width: auto;
+  box-shadow: none;
+}
+.oz-select-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg, #ecfeff);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.oz-select-card::after { display: none; }
+.oz-select-card.active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg, #ecfeff);
+  box-shadow: 0 0 0 3px rgba(14, 122, 126, 0.1);
+}
+.oz-select-card-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-text);
+  display: block;
+}
+.oz-select-card-sub {
+  font-size: 0.72rem;
+  color: var(--color-text-tertiary);
+  margin-top: 2px;
+  display: block;
+}
+.oz-select-card.active .oz-select-card-label { color: var(--color-accent); }
+
+.oz-dose-cards {
+  display: flex;
+  gap: 8px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+.oz-dose-card {
+  flex: 1;
+  min-width: 70px;
+  padding: 10px 8px;
+  border: 2px solid var(--color-accent-border, rgba(14, 122, 126, 0.35));
+  border-radius: 10px;
+  background: var(--color-surface);
+  cursor: pointer;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+  transition: all 0.15s;
+  width: auto;
+  box-shadow: none;
+}
+.oz-dose-card:hover {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+  transform: none;
+  box-shadow: none;
+  filter: none;
+}
+.oz-dose-card::after { display: none; }
+.oz-dose-card.active {
+  border-color: var(--color-accent);
+  background: var(--color-accent-bg);
+  color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(14, 122, 126, 0.1);
+}
+.oz-dose-card-note {
+  font-size: 0.68rem;
+  font-weight: 400;
+  color: var(--color-text-tertiary);
+  display: block;
+  margin-top: 1px;
+}
+@media (max-width: 400px) {
+  .oz-select-cards { flex-direction: column; }
+}
+
 /* Safety alerts */
 .oz-safety { margin-bottom: 16px; }
 .oz-safety-box {
@@ -217,20 +309,29 @@
 
 {% block calculator_form %}
     <div class="form-group">
-        <label for="pen-strength">Which pen do you have?</label>
-        <select id="pen-strength" required>
-            <option value="0.25-0.5">Blue Pen (0.25-0.5 mg)</option>
-            <option value="1-2">Gray Pen (1-2 mg)</option>
-            <option value="2-4">Green Pen (2-4 mg)</option>
-        </select>
+        <label>Which pen do you have?</label>
+        <div class="oz-select-cards" id="pen-cards">
+            <button type="button" class="oz-select-card active" data-pen="0.25-0.5">
+                <span class="oz-select-card-label">Blue</span>
+                <span class="oz-select-card-sub">0.25–0.5 mg</span>
+            </button>
+            <button type="button" class="oz-select-card" data-pen="1-2">
+                <span class="oz-select-card-label">Gray</span>
+                <span class="oz-select-card-sub">1–2 mg</span>
+            </button>
+            <button type="button" class="oz-select-card" data-pen="2-4">
+                <span class="oz-select-card-label">Green</span>
+                <span class="oz-select-card-sub">2–4 mg</span>
+            </button>
+        </div>
     </div>
 
     <div class="form-group">
-        <label for="current-dose">What dose were you prescribed?</label>
-        <select id="current-dose" required>
-            <option value="0.25">0.25 mg</option>
-            <option value="0.5">0.5 mg</option>
-        </select>
+        <label>What dose were you prescribed?</label>
+        <div class="oz-dose-cards" id="dose-cards">
+            <button type="button" class="oz-dose-card active" data-dose="0.25">0.25 mg</button>
+            <button type="button" class="oz-dose-card" data-dose="0.5">0.5 mg</button>
+        </div>
         <small class="hint">Standard doses recommended to prevent dosing errors</small>
     </div>
 
@@ -358,30 +459,50 @@ document.addEventListener('DOMContentLoaded', function() {
         "2-4": { dosesPerClick: 1, maxDose: 8, penColor: "Green", recommendedDoses: [2, 3, 4], totalClicks: 4 }
     };
 
-    var penSelect = document.getElementById('pen-strength');
-    var doseSelect = document.getElementById('current-dose');
-    penSelect.addEventListener('change', updateDoseOptions);
+    var doseOptions = {
+        "0.25-0.5": [["0.25","0.25 mg"],["0.5","0.5 mg"],["0.75","0.75 mg", "non-standard"]],
+        "1-2": [["1","1 mg"],["1.5","1.5 mg"],["2","2 mg"],["2.5","2.5 mg", "non-standard"]],
+        "2-4": [["2","2 mg"],["3","3 mg"],["4","4 mg"],["5","5 mg", "non-standard"]]
+    };
 
-    function updateDoseOptions() {
-        var ps = penSelect.value;
-        doseSelect.innerHTML = '';
-        var opts = {
-            "0.25-0.5": [["0.25","0.25 mg"],["0.5","0.5 mg"],["0.75","0.75 mg (non-standard)"]],
-            "1-2": [["1","1 mg"],["1.5","1.5 mg"],["2","2 mg"],["2.5","2.5 mg (non-standard)"]],
-            "2-4": [["2","2 mg"],["3","3 mg"],["4","4 mg"],["5","5 mg (non-standard)"]]
-        };
-        (opts[ps] || []).forEach(function(o) {
-            var el = document.createElement('option');
-            el.value = o[0]; el.textContent = o[1];
-            doseSelect.appendChild(el);
+    var selectedPen = "0.25-0.5";
+    var selectedDose = "0.25";
+
+    // Pen card selection
+    document.querySelectorAll('.oz-select-card').forEach(function(card) {
+        card.addEventListener('click', function() {
+            document.querySelectorAll('.oz-select-card').forEach(function(c) { c.classList.remove('active'); });
+            this.classList.add('active');
+            selectedPen = this.dataset.pen;
+            updateDoseCards();
         });
+    });
+
+    function updateDoseCards() {
+        var container = document.getElementById('dose-cards');
+        container.innerHTML = '';
+        var opts = doseOptions[selectedPen] || [];
+        opts.forEach(function(o, i) {
+            var btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'oz-dose-card' + (i === 0 ? ' active' : '');
+            btn.dataset.dose = o[0];
+            btn.innerHTML = o[1] + (o[2] ? '<span class="oz-dose-card-note">' + o[2] + '</span>' : '');
+            btn.addEventListener('click', function() {
+                container.querySelectorAll('.oz-dose-card').forEach(function(c) { c.classList.remove('active'); });
+                this.classList.add('active');
+                selectedDose = this.dataset.dose;
+            });
+            container.appendChild(btn);
+        });
+        selectedDose = opts[0][0];
     }
 
     document.getElementById('last-injection-date').value = new Date().toISOString().split('T')[0];
 
     document.getElementById('calculate-btn').addEventListener('click', function() {
-        var ps = penSelect.value;
-        var dose = parseFloat(doseSelect.value);
+        var ps = selectedPen;
+        var dose = parseFloat(selectedDose);
         var weeks = parseInt(document.getElementById('weeks-at-current-dose').value);
         var lastDate = document.getElementById('last-injection-date').value;
         if (!ps || isNaN(dose) || isNaN(weeks) || !lastDate) { alert("Please fill in all fields"); return; }
@@ -475,7 +596,8 @@ document.addEventListener('DOMContentLoaded', function() {
         window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(text), '_blank');
     });
 
-    updateDoseOptions();
+    // Initialize dose cards for default pen
+    updateDoseCards();
 });
 </script>
 {% endblock %}
