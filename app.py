@@ -5256,6 +5256,15 @@ def mockup_homepage():
 def mockup_homepage_v2():
     return redirect('/', code=301)
 
+@app.route('/mockup-new-landing')
+def mockup_new_landing():
+    return render_template(
+        'mockup-new-landing.html',
+        is_homepage=False,
+        is_catalog=True,
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup-pulse-story')
 def mockup_pulse_story():
     return render_template(
