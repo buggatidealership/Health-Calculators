@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="Calculate your Total Daily Energy Expenditure (TDEE) using the Mifflin-St Jeor equation. See where you fall compared to others your age.",
+    meta_keywords="TDEE calculator, how many calories do I burn, daily calorie calculator, Mifflin-St Jeor",
+    og_title="How Many Calories Do You Actually Burn? — TDEE Calculator",
+    og_description="Get your personalized TDEE in seconds. See how you compare, understand the formula, and get actionable next steps.",
+    og_url="/mockup-tdee-v3",
+    og_image="default-calculator-og.jpg",
+    page_title="How Many Calories Do You Actually Burn? — TDEE Calculator",
+    canonical_url="/mockup-tdee-v3"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+/* ========== TDEE CALCULATOR V3 — Result-First Design ========== */
+/* Inspiration: Apple product pages (result IS the page), Stripe (progressive inputs),
+   Linear (data-dense cards), Vercel (metric typography) */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* --- Page Layout --- */
+.calc-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+/* --- Hero Result (visible immediately) --- */
+.calc-result-hero {
+  text-align: center;
+  padding: 48px 24px 40px;
+  position: relative;
+}
+
+.calc-result-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.calc-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.calc-question {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  margin: 0 0 32px;
+  line-height: 1.2;
+}
+
+/* The Big Number */
+.calc-big-number {
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.03em;
+  transition: opacity 0.3s ease;
+}
+
+.calc-big-number.updating {
+  opacity: 0.3;
+}
+
+.calc-big-unit {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-top: 8px;
+}
+
+.calc-big-label {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.calc-formula-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  background: var(--color-muted);
+  border: 1px solid var(--color-border);
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-top: 16px;
+}
+
+.calc-formula-tag svg {
+  flex-shrink: 0;
+}
+
+/* --- Spectrum / Comparison Bar --- */
+.calc-spectrum {
+  margin: 40px 0 0;
+  padding: 32px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+}
+
+.calc-spectrum-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.calc-spectrum-bar {
+  position: relative;
+  height: 8px;
+  background: linear-gradient(90deg,
+    #e8d5b7 0%,
+    #8cc5a0 25%,
+    #0e7a7e 50%,
+    #8cc5a0 75%,
+    #e8d5b7 100%
+  );
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.calc-spectrum-marker {
+  position: absolute;
+  top: -6px;
+  width: 20px;
+  height: 20px;
+  background: var(--color-text);
+  border: 3px solid var(--color-surface);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.calc-spectrum-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+.calc-spectrum-you {
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-top: 16px;
+}
+
+.calc-spectrum-you span {
+  color: var(--color-accent);
+}
+
+/* --- Input Section --- */
+.calc-inputs {
+  margin-top: 40px;
+}
+
+.calc-inputs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.calc-inputs-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.calc-unit-toggle {
+  display: flex;
+  background: var(--color-muted);
+  border-radius: 8px;
+  padding: 2px;
+  border: 1px solid var(--color-border);
+}
+
+.calc-unit-btn {
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.calc-unit-btn.active {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+/* Input groups */
+.calc-input-group {
+  margin-bottom: 24px;
+}
+
+.calc-input-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.calc-input-hint {
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin-left: 4px;
+}
+
+/* Inline cards for sex selection */
+.calc-card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.calc-card-option {
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--color-text);
+}
+
+.calc-card-option:hover {
+  border-color: rgba(14, 122, 126, 0.3);
+}
+
+.calc-card-option.selected {
+  border-color: var(--color-accent);
+  background: rgba(14, 122, 126, 0.04);
+}
+
+.calc-card-option:active {
+  transform: scale(0.98);
+}
+
+/* Number inputs */
+.calc-num-row {
+  display: flex;
+  gap: 12px;
+}
+
+.calc-num-wrap {
+  flex: 1;
+  position: relative;
+}
+
+.calc-num-input {
+  width: 100%;
+  padding: 14px 16px;
+  padding-right: 44px;
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  font-size: 1.05rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+
+.calc-num-input::-webkit-outer-spin-button,
+.calc-num-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.calc-num-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+}
+
+.calc-num-suffix {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+/* Activity level cards */
+.calc-activity-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.calc-activity-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s, transform 0.1s;
+}
+
+.calc-activity-card:hover {
+  border-color: rgba(14, 122, 126, 0.3);
+}
+
+.calc-activity-card.selected {
+  border-color: var(--color-accent);
+  background: rgba(14, 122, 126, 0.04);
+}
+
+.calc-activity-card:active {
+  transform: scale(0.99);
+}
+
+.calc-activity-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+  transition: all 0.15s;
+}
+
+.calc-activity-card.selected .calc-activity-dot {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(14, 122, 126, 0.15);
+}
+
+.calc-activity-name {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.calc-activity-desc {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-top: 1px;
+}
+
+.calc-activity-mult {
+  margin-left: auto;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  background: var(--color-muted);
+  padding: 3px 8px;
+  border-radius: 6px;
+  flex-shrink: 0;
+  font-family: var(--font-body);
+}
+
+/* --- Breakdown Cards --- */
+.calc-breakdown {
+  margin-top: 40px;
+}
+
+.calc-breakdown-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.calc-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.calc-breakdown-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+}
+
+.calc-breakdown-num {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.calc-breakdown-label {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+.calc-breakdown-sub {
+  font-size: 0.72rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+/* --- Goal Projections --- */
+.calc-goals {
+  margin-top: 32px;
+}
+
+.calc-goals-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 16px;
+}
+
+.calc-goal-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  margin-bottom: 8px;
+  background: var(--color-surface);
+}
+
+.calc-goal-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  flex-shrink: 0;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.calc-goal-icon.cut { background: rgba(239, 68, 68, 0.08); color: #ef4444; }
+.calc-goal-icon.maintain { background: rgba(14, 122, 126, 0.08); color: var(--color-accent); }
+.calc-goal-icon.bulk { background: rgba(59, 130, 246, 0.08); color: #3b82f6; }
+
+.calc-goal-info {
+  flex: 1;
+}
+
+.calc-goal-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.calc-goal-detail {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.calc-goal-cal {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-text);
+  flex-shrink: 0;
+}
+
+/* --- Methodology --- */
+.calc-method {
+  margin-top: 40px;
+  padding: 24px;
+  background: var(--color-muted);
+  border-radius: 14px;
+  border: 1px solid var(--color-border);
+}
+
+.calc-method-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calc-method-formula {
+  font-family: 'DM Sans', monospace;
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+  line-height: 1.6;
+  overflow-x: auto;
+}
+
+.calc-method-note {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.calc-method-cite {
+  font-size: 0.78rem;
+  color: var(--color-accent);
+  font-weight: 600;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 8px;
+}
+
+/* --- Share Strip --- */
+.calc-share {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.calc-share-text {
+  flex: 1;
+}
+
+.calc-share-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.calc-share-sub {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.calc-share-btn {
+  padding: 10px 20px;
+  background: var(--color-text);
+  color: var(--color-surface);
+  border: none;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: opacity 0.15s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.calc-share-btn:hover { opacity: 0.85; }
+.calc-share-btn:active { transform: scale(0.97); }
+
+/* --- Disclaimer --- */
+.calc-disclaimer {
+  margin-top: 32px;
+  padding: 16px 20px;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  border-top: 1px solid var(--color-border);
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .calc-page {
+    padding: 24px 16px 60px;
+  }
+
+  .calc-result-hero {
+    padding: 32px 16px 32px;
+  }
+
+  .calc-question {
+    font-size: 1.5rem;
+  }
+
+  .calc-big-number {
+    font-size: 4rem;
+  }
+
+  .calc-breakdown-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .calc-breakdown-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-align: left;
+    padding: 14px 16px;
+  }
+
+  .calc-breakdown-num {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+    min-width: 60px;
+  }
+
+  .calc-share {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .calc-goal-row {
+    flex-wrap: wrap;
+  }
+
+  .calc-goal-cal {
+    width: 100%;
+    text-align: right;
+  }
+}
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calc-page">
+
+  <!-- ===== RESULT HERO — visible immediately with defaults ===== -->
+  <section class="calc-result-hero">
+    <div class="calc-eyebrow">Your daily calories</div>
+    <h1 class="calc-question">How many calories do you actually burn?</h1>
+
+    <p class="calc-big-number" id="tdee-result">
+      <span id="tdee-num">2,340</span>
+    </p>
+    <span class="calc-big-unit">calories per day</span>
+    <p class="calc-big-label">
+      Your Total Daily Energy Expenditure, personalized to your body and activity level.
+    </p>
+    <div class="calc-formula-tag">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Mifflin-St Jeor equation
+    </div>
+  </section>
+
+  <!-- ===== COMPARISON SPECTRUM ===== -->
+  <section class="calc-spectrum" id="spectrum-section">
+    <div class="calc-spectrum-title">Where you fall</div>
+    <div class="calc-spectrum-bar">
+      <div class="calc-spectrum-marker" id="spectrum-marker" style="left: 62%"></div>
+    </div>
+    <div class="calc-spectrum-labels">
+      <span>1,400</span>
+      <span>2,000</span>
+      <span>2,600</span>
+      <span>3,200</span>
+    </div>
+    <div class="calc-spectrum-you">
+      You burn <span id="spectrum-pct">more than 62%</span> of people your age
+    </div>
+  </section>
+
+  <!-- ===== INPUTS — modify your numbers ===== -->
+  <section class="calc-inputs">
+    <div class="calc-inputs-header">
+      <div class="calc-inputs-title">Your details</div>
+      <div class="calc-unit-toggle">
+        <button class="calc-unit-btn active" data-unit="imperial">Imperial</button>
+        <button class="calc-unit-btn" data-unit="metric">Metric</button>
+      </div>
+    </div>
+
+    <!-- Sex -->
+    <div class="calc-input-group">
+      <label class="calc-input-label">Sex <span class="calc-input-hint">(affects BMR formula)</span></label>
+      <div class="calc-card-row">
+        <div class="calc-card-option selected" data-sex="male">Male</div>
+        <div class="calc-card-option" data-sex="female">Female</div>
+      </div>
+    </div>
+
+    <!-- Age, Height, Weight -->
+    <div class="calc-input-group">
+      <label class="calc-input-label">Age</label>
+      <div class="calc-num-wrap">
+        <input type="number" class="calc-num-input" id="input-age" value="28" min="15" max="99" inputmode="numeric">
+        <span class="calc-num-suffix">years</span>
+      </div>
+    </div>
+
+    <div class="calc-input-group">
+      <label class="calc-input-label">Height</label>
+      <div class="calc-num-row" id="height-row">
+        <div class="calc-num-wrap">
+          <input type="number" class="calc-num-input" id="input-height-ft" value="5" min="3" max="8" inputmode="numeric">
+          <span class="calc-num-suffix">ft</span>
+        </div>
+        <div class="calc-num-wrap">
+          <input type="number" class="calc-num-input" id="input-height-in" value="10" min="0" max="11" inputmode="numeric">
+          <span class="calc-num-suffix">in</span>
+        </div>
+      </div>
+      <div class="calc-num-row" id="height-row-metric" style="display:none">
+        <div class="calc-num-wrap">
+          <input type="number" class="calc-num-input" id="input-height-cm" value="178" min="100" max="250" inputmode="numeric">
+          <span class="calc-num-suffix">cm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-input-group">
+      <label class="calc-input-label">Weight</label>
+      <div class="calc-num-row" id="weight-row">
+        <div class="calc-num-wrap">
+          <input type="number" class="calc-num-input" id="input-weight-lbs" value="165" min="70" max="500" inputmode="numeric">
+          <span class="calc-num-suffix">lbs</span>
+        </div>
+      </div>
+      <div class="calc-num-row" id="weight-row-metric" style="display:none">
+        <div class="calc-num-wrap">
+          <input type="number" class="calc-num-input" id="input-weight-kg" value="75" min="30" max="230" inputmode="numeric">
+          <span class="calc-num-suffix">kg</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Level -->
+    <div class="calc-input-group">
+      <label class="calc-input-label">Activity level</label>
+      <div class="calc-activity-grid">
+        <div class="calc-activity-card" data-mult="1.2">
+          <div class="calc-activity-dot"></div>
+          <div>
+            <div class="calc-activity-name">Sedentary</div>
+            <div class="calc-activity-desc">Desk job, little exercise</div>
+          </div>
+          <div class="calc-activity-mult">×1.2</div>
+        </div>
+        <div class="calc-activity-card" data-mult="1.375">
+          <div class="calc-activity-dot"></div>
+          <div>
+            <div class="calc-activity-name">Lightly active</div>
+            <div class="calc-activity-desc">Light exercise 1–3 days/week</div>
+          </div>
+          <div class="calc-activity-mult">×1.375</div>
+        </div>
+        <div class="calc-activity-card selected" data-mult="1.55">
+          <div class="calc-activity-dot"></div>
+          <div>
+            <div class="calc-activity-name">Moderately active</div>
+            <div class="calc-activity-desc">Moderate exercise 3–5 days/week</div>
+          </div>
+          <div class="calc-activity-mult">×1.55</div>
+        </div>
+        <div class="calc-activity-card" data-mult="1.725">
+          <div class="calc-activity-dot"></div>
+          <div>
+            <div class="calc-activity-name">Very active</div>
+            <div class="calc-activity-desc">Hard exercise 6–7 days/week</div>
+          </div>
+          <div class="calc-activity-mult">×1.725</div>
+        </div>
+        <div class="calc-activity-card" data-mult="1.9">
+          <div class="calc-activity-dot"></div>
+          <div>
+            <div class="calc-activity-name">Extremely active</div>
+            <div class="calc-activity-desc">Athlete or physical labor + training</div>
+          </div>
+          <div class="calc-activity-mult">×1.9</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BREAKDOWN ===== -->
+  <section class="calc-breakdown">
+    <div class="calc-breakdown-title">The breakdown</div>
+    <div class="calc-breakdown-grid">
+      <div class="calc-breakdown-card">
+        <div class="calc-breakdown-num" id="bmr-num">1,510</div>
+        <div class="calc-breakdown-label">Basal Metabolic Rate</div>
+        <div class="calc-breakdown-sub">At complete rest</div>
+      </div>
+      <div class="calc-breakdown-card">
+        <div class="calc-breakdown-num" id="neat-num">830</div>
+        <div class="calc-breakdown-label">Activity Calories</div>
+        <div class="calc-breakdown-sub">Exercise + NEAT</div>
+      </div>
+      <div class="calc-breakdown-card">
+        <div class="calc-breakdown-num" id="tef-num">~234</div>
+        <div class="calc-breakdown-label">Thermic Effect</div>
+        <div class="calc-breakdown-sub">Digesting food (~10%)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GOAL PROJECTIONS ===== -->
+  <section class="calc-goals">
+    <div class="calc-goals-title">What to eat for your goal</div>
+
+    <div class="calc-goal-row">
+      <div class="calc-goal-icon cut">−</div>
+      <div class="calc-goal-info">
+        <div class="calc-goal-name">Cut (lose fat)</div>
+        <div class="calc-goal-detail">500 cal deficit · ~1 lb/week</div>
+      </div>
+      <div class="calc-goal-cal" id="cut-cal">1,840</div>
+    </div>
+
+    <div class="calc-goal-row" style="border-color: var(--color-accent);">
+      <div class="calc-goal-icon maintain">→</div>
+      <div class="calc-goal-info">
+        <div class="calc-goal-name">Maintain</div>
+        <div class="calc-goal-detail">Stay at current weight</div>
+      </div>
+      <div class="calc-goal-cal" id="maintain-cal">2,340</div>
+    </div>
+
+    <div class="calc-goal-row">
+      <div class="calc-goal-icon bulk">+</div>
+      <div class="calc-goal-info">
+        <div class="calc-goal-name">Bulk (build muscle)</div>
+        <div class="calc-goal-detail">300 cal surplus · lean gains</div>
+      </div>
+      <div class="calc-goal-cal" id="bulk-cal">2,640</div>
+    </div>
+  </section>
+
+  <!-- ===== METHODOLOGY ===== -->
+  <section class="calc-method">
+    <div class="calc-method-title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      How this is calculated
+    </div>
+    <p class="calc-method-note">
+      We use the <strong>Mifflin-St Jeor equation</strong>, recommended by the Academy of Nutrition and Dietetics as the most accurate for estimating BMR in healthy adults.
+    </p>
+    <div class="calc-method-formula">
+      <strong>Males:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) + 5<br>
+      <strong>Females:</strong> BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161<br>
+      <strong>TDEE</strong> = BMR × activity multiplier
+    </div>
+    <p class="calc-method-note">
+      TDEE can vary ±200 cal based on genetics, body composition, and metabolic adaptation. Use this as a starting point and adjust based on results over 2–3 weeks.
+    </p>
+    <a href="#" class="calc-method-cite">
+      Mifflin MD et al. Am J Clin Nutr. 1990
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== SHARE ===== -->
+  <div class="calc-share">
+    <div class="calc-share-text">
+      <div class="calc-share-title">Share your result</div>
+      <div class="calc-share-sub">Compare with friends — "What's yours?"</div>
+    </div>
+    <button class="calc-share-btn" id="share-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Share
+    </button>
+  </div>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <div class="calc-disclaimer" data-nosnippet>
+    <strong>Not medical advice.</strong> This calculator provides estimates for informational purposes only. Consult a registered dietitian or healthcare provider before making significant dietary changes. Results may not apply to individuals with medical conditions affecting metabolism.
+  </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+(function() {
+  // --- State ---
+  var state = {
+    sex: 'male',
+    age: 28,
+    heightCm: 178,
+    weightKg: 75,
+    multiplier: 1.55,
+    unit: 'imperial'
+  };
+
+  // --- Elements ---
+  var tdeeNum = document.getElementById('tdee-num');
+  var bmrNum = document.getElementById('bmr-num');
+  var neatNum = document.getElementById('neat-num');
+  var tefNum = document.getElementById('tef-num');
+  var cutCal = document.getElementById('cut-cal');
+  var maintainCal = document.getElementById('maintain-cal');
+  var bulkCal = document.getElementById('bulk-cal');
+  var marker = document.getElementById('spectrum-marker');
+  var pctText = document.getElementById('spectrum-pct');
+  var bigNumber = document.querySelector('.calc-big-number');
+
+  // --- Calculation ---
+  function calcBMR() {
+    if (state.sex === 'male') {
+      return (10 * state.weightKg) + (6.25 * state.heightCm) - (5 * state.age) + 5;
+    }
+    return (10 * state.weightKg) + (6.25 * state.heightCm) - (5 * state.age) - 161;
+  }
+
+  function calcTDEE() {
+    return Math.round(calcBMR() * state.multiplier);
+  }
+
+  function getPercentile(tdee) {
+    // Approximate population distribution for context
+    var min = 1400, max = 3200;
+    var pct = Math.max(0, Math.min(100, ((tdee - min) / (max - min)) * 100));
+    return Math.round(pct);
+  }
+
+  function update() {
+    var bmr = Math.round(calcBMR());
+    var tdee = calcTDEE();
+    var tef = Math.round(tdee * 0.1);
+    var neat = tdee - bmr - tef;
+    var pct = getPercentile(tdee);
+
+    // Animate big number
+    bigNumber.classList.add('updating');
+    setTimeout(function() {
+      tdeeNum.textContent = tdee.toLocaleString();
+      bigNumber.classList.remove('updating');
+    }, 150);
+
+    // Breakdown
+    bmrNum.textContent = bmr.toLocaleString();
+    neatNum.textContent = Math.max(0, neat).toLocaleString();
+    tefNum.textContent = '~' + tef.toLocaleString();
+
+    // Goals
+    cutCal.textContent = (tdee - 500).toLocaleString();
+    maintainCal.textContent = tdee.toLocaleString();
+    bulkCal.textContent = (tdee + 300).toLocaleString();
+
+    // Spectrum
+    marker.style.left = pct + '%';
+    pctText.textContent = 'more than ' + pct + '%';
+  }
+
+  // --- Sex cards ---
+  document.querySelectorAll('.calc-card-option').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.calc-card-option').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.sex = card.getAttribute('data-sex');
+      update();
+    });
+  });
+
+  // --- Activity cards ---
+  document.querySelectorAll('.calc-activity-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.calc-activity-card').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.multiplier = parseFloat(card.getAttribute('data-mult'));
+      update();
+    });
+  });
+
+  // --- Number inputs ---
+  function syncFromInputs() {
+    if (state.unit === 'imperial') {
+      var ft = parseInt(document.getElementById('input-height-ft').value) || 5;
+      var inches = parseInt(document.getElementById('input-height-in').value) || 10;
+      state.heightCm = Math.round((ft * 12 + inches) * 2.54);
+      state.weightKg = Math.round((parseInt(document.getElementById('input-weight-lbs').value) || 165) * 0.4536);
+    } else {
+      state.heightCm = parseInt(document.getElementById('input-height-cm').value) || 178;
+      state.weightKg = parseInt(document.getElementById('input-weight-kg').value) || 75;
+    }
+    state.age = parseInt(document.getElementById('input-age').value) || 28;
+    update();
+  }
+
+  document.querySelectorAll('.calc-num-input').forEach(function(input) {
+    input.addEventListener('input', syncFromInputs);
+  });
+
+  // --- Unit toggle ---
+  document.querySelectorAll('.calc-unit-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.calc-unit-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.unit = btn.getAttribute('data-unit');
+
+      if (state.unit === 'metric') {
+        document.getElementById('height-row').style.display = 'none';
+        document.getElementById('height-row-metric').style.display = '';
+        document.getElementById('weight-row').style.display = 'none';
+        document.getElementById('weight-row-metric').style.display = '';
+        // Sync values
+        document.getElementById('input-height-cm').value = state.heightCm;
+        document.getElementById('input-weight-kg').value = state.weightKg;
+      } else {
+        document.getElementById('height-row').style.display = '';
+        document.getElementById('height-row-metric').style.display = 'none';
+        document.getElementById('weight-row').style.display = '';
+        document.getElementById('weight-row-metric').style.display = 'none';
+        // Sync values
+        var totalInches = Math.round(state.heightCm / 2.54);
+        document.getElementById('input-height-ft').value = Math.floor(totalInches / 12);
+        document.getElementById('input-height-in').value = totalInches % 12;
+        document.getElementById('input-weight-lbs').value = Math.round(state.weightKg / 0.4536);
+      }
+    });
+  });
+
+  // --- Share ---
+  document.getElementById('share-btn').addEventListener('click', function() {
+    var text = 'My TDEE is ' + tdeeNum.textContent + ' calories/day. What\'s yours?';
+    if (navigator.share) {
+      navigator.share({ title: 'My TDEE Result', text: text, url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(text + ' ' + window.location.href).then(function() {
+        var btn = document.getElementById('share-btn');
+        btn.innerHTML = '✓ Copied';
+        setTimeout(function() {
+          btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share';
+        }, 2000);
+      });
+    }
+  });
+
+  // Initial render
+  update();
+})();
+</script>
+</body>
+</html>

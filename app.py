@@ -5277,6 +5277,15 @@ def mockup_homepage_v3():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup-tdee-v3')
+def mockup_tdee_v3():
+    return render_template(
+        'mockup-tdee-v3.html',
+        is_homepage=False,
+        is_catalog=True,
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup-pulse-story')
 def mockup_pulse_story():
     return render_template(
