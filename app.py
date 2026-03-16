@@ -5256,6 +5256,10 @@ def mockup_homepage():
 def mockup_homepage_v2():
     return redirect('/', code=301)
 
+@app.route('/mockup-tdee-visual')
+def mockup_tdee_visual():
+    return render_template('mockup-tdee-visual.html', is_homepage=False, is_catalog=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-new-landing')
 def mockup_new_landing():
     return render_template(

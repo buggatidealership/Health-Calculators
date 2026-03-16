@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Many Calories Do You Burn? — TDEE Calculator</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --accent: #0e7a7e;
+  --accent-light: #12999e;
+  --accent-glow: rgba(14, 122, 126, 0.12);
+  --navy: #0a0f1a;
+  --surface: #f8fafa;
+  --text: #0d1117;
+  --text-2: #4a5568;
+  --text-3: #8896a6;
+  --border: #e2e8f0;
+  --loss: #ef4444;
+  --loss-bg: #fef2f2;
+  --maintain: #0e7a7e;
+  --maintain-bg: #ecfeff;
+  --gain: #22c55e;
+  --gain-bg: #f0fdf4;
+  --font-d: 'DM Serif Display', Georgia, serif;
+  --font-b: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-b);
+  background: var(--navy);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+.page {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 80px 20px 60px;
+}
+
+/* ============================================
+   HEADER — minimal, confidence
+   ============================================ */
+.head {
+  text-align: center;
+  margin-bottom: 36px;
+  animation: fadeIn 0.6s ease;
+}
+
+.head h1 {
+  font-family: var(--font-d);
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #f1f5f9;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.head p {
+  font-size: 0.88rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.head-method {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 5px 12px;
+  background: rgba(14, 122, 126, 0.1);
+  border: 1px solid rgba(14, 122, 126, 0.15);
+  border-radius: 100px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-light);
+  letter-spacing: 0.03em;
+}
+
+.head-method-dot {
+  width: 5px; height: 5px;
+  background: var(--accent-light);
+  border-radius: 50%;
+}
+
+/* ============================================
+   FORM CARD — the instrument
+   ============================================ */
+.calc {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05);
+  animation: slideUp 0.5s ease 0.1s both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Toggle row */
+.toggle-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.toggle-group label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+.pill {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.pill button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  font-family: var(--font-b);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pill button:hover { color: var(--text); }
+
+.pill button.on {
+  background: white;
+  color: var(--text);
+  font-weight: 600;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Input fields */
+.fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.field {
+  position: relative;
+}
+
+.field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-bottom: 6px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--border);
+  border-radius: 10px;
+  font-family: var(--font-b);
+  font-size: 15px;
+  color: var(--text);
+  outline: none;
+  transition: all 0.2s;
+  background: white;
+}
+
+.field input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+}
+
+.field-unit {
+  position: absolute;
+  right: 14px;
+  top: 34px;
+  font-size: 12px;
+  color: var(--text-3);
+  pointer-events: none;
+}
+
+/* Activity selector — the signature interaction */
+.activity-label {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-3);
+  margin-bottom: 10px;
+}
+
+.activity-track {
+  position: relative;
+  margin-bottom: 28px;
+}
+
+.activity-options {
+  display: flex;
+  gap: 6px;
+}
+
+.activity-opt {
+  flex: 1;
+  padding: 14px 6px 10px;
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  background: white;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.activity-opt::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.activity-opt:hover {
+  border-color: rgba(14, 122, 126, 0.3);
+  transform: translateY(-1px);
+}
+
+.activity-opt.on {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.activity-opt.on::before {
+  transform: scaleX(1);
+}
+
+.activity-opt-icon {
+  font-size: 22px;
+  margin-bottom: 4px;
+  transition: transform 0.3s;
+}
+
+.activity-opt.on .activity-opt-icon {
+  transform: scale(1.15);
+}
+
+.activity-opt-name {
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: 0.02em;
+}
+
+.activity-opt-sub {
+  font-size: 9px;
+  color: var(--text-3);
+  margin-top: 1px;
+}
+
+.activity-opt.on .activity-opt-name { color: var(--accent); }
+
+/* CTA */
+.cta {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 12px;
+  background: var(--navy);
+  color: white;
+  font-family: var(--font-b);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(10, 15, 26, 0.3);
+}
+
+.cta:active { transform: translateY(0); }
+
+/* ============================================
+   RESULTS — the reveal
+   ============================================ */
+.results {
+  display: none;
+  margin-top: 24px;
+  animation: resultsReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.results.show { display: block; }
+
+@keyframes resultsReveal {
+  from { opacity: 0; transform: translateY(20px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Hero number */
+.result-hero {
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, var(--navy) 0%, #0f1d2e 100%);
+  border-radius: 16px;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.result-hero::before {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(14, 122, 126, 0.15), transparent 70%);
+  top: -50px; right: -50px;
+  border-radius: 50%;
+}
+
+.result-hero-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--accent-light);
+  margin-bottom: 8px;
+}
+
+.result-hero-num {
+  font-family: var(--font-d);
+  font-size: 4.5rem;
+  color: white;
+  line-height: 1;
+  margin-bottom: 4px;
+  font-variant-numeric: tabular-nums;
+  position: relative;
+}
+
+.result-hero-unit {
+  font-family: var(--font-b);
+  font-size: 1rem;
+  color: #64748b;
+  font-weight: 400;
+}
+
+.result-hero-detail {
+  font-size: 0.82rem;
+  color: #475569;
+  margin-top: 8px;
+}
+
+/* Calorie spectrum bar */
+.spectrum {
+  margin-bottom: 16px;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.spectrum-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-bottom: 10px;
+}
+
+.spectrum-bar {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--loss) 0%, var(--loss) 30%, #f59e0b 40%, var(--maintain) 50%, var(--maintain) 55%, var(--gain) 70%, var(--gain) 100%);
+  position: relative;
+  margin-bottom: 8px;
+}
+
+.spectrum-marker {
+  position: absolute;
+  width: 16px; height: 16px;
+  background: white;
+  border: 3px solid var(--navy);
+  border-radius: 50%;
+  top: -4px;
+  transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.spectrum-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-3);
+}
+
+/* Goal cards */
+.goals {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.goal {
+  padding: 16px 12px;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  border: 2px solid transparent;
+}
+
+.goal:hover { transform: translateY(-2px); }
+
+.goal.loss { background: var(--loss-bg); }
+.goal.maintain { background: var(--maintain-bg); }
+.goal.gain { background: var(--gain-bg); }
+
+.goal.active { border-color: var(--navy); }
+
+.goal-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.goal.loss .goal-label { color: var(--loss); }
+.goal.maintain .goal-label { color: var(--maintain); }
+.goal.gain .goal-label { color: var(--gain); }
+
+.goal-num {
+  font-family: var(--font-d);
+  font-size: 1.5rem;
+  color: var(--text);
+  line-height: 1;
+}
+
+.goal-sub {
+  font-size: 10px;
+  color: var(--text-3);
+  margin-top: 4px;
+}
+
+/* Macro bars */
+.macros {
+  padding: 20px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 16px;
+}
+
+.macros-title {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-3);
+  margin-bottom: 14px;
+}
+
+.macro-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.macro-row:last-child { margin-bottom: 0; }
+
+.macro-name {
+  width: 60px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.macro-bar-track {
+  flex: 1;
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.macro-bar-fill {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  width: 0;
+}
+
+.macro-bar-fill.protein { background: var(--accent); }
+.macro-bar-fill.carbs { background: #f59e0b; }
+.macro-bar-fill.fat { background: #8b5cf6; }
+
+.macro-val {
+  width: 48px;
+  text-align: right;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Share */
+.share-row {
+  display: flex;
+  gap: 8px;
+}
+
+.share-btn {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  font-family: var(--font-b);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.share-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.share-btn.wa { border-color: #25D366; color: #25D366; }
+.share-btn.wa:hover { background: #25D366; color: white; }
+
+/* ============================================
+   BELOW RESULTS — content
+   ============================================ */
+.content {
+  margin-top: 32px;
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  border: 1px solid var(--border);
+}
+
+.content h2 {
+  font-family: var(--font-d);
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+.content p {
+  font-size: 0.85rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.content p:last-child { margin-bottom: 0; }
+
+/* RESPONSIVE */
+@media (max-width: 520px) {
+  .page { padding: 70px 14px 40px; }
+  .calc { padding: 24px 18px; }
+  .result-hero-num { font-size: 3.5rem; }
+  .goals { grid-template-columns: 1fr; gap: 6px; }
+  .goal { display: flex; align-items: center; gap: 12px; text-align: left; padding: 12px 16px; }
+  .goal-label { margin-bottom: 0; }
+  .activity-options { flex-wrap: wrap; }
+  .activity-opt { flex: 1 1 calc(33% - 4px); min-width: 0; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <div class="head">
+    <h1>How many calories do you burn per day?</h1>
+    <p>Enter your details. Get your number in 10 seconds.</p>
+    <div class="head-method">
+      <span class="head-method-dot"></span>
+      Mifflin-St Jeor equation &middot; 82% accuracy
+    </div>
+  </div>
+
+  <div class="calc">
+    <!-- Toggles -->
+    <div class="toggle-row">
+      <div class="toggle-group">
+        <label>Units</label>
+        <div class="pill" data-group="unit">
+          <button class="on" data-val="imperial">lbs / ft</button>
+          <button data-val="metric">kg / cm</button>
+        </div>
+      </div>
+      <div class="toggle-group">
+        <label>Sex</label>
+        <div class="pill" data-group="sex">
+          <button class="on" data-val="male">Male</button>
+          <button data-val="female">Female</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inputs -->
+    <div class="fields">
+      <div class="field">
+        <label>Age</label>
+        <input type="number" id="age" placeholder="30" min="15" max="100">
+        <span class="field-unit">yrs</span>
+      </div>
+      <div class="field" id="w-imperial">
+        <label>Weight</label>
+        <input type="number" id="weight-lb" placeholder="170">
+        <span class="field-unit">lbs</span>
+      </div>
+      <div class="field" id="w-metric" style="display:none;">
+        <label>Weight</label>
+        <input type="number" id="weight-kg" placeholder="77">
+        <span class="field-unit">kg</span>
+      </div>
+      <div class="field" id="h-imperial-ft">
+        <label>Height</label>
+        <input type="number" id="height-ft" placeholder="5">
+        <span class="field-unit">ft</span>
+      </div>
+      <div class="field" id="h-imperial-in">
+        <label>&nbsp;</label>
+        <input type="number" id="height-in" placeholder="10" value="0">
+        <span class="field-unit">in</span>
+      </div>
+      <div class="field" id="h-metric" style="display:none;">
+        <label>Height</label>
+        <input type="number" id="height-cm" placeholder="178">
+        <span class="field-unit">cm</span>
+      </div>
+    </div>
+
+    <!-- Activity — visual selector -->
+    <div class="activity-label">How active are you?</div>
+    <div class="activity-track">
+      <div class="activity-options">
+        <button class="activity-opt" data-factor="1.2">
+          <div class="activity-opt-icon">🪑</div>
+          <div class="activity-opt-name">Sedentary</div>
+          <div class="activity-opt-sub">Desk job</div>
+        </button>
+        <button class="activity-opt" data-factor="1.375">
+          <div class="activity-opt-icon">🚶</div>
+          <div class="activity-opt-name">Light</div>
+          <div class="activity-opt-sub">1-3x/week</div>
+        </button>
+        <button class="activity-opt on" data-factor="1.55">
+          <div class="activity-opt-icon">🏃</div>
+          <div class="activity-opt-name">Moderate</div>
+          <div class="activity-opt-sub">3-5x/week</div>
+        </button>
+        <button class="activity-opt" data-factor="1.725">
+          <div class="activity-opt-icon">🏋️</div>
+          <div class="activity-opt-name">Active</div>
+          <div class="activity-opt-sub">6-7x/week</div>
+        </button>
+        <button class="activity-opt" data-factor="1.9">
+          <div class="activity-opt-icon">⚡</div>
+          <div class="activity-opt-name">Intense</div>
+          <div class="activity-opt-sub">2x/day</div>
+        </button>
+      </div>
+    </div>
+
+    <button class="cta" id="calc-btn">Show my number</button>
+
+    <!-- ============================================
+         RESULTS
+         ============================================ -->
+    <div class="results" id="results">
+
+      <div class="result-hero">
+        <div class="result-hero-label">Your daily burn</div>
+        <div class="result-hero-num" id="r-tdee">—</div>
+        <div class="result-hero-unit">calories per day</div>
+        <div class="result-hero-detail" id="r-detail">BMR: — &middot; Activity: —</div>
+      </div>
+
+      <div class="spectrum">
+        <div class="spectrum-label">Where you fall</div>
+        <div class="spectrum-bar">
+          <div class="spectrum-marker" id="spectrum-marker" style="left: 50%;"></div>
+        </div>
+        <div class="spectrum-labels">
+          <span>Deficit</span>
+          <span>Maintenance</span>
+          <span>Surplus</span>
+        </div>
+      </div>
+
+      <div class="goals">
+        <div class="goal loss">
+          <div>
+            <div class="goal-label">Cut</div>
+            <div class="goal-num" id="r-loss">—</div>
+            <div class="goal-sub">-500 cal/day</div>
+          </div>
+        </div>
+        <div class="goal maintain active">
+          <div>
+            <div class="goal-label">Maintain</div>
+            <div class="goal-num" id="r-maintain">—</div>
+            <div class="goal-sub">stay here</div>
+          </div>
+        </div>
+        <div class="goal gain">
+          <div>
+            <div class="goal-label">Bulk</div>
+            <div class="goal-num" id="r-gain">—</div>
+            <div class="goal-sub">+250 cal/day</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="macros">
+        <div class="macros-title">Suggested macros (maintenance)</div>
+        <div class="macro-row">
+          <span class="macro-name">Protein</span>
+          <div class="macro-bar-track"><div class="macro-bar-fill protein" id="bar-p"></div></div>
+          <span class="macro-val" id="r-protein">—</span>
+        </div>
+        <div class="macro-row">
+          <span class="macro-name">Carbs</span>
+          <div class="macro-bar-track"><div class="macro-bar-fill carbs" id="bar-c"></div></div>
+          <span class="macro-val" id="r-carbs">—</span>
+        </div>
+        <div class="macro-row">
+          <span class="macro-name">Fat</span>
+          <div class="macro-bar-track"><div class="macro-bar-fill fat" id="bar-f"></div></div>
+          <span class="macro-val" id="r-fat">—</span>
+        </div>
+      </div>
+
+      <div class="share-row">
+        <button class="share-btn" id="share-x">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          Share on X
+        </button>
+        <button class="share-btn wa" id="share-wa">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.875 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347"/></svg>
+          WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Below-fold content -->
+  <div class="content" id="faq-section" style="display:none;">
+    <h2>What does this number mean?</h2>
+    <p>Your TDEE of <strong id="faq-tdee">2,400</strong> calories means that's how much energy your body uses every day — breathing, moving, exercising, everything. Eat this amount to maintain your current weight. Eat less to lose. Eat more to gain.</p>
+    <p><strong>The formula:</strong> Mifflin-St Jeor (1990) — recommended by the American Dietetic Association as the most accurate BMR equation, validated against 498 subjects. Your BMR is multiplied by an activity factor to get TDEE.</p>
+    <p style="font-size:0.78rem; color:var(--text-3);">5 peer-reviewed sources. <a href="#" style="color:var(--accent);">View methodology &rarr;</a></p>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  var unit = 'imperial';
+  var sex = 'male';
+  var factor = 1.55;
+
+  // Pill toggles
+  document.querySelectorAll('.pill').forEach(function(pill) {
+    pill.querySelectorAll('button').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        pill.querySelectorAll('button').forEach(function(b) { b.classList.remove('on'); });
+        this.classList.add('on');
+        var group = pill.dataset.group;
+        if (group === 'unit') {
+          unit = this.dataset.val;
+          document.getElementById('w-imperial').style.display = unit === 'imperial' ? '' : 'none';
+          document.getElementById('w-metric').style.display = unit === 'metric' ? '' : 'none';
+          document.getElementById('h-imperial-ft').style.display = unit === 'imperial' ? '' : 'none';
+          document.getElementById('h-imperial-in').style.display = unit === 'imperial' ? '' : 'none';
+          document.getElementById('h-metric').style.display = unit === 'metric' ? '' : 'none';
+        }
+        if (group === 'sex') sex = this.dataset.val;
+      });
+    });
+  });
+
+  // Activity selector
+  document.querySelectorAll('.activity-opt').forEach(function(opt) {
+    opt.addEventListener('click', function() {
+      document.querySelectorAll('.activity-opt').forEach(function(o) { o.classList.remove('on'); });
+      this.classList.add('on');
+      factor = parseFloat(this.dataset.factor);
+    });
+  });
+
+  // Calculate
+  document.getElementById('calc-btn').addEventListener('click', function() {
+    var age = parseInt(document.getElementById('age').value);
+    var weightKg, heightCm;
+
+    if (unit === 'imperial') {
+      weightKg = parseFloat(document.getElementById('weight-lb').value) * 0.453592;
+      var ft = parseFloat(document.getElementById('height-ft').value) || 0;
+      var inches = parseFloat(document.getElementById('height-in').value) || 0;
+      heightCm = (ft * 12 + inches) * 2.54;
+    } else {
+      weightKg = parseFloat(document.getElementById('weight-kg').value);
+      heightCm = parseFloat(document.getElementById('height-cm').value);
+    }
+
+    if (!age || !weightKg || !heightCm) return;
+
+    // Mifflin-St Jeor
+    var bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) + (sex === 'male' ? 5 : -161);
+    var tdee = Math.round(bmr * factor);
+    var bmrR = Math.round(bmr);
+    var minCal = sex === 'female' ? 1200 : 1500;
+    var loss = Math.max(tdee - 500, minCal);
+    var gain = tdee + 250;
+
+    // Macros
+    var pG = Math.round(tdee * 0.30 / 4);
+    var cG = Math.round(tdee * 0.40 / 4);
+    var fG = Math.round(tdee * 0.30 / 9);
+
+    // Reveal results
+    var results = document.getElementById('results');
+    results.classList.add('show');
+    results.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Animate hero number
+    var numEl = document.getElementById('r-tdee');
+    var start = performance.now();
+    (function tick(now) {
+      var p = Math.min((now - start) / 800, 1);
+      var e = 1 - Math.pow(1 - p, 3);
+      numEl.textContent = Math.round(tdee * e).toLocaleString();
+      if (p < 1) requestAnimationFrame(tick);
+    })(performance.now());
+
+    // Activity label
+    var labels = {1.2:'Sedentary',1.375:'Light',1.55:'Moderate',1.725:'Active',1.9:'Intense'};
+    document.getElementById('r-detail').innerHTML = 'BMR: ' + bmrR.toLocaleString() + ' &middot; ' + labels[factor] + ' (&times;' + factor + ')';
+
+    // Goals
+    document.getElementById('r-loss').textContent = loss.toLocaleString();
+    document.getElementById('r-maintain').textContent = tdee.toLocaleString();
+    document.getElementById('r-gain').textContent = gain.toLocaleString();
+
+    // Spectrum marker — position at 50% (maintenance)
+    document.getElementById('spectrum-marker').style.left = '50%';
+
+    // Macro bars — animate
+    setTimeout(function() {
+      var maxG = Math.max(pG, cG, fG);
+      document.getElementById('bar-p').style.width = (pG / maxG * 100) + '%';
+      document.getElementById('bar-c').style.width = (cG / maxG * 100) + '%';
+      document.getElementById('bar-f').style.width = (fG / maxG * 100) + '%';
+    }, 300);
+    document.getElementById('r-protein').textContent = pG + 'g';
+    document.getElementById('r-carbs').textContent = cG + 'g';
+    document.getElementById('r-fat').textContent = fG + 'g';
+
+    // Show FAQ
+    document.getElementById('faq-section').style.display = '';
+    document.getElementById('faq-tdee').textContent = tdee.toLocaleString();
+
+    // Goal card click
+    document.querySelectorAll('.goal').forEach(function(g) {
+      g.onclick = function() {
+        document.querySelectorAll('.goal').forEach(function(x) { x.classList.remove('active'); });
+        this.classList.add('active');
+        if (this.classList.contains('loss')) document.getElementById('spectrum-marker').style.left = '20%';
+        if (this.classList.contains('maintain')) document.getElementById('spectrum-marker').style.left = '50%';
+        if (this.classList.contains('gain')) document.getElementById('spectrum-marker').style.left = '75%';
+      };
+    });
+  });
+
+  // Share
+  document.getElementById('share-x').addEventListener('click', function() {
+    var val = document.getElementById('r-tdee').textContent;
+    window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent('My TDEE is ' + val + ' calories/day. What\'s yours?\n\nhealthcalculators.xyz/tdee-calculator'), '_blank');
+  });
+  document.getElementById('share-wa').addEventListener('click', function() {
+    var val = document.getElementById('r-tdee').textContent;
+    window.open('https://wa.me/?text=' + encodeURIComponent('My TDEE is ' + val + ' calories/day. Calculate yours: https://healthcalculators.xyz/tdee-calculator'), '_blank');
+  });
+})();
+</script>
+
+</body>
+</html>
