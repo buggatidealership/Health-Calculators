@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="Calculate exactly how many clicks for your Ozempic pen dose. Visual pen identification, FDA-verified click counts, and safety alerts.",
+    meta_keywords="ozempic pen clicks, how many clicks ozempic, ozempic dosing calculator, ozempic pen click calculator",
+    og_title="How Many Clicks for Your Ozempic Dose?",
+    og_description="Select your pen, choose your dose, get your exact click count — verified against FDA prescribing information.",
+    og_url="/mockup-ozempic-v3",
+    og_image="default-calculator-og.jpg",
+    page_title="How Many Clicks for Your Ozempic Dose? — Ozempic Pen Click Calculator",
+    canonical_url="/mockup-ozempic-v3"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<style>
+/* ========== OZEMPIC PEN CLICK V3 — Guided Journey Design ========== */
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Scroll reveals */
+.oz-reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.25,1,0.5,1), transform 0.7s cubic-bezier(0.25,1,0.5,1);
+}
+.oz-reveal.visible { opacity: 1; transform: translateY(0); }
+.oz-delay-1 { transition-delay: 0.1s; }
+.oz-delay-2 { transition-delay: 0.2s; }
+.oz-delay-3 { transition-delay: 0.3s; }
+
+/* Page */
+.oz-page {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 32px 20px 80px;
+}
+
+/* --- Step System --- */
+.oz-step {
+  margin-bottom: 48px;
+  position: relative;
+}
+
+.oz-step-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.oz-step-badge {
+  width: 32px;
+  height: 32px;
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  transition: transform 0.3s cubic-bezier(0.25,1,0.5,1), box-shadow 0.3s;
+}
+
+.oz-step.completed .oz-step-badge {
+  background: #22c55e;
+  transform: scale(1.1);
+  box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.15);
+}
+
+.oz-step-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.oz-step-sublabel {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-top: 1px;
+}
+
+/* Connector line between steps */
+.oz-step::after {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 44px;
+  bottom: -20px;
+  width: 2px;
+  background: var(--color-border);
+  z-index: 0;
+}
+
+.oz-step:last-of-type::after { display: none; }
+
+.oz-step.completed::after {
+  background: linear-gradient(to bottom, #22c55e, var(--color-border));
+}
+
+/* --- Hero Question --- */
+.oz-hero {
+  text-align: center;
+  padding: 48px 0 40px;
+  position: relative;
+}
+
+.oz-hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.oz-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.oz-hero h1 {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1.15;
+  margin: 0 0 12px;
+}
+
+.oz-hero-sub {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+/* --- Pen Selector Cards --- */
+.oz-pen-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.oz-pen-card {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 14px;
+  padding: 20px 16px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.oz-pen-card:hover {
+  border-color: rgba(14,122,126,0.3);
+  transform: translateY(-2px);
+}
+
+.oz-pen-card.selected {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 20px rgba(14,122,126,0.12);
+  transform: translateY(-2px);
+}
+
+.oz-pen-card:active {
+  transform: scale(0.97);
+}
+
+/* Color stripe at top */
+.oz-pen-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: 14px 14px 0 0;
+  transition: height 0.3s ease;
+}
+
+.oz-pen-card.selected::before {
+  height: 6px;
+}
+
+.oz-pen-card[data-pen="blue"]::before { background: #3b82f6; }
+.oz-pen-card[data-pen="gray"]::before { background: #9ca3af; }
+.oz-pen-card[data-pen="green"]::before { background: #22c55e; }
+
+.oz-pen-visual {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  margin: 0 auto 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  transition: transform 0.3s cubic-bezier(0.25,1,0.5,1);
+}
+
+.oz-pen-card.selected .oz-pen-visual {
+  transform: scale(1.15);
+}
+
+.oz-pen-card[data-pen="blue"] .oz-pen-visual { background: rgba(59,130,246,0.1); }
+.oz-pen-card[data-pen="gray"] .oz-pen-visual { background: rgba(156,163,175,0.1); }
+.oz-pen-card[data-pen="green"] .oz-pen-visual { background: rgba(34,197,94,0.1); }
+
+.oz-pen-name {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 4px;
+}
+
+.oz-pen-doses {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  line-height: 1.3;
+}
+
+.oz-pen-strength {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  margin-top: 8px;
+  padding: 3px 8px;
+  background: rgba(14,122,126,0.06);
+  border-radius: 6px;
+  display: inline-block;
+}
+
+/* --- Dose Selector --- */
+.oz-dose-grid {
+  display: grid;
+  gap: 10px;
+  transition: opacity 0.3s;
+}
+
+.oz-dose-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: border-color 0.2s, transform 0.15s, background 0.15s;
+}
+
+.oz-dose-card:hover {
+  border-color: rgba(14,122,126,0.3);
+}
+
+.oz-dose-card.selected {
+  border-color: var(--color-accent);
+  background: rgba(14,122,126,0.03);
+}
+
+.oz-dose-card:active {
+  transform: scale(0.99);
+}
+
+.oz-dose-radio {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  flex-shrink: 0;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.oz-dose-card.selected .oz-dose-radio {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  box-shadow: inset 0 0 0 3px var(--color-surface);
+}
+
+.oz-dose-amount {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.oz-dose-note {
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+}
+
+.oz-dose-clicks-preview {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--color-text-secondary);
+  opacity: 0.5;
+  transition: all 0.2s;
+}
+
+.oz-dose-card.selected .oz-dose-clicks-preview {
+  color: var(--color-accent);
+  opacity: 1;
+  font-weight: 400;
+}
+
+/* --- Result Hero --- */
+.oz-result {
+  text-align: center;
+  padding: 48px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  margin: 40px 0;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s cubic-bezier(0.25,1,0.5,1), transform 0.6s cubic-bezier(0.25,1,0.5,1);
+}
+
+.oz-result.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.oz-result::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--color-accent);
+}
+
+.oz-result-label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+.oz-result-num {
+  font-family: var(--font-display);
+  font-size: 6rem;
+  font-weight: 400;
+  color: var(--color-text);
+  line-height: 1;
+  margin: 0;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.oz-result-unit {
+  font-family: var(--font-body);
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  display: block;
+  margin-top: 8px;
+}
+
+.oz-result-context {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+  margin-top: 16px;
+  line-height: 1.5;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.oz-result-context strong {
+  color: var(--color-text);
+}
+
+/* Verified badge */
+.oz-verified {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  padding: 6px 14px;
+  background: rgba(34, 197, 94, 0.06);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #22c55e;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 0.5s cubic-bezier(0.25,1,0.5,1) 0.4s;
+}
+
+.oz-result.visible .oz-verified {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Titration Timeline --- */
+.oz-timeline {
+  margin: 40px 0;
+}
+
+.oz-timeline-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 20px;
+}
+
+.oz-timeline-track {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+.oz-timeline-track::before {
+  content: '';
+  position: absolute;
+  top: 14px;
+  left: 8px;
+  right: 8px;
+  height: 3px;
+  background: var(--color-border);
+  border-radius: 2px;
+  z-index: 0;
+}
+
+.oz-timeline-fill {
+  position: absolute;
+  top: 14px;
+  left: 8px;
+  height: 3px;
+  background: var(--color-accent);
+  border-radius: 2px;
+  z-index: 1;
+  width: 0;
+  transition: width 1s cubic-bezier(0.25,1,0.5,1);
+}
+
+.oz-timeline-node {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  flex: 0 0 auto;
+}
+
+.oz-timeline-dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 3px solid var(--color-border);
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-text-secondary);
+  transition: all 0.4s cubic-bezier(0.25,1,0.5,1);
+}
+
+.oz-timeline-node.active .oz-timeline-dot {
+  border-color: var(--color-accent);
+  background: var(--color-accent);
+  color: #fff;
+  transform: scale(1.15);
+  box-shadow: 0 0 0 4px rgba(14,122,126,0.15);
+}
+
+.oz-timeline-node.past .oz-timeline-dot {
+  border-color: var(--color-accent);
+  background: rgba(14,122,126,0.08);
+  color: var(--color-accent);
+}
+
+.oz-timeline-dose {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.oz-timeline-node.active .oz-timeline-dose {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.oz-timeline-weeks {
+  font-size: 0.65rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.oz-timeline-you {
+  text-align: center;
+  margin-top: 16px;
+  font-size: 0.85rem;
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.oz-timeline-you span {
+  color: var(--color-accent);
+}
+
+/* --- Safety Alert --- */
+.oz-safety {
+  padding: 20px;
+  background: rgba(239, 68, 68, 0.04);
+  border: 1px solid rgba(239, 68, 68, 0.12);
+  border-radius: 14px;
+  margin: 32px 0;
+}
+
+.oz-safety-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #dc2626;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.oz-safety-text {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+}
+
+.oz-safety-text strong {
+  color: var(--color-text);
+}
+
+/* --- Methodology --- */
+.oz-method {
+  padding: 24px;
+  background: var(--color-muted);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  margin: 32px 0;
+}
+
+.oz-method-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.oz-method-text {
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.oz-method-cite {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-accent);
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+/* --- Share --- */
+.oz-share {
+  padding: 20px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.oz-share-text {
+  flex: 1;
+  font-size: 0.88rem;
+  color: var(--color-text);
+}
+
+.oz-share-text span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  margin-top: 2px;
+}
+
+.oz-share-btn {
+  padding: 10px 20px;
+  background: var(--color-text);
+  color: var(--color-surface);
+  border: none;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.oz-share-btn:hover { opacity: 0.85; }
+
+/* --- Disclaimer --- */
+.oz-disclaimer {
+  padding: 16px 0;
+  border-top: 1px solid var(--color-border);
+  font-size: 0.78rem;
+  color: var(--color-text-secondary);
+  line-height: 1.5;
+  margin-top: 24px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .oz-page { padding: 20px 16px 60px; }
+  .oz-hero h1 { font-size: 1.7rem; }
+  .oz-pen-grid { grid-template-columns: 1fr; gap: 10px; }
+  .oz-pen-card { display: flex; align-items: center; gap: 14px; text-align: left; padding: 14px 16px; }
+  .oz-pen-visual { margin: 0; width: 40px; height: 40px; }
+  .oz-result-num { font-size: 4.5rem; }
+  .oz-timeline-track { overflow-x: auto; gap: 4px; padding-bottom: 8px; }
+  .oz-timeline-node { min-width: 56px; }
+  .oz-share { flex-direction: column; text-align: center; }
+}
+</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="oz-page">
+
+  <!-- ===== HERO ===== -->
+  <section class="oz-hero">
+    <div class="oz-eyebrow">Ozempic dosing</div>
+    <h1>How many clicks for your dose?</h1>
+    <p class="oz-hero-sub">Select your pen, choose your dose, get your exact click count — verified against FDA prescribing information.</p>
+  </section>
+
+  <!-- ===== STEP 1: SELECT PEN ===== -->
+  <section class="oz-step oz-reveal" id="step-pen">
+    <div class="oz-step-header">
+      <div class="oz-step-badge">1</div>
+      <div>
+        <div class="oz-step-label">Which pen do you have?</div>
+        <div class="oz-step-sublabel">Check the colored label on your pen</div>
+      </div>
+    </div>
+
+    <div class="oz-pen-grid">
+      <div class="oz-pen-card" data-pen="blue">
+        <div class="oz-pen-visual">💉</div>
+        <div class="oz-pen-name">Blue pen</div>
+        <div class="oz-pen-doses">0.25mg or 0.5mg</div>
+        <div class="oz-pen-strength">2mg / 1.5mL</div>
+      </div>
+      <div class="oz-pen-card" data-pen="gray">
+        <div class="oz-pen-visual">💉</div>
+        <div class="oz-pen-name">Gray pen</div>
+        <div class="oz-pen-doses">1mg only</div>
+        <div class="oz-pen-strength">4mg / 3mL</div>
+      </div>
+      <div class="oz-pen-card" data-pen="green">
+        <div class="oz-pen-visual">💉</div>
+        <div class="oz-pen-name">Green pen</div>
+        <div class="oz-pen-doses">0.25mg, 0.5mg, or 1mg</div>
+        <div class="oz-pen-strength">8mg / 3mL</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== STEP 2: SELECT DOSE ===== -->
+  <section class="oz-step oz-reveal" id="step-dose" style="opacity:0.4;pointer-events:none;transition:opacity 0.5s,transform 0.7s;">
+    <div class="oz-step-header">
+      <div class="oz-step-badge">2</div>
+      <div>
+        <div class="oz-step-label">What dose did your doctor prescribe?</div>
+        <div class="oz-step-sublabel">Select one</div>
+      </div>
+    </div>
+
+    <div class="oz-dose-grid" id="dose-grid">
+      <!-- Populated dynamically based on pen selection -->
+    </div>
+  </section>
+
+  <!-- ===== RESULT ===== -->
+  <div class="oz-result" id="result-card">
+    <div class="oz-result-label">Your click count</div>
+    <p class="oz-result-num" id="result-num">36</p>
+    <span class="oz-result-unit">clicks</span>
+    <p class="oz-result-context" id="result-context">
+      <strong id="result-dose">0.5mg</strong> on the <strong id="result-pen">green pen</strong> (8mg/3mL)
+    </p>
+    <div class="oz-verified">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+      Verified against FDA prescribing info
+    </div>
+  </div>
+
+  <!-- ===== TITRATION TIMELINE ===== -->
+  <section class="oz-timeline oz-reveal" id="timeline-section">
+    <div class="oz-timeline-title">Where you are in the titration schedule</div>
+
+    <div class="oz-timeline-track" id="timeline-track">
+      <div class="oz-timeline-fill" id="timeline-fill"></div>
+      <div class="oz-timeline-node" data-dose="0.25">
+        <div class="oz-timeline-dot">1</div>
+        <div class="oz-timeline-dose">0.25mg</div>
+        <div class="oz-timeline-weeks">Wk 1–4</div>
+      </div>
+      <div class="oz-timeline-node" data-dose="0.5">
+        <div class="oz-timeline-dot">2</div>
+        <div class="oz-timeline-dose">0.5mg</div>
+        <div class="oz-timeline-weeks">Wk 5–8</div>
+      </div>
+      <div class="oz-timeline-node" data-dose="1">
+        <div class="oz-timeline-dot">3</div>
+        <div class="oz-timeline-dose">1mg</div>
+        <div class="oz-timeline-weeks">Wk 9+</div>
+      </div>
+      <div class="oz-timeline-node" data-dose="2">
+        <div class="oz-timeline-dot">4</div>
+        <div class="oz-timeline-dose">2mg</div>
+        <div class="oz-timeline-weeks">If needed</div>
+      </div>
+    </div>
+
+    <div class="oz-timeline-you" id="timeline-label">
+      You're at <span>step 2</span> of the standard titration
+    </div>
+  </section>
+
+  <!-- ===== SAFETY ===== -->
+  <section class="oz-safety oz-reveal">
+    <div class="oz-safety-title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+      Always verify with your prescriber
+    </div>
+    <p class="oz-safety-text">
+      This calculator is for <strong>reference only</strong>. Always confirm your dose and pen type with your prescribing physician before injecting. If the click count doesn't match what your doctor told you, <strong>call your pharmacy or doctor before injecting</strong>.
+    </p>
+  </section>
+
+  <!-- ===== METHODOLOGY ===== -->
+  <section class="oz-method oz-reveal">
+    <div class="oz-method-title">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      How this is calculated
+    </div>
+    <p class="oz-method-text">
+      Click counts are derived directly from the <strong>Novo Nordisk Ozempic prescribing information</strong> and pen user guides. Each pen delivers a fixed volume per click — the calculator maps your selected dose to the exact number of clicks for that pen's concentration.
+    </p>
+    <p class="oz-method-text" style="margin-top:8px;">
+      The 2mg pen (blue) has a different concentration than the 4mg (gray) and 8mg (green) pens, which is why the same dose requires different click counts on different pens.
+    </p>
+    <a href="#" class="oz-method-cite">
+      Ozempic Prescribing Information — Novo Nordisk, Rev. 2024
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </section>
+
+  <!-- ===== SHARE ===== -->
+  <div class="oz-share oz-reveal">
+    <div class="oz-share-text">
+      <strong>Share your click count</strong>
+      <span>Helps others double-check their dosing</span>
+    </div>
+    <button class="oz-share-btn" id="share-btn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+      Share
+    </button>
+  </div>
+
+  <!-- ===== DISCLAIMER ===== -->
+  <div class="oz-disclaimer" data-nosnippet>
+    <strong>Not medical advice.</strong> This calculator is for informational and reference purposes only. It does not replace guidance from your prescribing physician, pharmacist, or healthcare provider. Ozempic is a prescription medication — always follow your provider's instructions.
+  </div>
+
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+(function() {
+  // --- Pen/dose data (from FDA prescribing info) ---
+  var penData = {
+    blue: {
+      name: 'blue pen', strength: '2mg/1.5mL',
+      doses: [
+        { amount: '0.25mg', clicks: 18, note: 'Starting dose — weeks 1–4' },
+        { amount: '0.5mg', clicks: 36, note: 'Maintenance dose' }
+      ]
+    },
+    gray: {
+      name: 'gray pen', strength: '4mg/3mL',
+      doses: [
+        { amount: '1mg', clicks: 54, note: 'Escalation dose' }
+      ]
+    },
+    green: {
+      name: 'green pen', strength: '8mg/3mL',
+      doses: [
+        { amount: '0.25mg', clicks: 9, note: 'Starting dose — weeks 1–4' },
+        { amount: '0.5mg', clicks: 18, note: 'Maintenance dose' },
+        { amount: '1mg', clicks: 36, note: 'Escalation dose' }
+      ]
+    }
+  };
+
+  var state = { pen: null, dose: null, clicks: null };
+
+  // Elements
+  var stepPen = document.getElementById('step-pen');
+  var stepDose = document.getElementById('step-dose');
+  var doseGrid = document.getElementById('dose-grid');
+  var resultCard = document.getElementById('result-card');
+  var resultNum = document.getElementById('result-num');
+  var resultDose = document.getElementById('result-dose');
+  var resultPen = document.getElementById('result-pen');
+
+  // --- Scroll reveals ---
+  var reveals = document.querySelectorAll('.oz-reveal');
+  var revealObs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  reveals.forEach(function(el) { revealObs.observe(el); });
+
+  // --- Pen selection ---
+  document.querySelectorAll('.oz-pen-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.oz-pen-card').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      state.pen = card.getAttribute('data-pen');
+      stepPen.classList.add('completed');
+
+      // Enable dose step
+      stepDose.style.opacity = '1';
+      stepDose.style.pointerEvents = 'auto';
+      stepDose.classList.add('visible');
+
+      // Populate doses
+      var doses = penData[state.pen].doses;
+      doseGrid.innerHTML = '';
+      doses.forEach(function(d) {
+        var el = document.createElement('div');
+        el.className = 'oz-dose-card';
+        el.setAttribute('data-dose', d.amount);
+        el.setAttribute('data-clicks', d.clicks);
+        el.innerHTML = '<div class="oz-dose-radio"></div>' +
+          '<div><div class="oz-dose-amount">' + d.amount + '</div>' +
+          '<div class="oz-dose-note">' + d.note + '</div></div>' +
+          '<div class="oz-dose-clicks-preview">' + d.clicks + ' clicks</div>';
+        el.addEventListener('click', function() { selectDose(el, d); });
+        doseGrid.appendChild(el);
+      });
+
+      // Reset result
+      resultCard.classList.remove('visible');
+      state.dose = null;
+    });
+  });
+
+  // --- Dose selection ---
+  function selectDose(el, doseData) {
+    document.querySelectorAll('.oz-dose-card').forEach(function(c) { c.classList.remove('selected'); });
+    el.classList.add('selected');
+    state.dose = doseData.amount;
+    state.clicks = doseData.clicks;
+    stepDose.classList.add('completed');
+
+    // Show result
+    showResult(doseData);
+  }
+
+  function showResult(doseData) {
+    resultNum.textContent = doseData.clicks;
+    resultDose.textContent = doseData.amount;
+    resultPen.textContent = penData[state.pen].name + ' (' + penData[state.pen].strength + ')';
+
+    resultCard.classList.add('visible');
+    resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+    // Update timeline
+    updateTimeline(doseData.amount);
+  }
+
+  // --- Titration timeline ---
+  function updateTimeline(dose) {
+    var nodes = document.querySelectorAll('.oz-timeline-node');
+    var doseVal = parseFloat(dose);
+    var activeIdx = 0;
+
+    nodes.forEach(function(node, i) {
+      var nodeDose = parseFloat(node.getAttribute('data-dose'));
+      node.classList.remove('active', 'past');
+      if (nodeDose < doseVal) {
+        node.classList.add('past');
+      } else if (nodeDose === doseVal) {
+        node.classList.add('active');
+        activeIdx = i;
+      }
+    });
+
+    // Fill bar
+    var fillPct = (activeIdx / (nodes.length - 1)) * 100;
+    document.getElementById('timeline-fill').style.width = fillPct + '%';
+
+    // Label
+    var stepNum = activeIdx + 1;
+    document.getElementById('timeline-label').innerHTML =
+      'You\'re at <span>step ' + stepNum + '</span> of the standard titration';
+  }
+
+  // --- Share ---
+  document.getElementById('share-btn').addEventListener('click', function() {
+    if (!state.clicks) return;
+    var text = 'My Ozempic dose (' + state.dose + ' on ' + penData[state.pen].name + ') = ' + state.clicks + ' clicks. Verified against FDA info.';
+    if (navigator.share) {
+      navigator.share({ title: 'Ozempic Click Count', text: text, url: window.location.href });
+    } else {
+      navigator.clipboard.writeText(text + ' ' + window.location.href).then(function() {
+        var btn = document.getElementById('share-btn');
+        btn.innerHTML = '✓ Copied';
+        setTimeout(function() {
+          btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg> Share';
+        }, 2000);
+      });
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -5286,6 +5286,15 @@ def mockup_tdee_v3():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup-ozempic-v3')
+def mockup_ozempic_v3():
+    return render_template(
+        'mockup-ozempic-v3.html',
+        is_homepage=False,
+        is_catalog=True,
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup-homepage-v4')
 def mockup_homepage_v4():
     return render_template(
