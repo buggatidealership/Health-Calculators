@@ -1960,8 +1960,8 @@ def mockup_tdee_v2():
         'related_guide': {
             'label': 'Related Guide',
             'teaser': 'Learn how to use your TDEE for a structured fat loss plan — including how to set up a calorie deficit, track macros, and handle plateaus.',
-            'route': '/resources/tdee-calculator-guide',
-            'cta': 'Read the TDEE Guide'
+            'route': '/resources/how-to-start-carb-cycling',
+            'cta': 'Read the Carb Cycling Guide'
         }
     }
     sources = [
@@ -1981,7 +1981,7 @@ def mockup_tdee_v2():
             {"url": "/fasting-weight-loss-calculator", "title": "Fasting Weight Loss Calculator"}
         ],
         related_guides=[
-            {"url": "/resources/tdee-calculator-guide", "title": "Complete TDEE Guide"}
+            {"url": "/resources/how-to-start-carb-cycling", "title": "Carb Cycling Guide"}
         ],
         is_homepage=False,
         schema_name='TDEE Calculator',
