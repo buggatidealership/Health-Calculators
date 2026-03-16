@@ -1307,7 +1307,7 @@ category_hub_data = {
         """
     },
     "financial": {
-        "url": "/financial-health-calculators",
+        "url": "/financial-earnings-calculators",
         "title": "Financial & Health Earnings Calculators",
         "description": "Calculate earnings from plasma donation and plan retirement savings. Practical financial tools at the intersection of health and personal finance.",
         "content": """
@@ -1330,7 +1330,7 @@ category_urls = {cat["id"]: category_hub_data[cat["id"]]["url"] for cat in categ
 @app.route('/cosmetic-procedure-calculators')
 @app.route('/pregnancy-fertility-calculators')
 @app.route('/health-longevity-calculators')
-@app.route('/financial-health-calculators')
+@app.route('/financial-earnings-calculators')
 def category_hub():
     path = request.path.lstrip('/')
     # Find the matching category
