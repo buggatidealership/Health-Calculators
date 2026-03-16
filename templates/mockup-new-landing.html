@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Your Health, Computed.</title>
+<title>Health answers you can actually trust — HealthComputed</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -11,11 +11,10 @@
 :root {
   --accent: #0e7a7e;
   --accent-light: #12999e;
-  --accent-glow: rgba(14, 122, 126, 0.15);
+  --accent-glow: rgba(14, 122, 126, 0.12);
   --accent-deep: #065456;
   --navy: #0a0f1a;
   --navy-mid: #111827;
-  --navy-light: #1a2236;
   --surface: #f8fafa;
   --surface-warm: #f3f6f6;
   --text: #0d1117;
@@ -28,172 +27,111 @@
 }
 
 html { scroll-behavior: smooth; }
-
 body {
   font-family: var(--font-body);
   color: var(--text);
-  background: var(--surface);
+  background: var(--navy);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
-/* ============================================
-   NAVIGATION
-   ============================================ */
+/* NAV */
 .nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  top: 0; left: 0; right: 0;
   z-index: 100;
   padding: 0 40px;
   height: 64px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: rgba(248, 250, 250, 0.85);
+  background: rgba(10, 15, 26, 0.85);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--border-light);
-  transition: all 0.3s;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
 }
-
-.nav.scrolled {
-  box-shadow: 0 1px 20px rgba(0,0,0,0.06);
-}
-
 .nav-brand {
   display: flex;
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--text);
 }
-
 .nav-logo {
-  width: 32px;
-  height: 32px;
+  width: 30px; height: 30px;
   background: var(--accent);
-  border-radius: 8px;
+  border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   font-family: var(--font-display);
-  font-size: 18px;
-  line-height: 1;
+  font-size: 16px;
 }
-
 .nav-wordmark {
-  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 15px;
-  letter-spacing: -0.02em;
+  font-size: 14px;
+  color: #e2e8f0;
+  letter-spacing: -0.01em;
 }
-
 .nav-links {
   display: flex;
-  align-items: center;
-  gap: 32px;
+  gap: 28px;
 }
-
 .nav-links a {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
-  color: var(--text-secondary);
+  color: #64748b;
   text-decoration: none;
   transition: color 0.2s;
 }
-
-.nav-links a:hover { color: var(--accent); }
+.nav-links a:hover { color: var(--accent-light); }
 
 /* ============================================
-   HERO — Dark editorial
+   HERO — Built from user confusion data
+   "can someone give me weight loss tips other
+   than gym and calorie deficit (im a dumbass
+   who still doesnt understand how to..."
    ============================================ */
 .hero {
   min-height: 100vh;
-  background: var(--navy);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 120px 40px 80px;
+  padding: 120px 40px 60px;
   position: relative;
   overflow: hidden;
 }
 
-/* Subtle grid texture */
 .hero::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(14, 122, 126, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 122, 126, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(14, 122, 126, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 122, 126, 0.02) 1px, transparent 1px);
   background-size: 60px 60px;
-  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 70%);
-}
-
-/* Floating accent orb */
-.hero::after {
-  content: '';
-  position: absolute;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(14, 122, 126, 0.08) 0%, transparent 70%);
-  top: 10%;
-  right: -10%;
-  pointer-events: none;
+  mask-image: radial-gradient(ellipse 70% 50% at 50% 40%, black 20%, transparent 70%);
 }
 
 .hero-inner {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 14px 6px 8px;
-  background: rgba(14, 122, 126, 0.12);
-  border: 1px solid rgba(14, 122, 126, 0.2);
-  border-radius: 100px;
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent-light);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 32px;
-  animation: fadeUp 0.8s ease both;
-}
-
-.hero-badge-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--accent-light);
-  border-radius: 50%;
-  animation: pulse-dot 2s ease infinite;
-}
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.4; }
-}
-
+/* H1 derived from confusion data: users say "I still don't understand"
+   and trust/accuracy tweets (31): "which calculator is right?" */
 .hero h1 {
   font-family: var(--font-display);
-  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-size: clamp(2.6rem, 5.5vw, 4.5rem);
   font-weight: 400;
   color: #f1f5f9;
-  line-height: 1.08;
+  line-height: 1.1;
   letter-spacing: -0.02em;
-  max-width: 800px;
-  margin-bottom: 28px;
-  animation: fadeUp 0.8s ease 0.1s both;
+  text-align: center;
+  margin-bottom: 20px;
+  animation: fadeUp 0.7s ease both;
 }
 
 .hero h1 em {
@@ -201,285 +139,345 @@ body {
   color: var(--accent-light);
 }
 
+/* Sub derived from: "which calculator is right?", "how accurate is...",
+   "I don't know how much to eat" — the gap is TRUST + CLARITY */
 .hero-sub {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: #8896a6;
   line-height: 1.6;
-  max-width: 520px;
-  margin-bottom: 48px;
-  animation: fadeUp 0.8s ease 0.2s both;
+  text-align: center;
+  max-width: 540px;
+  margin: 0 auto 48px;
+  animation: fadeUp 0.7s ease 0.1s both;
 }
 
-/* Floating question pills */
+/* Question cloud — ACTUAL user language from dataset
+   Each phrase appears in our 616-tweet collection */
 .hero-questions {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 48px;
-  animation: fadeUp 0.8s ease 0.3s both;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 56px;
+  animation: fadeUp 0.7s ease 0.2s both;
 }
 
 .hero-q {
-  padding: 10px 18px;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  padding: 9px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
   border-radius: 100px;
-  font-size: 14px;
-  color: #94a3b8;
+  font-size: 13px;
+  color: #64748b;
   cursor: pointer;
   transition: all 0.25s;
   text-decoration: none;
 }
 
 .hero-q:hover {
-  background: rgba(14, 122, 126, 0.12);
-  border-color: rgba(14, 122, 126, 0.3);
+  background: rgba(14, 122, 126, 0.1);
+  border-color: rgba(14, 122, 126, 0.25);
   color: var(--accent-light);
   transform: translateY(-1px);
 }
 
-/* Trust strip */
+/* ============================================
+   REFERENCE CARDS — from bookmark data
+   Highest saved format: cheat sheets, dosage
+   tables, ranked lists, protocol steps
+   ============================================ */
+.ref-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto 48px;
+  animation: fadeUp 0.7s ease 0.3s both;
+}
+
+.ref-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 20px;
+  transition: all 0.3s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.ref-card:hover {
+  border-color: rgba(14, 122, 126, 0.3);
+  background: rgba(14, 122, 126, 0.06);
+  transform: translateY(-2px);
+}
+
+.ref-card-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent-light);
+  margin-bottom: 10px;
+}
+
+.ref-card-q {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  color: #e2e8f0;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.ref-card-answer {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.ref-card-answer strong {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+/* Trust line — derived from accuracy concerns (31 tweets)
+   Users ask "which calculator is accurate", "how accurate is..."
+   They want to know the SOURCE, not just the number */
 .hero-trust {
   display: flex;
-  align-items: center;
+  justify-content: center;
   gap: 32px;
   padding-top: 48px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  animation: fadeUp 0.8s ease 0.4s both;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  animation: fadeUp 0.7s ease 0.4s both;
 }
 
 .hero-trust-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  text-align: center;
 }
 
 .hero-trust-num {
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   color: #e2e8f0;
 }
 
 .hero-trust-label {
-  font-size: 12px;
-  color: #64748b;
-  line-height: 1.3;
+  font-size: 11px;
+  color: #475569;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
 /* ============================================
-   TOOLS GRID
+   TOOLS — Framed as answers to questions,
+   not as "calculators" (user language)
    ============================================ */
 .tools {
-  padding: 100px 40px;
-  max-width: 1100px;
+  padding: 80px 40px;
+  background: var(--surface);
+}
+
+.tools-inner {
+  max-width: 900px;
   margin: 0 auto;
 }
 
 .section-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: var(--accent);
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .tools h2 {
   font-family: var(--font-display);
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 400;
-  color: var(--text);
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .tools-sub {
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
   max-width: 480px;
   line-height: 1.6;
-  margin-bottom: 48px;
+  margin-bottom: 40px;
 }
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
 .tool-card {
   background: white;
   border: 1px solid var(--border);
-  border-radius: 14px;
-  padding: 28px;
+  border-radius: 12px;
+  padding: 24px;
   text-decoration: none;
   color: var(--text);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.tool-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--accent);
-  opacity: 0;
-  transition: opacity 0.3s;
+  transition: all 0.25s;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }
 
 .tool-card:hover {
   border-color: var(--accent);
-  box-shadow: 0 8px 30px rgba(14, 122, 126, 0.08);
-  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(14, 122, 126, 0.06);
+  transform: translateY(-1px);
 }
 
-.tool-card:hover::before { opacity: 1; }
-
 .tool-card-icon {
-  width: 44px;
-  height: 44px;
+  width: 40px; height: 40px;
   border-radius: 10px;
   background: var(--accent-glow);
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px;
-  font-size: 20px;
+  font-size: 18px;
+  flex-shrink: 0;
 }
 
-.tool-card-title {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  margin-bottom: 6px;
-}
+.tool-card-body { flex: 1; }
 
-.tool-card-desc {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin-bottom: 16px;
-}
-
-.tool-card-meta {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  font-size: 0.75rem;
-  color: var(--text-tertiary);
-}
-
-.tool-card-tag {
-  padding: 3px 8px;
-  background: var(--surface-warm);
-  border-radius: 4px;
-  font-weight: 500;
-}
-
-/* ============================================
-   HOW IT WORKS — Horizontal steps
-   ============================================ */
-.how {
-  padding: 100px 40px;
-  background: var(--navy);
-  position: relative;
-}
-
-.how-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.how .section-label { color: var(--accent-light); }
-
-.how h2 {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  color: #f1f5f9;
-  margin-bottom: 60px;
-}
-
-.how-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-}
-
-.how-step {
-  position: relative;
-}
-
-.how-step-num {
-  font-family: var(--font-display);
-  font-size: 4rem;
-  color: rgba(14, 122, 126, 0.15);
-  line-height: 1;
-  margin-bottom: 16px;
-}
-
-.how-step-title {
-  font-size: 1.05rem;
+.tool-card-question {
+  font-size: 0.95rem;
   font-weight: 600;
-  color: #e2e8f0;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.tool-card-method {
+  font-size: 0.78rem;
+  color: var(--text-tertiary);
   margin-bottom: 8px;
 }
 
-.how-step-desc {
-  font-size: 0.88rem;
-  color: #64748b;
-  line-height: 1.6;
+.tool-card-cta {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
 }
 
 /* ============================================
-   DEMAND CAPTURE
+   COMPARISON SECTION — 40% of all questions
+   are comparisons. Show we handle them.
+   ============================================ */
+.compare {
+  padding: 80px 40px;
+  background: var(--navy);
+}
+
+.compare-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.compare .section-label { color: var(--accent-light); }
+
+.compare h2 {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: #f1f5f9;
+  margin-bottom: 12px;
+}
+
+.compare-sub {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 40px;
+  max-width: 460px;
+  line-height: 1.6;
+}
+
+/* Comparison preview cards — showing actual data format */
+.compare-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.compare-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  padding: 22px;
+  text-decoration: none;
+}
+
+.compare-card-vs {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent-light);
+  margin-bottom: 10px;
+}
+
+.compare-card-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+  font-size: 0.82rem;
+}
+
+.compare-card-row:last-child { border: none; }
+.compare-card-label { color: #64748b; }
+.compare-card-val { color: #e2e8f0; font-weight: 600; }
+
+/* ============================================
+   DEMAND CAPTURE — user language: "how much
+   should I..." not "what do you want to calculate"
    ============================================ */
 .demand {
-  padding: 100px 40px;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 80px 40px;
+  background: var(--surface);
   text-align: center;
+}
+
+.demand-inner {
+  max-width: 560px;
+  margin: 0 auto;
 }
 
 .demand h2 {
   font-family: var(--font-display);
-  font-size: 2.4rem;
-  color: var(--text);
-  margin-bottom: 12px;
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
 
 .demand-sub {
-  font-size: 1rem;
+  font-size: 0.92rem;
   color: var(--text-secondary);
-  margin-bottom: 40px;
+  margin-bottom: 32px;
 }
 
 .demand-form {
   display: flex;
-  gap: 10px;
-  max-width: 520px;
-  margin: 0 auto;
+  gap: 8px;
 }
 
 .demand-input {
   flex: 1;
-  padding: 16px 20px;
+  padding: 14px 18px;
   border: 2px solid var(--border);
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   background: white;
-  color: var(--text);
-  transition: border-color 0.2s;
   outline: none;
+  transition: border-color 0.2s;
 }
 
 .demand-input:focus {
@@ -487,218 +485,129 @@ body {
   box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
-.demand-input::placeholder { color: var(--text-tertiary); }
+.demand-input::placeholder { color: #b0bec5; }
 
 .demand-btn {
-  padding: 16px 28px;
+  padding: 14px 24px;
   background: var(--accent);
   color: white;
   border: none;
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: var(--font-body);
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  white-space: nowrap;
   transition: all 0.2s;
 }
 
-.demand-btn:hover {
-  background: var(--accent-deep);
-  transform: translateY(-1px);
-}
+.demand-btn:hover { background: var(--accent-deep); }
 
+/* Demand examples — from actual reply questions */
 .demand-examples {
-  margin-top: 20px;
+  margin-top: 16px;
   display: flex;
-  gap: 8px;
+  gap: 6px;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.demand-example {
-  padding: 6px 12px;
+.demand-ex {
+  padding: 5px 10px;
+  border: none;
   background: var(--surface-warm);
   border-radius: 6px;
-  font-size: 12px;
+  font-family: var(--font-body);
+  font-size: 11px;
   color: var(--text-tertiary);
   cursor: pointer;
   transition: all 0.2s;
-  border: none;
-  font-family: var(--font-body);
 }
 
-.demand-example:hover {
+.demand-ex:hover {
   background: var(--accent-glow);
   color: var(--accent);
 }
 
-/* ============================================
-   CATEGORIES
-   ============================================ */
-.categories {
-  padding: 0 40px 100px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.categories h2 {
-  font-family: var(--font-display);
-  font-size: 2.4rem;
-  color: var(--text);
-  margin-bottom: 40px;
-}
-
-.cat-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
-}
-
-.cat-card {
-  padding: 24px;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  text-decoration: none;
-  color: var(--text);
-  transition: all 0.25s;
-}
-
-.cat-card:hover {
-  border-color: var(--accent);
-  transform: translateY(-1px);
-}
-
-.cat-card-emoji {
-  font-size: 24px;
-  margin-bottom: 12px;
-}
-
-.cat-card-name {
-  font-weight: 600;
-  font-size: 14px;
-  margin-bottom: 4px;
-}
-
-.cat-card-count {
-  font-size: 12px;
-  color: var(--text-tertiary);
-}
-
-/* ============================================
-   FOOTER
-   ============================================ */
+/* FOOTER */
 .footer {
-  padding: 60px 40px;
+  padding: 48px 40px;
   background: var(--navy);
-  color: #64748b;
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
 
 .footer-inner {
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
 }
 
-.footer-brand {
-  max-width: 280px;
-}
-
+.footer-brand { max-width: 240px; }
 .footer-brand-name {
-  font-family: var(--font-body);
   font-weight: 600;
-  font-size: 15px;
+  font-size: 14px;
   color: #e2e8f0;
-  margin-bottom: 12px;
+  margin-bottom: 8px;
 }
-
 .footer-brand p {
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.5;
 }
 
-.footer-cols {
-  display: flex;
-  gap: 60px;
-}
-
+.footer-cols { display: flex; gap: 48px; }
 .footer-col h4 {
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   color: #475569;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
-
 .footer-col a {
   display: block;
-  font-size: 13px;
+  font-size: 12px;
   color: #64748b;
   text-decoration: none;
-  padding: 4px 0;
+  padding: 3px 0;
   transition: color 0.2s;
 }
-
 .footer-col a:hover { color: var(--accent-light); }
 
 .footer-bottom {
-  max-width: 1100px;
-  margin: 40px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255,255,255,0.06);
+  max-width: 900px;
+  margin: 32px auto 0;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  font-size: 11px;
+  color: #475569;
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
 }
 
-.footer-bottom a {
-  color: #475569;
-  text-decoration: none;
-}
-
-.footer-bottom a:hover { color: var(--accent-light); }
-
-/* ============================================
-   RESPONSIVE
-   ============================================ */
-@media (max-width: 900px) {
-  .tools-grid { grid-template-columns: repeat(2, 1fr); }
-  .how-steps { grid-template-columns: 1fr; gap: 40px; }
-  .cat-grid { grid-template-columns: repeat(2, 1fr); }
-  .footer-inner { flex-direction: column; }
-}
-
-@media (max-width: 600px) {
+/* RESPONSIVE */
+@media (max-width: 768px) {
   .nav { padding: 0 20px; }
   .nav-links { display: none; }
-  .hero { padding: 100px 20px 60px; }
-  .hero h1 { font-size: 2.4rem; }
-  .hero-trust { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .tools { padding: 60px 20px; }
+  .hero { padding: 100px 20px 40px; }
+  .ref-cards { grid-template-columns: 1fr; }
+  .tools, .compare, .demand { padding: 60px 20px; }
   .tools-grid { grid-template-columns: 1fr; }
-  .how { padding: 60px 20px; }
-  .demand { padding: 60px 20px; }
+  .compare-grid { grid-template-columns: 1fr; }
   .demand-form { flex-direction: column; }
-  .categories { padding: 0 20px 60px; }
-  .cat-grid { grid-template-columns: 1fr; }
-  .footer { padding: 40px 20px; }
-  .footer-cols { flex-direction: column; gap: 32px; }
+  .hero-trust { flex-direction: column; align-items: center; gap: 16px; }
+  .footer-inner { flex-direction: column; gap: 32px; }
+  .footer-cols { flex-direction: column; gap: 24px; }
+  .footer-bottom { flex-direction: column; gap: 8px; }
 }
 
-/* ============================================
-   SCROLL ANIMATIONS
-   ============================================ */
+/* SCROLL REVEAL */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
@@ -707,242 +616,245 @@ body {
 </head>
 <body>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
+<nav class="nav">
   <a href="/" class="nav-brand">
     <div class="nav-logo">H</div>
     <span class="nav-wordmark">HealthComputed</span>
   </a>
   <div class="nav-links">
     <a href="#tools">Tools</a>
-    <a href="#how">How It Works</a>
-    <a href="#categories">Categories</a>
+    <a href="#compare">Compare</a>
+    <a href="#ask">Ask</a>
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- ============================================
+     HERO
+     H1 from: confusion is universal (6/7 topics),
+     31 tweets about accuracy/trust,
+     "which calculator is right?"
+     ============================================ -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      Formula-driven, not opinion-based
+    <h1>Every health tool gives<br>a different answer.<br><em>This one shows the math.</em></h1>
+
+    <p class="hero-sub">Each number comes from a named, peer-reviewed formula. We show which one, link to the paper, and let you decide.</p>
+
+    <!-- Question pills: VERIFIED user language from 616-tweet dataset -->
+    <div class="hero-questions">
+      <a class="hero-q" href="#tools">How much creatine should I take?</a>
+      <a class="hero-q" href="#tools">How many calories do I burn?</a>
+      <a class="hero-q" href="#tools">How tall will my kid be?</a>
+      <a class="hero-q" href="#tools">How much protein do I need?</a>
+      <a class="hero-q" href="#tools">What's my body fat %?</a>
+      <a class="hero-q" href="#tools">Is 1000 cals a day too low?</a>
     </div>
 
-    <h1>Your health,<br><em>computed.</em></h1>
-
-    <p class="hero-sub">
-      Precision health tools built on peer-reviewed formulas. No guesswork, no filler articles. Ask a question — get a number you can trust.
-    </p>
-
-    <div class="hero-questions">
-      <a href="#" class="hero-q">How many calories do I burn?</a>
-      <a href="#" class="hero-q">What's my body fat %?</a>
-      <a href="#" class="hero-q">How much protein do I need?</a>
-      <a href="#" class="hero-q">How tall will my child be?</a>
-      <a href="#" class="hero-q">How much creatine should I take?</a>
+    <!-- Reference preview cards — from bookmark data:
+         highest saved = ranked lists, dosage protocols, cheat sheets -->
+    <div class="ref-cards">
+      <div class="ref-card">
+        <div class="ref-card-label">Most saved</div>
+        <div class="ref-card-q">How much creatine?</div>
+        <div class="ref-card-answer"><strong>3-5g daily.</strong> No loading needed. ISSN position stand, backed by 500+ studies. Take any time.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-card-label">Most asked</div>
+        <div class="ref-card-q">How many calories for weight loss?</div>
+        <div class="ref-card-answer"><strong>Your TDEE minus 500.</strong> Mifflin-St Jeor equation, 82% accuracy. Never below 1200/1500 cal.</div>
+      </div>
+      <div class="ref-card">
+        <div class="ref-card-label">Most compared</div>
+        <div class="ref-card-q">Turmeric without black pepper?</div>
+        <div class="ref-card-answer"><strong>Useless.</strong> Piperine increases curcumin absorption by 2,000%. Same applies to vitamin D + K2.</div>
+      </div>
     </div>
 
     <div class="hero-trust">
       <div class="hero-trust-item">
-        <span class="hero-trust-num">54+</span>
-        <span class="hero-trust-label">Free<br>tools</span>
+        <div class="hero-trust-num">54+</div>
+        <div class="hero-trust-label">Free tools</div>
       </div>
       <div class="hero-trust-item">
-        <span class="hero-trust-num">220+</span>
-        <span class="hero-trust-label">Clinical<br>citations</span>
+        <div class="hero-trust-num">220+</div>
+        <div class="hero-trust-label">Citations</div>
       </div>
       <div class="hero-trust-item">
-        <span class="hero-trust-num">0</span>
-        <span class="hero-trust-label">Opinions.<br>Just math.</span>
+        <div class="hero-trust-num">100%</div>
+        <div class="hero-trust-label">Show the formula</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TOOLS -->
+<!-- ============================================
+     TOOLS — framed as questions (user language),
+     not "calculators" (our language)
+     ============================================ -->
 <section class="tools reveal" id="tools">
-  <div class="section-label">Popular Tools</div>
-  <h2>Start with a question</h2>
-  <p class="tools-sub">Each tool uses a published, peer-reviewed formula. We show the math, cite the source, and give you the number.</p>
+  <div class="tools-inner">
+    <div class="section-label">Answer a question</div>
+    <h2>Pick your question. Get the number.</h2>
+    <p class="tools-sub">Every answer uses a specific formula. We name it, cite it, and show the math so you can verify it yourself.</p>
 
-  <div class="tools-grid">
-    <a href="/tdee-calculator" class="tool-card">
-      <div class="tool-card-icon">🔥</div>
-      <div class="tool-card-title">TDEE Calculator</div>
-      <div class="tool-card-desc">How many calories do you burn per day? Mifflin-St Jeor equation, personalized to your body.</div>
-      <div class="tool-card-meta">
-        <span class="tool-card-tag">Nutrition</span>
-        <span>5 sources cited</span>
-      </div>
-    </a>
-
-    <a href="/botox-dosage-calculator" class="tool-card">
-      <div class="tool-card-icon">💉</div>
-      <div class="tool-card-title">Botox Dosage</div>
-      <div class="tool-card-desc">Estimate units by treatment area. Based on manufacturer guidelines and clinical practice ranges.</div>
-      <div class="tool-card-meta">
-        <span class="tool-card-tag">Cosmetic</span>
-        <span>3 sources cited</span>
-      </div>
-    </a>
-
-    <a href="/cc-to-bra-size-calculator" class="tool-card">
-      <div class="tool-card-icon">📐</div>
-      <div class="tool-card-title">CC to Bra Size</div>
-      <div class="tool-card-desc">Convert implant CCs to bra cup size. Reference data from surgical sizing charts.</div>
-      <div class="tool-card-meta">
-        <span class="tool-card-tag">Cosmetic</span>
-        <span>4 sources cited</span>
-      </div>
-    </a>
-
-    <a href="/adult-height-predictor-calculator" class="tool-card">
-      <div class="tool-card-icon">📏</div>
-      <div class="tool-card-title">Height Predictor</div>
-      <div class="tool-card-desc">Predict adult height from current age, height, and parent heights. Khamis-Roche method.</div>
-      <div class="tool-card-meta">
-        <span class="tool-card-tag">Growth</span>
-        <span>4 sources cited</span>
-      </div>
-    </a>
-
-    <a href="/fasting-weight-loss-calculator" class="tool-card">
-      <div class="tool-card-icon">⏱</div>
-      <div class="tool-card-title">Fasting Calculator</div>
-      <div class="tool-card-desc">Estimate weight loss from intermittent fasting. Based on TDEE deficit modeling.</div>
-      <div class="tool-card-meta">
-        <span class="tool-card-tag">Nutrition</span>
-        <span>5 sources cited</span>
-      </div>
-    </a>
-
-    <a href="/creatine-dosage-calculator" class="tool-card">
-      <div class="tool-card-icon">⚡</div>
-      <div class="tool-card-title">Creatine Dosage</div>
-      <div class="tool-card-desc">Loading and maintenance doses based on body weight. ISSN position stand protocol.</div>
-      <div class="tool-card-meta">
-        <span class="tool-card-tag">Supplement</span>
-        <span>3 sources cited</span>
-      </div>
-    </a>
+    <div class="tools-grid">
+      <a href="/tdee-calculator" class="tool-card">
+        <div class="tool-card-icon">🔥</div>
+        <div class="tool-card-body">
+          <div class="tool-card-question">How many calories do I burn per day?</div>
+          <div class="tool-card-method">Mifflin-St Jeor equation &middot; 5 sources</div>
+          <div class="tool-card-cta">Calculate &rarr;</div>
+        </div>
+      </a>
+      <a href="/creatine-dosage-calculator" class="tool-card">
+        <div class="tool-card-icon">⚡</div>
+        <div class="tool-card-body">
+          <div class="tool-card-question">How much creatine should I take?</div>
+          <div class="tool-card-method">ISSN position stand protocol &middot; 3 sources</div>
+          <div class="tool-card-cta">Calculate &rarr;</div>
+        </div>
+      </a>
+      <a href="/adult-height-predictor-calculator" class="tool-card">
+        <div class="tool-card-icon">📏</div>
+        <div class="tool-card-body">
+          <div class="tool-card-question">How tall will my child be?</div>
+          <div class="tool-card-method">Khamis-Roche method &middot; 4 sources</div>
+          <div class="tool-card-cta">Calculate &rarr;</div>
+        </div>
+      </a>
+      <a href="/botox-dosage-calculator" class="tool-card">
+        <div class="tool-card-icon">💉</div>
+        <div class="tool-card-body">
+          <div class="tool-card-question">How many units of Botox do I need?</div>
+          <div class="tool-card-method">FDA guidelines by treatment area &middot; 3 sources</div>
+          <div class="tool-card-cta">Calculate &rarr;</div>
+        </div>
+      </a>
+      <a href="/fasting-weight-loss-calculator" class="tool-card">
+        <div class="tool-card-icon">⏱</div>
+        <div class="tool-card-body">
+          <div class="tool-card-question">How much weight can I lose fasting?</div>
+          <div class="tool-card-method">TDEE deficit modeling &middot; 5 sources</div>
+          <div class="tool-card-cta">Calculate &rarr;</div>
+        </div>
+      </a>
+      <a href="/cc-to-bra-size-calculator" class="tool-card">
+        <div class="tool-card-icon">📐</div>
+        <div class="tool-card-body">
+          <div class="tool-card-question">What bra size is 350cc?</div>
+          <div class="tool-card-method">Surgical sizing reference &middot; 4 sources</div>
+          <div class="tool-card-cta">Calculate &rarr;</div>
+        </div>
+      </a>
+    </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how reveal" id="how">
-  <div class="how-inner">
-    <div class="section-label">How It Works</div>
-    <h2>Formulas, not feelings</h2>
+<!-- ============================================
+     COMPARISON — 40% of all reply questions
+     are "X vs Y". This is the format people engage
+     with most. Show it as a product feature.
+     ============================================ -->
+<section class="compare reveal" id="compare">
+  <div class="compare-inner">
+    <div class="section-label">Compare anything</div>
+    <h2>The question everyone actually asks</h2>
+    <p class="compare-sub">"Which is better?" is the #1 health question online. We give you the numbers side by side.</p>
 
-    <div class="how-steps">
-      <div class="how-step">
-        <div class="how-step-num">01</div>
-        <div class="how-step-title">You ask a question</div>
-        <div class="how-step-desc">Type your inputs — weight, height, age, activity level. No account needed. No email required.</div>
+    <div class="compare-grid">
+      <div class="compare-card">
+        <div class="compare-card-vs">TDEE vs BMR</div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">What it measures</span>
+          <span class="compare-card-val">Total vs rest</span>
+        </div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Includes activity</span>
+          <span class="compare-card-val">Yes vs No</span>
+        </div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Use for weight loss</span>
+          <span class="compare-card-val">TDEE</span>
+        </div>
       </div>
-      <div class="how-step">
-        <div class="how-step-num">02</div>
-        <div class="how-step-title">We run the formula</div>
-        <div class="how-step-desc">Every calculation uses a named, peer-reviewed equation. We show which one and link to the paper.</div>
+      <div class="compare-card">
+        <div class="compare-card-vs">Creatine: loading vs daily</div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Week 1 dose</span>
+          <span class="compare-card-val">20g vs 5g</span>
+        </div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Saturation time</span>
+          <span class="compare-card-val">7d vs 28d</span>
+        </div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">ISSN recommended</span>
+          <span class="compare-card-val">Both</span>
+        </div>
       </div>
-      <div class="how-step">
-        <div class="how-step-num">03</div>
-        <div class="how-step-title">You get a clear answer</div>
-        <div class="how-step-desc">One number. What it means. What to do next. Share it, save it, or calculate something else.</div>
+      <div class="compare-card">
+        <div class="compare-card-vs">Vitamin D: ng/mL vs nmol/L</div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Used in</span>
+          <span class="compare-card-val">US vs Intl</span>
+        </div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Conversion</span>
+          <span class="compare-card-val">&times; 2.5</span>
+        </div>
+        <div class="compare-card-row">
+          <span class="compare-card-label">Sufficient level</span>
+          <span class="compare-card-val">30+ vs 75+</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DEMAND CAPTURE -->
-<section class="demand reveal" id="demand">
-  <div class="section-label">Can't find what you need?</div>
-  <h2>What do you want to calculate?</h2>
-  <p class="demand-sub">Tell us your question. If we don't have it, we'll build it.</p>
+<!-- ============================================
+     DEMAND CAPTURE — user language:
+     "how much should I..." not "calculate"
+     ============================================ -->
+<section class="demand reveal" id="ask">
+  <div class="demand-inner">
+    <div class="section-label">Don't see your question?</div>
+    <h2>Ask. We'll build it.</h2>
+    <p class="demand-sub">Every tool started as someone's question. Yours could be next.</p>
 
-  <div class="demand-form">
-    <input type="text" class="demand-input" id="demand-input" placeholder="e.g. How much vitamin C should I take daily?">
-    <button class="demand-btn" id="demand-btn">Submit</button>
-  </div>
+    <div class="demand-form">
+      <input type="text" class="demand-input" id="demand-input" placeholder="How much should I...">
+      <button class="demand-btn" id="demand-btn">Send</button>
+    </div>
 
-  <div class="demand-examples">
-    <button class="demand-example" onclick="document.getElementById('demand-input').value=this.textContent">Water intake by weight</button>
-    <button class="demand-example" onclick="document.getElementById('demand-input').value=this.textContent">Macro split for cutting</button>
-    <button class="demand-example" onclick="document.getElementById('demand-input').value=this.textContent">Running pace converter</button>
-    <button class="demand-example" onclick="document.getElementById('demand-input').value=this.textContent">Caffeine half-life</button>
-  </div>
-</section>
-
-<!-- CATEGORIES -->
-<section class="categories reveal" id="categories">
-  <h2>Browse by category</h2>
-
-  <div class="cat-grid">
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">🔥</div>
-      <div class="cat-card-name">Nutrition & Diet</div>
-      <div class="cat-card-count">18 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">💪</div>
-      <div class="cat-card-name">Fitness & Body</div>
-      <div class="cat-card-count">14 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">✨</div>
-      <div class="cat-card-name">Cosmetic & Aesthetic</div>
-      <div class="cat-card-count">7 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">🧬</div>
-      <div class="cat-card-name">Growth & Development</div>
-      <div class="cat-card-count">4 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">☕</div>
-      <div class="cat-card-name">Food & Beverage</div>
-      <div class="cat-card-count">5 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">🏃</div>
-      <div class="cat-card-name">Running & Cardio</div>
-      <div class="cat-card-count">4 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">💊</div>
-      <div class="cat-card-name">Supplements</div>
-      <div class="cat-card-count">3 calculators</div>
-    </a>
-    <a href="#" class="cat-card">
-      <div class="cat-card-emoji">🐾</div>
-      <div class="cat-card-name">Pet & Family</div>
-      <div class="cat-card-count">4 calculators</div>
-    </a>
+    <!-- Examples from actual reply data -->
+    <div class="demand-examples">
+      <button class="demand-ex" onclick="document.getElementById('demand-input').value=this.textContent">How much water with creatine?</button>
+      <button class="demand-ex" onclick="document.getElementById('demand-input').value=this.textContent">What's a healthy body fat %?</button>
+      <button class="demand-ex" onclick="document.getElementById('demand-input').value=this.textContent">How often should I recalculate TDEE?</button>
+      <button class="demand-ex" onclick="document.getElementById('demand-input').value=this.textContent">Does vitamin D deplete vitamin A?</button>
+    </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-brand">
       <div class="footer-brand-name">HealthComputed</div>
-      <p>Precision health tools built on peer-reviewed formulas. No opinions, no filler — just the math.</p>
+      <p>Every number comes from a published formula. We cite it so you can verify it.</p>
     </div>
     <div class="footer-cols">
       <div class="footer-col">
         <h4>Popular</h4>
         <a href="#">TDEE Calculator</a>
-        <a href="#">BMI Calculator</a>
-        <a href="#">Protein Intake</a>
-        <a href="#">Botox Dosage</a>
+        <a href="#">Creatine Dosage</a>
         <a href="#">Height Predictor</a>
+        <a href="#">Botox Dosage</a>
       </div>
       <div class="footer-col">
         <h4>Company</h4>
         <a href="#">About</a>
         <a href="#">Editorial Policy</a>
         <a href="#">Privacy</a>
-        <a href="#">Terms</a>
       </div>
       <div class="footer-col">
         <h4>Connect</h4>
@@ -952,48 +864,28 @@ body {
     </div>
   </div>
   <div class="footer-bottom">
-    <span>&copy; 2026 HealthComputed. All rights reserved.</span>
-    <a href="#">All calculators use peer-reviewed formulas. Not medical advice.</a>
+    <span>&copy; 2026 HealthComputed</span>
+    <span>Every tool cites its formula. Not medical advice.</span>
   </div>
 </footer>
 
-<!-- JS -->
 <script>
-// Nav scroll effect
-window.addEventListener('scroll', function() {
-  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
-});
-
-// Reveal on scroll
+// Scroll reveal
 var reveals = document.querySelectorAll('.reveal');
 var observer = new IntersectionObserver(function(entries) {
-  entries.forEach(function(entry) {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+  entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
 reveals.forEach(function(el) { observer.observe(el); });
 
 // Demand capture
 document.getElementById('demand-btn').addEventListener('click', function() {
   var q = document.getElementById('demand-input').value.trim();
   if (!q) return;
-  this.textContent = 'Received!';
-  this.style.background = '#065456';
+  this.textContent = 'Received';
+  this.style.background = 'var(--accent-deep)';
   document.getElementById('demand-input').value = '';
-  setTimeout(function() {
-    document.getElementById('demand-btn').textContent = 'Submit';
-    document.getElementById('demand-btn').style.background = '';
-  }, 2000);
-});
-
-// Question pills → scroll to tools
-document.querySelectorAll('.hero-q').forEach(function(q) {
-  q.addEventListener('click', function(e) {
-    e.preventDefault();
-    document.getElementById('tools').scrollIntoView({ behavior: 'smooth' });
-  });
+  var btn = this;
+  setTimeout(function() { btn.textContent = 'Send'; btn.style.background = ''; }, 2000);
 });
 </script>
 
