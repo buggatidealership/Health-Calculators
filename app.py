@@ -5269,6 +5269,14 @@ def mockup_new_landing():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup-homepage-v3')
+def mockup_homepage_v3():
+    return render_template(
+        'mockup-homepage-v3.html',
+        is_homepage=True,
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup-pulse-story')
 def mockup_pulse_story():
     return render_template(
