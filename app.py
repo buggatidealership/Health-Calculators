@@ -3443,6 +3443,73 @@ def caffeine_half_life_calculator():
     )
 
 
+@app.route('/mockup-caffeine-v2')
+def mockup_caffeine_v2():
+    cfg = {
+        'route': '/mockup-caffeine-v2',
+        'page_title': 'Caffeine Half Life Calculator — How Long Does Caffeine Last?',
+        'headline': 'How long does caffeine last?',
+        'subtitle': 'See exactly how much caffeine is still in your system at bedtime — and when to stop drinking coffee for better sleep.',
+        'meta_description': 'Calculate how long caffeine stays in your system. Enter what you drank and your bedtime to see a personalized decay timeline and your last safe cup time.',
+        'meta_keywords': 'caffeine half life calculator, how long does caffeine last, caffeine calculator, when does caffeine wear off, how long does coffee last, caffeine sleep calculator, caffeine half life',
+        'trust_text': 'Based on pharmacokinetic half-life model · Average adult half-life: 5 hours',
+        'answer_capsule': 'Caffeine has a half-life of approximately 5 hours in healthy adults. This means if you drink a cup of coffee with 95 mg of caffeine at 2 PM, about 47 mg will remain in your system at 7 PM, and about 24 mg at midnight. Most sleep researchers recommend having less than 25 mg of caffeine in your system at bedtime.',
+        'faq': [
+            {
+                'question': 'How long does caffeine last in your system?',
+                'direct': 'Caffeine has a half-life of about 5 hours, meaning it takes ~5 hours for your body to eliminate half the caffeine. A typical cup of coffee (95 mg) takes 10-15 hours to fully clear.',
+                'detail': '<p>The half-life varies from 1.5 to 9.5 hours depending on genetics (CYP1A2 gene), age, liver function, pregnancy (half-life doubles to ~10 hours), and medications. Smokers metabolize caffeine ~50% faster, while oral contraceptives roughly double the half-life.</p>'
+            },
+            {
+                'question': 'When should I stop drinking coffee before bed?',
+                'direct': 'Stop caffeine intake at least 8-10 hours before bedtime. For a 10 PM bedtime, your last cup should be by noon to 2 PM.',
+                'detail': '<p>A 2013 study in the Journal of Clinical Sleep Medicine found that caffeine consumed even 6 hours before bed significantly disrupted sleep. The researchers recommended a minimum 6-hour cutoff, though 8-10 hours is safer for sensitive individuals.</p>'
+            },
+            {
+                'question': 'How much caffeine is too much?',
+                'direct': 'The FDA recommends no more than 400 mg per day for healthy adults — roughly 4 cups of brewed coffee.',
+                'detail': '<p>Individual tolerance varies significantly. Some people experience anxiety, heart palpitations, or insomnia at much lower doses due to genetic variations in the CYP1A2 enzyme. Pregnant women are advised to limit intake to 200 mg/day.</p>'
+            },
+            {
+                'question': 'Does caffeine half-life change with age?',
+                'direct': 'Yes. Caffeine half-life increases with age. Older adults metabolize caffeine more slowly, meaning it stays in their system longer.',
+                'detail': '<p>Newborns have an extremely long caffeine half-life (~80 hours) because their liver enzymes are immature. By age 6 months, it normalizes. In elderly adults, the half-life can extend to 6-7+ hours compared to the 5-hour average in younger adults.</p>'
+            },
+            {
+                'question': 'How long does caffeine last compared to other stimulants?',
+                'direct': 'Caffeine lasts longer than most people think. Its 5-hour half-life means 25% is still active after 10 hours.',
+                'detail': '<p>For comparison: the effects of sugar/glucose peak in 30-60 minutes and fade within 2-3 hours. Nicotine has a half-life of about 2 hours. Caffeine\'s long half-life is why afternoon coffee can affect sleep even when you don\'t feel stimulated.</p>'
+            }
+        ],
+        'methodology': '<p>This calculator uses the <strong>first-order elimination kinetics model</strong>: C(t) = C₀ × 0.5^(t/t½), where C₀ is the initial caffeine dose, t is elapsed time, and t½ is the half-life (default: 5 hours for healthy adults).</p><p>The 5-hour average half-life is based on Fredholm et al. (1999) and confirmed by the Institute of Medicine (2014). Individual variation is significant — the CYP1A2 gene polymorphism creates "fast" and "slow" metabolizers with half-lives ranging from 1.5 to 9.5 hours.</p><p>Sleep impact thresholds: <25 mg is generally considered unlikely to affect sleep (Drake et al., 2013). 25-50 mg may cause mild disruption in sensitive individuals. >50 mg at bedtime is likely to significantly reduce sleep quality and duration.</p>',
+        'related_guide': None
+    }
+    sources = [
+        {"text": "Drake C, et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med. 2013;9(11):1195-1200.", "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"},
+        {"text": "Fredholm BB, et al. Actions of caffeine in the brain with special reference to factors that contribute to its widespread use. Pharmacol Rev. 1999;51(1):83-133.", "url": "https://pubmed.ncbi.nlm.nih.gov/10049999/"},
+        {"text": "Institute of Medicine. Caffeine in Food and Dietary Supplements. Washington, DC: National Academies Press; 2014.", "url": "https://pubmed.ncbi.nlm.nih.gov/25340250/"},
+        {"text": "Nehlig A. Interindividual differences in caffeine metabolism and factors driving caffeine consumption. Pharmacol Rev. 2018;70(2):384-411.", "url": "https://pubmed.ncbi.nlm.nih.gov/29514871/"},
+        {"text": "U.S. FDA. Spilling the Beans: How Much Caffeine is Too Much? 2023.", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much"}
+    ]
+    return render_template(
+        'caffeine_half_life_v2.html',
+        cfg=cfg,
+        sources=sources,
+        related_calculators=[
+            {"url": "/sleep-calculator", "title": "Sleep Calculator"},
+            {"url": "/tdee-calculator", "title": "TDEE Calculator"}
+        ],
+        related_guides=[],
+        is_homepage=False,
+        schema_name='Caffeine Half Life Calculator',
+        schema_description=cfg['meta_description'],
+        schema_url='/mockup-caffeine-v2',
+        schema_type='WebPage',
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        date_modified='2026-03-16',
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/hcg-doubling-time-calculator')
 @app.route('/hcg-calculator')
 def hcg_calculator():

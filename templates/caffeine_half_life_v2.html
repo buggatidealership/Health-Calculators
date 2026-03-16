@@ -1,0 +1,527 @@
+{% extends 'calculator_v2_base.html' %}
+
+{% block extra_styles %}
+<style>
+/* Caffeine v2 — Reference mode, action/protocol format */
+
+/* Source cards (coffee, tea, energy, etc.) */
+.caf-source-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.caf-source-card {
+  padding: 12px 10px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s, transform 0.1s, background 0.15s;
+}
+
+.caf-source-card:hover { border-color: rgba(14,122,126,0.3); }
+.caf-source-card.selected { border-color: var(--color-accent); background: rgba(14,122,126,0.03); }
+.caf-source-card:active { transform: scale(0.97); }
+
+.caf-source-icon { font-size: 1.4rem; margin-bottom: 4px; }
+.caf-source-name { font-size: 0.82rem; font-weight: 600; color: var(--color-text); }
+.caf-source-mg { font-size: 0.72rem; color: var(--color-text-secondary); margin-top: 2px; }
+
+/* Time inputs */
+.caf-time-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.caf-time-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 6px;
+}
+
+.caf-time-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color 0.2s;
+}
+
+.caf-time-input:focus { outline: none; border-color: var(--color-accent); }
+
+/* Custom mg input */
+.caf-mg-row {
+  margin-bottom: 20px;
+}
+
+.caf-mg-input {
+  width: 100%;
+  padding: 12px 14px;
+  padding-right: 40px;
+  border: 2px solid var(--color-border);
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--color-text);
+  background: var(--color-surface);
+  transition: border-color 0.2s;
+  -moz-appearance: textfield;
+}
+
+.caf-mg-input::-webkit-outer-spin-button,
+.caf-mg-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.caf-mg-input:focus { outline: none; border-color: var(--color-accent); }
+
+.caf-mg-wrap {
+  position: relative;
+}
+
+.caf-mg-suffix {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.82rem;
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.caf-input-hint {
+  font-size: 0.72rem;
+  color: var(--color-text-secondary);
+  margin-top: 4px;
+}
+
+/* Results */
+.caf-results { display: none; margin-top: 24px; }
+.caf-results.visible { display: block; animation: caf-fade 0.5s ease; }
+@keyframes caf-fade { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+
+/* Big result card */
+.caf-result-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  margin-bottom: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.caf-result-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 8px;
+}
+
+.caf-result-big {
+  font-family: var(--font-display);
+  font-size: 3.5rem;
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.caf-result-big.good { color: #22c55e; }
+.caf-result-big.caution { color: #f59e0b; }
+.caf-result-big.bad { color: #ef4444; }
+
+.caf-result-unit {
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+.caf-result-verdict {
+  font-size: 0.92rem;
+  font-weight: 600;
+  margin-top: 12px;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.caf-result-verdict.good { background: rgba(34,197,94,0.08); color: #22c55e; }
+.caf-result-verdict.caution { background: rgba(245,158,11,0.08); color: #f59e0b; }
+.caf-result-verdict.bad { background: rgba(239,68,68,0.08); color: #ef4444; }
+
+/* Decay spectrum */
+.caf-spectrum {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.caf-spectrum-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+  text-align: center;
+}
+
+.caf-spectrum-bar {
+  position: relative;
+  height: 8px;
+  background: linear-gradient(90deg, #22c55e 0%, #22c55e 25%, #f59e0b 25%, #f59e0b 50%, #ef4444 50%, #ef4444 100%);
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.caf-spectrum-marker {
+  position: absolute;
+  top: -6px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--color-text);
+  border: 3px solid var(--color-surface);
+  transform: translateX(-50%);
+  transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.caf-spectrum-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.68rem;
+  color: var(--color-text-secondary);
+}
+
+/* Timeline breakdown */
+.caf-timeline {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.caf-timeline-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 14px;
+}
+
+.caf-tl-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.caf-tl-row:last-child { border-bottom: none; }
+
+.caf-tl-time {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-text);
+  min-width: 60px;
+}
+
+.caf-tl-bar-wrap {
+  flex: 1;
+  height: 6px;
+  background: var(--color-muted);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.caf-tl-bar {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.25,1,0.5,1);
+}
+
+.caf-tl-mg {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  min-width: 50px;
+  text-align: right;
+}
+
+/* Last safe cup */
+.caf-cutoff {
+  background: rgba(14,122,126,0.04);
+  border: 1px solid rgba(14,122,126,0.15);
+  border-radius: 14px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.caf-cutoff-icon {
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.caf-cutoff-text {
+  font-size: 0.88rem;
+  color: var(--color-text);
+  line-height: 1.4;
+}
+
+.caf-cutoff-text strong {
+  color: var(--color-accent);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .caf-source-grid { grid-template-columns: repeat(3, 1fr); }
+  .caf-time-row { grid-template-columns: 1fr; gap: 10px; }
+  .caf-result-big { font-size: 2.8rem; }
+}
+</style>
+{% endblock %}
+
+{% block calculator_form %}
+<!-- Source selection -->
+<div style="margin-bottom: 6px;">
+  <label style="font-size:0.82rem;font-weight:600;color:var(--color-text);display:block;margin-bottom:8px;">What did you drink?</label>
+</div>
+<div class="caf-source-grid">
+  <div class="caf-source-card selected" data-mg="95"><div class="caf-source-icon">☕</div><div class="caf-source-name">Coffee</div><div class="caf-source-mg">95 mg (8 oz)</div></div>
+  <div class="caf-source-card" data-mg="142"><div class="caf-source-icon">☕</div><div class="caf-source-name">Tall coffee</div><div class="caf-source-mg">142 mg (12 oz)</div></div>
+  <div class="caf-source-card" data-mg="63"><div class="caf-source-icon">☕</div><div class="caf-source-name">Espresso</div><div class="caf-source-mg">63 mg (1 shot)</div></div>
+  <div class="caf-source-card" data-mg="200"><div class="caf-source-icon">🧊</div><div class="caf-source-name">Cold brew</div><div class="caf-source-mg">200 mg (12 oz)</div></div>
+  <div class="caf-source-card" data-mg="160"><div class="caf-source-icon">⚡</div><div class="caf-source-name">Energy drink</div><div class="caf-source-mg">160 mg (16 oz)</div></div>
+  <div class="caf-source-card" data-mg="300"><div class="caf-source-icon">⚡</div><div class="caf-source-name">Bang / Reign</div><div class="caf-source-mg">300 mg</div></div>
+  <div class="caf-source-card" data-mg="47"><div class="caf-source-icon">🍵</div><div class="caf-source-name">Black tea</div><div class="caf-source-mg">47 mg (8 oz)</div></div>
+  <div class="caf-source-card" data-mg="28"><div class="caf-source-icon">🍵</div><div class="caf-source-name">Green tea</div><div class="caf-source-mg">28 mg (8 oz)</div></div>
+  <div class="caf-source-card" data-mg="200"><div class="caf-source-icon">💊</div><div class="caf-source-name">Caffeine pill</div><div class="caf-source-mg">200 mg</div></div>
+  <div class="caf-source-card" data-mg="34"><div class="caf-source-icon">🥤</div><div class="caf-source-name">Cola</div><div class="caf-source-mg">34 mg (12 oz)</div></div>
+  <div class="caf-source-card" data-mg="200"><div class="caf-source-icon">🏋️</div><div class="caf-source-name">Pre-workout</div><div class="caf-source-mg">200 mg</div></div>
+  <div class="caf-source-card" data-mg="0"><div class="caf-source-icon">✏️</div><div class="caf-source-name">Custom</div><div class="caf-source-mg">Enter mg</div></div>
+</div>
+
+<!-- Custom mg input (shown when Custom selected) -->
+<div class="caf-mg-row" id="custom-mg-row" style="display:none;">
+  <label style="font-size:0.82rem;font-weight:600;color:var(--color-text);display:block;margin-bottom:6px;">Caffeine amount</label>
+  <div class="caf-mg-wrap">
+    <input type="number" class="caf-mg-input" id="custom-mg" min="1" max="1000" value="100" inputmode="numeric">
+    <span class="caf-mg-suffix">mg</span>
+  </div>
+  <div class="caf-input-hint">FDA recommends ≤400 mg/day for healthy adults</div>
+</div>
+
+<!-- Time inputs -->
+<div class="caf-time-row">
+  <div class="caf-time-group">
+    <label for="time-consumed">When did you have it?</label>
+    <input type="time" class="caf-time-input" id="time-consumed" value="">
+  </div>
+  <div class="caf-time-group">
+    <label for="bedtime">What time is bedtime?</label>
+    <input type="time" class="caf-time-input" id="bedtime" value="22:00">
+  </div>
+</div>
+
+<div style="font-size:0.72rem;color:var(--color-text-secondary);margin-bottom:20px;">
+  Average caffeine half-life: 5 hours (range 1.5–9.5h depending on genetics, age, medications, liver function)
+</div>
+
+<!-- Results -->
+<div class="caf-results" id="caf-results">
+
+  <!-- Big number: caffeine at bedtime -->
+  <div class="caf-result-card">
+    <div class="caf-result-label">Caffeine remaining at bedtime</div>
+    <div class="caf-result-big" id="caf-at-bed">24</div>
+    <div class="caf-result-unit">mg remaining of <span id="caf-start-display">95</span> mg</div>
+    <div class="caf-result-verdict" id="caf-verdict">Unlikely to affect sleep</div>
+  </div>
+
+  <!-- Spectrum bar -->
+  <div class="caf-spectrum">
+    <div class="caf-spectrum-title">Sleep impact level</div>
+    <div class="caf-spectrum-bar">
+      <div class="caf-spectrum-marker" id="caf-marker" style="left:10%"></div>
+    </div>
+    <div class="caf-spectrum-labels">
+      <span>No impact</span>
+      <span>Mild</span>
+      <span>Significant</span>
+    </div>
+  </div>
+
+  <!-- Last safe cup cutoff -->
+  <div class="caf-cutoff">
+    <div class="caf-cutoff-icon">⏰</div>
+    <div class="caf-cutoff-text" id="caf-cutoff-text">
+      Your last cup should be by <strong id="cutoff-time">2:00 PM</strong> to have less than 25 mg at bedtime.
+    </div>
+  </div>
+
+  <!-- Hourly decay timeline -->
+  <div class="caf-timeline">
+    <div class="caf-timeline-title">Hour-by-hour decay</div>
+    <div id="caf-timeline-rows"></div>
+  </div>
+
+</div>
+{% endblock %}
+
+{% block calculator_script %}
+<script>
+(function() {
+  var HALF_LIFE = 5; // hours (average adult)
+  var state = { mg: 95, consumed: null, bedtime: null };
+
+  // Set default consumed time to now
+  var now = new Date();
+  var hh = String(now.getHours()).padStart(2, '0');
+  var mm = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('time-consumed').value = hh + ':' + mm;
+
+  // Source cards
+  document.querySelectorAll('.caf-source-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.caf-source-card').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      var mg = parseInt(card.getAttribute('data-mg'));
+      if (mg === 0) {
+        document.getElementById('custom-mg-row').style.display = '';
+        state.mg = parseInt(document.getElementById('custom-mg').value) || 100;
+      } else {
+        document.getElementById('custom-mg-row').style.display = 'none';
+        state.mg = mg;
+      }
+      calculate();
+    });
+  });
+
+  document.getElementById('custom-mg').addEventListener('input', function() {
+    state.mg = parseInt(this.value) || 0;
+    calculate();
+  });
+
+  // Time inputs
+  document.getElementById('time-consumed').addEventListener('change', calculate);
+  document.getElementById('bedtime').addEventListener('change', calculate);
+
+  function parseTime(val) {
+    if (!val) return null;
+    var parts = val.split(':');
+    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+  }
+
+  function formatTime(minutes) {
+    var m = ((minutes % 1440) + 1440) % 1440;
+    var h = Math.floor(m / 60);
+    var min = m % 60;
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    var h12 = h % 12 || 12;
+    return h12 + ':' + String(min).padStart(2, '0') + ' ' + ampm;
+  }
+
+  function remaining(initialMg, hours) {
+    return initialMg * Math.pow(0.5, hours / HALF_LIFE);
+  }
+
+  function calculate() {
+    var consumedMin = parseTime(document.getElementById('time-consumed').value);
+    var bedMin = parseTime(document.getElementById('bedtime').value);
+    if (consumedMin === null || bedMin === null || state.mg <= 0) return;
+
+    // Hours until bed
+    var elapsed = bedMin - consumedMin;
+    if (elapsed < 0) elapsed += 1440; // next day
+    var hoursTobed = elapsed / 60;
+
+    var atBed = remaining(state.mg, hoursTobed);
+    var atBedRound = Math.round(atBed);
+
+    // Show results
+    document.getElementById('caf-results').classList.add('visible');
+
+    // Big number
+    document.getElementById('caf-at-bed').textContent = atBedRound;
+    document.getElementById('caf-start-display').textContent = state.mg;
+
+    // Color + verdict
+    var bigEl = document.getElementById('caf-at-bed');
+    var verdictEl = document.getElementById('caf-verdict');
+    bigEl.className = 'caf-result-big';
+    verdictEl.className = 'caf-result-verdict';
+
+    if (atBedRound < 25) {
+      bigEl.classList.add('good');
+      verdictEl.classList.add('good');
+      verdictEl.textContent = 'Unlikely to affect sleep';
+    } else if (atBedRound < 50) {
+      bigEl.classList.add('caution');
+      verdictEl.classList.add('caution');
+      verdictEl.textContent = 'May mildly affect sleep';
+    } else {
+      bigEl.classList.add('bad');
+      verdictEl.classList.add('bad');
+      verdictEl.textContent = 'Likely to disrupt sleep';
+    }
+
+    // Spectrum marker (0-100mg → 0-100%)
+    var pct = Math.min(100, (atBedRound / 100) * 100);
+    document.getElementById('caf-marker').style.left = pct + '%';
+
+    // Cutoff time: find when < 25mg remains before bed
+    // remaining = mg * 0.5^(h/5) < 25 → h > 5 * log2(mg/25)
+    var hoursNeeded = HALF_LIFE * Math.log2(state.mg / 25);
+    if (hoursNeeded < 0) hoursNeeded = 0;
+    var cutoffMin = bedMin - Math.ceil(hoursNeeded * 60);
+    if (cutoffMin < 0) cutoffMin += 1440;
+    document.getElementById('cutoff-time').textContent = formatTime(cutoffMin);
+
+    // Timeline rows
+    var container = document.getElementById('caf-timeline-rows');
+    container.innerHTML = '';
+    var maxHours = Math.min(Math.ceil(hoursTobed) + 2, 24);
+    for (var h = 0; h <= maxHours; h += 1) {
+      var rem = remaining(state.mg, h);
+      var pctBar = (rem / state.mg) * 100;
+      var clockMin = consumedMin + h * 60;
+      var isBedHour = (h === Math.round(hoursTobed));
+
+      var color = rem < 25 ? '#22c55e' : rem < 50 ? '#f59e0b' : rem < 100 ? '#f97316' : '#ef4444';
+
+      var row = document.createElement('div');
+      row.className = 'caf-tl-row';
+      if (isBedHour) row.style.background = 'rgba(14,122,126,0.04)';
+      row.innerHTML =
+        '<div class="caf-tl-time">' + formatTime(clockMin) + (isBedHour ? ' 🛏️' : '') + '</div>' +
+        '<div class="caf-tl-bar-wrap"><div class="caf-tl-bar" style="width:' + pctBar + '%;background:' + color + ';"></div></div>' +
+        '<div class="caf-tl-mg">' + Math.round(rem) + ' mg</div>';
+      container.appendChild(row);
+    }
+  }
+
+  // Auto-calculate on load
+  setTimeout(calculate, 100);
+})();
+</script>
+{% endblock %}
