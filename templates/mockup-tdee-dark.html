@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Your Daily Calories — TDEE</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #050508;
+  --surface: #0c0c12;
+  --surface-2: #12121a;
+  --border: rgba(255,255,255,0.06);
+  --text: #e8eaed;
+  --text-dim: rgba(255,255,255,0.4);
+  --text-muted: rgba(255,255,255,0.15);
+  --accent: #0e7a7e;
+  --accent-light: #64d8cb;
+  --accent-glow: rgba(14,122,126,0.25);
+  --red: #ef4444;
+  --blue: #3b82f6;
+  --green: #22c55e;
+  --font-display: 'DM Serif Display', serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+html { background: var(--bg); color: var(--text); font-family: var(--font-body); overflow-x: hidden; }
+body { background: var(--bg); -webkit-font-smoothing: antialiased; }
+
+/* --- Ambient Glow --- */
+.glow {
+  position: fixed;
+  width: 500px; height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.5s;
+}
+
+.glow.on { opacity: 0.3; }
+
+.glow-1 {
+  background: radial-gradient(circle, rgba(14,122,126,0.2), transparent 70%);
+  top: -100px; right: -100px;
+}
+
+/* --- Nav --- */
+.dk-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 20px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(5,5,8,0.7);
+  border-bottom: 1px solid var(--border);
+}
+
+.dk-logo { font-weight: 700; font-size: 0.92rem; color: var(--text); text-decoration: none; }
+.dk-logo span { color: var(--accent); }
+.dk-back { font-size: 0.82rem; color: var(--text-dim); text-decoration: none; display: flex; align-items: center; gap: 6px; transition: color 0.2s; }
+.dk-back:hover { color: var(--text); }
+
+/* --- Layout --- */
+.td-page {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 100px 20px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Result (always visible, top) --- */
+.td-result {
+  text-align: center;
+  padding: 60px 24px 48px;
+  position: relative;
+}
+
+.td-result-eyebrow {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 12px;
+}
+
+.td-big-num {
+  font-family: var(--font-display);
+  font-size: clamp(5rem, 15vw, 8rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  background: linear-gradient(180deg, var(--text) 40%, var(--text-dim) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: opacity 0.2s;
+  font-variant-numeric: tabular-nums;
+}
+
+.td-big-num.flash {
+  opacity: 0.3;
+}
+
+.td-big-unit {
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-dim);
+  margin-top: 8px;
+}
+
+.td-formula-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-top: 20px;
+}
+
+/* --- Spectrum --- */
+.td-spectrum {
+  margin: 40px 0;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.td-spectrum-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.td-spectrum-bar {
+  position: relative;
+  height: 6px;
+  background: linear-gradient(90deg, rgba(14,122,126,0.15), var(--accent), rgba(14,122,126,0.15));
+  border-radius: 3px;
+}
+
+.td-spectrum-marker {
+  position: absolute;
+  top: -9px;
+  width: 24px; height: 24px;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: left 1s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.td-spectrum-range {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.td-spectrum-you {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+}
+
+.td-spectrum-you strong {
+  color: var(--accent-light);
+  font-weight: 600;
+}
+
+/* --- Inputs Section --- */
+.td-inputs {
+  margin-top: 48px;
+}
+
+.td-input-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.td-input-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.td-unit-pill {
+  display: flex;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.td-unit-btn {
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.td-unit-btn.active {
+  background: rgba(255,255,255,0.06);
+  color: var(--text);
+}
+
+/* Input group */
+.td-group {
+  margin-bottom: 32px;
+}
+
+.td-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 12px;
+}
+
+.td-label-text {
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-dim);
+}
+
+.td-label-value {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom range slider */
+.td-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  background: var(--border);
+  border-radius: 2px;
+  outline: none;
+  position: relative;
+}
+
+.td-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.td-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 30px var(--accent-glow);
+}
+
+.td-slider::-webkit-slider-thumb:active {
+  transform: scale(1.25);
+  box-shadow: 0 0 40px rgba(14,122,126,0.4);
+}
+
+.td-slider::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 3px solid var(--bg);
+  cursor: pointer;
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+/* Sex toggle */
+.td-sex-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.td-sex-btn {
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s;
+  text-align: center;
+}
+
+.td-sex-btn:hover { border-color: rgba(255,255,255,0.1); }
+
+.td-sex-btn.active {
+  border-color: var(--accent);
+  color: var(--text);
+  background: rgba(14,122,126,0.06);
+  box-shadow: 0 0 30px rgba(14,122,126,0.08);
+}
+
+/* Activity cards */
+.td-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.td-act-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.td-act-card:hover { border-color: rgba(255,255,255,0.1); }
+
+.td-act-card.active {
+  border-color: var(--accent);
+  background: rgba(14,122,126,0.04);
+}
+
+.td-act-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.td-act-card.active .td-act-dot {
+  border-color: var(--accent);
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.td-act-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.td-act-desc { font-size: 0.72rem; color: var(--text-dim); margin-top: 1px; }
+.td-act-mult { margin-left: auto; font-size: 0.72rem; color: var(--text-muted); font-weight: 600; }
+
+/* --- Breakdown Ring Chart --- */
+.td-breakdown {
+  margin-top: 48px;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+}
+
+.td-breakdown-header {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.td-ring-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  justify-content: center;
+}
+
+.td-ring-wrap {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  flex-shrink: 0;
+}
+
+.td-ring-svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.td-ring-bg {
+  fill: none;
+  stroke: rgba(255,255,255,0.04);
+  stroke-width: 10;
+}
+
+.td-ring-bmr {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.td-ring-activity {
+  fill: none;
+  stroke: var(--accent-light);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1) 0.2s;
+}
+
+.td-ring-tef {
+  fill: none;
+  stroke: rgba(255,255,255,0.12);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1) 0.4s;
+}
+
+.td-ring-center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.td-ring-total {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.td-ring-total-label {
+  font-size: 0.65rem;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.td-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.td-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.td-legend-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.td-legend-name { font-size: 0.82rem; color: var(--text-dim); }
+.td-legend-val { font-size: 0.92rem; font-weight: 700; color: var(--text); margin-left: auto; font-variant-numeric: tabular-nums; }
+
+/* --- Goals --- */
+.td-goals {
+  margin-top: 32px;
+}
+
+.td-goals-header {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 16px;
+}
+
+.td-goal {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 8px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.td-goal:hover {
+  border-color: rgba(255,255,255,0.1);
+  transform: translateX(4px);
+}
+
+.td-goal-badge {
+  width: 32px; height: 32px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.82rem; font-weight: 700;
+  flex-shrink: 0;
+}
+
+.td-goal-badge.cut { background: rgba(239,68,68,0.1); color: var(--red); }
+.td-goal-badge.maintain { background: rgba(14,122,126,0.1); color: var(--accent); }
+.td-goal-badge.bulk { background: rgba(59,130,246,0.1); color: var(--blue); }
+
+.td-goal-name { font-size: 0.88rem; font-weight: 600; }
+.td-goal-desc { font-size: 0.72rem; color: var(--text-dim); margin-top: 1px; }
+.td-goal-cal { margin-left: auto; font-family: var(--font-display); font-size: 1.2rem; font-variant-numeric: tabular-nums; }
+
+/* --- Footer --- */
+.td-footer {
+  margin-top: 60px;
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+/* --- Responsive --- */
+@media (max-width: 600px) {
+  .td-page { padding: 80px 16px 60px; }
+  .td-result { padding: 40px 16px 32px; }
+  .td-ring-row { flex-direction: column; gap: 24px; }
+  .dk-nav { padding: 16px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Ambient -->
+<div class="glow glow-1" id="glow"></div>
+
+<!-- Nav -->
+<nav class="dk-nav">
+  <a href="/" class="dk-logo">Health<span>Calculators</span></a>
+  <a href="/calculators" class="dk-back">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+    All tools
+  </a>
+</nav>
+
+<div class="td-page">
+
+  <!-- Result -->
+  <section class="td-result">
+    <div class="td-result-eyebrow">Your daily calories</div>
+    <div class="td-big-num" id="big-num">2,678</div>
+    <div class="td-big-unit">calories per day</div>
+    <div class="td-formula-pill">
+      <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Mifflin-St Jeor
+    </div>
+  </section>
+
+  <!-- Spectrum -->
+  <div class="td-spectrum">
+    <div class="td-spectrum-label">Where you fall</div>
+    <div class="td-spectrum-bar">
+      <div class="td-spectrum-marker" id="marker" style="left:65%"></div>
+    </div>
+    <div class="td-spectrum-range"><span>1,400</span><span>2,000</span><span>2,600</span><span>3,200</span></div>
+    <div class="td-spectrum-you">You burn more than <strong id="pct-text">65%</strong> of people your age</div>
+  </div>
+
+  <!-- Inputs -->
+  <section class="td-inputs">
+    <div class="td-input-header">
+      <div class="td-input-title">Your details</div>
+      <div class="td-unit-pill">
+        <button class="td-unit-btn active" data-unit="imperial">Imperial</button>
+        <button class="td-unit-btn" data-unit="metric">Metric</button>
+      </div>
+    </div>
+
+    <!-- Sex -->
+    <div class="td-group">
+      <div class="td-label"><span class="td-label-text">Sex</span></div>
+      <div class="td-sex-toggle">
+        <button class="td-sex-btn active" data-sex="male">Male</button>
+        <button class="td-sex-btn" data-sex="female">Female</button>
+      </div>
+    </div>
+
+    <!-- Age -->
+    <div class="td-group">
+      <div class="td-label">
+        <span class="td-label-text">Age</span>
+        <span class="td-label-value" id="age-display">28</span>
+      </div>
+      <input type="range" class="td-slider" id="age-slider" min="15" max="80" value="28">
+    </div>
+
+    <!-- Height -->
+    <div class="td-group" id="height-imperial">
+      <div class="td-label">
+        <span class="td-label-text">Height</span>
+        <span class="td-label-value" id="height-display">5'10"</span>
+      </div>
+      <input type="range" class="td-slider" id="height-slider" min="54" max="84" value="70">
+    </div>
+    <div class="td-group" id="height-metric" style="display:none;">
+      <div class="td-label">
+        <span class="td-label-text">Height</span>
+        <span class="td-label-value" id="height-cm-display">178 cm</span>
+      </div>
+      <input type="range" class="td-slider" id="height-cm-slider" min="120" max="220" value="178">
+    </div>
+
+    <!-- Weight -->
+    <div class="td-group" id="weight-imperial">
+      <div class="td-label">
+        <span class="td-label-text">Weight</span>
+        <span class="td-label-value" id="weight-display">165 lbs</span>
+      </div>
+      <input type="range" class="td-slider" id="weight-slider" min="80" max="400" value="165">
+    </div>
+    <div class="td-group" id="weight-metric" style="display:none;">
+      <div class="td-label">
+        <span class="td-label-text">Weight</span>
+        <span class="td-label-value" id="weight-kg-display">75 kg</span>
+      </div>
+      <input type="range" class="td-slider" id="weight-kg-slider" min="35" max="180" value="75">
+    </div>
+
+    <!-- Activity -->
+    <div class="td-group">
+      <div class="td-label"><span class="td-label-text">Activity</span></div>
+      <div class="td-activity-list">
+        <div class="td-act-card" data-mult="1.2"><div class="td-act-dot"></div><div><div class="td-act-name">Sedentary</div><div class="td-act-desc">Desk job, little exercise</div></div><div class="td-act-mult">×1.2</div></div>
+        <div class="td-act-card" data-mult="1.375"><div class="td-act-dot"></div><div><div class="td-act-name">Light</div><div class="td-act-desc">Exercise 1–3 days/week</div></div><div class="td-act-mult">×1.375</div></div>
+        <div class="td-act-card active" data-mult="1.55"><div class="td-act-dot"></div><div><div class="td-act-name">Moderate</div><div class="td-act-desc">Exercise 3–5 days/week</div></div><div class="td-act-mult">×1.55</div></div>
+        <div class="td-act-card" data-mult="1.725"><div class="td-act-dot"></div><div><div class="td-act-name">Active</div><div class="td-act-desc">Hard exercise 6–7 days/week</div></div><div class="td-act-mult">×1.725</div></div>
+        <div class="td-act-card" data-mult="1.9"><div class="td-act-dot"></div><div><div class="td-act-name">Extreme</div><div class="td-act-desc">Athlete or physical labor</div></div><div class="td-act-mult">×1.9</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Breakdown Ring -->
+  <section class="td-breakdown">
+    <div class="td-breakdown-header">Calorie breakdown</div>
+    <div class="td-ring-row">
+      <div class="td-ring-wrap">
+        <svg class="td-ring-svg" viewBox="0 0 160 160">
+          <circle class="td-ring-bg" cx="80" cy="80" r="65"/>
+          <circle class="td-ring-tef" id="ring-tef" cx="80" cy="80" r="65" stroke-dasharray="408.4" stroke-dashoffset="408.4"/>
+          <circle class="td-ring-activity" id="ring-activity" cx="80" cy="80" r="65" stroke-dasharray="408.4" stroke-dashoffset="408.4"/>
+          <circle class="td-ring-bmr" id="ring-bmr" cx="80" cy="80" r="65" stroke-dasharray="408.4" stroke-dashoffset="408.4"/>
+        </svg>
+        <div class="td-ring-center">
+          <div class="td-ring-total" id="ring-total">2,678</div>
+          <div class="td-ring-total-label">total</div>
+        </div>
+      </div>
+      <div class="td-legend">
+        <div class="td-legend-item">
+          <div class="td-legend-dot" style="background:var(--accent)"></div>
+          <span class="td-legend-name">Basal (BMR)</span>
+          <span class="td-legend-val" id="leg-bmr">1,728</span>
+        </div>
+        <div class="td-legend-item">
+          <div class="td-legend-dot" style="background:var(--accent-light)"></div>
+          <span class="td-legend-name">Activity</span>
+          <span class="td-legend-val" id="leg-act">682</span>
+        </div>
+        <div class="td-legend-item">
+          <div class="td-legend-dot" style="background:rgba(255,255,255,0.12)"></div>
+          <span class="td-legend-name">Thermic (food)</span>
+          <span class="td-legend-val" id="leg-tef">~268</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goals -->
+  <section class="td-goals">
+    <div class="td-goals-header">Eat for your goal</div>
+    <div class="td-goal"><div class="td-goal-badge cut">−</div><div><div class="td-goal-name">Cut</div><div class="td-goal-desc">500 cal deficit · ~1 lb/week</div></div><div class="td-goal-cal" id="g-cut">2,178</div></div>
+    <div class="td-goal"><div class="td-goal-badge maintain">→</div><div><div class="td-goal-name">Maintain</div><div class="td-goal-desc">Current weight</div></div><div class="td-goal-cal" id="g-maintain">2,678</div></div>
+    <div class="td-goal"><div class="td-goal-badge bulk">+</div><div><div class="td-goal-name">Bulk</div><div class="td-goal-desc">300 cal surplus · lean gains</div></div><div class="td-goal-cal" id="g-bulk">2,978</div></div>
+  </section>
+
+  <footer class="td-footer">
+    Mifflin-St Jeor equation · Am J Clin Nutr. 1990<br>
+    Not medical advice. Estimates only.
+  </footer>
+</div>
+
+<script>
+(function() {
+  var state = { sex:'male', age:28, heightIn:70, weightLbs:165, mult:1.55, unit:'imperial', heightCm:178, weightKg:75 };
+
+  var bigNum = document.getElementById('big-num');
+  var marker = document.getElementById('marker');
+  var pctText = document.getElementById('pct-text');
+  var glow = document.getElementById('glow');
+
+  // Show glow after load
+  setTimeout(function() { glow.classList.add('on'); }, 500);
+
+  function calcBMR() {
+    var wKg = state.unit === 'imperial' ? state.weightLbs * 0.4536 : state.weightKg;
+    var hCm = state.unit === 'imperial' ? state.heightIn * 2.54 : state.heightCm;
+    return state.sex === 'male'
+      ? (10 * wKg) + (6.25 * hCm) - (5 * state.age) + 5
+      : (10 * wKg) + (6.25 * hCm) - (5 * state.age) - 161;
+  }
+
+  function update() {
+    var bmr = Math.round(calcBMR());
+    var tdee = Math.round(bmr * state.mult);
+    var tef = Math.round(tdee * 0.1);
+    var act = tdee - bmr - tef;
+    if (act < 0) act = 0;
+    var pct = Math.max(0, Math.min(100, Math.round(((tdee - 1400) / 1800) * 100)));
+
+    // Flash
+    bigNum.classList.add('flash');
+    setTimeout(function() {
+      bigNum.textContent = tdee.toLocaleString();
+      bigNum.classList.remove('flash');
+    }, 100);
+
+    // Spectrum
+    marker.style.left = pct + '%';
+    pctText.textContent = pct + '%';
+
+    // Ring chart
+    var circ = 408.4;
+    var bmrPct = bmr / tdee;
+    var actPct = act / tdee;
+    var tefPct = tef / tdee;
+
+    document.getElementById('ring-bmr').style.strokeDashoffset = circ * (1 - bmrPct);
+    document.getElementById('ring-activity').style.strokeDashoffset = circ * (1 - (bmrPct + actPct));
+    document.getElementById('ring-tef').style.strokeDashoffset = circ * (1 - (bmrPct + actPct + tefPct));
+
+    document.getElementById('ring-total').textContent = tdee.toLocaleString();
+    document.getElementById('leg-bmr').textContent = bmr.toLocaleString();
+    document.getElementById('leg-act').textContent = act.toLocaleString();
+    document.getElementById('leg-tef').textContent = '~' + tef.toLocaleString();
+
+    // Goals
+    document.getElementById('g-cut').textContent = (tdee - 500).toLocaleString();
+    document.getElementById('g-maintain').textContent = tdee.toLocaleString();
+    document.getElementById('g-bulk').textContent = (tdee + 300).toLocaleString();
+  }
+
+  // Sex
+  document.querySelectorAll('.td-sex-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.td-sex-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.sex = btn.dataset.sex;
+      update();
+    });
+  });
+
+  // Sliders
+  var ageSlider = document.getElementById('age-slider');
+  var heightSlider = document.getElementById('height-slider');
+  var weightSlider = document.getElementById('weight-slider');
+  var heightCmSlider = document.getElementById('height-cm-slider');
+  var weightKgSlider = document.getElementById('weight-kg-slider');
+
+  ageSlider.addEventListener('input', function() {
+    state.age = parseInt(this.value);
+    document.getElementById('age-display').textContent = state.age;
+    update();
+  });
+
+  heightSlider.addEventListener('input', function() {
+    state.heightIn = parseInt(this.value);
+    var ft = Math.floor(state.heightIn / 12);
+    var inch = state.heightIn % 12;
+    document.getElementById('height-display').textContent = ft + "'" + inch + '"';
+    update();
+  });
+
+  weightSlider.addEventListener('input', function() {
+    state.weightLbs = parseInt(this.value);
+    document.getElementById('weight-display').textContent = state.weightLbs + ' lbs';
+    update();
+  });
+
+  heightCmSlider.addEventListener('input', function() {
+    state.heightCm = parseInt(this.value);
+    document.getElementById('height-cm-display').textContent = state.heightCm + ' cm';
+    update();
+  });
+
+  weightKgSlider.addEventListener('input', function() {
+    state.weightKg = parseInt(this.value);
+    document.getElementById('weight-kg-display').textContent = state.weightKg + ' kg';
+    update();
+  });
+
+  // Activity
+  document.querySelectorAll('.td-act-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.td-act-card').forEach(function(c) { c.classList.remove('active'); });
+      card.classList.add('active');
+      state.mult = parseFloat(card.dataset.mult);
+      update();
+    });
+  });
+
+  // Unit toggle
+  document.querySelectorAll('.td-unit-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.td-unit-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      state.unit = btn.dataset.unit;
+      if (state.unit === 'metric') {
+        document.getElementById('height-imperial').style.display = 'none';
+        document.getElementById('weight-imperial').style.display = 'none';
+        document.getElementById('height-metric').style.display = '';
+        document.getElementById('weight-metric').style.display = '';
+        state.heightCm = Math.round(state.heightIn * 2.54);
+        state.weightKg = Math.round(state.weightLbs * 0.4536);
+        heightCmSlider.value = state.heightCm;
+        weightKgSlider.value = state.weightKg;
+        document.getElementById('height-cm-display').textContent = state.heightCm + ' cm';
+        document.getElementById('weight-kg-display').textContent = state.weightKg + ' kg';
+      } else {
+        document.getElementById('height-imperial').style.display = '';
+        document.getElementById('weight-imperial').style.display = '';
+        document.getElementById('height-metric').style.display = 'none';
+        document.getElementById('weight-metric').style.display = 'none';
+      }
+      update();
+    });
+  });
+
+  update();
+})();
+</script>
+</body>
+</html>
