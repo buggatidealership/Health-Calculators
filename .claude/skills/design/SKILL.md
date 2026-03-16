@@ -96,6 +96,20 @@ Complete this checklist before showing design to user:
 
 **Any element with blank "Data source" → flag as ASSUMED. State what data would verify it.**
 
+## STEP 6: Push Beyond the Checklist
+
+The verification above is the FLOOR, not the ceiling. After passing it, ask:
+
+1. **What would make someone screenshot this and share it unprompted?** Not because we added a share button — because the design itself is worth sharing.
+2. **What visual or interaction choice would surprise the user?** An animation, a layout, a transition that they didn't expect from a calculator page.
+3. **Is there a cross-domain insight the checklist didn't anticipate?** A connection between the data, the algo, the SEO, and the UX that creates an opportunity none of them would surface alone.
+4. **What would a designer who's never seen our research do differently — and are they right?** The research prevents lazy defaults, but it can also create research-constrained defaults. Challenge the framework when your reasoning is strong.
+5. **What design principle from a top-tier product (Stripe, Linear, Apple, Vercel) applies here that we haven't considered?** Browse real sites for inspiration before finalizing.
+
+If you have an idea the data doesn't explicitly support but your reasoning says is strong — INCLUDE IT. Label it as "hypothesis, not data-derived" so the user can evaluate it separately from the verified elements.
+
+The best designs satisfy the checklist AND do something the checklist couldn't have predicted.
+
 ## ANTI-PATTERNS (verified mistakes from this project)
 
 - Do NOT invent brand taglines — derive from user language
@@ -104,5 +118,6 @@ Complete this checklist before showing design to user:
 - Do NOT organize by internal categories — users think in questions
 - Do NOT skip animations/visuals because you "see in code"
 - Do NOT present design without completing the verification checklist
+- Do NOT treat the checklist as the scope — it's the minimum, push beyond it
 
 $ARGUMENTS
