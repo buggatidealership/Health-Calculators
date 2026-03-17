@@ -13,199 +13,248 @@
 html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#2a2a2e}
 body{background:#F5F0EA}
 
-.film{position:relative;width:100vw;height:100vh;overflow:hidden;display:flex;flex-direction:column}
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
 
-/* === Warm ambient gradient that shifts === */
-.bg-wash{position:absolute;inset:0;z-index:0;
-  background:radial-gradient(ellipse at 30% 20%, rgba(14,122,126,0.04), transparent 60%),
-             radial-gradient(ellipse at 70% 80%, rgba(167,139,250,0.03), transparent 50%);
-  animation:wash-drift 28s linear forwards}
-@keyframes wash-drift{
-  0%{background:radial-gradient(ellipse at 30% 20%, rgba(14,122,126,0.04), transparent 60%),
-     radial-gradient(ellipse at 70% 80%, rgba(167,139,250,0.03), transparent 50%)}
-  100%{background:radial-gradient(ellipse at 50% 40%, rgba(14,122,126,0.07), transparent 60%),
-       radial-gradient(ellipse at 40% 70%, rgba(94,234,212,0.04), transparent 50%)}}
+/* Warm shifting background */
+.bg{position:absolute;inset:0;z-index:0;transition:background 1.5s}
+.bg-warm{background:#F5F0EA}
+.bg-teal{background:linear-gradient(160deg,#e8f5f3 0%,#F5F0EA 40%,#fef3ec 100%)}
+.bg-glow{background:linear-gradient(160deg,#e0f2f1 0%,#f0ebe4 50%,#fce4ec 100%)}
 
-/* === Chat container — WhatsApp-style === */
-.chat-area{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;
-  max-width:420px;width:100%;margin:0 auto;padding:16px 16px 20px;overflow:hidden}
+/* === Scenes === */
+.sc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;opacity:0;transition:opacity 0.6s;pointer-events:none;z-index:2;padding:20px}
+.sc.on{opacity:1}
 
-/* Header bar */
-.chat-header{display:flex;align-items:center;gap:12px;padding:10px 4px 14px;
-  border-bottom:1px solid rgba(0,0,0,0.04);margin-bottom:12px;flex-shrink:0}
-.avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;position:relative;
-  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
-  box-shadow:0 2px 12px rgba(14,122,126,0.25);
-  animation:av-breathe 3.75s ease-in-out infinite}
-@keyframes av-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-.avatar::after{content:'';position:absolute;bottom:1px;right:1px;width:10px;height:10px;
-  border-radius:50%;background:#22c55e;border:2px solid #F5F0EA}
-.avatar-letter{color:#fff;font-weight:700;font-size:1rem;display:flex;align-items:center;
-  justify-content:center;width:100%;height:100%;border-radius:50%}
-.header-text{flex:1}
-.header-name{font-weight:600;font-size:0.92rem;color:#1a1a1e}
-.header-status{font-size:0.65rem;color:#22c55e;font-weight:500}
+/* Spring bounce */
+.pop{opacity:0;transform:translateY(20px) scale(0.92);
+  transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+.pop.in{opacity:1;transform:translateY(0) scale(1)}
 
-/* Messages */
-.messages{flex:1;display:flex;flex-direction:column;gap:6px;overflow:hidden;
-  padding:4px 0;justify-content:flex-end}
+/* ============================================
+   SCENE 1: THE HOOK — relatable, visual, bold
+   ============================================ */
+.s1-wrap{text-align:center;max-width:520px;position:relative}
 
-.msg{max-width:82%;padding:11px 16px;border-radius:18px;font-size:0.86rem;line-height:1.55;
-  opacity:0;transform:translateY(14px) scale(0.9);
-  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative}
-.msg.in{opacity:1;transform:translateY(0) scale(1)}
+.s1-emoji{font-size:2.8rem;margin-bottom:20px;opacity:0;transform:scale(0.5);
+  transition:all 0.5s cubic-bezier(0,1.5,0.5,1)}
+.s1-emoji.in{opacity:1;transform:scale(1)}
 
-/* User messages — warm mint (WhatsApp sent feel) */
-.msg.u{background:#d1fae5;color:#1a3a2a;align-self:flex-end;border-bottom-right-radius:6px}
+.s1-hook{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4.5vw,2.6rem);
+  line-height:1.2;color:#1a1a1e;opacity:0;transform:translateY(20px);
+  transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.s1-hook.in{opacity:1;transform:translateY(0)}
+.s1-hook em{font-style:italic;color:#0e7a7e}
 
-/* AI messages — soft white */
-.msg.a{background:#ffffff;color:#2a2a2e;align-self:flex-start;border-bottom-left-radius:6px;
-  box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.s1-sub{font-size:clamp(0.82rem,1.3vw,0.95rem);color:#7a7a82;margin-top:16px;line-height:1.6;
+  opacity:0;transition:opacity 0.6s}
+.s1-sub.in{opacity:1}
 
-.msg .hl{color:#0e7a7e;font-weight:700}
-.msg .soft{color:#6b7280;font-size:0.75rem;display:block;margin-top:4px}
-.msg .time{color:#9ca3af;font-size:0.58rem;float:right;margin-top:4px;margin-left:10px}
+/* ================================================
+   SCENE 2: THE CHAT — compressed, punchy, 6 seconds
+   ================================================ */
+.s2-phone{width:380px;max-width:92vw;background:#fff;border-radius:24px;
+  box-shadow:0 8px 40px rgba(0,0,0,0.08),0 1px 3px rgba(0,0,0,0.04);
+  overflow:hidden;opacity:0;transform:translateY(30px) scale(0.93);
+  transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+.s2-phone.in{opacity:1;transform:translateY(0) scale(1)}
 
-/* Typing indicator */
-.typing-wrap{display:flex;align-items:center;gap:8px;padding:4px 0;
-  opacity:0;transition:opacity 0.3s}
-.typing-wrap.in{opacity:1}
-.typing-av{width:28px;height:28px;border-radius:50%;
+.s2-header{display:flex;align-items:center;gap:10px;padding:14px 18px;
+  border-bottom:1px solid rgba(0,0,0,0.05);background:#fafaf8}
+.s2-av{width:32px;height:32px;border-radius:50%;
   background:linear-gradient(135deg,#14b8a6,#0e7a7e);flex-shrink:0;
-  display:flex;align-items:center;justify-content:center}
-.typing-av span{color:#fff;font-size:0.6rem;font-weight:700}
-.typing-dots{display:flex;gap:4px;background:#fff;padding:10px 16px;border-radius:18px;
-  border-bottom-left-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
-.typing-dots span{width:7px;height:7px;border-radius:50%;background:#b0b8c4;
-  animation:t-bounce 1.2s ease-in-out infinite}
-.typing-dots span:nth-child(2){animation-delay:0.15s}
-.typing-dots span:nth-child(3){animation-delay:0.3s}
-@keyframes t-bounce{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-6px);opacity:1}}
+  display:flex;align-items:center;justify-content:center;
+  animation:av-breathe 3.75s ease-in-out infinite;position:relative}
+@keyframes av-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.s2-av::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;
+  border-radius:50%;background:#22c55e;border:2px solid #fafaf8}
+.s2-av span{color:#fff;font-weight:700;font-size:0.7rem}
+.s2-name{font-weight:600;font-size:0.82rem;color:#1a1a1e}
+.s2-status{font-size:0.58rem;color:#22c55e;font-weight:500}
 
-/* === Pill options (Wysa-style tappable choices) === */
-.pills{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-end;
-  opacity:0;transform:translateY(10px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
-.pills.in{opacity:1;transform:translateY(0)}
-.pill{padding:8px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;
-  background:#fff;border:1.5px solid rgba(14,122,126,0.2);color:#0e7a7e;cursor:pointer;
-  transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);opacity:0;transform:scale(0.8)}
-.pill.in{opacity:1;transform:scale(1)}
-.pill.picked{background:#0e7a7e;color:#fff;border-color:#0e7a7e;transform:scale(1.05)}
-.pill.fade{opacity:0.3;transform:scale(0.9)}
+.s2-msgs{padding:14px 16px;display:flex;flex-direction:column;gap:8px;min-height:180px}
 
-/* === Big number with chromatic flash === */
-.big-num{font-family:'DM Serif Display',serif;font-size:2rem;color:#0e7a7e;
+.bub{max-width:82%;padding:10px 16px;border-radius:18px;font-size:0.82rem;line-height:1.5;
+  opacity:0;transform:translateY(12px) scale(0.88);
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.bub.in{opacity:1;transform:translateY(0) scale(1)}
+.bub.u{background:#d1fae5;color:#1a3a2a;align-self:flex-end;border-bottom-right-radius:6px}
+.bub.a{background:#f5f5f3;color:#2a2a2e;align-self:flex-start;border-bottom-left-radius:6px}
+.bub .hl{color:#0e7a7e;font-weight:700}
+
+/* Big answer number */
+.ans-num{font-family:'DM Serif Display',serif;font-size:1.8rem;color:#0e7a7e;
   display:inline-block;position:relative;letter-spacing:-0.02em;line-height:1.1}
-.big-num::before,.big-num::after{content:attr(data-v);position:absolute;top:0;left:0;
+.ans-num::before,.ans-num::after{content:attr(data-v);position:absolute;top:0;left:0;
   opacity:0;transition:opacity 0.12s}
-.big-num.flash::before{color:#a78bfa;transform:translateX(-1.5px);opacity:0.5}
-.big-num.flash::after{color:#f59e0b;transform:translateX(1.5px);opacity:0.35}
+.ans-num.flash::before{color:#a78bfa;transform:translateX(-1.5px);opacity:0.5}
+.ans-num.flash::after{color:#f59e0b;transform:translateX(1.5px);opacity:0.35}
 
-/* === Result card (report) === */
-.result-card{background:#fff;border-radius:16px;padding:18px 20px;margin-top:4px;
-  box-shadow:0 2px 16px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);
-  opacity:0;transform:translateY(14px) scale(0.92);max-width:82%;align-self:flex-start;
-  transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}
-.result-card.in{opacity:1;transform:translateY(0) scale(1)}
+/* Typing dots */
+.dots{display:inline-flex;gap:4px;padding:2px 0}
+.dots span{width:6px;height:6px;border-radius:50%;background:#b4b8c0;
+  animation:t-b 1.2s ease-in-out infinite}
+.dots span:nth-child(2){animation-delay:0.15s}
+.dots span:nth-child(3){animation-delay:0.3s}
+@keyframes t-b{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-5px);opacity:1}}
 
-.rc-shimmer{position:absolute;inset:0;
+/* =============================================
+   SCENE 3: THE PAYOFF — full screen report card
+   ============================================= */
+.s3-card{width:400px;max-width:90vw;background:#fff;border-radius:20px;
+  box-shadow:0 12px 48px rgba(14,122,126,0.1),0 2px 8px rgba(0,0,0,0.04);
+  overflow:hidden;opacity:0;transform:scale(0.88) translateY(20px);
+  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+.s3-card.in{opacity:1;transform:scale(1) translateY(0)}
+
+.s3-shimmer{position:absolute;inset:0;
   background:linear-gradient(105deg,transparent 40%,rgba(14,122,126,0.03) 50%,transparent 60%);
-  animation:rc-shim 2.8s ease-in-out infinite;pointer-events:none}
-@keyframes rc-shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+  animation:shim 2.8s ease-in-out infinite;pointer-events:none}
+@keyframes shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
-.rc-title{font-family:'DM Serif Display',serif;font-size:0.95rem;color:#1a1a1e;margin-bottom:12px}
-.rc-row{display:flex;justify-content:space-between;padding:6px 0;
-  border-bottom:1px solid rgba(0,0,0,0.03);opacity:0;transform:translateX(-8px);
-  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)}
-.rc-row.in{opacity:1;transform:translateX(0)}
-.rc-row:last-child{border-bottom:none}
-.rc-label{font-size:0.74rem;color:#6b7280}
-.rc-val{font-size:0.76rem;color:#0e7a7e;font-weight:600;font-variant-numeric:tabular-nums}
+.s3-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;
+  border-radius:20px;background:linear-gradient(135deg,#d1fae5,#e0f2f1);
+  font-size:0.65rem;font-weight:600;color:#0e7a7e;margin-bottom:16px;
+  opacity:0;transform:scale(0.8);transition:all 0.4s cubic-bezier(0,1.5,0.5,1)}
+.s3-badge.in{opacity:1;transform:scale(1)}
+.s3-badge svg{width:12px;height:12px}
 
-/* Mini progress ring */
-.rc-ring-wrap{display:flex;align-items:center;gap:14px;margin-top:10px;padding-top:10px;
-  border-top:1px solid rgba(0,0,0,0.03);opacity:0;transition:opacity 0.5s}
-.rc-ring-wrap.in{opacity:1}
-.rc-ring svg{width:44px;height:44px;transform:rotate(-90deg)}
-.rc-ring circle{fill:none;stroke-width:5;stroke-linecap:round}
-.rc-ring .track{stroke:rgba(0,0,0,0.04)}
-.rc-ring .fill{stroke:#14b8a6;stroke-dasharray:126;stroke-dashoffset:126;
-  transition:stroke-dashoffset 1s cubic-bezier(0.34,1.56,0.64,1)}
-.rc-ring .fill.go{stroke-dashoffset:32}
-.rc-ring-text{font-size:0.72rem;color:#6b7280;line-height:1.4}
-.rc-ring-text strong{color:#0e7a7e;font-size:0.82rem}
+.s3-top{padding:24px 24px 0}
+.s3-title{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#1a1a1e}
+.s3-sub-title{font-size:0.68rem;color:#9a9a9e;margin-top:4px}
 
-.rc-sent{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:8px;
-  border-top:1px solid rgba(0,0,0,0.03);opacity:0;transition:all 0.4s}
-.rc-sent.in{opacity:1}
-.rc-sent svg{width:14px;height:14px;color:#22c55e}
-.rc-sent span{font-size:0.68rem;color:#22c55e;font-weight:500}
+.s3-body{padding:16px 24px}
+.s3-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;
+  border-bottom:1px solid rgba(0,0,0,0.04);opacity:0;transform:translateX(-12px);
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.s3-row.in{opacity:1;transform:translateX(0)}
+.s3-row:last-child{border-bottom:none}
+.s3-label{font-size:0.78rem;color:#6b7280}
+.s3-val{font-size:0.82rem;color:#0e7a7e;font-weight:700;font-variant-numeric:tabular-nums}
 
-/* === Companion close === */
-.close-wrap{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;background:#F5F0EA;
-  opacity:0;transition:opacity 0.6s;pointer-events:none}
-.close-wrap.on{opacity:1}
-.close-orb{width:80px;height:80px;border-radius:50%;
+/* Visual: mini bar chart */
+.s3-bars{display:flex;align-items:flex-end;gap:5px;height:50px;padding:12px 0;
+  justify-content:center;opacity:0;transition:opacity 0.5s}
+.s3-bars.in{opacity:1}
+.s3-bar{width:28px;border-radius:6px 6px 3px 3px;transform-origin:bottom;
+  transform:scaleY(0);transition:transform 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.s3-bar.in{transform:scaleY(1)}
+.s3-bar:nth-child(1){height:22px;background:linear-gradient(180deg,#99f6e4,#5eead4)}
+.s3-bar:nth-child(2){height:38px;background:linear-gradient(180deg,#5eead4,#14b8a6)}
+.s3-bar:nth-child(3){height:30px;background:linear-gradient(180deg,#14b8a6,#0e7a7e)}
+.s3-bar:nth-child(4){height:46px;background:linear-gradient(180deg,#0e7a7e,#065f63)}
+.s3-bar:nth-child(5){height:34px;background:linear-gradient(180deg,#14b8a6,#0e7a7e)}
+
+.s3-footer{padding:14px 24px 20px;border-top:1px solid rgba(0,0,0,0.04);
+  display:flex;align-items:center;justify-content:space-between}
+.s3-sent{display:flex;align-items:center;gap:6px;opacity:0;transition:all 0.4s}
+.s3-sent.in{opacity:1}
+.s3-sent svg{width:16px;height:16px;color:#22c55e}
+.s3-sent span{font-size:0.72rem;color:#22c55e;font-weight:600}
+.s3-from{font-size:0.6rem;color:#b0b0b4;opacity:0;transition:opacity 0.4s}
+.s3-from.in{opacity:1}
+
+/* =======================================
+   SCENE 4: THE COMPANION — invitation
+   ======================================= */
+.s4-wrap{text-align:center;max-width:440px}
+.s4-orb{width:64px;height:64px;border-radius:50%;margin:0 auto 24px;
   background:linear-gradient(135deg,#14b8a6,#0e7a7e);
-  box-shadow:0 4px 30px rgba(14,122,126,0.3);
-  animation:av-breathe 3.75s ease-in-out infinite;margin-bottom:28px;
-  opacity:0;transform:scale(0.5);transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
-.close-orb.in{opacity:1;transform:scale(1)}
-.close-text{text-align:center;max-width:380px;padding:0 32px}
-.close-big{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);
+  box-shadow:0 4px 24px rgba(14,122,126,0.3);
+  animation:av-breathe 3.75s ease-in-out infinite;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0.5);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
+.s4-orb.in{opacity:1;transform:scale(1)}
+.s4-orb span{color:#fff;font-weight:700;font-size:1.2rem}
+.s4-big{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);
   line-height:1.25;color:#1a1a1e;opacity:0;transform:translateY(14px);
   transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
-.close-big.in{opacity:1;transform:translateY(0)}
-.close-big em{font-style:italic;color:#0e7a7e}
-.close-sub{font-size:0.78rem;color:#6b7280;margin-top:14px;line-height:1.55;
+.s4-big.in{opacity:1;transform:translateY(0)}
+.s4-big em{font-style:italic;color:#0e7a7e}
+.s4-sub{font-size:0.78rem;color:#7a7a82;margin-top:14px;line-height:1.55;
   opacity:0;transition:opacity 0.6s}
-.close-sub.in{opacity:1}
-.close-brand{margin-top:24px;opacity:0;transition:opacity 0.6s}
-.close-brand.in{opacity:1}
-.close-name{font-size:0.8rem;font-weight:600;color:#3a3a3e}
-.close-handle{font-size:0.62rem;color:#0e7a7e;margin-top:2px}
+.s4-sub.in{opacity:1}
+.s4-brand{margin-top:24px;opacity:0;transition:opacity 0.6s}
+.s4-brand.in{opacity:1}
+.s4-name{font-size:0.82rem;font-weight:600;color:#3a3a3e}
+.s4-handle{font-size:0.62rem;color:#0e7a7e;margin-top:2px}
 
-/* === Particles / confetti === */
+/* === Particles & confetti === */
 .spark{position:fixed;border-radius:50%;pointer-events:none;z-index:20}
 @keyframes spark-out{0%{opacity:0.9;transform:translate(0,0) scale(1)}
   100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
-.confetti{position:fixed;width:6px;height:12px;pointer-events:none;z-index:20;
-  border-radius:1px;opacity:0.9}
-@keyframes confetti-fall{0%{transform:translateY(0) rotate(0deg);opacity:0.9}
+.confetti{position:fixed;pointer-events:none;z-index:20;opacity:0.9}
+@keyframes conf-fall{0%{transform:translateY(0) rotate(0deg);opacity:0.9}
   100%{transform:translateY(var(--fall)) rotate(var(--spin));opacity:0}}
 </style>
 </head>
 <body>
 <div class="film" id="film">
-  <div class="bg-wash"></div>
+  <div class="bg bg-warm" id="bg"></div>
 
-  <!-- Chat interface -->
-  <div class="chat-area" id="chatArea">
-    <!-- Header -->
-    <div class="chat-header">
-      <div class="avatar"><div class="avatar-letter">P</div></div>
-      <div class="header-text">
-        <div class="header-name">Pulse</div>
-        <div class="header-status">online</div>
-      </div>
+  <!-- SCENE 1: THE HOOK -->
+  <div class="sc on" id="sc1">
+    <div class="s1-wrap">
+      <div class="s1-emoji" id="s1e">🔍</div>
+      <div class="s1-hook" id="s1h">You Google a health question.<br>You get <em>ten answers.</em><br>Three conflict.</div>
+      <div class="s1-sub" id="s1s">So you don't act.</div>
     </div>
-
-    <!-- Messages -->
-    <div class="messages" id="msgs"></div>
   </div>
 
-  <!-- Companion close overlay -->
-  <div class="close-wrap" id="closeWrap">
-    <div class="close-orb" id="closeOrb">
-      <div class="avatar-letter" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;font-weight:700;border-radius:50%">P</div>
+  <!-- SCENE 2: THE CHAT -->
+  <div class="sc" id="sc2">
+    <div class="s2-phone" id="phone">
+      <div class="s2-header">
+        <div class="s2-av"><span>P</span></div>
+        <div>
+          <div class="s2-name">Pulse</div>
+          <div class="s2-status">online</div>
+        </div>
+      </div>
+      <div class="s2-msgs" id="s2msgs"></div>
     </div>
-    <div class="close-text">
-      <div class="close-big" id="closeBig">What are you trying to <em>figure out?</em></div>
-      <div class="close-sub" id="closeSub">Tell us. If there's a formula behind it, we'll build you a tool — cited, verified, yours.</div>
-      <div class="close-brand" id="closeBrand">
-        <div class="close-name">healthcalculators.xyz</div>
-        <div class="close-handle">@GetHealthC</div>
+  </div>
+
+  <!-- SCENE 3: THE PAYOFF -->
+  <div class="sc" id="sc3">
+    <div class="s3-card" id="s3card">
+      <div class="s3-shimmer"></div>
+      <div class="s3-top">
+        <div class="s3-badge" id="s3badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          3 tools connected
+        </div>
+        <div class="s3-title">Your Sleep &amp; Energy Plan</div>
+        <div class="s3-sub-title">Personalized from your inputs</div>
+      </div>
+      <div class="s3-body" id="s3body">
+        <div class="s3-bars" id="s3bars">
+          <div class="s3-bar" id="b1"></div>
+          <div class="s3-bar" id="b2"></div>
+          <div class="s3-bar" id="b3"></div>
+          <div class="s3-bar" id="b4"></div>
+          <div class="s3-bar" id="b5"></div>
+        </div>
+      </div>
+      <div class="s3-footer">
+        <div class="s3-sent" id="s3sent">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+          <span>Sent to your inbox</span>
+        </div>
+        <div class="s3-from" id="s3from">by Pulse</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4: THE COMPANION -->
+  <div class="sc" id="sc4">
+    <div class="s4-wrap">
+      <div class="s4-orb" id="s4orb"><span>P</span></div>
+      <div class="s4-big" id="s4big">What are you trying to <em>figure out?</em></div>
+      <div class="s4-sub" id="s4sub">One question. We'll connect the rest. Cited, verified, yours.</div>
+      <div class="s4-brand" id="s4brand">
+        <div class="s4-name">healthcalculators.xyz</div>
+        <div class="s4-handle">@GetHealthC</div>
       </div>
     </div>
   </div>
@@ -213,123 +262,24 @@ body{background:#F5F0EA}
 
 <script>
 (function(){
-  var msgs=document.getElementById('msgs');
+  var bg=document.getElementById('bg');
 
-  // === Utilities ===
-  function addMsg(cls,html,delay,cb){
-    setTimeout(function(){
-      var m=document.createElement('div');
-      m.className='msg '+cls;
-      m.innerHTML=html;
-      msgs.appendChild(m);
-      requestAnimationFrame(function(){requestAnimationFrame(function(){
-        m.classList.add('in');
-        if(cb)setTimeout(cb,100);
-      })});
-    },delay);
-  }
-
-  function showTyping(delay,duration,cb){
-    setTimeout(function(){
-      var w=document.createElement('div');
-      w.className='typing-wrap';
-      w.innerHTML='<div class="typing-av"><span>P</span></div><div class="typing-dots"><span></span><span></span><span></span></div>';
-      msgs.appendChild(w);
-      requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('in')})});
-      setTimeout(function(){
-        w.remove();
-        if(cb)cb();
-      },duration);
-    },delay);
-  }
-
-  function addPills(options,delay,pickIndex,pickDelay,cb){
-    setTimeout(function(){
-      var wrap=document.createElement('div');
-      wrap.className='pills';
-      options.forEach(function(opt,i){
-        var p=document.createElement('div');
-        p.className='pill';
-        p.textContent=opt;
-        wrap.appendChild(p);
-        setTimeout(function(){p.classList.add('in')},80*i);
-      });
-      msgs.appendChild(wrap);
-      requestAnimationFrame(function(){requestAnimationFrame(function(){wrap.classList.add('in')})});
-
-      // Auto-pick one
-      setTimeout(function(){
-        var pills=wrap.querySelectorAll('.pill');
-        pills.forEach(function(p,i){
-          if(i===pickIndex)p.classList.add('picked');
-          else p.classList.add('fade');
-        });
-        setTimeout(function(){
-          wrap.remove();
-          if(cb)cb(options[pickIndex]);
-        },400);
-      },pickDelay);
-    },delay);
-  }
-
-  function addResultCard(delay){
-    setTimeout(function(){
-      var card=document.createElement('div');
-      card.className='result-card';
-      card.innerHTML=
-        '<div class="rc-shimmer"></div>'+
-        '<div class="rc-title">Your Sleep &amp; Energy Plan</div>'+
-        '<div id="rcRows"></div>'+
-        '<div class="rc-ring-wrap" id="rcRing">'+
-          '<div class="rc-ring"><svg viewBox="0 0 44 44"><circle class="track" cx="22" cy="22" r="20"/><circle class="fill" id="ringF" cx="22" cy="22" r="20"/></svg></div>'+
-          '<div class="rc-ring-text"><strong>75%</strong> sleep efficiency<br>improving with your new cutoff</div>'+
-        '</div>'+
-        '<div class="rc-sent" id="rcSent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span>Report sent to your email</span></div>';
-      msgs.appendChild(card);
-      requestAnimationFrame(function(){requestAnimationFrame(function(){card.classList.add('in')})});
-
-      var rows=[
-        {l:'Caffeine cutoff',v:'2:00 PM'},
-        {l:'Target sleep',v:'7h 30m'},
-        {l:'Daily calories',v:'2,340 kcal'},
-        {l:'Protein',v:'148g'}
-      ];
-      var container=card.querySelector('#rcRows');
-      rows.forEach(function(r,i){
-        setTimeout(function(){
-          var row=document.createElement('div');
-          row.className='rc-row';
-          row.innerHTML='<span class="rc-label">'+r.l+'</span><span class="rc-val">'+r.v+'</span>';
-          container.appendChild(row);
-          requestAnimationFrame(function(){requestAnimationFrame(function(){row.classList.add('in')})});
-        },400+i*250);
-      });
-
-      // Ring fills
-      setTimeout(function(){
-        document.getElementById('rcRing').classList.add('in');
-        setTimeout(function(){document.getElementById('ringF').classList.add('go')},200);
-      },1600);
-
-      // Sent confirmation + confetti
-      setTimeout(function(){
-        document.getElementById('rcSent').classList.add('in');
-        confetti(window.innerWidth/2, window.innerHeight*0.5, 30);
-      },2400);
-    },delay);
+  function show(id){
+    document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on')});
+    document.getElementById(id).classList.add('on');
   }
 
   function sparks(x,y,n){
+    var colors=['#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e','#f472b6'];
     for(var i=0;i<n;i++){
       var s=document.createElement('div');
       s.className='spark';
-      var sz=3+Math.random()*4;
+      var sz=3+Math.random()*5;
       var angle=Math.random()*Math.PI*2;
-      var dist=20+Math.random()*40;
-      var colors=['#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+      var dist=25+Math.random()*45;
       s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;'+
         'background:'+colors[Math.floor(Math.random()*colors.length)]+
-        ';--dx:'+(Math.cos(angle)*dist)+'px;--dy:'+(Math.sin(angle)*dist-15)+
+        ';--dx:'+(Math.cos(angle)*dist)+'px;--dy:'+(Math.sin(angle)*dist-20)+
         'px;animation:spark-out '+(0.4+Math.random()*0.3)+'s ease-out forwards;animation-delay:'+(i*0.02)+'s';
       document.body.appendChild(s);
       setTimeout(function(el){el.remove()},1000,s);
@@ -337,81 +287,158 @@ body{background:#F5F0EA}
   }
 
   function confetti(cx,cy,n){
-    var colors=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#ef4444','#22c55e','#3b82f6'];
+    var colors=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#f472b6','#3b82f6','#22c55e'];
     for(var i=0;i<n;i++){
       var c=document.createElement('div');
       c.className='confetti';
-      var x=cx+(Math.random()-0.5)*200;
-      c.style.cssText='left:'+x+'px;top:'+(cy-40)+'px;width:'+(4+Math.random()*4)+'px;height:'+(8+Math.random()*8)+
+      var x=cx+(Math.random()-0.5)*240;
+      var w=4+Math.random()*4;
+      var h=Math.random()>0.5?w:w*2.5;
+      c.style.cssText='left:'+x+'px;top:'+(cy-60)+'px;width:'+w+'px;height:'+h+
         'px;background:'+colors[Math.floor(Math.random()*colors.length)]+
-        ';--fall:'+(150+Math.random()*200)+'px;--spin:'+(360+Math.random()*360)+'deg;'+
-        'animation:confetti-fall '+(1+Math.random()*0.8)+'s ease-out forwards;animation-delay:'+(i*0.03)+'s;border-radius:'+(Math.random()>0.5?'50%':'2px');
+        ';--fall:'+(180+Math.random()*250)+'px;--spin:'+(200+Math.random()*500)+'deg;'+
+        'animation:conf-fall '+(1.2+Math.random()*0.8)+'s ease-out forwards;animation-delay:'+(i*0.025)+'s;'+
+        'border-radius:'+(Math.random()>0.5?'50%':'2px');
       document.body.appendChild(c);
       setTimeout(function(el){el.remove()},2500,c);
     }
   }
 
-  // === THE CONVERSATION ===
+  function addBub(cls,html,delay,cb){
+    setTimeout(function(){
+      var m=document.createElement('div');
+      m.className='bub '+cls;
+      m.innerHTML=html;
+      document.getElementById('s2msgs').appendChild(m);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        m.classList.add('in');
+        if(cb)setTimeout(cb,80);
+      })});
+    },delay);
+  }
 
-  // (0s) User sends a real question (from Twitter research: exact user language)
-  addMsg('u','When should I have my last coffee so it doesn\'t wreck my sleep? \u2615<span class="time">now</span>',600);
+  function showDots(delay,dur,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');
+      d.className='bub a';
+      d.innerHTML='<span class="dots"><span></span><span></span><span></span></span>';
+      document.getElementById('s2msgs').appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('in')})});
+      setTimeout(function(){d.remove();if(cb)cb()},dur);
+    },delay);
+  }
 
-  // (1.8s) Typing indicator
-  showTyping(1800,1400,function(){
+  // ============================
+  // SCENE 1 (0–3.5s): THE HOOK
+  // ============================
+  setTimeout(function(){document.getElementById('s1e').classList.add('in')},300);
+  setTimeout(function(){document.getElementById('s1h').classList.add('in')},600);
+  setTimeout(function(){document.getElementById('s1s').classList.add('in')},2000);
 
-    // (3.2s) AI responds — specific, personal, with the number
-    addMsg('a',
-      'Based on a 5-hour half-life: <span class="big-num" data-v="2:00 PM" id="bn1">2:00 PM</span>'+
-      '<span class="soft">That gives you 10 half-lives before midnight. Only 0.1% caffeine remaining.</span>',
-      0,function(){
-        // Chromatic flash + sparks on the number
-        var num=document.getElementById('bn1');
-        num.classList.add('flash');
-        setTimeout(function(){num.classList.remove('flash')},180);
-        var r=num.getBoundingClientRect();
-        sparks(r.left+r.width/2, r.top+r.height/2, 10);
-      }
-    );
-  });
-
-  // (5.5s) AI follows up — the companion asks back (Pi principle)
-  showTyping(5500,800,function(){
-    addMsg('a','That caffeine cutoff will improve your deep sleep. Which affects <span class="hl">everything else</span>. Want to see how?',0);
-  });
-
-  // (8s) Pill options float up
-  addPills(['\ud83d\udca4 Sleep + recovery','\ud83d\udd25 Calories & TDEE','\ud83c\udf57 Full plan'],8000,2,1800,function(picked){
-
-    // (10.5s) User "picked" full plan
-    addMsg('u',picked+'<span class="time">now</span>',200);
-
-    // (11.2s) Typing — longer this time, building anticipation
-    showTyping(700,1600,function(){
-
-      // (13s) AI responds with excitement
-      addMsg('a','I connected 3 tools for you \u2014 caffeine, TDEE, protein. Here\'s <span class="hl">your full picture</span>:',0);
-
-      // (14.5s) Report card materializes
-      addResultCard(1500);
-    });
-  });
-
-  // === SCENE: Companion close (24s) ===
+  // ====================================
+  // SCENE 2 (3.5–9.5s): THE CHAT
+  // ====================================
   setTimeout(function(){
-    var cw=document.getElementById('closeWrap');
-    cw.classList.add('on');
-    setTimeout(function(){document.getElementById('closeOrb').classList.add('in')},300);
-    setTimeout(function(){document.getElementById('closeBig').classList.add('in')},700);
-    setTimeout(function(){document.getElementById('closeSub').classList.add('in')},1600);
-    setTimeout(function(){document.getElementById('closeBrand').classList.add('in')},1600);
-  },24000);
+    show('sc2');
+    bg.className='bg bg-teal';
+
+    var phone=document.getElementById('phone');
+    setTimeout(function(){phone.classList.add('in')},100);
+
+    // User asks
+    addBub('u','When should I stop drinking coffee? ☕',500);
+
+    // Typing
+    showDots(1400,1000,function(){
+      // Answer with big number
+      addBub('a',
+        'Your cutoff: <span class="ans-num" data-v="2:00 PM" id="ansNum">2:00 PM</span>'+
+        '<br><span style="font-size:0.7rem;color:#7a7a82;margin-top:4px;display:inline-block">Based on your caffeine sensitivity. 10 half-lives before midnight.</span>',
+        0,function(){
+          var num=document.getElementById('ansNum');
+          num.classList.add('flash');
+          setTimeout(function(){num.classList.remove('flash')},180);
+          var r=num.getBoundingClientRect();
+          sparks(r.left+r.width/2,r.top+r.height/2,12);
+        }
+      );
+    });
+
+    // Follow-up: companion notices more
+    showDots(4200,800,function(){
+      addBub('a','That improves your sleep. Which changes <span class="hl">everything else</span>. Want the full picture?',0);
+    });
+  },3500);
+
+  // ==========================================
+  // SCENE 3 (9.5–16s): THE PAYOFF — full screen
+  // ==========================================
+  setTimeout(function(){
+    show('sc3');
+    bg.className='bg bg-glow';
+
+    var card=document.getElementById('s3card');
+    setTimeout(function(){card.classList.add('in')},200);
+
+    // Badge pops
+    setTimeout(function(){document.getElementById('s3badge').classList.add('in')},600);
+
+    // Bars grow with stagger
+    setTimeout(function(){
+      document.getElementById('s3bars').classList.add('in');
+      ['b1','b2','b3','b4','b5'].forEach(function(id,i){
+        setTimeout(function(){document.getElementById(id).classList.add('in')},i*120);
+      });
+    },900);
+
+    // Data rows
+    var rows=[
+      {l:'Caffeine cutoff',v:'2:00 PM'},
+      {l:'Target sleep',v:'7h 30m'},
+      {l:'Daily calories',v:'2,340 kcal'},
+      {l:'Protein',v:'148g'},
+      {l:'Training days',v:'4x / week'}
+    ];
+    var body=document.getElementById('s3body');
+    rows.forEach(function(r,i){
+      setTimeout(function(){
+        var row=document.createElement('div');
+        row.className='s3-row';
+        row.innerHTML='<span class="s3-label">'+r.l+'</span><span class="s3-val">'+r.v+'</span>';
+        body.appendChild(row);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){row.classList.add('in')})});
+      },1400+i*200);
+    });
+
+    // Sent + confetti
+    setTimeout(function(){
+      document.getElementById('s3sent').classList.add('in');
+      document.getElementById('s3from').classList.add('in');
+      var card=document.getElementById('s3card');
+      var rect=card.getBoundingClientRect();
+      confetti(rect.left+rect.width/2, rect.top+20, 35);
+    },3400);
+  },9500);
+
+  // ===========================================
+  // SCENE 4 (16–20.5s): THE COMPANION
+  // ===========================================
+  setTimeout(function(){
+    show('sc4');
+    bg.className='bg bg-warm';
+
+    setTimeout(function(){document.getElementById('s4orb').classList.add('in')},200);
+    setTimeout(function(){document.getElementById('s4big').classList.add('in')},500);
+    setTimeout(function(){document.getElementById('s4sub').classList.add('in')},1400);
+    setTimeout(function(){document.getElementById('s4brand').classList.add('in')},1400);
+  },16000);
 
   // Loop
   setTimeout(function(){
-    document.getElementById('closeWrap').style.transition='opacity 0.6s';
-    document.getElementById('closeWrap').style.opacity='0';
-    setTimeout(function(){location.reload()},700);
-  },29500);
+    document.getElementById('sc4').style.transition='opacity 0.5s';
+    document.getElementById('sc4').style.opacity='0';
+    setTimeout(function(){location.reload()},600);
+  },21000);
 
 })();
 </script>
