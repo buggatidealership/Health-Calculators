@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Film</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{--a:#0e7a7e;--ag:rgba(14,122,126,0.35);--bg:#060810;--s:#0b0e18;--t:#e4e6ea;--d:rgba(255,255,255,0.32);--m:rgba(255,255,255,0.1)}
+html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:var(--t)}
+
+/* Full viewport stage */
+.film{position:relative;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+/* Ambient */
+.glow{position:absolute;border-radius:50%;filter:blur(100px);pointer-events:none;opacity:0;transition:opacity 3s}
+.g1{width:400px;height:400px;background:radial-gradient(circle,rgba(14,122,126,0.06),transparent 70%);top:-100px;right:20%}
+.g2{width:300px;height:300px;background:radial-gradient(circle,rgba(99,102,241,0.03),transparent 70%);bottom:-50px;left:15%}
+.glow.on{opacity:1}
+
+/* Scenes */
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s cubic-bezier(0.25,1,0.5,1);pointer-events:none}
+.scene.active{opacity:1}
+
+/* === SCENE 1: Question === */
+.s1-question{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);text-align:center;max-width:600px;padding:0 32px;line-height:1.25;opacity:0;transform:translateY(24px);transition:all 1s cubic-bezier(0.25,1,0.5,1)}
+.s1-question.in{opacity:1;transform:translateY(0)}
+.s1-question em{font-style:italic;color:var(--a)}
+.s1-source{font-size:0.65rem;color:var(--d);margin-top:16px;opacity:0;transition:opacity 0.8s 0.4s}
+.s1-source.in{opacity:1}
+
+/* === SCENE 2: Calculator UI === */
+.s2-wrap{width:420px;transform:scale(0.92);opacity:0;transition:all 0.8s cubic-bezier(0.25,1,0.5,1)}
+.s2-wrap.in{transform:scale(1);opacity:1}
+
+.s2-card{background:var(--s);border:1px solid rgba(255,255,255,0.05);border-radius:16px;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,0.5)}
+
+.s2-toolbar{height:36px;background:rgba(255,255,255,0.02);border-bottom:1px solid rgba(255,255,255,0.04);display:flex;align-items:center;padding:0 14px;gap:6px}
+.s2-dot{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,0.08)}
+.s2-url{font-size:0.55rem;color:rgba(255,255,255,0.2);margin-left:auto;font-family:'DM Sans',monospace}
+
+.s2-body{padding:28px 24px 24px}
+.s2-eyebrow{font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--a);margin-bottom:6px}
+.s2-title{font-family:'DM Serif Display',serif;font-size:1.15rem;color:var(--t);margin-bottom:20px}
+
+/* Input rows */
+.s2-inputs{display:flex;flex-direction:column;gap:10px;margin-bottom:20px}
+.s2-input-row{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:10px;font-size:0.72rem}
+.s2-input-label{color:var(--d)}
+.s2-input-val{color:var(--t);font-weight:600;font-variant-numeric:tabular-nums}
+.s2-input-row.active{border-color:rgba(14,122,126,0.3);background:rgba(14,122,126,0.03)}
+.s2-input-row.active .s2-input-val{color:var(--a)}
+
+/* Activity selection */
+.s2-activity{display:flex;gap:6px;margin-bottom:20px}
+.s2-act-pill{flex:1;padding:8px 0;text-align:center;font-size:0.6rem;font-weight:600;color:var(--d);background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:8px;transition:all 0.3s}
+.s2-act-pill.sel{background:rgba(14,122,126,0.08);border-color:rgba(14,122,126,0.3);color:var(--a)}
+
+/* Divider */
+.s2-divider{height:1px;background:rgba(255,255,255,0.04);margin:0 -24px 20px}
+
+/* Result area */
+.s2-result{text-align:center;opacity:0;transform:translateY(12px);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+.s2-result.in{opacity:1;transform:translateY(0)}
+
+.s2-result-num{font-family:'DM Serif Display',serif;font-size:3.2rem;color:var(--t);line-height:1;font-variant-numeric:tabular-nums;letter-spacing:-0.02em}
+.s2-result-unit{font-size:0.65rem;color:var(--d);margin-top:4px;font-weight:500;text-transform:uppercase;letter-spacing:0.06em}
+
+/* Spectrum */
+.s2-spectrum{margin:16px 0 12px;padding:0 20px}
+.s2-spec-bar{height:4px;background:linear-gradient(90deg,rgba(14,122,126,0.12),var(--a),rgba(14,122,126,0.12));border-radius:2px;position:relative}
+.s2-spec-dot{position:absolute;top:-5px;width:14px;height:14px;border-radius:50%;background:var(--t);border:2.5px solid var(--bg);box-shadow:0 0 12px var(--ag);transform:translateX(-50%);transition:left 1.2s cubic-bezier(0.34,1.56,0.64,1)}
+.s2-spec-label{font-size:0.55rem;color:var(--d);text-align:center;margin-top:10px}
+.s2-spec-label strong{color:rgba(100,216,203,0.9);font-weight:600}
+
+/* Citation */
+.s2-cite{display:flex;align-items:center;justify-content:center;gap:5px;font-size:0.5rem;color:rgba(255,255,255,0.18);margin-top:14px;opacity:0;transition:opacity 0.6s 0.3s}
+.s2-cite.in{opacity:1}
+.s2-cite-dot{width:4px;height:4px;border-radius:50%;background:var(--a)}
+
+/* === SCENE 3: Scale === */
+.s3-wrap{text-align:center;max-width:520px;padding:0 24px}
+.s3-title{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3vw,2rem);color:var(--t);margin-bottom:8px;opacity:0;transition:all 0.7s cubic-bezier(0.25,1,0.5,1)}
+.s3-title.in{opacity:1}
+.s3-sub{font-size:0.72rem;color:var(--d);margin-bottom:28px;opacity:0;transition:opacity 0.6s 0.2s}
+.s3-sub.in{opacity:1}
+
+.s3-grid{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+.s3-tile{width:76px;height:50px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:0.52rem;color:var(--d);opacity:0;transform:scale(0.7) translateY(8px);transition:all 0.35s cubic-bezier(0.25,1,0.5,1)}
+.s3-tile.in{opacity:1;transform:scale(1) translateY(0)}
+.s3-tile .ico{font-size:0.85rem;margin-bottom:2px}
+.s3-tile.hl{border-color:rgba(14,122,126,0.25);background:rgba(14,122,126,0.04);color:rgba(255,255,255,0.5)}
+
+.s3-brand{margin-top:28px;opacity:0;transition:opacity 0.8s 0.3s}
+.s3-brand.in{opacity:1}
+.s3-brand-name{font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.6)}
+.s3-brand-handle{font-size:0.62rem;color:var(--a);margin-top:3px}
+</style>
+</head>
+<body>
+<div class="film" id="film">
+  <div class="glow g1" id="g1"></div>
+  <div class="glow g2" id="g2"></div>
+
+  <!-- SCENE 1: The question -->
+  <div class="scene active" id="sc1">
+    <div style="text-align:center">
+      <div class="s1-question" id="q1">How many calories do you <em>actually</em> burn?</div>
+      <div class="s1-source" id="q1src">18,100 people Google this every month</div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: The calculator -->
+  <div class="scene" id="sc2">
+    <div class="s2-wrap" id="s2w">
+      <div class="s2-card">
+        <div class="s2-toolbar">
+          <div class="s2-dot"></div><div class="s2-dot"></div><div class="s2-dot"></div>
+          <div class="s2-url">healthcalculators.xyz/tdee-calculator</div>
+        </div>
+        <div class="s2-body">
+          <div class="s2-eyebrow">Your daily calories</div>
+          <div class="s2-title">TDEE Calculator</div>
+
+          <div class="s2-inputs" id="inputs">
+            <div class="s2-input-row" id="ir1"><span class="s2-input-label">Sex</span><span class="s2-input-val">Male</span></div>
+            <div class="s2-input-row" id="ir2"><span class="s2-input-label">Age</span><span class="s2-input-val">28 years</span></div>
+            <div class="s2-input-row" id="ir3"><span class="s2-input-label">Height</span><span class="s2-input-val">5'10"</span></div>
+            <div class="s2-input-row" id="ir4"><span class="s2-input-label">Weight</span><span class="s2-input-val">165 lbs</span></div>
+          </div>
+
+          <div class="s2-activity" id="acts">
+            <div class="s2-act-pill">Sedentary</div>
+            <div class="s2-act-pill">Light</div>
+            <div class="s2-act-pill sel" id="act-mod">Moderate</div>
+            <div class="s2-act-pill">Active</div>
+          </div>
+
+          <div class="s2-divider"></div>
+
+          <div class="s2-result" id="s2res">
+            <div class="s2-result-num" id="s2num">0</div>
+            <div class="s2-result-unit">calories per day</div>
+
+            <div class="s2-spectrum">
+              <div class="s2-spec-bar">
+                <div class="s2-spec-dot" id="s2dot" style="left:0%"></div>
+              </div>
+              <div class="s2-spec-label" id="s2pct">You burn more than <strong>0%</strong> of people your age</div>
+            </div>
+
+            <div class="s2-cite" id="s2cite">
+              <span class="s2-cite-dot"></span>
+              Mifflin-St Jeor et al., Am J Clin Nutr, 1990 · PubMed
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: Scale -->
+  <div class="scene" id="sc3">
+    <div class="s3-wrap">
+      <div class="s3-title" id="s3t">One AI. 90+ tools.<br>Every one cited.</div>
+      <div class="s3-sub" id="s3s">Each calculator starts with a peer-reviewed paper and ends with a source you can verify.</div>
+      <div class="s3-grid" id="s3grid"></div>
+      <div class="s3-brand" id="s3b">
+        <div class="s3-brand-name">healthcalculators.xyz</div>
+        <div class="s3-brand-handle">@GetHealthC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var scenes=['sc1','sc2','sc3'];
+  function showScene(id){
+    scenes.forEach(function(s){document.getElementById(s).classList.remove('active')});
+    document.getElementById(id).classList.add('active');
+  }
+
+  function countUp(el,target,dur){
+    var start=performance.now();
+    (function tick(now){
+      var p=Math.min((now-start)/dur,1);
+      var e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e).toLocaleString();
+      if(p<1)requestAnimationFrame(tick);
+    })(performance.now());
+  }
+
+  // Ambient
+  setTimeout(function(){
+    document.getElementById('g1').classList.add('on');
+    document.getElementById('g2').classList.add('on');
+  },300);
+
+  // === SCENE 1 (0-4s): Question ===
+  setTimeout(function(){
+    document.getElementById('q1').classList.add('in');
+  },400);
+  setTimeout(function(){
+    document.getElementById('q1src').classList.add('in');
+  },1200);
+
+  // === SCENE 2 (4-11s): Calculator ===
+  setTimeout(function(){
+    showScene('sc2');
+    setTimeout(function(){document.getElementById('s2w').classList.add('in')},100);
+
+    // Highlight inputs sequentially
+    var rows=['ir1','ir2','ir3','ir4'];
+    rows.forEach(function(id,i){
+      setTimeout(function(){
+        document.getElementById(id).classList.add('active');
+        setTimeout(function(){document.getElementById(id).classList.remove('active')},400);
+      },600+i*300);
+    });
+
+    // Show result after inputs
+    setTimeout(function(){
+      document.getElementById('s2res').classList.add('in');
+      countUp(document.getElementById('s2num'),2678,1000);
+      setTimeout(function(){
+        document.getElementById('s2dot').style.left='71%';
+        document.getElementById('s2pct').innerHTML='You burn more than <strong>71%</strong> of people your age';
+      },200);
+      setTimeout(function(){
+        document.getElementById('s2cite').classList.add('in');
+      },600);
+    },2200);
+  },4000);
+
+  // === SCENE 3 (11-15s): Scale ===
+  setTimeout(function(){
+    showScene('sc3');
+    setTimeout(function(){document.getElementById('s3t').classList.add('in')},200);
+    setTimeout(function(){document.getElementById('s3s').classList.add('in')},400);
+
+    var tiles=[
+      {i:'🔥',n:'TDEE',hl:1},{i:'💉',n:'Ozempic',hl:0},{i:'☀️',n:'Vitamin D',hl:0},
+      {i:'⚖️',n:'BMI',hl:0},{i:'💧',n:'Creatine',hl:0},{i:'👶',n:'IVF',hl:0},
+      {i:'📊',n:'Training',hl:0},{i:'💤',n:'Sleep',hl:0},{i:'☕',n:'Caffeine',hl:0},
+      {i:'🏃',n:'Calories',hl:0},{i:'🥩',n:'Protein',hl:0},{i:'🫁',n:'VO2 Max',hl:0}
+    ];
+    var grid=document.getElementById('s3grid');
+    tiles.forEach(function(t,i){
+      var el=document.createElement('div');
+      el.className='s3-tile'+(t.hl?' hl':'');
+      el.innerHTML='<span class="ico">'+t.i+'</span>'+t.n;
+      grid.appendChild(el);
+      setTimeout(function(){el.classList.add('in')},600+i*60);
+    });
+
+    setTimeout(function(){document.getElementById('s3b').classList.add('in')},1600);
+  },11000);
+
+  // Loop after 16s
+  setTimeout(function(){
+    // Fade out
+    document.getElementById('sc3').style.transition='opacity 0.6s';
+    document.getElementById('sc3').style.opacity='0';
+    setTimeout(function(){
+      // Reset everything
+      document.getElementById('sc3').style='';
+      document.getElementById('q1').classList.remove('in');
+      document.getElementById('q1src').classList.remove('in');
+      document.getElementById('s2w').classList.remove('in');
+      document.getElementById('s2res').classList.remove('in');
+      document.getElementById('s2cite').classList.remove('in');
+      document.getElementById('s2dot').style.left='0%';
+      document.getElementById('s2num').textContent='0';
+      document.getElementById('s3t').classList.remove('in');
+      document.getElementById('s3s').classList.remove('in');
+      document.getElementById('s3b').classList.remove('in');
+      document.getElementById('s3grid').innerHTML='';
+      showScene('sc1');
+      // Restart — rerun after brief pause
+      setTimeout(function(){location.reload()},200);
+    },700);
+  },15500);
+})();
+</script>
+</body>
+</html>
