@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    meta_description="Your personal health dashboard — trends, insights, and plans powered by Pulse.",
+    meta_keywords="",
+    og_title="Sarah's Pulse Dashboard",
+    og_description="Your personal health dashboard — trends, insights, and plans powered by Pulse.",
+    og_url="/mockup-pulse-dashboard",
+    og_image="default-calculator-og.jpg",
+    page_title="Pulse Dashboard — Mockup",
+    canonical_url="/mockup-pulse-dashboard",
+    robots_meta="noindex, nofollow"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f6f1eb;
+    color: #1a1a1a;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .pd-container {
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 0 16px 48px;
+  }
+
+  /* ---- Spring animation system ---- */
+  .pd-animate {
+    opacity: 0;
+    transform: translateY(24px) scale(0.97);
+  }
+  .pd-animate.visible {
+    animation: springIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  @keyframes springIn {
+    0% { opacity: 0; transform: translateY(24px) scale(0.97); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* ---- Card base ---- */
+  .pd-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+
+  /* ---- Header ---- */
+  .pd-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0 12px;
+  }
+  .pd-header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .pd-logo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #0e7a7e, #12a5a9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+  .pd-header-text h1 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #1a1a1a;
+  }
+  .pd-header-meta {
+    font-size: 12px;
+    color: #888;
+    margin-top: 2px;
+  }
+  .pd-week-badge {
+    background: #e8f5f5;
+    color: #0e7a7e;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ---- Hero Insight Card ---- */
+  .pd-insight {
+    background: linear-gradient(135deg, #f0fafa, #f6f1eb);
+    border: 1px solid rgba(14, 122, 126, 0.08);
+  }
+  .pd-insight-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #0e7a7e;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .pd-insight-body {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #2a2a2a;
+  }
+  .pd-insight-body strong {
+    color: #0e7a7e;
+    font-weight: 600;
+  }
+
+  /* ---- Stats Row ---- */
+  .pd-stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .pd-stat-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 16px 12px 14px;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
+  }
+  .pd-stat-icon {
+    font-size: 16px;
+    margin-bottom: 4px;
+  }
+  .pd-stat-value {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+  }
+  .pd-stat-value.teal { color: #0e7a7e; }
+  .pd-stat-value.green { color: #1a8c3e; }
+  .pd-stat-label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  .pd-stat-arrow {
+    font-size: 12px;
+    vertical-align: middle;
+  }
+
+  /* Sparkline */
+  .pd-sparkline {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 2px;
+    height: 16px;
+    margin-top: 8px;
+  }
+  .pd-sparkline-bar {
+    width: 4px;
+    border-radius: 2px;
+    background: #d4eded;
+    transition: height 0.5s ease;
+  }
+  .pd-sparkline-bar.accent { background: #0e7a7e; }
+  .pd-sparkline-bar.green-bar { background: #1a8c3e; }
+
+  /* ---- Trend Chart ---- */
+  .pd-chart-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: #1a1a1a;
+  }
+  .pd-chart-wrap {
+    position: relative;
+    width: 100%;
+    height: 180px;
+  }
+  .pd-chart-svg {
+    width: 100%;
+    height: 100%;
+  }
+  .pd-chart-line {
+    fill: none;
+    stroke: #0e7a7e;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+  }
+  .pd-chart-line.drawn {
+    animation: drawLine 1.5s ease forwards;
+  }
+  @keyframes drawLine {
+    to { stroke-dashoffset: 0; }
+  }
+  .pd-chart-area {
+    opacity: 0;
+  }
+  .pd-chart-area.drawn {
+    animation: fadeArea 1s ease 0.8s forwards;
+  }
+  @keyframes fadeArea {
+    to { opacity: 1; }
+  }
+  .pd-chart-dot {
+    fill: #0e7a7e;
+    opacity: 0;
+  }
+  .pd-chart-dot.drawn {
+    animation: popDot 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  .pd-chart-annotation {
+    opacity: 0;
+  }
+  .pd-chart-annotation.drawn {
+    animation: fadeIn 0.5s ease 1.2s forwards;
+  }
+  @keyframes fadeIn {
+    to { opacity: 1; }
+  }
+  @keyframes popDot {
+    0% { opacity: 0; r: 0; }
+    100% { opacity: 1; }
+  }
+  .pd-chart-grid-line {
+    stroke: #eee;
+    stroke-width: 1;
+  }
+  .pd-chart-label {
+    font-size: 10px;
+    fill: #aaa;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .pd-annotation-line {
+    stroke: #0e7a7e;
+    stroke-width: 1;
+    stroke-dasharray: 3 3;
+  }
+  .pd-annotation-text {
+    font-size: 10px;
+    fill: #0e7a7e;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+  }
+  .pd-annotation-dot {
+    fill: #fff;
+    stroke: #0e7a7e;
+    stroke-width: 2;
+  }
+
+  /* ---- Plan Cards ---- */
+  .pd-plan-title {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #1a1a1a;
+  }
+  .pd-plan-items {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .pd-plan-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fafafa;
+    border-radius: 12px;
+    padding: 14px 16px;
+    transition: background 0.2s ease;
+  }
+  .pd-plan-item:hover {
+    background: #f0f0f0;
+  }
+  .pd-plan-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .pd-plan-emoji {
+    font-size: 18px;
+    width: 28px;
+    text-align: center;
+    flex-shrink: 0;
+  }
+  .pd-plan-info {
+    line-height: 1.3;
+  }
+  .pd-plan-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+  }
+  .pd-plan-detail {
+    font-size: 12px;
+    color: #888;
+    margin-top: 1px;
+  }
+  .pd-plan-actions {
+    display: flex;
+    gap: 6px;
+  }
+  .pd-btn-outline {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #0e7a7e;
+    background: transparent;
+    border: 1.5px solid #0e7a7e;
+    border-radius: 8px;
+    padding: 5px 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .pd-btn-outline:hover {
+    background: #0e7a7e;
+    color: #fff;
+  }
+  .pd-btn-ghost {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #888;
+    background: transparent;
+    border: 1.5px solid #ddd;
+    border-radius: 8px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .pd-btn-ghost:hover {
+    border-color: #aaa;
+    color: #555;
+  }
+
+  /* ---- Milestone ---- */
+  .pd-milestone {
+    text-align: center;
+    overflow: hidden;
+  }
+  .pd-milestone-emoji {
+    font-size: 28px;
+    margin-bottom: 4px;
+  }
+  .pd-milestone-heading {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  .pd-milestone-sub {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 16px;
+  }
+
+  /* Share card */
+  .pd-share-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    margin: 0 auto 16px;
+    max-width: 340px;
+    border: 1px solid #eee;
+  }
+  .pd-share-top {
+    background: linear-gradient(135deg, #0e7a7e, #12a5a9);
+    padding: 14px 16px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: left;
+  }
+  .pd-share-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 16px 12px;
+  }
+  .pd-share-stat {
+    text-align: center;
+  }
+  .pd-share-stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .pd-share-stat-label {
+    font-size: 10px;
+    color: #888;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+  .pd-share-footer {
+    padding: 8px 16px 10px;
+    background: #fafafa;
+    font-size: 10px;
+    color: #aaa;
+    text-align: center;
+    border-top: 1px solid #eee;
+  }
+
+  .pd-share-btns {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+  }
+  .pd-btn-solid {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+  }
+  .pd-btn-teal {
+    background: #0e7a7e;
+    color: #fff;
+  }
+  .pd-btn-teal:hover {
+    background: #0b6265;
+  }
+  .pd-btn-light {
+    background: #f0f0f0;
+    color: #1a1a1a;
+  }
+  .pd-btn-light:hover {
+    background: #e5e5e5;
+  }
+
+  /* ---- Next Check-in ---- */
+  .pd-checkin {
+    text-align: center;
+  }
+  .pd-checkin-time {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+  .pd-checkin-time strong {
+    color: #1a1a1a;
+    font-weight: 600;
+  }
+  .pd-checkin-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .pd-checkin-divider::before,
+  .pd-checkin-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8e8e8;
+  }
+  .pd-checkin-divider span {
+    font-size: 12px;
+    color: #aaa;
+    font-weight: 500;
+  }
+  .pd-checkin-input-wrap {
+    position: relative;
+  }
+  .pd-checkin-input {
+    font-family: 'DM Sans', sans-serif;
+    width: 100%;
+    padding: 14px 48px 14px 16px;
+    border: 1.5px solid #ddd;
+    border-radius: 12px;
+    font-size: 14px;
+    color: #1a1a1a;
+    background: #fafafa;
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+  .pd-checkin-input::placeholder {
+    color: #bbb;
+  }
+  .pd-checkin-input:focus {
+    border-color: #0e7a7e;
+    background: #fff;
+  }
+  .pd-checkin-send {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    background: #0e7a7e;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease;
+  }
+  .pd-checkin-send:hover {
+    background: #0b6265;
+  }
+
+  /* ---- Utility ---- */
+  .pd-spacer { height: 4px; }
+</style>
+</head>
+<body>
+
+<div class="pd-container">
+
+  <!-- Header -->
+  <div class="pd-header pd-animate" data-delay="0">
+    <div class="pd-header-left">
+      <div class="pd-logo">P</div>
+      <div class="pd-header-text">
+        <h1>Sarah's Dashboard</h1>
+        <div class="pd-header-meta">Last updated: 5 min ago</div>
+      </div>
+    </div>
+    <div class="pd-week-badge">Week 2</div>
+  </div>
+
+  <!-- Hero Insight -->
+  <div class="pd-card pd-insight pd-animate" data-delay="200">
+    <div class="pd-insight-label">
+      <span>&#x1f4a1;</span> Pulse noticed something
+    </div>
+    <div class="pd-insight-body">
+      Your sleep quality jumped <strong>23%</strong> &mdash; and it started exactly 3 days after you set the caffeine cutoff. That's not a coincidence. Cortisol drops when deep sleep improves, which is why the scale moved this week.
+    </div>
+  </div>
+
+  <!-- Stats Row -->
+  <div class="pd-stats-row pd-animate" data-delay="400">
+    <div class="pd-stat-card">
+      <div class="pd-stat-icon">&#x1f525;</div>
+      <div class="pd-stat-value teal" data-count="12">0</div>
+      <div class="pd-stat-label">Caffeine streak</div>
+      <div class="pd-sparkline">
+        <div class="pd-sparkline-bar" style="height:4px"></div>
+        <div class="pd-sparkline-bar" style="height:5px"></div>
+        <div class="pd-sparkline-bar" style="height:6px"></div>
+        <div class="pd-sparkline-bar" style="height:7px"></div>
+        <div class="pd-sparkline-bar" style="height:8px"></div>
+        <div class="pd-sparkline-bar" style="height:9px"></div>
+        <div class="pd-sparkline-bar accent" style="height:12px"></div>
+      </div>
+    </div>
+    <div class="pd-stat-card">
+      <div class="pd-stat-icon">&#x2191;</div>
+      <div class="pd-stat-value green" data-count="23" data-prefix="+" data-suffix="%">0</div>
+      <div class="pd-stat-label">Sleep quality</div>
+      <div class="pd-sparkline">
+        <div class="pd-sparkline-bar green-bar" style="height:4px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:4px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:5px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:7px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:9px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:11px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:14px"></div>
+      </div>
+    </div>
+    <div class="pd-stat-card">
+      <div class="pd-stat-icon">&#x2193;</div>
+      <div class="pd-stat-value green" data-count="1.4" data-prefix="-" data-suffix=" kg" data-decimal="1">0</div>
+      <div class="pd-stat-label">Weight</div>
+      <div class="pd-sparkline">
+        <div class="pd-sparkline-bar green-bar" style="height:14px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:13px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:13px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:11px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:9px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:7px"></div>
+        <div class="pd-sparkline-bar green-bar" style="height:5px"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Trend Chart -->
+  <div class="pd-card pd-animate" data-delay="600" id="pd-chart-card">
+    <div class="pd-chart-title">Your Sleep Quality &mdash; 14 days</div>
+    <div class="pd-chart-wrap">
+      <svg class="pd-chart-svg" viewBox="0 0 400 180" preserveAspectRatio="none">
+        <!-- Grid lines -->
+        <line class="pd-chart-grid-line" x1="40" y1="20" x2="390" y2="20"/>
+        <line class="pd-chart-grid-line" x1="40" y1="60" x2="390" y2="60"/>
+        <line class="pd-chart-grid-line" x1="40" y1="100" x2="390" y2="100"/>
+        <line class="pd-chart-grid-line" x1="40" y1="140" x2="390" y2="140"/>
+
+        <!-- Y labels -->
+        <text class="pd-chart-label" x="34" y="24" text-anchor="end">90</text>
+        <text class="pd-chart-label" x="34" y="64" text-anchor="end">75</text>
+        <text class="pd-chart-label" x="34" y="104" text-anchor="end">60</text>
+        <text class="pd-chart-label" x="34" y="144" text-anchor="end">45</text>
+
+        <!-- X labels -->
+        <text class="pd-chart-label" x="65" y="168" text-anchor="middle">1</text>
+        <text class="pd-chart-label" x="115" y="168" text-anchor="middle">3</text>
+        <text class="pd-chart-label" x="165" y="168" text-anchor="middle">5</text>
+        <text class="pd-chart-label" x="215" y="168" text-anchor="middle">7</text>
+        <text class="pd-chart-label" x="265" y="168" text-anchor="middle">9</text>
+        <text class="pd-chart-label" x="315" y="168" text-anchor="middle">11</text>
+        <text class="pd-chart-label" x="365" y="168" text-anchor="middle">14</text>
+
+        <!-- Area fill -->
+        <path class="pd-chart-area" d="M65,120 L90,122 L115,118 L140,100 L165,88 L190,80 L215,68 L240,60 L265,52 L290,45 L315,38 L340,32 L365,26 L365,155 L65,155 Z" fill="url(#areaGrad)"/>
+
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0e7a7e" stop-opacity="0.15"/>
+            <stop offset="100%" stop-color="#0e7a7e" stop-opacity="0.01"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Data line: flat days 1-3, then climbing -->
+        <polyline class="pd-chart-line" points="65,120 90,122 115,118 140,100 165,88 190,80 215,68 240,60 265,52 290,45 315,38 340,32 365,26"/>
+
+        <!-- Annotation: vertical dashed line at day 3 -->
+        <line class="pd-annotation-line pd-chart-annotation" x1="115" y1="20" x2="115" y2="155"/>
+        <circle class="pd-annotation-dot pd-chart-annotation" cx="115" cy="118" r="5"/>
+        <text class="pd-annotation-text pd-chart-annotation" x="121" y="40">Caffeine cutoff</text>
+        <text class="pd-annotation-text pd-chart-annotation" x="121" y="52">started</text>
+
+        <!-- End dot -->
+        <circle class="pd-chart-dot" cx="365" cy="26" r="4.5"/>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Your Plan -->
+  <div class="pd-card pd-animate" data-delay="800">
+    <div class="pd-plan-title">This Week's Plan</div>
+    <div class="pd-plan-items">
+      <div class="pd-plan-item">
+        <div class="pd-plan-left">
+          <div class="pd-plan-emoji">&#x2615;</div>
+          <div class="pd-plan-info">
+            <div class="pd-plan-name">Caffeine cutoff</div>
+            <div class="pd-plan-detail">2:00 PM daily</div>
+          </div>
+        </div>
+        <div class="pd-plan-actions">
+          <button class="pd-btn-outline">Edit</button>
+        </div>
+      </div>
+      <div class="pd-plan-item">
+        <div class="pd-plan-left">
+          <div class="pd-plan-emoji">&#x1f6d2;</div>
+          <div class="pd-plan-info">
+            <div class="pd-plan-name">Grocery list</div>
+            <div class="pd-plan-detail">7 items</div>
+          </div>
+        </div>
+        <div class="pd-plan-actions">
+          <button class="pd-btn-ghost">View</button>
+          <button class="pd-btn-outline">Regenerate</button>
+        </div>
+      </div>
+      <div class="pd-plan-item">
+        <div class="pd-plan-left">
+          <div class="pd-plan-emoji">&#x1f3cb;&#xfe0f;</div>
+          <div class="pd-plan-info">
+            <div class="pd-plan-name">Training</div>
+            <div class="pd-plan-detail">4 days / week</div>
+          </div>
+        </div>
+        <div class="pd-plan-actions">
+          <button class="pd-btn-ghost">PDF</button>
+          <button class="pd-btn-outline">Adjust</button>
+        </div>
+      </div>
+      <div class="pd-plan-item">
+        <div class="pd-plan-left">
+          <div class="pd-plan-emoji">&#x1f4a7;</div>
+          <div class="pd-plan-info">
+            <div class="pd-plan-name">Water intake</div>
+            <div class="pd-plan-detail">2.5L target</div>
+          </div>
+        </div>
+        <div class="pd-plan-actions">
+          <button class="pd-btn-outline">Edit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Milestone -->
+  <div class="pd-card pd-milestone pd-animate" data-delay="1000">
+    <div class="pd-milestone-emoji">&#x1f389;</div>
+    <div class="pd-milestone-heading">14-Day Streak!</div>
+    <div class="pd-milestone-sub">You've checked in every day for 2 weeks.</div>
+
+    <div class="pd-share-card">
+      <div class="pd-share-top">Sarah's 14-Day Pulse Report</div>
+      <div class="pd-share-stats">
+        <div class="pd-share-stat">
+          <div class="pd-share-stat-value">12 days</div>
+          <div class="pd-share-stat-label">Caffeine streak</div>
+        </div>
+        <div class="pd-share-stat">
+          <div class="pd-share-stat-value">+23%</div>
+          <div class="pd-share-stat-label">Sleep quality</div>
+        </div>
+        <div class="pd-share-stat">
+          <div class="pd-share-stat-value">-1.4 kg</div>
+          <div class="pd-share-stat-label">Weight</div>
+        </div>
+      </div>
+      <div class="pd-share-footer">Powered by Pulse &mdash; healthcalculators.xyz</div>
+    </div>
+
+    <div class="pd-share-btns">
+      <button class="pd-btn-solid pd-btn-teal">Share on Twitter</button>
+      <button class="pd-btn-solid pd-btn-light">Save Image</button>
+    </div>
+  </div>
+
+  <!-- Next Check-in -->
+  <div class="pd-card pd-checkin pd-animate" data-delay="1100">
+    <div class="pd-checkin-time">
+      Your next check-in is <strong>tonight at 8:00 PM</strong> on WhatsApp
+    </div>
+    <div class="pd-checkin-divider"><span>or ask me anything now</span></div>
+    <div class="pd-checkin-input-wrap">
+      <input type="text" class="pd-checkin-input" placeholder="What are you trying to figure out?">
+      <button class="pd-checkin-send" aria-label="Send">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path d="M14 2L7 9M14 2L9.5 14L7 9M14 2L2 6.5L7 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Staggered spring-in animations
+document.addEventListener('DOMContentLoaded', () => {
+  const els = document.querySelectorAll('.pd-animate');
+  els.forEach(el => {
+    const delay = parseInt(el.dataset.delay || 0);
+    setTimeout(() => {
+      el.classList.add('visible');
+    }, delay);
+  });
+
+  // Count-up animation for stats
+  setTimeout(() => {
+    document.querySelectorAll('[data-count]').forEach(el => {
+      const target = parseFloat(el.dataset.count);
+      const prefix = el.dataset.prefix || '';
+      const suffix = el.dataset.suffix || '';
+      const decimal = parseInt(el.dataset.decimal || 0);
+      const duration = 1200;
+      const start = performance.now();
+
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        // Ease out
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const current = target * eased;
+        el.textContent = prefix + current.toFixed(decimal) + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }, 500);
+
+  // Chart draw animation
+  setTimeout(() => {
+    document.querySelectorAll('.pd-chart-line').forEach(el => el.classList.add('drawn'));
+    document.querySelectorAll('.pd-chart-area').forEach(el => el.classList.add('drawn'));
+    document.querySelectorAll('.pd-chart-dot').forEach(el => el.classList.add('drawn'));
+    document.querySelectorAll('.pd-chart-annotation').forEach(el => el.classList.add('drawn'));
+  }, 700);
+});
+</script>
+</body>
+</html>

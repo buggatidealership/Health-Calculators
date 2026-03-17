@@ -5449,6 +5449,21 @@ def mockup_pulse_story():
         breadcrumb_title='How Pulse Works'
     )
 
+@app.route('/mockup-pulse-dashboard')
+def mockup_pulse_dashboard():
+    return render_template(
+        'mockup-pulse-dashboard.html',
+        is_homepage=False,
+        is_catalog=True,
+        schema_type='WebPage',
+        schema_name='Pulse Dashboard',
+        schema_description='Your personal health dashboard powered by Pulse.',
+        schema_url='/mockup-pulse-dashboard',
+        canonical_url='/mockup-pulse-dashboard',
+        robots_meta='noindex, nofollow',
+        breadcrumb_title='Pulse Dashboard'
+    )
+
 @app.route('/mockup-bmi-redesign')
 def mockup_bmi_redesign():
     return render_template(
