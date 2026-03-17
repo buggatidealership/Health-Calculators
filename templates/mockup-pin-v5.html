@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pin V5</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#0f1419;--cream:#f6f1eb;--teal:#0e7a7e;--teal-light:rgba(14,122,126,0.12);
+  --mint:#d1fae5;--white:#ffffff;--text-dark:#1a1a1a;--text-mid:#6b7280;--text-light:#9ca3af;
+  --spring:cubic-bezier(0.34,1.56,0.64,1);--pop:cubic-bezier(0,1.5,0.5,1);
+  --ease-out:cubic-bezier(0.25,1,0.5,1);
+}
+html,body{background:var(--cream);width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif}
+
+/* === SPLIT LAYOUT === */
+.stage{position:relative;width:100vw;height:100vh;display:flex;overflow:hidden}
+.left{width:50%;height:100%;background:var(--dark);position:relative;overflow:hidden;transition:opacity 1s ease,transform 1s var(--ease-out);flex-shrink:0}
+.right{width:50%;height:100%;background:var(--cream);position:relative;overflow:hidden;transition:width 1s var(--ease-out);flex-shrink:0}
+.left.dimmed{opacity:0.6}
+.left.gone{transform:translateX(-100%);opacity:0;width:0;flex-shrink:1}
+.right.full{width:100%}
+
+/* === LEFT SIDE: CHAOS === */
+.search-bar{position:absolute;top:60px;left:24px;right:24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);border-radius:24px;padding:10px 18px;display:flex;align-items:center;gap:10px}
+.search-icon{color:rgba(255,255,255,0.3);font-size:0.75rem}
+.search-text{color:rgba(255,255,255,0.7);font-size:0.68rem;font-family:'DM Sans',sans-serif;white-space:nowrap;overflow:hidden;border-right:2px solid rgba(255,255,255,0.5)}
+.search-text.done{border-right-color:transparent}
+
+.search-results{position:absolute;top:110px;left:16px;right:16px;display:flex;flex-direction:column;gap:8px}
+.search-result{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:10px 14px;opacity:0;transform:translateY(12px);transition:all 0.4s var(--ease-out)}
+.search-result.in{opacity:1;transform:translateY(0)}
+.sr-source{font-size:0.5rem;color:rgba(255,255,255,0.25);margin-bottom:3px;display:flex;align-items:center;gap:5px}
+.sr-dot{width:5px;height:5px;border-radius:50%}
+.sr-title{font-size:0.62rem;color:rgba(255,255,255,0.7);line-height:1.35}
+.sr-snippet{font-size:0.52rem;color:rgba(255,255,255,0.3);margin-top:3px;line-height:1.4}
+.sr-conflict{color:rgba(239,68,68,0.6);font-weight:600}
+
+/* === RIGHT SIDE: COMPANION === */
+.chat-area{position:absolute;inset:0;display:flex;flex-direction:column;padding:20px 16px 16px}
+.chat-header{display:flex;align-items:center;gap:10px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid rgba(0,0,0,0.06)}
+
+/* Pulse avatar */
+.pulse-avatar{position:relative;width:28px;height:28px;flex-shrink:0}
+.pulse-orb{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0e7a7e,#14b8a6);animation:breathe 3s ease-in-out infinite}
+.pulse-dot{position:absolute;bottom:0;right:0;width:8px;height:8px;border-radius:50%;background:#22c55e;border:2px solid var(--cream)}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:0.9}50%{transform:scale(1.08);opacity:1}}
+
+.pulse-name{font-size:0.72rem;font-weight:600;color:var(--text-dark)}
+.pulse-status{font-size:0.5rem;color:var(--text-light)}
+
+.chat-messages{flex:1;overflow:hidden;display:flex;flex-direction:column;gap:8px}
+
+/* Chat bubbles */
+.bubble{max-width:88%;padding:10px 14px;border-radius:16px;font-size:0.65rem;line-height:1.5;opacity:0;transform:translateY(10px) scale(0.95);transition:all 0.5s var(--spring)}
+.bubble.in{opacity:1;transform:translateY(0) scale(1)}
+.bubble.user{background:var(--mint);color:#065f46;align-self:flex-end;border-bottom-right-radius:4px}
+.bubble.ai{background:var(--white);color:var(--text-dark);align-self:flex-start;border-bottom-left-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+
+/* Typing indicator */
+.typing{display:flex;gap:4px;padding:10px 14px;align-self:flex-start;opacity:0;transition:opacity 0.3s}
+.typing.in{opacity:1}
+.typing span{width:6px;height:6px;border-radius:50%;background:rgba(0,0,0,0.2);animation:typedot 1.4s infinite}
+.typing span:nth-child(2){animation-delay:0.2s}
+.typing span:nth-child(3){animation-delay:0.4s}
+@keyframes typedot{0%,60%,100%{transform:translateY(0);opacity:0.3}30%{transform:translateY(-4px);opacity:0.8}}
+
+/* Pills */
+.pills{display:flex;gap:6px;flex-wrap:wrap;opacity:0;transform:translateY(8px);transition:all 0.4s var(--spring)}
+.pills.in{opacity:1;transform:translateY(0)}
+.pill{padding:7px 14px;border-radius:20px;font-size:0.6rem;font-weight:500;background:var(--white);border:1px solid rgba(0,0,0,0.1);color:var(--text-dark);cursor:pointer;transition:all 0.3s var(--spring)}
+.pill.selected{background:var(--teal);color:white;border-color:var(--teal);transform:scale(1.05)}
+.pill.faded{opacity:0.3;transform:scale(0.92)}
+
+/* Waiting prompt */
+.wait-prompt{font-size:0.72rem;color:var(--text-light);font-style:italic;margin-top:auto;opacity:0;transition:opacity 1s}
+.wait-prompt.in{opacity:1}
+
+/* === PHASE 4: DELIVERABLE CARDS (full width) === */
+.deliverables{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px 32px;opacity:0;pointer-events:none;transition:opacity 0.6s}
+.deliverables.active{opacity:1;pointer-events:auto}
+
+.dcard{width:100%;max-width:380px;background:var(--white);border-radius:14px;padding:16px 18px;box-shadow:0 4px 20px rgba(0,0,0,0.08);opacity:0;transform:translateY(30px) scale(0.9);transition:all 0.7s var(--spring)}
+.dcard.in{opacity:1;transform:translateY(0) scale(1)}
+
+.dcard-header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.dcard-icon{width:32px;height:32px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:1rem}
+.dcard-title{font-size:0.7rem;font-weight:600;color:var(--text-dark)}
+.dcard-sub{font-size:0.52rem;color:var(--text-light)}
+
+/* WhatsApp card */
+.wa-notif{display:flex;align-items:center;gap:10px;background:#f0fdf4;border-radius:10px;padding:10px 12px}
+.wa-icon{font-size:1.2rem}
+.wa-text{font-size:0.6rem;color:#166534;font-weight:500}
+.wa-time{font-size:0.48rem;color:#6b7280;margin-left:auto}
+
+/* Grocery card */
+.grocery-item{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:0.6rem;color:var(--text-dark)}
+.grocery-check{width:16px;height:16px;border-radius:4px;border:1.5px solid #d1d5db;display:flex;align-items:center;justify-content:center;transition:all 0.3s var(--pop);flex-shrink:0}
+.grocery-check.checked{background:var(--teal);border-color:var(--teal)}
+.grocery-check.checked::after{content:'\2713';color:white;font-size:0.5rem;font-weight:700}
+.grocery-item.checked-item .grocery-label{text-decoration:line-through;color:var(--text-light)}
+
+/* Plan card */
+.plan-actions{display:flex;gap:8px;margin-top:8px}
+.plan-btn{padding:6px 14px;border-radius:8px;font-size:0.55rem;font-weight:600;border:none;cursor:pointer;transition:all 0.3s var(--spring)}
+.plan-btn.primary{background:var(--teal);color:white}
+.plan-btn.secondary{background:rgba(0,0,0,0.04);color:var(--text-mid)}
+.plan-link{font-size:0.48rem;color:var(--teal);margin-top:6px;font-family:monospace}
+
+/* Confetti */
+.confetti-container{position:fixed;inset:0;pointer-events:none;z-index:100;overflow:hidden}
+.confetti-piece{position:absolute;width:8px;height:8px;opacity:0}
+
+/* === PHASE 5: RETURN === */
+.return-section{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 32px;opacity:0;pointer-events:none;transition:opacity 0.6s}
+.return-section.active{opacity:1;pointer-events:auto}
+
+.badge-2weeks{display:inline-block;padding:5px 14px;border-radius:20px;background:rgba(14,122,126,0.08);color:var(--teal);font-size:0.6rem;font-weight:600;margin-bottom:16px;opacity:0;transform:scale(0.8);transition:all 0.5s var(--spring)}
+.badge-2weeks.in{opacity:1;transform:scale(1)}
+
+.return-bubble{max-width:320px;background:var(--white);border-radius:16px;padding:14px 18px;box-shadow:0 2px 12px rgba(0,0,0,0.06);font-size:0.62rem;color:var(--text-dark);line-height:1.55;opacity:0;transform:translateY(12px);transition:all 0.6s var(--spring)}
+.return-bubble.in{opacity:1;transform:translateY(0)}
+
+.progress-bar-wrap{margin-top:10px;background:rgba(0,0,0,0.06);border-radius:4px;height:6px;overflow:hidden}
+.progress-bar-fill{height:100%;background:linear-gradient(90deg,var(--teal),#14b8a6);border-radius:4px;width:0;transition:width 1.5s var(--ease-out)}
+
+.return-msg{font-size:0.58rem;color:var(--text-mid);margin-top:12px;max-width:300px;text-align:center;line-height:1.5;opacity:0;transition:all 0.6s var(--spring)}
+.return-msg.in{opacity:1}
+
+.return-pills{margin-top:14px}
+
+/* Sparks */
+.spark{position:absolute;width:4px;height:4px;border-radius:50%;background:var(--teal);pointer-events:none;opacity:0}
+
+/* === PHASE 6: CLOSE === */
+.close-section{position:absolute;inset:0;background:var(--cream);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;z-index:50;transition:opacity 0.8s}
+.close-section.active{opacity:1;pointer-events:auto}
+
+.close-orb{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#0e7a7e,#14b8a6);margin-bottom:28px;opacity:0;transform:scale(0);transition:all 0.6s var(--pop)}
+.close-orb.in{opacity:1;transform:scale(1)}
+
+.kinetic-line{display:flex;align-items:baseline;justify-content:center;flex-wrap:wrap;gap:8px;max-width:420px;min-height:48px}
+.kword{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);color:var(--text-dark);opacity:0;transform:translateY(16px);transition:all 0.5s var(--spring);line-height:1.3}
+.kword.in{opacity:1;transform:translateY(0)}
+.kword.teal{color:var(--teal);font-style:italic}
+
+.close-sub{font-size:0.65rem;color:var(--text-mid);margin-top:16px;opacity:0;transition:all 0.6s;text-align:center;line-height:1.5;max-width:340px}
+.close-sub.in{opacity:1}
+.close-brand{margin-top:24px;text-align:center;opacity:0;transition:all 0.6s}
+.close-brand.in{opacity:1}
+.close-brand-name{font-size:0.78rem;font-weight:600;color:var(--text-dark)}
+.close-brand-handle{font-size:0.6rem;color:var(--teal);margin-top:3px}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <!-- LEFT: CHAOS -->
+  <div class="left" id="leftSide">
+    <div class="search-bar">
+      <span class="search-icon">&#128269;</span>
+      <span class="search-text" id="searchText"></span>
+    </div>
+    <div class="search-results" id="searchResults"></div>
+  </div>
+
+  <!-- RIGHT: COMPANION -->
+  <div class="right" id="rightSide">
+    <!-- Chat interface -->
+    <div class="chat-area" id="chatArea">
+      <div class="chat-header">
+        <div class="pulse-avatar">
+          <div class="pulse-orb"></div>
+          <div class="pulse-dot"></div>
+        </div>
+        <div>
+          <div class="pulse-name">Pulse</div>
+          <div class="pulse-status">Online</div>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="wait-prompt" id="waitPrompt">Ask anything...</div>
+      </div>
+    </div>
+
+    <!-- Deliverables (Phase 4) -->
+    <div class="deliverables" id="deliverables">
+      <!-- WhatsApp notification -->
+      <div class="dcard" id="dc1">
+        <div class="dcard-header">
+          <div class="dcard-icon" style="background:#dcfce7">&#9749;</div>
+          <div>
+            <div class="dcard-title">Smart Reminder</div>
+            <div class="dcard-sub">WhatsApp &middot; Today</div>
+          </div>
+        </div>
+        <div class="wa-notif">
+          <span class="wa-icon">&#9749;</span>
+          <span class="wa-text">Last cup of coffee for today</span>
+          <span class="wa-time">2:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Grocery list -->
+      <div class="dcard" id="dc2">
+        <div class="dcard-header">
+          <div class="dcard-icon" style="background:#fef9c3">&#128722;</div>
+          <div>
+            <div class="dcard-title">Your Grocery List</div>
+            <div class="dcard-sub">7 items &middot; optimized for sleep + recovery</div>
+          </div>
+        </div>
+        <div id="groceryList">
+          <div class="grocery-item" data-i="0"><div class="grocery-check"></div><span class="grocery-label">Chicken breast (2 lbs)</span></div>
+          <div class="grocery-item" data-i="1"><div class="grocery-check"></div><span class="grocery-label">Sweet potatoes (4)</span></div>
+          <div class="grocery-item" data-i="2"><div class="grocery-check"></div><span class="grocery-label">Tart cherry juice</span></div>
+          <div class="grocery-item" data-i="3"><div class="grocery-check"></div><span class="grocery-label">Magnesium glycinate</span></div>
+          <div class="grocery-item" data-i="4"><div class="grocery-check"></div><span class="grocery-label">Greek yogurt</span></div>
+          <div class="grocery-item" data-i="5"><div class="grocery-check"></div><span class="grocery-label">Spinach (2 bags)</span></div>
+          <div class="grocery-item" data-i="6"><div class="grocery-check"></div><span class="grocery-label">Almonds (raw)</span></div>
+        </div>
+      </div>
+
+      <!-- Training plan -->
+      <div class="dcard" id="dc3">
+        <div class="dcard-header">
+          <div class="dcard-icon" style="background:#ede9fe">&#128203;</div>
+          <div>
+            <div class="dcard-title">4-Week Training Plan</div>
+            <div class="dcard-sub">Sleep-optimized &middot; 3x/week &middot; Progressive</div>
+          </div>
+        </div>
+        <div class="plan-actions">
+          <button class="plan-btn primary">Send to phone</button>
+          <button class="plan-btn secondary">Print</button>
+        </div>
+        <div class="plan-link">pulse/a7k9</div>
+      </div>
+    </div>
+
+    <!-- Return section (Phase 5) -->
+    <div class="return-section" id="returnSection">
+      <div class="badge-2weeks" id="badge2w">2 weeks later</div>
+      <div class="return-bubble" id="returnBubble">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <div class="pulse-avatar" style="width:22px;height:22px">
+            <div class="pulse-orb" style="width:22px;height:22px"></div>
+            <div class="pulse-dot" style="width:6px;height:6px"></div>
+          </div>
+          <span style="font-weight:600;font-size:0.6rem">Pulse</span>
+        </div>
+        Caffeine cutoff: 12 days straight. Sleep up 23%. Down 1.4 kg.
+        <div class="progress-bar-wrap">
+          <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+      </div>
+      <div class="return-msg" id="returnMsg">Come back to log and track. I'll keep adjusting so you don't stagnate.</div>
+      <div class="pills return-pills" id="returnPills">
+        <span class="pill" id="pillKeep">Keep going</span>
+        <span class="pill" id="pillDash">Dashboard</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Close section (Phase 6) — overlays everything -->
+<div class="close-section" id="closeSection">
+  <div class="close-orb" id="closeOrb"></div>
+  <div class="kinetic-line" id="kineticLine"></div>
+  <div class="close-sub" id="closeSub">Your health companion. Cited, personal, always learning.</div>
+  <div class="close-brand" id="closeBrand">
+    <div class="close-brand-name">healthcalculators.xyz</div>
+    <div class="close-brand-handle">@GetHealthC</div>
+  </div>
+</div>
+
+<!-- Confetti container -->
+<div class="confetti-container" id="confettiContainer"></div>
+
+<script>
+(function(){
+  /* =============================================
+     TIMING CALCULATIONS (2.5 words/sec + 0.5s visual)
+     =============================================
+     Search query: "is it normal to gain weight even though i exercise" = 12 words @ 40ms/char = 56 chars * 40ms = 2240ms typing
+     Search results: 5 results @ 450ms apart = 2250ms
+
+     Phase 1 (0-8s): Search types 0-2.2s, results 2.5-4.7s, sit 4.7-8s
+
+     "I can help with that. Quick question - how's your sleep been?" = 12 words = 4.8s + 0.5s = 5.3s
+     Phase 2 (8-12s): User question 8-8.8s, typing 8.8-9.8s, AI response 9.8-12s (needs 5.3s visible - continues into Phase 3)
+
+     "That's one of the main reasons. Poor sleep raises cortisol - your body holds onto fat even when you train hard." = 19 words = 7.6s + 0.5s = 8.1s SLOW
+     "What proteins do you prefer?" = 5 words = 2s + 0.5s = 2.5s
+     "Let me plan this for you so you don't have to remember any of it." = 16 words = 6.4s + 0.5s = 6.9s
+
+     Phase 3 (12-28s):
+       12s: pills appear
+       12.8s: user picks "Not great"
+       13.3s: typing dots
+       14.3s: cortisol response appears (needs 8.1s → visible until 22.4s)
+       22.4s: "What proteins?" (needs 2.5s → until 24.9s)
+       23s: protein pills
+       23.8s: user picks Chicken
+       24.5s: typing
+       25.5s: "Let me plan this..." (needs 6.9s → but we cut to Phase 4 at 28s, 2.5s visible is enough for transition)
+
+     Phase 4 (28-42s): Left slides, deliverables appear
+       28s: left slides off, right expands
+       29.5s: card 1 (WhatsApp) — 2s visible
+       31.5s: card 2 (grocery) — checkboxes animate 0.3s each × 7 = 2.1s + 1s sit = 3.1s
+       35s: card 3 (plan) — 2s visible + confetti
+       38s: cards sit for 4s
+
+     Phase 5 (42-52s): Return
+       42s: fade to return section
+       42.5s: "2 weeks later" badge
+       43.5s: Pulse message with progress bar
+       45s: progress bar animates
+       46.5s: "Come back to log..." message (15 words = 6s + 0.5s = 6.5s visible)
+       48s: pills appear
+       49s: user picks "Keep going" + sparks
+       50s: sit
+
+     Phase 6 (52-60s): Close
+       52s: full screen cream
+       52.5s: orb pops
+       53.5s: "One" — 0.6s beat
+       54.1s: "question." — 1s longer beat
+       55.1s: "We" "figure" "out" — 0.3s staccato each
+       56s: "the" — 0.5s beat
+       56.5s: "rest." — slow, teal, italic
+       58s: subtitle
+       59s: brand
+       60s: hold / loop
+  ============================================= */
+
+  var $ = function(id){return document.getElementById(id)};
+
+  // === TYPEWRITER ===
+  function typeText(el, text, speed, cb){
+    var i = 0;
+    el.textContent = '';
+    var iv = setInterval(function(){
+      if(i < text.length){
+        el.textContent += text[i]; i++;
+      } else {
+        clearInterval(iv);
+        el.classList.add('done');
+        if(cb) cb();
+      }
+    }, speed);
+  }
+
+  // === ADD BUBBLE ===
+  function addBubble(type, text, delay){
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        var msgs = $('chatMessages');
+        var b = document.createElement('div');
+        b.className = 'bubble ' + type;
+        b.textContent = text;
+        // Remove wait prompt if still there
+        var wp = $('waitPrompt');
+        if(wp) wp.style.display = 'none';
+        msgs.appendChild(b);
+        // Scroll to bottom
+        msgs.scrollTop = msgs.scrollHeight;
+        setTimeout(function(){b.classList.add('in'); resolve(b)}, 30);
+      }, delay);
+    });
+  }
+
+  // === SHOW TYPING ===
+  function showTyping(duration){
+    return new Promise(function(resolve){
+      var msgs = $('chatMessages');
+      var t = document.createElement('div');
+      t.className = 'typing';
+      t.innerHTML = '<span></span><span></span><span></span>';
+      msgs.appendChild(t);
+      msgs.scrollTop = msgs.scrollHeight;
+      setTimeout(function(){t.classList.add('in')}, 30);
+      setTimeout(function(){
+        t.remove();
+        resolve();
+      }, duration);
+    });
+  }
+
+  // === ADD PILLS ===
+  function addPills(options, selectedIndex, delay){
+    return new Promise(function(resolve){
+      setTimeout(function(){
+        var msgs = $('chatMessages');
+        var wrap = document.createElement('div');
+        wrap.className = 'pills';
+        options.forEach(function(opt, i){
+          var p = document.createElement('span');
+          p.className = 'pill';
+          p.textContent = opt;
+          wrap.appendChild(p);
+        });
+        msgs.appendChild(wrap);
+        msgs.scrollTop = msgs.scrollHeight;
+        setTimeout(function(){wrap.classList.add('in')}, 30);
+        // Select after delay
+        setTimeout(function(){
+          var pills = wrap.querySelectorAll('.pill');
+          pills.forEach(function(p, i){
+            if(i === selectedIndex) p.classList.add('selected');
+            else p.classList.add('faded');
+          });
+          resolve();
+        }, 800);
+      }, delay);
+    });
+  }
+
+  // === CONFETTI ===
+  function fireConfetti(){
+    var container = $('confettiContainer');
+    var colors = ['#0e7a7e','#14b8a6','#fbbf24','#f472b6','#818cf8','#34d399'];
+    for(var i = 0; i < 60; i++){
+      var piece = document.createElement('div');
+      piece.className = 'confetti-piece';
+      piece.style.left = (20 + Math.random() * 60) + '%';
+      piece.style.top = '-10px';
+      piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+      piece.style.width = (4 + Math.random() * 6) + 'px';
+      piece.style.height = (4 + Math.random() * 6) + 'px';
+      piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+      container.appendChild(piece);
+      animateConfetti(piece, i);
+    }
+    setTimeout(function(){container.innerHTML = ''}, 3000);
+  }
+
+  function animateConfetti(el, i){
+    var delay = i * 20;
+    var duration = 1500 + Math.random() * 1000;
+    var x = -80 + Math.random() * 160;
+    var r = Math.random() * 720;
+    setTimeout(function(){
+      el.style.transition = 'all ' + duration + 'ms cubic-bezier(0.25,0.46,0.45,0.94)';
+      el.style.opacity = '1';
+      el.style.transform = 'translateX(' + x + 'px) translateY(' + (window.innerHeight + 50) + 'px) rotate(' + r + 'deg)';
+      setTimeout(function(){el.style.opacity = '0'}, duration * 0.7);
+    }, delay);
+  }
+
+  // === SPARKS ===
+  function fireSparks(originEl){
+    var rect = originEl.getBoundingClientRect();
+    var cx = rect.left + rect.width / 2;
+    var cy = rect.top + rect.height / 2;
+    for(var i = 0; i < 12; i++){
+      var s = document.createElement('div');
+      s.className = 'spark';
+      s.style.left = cx + 'px';
+      s.style.top = cy + 'px';
+      document.body.appendChild(s);
+      var angle = (i / 12) * Math.PI * 2;
+      var dist = 20 + Math.random() * 30;
+      var dx = Math.cos(angle) * dist;
+      var dy = Math.sin(angle) * dist;
+      (function(el, dx, dy){
+        setTimeout(function(){
+          el.style.transition = 'all 0.6s cubic-bezier(0.25,1,0.5,1)';
+          el.style.opacity = '1';
+          el.style.transform = 'translate(' + dx + 'px,' + dy + 'px) scale(0)';
+          setTimeout(function(){el.remove()}, 700);
+        }, 20);
+      })(s, dx, dy);
+    }
+  }
+
+  // === SEARCH RESULTS DATA ===
+  var searchResults = [
+    {source:'Google',color:'#4285f4',title:'Weight gain despite exercise — 10 possible reasons',snippet:'Muscle weighs more than fat... but also stress, water retention...', conflict:false},
+    {source:'Reddit r/fitness',color:'#ff4500',title:'"I work out 5x/week and I\'m GAINING weight"',snippet:'"You\'re eating too much." "No, it\'s muscle." "Get bloodwork."', conflict:true},
+    {source:'ChatGPT',color:'#10a37f',title:'Several factors could explain weight gain during exercise...',snippet:'Increased muscle mass, water retention, caloric surplus, hormonal changes...', conflict:false},
+    {source:'Claude',color:'#d97706',title:'Exercise alone rarely causes weight loss because...',snippet:'Metabolic compensation, appetite increase, NEAT reduction...', conflict:false},
+    {source:'Yahoo Answers',color:'#7b1fa2',title:'Is this normal?? Exercising but scale going UP',snippet:'"Just stop eating carbs" "It\'s your thyroid" "Try keto"', conflict:true}
+  ];
+
+  // ==========================================
+  // PHASE 1 (0-8s): THE QUESTION
+  // ==========================================
+  var query = "is it normal to gain weight even though i exercise";
+
+  // Show wait prompt
+  setTimeout(function(){$('waitPrompt').classList.add('in')}, 300);
+
+  // Type search query
+  setTimeout(function(){
+    typeText($('searchText'), query, 40, function(){
+      // After typing done, show results
+      var container = $('searchResults');
+      searchResults.forEach(function(r, i){
+        setTimeout(function(){
+          var el = document.createElement('div');
+          el.className = 'search-result';
+          el.innerHTML = '<div class="sr-source"><span class="sr-dot" style="background:' + r.color + '"></span>' + r.source + '</div>' +
+            '<div class="sr-title">' + r.title + '</div>' +
+            '<div class="sr-snippet">' + (r.conflict ? '<span class="sr-conflict">Conflicting: </span>' : '') + r.snippet + '</div>';
+          container.appendChild(el);
+          setTimeout(function(){el.classList.add('in')}, 30);
+        }, i * 450);
+      });
+    });
+  }, 500);
+
+  // ==========================================
+  // PHASE 2 (8-12s): THE SHIFT
+  // ==========================================
+  setTimeout(function(){
+    // Dim left side
+    $('leftSide').classList.add('dimmed');
+    $('waitPrompt').style.display = 'none';
+
+    // User sends question
+    addBubble('user', 'Is it normal to gain weight even though I exercise?', 200);
+
+    // Typing then AI response
+    setTimeout(function(){
+      showTyping(1000).then(function(){
+        addBubble('ai', "I can help with that. Quick question \u2014 how\u2019s your sleep been?", 0);
+      });
+    }, 1000);
+  }, 8000);
+
+  // ==========================================
+  // PHASE 3 (12-28s): THE CONVERSATION
+  // ==========================================
+  setTimeout(function(){
+    // Sleep pills
+    addPills(['Not great', 'Okay', 'Pretty good'], 0, 0).then(function(){
+      // Typing then cortisol insight (SLOW moment)
+      setTimeout(function(){
+        showTyping(1200).then(function(){
+          addBubble('ai', "That\u2019s one of the main reasons. Poor sleep raises cortisol \u2014 your body holds onto fat even when you train hard.", 0);
+
+          // "What proteins do you prefer?"
+          setTimeout(function(){
+            showTyping(800).then(function(){
+              addBubble('ai', 'What proteins do you prefer?', 0).then(function(){
+                // Protein pills
+                setTimeout(function(){
+                  addPills(['Chicken', 'Fish', 'Plant-based'], 0, 0).then(function(){
+                    // Final planning message
+                    setTimeout(function(){
+                      showTyping(1000).then(function(){
+                        addBubble('ai', "Let me plan this for you so you don\u2019t have to remember any of it.", 0);
+                      });
+                    }, 500);
+                  });
+                }, 600);
+              });
+            });
+          }, 8100); // 8.1s for cortisol insight to be read
+        });
+      }, 500);
+    });
+  }, 12000);
+
+  // ==========================================
+  // PHASE 4 (28-42s): THE DELIVERABLES
+  // ==========================================
+  setTimeout(function(){
+    // Slide left off, expand right
+    $('leftSide').classList.add('gone');
+    $('rightSide').classList.add('full');
+
+    // Hide chat, show deliverables
+    setTimeout(function(){
+      $('chatArea').style.display = 'none';
+      $('deliverables').classList.add('active');
+
+      // Card 1: WhatsApp
+      setTimeout(function(){$('dc1').classList.add('in')}, 300);
+
+      // Card 2: Grocery list with checkboxes
+      setTimeout(function(){
+        $('dc2').classList.add('in');
+        // Animate checkboxes one by one
+        var items = document.querySelectorAll('.grocery-item');
+        items.forEach(function(item, i){
+          setTimeout(function(){
+            item.querySelector('.grocery-check').classList.add('checked');
+            item.classList.add('checked-item');
+          }, 600 + i * 300);
+        });
+      }, 2000);
+
+      // Card 3: Training plan + confetti
+      setTimeout(function(){
+        $('dc3').classList.add('in');
+        setTimeout(fireConfetti, 400);
+      }, 6000);
+    }, 1000);
+  }, 28000);
+
+  // ==========================================
+  // PHASE 5 (42-52s): THE RETURN
+  // ==========================================
+  setTimeout(function(){
+    $('deliverables').classList.remove('active');
+    $('deliverables').style.display = 'none';
+    $('returnSection').classList.add('active');
+
+    // Badge
+    setTimeout(function(){$('badge2w').classList.add('in')}, 500);
+
+    // Pulse message
+    setTimeout(function(){
+      $('returnBubble').classList.add('in');
+      // Progress bar
+      setTimeout(function(){$('progressFill').style.width = '78%'}, 500);
+    }, 1500);
+
+    // "Come back..." message
+    setTimeout(function(){$('returnMsg').classList.add('in')}, 4000);
+
+    // Pills
+    setTimeout(function(){
+      $('returnPills').classList.add('in');
+      // User picks "Keep going"
+      setTimeout(function(){
+        $('pillKeep').classList.add('selected');
+        $('pillDash').classList.add('faded');
+        fireSparks($('pillKeep'));
+      }, 1000);
+    }, 6000);
+  }, 42000);
+
+  // ==========================================
+  // PHASE 6 (52-60s): CLOSE
+  // ==========================================
+  setTimeout(function(){
+    $('closeSection').classList.add('active');
+
+    // Orb spring-pops
+    setTimeout(function(){$('closeOrb').classList.add('in')}, 500);
+
+    // Kinetic typography: "One" [beat] "question." [longer beat] "We" "figure" "out" [staccato] "the" [beat] "rest."
+    var words = [
+      {text:'One', delay:1500, cls:''},
+      {text:'question.', delay:2100, cls:''},
+      {text:'We', delay:3100, cls:''},
+      {text:'figure', delay:3400, cls:''},
+      {text:'out', delay:3700, cls:''},
+      {text:'the', delay:4200, cls:''},
+      {text:'rest.', delay:4700, cls:'teal'}
+    ];
+
+    var line = $('kineticLine');
+    words.forEach(function(w){
+      var span = document.createElement('span');
+      span.className = 'kword' + (w.cls ? ' ' + w.cls : '');
+      span.textContent = w.text;
+      line.appendChild(span);
+      setTimeout(function(){span.classList.add('in')}, w.delay);
+    });
+
+    // Subtitle
+    setTimeout(function(){$('closeSub').classList.add('in')}, 6000);
+
+    // Brand
+    setTimeout(function(){$('closeBrand').classList.add('in')}, 7000);
+
+  }, 52000);
+
+  // Loop after 62s
+  setTimeout(function(){
+    $('closeSection').style.transition = 'opacity 1s';
+    $('closeSection').style.opacity = '0';
+    setTimeout(function(){location.reload()}, 1100);
+  }, 62000);
+
+})();
+</script>
+</body>
+</html>
