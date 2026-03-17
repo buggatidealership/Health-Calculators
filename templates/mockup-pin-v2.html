@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — Pin V2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+/* === RESET === */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif}
+
+/* === BODY BG — transitions between scenes === */
+body{background:#0d1117;transition:background 1s ease}
+body.cream{background:#f6f1eb}
+body.glow{background:linear-gradient(155deg,#eaf6f4 0%,#f6f1eb 45%,#fdf4ec 100%)}
+
+/* === SCENE SYSTEM === */
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+.sc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;opacity:0;transition:opacity 0.7s ease;pointer-events:none;z-index:2;padding:24px}
+.sc.on{opacity:1}
+
+/* =======================================================
+   SCENE 1: THE CONFUSION — dark, chaotic, alone
+   ======================================================= */
+.srch-wrap{width:400px;max-width:88vw;position:relative}
+
+/* Faint blue glow — phone light on face at night */
+.srch-glow{position:absolute;width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(56,120,246,0.05),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-55%);pointer-events:none}
+
+.srch-bar{display:flex;align-items:center;gap:11px;padding:14px 20px;
+  background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.09);border-radius:26px;
+  opacity:0;transform:translateY(8px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.srch-bar.in{opacity:1;transform:translateY(0)}
+.srch-bar svg{width:16px;height:16px;color:rgba(255,255,255,0.25);flex-shrink:0}
+.srch-txt{font-size:0.85rem;color:rgba(255,255,255,0.45);white-space:nowrap;overflow:hidden}
+.srch-cursor{display:inline-block;width:1px;height:1.05em;background:rgba(255,255,255,0.4);
+  margin-left:1px;vertical-align:text-bottom;animation:cur-blink 1s step-end infinite}
+@keyframes cur-blink{50%{opacity:0}}
+
+.srch-results{margin-top:12px;display:flex;flex-direction:column;gap:5px}
+.sr{padding:10px 16px;border-radius:11px;background:rgba(255,255,255,0.035);
+  border:1px solid rgba(255,255,255,0.04);opacity:0;transform:translateY(6px);
+  transition:all 0.28s cubic-bezier(0.34,1.56,0.64,1)}
+.sr.in{opacity:1;transform:translateY(0)}
+.sr-src{font-size:0.56rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:3px}
+.sr-txt{font-size:0.7rem;color:rgba(255,255,255,0.35);line-height:1.4}
+.sr-warn{font-size:0.54rem;color:rgba(239,68,68,0.55);font-weight:600;margin-top:2px}
+
+.s1-bottom{text-align:center;margin-top:18px;font-family:'DM Serif Display',serif;
+  font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,0.14);
+  opacity:0;transform:scale(0.8);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
+.s1-bottom.in{opacity:1;transform:scale(1)}
+
+@keyframes tiny-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-1.5px)}60%{transform:translateX(1.5px)}}
+
+/* =======================================================
+   SCENE 2 & 4: PHONE / CHAT
+   ======================================================= */
+.phone{width:370px;max-width:90vw;background:#fff;border-radius:22px;
+  box-shadow:0 6px 36px rgba(0,0,0,0.07);overflow:hidden;
+  opacity:0;transform:translateY(28px) scale(0.93);
+  transition:all 0.65s cubic-bezier(0.34,1.56,0.64,1)}
+.phone.in{opacity:1;transform:translateY(0) scale(1)}
+
+.ph-top{display:flex;align-items:center;gap:10px;padding:13px 16px;
+  background:#faf9f7;border-bottom:1px solid rgba(0,0,0,0.04)}
+.ph-dot{width:30px;height:30px;border-radius:50%;flex-shrink:0;position:relative;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);display:flex;align-items:center;justify-content:center;
+  animation:dot-breathe 3.75s ease-in-out infinite}
+@keyframes dot-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.ph-dot::after{content:'';position:absolute;bottom:0;right:0;width:7px;height:7px;
+  border-radius:50%;background:#22c55e;border:2px solid #faf9f7}
+.ph-dot span{color:#fff;font-weight:700;font-size:0.65rem}
+.ph-nm{font-weight:600;font-size:0.8rem;color:#1a1a1e}
+.ph-st{font-size:0.54rem;color:#22c55e;font-weight:500}
+
+.ph-body{padding:11px 13px;display:flex;flex-direction:column;gap:6px;min-height:140px}
+
+/* Bubbles */
+.b{max-width:84%;padding:9px 14px;border-radius:16px;font-size:0.78rem;line-height:1.5;color:#2a2a2e;
+  opacity:0;transform:translateY(10px) scale(0.9);
+  transition:all 0.38s cubic-bezier(0.34,1.56,0.64,1)}
+.b.v{opacity:1;transform:translateY(0) scale(1)}
+.b.me{background:#d1fae5;align-self:flex-end;border-bottom-right-radius:5px}
+.b.ai{background:#f4f4f2;align-self:flex-start;border-bottom-left-radius:5px}
+.b .em{color:#0e7a7e;font-weight:700}
+.b .wrm{color:#b45309;font-weight:600}
+.b .dim{color:#7a7a82;font-size:0.68rem;display:block;margin-top:3px}
+
+/* Typing dots */
+.td{display:inline-flex;gap:4px;padding:1px 0}
+.td i{width:5px;height:5px;border-radius:50%;background:#b0b4bc;display:block;
+  animation:tdb 1.2s ease-in-out infinite}
+.td i:nth-child(2){animation-delay:.15s}
+.td i:nth-child(3){animation-delay:.3s}
+@keyframes tdb{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-4px);opacity:1}}
+
+/* Pills */
+.pls{display:flex;flex-wrap:wrap;gap:5px;align-self:flex-end}
+.pl{padding:6px 13px;border-radius:18px;font-size:0.7rem;font-weight:500;
+  background:#fff;border:1.5px solid rgba(14,122,126,0.18);color:#0e7a7e;
+  opacity:0;transform:scale(0.82);transition:all 0.28s cubic-bezier(0.34,1.56,0.64,1)}
+.pl.v{opacity:1;transform:scale(1)}
+.pl.pk{background:#0e7a7e;color:#fff;border-color:#0e7a7e;transform:scale(1.04)}
+.pl.off{opacity:.2;transform:scale(.86)}
+
+/* Progress bar */
+.pbar{height:4px;border-radius:2px;background:rgba(0,0,0,0.04);margin-top:5px;width:100%;overflow:hidden}
+.pfill{height:100%;border-radius:2px;width:0;background:linear-gradient(90deg,#14b8a6,#22c55e);
+  transition:width 1.1s cubic-bezier(0.34,1.56,0.64,1)}
+
+/* =======================================================
+   SCENE 3: DELIVERABLES
+   ======================================================= */
+.del-wrap{width:370px;max-width:90vw;display:flex;flex-direction:column;gap:12px;align-items:center}
+.del-lbl{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.11em;
+  color:#0e7a7e;margin-bottom:2px;opacity:0;transition:opacity .5s}
+.del-lbl.v{opacity:1}
+
+/* WhatsApp notification */
+.wa{width:100%;background:#fff;border-radius:13px;box-shadow:0 3px 18px rgba(0,0,0,.05);
+  padding:11px 15px;display:flex;gap:11px;align-items:flex-start;
+  opacity:0;transform:translateY(10px) scale(.95);transition:all .5s cubic-bezier(0.34,1.56,0.64,1)}
+.wa.v{opacity:1;transform:translateY(0) scale(1)}
+.wa-ico{width:34px;height:34px;border-radius:9px;background:#25d366;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:.85rem}
+.wa-bd{flex:1}
+.wa-fr{font-size:.66rem;font-weight:600;color:#1a1a1e}
+.wa-tx{font-size:.7rem;color:#4a4a4e;line-height:1.45;margin-top:2px}
+.wa-tm{font-size:.54rem;color:#9a9a9e;margin-top:2px}
+
+/* Grocery list */
+.groc{width:100%;background:#fff;border-radius:13px;box-shadow:0 3px 18px rgba(0,0,0,.05);
+  padding:14px 16px;opacity:0;transform:translateY(10px) scale(.95);
+  transition:all .5s cubic-bezier(0.34,1.56,0.64,1)}
+.groc.v{opacity:1;transform:translateY(0) scale(1)}
+.groc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.groc-t{font-size:.8rem;font-weight:600;color:#1a1a1e}
+.groc-badge{font-size:.54rem;font-weight:600;color:#25d366;background:rgba(37,211,102,.08);
+  padding:2px 7px;border-radius:7px}
+.gi{display:flex;align-items:center;gap:7px;padding:3px 0;font-size:.7rem;color:#4a4a4e;
+  opacity:0;transform:translateX(-6px);transition:all .25s cubic-bezier(0.34,1.56,0.64,1)}
+.gi.v{opacity:1;transform:translateX(0)}
+.gck{width:15px;height:15px;border-radius:3px;border:1.5px solid rgba(0,0,0,.1);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s cubic-bezier(0,1.5,.5,1)}
+.gck.dn{background:#0e7a7e;border-color:#0e7a7e}
+.gck.dn::after{content:'';width:5px;height:3px;border-left:1.5px solid #fff;
+  border-bottom:1.5px solid #fff;transform:rotate(-45deg) translateY(-1px)}
+.gi.xd{color:#b0b4bc;text-decoration:line-through}
+
+/* PDF */
+.pdf{width:100%;background:#fff;border-radius:13px;box-shadow:0 3px 18px rgba(0,0,0,.05);
+  padding:14px 16px;display:flex;gap:12px;align-items:center;
+  opacity:0;transform:translateY(10px) scale(.95);transition:all .5s cubic-bezier(0.34,1.56,0.64,1)}
+.pdf.v{opacity:1;transform:translateY(0) scale(1)}
+.pdf-ic{width:40px;height:48px;border-radius:5px;background:linear-gradient(135deg,#ef4444,#dc2626);
+  display:flex;align-items:center;justify-content:center;color:#fff;font-size:.55rem;font-weight:700;flex-shrink:0}
+.pdf-nfo{flex:1}
+.pdf-nm{font-size:.76rem;font-weight:600;color:#1a1a1e}
+.pdf-dt{font-size:.62rem;color:#7a7a82;margin-top:1px}
+.pdf-acts{display:flex;gap:5px;margin-top:5px}
+.pdf-bt{font-size:.56rem;padding:3px 9px;border-radius:7px;font-weight:600}
+.pdf-bt.p{background:#0e7a7e;color:#fff}
+.pdf-bt.s{background:rgba(0,0,0,.035);color:#4a4a4e}
+.pdf-bt.l{background:rgba(14,122,126,.07);color:#0e7a7e}
+
+/* =======================================================
+   SCENE 4: TIME SKIP
+   ======================================================= */
+.skip{font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.13em;
+  color:#0e7a7e;background:rgba(14,122,126,.07);padding:4px 13px;border-radius:18px;
+  margin-bottom:12px;opacity:0;transform:scale(.8);transition:all .4s cubic-bezier(0,1.5,.5,1)}
+.skip.v{opacity:1;transform:scale(1)}
+
+/* =======================================================
+   SCENE 5: KINETIC CLOSE
+   ======================================================= */
+.cls-wrap{text-align:center;max-width:420px}
+.cls-orb{width:68px;height:68px;border-radius:50%;margin:0 auto 22px;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 4px 28px rgba(14,122,126,.22);animation:dot-breathe 3.75s ease-in-out infinite;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(.4);transition:all .6s cubic-bezier(0,1.5,.5,1)}
+.cls-orb.v{opacity:1;transform:scale(1)}
+.cls-orb span{color:#fff;font-weight:700;font-size:1.3rem}
+
+.cls-ln{overflow:hidden;display:flex;justify-content:center;flex-wrap:wrap;gap:0 9px}
+.cls-w{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.4vw,1.9rem);
+  line-height:1.4;color:#1a1a1e;display:inline-block;
+  opacity:0;transform:translateY(100%);transition:all .45s cubic-bezier(0.16,1,0.3,1)}
+.cls-w.v{opacity:1;transform:translateY(0)}
+.cls-w.acc{color:#0e7a7e;font-style:italic}
+
+.cls-sub{font-size:.74rem;color:#7a7a82;margin-top:12px;line-height:1.5;
+  opacity:0;transition:opacity .6s}
+.cls-sub.v{opacity:1}
+.cls-brand{margin-top:20px;opacity:0;transition:opacity .6s}
+.cls-brand.v{opacity:1}
+.cls-nm{font-size:.8rem;font-weight:600;color:#3a3a3e}
+.cls-hn{font-size:.6rem;color:#0e7a7e;margin-top:2px}
+
+/* =======================================================
+   EFFECTS
+   ======================================================= */
+.spk{position:fixed;border-radius:50%;pointer-events:none;z-index:30}
+@keyframes spk-fly{0%{opacity:.9;transform:translate(0,0) scale(1)}
+  100%{opacity:0;transform:translate(var(--ex),var(--ey)) scale(0)}}
+.cft{position:fixed;pointer-events:none;z-index:30;opacity:.9}
+@keyframes cft-drop{0%{transform:translateY(0) rotate(0deg);opacity:.9}
+  100%{transform:translateY(var(--fd)) rotate(var(--fr));opacity:0}}
+</style>
+</head>
+<body>
+<div class="film" id="F">
+
+  <!-- S1: CONFUSION -->
+  <div class="sc on" id="S1">
+    <div class="srch-wrap">
+      <div class="srch-glow"></div>
+      <div class="srch-bar" id="sBar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="srch-txt"><span id="sTxt"></span><span class="srch-cursor"></span></div>
+      </div>
+      <div class="srch-results" id="sRes"></div>
+      <div class="s1-bottom" id="s1Q">Who do I trust?</div>
+    </div>
+  </div>
+
+  <!-- S2: COMPANION -->
+  <div class="sc" id="S2">
+    <div class="phone" id="ph2">
+      <div class="ph-top"><div class="ph-dot"><span>P</span></div><div><div class="ph-nm">Pulse</div><div class="ph-st">online</div></div></div>
+      <div class="ph-body" id="m2"></div>
+    </div>
+  </div>
+
+  <!-- S3: DELIVERABLES -->
+  <div class="sc" id="S3">
+    <div class="del-wrap" id="dW">
+      <div class="del-lbl" id="dL">Pulse is working for you</div>
+    </div>
+  </div>
+
+  <!-- S4: RETURN -->
+  <div class="sc" id="S4">
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="skip" id="sk">2 weeks later</div>
+      <div class="phone" id="ph4">
+        <div class="ph-top"><div class="ph-dot"><span>P</span></div><div><div class="ph-nm">Pulse</div><div class="ph-st">online</div></div></div>
+        <div class="ph-body" id="m4"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- S5: CLOSE -->
+  <div class="sc" id="S5">
+    <div class="cls-wrap">
+      <div class="cls-orb" id="cOrb"><span>P</span></div>
+      <div class="cls-ln" id="cLn"></div>
+      <div class="cls-sub" id="cSub">Your health companion. Cited, personal, always learning.</div>
+      <div class="cls-brand" id="cBr"><div class="cls-nm">healthcalculators.xyz</div><div class="cls-hn">@GetHealthC</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  /* ── helpers ────────────────────────────────────── */
+  var $ = function(id){return document.getElementById(id)};
+  function goTo(id){document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on')});$(id).classList.add('on')}
+
+  function bub(where,cls,html,ms,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');d.className='b '+cls;d.innerHTML=html;
+      $(where).appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v');if(cb)setTimeout(cb,60)})});
+    },ms);
+  }
+  function dots(where,ms,dur,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');d.className='b ai';
+      d.innerHTML='<span class="td"><i></i><i></i><i></i></span>';
+      $(where).appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+      setTimeout(function(){d.remove();if(cb)cb()},dur);
+    },ms);
+  }
+  function pills(where,opts,ms,pick,wait,cb){
+    setTimeout(function(){
+      var w=document.createElement('div');w.className='pls';
+      opts.forEach(function(o,i){var p=document.createElement('div');p.className='pl';p.textContent=o;w.appendChild(p);
+        setTimeout(function(){p.classList.add('v')},i*55)});
+      $(where).appendChild(w);
+      setTimeout(function(){w.querySelectorAll('.pl').forEach(function(p,i){
+        if(i===pick)p.classList.add('pk');else p.classList.add('off')});
+        setTimeout(function(){w.remove();if(cb)cb(opts[pick])},320)},wait);
+    },ms);
+  }
+
+  function burst(x,y,n){
+    var c=['#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e','#f472b6','#3b82f6'];
+    for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spk';
+      var sz=2.5+Math.random()*4.5,a=Math.random()*Math.PI*2,d=22+Math.random()*48;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+
+        c[~~(Math.random()*c.length)]+';--ex:'+(Math.cos(a)*d)+'px;--ey:'+(Math.sin(a)*d-18)+
+        'px;animation:spk-fly '+(0.35+Math.random()*0.3)+'s ease-out forwards;animation-delay:'+(i*.018)+'s';
+      document.body.appendChild(s);setTimeout(function(el){el.remove()},900,s)}
+  }
+  function rain(cx,cy,n){
+    var c=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#f472b6','#3b82f6','#22c55e'];
+    for(var i=0;i<n;i++){var p=document.createElement('div');p.className='cft';
+      var x=cx+(Math.random()-.5)*240,w=3.5+Math.random()*4,h=Math.random()>.5?w:w*2.4;
+      p.style.cssText='left:'+x+'px;top:'+(cy-45)+'px;width:'+w+'px;height:'+h+
+        'px;background:'+c[~~(Math.random()*c.length)]+';--fd:'+(160+Math.random()*240)+
+        'px;--fr:'+(180+Math.random()*540)+'deg;animation:cft-drop '+(1.1+Math.random()*.7)+
+        's ease-out forwards;animation-delay:'+(i*.018)+'s;border-radius:'+(Math.random()>.5?'50%':'2px');
+      document.body.appendChild(p);setTimeout(function(el){el.remove()},2400,p)}
+  }
+
+  /* ══════════════════════════════════════════════════
+     SCENE 1  (0 → 10s) : THE CONFUSION
+     Slack: chaos. Results pile up fast. Overwhelm.
+     ══════════════════════════════════════════════════ */
+  var bar=$('sBar'),stxt=$('sTxt');
+  var q='is it normal to gain weight even though i exercise';
+
+  // +0.3s: bar fades in
+  setTimeout(function(){bar.classList.add('in')},300);
+
+  // +0.6s: type at 45ms/char → finishes at ~2.9s
+  var ci=0;
+  setTimeout(function(){var t=setInterval(function(){if(ci<q.length){stxt.textContent=q.substring(0,++ci)}else clearInterval(t)},45)},600);
+
+  // +3.3s: results pile up — 500ms apart (FAST chaos, Slack principle)
+  // Viewer should feel overwhelm, not read each word
+  var srcs=[
+    {nm:'Google',col:'#4285f4',txt:'"Muscle weighs more than fat \u2014 you\'re probably gaining muscle."',warn:''},
+    {nm:'Reddit',col:'#ff4500',txt:'"Same thing happened to me. Honestly no one knows."',warn:''},
+    {nm:'ChatGPT',col:'#10a37f',txt:'"Several possible explanations including water retention\u2026"',warn:'\u26a0 Contradicts Google'},
+    {nm:'Claude',col:'#d97706',txt:'"It depends on many factors. Without more context\u2026"',warn:''},
+    {nm:'Yahoo',col:'#720e9e',txt:'"Try cutting calories and doing more cardio."',warn:'\u26a0 Contradicts ChatGPT'}
+  ];
+  setTimeout(function(){
+    var con=$('sRes');
+    srcs.forEach(function(s,i){
+      setTimeout(function(){
+        var d=document.createElement('div');d.className='sr';
+        d.innerHTML='<div class="sr-src" style="color:'+s.col+'">'+s.nm+'</div><div class="sr-txt">'+s.txt+'</div>'+(s.warn?'<div class="sr-warn">'+s.warn+'</div>':'');
+        con.appendChild(d);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('in')})});
+      },i*500);
+    });
+    // Micro-shake at end of pile — frustration
+    setTimeout(function(){bar.style.animation='tiny-shake .28s ease-in-out';setTimeout(function(){bar.style.animation=''},300)},2800);
+  },3300);
+
+  // +8s: "Who do I trust?" — SLOW emotional landing (5w → 2.5s visible before scene change)
+  setTimeout(function(){$('s1Q').classList.add('in')},8000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 2  (10 → 40s) : THE COMPANION
+     Apple: restraint on hero moments. Nike: rhythm.
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    goTo('S2');
+    document.body.classList.add('cream');
+
+    var ph=$('ph2');
+    setTimeout(function(){ph.classList.add('in')},200);
+
+    // +0.5s: user sends same question — FAST (10w → 4.5s visible before next)
+    bub('m2','me','Is it normal to gain weight even though I exercise?',500);
+
+    // +2.5s: typing 600ms (FAST) → greeting + key question
+    // "I can help with that. Quick question — how's your sleep been?" = 11w → (11/2.5)+0.5 = 4.9s needed
+    dots('m2',2500,600,function(){
+      bub('m2','ai','I can help with that. Quick question \u2014 <span class="em">how\'s your sleep been?</span>',0);
+    });
+
+    // +8.5s: pills appear (question visible from ~3.6s to 8.5s = 4.9s ✓)
+    // 2.2s to decide (FAST + 1.5s cognitive)
+    pills('m2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],8500,0,2200,function(picked){
+      // ~11s: user picks
+      bub('m2','me',picked,250);
+
+      // ~12.5s: typing 1.8s (SLOW — companion thinking HARD)
+      dots('m2',1200,1800,function(){
+        // ~15.5s: cortisol insight — ★ HERO MOMENT
+        // 19w → (19/2.5)+0.5 = 8.1s needed. Visible until next msg at ~24s = 8.5s ✓
+        bub('m2','ai','<span class="wrm">That\'s one of the main reasons.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train hard.',0);
+      });
+
+      // ~24s: typing 600ms (FAST) → protein question
+      // Cortisol visible from ~15.5s to ~24s = 8.5s ✓
+      dots('m2',12000,600,function(){
+        // "What proteins do you prefer?" = 5w → (5/2.5)+0.5 = 2.5s
+        bub('m2','ai','What proteins do you prefer?',0);
+      });
+
+      // ~14.5s from cb (~25.5s total): protein pills, 1.8s decision (FAST)
+      pills('m2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],14500,0,1800,function(){
+        // ~27.8s: user picks
+        bub('m2','me','\ud83d\udc14 Chicken',250);
+
+        // ~28.8s: typing 1.2s → plan promise
+        // "Let me plan this for you so you don't have to remember any of it." = 14w → (14/2.5)+0.5 = 6.1s
+        // Visible from ~30s until scene 3 at 40s = 10s ✓
+        dots('m2',750,1200,function(){
+          bub('m2','ai','<span class="em">Let me plan this for you</span> so you don\'t have to remember any of it.',0);
+        });
+      });
+    });
+  },10000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 3  (40 → 58s) : DELIVERABLES
+     Coca-Cola: show the process. DRAMATIC pacing.
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    goTo('S3');
+    document.body.className='glow';
+
+    var dw=$('dW');
+    setTimeout(function(){$('dL').classList.add('v')},300);
+
+    // +1.5s: WhatsApp caffeine notification (DRAMATIC)
+    // "Last cup of regular coffee for today if you want to improve your sleep tonight." = 15w → 6.5s
+    setTimeout(function(){
+      var wa=document.createElement('div');wa.className='wa';
+      wa.innerHTML='<div class="wa-ico">\ud83d\udcac</div><div class="wa-bd"><div class="wa-fr">Pulse \u2022 WhatsApp</div><div class="wa-tx">\u2615 Last cup of regular coffee for today if you want to improve your sleep tonight.</div><div class="wa-tm">2:00 PM</div></div>';
+      dw.appendChild(wa);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){wa.classList.add('v')})});
+    },1500);
+
+    // +6s: grocery list (DRAMATIC — Coca-Cola: show the process)
+    setTimeout(function(){
+      var gr=document.createElement('div');gr.className='groc';
+      gr.innerHTML='<div class="groc-top"><div class="groc-t">\ud83d\uded2 Your Grocery List</div><div class="groc-badge">WhatsApp</div></div><div id="gI"></div>';
+      dw.appendChild(gr);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){gr.classList.add('v')})});
+
+      var items=['600g chicken breast','12 eggs','500g Greek yogurt','Brown rice','Broccoli','Sweet potatoes','Olive oil'];
+      var els=[];
+
+      // Items appear at 160ms apart (FAST populate)
+      items.forEach(function(it,i){
+        setTimeout(function(){
+          var r=document.createElement('div');r.className='gi';
+          r.innerHTML='<div class="gck" id="ck'+i+'"></div><span>'+it+'</span>';
+          $('gI').appendChild(r);els.push(r);
+          requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('v')})});
+        },300+i*160);
+      });
+
+      // Then CHECK them off — click click click click click click click DONE
+      setTimeout(function(){
+        els.forEach(function(r,i){
+          setTimeout(function(){
+            r.querySelector('.gck').classList.add('dn');
+            r.classList.add('xd');
+          },i*180); // 180ms between checks = satisfying rapid-fire
+        });
+      },2000);
+    },6000);
+
+    // +12.5s: training PDF + confetti (DRAMATIC)
+    setTimeout(function(){
+      var pd=document.createElement('div');pd.className='pdf';
+      pd.innerHTML='<div class="pdf-ic">PDF</div><div class="pdf-nfo"><div class="pdf-nm">\ud83c\udfcb\ufe0f Your Training Plan</div><div class="pdf-dt">4 days/week \u2022 Matched to your recovery</div><div class="pdf-acts"><div class="pdf-bt p">Send to phone</div><div class="pdf-bt s">Print</div><div class="pdf-bt l">pulse/a7k9</div></div></div>';
+      dw.appendChild(pd);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        pd.classList.add('v');
+        setTimeout(function(){var r=pd.getBoundingClientRect();rain(r.left+r.width/2,r.top,38)},450);
+      })});
+    },12500);
+
+  },40000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 4  (58 → 70s) : THE RETURN
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    goTo('S4');
+    document.body.className='cream';
+
+    // "2 weeks later" sits alone (3w → 1.7s)
+    setTimeout(function(){$('sk').classList.add('v')},300);
+
+    var ph=$('ph4');
+    setTimeout(function(){ph.classList.add('in')},900);
+
+    // +2.2s: typing 1.4s (SLOW — recalling your data)
+    // "You've hit your caffeine cutoff 12 days straight. Sleep is up 23%. Down 1.4 kg." = 15w → 6.5s
+    dots('m4',2200,1400,function(){
+      bub('m4','ai','You\'ve hit your caffeine cutoff <span class="em">12 days straight</span>. Sleep is up <span class="em">23%</span>. Down <span class="em">1.4 kg</span>.',0,function(){
+        var bar=document.createElement('div');bar.innerHTML='<div class="pbar"><div class="pfill" id="pf"></div></div>';
+        $('m4').lastChild.appendChild(bar.firstChild);
+        setTimeout(function(){$('pf').style.width='73%'},350);
+      });
+    });
+
+    // +9.5s: typing 600ms (FAST)
+    // "Come back anytime to log and track. I'll keep adjusting so you don't stagnate." = 13w → 5.7s
+    // Visible from ~10.5s until scene ends at 12s... but it stays on screen ✓
+    dots('m4',9500,600,function(){
+      bub('m4','ai','Come back anytime to <span class="em">log and track</span>. I\'ll keep adjusting so you don\'t stagnate.',0);
+    });
+
+    // +13s from scene: pills (FAST)
+    pills('m4',['\ud83d\ude80 Keep going','Show dashboard'],13000,0,1300,function(){
+      bub('m4','me','\ud83d\ude80 Keep going',180);
+      var r=ph.getBoundingClientRect();
+      setTimeout(function(){burst(r.left+r.width/2,r.top+r.height/2,14)},350);
+    });
+  },58000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 5  (70 → 80s) : CLOSE — Nike kinetic type
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    goTo('S5');
+    document.body.className='cream';
+
+    setTimeout(function(){$('cOrb').classList.add('v')},300);
+
+    // Kinetic rhythm: "One" [beat] "question." [longer beat] "We" "figure" "out" [staccato] "the" [tiny beat] "rest." [SLOW accent]
+    var wds=[
+      {t:'One',a:false,d:700},
+      {t:'question.',a:false,d:1200},
+      {t:'We',a:false,d:2700},     // longer pause — beat change
+      {t:'figure',a:false,d:3000}, // staccato
+      {t:'out',a:false,d:3200},    // staccato
+      {t:'the',a:false,d:3700},    // tiny pause
+      {t:'rest.',a:true,d:4100}    // SLOW hero word — italic teal
+    ];
+    var ln=$('cLn');
+    wds.forEach(function(w){
+      var s=document.createElement('span');s.className='cls-w'+(w.a?' acc':'');s.textContent=w.t;ln.appendChild(s);
+      setTimeout(function(){s.classList.add('v')},w.d);
+    });
+
+    // "Your health companion..." = 8w → (8/2.5)+0.5 = 3.7s — visible until loop
+    setTimeout(function(){$('cSub').classList.add('v')},5800);
+    setTimeout(function(){$('cBr').classList.add('v')},5800);
+  },70000);
+
+  /* ── loop ── */
+  setTimeout(function(){
+    $('S5').style.transition='opacity .5s';$('S5').style.opacity='0';
+    setTimeout(function(){location.reload()},600);
+  },80000);
+
+})();
+</script>
+</body>
+</html>
