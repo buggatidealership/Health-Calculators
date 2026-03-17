@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pinned Post C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:#000;font-family:'DM Sans',sans-serif;display:flex;align-items:center;justify-content:center;min-height:100vh;padding:16px}
+
+.stage{position:relative;width:100%;max-width:900px;aspect-ratio:16/9;background:#080a14;border-radius:20px;overflow:hidden;cursor:pointer}
+
+/* Phase indicator */
+.phase-bar{position:absolute;top:20px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:30}
+.phase-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.1);transition:all 0.5s}
+.phase-dot.on{background:#0e7a7e;width:24px;border-radius:4px}
+
+/* Bottom label */
+.caption{position:absolute;bottom:16px;left:0;right:0;text-align:center;z-index:30;padding:0 32px}
+.caption-tag{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:#0e7a7e;margin-bottom:5px;opacity:0;transition:opacity 0.6s}
+.caption-main{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#e8eaed;margin-bottom:4px;opacity:0;transition:opacity 0.6s 0.1s}
+.caption-sub{font-size:0.7rem;color:rgba(255,255,255,0.35);max-width:380px;margin:0 auto;line-height:1.45;opacity:0;transition:opacity 0.6s 0.2s}
+.caption-tag.vis,.caption-main.vis,.caption-sub.vis{opacity:1}
+
+/* Canvas for particle/number effects */
+#fx{position:absolute;inset:0;z-index:2}
+
+/* SVG silhouette */
+.silhouette{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:3;transition:opacity 1.5s}
+.silhouette svg{width:140px;height:auto}
+
+/* Number stream layer (masked by silhouette) */
+.datastream{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:160px;height:320px;overflow:hidden;z-index:4;opacity:0;transition:opacity 1s;
+  -webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 310'%3E%3Ccircle cx='70' cy='30' r='25'/%3E%3Crect x='45' y='60' width='50' height='90' rx='8'/%3E%3Crect x='10' y='72' width='35' height='14' rx='7'/%3E%3Crect x='95' y='72' width='35' height='14' rx='7'/%3E%3Crect x='50' y='155' width='16' height='90' rx='8'/%3E%3Crect x='74' y='155' width='16' height='90' rx='8'/%3E%3Crect x='46' y='245' width='20' height='14' rx='7'/%3E%3Crect x='74' y='245' width='20' height='14' rx='7'/%3E%3C/svg%3E");
+  mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 310'%3E%3Ccircle cx='70' cy='30' r='25'/%3E%3Crect x='45' y='60' width='50' height='90' rx='8'/%3E%3Crect x='10' y='72' width='35' height='14' rx='7'/%3E%3Crect x='95' y='72' width='35' height='14' rx='7'/%3E%3Crect x='50' y='155' width='16' height='90' rx='8'/%3E%3Crect x='74' y='155' width='16' height='90' rx='8'/%3E%3Crect x='46' y='245' width='20' height='14' rx='7'/%3E%3Crect x='74' y='245' width='20' height='14' rx='7'/%3E%3C/svg%3E");
+  -webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+
+.datastream-col{position:absolute;top:-100%;font-family:'DM Sans',monospace;font-size:0.5rem;color:rgba(14,122,126,0.6);line-height:1.6;white-space:nowrap;animation:streamDown var(--dur) linear infinite;animation-delay:var(--delay)}
+@keyframes streamDown{0%{top:-100%}100%{top:100%}}
+
+/* Signal glow */
+.signal{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);z-index:8;opacity:0;transition:all 0.8s cubic-bezier(0.25,1,0.5,1)}
+.signal.vis{opacity:1}
+.signal-num{font-family:'DM Serif Display',serif;font-size:2.4rem;color:#0e7a7e;text-shadow:0 0 30px rgba(14,122,126,0.6),0 0 60px rgba(14,122,126,0.3);text-align:center;transition:all 1s cubic-bezier(0.25,1,0.5,1)}
+.signal-num.zoom{font-size:0;opacity:0}
+.signal-label{font-size:0.55rem;color:rgba(14,122,126,0.7);text-align:center;margin-top:4px;text-transform:uppercase;letter-spacing:0.1em}
+
+/* Ring pulse around signal */
+.signal-ring{position:absolute;left:50%;top:46%;transform:translate(-50%,-50%);width:20px;height:20px;border-radius:50%;border:1.5px solid #0e7a7e;opacity:0;z-index:7;pointer-events:none}
+.signal-ring.burst{animation:sigRing 1.2s ease-out forwards}
+@keyframes sigRing{0%{width:20px;height:20px;opacity:0.6}100%{width:160px;height:160px;opacity:0}}
+
+/* Result card */
+.result-card{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(0.5);width:220px;background:#fff;border-radius:16px;padding:22px 18px 16px;text-align:center;opacity:0;z-index:12;box-shadow:0 8px 60px rgba(14,122,126,0.2),0 2px 20px rgba(0,0,0,0.4);transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.result-card.vis{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.result-card.shrink{transition:all 0.6s cubic-bezier(0.25,1,0.5,1);transform:translate(-200px,-50%) scale(0.55);opacity:0.9}
+.rc-label{font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:#0e7a7e;margin-bottom:3px}
+.rc-heartbeat{display:block;margin:0 auto 6px;opacity:0.25}
+.rc-num{font-family:'DM Serif Display',serif;font-size:2.4rem;color:#0e7a7e;line-height:1;font-variant-numeric:tabular-nums}
+.rc-unit{font-size:0.6rem;font-weight:600;color:#888;text-transform:uppercase;letter-spacing:0.05em;margin-top:2px;margin-bottom:8px}
+.rc-bar{height:3px;background:#eee;border-radius:2px;margin:0 16px;overflow:hidden}
+.rc-bar-fill{height:100%;background:#0e7a7e;border-radius:2px;width:0;transition:width 1s cubic-bezier(0.25,1,0.5,1)}
+.rc-cite{font-size:0.5rem;color:#aaa;margin-top:8px;border-top:1px solid #eee;padding-top:6px}
+
+/* Scale tiles */
+.scale-wrap{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%);display:flex;flex-wrap:wrap;gap:5px;justify-content:center;max-width:460px;z-index:11;pointer-events:none}
+.scale-tile{width:80px;height:48px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:8px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:0.55rem;color:rgba(255,255,255,0.3);opacity:0;transform:scale(0.6);transition:all 0.35s cubic-bezier(0.25,1,0.5,1)}
+.scale-tile.vis{opacity:1;transform:scale(1)}
+.scale-tile .tile-icon{font-size:0.9rem;margin-bottom:2px}
+.scale-tile.highlight{border-color:rgba(14,122,126,0.3);background:rgba(14,122,126,0.06);color:rgba(255,255,255,0.6)}
+
+.brand-text{position:absolute;left:50%;bottom:32%;transform:translateX(-50%);text-align:center;z-index:15;opacity:0;transition:opacity 0.6s;white-space:nowrap}
+.brand-text.vis{opacity:1}
+.brand-text-main{font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.7)}
+.brand-text-handle{font-size:0.65rem;color:#0e7a7e;margin-top:3px}
+
+/* Ambient glow */
+.amb{position:absolute;border-radius:50%;filter:blur(80px);pointer-events:none;opacity:0;transition:opacity 2s}
+.amb-1{width:300px;height:300px;background:radial-gradient(circle,rgba(14,122,126,0.08),transparent 70%);top:10%;right:15%}
+.amb-2{width:250px;height:250px;background:radial-gradient(circle,rgba(99,102,241,0.04),transparent 70%);bottom:10%;left:15%}
+.amb.on{opacity:1}
+
+.replay{position:absolute;bottom:12px;right:16px;padding:5px 14px;background:transparent;border:1px solid rgba(255,255,255,0.08);border-radius:6px;color:rgba(255,255,255,0.25);font-size:0.65rem;font-family:'DM Sans',sans-serif;cursor:pointer;z-index:30;display:none;transition:all 0.2s}
+.replay:hover{border-color:#0e7a7e;color:#0e7a7e}
+
+@media(max-width:700px){
+  .stage{aspect-ratio:auto;min-height:480px}
+  .silhouette svg{width:100px}
+  .datastream{width:120px;height:240px}
+  .caption-main{font-size:1rem}
+  .result-card{width:180px;padding:16px 14px 12px}
+  .rc-num{font-size:1.8rem}
+  .scale-tile{width:64px;height:40px;font-size:0.5rem}
+}
+</style>
+</head>
+<body>
+<div class="stage" id="stage">
+  <div class="amb amb-1" id="amb1"></div>
+  <div class="amb amb-2" id="amb2"></div>
+
+  <div class="phase-bar" id="phases">
+    <div class="phase-dot on"></div><div class="phase-dot"></div><div class="phase-dot"></div><div class="phase-dot"></div><div class="phase-dot"></div>
+  </div>
+
+  <!-- SVG Silhouette -->
+  <div class="silhouette" id="sil">
+    <svg viewBox="0 0 140 310" fill="#e8eaed" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="70" cy="30" r="25"/>
+      <rect x="45" y="60" width="50" height="90" rx="8"/>
+      <rect x="10" y="72" width="35" height="14" rx="7"/>
+      <rect x="95" y="72" width="35" height="14" rx="7"/>
+      <rect x="50" y="155" width="16" height="90" rx="8"/>
+      <rect x="74" y="155" width="16" height="90" rx="8"/>
+      <rect x="46" y="245" width="20" height="14" rx="7"/>
+      <rect x="74" y="245" width="20" height="14" rx="7"/>
+    </svg>
+  </div>
+
+  <!-- Data stream (masked by silhouette shape) -->
+  <div class="datastream" id="datastream"></div>
+
+  <!-- Signal -->
+  <div class="signal" id="signal">
+    <div class="signal-num" id="sig-num">2,340</div>
+    <div class="signal-label">calories / day</div>
+  </div>
+  <div class="signal-ring" id="sig-ring"></div>
+
+  <!-- Result card -->
+  <div class="result-card" id="rcard">
+    <div class="rc-label">TDEE Calculator</div>
+    <svg class="rc-heartbeat" width="50" height="8" viewBox="0 0 60 10" fill="none"><path d="M0 5L18 5L24 2L28 8L33 3L37 5L60 5" stroke="#0e7a7e" stroke-width="1" stroke-linecap="round"/></svg>
+    <div class="rc-num" id="rc-num">0</div>
+    <div class="rc-unit">calories / day</div>
+    <div class="rc-bar"><div class="rc-bar-fill" id="rc-bar"></div></div>
+    <div class="rc-cite">Mifflin-St Jeor · 1990 · PubMed</div>
+  </div>
+
+  <!-- Scale tiles -->
+  <div class="scale-wrap" id="scale"></div>
+
+  <!-- Brand -->
+  <div class="brand-text" id="brand">
+    <div class="brand-text-main">healthcalculators.xyz</div>
+    <div class="brand-text-handle">@GetHealthC</div>
+  </div>
+
+  <div class="caption">
+    <div class="caption-tag" id="ctag"></div>
+    <div class="caption-main" id="cmain"></div>
+    <div class="caption-sub" id="csub"></div>
+  </div>
+
+  <button class="replay" id="replay">↻ Replay</button>
+</div>
+
+<script>
+(function(){
+  var sil=document.getElementById('sil'),ds=document.getElementById('datastream'),
+      signal=document.getElementById('signal'),sigNum=document.getElementById('sig-num'),
+      sigRing=document.getElementById('sig-ring'),rcard=document.getElementById('rcard'),
+      scaleWrap=document.getElementById('scale'),brand=document.getElementById('brand'),
+      replay=document.getElementById('replay'),dots=document.querySelectorAll('.phase-dot');
+
+  // Health data strings for the stream
+  var dataStrings=['BMR:1728','HR:72bpm','VO2:42.1','BMI:23.4','BF%:18.2',
+    'TDEE:2340','RMR:1650','LBM:61.2kg','SBP:118','DBP:76',
+    'HbA1c:5.2','VitD:32ng','K+:4.1','Na:140','TSH:2.1',
+    'T3:1.2','Fe:85μg','B12:450','Cr:0.9','GFR:95',
+    'HDL:55','LDL:110','TG:95','Ca:9.5','Mg:2.1',
+    'WBC:6.2','RBC:4.8','Hgb:14.2','PLT:250','GLU:92'];
+
+  function setPhase(i,tag,main,sub){
+    document.getElementById('ctag').textContent=tag;
+    document.getElementById('ctag').className='caption-tag vis';
+    document.getElementById('cmain').textContent=main;
+    document.getElementById('cmain').className='caption-main vis';
+    document.getElementById('csub').textContent=sub;
+    document.getElementById('csub').className='caption-sub vis';
+    dots.forEach(function(d,j){d.className=j===i?'phase-dot on':'phase-dot'});
+  }
+
+  function fadeCaption(){
+    document.getElementById('ctag').className='caption-tag';
+    document.getElementById('cmain').className='caption-main';
+    document.getElementById('csub').className='caption-sub';
+  }
+
+  function buildStream(){
+    ds.innerHTML='';
+    for(var c=0;c<8;c++){
+      var col=document.createElement('div');
+      col.className='datastream-col';
+      col.style.left=(c*20)+'px';
+      col.style.setProperty('--dur',(3+Math.random()*2)+'s');
+      col.style.setProperty('--delay',(-Math.random()*5)+'s');
+      var txt='';
+      for(var r=0;r<40;r++){
+        txt+=dataStrings[Math.floor(Math.random()*dataStrings.length)]+'\n';
+      }
+      col.textContent=txt;
+      ds.appendChild(col);
+    }
+  }
+
+  function countUp(el,target,dur){
+    var start=performance.now();
+    (function tick(now){
+      var p=Math.min((now-start)/dur,1);
+      var e=1-Math.pow(1-p,3);
+      el.textContent=Math.round(target*e).toLocaleString();
+      if(p<1)requestAnimationFrame(tick);
+    })(performance.now());
+  }
+
+  function run(){
+    replay.style.display='none';
+    // Reset everything
+    sil.style.opacity='1';sil.style.display='';
+    ds.style.opacity='0';ds.style.display='';
+    signal.classList.remove('vis');signal.style='';
+    sigNum.classList.remove('zoom');sigNum.style='';
+    sigRing.classList.remove('burst');
+    rcard.classList.remove('vis','shrink');rcard.style='';
+    document.getElementById('rc-bar').style.width='0';
+    scaleWrap.innerHTML='';scaleWrap.style.display='none';
+    brand.classList.remove('vis');
+    fadeCaption();
+
+    document.getElementById('amb1').classList.add('on');
+    document.getElementById('amb2').classList.add('on');
+    buildStream();
+
+    // ===== PHASE 1 (0-3s): WHAT YOU SEE — solid body =====
+    setPhase(0,'What you see','A body','Just a shape. Familiar. Still.');
+
+    // ===== PHASE 2 (3-6s): WHAT PULSE SEES — dissolve into data =====
+    setTimeout(function(){
+      setPhase(1,'What Pulse sees','Data','Every metric your body produces. Streaming. Constant. Invisible to you.');
+
+      // Fade silhouette, reveal data stream through mask
+      sil.style.transition='opacity 1.5s';
+      sil.style.opacity='0.08';
+      ds.style.transition='opacity 1.2s';
+      ds.style.opacity='1';
+    },3000);
+
+    // ===== PHASE 3 (6-9s): THE SIGNAL — one number pulses =====
+    setTimeout(function(){
+      setPhase(2,'The signal','One number matters','Out of thousands of data points, Pulse finds the one validated metric that answers your question.');
+
+      // Fade data stream
+      ds.style.transition='opacity 0.8s';
+      ds.style.opacity='0.05';
+      sil.style.opacity='0.03';
+
+      // Show signal number
+      setTimeout(function(){
+        signal.classList.add('vis');
+        sigRing.classList.add('burst');
+      },400);
+    },6000);
+
+    // ===== PHASE 4 (9-12s): THE TOOL — signal becomes result card =====
+    setTimeout(function(){
+      setPhase(3,'Your answer','Designed. Cited. Clear.','The signal becomes a tool. With context, comparison, and the source you can verify.');
+
+      // Zoom signal out
+      sigNum.classList.add('zoom');
+      signal.style.transition='opacity 0.4s';
+      setTimeout(function(){signal.style.opacity='0'},200);
+
+      // Fade remaining background
+      ds.style.display='none';
+      sil.style.display='none';
+
+      // Result card appears
+      setTimeout(function(){
+        rcard.classList.add('vis');
+        countUp(document.getElementById('rc-num'),2340,800);
+        setTimeout(function(){document.getElementById('rc-bar').style.width='65%'},300);
+      },400);
+    },9000);
+
+    // ===== PHASE 5 (12-14.5s): SCALE — more tiles cascade =====
+    setTimeout(function(){
+      setPhase(4,'The system','90+ tools. One AI.','Every calculator started as a signal in the data.');
+
+      // Shrink result card to become one tile
+      rcard.classList.add('shrink');
+
+      scaleWrap.style.display='';
+      var tiles=[
+        {icon:'🔥',name:'TDEE',hl:true},{icon:'💉',name:'Ozempic'},
+        {icon:'☀️',name:'Vitamin D'},{icon:'⚖️',name:'BMI'},
+        {icon:'💧',name:'Creatine'},{icon:'👶',name:'IVF'},
+        {icon:'📊',name:'Training'},{icon:'💤',name:'Sleep'},
+        {icon:'🏃',name:'Calories'},{icon:'🥩',name:'Protein'}
+      ];
+      tiles.forEach(function(t,i){
+        var el=document.createElement('div');
+        el.className='scale-tile'+(t.hl?' highlight':'');
+        el.innerHTML='<span class="tile-icon">'+t.icon+'</span>'+t.name;
+        scaleWrap.appendChild(el);
+        setTimeout(function(){el.classList.add('vis')},i*70);
+      });
+
+      setTimeout(function(){
+        brand.classList.add('vis');
+        setTimeout(function(){replay.style.display=''},1500);
+      },900);
+    },12000);
+  }
+
+  setTimeout(run,800);
+  replay.addEventListener('click',run);
+  document.getElementById('stage').addEventListener('click',function(e){if(e.target!==replay)run()});
+})();
+</script>
+</body>
+</html>

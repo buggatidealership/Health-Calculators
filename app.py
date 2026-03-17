@@ -5365,6 +5365,10 @@ def mockup_tdee_dark():
 def voice_note():
     return render_template('voice-note.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-pin-c')
+def mockup_pin_c():
+    return render_template('mockup-pin-c.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-pin-a')
 def mockup_pin_a():
     return render_template('mockup-pin-a.html', is_homepage=True, robots_meta='noindex, nofollow')
