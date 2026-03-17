@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — V9 Reasoning Trace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#111;display:flex;align-items:center;justify-content:center}
+
+/* Phone */
+.ph{width:340px;height:680px;max-height:92vh;max-width:88vw;background:#000;border-radius:42px;
+  position:relative;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06)}
+.dyn{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:24px;
+  background:#000;border-radius:20px;z-index:100}
+.sb{position:absolute;top:0;left:0;right:0;height:48px;z-index:90;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;
+  font-size:0.6rem;font-weight:600;color:rgba(255,255,255,0.7)}
+.sb svg{width:14px;height:14px}
+.scr{position:absolute;inset:0;border-radius:42px;overflow:hidden}
+
+/* Pulse app container */
+.pulse{position:absolute;inset:0;background:#0a0f1a;padding-top:48px;display:flex;flex-direction:column}
+
+/* Top bar */
+.top-bar{display:flex;align-items:center;justify-content:center;gap:8px;padding:12px 16px;opacity:0}
+.top-orb{width:22px;height:22px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 0 12px rgba(20,184,166,0.4);flex-shrink:0}
+.top-name{font-size:0.78rem;font-weight:600;color:#fff;letter-spacing:0.02em}
+
+/* Input area at bottom */
+.input-area{position:absolute;bottom:16px;left:16px;right:16px;z-index:20}
+.input-box{display:flex;align-items:center;gap:8px;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);
+  border-radius:24px;padding:10px 16px;transition:border-color 0.3s}
+.input-box.active{border-color:rgba(20,184,166,0.4)}
+.input-text{flex:1;font-size:0.72rem;color:rgba(255,255,255,0.3);min-height:1em;line-height:1.4}
+.input-text.typing{color:rgba(255,255,255,0.9)}
+.input-cursor{display:inline-block;width:1px;height:0.9em;background:rgba(20,184,166,0.8);
+  vertical-align:text-bottom;margin-left:1px;animation:blink 0.8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.send-btn{width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  opacity:0;transform:scale(0.8);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.send-btn.show{opacity:1;transform:scale(1)}
+.send-btn svg{width:14px;height:14px;color:#fff}
+
+/* Canvas area — mind map */
+.canvas{flex:1;position:relative;overflow:hidden}
+
+/* SVG lines */
+.lines-svg{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.conn-line{stroke:#14b8a6;stroke-width:1;fill:none;opacity:0.5;
+  stroke-dasharray:200;stroke-dashoffset:200;transition:stroke-dashoffset 1.2s ease}
+.conn-line.drawn{stroke-dashoffset:0}
+
+/* Nodes */
+.node{position:absolute;z-index:2;display:flex;flex-direction:column;align-items:center;gap:4px;
+  opacity:0;transform:scale(0);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.node.show{opacity:1;transform:scale(1)}
+.node-circle{border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.node-label{font-size:0.52rem;font-weight:500;color:rgba(255,255,255,0.7);
+  white-space:nowrap;text-align:center}
+
+/* Center node */
+.node.center .node-circle{width:44px;height:44px;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 0 24px rgba(20,184,166,0.5),0 0 60px rgba(20,184,166,0.15)}
+.node.center .node-label{font-size:0.56rem;font-weight:600;color:#fff;max-width:120px;
+  text-align:center;line-height:1.3}
+
+/* Domain nodes */
+.node.domain .node-circle{width:24px;height:24px;
+  background:linear-gradient(135deg,rgba(20,184,166,0.3),rgba(14,122,126,0.3));
+  border:1px solid rgba(20,184,166,0.4);
+  box-shadow:0 0 10px rgba(20,184,166,0.2)}
+.node.domain .node-label{color:rgba(255,255,255,0.6)}
+
+/* Annotations */
+.annotation{position:absolute;z-index:3;font-size:0.42rem;color:rgba(20,184,166,0.6);
+  max-width:100px;line-height:1.3;opacity:0;transition:opacity 0.6s ease;font-style:italic}
+.annotation.show{opacity:1}
+
+/* Pulse ripple */
+.ripple{position:absolute;z-index:0;border-radius:50%;
+  border:1px solid rgba(20,184,166,0.3);
+  animation:rippleOut 2s ease-out forwards}
+@keyframes rippleOut{
+  0%{width:44px;height:44px;opacity:0.6;transform:translate(-50%,-50%) scale(1)}
+  100%{width:200px;height:200px;opacity:0;transform:translate(-50%,-50%) scale(1)}
+}
+
+/* Insight */
+.insight{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:10px;opacity:0;transition:opacity 0.8s ease;
+  padding:24px}
+.insight.show{opacity:1}
+.insight-title{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#fff;
+  text-align:center;line-height:1.3}
+.insight-sub{font-size:0.64rem;color:rgba(255,255,255,0.5);text-align:center}
+
+/* Plan list */
+.plan{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;
+  padding:20px 18px;gap:0;opacity:0;transition:opacity 0.6s ease;overflow-y:auto}
+.plan.show{opacity:1}
+.plan-title{font-size:0.58rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;
+  color:rgba(20,184,166,0.7);margin-bottom:12px}
+.plan-item{display:flex;align-items:center;gap:10px;padding:10px 12px;
+  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);
+  border-radius:12px;margin-bottom:6px;
+  opacity:0;transform:translateY(12px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.plan-item.show{opacity:1;transform:translateY(0)}
+.plan-icon{font-size:0.9rem;flex-shrink:0;width:24px;text-align:center}
+.plan-content{flex:1}
+.plan-label{font-size:0.62rem;font-weight:500;color:rgba(255,255,255,0.8)}
+.plan-value{font-size:0.72rem;font-weight:700;color:#fff}
+.plan-action{width:24px;height:24px;border-radius:50%;
+  background:rgba(20,184,166,0.15);border:1px solid rgba(20,184,166,0.3);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  opacity:0;transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.plan-action.show{opacity:1;background:rgba(20,184,166,0.3)}
+.plan-action svg{width:12px;height:12px;color:#14b8a6}
+.plan-footer{font-size:0.54rem;color:rgba(255,255,255,0.35);text-align:center;
+  margin-top:10px;line-height:1.5;opacity:0;transition:opacity 0.6s ease}
+.plan-footer.show{opacity:1}
+
+/* Progress chart */
+.progress{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;padding:24px;
+  opacity:0;transition:opacity 0.8s ease}
+.progress.show{opacity:1}
+.progress-label{font-size:0.54rem;font-weight:600;letter-spacing:0.06em;
+  text-transform:uppercase;color:rgba(20,184,166,0.6)}
+.chart-area{width:240px;height:100px;position:relative}
+.chart-svg{width:100%;height:100%}
+.chart-line{fill:none;stroke:#14b8a6;stroke-width:2;
+  stroke-dasharray:400;stroke-dashoffset:400;transition:stroke-dashoffset 2s ease}
+.chart-line.drawn{stroke-dashoffset:0}
+.chart-fill{fill:url(#chartGrad);opacity:0;transition:opacity 1s ease 0.5s}
+.chart-fill.show{opacity:0.3}
+.progress-stats{display:flex;gap:24px}
+.stat{text-align:center;opacity:0;transform:translateY(8px);
+  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.stat.show{opacity:1;transform:translateY(0)}
+.stat-val{font-size:0.9rem;font-weight:700;color:#14b8a6}
+.stat-lbl{font-size:0.48rem;color:rgba(255,255,255,0.4)}
+.progress-note{font-size:0.58rem;color:rgba(255,255,255,0.5);text-align:center;
+  opacity:0;transition:opacity 0.6s ease}
+.progress-note.show{opacity:1}
+
+/* Closer */
+.closer{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:16px;
+  opacity:0;transition:opacity 1s ease}
+.closer.show{opacity:1}
+.closer-orb{width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 0 30px rgba(20,184,166,0.4),0 0 80px rgba(20,184,166,0.1);
+  animation:breathe 3s ease-in-out infinite}
+@keyframes breathe{0%,100%{transform:scale(1);box-shadow:0 0 30px rgba(20,184,166,0.4)}
+  50%{transform:scale(1.08);box-shadow:0 0 40px rgba(20,184,166,0.5)}}
+.closer-text{font-family:'DM Serif Display',serif;font-size:1rem;color:#fff;text-align:center}
+.closer-url{font-size:0.54rem;color:rgba(255,255,255,0.35);text-align:center;letter-spacing:0.02em}
+
+/* Node breathing */
+@keyframes nodeBreathe{0%,100%{box-shadow:0 0 10px rgba(20,184,166,0.2)}
+  50%{box-shadow:0 0 16px rgba(20,184,166,0.35)}}
+.node.domain.breathing .node-circle{animation:nodeBreathe 2.5s ease-in-out infinite}
+
+/* Dim state */
+.node.dim{opacity:0.15!important;transition:opacity 0.8s ease}
+.conn-line.dim{opacity:0.08!important;transition:opacity 0.8s ease}
+.annotation.dim{opacity:0!important;transition:opacity 0.5s ease}
+</style>
+</head>
+<body>
+
+<div class="ph">
+  <div class="dyn"></div>
+  <div class="sb">
+    <span>9:41</span>
+    <div style="display:flex;align-items:center;gap:4px">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 17h2v4H2zm4-5h2v9H6zm4-4h2v13h-2zm4-3h2v16h-2zm4-3h2v19h-2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33A1.33 1.33 0 007 5.33v15.34C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+  <div class="scr">
+    <div class="pulse">
+      <!-- Top bar -->
+      <div class="top-bar" id="topBar">
+        <div class="top-orb"></div>
+        <span class="top-name">Pulse</span>
+      </div>
+
+      <!-- Canvas for mind map -->
+      <div class="canvas" id="canvas">
+        <svg class="lines-svg" id="linesSvg"></svg>
+        <!-- Nodes injected by JS -->
+
+        <!-- Insight overlay -->
+        <div class="insight" id="insight">
+          <div class="insight-title" id="insightTitle"></div>
+          <div class="insight-sub" id="insightSub"></div>
+        </div>
+
+        <!-- Plan overlay -->
+        <div class="plan" id="plan">
+          <div class="plan-title">Your plan</div>
+          <div class="plan-item" id="pi1">
+            <div class="plan-icon">&#9749;</div>
+            <div class="plan-content"><div class="plan-label">Caffeine cutoff</div><div class="plan-value"><span class="pv" data-target="2:00 PM">—</span></div></div>
+            <div class="plan-action" id="pa1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <div class="plan-item" id="pi2">
+            <div class="plan-icon">&#128164;</div>
+            <div class="plan-content"><div class="plan-label">Sleep target</div><div class="plan-value"><span class="pv" data-target="7.5 hours">—</span></div></div>
+            <div class="plan-action" id="pa2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <div class="plan-item" id="pi3">
+            <div class="plan-icon">&#127831;</div>
+            <div class="plan-content"><div class="plan-label">Daily protein</div><div class="plan-value"><span class="pv" data-target="148g">—</span></div></div>
+            <div class="plan-action" id="pa3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <div class="plan-item" id="pi4">
+            <div class="plan-icon">&#127947;</div>
+            <div class="plan-content"><div class="plan-label">Training</div><div class="plan-value"><span class="pv" data-target="4x / week">—</span></div></div>
+            <div class="plan-action" id="pa4"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <div class="plan-item" id="pi5">
+            <div class="plan-icon">&#128202;</div>
+            <div class="plan-content"><div class="plan-label">Track progress</div><div class="plan-value"><span class="pv" data-target="Weekly dashboard">—</span></div></div>
+            <div class="plan-action" id="pa5"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 13l4 4L19 7"/></svg></div>
+          </div>
+          <div class="plan-footer" id="planFooter">I'll handle the reminders.<br>You handle the doing.</div>
+        </div>
+
+        <!-- Progress overlay -->
+        <div class="progress" id="progress">
+          <div class="progress-label">14-day projection</div>
+          <div class="chart-area">
+            <svg class="chart-svg" viewBox="0 0 240 100" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.4"/>
+                  <stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <path class="chart-fill" id="chartFill" d="M0,80 20,78 40,72 60,65 80,60 100,52 120,48 140,42 160,38 180,32 200,28 220,22 240,18 240,100 0,100Z"/>
+              <path class="chart-line" id="chartLine" d="M0,80 20,78 40,72 60,65 80,60 100,52 120,48 140,42 160,38 180,32 200,28 220,22 240,18"/>
+            </svg>
+          </div>
+          <div class="progress-stats">
+            <div class="stat" id="stat1"><div class="stat-val">+23%</div><div class="stat-lbl">sleep quality</div></div>
+            <div class="stat" id="stat2"><div class="stat-val">-1.4 kg</div><div class="stat-lbl">body weight</div></div>
+          </div>
+          <div class="progress-note" id="progressNote">Come back in 2 weeks.<br>I'll show you what changed.</div>
+        </div>
+
+        <!-- Closer -->
+        <div class="closer" id="closer">
+          <div class="closer-orb"></div>
+          <div class="closer-text">One question.<br>The whole picture.</div>
+          <div class="closer-url">healthcalculators.xyz / @GetHealthC</div>
+        </div>
+      </div>
+
+      <!-- Input area -->
+      <div class="input-area" id="inputArea">
+        <div class="input-box" id="inputBox">
+          <div class="input-text" id="inputText">What's on your mind?</div>
+          <div class="send-btn" id="sendBtn">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+// Node positions (relative to canvas center)
+// Canvas is roughly 308x560 after padding
+const NODES = {
+  center: { x: 154, y: 220, label: '' },
+  sleep:    { x: 80,  y: 130, label: 'Sleep' },
+  cortisol: { x: 220, y: 100, label: 'Cortisol' },
+  training: { x: 240, y: 260, label: 'Training' },
+  nutrition:{ x: 220, y: 370, label: 'Nutrition' },
+  recovery: { x: 68,  y: 320, label: 'Recovery' }
+};
+
+const CONNECTIONS = [
+  ['center', 'sleep'],
+  ['sleep', 'cortisol'],
+  ['center', 'training'],
+  ['training', 'nutrition'],
+  ['sleep', 'recovery'],
+  ['training', 'recovery']
+];
+
+const ANNOTATIONS = [
+  { from: 'sleep', to: 'cortisol', text: 'poor sleep → elevated cortisol', x: 130, y: 95 },
+  { from: 'cortisol', to: 'center', text: 'cortisol promotes fat storage', x: 200, y: 155 },
+  { from: 'training', to: 'nutrition', text: 'training requires proper fuel', x: 215, y: 318 }
+];
+
+let nodeEls = {};
+let lineEls = [];
+let annotEls = [];
+
+function createNodes() {
+  const canvas = $('#canvas');
+  Object.entries(NODES).forEach(([key, n]) => {
+    const el = document.createElement('div');
+    el.className = `node ${key === 'center' ? 'center' : 'domain'}`;
+    el.id = `node-${key}`;
+    el.style.left = (n.x - (key === 'center' ? 22 : 12)) + 'px';
+    el.style.top = (n.y - (key === 'center' ? 22 : 12)) + 'px';
+    el.innerHTML = `<div class="node-circle"></div><div class="node-label">${n.label}</div>`;
+    canvas.appendChild(el);
+    nodeEls[key] = el;
+  });
+}
+
+function createLines() {
+  const svg = $('#linesSvg');
+  CONNECTIONS.forEach(([a, b]) => {
+    const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    line.setAttribute('x1', NODES[a].x);
+    line.setAttribute('y1', NODES[a].y);
+    line.setAttribute('x2', NODES[b].x);
+    line.setAttribute('y2', NODES[b].y);
+    line.classList.add('conn-line');
+    // Calculate actual length for dasharray
+    const dx = NODES[b].x - NODES[a].x;
+    const dy = NODES[b].y - NODES[a].y;
+    const len = Math.sqrt(dx*dx + dy*dy);
+    line.style.strokeDasharray = len;
+    line.style.strokeDashoffset = len;
+    svg.appendChild(line);
+    lineEls.push(line);
+  });
+}
+
+function createAnnotations() {
+  const canvas = $('#canvas');
+  ANNOTATIONS.forEach(a => {
+    const el = document.createElement('div');
+    el.className = 'annotation';
+    el.style.left = a.x + 'px';
+    el.style.top = a.y + 'px';
+    el.textContent = a.text;
+    canvas.appendChild(el);
+    annotEls.push(el);
+  });
+}
+
+function spawnRipple() {
+  const canvas = $('#canvas');
+  const r = document.createElement('div');
+  r.className = 'ripple';
+  r.style.left = NODES.center.x + 'px';
+  r.style.top = NODES.center.y + 'px';
+  canvas.appendChild(r);
+  setTimeout(() => r.remove(), 2000);
+}
+
+async function typeText(el, text, charDelay = 35) {
+  el.classList.add('typing');
+  el.innerHTML = '';
+  for (let i = 0; i < text.length; i++) {
+    el.textContent = text.slice(0, i + 1);
+    // Add cursor
+    const cursor = document.createElement('span');
+    cursor.className = 'input-cursor';
+    el.appendChild(cursor);
+    await wait(charDelay);
+  }
+}
+
+async function showNode(key, delay = 0) {
+  await wait(delay);
+  nodeEls[key].classList.add('show');
+}
+
+async function drawLine(index, delay = 0) {
+  await wait(delay);
+  lineEls[index].style.strokeDashoffset = '0';
+}
+
+async function showAnnotation(index, delay = 0) {
+  await wait(delay);
+  annotEls[index].classList.add('show');
+}
+
+function dimGraph() {
+  Object.values(nodeEls).forEach(el => el.classList.add('dim'));
+  lineEls.forEach(el => el.classList.add('dim'));
+  annotEls.forEach(el => el.classList.add('dim'));
+}
+
+function hideGraph() {
+  Object.values(nodeEls).forEach(el => { el.style.display = 'none'; });
+  lineEls.forEach(el => { el.style.display = 'none'; });
+  annotEls.forEach(el => { el.style.display = 'none'; });
+}
+
+async function run() {
+  createNodes();
+  createLines();
+  createAnnotations();
+
+  // Start breathing for domain nodes later
+  const addBreathing = () => {
+    Object.entries(nodeEls).forEach(([k, el]) => {
+      if (k !== 'center') el.classList.add('breathing');
+    });
+  };
+
+  await wait(600);
+
+  // Phase 1: THE INPUT (0-6s)
+  $('#topBar').style.opacity = '1';
+  $('#topBar').style.transition = 'opacity 0.5s ease';
+  await wait(800);
+
+  // Focus input
+  $('#inputBox').classList.add('active');
+  await wait(400);
+
+  // Type the question
+  await typeText($('#inputText'), 'I exercise but keep gaining weight', 35);
+  await wait(300);
+
+  // Show send button
+  $('#sendBtn').classList.add('show');
+  await wait(500);
+
+  // "Send" — clear input, hide input area
+  $('#inputText').innerHTML = '';
+  $('#inputText').classList.remove('typing');
+  $('#inputText').textContent = '';
+  $('#inputBox').classList.remove('active');
+  $('#sendBtn').classList.remove('show');
+  await wait(200);
+  $('#inputArea').style.opacity = '0';
+  $('#inputArea').style.transition = 'opacity 0.3s ease';
+  await wait(400);
+
+  // Phase 2: THE REASONING (6-20s)
+  // Center node appears
+  nodeEls['center'].querySelector('.node-label').textContent = 'gaining weight';
+  await showNode('center');
+  spawnRipple();
+  await wait(600);
+  spawnRipple();
+  await wait(800);
+
+  // Sleep node + line
+  await showNode('sleep');
+  await drawLine(0); // center-sleep
+  await wait(700);
+
+  // Cortisol node + line + annotation
+  await showNode('cortisol');
+  await drawLine(1); // sleep-cortisol
+  await wait(400);
+  await showAnnotation(0); // poor sleep → elevated cortisol
+  await wait(800);
+
+  // Annotation: cortisol→center
+  await showAnnotation(1); // cortisol promotes fat storage
+  await wait(800);
+
+  // Training node + line
+  await showNode('training');
+  await drawLine(2); // center-training
+  await wait(700);
+
+  // Nutrition node + line + annotation
+  await showNode('nutrition');
+  await drawLine(3); // training-nutrition
+  await wait(400);
+  await showAnnotation(2); // training requires proper fuel
+  await wait(700);
+
+  // Recovery node + lines
+  await showNode('recovery');
+  await drawLine(4); // sleep-recovery
+  await wait(300);
+  await drawLine(5); // training-recovery
+  await wait(400);
+
+  // Nodes breathe
+  addBreathing();
+  await wait(1500);
+
+  // Phase 3: THE INSIGHT (20-28s)
+  dimGraph();
+  await wait(800);
+
+  $('#insightTitle').textContent = 'Your sleep is the bottleneck.';
+  $('#insightSub').textContent = 'Fix this first. Everything else follows.';
+  $('#insight').classList.add('show');
+  await wait(4000);
+
+  // Phase 4: THE PLAN (28-40s)
+  $('#insight').classList.remove('show');
+  await wait(600);
+  hideGraph();
+
+  $('#plan').classList.add('show');
+  await wait(300);
+
+  // Show items one by one with values
+  const items = [
+    { id: 'pi1', val: '2:00 PM' },
+    { id: 'pi2', val: '7.5 hours' },
+    { id: 'pi3', val: '148g' },
+    { id: 'pi4', val: '4x / week' },
+    { id: 'pi5', val: 'Weekly dashboard' }
+  ];
+
+  for (let i = 0; i < items.length; i++) {
+    const el = $(`#${items[i].id}`);
+    el.classList.add('show');
+    await wait(200);
+    el.querySelector('.pv').textContent = items[i].val;
+    await wait(400);
+  }
+
+  await wait(600);
+  $('#planFooter').classList.add('show');
+  await wait(1500);
+
+  // Phase 5: DELIVERY (40-52s) — action buttons fire
+  for (let i = 1; i <= 5; i++) {
+    $(`#pa${i}`).classList.add('show');
+    await wait(500);
+  }
+
+  await wait(1500);
+
+  // Phase 6: PROGRESS (52-60s)
+  $('#plan').classList.remove('show');
+  await wait(600);
+
+  $('#progress').classList.add('show');
+  await wait(400);
+
+  // Draw chart
+  $('#chartLine').classList.add('drawn');
+  $('#chartFill').classList.add('show');
+  await wait(1200);
+
+  // Stats
+  $('#stat1').classList.add('show');
+  await wait(400);
+  $('#stat2').classList.add('show');
+  await wait(800);
+
+  $('#progressNote').classList.add('show');
+  await wait(3000);
+
+  // Phase 7: CLOSE (60-68s)
+  $('#progress').classList.remove('show');
+  await wait(800);
+
+  $('#closer').classList.add('show');
+  // Let it breathe forever
+}
+
+run();
+</script>
+</body>
+</html>
