@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#060810;width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#e4e6ea}
+
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+
+/* Ambient — barely there */
+.amb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;opacity:0;transition:opacity 4s}
+.a1{width:500px;height:500px;background:radial-gradient(circle,rgba(14,122,126,0.04),transparent 70%);top:-150px;right:10%}
+.amb.on{opacity:1}
+
+/* Scene system */
+.s{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s cubic-bezier(0.25,1,0.5,1)}
+.s.on{opacity:1}
+
+/* === All text shares this === */
+.line{opacity:0;transform:translateY(18px);transition:all 0.9s cubic-bezier(0.16,1,0.3,1)}
+.line.in{opacity:1;transform:translateY(0)}
+
+/* === SCENE 1: The struggling moment === */
+.sc1-wrap{text-align:center;max-width:650px;padding:0 32px}
+.sc1-a{font-family:'DM Serif Display',serif;font-size:clamp(2rem,4.5vw,3rem);line-height:1.2;color:#e4e6ea}
+.sc1-b{font-size:clamp(0.85rem,1.5vw,1rem);color:rgba(255,255,255,0.28);margin-top:20px;line-height:1.6;font-weight:300}
+
+/* === SCENE 2: The hire === */
+.sc2-wrap{text-align:center;max-width:600px;padding:0 32px}
+.sc2-a{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.2}
+.sc2-a em{font-style:italic;color:#0e7a7e}
+
+/* === SCENE 3: Progress — jobs done === */
+.sc3-wrap{max-width:520px;width:100%;padding:0 32px}
+.sc3-label{font-size:0.58rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;color:rgba(255,255,255,0.18);margin-bottom:24px;text-align:center}
+
+.job{padding:14px 0;border-bottom:1px solid rgba(255,255,255,0.03);display:flex;align-items:baseline;gap:16px}
+.job:last-child{border-bottom:none}
+
+.job-when{font-size:0.62rem;color:rgba(255,255,255,0.2);min-width:100px;text-align:right;line-height:1.4;flex-shrink:0}
+.job-so{font-family:'DM Serif Display',serif;font-size:1rem;color:#e4e6ea;line-height:1.35;flex:1}
+.job-so em{color:#0e7a7e;font-style:italic}
+
+/* === SCENE 4: So you can === */
+.sc4-wrap{text-align:center;max-width:500px;padding:0 32px}
+.sc4-a{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.25}
+.sc4-a em{font-style:italic;color:#0e7a7e}
+.sc4-b{font-size:0.72rem;color:rgba(255,255,255,0.25);margin-top:20px;line-height:1.5;font-weight:300}
+.sc4-brand{margin-top:36px}
+.sc4-name{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.4)}
+.sc4-handle{font-size:0.6rem;color:#0e7a7e;margin-top:3px}
+</style>
+</head>
+<body>
+<div class="film">
+  <div class="amb a1" id="a1"></div>
+
+  <!-- SCENE 1: The struggling moment -->
+  <div class="s on" id="s1">
+    <div class="sc1-wrap">
+      <div class="sc1-a line" id="s1a">You have a health question.</div>
+      <div class="sc1-b line" id="s1b">You Google it. You get ten answers. Three conflict. None are cited. You're not sure which to trust. So you don't act.</div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: The hire -->
+  <div class="s" id="s2">
+    <div class="sc2-wrap">
+      <div class="sc2-a line" id="s2a">What if you could get <em>one clear answer</em> — in under 60 seconds — and verify the source yourself?</div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: Progress made (JTBD) -->
+  <div class="s" id="s3">
+    <div class="sc3-wrap">
+      <div class="sc3-label line" id="s3label">Now you can</div>
+
+      <div class="job line" id="j1">
+        <div class="job-when">unsure what to eat</div>
+        <div class="job-so"><em>eat with a plan</em> — based on your body, not a guess</div>
+      </div>
+
+      <div class="job line" id="j2">
+        <div class="job-when">nervous before injecting</div>
+        <div class="job-so"><em>inject with confidence</em> — every click verified</div>
+      </div>
+
+      <div class="job line" id="j3">
+        <div class="job-when">can't sleep, wondering why</div>
+        <div class="job-so"><em>know exactly when</em> to stop the caffeine</div>
+      </div>
+
+      <div class="job line" id="j4">
+        <div class="job-when">confused by lab results</div>
+        <div class="job-so"><em>understand your numbers</em> — not just see them</div>
+      </div>
+
+      <div class="job line" id="j5">
+        <div class="job-when">waiting, anxious</div>
+        <div class="job-so"><em>plan around a date</em> — yours, calculated</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 4: The invitation -->
+  <div class="s" id="s4">
+    <div class="sc4-wrap">
+      <div class="sc4-a line" id="s4a">If it's computable,<br><em>Pulse</em> will figure it out.</div>
+      <div class="sc4-b line" id="s4b">90+ tools. Every formula cited. Every source verifiable.</div>
+      <div class="sc4-brand line" id="s4c">
+        <div class="sc4-name">healthcalculators.xyz</div>
+        <div class="sc4-handle">@GetHealthC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  function show(id){
+    document.querySelectorAll('.s').forEach(function(s){s.classList.remove('on')});
+    document.getElementById(id).classList.add('on');
+  }
+
+  // Ambient
+  setTimeout(function(){document.getElementById('a1').classList.add('on')},300);
+
+  // === SCENE 1 (0-5s): The struggling moment ===
+  // One statement. Then the pain. Let it sit.
+  setTimeout(function(){document.getElementById('s1a').classList.add('in')},500);
+  setTimeout(function(){document.getElementById('s1b').classList.add('in')},1800);
+
+  // === SCENE 2 (5-8.5s): The hire ===
+  // One sentence. One question. The answer to the struggle.
+  setTimeout(function(){
+    show('s2');
+    setTimeout(function(){document.getElementById('s2a').classList.add('in')},300);
+  },5000);
+
+  // === SCENE 3 (8.5-14s): Progress — jobs compounding ===
+  // Each job: when I was [struggling] → now I can [progress]
+  setTimeout(function(){
+    show('s3');
+    setTimeout(function(){document.getElementById('s3label').classList.add('in')},200);
+    setTimeout(function(){document.getElementById('j1').classList.add('in')},500);
+    setTimeout(function(){document.getElementById('j2').classList.add('in')},1400);
+    setTimeout(function(){document.getElementById('j3').classList.add('in')},2300);
+    setTimeout(function(){document.getElementById('j4').classList.add('in')},3200);
+    setTimeout(function(){document.getElementById('j5').classList.add('in')},4000);
+    // All 5 visible for ~1.5s before Scene 4
+  },8500);
+
+  // === SCENE 4 (14-17s): The invitation ===
+  setTimeout(function(){
+    show('s4');
+    setTimeout(function(){document.getElementById('s4a').classList.add('in')},300);
+    setTimeout(function(){document.getElementById('s4b').classList.add('in')},300);
+    setTimeout(function(){document.getElementById('s4c').classList.add('in')},300);
+  },14000);
+
+  // Loop
+  setTimeout(function(){
+    document.getElementById('s4').style.transition='opacity 0.6s';
+    document.getElementById('s4').style.opacity='0';
+    setTimeout(function(){location.reload()},700);
+  },17500);
+})();
+</script>
+</body>
+</html>
