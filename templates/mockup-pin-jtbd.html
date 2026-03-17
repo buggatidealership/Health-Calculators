@@ -11,19 +11,19 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif}
-body{background:#0f1419;transition:background 1s}
+body{background:#0f1419;transition:background 0.8s}
 body.warm{background:#F5F0EA}
 body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 
 .film{position:relative;width:100vw;height:100vh;overflow:hidden}
 
-/* === Scenes === */
 .sc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   flex-direction:column;opacity:0;transition:opacity 0.6s;pointer-events:none;z-index:2;padding:20px}
 .sc.on{opacity:1}
 
 /* ================================
-   SCENE 1: THE 3AM SEARCH — alone
+   SCENE 1: 3AM SEARCH — CHAOS (Slack principle)
+   Search results stack fast, feel overwhelming
    ================================ */
 .search-wrap{width:420px;max-width:90vw}
 .search-glow{position:absolute;width:300px;height:300px;border-radius:50%;
@@ -42,14 +42,17 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 
 .search-results{margin-top:14px;display:flex;flex-direction:column;gap:6px}
 .search-result{background:rgba(255,255,255,0.04);border-radius:12px;padding:10px 16px;
-  opacity:0;transition:opacity 0.3s}
-.search-result.in{opacity:1}
+  opacity:0;transform:translateY(8px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.search-result.in{opacity:1;transform:translateY(0)}
 .sr-title{font-size:0.76rem;color:rgba(100,160,255,0.7)}
 .sr-snippet{font-size:0.68rem;color:rgba(255,255,255,0.3);margin-top:2px;line-height:1.4}
 .sr-conflict{color:rgba(239,68,68,0.6);font-size:0.62rem;margin-top:3px;font-weight:500}
 
+/* Shake animation for search frustration */
+@keyframes micro-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}
+
 /* =====================================
-   SCENE 2: THE SHIFT — search → companion
+   SCENE 2: THE COMPANION (Apple restraint + Nike rhythm)
    ===================================== */
 .s2-phone{width:380px;max-width:92vw;background:#fff;border-radius:24px;
   box-shadow:0 8px 40px rgba(0,0,0,0.08);overflow:hidden;
@@ -82,7 +85,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .bub .warm{color:#b45309;font-weight:500}
 .bub .soft{color:#7a7a82;font-size:0.7rem;display:block;margin-top:3px}
 
-/* Typing dots */
+/* Typing dots — FAST for quick messages, shown longer for important ones */
 .dots{display:inline-flex;gap:4px;padding:2px 0}
 .dots span{width:6px;height:6px;border-radius:50%;background:#b4b8c0;
   animation:tb 1.2s ease-in-out infinite}
@@ -100,7 +103,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .pill.fade{opacity:0.25;transform:scale(0.88)}
 
 /* ==========================================
-   SCENE 3: DELIVERABLES — cards cascade
+   SCENE 3: DELIVERABLES (Apple slow reveal)
    ========================================== */
 .s3-wrap{width:400px;max-width:90vw;display:flex;flex-direction:column;gap:10px}
 
@@ -121,7 +124,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .del-badge{font-size:0.58rem;font-weight:600;padding:3px 8px;border-radius:10px;flex-shrink:0}
 
 /* ====================================
-   SCENE 4: THE RETURN — it remembers you
+   SCENE 4: THE RETURN
    ==================================== */
 .s4-phone{width:380px;max-width:92vw;background:#fff;border-radius:24px;
   box-shadow:0 8px 40px rgba(0,0,0,0.08);overflow:hidden;
@@ -134,7 +137,6 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   transition:all 0.4s cubic-bezier(0,1.5,0.5,1)}
 .time-skip.in{opacity:1;transform:scale(1)}
 
-/* Progress bar inside chat */
 .progress-mini{height:4px;border-radius:2px;background:rgba(0,0,0,0.05);
   margin-top:6px;overflow:hidden;width:100%}
 .progress-fill{height:100%;border-radius:2px;width:0;
@@ -142,7 +144,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   transition:width 1.2s cubic-bezier(0.34,1.56,0.64,1)}
 
 /* ================================
-   SCENE 5: CLOSE — the companion
+   SCENE 5: CLOSE (Nike kinetic type)
    ================================ */
 .s5-wrap{text-align:center;max-width:440px}
 .s5-orb{width:72px;height:72px;border-radius:50%;margin:0 auto 24px;
@@ -153,12 +155,16 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   opacity:0;transform:scale(0.4);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
 .s5-orb.in{opacity:1;transform:scale(1)}
 .s5-orb span{color:#fff;font-weight:700;font-size:1.4rem}
-.s5-big{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);
-  line-height:1.25;color:#1a1a1e;opacity:0;transform:translateY(14px);
-  transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
-.s5-big.in{opacity:1;transform:translateY(0)}
-.s5-big em{font-style:italic;color:#0e7a7e}
-.s5-sub{font-size:0.76rem;color:#7a7a82;margin-top:12px;line-height:1.5;
+
+/* Kinetic close text — words animate independently */
+.s5-line{overflow:hidden;display:flex;justify-content:center;flex-wrap:wrap;gap:0 10px}
+.s5-word{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);
+  line-height:1.4;color:#1a1a1e;display:inline-block;
+  opacity:0;transform:translateY(100%);transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.s5-word.in{opacity:1;transform:translateY(0)}
+.s5-word.accent{color:#0e7a7e;font-style:italic}
+
+.s5-sub{font-size:0.76rem;color:#7a7a82;margin-top:14px;line-height:1.5;
   opacity:0;transition:opacity 0.6s}
 .s5-sub.in{opacity:1}
 .s5-brand{margin-top:22px;opacity:0;transition:opacity 0.6s}
@@ -190,7 +196,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
     </div>
   </div>
 
-  <!-- SCENE 2: THE COMPANION CONVERSATION -->
+  <!-- SCENE 2: THE COMPANION -->
   <div class="sc" id="sc2">
     <div class="s2-phone" id="phone2">
       <div class="s2-header">
@@ -201,7 +207,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
     </div>
   </div>
 
-  <!-- SCENE 3: DELIVERABLES FAN OUT -->
+  <!-- SCENE 3: DELIVERABLES -->
   <div class="sc" id="sc3">
     <div class="s3-wrap" id="s3wrap"></div>
   </div>
@@ -220,11 +226,11 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
     </div>
   </div>
 
-  <!-- SCENE 5: CLOSE -->
+  <!-- SCENE 5: CLOSE — kinetic typography -->
   <div class="sc" id="sc5">
     <div class="s5-wrap">
       <div class="s5-orb" id="s5orb"><span>P</span></div>
-      <div class="s5-big" id="s5big">One question.<br>We figure out <em>the rest.</em></div>
+      <div class="s5-line" id="s5line"></div>
       <div class="s5-sub" id="s5sub">Your health companion. Cited, personal, always learning.</div>
       <div class="s5-brand" id="s5brand">
         <div class="s5-name">healthcalculators.xyz</div>
@@ -261,7 +267,6 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
         's;border-radius:'+(Math.random()>0.5?'50%':'2px');
       document.body.appendChild(c);setTimeout(function(el){el.remove()},2500,c)}
   }
-
   function addBub(where,cls,html,delay,cb){
     setTimeout(function(){
       var m=document.createElement('div');m.className='bub '+cls;m.innerHTML=html;
@@ -295,28 +300,31 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
     },delay);
   }
 
-  // ============================================
-  // SCENE 1 (0–9s): THE 3AM SEARCH
-  // Slow typing. Results appear with time to read each.
-  // ============================================
+  // ============================================================
+  // SCENE 1 (0–8s): THE 3AM SEARCH — CHAOS (Slack principle)
+  //
+  // FAST typing, results PILE UP rapidly, feel the overwhelm.
+  // This is the PAIN scene. It should feel rushed and chaotic
+  // because that IS the experience of Googling health questions.
+  // ============================================================
   var sbar=document.getElementById('sbar');
   var stext=document.getElementById('stext');
   var query='is it normal to gain weight even though i exercise';
 
-  setTimeout(function(){sbar.classList.add('in')},500);
+  setTimeout(function(){sbar.classList.add('in')},300);
 
-  // Type at 60ms per char — human watching someone type
+  // Type FAST — 40ms/char. This isn't meant to be read word by word.
+  // The viewer recognizes the SHAPE of the question, not every word.
   var ci=0;
   setTimeout(function(){
     var typer=setInterval(function(){
       if(ci<query.length){stext.textContent=query.substring(0,++ci)}
       else clearInterval(typer);
-    },60);
-  },900);
+    },40);
+  },600);
 
-  // Results appear after typing (~4.5s). 1.2s between each — time to read.
-  // These are deliberately fast because they represent the chaos of Google.
-  // The viewer should feel the overwhelm, not read every word.
+  // Results PILE UP — 500ms apart. Chaos. Three answers, three opinions.
+  // Then a micro-shake on the whole bar to feel the frustration.
   setTimeout(function(){
     var results=[
       {title:'HealthLine: Why You\'re Gaining Weight',snippet:'Muscle weighs more than fat, so...',conflict:''},
@@ -331,71 +339,82 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
           r.snippet+'</div>'+(r.conflict?'<div class="sr-conflict">'+r.conflict+'</div>':'');
         container.appendChild(div);
         requestAnimationFrame(function(){requestAnimationFrame(function(){div.classList.add('in')})});
-      },i*1200);
+      },i*500);
     });
-  },4800);
+    // Micro-shake after all results appear — frustration
+    setTimeout(function(){
+      sbar.style.animation='micro-shake 0.3s ease-in-out';
+      setTimeout(function(){sbar.style.animation=''},300);
+    },1800);
+  },3200);
 
-  // ============================================
-  // SCENE 2 (9–42s): THE COMPANION — 33 seconds
-  // Timed to human reading speed: ~2.5 words/sec + 0.5s visual processing.
-  // Every message visible long enough to read fully.
-  // ============================================
+  // Let the chaos SIT for 2.5s. The viewer feels "yep, that's me."
+  // Total scene: typing 2.6s + results 1.5s + sit 2.5s ≈ 8s
+
+  // ============================================================
+  // SCENE 2 (8–40s): THE COMPANION
+  //
+  // RHYTHM: fast → SLOW → fast → SLOW → fast → SLOW
+  // Short messages appear quickly (Nike pacing variation).
+  // Key insights get long pauses (Apple restraint).
+  // The hero moments are SLOW REVEALS.
+  // ============================================================
   setTimeout(function(){
     show('sc2');
     document.body.classList.add('warm');
 
     var phone=document.getElementById('phone2');
-    setTimeout(function(){phone.classList.add('in')},300);
+    setTimeout(function(){phone.classList.add('in')},200);
 
-    // +1s: typing 1.5s → greeting at +2.5s (17 words → needs 7.3s visible)
-    showDots('msgs2',1000,1500,function(){
-      addBub('msgs2','a','I can help with that. <span class="soft">And you\'re not alone \u2014 this is the #1 question I get.</span>',0);
+    // --- FAST: greeting. Short typing, appears quickly. (3s visible)
+    showDots('msgs2',500,600,function(){
+      addBub('msgs2','a','I can help with that. <span class="soft">You\'re not alone \u2014 this is the #1 question I get.</span>',0);
     });
 
-    // +10s: typing 1.2s → sleep question at +11.2s (7 words → needs 3.3s visible)
-    // Greeting visible from 2.5s to 10s = 7.5s ✓
-    showDots('msgs2',10000,1200,function(){
+    // --- SLOOOOW: the key question. Long typing (companion is thinking).
+    // 2s pause → 1.8s typing → question appears → SITS for 4s.
+    // This is the Apple moment. Restraint. Let it hang.
+    showDots('msgs2',5000,1800,function(){
       addBub('msgs2','a','Quick question \u2014 <span class="hl">how\'s your sleep been?</span>',0);
     });
 
-    // +14.5s: pills appear. Sleep question visible 11.2s to 14.5s = 3.3s ✓
-    // Pills stay 2.5s before auto-pick
-    addPills('msgs2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],14500,0,2500,function(picked){
-      // +17.4s: user message appears
-      addBub('msgs2','u',picked,400);
+    // Pills after 4s of the question sitting. (Sleep Q visible 4s = readable ✓)
+    addPills('msgs2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],11000,0,2200,function(picked){
+      // --- FAST: user response + quick typing
+      addBub('msgs2','u',picked,300);
 
-      // +19s: typing 1.5s → cortisol insight at +20.5s (18 words → needs 7.7s visible)
-      showDots('msgs2',1600,1500,function(){
+      // --- SLOOOOW: the insight. This is the HERO moment.
+      // 1.5s pause → 2s typing (it's thinking HARD) → insight appears → SITS for 8s.
+      showDots('msgs2',1500,2000,function(){
         addBub('msgs2','a','<span class="warm">That explains a lot.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train.',0);
       });
 
-      // +28.5s: typing 1.2s → build plan at +29.7s (10 words → needs 4.5s visible)
-      // Cortisol visible 20.5s to 28.5s = 8s ✓
-      showDots('msgs2',11000,1200,function(){
+      // --- FAST: transition to action. Short typing.
+      // Insight has been visible for 8s before this fires.
+      showDots('msgs2',11500,800,function(){
         addBub('msgs2','a','Let me build your plan. What proteins do you prefer?',0);
       });
 
-      // +13s from cb = +30.4s: pills appear, stay 2s
-      // Build plan visible 29.7s to 30.4s... but it stays on screen while pills show
-      addPills('msgs2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],13000,0,2000,function(){
-        // +32.8s: user picks chicken
-        addBub('msgs2','u','\ud83d\udc14 Chicken',400);
+      // --- FAST: protein selection. Quick decision.
+      addPills('msgs2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],14000,0,1800,function(){
+        addBub('msgs2','u','\ud83d\udc14 Chicken',300);
 
-        // +34s: typing 1.5s → grocery answer at +35.5s (21 words → needs 9s visible)
-        showDots('msgs2',1200,1500,function(){
-          addBub('msgs2','a','<span class="hl">Buy: 600g chicken breast, 12 eggs, Greek yogurt.</span><span class="soft">That\'s 148g protein covered for the week. I\'ll send you the full list.</span>',0);
+        // --- SLOW: the grocery reveal. This is a payoff moment.
+        // 1s pause → 1.5s typing → answer SITS for 9s until scene change.
+        showDots('msgs2',1000,1500,function(){
+          addBub('msgs2','a','<span class="hl">Buy: 600g chicken breast, 12 eggs, Greek yogurt.</span><span class="soft">That\'s 148g protein for the week. I\'ll send you the full list.</span>',0);
         });
       });
     });
-  },9000);
+  },8000);
 
-  // ============================================
-  // SCENE 3 (46–58s): DELIVERABLES
-  // Grocery answer visible from ~44.5s to 46s = only 1.5s...
-  // But it stays on screen during scene 2, total ~10.5s before scene change ✓
-  // Cards: 2s between each. Each has ~12 words → needs 5.3s.
-  // Cards stay on screen (they stack), so each is visible until scene ends.
-  // ============================================
+  // ============================================================
+  // SCENE 3 (40–52s): DELIVERABLES (Apple slow reveal)
+  //
+  // Each card is an EVENT, not just a list item.
+  // 2.5s between cards. The last card gets confetti.
+  // Coca-Cola: show the magic of what just happened.
+  // ============================================================
   setTimeout(function(){
     show('sc3');
     document.body.className='glow';
@@ -423,7 +442,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
         wrap.appendChild(card);
         requestAnimationFrame(function(){requestAnimationFrame(function(){
           card.classList.add('in');
-          card.querySelector('.del-icon').classList.add('in');
+          setTimeout(function(){card.querySelector('.del-icon').classList.add('in')},150);
         })});
         if(i===deliverables.length-1){
           setTimeout(function(){
@@ -431,25 +450,27 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
             confetti(r.left+r.width/2, r.top, 40);
           },600);
         }
-      },i*2000); // 2s between cards
+      },i*2500);
     });
-  },46000);
+  },40000);
 
-  // ============================================
-  // SCENE 4 (58–70s): THE RETURN — it remembers you
-  // ============================================
+  // ============================================================
+  // SCENE 4 (52–64s): THE RETURN (Coca-Cola: the magic inside)
+  //
+  // The companion REMEMBERS. It's been working behind the scenes.
+  // Show the invisible process: progress tracked, data compiled.
+  // ============================================================
   setTimeout(function(){
     show('sc4');
     document.body.className='warm';
 
-    // Time skip sits alone for 1.5s
-    setTimeout(function(){document.getElementById('skip').classList.add('in')},400);
+    setTimeout(function(){document.getElementById('skip').classList.add('in')},300);
 
     var phone=document.getElementById('phone4');
-    setTimeout(function(){phone.classList.add('in')},1200);
+    setTimeout(function(){phone.classList.add('in')},1000);
 
-    // +2.5s: typing 1.5s → progress message at +4s (15 words → needs 6.5s visible)
-    showDots('msgs4',2500,1500,function(){
+    // --- SLOW: progress message. Hero data. Let it land.
+    showDots('msgs4',2000,1500,function(){
       addBub('msgs4','a','Hey! You\'ve hit your caffeine cutoff <span class="hl">12 days straight</span>. Your sleep score is up <span class="hl">23%</span>.',0,function(){
         var bar=document.createElement('div');
         bar.innerHTML='<div class="progress-mini"><div class="progress-fill" id="pf"></div></div>';
@@ -458,39 +479,60 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
       });
     });
 
-    // +11s: typing 1.2s → next step at +12.2s (15 words → needs 6.5s visible)
-    // Progress msg visible from 4s to 11s = 7s ✓
-    showDots('msgs4',11000,1200,function(){
+    // --- FAST: next step prompt. Quick typing. (Progress had 7s to sit ✓)
+    showDots('msgs4',9500,800,function(){
       addBub('msgs4','a','Ready for <span class="hl">the next step</span>? I can adjust your training plan based on your progress.',0);
     });
 
-    // +15s from scene start: pills appear, visible 1.5s
-    // Next step visible from 12.2s to... it stays on screen. ✓
-    addPills('msgs4',['\ud83d\ude80 Let\'s go','Not yet'],15000,0,1500,function(){
-      addBub('msgs4','u','\ud83d\ude80 Let\u2019s go',300);
+    // Pills quick
+    addPills('msgs4',['\ud83d\ude80 Let\'s go','Not yet'],13000,0,1300,function(){
+      addBub('msgs4','u','\ud83d\ude80 Let\u2019s go',200);
       var r=document.getElementById('phone4').getBoundingClientRect();
-      setTimeout(function(){sparks(r.left+r.width/2,r.top+r.height/2,14)},500);
+      setTimeout(function(){sparks(r.left+r.width/2,r.top+r.height/2,16)},400);
     });
-  },58000);
+  },52000);
 
-  // ============================================
-  // SCENE 5 (70–78s): CLOSE — the companion
-  // ============================================
+  // ============================================================
+  // SCENE 5 (64–72s): CLOSE (Nike kinetic typography)
+  //
+  // Words arrive one by one with RHYTHM.
+  // "One" — pause — "question." — longer pause — "We" "figure" "out" — fast staccato — "the rest." — SLOW, italic, accent.
+  // ============================================================
   setTimeout(function(){
     show('sc5');
     document.body.className='warm';
-    setTimeout(function(){document.getElementById('s5orb').classList.add('in')},400);
-    setTimeout(function(){document.getElementById('s5big').classList.add('in')},900);
-    setTimeout(function(){document.getElementById('s5sub').classList.add('in')},3000);
-    setTimeout(function(){document.getElementById('s5brand').classList.add('in')},3000);
-  },70000);
+    setTimeout(function(){document.getElementById('s5orb').classList.add('in')},300);
+
+    // Kinetic words: each word timed independently for rhythm
+    var words=[
+      {text:'One',accent:false,delay:700},
+      {text:'question.',accent:false,delay:1200},   // pause after "question."
+      {text:'We',accent:false,delay:2800},           // longer pause — beat change
+      {text:'figure',accent:false,delay:3100},       // staccato
+      {text:'out',accent:false,delay:3300},           // staccato
+      {text:'the',accent:false,delay:3800},           // tiny pause
+      {text:'rest.',accent:true,delay:4200}           // SLOW — the hero word
+    ];
+
+    var line=document.getElementById('s5line');
+    words.forEach(function(w){
+      var span=document.createElement('span');
+      span.className='s5-word'+(w.accent?' accent':'');
+      span.textContent=w.text;
+      line.appendChild(span);
+      setTimeout(function(){span.classList.add('in')},w.delay);
+    });
+
+    setTimeout(function(){document.getElementById('s5sub').classList.add('in')},5800);
+    setTimeout(function(){document.getElementById('s5brand').classList.add('in')},5800);
+  },64000);
 
   // Loop
   setTimeout(function(){
-    document.getElementById('sc5').style.transition='opacity 0.6s';
+    document.getElementById('sc5').style.transition='opacity 0.5s';
     document.getElementById('sc5').style.opacity='0';
-    setTimeout(function(){location.reload()},700);
-  },78000);
+    setTimeout(function(){location.reload()},600);
+  },72000);
 
 })();
 </script>
