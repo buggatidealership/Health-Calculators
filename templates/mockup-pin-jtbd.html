@@ -29,22 +29,20 @@ html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-famil
 .reveal{opacity:0;transform:translateY(16px);transition:all 0.85s cubic-bezier(0.16,1,0.3,1)}
 .reveal.in{opacity:1;transform:translateY(0)}
 
-/* === SCENE 1: The Circumstance — what creates the job === */
-.s1-wrap{text-align:center;max-width:640px;padding:0 32px}
-.s1-context{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.16em;color:rgba(255,255,255,0.14);margin-bottom:28px}
-.s1-struggle{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4.2vw,2.8rem);line-height:1.22;color:var(--t)}
-.s1-struggle em{font-style:italic;color:var(--a)}
-.s1-detail{font-size:clamp(0.82rem,1.4vw,0.95rem);color:var(--dim);margin-top:20px;line-height:1.65;font-weight:300}
+/* === SCENE 1: The Circumstance === */
+.s1-wrap{text-align:center;max-width:600px;padding:0 36px}
+.s1-main{font-family:'DM Serif Display',serif;font-size:clamp(1.9rem,4.4vw,2.9rem);line-height:1.22;color:var(--t)}
+.s1-main em{font-style:italic;color:var(--a)}
 
-/* === SCENE 2: The Switch — firing the old, hiring the new === */
-.s2-wrap{text-align:center;max-width:580px;padding:0 32px}
-.s2-fire{font-size:clamp(0.85rem,1.5vw,1rem);color:rgba(255,255,255,0.35);line-height:1.6;font-weight:300;text-decoration:line-through;text-decoration-color:rgba(255,255,255,0.12)}
-.s2-hire{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.8vw,2.5rem);line-height:1.22;margin-top:24px}
-.s2-hire em{font-style:italic;color:var(--a)}
+/* === SCENE 2: The Uncertainty === */
+.s2-wrap{text-align:center;max-width:560px;padding:0 36px}
+.s2-main{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.6vw,2.4rem);line-height:1.25;color:var(--t)}
+.s2-main em{font-style:italic;color:var(--a)}
+.s2-sub{font-size:clamp(0.8rem,1.3vw,0.92rem);color:var(--dim);margin-top:22px;line-height:1.65;font-weight:300}
 
-/* === SCENE 3: Progress Made — compounding jobs done === */
-.s3-wrap{max-width:500px;width:100%;padding:0 28px;display:flex;flex-direction:column;gap:6px}
-.s3-label{font-size:0.56rem;font-weight:600;text-transform:uppercase;letter-spacing:0.16em;color:rgba(255,255,255,0.14);margin-bottom:16px;text-align:center}
+/* === SCENE 3: Progress Made — the jobs resolved === */
+.s3-wrap{max-width:480px;width:100%;padding:0 28px;display:flex;flex-direction:column;gap:6px}
+.s3-label{font-size:0.56rem;font-weight:600;text-transform:uppercase;letter-spacing:0.16em;color:rgba(255,255,255,0.14);margin-bottom:18px;text-align:center}
 
 .s3-card{width:100%;background:rgba(11,14,24,0.92);border:1px solid rgba(255,255,255,0.035);border-radius:10px;opacity:0;transform:translateY(14px) scale(0.97);transition:all 0.55s cubic-bezier(0.25,1,0.5,1);box-shadow:0 6px 24px rgba(0,0,0,0.25)}
 .s3-card.in{opacity:1;transform:translateY(0) scale(1)}
@@ -55,12 +53,10 @@ html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-famil
 .s3-marker svg{width:11px;height:11px;color:var(--a);opacity:0;transition:opacity 0.3s 0.25s}
 .s3-card.in .s3-marker svg{opacity:1}
 
-.s3-before{font-size:0.62rem;color:rgba(255,255,255,0.2);min-width:90px;text-align:right;line-height:1.35;flex-shrink:0}
-.s3-arrow{color:rgba(255,255,255,0.08);font-size:0.7rem;flex-shrink:0}
-.s3-after{font-family:'DM Serif Display',serif;font-size:0.92rem;color:var(--t);line-height:1.3;flex:1}
-.s3-after em{color:var(--a);font-style:italic}
+.s3-job{font-family:'DM Serif Display',serif;font-size:0.92rem;color:var(--t);line-height:1.35;flex:1}
+.s3-job em{color:var(--a);font-style:italic}
 
-/* === SCENE 4: The Invitation — what job do you need done? === */
+/* === SCENE 4: The Invitation === */
 .s4-wrap{text-align:center;max-width:520px;padding:0 32px}
 .s4-main{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,3.5vw,2.2rem);line-height:1.25}
 .s4-main em{font-style:italic;color:var(--a)}
@@ -71,8 +67,7 @@ html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-famil
 
 @media(max-width:600px){
   .s3-wrap{max-width:340px}
-  .s3-before{min-width:70px;font-size:0.56rem}
-  .s3-after{font-size:0.82rem}
+  .s3-job{font-size:0.82rem}
 }
 </style>
 </head>
@@ -81,36 +76,34 @@ html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-famil
   <div class="glow g1" id="g1"></div>
   <div class="glow g2" id="g2"></div>
 
-  <!-- SCENE 1: The Circumstance (the struggling moment that creates the job) -->
+  <!-- SCENE 1: The Circumstance — one idea, let it land -->
   <div class="scene active" id="sc1">
     <div class="s1-wrap">
-      <div class="s1-context reveal" id="s1ctx">the struggling moment</div>
-      <div class="s1-struggle reveal" id="s1a">You need an answer about <em>your body</em> — and you need it now.</div>
-      <div class="s1-detail reveal" id="s1b">Not a blog post. Not ten conflicting opinions. One number, derived from your data, backed by the study it came from.</div>
+      <div class="s1-main reveal" id="s1a">You're about to do something that affects your health — and you're <em>not sure</em> you're doing it right.</div>
     </div>
   </div>
 
-  <!-- SCENE 2: The Switch (firing the old solution, hiring the new) -->
+  <!-- SCENE 2: The Uncertainty — what makes you pause -->
   <div class="scene" id="sc2">
     <div class="s2-wrap">
-      <div class="s2-fire reveal" id="s2fire">Scrolling through ads. Guessing from averages. Trusting uncited advice.</div>
-      <div class="s2-hire reveal" id="s2hire">You <em>hire</em> a tool that computes the answer from <em>your</em> inputs — and shows you the formula.</div>
+      <div class="s2-main reveal" id="s2a">That pause — between <em>wanting to act</em> and not knowing if you should — is the job.</div>
+      <div class="s2-sub reveal" id="s2b">We build tools that resolve it.</div>
     </div>
   </div>
 
-  <!-- SCENE 3: Progress Made (the jobs, compounding) -->
+  <!-- SCENE 3: Progress Made — each card is a resolved job -->
   <div class="scene" id="sc3">
     <div class="s3-wrap">
-      <div class="s3-label reveal" id="s3label">progress made</div>
+      <div class="s3-label reveal" id="s3label">now you act</div>
       <div id="s3cards"></div>
     </div>
   </div>
 
-  <!-- SCENE 4: What job do you need done? -->
+  <!-- SCENE 4: Your turn -->
   <div class="scene" id="sc4">
     <div class="s4-wrap">
-      <div class="s4-main reveal" id="s4a">What's the job <em>you</em> need done?</div>
-      <div class="s4-sub reveal" id="s4b">90+ tools. Every formula cited. Every source verifiable. Tell us what you're trying to figure out.</div>
+      <div class="s4-main reveal" id="s4a">What are you <em>unsure</em> about?</div>
+      <div class="s4-sub reveal" id="s4b">If there's a formula behind it, we'll turn it into a tool — cited, verified, free.</div>
       <div class="s4-brand reveal" id="s4c">
         <div class="s4-name">healthcalculators.xyz</div>
         <div class="s4-handle">@GetHealthC</div>
@@ -124,31 +117,29 @@ html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-famil
   var scenes=['sc1','sc2','sc3','sc4'];
   function show(id){scenes.forEach(function(s){document.getElementById(s).classList.remove('active')});document.getElementById(id).classList.add('active')}
 
-  // Ambient glows
+  // Ambient
   setTimeout(function(){document.getElementById('g1').classList.add('on');document.getElementById('g2').classList.add('on')},300);
 
-  // === SCENE 1 (0–5s): The Circumstance ===
-  // Christensen: every job starts in a specific circumstance of struggle
-  setTimeout(function(){document.getElementById('s1ctx').classList.add('in')},400);
-  setTimeout(function(){document.getElementById('s1a').classList.add('in')},900);
-  setTimeout(function(){document.getElementById('s1b').classList.add('in')},2200);
+  // === SCENE 1 (0–5.5s): The Circumstance ===
+  // One sentence. The universal struggling moment. 5.5s to read and feel it.
+  setTimeout(function(){document.getElementById('s1a').classList.add('in')},600);
 
-  // === SCENE 2 (5–8.5s): The Switch ===
-  // Christensen: people fire one solution and hire another to make progress
+  // === SCENE 2 (5.5–10.5s): The Job ===
+  // Name the job. Then what we do about it. 5s — two beats.
   setTimeout(function(){
     show('sc2');
-    setTimeout(function(){document.getElementById('s2fire').classList.add('in')},300);
-    setTimeout(function(){document.getElementById('s2hire').classList.add('in')},1400);
-  },5000);
+    setTimeout(function(){document.getElementById('s2a').classList.add('in')},400);
+    setTimeout(function(){document.getElementById('s2b').classList.add('in')},2800);
+  },5500);
 
-  // === SCENE 3 (8.5–14s): Progress Made ===
-  // Christensen: the measure of a job well done is progress in the person's life
+  // === SCENE 3 (10.5–17s): Progress — jobs resolved, compounding ===
+  // Each card is a habit where uncertainty was resolved. 6.5s — cards stack slowly.
   var jobs = [
-    { before: 'unsure what to eat', after: '<em>Eating with a plan</em> based on your body' },
-    { before: 'nervous before injecting', after: '<em>Injecting with confidence</em> — every click counted' },
-    { before: 'can\'t sleep, wondering why', after: '<em>Knowing exactly</em> when to stop the caffeine' },
-    { before: 'confused by lab results', after: '<em>Understanding your numbers</em> — not just seeing them' },
-    { before: 'anxious, waiting', after: '<em>Planning around a date</em> that\'s yours' }
+    'Started eating for <em>your</em> metabolism — not a generic chart',
+    'Took the right Ozempic dose — <em>confident</em> in every click',
+    'Had your last coffee at the right hour — <em>slept</em>',
+    'Read your lab results and <em>understood</em> them',
+    'Knew your due date — and <em>planned</em> around it'
   ];
 
   setTimeout(function(){
@@ -156,38 +147,36 @@ html,body{background:var(--bg);width:100%;height:100%;overflow:hidden;font-famil
     setTimeout(function(){document.getElementById('s3label').classList.add('in')},200);
 
     var container = document.getElementById('s3cards');
-    jobs.forEach(function(j, i) {
+    jobs.forEach(function(text, i) {
       setTimeout(function() {
         var card = document.createElement('div');
         card.className = 's3-card';
         card.innerHTML =
           '<div class="s3-inner">' +
             '<div class="s3-marker"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg></div>' +
-            '<div class="s3-before">' + j.before + '</div>' +
-            '<div class="s3-arrow">\u2192</div>' +
-            '<div class="s3-after">' + j.after + '</div>' +
+            '<div class="s3-job">' + text + '</div>' +
           '</div>';
         container.appendChild(card);
         setTimeout(function(){ card.classList.add('in') }, 50);
-      }, 400 + i * 850);
+      }, 400 + i * 1100);
     });
-  },8500);
+  },10500);
 
-  // === SCENE 4 (14–17.5s): The Invitation ===
-  // Christensen: the question is always "what job are you hiring this for?"
+  // === SCENE 4 (17–21s): The Invitation ===
+  // Short. Open-ended. 4s to land + brand.
   setTimeout(function(){
     show('sc4');
     setTimeout(function(){document.getElementById('s4a').classList.add('in')},300);
-    setTimeout(function(){document.getElementById('s4b').classList.add('in')},300);
-    setTimeout(function(){document.getElementById('s4c').classList.add('in')},300);
-  },14000);
+    setTimeout(function(){document.getElementById('s4b').classList.add('in')},1200);
+    setTimeout(function(){document.getElementById('s4c').classList.add('in')},1200);
+  },17000);
 
   // Loop
   setTimeout(function(){
     document.getElementById('sc4').style.transition='opacity 0.6s';
     document.getElementById('sc4').style.opacity='0';
     setTimeout(function(){location.reload()},700);
-  },17500);
+  },21500);
 })();
 </script>
 </body>
