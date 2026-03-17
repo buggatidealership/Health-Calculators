@@ -40,7 +40,7 @@ h1 { font-size: 1.4rem; font-weight: 600; margin-bottom: 8px; }
 
 <div class="output" id="output" contenteditable="true"></div>
 <div class="status" id="status">Click record and start speaking</div>
-<p class="tip">Works in Chrome, Edge, Safari. Keeps recording until you stop. You can also edit the text directly before copying.</p>
+<p class="tip">Works in Chrome and Edge (desktop). Safari has partial support. Firefox does not support Web Speech API.<br>If recording doesn't work, type directly into the text box above — it's editable.</p>
 
 <script>
 var recognition = null;
@@ -78,10 +78,21 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
   };
 
   recognition.onerror = function(event) {
-    status.textContent = 'Error: ' + event.error;
+    var msg = 'Error: ' + event.error;
     if (event.error === 'not-allowed') {
-      status.textContent = 'Microphone access denied. Check browser permissions.';
+      msg = 'Microphone access denied. Click the lock icon in your address bar → Allow microphone → Refresh.';
+    } else if (event.error === 'no-speech') {
+      msg = 'No speech detected. Try speaking louder or closer to the mic.';
+      return; // don't stop — keep listening
+    } else if (event.error === 'network') {
+      msg = 'Network error. Speech recognition requires an internet connection (audio is processed by Google).';
+    } else if (event.error === 'aborted') {
+      return; // normal when stopping
     }
+    status.textContent = msg;
+    isRecording = false;
+    recordBtn.classList.remove('recording');
+    btnText.textContent = 'Start Recording';
   };
 
   recognition.onend = function() {
@@ -95,7 +106,10 @@ if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
 }
 
 function toggleRecord() {
-  if (!recognition) return;
+  if (!recognition) {
+    status.textContent = 'Speech recognition not available. Use Chrome or Edge on desktop.';
+    return;
+  }
   if (isRecording) {
     isRecording = false;
     recognition.stop();
@@ -104,10 +118,18 @@ function toggleRecord() {
     status.textContent = 'Stopped. ' + fullText.split(/\s+/).filter(Boolean).length + ' words captured.';
   } else {
     isRecording = true;
-    recognition.start();
     recordBtn.classList.add('recording');
     btnText.textContent = 'Stop Recording';
-    status.textContent = 'Listening...';
+    status.textContent = 'Requesting microphone access...';
+    try {
+      recognition.start();
+      status.textContent = 'Listening... speak now';
+    } catch(e) {
+      status.textContent = 'Error: ' + e.message + '. Try refreshing the page.';
+      isRecording = false;
+      recordBtn.classList.remove('recording');
+      btnText.textContent = 'Start Recording';
+    }
   }
 }
 
