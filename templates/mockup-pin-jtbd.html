@@ -296,28 +296,29 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   }
 
   // ============================================
-  // SCENE 1 (0–3.5s): THE 3AM SEARCH — alone, scared
+  // SCENE 1 (0–7s): THE 3AM SEARCH — alone, scared
+  // Let the frustration build. Slow typing. Results sit.
   // ============================================
   var sbar=document.getElementById('sbar');
   var stext=document.getElementById('stext');
   var query='is it normal to gain weight even though i exercise';
 
-  setTimeout(function(){sbar.classList.add('in')},300);
+  setTimeout(function(){sbar.classList.add('in')},500);
 
-  // Type the search query character by character
+  // Type slowly — 55ms per char (was 35ms). Let them read along.
   var ci=0;
   setTimeout(function(){
     var typer=setInterval(function(){
       if(ci<query.length){stext.textContent=query.substring(0,++ci)}
       else clearInterval(typer);
-    },35);
-  },600);
+    },55);
+  },900);
 
-  // Show conflicting results
+  // Results appear after query finishes typing — with pauses between
   setTimeout(function(){
     var results=[
       {title:'HealthLine: Why You\'re Gaining Weight',snippet:'Muscle weighs more than fat, so...',conflict:''},
-      {title:'WebMD: Exercise and Weight Gain',snippet:'Cortisol from overtraining can cause...',conflict:'⚠ Contradicts result above'},
+      {title:'WebMD: Exercise and Weight Gain',snippet:'Cortisol from overtraining can cause...',conflict:'\u26a0 Contradicts result above'},
       {title:'Reddit: Same thing happening to me',snippet:'Honestly no one knows, I gave up trying to...',conflict:''}
     ];
     var container=document.getElementById('sresults');
@@ -328,56 +329,61 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
           r.snippet+'</div>'+(r.conflict?'<div class="sr-conflict">'+r.conflict+'</div>':'');
         container.appendChild(div);
         requestAnimationFrame(function(){requestAnimationFrame(function(){div.classList.add('in')})});
-      },i*300);
+      },i*600); // 600ms between results (was 300ms)
     });
-  },2400);
+  },4200); // Start later — after typing finishes
 
   // ============================================
-  // SCENE 2 (3.5–11s): THE COMPANION — it asks what you didn't think to ask
+  // SCENE 2 (7–24s): THE COMPANION — 17 seconds to breathe
+  // Every message gets room. The key question hangs in the air.
   // ============================================
   setTimeout(function(){
     show('sc2');
     document.body.classList.add('warm');
 
     var phone=document.getElementById('phone2');
-    setTimeout(function(){phone.classList.add('in')},100);
+    setTimeout(function(){phone.classList.add('in')},200);
 
     // Companion opens warmly — acknowledges the emotion
-    showDots('msgs2',400,800,function(){
-      addBub('msgs2','a','I can help with that. <span class="soft">And you\'re not alone — this is the #1 question I get.</span>',0);
+    showDots('msgs2',600,1200,function(){
+      addBub('msgs2','a','I can help with that. <span class="soft">And you\'re not alone \u2014 this is the #1 question I get.</span>',0);
     });
 
     // THE MOMENT: companion asks a question the user didn't think of
-    showDots('msgs2',2600,700,function(){
-      addBub('msgs2','a','Quick question — <span class="hl">how\'s your sleep been?</span>',0);
+    // This needs to HANG — 1.5s pause before, 1s typing, then the question sits
+    showDots('msgs2',4000,1000,function(){
+      addBub('msgs2','a','Quick question \u2014 <span class="hl">how\'s your sleep been?</span>',0);
     });
 
-    // User is surprised but answers
-    addPills('msgs2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],4200,0,1200,function(picked){
-      addBub('msgs2','u',picked,100);
+    // Pills appear after a beat — user processes the unexpected question
+    addPills('msgs2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],7000,0,1800,function(picked){
+      addBub('msgs2','u',picked,200);
 
-      // Companion connects the dots
-      showDots('msgs2',500,700,function(){
+      // Companion connects the dots — typing longer, thinking harder
+      showDots('msgs2',1000,1200,function(){
         addBub('msgs2','a','<span class="warm">That explains a lot.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train.',0);
       });
 
-      // Drills into specifics — protein preference
-      showDots('msgs2',2200,600,function(){
+      // Let the insight land before moving to action
+      showDots('msgs2',4000,1000,function(){
         addBub('msgs2','a','Let me build your plan. What proteins do you prefer?',0);
       });
 
-      addPills('msgs2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],3600,0,1000,function(){
-        addBub('msgs2','u','\ud83d\udc14 Chicken',100);
+      // Protein pills — more time to appear and be selected
+      addPills('msgs2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],6500,0,1500,function(){
+        addBub('msgs2','u','\ud83d\udc14 Chicken',200);
 
-        showDots('msgs2',400,600,function(){
+        // Final answer — the grocery list moment
+        showDots('msgs2',800,1000,function(){
           addBub('msgs2','a','<span class="hl">Buy: 600g chicken breast, 12 eggs, Greek yogurt.</span><span class="soft">That\'s 148g protein covered for the week. I\'ll send you the full list.</span>',0);
         });
       });
     });
-  },3500);
+  },7000);
 
   // ============================================
-  // SCENE 3 (11–15.5s): DELIVERABLES — cards cascade out
+  // SCENE 3 (24–33s): DELIVERABLES — each card gets its moment
+  // 1.2s between cards (was 500ms). Let each one register.
   // ============================================
   setTimeout(function(){
     show('sc3');
@@ -408,67 +414,72 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
           card.classList.add('in');
           card.querySelector('.del-icon').classList.add('in');
         })});
+        // Confetti on the last card
         if(i===deliverables.length-1){
           setTimeout(function(){
             var r=card.getBoundingClientRect();
             confetti(r.left+r.width/2, r.top, 40);
-          },400);
+          },500);
         }
-      },i*500);
+      },i*1200); // 1.2s between cards (was 500ms)
     });
-  },11000);
+  },24000);
 
   // ============================================
-  // SCENE 4 (15.5–20s): THE RETURN — it remembers you
+  // SCENE 4 (33–42s): THE RETURN — it remembers you
+  // The time skip needs to land. Progress needs to feel real.
   // ============================================
   setTimeout(function(){
     show('sc4');
     document.body.className='warm';
 
-    setTimeout(function(){document.getElementById('skip').classList.add('in')},200);
+    // Time skip badge — let it sit alone for a beat
+    setTimeout(function(){document.getElementById('skip').classList.add('in')},300);
 
     var phone=document.getElementById('phone4');
-    setTimeout(function(){phone.classList.add('in')},400);
+    setTimeout(function(){phone.classList.add('in')},800);
 
-    showDots('msgs4',800,700,function(){
+    // Companion remembers — typing feels like it's recalling your data
+    showDots('msgs4',1600,1200,function(){
       addBub('msgs4','a','Hey! You\'ve hit your caffeine cutoff <span class="hl">12 days straight</span>. Your sleep score is up <span class="hl">23%</span>.',0,function(){
-        // Progress bar
+        // Progress bar fills slowly
         var bar=document.createElement('div');
         bar.innerHTML='<div class="progress-mini"><div class="progress-fill" id="pf"></div></div>';
         document.getElementById('msgs4').lastChild.appendChild(bar.firstChild);
-        setTimeout(function(){document.getElementById('pf').style.width='73%'},200);
+        setTimeout(function(){document.getElementById('pf').style.width='73%'},300);
       });
     });
 
-    showDots('msgs4',3000,600,function(){
+    // Let the progress sink in before the next message
+    showDots('msgs4',5000,1000,function(){
       addBub('msgs4','a','Ready for <span class="hl">the next step</span>? I can adjust your training plan based on your progress.',0);
     });
 
-    addPills('msgs4',['\ud83d\ude80 Let\'s go','Not yet'],4200,0,900,function(){
-      addBub('msgs4','u','\ud83d\ude80 Let\u2019s go',100);
+    addPills('msgs4',['\ud83d\ude80 Let\'s go','Not yet'],7500,0,1200,function(){
+      addBub('msgs4','u','\ud83d\ude80 Let\u2019s go',200);
       var r=document.getElementById('phone4').getBoundingClientRect();
-      setTimeout(function(){sparks(r.left+r.width/2,r.top+r.height/2,14)},300);
+      setTimeout(function(){sparks(r.left+r.width/2,r.top+r.height/2,14)},400);
     });
-  },15500);
+  },33000);
 
   // ============================================
-  // SCENE 5 (20–24s): CLOSE — the companion
+  // SCENE 5 (42–48s): CLOSE — let it breathe
   // ============================================
   setTimeout(function(){
     show('sc5');
     document.body.className='warm';
-    setTimeout(function(){document.getElementById('s5orb').classList.add('in')},200);
-    setTimeout(function(){document.getElementById('s5big').classList.add('in')},500);
-    setTimeout(function(){document.getElementById('s5sub').classList.add('in')},1400);
-    setTimeout(function(){document.getElementById('s5brand').classList.add('in')},1400);
-  },20000);
+    setTimeout(function(){document.getElementById('s5orb').classList.add('in')},300);
+    setTimeout(function(){document.getElementById('s5big').classList.add('in')},700);
+    setTimeout(function(){document.getElementById('s5sub').classList.add('in')},2200);
+    setTimeout(function(){document.getElementById('s5brand').classList.add('in')},2200);
+  },42000);
 
   // Loop
   setTimeout(function(){
-    document.getElementById('sc5').style.transition='opacity 0.5s';
+    document.getElementById('sc5').style.transition='opacity 0.6s';
     document.getElementById('sc5').style.opacity='0';
-    setTimeout(function(){location.reload()},600);
-  },24500);
+    setTimeout(function(){location.reload()},700);
+  },48500);
 
 })();
 </script>
