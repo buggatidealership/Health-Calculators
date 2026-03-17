@@ -181,6 +181,27 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
 .co-nm{font-size:0.72rem;font-weight:600;color:#3a3a3e}
 .co-hn{font-size:0.56rem;color:#0e7a7e;margin-top:1px}
 
+/* Tap indicator — finger ripple on notification */
+.tap-ring{position:absolute;width:36px;height:36px;border-radius:50%;
+  border:2px solid rgba(0,0,0,0.12);pointer-events:none;z-index:85;
+  opacity:0;transform:scale(0.3);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.tap-ring.pop{opacity:1;transform:scale(1)}
+.tap-ring.fade{opacity:0;transform:scale(1.5)}
+
+/* Input bar — Pulse chat bottom */
+.pa-input{position:absolute;bottom:0;left:0;right:0;padding:8px 12px;
+  background:#f6f1eb;border-top:1px solid rgba(0,0,0,0.04);display:flex;align-items:center;gap:8px}
+.pa-input-field{flex:1;padding:7px 14px;border-radius:20px;background:#fff;
+  border:1px solid rgba(0,0,0,0.06);font-size:0.66rem;color:#9a9a9e}
+.pa-input-send{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.pa-input-send svg{width:12px;height:12px;color:#fff;transform:rotate(-45deg)}
+
+/* WA double blue checks */
+.wa-checks{display:inline-block;margin-left:3px;vertical-align:middle}
+.wa-checks svg{width:14px;height:8px;color:#53bdeb}
+
 /* Effects */
 .spk{position:fixed;border-radius:50%;pointer-events:none;z-index:200}
 @keyframes spk-fly{0%{opacity:.9;transform:translate(0,0) scale(1)}
@@ -217,7 +238,11 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
         <div class="pa-av"><span>P</span></div>
         <div><div class="pa-nm">Pulse</div><div class="pa-st">online</div></div>
       </div>
-      <div class="pa-body" id="pBody"></div>
+      <div class="pa-body" id="pBody" style="max-height:calc(100% - 48px - 44px - 44px)"></div>
+      <div class="pa-input">
+        <div class="pa-input-field">Ask anything about your health...</div>
+        <div class="pa-input-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+      </div>
     </div>
 
     <!-- APP: WhatsApp -->
@@ -232,12 +257,22 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
     <!-- Notification banner -->
     <div class="notif-banner" id="notif"></div>
 
-    <!-- Close overlay (inside the phone) -->
+    <!-- Close: Pulse home screen (authentic app feel) -->
     <div class="close-ov" id="closeOv">
-      <div class="co-orb" id="coOrb"><span>P</span></div>
-      <div class="co-ln" id="coLn"></div>
-      <div class="co-sub" id="coSub">Your health companion. Always learning.</div>
-      <div class="co-brand" id="coBr"><div class="co-nm">healthcalculators.xyz</div><div class="co-hn">@GetHealthC</div></div>
+      <div class="pa-top" style="border-radius:0">
+        <div class="pa-av"><span>P</span></div>
+        <div><div class="pa-nm">Pulse</div><div class="pa-st">Your companion</div></div>
+      </div>
+      <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px">
+        <div class="co-orb" id="coOrb"><span>P</span></div>
+        <div class="co-ln" id="coLn"></div>
+        <div class="co-sub" id="coSub">Ask anything about your health.</div>
+        <div class="co-brand" id="coBr"><div class="co-nm">healthcalculators.xyz</div><div class="co-hn">@GetHealthC</div></div>
+      </div>
+      <div class="pa-input">
+        <div class="pa-input-field">What are you trying to figure out?</div>
+        <div class="pa-input-send"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+      </div>
     </div>
   </div>
 </div>
@@ -349,7 +384,23 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
   // 13w → (13/2.5)+0.5 = 5.7s visible
   showNotif('P','pulse','PULSE','Pulse',
     'I noticed you\'re searching about weight and exercise. I can help \u2014 tap to chat.',
-    'now',8000,4500);
+    'now',8000,4200);
+
+  // +12s: tap ripple on notification → then app opens
+  setTimeout(function(){
+    var n=$('notif');
+    if(!n) return;
+    var rect=n.getBoundingClientRect();
+    var tap=document.createElement('div');
+    tap.className='tap-ring';
+    tap.style.left=(rect.left+rect.width/2-18)+'px';
+    tap.style.top=(rect.top+rect.height/2-18)+'px';
+    tap.style.position='fixed';
+    document.body.appendChild(tap);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){tap.classList.add('pop')})});
+    setTimeout(function(){tap.classList.remove('pop');tap.classList.add('fade');
+      setTimeout(function(){tap.remove()},300)},350);
+  },11800);
 
   /* ══════════════════════════════════════════════════
      SCENE 2 (13→38s): PULSE APP — the conversation
@@ -413,7 +464,7 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
     // Grocery list message (Coca-Cola: items appear, then check off)
     setTimeout(function(){
       var gm=document.createElement('div');gm.className='wm';
-      gm.innerHTML='<strong>\ud83d\uded2 Your Grocery List</strong><div id="wGI" style="margin-top:4px"></div><span class="wt">2:01 PM</span>';
+      gm.innerHTML='<strong>\ud83d\uded2 Your Grocery List</strong><div id="wGI" style="margin-top:4px"></div><span class="wt">2:01 PM <span class="wa-checks"><svg viewBox="0 0 16 9"><path d="M1 4.5l3 3L11 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 4.5l3 3L15 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span></span>';
       wb.appendChild(gm);
       requestAnimationFrame(function(){requestAnimationFrame(function(){gm.classList.add('v')})});
 
@@ -496,10 +547,14 @@ html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-seri
      SCENE 5 (68→78s): CLOSE — inside the phone
      ══════════════════════════════════════════════════ */
   setTimeout(function(){
+    // Show close as another "app" — Pulse home screen
+    document.querySelectorAll('.app').forEach(function(a){a.classList.remove('on')});
     $('closeOv').classList.add('on');
+    $('sBar').className='status-bar light';
 
     setTimeout(function(){$('coOrb').classList.add('v')},300);
 
+    // Nike kinetic type — "One question. We figure out the rest."
     var wds=[
       {t:'One',a:false,d:700},
       {t:'question.',a:false,d:1100},
