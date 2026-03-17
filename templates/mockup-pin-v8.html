@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — V8 Full Journey</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#111;display:flex;align-items:center;justify-content:center}
+
+/* Phone */
+.ph{width:340px;height:680px;max-height:92vh;max-width:88vw;background:#000;border-radius:42px;
+  position:relative;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06)}
+.dyn{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:24px;
+  background:#000;border-radius:20px;z-index:100}
+.sb{position:absolute;top:0;left:0;right:0;height:48px;z-index:90;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;
+  font-size:0.6rem;font-weight:600;transition:color 0.3s}
+.sb.dk{color:rgba(255,255,255,0.7)}.sb.lt{color:rgba(0,0,0,0.6)}
+.sb svg{width:14px;height:14px}
+.scr{position:absolute;inset:0;border-radius:42px;overflow:hidden}
+
+/* Apps */
+.ap{position:absolute;inset:0;opacity:0;transition:opacity 0.4s;pointer-events:none;padding-top:48px}
+.ap.on{opacity:1}
+
+/* Browser */
+.bro{background:#1a1a1e}
+.bro-b{margin:8px 12px;padding:8px 14px;background:rgba(255,255,255,0.08);border-radius:12px;
+  display:flex;align-items:center;gap:8px}
+.bro-b svg{width:13px;height:13px;color:rgba(255,255,255,0.25);flex-shrink:0}
+.bro-u{font-size:0.7rem;color:rgba(255,255,255,0.4);white-space:nowrap}
+.bro-c{display:inline-block;width:1px;height:0.9em;background:rgba(255,255,255,0.4);
+  margin-left:1px;vertical-align:text-bottom;animation:bk 1s step-end infinite}
+@keyframes bk{50%{opacity:0}}
+.bro-r{padding:8px 12px;display:flex;flex-direction:column;gap:4px}
+.sr{padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:10px;
+  opacity:0;transform:translateY(5px);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.sr.v{opacity:1;transform:translateY(0)}
+.sr-s{font-size:0.5rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:2px}
+.sr-t{font-size:0.64rem;color:rgba(255,255,255,0.32);line-height:1.35}
+
+/* WhatsApp */
+.wa{background:#ece5dd}
+.wa-h{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#075e54}
+.wa-a{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-a span{color:#fff;font-weight:700;font-size:0.6rem}
+.wa-n{font-weight:600;font-size:0.76rem;color:#fff}
+.wa-s{font-size:0.5rem;color:rgba(255,255,255,0.6)}
+.wa-bd{padding:8px 10px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;max-height:calc(100% - 48px - 44px - 48px)}
+.wa-in{position:absolute;bottom:0;left:0;right:0;padding:6px 10px;
+  background:#f0f0f0;display:flex;align-items:center;gap:6px}
+.wa-if{flex:1;padding:7px 14px;border-radius:20px;background:#fff;font-size:0.66rem;color:#9a9a9e}
+.wa-if.act{color:#1a1a1e}
+.wa-if .ic{display:inline-block;width:1px;height:0.85em;background:#075e54;
+  margin-left:1px;vertical-align:text-bottom;animation:bk 0.8s step-end infinite}
+.wa-se{width:32px;height:32px;border-radius:50%;background:#075e54;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.wa-se svg{width:14px;height:14px;color:#fff}
+
+/* Safari — for dashboard reveal */
+.saf{background:#f6f1eb}
+.saf-bar{margin:8px 12px;padding:7px 14px;background:rgba(0,0,0,0.04);border-radius:12px;
+  font-size:0.62rem;color:#6a6a6e;display:flex;align-items:center;gap:6px}
+.saf-bar svg{width:11px;height:11px;color:#0e7a7e;flex-shrink:0}
+.saf-body{padding:10px 12px;overflow-y:auto;max-height:calc(100% - 48px - 40px)}
+
+/* Dashboard inside Safari */
+.db-head{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.db-orb{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.db-orb span{color:#fff;font-weight:700;font-size:0.5rem}
+.db-title{font-size:0.82rem;font-weight:600;color:#1a1a1e}
+.db-sub{font-size:0.5rem;color:#7a7a7e}
+
+/* LLM insight card */
+.db-insight{background:rgba(14,122,126,0.04);border:1px solid rgba(14,122,126,0.08);
+  border-radius:12px;padding:12px;margin-bottom:12px;
+  opacity:0;transform:translateY(8px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.db-insight.v{opacity:1;transform:translateY(0)}
+.db-insight-tag{font-size:0.52rem;font-weight:600;color:#0e7a7e;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+.db-insight-text{font-size:0.64rem;color:#3a3a3e;line-height:1.5}
+
+/* Stats row */
+.db-stats{display:flex;gap:6px;margin-bottom:12px}
+.db-stat{flex:1;background:#fff;border-radius:10px;padding:10px 8px;text-align:center;
+  box-shadow:0 1px 6px rgba(0,0,0,0.04);
+  opacity:0;transform:translateY(8px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.db-stat.v{opacity:1;transform:translateY(0)}
+.db-stat-num{font-size:0.9rem;font-weight:700;color:#0e7a7e}
+.db-stat-label{font-size:0.46rem;color:#7a7a7e;margin-top:2px}
+
+/* Trend chart */
+.db-chart{background:#fff;border-radius:12px;padding:12px;margin-bottom:12px;
+  box-shadow:0 1px 6px rgba(0,0,0,0.04);
+  opacity:0;transform:translateY(8px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.db-chart.v{opacity:1;transform:translateY(0)}
+.db-chart-title{font-size:0.6rem;font-weight:600;color:#1a1a1e;margin-bottom:8px}
+.db-chart svg{width:100%;height:60px}
+.db-chart .line{fill:none;stroke:#14b8a6;stroke-width:2;stroke-linecap:round;
+  stroke-dasharray:300;stroke-dashoffset:300;transition:stroke-dashoffset 2s ease-out}
+.db-chart .line.draw{stroke-dashoffset:0}
+.db-chart .area{fill:url(#chartGrad);opacity:0;transition:opacity 1s ease-out 0.5s}
+.db-chart .area.v{opacity:0.3}
+.db-chart .dot{fill:#0e7a7e;opacity:0;transition:all 0.3s cubic-bezier(0,1.5,0.5,1)}
+.db-chart .dot.v{opacity:1}
+.db-chart-ann{font-size:0.46rem;color:#0e7a7e;margin-top:4px;font-weight:500;
+  opacity:0;transition:opacity 0.5s}
+.db-chart-ann.v{opacity:1}
+
+/* Messages */
+.wm{max-width:85%;padding:6px 10px;border-radius:8px;font-size:0.68rem;line-height:1.45;
+  margin:1px 0;opacity:0;transform:translateY(5px) scale(0.94);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.wm.v{opacity:1;transform:translateY(0) scale(1)}
+.wm.o{background:#dcf8c6;color:#1a3a2a;align-self:flex-end;border-bottom-right-radius:2px}
+.wm.i{background:#fff;color:#2a2a2e;align-self:flex-start;border-bottom-left-radius:2px;box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.wm .e{color:#075e54;font-weight:600}
+.wm .d{color:#7a8a7a;font-size:0.6rem;display:block;margin-top:2px}
+.wm .ts{font-size:0.44rem;color:#7a9a7a;float:right;margin-left:6px;margin-top:3px;display:flex;align-items:center;gap:2px}
+.wm .ts svg{width:12px;height:7px;color:#53bdeb}
+.ck{display:inline}
+
+/* WA buttons */
+.wb{display:flex;flex-direction:column;gap:1px;margin-top:4px;border-top:1px solid rgba(0,0,0,0.06);padding-top:4px}
+.wbb{text-align:center;padding:6px;font-size:0.64rem;color:#00a884;font-weight:500;
+  background:rgba(0,168,132,0.03);border-radius:6px;
+  opacity:0;transform:scale(0.9);transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+.wbb.v{opacity:1;transform:scale(1)}.wbb.pk{background:#00a884;color:#fff}.wbb.off{opacity:0.3}
+
+/* Date sep */
+.dsep{text-align:center;font-size:0.48rem;font-weight:600;color:#8a8a8e;
+  background:rgba(255,255,255,0.6);border-radius:6px;width:fit-content;margin:4px auto;padding:3px 10px}
+
+/* Typing */
+.td{display:inline-flex;gap:3px;padding:1px 0}
+.td i{width:5px;height:5px;border-radius:50%;background:#a0a8a0;display:block;animation:tdb 1.2s ease-in-out infinite}
+.td i:nth-child(2){animation-delay:.15s}.td i:nth-child(3){animation-delay:.3s}
+@keyframes tdb{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-3.5px);opacity:1}}
+
+/* Grocery items */
+.gi{display:flex;align-items:center;gap:5px;padding:1px 0;font-size:0.62rem}
+.gk{width:12px;height:12px;border-radius:3px;border:1.5px solid rgba(0,0,0,0.12);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:all 0.15s cubic-bezier(0,1.5,0.5,1)}
+.gk.dn{background:#00a884;border-color:#00a884}
+.gk.dn::after{content:'';width:4px;height:2.5px;border-left:1.5px solid #fff;border-bottom:1.5px solid #fff;transform:rotate(-45deg) translateY(-0.5px)}
+.gi.xd{color:#8a9a8a;text-decoration:line-through}
+
+/* WA image */
+.wi{width:100%;border-radius:6px;overflow:hidden;margin-top:4px;background:#f0f4f0}
+.wi-in{padding:12px;display:flex;flex-direction:column;gap:6px}
+.wi-t{font-size:0.58rem;font-weight:700;color:#1a3a2a;text-transform:uppercase;letter-spacing:0.04em}
+.wi-r{display:flex;justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+.wi-r:last-child{border-bottom:none}
+.wi-l{font-size:0.54rem;color:#5a6a5a}.wi-v{font-size:0.58rem;color:#075e54;font-weight:700}
+.wi-bar{height:3px;border-radius:2px;background:rgba(0,0,0,0.06);margin-top:4px}
+.wi-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#00a884,#14b8a6);width:0;transition:width 1s cubic-bezier(0.34,1.56,0.64,1)}
+
+/* Notif */
+.nf{position:absolute;top:50px;left:10px;right:10px;z-index:80;
+  background:rgba(245,241,235,0.97);backdrop-filter:blur(20px);border-radius:16px;
+  padding:12px 14px;display:flex;gap:10px;align-items:flex-start;box-shadow:0 4px 24px rgba(0,0,0,0.15);
+  transform:translateY(-120px);opacity:0;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.nf.show{transform:translateY(0);opacity:1}
+.nf.hide{transform:translateY(-120px);opacity:0}
+.nf-i{width:32px;height:32px;border-radius:8px;background:#25d366;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.nf-i span{color:#fff;font-weight:700;font-size:0.6rem}
+
+/* Tap */
+.tap{position:fixed;width:36px;height:36px;border-radius:50%;border:2px solid rgba(0,0,0,0.1);
+  pointer-events:none;z-index:85;opacity:0;transform:scale(0.3);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.tap.pop{opacity:1;transform:scale(1)}.tap.gone{opacity:0;transform:scale(1.5)}
+
+/* Close */
+.cl{position:absolute;inset:0;z-index:70;border-radius:42px;background:#f6f1eb;
+  display:flex;flex-direction:column;opacity:0;transition:opacity 0.6s}
+.cl.on{opacity:1}
+.cl-c{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+.cl-o{width:56px;height:56px;border-radius:50%;margin-bottom:16px;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);box-shadow:0 4px 20px rgba(14,122,126,0.2);
+  display:flex;align-items:center;justify-content:center;
+  animation:ob 3.75s ease-in-out infinite;
+  opacity:0;transform:scale(0.4);transition:all 0.5s cubic-bezier(0,1.5,0.5,1)}
+.cl-o.v{opacity:1;transform:scale(1)}
+.cl-o span{color:#fff;font-weight:700;font-size:1rem}
+@keyframes ob{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.cl-ln{display:flex;flex-wrap:wrap;justify-content:center;gap:0 7px}
+.cl-w{font-family:'DM Sans',sans-serif;font-size:1.15rem;font-weight:700;line-height:1.4;color:#1a1a1e;
+  opacity:0;transform:translateY(100%);transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.cl-w.v{opacity:1;transform:translateY(0)}.cl-w.ac{color:#0e7a7e}
+.cl-su{font-size:0.64rem;color:#7a7a82;margin-top:10px;opacity:0;transition:opacity 0.5s}
+.cl-su.v{opacity:1}
+.cl-br{margin-top:14px;opacity:0;transition:opacity 0.5s}.cl-br.v{opacity:1}
+.cl-nm{font-size:0.7rem;font-weight:600;color:#3a3a3e}
+.cl-hn{font-size:0.54rem;color:#0e7a7e;margin-top:1px}
+
+/* Effects */
+.spk{position:fixed;border-radius:50%;pointer-events:none;z-index:200}
+@keyframes sf{0%{opacity:.9;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--ex),var(--ey)) scale(0)}}
+.cft{position:fixed;pointer-events:none;z-index:200;opacity:.9}
+@keyframes cd{0%{transform:translateY(0) rotate(0deg);opacity:.9}100%{transform:translateY(var(--fd)) rotate(var(--fr));opacity:0}}
+</style>
+</head>
+<body>
+<div class="ph" id="PH">
+  <div class="dyn"></div>
+  <div class="sb dk" id="SB"><div id="tm">9:41</div><div style="display:flex;gap:4px;align-items:center">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+  </div></div>
+  <div class="scr">
+    <!-- Browser -->
+    <div class="ap bro on" id="aBro">
+      <div class="bro-b"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="bro-u"><span id="bT"></span><span class="bro-c"></span></div></div>
+      <div class="bro-r" id="bR"></div>
+    </div>
+
+    <!-- WhatsApp -->
+    <div class="ap wa" id="aWA">
+      <div class="wa-h"><div class="wa-a"><span>P</span></div><div><div class="wa-n">Pulse</div><div class="wa-s">online</div></div></div>
+      <div class="wa-bd" id="wB"></div>
+      <div class="wa-in" id="wIn"><div class="wa-if" id="wF">Message</div>
+        <div class="wa-se" id="wS"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+      </div>
+    </div>
+
+    <!-- Safari (dashboard) -->
+    <div class="ap saf" id="aSaf">
+      <div class="saf-bar">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 4H7V4h10v2z"/></svg>
+        healthcalculators.xyz/pulse/s8k2x
+      </div>
+      <div class="saf-body" id="safB"></div>
+    </div>
+
+    <!-- Notification -->
+    <div class="nf" id="NF"></div>
+    <!-- Close -->
+    <div class="cl" id="CL">
+      <div class="wa-h"><div class="wa-a"><span>P</span></div><div><div class="wa-n">Pulse</div><div class="wa-s">Your health companion</div></div></div>
+      <div class="cl-c">
+        <div class="cl-o" id="cO"><span>P</span></div>
+        <div class="cl-ln" id="cL"></div>
+        <div class="cl-su" id="cS">Message us on WhatsApp. We'll figure out the rest.</div>
+        <div class="cl-br" id="cB"><div class="cl-nm">healthcalculators.xyz</div><div class="cl-hn">@GetHealthC</div></div>
+      </div>
+      <div class="wa-in"><div class="wa-if">What are you trying to figure out?</div>
+        <div class="wa-se"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var bd=$('wB');
+  var CK='<svg viewBox="0 0 16 9"><path d="M1 4.5l3 3L11 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 4.5l3 3L15 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+  function appTo(id){document.querySelectorAll('.ap').forEach(function(a){a.classList.remove('on')});$(id).classList.add('on')}
+  function time(t){$('tm').textContent=t}
+
+  function m(cls,html,ms,cb){setTimeout(function(){
+    var d=document.createElement('div');d.className='wm '+cls;d.innerHTML=html;
+    bd.appendChild(d);bd.scrollTop=bd.scrollHeight;
+    requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v');if(cb)setTimeout(cb,50)})});
+  },ms)}
+  function dots(ms,dur,cb){setTimeout(function(){
+    var d=document.createElement('div');d.className='wm i';d.innerHTML='<span class="td"><i></i><i></i><i></i></span>';
+    bd.appendChild(d);bd.scrollTop=bd.scrollHeight;
+    requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+    setTimeout(function(){d.remove();if(cb)cb()},dur);
+  },ms)}
+  function btns(opts,ms,pk,wait,cb){setTimeout(function(){
+    var last=bd.lastElementChild;var w=document.createElement('div');w.className='wb';
+    opts.forEach(function(o,i){var b=document.createElement('div');b.className='wbb';b.textContent=o;w.appendChild(b);
+      setTimeout(function(){b.classList.add('v')},i*80)});
+    last.appendChild(w);bd.scrollTop=bd.scrollHeight;
+    setTimeout(function(){w.querySelectorAll('.wbb').forEach(function(b,i){
+      if(i===pk)b.classList.add('pk');else b.classList.add('off')});
+      setTimeout(function(){w.remove();if(cb)cb(opts[pk])},300)},wait);
+  },ms)}
+  function sep(text){var d=document.createElement('div');d.className='dsep';d.textContent=text;bd.appendChild(d)}
+  function typeIn(text,ms,cb){setTimeout(function(){
+    var f=$('wF');f.classList.add('act');f.innerHTML='<span class="ic"></span>';var i=0;
+    var t=setInterval(function(){if(i<text.length){i++;f.innerHTML=text.substring(0,i)+'<span class="ic"></span>'}
+      else{clearInterval(t);$('wS').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+        setTimeout(function(){f.classList.remove('act');f.innerHTML='Message';
+          $('wS').innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>';
+          if(cb)cb()},350)}},30);
+  },ms)}
+
+  function notif(title,text,tm,ms,dur){setTimeout(function(){
+    var n=$('NF');n.innerHTML='<div class="nf-i"><span>P</span></div><div style="flex:1"><div style="font-size:0.56rem;font-weight:600;color:#8a8a8e;text-transform:uppercase;letter-spacing:0.03em">WHATSAPP</div><div style="font-size:0.68rem;font-weight:600;color:#1a1a1e;margin-top:1px">'+title+'</div><div style="font-size:0.64rem;color:#4a4a4e;line-height:1.4;margin-top:1px">'+text+'</div></div><div style="font-size:0.52rem;color:#8a8a8e">'+tm+'</div>';
+    n.classList.add('show');setTimeout(function(){n.classList.remove('show');n.classList.add('hide');setTimeout(function(){n.classList.remove('hide')},400)},dur);
+  },ms)}
+
+  function burst(x,y,n){var c=['#00a884','#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+    for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spk';
+      var sz=2+Math.random()*4,a=Math.random()*Math.PI*2,d=18+Math.random()*40;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+c[~~(Math.random()*c.length)]+';--ex:'+(Math.cos(a)*d)+'px;--ey:'+(Math.sin(a)*d-15)+'px;animation:sf '+(0.3+Math.random()*0.25)+'s ease-out forwards;animation-delay:'+(i*.015)+'s';
+      document.body.appendChild(s);setTimeout(function(el){el.remove()},800,s)}}
+  function rain(cx,cy,n){var c=['#00a884','#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+    for(var i=0;i<n;i++){var p=document.createElement('div');p.className='cft';var x=cx+(Math.random()-.5)*180,w=3+Math.random()*3,h=Math.random()>.5?w:w*2;
+      p.style.cssText='left:'+x+'px;top:'+(cy-30)+'px;width:'+w+'px;height:'+h+'px;background:'+c[~~(Math.random()*c.length)]+';--fd:'+(120+Math.random()*180)+'px;--fr:'+(150+Math.random()*400)+'deg;animation:cd '+(1+Math.random()*.6)+'s ease-out forwards;animation-delay:'+(i*.015)+'s;border-radius:'+(Math.random()>.5?'50%':'1px');
+      document.body.appendChild(p);setTimeout(function(el){el.remove()},2000,p)}}
+
+  // ═══════════════════════════════════════════════
+  // ACT 1 (0→10s): BROWSER — the old way
+  // ═══════════════════════════════════════════════
+  var q='is it normal to gain weight even if i exercise';var ci=0;
+  setTimeout(function(){var t=setInterval(function(){if(ci<q.length){$('bT').textContent=q.substring(0,++ci)}else clearInterval(t)},40)},500);
+  setTimeout(function(){
+    [{s:'Google',c:'#4285f4',t:'"Muscle weighs more than fat."'},{s:'Reddit',c:'#ff4500',t:'"No one knows. I gave up."'},
+     {s:'ChatGPT',c:'#10a37f',t:'"Several possible explanations\u2026"'},{s:'Claude',c:'#d97706',t:'"Depends on many factors\u2026"'},
+     {s:'Yahoo',c:'#720e9e',t:'"Cut calories, more cardio."'}].forEach(function(r,i){
+      setTimeout(function(){var d=document.createElement('div');d.className='sr';
+        d.innerHTML='<div class="sr-s" style="color:'+r.c+'">'+r.s+'</div><div class="sr-t">'+r.t+'</div>';
+        $('bR').appendChild(d);requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+      },i*450)});
+  },3000);
+
+  notif('Pulse','Searching about weight? Message me \u2014 I can help.','now',8000,3800);
+  // Tap at 11.5s
+  setTimeout(function(){var n=$('NF');if(!n)return;var r=n.getBoundingClientRect();
+    var t=document.createElement('div');t.className='tap';t.style.cssText='left:'+(r.left+r.width/2-18)+'px;top:'+(r.top+r.height/2-18)+'px';
+    document.body.appendChild(t);requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('pop')})});
+    setTimeout(function(){t.classList.remove('pop');t.classList.add('gone');setTimeout(function(){t.remove()},300)},300);
+  },11500);
+
+  // ═══════════════════════════════════════════════
+  // ACT 2 (12.5→42s): WHATSAPP — first conversation
+  // ═══════════════════════════════════════════════
+  setTimeout(function(){
+    appTo('aWA');$('SB').className='sb lt';time('9:42');
+    typeIn('Is it normal to gain weight even though I exercise?',300,function(){
+      m('o','Is it normal to gain weight even though I exercise? <span class="ts">9:42 '+CK+'</span>',200);
+      // Greeting + key question: 11w → 4.9s
+      dots(2000,600,function(){m('i','I can help with that. Quick question \u2014 <span class="e">how\'s your sleep been?</span><span class="ts">9:42</span>',0)});
+      // Pills
+      btns(['\ud83d\ude34 Not great','Okay I guess','Pretty good'],7500,0,2200,function(pk){
+        m('o',pk+' <span class="ts">9:42 '+CK+'</span>',200);
+        // SLOW: cortisol 19w → 8.1s
+        dots(1200,1800,function(){m('i','<span class="e">That\'s one of the main reasons.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train hard.<span class="ts">9:43</span>',0)});
+        dots(11500,600,function(){m('i','What proteins do you prefer?<span class="ts">9:43</span>',0)});
+        btns(['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],14000,0,1800,function(){
+          m('o','\ud83d\udc14 Chicken <span class="ts">9:43 '+CK+'</span>',200);
+          dots(800,1200,function(){m('i','<span class="e">Let me plan this for you</span> so you don\'t have to remember any of it. Give me a moment\u2026<span class="ts">9:44</span>',0)});
+          // Deliverables
+          dots(4500,800,function(){m('i','\u2615 <span class="e">Caffeine cutoff set.</span> I\'ll message you daily at 2:00 PM.<span class="ts">9:44</span>',0)});
+          setTimeout(function(){dots(0,600,function(){
+            var gm=document.createElement('div');gm.className='wm i';
+            gm.innerHTML='<strong>\ud83d\uded2 Your Grocery List</strong><div id="GI" style="margin-top:3px"></div><span class="ts">9:44 </span>';
+            bd.appendChild(gm);bd.scrollTop=bd.scrollHeight;
+            requestAnimationFrame(function(){requestAnimationFrame(function(){gm.classList.add('v')})});
+            var items=['600g chicken breast','12 eggs','Greek yogurt','Brown rice','Broccoli','Sweet potatoes','Olive oil'];var els=[];
+            items.forEach(function(it,i){setTimeout(function(){
+              var r=document.createElement('div');r.className='gi';r.innerHTML='<div class="gk"></div><span>'+it+'</span>';
+              $('GI').appendChild(r);els.push(r);bd.scrollTop=bd.scrollHeight},120+i*100)});
+            setTimeout(function(){els.forEach(function(r,i){setTimeout(function(){r.querySelector('.gk').classList.add('dn');r.classList.add('xd')},i*150)})},1300);
+          })},8500);
+          // Training PDF
+          setTimeout(function(){dots(0,600,function(){
+            m('i','<strong>\ud83c\udfcb\ufe0f Training Plan</strong><span class="d">4 days/week \u2022 Matched to your recovery</span><div style="margin-top:4px;display:flex;gap:3px"><span style="font-size:0.54rem;padding:2px 8px;border-radius:5px;background:#e8f5e9;color:#075e54;font-weight:600">\ud83d\udcc4 Open PDF</span><span style="font-size:0.54rem;padding:2px 8px;border-radius:5px;background:#f5f5f5;color:#4a4a4e;font-weight:600">Forward</span></div><span class="ts">9:44</span>',0,function(){
+              var r=bd.lastElementChild.getBoundingClientRect();rain(r.left+r.width/2,r.top,28)});
+          })},13000);
+        });
+      });
+    });
+  },12500);
+
+  // ═══════════════════════════════════════════════
+  // ACT 3 (46→52s): DAILY NUDGES — quick montage
+  // Show 3 different times of day in rapid succession
+  // ═══════════════════════════════════════════════
+  setTimeout(function(){
+    time('2:00');bd.innerHTML='';
+    sep('TODAY \u2022 2:00 PM');
+    // Caffeine reminder // 10w → 4.5s
+    m('i','\u2615 Time for your last cup of regular coffee. You\'re on <span class="e">day 5</span> \u2014 keep it going!<span class="ts">2:00 PM</span>',500);
+    m('o','\ud83d\udc4d <span class="ts">2:01 '+CK+'</span>',4500);
+  },46000);
+
+  // Evening check-in
+  setTimeout(function(){
+    time('8:14');
+    sep('8:14 PM');
+    // 8w → 3.7s
+    m('i','How was today? Quick check-in \ud83d\udcdd<span class="ts">8:14 PM</span>',500);
+    btns(['\u2705 Nailed it','\ud83d\ude10 Missed some','\ud83d\ude1e Rough day'],3000,0,1800,function(){
+      m('o','\u2705 Nailed it <span class="ts">8:15 '+CK+'</span>',200);
+      dots(600,400,function(){
+        // 12w → 5.3s
+        m('i','Day 5 complete. Sleep well tonight \u2014 you\'ve earned it. \ud83c\udf19<span class="ts">8:15 PM</span>',0);
+      });
+    });
+  },51000);
+
+  // ═══════════════════════════════════════════════
+  // ACT 4 (59→72s): 2 WEEKS LATER — progress + dashboard link
+  // ═══════════════════════════════════════════════
+  setTimeout(function(){
+    time('7:14');bd.innerHTML='';
+    sep('MARCH 31, 2026');
+    // Proactive check-in with progress IMAGE // 15w → 6.5s
+    dots(1500,1400,function(){
+      m('i','Good morning! \ud83d\udc4b Here\'s your 2-week progress:<span class="ts">7:14</span>',0,function(){
+        // Progress image card
+        setTimeout(function(){
+          var pm=document.createElement('div');pm.className='wm i';
+          pm.innerHTML='<div class="wi"><div class="wi-in"><div class="wi-t">\ud83d\udcc8 Your Progress</div>'+
+            '<div class="wi-r"><span class="wi-l">Caffeine streak</span><span class="wi-v" style="color:#00a884">12 days</span></div>'+
+            '<div class="wi-r"><span class="wi-l">Sleep quality</span><span class="wi-v" style="color:#00a884">+23%</span></div>'+
+            '<div class="wi-r"><span class="wi-l">Weight</span><span class="wi-v" style="color:#00a884">-1.4 kg</span></div>'+
+            '<div class="wi-bar"><div class="wi-fill" id="pF"></div></div></div></div>'+
+            '<span class="d">\ud83d\udd17 <span class="e">Tap for your full dashboard</span> \u2192 healthcalculators.xyz/pulse/s8k2x</span>'+
+            '<span class="ts">7:14</span>';
+          bd.appendChild(pm);bd.scrollTop=bd.scrollHeight;
+          requestAnimationFrame(function(){requestAnimationFrame(function(){pm.classList.add('v');
+            setTimeout(function(){$('pF').style.width='73%'},300)})});
+        },1000);
+      });
+    });
+
+    // User taps the link → opens Safari dashboard
+    setTimeout(function(){
+      // Tap animation on the link
+      var lastMsg=bd.lastElementChild;
+      if(lastMsg){var r=lastMsg.getBoundingClientRect();
+        var t=document.createElement('div');t.className='tap';
+        t.style.cssText='left:'+(r.left+r.width/2-18)+'px;top:'+(r.bottom-30)+'px';
+        document.body.appendChild(t);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('pop')})});
+        setTimeout(function(){t.classList.remove('pop');t.classList.add('gone');setTimeout(function(){t.remove()},300)},300);
+      }
+    },10000);
+
+    // Open Safari with dashboard
+    setTimeout(function(){
+      appTo('aSaf');
+      var sb=$('safB');
+
+      // Header
+      var head=document.createElement('div');head.className='db-head';
+      head.innerHTML='<div class="db-orb"><span>P</span></div><div><div class="db-title">Sarah\'s Dashboard</div><div class="db-sub">Week 2 \u2022 Updated just now</div></div>';
+      sb.appendChild(head);
+
+      // LLM insight card
+      setTimeout(function(){
+        var ins=document.createElement('div');ins.className='db-insight';
+        ins.innerHTML='<div class="db-insight-tag">\ud83d\udca1 Pulse noticed something</div><div class="db-insight-text">Your sleep quality jumped 23% \u2014 and it started exactly 3 days after you set the caffeine cutoff. That\'s not a coincidence.</div>';
+        sb.appendChild(ins);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){ins.classList.add('v')})});
+      },400);
+
+      // Stats
+      setTimeout(function(){
+        var stats=document.createElement('div');stats.className='db-stats';
+        [{n:'12',l:'Day streak'},{n:'+23%',l:'Sleep'},{n:'-1.4',l:'kg lost'}].forEach(function(s,i){
+          var d=document.createElement('div');d.className='db-stat';
+          d.innerHTML='<div class="db-stat-num">'+s.n+'</div><div class="db-stat-label">'+s.l+'</div>';
+          stats.appendChild(d);
+          setTimeout(function(){d.classList.add('v')},i*150);
+        });
+        sb.appendChild(stats);
+      },800);
+
+      // Chart
+      setTimeout(function(){
+        var ch=document.createElement('div');ch.className='db-chart';
+        ch.innerHTML='<div class="db-chart-title">Sleep Quality \u2014 14 days</div>'+
+          '<svg viewBox="0 0 280 60">'+
+            '<defs><linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#14b8a6" stop-opacity="0.3"/><stop offset="100%" stop-color="#14b8a6" stop-opacity="0"/></linearGradient></defs>'+
+            '<path class="area" d="M0,45 L20,44 40,46 60,30 80,25 100,22 120,20 140,18 160,15 180,16 200,12 220,10 240,11 260,8 280,8 280,60 0,60Z"/>'+
+            '<path class="line" d="M0,45 L20,44 40,46 60,30 80,25 100,22 120,20 140,18 160,15 180,16 200,12 220,10 240,11 260,8"/>'+
+            '<circle class="dot" cx="60" cy="30" r="4"/>'+
+          '</svg>'+
+          '<div class="db-chart-ann">\u2191 Caffeine cutoff started here (day 3)</div>';
+        sb.appendChild(ch);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){ch.classList.add('v');
+          setTimeout(function(){ch.querySelector('.line').classList.add('draw')},300);
+          setTimeout(function(){ch.querySelector('.area').classList.add('v')},800);
+          setTimeout(function(){ch.querySelector('.dot').classList.add('v')},1500);
+          setTimeout(function(){ch.querySelector('.db-chart-ann').classList.add('v')},2000);
+        })});
+      },1200);
+    },10800);
+  },59000);
+
+  // ═══════════════════════════════════════════════
+  // ACT 5 (76→86s): CLOSE
+  // ═══════════════════════════════════════════════
+  setTimeout(function(){
+    document.querySelectorAll('.ap').forEach(function(a){a.classList.remove('on')});
+    $('CL').classList.add('on');$('SB').className='sb lt';
+    setTimeout(function(){$('cO').classList.add('v')},300);
+    [{t:'One',a:false,d:700},{t:'question.',a:false,d:1100},{t:'We',a:false,d:2500},
+     {t:'figure',a:false,d:2800},{t:'out',a:false,d:3000},{t:'the',a:false,d:3400},{t:'rest.',a:true,d:3800}
+    ].forEach(function(w){var s=document.createElement('span');s.className='cl-w'+(w.a?' ac':'');s.textContent=w.t;$('cL').appendChild(s);
+      setTimeout(function(){s.classList.add('v')},w.d)});
+    setTimeout(function(){$('cS').classList.add('v')},5200);
+    setTimeout(function(){$('cB').classList.add('v')},5200);
+  },76000);
+
+  setTimeout(function(){$('CL').style.transition='opacity 0.5s';$('CL').style.opacity='0';
+    setTimeout(function(){location.reload()},600)},86000);
+})();
+</script>
+</body>
+</html>
