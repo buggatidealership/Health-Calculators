@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — V7 WhatsApp Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#1a1a1e;display:flex;align-items:center;justify-content:center}
+
+/* === PHONE === */
+.phone{width:340px;height:680px;max-height:92vh;max-width:88vw;
+  background:#000;border-radius:42px;position:relative;overflow:hidden;
+  box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06)}
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:90px;height:24px;background:#000;border-radius:20px;z-index:100}
+.sbar{position:absolute;top:0;left:0;right:0;height:48px;z-index:90;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;
+  font-size:0.6rem;font-weight:600;color:rgba(255,255,255,0.7);transition:color 0.3s}
+.sbar.lt{color:rgba(0,0,0,0.6)}
+.sbar-r{display:flex;gap:4px;align-items:center}
+.sbar-r svg{width:14px;height:14px}
+.scr{position:absolute;top:0;left:0;right:0;bottom:0;border-radius:42px;overflow:hidden}
+
+/* === APPS === */
+.app{position:absolute;inset:0;opacity:0;transition:opacity 0.4s;pointer-events:none;padding-top:48px}
+.app.on{opacity:1}
+
+/* === BROWSER === */
+.bro{background:#1a1a1e}
+.bro-bar{margin:8px 12px;padding:8px 14px;background:rgba(255,255,255,0.08);
+  border-radius:12px;display:flex;align-items:center;gap:8px}
+.bro-bar svg{width:13px;height:13px;color:rgba(255,255,255,0.25);flex-shrink:0}
+.bro-url{font-size:0.7rem;color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden}
+.bro-cur{display:inline-block;width:1px;height:0.9em;background:rgba(255,255,255,0.4);
+  margin-left:1px;vertical-align:text-bottom;animation:cblink 1s step-end infinite}
+@keyframes cblink{50%{opacity:0}}
+.bro-res{padding:8px 12px;display:flex;flex-direction:column;gap:4px}
+.br{padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:10px;
+  opacity:0;transform:translateY(5px);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.br.v{opacity:1;transform:translateY(0)}
+.br-s{font-size:0.5rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:2px}
+.br-t{font-size:0.64rem;color:rgba(255,255,255,0.32);line-height:1.35}
+.br-w{font-size:0.5rem;color:rgba(239,68,68,0.5);font-weight:600;margin-top:1px}
+
+/* === WHATSAPP === */
+.wa{background:#ece5dd}
+.wa-hd{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#075e54}
+.wa-av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-av span{color:#fff;font-weight:700;font-size:0.6rem}
+.wa-nm{font-weight:600;font-size:0.76rem;color:#fff}
+.wa-st{font-size:0.5rem;color:rgba(255,255,255,0.6)}
+.wa-bd{padding:8px 10px;display:flex;flex-direction:column;gap:4px;
+  overflow-y:auto;max-height:calc(100% - 48px - 44px - 48px);
+  background:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='%23ece5dd'/%3E%3Cpath d='M30 30m-1 0a1 1 0 102 0 1 1 0 10-2 0' fill='%23e2dbd3'/%3E%3C/svg%3E")}
+
+/* WA input bar */
+.wa-inp{position:absolute;bottom:0;left:0;right:0;padding:6px 10px;
+  background:#f0f0f0;display:flex;align-items:center;gap:6px;border-top:1px solid rgba(0,0,0,0.05)}
+.wa-inp-f{flex:1;padding:7px 14px;border-radius:20px;background:#fff;
+  font-size:0.66rem;color:#9a9a9e;border:none;min-height:32px}
+.wa-inp-f.act{color:#1a1a1e}
+.wa-inp-f .ic{display:inline-block;width:1px;height:0.85em;background:#075e54;
+  margin-left:1px;vertical-align:text-bottom;animation:cblink 0.8s step-end infinite}
+.wa-inp-mic{width:32px;height:32px;border-radius:50%;background:#075e54;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:all 0.2s cubic-bezier(0,1.5,0.5,1)}
+.wa-inp-mic.send{background:#075e54}
+.wa-inp-mic svg{width:14px;height:14px;color:#fff}
+
+/* === WA MESSAGES === */
+.wm{max-width:85%;padding:6px 10px;border-radius:8px;font-size:0.68rem;line-height:1.45;
+  position:relative;margin:1px 0;
+  opacity:0;transform:translateY(5px) scale(0.94);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.wm.v{opacity:1;transform:translateY(0) scale(1)}
+.wm.out{background:#dcf8c6;color:#1a3a2a;align-self:flex-end;border-bottom-right-radius:2px}
+.wm.inc{background:#fff;color:#2a2a2e;align-self:flex-start;border-bottom-left-radius:2px;
+  box-shadow:0 1px 2px rgba(0,0,0,0.04)}
+.wm .ts{font-size:0.44rem;color:#7a9a7a;float:right;margin-left:6px;margin-top:3px;
+  display:flex;align-items:center;gap:2px}
+.wm .ts svg{width:12px;height:7px;color:#53bdeb}
+.wm .em{color:#075e54;font-weight:600}
+.wm .dim{color:#7a8a7a;font-size:0.6rem;display:block;margin-top:2px}
+
+/* WA interactive buttons */
+.wa-btns{display:flex;flex-direction:column;gap:1px;margin-top:4px;
+  border-top:1px solid rgba(0,0,0,0.06);padding-top:4px}
+.wa-btn{text-align:center;padding:6px;font-size:0.64rem;color:#00a884;font-weight:500;
+  background:rgba(0,168,132,0.03);border-radius:6px;
+  opacity:0;transform:scale(0.9);transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+.wa-btn.v{opacity:1;transform:scale(1)}
+.wa-btn.pk{background:#00a884;color:#fff}
+.wa-btn.off{opacity:0.3}
+
+/* WA image message (generated dashboard) */
+.wa-img{width:100%;border-radius:6px;overflow:hidden;margin-top:4px;
+  background:#f0f4f0;position:relative}
+.wa-img-inner{padding:14px;display:flex;flex-direction:column;gap:8px}
+.wa-img-title{font-size:0.62rem;font-weight:700;color:#1a3a2a;text-transform:uppercase;letter-spacing:0.04em}
+.wa-img-row{display:flex;justify-content:space-between;align-items:center;
+  padding:4px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+.wa-img-row:last-child{border-bottom:none}
+.wa-img-label{font-size:0.58rem;color:#5a6a5a}
+.wa-img-val{font-size:0.62rem;color:#075e54;font-weight:700;font-variant-numeric:tabular-nums}
+.wa-img-bar{height:4px;border-radius:2px;background:rgba(0,0,0,0.06);margin-top:6px}
+.wa-img-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#00a884,#14b8a6);
+  width:0;transition:width 1s cubic-bezier(0.34,1.56,0.64,1)}
+
+/* Grocery check items */
+.gi{display:flex;align-items:center;gap:5px;padding:1px 0;font-size:0.62rem}
+.gk{width:12px;height:12px;border-radius:3px;border:1.5px solid rgba(0,0,0,0.12);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.15s cubic-bezier(0,1.5,0.5,1)}
+.gk.dn{background:#00a884;border-color:#00a884}
+.gk.dn::after{content:'';width:4px;height:2.5px;border-left:1.5px solid #fff;
+  border-bottom:1.5px solid #fff;transform:rotate(-45deg) translateY(-0.5px)}
+.gi.xd{color:#8a9a8a;text-decoration:line-through}
+
+/* Typing indicator */
+.td{display:inline-flex;gap:3px;padding:1px 0}
+.td i{width:5px;height:5px;border-radius:50%;background:#a0a8a0;display:block;
+  animation:tdb 1.2s ease-in-out infinite}
+.td i:nth-child(2){animation-delay:.15s}
+.td i:nth-child(3){animation-delay:.3s}
+@keyframes tdb{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-3.5px);opacity:1}}
+
+/* === NOTIFICATION BANNER === */
+.notif{position:absolute;top:50px;left:10px;right:10px;z-index:80;
+  background:rgba(245,241,235,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-radius:16px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;
+  box-shadow:0 4px 24px rgba(0,0,0,0.15);
+  transform:translateY(-120px);opacity:0;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.notif.show{transform:translateY(0);opacity:1}
+.notif.hide{transform:translateY(-120px);opacity:0}
+.notif-ico{width:32px;height:32px;border-radius:8px;background:#25d366;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.notif-ico span{color:#fff;font-weight:700;font-size:0.6rem}
+.notif-app{font-size:0.56rem;font-weight:600;color:#8a8a8e;text-transform:uppercase;letter-spacing:0.03em}
+.notif-title{font-size:0.68rem;font-weight:600;color:#1a1a1e;margin-top:1px}
+.notif-msg{font-size:0.64rem;color:#4a4a4e;line-height:1.4;margin-top:1px}
+.notif-time{font-size:0.52rem;color:#8a8a8e;flex-shrink:0;margin-top:1px}
+
+/* Tap ripple */
+.tap{position:fixed;width:36px;height:36px;border-radius:50%;border:2px solid rgba(0,0,0,0.1);
+  pointer-events:none;z-index:85;opacity:0;transform:scale(0.3);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.tap.pop{opacity:1;transform:scale(1)}
+.tap.gone{opacity:0;transform:scale(1.5)}
+
+/* === CLOSE === */
+.close{position:absolute;inset:0;z-index:70;border-radius:42px;
+  background:#f6f1eb;display:flex;flex-direction:column;opacity:0;transition:opacity 0.6s}
+.close.on{opacity:1}
+.cl-center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px}
+.cl-orb{width:56px;height:56px;border-radius:50%;margin-bottom:16px;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);box-shadow:0 4px 20px rgba(14,122,126,0.2);
+  display:flex;align-items:center;justify-content:center;
+  animation:orb-b 3.75s ease-in-out infinite;
+  opacity:0;transform:scale(0.4);transition:all 0.5s cubic-bezier(0,1.5,0.5,1)}
+.cl-orb.v{opacity:1;transform:scale(1)}
+.cl-orb span{color:#fff;font-weight:700;font-size:1rem}
+@keyframes orb-b{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+.cl-ln{display:flex;flex-wrap:wrap;justify-content:center;gap:0 7px}
+.cl-w{font-family:'DM Sans',sans-serif;font-size:1.15rem;font-weight:700;line-height:1.4;color:#1a1a1e;
+  opacity:0;transform:translateY(100%);transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.cl-w.v{opacity:1;transform:translateY(0)}
+.cl-w.ac{color:#0e7a7e}
+.cl-sub{font-size:0.64rem;color:#7a7a82;margin-top:10px;opacity:0;transition:opacity 0.5s}
+.cl-sub.v{opacity:1}
+.cl-brand{margin-top:14px;opacity:0;transition:opacity 0.5s}
+.cl-brand.v{opacity:1}
+.cl-nm{font-size:0.7rem;font-weight:600;color:#3a3a3e}
+.cl-hn{font-size:0.54rem;color:#0e7a7e;margin-top:1px}
+
+/* Effects */
+.spk{position:fixed;border-radius:50%;pointer-events:none;z-index:200}
+@keyframes sf{0%{opacity:.9;transform:translate(0,0) scale(1)}
+  100%{opacity:0;transform:translate(var(--ex),var(--ey)) scale(0)}}
+.cft{position:fixed;pointer-events:none;z-index:200;opacity:.9}
+@keyframes cd{0%{transform:translateY(0) rotate(0deg);opacity:.9}
+  100%{transform:translateY(var(--fd)) rotate(var(--fr));opacity:0}}
+</style>
+</head>
+<body>
+<div class="phone" id="PH">
+  <div class="island"></div>
+  <div class="sbar" id="SB">
+    <div id="sbTime">9:41</div>
+    <div class="sbar-r">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+  <div class="scr">
+    <!-- Browser -->
+    <div class="app bro on" id="aBro">
+      <div class="bro-bar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="bro-url"><span id="bTxt"></span><span class="bro-cur"></span></div>
+      </div>
+      <div class="bro-res" id="bRes"></div>
+    </div>
+
+    <!-- WhatsApp (the ENTIRE product experience) -->
+    <div class="app wa" id="aWA">
+      <div class="wa-hd"><div class="wa-av"><span>P</span></div><div><div class="wa-nm">Pulse</div><div class="wa-st">online</div></div></div>
+      <div class="wa-bd" id="wBd"></div>
+      <div class="wa-inp" id="wInp">
+        <div class="wa-inp-f" id="wInpF">Message</div>
+        <div class="wa-inp-mic" id="wMic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg></div>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notif" id="NF"></div>
+
+    <!-- Close -->
+    <div class="close" id="CL">
+      <div class="wa-hd"><div class="wa-av"><span>P</span></div><div><div class="wa-nm">Pulse</div><div class="wa-st">Your health companion</div></div></div>
+      <div class="cl-center">
+        <div class="cl-orb" id="cOrb"><span>P</span></div>
+        <div class="cl-ln" id="cLn"></div>
+        <div class="cl-sub" id="cSub">Message us on WhatsApp. We'll figure out the rest.</div>
+        <div class="cl-brand" id="cBr"><div class="cl-nm">healthcalculators.xyz</div><div class="cl-hn">@GetHealthC</div></div>
+      </div>
+      <div class="wa-inp"><div class="wa-inp-f">What are you trying to figure out?</div>
+        <div class="wa-inp-mic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var bd=$('wBd');
+
+  function appTo(id){document.querySelectorAll('.app').forEach(function(a){a.classList.remove('on')});$(id).classList.add('on')}
+
+  // Double check SVG for timestamps
+  var CK='<svg viewBox="0 0 16 9"><path d="M1 4.5l3 3L11 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M5 4.5l3 3L15 1" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>';
+
+  function msg(cls,html,ms,cb){
+    setTimeout(function(){
+      var m=document.createElement('div');m.className='wm '+cls;m.innerHTML=html;
+      bd.appendChild(m);bd.scrollTop=bd.scrollHeight;
+      requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('v');if(cb)setTimeout(cb,50)})});
+    },ms);
+  }
+  function dots(ms,dur,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');d.className='wm inc';
+      d.innerHTML='<span class="td"><i></i><i></i><i></i></span>';
+      bd.appendChild(d);bd.scrollTop=bd.scrollHeight;
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+      setTimeout(function(){d.remove();if(cb)cb()},dur);
+    },ms);
+  }
+  function waBtns(opts,ms,pick,wait,cb){
+    setTimeout(function(){
+      // Buttons go inside the last message
+      var last=bd.lastElementChild;
+      var w=document.createElement('div');w.className='wa-btns';
+      opts.forEach(function(o,i){
+        var b=document.createElement('div');b.className='wa-btn';b.textContent=o;w.appendChild(b);
+        setTimeout(function(){b.classList.add('v')},i*80);
+      });
+      last.appendChild(w);
+      bd.scrollTop=bd.scrollHeight;
+      setTimeout(function(){
+        w.querySelectorAll('.wa-btn').forEach(function(b,i){
+          if(i===pick)b.classList.add('pk');else b.classList.add('off')});
+        setTimeout(function(){
+          w.remove();
+          if(cb)cb(opts[pick]);
+        },300);
+      },wait);
+    },ms);
+  }
+
+  function showNotif(title,text,time,ms,dur){
+    setTimeout(function(){
+      var n=$('NF');
+      n.innerHTML='<div class="notif-ico"><span>P</span></div><div style="flex:1"><div class="notif-app">WHATSAPP</div><div class="notif-title">'+title+'</div><div class="notif-msg">'+text+'</div></div><div class="notif-time">'+time+'</div>';
+      n.classList.add('show');
+      setTimeout(function(){n.classList.remove('show');n.classList.add('hide');
+        setTimeout(function(){n.classList.remove('hide')},400)},dur);
+    },ms);
+  }
+
+  function typeInInput(text,ms,cb){
+    setTimeout(function(){
+      var f=$('wInpF');var mic=$('wMic');
+      f.classList.add('act');f.innerHTML='<span class="ic"></span>';
+      var i=0;
+      var t=setInterval(function(){
+        if(i<text.length){i++;f.innerHTML=text.substring(0,i)+'<span class="ic"></span>'}
+        else{clearInterval(t);
+          // Switch mic to send icon
+          mic.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>';
+          mic.classList.add('send');
+          setTimeout(function(){
+            f.classList.remove('act');f.innerHTML='Message';
+            mic.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/></svg>';
+            mic.classList.remove('send');
+            if(cb)cb();
+          },350);
+        }
+      },30);
+    },ms);
+  }
+
+  function burst(x,y,n){
+    var c=['#00a884','#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+    for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spk';
+      var sz=2+Math.random()*4,a=Math.random()*Math.PI*2,d=18+Math.random()*40;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+
+        c[~~(Math.random()*c.length)]+';--ex:'+(Math.cos(a)*d)+'px;--ey:'+(Math.sin(a)*d-15)+
+        'px;animation:sf '+(0.3+Math.random()*0.25)+'s ease-out forwards;animation-delay:'+(i*.015)+'s';
+      document.body.appendChild(s);setTimeout(function(el){el.remove()},800,s)}
+  }
+  function rain(cx,cy,n){
+    var c=['#00a884','#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+    for(var i=0;i<n;i++){var p=document.createElement('div');p.className='cft';
+      var x=cx+(Math.random()-.5)*180,w=3+Math.random()*3,h=Math.random()>.5?w:w*2;
+      p.style.cssText='left:'+x+'px;top:'+(cy-30)+'px;width:'+w+'px;height:'+h+
+        'px;background:'+c[~~(Math.random()*c.length)]+';--fd:'+(120+Math.random()*180)+
+        'px;--fr:'+(150+Math.random()*400)+'deg;animation:cd '+(1+Math.random()*.6)+
+        's ease-out forwards;animation-delay:'+(i*.015)+'s;border-radius:'+(Math.random()>.5?'50%':'1px');
+      document.body.appendChild(p);setTimeout(function(el){el.remove()},2000,p)}
+  }
+
+  /* ══════════════════════════════════════════════════
+     SCENE 1 (0→10s): BROWSER — the old way
+     ══════════════════════════════════════════════════ */
+  var q='is it normal to gain weight even if i exercise';
+  var ci=0;
+  setTimeout(function(){var t=setInterval(function(){
+    if(ci<q.length){$('bTxt').textContent=q.substring(0,++ci)}else clearInterval(t)},40)},500);
+
+  setTimeout(function(){
+    var res=[
+      {s:'Google',c:'#4285f4',t:'"Muscle weighs more than fat."',w:''},
+      {s:'Reddit',c:'#ff4500',t:'"No one knows. I gave up."',w:''},
+      {s:'ChatGPT',c:'#10a37f',t:'"Several possible explanations\u2026"',w:'\u26a0 Contradicts Google'},
+      {s:'Claude',c:'#d97706',t:'"Depends on many factors\u2026"',w:''},
+      {s:'Yahoo',c:'#720e9e',t:'"Cut calories, more cardio."',w:'\u26a0 Contradicts ChatGPT'}
+    ];
+    res.forEach(function(r,i){setTimeout(function(){
+      var d=document.createElement('div');d.className='br';
+      d.innerHTML='<div class="br-s" style="color:'+r.c+'">'+r.s+'</div><div class="br-t">'+r.t+'</div>'+(r.w?'<div class="br-w">'+r.w+'</div>':'');
+      $('bRes').appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+    },i*450)});
+  },3000);
+
+  // +8s: WhatsApp notification — Pulse reaches out
+  // "Searching about weight? Message me — I can help." = 9w → (9/2.5)+0.5 = 4.1s
+  showNotif('Pulse','Searching about weight? Message me \u2014 I can help.','now',8000,3800);
+
+  // Tap notification at 11.5s
+  setTimeout(function(){
+    var n=$('NF');if(!n)return;var r=n.getBoundingClientRect();
+    var t=document.createElement('div');t.className='tap';
+    t.style.cssText='left:'+(r.left+r.width/2-18)+'px;top:'+(r.top+r.height/2-18)+'px';
+    document.body.appendChild(t);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('pop')})});
+    setTimeout(function(){t.classList.remove('pop');t.classList.add('gone');
+      setTimeout(function(){t.remove()},300)},300);
+  },11500);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 2 (12.5→42s): WHATSAPP — the entire product
+     Everything happens in ONE WhatsApp thread.
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    appTo('aWA');
+    $('SB').classList.add('lt');
+    $('sbTime').textContent='9:42';
+
+    // User types in WhatsApp input field
+    typeInInput('Is it normal to gain weight even though I exercise?',300,function(){
+      // User message appears // 10w → 4.5s
+      msg('out','Is it normal to gain weight even though I exercise? <span class="ts">9:42 '+CK+'</span>',200);
+
+      // +2.5s: typing → greeting + key question // 11w → 4.9s
+      dots(2000,600,function(){
+        msg('inc','I can help with that. Quick question \u2014 <span class="em">how\'s your sleep been?</span><span class="ts">9:42</span>',0);
+      });
+
+      // +7.5s: WA interactive buttons (the real WA feature)
+      waBtns(['\ud83d\ude34 Not great','Okay I guess','Pretty good'],7500,0,2200,function(picked){
+        msg('out',picked+' <span class="ts">9:42 '+CK+'</span>',200);
+
+        // SLOW: cortisol insight — 19w → 8.1s needed
+        dots(1200,1800,function(){
+          msg('inc','<span class="em">That\'s one of the main reasons.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train hard.<span class="ts">9:43</span>',0);
+        });
+
+        // Protein preference — WA interactive buttons
+        dots(11500,600,function(){
+          msg('inc','What proteins do you prefer?<span class="ts">9:43</span>',0);
+        });
+
+        waBtns(['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],14000,0,1800,function(picked){
+          msg('out',picked+' <span class="ts">9:43 '+CK+'</span>',200);
+
+          // Plan promise // 14w → 6.1s
+          dots(800,1200,function(){
+            msg('inc','<span class="em">Let me plan this for you</span> so you don\'t have to remember any of it. Give me a moment\u2026<span class="ts">9:43</span>',0);
+          });
+
+          // === DELIVERABLES — all within WhatsApp ===
+
+          // Caffeine reminder setup // +4s after plan promise
+          dots(5500,800,function(){
+            msg('inc','\u2615 <span class="em">Caffeine cutoff set:</span> I\'ll message you every day at 2:00 PM to remind you. Starting tomorrow.<span class="ts">9:44</span>',0);
+          });
+
+          // Grocery list in WA // +3.5s after caffeine
+          setTimeout(function(){
+            dots(0,600,function(){
+              var gm=document.createElement('div');gm.className='wm inc';
+              gm.innerHTML='<strong>\ud83d\uded2 Your Grocery List</strong><div id="GI" style="margin-top:3px"></div><span class="ts">9:44 </span>';
+              bd.appendChild(gm);bd.scrollTop=bd.scrollHeight;
+              requestAnimationFrame(function(){requestAnimationFrame(function(){gm.classList.add('v')})});
+
+              var items=['600g chicken breast','12 eggs','Greek yogurt','Brown rice','Broccoli','Sweet potatoes','Olive oil'];
+              var els=[];
+              items.forEach(function(it,i){
+                setTimeout(function(){
+                  var r=document.createElement('div');r.className='gi';
+                  r.innerHTML='<div class="gk"></div><span>'+it+'</span>';
+                  $('GI').appendChild(r);els.push(r);bd.scrollTop=bd.scrollHeight;
+                },150+i*120);
+              });
+              // Check them off
+              setTimeout(function(){
+                els.forEach(function(r,i){
+                  setTimeout(function(){r.querySelector('.gk').classList.add('dn');r.classList.add('xd')},i*160);
+                });
+              },1500);
+            });
+          },9500);
+
+          // Training plan as PDF attachment // +5s after grocery
+          setTimeout(function(){
+            dots(0,600,function(){
+              msg('inc','<strong>\ud83c\udfcb\ufe0f Training Plan</strong><div class="dim">4 days/week \u2022 Matched to your recovery \u2022 PDF attached</div><div style="margin-top:4px;display:flex;gap:3px"><span style="font-size:0.54rem;padding:2px 8px;border-radius:5px;background:#e8f5e9;color:#075e54;font-weight:600">\ud83d\udcc4 Open PDF</span><span style="font-size:0.54rem;padding:2px 8px;border-radius:5px;background:#f5f5f5;color:#4a4a4e;font-weight:600">Forward</span></div><span class="ts">9:44</span>',0,function(){
+                var r=bd.lastElementChild.getBoundingClientRect();
+                rain(r.left+r.width/2,r.top,28);
+              });
+            });
+          },15000);
+
+          // Dashboard image (generated by Pulse, sent as image) // +4s after PDF
+          setTimeout(function(){
+            dots(0,800,function(){
+              msg('inc','Here\'s your full dashboard \u2014 save this or tap the link for the live version:<span class="ts">9:45</span>',0);
+            });
+            setTimeout(function(){
+              var dm=document.createElement('div');dm.className='wm inc';
+              dm.innerHTML='<div class="wa-img"><div class="wa-img-inner"><div class="wa-img-title">\ud83d\udcca Your Health Dashboard</div>'+
+                '<div class="wa-img-row"><span class="wa-img-label">Caffeine cutoff</span><span class="wa-img-val">2:00 PM</span></div>'+
+                '<div class="wa-img-row"><span class="wa-img-label">Daily calories</span><span class="wa-img-val">2,340 kcal</span></div>'+
+                '<div class="wa-img-row"><span class="wa-img-label">Protein target</span><span class="wa-img-val">148g</span></div>'+
+                '<div class="wa-img-row"><span class="wa-img-label">Training</span><span class="wa-img-val">4x / week</span></div>'+
+                '<div class="wa-img-bar"><div class="wa-img-fill" id="dbFill"></div></div>'+
+                '</div></div>'+
+                '<div class="dim" style="margin-top:3px">\ud83d\udd17 healthcalculators.xyz/pulse/s8k2x</div>'+
+                '<span class="ts">9:45 '+CK+'</span>';
+              bd.appendChild(dm);bd.scrollTop=bd.scrollHeight;
+              requestAnimationFrame(function(){requestAnimationFrame(function(){dm.classList.add('v');
+                setTimeout(function(){$('dbFill').style.width='75%'},400);
+              })});
+            },2000);
+          },19500);
+        });
+      });
+    });
+  },12500);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 3 (56→70s): 2 WEEKS LATER — same WhatsApp thread
+     Time change in status bar. Date separator in chat.
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    $('sbTime').textContent='7:14';
+    // Clear old messages, add date separator
+    bd.innerHTML='';
+    var sep=document.createElement('div');
+    sep.style.cssText='text-align:center;font-size:0.48rem;font-weight:600;color:#8a8a8e;padding:6px 0;background:rgba(255,255,255,0.6);border-radius:6px;width:fit-content;margin:4px auto;padding:3px 10px';
+    sep.textContent='MARCH 31, 2026';
+    bd.appendChild(sep);
+
+    // Pulse checks in proactively
+    dots(1500,1400,function(){
+      // 15w → 6.5s
+      msg('inc','Hey! \ud83d\udc4b Caffeine cutoff: <span class="em">12 days straight</span>. Sleep up <span class="em">23%</span>. Down <span class="em">1.4 kg</span>.<span class="ts">7:14</span>',0,function(){
+        // Progress image
+        setTimeout(function(){
+          var pm=document.createElement('div');pm.className='wm inc';
+          pm.innerHTML='<div class="wa-img"><div class="wa-img-inner"><div class="wa-img-title">\ud83d\udcc8 Your Progress</div>'+
+            '<div class="wa-img-row"><span class="wa-img-label">Caffeine streak</span><span class="wa-img-val" style="color:#00a884">12 days</span></div>'+
+            '<div class="wa-img-row"><span class="wa-img-label">Sleep quality</span><span class="wa-img-val" style="color:#00a884">+23%</span></div>'+
+            '<div class="wa-img-row"><span class="wa-img-label">Weight</span><span class="wa-img-val" style="color:#00a884">-1.4 kg</span></div>'+
+            '<div class="wa-img-bar"><div class="wa-img-fill" id="pFill"></div></div>'+
+            '</div></div><span class="ts">7:14</span>';
+          bd.appendChild(pm);bd.scrollTop=bd.scrollHeight;
+          requestAnimationFrame(function(){requestAnimationFrame(function(){pm.classList.add('v');
+            setTimeout(function(){$('pFill').style.width='73%'},300);
+          })});
+        },1200);
+      });
+    });
+
+    // "Don't stagnate" // 11w → 4.9s
+    dots(9000,600,function(){
+      msg('inc','Ready for the next step? I can adjust your training plan based on your progress.<span class="ts">7:14</span>',0);
+    });
+
+    waBtns(['\ud83d\ude80 Let\'s go','Not yet'],12000,0,1300,function(){
+      msg('out','\ud83d\ude80 Let\'s go <span class="ts">7:15 '+CK+'</span>',200);
+      var r=$('PH').getBoundingClientRect();
+      setTimeout(function(){burst(r.left+r.width/2,r.top+r.height/2,14)},300);
+    });
+  },56000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 4 (72→82s): CLOSE — Pulse home in WhatsApp
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    document.querySelectorAll('.app').forEach(function(a){a.classList.remove('on')});
+    $('CL').classList.add('on');
+
+    setTimeout(function(){$('cOrb').classList.add('v')},300);
+
+    var wds=[
+      {t:'One',a:false,d:700},
+      {t:'question.',a:false,d:1100},
+      {t:'We',a:false,d:2500},
+      {t:'figure',a:false,d:2800},
+      {t:'out',a:false,d:3000},
+      {t:'the',a:false,d:3400},
+      {t:'rest.',a:true,d:3800}
+    ];
+    var ln=$('cLn');
+    wds.forEach(function(w){
+      var s=document.createElement('span');s.className='cl-w'+(w.a?' ac':'');s.textContent=w.t;ln.appendChild(s);
+      setTimeout(function(){s.classList.add('v')},w.d);
+    });
+    setTimeout(function(){$('cSub').classList.add('v')},5200);
+    setTimeout(function(){$('cBr').classList.add('v')},5200);
+  },72000);
+
+  setTimeout(function(){
+    $('CL').style.transition='opacity 0.5s';$('CL').style.opacity='0';
+    setTimeout(function(){location.reload()},600);
+  },82000);
+})();
+</script>
+</body>
+</html>
