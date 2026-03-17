@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — The Health Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#111;display:flex;align-items:center;justify-content:center}
+
+/* Phone frame */
+.ph{width:340px;height:680px;max-height:92vh;max-width:88vw;background:#000;border-radius:42px;
+  position:relative;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06)}
+.dyn{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:24px;
+  background:#000;border-radius:20px;z-index:100}
+.sb{position:absolute;top:0;left:0;right:0;height:48px;z-index:90;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;
+  font-size:0.6rem;font-weight:600;color:rgba(0,0,0,0.6)}
+.scr{position:absolute;inset:0;border-radius:42px;overflow:hidden;background:#f6f1eb}
+
+/* Warm gradient background */
+.bg-grad{position:absolute;inset:0;
+  background:linear-gradient(170deg,#f6f1eb 0%,#f0ebe3 40%,#ede6dc 100%);
+  transition:background 2s ease}
+
+/* App chrome */
+.app{position:absolute;inset:0;padding-top:48px;display:flex;flex-direction:column;
+  opacity:0;transition:opacity 0.6s ease}
+.app.on{opacity:1}
+
+/* Header */
+.hdr{display:flex;align-items:center;gap:8px;padding:10px 16px 6px}
+.hdr-orb{width:26px;height:26px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hdr-orb span{color:#fff;font-weight:700;font-size:0.48rem}
+.hdr-txt .hdr-title{font-size:0.78rem;font-weight:600;color:#1a1a1e}
+.hdr-txt .hdr-sub{font-size:0.46rem;color:#8a8a8e}
+
+/* Chat area — for messages before they transform */
+.chat{padding:0 14px;flex:1;overflow:hidden;position:relative}
+
+/* Chat messages */
+.msg{max-width:82%;padding:8px 12px;border-radius:14px;font-size:0.62rem;line-height:1.5;
+  opacity:0;transform:translateY(10px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  margin-bottom:6px;position:relative}
+.msg.v{opacity:1;transform:translateY(0)}
+.msg.bot{background:rgba(14,122,126,0.06);border:1px solid rgba(14,122,126,0.1);
+  color:#2a2a2e;align-self:flex-start;border-bottom-left-radius:4px}
+.msg.usr{background:#0e7a7e;color:#fff;margin-left:auto;border-bottom-right-radius:4px}
+
+/* Input bar */
+.inp{padding:8px 12px;display:flex;align-items:center;gap:6px}
+.inp-f{flex:1;padding:8px 14px;border-radius:20px;background:rgba(0,0,0,0.04);
+  font-size:0.62rem;color:#9a9a9e;border:1px solid rgba(0,0,0,0.06)}
+.inp-f.act{color:#1a1a1e}
+.inp-f .cursor{display:inline-block;width:1px;height:0.85em;background:#0e7a7e;
+  margin-left:1px;vertical-align:text-bottom;animation:blink 0.8s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.inp-s{width:30px;height:30px;border-radius:50%;background:#0e7a7e;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;opacity:0.3;transition:opacity 0.2s}
+.inp-s.act{opacity:1}
+.inp-s svg{width:13px;height:13px;color:#fff}
+
+/* ===== TIMELINE ===== */
+.tl-wrap{position:absolute;left:0;right:0;top:48px;bottom:0;overflow:hidden;
+  opacity:0;transition:opacity 0.6s ease}
+.tl-wrap.on{opacity:1}
+
+.tl-header{padding:10px 16px 4px;display:flex;align-items:center;gap:8px}
+.tl-title{font-size:0.78rem;font-weight:600;color:#1a1a1e}
+
+/* Timeline container — horizontal scroll via translateX */
+.tl-cont{position:absolute;top:70px;left:0;right:0;bottom:0;overflow:hidden}
+.tl-track{position:relative;height:100%;width:2400px;
+  transition:transform 1.2s cubic-bezier(0.25,1,0.5,1)}
+
+/* The axis line */
+.tl-axis{position:absolute;top:50%;left:30px;right:30px;height:2px;
+  background:linear-gradient(90deg,#0e7a7e,#0e7a7e 70%,rgba(14,122,126,0.15) 100%);
+  transform:translateY(-50%)}
+.tl-axis-dot{position:absolute;top:50%;height:2px;
+  background:repeating-linear-gradient(90deg,rgba(14,122,126,0.3) 0,rgba(14,122,126,0.3) 4px,transparent 4px,transparent 10px);
+  transform:translateY(-50%);transition:width 1s ease}
+
+/* Timeline markers */
+.tl-marker{position:absolute;top:50%;transform:translate(-50%,-50%);
+  width:10px;height:10px;border-radius:50%;background:#0e7a7e;
+  opacity:0;transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);z-index:5}
+.tl-marker.v{opacity:1}
+.tl-marker.confirmed{background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,0.4)}
+.tl-marker-label{position:absolute;top:calc(50% + 12px);transform:translateX(-50%);
+  font-size:0.42rem;color:#8a8a8e;white-space:nowrap;
+  opacity:0;transition:opacity 0.4s 0.1s}
+.tl-marker-label.v{opacity:1}
+
+/* Event cards — positioned above or below the axis */
+.tl-card{position:absolute;width:120px;background:#fff;border-radius:10px;
+  padding:8px 10px;box-shadow:0 2px 10px rgba(0,0,0,0.06);
+  opacity:0;transform:translateY(12px);
+  transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);z-index:4}
+.tl-card.v{opacity:1;transform:translateY(0)}
+.tl-card.above{bottom:calc(50% + 20px)}
+.tl-card.below{top:calc(50% + 20px)}
+.tl-card.projected{border:1.5px dashed rgba(14,122,126,0.3);background:rgba(255,255,255,0.85)}
+.tl-card.confirmed-card{border:1.5px solid #22c55e;background:#fff}
+.tl-card .card-title{font-size:0.52rem;font-weight:600;color:#0e7a7e;margin-bottom:3px;line-height:1.3}
+.tl-card .card-body{font-size:0.46rem;color:#5a5a5e;line-height:1.4}
+.tl-card .card-check{position:absolute;top:6px;right:6px;width:14px;height:14px;
+  border-radius:50%;background:#22c55e;display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.tl-card .card-check.v{opacity:1;transform:scale(1)}
+.tl-card .card-check svg{width:8px;height:8px;color:#fff}
+
+/* Connection lines between cards */
+.tl-conn{position:absolute;pointer-events:none;z-index:3;
+  opacity:0;transition:opacity 0.8s ease}
+.tl-conn.v{opacity:1}
+
+/* Highlight glow on timeline segment */
+.tl-glow{position:absolute;top:50%;height:6px;transform:translateY(-50%);
+  background:rgba(14,122,126,0.25);border-radius:3px;
+  opacity:0;transition:opacity 0.6s ease;z-index:2}
+.tl-glow.v{opacity:1}
+
+/* Search bar */
+.tl-search{position:absolute;top:42px;left:14px;right:14px;
+  background:#fff;border-radius:10px;padding:7px 12px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+  display:flex;align-items:center;gap:6px;
+  opacity:0;transform:translateY(-8px);
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);z-index:20}
+.tl-search.v{opacity:1;transform:translateY(0)}
+.tl-search svg{width:12px;height:12px;color:#8a8a8e;flex-shrink:0}
+.tl-search-text{font-size:0.56rem;color:#3a3a3e}
+.tl-search-text .cursor{display:inline-block;width:1px;height:0.8em;background:#0e7a7e;
+  margin-left:1px;vertical-align:text-bottom;animation:blink 0.8s step-end infinite}
+
+/* Annotation popover */
+.tl-annot{position:absolute;z-index:15;background:rgba(14,122,126,0.08);
+  border:1px solid rgba(14,122,126,0.15);border-radius:8px;padding:8px 10px;
+  font-size:0.48rem;color:#0e7a7e;line-height:1.5;max-width:180px;
+  opacity:0;transform:translateY(6px);
+  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.tl-annot.v{opacity:1;transform:translateY(0)}
+
+/* ===== CLOSE SCENE ===== */
+.close-scene{position:absolute;inset:0;background:#f6f1eb;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.8s ease;z-index:30}
+.close-scene.on{opacity:1}
+.close-orb{width:44px;height:44px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px;opacity:0;transform:scale(0.6);
+  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.close-orb.v{opacity:1;transform:scale(1)}
+.close-orb span{color:#fff;font-weight:700;font-size:0.7rem}
+.close-text{font-size:0.88rem;font-weight:600;color:#1a1a1e;
+  opacity:0;transform:translateY(10px);transition:all 0.6s ease 0.2s}
+.close-text.v{opacity:1;transform:translateY(0)}
+.close-sub{font-size:0.5rem;color:#8a8a8e;margin-top:6px;
+  opacity:0;transform:translateY(10px);transition:all 0.6s ease 0.4s}
+.close-sub.v{opacity:1;transform:translateY(0)}
+.close-brand{margin-top:28px;text-align:center;
+  opacity:0;transition:opacity 0.6s ease 0.6s}
+.close-brand.v{opacity:1}
+.close-name{font-size:0.6rem;font-weight:600;color:#5a5a5e}
+.close-handle{font-size:0.48rem;color:#0e7a7e;margin-top:2px}
+
+/* Celebration burst */
+@keyframes celebratePop{
+  0%{transform:scale(0);opacity:1}
+  50%{transform:scale(1.3);opacity:0.8}
+  100%{transform:scale(0);opacity:0}
+}
+.celebrate{position:absolute;width:6px;height:6px;border-radius:50%;
+  background:#0e7a7e;pointer-events:none}
+</style>
+</head>
+<body>
+
+<div class="ph">
+  <div class="dyn"></div>
+  <div class="sb">
+    <span>9:41</span>
+    <span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M6 18L6 15M10 18L10 11M14 18L14 7M18 18L18 3"/>
+      </svg>
+    </span>
+  </div>
+  <div class="scr">
+    <div class="bg-grad" id="bgGrad"></div>
+
+    <!-- Phase 1: App opens with empty timeline -->
+    <div class="app" id="appChat">
+      <div class="hdr">
+        <div class="hdr-orb"><span>P</span></div>
+        <div class="hdr-txt">
+          <div class="hdr-title">Your Health Story</div>
+          <div class="hdr-sub">Pulse</div>
+        </div>
+      </div>
+      <div class="chat" id="chatArea" style="display:flex;flex-direction:column;gap:4px;padding-top:8px">
+      </div>
+      <div class="inp" id="inputBar">
+        <div class="inp-f" id="inputField">Tell me about yourself...<span class="cursor"></span></div>
+        <div class="inp-s">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M22 2L11 13M22 2L15 22L11 13L2 9L22 2Z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Timeline view -->
+    <div class="tl-wrap" id="tlWrap">
+      <div class="tl-header">
+        <div class="hdr-orb" style="width:22px;height:22px"><span style="font-size:0.4rem">P</span></div>
+        <div class="tl-title">Your Health Story</div>
+      </div>
+      <div class="tl-search" id="tlSearch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="11" cy="11" r="8"/><path d="M21 21L16.65 16.65"/>
+        </svg>
+        <div class="tl-search-text" id="searchText"></div>
+      </div>
+      <div class="tl-cont" id="tlCont">
+        <div class="tl-track" id="tlTrack">
+          <div class="tl-axis" id="tlAxis" style="right:30px"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Close scene -->
+    <div class="close-scene" id="closeScene">
+      <div class="close-orb" id="closeOrb"><span>P</span></div>
+      <div class="close-text" id="closeText">Your story. Computed.</div>
+      <div class="close-sub" id="closeSub">Every data point, connected. Every pattern, surfaced.</div>
+      <div class="close-brand" id="closeBrand">
+        <div class="close-name">healthcalculators.xyz</div>
+        <div class="close-handle">@GetHealthC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+const chatArea = $('#chatArea');
+const inputField = $('#inputField');
+const inputSend = $('.inp-s');
+const tlTrack = $('#tlTrack');
+
+// Utility: type text into an element
+async function typeText(el, text, speed = 30) {
+  el.innerHTML = '';
+  for (let i = 0; i < text.length; i++) {
+    el.innerHTML = text.slice(0, i + 1) + '<span class="cursor"></span>';
+    await wait(speed);
+  }
+}
+
+// Utility: add a chat message
+function addMsg(text, type = 'bot') {
+  const d = document.createElement('div');
+  d.className = 'msg ' + type;
+  d.innerHTML = text;
+  chatArea.appendChild(d);
+  requestAnimationFrame(() => d.classList.add('v'));
+  return d;
+}
+
+// Utility: create a timeline card
+function addCard(opts) {
+  const card = document.createElement('div');
+  let cls = 'tl-card ' + (opts.pos || 'above');
+  if (opts.projected) cls += ' projected';
+  if (opts.confirmed) cls += ' confirmed-card';
+  card.className = cls;
+  card.style.left = opts.x + 'px';
+  card.innerHTML = `
+    <div class="card-title">${opts.title}</div>
+    <div class="card-body">${opts.body}</div>
+    ${opts.confirmed ? '<div class="card-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17L4 12"/></svg></div>' : ''}
+  `;
+  tlTrack.appendChild(card);
+  return card;
+}
+
+// Utility: create a timeline dot
+function addMarker(x, label, confirmed = false) {
+  const m = document.createElement('div');
+  m.className = 'tl-marker' + (confirmed ? ' confirmed' : '');
+  m.style.left = x + 'px';
+  tlTrack.appendChild(m);
+
+  if (label) {
+    const l = document.createElement('div');
+    l.className = 'tl-marker-label';
+    l.style.left = x + 'px';
+    l.textContent = label;
+    tlTrack.appendChild(l);
+    return { marker: m, label: l };
+  }
+  return { marker: m };
+}
+
+// Utility: show element
+function show(el, cls = 'v') {
+  if (typeof el === 'string') el = $(el);
+  el.classList.add(cls);
+}
+
+// Add annotation
+function addAnnotation(x, y, text, fromAbove = true) {
+  const a = document.createElement('div');
+  a.className = 'tl-annot';
+  a.style.left = x + 'px';
+  if (fromAbove) {
+    a.style.bottom = 'calc(50% + 70px)';
+  } else {
+    a.style.top = 'calc(50% + 70px)';
+  }
+  a.innerHTML = text;
+  tlTrack.appendChild(a);
+  return a;
+}
+
+// Connection line (SVG)
+function addConnection(x1, y1Off, x2, y2Off) {
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'tl-conn');
+  svg.style.position = 'absolute';
+  svg.style.left = '0';
+  svg.style.top = '0';
+  svg.style.width = '100%';
+  svg.style.height = '100%';
+  svg.style.pointerEvents = 'none';
+  const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+  const cy1 = `calc(50% - ${y1Off}px)`;
+  // Use pixel approximation for SVG
+  const midY = 340; // ~50% of container
+  const py1 = midY - y1Off;
+  const py2 = midY + y2Off;
+  const cpY = midY;
+  path.setAttribute('d', `M ${x1} ${py1} C ${x1} ${cpY}, ${x2} ${cpY}, ${x2} ${py2}`);
+  path.setAttribute('fill', 'none');
+  path.setAttribute('stroke', 'rgba(14,122,126,0.2)');
+  path.setAttribute('stroke-width', '1.5');
+  path.setAttribute('stroke-dasharray', '4 3');
+  svg.appendChild(path);
+  tlTrack.appendChild(svg);
+  return svg;
+}
+
+// Highlight glow on timeline
+function addGlow(x, width) {
+  const g = document.createElement('div');
+  g.className = 'tl-glow';
+  g.style.left = x + 'px';
+  g.style.width = width + 'px';
+  tlTrack.appendChild(g);
+  return g;
+}
+
+// Celebration particles
+function celebrate(x, y, count = 8) {
+  const colors = ['#0e7a7e', '#22c55e', '#f59e0b', '#14b8a6'];
+  for (let i = 0; i < count; i++) {
+    const p = document.createElement('div');
+    p.className = 'celebrate';
+    p.style.left = x + 'px';
+    p.style.top = y + 'px';
+    p.style.background = colors[i % colors.length];
+    const angle = (Math.PI * 2 / count) * i;
+    const dist = 20 + Math.random() * 25;
+    const dx = Math.cos(angle) * dist;
+    const dy = Math.sin(angle) * dist;
+    p.style.transition = 'all 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+    tlTrack.appendChild(p);
+    requestAnimationFrame(() => {
+      p.style.transform = `translate(${dx}px, ${dy}px)`;
+      p.style.opacity = '0';
+    });
+    setTimeout(() => p.remove(), 700);
+  }
+}
+
+// Scroll timeline
+function scrollTimeline(x, duration = 1200) {
+  tlTrack.style.transition = `transform ${duration}ms cubic-bezier(0.25,1,0.5,1)`;
+  tlTrack.style.transform = `translateX(${-x}px)`;
+}
+
+// ===== MAIN SEQUENCE =====
+async function run() {
+
+  // ===== PHASE 1: THE EMPTY TIMELINE (0-5s) =====
+  await wait(400);
+  $('#appChat').classList.add('on');
+  await wait(600);
+
+  // Show empty state message
+  const emptyMsg = addMsg("Your health timeline is empty. Tell me about yourself to start building it.", 'bot');
+  await wait(1200);
+
+  // Show the timeline axis faintly in the chat area — just the invitation text
+  addMsg("Every conversation adds to your story.", 'bot');
+  await wait(1800);
+
+  // ===== PHASE 2: FIRST EVENT (5-12s) =====
+  inputField.innerHTML = '';
+  inputField.classList.add('act');
+  inputSend.classList.add('act');
+  await typeText(inputField, "I want to lose weight. I exercise but it's not working.", 25);
+  await wait(400);
+
+  // "Send" the message
+  const userMsg1 = addMsg("I want to lose weight. I exercise but it's not working.", 'usr');
+  inputField.innerHTML = '<span style="color:#9a9a9e">Message Pulse...</span>';
+  inputField.classList.remove('act');
+  inputSend.classList.remove('act');
+  await wait(800);
+
+  // Transition: chat fades, timeline appears
+  await wait(400);
+  // Fade chat
+  $('#appChat').style.transition = 'opacity 0.6s ease';
+  $('#appChat').style.opacity = '0';
+  await wait(600);
+  $('#appChat').style.display = 'none';
+
+  // Show timeline
+  $('#tlWrap').classList.add('on');
+  await wait(300);
+
+  // Add "Today" marker
+  const todayMarker = addMarker(120, 'Today');
+  await wait(200);
+  show(todayMarker.marker);
+  show(todayMarker.label);
+  await wait(400);
+
+  // First card drops onto timeline
+  const card1 = addCard({
+    x: 80, pos: 'above',
+    title: 'Day 0: Starting point',
+    body: 'Goal: lose weight<br>Exercising, not seeing results'
+  });
+  await wait(100);
+  show(card1);
+  await wait(1500);
+
+  // ===== PHASE 3: THE LLM ADDS EVENTS (12-22s) =====
+
+  // Pulse asks about sleep — show as a small bot annotation
+  const sleepQ = addAnnotation(160, 60, '"How\'s your sleep?"', true);
+  await wait(200);
+  show(sleepQ);
+  await wait(1200);
+  sleepQ.style.opacity = '0';
+  await wait(400);
+
+  // User answer appears as annotation
+  const sleepA = addAnnotation(160, 60, '"Not great, honestly"', false);
+  await wait(200);
+  show(sleepA);
+  await wait(800);
+  sleepA.style.opacity = '0';
+  await wait(300);
+
+  // LLM infers: Poor sleep is ongoing — card appears BEFORE today
+  const sleepMarker = addMarker(50, 'Ongoing');
+  await wait(100);
+  show(sleepMarker.marker);
+  show(sleepMarker.label);
+
+  const sleepCard = addCard({
+    x: 10, pos: 'below',
+    title: 'Ongoing: Poor sleep',
+    body: 'Not a new issue — the LLM inferred this predates Day 0'
+  });
+  await wait(100);
+  show(sleepCard);
+  await wait(600);
+
+  // Connection line: poor sleep -> day 0
+  const conn1 = addConnection(55, -50, 120, 40);
+  await wait(100);
+  show(conn1);
+  await wait(300);
+
+  // Annotation: the insight
+  const insight1 = addAnnotation(65, 30, 'Poor sleep &rarr; elevated cortisol &rarr; fat retention', true);
+  await wait(200);
+  show(insight1);
+  await wait(2000);
+  insight1.style.opacity = '0';
+  await wait(400);
+
+  // Pulse asks about protein
+  const protQ = addAnnotation(200, 60, '"What protein sources do you eat?"', true);
+  await wait(200);
+  show(protQ);
+  await wait(1000);
+  protQ.style.opacity = '0';
+  await wait(200);
+
+  const protA = addAnnotation(200, 60, 'Chicken, eggs, sometimes fish', false);
+  await wait(200);
+  show(protA);
+  await wait(800);
+  protA.style.opacity = '0';
+  await wait(300);
+
+  // Plan card
+  const planCard = addCard({
+    x: 170, pos: 'above',
+    title: 'Day 0: Plan created',
+    body: 'Caffeine cutoff 2 PM<br>148g protein<br>4x training/week'
+  });
+  const planMarker = addMarker(200, 'Plan');
+  await wait(100);
+  show(planMarker.marker);
+  show(planMarker.label);
+  show(planCard);
+  await wait(1800);
+
+  // ===== PHASE 4: THE FUTURE PROJECTS (22-32s) =====
+
+  // The dotted future extends
+  const futureDots = document.createElement('div');
+  futureDots.className = 'tl-axis-dot';
+  futureDots.style.left = '250px';
+  futureDots.style.top = '50%';
+  futureDots.style.width = '0px';
+  tlTrack.appendChild(futureDots);
+  await wait(200);
+  futureDots.style.width = '600px';
+  await wait(600);
+
+  // Projected cards slide in from right
+  const projCards = [
+    { x: 320, pos: 'below', title: 'Day 3 (projected)', body: 'Sleep quality begins improving', delay: 0 },
+    { x: 450, pos: 'above', title: 'Day 7 (projected)', body: 'First measurable weight change', delay: 500 },
+    { x: 580, pos: 'below', title: 'Day 14 (projected)', body: '-1.4 kg if plan followed', delay: 1000 },
+    { x: 710, pos: 'above', title: 'Day 30 (projected)', body: 'Hit intermediate goal', delay: 1500 },
+  ];
+
+  const projMarkers = [
+    { x: 350, label: 'Day 3', delay: 0 },
+    { x: 480, label: 'Day 7', delay: 500 },
+    { x: 610, label: 'Day 14', delay: 1000 },
+    { x: 740, label: 'Day 30', delay: 1500 },
+  ];
+
+  for (let i = 0; i < projCards.length; i++) {
+    setTimeout(() => {
+      const pc = addCard({ ...projCards[i], projected: true });
+      const pm = addMarker(projMarkers[i].x, projMarkers[i].label);
+      requestAnimationFrame(() => {
+        show(pc);
+        show(pm.marker);
+        show(pm.label);
+      });
+    }, projCards[i].delay);
+  }
+
+  await wait(2200);
+
+  // Scroll timeline left a bit to show projected cards
+  scrollTimeline(200, 1500);
+  await wait(2500);
+
+  // ===== PHASE 5: TIME SKIP — FUTURE BECOMES REAL (32-42s) =====
+
+  // Scroll further
+  scrollTimeline(300, 1200);
+  await wait(800);
+
+  // Confirm Day 3: replace projected card with confirmed
+  const confCard3 = addCard({
+    x: 320, pos: 'below', confirmed: true,
+    title: 'Day 3: Sleep quality +',
+    body: 'Fell asleep 22 min faster<br>Deep sleep +18%'
+  });
+  // Remove projected card (first projected below card)
+  const allCards = tlTrack.querySelectorAll('.tl-card.projected');
+  if (allCards[0]) allCards[0].style.opacity = '0';
+  await wait(200);
+  show(confCard3);
+  confCard3.querySelector('.card-check').classList.add('v');
+  // Confirm marker
+  const confMarker3 = tlTrack.querySelectorAll('.tl-marker')[3]; // Day 3 marker
+  if (confMarker3) confMarker3.classList.add('confirmed');
+  await wait(1200);
+
+  // Confirm Day 7
+  const confCard7 = addCard({
+    x: 450, pos: 'above', confirmed: true,
+    title: 'Day 7: -0.5 kg',
+    body: 'First measurable drop confirmed'
+  });
+  if (allCards[1]) allCards[1].style.opacity = '0';
+  await wait(200);
+  show(confCard7);
+  confCard7.querySelector('.card-check').classList.add('v');
+  const confMarker7 = tlTrack.querySelectorAll('.tl-marker')[4];
+  if (confMarker7) confMarker7.classList.add('confirmed');
+  await wait(1200);
+
+  // Day 10: Unexpected — Pulse noticed gap
+  scrollTimeline(400, 1000);
+  await wait(600);
+  const gapMarker = addMarker(540, 'Day 10');
+  show(gapMarker.marker);
+  show(gapMarker.label);
+  const gapCard = addCard({
+    x: 500, pos: 'below',
+    title: 'Day 10: You went quiet',
+    body: 'Pulse noticed. Sent:<br>"Hey, everything okay? No pressure."'
+  });
+  await wait(200);
+  show(gapCard);
+  await wait(1500);
+
+  // Day 11: Came back
+  const backMarker = addMarker(570, 'Day 11');
+  show(backMarker.marker);
+  show(backMarker.label);
+  const backCard = addCard({
+    x: 530, pos: 'above',
+    title: 'Day 11: You came back',
+    body: 'Pulse adjusted: lighter training week. No guilt.'
+  });
+  await wait(200);
+  show(backCard);
+  await wait(1200);
+
+  // Confirm Day 14 — with celebration
+  scrollTimeline(480, 1000);
+  await wait(800);
+  const confCard14 = addCard({
+    x: 580, pos: 'below', confirmed: true,
+    title: 'Day 14: -1.4 kg',
+    body: 'Sleep +23%. Cortisol normalized. Plan working.'
+  });
+  if (allCards[2]) allCards[2].style.opacity = '0';
+  await wait(200);
+  show(confCard14);
+  confCard14.querySelector('.card-check').classList.add('v');
+  await wait(300);
+  // Celebration particles at Day 14
+  celebrate(610, 280, 12);
+  await wait(2000);
+
+  // ===== PHASE 6: ASK YOUR TIMELINE (42-50s) =====
+
+  // Show search bar
+  show('#tlSearch');
+  await wait(500);
+
+  // Type search query
+  const searchText = $('#searchText');
+  await typeText(searchText, "What changed after the caffeine cutoff?", 35);
+  await wait(600);
+
+  // Highlight timeline segment: Day 3 through Day 14
+  const glow = addGlow(320, 300);
+  await wait(200);
+  show(glow);
+  await wait(600);
+
+  // Show answer annotation
+  const answerAnnot = addAnnotation(430, 10,
+    '<strong>Everything.</strong> Sleep, cortisol, weight — all improved after this single change.', true);
+  answerAnnot.style.bottom = 'calc(50% + 100px)';
+  answerAnnot.style.maxWidth = '200px';
+  await wait(200);
+  show(answerAnnot);
+  await wait(3500);
+
+  // Fade glow and answer
+  glow.style.opacity = '0';
+  answerAnnot.style.opacity = '0';
+  $('#tlSearch').style.opacity = '0';
+  await wait(800);
+
+  // ===== PHASE 7: THE FUTURE EXTENDS (50-58s) =====
+  scrollTimeline(600, 1500);
+  await wait(800);
+
+  // Day 60 projected card
+  const day60Marker = addMarker(900, 'Day 60');
+  show(day60Marker.marker);
+  show(day60Marker.label);
+
+  const day60Card = addCard({
+    x: 860, pos: 'above', projected: true,
+    title: 'Day 60: Goal weight (projected)',
+    body: 'At your current rate. I\'ll adjust if things change.'
+  });
+  await wait(200);
+  show(day60Card);
+  await wait(1500);
+
+  // Extend the dotted line further
+  futureDots.style.width = '900px';
+  await wait(600);
+
+  // Fade the far end — the story continues
+  await wait(2500);
+
+  // ===== PHASE 8: CLOSE (58-68s) =====
+  // Fade timeline
+  $('#tlWrap').style.transition = 'opacity 0.8s ease';
+  $('#tlWrap').style.opacity = '0';
+  await wait(1000);
+
+  // Show close scene
+  $('#closeScene').classList.add('on');
+  await wait(400);
+  show('#closeOrb', 'v');
+  await wait(300);
+  show('#closeText', 'v');
+  await wait(200);
+  show('#closeSub', 'v');
+  await wait(200);
+  show('#closeBrand', 'v');
+
+  // Hold
+  await wait(6000);
+
+  // Restart
+  resetAndReplay();
+}
+
+async function resetAndReplay() {
+  // Fade everything
+  $('#closeScene').classList.remove('on');
+  await wait(800);
+
+  // Reset state
+  $('#closeOrb').classList.remove('v');
+  $('#closeText').classList.remove('v');
+  $('#closeSub').classList.remove('v');
+  $('#closeBrand').classList.remove('v');
+
+  // Clear timeline
+  const dynamicEls = tlTrack.querySelectorAll('.tl-card,.tl-marker,.tl-marker-label,.tl-conn,.tl-annot,.tl-glow,.tl-axis-dot,.celebrate');
+  dynamicEls.forEach(e => e.remove());
+
+  // Reset timeline position
+  tlTrack.style.transition = 'none';
+  tlTrack.style.transform = 'translateX(0)';
+
+  // Reset search
+  $('#tlSearch').classList.remove('v');
+  $('#tlSearch').style.opacity = '';
+  $('#tlSearch').style.transform = '';
+  $('#searchText').innerHTML = '';
+
+  // Reset timeline wrap
+  $('#tlWrap').style.opacity = '';
+  $('#tlWrap').classList.remove('on');
+
+  // Reset chat
+  chatArea.innerHTML = '';
+  inputField.innerHTML = 'Tell me about yourself...<span class="cursor"></span>';
+  inputField.classList.remove('act');
+  inputSend.classList.remove('act');
+  $('#appChat').style.display = '';
+  $('#appChat').style.opacity = '';
+  $('#appChat').classList.remove('on');
+
+  await wait(500);
+  run();
+}
+
+// Start
+run();
+</script>
+</body>
+</html>
