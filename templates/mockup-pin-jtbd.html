@@ -10,250 +10,202 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#e8eaef}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#2a2a2e}
+body{background:#F5F0EA}
 
-/* Background chromatic drift — cold→warm over 28s (Headspace principle) */
-body{background:#080c18;animation:bg-drift 28s linear forwards}
-@keyframes bg-drift{0%{background:#080c18}100%{background:#061012}}
+.film{position:relative;width:100vw;height:100vh;overflow:hidden;display:flex;flex-direction:column}
 
-.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+/* === Warm ambient gradient that shifts === */
+.bg-wash{position:absolute;inset:0;z-index:0;
+  background:radial-gradient(ellipse at 30% 20%, rgba(14,122,126,0.04), transparent 60%),
+             radial-gradient(ellipse at 70% 80%, rgba(167,139,250,0.03), transparent 50%);
+  animation:wash-drift 28s linear forwards}
+@keyframes wash-drift{
+  0%{background:radial-gradient(ellipse at 30% 20%, rgba(14,122,126,0.04), transparent 60%),
+     radial-gradient(ellipse at 70% 80%, rgba(167,139,250,0.03), transparent 50%)}
+  100%{background:radial-gradient(ellipse at 50% 40%, rgba(14,122,126,0.07), transparent 60%),
+       radial-gradient(ellipse at 40% 70%, rgba(94,234,212,0.04), transparent 50%)}}
 
-/* === CANVAS: Floating ambient dots (Linear grid principle, organic) === */
-canvas#dots{position:absolute;inset:0;z-index:0;pointer-events:none}
+/* === Chat container — WhatsApp-style === */
+.chat-area{position:relative;z-index:2;flex:1;display:flex;flex-direction:column;
+  max-width:420px;width:100%;margin:0 auto;padding:16px 16px 20px;overflow:hidden}
 
-/* === DUAL ORBS — emotional state (Headspace morphing) === */
-.orb-layer{position:absolute;inset:0;z-index:1;pointer-events:none}
-.orb{position:absolute;border-radius:50%;filter:blur(1px);transition:all 1.8s cubic-bezier(0.34,1.56,0.64,1)}
+/* Header bar */
+.chat-header{display:flex;align-items:center;gap:12px;padding:10px 4px 14px;
+  border-bottom:1px solid rgba(0,0,0,0.04);margin-bottom:12px;flex-shrink:0}
+.avatar{width:40px;height:40px;border-radius:50%;flex-shrink:0;position:relative;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 2px 12px rgba(14,122,126,0.25);
+  animation:av-breathe 3.75s ease-in-out infinite}
+@keyframes av-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.avatar::after{content:'';position:absolute;bottom:1px;right:1px;width:10px;height:10px;
+  border-radius:50%;background:#22c55e;border:2px solid #F5F0EA}
+.avatar-letter{color:#fff;font-weight:700;font-size:1rem;display:flex;align-items:center;
+  justify-content:center;width:100%;height:100%;border-radius:50%}
+.header-text{flex:1}
+.header-name{font-weight:600;font-size:0.92rem;color:#1a1a1e}
+.header-status{font-size:0.65rem;color:#22c55e;font-weight:500}
 
-/* Primary orb */
-.orb-a{width:64px;height:64px;top:50%;left:50%;transform:translate(-50%,-50%);
-  background:radial-gradient(circle at 38% 35%,#5eead4,#14b8a6 40%,#0e7a7e 70%,#065f63);
-  box-shadow:0 0 40px rgba(20,184,166,0.35),0 0 80px rgba(14,122,126,0.15);
-  animation:breathe-a 3.75s ease-in-out infinite}
+/* Messages */
+.messages{flex:1;display:flex;flex-direction:column;gap:6px;overflow:hidden;
+  padding:4px 0;justify-content:flex-end}
 
-/* Secondary orb — confusion indicator, merges into primary */
-.orb-b{width:40px;height:40px;top:46%;left:54%;transform:translate(-50%,-50%);
-  background:radial-gradient(circle at 40% 40%,#a78bfa,#7c3aed 50%,#5b21b6);
-  box-shadow:0 0 30px rgba(124,58,237,0.25);opacity:0.6;
-  animation:breathe-b 2.8s ease-in-out infinite}
+.msg{max-width:82%;padding:11px 16px;border-radius:18px;font-size:0.86rem;line-height:1.55;
+  opacity:0;transform:translateY(14px) scale(0.9);
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+.msg.in{opacity:1;transform:translateY(0) scale(1)}
 
-@keyframes breathe-a{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
-@keyframes breathe-b{0%,100%{transform:translate(-50%,-50%) scale(1) translateX(0)}50%{transform:translate(-50%,-50%) scale(0.9) translateX(6px)}}
+/* User messages — warm mint (WhatsApp sent feel) */
+.msg.u{background:#d1fae5;color:#1a3a2a;align-self:flex-end;border-bottom-right-radius:6px}
 
-/* Orb merged state */
-.orb-b.merged{top:50%;left:50%;width:0;height:0;opacity:0}
-/* Orb small/top */
-.orb-a.top{top:14%;width:36px;height:36px}
-.orb-a.center-big{width:100px;height:100px;animation:breathe-a-big 3.75s ease-in-out infinite}
-@keyframes breathe-a-big{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.06)}}
+/* AI messages — soft white */
+.msg.a{background:#ffffff;color:#2a2a2e;align-self:flex-start;border-bottom-left-radius:6px;
+  box-shadow:0 1px 4px rgba(0,0,0,0.04)}
 
-/* Orb ring pulses */
-.orb-ring{position:absolute;border-radius:50%;border:1px solid rgba(20,184,166,0.12);
-  top:50%;left:50%;width:80px;height:80px;transform:translate(-50%,-50%) scale(0.8);
-  opacity:0;animation:ring-out 3.75s ease-out infinite;pointer-events:none}
-.orb-ring:nth-child(3){animation-delay:1.25s}
-.orb-ring:nth-child(4){animation-delay:2.5s}
-@keyframes ring-out{0%{transform:translate(-50%,-50%) scale(0.8);opacity:0.5}100%{transform:translate(-50%,-50%) scale(2.5);opacity:0}}
+.msg .hl{color:#0e7a7e;font-weight:700}
+.msg .soft{color:#6b7280;font-size:0.75rem;display:block;margin-top:4px}
+.msg .time{color:#9ca3af;font-size:0.58rem;float:right;margin-top:4px;margin-left:10px}
 
-/* === Scenes === */
-.sc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;
-  opacity:0;transition:opacity 0.8s;pointer-events:none;z-index:2}
-.sc.on{opacity:1}
+/* Typing indicator */
+.typing-wrap{display:flex;align-items:center;gap:8px;padding:4px 0;
+  opacity:0;transition:opacity 0.3s}
+.typing-wrap.in{opacity:1}
+.typing-av{width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center}
+.typing-av span{color:#fff;font-size:0.6rem;font-weight:700}
+.typing-dots{display:flex;gap:4px;background:#fff;padding:10px 16px;border-radius:18px;
+  border-bottom-left-radius:6px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.typing-dots span{width:7px;height:7px;border-radius:50%;background:#b0b8c4;
+  animation:t-bounce 1.2s ease-in-out infinite}
+.typing-dots span:nth-child(2){animation-delay:0.15s}
+.typing-dots span:nth-child(3){animation-delay:0.3s}
+@keyframes t-bounce{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-6px);opacity:1}}
 
-/* Spring-bounce easing for all reveals */
-.pop{opacity:0;transform:translateY(18px) scale(0.92);
-  transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
-.pop.in{opacity:1;transform:translateY(0) scale(1)}
+/* === Pill options (Wysa-style tappable choices) === */
+.pills{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-end;
+  opacity:0;transform:translateY(10px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.pills.in{opacity:1;transform:translateY(0)}
+.pill{padding:8px 16px;border-radius:20px;font-size:0.78rem;font-weight:500;
+  background:#fff;border:1.5px solid rgba(14,122,126,0.2);color:#0e7a7e;cursor:pointer;
+  transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);opacity:0;transform:scale(0.8)}
+.pill.in{opacity:1;transform:scale(1)}
+.pill.picked{background:#0e7a7e;color:#fff;border-color:#0e7a7e;transform:scale(1.05)}
+.pill.fade{opacity:0.3;transform:scale(0.9)}
 
-/* Icon spring pop — more aggressive overshoot (Duolingo principle) */
-.icon-pop{display:inline-flex;align-items:center;justify-content:center;
-  width:28px;height:28px;border-radius:8px;flex-shrink:0;
-  opacity:0;transform:scale(0);
-  transition:all 0.35s cubic-bezier(0,1.5,0.5,1)}
-.icon-pop.in{opacity:1;transform:scale(1)}
+/* === Big number with chromatic flash === */
+.big-num{font-family:'DM Serif Display',serif;font-size:2rem;color:#0e7a7e;
+  display:inline-block;position:relative;letter-spacing:-0.02em;line-height:1.1}
+.big-num::before,.big-num::after{content:attr(data-v);position:absolute;top:0;left:0;
+  opacity:0;transition:opacity 0.12s}
+.big-num.flash::before{color:#a78bfa;transform:translateX(-1.5px);opacity:0.5}
+.big-num.flash::after{color:#f59e0b;transform:translateX(1.5px);opacity:0.35}
 
-/* === SCENE 1: The Question — chat + orb === */
-.s1-chat{display:flex;flex-direction:column;gap:10px;width:360px;max-width:88vw;margin-top:60px}
-.bub{padding:14px 20px;border-radius:22px;font-size:0.9rem;line-height:1.5;
-  opacity:0;transform:translateY(16px) scale(0.88);
-  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);max-width:88%}
-.bub.in{opacity:1;transform:translateY(0) scale(1)}
-.bub.u{background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.75);
-  border:1px solid rgba(255,255,255,0.05);align-self:flex-end;border-bottom-right-radius:6px}
-.bub.a{background:linear-gradient(135deg,rgba(14,122,126,0.18),rgba(20,184,166,0.06));
-  color:#e4e6ea;border:1px solid rgba(14,122,126,0.12);align-self:flex-start;border-bottom-left-radius:6px}
-.bub .hl{color:#5eead4;font-weight:600}
+/* === Result card (report) === */
+.result-card{background:#fff;border-radius:16px;padding:18px 20px;margin-top:4px;
+  box-shadow:0 2px 16px rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.04);
+  opacity:0;transform:translateY(14px) scale(0.92);max-width:82%;align-self:flex-start;
+  transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);position:relative;overflow:hidden}
+.result-card.in{opacity:1;transform:translateY(0) scale(1)}
 
-/* Typing dots */
-.dots{display:inline-flex;gap:5px;padding:4px 0}
-.dots span{width:6px;height:6px;border-radius:50%;background:rgba(94,234,212,0.45);animation:bounce 1.2s ease-in-out infinite}
-.dots span:nth-child(2){animation-delay:0.15s}
-.dots span:nth-child(3){animation-delay:0.3s}
-@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-7px)}}
+.rc-shimmer{position:absolute;inset:0;
+  background:linear-gradient(105deg,transparent 40%,rgba(14,122,126,0.03) 50%,transparent 60%);
+  animation:rc-shim 2.8s ease-in-out infinite;pointer-events:none}
+@keyframes rc-shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
 
-/* The big number reveal — with overshoot + chromatic flash */
-.big-num{font-family:'DM Serif Display',serif;font-size:2.8rem;color:#5eead4;
-  display:inline-block;position:relative;letter-spacing:-0.02em}
-.big-num::before,.big-num::after{content:attr(data-val);position:absolute;top:0;left:0;
-  opacity:0;transition:opacity 0.15s}
-.big-num.flash::before{color:#a78bfa;transform:translateX(-2px);opacity:0.6}
-.big-num.flash::after{color:#f59e0b;transform:translateX(2px);opacity:0.4}
+.rc-title{font-family:'DM Serif Display',serif;font-size:0.95rem;color:#1a1a1e;margin-bottom:12px}
+.rc-row{display:flex;justify-content:space-between;padding:6px 0;
+  border-bottom:1px solid rgba(0,0,0,0.03);opacity:0;transform:translateX(-8px);
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)}
+.rc-row.in{opacity:1;transform:translateX(0)}
+.rc-row:last-child{border-bottom:none}
+.rc-label{font-size:0.74rem;color:#6b7280}
+.rc-val{font-size:0.76rem;color:#0e7a7e;font-weight:600;font-variant-numeric:tabular-nums}
 
-/* === SCENE 2: The Chain — flowing connections === */
-.s2-wrap{display:flex;flex-direction:column;align-items:center;gap:0;margin-top:50px}
-.chain-row{display:flex;align-items:center;gap:12px;padding:8px 0;
-  opacity:0;transform:translateX(-24px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
-.chain-row.in{opacity:1;transform:translateX(0)}
-.chain-text{font-size:0.88rem;color:rgba(255,255,255,0.6);font-weight:300}
-.chain-text em{color:#5eead4;font-style:normal;font-weight:500}
-.chain-line{width:1px;height:18px;margin-left:14px;
-  background:linear-gradient(180deg,rgba(20,184,166,0.25),transparent);
-  opacity:0;transition:opacity 0.4s}
-.chain-line.in{opacity:1}
+/* Mini progress ring */
+.rc-ring-wrap{display:flex;align-items:center;gap:14px;margin-top:10px;padding-top:10px;
+  border-top:1px solid rgba(0,0,0,0.03);opacity:0;transition:opacity 0.5s}
+.rc-ring-wrap.in{opacity:1}
+.rc-ring svg{width:44px;height:44px;transform:rotate(-90deg)}
+.rc-ring circle{fill:none;stroke-width:5;stroke-linecap:round}
+.rc-ring .track{stroke:rgba(0,0,0,0.04)}
+.rc-ring .fill{stroke:#14b8a6;stroke-dasharray:126;stroke-dashoffset:126;
+  transition:stroke-dashoffset 1s cubic-bezier(0.34,1.56,0.64,1)}
+.rc-ring .fill.go{stroke-dashoffset:32}
+.rc-ring-text{font-size:0.72rem;color:#6b7280;line-height:1.4}
+.rc-ring-text strong{color:#0e7a7e;font-size:0.82rem}
 
-/* === SCENE 3: The Report — materializing === */
-.s3-card{width:320px;max-width:85vw;border-radius:20px;padding:0;
-  background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);
-  overflow:hidden;opacity:0;transform:scale(0.88) translateY(16px);
-  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1);position:relative}
-.s3-card.in{opacity:1;transform:scale(1) translateY(0)}
+.rc-sent{display:flex;align-items:center;gap:6px;margin-top:10px;padding-top:8px;
+  border-top:1px solid rgba(0,0,0,0.03);opacity:0;transition:all 0.4s}
+.rc-sent.in{opacity:1}
+.rc-sent svg{width:14px;height:14px;color:#22c55e}
+.rc-sent span{font-size:0.68rem;color:#22c55e;font-weight:500}
 
-.s3-header{padding:20px 22px 14px;border-bottom:1px solid rgba(255,255,255,0.03)}
-.s3-header-title{font-family:'DM Serif Display',serif;font-size:1.05rem;color:#e4e6ea}
-.s3-header-sub{font-size:0.62rem;color:rgba(255,255,255,0.2);margin-top:4px}
+/* === Companion close === */
+.close-wrap{position:absolute;inset:0;z-index:5;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;background:#F5F0EA;
+  opacity:0;transition:opacity 0.6s;pointer-events:none}
+.close-wrap.on{opacity:1}
+.close-orb{width:80px;height:80px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 4px 30px rgba(14,122,126,0.3);
+  animation:av-breathe 3.75s ease-in-out infinite;margin-bottom:28px;
+  opacity:0;transform:scale(0.5);transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.close-orb.in{opacity:1;transform:scale(1)}
+.close-text{text-align:center;max-width:380px;padding:0 32px}
+.close-big{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);
+  line-height:1.25;color:#1a1a1e;opacity:0;transform:translateY(14px);
+  transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.close-big.in{opacity:1;transform:translateY(0)}
+.close-big em{font-style:italic;color:#0e7a7e}
+.close-sub{font-size:0.78rem;color:#6b7280;margin-top:14px;line-height:1.55;
+  opacity:0;transition:opacity 0.6s}
+.close-sub.in{opacity:1}
+.close-brand{margin-top:24px;opacity:0;transition:opacity 0.6s}
+.close-brand.in{opacity:1}
+.close-name{font-size:0.8rem;font-weight:600;color:#3a3a3e}
+.close-handle{font-size:0.62rem;color:#0e7a7e;margin-top:2px}
 
-.s3-body{padding:16px 22px}
-.s3-row{display:flex;align-items:center;justify-content:space-between;padding:7px 0;
-  border-bottom:1px solid rgba(255,255,255,0.02);
-  opacity:0;transform:translateX(-10px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
-.s3-row.in{opacity:1;transform:translateX(0)}
-.s3-row-label{font-size:0.78rem;color:rgba(255,255,255,0.45)}
-.s3-row-val{font-size:0.82rem;color:#5eead4;font-weight:600;font-variant-numeric:tabular-nums}
-
-/* Mini ring chart */
-.s3-ring-wrap{display:flex;justify-content:center;padding:14px 0 6px;
-  opacity:0;transition:opacity 0.5s}
-.s3-ring-wrap.in{opacity:1}
-.s3-ring{position:relative;width:80px;height:80px}
-.s3-ring svg{transform:rotate(-90deg)}
-.s3-ring circle{fill:none;stroke-width:6;stroke-linecap:round}
-.s3-ring .track{stroke:rgba(255,255,255,0.04)}
-.s3-ring .fill{stroke:#14b8a6;stroke-dasharray:220;stroke-dashoffset:220;
-  transition:stroke-dashoffset 1.2s cubic-bezier(0.34,1.56,0.64,1)}
-.s3-ring .fill.in{stroke-dashoffset:55}
-.s3-ring-label{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
-  font-size:0.72rem;color:rgba(255,255,255,0.4)}
-
-.s3-footer{padding:12px 22px 16px;display:flex;align-items:center;justify-content:center;gap:6px;
-  opacity:0;transition:all 0.4s}
-.s3-footer.in{opacity:1}
-.s3-footer svg{width:14px;height:14px;color:#5eead4}
-.s3-footer span{font-size:0.68rem;color:#5eead4}
-
-/* Shimmer overlay */
-.shimmer{position:absolute;inset:0;
-  background:linear-gradient(105deg,transparent 40%,rgba(94,234,212,0.04) 50%,transparent 60%);
-  animation:shim 3s ease-in-out infinite;pointer-events:none}
-@keyframes shim{0%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
-
-/* === SCENE 4: Journey over time === */
-.s4-wrap{display:flex;flex-direction:column;align-items:center;gap:28px}
-.s4-moment{display:flex;align-items:center;gap:16px;
-  opacity:0;transform:scale(0.9);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
-.s4-moment.in{opacity:1;transform:scale(1)}
-.s4-when{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
-  color:rgba(255,255,255,0.2);min-width:70px;text-align:right}
-.s4-pill{padding:10px 20px;border-radius:14px;font-size:0.85rem;line-height:1.4;
-  background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.04);color:rgba(255,255,255,0.6)}
-.s4-pill em{color:#5eead4;font-style:normal;font-weight:500}
-/* Progress bar under each moment */
-.s4-bar{height:3px;border-radius:2px;margin-top:6px;background:rgba(255,255,255,0.03);overflow:hidden;width:160px}
-.s4-bar-fill{height:100%;border-radius:2px;background:linear-gradient(90deg,#0e7a7e,#14b8a6);
-  width:0;transition:width 1s cubic-bezier(0.34,1.56,0.64,1)}
-
-/* === SCENE 5: Companion close === */
-.s5-center{text-align:center;max-width:460px;padding:0 32px;margin-top:40px}
-.s5-big{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.8vw,2.4rem);line-height:1.22;
-  opacity:0;transform:translateY(16px);transition:all 0.85s cubic-bezier(0.16,1,0.3,1)}
-.s5-big.in{opacity:1;transform:translateY(0)}
-.s5-big em{font-style:italic;color:#5eead4}
-.s5-sub{font-size:0.76rem;color:rgba(255,255,255,0.28);margin-top:16px;line-height:1.55;
-  opacity:0;transition:opacity 0.7s}
-.s5-sub.in{opacity:1}
-.s5-brand{margin-top:28px;opacity:0;transition:opacity 0.7s}
-.s5-brand.in{opacity:1}
-.s5-name{font-size:0.8rem;font-weight:600;color:rgba(255,255,255,0.35)}
-.s5-handle{font-size:0.62rem;color:#14b8a6;margin-top:3px}
-
-/* === Particles === */
-.spark{position:absolute;border-radius:50%;pointer-events:none;z-index:10}
-@keyframes spark-up{0%{opacity:0.8;transform:translate(0,0) scale(1)}
+/* === Particles / confetti === */
+.spark{position:fixed;border-radius:50%;pointer-events:none;z-index:20}
+@keyframes spark-out{0%{opacity:0.9;transform:translate(0,0) scale(1)}
   100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+.confetti{position:fixed;width:6px;height:12px;pointer-events:none;z-index:20;
+  border-radius:1px;opacity:0.9}
+@keyframes confetti-fall{0%{transform:translateY(0) rotate(0deg);opacity:0.9}
+  100%{transform:translateY(var(--fall)) rotate(var(--spin));opacity:0}}
 </style>
 </head>
 <body>
 <div class="film" id="film">
-  <canvas id="dots"></canvas>
+  <div class="bg-wash"></div>
 
-  <!-- Dual orbs -->
-  <div class="orb-layer" id="orbLayer">
-    <div class="orb orb-a" id="orbA">
-      <div class="orb-ring"></div>
-      <div class="orb-ring"></div>
-      <div class="orb-ring"></div>
-    </div>
-    <div class="orb orb-b" id="orbB"></div>
-  </div>
-
-  <!-- SCENE 1: You ask -->
-  <div class="sc on" id="sc1">
-    <div class="s1-chat" id="chat1"></div>
-  </div>
-
-  <!-- SCENE 2: The chain -->
-  <div class="sc" id="sc2">
-    <div class="s2-wrap" id="s2wrap"></div>
-  </div>
-
-  <!-- SCENE 3: The report -->
-  <div class="sc" id="sc3">
-    <div class="s3-card" id="s3card">
-      <div class="shimmer"></div>
-      <div class="s3-header">
-        <div class="s3-header-title">Your Sleep &amp; Energy Report</div>
-        <div class="s3-header-sub">3 tools \u2192 1 personalized plan</div>
-      </div>
-      <div class="s3-body" id="s3body">
-        <div class="s3-ring-wrap" id="s3ring">
-          <div class="s3-ring">
-            <svg width="80" height="80" viewBox="0 0 80 80">
-              <circle class="track" cx="40" cy="40" r="35"/>
-              <circle class="fill" id="ringFill" cx="40" cy="40" r="35"/>
-            </svg>
-            <div class="s3-ring-label">75%</div>
-          </div>
-        </div>
-      </div>
-      <div class="s3-footer" id="s3foot">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-        <span>Sent to your inbox</span>
+  <!-- Chat interface -->
+  <div class="chat-area" id="chatArea">
+    <!-- Header -->
+    <div class="chat-header">
+      <div class="avatar"><div class="avatar-letter">P</div></div>
+      <div class="header-text">
+        <div class="header-name">Pulse</div>
+        <div class="header-status">online</div>
       </div>
     </div>
+
+    <!-- Messages -->
+    <div class="messages" id="msgs"></div>
   </div>
 
-  <!-- SCENE 4: Journey over time -->
-  <div class="sc" id="sc4">
-    <div class="s4-wrap" id="s4wrap"></div>
-  </div>
-
-  <!-- SCENE 5: Companion -->
-  <div class="sc" id="sc5">
-    <div class="s5-center">
-      <div class="s5-big" id="s5a">Tell us what you're trying to figure out. We'll <em>build it for you.</em></div>
-      <div class="s5-sub" id="s5b">Your health. Computed. Personal. Ongoing.</div>
-      <div class="s5-brand" id="s5c">
-        <div class="s5-name">healthcalculators.xyz</div>
-        <div class="s5-handle">@GetHealthC</div>
+  <!-- Companion close overlay -->
+  <div class="close-wrap" id="closeWrap">
+    <div class="close-orb" id="closeOrb">
+      <div class="avatar-letter" style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.6rem;font-weight:700;border-radius:50%">P</div>
+    </div>
+    <div class="close-text">
+      <div class="close-big" id="closeBig">What are you trying to <em>figure out?</em></div>
+      <div class="close-sub" id="closeSub">Tell us. If there's a formula behind it, we'll build you a tool — cited, verified, yours.</div>
+      <div class="close-brand" id="closeBrand">
+        <div class="close-name">healthcalculators.xyz</div>
+        <div class="close-handle">@GetHealthC</div>
       </div>
     </div>
   </div>
@@ -261,246 +213,206 @@ canvas#dots{position:absolute;inset:0;z-index:0;pointer-events:none}
 
 <script>
 (function(){
-  // === CANVAS: Ambient floating dots (organic, not grid) ===
-  var c=document.getElementById('dots'),ctx=c.getContext('2d');
-  var W,H,particles=[];
-  function resize(){W=c.width=window.innerWidth;H=c.height=window.innerHeight}
-  resize();window.addEventListener('resize',resize);
-
-  // Spawn ambient particles
-  for(var i=0;i<40;i++){
-    particles.push({
-      x:Math.random()*W,y:Math.random()*H,
-      vx:(Math.random()-0.5)*0.15,vy:(Math.random()-0.5)*0.12,
-      r:1+Math.random()*1.5,
-      a:0.03+Math.random()*0.04,
-      phase:Math.random()*Math.PI*2
-    });
-  }
-  var frameCount=0;
-  function drawDots(){
-    ctx.clearRect(0,0,W,H);
-    frameCount++;
-    particles.forEach(function(p){
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0)p.x=W;if(p.x>W)p.x=0;if(p.y<0)p.y=H;if(p.y>H)p.y=0;
-      var pulse=Math.sin(frameCount*0.02+p.phase)*0.02;
-      ctx.beginPath();
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fillStyle='rgba(20,184,166,'+(p.a+pulse)+')';
-      ctx.fill();
-    });
-
-    // Draw faint lines between nearby particles
-    for(var i=0;i<particles.length;i++){
-      for(var j=i+1;j<particles.length;j++){
-        var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y;
-        var dist=Math.sqrt(dx*dx+dy*dy);
-        if(dist<120){
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x,particles[i].y);
-          ctx.lineTo(particles[j].x,particles[j].y);
-          ctx.strokeStyle='rgba(20,184,166,'+(0.03*(1-dist/120))+')';
-          ctx.stroke();
-        }
-      }
-    }
-    requestAnimationFrame(drawDots);
-  }
-  drawDots();
+  var msgs=document.getElementById('msgs');
 
   // === Utilities ===
-  var orbA=document.getElementById('orbA'),orbB=document.getElementById('orbB');
-  var scenes=['sc1','sc2','sc3','sc4','sc5'];
-
-  function show(id){
-    scenes.forEach(function(s){document.getElementById(s).classList.remove('on')});
-    document.getElementById(id).classList.add('on');
-  }
-
-  function sparks(x,y,n,colors){
-    var film=document.getElementById('film');
-    for(var i=0;i<n;i++){
-      var s=document.createElement('div');
-      s.className='spark';
-      var sz=3+Math.random()*5;
-      var angle=Math.random()*Math.PI*2;
-      var dist=30+Math.random()*50;
-      var dx=Math.cos(angle)*dist;
-      var dy=Math.sin(angle)*dist-20;
-      var col=colors[Math.floor(Math.random()*colors.length)];
-      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+col+
-        ';--dx:'+dx+'px;--dy:'+dy+'px;animation:spark-up '+(0.5+Math.random()*0.4)+'s ease-out forwards;animation-delay:'+(i*0.03)+'s';
-      film.appendChild(s);
-      setTimeout(function(el){el.remove()},1200,s);
-    }
-  }
-
-  function addBubble(where,cls,html,delay){
+  function addMsg(cls,html,delay,cb){
     setTimeout(function(){
-      var b=document.createElement('div');
-      b.className='bub '+cls;
-      b.innerHTML=html;
-      document.getElementById(where).appendChild(b);
-      requestAnimationFrame(function(){requestAnimationFrame(function(){b.classList.add('in')})});
+      var m=document.createElement('div');
+      m.className='msg '+cls;
+      m.innerHTML=html;
+      msgs.appendChild(m);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        m.classList.add('in');
+        if(cb)setTimeout(cb,100);
+      })});
     },delay);
   }
 
-  // === SCENE 1 (0–6s): You ask, companion thinks, answers ===
-  // Dual orbs = confusion state. They merge when the answer arrives.
-
-  addBubble('chat1','u','When should I have my last coffee so I can sleep tonight?',700);
-
-  // Orb-A starts thinking (faster breathe)
-  setTimeout(function(){orbA.style.animation='breathe-a 1.2s ease-in-out infinite'},1400);
-
-  // Typing dots
-  addBubble('chat1','a','<span class="dots"><span></span><span></span><span></span></span>',1800);
-
-  // Answer arrives — orbs merge, chromatic flash on the number, particle burst
-  setTimeout(function(){
-    var bubbles=document.getElementById('chat1').querySelectorAll('.bub');
-    var last=bubbles[bubbles.length-1];
-    last.innerHTML='Your cutoff: <span class="big-num" data-val="2:00 PM" id="bigNum">2:00 PM</span><br><span style="font-size:0.75rem;color:rgba(255,255,255,0.35);margin-top:6px;display:inline-block">10 half-lives before midnight. Based on your sensitivity.</span>';
-
-    // Chromatic aberration flash
-    var num=document.getElementById('bigNum');
-    num.classList.add('flash');
-    setTimeout(function(){num.classList.remove('flash')},200);
-
-    // Orbs merge — confusion resolves
-    orbB.classList.add('merged');
-    orbA.style.animation='breathe-a 3.75s ease-in-out infinite';
-
-    // Delight sparks
-    var rect=num.getBoundingClientRect();
-    sparks(rect.left+rect.width/2, rect.top, 14,
-      ['rgba(94,234,212,0.7)','rgba(20,184,166,0.6)','rgba(167,139,250,0.4)']);
-  },3200);
-
-  // === SCENE 2 (6–12s): Chain builds — questions connect ===
-  var chainData=[
-    {icon:'\u2615',color:'rgba(245,158,11,0.15)',text:'<em>Caffeine cutoff</em> protects your sleep'},
-    {icon:'\ud83d\udca4',color:'rgba(99,102,241,0.15)',text:'<em>Better sleep</em> drives recovery'},
-    {icon:'\ud83c\udfcb',color:'rgba(239,68,68,0.15)',text:'<em>Recovery</em> unlocks training gains'},
-    {icon:'\ud83d\udd25',color:'rgba(251,146,60,0.15)',text:'<em>Training</em> determines your calorie burn'},
-    {icon:'\ud83c\udf7d',color:'rgba(34,197,94,0.15)',text:'<em>TDEE</em> tells you what to eat'}
-  ];
-
-  setTimeout(function(){
-    show('sc2');
-    orbA.classList.add('top');
-
-    var wrap=document.getElementById('s2wrap');
-    chainData.forEach(function(c,i){
-      setTimeout(function(){
-        // Connector line
-        if(i>0){
-          var line=document.createElement('div');
-          line.className='chain-line';
-          wrap.appendChild(line);
-          requestAnimationFrame(function(){requestAnimationFrame(function(){line.classList.add('in')})});
-        }
-        // Row with icon spring-pop
-        var row=document.createElement('div');
-        row.className='chain-row';
-        row.innerHTML='<div class="icon-pop" style="background:'+c.color+'">'+c.icon+'</div><div class="chain-text">'+c.text+'</div>';
-        wrap.appendChild(row);
-        requestAnimationFrame(function(){requestAnimationFrame(function(){
-          row.classList.add('in');
-          row.querySelector('.icon-pop').classList.add('in');
-        })});
-      }, i*850);
-    });
-  },6000);
-
-  // === SCENE 3 (12–18s): Report materializes ===
-  var reportRows=[
-    {label:'Last coffee by',val:'2:00 PM'},
-    {label:'Target sleep',val:'7.5 hrs'},
-    {label:'Daily calories',val:'2,340'},
-    {label:'Protein target',val:'148g'}
-  ];
-
-  setTimeout(function(){
-    show('sc3');
-
-    var card=document.getElementById('s3card');
-    setTimeout(function(){card.classList.add('in')},200);
-
-    // Ring chart fills
+  function showTyping(delay,duration,cb){
     setTimeout(function(){
-      document.getElementById('s3ring').classList.add('in');
-      setTimeout(function(){document.getElementById('ringFill').classList.add('in')},300);
-    },600);
-
-    // Data rows populate
-    var body=document.getElementById('s3body');
-    reportRows.forEach(function(r,i){
+      var w=document.createElement('div');
+      w.className='typing-wrap';
+      w.innerHTML='<div class="typing-av"><span>P</span></div><div class="typing-dots"><span></span><span></span><span></span></div>';
+      msgs.appendChild(w);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){w.classList.add('in')})});
       setTimeout(function(){
-        var row=document.createElement('div');
-        row.className='s3-row';
-        row.innerHTML='<span class="s3-row-label">'+r.label+'</span><span class="s3-row-val">'+r.val+'</span>';
-        body.appendChild(row);
-        requestAnimationFrame(function(){requestAnimationFrame(function(){row.classList.add('in')})});
-      },1000 + i*350);
-    });
+        w.remove();
+        if(cb)cb();
+      },duration);
+    },delay);
+  }
 
-    // Footer — sent confirmation
+  function addPills(options,delay,pickIndex,pickDelay,cb){
     setTimeout(function(){
-      document.getElementById('s3foot').classList.add('in');
-      var card=document.getElementById('s3card');
-      var rect=card.getBoundingClientRect();
-      sparks(rect.left+rect.width/2, rect.bottom-20, 10,
-        ['rgba(94,234,212,0.6)','rgba(20,184,166,0.5)']);
-    },3200);
-  },12000);
+      var wrap=document.createElement('div');
+      wrap.className='pills';
+      options.forEach(function(opt,i){
+        var p=document.createElement('div');
+        p.className='pill';
+        p.textContent=opt;
+        wrap.appendChild(p);
+        setTimeout(function(){p.classList.add('in')},80*i);
+      });
+      msgs.appendChild(wrap);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){wrap.classList.add('in')})});
 
-  // === SCENE 4 (18–24s): Journey over time — the companion grows with you ===
-  var moments=[
-    {when:'Day 1',text:'Figured out my <em>caffeine cutoff</em>',bar:0.2},
-    {when:'Week 2',text:'Dialed in my <em>calories and protein</em>',bar:0.5},
-    {when:'Month 2',text:'Full report \u2014 sleep, nutrition, training <em>in sync</em>',bar:0.85}
-  ];
-
-  setTimeout(function(){
-    show('sc4');
-    orbA.style.top='14%';
-
-    var wrap=document.getElementById('s4wrap');
-    moments.forEach(function(m,i){
+      // Auto-pick one
       setTimeout(function(){
-        var div=document.createElement('div');
-        div.className='s4-moment';
-        div.innerHTML='<div class="s4-when">'+m.when+'</div><div><div class="s4-pill">'+m.text+'</div><div class="s4-bar"><div class="s4-bar-fill" id="bar'+i+'"></div></div></div>';
-        wrap.appendChild(div);
-        requestAnimationFrame(function(){requestAnimationFrame(function(){
-          div.classList.add('in');
-          setTimeout(function(){document.getElementById('bar'+i).style.width=(m.bar*100)+'%'},150);
-        })});
-      }, i*1500);
+        var pills=wrap.querySelectorAll('.pill');
+        pills.forEach(function(p,i){
+          if(i===pickIndex)p.classList.add('picked');
+          else p.classList.add('fade');
+        });
+        setTimeout(function(){
+          wrap.remove();
+          if(cb)cb(options[pickIndex]);
+        },400);
+      },pickDelay);
+    },delay);
+  }
+
+  function addResultCard(delay){
+    setTimeout(function(){
+      var card=document.createElement('div');
+      card.className='result-card';
+      card.innerHTML=
+        '<div class="rc-shimmer"></div>'+
+        '<div class="rc-title">Your Sleep &amp; Energy Plan</div>'+
+        '<div id="rcRows"></div>'+
+        '<div class="rc-ring-wrap" id="rcRing">'+
+          '<div class="rc-ring"><svg viewBox="0 0 44 44"><circle class="track" cx="22" cy="22" r="20"/><circle class="fill" id="ringF" cx="22" cy="22" r="20"/></svg></div>'+
+          '<div class="rc-ring-text"><strong>75%</strong> sleep efficiency<br>improving with your new cutoff</div>'+
+        '</div>'+
+        '<div class="rc-sent" id="rcSent"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg><span>Report sent to your email</span></div>';
+      msgs.appendChild(card);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){card.classList.add('in')})});
+
+      var rows=[
+        {l:'Caffeine cutoff',v:'2:00 PM'},
+        {l:'Target sleep',v:'7h 30m'},
+        {l:'Daily calories',v:'2,340 kcal'},
+        {l:'Protein',v:'148g'}
+      ];
+      var container=card.querySelector('#rcRows');
+      rows.forEach(function(r,i){
+        setTimeout(function(){
+          var row=document.createElement('div');
+          row.className='rc-row';
+          row.innerHTML='<span class="rc-label">'+r.l+'</span><span class="rc-val">'+r.v+'</span>';
+          container.appendChild(row);
+          requestAnimationFrame(function(){requestAnimationFrame(function(){row.classList.add('in')})});
+        },400+i*250);
+      });
+
+      // Ring fills
+      setTimeout(function(){
+        document.getElementById('rcRing').classList.add('in');
+        setTimeout(function(){document.getElementById('ringF').classList.add('go')},200);
+      },1600);
+
+      // Sent confirmation + confetti
+      setTimeout(function(){
+        document.getElementById('rcSent').classList.add('in');
+        confetti(window.innerWidth/2, window.innerHeight*0.5, 30);
+      },2400);
+    },delay);
+  }
+
+  function sparks(x,y,n){
+    for(var i=0;i<n;i++){
+      var s=document.createElement('div');
+      s.className='spark';
+      var sz=3+Math.random()*4;
+      var angle=Math.random()*Math.PI*2;
+      var dist=20+Math.random()*40;
+      var colors=['#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;'+
+        'background:'+colors[Math.floor(Math.random()*colors.length)]+
+        ';--dx:'+(Math.cos(angle)*dist)+'px;--dy:'+(Math.sin(angle)*dist-15)+
+        'px;animation:spark-out '+(0.4+Math.random()*0.3)+'s ease-out forwards;animation-delay:'+(i*0.02)+'s';
+      document.body.appendChild(s);
+      setTimeout(function(el){el.remove()},1000,s);
+    }
+  }
+
+  function confetti(cx,cy,n){
+    var colors=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#ef4444','#22c55e','#3b82f6'];
+    for(var i=0;i<n;i++){
+      var c=document.createElement('div');
+      c.className='confetti';
+      var x=cx+(Math.random()-0.5)*200;
+      c.style.cssText='left:'+x+'px;top:'+(cy-40)+'px;width:'+(4+Math.random()*4)+'px;height:'+(8+Math.random()*8)+
+        'px;background:'+colors[Math.floor(Math.random()*colors.length)]+
+        ';--fall:'+(150+Math.random()*200)+'px;--spin:'+(360+Math.random()*360)+'deg;'+
+        'animation:confetti-fall '+(1+Math.random()*0.8)+'s ease-out forwards;animation-delay:'+(i*0.03)+'s;border-radius:'+(Math.random()>0.5?'50%':'2px');
+      document.body.appendChild(c);
+      setTimeout(function(el){el.remove()},2500,c);
+    }
+  }
+
+  // === THE CONVERSATION ===
+
+  // (0s) User sends a real question (from Twitter research: exact user language)
+  addMsg('u','When should I have my last coffee so it doesn\'t wreck my sleep? \u2615<span class="time">now</span>',600);
+
+  // (1.8s) Typing indicator
+  showTyping(1800,1400,function(){
+
+    // (3.2s) AI responds — specific, personal, with the number
+    addMsg('a',
+      'Based on a 5-hour half-life: <span class="big-num" data-v="2:00 PM" id="bn1">2:00 PM</span>'+
+      '<span class="soft">That gives you 10 half-lives before midnight. Only 0.1% caffeine remaining.</span>',
+      0,function(){
+        // Chromatic flash + sparks on the number
+        var num=document.getElementById('bn1');
+        num.classList.add('flash');
+        setTimeout(function(){num.classList.remove('flash')},180);
+        var r=num.getBoundingClientRect();
+        sparks(r.left+r.width/2, r.top+r.height/2, 10);
+      }
+    );
+  });
+
+  // (5.5s) AI follows up — the companion asks back (Pi principle)
+  showTyping(5500,800,function(){
+    addMsg('a','That caffeine cutoff will improve your deep sleep. Which affects <span class="hl">everything else</span>. Want to see how?',0);
+  });
+
+  // (8s) Pill options float up
+  addPills(['\ud83d\udca4 Sleep + recovery','\ud83d\udd25 Calories & TDEE','\ud83c\udf57 Full plan'],8000,2,1800,function(picked){
+
+    // (10.5s) User "picked" full plan
+    addMsg('u',picked+'<span class="time">now</span>',200);
+
+    // (11.2s) Typing — longer this time, building anticipation
+    showTyping(700,1600,function(){
+
+      // (13s) AI responds with excitement
+      addMsg('a','I connected 3 tools for you \u2014 caffeine, TDEE, protein. Here\'s <span class="hl">your full picture</span>:',0);
+
+      // (14.5s) Report card materializes
+      addResultCard(1500);
     });
-  },18000);
+  });
 
-  // === SCENE 5 (24–28.5s): The companion ===
+  // === SCENE: Companion close (24s) ===
   setTimeout(function(){
-    show('sc5');
-    orbA.classList.remove('top');
-    orbA.classList.add('center-big');
-    orbA.style.top='34%';
-
-    setTimeout(function(){document.getElementById('s5a').classList.add('in')},400);
-    setTimeout(function(){document.getElementById('s5b').classList.add('in')},1600);
-    setTimeout(function(){document.getElementById('s5c').classList.add('in')},1600);
+    var cw=document.getElementById('closeWrap');
+    cw.classList.add('on');
+    setTimeout(function(){document.getElementById('closeOrb').classList.add('in')},300);
+    setTimeout(function(){document.getElementById('closeBig').classList.add('in')},700);
+    setTimeout(function(){document.getElementById('closeSub').classList.add('in')},1600);
+    setTimeout(function(){document.getElementById('closeBrand').classList.add('in')},1600);
   },24000);
 
   // Loop
   setTimeout(function(){
-    document.getElementById('sc5').style.transition='opacity 0.6s';
-    document.getElementById('sc5').style.opacity='0';
-    orbA.style.transition='opacity 0.6s';orbA.style.opacity='0';
-    setTimeout(function(){location.reload()},800);
-  },29000);
+    document.getElementById('closeWrap').style.transition='opacity 0.6s';
+    document.getElementById('closeWrap').style.opacity='0';
+    setTimeout(function(){location.reload()},700);
+  },29500);
+
 })();
 </script>
 </body>
