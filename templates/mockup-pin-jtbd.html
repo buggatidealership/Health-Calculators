@@ -21,54 +21,59 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .sc.on{opacity:1}
 
 /* ================================
-   SCENE 1: CONFUSION — source cards pile up
+   SCENE 1: SEARCH BAR + SOURCES
    ================================ */
-.s1-question{font-family:'DM Serif Display',serif;font-size:clamp(1.1rem,2.8vw,1.6rem);
-  color:rgba(255,255,255,0.6);text-align:center;max-width:400px;line-height:1.3;
-  opacity:0;transform:translateY(10px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1);
-  margin-bottom:24px}
-.s1-question.in{opacity:1;transform:translateY(0)}
+.search-wrap{width:420px;max-width:90vw}
+.search-glow{position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(59,130,246,0.06),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.search-bar{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);
+  border-radius:28px;padding:16px 22px;display:flex;align-items:center;gap:12px;
+  opacity:0;transform:translateY(10px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.search-bar.in{opacity:1;transform:translateY(0)}
+.search-icon{color:rgba(255,255,255,0.3);flex-shrink:0}
+.search-icon svg{width:18px;height:18px}
+.search-text{font-size:0.9rem;color:rgba(255,255,255,0.5);overflow:hidden;white-space:nowrap}
+.search-cursor{display:inline-block;width:1px;height:1.1em;background:rgba(255,255,255,0.5);
+  margin-left:1px;animation:blink 1s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{50%{opacity:0}}
 
-.sources-wrap{position:relative;width:380px;max-width:90vw;height:220px}
-.src-card{position:absolute;width:300px;max-width:80vw;padding:14px 18px;border-radius:14px;
-  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);
-  opacity:0;transform:translateY(20px) rotate(var(--rot,0deg));
-  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
-.src-card.in{opacity:1;transform:translateY(0) rotate(var(--rot,0deg))}
-.src-name{font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
-.src-answer{font-size:0.76rem;color:rgba(255,255,255,0.45);line-height:1.45}
+.search-results{margin-top:14px;display:flex;flex-direction:column;gap:6px}
+.search-result{background:rgba(255,255,255,0.04);border-radius:12px;padding:10px 16px;
+  opacity:0;transform:translateY(8px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.search-result.in{opacity:1;transform:translateY(0)}
+.sr-name{font-size:0.58rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px}
+.sr-answer{font-size:0.72rem;color:rgba(255,255,255,0.4);line-height:1.4}
+.sr-conflict{color:rgba(239,68,68,0.5);font-size:0.58rem;margin-top:3px;font-weight:500}
 
-.s1-qmark{font-family:'DM Serif Display',serif;font-size:clamp(3rem,8vw,5rem);
-  color:rgba(255,255,255,0.12);position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%) scale(0.5);opacity:0;
-  transition:all 0.8s cubic-bezier(0,1.5,0.5,1)}
-.s1-qmark.in{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.s1-qmark{font-family:'DM Serif Display',serif;font-size:clamp(2rem,5vw,3rem);
+  color:rgba(255,255,255,0.15);text-align:center;margin-top:20px;
+  opacity:0;transform:scale(0.5);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
+.s1-qmark.in{opacity:1;transform:scale(1)}
 
-.s1-trust{font-size:0.88rem;color:rgba(255,255,255,0.35);text-align:center;
-  margin-top:16px;opacity:0;transition:opacity 0.6s}
-.s1-trust.in{opacity:1}
+@keyframes micro-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-2px)}75%{transform:translateX(2px)}}
 
 /* ================================
    SCENE 2: COMPANION CHAT
    ================================ */
-.s2-phone{width:380px;max-width:92vw;background:#fff;border-radius:24px;
+.phone{width:380px;max-width:92vw;background:#fff;border-radius:24px;
   box-shadow:0 8px 40px rgba(0,0,0,0.08);overflow:hidden;
   opacity:0;transform:translateY(30px) scale(0.92);
   transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
-.s2-phone.in{opacity:1;transform:translateY(0) scale(1)}
-.s2-header{display:flex;align-items:center;gap:10px;padding:14px 18px;
+.phone.in{opacity:1;transform:translateY(0) scale(1)}
+.ph-header{display:flex;align-items:center;gap:10px;padding:14px 18px;
   border-bottom:1px solid rgba(0,0,0,0.05);background:#fafaf8}
-.s2-av{width:32px;height:32px;border-radius:50%;
+.ph-av{width:32px;height:32px;border-radius:50%;
   background:linear-gradient(135deg,#14b8a6,#0e7a7e);flex-shrink:0;
   display:flex;align-items:center;justify-content:center;position:relative;
   animation:pulse-av 3.75s ease-in-out infinite}
 @keyframes pulse-av{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
-.s2-av::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;
+.ph-av::after{content:'';position:absolute;bottom:0;right:0;width:8px;height:8px;
   border-radius:50%;background:#22c55e;border:2px solid #fafaf8}
-.s2-av span{color:#fff;font-weight:700;font-size:0.7rem}
-.s2-name{font-weight:600;font-size:0.82rem;color:#1a1a1e}
-.s2-status{font-size:0.58rem;color:#22c55e;font-weight:500}
-.s2-msgs{padding:12px 14px;display:flex;flex-direction:column;gap:7px;min-height:160px}
+.ph-av span{color:#fff;font-weight:700;font-size:0.7rem}
+.ph-name{font-weight:600;font-size:0.82rem;color:#1a1a1e}
+.ph-status{font-size:0.58rem;color:#22c55e;font-weight:500}
+.ph-msgs{padding:12px 14px;display:flex;flex-direction:column;gap:7px;min-height:140px}
 
 .bub{max-width:82%;padding:10px 15px;border-radius:18px;font-size:0.8rem;line-height:1.5;
   opacity:0;transform:translateY(12px) scale(0.88);color:#2a2a2e;
@@ -95,17 +100,16 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .pill.fade{opacity:0.25;transform:scale(0.88)}
 
 /* ================================
-   SCENE 3: COMPANION WORKS — delivery mockups
+   SCENE 3: DELIVERABLES
    ================================ */
-.s3-wrap{width:400px;max-width:90vw;display:flex;flex-direction:column;gap:12px;align-items:center}
-
+.s3-wrap{width:380px;max-width:90vw;display:flex;flex-direction:column;gap:14px;align-items:center}
 .s3-label{font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
-  color:#0e7a7e;margin-bottom:8px;opacity:0;transition:opacity 0.5s}
+  color:#0e7a7e;margin-bottom:4px;opacity:0;transition:opacity 0.5s}
 .s3-label.in{opacity:1}
 
-/* WhatsApp notification mockup */
-.wa-notif{width:340px;max-width:88vw;background:#fff;border-radius:14px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:12px 16px;display:flex;gap:12px;align-items:flex-start;
+/* WhatsApp notification */
+.wa-notif{width:100%;background:#fff;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  padding:12px 16px;display:flex;gap:12px;align-items:flex-start;
   opacity:0;transform:translateY(12px) scale(0.94);
   transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
 .wa-notif.in{opacity:1;transform:translateY(0) scale(1)}
@@ -116,24 +120,28 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .wa-msg{font-size:0.72rem;color:#4a4a4e;line-height:1.45;margin-top:2px}
 .wa-time{font-size:0.56rem;color:#9a9a9e;margin-top:3px}
 
-/* Shopping list mockup */
-.shop-list{width:340px;max-width:88vw;background:#fff;border-radius:14px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:16px 18px;
-  opacity:0;transform:translateY(12px) scale(0.94);
+/* Shopping list */
+.shop-list{width:100%;background:#fff;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  padding:16px 18px;opacity:0;transform:translateY(12px) scale(0.94);
   transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
 .shop-list.in{opacity:1;transform:translateY(0) scale(1)}
 .shop-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
 .shop-title{font-size:0.82rem;font-weight:600;color:#1a1a1e}
 .shop-badge{font-size:0.56rem;font-weight:600;color:#25d366;background:rgba(37,211,102,0.08);
   padding:2px 8px;border-radius:8px}
-.shop-item{display:flex;align-items:center;gap:8px;padding:5px 0;font-size:0.72rem;color:#4a4a4e;
+.shop-item{display:flex;align-items:center;gap:8px;padding:4px 0;font-size:0.72rem;color:#4a4a4e;
   opacity:0;transform:translateX(-8px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
 .shop-item.in{opacity:1;transform:translateX(0)}
-.shop-check{width:14px;height:14px;border-radius:4px;border:1.5px solid rgba(0,0,0,0.12);flex-shrink:0}
+.shop-check{width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(0,0,0,0.12);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transition:all 0.25s cubic-bezier(0,1.5,0.5,1)}
+.shop-check.done{background:#0e7a7e;border-color:#0e7a7e}
+.shop-check.done::after{content:'';width:6px;height:3px;border-left:1.5px solid #fff;
+  border-bottom:1.5px solid #fff;transform:rotate(-45deg) translateY(-1px)}
+.shop-item.checked{color:#b0b0b4;text-decoration:line-through}
 
-/* Workout PDF mockup */
-.pdf-card{width:340px;max-width:88vw;background:#fff;border-radius:14px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.06);padding:16px 18px;display:flex;gap:14px;align-items:center;
+/* PDF card */
+.pdf-card{width:100%;background:#fff;border-radius:14px;box-shadow:0 4px 20px rgba(0,0,0,0.06);
+  padding:16px 18px;display:flex;gap:14px;align-items:center;
   opacity:0;transform:translateY(12px) scale(0.94);
   transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
 .pdf-card.in{opacity:1;transform:translateY(0) scale(1)}
@@ -143,18 +151,14 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .pdf-name{font-size:0.78rem;font-weight:600;color:#1a1a1e}
 .pdf-detail{font-size:0.64rem;color:#7a7a82;margin-top:2px}
 .pdf-actions{display:flex;gap:6px;margin-top:6px}
-.pdf-btn{font-size:0.58rem;padding:3px 10px;border-radius:8px;font-weight:600}
+.pdf-btn{font-size:0.58rem;padding:4px 10px;border-radius:8px;font-weight:600}
 .pdf-btn.primary{background:#0e7a7e;color:#fff}
 .pdf-btn.secondary{background:rgba(0,0,0,0.04);color:#4a4a4e}
+.pdf-btn.link{background:rgba(14,122,126,0.08);color:#0e7a7e}
 
 /* ================================
-   SCENE 4: COME BACK — progress
+   SCENE 4: COME BACK
    ================================ */
-.s4-phone{width:380px;max-width:92vw;background:#fff;border-radius:24px;
-  box-shadow:0 8px 40px rgba(0,0,0,0.08);overflow:hidden;
-  opacity:0;transform:scale(0.92);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
-.s4-phone.in{opacity:1;transform:scale(1)}
-
 .time-skip{font-size:0.62rem;font-weight:600;text-transform:uppercase;letter-spacing:0.14em;
   color:#0e7a7e;background:rgba(14,122,126,0.08);padding:5px 14px;border-radius:20px;
   margin-bottom:14px;opacity:0;transform:scale(0.8);
@@ -168,7 +172,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   transition:width 1.2s cubic-bezier(0.34,1.56,0.64,1)}
 
 /* ================================
-   SCENE 5: CLOSE — kinetic type
+   SCENE 5: CLOSE
    ================================ */
 .s5-wrap{text-align:center;max-width:440px}
 .s5-orb{width:72px;height:72px;border-radius:50%;margin:0 auto 24px;
@@ -179,14 +183,12 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   opacity:0;transform:scale(0.4);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
 .s5-orb.in{opacity:1;transform:scale(1)}
 .s5-orb span{color:#fff;font-weight:700;font-size:1.4rem}
-
 .s5-line{overflow:hidden;display:flex;justify-content:center;flex-wrap:wrap;gap:0 10px}
 .s5-word{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2rem);
   line-height:1.4;color:#1a1a1e;display:inline-block;
   opacity:0;transform:translateY(100%);transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
 .s5-word.in{opacity:1;transform:translateY(0)}
 .s5-word.accent{color:#0e7a7e;font-style:italic}
-
 .s5-sub{font-size:0.76rem;color:#7a7a82;margin-top:14px;line-height:1.5;
   opacity:0;transition:opacity 0.6s}
 .s5-sub.in{opacity:1}
@@ -195,7 +197,6 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 .s5-name{font-size:0.82rem;font-weight:600;color:#3a3a3e}
 .s5-handle{font-size:0.62rem;color:#0e7a7e;margin-top:2px}
 
-/* === Particles & confetti === */
 .spark{position:fixed;border-radius:50%;pointer-events:none;z-index:20}
 @keyframes spark-out{0%{opacity:0.9;transform:translate(0,0) scale(1)}
   100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
@@ -207,27 +208,31 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 <body>
 <div class="film" id="film">
 
-  <!-- SCENE 1: THE CONFUSION -->
+  <!-- SCENE 1: SEARCH -->
   <div class="sc on" id="sc1">
-    <div class="s1-question" id="s1q">"Is it normal to gain weight even though I exercise?"</div>
-    <div class="sources-wrap" id="srcWrap">
-      <div class="s1-qmark" id="qmark">?</div>
-    </div>
-    <div class="s1-trust" id="s1trust">Who do I trust?</div>
-  </div>
-
-  <!-- SCENE 2: THE COMPANION -->
-  <div class="sc" id="sc2">
-    <div class="s2-phone" id="phone2">
-      <div class="s2-header">
-        <div class="s2-av"><span>P</span></div>
-        <div><div class="s2-name">Pulse</div><div class="s2-status">online</div></div>
+    <div class="search-wrap" style="position:relative">
+      <div class="search-glow"></div>
+      <div class="search-bar" id="sbar">
+        <div class="search-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="search-text"><span id="stext"></span><span class="search-cursor"></span></div>
       </div>
-      <div class="s2-msgs" id="msgs2"></div>
+      <div class="search-results" id="sresults"></div>
+      <div class="s1-qmark" id="qmark">Who do I trust?</div>
     </div>
   </div>
 
-  <!-- SCENE 3: COMPANION WORKS FOR YOU -->
+  <!-- SCENE 2: COMPANION -->
+  <div class="sc" id="sc2">
+    <div class="phone" id="phone2">
+      <div class="ph-header">
+        <div class="ph-av"><span>P</span></div>
+        <div><div class="ph-name">Pulse</div><div class="ph-status">online</div></div>
+      </div>
+      <div class="ph-msgs" id="msgs2"></div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: DELIVERABLES -->
   <div class="sc" id="sc3">
     <div class="s3-wrap" id="s3wrap">
       <div class="s3-label" id="s3label">Pulse is working for you</div>
@@ -238,12 +243,12 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   <div class="sc" id="sc4">
     <div style="display:flex;flex-direction:column;align-items:center">
       <div class="time-skip" id="skip">2 weeks later</div>
-      <div class="s4-phone" id="phone4">
-        <div class="s2-header">
-          <div class="s2-av"><span>P</span></div>
-          <div><div class="s2-name">Pulse</div><div class="s2-status">online</div></div>
+      <div class="phone" id="phone4" style="transform:scale(0.92);opacity:0">
+        <div class="ph-header">
+          <div class="ph-av"><span>P</span></div>
+          <div><div class="ph-name">Pulse</div><div class="ph-status">online</div></div>
         </div>
-        <div class="s2-msgs" id="msgs4"></div>
+        <div class="ph-msgs" id="msgs4"></div>
       </div>
     </div>
   </div>
@@ -323,43 +328,56 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
   }
 
   // ============================================================
-  // SCENE 1 (0–12s): THE CONFUSION
-  // Sources pile up with conflicting answers. Chaos. Then: "?"
+  // SCENE 1 (0–10s): SEARCH BAR — type, get 5 conflicting sources
   // ============================================================
-  var sources=[
-    {name:'Google',color:'#4285f4',answer:'"Muscle weighs more than fat — you\'re probably gaining muscle."',rot:'-2deg',x:'5%',y:'10px'},
-    {name:'Reddit',color:'#ff4500',answer:'"Same thing happened to me. Honestly no one knows."',rot:'1.5deg',x:'15%',y:'50px'},
-    {name:'ChatGPT',color:'#10a37f',answer:'"There are several possible explanations including water retention, increased muscle mass, or..."',rot:'-1deg',x:'2%',y:'90px'},
-    {name:'Yahoo',color:'#720e9e',answer:'"You might be eating too much. Try cutting calories."',rot:'2deg',x:'10%',y:'130px'},
-    {name:'Claude',color:'#d97706',answer:'"It depends on many factors. Without more context, I\'d need to know about your sleep, stress..."',rot:'-1.5deg',x:'8%',y:'170px'}
-  ];
+  var sbar=document.getElementById('sbar');
+  var stext=document.getElementById('stext');
+  var query='is it normal to gain weight even though i exercise';
 
-  // Question fades in
-  setTimeout(function(){document.getElementById('s1q').classList.add('in')},400);
+  setTimeout(function(){sbar.classList.add('in')},300);
 
-  // Source cards pile up FAST — Slack chaos principle
-  var wrap=document.getElementById('srcWrap');
-  sources.forEach(function(src,i){
+  var ci=0;
+  setTimeout(function(){
+    var typer=setInterval(function(){
+      if(ci<query.length){stext.textContent=query.substring(0,++ci)}
+      else clearInterval(typer);
+    },40);
+  },600);
+
+  // 5 sources pile up fast — chaos
+  setTimeout(function(){
+    var results=[
+      {name:'Google',color:'#4285f4',answer:'"Muscle weighs more than fat — you\'re probably gaining muscle."'},
+      {name:'Reddit',color:'#ff4500',answer:'"Same thing happened to me. Honestly no one knows."'},
+      {name:'ChatGPT',color:'#10a37f',answer:'"Several possible explanations including water retention..."'},
+      {name:'Claude',color:'#d97706',answer:'"It depends on many factors. Without more context..."'},
+      {name:'Yahoo',color:'#720e9e',answer:'"Try cutting calories and doing more cardio."'}
+    ];
+    var container=document.getElementById('sresults');
+    results.forEach(function(r,i){
+      setTimeout(function(){
+        var div=document.createElement('div');div.className='search-result';
+        div.innerHTML='<div class="sr-name" style="color:'+r.color+'">'+r.name+'</div>'+
+          '<div class="sr-answer">'+r.answer+'</div>';
+        if(i===1) div.innerHTML+='<div class="sr-conflict">\u26a0 Contradicts Google</div>';
+        if(i===4) div.innerHTML+='<div class="sr-conflict">\u26a0 Contradicts ChatGPT</div>';
+        container.appendChild(div);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){div.classList.add('in')})});
+      },i*500);
+    });
+
+    // Micro-shake after all results
     setTimeout(function(){
-      var card=document.createElement('div');
-      card.className='src-card';
-      card.style.cssText='--rot:'+src.rot+';left:'+src.x+';top:'+src.y;
-      card.innerHTML='<div class="src-name" style="color:'+src.color+'">'+src.name+'</div>'+
-        '<div class="src-answer">'+src.answer+'</div>';
-      wrap.appendChild(card);
-      requestAnimationFrame(function(){requestAnimationFrame(function(){card.classList.add('in')})});
-    },1800 + i*700);
-  });
+      sbar.style.animation='micro-shake 0.3s ease-in-out';
+      setTimeout(function(){sbar.style.animation=''},300);
+    },3000);
+  },3200);
 
-  // Big question mark appears over the pile
-  setTimeout(function(){document.getElementById('qmark').classList.add('in')},6500);
-
-  // "Who do I trust?"
-  setTimeout(function(){document.getElementById('s1trust').classList.add('in')},7800);
+  // "Who do I trust?" appears below
+  setTimeout(function(){document.getElementById('qmark').classList.add('in')},8000);
 
   // ============================================================
-  // SCENE 2 (12–38s): THE COMPANION
-  // Same question. Different experience. Rhythm: fast→SLOW→fast→SLOW
+  // SCENE 2 (10–34s): COMPANION — tighter, no filler
   // ============================================================
   setTimeout(function(){
     show('sc2');
@@ -368,57 +386,50 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
     var phone=document.getElementById('phone2');
     setTimeout(function(){phone.classList.add('in')},200);
 
-    // User asks the SAME question
+    // User asks same question
     addBub('msgs2','u','Is it normal to gain weight even though I exercise?',500);
 
-    // --- FAST: greeting
+    // --- FAST: "I can help. Quick question..."
     showDots('msgs2',2000,600,function(){
-      addBub('msgs2','a','I can help with that. <span class="soft">You\'re not alone \u2014 this is the #1 question I get.</span>',0);
+      addBub('msgs2','a','I can help with that. Just one quick question \u2014 <span class="hl">how\'s your sleep been?</span>',0);
     });
 
-    // --- SLOOOOW: the key question (Apple restraint)
-    showDots('msgs2',5500,1800,function(){
-      addBub('msgs2','a','Quick question \u2014 <span class="hl">how\'s your sleep been?</span>',0);
-    });
-
-    // Pills after 4s sit time
-    addPills('msgs2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],11500,0,2200,function(picked){
+    // --- Pills after question sits 4s
+    addPills('msgs2',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],7000,0,2200,function(picked){
       addBub('msgs2','u',picked,300);
 
-      // --- SLOOOOW: the cortisol insight (hero moment)
-      showDots('msgs2',1500,2000,function(){
-        addBub('msgs2','a','<span class="warm">That explains a lot.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train.',0);
+      // --- SLOW: cortisol insight — hero moment
+      showDots('msgs2',1200,1800,function(){
+        addBub('msgs2','a','<span class="warm">That\'s one of the main reasons.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train hard.',0);
       });
 
-      // --- FAST: transition to action
-      showDots('msgs2',10000,800,function(){
+      // --- FAST: protein
+      showDots('msgs2',9000,600,function(){
         addBub('msgs2','a','What proteins do you prefer?',0);
       });
 
-      addPills('msgs2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],12500,0,1800,function(){
+      addPills('msgs2',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],11500,0,1600,function(){
         addBub('msgs2','u','\ud83d\udc14 Chicken',300);
 
         // --- SLOW: the plan promise
-        showDots('msgs2',1000,1500,function(){
+        showDots('msgs2',800,1200,function(){
           addBub('msgs2','a','<span class="hl">Let me plan this for you</span> so you don\'t have to remember any of it.',0);
         });
       });
     });
-  },12000);
+  },10000);
 
   // ============================================================
-  // SCENE 3 (42–62s): COMPANION WORKS FOR YOU
-  // Show actual deliverables: WhatsApp notification, shopping list, PDF
-  // Each is a real UI mockup, not a card with an icon.
+  // SCENE 3 (38–60s): DELIVERABLES — show, then ACT
+  // WhatsApp notif → grocery list with checkmarks clicking → PDF
   // ============================================================
   setTimeout(function(){
     show('sc3');
     document.body.className='glow';
-
     var wrap=document.getElementById('s3wrap');
     setTimeout(function(){document.getElementById('s3label').classList.add('in')},300);
 
-    // 1. WhatsApp notification — caffeine reminder (2s)
+    // 1. WhatsApp caffeine notification (1.5s in)
     setTimeout(function(){
       var wa=document.createElement('div');
       wa.className='wa-notif';
@@ -426,39 +437,53 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
         '<div class="wa-icon">\ud83d\udcac</div>'+
         '<div class="wa-body">'+
           '<div class="wa-from">Pulse \u2022 WhatsApp</div>'+
-          '<div class="wa-msg">\u2615 Hey! Last cup of regular coffee for today if you want to improve your sleep tonight.</div>'+
+          '<div class="wa-msg">\u2615 Last cup of regular coffee for today if you want to improve your sleep tonight.</div>'+
           '<div class="wa-time">2:00 PM</div>'+
         '</div>';
       wrap.appendChild(wa);
       requestAnimationFrame(function(){requestAnimationFrame(function(){wa.classList.add('in')})});
     },1500);
 
-    // 2. Shopping list on WhatsApp (5s)
+    // 2. Grocery list — items appear, then get CHECKED one by one (5s in)
     setTimeout(function(){
       var list=document.createElement('div');
       list.className='shop-list';
       list.innerHTML=
         '<div class="shop-header">'+
-          '<div class="shop-title">\ud83d\uded2 Your Weekly Grocery List</div>'+
+          '<div class="shop-title">\ud83d\uded2 Your Grocery List</div>'+
           '<div class="shop-badge">WhatsApp</div>'+
         '</div>'+
         '<div id="shopItems"></div>';
       wrap.appendChild(list);
       requestAnimationFrame(function(){requestAnimationFrame(function(){list.classList.add('in')})});
 
-      var items=['600g chicken breast','12 eggs','500g Greek yogurt','Brown rice (1kg)','Broccoli (2 heads)','Sweet potatoes (4)','Olive oil'];
+      var items=['600g chicken breast','12 eggs','500g Greek yogurt','Brown rice','Broccoli','Sweet potatoes','Olive oil'];
+      var itemEls=[];
+
+      // Items appear fast
       items.forEach(function(item,i){
         setTimeout(function(){
           var row=document.createElement('div');
           row.className='shop-item';
-          row.innerHTML='<div class="shop-check"></div>'+item;
+          row.innerHTML='<div class="shop-check" id="chk'+i+'"></div><span>'+item+'</span>';
           document.getElementById('shopItems').appendChild(row);
+          itemEls.push(row);
           requestAnimationFrame(function(){requestAnimationFrame(function(){row.classList.add('in')})});
-        },400+i*250);
+        },300+i*180);
       });
+
+      // Then CHECK them one by one — click click click click done
+      setTimeout(function(){
+        itemEls.forEach(function(row,i){
+          setTimeout(function(){
+            row.querySelector('.shop-check').classList.add('done');
+            row.classList.add('checked');
+          },i*200);
+        });
+      },2200);
     },5000);
 
-    // 3. Workout PDF (10s)
+    // 3. Training plan PDF (13s in)
     setTimeout(function(){
       var pdf=document.createElement('div');
       pdf.className='pdf-card';
@@ -466,57 +491,57 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
         '<div class="pdf-icon">PDF</div>'+
         '<div class="pdf-info">'+
           '<div class="pdf-name">\ud83c\udfcb\ufe0f Your Training Plan</div>'+
-          '<div class="pdf-detail">4 days/week \u2022 Matched to your recovery \u2022 8 pages</div>'+
+          '<div class="pdf-detail">4 days/week \u2022 Matched to your recovery</div>'+
           '<div class="pdf-actions">'+
             '<div class="pdf-btn primary">Send to phone</div>'+
             '<div class="pdf-btn secondary">Print</div>'+
+            '<div class="pdf-btn link">pulse/s8k2x</div>'+
           '</div>'+
         '</div>';
       wrap.appendChild(pdf);
       requestAnimationFrame(function(){requestAnimationFrame(function(){
         pdf.classList.add('in');
-        var r=pdf.getBoundingClientRect();
-        setTimeout(function(){confetti(r.left+r.width/2,r.top,35)},500);
+        setTimeout(function(){
+          var r=pdf.getBoundingClientRect();
+          confetti(r.left+r.width/2,r.top,35);
+        },500);
       })});
-    },12500);
-  },42000);
+    },13000);
+  },38000);
 
   // ============================================================
-  // SCENE 4 (62–76s): COME BACK — progress + don't stagnate
+  // SCENE 4 (60–72s): COME BACK — fast conversation
   // ============================================================
   setTimeout(function(){
     show('sc4');
     document.body.className='warm';
 
     setTimeout(function(){document.getElementById('skip').classList.add('in')},300);
-
     var phone=document.getElementById('phone4');
-    setTimeout(function(){phone.classList.add('in')},1000);
+    setTimeout(function(){phone.classList.add('in')},800);
 
-    // --- SLOW: progress
-    showDots('msgs4',2000,1500,function(){
-      addBub('msgs4','a','You\'ve hit your caffeine cutoff <span class="hl">12 days straight</span>. Sleep score is up <span class="hl">23%</span>. You\'re down <span class="hl">1.4 kg</span>.',0,function(){
+    showDots('msgs4',1800,1200,function(){
+      addBub('msgs4','a','You\'ve hit your caffeine cutoff <span class="hl">12 days straight</span>. Sleep is up <span class="hl">23%</span>. Down <span class="hl">1.4 kg</span>.',0,function(){
         var bar=document.createElement('div');
         bar.innerHTML='<div class="progress-mini"><div class="progress-fill" id="pf"></div></div>';
         document.getElementById('msgs4').lastChild.appendChild(bar.firstChild);
-        setTimeout(function(){document.getElementById('pf').style.width='73%'},400);
+        setTimeout(function(){document.getElementById('pf').style.width='73%'},300);
       });
     });
 
-    // --- FAST: prompt
-    showDots('msgs4',10000,800,function(){
-      addBub('msgs4','a','Come back anytime to <span class="hl">log and track</span>. I\'ll keep adjusting your plan so you don\'t stagnate.',0);
+    showDots('msgs4',8500,600,function(){
+      addBub('msgs4','a','Come back anytime to <span class="hl">log and track</span>. I\'ll keep adjusting so you don\'t stagnate.',0);
     });
 
-    addPills('msgs4',['\ud83d\ude80 Let\'s keep going','Show my dashboard'],13500,0,1500,function(){
-      addBub('msgs4','u','\ud83d\ude80 Let\u2019s keep going',200);
-      var r=document.getElementById('phone4').getBoundingClientRect();
-      setTimeout(function(){sparks(r.left+r.width/2,r.top+r.height/2,16)},400);
+    addPills('msgs4',['\ud83d\ude80 Keep going','Show my dashboard'],11500,0,1200,function(){
+      addBub('msgs4','u','\ud83d\ude80 Keep going',200);
+      var r=phone.getBoundingClientRect();
+      setTimeout(function(){sparks(r.left+r.width/2,r.top+r.height/2,16)},300);
     });
-  },62000);
+  },60000);
 
   // ============================================================
-  // SCENE 5 (76–84s): CLOSE — Nike kinetic typography
+  // SCENE 5 (72–80s): CLOSE — kinetic type
   // ============================================================
   setTimeout(function(){
     show('sc5');
@@ -532,7 +557,6 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
       {text:'the',accent:false,delay:3800},
       {text:'rest.',accent:true,delay:4200}
     ];
-
     var line=document.getElementById('s5line');
     words.forEach(function(w){
       var span=document.createElement('span');
@@ -544,14 +568,13 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
 
     setTimeout(function(){document.getElementById('s5sub').classList.add('in')},5800);
     setTimeout(function(){document.getElementById('s5brand').classList.add('in')},5800);
-  },76000);
+  },72000);
 
-  // Loop
   setTimeout(function(){
     document.getElementById('sc5').style.transition='opacity 0.5s';
     document.getElementById('sc5').style.opacity='0';
     setTimeout(function(){location.reload()},600);
-  },84000);
+  },80000);
 
 })();
 </script>
