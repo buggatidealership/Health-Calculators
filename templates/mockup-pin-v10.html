@@ -334,10 +334,17 @@ async function typeText(el, text, speed = 35) {
   }
 }
 
-// Scroll to bottom smoothly
+// Scroll to reveal the latest element — show its TOP, not jump past it
 function scrollDown(delay = 0) {
   setTimeout(() => {
-    scr.scrollTo({ top: scr.scrollHeight, behavior: 'smooth' });
+    var lastCard = scr.querySelector('.card:last-child') || scr.lastElementChild;
+    if (lastCard) {
+      // Scroll so the card's top is visible with some padding above
+      var cardTop = lastCard.offsetTop - 10;
+      scr.scrollTo({ top: cardTop, behavior: 'smooth' });
+    } else {
+      scr.scrollTo({ top: scr.scrollHeight, behavior: 'smooth' });
+    }
   }, delay);
 }
 
