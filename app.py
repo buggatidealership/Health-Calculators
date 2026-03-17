@@ -5365,6 +5365,14 @@ def mockup_tdee_dark():
 def voice_note():
     return render_template('voice-note.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-pin-a')
+def mockup_pin_a():
+    return render_template('mockup-pin-a.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-pin-b')
+def mockup_pin_b():
+    return render_template('mockup-pin-b.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(
