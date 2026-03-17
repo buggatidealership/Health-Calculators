@@ -5369,6 +5369,10 @@ def voice_note():
 def mockup_pin_v2():
     return render_template('mockup-pin-v2.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-pin-v3')
+def mockup_pin_v3():
+    return render_template('mockup-pin-v3.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-pin-jtbd')
 def mockup_pin_jtbd():
     return render_template('mockup-pin-jtbd.html', is_homepage=True, robots_meta='noindex, nofollow')

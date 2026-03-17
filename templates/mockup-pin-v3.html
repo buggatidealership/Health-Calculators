@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — Pin V3 (Phone)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#1a1a1e;display:flex;align-items:center;justify-content:center}
+
+/* === PHONE FRAME — persistent, always visible === */
+.phone-frame{width:340px;height:680px;max-height:92vh;max-width:88vw;
+  background:#000;border-radius:42px;position:relative;overflow:hidden;
+  box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06);
+  aspect-ratio:340/680}
+
+/* Dynamic island */
+.island{position:absolute;top:10px;left:50%;transform:translateX(-50%);
+  width:90px;height:24px;background:#000;border-radius:20px;z-index:100}
+
+/* Status bar */
+.status-bar{position:absolute;top:0;left:0;right:0;height:48px;z-index:90;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;
+  font-size:0.6rem;font-weight:600;transition:color 0.3s}
+.status-bar.dark{color:rgba(255,255,255,0.7)}
+.status-bar.light{color:rgba(0,0,0,0.6)}
+.sb-time{margin-left:4px}
+.sb-icons{display:flex;gap:4px;align-items:center;margin-right:2px}
+.sb-icons svg{width:14px;height:14px}
+
+/* Screen area — content lives here */
+.screen{position:absolute;top:0;left:0;right:0;bottom:0;border-radius:42px;overflow:hidden}
+
+/* App layers — stack and transition */
+.app{position:absolute;inset:0;opacity:0;transition:opacity 0.4s;pointer-events:none;padding-top:48px}
+.app.on{opacity:1}
+
+/* === iOS NOTIFICATION BANNER === */
+.notif-banner{position:absolute;top:50px;left:10px;right:10px;z-index:80;
+  background:rgba(245,241,235,0.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-radius:16px;padding:12px 14px;display:flex;gap:10px;align-items:flex-start;
+  box-shadow:0 4px 24px rgba(0,0,0,0.15);
+  transform:translateY(-120px);opacity:0;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.notif-banner.show{transform:translateY(0);opacity:1}
+.notif-banner.hide{transform:translateY(-120px);opacity:0}
+.nb-icon{width:32px;height:32px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:0.75rem}
+.nb-icon.pulse{background:linear-gradient(135deg,#14b8a6,#0e7a7e)}
+.nb-icon.pulse span{color:#fff;font-weight:700;font-size:0.6rem}
+.nb-icon.wa{background:#25d366}
+.nb-icon.wa span{color:#fff;font-size:0.75rem}
+.nb-body{flex:1}
+.nb-app{font-size:0.58rem;font-weight:600;color:#8a8a8e;text-transform:uppercase;letter-spacing:0.03em}
+.nb-title{font-size:0.7rem;font-weight:600;color:#1a1a1e;margin-top:1px}
+.nb-msg{font-size:0.66rem;color:#4a4a4e;line-height:1.4;margin-top:1px}
+.nb-time{font-size:0.54rem;color:#8a8a8e;flex-shrink:0;margin-top:1px}
+
+/* === APP: BROWSER (Safari-like) === */
+.browser{background:#1a1a1e}
+.br-bar{margin:8px 12px;padding:8px 14px;background:rgba(255,255,255,0.08);
+  border-radius:12px;display:flex;align-items:center;gap:8px}
+.br-bar svg{width:13px;height:13px;color:rgba(255,255,255,0.25);flex-shrink:0}
+.br-url{font-size:0.7rem;color:rgba(255,255,255,0.4);white-space:nowrap;overflow:hidden}
+.br-url span{color:rgba(255,255,255,0.2)}
+.br-cursor{display:inline-block;width:1px;height:0.9em;background:rgba(255,255,255,0.4);
+  margin-left:1px;vertical-align:text-bottom;animation:cur-blink 1s step-end infinite}
+@keyframes cur-blink{50%{opacity:0}}
+
+.br-results{padding:8px 12px;display:flex;flex-direction:column;gap:4px}
+.br-r{padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:10px;
+  opacity:0;transform:translateY(5px);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.br-r.v{opacity:1;transform:translateY(0)}
+.br-src{font-size:0.5rem;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;margin-bottom:2px}
+.br-txt{font-size:0.64rem;color:rgba(255,255,255,0.32);line-height:1.35}
+.br-warn{font-size:0.5rem;color:rgba(239,68,68,0.5);font-weight:600;margin-top:1px}
+
+/* === APP: PULSE CHAT === */
+.pulse-app{background:#f6f1eb}
+.pa-top{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#f0ebe5;
+  border-bottom:1px solid rgba(0,0,0,0.04)}
+.pa-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.pa-av span{color:#fff;font-weight:700;font-size:0.58rem}
+.pa-av::after{content:'';position:absolute;bottom:0;right:0;width:6px;height:6px;
+  border-radius:50%;background:#22c55e;border:1.5px solid #f0ebe5}
+.pa-nm{font-weight:600;font-size:0.74rem;color:#1a1a1e}
+.pa-st{font-size:0.5rem;color:#22c55e;font-weight:500}
+.pa-body{padding:10px 12px;display:flex;flex-direction:column;gap:5px;
+  overflow-y:auto;max-height:calc(100% - 48px - 44px)}
+
+/* Bubbles — inside Pulse */
+.m{max-width:84%;padding:8px 13px;border-radius:15px;font-size:0.72rem;line-height:1.48;color:#2a2a2e;
+  opacity:0;transform:translateY(8px) scale(0.9);
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)}
+.m.v{opacity:1;transform:translateY(0) scale(1)}
+.m.me{background:#d1fae5;align-self:flex-end;border-bottom-right-radius:4px}
+.m.ai{background:#fff;align-self:flex-start;border-bottom-left-radius:4px;
+  box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.m .h{color:#0e7a7e;font-weight:700}
+.m .w{color:#b45309;font-weight:600}
+.m .d{color:#7a7a82;font-size:0.62rem;display:block;margin-top:2px}
+
+/* Typing dots */
+.td{display:inline-flex;gap:3px;padding:1px 0}
+.td i{width:5px;height:5px;border-radius:50%;background:#b0b4bc;display:block;
+  animation:tdb 1.2s ease-in-out infinite}
+.td i:nth-child(2){animation-delay:.15s}
+.td i:nth-child(3){animation-delay:.3s}
+@keyframes tdb{0%,60%,100%{transform:translateY(0);opacity:.35}30%{transform:translateY(-3.5px);opacity:1}}
+
+/* Pills inside Pulse */
+.pls{display:flex;flex-wrap:wrap;gap:4px;align-self:flex-end}
+.pl{padding:5px 11px;border-radius:16px;font-size:0.64rem;font-weight:500;
+  background:#fff;border:1.5px solid rgba(14,122,126,0.16);color:#0e7a7e;
+  opacity:0;transform:scale(0.82);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.pl.v{opacity:1;transform:scale(1)}
+.pl.pk{background:#0e7a7e;color:#fff;border-color:#0e7a7e;transform:scale(1.03)}
+.pl.off{opacity:.2;transform:scale(.85)}
+
+/* === APP: WHATSAPP === */
+.wa-app{background:#ece5dd}
+.wa-top{display:flex;align-items:center;gap:8px;padding:10px 14px;background:#075e54}
+.wa-top-av{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wa-top-av span{color:#fff;font-weight:700;font-size:0.58rem}
+.wa-top-nm{font-weight:600;font-size:0.74rem;color:#fff}
+.wa-top-st{font-size:0.5rem;color:rgba(255,255,255,0.6)}
+.wa-body{padding:10px 12px;display:flex;flex-direction:column;gap:5px}
+
+/* WA bubble */
+.wm{max-width:84%;padding:8px 13px;border-radius:10px;font-size:0.7rem;line-height:1.45;
+  background:#dcf8c6;color:#1a3a2a;align-self:flex-start;border-top-left-radius:2px;
+  opacity:0;transform:translateY(6px) scale(0.92);
+  transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+.wm.v{opacity:1;transform:translateY(0) scale(1)}
+.wm .wt{font-size:0.48rem;color:#7a9a7a;float:right;margin-left:8px;margin-top:4px}
+
+/* Grocery items inside WA */
+.wg{display:flex;align-items:center;gap:6px;padding:2px 0;font-size:0.66rem;
+  opacity:0;transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+.wg.v{opacity:1}
+.wgc{width:13px;height:13px;border-radius:3px;border:1.5px solid rgba(0,0,0,0.15);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  transition:all 0.2s cubic-bezier(0,1.5,0.5,1)}
+.wgc.dn{background:#0e7a7e;border-color:#0e7a7e}
+.wgc.dn::after{content:'';width:4px;height:2.5px;border-left:1.5px solid #fff;
+  border-bottom:1.5px solid #fff;transform:rotate(-45deg) translateY(-0.5px)}
+.wg.xd{color:#7a9a7a;text-decoration:line-through}
+
+/* Progress bar */
+.pbar{height:3px;border-radius:2px;background:rgba(0,0,0,0.05);margin-top:4px;width:100%;overflow:hidden}
+.pfill{height:100%;border-radius:2px;width:0;background:linear-gradient(90deg,#14b8a6,#22c55e);
+  transition:width 1s cubic-bezier(0.34,1.56,0.64,1)}
+
+/* === CLOSE OVERLAY === */
+.close-ov{position:absolute;inset:0;z-index:70;border-radius:42px;
+  background:#f6f1eb;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:40px 28px;opacity:0;transition:opacity 0.6s}
+.close-ov.on{opacity:1}
+.co-orb{width:56px;height:56px;border-radius:50%;margin-bottom:18px;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);box-shadow:0 4px 20px rgba(14,122,126,0.2);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0.4);transition:all 0.5s cubic-bezier(0,1.5,0.5,1)}
+.co-orb.v{opacity:1;transform:scale(1)}
+.co-orb span{color:#fff;font-weight:700;font-size:1.1rem}
+.co-ln{display:flex;flex-wrap:wrap;justify-content:center;gap:0 7px}
+.co-w{font-family:'DM Sans',sans-serif;font-size:1.2rem;font-weight:700;line-height:1.4;color:#1a1a1e;
+  opacity:0;transform:translateY(100%);transition:all 0.4s cubic-bezier(0.16,1,0.3,1)}
+.co-w.v{opacity:1;transform:translateY(0)}
+.co-w.acc{color:#0e7a7e}
+.co-sub{font-size:0.66rem;color:#7a7a82;margin-top:10px;opacity:0;transition:opacity 0.5s}
+.co-sub.v{opacity:1}
+.co-brand{margin-top:16px;opacity:0;transition:opacity 0.5s}
+.co-brand.v{opacity:1}
+.co-nm{font-size:0.72rem;font-weight:600;color:#3a3a3e}
+.co-hn{font-size:0.56rem;color:#0e7a7e;margin-top:1px}
+
+/* Effects */
+.spk{position:fixed;border-radius:50%;pointer-events:none;z-index:200}
+@keyframes spk-fly{0%{opacity:.9;transform:translate(0,0) scale(1)}
+  100%{opacity:0;transform:translate(var(--ex),var(--ey)) scale(0)}}
+.cft{position:fixed;pointer-events:none;z-index:200;opacity:.9}
+@keyframes cft-drop{0%{transform:translateY(0) rotate(0deg);opacity:.9}
+  100%{transform:translateY(var(--fd)) rotate(var(--fr));opacity:0}}
+</style>
+</head>
+<body>
+<div class="phone-frame" id="PH">
+  <div class="island"></div>
+  <div class="status-bar dark" id="sBar">
+    <div class="sb-time">9:41</div>
+    <div class="sb-icons">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.34C7 21.4 7.6 22 8.33 22h7.34c.73 0 1.33-.6 1.33-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </div>
+  </div>
+  <div class="screen" id="SCR">
+
+    <!-- APP: Browser -->
+    <div class="app browser on" id="aBrowser">
+      <div class="br-bar" id="brBar">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <div class="br-url"><span id="brTxt"></span><span class="br-cursor"></span></div>
+      </div>
+      <div class="br-results" id="brRes"></div>
+    </div>
+
+    <!-- APP: Pulse -->
+    <div class="app pulse-app" id="aPulse">
+      <div class="pa-top">
+        <div class="pa-av"><span>P</span></div>
+        <div><div class="pa-nm">Pulse</div><div class="pa-st">online</div></div>
+      </div>
+      <div class="pa-body" id="pBody"></div>
+    </div>
+
+    <!-- APP: WhatsApp -->
+    <div class="app wa-app" id="aWA">
+      <div class="wa-top">
+        <div class="wa-top-av"><span>P</span></div>
+        <div><div class="wa-top-nm">Pulse</div><div class="wa-top-st">online</div></div>
+      </div>
+      <div class="wa-body" id="wBody"></div>
+    </div>
+
+    <!-- Notification banner -->
+    <div class="notif-banner" id="notif"></div>
+
+    <!-- Close overlay (inside the phone) -->
+    <div class="close-ov" id="closeOv">
+      <div class="co-orb" id="coOrb"><span>P</span></div>
+      <div class="co-ln" id="coLn"></div>
+      <div class="co-sub" id="coSub">Your health companion. Always learning.</div>
+      <div class="co-brand" id="coBr"><div class="co-nm">healthcalculators.xyz</div><div class="co-hn">@GetHealthC</div></div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+
+  function appSwitch(id){
+    document.querySelectorAll('.app').forEach(function(a){a.classList.remove('on')});
+    $(id).classList.add('on');
+  }
+
+  function showNotif(icon,iconCls,app,title,msg,time,ms,dur){
+    setTimeout(function(){
+      var n=$('notif');
+      n.innerHTML='<div class="nb-icon '+iconCls+'"><span>'+icon+'</span></div>'+
+        '<div class="nb-body"><div class="nb-app">'+app+'</div><div class="nb-title">'+title+'</div>'+
+        '<div class="nb-msg">'+msg+'</div></div><div class="nb-time">'+time+'</div>';
+      n.classList.add('show');
+      setTimeout(function(){n.classList.remove('show');n.classList.add('hide');
+        setTimeout(function(){n.classList.remove('hide')},400)},dur);
+    },ms);
+  }
+
+  function pbub(where,cls,html,ms,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');d.className='m '+cls;d.innerHTML=html;
+      $(where).appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v');if(cb)setTimeout(cb,50)})});
+    },ms);
+  }
+  function pdots(where,ms,dur,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');d.className='m ai';
+      d.innerHTML='<span class="td"><i></i><i></i><i></i></span>';
+      $(where).appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+      setTimeout(function(){d.remove();if(cb)cb()},dur);
+    },ms);
+  }
+  function ppills(where,opts,ms,pick,wait,cb){
+    setTimeout(function(){
+      var w=document.createElement('div');w.className='pls';
+      opts.forEach(function(o,i){var p=document.createElement('div');p.className='pl';p.textContent=o;w.appendChild(p);
+        setTimeout(function(){p.classList.add('v')},i*50)});
+      $(where).appendChild(w);
+      setTimeout(function(){w.querySelectorAll('.pl').forEach(function(p,i){
+        if(i===pick)p.classList.add('pk');else p.classList.add('off')});
+        setTimeout(function(){w.remove();if(cb)cb(opts[pick])},300)},wait);
+    },ms);
+  }
+
+  function burst(x,y,n){
+    var c=['#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e','#f472b6'];
+    for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spk';
+      var sz=2+Math.random()*4,a=Math.random()*Math.PI*2,d=18+Math.random()*40;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+
+        c[~~(Math.random()*c.length)]+';--ex:'+(Math.cos(a)*d)+'px;--ey:'+(Math.sin(a)*d-15)+
+        'px;animation:spk-fly '+(0.3+Math.random()*0.25)+'s ease-out forwards;animation-delay:'+(i*.015)+'s';
+      document.body.appendChild(s);setTimeout(function(el){el.remove()},800,s)}
+  }
+  function rain(cx,cy,n){
+    var c=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#f472b6','#22c55e'];
+    for(var i=0;i<n;i++){var p=document.createElement('div');p.className='cft';
+      var x=cx+(Math.random()-.5)*180,w=3+Math.random()*3,h=Math.random()>.5?w:w*2;
+      p.style.cssText='left:'+x+'px;top:'+(cy-30)+'px;width:'+w+'px;height:'+h+
+        'px;background:'+c[~~(Math.random()*c.length)]+';--fd:'+(120+Math.random()*180)+
+        'px;--fr:'+(150+Math.random()*400)+'deg;animation:cft-drop '+(1+Math.random()*.6)+
+        's ease-out forwards;animation-delay:'+(i*.015)+'s;border-radius:'+(Math.random()>.5?'50%':'1px');
+      document.body.appendChild(p);setTimeout(function(el){el.remove()},2000,p)}
+  }
+
+  /* ══════════════════════════════════════════════════
+     SCENE 1 (0→10s): BROWSER — searching, confused
+     Slack: chaos. Results pile up fast.
+     ══════════════════════════════════════════════════ */
+  var q='is it normal to gain weight even if i exercise';
+  var ci=0;
+  // +0.5s: type at 40ms/char ≈ finishes at ~2.5s
+  setTimeout(function(){
+    var t=setInterval(function(){
+      if(ci<q.length){$('brTxt').textContent=q.substring(0,++ci)}else clearInterval(t)},40);
+  },500);
+
+  // +3s: results pile — 450ms apart (FAST chaos)
+  setTimeout(function(){
+    var res=[
+      {nm:'Google',col:'#4285f4',txt:'"Muscle weighs more than fat."',w:''},
+      {nm:'Reddit',col:'#ff4500',txt:'"No one knows. I gave up."',w:''},
+      {nm:'ChatGPT',col:'#10a37f',txt:'"Several possible explanations\u2026"',w:'\u26a0 Contradicts Google'},
+      {nm:'Claude',col:'#d97706',txt:'"Depends on many factors\u2026"',w:''},
+      {nm:'Yahoo',col:'#720e9e',txt:'"Cut calories, more cardio."',w:'\u26a0 Contradicts ChatGPT'}
+    ];
+    res.forEach(function(r,i){
+      setTimeout(function(){
+        var d=document.createElement('div');d.className='br-r';
+        d.innerHTML='<div class="br-src" style="color:'+r.col+'">'+r.nm+'</div><div class="br-txt">'+r.txt+'</div>'+(r.w?'<div class="br-warn">'+r.w+'</div>':'');
+        $('brRes').appendChild(d);
+        requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('v')})});
+      },i*450);
+    });
+  },3000);
+
+  /* ══════════════════════════════════════════════════
+     TRANSITION (8s): Pulse notification slides down
+     "I noticed you're searching about weight. I can help."
+     ══════════════════════════════════════════════════ */
+  // 13w → (13/2.5)+0.5 = 5.7s visible
+  showNotif('P','pulse','PULSE','Pulse',
+    'I noticed you\'re searching about weight and exercise. I can help \u2014 tap to chat.',
+    'now',8000,4500);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 2 (13→38s): PULSE APP — the conversation
+     Apple: restraint on hero. Nike: rhythm.
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    appSwitch('aPulse');
+    $('sBar').className='status-bar light';
+
+    // +0.5s: user sends question (10w → 4.5s visible)
+    pbub('pBody','me','Is it normal to gain weight even though I exercise?',500);
+
+    // +2.5s: typing 600ms (FAST) → greeting + key question
+    // "I can help. Quick question — how's your sleep been?" = 11w → 4.9s needed
+    pdots('pBody',2500,600,function(){
+      pbub('pBody','ai','I can help with that. Quick question \u2014 <span class="h">how\'s your sleep been?</span>',0);
+    });
+
+    // +8s: pills (question visible from ~3.6s to 8s = 4.4s ≈ ✓)
+    ppills('pBody',['\ud83d\ude34 Not great','Okay I guess','Pretty good'],8000,0,2200,function(picked){
+      pbub('pBody','me',picked,250);
+
+      // SLOW: cortisol insight (19w → 8.1s needed)
+      pdots('pBody',1200,1800,function(){
+        pbub('pBody','ai','<span class="w">That\'s one of the main reasons.</span> Poor sleep raises cortisol \u2192 your body holds onto fat even when you train hard.',0);
+      });
+
+      // FAST: protein (visible 8.5s ✓)
+      pdots('pBody',11500,600,function(){
+        pbub('pBody','ai','What proteins do you prefer?',0);
+      });
+
+      ppills('pBody',['\ud83d\udc14 Chicken','\ud83e\udd5a Eggs','\ud83d\udc1f Fish','\ud83c\udf31 Plant'],14000,0,1800,function(){
+        pbub('pBody','me','\ud83d\udc14 Chicken',250);
+
+        pdots('pBody',700,1200,function(){
+          // "Let me plan this for you so you don't have to remember any of it." = 14w → 6.1s
+          pbub('pBody','ai','<span class="h">Let me plan this for you</span> so you don\'t have to remember any of it.',0);
+        });
+      });
+    });
+  },13000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 3 (40→56s): WHATSAPP — deliverables arrive
+     Coca-Cola: show the process as entertainment
+     ══════════════════════════════════════════════════ */
+
+  // +38s: WhatsApp notification slides down — caffeine reminder
+  showNotif('\ud83d\udcac','wa','WHATSAPP','Pulse',
+    '\u2615 Last cup of coffee for today \u2014 to protect your sleep tonight.',
+    '2:00 PM',38000,3500);
+
+  // +42s: switch to WhatsApp app
+  setTimeout(function(){
+    appSwitch('aWA');
+
+    // Caffeine reminder message already "read"
+    var wb=$('wBody');
+
+    // Grocery list message (Coca-Cola: items appear, then check off)
+    setTimeout(function(){
+      var gm=document.createElement('div');gm.className='wm';
+      gm.innerHTML='<strong>\ud83d\uded2 Your Grocery List</strong><div id="wGI" style="margin-top:4px"></div><span class="wt">2:01 PM</span>';
+      wb.appendChild(gm);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){gm.classList.add('v')})});
+
+      var items=['600g chicken breast','12 eggs','Greek yogurt','Brown rice','Broccoli','Sweet potatoes','Olive oil'];
+      var els=[];
+      // Items populate FAST
+      items.forEach(function(it,i){
+        setTimeout(function(){
+          var r=document.createElement('div');r.className='wg';
+          r.innerHTML='<div class="wgc" id="wck'+i+'"></div><span>'+it+'</span>';
+          $('wGI').appendChild(r);els.push(r);
+          requestAnimationFrame(function(){requestAnimationFrame(function(){r.classList.add('v')})});
+        },200+i*140);
+      });
+
+      // Check them off — click click click (180ms each)
+      setTimeout(function(){
+        els.forEach(function(r,i){
+          setTimeout(function(){
+            r.querySelector('.wgc').classList.add('dn');
+            r.classList.add('xd');
+          },i*180);
+        });
+      },1800);
+    },800);
+
+    // Training plan PDF message
+    setTimeout(function(){
+      var pm=document.createElement('div');pm.className='wm';
+      pm.innerHTML='<strong>\ud83c\udfcb\ufe0f Training Plan</strong><div class="d" style="margin-top:3px;font-size:0.62rem;color:#4a6a4a">4 days/week \u2022 Matched to recovery</div><div style="margin-top:5px;display:flex;gap:4px"><span style="font-size:0.56rem;padding:3px 8px;border-radius:6px;background:#0e7a7e;color:#fff;font-weight:600">Send to phone</span><span style="font-size:0.56rem;padding:3px 8px;border-radius:6px;background:rgba(0,0,0,0.05);color:#4a4a4e;font-weight:600">Print</span><span style="font-size:0.56rem;padding:3px 8px;border-radius:6px;background:rgba(14,122,126,0.08);color:#0e7a7e;font-weight:600">pulse/a7k9</span></div><span class="wt">2:02 PM</span>';
+      wb.appendChild(pm);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        pm.classList.add('v');
+        setTimeout(function(){
+          var r=pm.getBoundingClientRect();
+          rain(r.left+r.width/2,r.top,30);
+        },400);
+      })});
+    },5500);
+  },42000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 4 (56→68s): BACK TO PULSE — "2 weeks later"
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    appSwitch('aPulse');
+
+    // Clear previous messages, show fresh conversation
+    $('pBody').innerHTML='';
+
+    // "2 weeks later" as a date separator
+    var sep=document.createElement('div');
+    sep.style.cssText='text-align:center;font-size:0.5rem;font-weight:600;color:#8a8a8e;padding:8px 0;text-transform:uppercase;letter-spacing:0.1em;opacity:0;transition:opacity 0.4s';
+    sep.textContent='2 weeks later';
+    $('pBody').appendChild(sep);
+    setTimeout(function(){sep.style.opacity='1'},200);
+
+    // Progress message (15w → 6.5s)
+    pdots('pBody',1800,1400,function(){
+      pbub('pBody','ai','Caffeine cutoff: <span class="h">12 days straight</span>. Sleep up <span class="h">23%</span>. Down <span class="h">1.4 kg</span>.',0,function(){
+        var bar=document.createElement('div');bar.innerHTML='<div class="pbar"><div class="pfill" id="pf"></div></div>';
+        $('pBody').lastChild.appendChild(bar.firstChild);
+        setTimeout(function(){$('pf').style.width='73%'},300);
+      });
+    });
+
+    // "Don't stagnate" (13w → 5.7s)
+    pdots('pBody',9000,600,function(){
+      pbub('pBody','ai','Come back anytime to <span class="h">log and track</span>. I\'ll adjust so you don\'t stagnate.',0);
+    });
+
+    ppills('pBody',['\ud83d\ude80 Keep going','Dashboard'],12000,0,1300,function(){
+      pbub('pBody','me','\ud83d\ude80 Keep going',180);
+      var r=$('PH').getBoundingClientRect();
+      setTimeout(function(){burst(r.left+r.width/2,r.top+r.height/2,12)},300);
+    });
+  },56000);
+
+  /* ══════════════════════════════════════════════════
+     SCENE 5 (68→78s): CLOSE — inside the phone
+     ══════════════════════════════════════════════════ */
+  setTimeout(function(){
+    $('closeOv').classList.add('on');
+
+    setTimeout(function(){$('coOrb').classList.add('v')},300);
+
+    var wds=[
+      {t:'One',a:false,d:700},
+      {t:'question.',a:false,d:1100},
+      {t:'We',a:false,d:2500},
+      {t:'figure',a:false,d:2800},
+      {t:'out',a:false,d:3000},
+      {t:'the',a:false,d:3400},
+      {t:'rest.',a:true,d:3800}
+    ];
+    var ln=$('coLn');
+    wds.forEach(function(w){
+      var s=document.createElement('span');s.className='co-w'+(w.a?' acc':'');s.textContent=w.t;ln.appendChild(s);
+      setTimeout(function(){s.classList.add('v')},w.d);
+    });
+
+    setTimeout(function(){$('coSub').classList.add('v')},5200);
+    setTimeout(function(){$('coBr').classList.add('v')},5200);
+  },68000);
+
+  // Loop
+  setTimeout(function(){
+    $('closeOv').style.transition='opacity 0.5s';$('closeOv').style.opacity='0';
+    setTimeout(function(){location.reload()},600);
+  },78000);
+
+})();
+</script>
+</body>
+</html>
