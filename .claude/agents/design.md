@@ -109,6 +109,23 @@ Before showing ANY design to the user, complete this checklist:
 
 **For any element where "Data source" is blank, flag it as ASSUMED and state what data would verify it.**
 
+## LLM-Specific Design Biases (verified Mar 2026)
+
+### BIAS 1: Anchoring to prior output (UNIVERSAL)
+After producing a design, you iterate within the same visual container for 3+ rounds. After 2 rounds of feedback on the same approach, MUST propose a fundamentally different direction alongside any iteration.
+
+### BIAS 2: Timing at LLM reading speed (UNIVERSAL)
+You set animation durations based on how fast YOU process text. Validate all animated text against ~2.5 words/sec + 0.5s visual processing. Run the calculation.
+
+### BIAS 3: Monotone pacing (MOTION/ANIMATION)
+Every element animates identically. Apply dynamics: Slack (chaos→clarity), Apple (restraint on hero moments), Nike (kinetic rhythm variation), Coca-Cola (show the process as entertainment).
+
+### BIAS 4: Hiding the process (MULTI-STEP OUTPUTS)
+Show work being done, not just results. A list populates item by item. A report assembles visibly. The "how" is as compelling as the "what."
+
+### BIAS 5: Brand palette as cage (UNIVERSAL)
+The brand palette is a starting point. If emotional context calls for warmth, lightness, or energy the palette doesn't provide, extend it. State why.
+
 ## ANTI-PATTERNS (mistakes from this project)
 
 - Do NOT invent brand taglines ("Your health, computed") — derive from user language
@@ -117,3 +134,6 @@ Before showing ANY design to the user, complete this checklist:
 - Do NOT design categories from our internal organization — users think in questions, not categories
 - Do NOT skip visual design (animations, color, motion) because you "see in code"
 - Do NOT present a design without the verification checklist completed
+- Do NOT iterate the same visual container 3+ times without proposing a different direction
+- Do NOT set animation timings without validating against human reading speed
+- Do NOT animate every element at the same speed — design rhythm, not uniformity
