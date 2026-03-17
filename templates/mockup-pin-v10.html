@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — The Adaptive Interface</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#111;display:flex;align-items:center;justify-content:center}
+
+/* Phone */
+.ph{width:340px;height:680px;max-height:92vh;max-width:88vw;background:#000;border-radius:42px;
+  position:relative;overflow:hidden;box-shadow:0 20px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.06)}
+.dyn{position:absolute;top:10px;left:50%;transform:translateX(-50%);width:90px;height:24px;
+  background:#000;border-radius:20px;z-index:100}
+.sb{position:absolute;top:0;left:0;right:0;height:48px;z-index:90;
+  display:flex;align-items:flex-end;justify-content:space-between;padding:0 24px 6px;
+  font-size:0.6rem;font-weight:600;color:rgba(0,0,0,0.6)}
+.scr{position:absolute;inset:0;border-radius:42px;overflow:hidden;overflow-y:auto;
+  background:#fafaf8}
+
+/* Canvas area */
+.canvas{position:relative;min-height:100%;padding:48px 0 0}
+
+/* Pulse logo */
+.logo{display:flex;align-items:center;gap:8px;padding:16px 20px 0}
+.logo-orb{width:28px;height:28px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:box-shadow 0.6s}
+.logo-orb span{color:#fff;font-weight:700;font-size:0.55rem}
+.logo-orb.glow{box-shadow:0 0 20px rgba(14,122,126,0.5),0 0 40px rgba(14,122,126,0.25)}
+.logo-name{font-size:0.82rem;font-weight:600;color:#1a1a1e}
+
+/* Prompt */
+.prompt{text-align:center;padding:0 30px;margin-top:160px;transition:all 0.8s cubic-bezier(0.25,1,0.5,1)}
+.prompt-text{font-size:1.45rem;font-weight:300;color:rgba(0,0,0,0.15);line-height:1.3}
+.prompt.up{margin-top:12px;opacity:0;transform:translateY(-20px);pointer-events:none}
+.prompt.final{margin-top:160px;opacity:1;transform:translateY(0)}
+
+/* Badge */
+.plans-badge{display:inline-block;margin-top:10px;padding:4px 12px;border-radius:20px;
+  background:rgba(14,122,126,0.08);font-size:0.6rem;font-weight:600;color:#0e7a7e;
+  opacity:0;transform:scale(0.8);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.plans-badge.in{opacity:1;transform:scale(1)}
+
+/* Input bar */
+.input-bar{position:absolute;bottom:20px;left:16px;right:16px;display:flex;align-items:center;gap:8px}
+.input-field{flex:1;padding:12px 16px;border-radius:24px;background:rgba(0,0,0,0.04);
+  border:1px solid rgba(0,0,0,0.06);font-size:0.72rem;color:#1a1a1e;min-height:42px;
+  transition:all 0.3s}
+.input-field.typing{border-color:rgba(14,122,126,0.3);background:#fff;
+  box-shadow:0 2px 12px rgba(14,122,126,0.08)}
+.cursor{display:inline-block;width:1px;height:0.9em;background:#0e7a7e;
+  vertical-align:text-bottom;animation:bk 0.8s step-end infinite}
+@keyframes bk{50%{opacity:0}}
+.send-btn{width:36px;height:36px;border-radius:50%;background:#0e7a7e;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;opacity:0;
+  transform:scale(0.7);transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1)}
+.send-btn.in{opacity:1;transform:scale(1)}
+.send-btn svg{width:16px;height:16px;color:#fff}
+
+/* Cards area */
+.cards{padding:12px 16px;display:flex;flex-direction:column;gap:10px}
+
+/* Card base */
+.card{background:#fff;border-radius:16px;padding:16px;opacity:0;transform:translateY(30px) scale(0.95);
+  transition:all 0.65s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 2px 12px rgba(0,0,0,0.04),0 0 0 1px rgba(0,0,0,0.03)}
+.card.in{opacity:1;transform:translateY(0) scale(1)}
+.card.slide-up{transform:translateY(-40px) scale(0.92);opacity:0.3}
+.card.gone{transform:translateY(-60px) scale(0.88);opacity:0;pointer-events:none}
+
+.card-title{font-size:0.72rem;font-weight:600;color:#1a1a1e;margin-bottom:10px}
+.card-subtitle{font-size:0.6rem;color:rgba(0,0,0,0.4);margin-bottom:8px}
+
+/* Quick inputs */
+.quick-inputs{display:flex;flex-direction:column;gap:8px}
+.qi-row{display:flex;align-items:center;justify-content:space-between}
+.qi-label{font-size:0.62rem;color:rgba(0,0,0,0.5)}
+.qi-val{font-size:0.68rem;font-weight:600;color:#1a1a1e;padding:5px 12px;
+  background:rgba(14,122,126,0.06);border-radius:8px;min-width:70px;text-align:center;
+  opacity:0;transform:scale(0.8);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.qi-val.in{opacity:1;transform:scale(1)}
+
+/* Pill buttons */
+.pills{display:flex;gap:6px;flex-wrap:wrap}
+.pill{padding:6px 12px;border-radius:20px;font-size:0.58rem;font-weight:500;
+  background:rgba(0,0,0,0.04);color:rgba(0,0,0,0.5);transition:all 0.3s;
+  opacity:0;transform:scale(0.8)}
+.pill.in{opacity:1;transform:scale(1)}
+.pill.sel{background:#0e7a7e;color:#fff}
+
+/* Results */
+.result-row{display:flex;align-items:baseline;justify-content:space-between;
+  padding:6px 0;border-bottom:1px solid rgba(0,0,0,0.04)}
+.result-row:last-child{border-bottom:none}
+.r-label{font-size:0.6rem;color:rgba(0,0,0,0.45)}
+.r-val{font-size:0.72rem;font-weight:700;color:#0e7a7e}
+
+/* Ring chart */
+.ring-wrap{display:flex;justify-content:center;margin-top:8px}
+.ring{width:60px;height:60px}
+.ring circle{fill:none;stroke-width:6;stroke-linecap:round}
+.ring-bg{stroke:rgba(0,0,0,0.04)}
+.ring-p{stroke:#0e7a7e;stroke-dasharray:0 157;transition:stroke-dasharray 1.2s cubic-bezier(0.25,1,0.5,1)}
+.ring-c{stroke:#f59e0b;stroke-dasharray:0 157;transition:stroke-dasharray 1.2s cubic-bezier(0.25,1,0.5,1) 0.15s}
+.ring-f{stroke:#ef4444;stroke-dasharray:0 157;transition:stroke-dasharray 1.2s cubic-bezier(0.25,1,0.5,1) 0.3s}
+.ring-center{font-size:0.42rem;font-weight:600;fill:#1a1a1e}
+
+/* Steps */
+.step{display:flex;align-items:flex-start;gap:8px;padding:4px 0}
+.step-num{width:18px;height:18px;border-radius:50%;background:#0e7a7e;color:#fff;
+  font-size:0.5rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.step-text{font-size:0.6rem;color:rgba(0,0,0,0.6);line-height:1.4}
+.step-check{width:14px;height:14px;border:1.5px solid rgba(0,0,0,0.12);border-radius:4px;
+  margin-left:auto;flex-shrink:0}
+
+/* Caffeine viz */
+.caff-timeline{position:relative;height:60px;background:linear-gradient(90deg,
+  rgba(14,122,126,0.15) 0%,rgba(14,122,126,0.02) 100%);border-radius:10px;
+  margin:8px 0;overflow:hidden}
+.caff-bar{position:absolute;bottom:0;left:0;height:100%;
+  background:linear-gradient(90deg,rgba(14,122,126,0.3),transparent);
+  border-radius:10px;width:0;transition:width 1.5s cubic-bezier(0.25,1,0.5,1)}
+.caff-labels{display:flex;justify-content:space-between;padding:4px 8px;position:absolute;
+  bottom:4px;left:0;right:0}
+.caff-l{font-size:0.42rem;color:rgba(0,0,0,0.35);font-weight:500}
+.caff-cutoff{position:absolute;top:6px;left:45%;font-size:0.52rem;font-weight:600;color:#0e7a7e}
+
+/* Toggle */
+.toggle-row{display:flex;align-items:center;justify-content:space-between;margin-top:6px}
+.toggle-label{font-size:0.6rem;color:rgba(0,0,0,0.5)}
+.toggle{width:36px;height:20px;border-radius:10px;background:rgba(0,0,0,0.1);
+  position:relative;transition:background 0.3s;cursor:pointer}
+.toggle.on{background:#0e7a7e}
+.toggle-dot{width:16px;height:16px;border-radius:50%;background:#fff;position:absolute;
+  top:2px;left:2px;transition:transform 0.3s;box-shadow:0 1px 4px rgba(0,0,0,0.15)}
+.toggle.on .toggle-dot{transform:translateX(16px)}
+
+/* Connection line */
+.connection{padding:0 16px;opacity:0;transition:opacity 0.8s}
+.connection.in{opacity:1}
+.conn-line{height:30px;display:flex;align-items:center;justify-content:center;position:relative}
+.conn-line::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;
+  background:linear-gradient(180deg,rgba(14,122,126,0.3),rgba(14,122,126,0.1));
+  transform:scaleY(0);transition:transform 0.6s cubic-bezier(0.25,1,0.5,1)}
+.connection.in .conn-line::before{transform:scaleY(1)}
+.conn-text{font-size:0.56rem;color:#0e7a7e;font-weight:500;text-align:center;
+  padding:6px 12px;background:rgba(14,122,126,0.06);border-radius:12px;
+  opacity:0;transform:translateY(8px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.4s}
+.connection.in .conn-text{opacity:1;transform:translateY(0)}
+
+/* Plan compile */
+.plan-card{background:#fff;border-radius:16px;padding:16px;margin:0 16px;
+  opacity:0;transform:scale(0.9);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 4px 20px rgba(0,0,0,0.06),0 0 0 1px rgba(14,122,126,0.1)}
+.plan-card.in{opacity:1;transform:scale(1)}
+.plan-header{font-size:0.82rem;font-weight:700;color:#1a1a1e;margin-bottom:12px;text-align:center}
+.plan-item{display:flex;align-items:center;gap:8px;padding:7px 0;
+  border-bottom:1px solid rgba(0,0,0,0.04)}
+.plan-item:last-child{border-bottom:none}
+.plan-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.plan-dot.green{background:#10b981}
+.plan-dot.yellow{background:#f59e0b}
+.plan-dot.teal{background:#0e7a7e}
+.plan-text{font-size:0.6rem;color:rgba(0,0,0,0.6);flex:1}
+.plan-status{font-size:0.48rem;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;
+  color:rgba(0,0,0,0.25)}
+.plan-btns{display:flex;gap:8px;margin-top:12px}
+.plan-btn{flex:1;padding:10px;border-radius:12px;font-size:0.6rem;font-weight:600;text-align:center}
+.plan-btn.primary{background:#0e7a7e;color:#fff}
+.plan-btn.secondary{background:rgba(0,0,0,0.04);color:rgba(0,0,0,0.5)}
+
+/* Confetti */
+.confetti-wrap{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+.conf{position:absolute;width:6px;height:6px;border-radius:1px;opacity:0}
+@keyframes confFall{0%{opacity:1;transform:translateY(-20px) rotate(0deg) scale(1)}
+  100%{opacity:0;transform:translateY(300px) rotate(720deg) scale(0.3)}}
+
+/* Progress preview */
+.progress-card{background:#fff;border-radius:16px;padding:16px;margin:10px 16px;
+  opacity:0;transform:translateY(20px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 2px 12px rgba(0,0,0,0.04)}
+.progress-card.in{opacity:1;transform:translateY(0)}
+.prog-chart{height:50px;position:relative;margin:8px 0;display:flex;align-items:flex-end;gap:3px}
+.prog-bar{flex:1;background:rgba(14,122,126,0.15);border-radius:4px 4px 0 0;
+  transition:height 0.8s cubic-bezier(0.25,1,0.5,1)}
+.prog-bar.proj{background:rgba(14,122,126,0.06);border:1px dashed rgba(14,122,126,0.2)}
+.prog-stats{display:flex;gap:12px;margin-top:8px}
+.prog-stat{display:flex;flex-direction:column;align-items:center;flex:1}
+.prog-val{font-size:0.72rem;font-weight:700;color:#0e7a7e}
+.prog-lab{font-size:0.44rem;color:rgba(0,0,0,0.35);margin-top:2px}
+
+/* Remember text */
+.remember{text-align:center;padding:8px 16px;opacity:0;transition:opacity 0.8s}
+.remember.in{opacity:1}
+.remember-text{font-size:0.58rem;color:rgba(0,0,0,0.25);font-weight:300;font-style:italic}
+
+/* Close brand */
+.close-brand{position:absolute;inset:0;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;opacity:0;transition:opacity 1s;
+  background:#fafaf8;z-index:40;pointer-events:none;padding-top:48px}
+.close-brand.in{opacity:1}
+.close-orb{width:40px;height:40px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(14,122,126,0.3)}
+.close-orb span{color:#fff;font-weight:700;font-size:0.8rem}
+.close-tag{margin-top:16px;font-size:0.78rem;font-weight:300;color:rgba(0,0,0,0.35);
+  text-align:center;line-height:1.5}
+.close-tag em{font-style:italic;color:#0e7a7e;font-weight:500}
+.close-name{margin-top:20px;font-size:0.6rem;font-weight:600;color:rgba(0,0,0,0.2);
+  letter-spacing:0.08em;text-transform:uppercase}
+
+/* Second input */
+.input-bar-2{padding:10px 16px;opacity:0;transform:translateY(10px);
+  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.input-bar-2.in{opacity:1;transform:translateY(0)}
+.input-field-2{width:100%;padding:10px 14px;border-radius:20px;background:rgba(0,0,0,0.03);
+  border:1px solid rgba(0,0,0,0.05);font-size:0.64rem;color:rgba(0,0,0,0.3);
+  transition:all 0.3s}
+.input-field-2.typing{border-color:rgba(14,122,126,0.3);background:#fff;color:#1a1a1e;
+  box-shadow:0 2px 12px rgba(14,122,126,0.08)}
+
+/* Scrollable content wrapper — sits below the logo, above the fixed input */
+.content-area{padding-bottom:80px;min-height:calc(100% - 48px)}
+
+/* Hide scrollbar */
+.scr::-webkit-scrollbar{display:none}
+.scr{-ms-overflow-style:none;scrollbar-width:none}
+</style>
+</head>
+<body>
+<div class="ph">
+  <div class="dyn"></div>
+  <div class="sb">
+    <span>9:41</span>
+    <span style="display:flex;gap:4px;align-items:center">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M1 9l2 2c3.5-3.5 8.5-3.5 12 0l2-2C12.3 4.3 5.7 4.3 1 9zm8 8l3 3 3-3c-1.7-1.7-4.3-1.7-6 0zm-4-4l2 2c2.3-2.3 5.7-2.3 8 0l2-2C13.1 9.1 8.9 9.1 5 13z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4z"/></svg>
+    </span>
+  </div>
+  <div class="scr" id="scr">
+    <div class="content-area" id="contentArea">
+      <!-- Logo -->
+      <div class="logo">
+        <div class="logo-orb" id="logoOrb"><span>P</span></div>
+        <div class="logo-name">Pulse</div>
+      </div>
+
+      <!-- Prompt -->
+      <div class="prompt" id="prompt">
+        <div class="prompt-text">What's on your mind?</div>
+        <div class="plans-badge" id="plansBadge">2 active plans</div>
+      </div>
+
+      <!-- Cards container -->
+      <div class="cards" id="cards"></div>
+
+      <!-- Connection -->
+      <div class="connection" id="connection">
+        <div class="conn-line"></div>
+        <div class="conn-text">Better sleep from the caffeine cutoff will accelerate your weight loss.</div>
+      </div>
+
+      <!-- Plan compile -->
+      <div class="plan-card" id="planCard">
+        <div class="plan-header">Your Pulse Plan</div>
+        <div class="plan-item"><div class="plan-dot green"></div><div class="plan-text">Hit 2,340 kcal daily with 148g protein</div><div class="plan-status">Active</div></div>
+        <div class="plan-item"><div class="plan-dot teal"></div><div class="plan-text">Last coffee by 2:00 PM</div><div class="plan-status">Reminder set</div></div>
+        <div class="plan-item"><div class="plan-dot yellow"></div><div class="plan-text">Track weight weekly (Sunday AM)</div><div class="plan-status">Starts Mon</div></div>
+        <div class="plan-item"><div class="plan-dot green"></div><div class="plan-text">Sleep 7+ hours for recovery</div><div class="plan-status">Monitoring</div></div>
+        <div class="plan-btns">
+          <div class="plan-btn secondary">Send to WhatsApp</div>
+          <div class="plan-btn primary">View Dashboard</div>
+        </div>
+      </div>
+
+      <!-- Progress preview -->
+      <div class="progress-card" id="progressCard">
+        <div class="card-title" style="margin-bottom:6px">12-Week Projection</div>
+        <div class="prog-chart" id="progChart"></div>
+        <div class="prog-stats">
+          <div class="prog-stat"><div class="prog-val" id="pSleep">+23%</div><div class="prog-lab">Sleep quality</div></div>
+          <div class="prog-stat"><div class="prog-val" id="pWeight">-7 kg</div><div class="prog-lab">Weight change</div></div>
+          <div class="prog-stat"><div class="prog-val" id="pEnergy">+31%</div><div class="prog-lab">Energy level</div></div>
+        </div>
+      </div>
+
+      <!-- Remember -->
+      <div class="remember" id="remember">
+        <div class="remember-text">Come back anytime. I'll remember everything.</div>
+      </div>
+    </div>
+
+    <!-- Confetti overlay -->
+    <div class="confetti-wrap" id="confetti"></div>
+
+    <!-- Close brand overlay -->
+    <div class="close-brand" id="closeBrand">
+      <div class="close-orb"><span>P</span></div>
+      <div class="close-tag">One question.<br><em>The whole picture.</em></div>
+      <div class="close-name">Pulse</div>
+    </div>
+
+    <!-- Fixed input bar -->
+    <div class="input-bar" id="inputBar">
+      <div class="input-field" id="inputField"></div>
+      <div class="send-btn" id="sendBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => document.querySelectorAll(s);
+const wait = ms => new Promise(r => setTimeout(r, ms));
+const scr = $('#scr');
+
+// Typing animation
+async function typeText(el, text, speed = 35) {
+  el.classList.add('typing');
+  for (let i = 0; i < text.length; i++) {
+    el.innerHTML = text.slice(0, i + 1) + '<span class="cursor"></span>';
+    await wait(speed);
+  }
+}
+
+// Scroll to bottom smoothly
+function scrollDown(delay = 0) {
+  setTimeout(() => {
+    scr.scrollTo({ top: scr.scrollHeight, behavior: 'smooth' });
+  }, delay);
+}
+
+// Create card dynamically
+function createCard(html, id) {
+  const card = document.createElement('div');
+  card.className = 'card';
+  card.id = id;
+  card.innerHTML = html;
+  $('#cards').appendChild(card);
+  return card;
+}
+
+// Spawn confetti
+function confetti() {
+  const wrap = $('#confetti');
+  const colors = ['#0e7a7e', '#14b8a6', '#f59e0b', '#ef4444', '#8b5cf6', '#10b981'];
+  for (let i = 0; i < 40; i++) {
+    const c = document.createElement('div');
+    c.className = 'conf';
+    c.style.cssText = `left:${Math.random()*100}%;top:${Math.random()*20-10}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      width:${4+Math.random()*4}px;height:${4+Math.random()*4}px;
+      border-radius:${Math.random()>0.5?'50%':'1px'};
+      animation:confFall ${1+Math.random()*1.5}s cubic-bezier(0.25,1,0.5,1) ${Math.random()*0.5}s forwards`;
+    wrap.appendChild(c);
+  }
+  setTimeout(() => { wrap.innerHTML = ''; }, 3000);
+}
+
+// Build progress bars
+function buildProgChart() {
+  const heights = [15, 22, 28, 35, 40, 38, 42, 45, 50, 48, 46, 44];
+  const chart = $('#progChart');
+  heights.forEach((h, i) => {
+    const bar = document.createElement('div');
+    bar.className = 'prog-bar' + (i >= 8 ? ' proj' : '');
+    bar.style.height = '0px';
+    chart.appendChild(bar);
+    setTimeout(() => { bar.style.height = h + 'px'; }, 200 + i * 80);
+  });
+}
+
+// === MAIN ANIMATION SEQUENCE ===
+async function run() {
+  // Phase 1 (0-5s): Blank canvas — already rendered
+  await wait(2000);
+
+  // Phase 2 (5-10s): User types
+  await typeText($('#inputField'), "I want to lose weight but I don't know where to start", 35);
+  await wait(300);
+  $('#sendBtn').classList.add('in');
+  await wait(600);
+  // Send
+  $('#sendBtn').classList.remove('in');
+  $('#inputField').innerHTML = '';
+  $('#inputField').classList.remove('typing');
+
+  // Phase 3 (10-22s): Interface generates
+  // Prompt fades up
+  await wait(200);
+  $('#prompt').classList.add('up');
+
+  // Logo glow (thinking)
+  $('#logoOrb').classList.add('glow');
+  await wait(1200);
+  $('#logoOrb').classList.remove('glow');
+
+  // Card 1: Basics
+  const c1 = createCard(`
+    <div class="card-title">Let's start with the basics</div>
+    <div class="quick-inputs">
+      <div class="qi-row"><span class="qi-label">Current weight</span><span class="qi-val" id="qv1">82 kg</span></div>
+      <div class="qi-row"><span class="qi-label">Goal weight</span><span class="qi-val" id="qv2">75 kg</span></div>
+      <div class="qi-row"><span class="qi-label">Timeline</span><span class="qi-val" id="qv3">3 months</span></div>
+    </div>
+  `, 'card1');
+  await wait(50);
+  c1.classList.add('in');
+  scrollDown(100);
+  await wait(400);
+  // Auto-fill values
+  $('#qv1').classList.add('in'); await wait(200);
+  $('#qv2').classList.add('in'); await wait(200);
+  $('#qv3').classList.add('in');
+  await wait(600);
+
+  // Card 2: Routine
+  const c2 = createCard(`
+    <div class="card-title">What's your current routine?</div>
+    <div class="pills">
+      <span class="pill" id="p1">Sedentary</span>
+      <span class="pill" id="p2">Light</span>
+      <span class="pill" id="p3">Active</span>
+      <span class="pill" id="p4">Very active</span>
+    </div>
+  `, 'card2');
+  await wait(50);
+  c2.classList.add('in');
+  scrollDown(100);
+  await wait(300);
+  // Pills appear
+  $('#p1').classList.add('in'); await wait(100);
+  $('#p2').classList.add('in'); await wait(100);
+  $('#p3').classList.add('in'); await wait(100);
+  $('#p4').classList.add('in');
+  await wait(400);
+  // Auto-select Active
+  $('#p3').classList.add('sel');
+  await wait(800);
+
+  // Card 3: Results
+  const c3 = createCard(`
+    <div class="card-title">Your daily target</div>
+    <div class="result-row"><span class="r-label">Daily calories</span><span class="r-val">2,340 kcal</span></div>
+    <div class="result-row"><span class="r-label">Protein</span><span class="r-val">148g</span></div>
+    <div class="result-row"><span class="r-label">Weekly loss rate</span><span class="r-val">~0.5 kg</span></div>
+    <div class="ring-wrap">
+      <svg class="ring" viewBox="0 0 54 54">
+        <circle class="ring-bg" cx="27" cy="27" r="25"/>
+        <circle class="ring-p" id="ringP" cx="27" cy="27" r="25" transform="rotate(-90 27 27)"/>
+        <circle class="ring-c" id="ringC" cx="27" cy="27" r="25" transform="rotate(-90 27 27)"/>
+        <circle class="ring-f" id="ringF" cx="27" cy="27" r="25" transform="rotate(-90 27 27)"/>
+        <text class="ring-center" x="27" y="29" text-anchor="middle">Macros</text>
+      </svg>
+    </div>
+  `, 'card3');
+  await wait(50);
+  c3.classList.add('in');
+  scrollDown(100);
+  await wait(400);
+  // Animate ring
+  $('#ringP').style.strokeDasharray = '63 157'; // protein ~40%
+  $('#ringC').style.strokeDasharray = '55 157'; // carbs ~35%
+  $('#ringF').style.strokeDasharray = '39 157'; // fat ~25%
+  await wait(800);
+
+  // Card 4: Suggestions
+  const c4 = createCard(`
+    <div class="card-subtitle">I noticed you said "I don't know where to start." Here's what I'd do first:</div>
+    <div class="step"><div class="step-num">1</div><div class="step-text">Track your meals for 3 days — just to see where you are now</div><div class="step-check"></div></div>
+    <div class="step"><div class="step-num">2</div><div class="step-text">Hit your protein target (148g) before worrying about anything else</div><div class="step-check"></div></div>
+    <div class="step"><div class="step-num">3</div><div class="step-text">Weigh yourself Sunday mornings — ignore daily fluctuations</div><div class="step-check"></div></div>
+  `, 'card4');
+  await wait(50);
+  c4.classList.add('in');
+  scrollDown(100);
+  await wait(1500);
+
+  // Phase 4 (22-32s): Second question — different UI
+  // Show second input inline
+  const input2Wrap = document.createElement('div');
+  input2Wrap.className = 'input-bar-2';
+  input2Wrap.id = 'input2';
+  input2Wrap.innerHTML = '<div class="input-field-2" id="inputField2">Ask me anything else...</div>';
+  $('#cards').appendChild(input2Wrap);
+  await wait(50);
+  input2Wrap.classList.add('in');
+  scrollDown(100);
+  await wait(800);
+
+  // Type second question
+  await typeText($('#inputField2'), "when should I stop drinking coffee?", 30);
+  $('#inputField2').classList.add('typing');
+  await wait(600);
+
+  // Send — clear input
+  $('#inputField2').innerHTML = '';
+  $('#inputField2').classList.remove('typing');
+  input2Wrap.style.display = 'none';
+
+  // Slide up weight cards
+  await wait(200);
+  $$('#card1,#card2,#card3,#card4').forEach(c => c.classList.add('slide-up'));
+  await wait(400);
+  $$('#card1,#card2,#card3,#card4').forEach(c => c.classList.add('gone'));
+
+  // Logo glow
+  $('#logoOrb').classList.add('glow');
+  await wait(800);
+  $('#logoOrb').classList.remove('glow');
+
+  // Card 5: Caffeine
+  const c5 = createCard(`
+    <div class="card-title">Caffeine Half-Life Calculator</div>
+    <div class="caff-timeline">
+      <div class="caff-bar" id="caffBar"></div>
+      <div class="caff-labels">
+        <span class="caff-l">8 AM</span>
+        <span class="caff-l">12 PM</span>
+        <span class="caff-l">4 PM</span>
+        <span class="caff-l">8 PM</span>
+        <span class="caff-l">12 AM</span>
+      </div>
+      <div class="caff-cutoff">Last coffee: 2:00 PM</div>
+    </div>
+    <div class="result-row"><span class="r-label">At midnight</span><span class="r-val">~0.1% caffeine</span></div>
+    <div class="toggle-row">
+      <span class="toggle-label">Set daily reminder?</span>
+      <div class="toggle" id="caffToggle"><div class="toggle-dot"></div></div>
+    </div>
+  `, 'card5');
+  await wait(50);
+  c5.classList.add('in');
+  scrollDown(100);
+  await wait(400);
+  $('#caffBar').style.width = '45%';
+  await wait(600);
+  $('#caffToggle').classList.add('on');
+  await wait(1200);
+
+  // Phase 5 (32-40s): Connection
+  // Bring back weight cards (faded)
+  $$('#card1,#card2,#card3,#card4').forEach(c => {
+    c.classList.remove('gone','slide-up');
+    c.style.opacity = '0.5';
+    c.style.transform = 'translateY(0) scale(0.97)';
+  });
+  scrollDown(100);
+  await wait(600);
+
+  $('#connection').classList.add('in');
+  scrollDown(200);
+  await wait(2500);
+
+  // Phase 6 (40-50s): Plan compiles
+  // Hide all cards
+  $$('.card').forEach(c => { c.classList.add('gone'); });
+  $('#connection').style.display = 'none';
+  await wait(400);
+
+  $('#planCard').classList.add('in');
+  scrollDown(100);
+  await wait(800);
+  confetti();
+  await wait(2500);
+
+  // Phase 7 (50-58s): Progress preview
+  $('#progressCard').classList.add('in');
+  scrollDown(100);
+  buildProgChart();
+  await wait(1500);
+  $('#remember').classList.add('in');
+  scrollDown(100);
+  await wait(2500);
+
+  // Phase 8 (58-68s): Close
+  // Fade everything, return to canvas
+  $('#planCard').style.transition = 'opacity 1s';
+  $('#planCard').style.opacity = '0';
+  $('#progressCard').style.transition = 'opacity 1s';
+  $('#progressCard').style.opacity = '0';
+  $('#remember').style.transition = 'opacity 1s';
+  $('#remember').style.opacity = '0';
+  $('#cards').style.transition = 'opacity 1s';
+  $('#cards').style.opacity = '0';
+  $('#inputBar').style.transition = 'opacity 1s';
+  $('#inputBar').style.opacity = '0';
+
+  await wait(1200);
+
+  // Scroll to top
+  scr.scrollTo({ top: 0, behavior: 'smooth' });
+  await wait(600);
+
+  // Show prompt again with badge
+  $('#prompt').classList.remove('up');
+  $('#prompt').classList.add('final');
+  await wait(600);
+  $('#plansBadge').classList.add('in');
+  await wait(2000);
+
+  // Brand close
+  $('#closeBrand').classList.add('in');
+}
+
+// Start
+run();
+</script>
+</body>
+</html>
