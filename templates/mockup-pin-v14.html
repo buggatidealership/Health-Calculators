@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Receipts — Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:#0a0a0c;color:#fff;display:flex;align-items:center;justify-content:center}
+
+/* ── Container ── */
+.stage{position:relative;width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;background:#0a0a0c;transition:background 1.5s ease}
+.stage.teal-bg{background:#0a1a1a}
+
+/* ── Phase 1: Hook ── */
+.hook{position:absolute;font-size:clamp(2rem,5vw,3.6rem);font-weight:700;letter-spacing:-0.02em;
+  opacity:0;transition:opacity 0.8s ease}
+.hook.on{opacity:1}
+
+/* ── Receipt cards ── */
+.receipt{position:absolute;width:min(420px,88vw);background:#1a1a1e;border-radius:16px;
+  border:1px solid rgba(255,255,255,0.06);padding:28px 24px 20px;
+  opacity:0;transform:translateY(80px) scale(0.96);
+  transition:opacity 0.5s ease,transform 0.6s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 20px 60px rgba(0,0,0,0.6)}
+.receipt.in{opacity:1;transform:translateY(0) scale(1)}
+.receipt.out{opacity:0;transform:translateX(-200px) scale(0.92);
+  transition:opacity 0.4s ease,transform 0.5s ease}
+
+.receipt-platform{font-size:1.5rem;font-weight:700;margin-bottom:12px;letter-spacing:-0.01em}
+.receipt-quote{font-size:0.95rem;color:rgba(255,255,255,0.5);margin-bottom:18px;
+  font-style:italic;line-height:1.5}
+.receipt-quote::before{content:'\201C'}
+.receipt-quote::after{content:'\201D'}
+
+.receipt-lines{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+.receipt-line{display:flex;align-items:baseline;gap:6px;font-family:'DM Mono',monospace;
+  font-size:0.82rem;color:rgba(255,255,255,0.7);line-height:1.4}
+.receipt-line .dot-leader{flex:1;border-bottom:1px dotted rgba(255,255,255,0.15);
+  min-width:20px;margin:0 4px;transform:translateY(-4px)}
+
+.receipt-stamp{display:inline-block;font-family:'DM Sans',sans-serif;font-weight:700;
+  font-size:0.85rem;letter-spacing:0.06em;text-transform:uppercase;
+  padding:6px 14px;border:2px solid;border-radius:4px;
+  transform:rotate(-2deg);opacity:0.9}
+.stamp-red{color:#ef4444;border-color:#ef4444}
+.stamp-green{color:#14b8a6;border-color:#14b8a6}
+
+/* Google brand colors */
+.g-blue{color:#4285F4}
+.g-red{color:#EA4335}
+.g-yellow{color:#FBBC05}
+.g-green{color:#34A853}
+
+/* Platform brand colors */
+.c-chatgpt{color:#10a37f}
+.c-reddit{color:#FF5700}
+.c-youtube{color:#FF0000}
+.c-tiktok{color:#fff}
+
+/* ── Phase 3: Pattern text ── */
+.pattern{position:absolute;display:flex;flex-direction:column;align-items:center;gap:16px;
+  opacity:0;transition:opacity 0.6s ease}
+.pattern.on{opacity:1}
+.pattern-main{font-size:clamp(1.8rem,4.5vw,3rem);font-weight:700;letter-spacing:-0.02em}
+.pattern-sub{font-size:clamp(1rem,2.5vw,1.5rem);font-weight:400;color:rgba(255,255,255,0.5);
+  opacity:0;transform:translateY(10px);transition:all 0.6s ease}
+.pattern-sub.on{opacity:1;transform:translateY(0)}
+
+/* Typewriter cursor */
+.cursor{display:inline-block;width:2px;height:1em;background:#fff;margin-left:2px;
+  animation:blink 0.8s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* ── Phase 4: Pulse card ── */
+.pulse-card{position:absolute;width:min(420px,88vw);background:#0f2420;border-radius:16px;
+  border:1px solid rgba(20,184,166,0.3);padding:28px 24px 20px;
+  opacity:0;transform:translateY(60px) scale(0.96);
+  transition:opacity 0.6s ease,transform 0.7s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow:0 20px 60px rgba(14,122,126,0.15)}
+.pulse-card.in{opacity:1;transform:translateY(0) scale(1)}
+.pulse-card .receipt-platform{color:#14b8a6}
+.pulse-card .receipt-line{color:rgba(255,255,255,0.8)}
+.pulse-card .receipt-line .dot-leader{border-bottom-color:rgba(20,184,166,0.2)}
+
+/* ── Phase 5: Contrast lines ── */
+.contrast{position:absolute;display:flex;flex-direction:column;align-items:center;gap:20px;
+  opacity:0;transition:opacity 0.6s ease}
+.contrast.on{opacity:1}
+.contrast-pair{text-align:center}
+.contrast-gray{font-size:clamp(1rem,2.2vw,1.3rem);color:rgba(255,255,255,0.35);font-weight:400;
+  margin-bottom:6px}
+.contrast-teal{font-size:clamp(1.4rem,3.2vw,2rem);color:#14b8a6;font-weight:700;
+  letter-spacing:-0.01em}
+
+/* ── Phase 6: Brand close ── */
+.brand{position:absolute;display:flex;flex-direction:column;align-items:center;gap:16px;
+  opacity:0;transition:opacity 0.8s ease}
+.brand.on{opacity:1}
+.orb{width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 0 40px rgba(14,122,126,0.4);animation:pulse-glow 3s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 40px rgba(14,122,126,0.4)}
+  50%{box-shadow:0 0 60px rgba(14,122,126,0.6)}}
+.brand-tagline{font-size:clamp(1.2rem,3vw,1.8rem);font-weight:600;letter-spacing:-0.01em}
+.brand-url{font-size:0.9rem;color:rgba(255,255,255,0.4);font-weight:400}
+
+/* ── Replay button ── */
+.replay{position:fixed;bottom:24px;right:24px;background:rgba(255,255,255,0.08);
+  border:1px solid rgba(255,255,255,0.12);color:#fff;padding:10px 20px;border-radius:8px;
+  font-family:'DM Sans',sans-serif;font-size:0.85rem;font-weight:500;cursor:pointer;
+  opacity:0;transition:opacity 0.4s ease;z-index:100}
+.replay:hover{background:rgba(255,255,255,0.14)}
+.replay.on{opacity:1}
+</style>
+</head>
+<body>
+
+<div class="stage" id="stage">
+  <!-- Phase 1: Hook -->
+  <div class="hook" id="hook">Let's be honest.</div>
+
+  <!-- Phase 2: Receipt cards -->
+  <div class="receipt" id="r-google">
+    <div class="receipt-platform">
+      <span class="g-blue">G</span><span class="g-red">o</span><span class="g-yellow">o</span><span class="g-blue">g</span><span class="g-green">l</span><span class="g-red">e</span>
+    </div>
+    <div class="receipt-quote">10 results for 'how to lose weight'</div>
+    <div class="receipt-lines">
+      <div class="receipt-line"><span>3 were ads</span></div>
+      <div class="receipt-line"><span>2 contradicted each other</span></div>
+      <div class="receipt-line"><span>1 was from 2014</span></div>
+    </div>
+    <div class="receipt-stamp stamp-red">RESULT: Still confused</div>
+  </div>
+
+  <div class="receipt" id="r-chatgpt">
+    <div class="receipt-platform c-chatgpt">ChatGPT</div>
+    <div class="receipt-quote">Sure! Here are 12 things you could try:</div>
+    <div class="receipt-lines">
+      <div class="receipt-line"><span>You read 3 of them</span></div>
+      <div class="receipt-line"><span>Forgot all of them by lunch</span></div>
+      <div class="receipt-line"><span>Asked again next week</span></div>
+    </div>
+    <div class="receipt-stamp stamp-red">RESULT: Information, not action</div>
+  </div>
+
+  <div class="receipt" id="r-reddit">
+    <div class="receipt-platform c-reddit">Reddit</div>
+    <div class="receipt-quote">Just eat less and move more bro</div>
+    <div class="receipt-lines">
+      <div class="receipt-line"><span>47 upvotes</span></div>
+      <div class="receipt-line"><span>Reply: 'this is terrible advice'</span></div>
+      <div class="receipt-line"><span>Reply to reply: 'worked for me'</span></div>
+    </div>
+    <div class="receipt-stamp stamp-red">RESULT: Arguments, not answers</div>
+  </div>
+
+  <div class="receipt" id="r-youtube">
+    <div class="receipt-platform c-youtube">YouTube</div>
+    <div class="receipt-quote">THE TRUTH ABOUT WEIGHT LOSS (17 min)</div>
+    <div class="receipt-lines">
+      <div class="receipt-line"><span>3 min intro</span></div>
+      <div class="receipt-line"><span>8 min sponsor</span></div>
+      <div class="receipt-line"><span>4 min content</span></div>
+      <div class="receipt-line"><span>2 min 'like and subscribe'</span></div>
+    </div>
+    <div class="receipt-stamp stamp-red">RESULT: 17 minutes for nothing</div>
+  </div>
+
+  <div class="receipt" id="r-tiktok">
+    <div class="receipt-platform c-tiktok">TikTok</div>
+    <div class="receipt-quote">This ONE trick changed my life</div>
+    <div class="receipt-lines">
+      <div class="receipt-line"><span>No sources cited</span></div>
+      <div class="receipt-line"><span>Turns out it's an ad</span></div>
+      <div class="receipt-line"><span>Comment section: 50% 'this is fake'</span></div>
+    </div>
+    <div class="receipt-stamp stamp-red">RESULT: Entertainment, not health</div>
+  </div>
+
+  <!-- Phase 3: Pattern -->
+  <div class="pattern" id="pattern">
+    <div class="pattern-main" id="pattern-main"></div>
+    <div class="pattern-sub" id="pattern-sub1">They gave you content.</div>
+    <div class="pattern-sub" id="pattern-sub2">You needed a companion.</div>
+  </div>
+
+  <!-- Phase 4: Pulse card -->
+  <div class="pulse-card" id="pulse-card">
+    <div class="receipt-platform">Pulse</div>
+    <div class="receipt-lines">
+      <div class="receipt-line"><span>You asked 1 question</span></div>
+      <div class="receipt-line"><span>Got 1 personalized answer</span></div>
+      <div class="receipt-line"><span>Received a plan on WhatsApp</span></div>
+      <div class="receipt-line"><span>Got reminded at the right time</span></div>
+      <div class="receipt-line"><span>Checked in. Adjusted. Progressed.</span></div>
+    </div>
+    <div class="receipt-stamp stamp-green">RESULT: -1.4 kg in 2 weeks</div>
+  </div>
+
+  <!-- Phase 5: Contrast -->
+  <div class="contrast" id="contrast">
+    <div class="contrast-pair">
+      <div class="contrast-gray" id="cg1">They take your attention.</div>
+      <div class="contrast-teal" id="ct1">We focus it.</div>
+    </div>
+    <div class="contrast-pair">
+      <div class="contrast-gray" id="cg2">They give you content.</div>
+      <div class="contrast-teal" id="ct2">We give you progress.</div>
+    </div>
+  </div>
+
+  <!-- Phase 6: Brand -->
+  <div class="brand" id="brand">
+    <div class="orb"></div>
+    <div class="brand-tagline">Your health. No bullshit.</div>
+    <div class="brand-url">healthcalculators.xyz&ensp;/&ensp;@GetHealthC</div>
+  </div>
+</div>
+
+<button class="replay" id="replay" onclick="run()">Replay</button>
+
+<script>
+const $ = id => document.getElementById(id);
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+// Typewriter effect
+async function typewrite(el, text, speed = 50) {
+  el.innerHTML = '';
+  const cursor = document.createElement('span');
+  cursor.className = 'cursor';
+  for (let i = 0; i < text.length; i++) {
+    el.insertBefore(document.createTextNode(text[i]), cursor);
+    el.appendChild(cursor);
+    await wait(speed);
+  }
+  // Remove cursor after a beat
+  await wait(600);
+  if (cursor.parentNode) cursor.remove();
+}
+
+// Show receipt: slide in from below, wait, slide out left
+async function showReceipt(id, duration) {
+  const el = $(id);
+  el.classList.remove('out');
+  el.classList.add('in');
+  await wait(duration);
+  el.classList.remove('in');
+  el.classList.add('out');
+  await wait(500); // exit animation time
+}
+
+async function run() {
+  // Reset everything
+  const stage = $('stage');
+  const replay = $('replay');
+  replay.classList.remove('on');
+  stage.classList.remove('teal-bg');
+
+  // Hide all elements
+  $('hook').classList.remove('on');
+  ['r-google','r-chatgpt','r-reddit','r-youtube','r-tiktok'].forEach(id => {
+    $(id).classList.remove('in','out');
+    $(id).style.opacity = '0';
+    $(id).style.transform = 'translateY(80px) scale(0.96)';
+  });
+  $('pattern').classList.remove('on');
+  $('pattern-main').innerHTML = '';
+  $('pattern-sub1').classList.remove('on');
+  $('pattern-sub2').classList.remove('on');
+  $('pulse-card').classList.remove('in');
+  $('contrast').classList.remove('on');
+  ['cg1','ct1','cg2','ct2'].forEach(id => {
+    $(id).style.opacity = '0';
+    $(id).style.transform = 'translateY(8px)';
+  });
+  $('brand').classList.remove('on');
+
+  // Reset inline styles that override CSS
+  ['r-google','r-chatgpt','r-reddit','r-youtube','r-tiktok'].forEach(id => {
+    $(id).removeAttribute('style');
+  });
+  ['cg1','ct1','cg2','ct2'].forEach(id => {
+    $(id).removeAttribute('style');
+  });
+
+  await wait(300);
+
+  // ── Phase 1: Hook (0-3s) ──
+  $('hook').classList.add('on');
+  await wait(2500);
+  $('hook').classList.remove('on');
+  await wait(500);
+
+  // ── Phase 2: Receipts (3-28s) ──
+  await showReceipt('r-google', 4500);    // 5s reading
+  await showReceipt('r-chatgpt', 4500);   // 5s reading
+  await showReceipt('r-reddit', 4500);    // 5s reading
+  await showReceipt('r-youtube', 4500);   // 5s reading
+  await showReceipt('r-tiktok', 4500);    // 5s reading
+
+  // ── Phase 3: Pattern (28-32s) ──
+  $('pattern').classList.add('on');
+  await typewrite($('pattern-main'), '5 platforms. 0 progress.', 60);
+  await wait(1000);
+  $('pattern-sub1').classList.add('on');
+  await wait(1000);
+  $('pattern-sub2').classList.add('on');
+  await wait(2000);
+  $('pattern').classList.remove('on');
+  await wait(600);
+
+  // ── Phase 4: Pulse card (32-42s) ──
+  stage.classList.add('teal-bg');
+  await wait(400);
+  $('pulse-card').classList.add('in');
+  await wait(8000);
+  $('pulse-card').classList.remove('in');
+  await wait(600);
+
+  // ── Phase 5: Contrast lines (42-48s) ──
+  $('contrast').classList.add('on');
+  await wait(200);
+
+  const fadeIn = (id, delay) => {
+    setTimeout(() => {
+      const el = $(id);
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      el.style.transition = 'all 0.6s ease';
+    }, delay);
+  };
+
+  fadeIn('cg1', 0);
+  fadeIn('ct1', 600);
+  fadeIn('cg2', 1800);
+  fadeIn('ct2', 2400);
+
+  await wait(5500);
+  $('contrast').classList.remove('on');
+  await wait(600);
+
+  // ── Phase 6: Brand close (48-55s) ──
+  $('brand').classList.add('on');
+  await wait(5000);
+
+  // Show replay
+  replay.classList.add('on');
+}
+
+// Auto-start
+run();
+</script>
+
+</body>
+</html>
