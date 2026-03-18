@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pulse — The Roast</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --black: #0a0a0a;
+            --dark-teal: #0a1f1f;
+            --teal: #0e7a7e;
+            --teal-bright: #14b8bc;
+            --white: #ffffff;
+            --dim: rgba(255,255,255,0.3);
+            --dim-mid: rgba(255,255,255,0.5);
+            --google-blue: #4285f4;
+            --chatgpt-green: #10a37f;
+            --reddit-orange: #ff4500;
+            --claude-amber: #d97706;
+            --youtube-red: #ff0000;
+            --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --snap: cubic-bezier(0.25, 1, 0.5, 1);
+            --font-aggressive: 'DM Sans', sans-serif;
+            --font-calm: 'DM Serif Display', serif;
+            --text-big: clamp(1.5rem, 5vw, 3rem);
+            --text-commentary: clamp(0.75rem, 2vw, 0.9rem);
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: var(--font-aggressive);
+            min-height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 2s ease;
+        }
+
+        body.shifted {
+            background: var(--dark-teal);
+        }
+
+        #stage {
+            width: 100%;
+            max-width: 800px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ── Phase elements ── */
+        .phase {
+            position: absolute;
+            width: 100%;
+            padding: 0 2rem;
+            opacity: 0;
+            pointer-events: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phase.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* ── Phase 1: Setup ── */
+        .setup-text {
+            font-family: var(--font-aggressive);
+            font-weight: 700;
+            font-size: var(--text-big);
+            line-height: 1.2;
+            transform: translateY(60px);
+            opacity: 0;
+            transition: transform 0.5s var(--spring), opacity 0.3s ease;
+        }
+
+        .setup-text.in {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ── Phase 2: Roast ── */
+        .roast-card {
+            opacity: 0;
+            transform: translateX(0) scale(0.95);
+            transition: transform 0.4s var(--snap), opacity 0.25s ease;
+        }
+
+        .roast-card.from-left {
+            transform: translateX(-80px) scale(0.95);
+        }
+        .roast-card.from-right {
+            transform: translateX(80px) scale(0.95);
+        }
+        .roast-card.from-bottom {
+            transform: translateY(60px) scale(0.95);
+        }
+
+        .roast-card.in {
+            opacity: 1;
+            transform: translateX(0) scale(1);
+        }
+
+        .roast-platform {
+            font-family: var(--font-aggressive);
+            font-weight: 700;
+            font-size: var(--text-big);
+            line-height: 1.2;
+            margin-bottom: 0.6rem;
+        }
+
+        .roast-burn {
+            font-family: var(--font-aggressive);
+            font-weight: 400;
+            font-size: var(--text-commentary);
+            color: var(--dim);
+            line-height: 1.5;
+            max-width: 500px;
+        }
+
+        /* ── Phase 3: Silence ── */
+        .silence-text {
+            font-family: var(--font-aggressive);
+            font-weight: 400;
+            font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+            color: var(--dim-mid);
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+
+        .silence-text.in {
+            opacity: 1;
+        }
+
+        /* ── Phase 4: Shift ── */
+        .shift-main {
+            font-family: var(--font-calm);
+            font-size: clamp(1.2rem, 4vw, 2.2rem);
+            line-height: 1.3;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: transform 0.8s var(--spring), opacity 0.8s ease;
+        }
+
+        .shift-main.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .shift-sub {
+            font-family: var(--font-aggressive);
+            font-weight: 500;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: var(--teal-bright);
+            margin-top: 1rem;
+            opacity: 0;
+            transition: opacity 0.8s ease 0.4s;
+        }
+
+        .shift-sub.in {
+            opacity: 1;
+        }
+
+        /* ── Phase 5: Difference ── */
+        .diff-pair {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .diff-pair.in {
+            opacity: 1;
+        }
+
+        .diff-them {
+            font-family: var(--font-calm);
+            font-size: clamp(1rem, 3.5vw, 1.8rem);
+            color: rgba(255,255,255,0.35);
+            line-height: 1.3;
+            margin-bottom: 0.4rem;
+        }
+
+        .diff-us {
+            font-family: var(--font-calm);
+            font-size: clamp(1.1rem, 3.8vw, 2rem);
+            color: var(--teal-bright);
+            line-height: 1.3;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: transform 0.5s var(--spring), opacity 0.4s ease;
+        }
+
+        .diff-us.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── Phase 6: Promise ── */
+        .promise-line {
+            font-family: var(--font-calm);
+            font-size: clamp(1.1rem, 4vw, 2rem);
+            line-height: 1.4;
+            color: var(--white);
+            opacity: 0;
+            transform: translateY(30px) scale(0.9);
+            transition: transform 0.6s var(--spring), opacity 0.4s ease;
+            margin-bottom: 0.5rem;
+        }
+
+        .promise-line.in {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .promise-line .teal {
+            color: var(--teal-bright);
+        }
+
+        /* ── Phase 7: Brand ── */
+        .brand-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .pulse-orb {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 40%, var(--teal-bright), var(--teal), #064e50);
+            opacity: 0;
+            transform: scale(0.5);
+            transition: transform 0.8s var(--spring), opacity 0.6s ease;
+            animation: none;
+        }
+
+        .pulse-orb.in {
+            opacity: 1;
+            transform: scale(1);
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 40px rgba(14,122,126,0.3); }
+            50% { transform: scale(1.08); box-shadow: 0 0 60px rgba(14,122,126,0.5); }
+        }
+
+        .brand-name {
+            font-family: var(--font-calm);
+            font-size: clamp(1.5rem, 4vw, 2.4rem);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: transform 0.6s var(--spring) 0.2s, opacity 0.5s ease 0.2s;
+        }
+
+        .brand-name.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .brand-tagline {
+            font-family: var(--font-aggressive);
+            font-weight: 400;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: var(--dim-mid);
+            opacity: 0;
+            transition: opacity 0.6s ease 0.4s;
+        }
+
+        .brand-tagline.in { opacity: 1; }
+
+        .brand-url {
+            font-family: var(--font-aggressive);
+            font-weight: 500;
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            color: var(--teal-bright);
+            opacity: 0;
+            transition: opacity 0.6s ease 0.6s;
+        }
+
+        .brand-url.in { opacity: 1; }
+
+        .brand-handle {
+            font-family: var(--font-aggressive);
+            font-weight: 400;
+            font-size: clamp(0.75rem, 1.6vw, 0.85rem);
+            color: var(--dim);
+            opacity: 0;
+            transition: opacity 0.6s ease 0.8s;
+        }
+
+        .brand-handle.in { opacity: 1; }
+
+        /* ── Progress bar ── */
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 3px;
+            background: var(--teal);
+            width: 0%;
+            transition: width 0.3s linear;
+            z-index: 100;
+        }
+
+        /* ── Replay button ── */
+        .replay-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--dim-mid);
+            font-family: var(--font-aggressive);
+            font-size: 0.8rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.4s ease, background 0.2s ease;
+            z-index: 101;
+        }
+
+        .replay-btn:hover {
+            background: rgba(255,255,255,0.14);
+            color: var(--white);
+        }
+
+        .replay-btn.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar" id="progress"></div>
+
+    <div id="stage">
+        <!-- Phase 1: Setup -->
+        <div class="phase" id="phase1">
+            <div class="setup-text">You had a question about your health.</div>
+        </div>
+
+        <!-- Phase 2: Roast -->
+        <div class="phase" id="phase2">
+            <div class="roast-card" id="roast-google">
+                <div class="roast-platform" style="color: var(--google-blue)">You Googled it.</div>
+                <div class="roast-burn">10 results. 3 ads. 2 contradictions.</div>
+            </div>
+            <div class="roast-card" id="roast-chatgpt">
+                <div class="roast-platform" style="color: var(--chatgpt-green)">You asked ChatGPT.</div>
+                <div class="roast-burn">It wrote you an essay. You forgot it by Tuesday.</div>
+            </div>
+            <div class="roast-card" id="roast-reddit">
+                <div class="roast-platform" style="color: var(--reddit-orange)">You went to Reddit.</div>
+                <div class="roast-burn">"Just eat less bro." Thanks Reddit.</div>
+            </div>
+            <div class="roast-card" id="roast-claude">
+                <div class="roast-platform" style="color: var(--claude-amber)">You tried Claude.</div>
+                <div class="roast-burn">"It depends on many factors." Cool. Which ones?</div>
+            </div>
+            <div class="roast-card" id="roast-youtube">
+                <div class="roast-platform" style="color: var(--youtube-red)">You watched a YouTube video.</div>
+                <div class="roast-burn">17 minutes for an answer that was wrong.</div>
+            </div>
+        </div>
+
+        <!-- Phase 3: Silence -->
+        <div class="phase" id="phase3">
+            <div class="silence-text">You still don't know.</div>
+        </div>
+
+        <!-- Phase 4: Shift -->
+        <div class="phase" id="phase4">
+            <div class="shift-main">What if someone actually figured it out with you?</div>
+            <div class="shift-sub">Not for you. WITH you.</div>
+        </div>
+
+        <!-- Phase 5: Difference -->
+        <div class="phase" id="phase5">
+            <div class="diff-pair" id="diff-1">
+                <div class="diff-them">They give you information.</div>
+                <div class="diff-us">We give you a plan.</div>
+            </div>
+            <div class="diff-pair" id="diff-2">
+                <div class="diff-them">They take your attention.</div>
+                <div class="diff-us">We focus it.</div>
+            </div>
+            <div class="diff-pair" id="diff-3">
+                <div class="diff-them">They scatter.</div>
+                <div class="diff-us">We simplify.</div>
+            </div>
+            <div class="diff-pair" id="diff-4">
+                <div class="diff-them">They forget you exist.</div>
+                <div class="diff-us">We check in tomorrow.</div>
+            </div>
+        </div>
+
+        <!-- Phase 6: Promise -->
+        <div class="phase" id="phase6">
+            <div class="promise-line">One question.</div>
+            <div class="promise-line">A plan that <span class="teal">follows you</span>.</div>
+            <div class="promise-line">Progress you can <span class="teal">see</span>.</div>
+        </div>
+
+        <!-- Phase 7: Brand -->
+        <div class="phase" id="phase7">
+            <div class="brand-wrap">
+                <div class="pulse-orb"></div>
+                <div class="brand-name">Pulse</div>
+                <div class="brand-tagline">Your health. Figured out.</div>
+                <div class="brand-url">healthcalculators.xyz</div>
+                <div class="brand-handle">@GetHealthC</div>
+            </div>
+        </div>
+    </div>
+
+    <button class="replay-btn" id="replayBtn" onclick="replay()">Replay</button>
+
+    <script>
+        const TOTAL_DURATION = 50000; // 50s
+        const progress = document.getElementById('progress');
+        const replayBtn = document.getElementById('replayBtn');
+        let startTime = 0;
+        let rafId = null;
+        let timeouts = [];
+
+        function clearAll() {
+            timeouts.forEach(t => clearTimeout(t));
+            timeouts = [];
+            if (rafId) cancelAnimationFrame(rafId);
+
+            // Reset all phases
+            document.querySelectorAll('.phase').forEach(p => {
+                p.classList.remove('active');
+            });
+            // Reset all animated elements
+            document.querySelectorAll('.in').forEach(el => el.classList.remove('in'));
+            // Reset body
+            document.body.classList.remove('shifted');
+            // Reset roast cards directions
+            document.getElementById('roast-google').className = 'roast-card from-left';
+            document.getElementById('roast-chatgpt').className = 'roast-card from-right';
+            document.getElementById('roast-reddit').className = 'roast-card from-left';
+            document.getElementById('roast-claude').className = 'roast-card from-right';
+            document.getElementById('roast-youtube').className = 'roast-card from-left';
+            // Reset diff pairs
+            document.querySelectorAll('.diff-pair').forEach(p => {
+                p.className = 'diff-pair';
+                p.querySelector('.diff-us').classList.remove('in');
+            });
+            // Reset progress
+            progress.style.width = '0%';
+            replayBtn.classList.remove('visible');
+        }
+
+        function at(ms, fn) {
+            timeouts.push(setTimeout(fn, ms));
+        }
+
+        function showPhase(id) {
+            document.querySelectorAll('.phase').forEach(p => p.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function updateProgress() {
+            const elapsed = Date.now() - startTime;
+            const pct = Math.min((elapsed / TOTAL_DURATION) * 100, 100);
+            progress.style.width = pct + '%';
+            if (pct < 100) {
+                rafId = requestAnimationFrame(updateProgress);
+            }
+        }
+
+        function run() {
+            clearAll();
+            startTime = Date.now();
+            rafId = requestAnimationFrame(updateProgress);
+
+            // ─── Phase 1: Setup (0-3s) ───
+            at(0, () => {
+                showPhase('phase1');
+            });
+            at(100, () => {
+                document.querySelector('.setup-text').classList.add('in');
+            });
+
+            // ─── Phase 2: Roast (3s-18s), each ~3s ───
+            const roasts = [
+                { id: 'roast-google',  start: 3000  },
+                { id: 'roast-chatgpt', start: 6000  },
+                { id: 'roast-reddit',  start: 9000  },
+                { id: 'roast-claude',  start: 12000 },
+                { id: 'roast-youtube', start: 15000 },
+            ];
+
+            at(3000, () => {
+                showPhase('phase2');
+                // Hide all roast cards first
+                document.querySelectorAll('#phase2 .roast-card').forEach(c => {
+                    c.style.display = 'none';
+                });
+            });
+
+            roasts.forEach((r, i) => {
+                at(r.start, () => {
+                    // Hide previous
+                    document.querySelectorAll('#phase2 .roast-card').forEach(c => {
+                        c.classList.remove('in');
+                        c.style.display = 'none';
+                    });
+                    const card = document.getElementById(r.id);
+                    card.style.display = 'block';
+                    // Force reflow for transition
+                    void card.offsetWidth;
+                });
+                at(r.start + 50, () => {
+                    document.getElementById(r.id).classList.add('in');
+                });
+            });
+
+            // ─── Phase 3: Silence (18s-22s) ───
+            at(18000, () => {
+                showPhase('phase3');
+                // Pure black, 2s of nothing
+            });
+            at(20000, () => {
+                document.querySelector('.silence-text').classList.add('in');
+            });
+
+            // ─── Phase 4: Shift (22s-28s) ───
+            at(22000, () => {
+                document.body.classList.add('shifted');
+            });
+            at(24000, () => {
+                showPhase('phase4');
+                document.querySelector('.shift-main').classList.add('in');
+                document.querySelector('.shift-sub').classList.add('in');
+            });
+
+            // ─── Phase 5: Difference (28s-38s), each pair ~2.5s ───
+            const diffs = ['diff-1', 'diff-2', 'diff-3', 'diff-4'];
+            const diffStart = 28000;
+            const diffInterval = 2500;
+
+            at(diffStart, () => {
+                showPhase('phase5');
+            });
+
+            diffs.forEach((id, i) => {
+                const t = diffStart + (i * diffInterval);
+                at(t, () => {
+                    // Hide previous pairs
+                    diffs.forEach(d => {
+                        const el = document.getElementById(d);
+                        el.classList.remove('in');
+                        el.querySelector('.diff-us').classList.remove('in');
+                    });
+                    const pair = document.getElementById(id);
+                    pair.classList.add('in');
+                });
+                // The "us" part appears after a beat
+                at(t + 800, () => {
+                    document.getElementById(id).querySelector('.diff-us').classList.add('in');
+                });
+            });
+
+            // ─── Phase 6: Promise (38s-44s) ───
+            at(38000, () => {
+                showPhase('phase6');
+            });
+            const promiseLines = document.querySelectorAll('.promise-line');
+            promiseLines.forEach((line, i) => {
+                at(38000 + (i * 1000), () => {
+                    line.classList.add('in');
+                });
+            });
+
+            // ─── Phase 7: Brand (44s-50s) ───
+            at(44000, () => {
+                showPhase('phase7');
+                const wrap = document.querySelector('.brand-wrap');
+                wrap.querySelector('.pulse-orb').classList.add('in');
+                wrap.querySelector('.brand-name').classList.add('in');
+                wrap.querySelector('.brand-tagline').classList.add('in');
+                wrap.querySelector('.brand-url').classList.add('in');
+                wrap.querySelector('.brand-handle').classList.add('in');
+            });
+
+            // Show replay
+            at(TOTAL_DURATION, () => {
+                replayBtn.classList.add('visible');
+            });
+        }
+
+        function replay() {
+            replayBtn.classList.remove('visible');
+            run();
+        }
+
+        // Start on load
+        window.addEventListener('load', () => {
+            setTimeout(run, 300);
+        });
+    </script>
+</body>
+</html>
