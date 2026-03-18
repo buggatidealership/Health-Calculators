@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Loop — Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#060810;width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#e4e6ea}
+
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+
+/* Ambient glow */
+.amb{position:absolute;border-radius:50%;filter:blur(140px);pointer-events:none;opacity:0;transition:opacity 3s}
+.a1{width:600px;height:600px;background:radial-gradient(circle,rgba(14,122,126,0.05),transparent 70%);top:-200px;right:5%}
+.a2{width:400px;height:400px;background:radial-gradient(circle,rgba(14,122,126,0.04),transparent 70%);bottom:-100px;left:10%}
+.amb.on{opacity:1}
+
+/* Scene system */
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;transition:opacity 0.7s cubic-bezier(0.25,1,0.5,1);pointer-events:none}
+.scene.on{opacity:1;pointer-events:auto}
+
+/* Shared text animation */
+.fade-up{opacity:0;transform:translateY(16px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.fade-up.in{opacity:1;transform:translateY(0)}
+
+/* ===== PHASE 1: SETUP ===== */
+.setup-text{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,3.5vw,2.2rem);color:rgba(255,255,255,0.35);text-align:center;letter-spacing:0.02em}
+
+/* ===== PHASE 2 & 5: DAY CARDS ===== */
+.week{max-width:620px;width:100%;padding:0 28px;position:relative}
+.day-row{display:flex;align-items:baseline;gap:16px;padding:8px 0;opacity:0;transform:translateX(-30px);transition:all 0.35s cubic-bezier(0.16,1,0.3,1)}
+.day-row.in{opacity:1;transform:translateX(0)}
+.day-label{font-size:clamp(0.6rem,1.1vw,0.72rem);font-weight:700;text-transform:uppercase;letter-spacing:0.12em;min-width:90px;text-align:right;flex-shrink:0}
+.day-label-dest{color:rgba(255,255,255,0.45)}
+.day-label-pulse{color:#0e7a7e}
+.day-action{font-size:clamp(0.82rem,1.4vw,0.95rem);color:#e4e6ea;font-weight:400;line-height:1.4;flex:1}
+.day-dim{font-size:clamp(0.65rem,1vw,0.75rem);color:rgba(255,255,255,0.2);font-weight:300;font-style:italic;margin-left:6px;white-space:nowrap}
+.day-teal{font-size:clamp(0.65rem,1vw,0.75rem);color:rgba(14,122,126,0.7);font-weight:400;margin-left:6px;white-space:nowrap}
+
+/* Sunday highlight */
+.day-row.loop-highlight .day-action{color:#c44;}
+.day-row.loop-highlight{animation:loopFlash 0.6s ease 2}
+@keyframes loopFlash{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* Loop arrow SVG */
+.loop-arrow-wrap{position:absolute;right:-30px;top:0;bottom:0;width:60px;pointer-events:none;opacity:0;transition:opacity 0.8s}
+.loop-arrow-wrap.in{opacity:1}
+.loop-arrow{stroke:rgba(255,255,255,0.15);stroke-width:2;fill:none;stroke-dasharray:6 4}
+.loop-arrowhead{fill:rgba(255,255,255,0.15)}
+
+/* Loop crack / strikethrough */
+.strike-line{position:absolute;left:-10px;right:-10px;top:50%;height:3px;background:linear-gradient(90deg,transparent,#c44,#c44,transparent);transform:scaleX(0);transform-origin:left;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1)}
+.strike-line.in{transform:scaleX(1)}
+
+/* ===== PHASE 3: REPEAT TEXT ===== */
+.repeat-text{text-align:center;padding:0 24px}
+.repeat-line{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2vw,1.3rem);color:rgba(255,255,255,0.5);line-height:1.6}
+.repeat-dim{font-size:clamp(0.75rem,1.2vw,0.85rem);color:rgba(255,255,255,0.15);font-weight:300;margin-top:12px;line-height:1.5}
+
+/* ===== PHASE 4: BREAK ===== */
+.break-text{font-family:'DM Sans',sans-serif;font-size:clamp(2.2rem,6vw,4rem);font-weight:700;color:#fff;text-align:center;letter-spacing:-0.02em}
+
+/* ===== PHASE 6: CONTRAST ===== */
+.contrast-wrap{text-align:center;padding:0 24px;max-width:560px}
+.contrast-row{display:flex;align-items:center;justify-content:center;gap:16px;margin:10px 0;font-size:clamp(0.8rem,1.3vw,0.95rem)}
+.contrast-label{font-weight:600;min-width:90px;text-align:right}
+.contrast-gray{color:rgba(255,255,255,0.3)}
+.contrast-teal{color:#0e7a7e}
+.contrast-flow{color:rgba(255,255,255,0.6);font-weight:300;letter-spacing:0.04em}
+.contrast-arrow{color:rgba(255,255,255,0.15);margin:0 2px}
+
+/* ===== PHASE 7: PROMISE ===== */
+.promise-wrap{text-align:center;padding:0 24px;max-width:500px}
+.promise-line{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,2.8vw,1.8rem);line-height:1.5;color:#e4e6ea}
+.promise-line em{color:#0e7a7e;font-style:italic}
+
+/* ===== PHASE 8: CLOSE ===== */
+.close-wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.phone-frame{width:260px;background:#111;border-radius:28px;padding:12px;box-shadow:0 0 60px rgba(14,122,126,0.08),0 20px 50px rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.06)}
+.phone-screen{background:#0b141a;border-radius:18px;padding:16px 14px;min-height:120px}
+.wa-header{display:flex;align-items:center;gap:8px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.06)}
+.wa-avatar{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#0e7a7e,#0a5c5f);display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#fff}
+.wa-name{font-size:0.72rem;font-weight:600;color:rgba(255,255,255,0.85)}
+.wa-bubble{background:#005c4b;border-radius:8px 8px 8px 2px;padding:8px 12px;max-width:85%;font-size:0.78rem;color:#e4e6ea;line-height:1.45}
+.close-tagline{text-align:center;margin-top:8px}
+.close-serif{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2vw,1.25rem);color:rgba(255,255,255,0.7);line-height:1.5}
+.close-teal{color:#0e7a7e}
+.close-handle{font-size:0.65rem;color:rgba(255,255,255,0.18);margin-top:10px;letter-spacing:0.08em}
+
+/* Replay button */
+.replay-btn{position:fixed;bottom:20px;right:20px;background:rgba(14,122,126,0.15);border:1px solid rgba(14,122,126,0.3);color:#0e7a7e;font-family:'DM Sans',sans-serif;font-size:0.7rem;padding:8px 16px;border-radius:20px;cursor:pointer;opacity:0;transition:opacity 0.5s;z-index:100;letter-spacing:0.06em;font-weight:500}
+.replay-btn.show{opacity:1}
+.replay-btn:hover{background:rgba(14,122,126,0.25)}
+</style>
+</head>
+<body>
+<div class="film">
+  <!-- Ambient -->
+  <div class="amb a1"></div>
+  <div class="amb a2"></div>
+
+  <!-- PHASE 1: SETUP -->
+  <div class="scene" id="s1">
+    <div class="setup-text fade-up" id="setup">Your week. Every week.</div>
+  </div>
+
+  <!-- PHASE 2: THE LOOP -->
+  <div class="scene" id="s2">
+    <div class="week" id="destWeek">
+      <div class="day-row" data-day="0">
+        <span class="day-label day-label-dest">Monday</span>
+        <span class="day-action">Googled "best way to lose weight"</span>
+        <span class="day-dim">again</span>
+      </div>
+      <div class="day-row" data-day="1">
+        <span class="day-label day-label-dest">Tuesday</span>
+        <span class="day-action">Watched 3 YouTube videos on meal prep</span>
+        <span class="day-dim">saved none</span>
+      </div>
+      <div class="day-row" data-day="2">
+        <span class="day-label day-label-dest">Wednesday</span>
+        <span class="day-action">Asked ChatGPT for a workout plan</span>
+        <span class="day-dim">it was 47 steps long</span>
+      </div>
+      <div class="day-row" data-day="3">
+        <span class="day-label day-label-dest">Thursday</span>
+        <span class="day-action">Scrolled Reddit r/fitness for 40 minutes</span>
+        <span class="day-dim">learned nothing new</span>
+      </div>
+      <div class="day-row" data-day="4">
+        <span class="day-label day-label-dest">Friday</span>
+        <span class="day-action">Saw a TikTok: "THIS changed my life"</span>
+        <span class="day-dim">it was an ad</span>
+      </div>
+      <div class="day-row" data-day="5">
+        <span class="day-label day-label-dest">Saturday</span>
+        <span class="day-action">Thought "fuck it, I'll start Monday"</span>
+        <span class="day-dim">sound familiar?</span>
+      </div>
+      <div class="day-row" data-day="6">
+        <span class="day-label day-label-dest">Sunday</span>
+        <span class="day-action">Googled "best way to lose weight"</span>
+        <span class="day-dim"></span>
+      </div>
+      <!-- Loop arrow -->
+      <svg class="loop-arrow-wrap" id="loopArrow" viewBox="0 0 60 350" preserveAspectRatio="none">
+        <path class="loop-arrow" d="M30,320 C55,320 55,30 30,30" id="arrowPath"/>
+        <polygon class="loop-arrowhead" points="30,20 24,35 36,35"/>
+      </svg>
+      <!-- Strike line -->
+      <div class="strike-line" id="strikeLine"></div>
+    </div>
+  </div>
+
+  <!-- PHASE 3: REPEAT -->
+  <div class="scene" id="s3">
+    <div class="repeat-text">
+      <div class="repeat-line fade-up" id="rep1">This has been your loop for months.</div>
+      <div class="repeat-line fade-up" id="rep2" style="margin-top:8px">Maybe years.</div>
+      <div class="repeat-dim fade-up" id="rep3">And every platform profits from you staying in it.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 4: BREAK -->
+  <div class="scene" id="s4">
+    <div class="break-text fade-up" id="breakText">Fuck the loop.</div>
+  </div>
+
+  <!-- PHASE 5: PULSE WEEK -->
+  <div class="scene" id="s5">
+    <div class="week" id="pulseWeek">
+      <div class="day-row" data-day="0">
+        <span class="day-label day-label-pulse">Monday</span>
+        <span class="day-action">Asked Pulse one question</span>
+        <span class="day-teal">got a plan in 60 seconds</span>
+      </div>
+      <div class="day-row" data-day="1">
+        <span class="day-label day-label-pulse">Tuesday</span>
+        <span class="day-action">Got a WhatsApp reminder at 2 PM</span>
+        <span class="day-teal">skipped the afternoon coffee</span>
+      </div>
+      <div class="day-row" data-day="2">
+        <span class="day-label day-label-pulse">Wednesday</span>
+        <span class="day-action">Grocery list arrived</span>
+        <span class="day-teal">bought exactly what I needed</span>
+      </div>
+      <div class="day-row" data-day="3">
+        <span class="day-label day-label-pulse">Thursday</span>
+        <span class="day-action">Evening check-in: "How was today?"</span>
+        <span class="day-teal">felt accountable</span>
+      </div>
+      <div class="day-row" data-day="4">
+        <span class="day-label day-label-pulse">Friday</span>
+        <span class="day-action">Training plan on my phone</span>
+        <span class="day-teal">actually went to the gym</span>
+      </div>
+      <div class="day-row" data-day="5">
+        <span class="day-label day-label-pulse">Saturday</span>
+        <span class="day-action">Pulse: "Day 6. You're building something."</span>
+        <span class="day-teal">I believed it</span>
+      </div>
+      <div class="day-row" data-day="6">
+        <span class="day-label day-label-pulse">Sunday</span>
+        <span class="day-action">Pulse: "Sleep up 12%. Keep going."</span>
+        <span class="day-teal">I will.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 6: CONTRAST -->
+  <div class="scene" id="s6">
+    <div class="contrast-wrap">
+      <div class="contrast-row fade-up" id="con1">
+        <span class="contrast-label contrast-gray">Their loop:</span>
+        <span class="contrast-flow">Search <span class="contrast-arrow">&rarr;</span> confuse <span class="contrast-arrow">&rarr;</span> give up <span class="contrast-arrow">&rarr;</span> repeat</span>
+      </div>
+      <div class="contrast-row fade-up" id="con2">
+        <span class="contrast-label contrast-teal">Your path:</span>
+        <span class="contrast-flow" style="color:rgba(14,122,126,0.75)">Ask <span class="contrast-arrow">&rarr;</span> plan <span class="contrast-arrow">&rarr;</span> act <span class="contrast-arrow">&rarr;</span> progress</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHASE 7: PROMISE -->
+  <div class="scene" id="s7">
+    <div class="promise-wrap">
+      <div class="promise-line fade-up" id="pro1">One question breaks the loop.</div>
+      <div class="promise-line fade-up" id="pro2">One companion <em>keeps you out.</em></div>
+    </div>
+  </div>
+
+  <!-- PHASE 8: CLOSE -->
+  <div class="scene" id="s8">
+    <div class="close-wrap">
+      <div class="phone-frame fade-up" id="phone">
+        <div class="phone-screen">
+          <div class="wa-header">
+            <div class="wa-avatar">P</div>
+            <span class="wa-name">Pulse</span>
+          </div>
+          <div class="wa-bubble" id="waBubble" style="opacity:0;transform:translateY(8px);transition:all 0.6s ease">
+            Day 1 starts whenever you say so.
+          </div>
+        </div>
+      </div>
+      <div class="close-tagline fade-up" id="tagline" style="transition-delay:0.4s">
+        <div class="close-serif">You always had a pulse.</div>
+        <div class="close-serif"><span class="close-teal">We help you find it.</span></div>
+        <div class="close-handle">healthcalculators.xyz &nbsp;/&nbsp; @GetHealthC</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button class="replay-btn" id="replayBtn" onclick="runTimeline()">Replay</button>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+  const scenes = ['s1','s2','s3','s4','s5','s6','s7','s8'].map(id => $(id));
+  const replayBtn = $('replayBtn');
+
+  function showScene(idx){
+    scenes.forEach((s,i) => s.classList.toggle('on', i === idx));
+  }
+
+  function fadeUp(el, delay){
+    return new Promise(r => {
+      setTimeout(() => { el.classList.add('in'); setTimeout(r, 600); }, delay || 0);
+    });
+  }
+
+  function showDayRows(container, baseDelay){
+    const rows = container.querySelectorAll('.day-row');
+    return new Promise(r => {
+      rows.forEach((row, i) => {
+        setTimeout(() => {
+          row.classList.add('in');
+          if(i === rows.length - 1) setTimeout(r, 400);
+        }, baseDelay + i * 300);
+      });
+    });
+  }
+
+  function resetAll(){
+    scenes.forEach(s => s.classList.remove('on'));
+    document.querySelectorAll('.fade-up').forEach(el => el.classList.remove('in'));
+    document.querySelectorAll('.day-row').forEach(r => { r.classList.remove('in'); r.classList.remove('loop-highlight'); });
+    $('loopArrow').classList.remove('in');
+    $('strikeLine').classList.remove('in');
+    document.querySelectorAll('.amb').forEach(a => a.classList.remove('on'));
+    $('waBubble').style.opacity = '0';
+    $('waBubble').style.transform = 'translateY(8px)';
+    replayBtn.classList.remove('show');
+  }
+
+  function wait(ms){ return new Promise(r => setTimeout(r, ms)); }
+
+  async function runTimeline(){
+    resetAll();
+    await wait(100);
+
+    // Phase 1: Setup (0-2s)
+    showScene(0);
+    await fadeUp($('setup'), 200);
+    await wait(1600);
+
+    // Phase 2: The Loop (2-14s)
+    showScene(1);
+    await showDayRows($('destWeek'), 200);
+
+    // Sunday flash — it's the same as Monday
+    const sundayRow = $('destWeek').querySelector('[data-day="6"]');
+    sundayRow.classList.add('loop-highlight');
+    await wait(800);
+
+    // Show loop arrow
+    $('loopArrow').classList.add('in');
+    await wait(1800);
+
+    // Phase 3: Repeat (14-17s)
+    showScene(2);
+    await fadeUp($('rep1'), 300);
+    await fadeUp($('rep2'), 1000);
+    await fadeUp($('rep3'), 1000);
+    await wait(1200);
+
+    // Phase 4: Break (17-20s)
+    showScene(3);
+    await fadeUp($('breakText'), 200);
+    await wait(2200);
+
+    // Phase 5: Pulse week (20-28s)
+    showScene(4);
+    // Ambient glow on during Pulse week
+    document.querySelectorAll('.amb').forEach(a => a.classList.add('on'));
+    await showDayRows($('pulseWeek'), 200);
+    await wait(2000);
+
+    // Phase 6: Contrast (28-33s)
+    showScene(5);
+    await fadeUp($('con1'), 300);
+    await fadeUp($('con2'), 800);
+    await wait(2500);
+
+    // Phase 7: Promise (33-38s)
+    showScene(6);
+    await fadeUp($('pro1'), 300);
+    await fadeUp($('pro2'), 1000);
+    await wait(2500);
+
+    // Phase 8: Close (38-45s)
+    showScene(7);
+    await fadeUp($('phone'), 300);
+    await wait(600);
+    $('waBubble').style.opacity = '1';
+    $('waBubble').style.transform = 'translateY(0)';
+    await wait(800);
+    await fadeUp($('tagline'), 200);
+
+    // Show replay after hold
+    await wait(5000);
+    replayBtn.classList.add('show');
+  }
+
+  window.runTimeline = runTimeline;
+  runTimeline();
+})();
+</script>
+</body>
+</html>

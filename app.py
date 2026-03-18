@@ -5453,6 +5453,10 @@ def mockup_pin_v15():
 def mockup_pin_v16():
     return render_template('mockup-pin-v16.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-pin-v17')
+def mockup_pin_v17():
+    return render_template('mockup-pin-v17.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(
