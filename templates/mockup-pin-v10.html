@@ -334,16 +334,18 @@ async function typeText(el, text, speed = 35) {
   }
 }
 
-// Scroll to reveal the latest element — show its TOP, not jump past it
+// Scroll to reveal the latest card — show its TOP, not jump past it
 function scrollDown(delay = 0) {
   setTimeout(() => {
-    var lastCard = scr.querySelector('.card:last-child') || scr.lastElementChild;
+    var cards = document.querySelectorAll('#cards .card');
+    var lastCard = cards.length ? cards[cards.length - 1] : null;
     if (lastCard) {
-      // Scroll so the card's top is visible with some padding above
-      var cardTop = lastCard.offsetTop - 10;
-      scr.scrollTo({ top: cardTop, behavior: 'smooth' });
-    } else {
-      scr.scrollTo({ top: scr.scrollHeight, behavior: 'smooth' });
+      // Get position relative to the scroll container
+      var rect = lastCard.getBoundingClientRect();
+      var scrRect = scr.getBoundingClientRect();
+      var relativeTop = rect.top - scrRect.top + scr.scrollTop;
+      // Scroll so the card starts near the top of the visible area (with 60px offset for logo space)
+      scr.scrollTo({ top: Math.max(0, relativeTop - 60), behavior: 'smooth' });
     }
   }, delay);
 }
