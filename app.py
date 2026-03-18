@@ -11,8 +11,17 @@ logging.basicConfig(level=logging.DEBUG)
 app = Flask(__name__)
 app.secret_key = os.environ.get("SESSION_SECRET", "default_secret_key")
 
+@app.before_request
+def redirect_trailing_slash():
+    """Redirect /path/ to /path to avoid 404s and duplicate content."""
+    if request.path != '/' and request.path.endswith('/'):
+        return redirect(request.path.rstrip('/'), code=301)
+
 @app.after_request
 def set_security_headers(response):
+    # Cache-Control for HTML pages (helps Googlebot use conditional requests)
+    if response.content_type and 'text/html' in response.content_type:
+        response.headers['Cache-Control'] = 'public, max-age=3600'
     response.headers['Strict-Transport-Security'] = 'max-age=31536000; includeSubDomains'
     response.headers['Content-Security-Policy'] = (
         "default-src 'self'; "

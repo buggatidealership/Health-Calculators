@@ -1,7 +1,7 @@
+<!-- charset MUST be first (within first 1024 bytes per HTML spec) -->
+<meta charset="UTF-8">
+
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1580600669281697" crossorigin="anonymous"></script>
-<!-- Auto ads (anchor, vignette, etc.) are configured in the AdSense dashboard.
-     The ?client= param on the script tag above is sufficient to enable them.
-     Do NOT use enable_page_level_ads — it's deprecated and causes push() errors. -->
 
 <!-- Fonts: DM Serif Display (headings) + DM Sans (body) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -10,7 +10,6 @@
 <noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet"></noscript>
 
 <!-- Global SEO Head Elements -->
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="{{ meta_description }}">
 <meta name="author" content="HealthCalculators.xyz">
@@ -88,15 +87,8 @@
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
     "url": "https://healthcalculators.xyz",
-    "sameAs": []
+    "sameAs": ["https://x.com/GetHealthC"]
   },
-  {% if schema_type|default('MedicalWebPage') == 'MedicalWebPage' %}
-  "reviewedBy": {
-    "@type": "Organization",
-    "name": "HealthCalculators.xyz Editorial Team",
-    "url": "https://healthcalculators.xyz/editorial-policy"
-  },
-  {% endif %}
   "publisher": {
     "@type": "Organization",
     "name": "HealthCalculators.xyz",
