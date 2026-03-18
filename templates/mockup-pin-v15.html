@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pulse — The Destruction Montage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --teal: #14b8a6;
+            --dark-teal-bg: #081414;
+            --wa-green-header: #075e54;
+            --wa-bg: #ece5dd;
+            --wa-bubble: #dcf8c6;
+            --white: #ffffff;
+            --dim: rgba(255,255,255,0.3);
+            --black: #000000;
+        }
+
+        body {
+            background: var(--black);
+            color: var(--white);
+            font-family: 'DM Sans', sans-serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .scene {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .scene.active {
+            opacity: 1;
+        }
+
+        /* Phase 1: PSA */
+        #phase1 .psa-text {
+            font-size: clamp(0.75rem, 2vw, 1rem);
+            color: rgba(255,255,255,0.25);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 1.2s ease;
+        }
+        #phase1 .psa-text.visible { opacity: 1; }
+
+        /* Phase 2: THE STAT */
+        #phase2 .stat-number {
+            font-size: clamp(5rem, 20vw, 12rem);
+            font-weight: 800;
+            line-height: 1;
+            transform: translateY(40px) scale(0.9);
+            opacity: 0;
+            transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #phase2 .stat-number.slam {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+        #phase2 .stat-context {
+            font-size: clamp(0.9rem, 2.5vw, 1.3rem);
+            font-weight: 500;
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.3s;
+        }
+        #phase2 .stat-context.visible { opacity: 1; }
+        #phase2 .stat-source {
+            font-size: 0.7rem;
+            color: var(--dim);
+            position: absolute;
+            bottom: 2rem;
+            opacity: 0;
+            transition: opacity 0.4s ease 0.5s;
+        }
+        #phase2 .stat-source.visible { opacity: 1; }
+
+        /* Phase 3: DESTRUCTION CUTS */
+        #phase3 {
+            background: var(--black);
+        }
+        #phase3 .cut-main {
+            font-size: clamp(1.2rem, 4vw, 2.2rem);
+            font-weight: 800;
+            line-height: 1.2;
+            max-width: 700px;
+            transform: translateY(30px);
+            opacity: 0;
+            transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #phase3 .cut-main.slam {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        #phase3 .cut-comment {
+            font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+            color: var(--dim);
+            margin-top: 0.75rem;
+            max-width: 500px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        #phase3 .cut-comment.visible { opacity: 1; }
+
+        /* Phase 4: DIAGNOSIS */
+        #phase4 .typewriter {
+            font-size: clamp(1.3rem, 4vw, 2.4rem);
+            font-weight: 800;
+            min-height: 3rem;
+        }
+        #phase4 .typewriter .cursor {
+            display: inline-block;
+            width: 2px;
+            height: 1.2em;
+            background: var(--white);
+            vertical-align: text-bottom;
+            animation: blink 0.6s step-end infinite;
+            margin-left: 2px;
+        }
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+        #phase4 .system-line {
+            font-size: clamp(1.3rem, 4vw, 2.4rem);
+            font-weight: 800;
+            color: var(--teal);
+            margin-top: 1rem;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        #phase4 .system-line.visible { opacity: 1; }
+
+        /* Phase 5: INDICTMENT */
+        #phase5 .indictment-line {
+            font-size: clamp(1.1rem, 3.5vw, 2rem);
+            font-weight: 800;
+            line-height: 1.3;
+            max-width: 600px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #phase5 .indictment-line.slam {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #phase5 .indictment-line.teal {
+            color: var(--teal);
+            font-size: clamp(1.3rem, 4vw, 2.4rem);
+        }
+
+        /* Phase 6: THE SAVE */
+        #phase6 {
+            background: var(--dark-teal-bg);
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        #phase6 .orb {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(20,184,166,0.4), rgba(20,184,166,0.05));
+            box-shadow: 0 0 60px rgba(20,184,166,0.3), 0 0 120px rgba(20,184,166,0.1);
+            animation: breathe 3s ease-in-out infinite;
+            margin-bottom: 2rem;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+        #phase6 .orb.visible { opacity: 1; }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 60px rgba(20,184,166,0.3), 0 0 120px rgba(20,184,166,0.1); }
+            50% { transform: scale(1.15); box-shadow: 0 0 80px rgba(20,184,166,0.4), 0 0 160px rgba(20,184,166,0.15); }
+        }
+        #phase6 .save-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.1rem, 3vw, 1.8rem);
+            line-height: 1.4;
+            max-width: 550px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        #phase6 .save-text.visible { opacity: 1; }
+        #phase6 .save-sub {
+            font-size: clamp(0.8rem, 2vw, 1rem);
+            color: rgba(255,255,255,0.5);
+            margin-top: 1.5rem;
+            max-width: 500px;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        #phase6 .save-sub.visible { opacity: 1; }
+
+        /* Phase 7: WHAT PULSE DOES */
+        #phase7 {
+            background: var(--dark-teal-bg);
+        }
+        #phase7 .pulse-feature {
+            font-size: clamp(1.1rem, 3.5vw, 2rem);
+            font-weight: 700;
+            color: var(--teal);
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #phase7 .pulse-feature.slam {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Phase 8: THE CLOSE */
+        #phase8 {
+            background: var(--black);
+        }
+        #phase8 .phone-frame {
+            width: 280px;
+            height: 560px;
+            border: 3px solid rgba(255,255,255,0.15);
+            border-radius: 36px;
+            overflow: hidden;
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #phase8 .phone-frame.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #phase8 .wa-header {
+            background: var(--wa-green-header);
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #phase8 .wa-header-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        #phase8 .wa-header-icons {
+            margin-left: auto;
+            display: flex;
+            gap: 16px;
+        }
+        #phase8 .wa-header-icons span {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+        }
+        #phase8 .wa-search {
+            background: #f6f6f6;
+            padding: 6px 12px;
+            font-size: 0.75rem;
+            color: #999;
+        }
+        #phase8 .wa-chat-list {
+            background: var(--white);
+            flex: 1;
+        }
+        #phase8 .wa-chat-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #f0f0f0;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+        }
+        #phase8 .wa-chat-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #phase8 .wa-chat-item.pulse-chat {
+            background: rgba(20,184,166,0.05);
+        }
+        #phase8 .wa-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ccc;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--white);
+            font-weight: 700;
+        }
+        #phase8 .wa-avatar.pulse-avatar {
+            background: var(--teal);
+        }
+        #phase8 .wa-chat-info {
+            flex: 1;
+            min-width: 0;
+        }
+        #phase8 .wa-chat-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #111;
+        }
+        #phase8 .wa-chat-preview {
+            font-size: 0.8rem;
+            color: #667;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        #phase8 .wa-chat-time {
+            font-size: 0.7rem;
+            color: #999;
+            flex-shrink: 0;
+        }
+        #phase8 .wa-chat-time.new {
+            color: var(--teal);
+            font-weight: 600;
+        }
+        /* Pulse chat detail */
+        #phase8 .wa-chat-detail {
+            display: none;
+            flex-direction: column;
+            height: 100%;
+        }
+        #phase8 .wa-chat-detail.active {
+            display: flex;
+        }
+        #phase8 .wa-detail-header {
+            background: var(--wa-green-header);
+            padding: 10px 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        #phase8 .wa-detail-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: white;
+            font-weight: 700;
+        }
+        #phase8 .wa-detail-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+        #phase8 .wa-messages {
+            background: var(--wa-bg);
+            flex: 1;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        #phase8 .wa-message-bubble {
+            background: var(--wa-bubble);
+            padding: 8px 12px;
+            border-radius: 8px;
+            border-top-left-radius: 0;
+            max-width: 80%;
+            font-size: 0.85rem;
+            color: #111;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+        }
+        #phase8 .wa-message-bubble.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #phase8 .wa-input-bar {
+            background: #f0f0f0;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        #phase8 .wa-input-field {
+            flex: 1;
+            background: var(--white);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            color: #999;
+        }
+        #phase8 .wa-send-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--wa-green-header);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #phase8 .close-text {
+            font-size: clamp(1.2rem, 3.5vw, 1.8rem);
+            font-weight: 700;
+            margin-top: 2rem;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        #phase8 .close-text.visible { opacity: 1; }
+        #phase8 .close-sub {
+            font-size: 0.85rem;
+            color: rgba(255,255,255,0.4);
+            margin-top: 0.5rem;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        #phase8 .close-sub.visible { opacity: 1; }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+        }
+
+        /* Controls */
+        .controls {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 9999;
+            display: flex;
+            gap: 0.5rem;
+        }
+        .controls button {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+            color: var(--white);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            transition: background 0.2s;
+        }
+        .controls button:hover { background: rgba(255,255,255,0.2); }
+        .controls .timer {
+            color: rgba(255,255,255,0.4);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            padding: 0 0.5rem;
+        }
+
+        /* Film cut flash */
+        .film-cut {
+            position: fixed;
+            inset: 0;
+            background: #0a0a0a;
+            z-index: 500;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+    <div class="film-cut" id="filmCut"></div>
+
+    <!-- Phase 1: PSA -->
+    <div class="scene" id="phase1">
+        <div class="psa-text">A public service announcement.</div>
+    </div>
+
+    <!-- Phase 2: THE STAT -->
+    <div class="scene" id="phase2">
+        <div class="stat-number">96</div>
+        <div class="stat-context">times a day. That's how often you check your phone.</div>
+        <div class="stat-source">&mdash; Duke University, 2024</div>
+    </div>
+
+    <!-- Phase 3: DESTRUCTION -->
+    <div class="scene" id="phase3">
+        <div class="cut-main"></div>
+        <div class="cut-comment"></div>
+    </div>
+
+    <!-- Phase 4: DIAGNOSIS -->
+    <div class="scene" id="phase4">
+        <div class="typewriter"><span class="typewriter-text"></span><span class="cursor"></span></div>
+        <div class="system-line">The system is.</div>
+    </div>
+
+    <!-- Phase 5: INDICTMENT -->
+    <div class="scene" id="phase5">
+        <div class="indictment-line"></div>
+    </div>
+
+    <!-- Phase 6: THE SAVE -->
+    <div class="scene" id="phase6">
+        <div class="orb"></div>
+        <div class="save-text">What if something actually gave a shit about your progress?</div>
+        <div class="save-sub">Not your attention. Not your data. Your actual, measurable progress.</div>
+    </div>
+
+    <!-- Phase 7: WHAT PULSE DOES -->
+    <div class="scene" id="phase7">
+        <div class="pulse-feature"></div>
+    </div>
+
+    <!-- Phase 8: THE CLOSE -->
+    <div class="scene" id="phase8">
+        <div class="phone-frame">
+            <!-- Chat list view -->
+            <div class="wa-chat-list-view" id="waChatListView">
+                <div class="wa-header">
+                    <div class="wa-header-title">WhatsApp</div>
+                    <div class="wa-header-icons">
+                        <span>&#x1F50D;</span>
+                        <span>&#x22EE;</span>
+                    </div>
+                </div>
+                <div class="wa-search">Search or start new chat</div>
+                <div class="wa-chat-list" style="display:flex;flex-direction:column;">
+                    <div class="wa-chat-item pulse-chat" id="pulseChatItem">
+                        <div class="wa-avatar pulse-avatar">P</div>
+                        <div class="wa-chat-info">
+                            <div class="wa-chat-name">Pulse</div>
+                            <div class="wa-chat-preview">Hey &#x1F44B; Ready when you are.</div>
+                        </div>
+                        <div class="wa-chat-time new">now</div>
+                    </div>
+                    <div class="wa-chat-item" id="chatItem2">
+                        <div class="wa-avatar" style="background:#6b8e7b;">M</div>
+                        <div class="wa-chat-info">
+                            <div class="wa-chat-name">Mom</div>
+                            <div class="wa-chat-preview">Don't forget to eat something</div>
+                        </div>
+                        <div class="wa-chat-time">2:14 PM</div>
+                    </div>
+                    <div class="wa-chat-item" id="chatItem3">
+                        <div class="wa-avatar" style="background:#7b8e9e;">J</div>
+                        <div class="wa-chat-info">
+                            <div class="wa-chat-name">Jake</div>
+                            <div class="wa-chat-preview">gym tmrw?</div>
+                        </div>
+                        <div class="wa-chat-time">11:30 AM</div>
+                    </div>
+                    <div class="wa-chat-item" id="chatItem4">
+                        <div class="wa-avatar" style="background:#9e7b8e;">S</div>
+                        <div class="wa-chat-info">
+                            <div class="wa-chat-name">Sarah</div>
+                            <div class="wa-chat-preview">have you tried that new place?</div>
+                        </div>
+                        <div class="wa-chat-time">Yesterday</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Chat detail view -->
+            <div class="wa-chat-detail" id="waChatDetail">
+                <div class="wa-detail-header">
+                    <span style="color:rgba(255,255,255,0.8);font-size:1.1rem;">&#x2190;</span>
+                    <div class="wa-detail-avatar">P</div>
+                    <div class="wa-detail-name">Pulse</div>
+                </div>
+                <div class="wa-messages">
+                    <div class="wa-message-bubble" id="pulseMessage">
+                        Hey &#x1F44B; Ready when you are.
+                    </div>
+                </div>
+                <div class="wa-input-bar">
+                    <div class="wa-input-field">Type a message</div>
+                    <div class="wa-send-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="close-text">Pulse &mdash; coming to your WhatsApp soon.</div>
+        <div class="close-sub">healthcalculators.xyz &nbsp;/&nbsp; @GetHealthC</div>
+    </div>
+
+    <!-- Controls -->
+    <div class="controls">
+        <span class="timer" id="timer">0.0s</span>
+        <button id="btnRestart">Restart</button>
+        <button id="btnPause">Pause</button>
+    </div>
+
+    <script>
+        // Timeline engine
+        const timeline = [];
+        let timelineIndex = 0;
+        let startTime = 0;
+        let paused = false;
+        let pauseOffset = 0;
+        let rafId = null;
+        const filmCut = document.getElementById('filmCut');
+
+        function now() {
+            return performance.now() - startTime - pauseOffset;
+        }
+
+        // Scene management
+        function showScene(id) {
+            document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+            const scene = document.getElementById(id);
+            if (scene) scene.classList.add('active');
+        }
+
+        function hideAllScenes() {
+            document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+        }
+
+        // Film cut effect: 100ms black flash
+        function filmCutFlash() {
+            filmCut.style.opacity = '1';
+            setTimeout(() => { filmCut.style.opacity = '0'; }, 100);
+        }
+
+        // Typewriter effect
+        function typewrite(element, text, speed, callback) {
+            let i = 0;
+            element.textContent = '';
+            function tick() {
+                if (paused) { setTimeout(tick, 50); return; }
+                if (i < text.length) {
+                    element.textContent += text[i];
+                    i++;
+                    setTimeout(tick, speed);
+                } else if (callback) {
+                    callback();
+                }
+            }
+            tick();
+        }
+
+        // Destruction cuts data
+        const cuts = [
+            {
+                main: "You Googled 'how to lose weight' 11 times this year.",
+                comment: "Same question. Different wording. Zero progress."
+            },
+            {
+                main: "You saved 47 fitness posts on Instagram.",
+                comment: "Followed none of them."
+            },
+            {
+                main: "ChatGPT wrote you a meal plan.",
+                comment: "You screenshot it. It's still in your camera roll. Untouched."
+            },
+            {
+                main: "Reddit told you to 'just eat less.'",
+                comment: "Thanks. Real fucking helpful."
+            },
+            {
+                main: "You watched 6 hours of fitness YouTube this month.",
+                comment: "Your body didn't change. Your watch time did."
+            }
+        ];
+
+        // Indictment lines
+        const indictments = [
+            { text: "They don't want you to figure it out.", teal: false },
+            { text: "They want you to keep scrolling.", teal: false },
+            { text: "Your confusion is their business model.", teal: true }
+        ];
+
+        // Pulse features
+        const features = [
+            "One question. One plan.",
+            "Reminders that actually help.",
+            "A grocery list. Not a lecture.",
+            "Check-ins that adapt to YOUR life.",
+            "Real progress. Not content."
+        ];
+
+        // Build timeline
+        function buildTimeline() {
+            timeline.length = 0;
+            let t = 0;
+
+            // Phase 1: PSA (0 - 1.5s)
+            timeline.push({ time: t, action: () => {
+                showScene('phase1');
+            }});
+            timeline.push({ time: t + 200, action: () => {
+                document.querySelector('#phase1 .psa-text').classList.add('visible');
+            }});
+            t = 1500;
+
+            // Phase 2: THE STAT (1.5 - 4s)
+            timeline.push({ time: t, action: () => {
+                document.querySelector('#phase1 .psa-text').classList.remove('visible');
+                showScene('phase2');
+            }});
+            timeline.push({ time: t + 100, action: () => {
+                document.querySelector('#phase2 .stat-number').classList.add('slam');
+            }});
+            timeline.push({ time: t + 300, action: () => {
+                document.querySelector('#phase2 .stat-context').classList.add('visible');
+            }});
+            timeline.push({ time: t + 500, action: () => {
+                document.querySelector('#phase2 .stat-source').classList.add('visible');
+            }});
+            t = 4000;
+
+            // Phase 3: DESTRUCTION (4 - 16s) — 5 cuts, ~2.4s each
+            const cutDuration = 2400;
+            const cutMainEl = document.querySelector('#phase3 .cut-main');
+            const cutCommentEl = document.querySelector('#phase3 .cut-comment');
+
+            cuts.forEach((cut, i) => {
+                const cutStart = t + i * cutDuration;
+
+                // Film cut flash + show scene
+                timeline.push({ time: cutStart, action: () => {
+                    filmCutFlash();
+                    cutMainEl.classList.remove('slam');
+                    cutCommentEl.classList.remove('visible');
+                    cutMainEl.textContent = '';
+                    cutCommentEl.textContent = '';
+                }});
+
+                // Slam in main text
+                timeline.push({ time: cutStart + 120, action: () => {
+                    showScene('phase3');
+                    // Flicker background
+                    document.getElementById('phase3').style.background = i % 2 === 0 ? '#000' : '#080808';
+                    cutMainEl.textContent = cut.main;
+                    cutMainEl.classList.add('slam');
+                }});
+
+                // Commentary appears
+                timeline.push({ time: cutStart + 420, action: () => {
+                    cutCommentEl.textContent = cut.comment;
+                    cutCommentEl.classList.add('visible');
+                }});
+
+                // Clear before next cut
+                if (i < cuts.length - 1) {
+                    timeline.push({ time: cutStart + cutDuration - 120, action: () => {
+                        cutMainEl.classList.remove('slam');
+                        cutCommentEl.classList.remove('visible');
+                    }});
+                }
+            });
+
+            t = 4000 + cuts.length * cutDuration; // 16000
+
+            // Phase 4: DIAGNOSIS (16 - 19s)
+            const typewriterTextEl = document.querySelector('#phase4 .typewriter-text');
+            const systemLineEl = document.querySelector('#phase4 .system-line');
+
+            timeline.push({ time: t, action: () => {
+                filmCutFlash();
+                hideAllScenes();
+            }});
+            timeline.push({ time: t + 1000, action: () => {
+                showScene('phase4');
+                typewrite(typewriterTextEl, "Your brain isn't broken.", 40, null);
+            }});
+            timeline.push({ time: t + 2200, action: () => {
+                systemLineEl.classList.add('visible');
+            }});
+            t = 19000;
+
+            // Phase 5: INDICTMENT (19 - 23.5s)
+            const indictmentEl = document.querySelector('#phase5 .indictment-line');
+            const indictDuration = 1500;
+
+            indictments.forEach((line, i) => {
+                const lineStart = t + i * indictDuration;
+
+                timeline.push({ time: lineStart, action: () => {
+                    filmCutFlash();
+                    indictmentEl.classList.remove('slam', 'teal');
+                    indictmentEl.textContent = '';
+                }});
+
+                timeline.push({ time: lineStart + 120, action: () => {
+                    showScene('phase5');
+                    indictmentEl.textContent = line.text;
+                    if (line.teal) indictmentEl.classList.add('teal');
+                    indictmentEl.classList.add('slam');
+                }});
+            });
+
+            t = 19000 + indictments.length * indictDuration; // 23500
+
+            // Phase 6: THE SAVE (23.5 - 30s)
+            timeline.push({ time: t, action: () => {
+                showScene('phase6');
+                document.getElementById('phase6').style.opacity = '1';
+            }});
+            timeline.push({ time: t + 800, action: () => {
+                document.querySelector('#phase6 .orb').classList.add('visible');
+            }});
+            timeline.push({ time: t + 1500, action: () => {
+                document.querySelector('#phase6 .save-text').classList.add('visible');
+            }});
+            timeline.push({ time: t + 3500, action: () => {
+                document.querySelector('#phase6 .save-sub').classList.add('visible');
+            }});
+            t = 30000;
+
+            // Phase 7: WHAT PULSE DOES (30 - 37.5s)
+            const featureEl = document.querySelector('#phase7 .pulse-feature');
+            const featureDuration = 1500;
+
+            features.forEach((feat, i) => {
+                const featStart = t + i * featureDuration;
+
+                timeline.push({ time: featStart, action: () => {
+                    featureEl.classList.remove('slam');
+                    featureEl.textContent = '';
+                }});
+
+                timeline.push({ time: featStart + 100, action: () => {
+                    if (i === 0) {
+                        showScene('phase7');
+                        document.getElementById('phase7').style.background = 'var(--dark-teal-bg)';
+                    }
+                    featureEl.textContent = feat;
+                    featureEl.classList.add('slam');
+                }});
+            });
+
+            t = 30000 + features.length * featureDuration; // 37500
+
+            // Phase 8: THE CLOSE (37.5 - 45s)
+            timeline.push({ time: t, action: () => {
+                hideAllScenes();
+            }});
+            timeline.push({ time: t + 500, action: () => {
+                showScene('phase8');
+                document.querySelector('#phase8 .phone-frame').classList.add('visible');
+            }});
+            // Show chat items
+            timeline.push({ time: t + 1200, action: () => {
+                document.getElementById('pulseChatItem').classList.add('visible');
+            }});
+            timeline.push({ time: t + 1500, action: () => {
+                document.getElementById('chatItem2').classList.add('visible');
+            }});
+            timeline.push({ time: t + 1700, action: () => {
+                document.getElementById('chatItem3').classList.add('visible');
+            }});
+            timeline.push({ time: t + 1900, action: () => {
+                document.getElementById('chatItem4').classList.add('visible');
+            }});
+            // Tap into Pulse chat
+            timeline.push({ time: t + 2800, action: () => {
+                document.getElementById('waChatListView').style.display = 'none';
+                document.getElementById('waChatDetail').classList.add('active');
+            }});
+            timeline.push({ time: t + 3200, action: () => {
+                document.getElementById('pulseMessage').classList.add('visible');
+            }});
+            // Close text
+            timeline.push({ time: t + 4000, action: () => {
+                document.querySelector('#phase8 .close-text').classList.add('visible');
+            }});
+            timeline.push({ time: t + 4500, action: () => {
+                document.querySelector('#phase8 .close-sub').classList.add('visible');
+            }});
+            // Hold for 5s — total end ~45s
+
+            // Sort by time
+            timeline.sort((a, b) => a.time - b.time);
+        }
+
+        // Run loop
+        function tick() {
+            if (paused) {
+                rafId = requestAnimationFrame(tick);
+                return;
+            }
+
+            const elapsed = now();
+            document.getElementById('timer').textContent = (elapsed / 1000).toFixed(1) + 's';
+
+            while (timelineIndex < timeline.length && timeline[timelineIndex].time <= elapsed) {
+                timeline[timelineIndex].action();
+                timelineIndex++;
+            }
+
+            if (timelineIndex < timeline.length) {
+                rafId = requestAnimationFrame(tick);
+            }
+        }
+
+        function start() {
+            // Reset everything
+            timelineIndex = 0;
+            pauseOffset = 0;
+            paused = false;
+            document.getElementById('btnPause').textContent = 'Pause';
+
+            // Reset all visual state
+            hideAllScenes();
+            document.querySelector('#phase1 .psa-text').classList.remove('visible');
+            document.querySelector('#phase2 .stat-number').classList.remove('slam');
+            document.querySelector('#phase2 .stat-context').classList.remove('visible');
+            document.querySelector('#phase2 .stat-source').classList.remove('visible');
+            document.querySelector('#phase3 .cut-main').classList.remove('slam');
+            document.querySelector('#phase3 .cut-main').textContent = '';
+            document.querySelector('#phase3 .cut-comment').classList.remove('visible');
+            document.querySelector('#phase3 .cut-comment').textContent = '';
+            document.querySelector('#phase4 .typewriter-text').textContent = '';
+            document.querySelector('#phase4 .system-line').classList.remove('visible');
+            document.querySelector('#phase5 .indictment-line').classList.remove('slam', 'teal');
+            document.querySelector('#phase5 .indictment-line').textContent = '';
+            document.getElementById('phase6').style.opacity = '0';
+            document.querySelector('#phase6 .orb').classList.remove('visible');
+            document.querySelector('#phase6 .save-text').classList.remove('visible');
+            document.querySelector('#phase6 .save-sub').classList.remove('visible');
+            document.querySelector('#phase7 .pulse-feature').classList.remove('slam');
+            document.querySelector('#phase7 .pulse-feature').textContent = '';
+            document.querySelector('#phase8 .phone-frame').classList.remove('visible');
+            document.getElementById('pulseChatItem').classList.remove('visible');
+            document.getElementById('chatItem2').classList.remove('visible');
+            document.getElementById('chatItem3').classList.remove('visible');
+            document.getElementById('chatItem4').classList.remove('visible');
+            document.getElementById('waChatListView').style.display = '';
+            document.getElementById('waChatDetail').classList.remove('active');
+            document.getElementById('pulseMessage').classList.remove('visible');
+            document.querySelector('#phase8 .close-text').classList.remove('visible');
+            document.querySelector('#phase8 .close-sub').classList.remove('visible');
+
+            buildTimeline();
+            startTime = performance.now();
+
+            if (rafId) cancelAnimationFrame(rafId);
+            rafId = requestAnimationFrame(tick);
+        }
+
+        // Controls
+        let pauseStart = 0;
+        document.getElementById('btnRestart').addEventListener('click', start);
+        document.getElementById('btnPause').addEventListener('click', () => {
+            if (paused) {
+                pauseOffset += performance.now() - pauseStart;
+                paused = false;
+                document.getElementById('btnPause').textContent = 'Pause';
+            } else {
+                pauseStart = performance.now();
+                paused = true;
+                document.getElementById('btnPause').textContent = 'Play';
+            }
+        });
+
+        // Auto-start
+        start();
+    </script>
+</body>
+</html>
