@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Drain — Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#0a0a0a;width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#e4e6ea}
+
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+
+/* Ambient glow */
+.amb{position:absolute;border-radius:50%;filter:blur(140px);pointer-events:none;opacity:0;transition:opacity 3s}
+.a1{width:600px;height:600px;background:radial-gradient(circle,rgba(20,184,166,0.06),transparent 70%);top:-200px;right:5%}
+.a2{width:400px;height:400px;background:radial-gradient(circle,rgba(20,184,166,0.04),transparent 70%);bottom:-100px;left:10%}
+.amb.on{opacity:1}
+
+/* Scene system */
+.scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;transition:opacity 0.7s cubic-bezier(0.25,1,0.5,1);pointer-events:none;padding:24px}
+.scene.on{opacity:1;pointer-events:auto}
+
+/* Shared text animation */
+.fade-up{opacity:0;transform:translateY(16px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.fade-up.in{opacity:1;transform:translateY(0)}
+
+/* ── FOCUS BAR ── */
+.bar-wrap{width:min(360px,80vw);margin:0 auto}
+.bar-label{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:rgba(228,230,234,0.5);margin-bottom:10px;font-weight:600}
+.bar-outer{width:100%;height:18px;background:rgba(255,255,255,0.06);border-radius:9px;overflow:hidden;position:relative}
+.bar-inner{height:100%;border-radius:9px;background:linear-gradient(90deg,#14b8a6,#5eead4);transition:width 1.2s cubic-bezier(0.34,1.56,0.64,1);position:relative}
+.bar-inner::after{content:'';position:absolute;inset:0;border-radius:9px;background:linear-gradient(180deg,rgba(255,255,255,0.15) 0%,transparent 60%)}
+.bar-inner.glow{box-shadow:0 0 20px rgba(20,184,166,0.4),0 0 60px rgba(20,184,166,0.15)}
+.bar-inner.danger{background:linear-gradient(90deg,#ef4444,#f87171);box-shadow:0 0 20px rgba(239,68,68,0.4)}
+.bar-inner.danger.pulse-red{animation:pulse-red 1s ease-in-out infinite}
+@keyframes pulse-red{0%,100%{box-shadow:0 0 20px rgba(239,68,68,0.4)}50%{box-shadow:0 0 35px rgba(239,68,68,0.7)}}
+.bar-pct{font-size:13px;font-weight:700;margin-top:8px;text-align:right;color:#5eead4;transition:color 0.5s}
+.bar-pct.danger{color:#f87171}
+
+/* ── PHASE 1: METER INTRO ── */
+.meter-text{font-size:14px;color:rgba(228,230,234,0.4);margin-top:20px;text-align:center}
+
+/* ── PHASE 2: DRAIN ENTRIES ── */
+.drain-entry{width:min(440px,88vw);margin:0 auto;opacity:0;transform:translateX(-40px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.drain-entry.from-right{transform:translateX(40px)}
+.drain-entry.in{opacity:1;transform:translateX(0)}
+
+.drain-header{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.drain-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.drain-name{font-size:14px;font-weight:700;letter-spacing:0.5px}
+.drain-action{font-size:13px;color:rgba(228,230,234,0.6);margin-left:auto;font-style:italic}
+.drain-sub{font-size:12px;color:rgba(228,230,234,0.35);margin-top:4px;padding-left:20px}
+.drain-loss{display:inline-block;font-size:15px;font-weight:700;color:#f87171;opacity:0;transform:scale(0.5);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);margin-left:8px}
+.drain-loss.pop{opacity:1;transform:scale(1)}
+
+.drain-stack{display:flex;flex-direction:column;gap:24px;margin-bottom:28px}
+
+/* ── PHASE 3: BOTTOM ── */
+.bottom-big{font-family:'DM Serif Display',serif;font-size:clamp(22px,4vw,32px);text-align:center;line-height:1.3}
+.bottom-sub{font-size:14px;color:rgba(228,230,234,0.4);text-align:center;margin-top:12px}
+
+/* ── PHASE 4/5: REFILL ── */
+.refill-entry{width:min(400px,85vw);margin:0 auto;opacity:0;transform:translateY(20px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1)}
+.refill-entry.in{opacity:1;transform:translateY(0)}
+.refill-gain{font-size:15px;font-weight:700;color:#5eead4;display:inline-block;opacity:0;transform:scale(0.5);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.refill-gain.pop{opacity:1;transform:scale(1)}
+.refill-desc{font-size:13px;color:rgba(228,230,234,0.5);margin-top:2px}
+.refill-stack{display:flex;flex-direction:column;gap:22px;margin-bottom:28px}
+
+/* ── PHASE 6: PRODUCT ── */
+.phone-frame{width:220px;height:400px;background:#1a1a1a;border-radius:28px;border:2px solid rgba(255,255,255,0.08);position:relative;overflow:hidden;margin:0 auto;box-shadow:0 20px 60px rgba(0,0,0,0.5)}
+.phone-notch{width:80px;height:22px;background:#0a0a0a;border-radius:0 0 14px 14px;position:absolute;top:0;left:50%;transform:translateX(-50%);z-index:2}
+.phone-screen{position:absolute;inset:8px;border-radius:22px;background:linear-gradient(145deg,#0f1a1a,#0a1212);overflow:hidden;padding:40px 16px 16px}
+.phone-greeting{font-size:12px;color:rgba(228,230,234,0.5);margin-bottom:4px}
+.phone-q{font-size:13px;font-weight:600;color:#e4e6ea;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.15);border-radius:10px;padding:10px 12px;margin-bottom:14px}
+.phone-cards{display:flex;flex-direction:column;gap:6px}
+.phone-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:8px;padding:8px 10px;font-size:10px;color:rgba(228,230,234,0.6)}
+.phone-card-icon{display:inline-block;margin-right:4px}
+.phone-dash{margin-top:10px;text-align:center;font-size:9px;color:rgba(20,184,166,0.6);letter-spacing:1px;text-transform:uppercase}
+.phone-caption{font-size:14px;color:rgba(228,230,234,0.5);text-align:center;margin-top:20px}
+
+/* ── PHASE 7: PRICING ── */
+.pricing-line{font-size:clamp(14px,2.5vw,17px);text-align:center;line-height:1.6;color:rgba(228,230,234,0.55)}
+.pricing-line.accent{color:#5eead4;font-weight:700}
+.pricing-line.dim{font-size:13px;color:rgba(228,230,234,0.3)}
+
+/* ── PHASE 8: CLOSE ── */
+.close-tagline{font-family:'DM Serif Display',serif;font-size:clamp(18px,3.5vw,26px);text-align:center;color:rgba(228,230,234,0.5)}
+.close-tagline em{color:#5eead4;font-style:normal}
+.close-brand{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:rgba(228,230,234,0.25);text-align:center;margin-top:24px}
+
+/* Replay */
+.replay-btn{position:fixed;bottom:20px;right:20px;background:rgba(20,184,166,0.1);border:1px solid rgba(20,184,166,0.2);color:#5eead4;font-family:'DM Sans',sans-serif;font-size:12px;padding:8px 16px;border-radius:20px;cursor:pointer;opacity:0;transition:opacity 0.5s;z-index:100;letter-spacing:1px}
+.replay-btn.show{opacity:1}
+.replay-btn:hover{background:rgba(20,184,166,0.2)}
+</style>
+</head>
+<body>
+<div class="film" id="film">
+  <div class="amb a1"></div>
+  <div class="amb a2"></div>
+
+  <!-- PHASE 1: THE METER -->
+  <div class="scene" id="s1">
+    <div class="bar-wrap">
+      <div class="bar-label fade-up">Your Focus</div>
+      <div class="bar-outer">
+        <div class="bar-inner glow" id="bar1" style="width:100%"></div>
+      </div>
+      <div class="bar-pct fade-up" id="pct1">100%</div>
+    </div>
+    <div class="meter-text fade-up">You started your day with 100% focus.</div>
+  </div>
+
+  <!-- PHASE 2: THE DRAIN -->
+  <div class="scene" id="s2">
+    <div class="bar-wrap" style="margin-bottom:24px">
+      <div class="bar-label" style="opacity:0.5">Your Focus</div>
+      <div class="bar-outer">
+        <div class="bar-inner glow" id="bar2" style="width:100%"></div>
+      </div>
+      <div class="bar-pct" id="pct2">100%</div>
+    </div>
+    <div class="drain-stack" id="drains"></div>
+  </div>
+
+  <!-- PHASE 3: THE BOTTOM -->
+  <div class="scene" id="s3">
+    <div class="bar-wrap" style="margin-bottom:32px">
+      <div class="bar-label" style="opacity:0.5">Your Focus</div>
+      <div class="bar-outer">
+        <div class="bar-inner danger pulse-red" id="bar3" style="width:5%"></div>
+      </div>
+      <div class="bar-pct danger" id="pct3">5%</div>
+    </div>
+    <div class="bottom-big fade-up">Your attention is gone.</div>
+    <div class="bottom-sub fade-up" id="bottom-ans">And you still don't have an answer.</div>
+    <div class="bottom-sub fade-up" id="bottom-daily" style="margin-top:20px;font-size:12px;color:rgba(228,230,234,0.2)">This happens every day.</div>
+  </div>
+
+  <!-- PHASE 4: THE REVERSE -->
+  <div class="scene" id="s4">
+    <div class="fade-up" style="text-align:center;margin-bottom:24px">
+      <div style="font-size:15px;color:rgba(228,230,234,0.5)">What if instead of draining your focus...</div>
+      <div style="font-size:17px;font-weight:600;color:#e4e6ea;margin-top:8px">...something actually focused it?</div>
+    </div>
+    <div class="bar-wrap">
+      <div class="bar-label" style="opacity:0.5">Your Focus</div>
+      <div class="bar-outer">
+        <div class="bar-inner glow" id="bar4" style="width:5%"></div>
+      </div>
+      <div class="bar-pct" id="pct4">5%</div>
+    </div>
+  </div>
+
+  <!-- PHASE 5: THE REFILL -->
+  <div class="scene" id="s5">
+    <div class="bar-wrap" style="margin-bottom:24px">
+      <div class="bar-label" style="opacity:0.5">Your Focus</div>
+      <div class="bar-outer">
+        <div class="bar-inner glow" id="bar5" style="width:50%"></div>
+      </div>
+      <div class="bar-pct" id="pct5">50%</div>
+    </div>
+    <div class="refill-stack" id="refills"></div>
+  </div>
+
+  <!-- PHASE 6: PRODUCT VISUAL -->
+  <div class="scene" id="s6">
+    <div class="phone-frame fade-up">
+      <div class="phone-notch"></div>
+      <div class="phone-screen">
+        <div class="phone-greeting">Good morning.</div>
+        <div class="phone-q">How do I actually lose weight without hating my life?</div>
+        <div class="phone-cards">
+          <div class="phone-card"><span class="phone-card-icon">&#x1F34E;</span> Grocery list &mdash; 12 items, $47/week</div>
+          <div class="phone-card"><span class="phone-card-icon">&#x1F3CB;</span> Training plan &mdash; 3x/week, 35 min</div>
+          <div class="phone-card"><span class="phone-card-icon">&#x2615;</span> Caffeine cutoff &mdash; 1:30 PM today</div>
+        </div>
+        <div class="phone-dash">View dashboard</div>
+      </div>
+    </div>
+    <div class="phone-caption fade-up">Pulse &mdash; coming to your phone.</div>
+  </div>
+
+  <!-- PHASE 7: PRICING -->
+  <div class="scene" id="s7">
+    <div style="display:flex;flex-direction:column;gap:12px;align-items:center">
+      <div class="pricing-line fade-up">No subscription draining your account.</div>
+      <div class="pricing-line fade-up">Pay per value. Only when we deliver.</div>
+      <div class="pricing-line accent fade-up">10x cheaper. Actually personalized.</div>
+      <div class="pricing-line dim fade-up">Your nutritionist charges $150/hour. We charge per answer.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 8: CLOSE -->
+  <div class="scene" id="s8">
+    <div class="bar-wrap fade-up" style="margin-bottom:32px">
+      <div class="bar-label" style="opacity:0.5">Your Focus</div>
+      <div class="bar-outer">
+        <div class="bar-inner glow" id="bar8" style="width:0%"></div>
+      </div>
+      <div class="bar-pct" id="pct8">0%</div>
+    </div>
+    <div class="close-tagline fade-up">You always had a pulse.</div>
+    <div class="close-tagline fade-up" style="margin-top:8px"><em>We help you find it.</em></div>
+    <div class="close-brand fade-up">healthcalculators.xyz &nbsp;/&nbsp; @GetHealthC</div>
+  </div>
+</div>
+
+<button class="replay-btn" id="replay" onclick="location.reload()">Replay</button>
+
+<script>
+(function(){
+  const $ = s => document.querySelector(s);
+  const $$ = s => document.querySelectorAll(s);
+  const wait = ms => new Promise(r => setTimeout(r, ms));
+
+  // Drain data
+  const drains = [
+    {name:'Google',color:'#4285f4',action:'You searched "how to lose weight"',loss:15,to:85,sub:'10 results. 3 ads. 2 from 2019.',dir:'left'},
+    {name:'Instagram',color:'#e1306c',action:'You scrolled fitness content for 20 min',loss:20,to:65,sub:'Liked 12 posts. Saved 0. Forgot all of them.',dir:'right'},
+    {name:'Reddit',color:'#ff4500',action:'You read r/fitness for 30 min',loss:25,to:40,sub:'"Just eat less bro" \u2014 thanks, very helpful.',dir:'left'},
+    {name:'YouTube',color:'#ff0000',action:'You watched "THE TRUTH ABOUT WEIGHT LOSS"',loss:20,to:20,sub:'17 minutes. 4 minutes of actual content.',dir:'right'},
+    {name:'ChatGPT',color:'#10a37f',action:'You asked for a meal plan',loss:15,to:5,sub:'Got 2,000 words. Remembered 0.',dir:'left'}
+  ];
+
+  // Refill data
+  const refills = [
+    {gain:20,to:70,label:'One question',desc:'Instead of 10 tabs, one conversation.'},
+    {gain:15,to:85,label:'One plan',desc:'Grocery list, training plan, caffeine cutoff. Done.'},
+    {gain:10,to:95,label:'One check-in',desc:'Tomorrow at 2 PM. Not an ad. A reminder.'}
+  ];
+
+  // Build drain entries
+  const drainStack = $('#drains');
+  drains.forEach((d,i) => {
+    const el = document.createElement('div');
+    el.className = 'drain-entry' + (d.dir === 'right' ? ' from-right' : '');
+    el.id = 'drain-'+i;
+    el.innerHTML = `
+      <div class="drain-header">
+        <div class="drain-dot" style="background:${d.color}"></div>
+        <div class="drain-name" style="color:${d.color}">${d.name}</div>
+        <div class="drain-action">${d.action}</div>
+        <span class="drain-loss" id="dloss-${i}">\u2212${d.loss}%</span>
+      </div>
+      <div class="drain-sub">${d.sub}</div>
+    `;
+    drainStack.appendChild(el);
+  });
+
+  // Build refill entries
+  const refillStack = $('#refills');
+  refills.forEach((r,i) => {
+    const el = document.createElement('div');
+    el.className = 'refill-entry';
+    el.id = 'refill-'+i;
+    el.innerHTML = `
+      <div>
+        <span style="font-size:14px;font-weight:600;color:#e4e6ea">${r.label}</span>
+        <span class="refill-gain" id="rgain-${i}">+${r.gain}%</span>
+      </div>
+      <div class="refill-desc">${r.desc}</div>
+    `;
+    refillStack.appendChild(el);
+  });
+
+  function showScene(id){
+    $$('.scene').forEach(s => s.classList.remove('on'));
+    $(id).classList.add('on');
+  }
+
+  function animateIn(el){
+    if(typeof el === 'string') el = $(el);
+    if(!el) return;
+    el.classList.add('in');
+  }
+
+  function setBar(id, pct, danger){
+    const bar = $(id);
+    bar.style.width = pct + '%';
+    if(danger){
+      bar.classList.add('danger');
+      bar.classList.remove('glow');
+    } else {
+      bar.classList.remove('danger','pulse-red');
+      bar.classList.add('glow');
+    }
+  }
+
+  function setPct(id, val, danger){
+    const el = $(id);
+    el.textContent = val + '%';
+    if(danger) el.classList.add('danger');
+    else el.classList.remove('danger');
+  }
+
+  async function run(){
+    // Ambient
+    await wait(200);
+    $$('.amb').forEach(a => a.classList.add('on'));
+
+    // ── PHASE 1: THE METER (0-3s) ──
+    showScene('#s1');
+    await wait(400);
+    $$('#s1 .fade-up').forEach((el,i) => setTimeout(() => animateIn(el), i*400));
+    await wait(3000);
+
+    // ── PHASE 2: THE DRAIN (3-18s) ──
+    showScene('#s2');
+    await wait(300);
+
+    for(let i = 0; i < drains.length; i++){
+      const d = drains[i];
+      await wait(600);
+      // Show entry
+      animateIn('#drain-'+i);
+      await wait(300);
+      // Drain bar
+      const isDanger = d.to <= 10;
+      setBar('#bar2', d.to, isDanger);
+      setPct('#pct2', d.to, isDanger);
+      if(isDanger){
+        $('#bar2').classList.add('pulse-red');
+      }
+      // Pop loss number
+      await wait(200);
+      $('#dloss-'+i).classList.add('pop');
+      await wait(2400);
+    }
+
+    await wait(800);
+
+    // ── PHASE 3: THE BOTTOM (18-22s) ──
+    showScene('#s3');
+    await wait(400);
+    $$('#s3 .fade-up').forEach((el,i) => setTimeout(() => animateIn(el), i*800));
+    await wait(4000);
+
+    // ── PHASE 4: THE REVERSE (22-26s) ──
+    showScene('#s4');
+    await wait(300);
+    $$('#s4 .fade-up').forEach(el => animateIn(el));
+    await wait(1200);
+    // Bar fills to 50%
+    setBar('#bar4', 50, false);
+    setPct('#pct4', 50, false);
+    await wait(3000);
+
+    // ── PHASE 5: THE REFILL (26-32s) ──
+    showScene('#s5');
+    await wait(400);
+
+    for(let i = 0; i < refills.length; i++){
+      const r = refills[i];
+      await wait(500);
+      animateIn('#refill-'+i);
+      await wait(300);
+      setBar('#bar5', r.to, false);
+      setPct('#pct5', r.to, false);
+      await wait(200);
+      $('#rgain-'+i).classList.add('pop');
+      await wait(1800);
+    }
+
+    await wait(800);
+
+    // ── PHASE 6: PRODUCT VISUAL (32-38s) ──
+    showScene('#s6');
+    await wait(300);
+    $$('#s6 .fade-up').forEach((el,i) => setTimeout(() => animateIn(el), i*600));
+    await wait(5500);
+
+    // ── PHASE 7: PRICING (38-44s) ──
+    showScene('#s7');
+    await wait(200);
+    $$('#s7 .fade-up').forEach((el,i) => setTimeout(() => animateIn(el), i*500));
+    await wait(5500);
+
+    // ── PHASE 8: CLOSE (44-50s) ──
+    showScene('#s8');
+    await wait(300);
+    // Animate bar to 100%
+    setTimeout(() => {
+      setBar('#bar8', 100, false);
+      setPct('#pct8', 100, false);
+    }, 200);
+    $$('#s8 .fade-up').forEach((el,i) => setTimeout(() => animateIn(el), 400 + i*600));
+
+    // Show replay after hold
+    await wait(6000);
+    $('#replay').classList.add('show');
+  }
+
+  // Start after brief delay
+  setTimeout(run, 500);
+})();
+</script>
+</body>
+</html>
