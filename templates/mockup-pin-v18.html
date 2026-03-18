@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Exposure — Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0e7a7e;
+  --teal-glow:rgba(14,122,126,0.15);
+  --black:#000;
+  --white:#fff;
+  --dim:rgba(255,255,255,0.3);
+  --off-white:rgba(255,255,255,0.75);
+}
+html,body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh}
+
+/* ---- Scene system ---- */
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;padding:1.5rem;text-align:center;transition:opacity 0.12s ease}
+.scene.on{opacity:1;pointer-events:auto}
+
+/* ---- Black cut flash ---- */
+.cut{position:fixed;inset:0;background:var(--black);z-index:50;opacity:0;pointer-events:none;transition:opacity 0.05s}
+.cut.flash{opacity:1}
+
+/* ---- Phase 1: Cold Open ---- */
+.cold-open{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(1rem,2.5vw,1.4rem);letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.4);opacity:0;transform:translateY(12px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
+.cold-open.in{opacity:1;transform:translateY(0)}
+
+/* ---- Phase 2: Stats ---- */
+.stat-num{font-family:'DM Sans',sans-serif;font-weight:800;font-size:clamp(3rem,10vw,6rem);line-height:1;color:var(--white);opacity:0;transform:translateY(30px) scale(0.92);transition:all 0.15s cubic-bezier(0.16,1,0.3,1)}
+.stat-num.slam{opacity:1;transform:translateY(0) scale(1)}
+.stat-ctx{font-size:clamp(0.85rem,2vw,1.15rem);font-weight:500;color:var(--dim);margin-top:0.6rem;opacity:0;transition:opacity 0.4s ease 0.15s;max-width:480px;line-height:1.4}
+.stat-ctx.in{opacity:1}
+.stat-src{font-size:0.6rem;color:rgba(255,255,255,0.15);position:absolute;bottom:2rem;letter-spacing:0.06em;opacity:0;transition:opacity 0.3s ease 0.3s}
+.stat-src.in{opacity:1}
+
+/* ---- Phase 3: Real tweets ---- */
+.tweet-card{font-family:'DM Sans',sans-serif;font-size:clamp(0.9rem,2.2vw,1.2rem);color:var(--off-white);font-style:italic;font-weight:400;padding:12px 24px;border-left:2px solid rgba(255,255,255,0.08);max-width:520px;text-align:left;opacity:0;transition:all 0.6s cubic-bezier(0.16,1,0.3,1);line-height:1.5}
+.tweet-card.from-left{transform:translateX(-60px)}
+.tweet-card.from-right{transform:translateX(60px)}
+.tweet-card.in{opacity:1;transform:translateX(0)}
+.tweet-card+.tweet-card{margin-top:18px}
+.tweet-caps{text-transform:uppercase;letter-spacing:0.04em;font-weight:700;font-style:normal;color:var(--white)}
+.tweets-tag{font-size:clamp(0.75rem,1.5vw,0.9rem);color:rgba(255,255,255,0.2);font-weight:600;margin-top:28px;letter-spacing:0.1em;text-transform:uppercase;opacity:0;transition:opacity 0.6s ease 0.3s}
+.tweets-tag.in{opacity:1}
+
+/* ---- Phase 4: Expose ---- */
+.expose-line{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(1.1rem,3vw,1.8rem);color:var(--white);opacity:0;transform:translateY(14px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);line-height:1.5}
+.expose-line.in{opacity:1;transform:translateY(0)}
+.expose-line+.expose-line{margin-top:8px}
+.expose-teal{color:var(--teal);font-size:clamp(1.3rem,3.5vw,2.2rem)}
+
+/* ---- Phase 5: The Flip ---- */
+.flip-line{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(1rem,2.8vw,1.6rem);color:rgba(255,255,255,0.5);opacity:0;transform:translateY(14px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);line-height:1.5}
+.flip-line.in{opacity:1;transform:translateY(0)}
+.flip-big{font-size:clamp(1.3rem,3.5vw,2.2rem);color:var(--teal);font-weight:800}
+.flip-sub{font-size:clamp(0.8rem,1.5vw,0.95rem);color:rgba(255,255,255,0.25);font-weight:400;margin-top:16px}
+
+/* ---- Phase 6: Product ---- */
+.product-wrap{display:flex;flex-direction:column;align-items:center;gap:20px}
+.phone{width:280px;background:linear-gradient(145deg,#1a1a1a,#111);border-radius:36px;padding:14px;box-shadow:0 0 80px rgba(14,122,126,0.06),0 30px 60px rgba(0,0,0,0.6);border:1.5px solid rgba(255,255,255,0.07);opacity:0;transform:translateY(40px) scale(0.95);transition:all 1s cubic-bezier(0.34,1.56,0.64,1)}
+.phone.in{opacity:1;transform:translateY(0) scale(1)}
+.phone-screen{background:linear-gradient(180deg,#faf8f5,#f5f0ea);border-radius:24px;padding:0;overflow:hidden;min-height:440px}
+.pulse-header{display:flex;align-items:center;gap:10px;padding:16px 16px 12px;border-bottom:1px solid rgba(0,0,0,0.06)}
+.pulse-av{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--teal),#0a5c5f);display:flex;align-items:center;justify-content:center;font-size:0.55rem;font-weight:800;color:#fff;letter-spacing:0.02em}
+.pulse-name{font-size:0.8rem;font-weight:700;color:#1a1a1a}
+.pulse-online{width:6px;height:6px;border-radius:50%;background:#22c55e;margin-left:-4px;margin-top:1px}
+.pulse-chat{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.msg{border-radius:14px;padding:10px 14px;font-size:0.75rem;line-height:1.5;max-width:88%}
+.msg-user{background:rgba(14,122,126,0.08);color:#1a1a1a;align-self:flex-end;border-bottom-right-radius:4px;font-weight:500}
+.msg-pulse{background:#fff;color:#2a2a2a;align-self:flex-start;border-bottom-left-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.msg-pulse strong{color:var(--teal);font-weight:700}
+.pulse-cards{display:flex;gap:8px;padding:8px 16px 16px;overflow-x:auto}
+.p-card{flex:0 0 auto;background:#fff;border-radius:12px;padding:10px 14px;min-width:110px;box-shadow:0 2px 8px rgba(0,0,0,0.04);border:1px solid rgba(0,0,0,0.04)}
+.p-card-icon{font-size:1rem;margin-bottom:4px}
+.p-card-label{font-size:0.6rem;font-weight:600;color:#555;letter-spacing:0.02em}
+.product-tag{font-family:'DM Serif Display',serif;font-size:clamp(0.9rem,1.8vw,1.1rem);color:rgba(255,255,255,0.5);margin-top:4px;opacity:0;transition:opacity 0.8s ease 0.5s}
+.product-tag.in{opacity:1}
+.product-tag em{color:var(--teal);font-style:italic}
+
+/* ---- Phase 7: Pricing ---- */
+.price-line{font-family:'DM Sans',sans-serif;font-weight:600;font-size:clamp(1rem,2.5vw,1.4rem);color:rgba(255,255,255,0.6);opacity:0;transform:translateY(10px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1);line-height:1.8}
+.price-line.in{opacity:1;transform:translateY(0)}
+.price-teal{color:var(--teal);font-weight:700;font-size:clamp(1.1rem,2.8vw,1.6rem)}
+
+/* ---- Phase 8: Close ---- */
+.close-wrap{display:flex;flex-direction:column;align-items:center;gap:12px}
+.close-serif{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.8rem);color:rgba(255,255,255,0.8);line-height:1.5}
+.close-teal{color:var(--teal)}
+.close-handle{font-size:0.6rem;color:rgba(255,255,255,0.15);letter-spacing:0.1em;margin-top:14px}
+
+/* ---- Warm bg for close ---- */
+.warm-bg{background:radial-gradient(ellipse at 50% 40%,rgba(14,122,126,0.04),transparent 70%)}
+
+/* ---- Replay ---- */
+.replay{position:fixed;bottom:20px;right:20px;background:rgba(14,122,126,0.12);border:1px solid rgba(14,122,126,0.25);color:var(--teal);font-family:'DM Sans',sans-serif;font-size:0.65rem;padding:8px 16px;border-radius:20px;cursor:pointer;opacity:0;transition:opacity 0.5s;z-index:100;letter-spacing:0.06em;font-weight:600}
+.replay.show{opacity:1}
+.replay:hover{background:rgba(14,122,126,0.22)}
+
+/* ---- Film grain overlay ---- */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:40;opacity:0.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:128px 128px}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="cut" id="cut"></div>
+
+<div class="film">
+
+  <!-- Phase 1: Cold Open (0-1.5s) -->
+  <div class="scene" id="p1">
+    <div class="cold-open" id="coldText">Real numbers. Real problem.</div>
+  </div>
+
+  <!-- Phase 2: Stats (1.5-14s) — 6 stats, each ~2s -->
+  <div class="scene" id="p2">
+    <div class="stat-num" id="statNum"></div>
+    <div class="stat-ctx" id="statCtx"></div>
+    <div class="stat-src" id="statSrc"></div>
+  </div>
+
+  <!-- Phase 3: Real Tweets (14-18s) -->
+  <div class="scene" id="p3">
+    <div class="tweet-card from-left" id="tw1">"is it normal or am I just a fatass"</div>
+    <div class="tweet-card from-right tweet-caps" id="tw2">"WHERE ARE THE MATH EXPERTS"</div>
+    <div class="tweet-card from-left" id="tw3">"is it normal to feel pain in your blood"</div>
+    <div class="tweets-tag" id="twTag">Real people. Zero answers.</div>
+  </div>
+
+  <!-- Phase 4: The Expose (18-22s) -->
+  <div class="scene" id="p4">
+    <div class="expose-line" id="ex1">These platforms aren't broken.</div>
+    <div class="expose-line" id="ex2">They're designed this way.</div>
+    <div class="expose-line expose-teal" id="ex3">Your confusion is their revenue model.</div>
+  </div>
+
+  <!-- Phase 5: The Flip (22-26s) -->
+  <div class="scene" id="p5">
+    <div class="flip-line" id="fl1">Everyone told you AI is the problem.</div>
+    <div class="flip-line flip-big" id="fl2">AI is the only thing that actually solves yours.</div>
+    <div class="flip-line flip-sub" id="fl3">From scrolling to progress. In one conversation.</div>
+  </div>
+
+  <!-- Phase 6: Product (26-34s) -->
+  <div class="scene" id="p6">
+    <div class="product-wrap">
+      <div class="phone" id="phone">
+        <div class="phone-screen">
+          <div class="pulse-header">
+            <div class="pulse-av">P</div>
+            <div style="display:flex;align-items:center;gap:5px">
+              <span class="pulse-name">Pulse</span>
+              <span class="pulse-online"></span>
+            </div>
+          </div>
+          <div class="pulse-chat">
+            <div class="msg msg-user">I've been stuck at 185 lbs for 3 weeks. Eating 1,800 cal/day. What am I doing wrong?</div>
+            <div class="msg msg-pulse">At 185 lbs and 1,800 cal, you're likely <strong>80-120 cal above your actual TDEE</strong>. Small adjustments: drop to 1,720 for 10 days. Your plateau breaks around day 7-8. I'll check in Wednesday.</div>
+          </div>
+          <div class="pulse-cards">
+            <div class="p-card">
+              <div class="p-card-icon">&#128276;</div>
+              <div class="p-card-label">Wed check-in</div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-icon">&#129367;</div>
+              <div class="p-card-label">Meal plan</div>
+            </div>
+            <div class="p-card">
+              <div class="p-card-icon">&#128200;</div>
+              <div class="p-card-label">Progress</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="product-tag" id="prodTag">Pulse — <em>coming to your phone.</em></div>
+    </div>
+  </div>
+
+  <!-- Phase 7: Pricing (34-40s) -->
+  <div class="scene" id="p7">
+    <div class="price-line" id="pr1">No subscription.</div>
+    <div class="price-line" id="pr2">No hidden fees.</div>
+    <div class="price-line" id="pr3">Pay per value — only when we deliver.</div>
+    <div class="price-line price-teal" id="pr4">10x cheaper than your nutritionist. Actually personalized.</div>
+  </div>
+
+  <!-- Phase 8: Close (40-50s) -->
+  <div class="scene warm-bg" id="p8">
+    <div class="close-wrap">
+      <div class="close-serif">You always had a pulse.</div>
+      <div class="close-serif close-teal">We help you find it.</div>
+      <div class="close-handle">healthcalculators.xyz&ensp;/&ensp;@GetHealthC</div>
+    </div>
+  </div>
+
+</div>
+
+<button class="replay" id="replayBtn" onclick="runFilm()">Replay</button>
+
+<script>
+const stats = [
+  { num: '96', ctx: 'times a day you pick up your phone.', src: 'Duke University' },
+  { num: '47', ctx: 'health posts you liked on Instagram this year. Diets you started: 0.', src: '' },
+  { num: '11', ctx: 'times you Googled the same weight loss question. This year alone.', src: '' },
+  { num: '$0.04', ctx: 'Instagram earned every time you scrolled past a diet ad. Your progress earned: $0.00', src: '' },
+  { num: '8 years', ctx: 'One person spent 8 years trying to figure out how to sleep on time.', src: 'real tweet' },
+  { num: '3', ctx: 'times someone typed "hey google how many calories" in the same tweet. Google didn\'t answer any of them.', src: 'real tweet' }
+];
+
+const $ = id => document.getElementById(id);
+const cut = $('cut');
+
+function show(id) { $(id).classList.add('on'); }
+function hide(id) { $(id).classList.remove('on'); }
+function cls(id, c) { $(id).classList.add(c); }
+function uncls(id, c) { $(id).classList.remove(c); }
+
+function flashCut() {
+  return new Promise(r => {
+    cut.classList.add('flash');
+    setTimeout(() => { cut.classList.remove('flash'); r(); }, 100);
+  });
+}
+
+function wait(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+function resetAll() {
+  for (let i = 1; i <= 8; i++) hide('p' + i);
+  uncls('coldText', 'in');
+  uncls('statNum', 'slam'); uncls('statCtx', 'in'); uncls('statSrc', 'in');
+  ['tw1','tw2','tw3'].forEach(id => uncls(id, 'in'));
+  uncls('twTag', 'in');
+  ['ex1','ex2','ex3'].forEach(id => uncls(id, 'in'));
+  ['fl1','fl2','fl3'].forEach(id => uncls(id, 'in'));
+  uncls('phone', 'in'); uncls('prodTag', 'in');
+  ['pr1','pr2','pr3','pr4'].forEach(id => uncls(id, 'in'));
+  $('replayBtn').classList.remove('show');
+}
+
+async function runFilm() {
+  resetAll();
+  await wait(300);
+
+  // Phase 1: Cold Open (0-1.5s)
+  show('p1');
+  await wait(200);
+  cls('coldText', 'in');
+  await wait(1300);
+  hide('p1');
+
+  // Phase 2: Stats (1.5-14s)
+  show('p2');
+  for (let i = 0; i < stats.length; i++) {
+    const s = stats[i];
+    // Reset
+    uncls('statNum', 'slam'); uncls('statCtx', 'in'); uncls('statSrc', 'in');
+    $('statNum').textContent = s.num;
+    $('statCtx').textContent = s.ctx;
+    $('statSrc').textContent = s.src;
+    $('statSrc').style.display = s.src ? 'block' : 'none';
+
+    await flashCut();
+    await wait(50);
+    cls('statNum', 'slam');
+    await wait(200);
+    cls('statCtx', 'in');
+    if (s.src) cls('statSrc', 'in');
+    await wait(1800);
+  }
+  hide('p2');
+
+  // Phase 3: Real Tweets (14-18s)
+  await flashCut();
+  show('p3');
+  await wait(300);
+  cls('tw1', 'in');
+  await wait(800);
+  cls('tw2', 'in');
+  await wait(800);
+  cls('tw3', 'in');
+  await wait(600);
+  cls('twTag', 'in');
+  await wait(1500);
+  hide('p3');
+
+  // Phase 4: Expose (18-22s)
+  await flashCut();
+  show('p4');
+  await wait(400);
+  cls('ex1', 'in');
+  await wait(1000);
+  cls('ex2', 'in');
+  await wait(1000);
+  cls('ex3', 'in');
+  await wait(1600);
+  hide('p4');
+
+  // Phase 5: The Flip (22-26s)
+  await flashCut();
+  show('p5');
+  await wait(400);
+  cls('fl1', 'in');
+  await wait(1200);
+  cls('fl2', 'in');
+  await wait(1200);
+  cls('fl3', 'in');
+  await wait(1200);
+  hide('p5');
+
+  // Phase 6: Product (26-34s)
+  await flashCut();
+  show('p6');
+  await wait(300);
+  cls('phone', 'in');
+  await wait(1200);
+  cls('prodTag', 'in');
+  await wait(6500);
+  hide('p6');
+
+  // Phase 7: Pricing (34-40s)
+  await flashCut();
+  show('p7');
+  await wait(400);
+  cls('pr1', 'in');
+  await wait(1200);
+  cls('pr2', 'in');
+  await wait(1200);
+  cls('pr3', 'in');
+  await wait(1400);
+  cls('pr4', 'in');
+  await wait(1800);
+  hide('p7');
+
+  // Phase 8: Close (40-50s)
+  show('p8');
+  await wait(5000);
+
+  // Show replay
+  $('replayBtn').classList.add('show');
+}
+
+// Auto-play on load
+window.addEventListener('load', () => setTimeout(runFilm, 500));
+</script>
+</body>
+</html>
