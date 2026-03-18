@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pulse — The Attention Theft</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap');
+
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a0a;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+
+        /* ===== PHASE 1: CHAOS ===== */
+        #chaos-layer {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        #chaos-layer.active { opacity: 1; }
+
+        .browser-tab {
+            position: absolute;
+            top: -40px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 8px 8px 0 0;
+            padding: 6px 14px;
+            font-size: 0.7rem;
+            color: #999;
+            white-space: nowrap;
+            opacity: 0;
+            transition: top 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s;
+            z-index: 10;
+        }
+        .browser-tab .tab-dot {
+            display: inline-block;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+        .browser-tab.visible {
+            top: 0;
+            opacity: 1;
+        }
+
+        .notification {
+            position: absolute;
+            background: #1c1c1c;
+            border: 1px solid #2a2a2a;
+            border-radius: 12px;
+            padding: 10px 16px;
+            font-size: 0.75rem;
+            color: #bbb;
+            white-space: nowrap;
+            opacity: 0;
+            z-index: 15;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .notification.from-right {
+            right: -300px;
+            transition: right 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s;
+        }
+        .notification.from-left {
+            left: -300px;
+            transition: left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s;
+        }
+        .notification.visible.from-right { right: 12px; opacity: 1; }
+        .notification.visible.from-left { left: 12px; opacity: 1; }
+
+        .advice-fragment {
+            position: absolute;
+            font-family: 'DM Sans', sans-serif;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.15s;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+        .advice-fragment.visible { opacity: var(--frag-opacity); }
+
+        .fake-progress {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: #1a1a1a;
+            border-radius: 2px;
+            overflow: hidden;
+            opacity: 0;
+            z-index: 20;
+        }
+        .fake-progress.visible { opacity: 1; }
+        .fake-progress-bar {
+            height: 100%;
+            background: #555;
+            width: 0%;
+            border-radius: 2px;
+            transition: width 1.5s linear;
+        }
+
+        .chaos-cursor {
+            position: absolute;
+            width: 16px; height: 20px;
+            z-index: 50;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+        .chaos-cursor.visible { opacity: 0.7; }
+        .chaos-cursor::before {
+            content: '';
+            display: block;
+            width: 0; height: 0;
+            border-left: 7px solid #fff;
+            border-top: 5px solid transparent;
+            border-bottom: 12px solid transparent;
+        }
+
+        /* Shake effect */
+        #chaos-layer.shaking {
+            animation: chaosShake 0.08s infinite;
+        }
+        @keyframes chaosShake {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-2px, 1px); }
+            50% { transform: translate(2px, -1px); }
+            75% { transform: translate(-1px, -2px); }
+            100% { transform: translate(1px, 2px); }
+        }
+
+        /* ===== PHASE 3: BREATH ===== */
+        #breath-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s;
+            z-index: 100;
+        }
+        #breath-layer.active { opacity: 1; }
+
+        .breath-dot {
+            width: 8px; height: 8px;
+            background: #0e7a7e;
+            border-radius: 50%;
+            animation: breathe 2.5s ease-in-out infinite;
+            box-shadow: 0 0 20px rgba(14, 122, 126, 0.3);
+        }
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.3); opacity: 1; }
+        }
+
+        /* ===== PHASE 4: VOICE ===== */
+        #voice-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s;
+            z-index: 110;
+        }
+        #voice-layer.active { opacity: 1; }
+
+        .pulse-orb {
+            width: 60px; height: 60px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #12a0a5, #0e7a7e, #096568);
+            animation: breathe 2.5s ease-in-out infinite;
+            box-shadow: 0 0 40px rgba(14, 122, 126, 0.25);
+            margin-bottom: 40px;
+        }
+
+        .voice-line {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #e0e0e0;
+            text-align: center;
+            max-width: 500px;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s, transform 1s;
+            line-height: 1.5;
+        }
+        .voice-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== PHASE 5: RECLAIM ===== */
+        #reclaim-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s, background-color 1.5s;
+            z-index: 120;
+        }
+        #reclaim-layer.active { opacity: 1; }
+
+        .reclaim-pair {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.8s, transform 0.8s;
+            position: absolute;
+        }
+        .reclaim-pair.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .reclaim-chaos {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: #555;
+            margin-bottom: 12px;
+            letter-spacing: 0.03em;
+        }
+        .reclaim-pulse {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+            color: #0e7a7e;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== PHASE 6: PROMISE ===== */
+        #promise-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s;
+            z-index: 130;
+            background: #0a1a1a;
+        }
+        #promise-layer.active { opacity: 1; }
+
+        .promise-line {
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px) scale(0.97);
+            transition: opacity 0.7s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            padding: 0 20px;
+        }
+        .promise-line.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .promise-line.headline {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.4rem, 3.5vw, 2rem);
+            color: #fff;
+            margin-bottom: 24px;
+        }
+        .promise-line.sub {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.9rem, 2vw, 1.1rem);
+            color: #8ecfd0;
+            margin-bottom: 10px;
+        }
+        .promise-line.quiet {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.8rem, 1.8vw, 0.95rem);
+            color: #556;
+            margin-top: 12px;
+        }
+
+        /* Teal glow for promise */
+        #promise-layer::before {
+            content: '';
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; height: 300px;
+            background: radial-gradient(circle, rgba(14, 122, 126, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* ===== PHASE 7: BRAND CLOSE ===== */
+        #brand-layer {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 1s;
+            z-index: 140;
+            background: #0a1a1a;
+        }
+        #brand-layer.active { opacity: 1; }
+
+        .brand-orb {
+            width: 50px; height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 35%, #12a0a5, #0e7a7e, #096568);
+            animation: breathe 3s ease-in-out infinite;
+            box-shadow: 0 0 50px rgba(14, 122, 126, 0.2);
+            margin-bottom: 28px;
+        }
+        .brand-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            color: #fff;
+            margin-bottom: 10px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s 0.3s, transform 1s 0.3s;
+        }
+        .brand-tagline {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: #8ecfd0;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 1s 0.6s, transform 1s 0.6s;
+        }
+        .brand-links {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.7rem, 1.5vw, 0.8rem);
+            color: #556;
+            opacity: 0;
+            transition: opacity 1s 0.9s;
+        }
+        #brand-layer.active .brand-name,
+        #brand-layer.active .brand-tagline { opacity: 1; transform: translateY(0); }
+        #brand-layer.active .brand-links { opacity: 1; }
+
+        /* ===== REPLAY BUTTON ===== */
+        #replay-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            background: rgba(14, 122, 126, 0.15);
+            border: 1px solid rgba(14, 122, 126, 0.3);
+            color: #0e7a7e;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.5s, background 0.2s;
+        }
+        #replay-btn.visible { opacity: 1; }
+        #replay-btn:hover { background: rgba(14, 122, 126, 0.25); }
+    </style>
+</head>
+<body>
+
+<!-- PHASE 1: CHAOS -->
+<div id="chaos-layer">
+    <div class="chaos-cursor" id="cursor"></div>
+    <div class="fake-progress" id="progress">
+        <div class="fake-progress-bar" id="progress-bar"></div>
+    </div>
+</div>
+
+<!-- PHASE 3: BREATH -->
+<div id="breath-layer">
+    <div class="breath-dot"></div>
+</div>
+
+<!-- PHASE 4: VOICE -->
+<div id="voice-layer">
+    <div class="pulse-orb"></div>
+    <div class="voice-line" id="voice-1">Your attention was never the problem.</div>
+    <div class="voice-line" id="voice-2">It was pulled in too many directions.</div>
+    <div class="voice-line" id="voice-3">Let's point it somewhere useful.</div>
+</div>
+
+<!-- PHASE 5: RECLAIM -->
+<div id="reclaim-layer">
+    <div class="reclaim-pair" id="reclaim-1">
+        <div class="reclaim-chaos">They scattered your brain.</div>
+        <div class="reclaim-pulse">We give you ONE answer.</div>
+    </div>
+    <div class="reclaim-pair" id="reclaim-2">
+        <div class="reclaim-chaos">They stole your dopamine.</div>
+        <div class="reclaim-pulse">We give you REAL progress.</div>
+    </div>
+    <div class="reclaim-pair" id="reclaim-3">
+        <div class="reclaim-chaos">They kept you scrolling.</div>
+        <div class="reclaim-pulse">We keep you moving.</div>
+    </div>
+</div>
+
+<!-- PHASE 6: PROMISE -->
+<div id="promise-layer">
+    <div class="promise-line headline" id="prom-1">One conversation.</div>
+    <div class="promise-line sub" id="prom-2">A plan. Reminders. Progress.</div>
+    <div class="promise-line quiet" id="prom-3">No tabs. No scrolling. No contradictions.</div>
+</div>
+
+<!-- PHASE 7: BRAND -->
+<div id="brand-layer">
+    <div class="brand-orb"></div>
+    <div class="brand-name">Pulse</div>
+    <div class="brand-tagline">Your health. Focused.</div>
+    <div class="brand-links">healthcalculators.xyz &nbsp;/&nbsp; @GetHealthC</div>
+</div>
+
+<!-- REPLAY -->
+<button id="replay-btn" onclick="location.reload()">Replay</button>
+
+<script>
+(function() {
+    const chaos = document.getElementById('chaos-layer');
+    const cursor = document.getElementById('cursor');
+    const progress = document.getElementById('progress');
+    const progressBar = document.getElementById('progress-bar');
+
+    // ===== DATA =====
+    const tabs = [
+        { text: '10 Best Diets 2026', color: '#e74c3c' },
+        { text: 'TDEE Calculator - MyFit...', color: '#3498db' },
+        { text: 'Reddit - r/fitness', color: '#ff6600' },
+        { text: 'ChatGPT', color: '#10a37f' },
+        { text: 'YouTube - How to Lose...', color: '#ff0000' },
+        { text: 'WebMD: Is Keto Safe?', color: '#2ecc71' },
+        { text: 'TikTok - @fitcoach', color: '#000' },
+        { text: 'Google: best macro split', color: '#4285f4' }
+    ];
+
+    const notifications = [
+        { text: 'New email: Your diet plan is ready!', side: 'right', icon: '\uD83D\uDD14' },
+        { text: 'Instagram: @fitguru posted a reel', side: 'left', icon: '\uD83D\uDCF1' },
+        { text: 'YouTube: New video from Dr. Mike', side: 'right', icon: '\uD83D\uDD34' },
+        { text: 'MyFitnessPal: Log your lunch!', side: 'left', icon: '\u23F0' },
+        { text: 'Reddit: 47 new replies to your post', side: 'right', icon: '\uD83D\uDCAC' }
+    ];
+
+    const adviceFragments = [
+        'eat less', 'eat more protein', 'just do cardio', 'cardio kills gains',
+        'intermittent fasting', 'fasting is dangerous', 'count calories', 'calories don\'t matter',
+        'keto works', 'keto is unsustainable', 'just eat clean', 'clean eating is a myth',
+        'lift heavy', 'lifting heavy causes injury', 'HIIT burns fat', 'HIIT causes burnout',
+        'go vegan', 'you need meat', 'cut carbs', 'carbs are fuel',
+        'meal prep', 'don\'t restrict', 'track everything', 'tracking causes anxiety',
+        'drink more water', 'you\'re drinking too much', 'supplements work', 'supplements are a scam',
+        'rest more', 'push harder', 'listen to your body', 'discipline over motivation',
+        '1200 calories', 'never go below 1500', 'bulk first', 'cut first',
+        'morning workouts', 'evening is optimal', 'cold showers', 'cold exposure is hype'
+    ];
+
+    // ===== HELPERS =====
+    function rand(min, max) { return Math.random() * (max - min) + min; }
+    function randInt(min, max) { return Math.floor(rand(min, max)); }
+
+    function createTab(data, index) {
+        const el = document.createElement('div');
+        el.className = 'browser-tab';
+        el.style.left = (index * 12.5) + '%';
+        el.style.transform = 'rotate(' + rand(-3, 3).toFixed(1) + 'deg)';
+        el.style.zIndex = 10 + index;
+        el.innerHTML = '<span class="tab-dot" style="background:' + data.color + '"></span>' + data.text;
+        chaos.appendChild(el);
+        return el;
+    }
+
+    function createNotification(data, yPos) {
+        const el = document.createElement('div');
+        el.className = 'notification from-' + data.side;
+        el.style.top = yPos + 'px';
+        el.textContent = data.icon + ' ' + data.text;
+        chaos.appendChild(el);
+        return el;
+    }
+
+    function createFragment(text) {
+        const el = document.createElement('div');
+        el.className = 'advice-fragment';
+        const size = rand(0.6, 1.2);
+        const opacity = rand(0.15, 0.5);
+        el.style.fontSize = size + 'rem';
+        el.style.setProperty('--frag-opacity', opacity);
+        el.style.top = rand(8, 88) + '%';
+        el.style.left = rand(3, 85) + '%';
+        el.style.transform = 'rotate(' + rand(-8, 8).toFixed(1) + 'deg)';
+        el.style.color = Math.random() > 0.7 ? '#' + ['e74c3c','f39c12','e67e22','9b59b6','3498db','1abc9c'][randInt(0,6)] : '#888';
+        el.textContent = text;
+        chaos.appendChild(el);
+        return el;
+    }
+
+    // ===== CURSOR MOVEMENT =====
+    let cursorActive = false;
+    function animateCursor() {
+        if (!cursorActive) return;
+        const x = rand(5, 90);
+        const y = rand(5, 90);
+        cursor.style.left = x + '%';
+        cursor.style.top = y + '%';
+        cursor.style.transition = 'left ' + rand(0.15, 0.35).toFixed(2) + 's linear, top ' + rand(0.15, 0.35).toFixed(2) + 's linear';
+        setTimeout(animateCursor, rand(150, 400));
+    }
+
+    // ===== PROGRESS BAR LOOP =====
+    let progressActive = false;
+    function loopProgress() {
+        if (!progressActive) return;
+        progressBar.style.transition = 'width 1.5s linear';
+        progressBar.style.width = rand(40, 85) + '%';
+        setTimeout(function() {
+            if (!progressActive) return;
+            progressBar.style.transition = 'width 0.3s';
+            progressBar.style.width = '0%';
+            setTimeout(loopProgress, 400);
+        }, 1600);
+    }
+
+    // ===== TIMELINE =====
+    const timeline = [];
+    function at(ms, fn) { timeline.push({ ms: ms, fn: fn }); }
+    let timeouts = [];
+
+    function runTimeline() {
+        timeouts.forEach(clearTimeout);
+        timeouts = [];
+        timeline.forEach(function(entry) {
+            timeouts.push(setTimeout(entry.fn, entry.ms));
+        });
+    }
+
+    // --- PHASE 1: CHAOS (0-12s) ---
+    at(0, function() {
+        chaos.classList.add('active');
+    });
+
+    // Tabs slide in staggered
+    const tabEls = [];
+    tabs.forEach(function(t, i) {
+        at(200 + i * 400, function() {
+            const el = createTab(t, i);
+            tabEls.push(el);
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() { el.classList.add('visible'); });
+            });
+        });
+    });
+
+    // Notifications
+    const notifDelays = [1500, 3000, 5000, 7500, 9500];
+    const notifYPositions = [80, 130, 180, 230, 280];
+    notifications.forEach(function(n, i) {
+        at(notifDelays[i], function() {
+            const el = createNotification(n, notifYPositions[i]);
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() { el.classList.add('visible'); });
+            });
+        });
+    });
+
+    // Advice fragments — rapid fire
+    let fragIndex = 0;
+    const fragCount = adviceFragments.length;
+    for (let i = 0; i < fragCount; i++) {
+        at(800 + i * 200, function() {
+            const el = createFragment(adviceFragments[fragIndex++ % fragCount]);
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() { el.classList.add('visible'); });
+            });
+        });
+    }
+
+    // More fragments, faster, in later phase
+    for (let i = 0; i < 20; i++) {
+        at(8000 + i * 120, function() {
+            const el = createFragment(adviceFragments[randInt(0, fragCount)]);
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() { el.classList.add('visible'); });
+            });
+        });
+    }
+
+    // Cursor
+    at(1000, function() {
+        cursor.classList.add('visible');
+        cursorActive = true;
+        animateCursor();
+    });
+
+    // Progress bar
+    at(2000, function() {
+        progress.classList.add('visible');
+        progressActive = true;
+        loopProgress();
+    });
+
+    // --- PHASE 2: BREAKING POINT (12-16s) ---
+    at(10500, function() {
+        chaos.classList.add('shaking');
+    });
+
+    // Even more fragments during shake
+    for (let i = 0; i < 15; i++) {
+        at(10500 + i * 80, function() {
+            const el = createFragment(adviceFragments[randInt(0, fragCount)]);
+            el.style.fontSize = rand(0.8, 1.5) + 'rem';
+            el.style.setProperty('--frag-opacity', rand(0.3, 0.7));
+            requestAnimationFrame(function() {
+                requestAnimationFrame(function() { el.classList.add('visible'); });
+            });
+        });
+    }
+
+    // HARD CUT TO BLACK
+    at(12000, function() {
+        cursorActive = false;
+        progressActive = false;
+        chaos.classList.remove('active', 'shaking');
+        chaos.style.display = 'none';
+    });
+
+    // --- PHASE 3: BREATH (16-20s) ---
+    // Hold black for 2s then show dot
+    at(14000, function() {
+        document.getElementById('breath-layer').classList.add('active');
+    });
+
+    // --- PHASE 4: VOICE (20-28s) ---
+    at(18000, function() {
+        document.getElementById('breath-layer').classList.remove('active');
+        document.getElementById('voice-layer').classList.add('active');
+    });
+
+    at(19000, function() {
+        document.getElementById('voice-1').classList.add('visible');
+    });
+
+    at(21500, function() {
+        document.getElementById('voice-2').classList.add('visible');
+    });
+
+    at(24000, function() {
+        document.getElementById('voice-3').classList.add('visible');
+    });
+
+    // --- PHASE 5: RECLAIM (28-38s) ---
+    at(28000, function() {
+        document.getElementById('voice-layer').classList.remove('active');
+        document.getElementById('reclaim-layer').classList.add('active');
+        document.body.style.transition = 'background-color 1.5s';
+        document.body.style.backgroundColor = '#0a1a1a';
+    });
+
+    at(28500, function() {
+        document.getElementById('reclaim-1').classList.add('visible');
+    });
+
+    at(31800, function() {
+        document.getElementById('reclaim-1').classList.remove('visible');
+        setTimeout(function() {
+            document.getElementById('reclaim-2').classList.add('visible');
+        }, 400);
+    });
+
+    at(35100, function() {
+        document.getElementById('reclaim-2').classList.remove('visible');
+        setTimeout(function() {
+            document.getElementById('reclaim-3').classList.add('visible');
+        }, 400);
+    });
+
+    // --- PHASE 6: PROMISE (38-45s) ---
+    at(38000, function() {
+        document.getElementById('reclaim-layer').classList.remove('active');
+        document.getElementById('promise-layer').classList.add('active');
+    });
+
+    at(38800, function() {
+        document.getElementById('prom-1').classList.add('visible');
+    });
+
+    at(40200, function() {
+        document.getElementById('prom-2').classList.add('visible');
+    });
+
+    at(41800, function() {
+        document.getElementById('prom-3').classList.add('visible');
+    });
+
+    // --- PHASE 7: BRAND (45-55s) ---
+    at(45000, function() {
+        document.getElementById('promise-layer').classList.remove('active');
+        document.getElementById('brand-layer').classList.add('active');
+    });
+
+    at(50000, function() {
+        document.getElementById('replay-btn').classList.add('visible');
+    });
+
+    // ===== GO =====
+    runTimeline();
+})();
+</script>
+</body>
+</html>
