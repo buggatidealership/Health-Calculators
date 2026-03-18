@@ -1,0 +1,431 @@
+{#
+  Calculator V3 — Locked Template
+  ================================
+  ONE template. ZERO child templates. Config-driven everything.
+
+  Adding a new calculator = adding one config dict in app.py.
+  Fixing an SEO issue = editing this file. All calculators updated.
+
+  Config dict (cfg) provides:
+    Identity: route, page_title, headline, h1, subtitle, meta_description
+    Content: answer_capsule, trust_text, methodology, faq[], sources[]
+    Form: input_groups[] (each has label, type, options/range/default)
+    Results: example_result{} (static SEO block), result_sections[]
+    SEO: schema_type, og_image, breadcrumb_category{name, url}
+    Links: related_guide{}, related_calculators[]
+    JS: js_module (path to per-calculator JS file)
+
+  Per-calculator JS module handles:
+    - Reading form inputs
+    - Computing results
+    - Updating result display elements
+    - The template provides standard IDs/classes for JS to target
+#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% set og_image = cfg.og_image|default("default-calculator-og.jpg") %}
+{% with
+    meta_description=cfg.meta_description,
+    meta_keywords=cfg.meta_keywords|default(''),
+    og_title=cfg.headline,
+    og_description=cfg.subtitle,
+    og_url=cfg.route,
+    page_title=cfg.page_title,
+    canonical_url=cfg.route,
+    schema_type=cfg.schema_type|default('MedicalWebPage'),
+    schema_name=cfg.h1|default(cfg.headline),
+    schema_description=cfg.schema_description|default(cfg.meta_description),
+    schema_url=cfg.route,
+    schema_about=cfg.schema_about|default(cfg.h1|default(cfg.headline)),
+    date_published=cfg.date_published|default('2025-06-01'),
+    date_modified=cfg.date_modified|default('2026-03-19'),
+    breadcrumb_category=cfg.breadcrumb_category
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/calculator-v2.css') }}">
+
+{# Per-calculator custom CSS (inline from config or external file) #}
+{% if cfg.custom_css %}
+<style>{{ cfg.custom_css|safe }}</style>
+{% elif cfg.css_file %}
+<link rel="stylesheet" href="{{ url_for('static', filename=cfg.css_file) }}">
+{% endif %}
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+
+  {# === HERO === #}
+  <div class="calc-v2-hero">
+    <h1>{{ cfg.h1|default(cfg.headline) }}</h1>
+    <p class="calc-v2-subtitle">{{ cfg.subtitle }}</p>
+    {% if cfg.trust_text %}
+    <div class="calc-v2-trust">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      {{ cfg.trust_text }}
+    </div>
+    {% endif %}
+  </div>
+
+  {# === CALCULATOR FORM === #}
+  <section id="calculator" class="calculator">
+
+    {# Option A: Custom form HTML for complex calculators #}
+    {% if cfg.custom_form_html %}
+    {{ cfg.custom_form_html|safe }}
+    {% endif %}
+
+    {# Option B: Config-driven inputs for simple calculators #}
+    {% for group in cfg.input_groups|default([]) %}
+    <div class="calc-v3-input-group" id="input-group-{{ group.id }}">
+      {% if group.label %}
+      <label class="calc-v3-label">{{ group.label }}</label>
+      {% endif %}
+
+      {% if group.type == 'card_select' %}
+      {# Card selection grid (e.g., caffeine sources, activity levels) #}
+      <div class="calc-v3-card-grid" data-group="{{ group.id }}">
+        {% for opt in group.options %}
+        <div class="calc-v3-card{{ ' selected' if loop.first }}" data-value="{{ opt.value }}"{{ ' data-mg="' ~ opt.data_mg ~ '"' if opt.data_mg is defined }}>
+          {% if opt.icon %}<div class="calc-v3-card-icon">{{ opt.icon }}</div>{% endif %}
+          <div class="calc-v3-card-name">{{ opt.label }}</div>
+          {% if opt.sublabel %}<div class="calc-v3-card-sub">{{ opt.sublabel }}</div>{% endif %}
+        </div>
+        {% endfor %}
+      </div>
+
+      {% elif group.type == 'number' %}
+      <div class="calc-v3-number-wrap">
+        <input type="number" class="calc-v3-input" id="input-{{ group.id }}"
+               min="{{ group.min|default(0) }}" max="{{ group.max|default(9999) }}"
+               value="{{ group.default|default('') }}" step="{{ group.step|default(1) }}"
+               inputmode="numeric" placeholder="{{ group.placeholder|default('') }}">
+        {% if group.suffix %}<span class="calc-v3-suffix">{{ group.suffix }}</span>{% endif %}
+      </div>
+
+      {% elif group.type == 'time' %}
+      <input type="time" class="calc-v3-input" id="input-{{ group.id }}" value="{{ group.default|default('') }}">
+
+      {% elif group.type == 'select' %}
+      <select class="calc-v3-input" id="input-{{ group.id }}">
+        {% for opt in group.options %}
+        <option value="{{ opt.value }}"{{ ' selected' if opt.selected|default(false) }}>{{ opt.label }}</option>
+        {% endfor %}
+      </select>
+
+      {% elif group.type == 'radio_row' %}
+      <div class="calc-v3-radio-row" data-group="{{ group.id }}">
+        {% for opt in group.options %}
+        <button class="calc-v3-radio-btn{{ ' selected' if opt.selected|default(false) }}" data-value="{{ opt.value }}">{{ opt.label }}</button>
+        {% endfor %}
+      </div>
+
+      {% elif group.type == 'row' %}
+      {# Multiple inputs in a row (e.g., time consumed + bedtime) #}
+      <div class="calc-v3-input-row">
+        {% for sub in group.fields %}
+        <div class="calc-v3-input-col">
+          <label class="calc-v3-sublabel" for="input-{{ sub.id }}">{{ sub.label }}</label>
+          {% if sub.type == 'time' %}
+          <input type="time" class="calc-v3-input" id="input-{{ sub.id }}" value="{{ sub.default|default('') }}">
+          {% elif sub.type == 'number' %}
+          <input type="number" class="calc-v3-input" id="input-{{ sub.id }}"
+                 min="{{ sub.min|default(0) }}" max="{{ sub.max|default(9999) }}"
+                 value="{{ sub.default|default('') }}" step="{{ sub.step|default(1) }}" inputmode="numeric">
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+      {% endif %}
+
+      {% if group.hint %}
+      <div class="calc-v3-hint">{{ group.hint }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+
+    {# Calculate button (optional — some calculators auto-calculate) #}
+    {% if cfg.show_calculate_button|default(false) %}
+    <button class="calc-v3-submit" id="calc-submit">{{ cfg.calculate_label|default('Calculate') }}</button>
+    {% endif %}
+
+    {# === RESULTS AREA === #}
+    <div id="calc-results" class="calc-v3-results">
+      {# Result sections rendered from config — JS populates values #}
+      {% for section in cfg.result_sections|default([]) %}
+      <div class="calc-v3-result-section calc-v3-{{ section.type }}" id="result-{{ section.id|default(loop.index) }}">
+        {% if section.label %}
+        <div class="calc-v3-result-label">{{ section.label }}</div>
+        {% endif %}
+        <div class="calc-v3-result-value" id="result-value-{{ section.id|default(loop.index) }}"></div>
+        {% if section.unit %}
+        <div class="calc-v3-result-unit" id="result-unit-{{ section.id|default(loop.index) }}">{{ section.unit }}</div>
+        {% endif %}
+        {% if section.verdict_id %}
+        <div class="calc-v3-result-verdict" id="{{ section.verdict_id }}"></div>
+        {% endif %}
+      </div>
+      {% endfor %}
+
+      {# Additional result containers for JS to populate #}
+      <div id="calc-extra-results"></div>
+    </div>
+
+    {# === STATIC EXAMPLE RESULT (SEO — visible to crawlers before JS runs) === #}
+    {% if cfg.example_result %}
+    <noscript>
+    <div class="calc-v3-example-result">
+      <div class="calc-v3-result-label">Example result</div>
+      <p>{{ cfg.example_result }}</p>
+    </div>
+    </noscript>
+    <div class="calc-v3-example-result" id="seo-example-result">
+      <p>{{ cfg.example_result }}</p>
+    </div>
+    {% endif %}
+
+  </section>
+
+  {# === LLM-CITABLE ANSWER CAPSULE === #}
+  {% if cfg.answer_capsule %}
+  <div class="calc-v2-answer-capsule">
+    {{ cfg.answer_capsule }}
+  </div>
+  {% endif %}
+
+  {% include 'components/medical-disclaimer.html' %}
+
+  {# ============================================
+     BELOW DISCLAIMER — optimized for LLM crawl → user scroll
+     1. FAQ (highest LLM citation value)
+     2. Related guide (internal linking + user journey)
+     3. Methodology (E-E-A-T trust signal)
+     4. Sources (authority signal)
+     5. Demand capture (product function)
+     6. Related calculators (internal linking)
+     ============================================ #}
+
+  {# === TOP AD === #}
+  <div data-nosnippet>
+  {% with ad_position="top" %}
+  {% include 'components/ad-unit.html' %}
+  {% endwith %}
+  </div>
+
+  {# === FAQ — server-side for SEO, direct answer always visible === #}
+  {% if cfg.faq %}
+  <section id="faq" class="calc-v2-faq">
+    <h2>Frequently Asked Questions</h2>
+    {% for item in cfg.faq %}
+    <div class="calc-v2-faq-item">
+      <div class="calc-v2-faq-q" role="button" tabindex="0">
+        {{ item.question }}
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="calc-v2-faq-direct">{{ item.direct }}</div>
+      {% if item.detail %}
+      <div class="calc-v2-faq-detail">{{ item.detail|safe }}</div>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  {# === MIDDLE AD === #}
+  <div data-nosnippet>
+  {% with ad_position="middle" %}
+  {% include 'components/ad-unit.html' %}
+  {% endwith %}
+  </div>
+
+  {# === RELATED GUIDE === #}
+  {% if cfg.related_guide %}
+  <div class="calc-v2-guide-callout">
+    <h3>{{ cfg.related_guide.label|default('Related Guide') }}</h3>
+    <p>{{ cfg.related_guide.teaser }}
+      <a href="{{ cfg.related_guide.route }}">{{ cfg.related_guide.cta|default('Read the full guide') }} &rarr;</a>
+    </p>
+  </div>
+  {% endif %}
+
+  {# === METHODOLOGY === #}
+  {% if cfg.methodology %}
+  <section id="methodology" class="calc-v2-methodology">
+    <h2>Methodology</h2>
+    <div class="calc-v2-methodology-body">
+      {{ cfg.methodology|safe }}
+    </div>
+  </section>
+  {% endif %}
+
+  {# === IN-ARTICLE AD === #}
+  <div data-nosnippet>
+  {% with ad_position="in-article" %}
+  {% include 'components/ad-unit.html' %}
+  {% endwith %}
+  </div>
+
+  {# === SOURCES === #}
+  {% if cfg.sources %}
+  <section class="calc-v2-sources">
+    <h2>Sources</h2>
+    <ol class="sources-list">
+      {% for src in cfg.sources %}
+      <li>{{ src.text }}{% if src.url %} <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">Link</a>{% endif %}</li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+
+  {# === FAQPage SCHEMA (server-side JSON-LD) === #}
+  {% if cfg.faq and cfg.faq|length >= 2 %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for item in cfg.faq %}
+      {
+        "@type": "Question",
+        "name": {{ item.question|tojson }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ (item.direct ~ (' ' ~ item.detail|default('')|striptags))|tojson }}
+        }
+      }{% if not loop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
+  {% endif %}
+
+  {# === DEMAND CAPTURE === #}
+  <div class="calc-v2-demand-capture" id="demand-capture" data-nosnippet>
+    <div class="calc-v2-demand-capture-title">Have another health question?</div>
+    <div class="calc-v2-demand-capture-sub">Tell Pulse what you need. We'll build it.</div>
+    <div class="calc-v2-demand-input-row" id="demand-form">
+      <input type="text" class="calc-v2-demand-input" id="demand-input" placeholder="e.g. How much creatine should I take?">
+      <button class="calc-v2-demand-btn" id="demand-submit-btn">Send</button>
+    </div>
+    <div class="calc-v2-demand-thanks" id="demand-thanks">Got it. Pulse is on it.</div>
+  </div>
+
+  {# === BOTTOM AD === #}
+  <div data-nosnippet>
+  {% with ad_position="bottom" %}
+  {% include 'components/ad-unit.html' %}
+  {% endwith %}
+  </div>
+
+</div>
+
+{# === RELATED LINKS === #}
+{% if cfg.related_calculators %}
+<div class="related-links-section">
+  <div class="related-links-container">
+    <h2>Related Calculators</h2>
+    <div class="related-links-grid">
+      {% for link in cfg.related_calculators %}
+      <a href="{{ link.route }}" class="related-link-card">{{ link.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% include 'footer.html' %}
+
+{# === DEMAND CAPTURE JS === #}
+<script>
+(function() {
+  var btn = document.getElementById('demand-submit-btn');
+  var input = document.getElementById('demand-input');
+  var form = document.getElementById('demand-form');
+  var thanks = document.getElementById('demand-thanks');
+  if (!btn || !input) return;
+  btn.addEventListener('click', function() {
+    var q = input.value.trim();
+    if (!q) return;
+    fetch('/api/request-calculator', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({what: q, source: '{{ cfg.route }}'})
+    }).catch(function(){});
+    form.style.display = 'none';
+    thanks.style.display = 'block';
+  });
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') btn.click();
+  });
+})();
+</script>
+
+{# === FAQ ACCORDION === #}
+{% if cfg.faq %}
+<script>
+document.querySelectorAll('.calc-v2-faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = this.parentElement;
+    var detail = item.querySelector('.calc-v2-faq-detail');
+    if (!detail) return;
+    var open = this.classList.contains('open');
+    this.classList.toggle('open');
+    detail.style.display = open ? 'none' : 'block';
+  });
+  q.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); this.click(); }
+  });
+});
+</script>
+{% endif %}
+
+{# === V3 FORM INTERACTION JS (config-driven) === #}
+<script>
+(function() {
+  // Card selection behavior
+  document.querySelectorAll('.calc-v3-card-grid').forEach(function(grid) {
+    grid.querySelectorAll('.calc-v3-card').forEach(function(card) {
+      card.addEventListener('click', function() {
+        grid.querySelectorAll('.calc-v3-card').forEach(function(c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+        card.dispatchEvent(new Event('card-selected', {bubbles: true}));
+      });
+    });
+  });
+  // Radio button behavior
+  document.querySelectorAll('.calc-v3-radio-row').forEach(function(row) {
+    row.querySelectorAll('.calc-v3-radio-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        row.querySelectorAll('.calc-v3-radio-btn').forEach(function(b) { b.classList.remove('selected'); });
+        btn.classList.add('selected');
+        btn.dispatchEvent(new Event('radio-selected', {bubbles: true}));
+      });
+    });
+  });
+  // Hide SEO example result once JS calculator runs
+  var seoExample = document.getElementById('seo-example-result');
+  if (seoExample) {
+    document.addEventListener('calc-complete', function() {
+      seoExample.style.display = 'none';
+    });
+  }
+})();
+</script>
+
+{# === PER-CALCULATOR JS MODULE === #}
+{% if cfg.js_module %}
+<script src="{{ url_for('static', filename=cfg.js_module) }}"></script>
+{% endif %}
+{% if cfg.inline_js %}
+<script>{{ cfg.inline_js|safe }}</script>
+{% endif %}
+
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+</body>
+</html>

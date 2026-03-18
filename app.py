@@ -3452,6 +3452,339 @@ def caffeine_half_life_calculator():
     )
 
 
+@app.route('/mockup-caffeine-v3')
+def mockup_caffeine_v3():
+    """Caffeine Half Life Calculator — V3 locked template proof of concept."""
+    cfg = {
+        # === IDENTITY ===
+        'route': '/mockup-caffeine-v3',
+        'page_title': 'Caffeine Half Life Calculator — When Does It Wear Off?',  # 54 chars
+        'h1': 'Caffeine Half Life Calculator',  # Different from page_title
+        'headline': 'How long does caffeine last?',
+        'subtitle': 'See exactly how much caffeine is still in your system at bedtime — and when to stop drinking coffee for better sleep.',
+        'meta_description': 'Calculate how long caffeine stays in your system. See a personalized decay timeline and your last safe cup time.',  # 113 chars
+        'meta_keywords': 'caffeine half life calculator, how long does caffeine last, caffeine calculator, when does caffeine wear off',
+        'trust_text': 'Based on pharmacokinetic half-life model · Average adult half-life: 5 hours',
+
+        # === SEO ===
+        'schema_type': 'MedicalWebPage',
+        'schema_about': 'Caffeine Half Life Calculator',
+        'schema_description': 'Calculate how long caffeine stays in your system using the pharmacokinetic half-life model.',
+        'og_image': 'default-calculator-og.jpg',
+        'breadcrumb_category': {'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        'date_published': '2025-06-01',
+        'date_modified': '2026-03-19',
+
+        # === LLM ANSWER CAPSULE ===
+        'answer_capsule': 'Caffeine has a half-life of approximately 5 hours in healthy adults. This means if you drink a cup of coffee with 95 mg of caffeine at 2 PM, about 47 mg will remain in your system at 7 PM, and about 24 mg at midnight. Most sleep researchers recommend having less than 25 mg of caffeine in your system at bedtime.',
+
+        # === STATIC EXAMPLE RESULT (visible to crawlers before JS runs) ===
+        'example_result': 'For a standard cup of coffee (95 mg caffeine) consumed at 2:00 PM with a 10:00 PM bedtime: approximately 24 mg will remain at bedtime — unlikely to affect sleep. Your last safe cup would be around 2:00 PM to keep caffeine below 25 mg at bedtime.',
+
+        # === FORM (custom HTML — complex calculator) ===
+        'input_groups': [],  # Not used — custom_form_html instead
+        'custom_form_html': '''
+<!-- Source selection -->
+<div style="margin-bottom: 6px;">
+  <label style="font-size:0.82rem;font-weight:600;color:var(--color-text);display:block;margin-bottom:8px;">What did you drink?</label>
+</div>
+<div class="caf-source-grid">
+  <div class="caf-source-card selected" data-mg="95"><div class="caf-source-icon">☕</div><div class="caf-source-name">Coffee</div><div class="caf-source-mg">95 mg (8 oz)</div></div>
+  <div class="caf-source-card" data-mg="142"><div class="caf-source-icon">☕</div><div class="caf-source-name">Tall coffee</div><div class="caf-source-mg">142 mg (12 oz)</div></div>
+  <div class="caf-source-card" data-mg="63"><div class="caf-source-icon">☕</div><div class="caf-source-name">Espresso</div><div class="caf-source-mg">63 mg (1 shot)</div></div>
+  <div class="caf-source-card" data-mg="200"><div class="caf-source-icon">🧊</div><div class="caf-source-name">Cold brew</div><div class="caf-source-mg">200 mg (12 oz)</div></div>
+  <div class="caf-source-card" data-mg="160"><div class="caf-source-icon">⚡</div><div class="caf-source-name">Energy drink</div><div class="caf-source-mg">160 mg (16 oz)</div></div>
+  <div class="caf-source-card" data-mg="300"><div class="caf-source-icon">⚡</div><div class="caf-source-name">Bang / Reign</div><div class="caf-source-mg">300 mg</div></div>
+  <div class="caf-source-card" data-mg="47"><div class="caf-source-icon">🍵</div><div class="caf-source-name">Black tea</div><div class="caf-source-mg">47 mg (8 oz)</div></div>
+  <div class="caf-source-card" data-mg="28"><div class="caf-source-icon">🍵</div><div class="caf-source-name">Green tea</div><div class="caf-source-mg">28 mg (8 oz)</div></div>
+  <div class="caf-source-card" data-mg="200"><div class="caf-source-icon">💊</div><div class="caf-source-name">Caffeine pill</div><div class="caf-source-mg">200 mg</div></div>
+  <div class="caf-source-card" data-mg="34"><div class="caf-source-icon">🥤</div><div class="caf-source-name">Cola</div><div class="caf-source-mg">34 mg (12 oz)</div></div>
+  <div class="caf-source-card" data-mg="200"><div class="caf-source-icon">🏋️</div><div class="caf-source-name">Pre-workout</div><div class="caf-source-mg">200 mg</div></div>
+  <div class="caf-source-card" data-mg="0"><div class="caf-source-icon">✏️</div><div class="caf-source-name">Custom</div><div class="caf-source-mg">Enter mg</div></div>
+</div>
+<div class="caf-mg-row" id="custom-mg-row" style="display:none;">
+  <label style="font-size:0.82rem;font-weight:600;color:var(--color-text);display:block;margin-bottom:6px;">Caffeine amount</label>
+  <div class="caf-mg-wrap">
+    <input type="number" class="caf-mg-input" id="custom-mg" min="1" max="1000" value="100" inputmode="numeric">
+    <span class="caf-mg-suffix">mg</span>
+  </div>
+  <div class="caf-input-hint">FDA recommends ≤400 mg/day for healthy adults</div>
+</div>
+<div class="caf-time-row">
+  <div class="caf-time-group">
+    <label for="time-consumed">When did you have it?</label>
+    <input type="time" class="caf-time-input" id="time-consumed" value="">
+  </div>
+  <div class="caf-time-group">
+    <label for="bedtime">What time is bedtime?</label>
+    <input type="time" class="caf-time-input" id="bedtime" value="22:00">
+  </div>
+</div>
+<div style="font-size:0.72rem;color:var(--color-text-secondary);margin-bottom:20px;">
+  Average caffeine half-life: 5 hours (range 1.5–9.5h depending on genetics, age, medications, liver function)
+</div>
+<div class="caf-results" id="caf-results">
+  <div class="caf-result-card">
+    <div class="caf-result-label">Caffeine remaining at bedtime</div>
+    <div class="caf-result-big" id="caf-at-bed">24</div>
+    <div class="caf-result-unit">mg remaining of <span id="caf-start-display">95</span> mg</div>
+    <div class="caf-result-verdict" id="caf-verdict">Unlikely to affect sleep</div>
+  </div>
+  <div class="caf-spectrum">
+    <div class="caf-spectrum-title">Sleep impact level</div>
+    <div class="caf-spectrum-bar">
+      <div class="caf-spectrum-marker" id="caf-marker" style="left:10%"></div>
+    </div>
+    <div class="caf-spectrum-labels">
+      <span>No impact</span><span>Mild</span><span>Significant</span>
+    </div>
+  </div>
+  <div class="caf-cutoff">
+    <div class="caf-cutoff-icon">⏰</div>
+    <div class="caf-cutoff-text" id="caf-cutoff-text">
+      Your last cup should be by <strong id="cutoff-time">2:00 PM</strong> to have less than 25 mg at bedtime.
+    </div>
+  </div>
+  <div class="caf-timeline">
+    <div class="caf-timeline-title">Hour-by-hour decay</div>
+    <div id="caf-timeline-rows"></div>
+  </div>
+</div>
+''',
+
+        # === CUSTOM CSS ===
+        'custom_css': '''
+.caf-source-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; margin-bottom: 20px; }
+.caf-source-card { padding: 12px 10px; background: var(--color-surface); border: 2px solid var(--color-border); border-radius: 12px; text-align: center; cursor: pointer; transition: border-color 0.15s, transform 0.1s, background 0.15s; }
+.caf-source-card:hover { border-color: rgba(14,122,126,0.3); }
+.caf-source-card.selected { border-color: var(--color-accent); background: rgba(14,122,126,0.03); }
+.caf-source-card:active { transform: scale(0.97); }
+.caf-source-icon { font-size: 1.4rem; margin-bottom: 4px; }
+.caf-source-name { font-size: 0.82rem; font-weight: 600; color: var(--color-text); }
+.caf-source-mg { font-size: 0.72rem; color: var(--color-text-secondary); margin-top: 2px; }
+.caf-time-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px; }
+.caf-time-group label { display: block; font-size: 0.82rem; font-weight: 600; color: var(--color-text); margin-bottom: 6px; }
+.caf-time-input { width: 100%; padding: 12px 14px; border: 2px solid var(--color-border); border-radius: 10px; font-size: 1rem; font-family: var(--font-body); font-weight: 600; color: var(--color-text); background: var(--color-surface); transition: border-color 0.2s; }
+.caf-time-input:focus { outline: none; border-color: var(--color-accent); }
+.caf-mg-row { margin-bottom: 20px; }
+.caf-mg-input { width: 100%; padding: 12px 14px; padding-right: 40px; border: 2px solid var(--color-border); border-radius: 10px; font-size: 1rem; font-family: var(--font-body); font-weight: 600; color: var(--color-text); background: var(--color-surface); transition: border-color 0.2s; -moz-appearance: textfield; }
+.caf-mg-input::-webkit-outer-spin-button, .caf-mg-input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.caf-mg-input:focus { outline: none; border-color: var(--color-accent); }
+.caf-mg-wrap { position: relative; }
+.caf-mg-suffix { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 0.82rem; color: var(--color-text-secondary); pointer-events: none; }
+.caf-input-hint { font-size: 0.72rem; color: var(--color-text-secondary); margin-top: 4px; }
+.caf-results { display: none; margin-top: 24px; }
+.caf-results.visible { display: block; animation: caf-fade 0.5s ease; }
+@keyframes caf-fade { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+.caf-result-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 14px; padding: 24px; text-align: center; margin-bottom: 16px; }
+.caf-result-label { font-size: 0.72rem; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+.caf-result-big { font-family: var(--font-display); font-size: 3.5rem; font-weight: 400; line-height: 1; margin-bottom: 4px; }
+.caf-result-big.good { color: #22c55e; } .caf-result-big.caution { color: #f59e0b; } .caf-result-big.bad { color: #ef4444; }
+.caf-result-unit { font-size: 0.88rem; color: var(--color-text-secondary); }
+.caf-result-verdict { font-size: 0.92rem; font-weight: 600; margin-top: 12px; padding: 8px 16px; border-radius: 8px; display: inline-block; }
+.caf-result-verdict.good { background: rgba(34,197,94,0.08); color: #22c55e; }
+.caf-result-verdict.caution { background: rgba(245,158,11,0.08); color: #f59e0b; }
+.caf-result-verdict.bad { background: rgba(239,68,68,0.08); color: #ef4444; }
+.caf-spectrum { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+.caf-spectrum-title { font-size: 0.78rem; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px; text-align: center; }
+.caf-spectrum-bar { position: relative; height: 8px; background: linear-gradient(90deg, #22c55e 0%, #22c55e 25%, #f59e0b 25%, #f59e0b 50%, #ef4444 50%, #ef4444 100%); border-radius: 4px; margin-bottom: 6px; }
+.caf-spectrum-marker { position: absolute; top: -6px; width: 20px; height: 20px; border-radius: 50%; background: var(--color-text); border: 3px solid var(--color-surface); transform: translateX(-50%); transition: left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1); box-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.caf-spectrum-labels { display: flex; justify-content: space-between; font-size: 0.68rem; color: var(--color-text-secondary); }
+.caf-timeline { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: 14px; padding: 20px; margin-bottom: 16px; }
+.caf-timeline-title { font-size: 0.78rem; font-weight: 600; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 14px; }
+.caf-tl-row { display: flex; align-items: center; gap: 12px; padding: 8px 0; border-bottom: 1px solid var(--color-border); }
+.caf-tl-row:last-child { border-bottom: none; }
+.caf-tl-time { font-size: 0.82rem; font-weight: 600; color: var(--color-text); min-width: 60px; }
+.caf-tl-bar-wrap { flex: 1; height: 6px; background: var(--color-muted); border-radius: 3px; overflow: hidden; }
+.caf-tl-bar { height: 100%; border-radius: 3px; transition: width 1s cubic-bezier(0.25,1,0.5,1); }
+.caf-tl-mg { font-size: 0.78rem; font-weight: 600; color: var(--color-text-secondary); min-width: 50px; text-align: right; }
+.caf-cutoff { background: rgba(14,122,126,0.04); border: 1px solid rgba(14,122,126,0.15); border-radius: 14px; padding: 16px 20px; display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
+.caf-cutoff-icon { font-size: 1.4rem; flex-shrink: 0; }
+.caf-cutoff-text { font-size: 0.88rem; color: var(--color-text); line-height: 1.4; }
+.caf-cutoff-text strong { color: var(--color-accent); }
+@media (max-width: 600px) { .caf-source-grid { grid-template-columns: repeat(3, 1fr); } .caf-time-row { grid-template-columns: 1fr; gap: 10px; } .caf-result-big { font-size: 2.8rem; } }
+''',
+
+        # === INLINE JS (calculator logic) ===
+        'inline_js': '''
+(function() {
+  var HALF_LIFE = 5;
+  var state = { mg: 95, consumed: null, bedtime: null };
+  var now = new Date();
+  var hh = String(now.getHours()).padStart(2, '0');
+  var mm = String(now.getMinutes()).padStart(2, '0');
+  document.getElementById('time-consumed').value = hh + ':' + mm;
+
+  document.querySelectorAll('.caf-source-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      document.querySelectorAll('.caf-source-card').forEach(function(c) { c.classList.remove('selected'); });
+      card.classList.add('selected');
+      var mg = parseInt(card.getAttribute('data-mg'));
+      if (mg === 0) {
+        document.getElementById('custom-mg-row').style.display = '';
+        state.mg = parseInt(document.getElementById('custom-mg').value) || 100;
+      } else {
+        document.getElementById('custom-mg-row').style.display = 'none';
+        state.mg = mg;
+      }
+      calculate();
+    });
+  });
+
+  document.getElementById('custom-mg').addEventListener('input', function() {
+    state.mg = parseInt(this.value) || 0;
+    calculate();
+  });
+
+  document.getElementById('time-consumed').addEventListener('change', calculate);
+  document.getElementById('bedtime').addEventListener('change', calculate);
+
+  function parseTime(val) {
+    if (!val) return null;
+    var parts = val.split(':');
+    return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+  }
+
+  function formatTime(minutes) {
+    var m = ((minutes % 1440) + 1440) % 1440;
+    var h = Math.floor(m / 60);
+    var min = m % 60;
+    var ampm = h >= 12 ? 'PM' : 'AM';
+    var h12 = h % 12 || 12;
+    return h12 + ':' + String(min).padStart(2, '0') + ' ' + ampm;
+  }
+
+  function remaining(initialMg, hours) {
+    return initialMg * Math.pow(0.5, hours / HALF_LIFE);
+  }
+
+  function calculate() {
+    var consumedMin = parseTime(document.getElementById('time-consumed').value);
+    var bedMin = parseTime(document.getElementById('bedtime').value);
+    if (consumedMin === null || bedMin === null || state.mg <= 0) return;
+
+    var elapsed = bedMin - consumedMin;
+    if (elapsed < 0) elapsed += 1440;
+    var hoursTobed = elapsed / 60;
+    var atBed = remaining(state.mg, hoursTobed);
+    var atBedRound = Math.round(atBed);
+
+    document.getElementById('caf-results').classList.add('visible');
+    document.getElementById('caf-at-bed').textContent = atBedRound;
+    document.getElementById('caf-start-display').textContent = state.mg;
+
+    var bigEl = document.getElementById('caf-at-bed');
+    var verdictEl = document.getElementById('caf-verdict');
+    bigEl.className = 'caf-result-big';
+    verdictEl.className = 'caf-result-verdict';
+
+    if (atBedRound < 25) {
+      bigEl.classList.add('good'); verdictEl.classList.add('good');
+      verdictEl.textContent = 'Unlikely to affect sleep';
+    } else if (atBedRound < 50) {
+      bigEl.classList.add('caution'); verdictEl.classList.add('caution');
+      verdictEl.textContent = 'May mildly affect sleep';
+    } else {
+      bigEl.classList.add('bad'); verdictEl.classList.add('bad');
+      verdictEl.textContent = 'Likely to disrupt sleep';
+    }
+
+    var pct = Math.min(100, (atBedRound / 100) * 100);
+    document.getElementById('caf-marker').style.left = pct + '%';
+
+    var hoursNeeded = HALF_LIFE * Math.log2(state.mg / 25);
+    if (hoursNeeded < 0) hoursNeeded = 0;
+    var cutoffMin = bedMin - Math.ceil(hoursNeeded * 60);
+    if (cutoffMin < 0) cutoffMin += 1440;
+    document.getElementById('cutoff-time').textContent = formatTime(cutoffMin);
+
+    var container = document.getElementById('caf-timeline-rows');
+    container.innerHTML = '';
+    var maxHours = Math.min(Math.ceil(hoursTobed) + 2, 24);
+    for (var h = 0; h <= maxHours; h += 1) {
+      var rem = remaining(state.mg, h);
+      var pctBar = (rem / state.mg) * 100;
+      var clockMin = consumedMin + h * 60;
+      var isBedHour = (h === Math.round(hoursTobed));
+      var color = rem < 25 ? '#22c55e' : rem < 50 ? '#f59e0b' : rem < 100 ? '#f97316' : '#ef4444';
+      var row = document.createElement('div');
+      row.className = 'caf-tl-row';
+      if (isBedHour) row.style.background = 'rgba(14,122,126,0.04)';
+      row.innerHTML =
+        '<div class="caf-tl-time">' + formatTime(clockMin) + (isBedHour ? ' 🛏️' : '') + '</div>' +
+        '<div class="caf-tl-bar-wrap"><div class="caf-tl-bar" style="width:' + pctBar + '%;background:' + color + ';"></div></div>' +
+        '<div class="caf-tl-mg">' + Math.round(rem) + ' mg</div>';
+      container.appendChild(row);
+    }
+  }
+
+  setTimeout(calculate, 100);
+})();
+''',
+
+        'js_module': None,
+        'css_file': None,
+
+        # === FAQ (server-side for SEO) ===
+        'faq': [
+            {
+                'question': 'How long does caffeine last in your system?',
+                'direct': 'Caffeine has a half-life of about 5 hours, meaning it takes ~5 hours for your body to eliminate half the caffeine. A typical cup of coffee (95 mg) takes 10-15 hours to fully clear.',
+                'detail': '<p>The half-life varies from 1.5 to 9.5 hours depending on genetics (CYP1A2 gene), age, liver function, pregnancy (half-life doubles to ~10 hours), and medications. Smokers metabolize caffeine ~50% faster, while oral contraceptives roughly double the half-life.</p>'
+            },
+            {
+                'question': 'When should I stop drinking coffee before bed?',
+                'direct': 'Stop caffeine intake at least 8-10 hours before bedtime. For a 10 PM bedtime, your last cup should be by noon to 2 PM.',
+                'detail': '<p>A 2013 study in the Journal of Clinical Sleep Medicine found that caffeine consumed even 6 hours before bed significantly disrupted sleep. The researchers recommended a minimum 6-hour cutoff, though 8-10 hours is safer for sensitive individuals.</p>'
+            },
+            {
+                'question': 'How much caffeine is too much?',
+                'direct': 'The FDA recommends no more than 400 mg per day for healthy adults — roughly 4 cups of brewed coffee.',
+                'detail': '<p>Individual tolerance varies significantly. Some people experience anxiety, heart palpitations, or insomnia at much lower doses due to genetic variations in the CYP1A2 enzyme. Pregnant women are advised to limit intake to 200 mg/day.</p>'
+            },
+            {
+                'question': 'Does caffeine half-life change with age?',
+                'direct': 'Yes. Caffeine half-life increases with age. Older adults metabolize caffeine more slowly, meaning it stays in their system longer.',
+                'detail': '<p>Newborns have an extremely long caffeine half-life (~80 hours) because their liver enzymes are immature. By age 6 months, it normalizes. In elderly adults, the half-life can extend to 6-7+ hours compared to the 5-hour average in younger adults.</p>'
+            },
+            {
+                'question': 'How long does caffeine last compared to other stimulants?',
+                'direct': 'Caffeine lasts longer than most people think. Its 5-hour half-life means 25% is still active after 10 hours.',
+                'detail': '<p>For comparison: the effects of sugar/glucose peak in 30-60 minutes and fade within 2-3 hours. Nicotine has a half-life of about 2 hours. Caffeine\'s long half-life is why afternoon coffee can affect sleep even when you don\'t feel stimulated.</p>'
+            }
+        ],
+
+        # === METHODOLOGY ===
+        'methodology': '<p>This calculator uses the <strong>first-order elimination kinetics model</strong>: C(t) = C\u2080 \u00d7 0.5^(t/t\u00bd), where C\u2080 is the initial caffeine dose, t is elapsed time, and t\u00bd is the half-life (default: 5 hours for healthy adults).</p><p>The 5-hour average half-life is based on Fredholm et al. (1999) and confirmed by the Institute of Medicine (2014). Individual variation is significant \u2014 the CYP1A2 gene polymorphism creates \u201cfast\u201d and \u201cslow\u201d metabolizers with half-lives ranging from 1.5 to 9.5 hours.</p><p>Sleep impact thresholds: &lt;25 mg is generally considered unlikely to affect sleep (Drake et al., 2013). 25\u201350 mg may cause mild disruption in sensitive individuals. &gt;50 mg at bedtime is likely to significantly reduce sleep quality and duration.</p>',
+
+        # === SOURCES ===
+        'sources': [
+            {"text": "Drake C, et al. Caffeine effects on sleep taken 0, 3, or 6 hours before going to bed. J Clin Sleep Med. 2013;9(11):1195-1200.", "url": "https://pubmed.ncbi.nlm.nih.gov/24235903/"},
+            {"text": "Fredholm BB, et al. Actions of caffeine in the brain with special reference to factors that contribute to its widespread use. Pharmacol Rev. 1999;51(1):83-133.", "url": "https://pubmed.ncbi.nlm.nih.gov/10049999/"},
+            {"text": "Institute of Medicine. Caffeine in Food and Dietary Supplements. Washington, DC: National Academies Press; 2014.", "url": "https://pubmed.ncbi.nlm.nih.gov/25340250/"},
+            {"text": "Nehlig A. Interindividual differences in caffeine metabolism and factors driving caffeine consumption. Pharmacol Rev. 2018;70(2):384-411.", "url": "https://pubmed.ncbi.nlm.nih.gov/29514871/"},
+            {"text": "U.S. FDA. Spilling the Beans: How Much Caffeine is Too Much? 2023.", "url": "https://www.fda.gov/consumers/consumer-updates/spilling-beans-how-much-caffeine-too-much"}
+        ],
+
+        # === RELATED ===
+        'related_guide': None,
+        'related_calculators': [
+            {"route": "/sleep-calculator", "title": "Sleep Calculator"},
+            {"route": "/tdee-calculator", "title": "TDEE Calculator"},
+            {"route": "/water-intake-calculator", "title": "Water Intake Calculator"}
+        ],
+
+        # === RESULT SECTIONS (not used — custom_form_html handles results) ===
+        'result_sections': [],
+        'show_calculate_button': False,
+    }
+    return render_template(
+        'calculator_v3.html',
+        cfg=cfg,
+        is_homepage=False,
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup-caffeine-v2')
 def mockup_caffeine_v2():
     cfg = {
