@@ -3667,8 +3667,14 @@ def editorial_policy():
 
 @app.route('/sitemap.xml')
 def sitemap_xml():
-    """Auto-generate sitemap from registered routes."""
-    lastmod = '2026-03-12'
+    """Auto-generate sitemap from registered routes.
+
+    Per Google docs (developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap):
+    - <priority> and <changefreq> are IGNORED by Google — removed
+    - <lastmod> must be "consistently and verifiably accurate" — removed
+      (blanket dates cause Google to distrust and ignore lastmod entirely)
+    - Only include canonical URLs intended for search results
+    """
 
     # Noindexed pages — exclude from sitemap
     noindex_urls = {
@@ -3715,63 +3721,56 @@ def sitemap_xml():
     }
 
     # Collect all public page URLs
-    pages = []
+    urls = []
 
     # Homepage
-    pages.append({'loc': '/', 'priority': '1.0', 'changefreq': 'weekly', 'lastmod': lastmod})
+    urls.append('/')
 
     # Calculator pages (from cards array)
     for card in cards:
         if card['url'] not in noindex_urls:
-            pages.append({'loc': card['url'], 'priority': '0.8', 'changefreq': 'monthly', 'lastmod': lastmod})
+            urls.append(card['url'])
 
     # All calculators listing page
-    pages.append({'loc': '/calculators', 'priority': '0.8', 'changefreq': 'weekly', 'lastmod': lastmod})
+    urls.append('/calculators')
 
     # Resource listing page
-    pages.append({'loc': '/resources', 'priority': '0.7', 'changefreq': 'weekly', 'lastmod': lastmod})
+    urls.append('/resources')
 
     # Resource guide pages (from articles array)
     for article in articles:
         if article['url'] not in noindex_urls:
-            pages.append({'loc': article['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': lastmod})
+            urls.append(article['url'])
 
     # Category hub pages
     for cid, data in category_hub_data.items():
         if data['url'] not in noindex_urls:
-            pages.append({'loc': data['url'], 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': lastmod})
+            urls.append(data['url'])
 
     # Comparison pages
     for path in ['/bmi-vs-body-fat', '/tdee-vs-bmr', '/ozempic-vs-mounjaro']:
         if path not in noindex_urls:
-            pages.append({'loc': path, 'priority': '0.7', 'changefreq': 'monthly', 'lastmod': lastmod})
+            urls.append(path)
 
     # Demographic pages
     for slug, data in demographic_pages.items():
         if data['url'] not in noindex_urls:
-            pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': lastmod})
+            urls.append(data['url'])
 
     # Chart reference pages
     for slug, data in chart_pages.items():
         if data['url'] not in noindex_urls:
-            pages.append({'loc': data['url'], 'priority': '0.6', 'changefreq': 'monthly', 'lastmod': lastmod})
+            urls.append(data['url'])
 
-    # Editorial policy
-    pages.append({'loc': '/editorial-policy', 'priority': '0.4', 'changefreq': 'yearly', 'lastmod': lastmod})
-
-    # Static pages
-    for path in ['/about', '/privacy', '/terms']:
-        pages.append({'loc': path, 'priority': '0.3', 'changefreq': 'yearly', 'lastmod': lastmod})
+    # Editorial policy + static pages
+    for path in ['/editorial-policy', '/about', '/privacy', '/terms']:
+        urls.append(path)
 
     xml = '<?xml version="1.0" encoding="UTF-8"?>\n'
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-    for page in pages:
+    for url in urls:
         xml += '  <url>\n'
-        xml += f'    <loc>https://healthcalculators.xyz{page["loc"]}</loc>\n'
-        if 'lastmod' in page:
-            xml += f'    <lastmod>{page["lastmod"]}</lastmod>\n'
-        xml += f'    <priority>{page["priority"]}</priority>\n'
-        xml += f'    <changefreq>{page["changefreq"]}</changefreq>\n'
+        xml += f'    <loc>https://healthcalculators.xyz{url}</loc>\n'
         xml += '  </url>\n'
     xml += '</urlset>'
 
