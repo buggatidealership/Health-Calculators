@@ -1,8 +1,9 @@
 # Track 5: Content & Distribution Strategy for @GetHealthC
 
 **Date:** 2026-03-18
+**IMPORTANT:** Uses `gethealthc_v2.md` (verified). The v1 file contained fabricated engagement lift percentages.
 **Inputs cross-referenced:**
-- `gethealthc.md` — 10 validated atoms across 3 tiers (universal, health, reply)
+- `gethealthc_v2.md` — VERIFIED writing profile with corrected statistics
 - `atoms_validation.md` — holdout validation (3 confirmed, 2 failed, 3 missed atoms added)
 - `atoms_temporal.md` — durable vs emerging vs fading patterns
 - `twitter-algo-research.md` — verified algorithm signals from code
