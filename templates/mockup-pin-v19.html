@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Real Voices — Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#08080c;width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif;color:#e4e6ea}
+
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+
+/* Ambient orbs */
+.amb{position:absolute;border-radius:50%;filter:blur(140px);pointer-events:none;opacity:0;transition:opacity 5s}
+.a1{width:600px;height:600px;background:radial-gradient(circle,rgba(14,122,126,0.05),transparent 70%);top:-200px;right:5%}
+.a2{width:400px;height:400px;background:radial-gradient(circle,rgba(14,122,126,0.03),transparent 70%);bottom:-100px;left:10%}
+.amb.on{opacity:1}
+
+/* Phase system */
+.phase{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;opacity:0;pointer-events:none;transition:opacity 0.9s cubic-bezier(0.25,1,0.5,1)}
+.phase.on{opacity:1;pointer-events:auto}
+
+/* Line animation */
+.line{opacity:0;transform:translateY(20px);transition:all 0.9s cubic-bezier(0.16,1,0.3,1)}
+.line.in{opacity:1;transform:translateY(0)}
+.line.out{opacity:0;transform:translateY(-12px);transition:all 0.6s cubic-bezier(0.5,0,0.75,0)}
+
+/* === PHASE 1: HOOK === */
+.hook-wrap{text-align:center;padding:0 32px}
+.hook-main{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.25;color:#e4e6ea}
+.hook-sub{font-size:clamp(0.78rem,1.2vw,0.92rem);color:rgba(255,255,255,0.25);margin-top:16px;font-weight:300;line-height:1.5}
+
+/* === PHASE 2: TWEETS === */
+.tweet-stage{width:100%;max-width:560px;padding:0 24px;position:relative;min-height:260px;display:flex;align-items:center;justify-content:center}
+
+.tweet-card{position:absolute;width:100%;max-width:520px;background:#1a1a1e;border-radius:16px;padding:22px 24px;opacity:0;transform:translateY(50px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1);left:50%;margin-left:-260px}
+@media(max-width:600px){.tweet-card{margin-left:0;left:12px;right:12px;max-width:calc(100% - 24px);width:auto}}
+
+.tweet-card.show{opacity:1;transform:translateY(0)}
+.tweet-card.exit{opacity:0;transform:translateX(-80px);transition:all 0.5s cubic-bezier(0.5,0,0.75,0)}
+
+.tweet-header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.tweet-avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,#2a2a30,#3a3a42);flex-shrink:0}
+.tweet-name{display:flex;flex-direction:column;gap:2px}
+.tweet-name-blur{width:90px;height:12px;background:linear-gradient(90deg,#2a2a30,#3a3a42);border-radius:6px}
+.tweet-handle-blur{width:64px;height:9px;background:linear-gradient(90deg,#222228,#2a2a30);border-radius:4px}
+
+.tweet-text{font-size:clamp(0.92rem,1.6vw,1.08rem);line-height:1.55;color:#e4e6ea;font-weight:400}
+
+.tweet-context{text-align:center;margin-top:20px;font-size:clamp(0.72rem,1.1vw,0.82rem);color:rgba(255,255,255,0.22);font-style:italic;font-weight:300;line-height:1.5;opacity:0;transform:translateY(10px);transition:all 0.7s cubic-bezier(0.16,1,0.3,1) 0.3s;padding:0 24px}
+.tweet-context.show{opacity:1;transform:translateY(0)}
+
+/* === PHASE 3: PATTERN === */
+.pattern-wrap{text-align:center;max-width:560px;padding:0 32px}
+.pattern-line{font-size:clamp(0.88rem,1.4vw,1.05rem);color:rgba(255,255,255,0.35);line-height:1.7;font-weight:300;margin-bottom:8px}
+.pattern-punch{font-family:'DM Serif Display',serif;font-size:clamp(1.1rem,2.2vw,1.5rem);color:#0e7a7e;line-height:1.35;margin-top:20px}
+
+/* === PHASE 4: FLIP === */
+.flip-wrap{text-align:center;max-width:520px;padding:0 32px}
+.flip-line{font-size:clamp(0.88rem,1.4vw,1.05rem);color:rgba(255,255,255,0.4);line-height:1.7;font-weight:300;margin-bottom:6px}
+.flip-big{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,2.8vw,2rem);color:#0e7a7e;line-height:1.3;margin:18px 0}
+.flip-line.bold{color:rgba(255,255,255,0.7);font-weight:500}
+
+/* === PHASE 5: PRODUCT === */
+.product-wrap{display:flex;flex-direction:column;align-items:center;gap:24px;padding:0 24px}
+
+.phone-frame{width:280px;height:520px;border-radius:36px;background:#f5f0e8;border:3px solid rgba(255,255,255,0.08);overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,0.5),0 0 0 1px rgba(255,255,255,0.04)}
+
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:28px;background:#08080c;border-radius:0 0 18px 18px;z-index:2}
+
+.phone-content{padding:40px 18px 18px;height:100%;display:flex;flex-direction:column;gap:12px;overflow:hidden}
+
+.pulse-header{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.pulse-dot{width:10px;height:10px;border-radius:50%;background:#0e7a7e;animation:pulse-glow 2.5s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(14,122,126,0.3)}50%{box-shadow:0 0 0 6px rgba(14,122,126,0)}}
+.pulse-label{font-size:0.72rem;font-weight:600;color:#2a2a2a;letter-spacing:0.04em}
+
+.chat-bubble{padding:12px 14px;border-radius:14px;font-size:0.68rem;line-height:1.55;max-width:92%}
+.chat-user{background:#e8e3d8;color:#3a3a3a;align-self:flex-end;margin-left:auto;border-bottom-right-radius:4px}
+.chat-ai{background:#fff;color:#2a2a2a;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.chat-ai strong{color:#0e7a7e;font-weight:600}
+
+.mini-cards{display:flex;gap:8px;margin-top:auto;padding-top:8px}
+.mini-card{flex:1;background:#fff;border-radius:10px;padding:10px 8px;text-align:center;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.mini-card-icon{font-size:1rem;margin-bottom:4px}
+.mini-card-label{font-size:0.52rem;color:#555;font-weight:500;line-height:1.3}
+
+.product-tagline{font-family:'DM Serif Display',serif;font-size:clamp(1rem,1.8vw,1.3rem);color:#e4e6ea;text-align:center}
+.product-tagline em{color:#0e7a7e;font-style:italic}
+
+/* === PHASE 6: PRICING === */
+.pricing-wrap{text-align:center;max-width:480px;padding:0 32px}
+.pricing-line{font-size:clamp(0.82rem,1.3vw,0.95rem);color:rgba(255,255,255,0.35);line-height:1.7;font-weight:300;margin-bottom:6px}
+.pricing-punch{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,2.4vw,1.7rem);color:#0e7a7e;line-height:1.3;margin-top:18px}
+
+/* === PHASE 7: CLOSE === */
+.close-wrap{text-align:center;max-width:500px;padding:0 32px}
+.close-main{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);line-height:1.25;color:#e4e6ea}
+.close-sub{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,2.5vw,1.7rem);line-height:1.3;color:#0e7a7e;margin-top:12px;font-style:italic}
+.close-brand{margin-top:40px;display:flex;flex-direction:column;align-items:center;gap:6px}
+.close-url{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.4);letter-spacing:0.02em}
+.close-handle{font-size:0.68rem;color:#0e7a7e;font-weight:500}
+</style>
+</head>
+<body>
+<div class="film">
+  <div class="amb a1" id="a1"></div>
+  <div class="amb a2" id="a2"></div>
+
+  <!-- PHASE 1: HOOK -->
+  <div class="phase on" id="p1">
+    <div class="hook-wrap">
+      <div class="hook-main line" id="p1a">These are real tweets.</div>
+      <div class="hook-sub line" id="p1b">Real people looking for health answers.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 2: TWEETS -->
+  <div class="phase" id="p2">
+    <div class="tweet-stage" id="tweetStage">
+
+      <div class="tweet-card" id="t1">
+        <div class="tweet-header">
+          <div class="tweet-avatar"></div>
+          <div class="tweet-name"><div class="tweet-name-blur"></div><div class="tweet-handle-blur"></div></div>
+        </div>
+        <div class="tweet-text">Being an adult means googling 'is this normal' about your body every three weeks</div>
+      </div>
+
+      <div class="tweet-card" id="t2">
+        <div class="tweet-header">
+          <div class="tweet-avatar"></div>
+          <div class="tweet-name"><div class="tweet-name-blur"></div><div class="tweet-handle-blur"></div></div>
+        </div>
+        <div class="tweet-text">WHERE ARE THE MATH EXPERTS</div>
+      </div>
+
+      <div class="tweet-card" id="t3">
+        <div class="tweet-header">
+          <div class="tweet-avatar"></div>
+          <div class="tweet-name"><div class="tweet-name-blur"></div><div class="tweet-handle-blur"></div></div>
+        </div>
+        <div class="tweet-text">hi my body stings Ha ha is this normal Hello google is this normal im also Nauseous ?? google???</div>
+      </div>
+
+      <div class="tweet-card" id="t4">
+        <div class="tweet-header">
+          <div class="tweet-avatar"></div>
+          <div class="tweet-name"><div class="tweet-name-blur"></div><div class="tweet-handle-blur"></div></div>
+        </div>
+        <div class="tweet-text">I've spent the last 8 years trying to figure out how to sleep on time</div>
+      </div>
+
+      <div class="tweet-card" id="t5">
+        <div class="tweet-header">
+          <div class="tweet-avatar"></div>
+          <div class="tweet-name"><div class="tweet-name-blur"></div><div class="tweet-handle-blur"></div></div>
+        </div>
+        <div class="tweet-text">is it normal or am I just a fatass</div>
+      </div>
+
+    </div>
+    <div class="tweet-context" id="tweetCtx"></div>
+  </div>
+
+  <!-- PHASE 3: PATTERN -->
+  <div class="phase" id="p3">
+    <div class="pattern-wrap">
+      <div class="pattern-line line" id="p3a">Every one of them tried Google.</div>
+      <div class="pattern-line line" id="p3b">Every one of them tried ChatGPT.</div>
+      <div class="pattern-line line" id="p3c">Every one of them is still searching.</div>
+      <div class="pattern-punch line" id="p3d">The tools aren't built for them.<br>They're built for engagement.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 4: FLIP -->
+  <div class="phase" id="p4">
+    <div class="flip-wrap">
+      <div class="flip-line line" id="p4a">What if AI stopped writing essays</div>
+      <div class="flip-line line" id="p4b">and started solving problems?</div>
+      <div class="flip-big line" id="p4c">Not 10 results. One plan.</div>
+      <div class="flip-line line" id="p4d">Not information. Progress.</div>
+      <div class="flip-line bold line" id="p4e">Not scary. Actually fucking useful.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 5: PRODUCT -->
+  <div class="phase" id="p5">
+    <div class="product-wrap">
+      <div class="phone-frame line" id="p5phone">
+        <div class="phone-notch"></div>
+        <div class="phone-content">
+          <div class="pulse-header">
+            <div class="pulse-dot"></div>
+            <div class="pulse-label">Pulse</div>
+          </div>
+          <div class="chat-bubble chat-user">I've been gaining weight but I'm barely eating. What's going on?</div>
+          <div class="chat-bubble chat-ai"><strong>Connected the dots:</strong> your sleep data shows 4.5h average + high cortisol window. That drives water retention + fat storage even in a deficit. Here's your plan:</div>
+          <div class="chat-bubble chat-ai">1. Sleep by 11pm (cortisol reset)<br>2. 2L water before noon<br>3. 400cal breakfast within 1hr of waking<br>4. Re-check weight in 9 days</div>
+          <div class="mini-cards">
+            <div class="mini-card"><div class="mini-card-icon">&#9749;</div><div class="mini-card-label">Caffeine<br>cutoff</div></div>
+            <div class="mini-card"><div class="mini-card-icon">&#128722;</div><div class="mini-card-label">Grocery<br>list</div></div>
+            <div class="mini-card"><div class="mini-card-icon">&#127947;</div><div class="mini-card-label">Training<br>plan</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="product-tagline line" id="p5tag"><em>Pulse</em> &mdash; your health companion.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 6: PRICING -->
+  <div class="phase" id="p6">
+    <div class="pricing-wrap">
+      <div class="pricing-line line" id="p6a">No subscription trap.</div>
+      <div class="pricing-line line" id="p6b">Pay when we deliver value.</div>
+      <div class="pricing-line line" id="p6c">Cheaper than your gym membership.<br>More useful than your nutritionist.</div>
+      <div class="pricing-punch line" id="p6d">10x the value. A fraction of the cost.</div>
+    </div>
+  </div>
+
+  <!-- PHASE 7: CLOSE -->
+  <div class="phase" id="p7">
+    <div class="close-wrap">
+      <div class="close-main line" id="p7a">You always had a pulse.</div>
+      <div class="close-sub line" id="p7b">We help you find it.</div>
+      <div class="close-brand line" id="p7c">
+        <div class="close-url">healthcalculators.xyz</div>
+        <div class="close-handle">@GetHealthC</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  const $ = id => document.getElementById(id);
+
+  // Ambients on immediately
+  setTimeout(()=>{$('a1').classList.add('on');$('a2').classList.add('on')},200);
+
+  // Utility: show lines with stagger
+  function showLines(ids, stagger=300){
+    ids.forEach((id,i)=>setTimeout(()=>$(id).classList.add('in'), i*stagger));
+  }
+  function hideLines(ids){
+    ids.forEach(id=>{const e=$(id);if(e){e.classList.remove('in');e.classList.add('out')}});
+  }
+
+  // Phase transitions
+  function showPhase(id){$(id).classList.add('on')}
+  function hidePhase(id){$(id).classList.remove('on')}
+
+  // Tweet data
+  const tweets = [
+    {id:'t1', ctx:'177 likes. 0 answers.'},
+    {id:'t2', ctx:'She was trying to calculate how many calories to eat.'},
+    {id:'t3', ctx:'Talking to Google. Google didn\'t respond.'},
+    {id:'t4', ctx:'8 years. One question. Still unsolved.'},
+    {id:'t5', ctx:'She was asking about water retention. Not a single tool helped.'}
+  ];
+
+  let t = 0; // master timeline in ms
+
+  // === PHASE 1: HOOK (0-2s) ===
+  setTimeout(()=>showLines(['p1a','p1b'],400), 200);
+
+  t = 2000;
+  setTimeout(()=>{hidePhase('p1');showPhase('p2')}, t);
+
+  // === PHASE 2: TWEETS (2-16s) ===
+  const tweetDur = 2800; // each tweet visible for 2.8s
+  tweets.forEach((tw, i) => {
+    const start = t + i * tweetDur;
+
+    // Show tweet
+    setTimeout(()=>{
+      // Hide previous
+      if(i > 0){
+        $(tweets[i-1].id).classList.remove('show');
+        $(tweets[i-1].id).classList.add('exit');
+      }
+      $('tweetCtx').classList.remove('show');
+      $('tweetCtx').textContent = '';
+
+      setTimeout(()=>{
+        $(tw.id).classList.add('show');
+      }, i > 0 ? 300 : 0);
+
+      // Show context after delay
+      setTimeout(()=>{
+        $('tweetCtx').textContent = tw.ctx;
+        $('tweetCtx').classList.add('show');
+      }, 700);
+    }, start);
+  });
+
+  t = t + tweets.length * tweetDur;
+
+  // === PHASE 3: PATTERN (16-20s) ===
+  setTimeout(()=>{
+    // Exit last tweet
+    $(tweets[4].id).classList.remove('show');
+    $(tweets[4].id).classList.add('exit');
+    $('tweetCtx').classList.remove('show');
+
+    setTimeout(()=>{hidePhase('p2');showPhase('p3')}, 500);
+    setTimeout(()=>showLines(['p3a'],0), 700);
+    setTimeout(()=>showLines(['p3b'],0), 1500);
+    setTimeout(()=>showLines(['p3c'],0), 2300);
+    setTimeout(()=>showLines(['p3d'],0), 3400);
+  }, t);
+
+  t += 4500;
+
+  // === PHASE 4: FLIP (20-26s) ===
+  setTimeout(()=>{hidePhase('p3');showPhase('p4')}, t);
+  setTimeout(()=>showLines(['p4a'],0), t+200);
+  setTimeout(()=>showLines(['p4b'],0), t+1000);
+  setTimeout(()=>showLines(['p4c'],0), t+2000);
+  setTimeout(()=>showLines(['p4d'],0), t+3200);
+  setTimeout(()=>showLines(['p4e'],0), t+4200);
+
+  t += 5500;
+
+  // === PHASE 5: PRODUCT (26-34s) ===
+  setTimeout(()=>{hidePhase('p4');showPhase('p5')}, t);
+  setTimeout(()=>showLines(['p5phone'],0), t+300);
+  setTimeout(()=>showLines(['p5tag'],0), t+1200);
+
+  t += 8000;
+
+  // === PHASE 6: PRICING (34-40s) ===
+  setTimeout(()=>{hidePhase('p5');showPhase('p6')}, t);
+  setTimeout(()=>showLines(['p6a'],0), t+300);
+  setTimeout(()=>showLines(['p6b'],0), t+1200);
+  setTimeout(()=>showLines(['p6c'],0), t+2200);
+  setTimeout(()=>showLines(['p6d'],0), t+3500);
+
+  t += 5500;
+
+  // === PHASE 7: CLOSE (40-50s) ===
+  setTimeout(()=>{hidePhase('p6');showPhase('p7')}, t);
+  setTimeout(()=>showLines(['p7a'],0), t+400);
+  setTimeout(()=>showLines(['p7b'],0), t+1600);
+  setTimeout(()=>showLines(['p7c'],0), t+2800);
+
+})();
+</script>
+</body>
+</html>
