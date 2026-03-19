@@ -5945,6 +5945,22 @@ def mockup_calc_v20():
 def mockup_calc_v21():
     return render_template('mockup-calc-v21.html')
 
+@app.route('/mockup-calc-v22')
+def mockup_calc_v22():
+    return render_template('mockup-calc-v22.html')
+
+@app.route('/mockup-calc-v23')
+def mockup_calc_v23():
+    return render_template('mockup-calc-v23.html')
+
+@app.route('/mockup-calc-v24')
+def mockup_calc_v24():
+    return render_template('mockup-calc-v24.html')
+
+@app.route('/mockup-calc-v25')
+def mockup_calc_v25():
+    return render_template('mockup-calc-v25.html')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(
