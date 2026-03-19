@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Caffeine Half-Life Calculator — The Story</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-snap-type: y proximity; }
+body { font-family: 'DM Sans', sans-serif; color: #1a1a1a; overflow-x: hidden; }
+
+.story-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 24px;
+  position: relative;
+  scroll-snap-align: start;
+  transition: opacity 0.6s ease;
+}
+
+/* Section backgrounds — light to dark gradient */
+.s1 { background: #FEFCF9; }
+.s2 { background: #F5F0EA; }
+.s3 { background: #1a2a2a; color: #f0f0f0; }
+.s4 { background: #0f1f1f; color: #e0e0e0; }
+.s5 { background: #0a1a1a; color: #d0d0d0; }
+.s6 { background: #050f0f; color: #c0c0c0; }
+
+.story-statement {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.3;
+  margin-bottom: 48px;
+}
+
+.story-statement span.dynamic {
+  color: #0e7a7e;
+  border-bottom: 3px solid #0e7a7e;
+  padding-bottom: 2px;
+}
+
+.s3 .story-statement span.dynamic,
+.s4 .story-statement span.dynamic,
+.s5 .story-statement span.dynamic {
+  color: #2ee8b0;
+  border-bottom-color: #2ee8b0;
+}
+
+/* Source cards */
+.source-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.source-card {
+  background: #fff;
+  border: 2px solid #e0dbd5;
+  border-radius: 12px;
+  padding: 16px 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.source-card:hover { border-color: #0e7a7e; transform: translateY(-2px); }
+.source-card.active { border-color: #0e7a7e; background: #e8f5f5; box-shadow: 0 4px 20px rgba(14,122,126,0.15); }
+
+.source-card .icon { font-size: 28px; display: block; margin-bottom: 8px; }
+.source-card .name { font-weight: 700; font-size: 13px; }
+.source-card .mg { color: #777; font-size: 12px; margin-top: 4px; }
+
+/* Time inputs */
+.time-inputs {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.time-group { text-align: center; }
+.time-group label {
+  display: block;
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.time-group input[type="time"] {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 24px;
+  padding: 12px 20px;
+  border: 2px solid #d0ccc6;
+  border-radius: 12px;
+  background: #fff;
+  color: #1a1a1a;
+  text-align: center;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.time-group input[type="time"]:focus { border-color: #0e7a7e; }
+
+.custom-mg-input {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 20px;
+  padding: 10px 16px;
+  border: 2px solid #d0ccc6;
+  border-radius: 12px;
+  width: 120px;
+  text-align: center;
+  outline: none;
+  margin-top: 12px;
+}
+.custom-mg-input:focus { border-color: #0e7a7e; }
+
+/* Big result number */
+.big-result {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(5rem, 15vw, 12rem);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 16px;
+  transition: color 0.5s ease;
+}
+
+.result-unit {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  opacity: 0.6;
+  margin-bottom: 32px;
+}
+
+.result-verdict {
+  font-size: clamp(1rem, 2.5vw, 1.5rem);
+  padding: 16px 32px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.verdict-good { background: rgba(46, 232, 176, 0.15); color: #2ee8b0; }
+.verdict-caution { background: rgba(255, 193, 7, 0.15); color: #ffc107; }
+.verdict-bad { background: rgba(255, 82, 82, 0.15); color: #ff5252; }
+
+/* Timeline */
+.timeline {
+  max-width: 600px;
+  width: 100%;
+  margin-top: 24px;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+}
+
+.timeline-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-time {
+  width: 100px;
+  font-size: 14px;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+.timeline-bar-wrap {
+  flex: 1;
+  height: 8px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 4px;
+  margin: 0 16px;
+  overflow: hidden;
+}
+
+.timeline-bar {
+  height: 100%;
+  border-radius: 4px;
+  transition: width 0.8s ease, background 0.5s ease;
+}
+
+.timeline-mg {
+  width: 70px;
+  text-align: right;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* Cutoff section */
+.cutoff-time {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(3rem, 8vw, 6rem);
+  color: #2ee8b0;
+  margin-top: 24px;
+}
+
+.cutoff-note {
+  font-size: 16px;
+  color: #888;
+  margin-top: 16px;
+  max-width: 500px;
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* Ask Pulse section */
+.pulse-section {
+  text-align: center;
+}
+
+.pulse-dot {
+  width: 16px;
+  height: 16px;
+  background: #2ee8b0;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 32px;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(46,232,176,0.4); }
+  50% { box-shadow: 0 0 0 20px rgba(46,232,176,0); }
+}
+
+.pulse-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  color: #f0f0f0;
+  margin-bottom: 16px;
+}
+
+.pulse-sub {
+  color: #888;
+  font-size: 16px;
+  margin-bottom: 32px;
+  max-width: 400px;
+}
+
+.pulse-input-wrap {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.pulse-input {
+  width: 100%;
+  padding: 18px 24px;
+  padding-right: 60px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  background: rgba(255,255,255,0.05);
+  color: #f0f0f0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.pulse-input::placeholder { color: #666; }
+.pulse-input:focus { border-color: #2ee8b0; }
+
+.pulse-send {
+  position: absolute;
+  right: 6px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #2ee8b0;
+  border: none;
+  color: #050f0f;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: #bbb;
+  opacity: 0.6;
+  animation: bob 2s ease-in-out infinite;
+}
+
+.scroll-hint::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 24px;
+  background: #bbb;
+  margin: 8px auto 0;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+.hidden { display: none; }
+
+/* Section reveal animation */
+.reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .source-grid { grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .source-card { padding: 12px 8px; }
+  .source-card .icon { font-size: 22px; }
+  .source-card .name { font-size: 11px; }
+  .time-inputs { gap: 16px; }
+  .time-group input[type="time"] { font-size: 18px; padding: 10px 14px; }
+  .story-section { padding: 40px 16px; }
+}
+</style>
+</head>
+<body>
+
+<!-- SECTION 1: You had coffee -->
+<section class="story-section s1" id="sec1">
+  <div class="reveal">
+    <p class="story-statement">You had <span class="dynamic" id="source-label">coffee</span>.</p>
+    <div class="source-grid" id="source-grid"></div>
+    <div id="custom-mg-wrap" class="hidden" style="text-align:center;margin-top:16px;">
+      <input type="number" class="custom-mg-input" id="custom-mg" placeholder="mg" min="1" max="1000">
+    </div>
+  </div>
+  <div class="scroll-hint">scroll</div>
+</section>
+
+<!-- SECTION 2: By bedtime -->
+<section class="story-section s2" id="sec2">
+  <div class="reveal">
+    <p class="story-statement">By <span class="dynamic" id="bed-label">bedtime</span>, your body will still have...</p>
+    <div class="time-inputs">
+      <div class="time-group">
+        <label>You drank it at</label>
+        <input type="time" id="drink-time" value="08:00">
+      </div>
+      <div class="time-group">
+        <label>You sleep at</label>
+        <input type="time" id="bed-time" value="22:00">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 3: The Big Number -->
+<section class="story-section s3" id="sec3">
+  <div class="reveal">
+    <div class="big-result" id="big-mg">—</div>
+    <div class="result-unit">milligrams of caffeine</div>
+    <div class="result-verdict" id="verdict">Enter your times above</div>
+  </div>
+</section>
+
+<!-- SECTION 4: Hour by hour -->
+<section class="story-section s4" id="sec4">
+  <div class="reveal">
+    <p class="story-statement" style="margin-bottom:36px;">Here's what happens, hour by hour.</p>
+    <div class="timeline" id="timeline"></div>
+  </div>
+</section>
+
+<!-- SECTION 5: Last safe cup -->
+<section class="story-section s5" id="sec5">
+  <div class="reveal">
+    <p class="story-statement">Your last safe cup is at</p>
+    <div class="cutoff-time" id="cutoff-time">—</div>
+    <p class="cutoff-note" id="cutoff-note">To have less than 25mg of caffeine at bedtime, don't drink caffeine after this time.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: Ask Pulse -->
+<section class="story-section s6" id="sec6">
+  <div class="reveal pulse-section">
+    <div class="pulse-dot"></div>
+    <p class="pulse-title">What else do you want to know?</p>
+    <p class="pulse-sub">Ask Pulse anything about your health. Sleep, nutrition, fitness — whatever's on your mind.</p>
+    <div class="pulse-input-wrap">
+      <input type="text" class="pulse-input" placeholder="e.g. How does caffeine affect my sleep quality?">
+      <button class="pulse-send" aria-label="Send">&#8593;</button>
+    </div>
+  </div>
+</section>
+
+<script>
+var HALF_LIFE = 5;
+var state = { mg: 95, source: 'Coffee' };
+
+var sources = [
+  { name: 'Coffee', mg: 95, icon: '\u2615' },
+  { name: 'Tall coffee', mg: 142, icon: '\u2615' },
+  { name: 'Espresso', mg: 63, icon: '\u2615' },
+  { name: 'Cold brew', mg: 200, icon: '\u2615' },
+  { name: 'Energy drink', mg: 160, icon: '\u26A1' },
+  { name: 'Bang/Reign', mg: 300, icon: '\uD83D\uDCAA' },
+  { name: 'Black tea', mg: 47, icon: '\uD83C\uDF75' },
+  { name: 'Green tea', mg: 28, icon: '\uD83C\uDF75' },
+  { name: 'Caffeine pill', mg: 200, icon: '\uD83D\uDC8A' },
+  { name: 'Cola', mg: 34, icon: '\uD83E\uDD64' },
+  { name: 'Pre-workout', mg: 200, icon: '\uD83C\uDFCB' },
+  { name: 'Custom', mg: 0, icon: '\u2699' }
+];
+
+function parseTime(val) {
+  if (!val) return null;
+  var parts = val.split(':');
+  return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+}
+
+function formatTime(minutes) {
+  var m = ((minutes % 1440) + 1440) % 1440;
+  var h = Math.floor(m / 60);
+  var min = m % 60;
+  var ampm = h >= 12 ? 'PM' : 'AM';
+  var h12 = h % 12 || 12;
+  return h12 + ':' + String(min).padStart(2, '0') + ' ' + ampm;
+}
+
+function remaining(initialMg, hours) {
+  return initialMg * Math.pow(0.5, hours / HALF_LIFE);
+}
+
+// Build source grid
+var grid = document.getElementById('source-grid');
+sources.forEach(function(s, i) {
+  var card = document.createElement('div');
+  card.className = 'source-card' + (i === 0 ? ' active' : '');
+  card.innerHTML = '<span class="icon">' + s.icon + '</span><div class="name">' + s.name + '</div>' + (s.mg > 0 ? '<div class="mg">' + s.mg + ' mg</div>' : '<div class="mg">your dose</div>');
+  card.addEventListener('click', function() {
+    document.querySelectorAll('.source-card').forEach(function(c) { c.classList.remove('active'); });
+    card.classList.add('active');
+    if (s.name === 'Custom') {
+      document.getElementById('custom-mg-wrap').classList.remove('hidden');
+      state.mg = parseInt(document.getElementById('custom-mg').value) || 100;
+    } else {
+      document.getElementById('custom-mg-wrap').classList.add('hidden');
+      state.mg = s.mg;
+    }
+    state.source = s.name;
+    document.getElementById('source-label').textContent = s.name.toLowerCase();
+    calculate();
+  });
+  grid.appendChild(card);
+});
+
+document.getElementById('custom-mg').addEventListener('input', function() {
+  state.mg = parseInt(this.value) || 0;
+  calculate();
+});
+
+document.getElementById('drink-time').addEventListener('change', calculate);
+document.getElementById('bed-time').addEventListener('change', calculate);
+
+function calculate() {
+  var drinkMin = parseTime(document.getElementById('drink-time').value);
+  var bedMin = parseTime(document.getElementById('bed-time').value);
+  if (drinkMin === null || bedMin === null || state.mg <= 0) return;
+
+  var diff = bedMin - drinkMin;
+  if (diff <= 0) diff += 1440;
+  var hours = diff / 60;
+
+  var mgAtBed = remaining(state.mg, hours);
+  var rounded = Math.round(mgAtBed);
+
+  document.getElementById('big-mg').textContent = rounded;
+  document.getElementById('bed-label').textContent = formatTime(bedMin);
+
+  var verdict = document.getElementById('verdict');
+  if (mgAtBed < 25) {
+    verdict.textContent = 'You\'re in the clear. Sleep well.';
+    verdict.className = 'result-verdict verdict-good';
+    document.getElementById('big-mg').style.color = '#2ee8b0';
+  } else if (mgAtBed < 50) {
+    verdict.textContent = 'Borderline. You might notice some effects.';
+    verdict.className = 'result-verdict verdict-caution';
+    document.getElementById('big-mg').style.color = '#ffc107';
+  } else {
+    verdict.textContent = 'That\'s a lot of caffeine at bedtime.';
+    verdict.className = 'result-verdict verdict-bad';
+    document.getElementById('big-mg').style.color = '#ff5252';
+  }
+
+  // Timeline
+  var timeline = document.getElementById('timeline');
+  timeline.innerHTML = '';
+  var maxHours = Math.min(Math.ceil(hours) + 2, 24);
+  for (var h = 0; h <= maxHours; h += 1) {
+    var mg = remaining(state.mg, h);
+    var pct = (mg / state.mg) * 100;
+    var time = formatTime(drinkMin + h * 60);
+    var isBed = (h * 60 + drinkMin) % 1440 === bedMin % 1440;
+
+    var row = document.createElement('div');
+    row.className = 'timeline-row';
+
+    var barColor = mg < 25 ? '#2ee8b0' : mg < 50 ? '#ffc107' : '#ff5252';
+
+    row.innerHTML =
+      '<div class="timeline-time">' + time + (isBed ? ' \uD83D\uDCA4' : '') + '</div>' +
+      '<div class="timeline-bar-wrap"><div class="timeline-bar" style="width:' + pct + '%;background:' + barColor + '"></div></div>' +
+      '<div class="timeline-mg" style="color:' + barColor + '">' + Math.round(mg) + ' mg</div>';
+
+    timeline.appendChild(row);
+
+    // Stagger animation
+    (function(r, delay) {
+      setTimeout(function() { r.classList.add('visible'); }, delay);
+    })(row, h * 80);
+  }
+
+  // Cutoff time
+  // Find time when caffeine would be 25mg at bedtime
+  // remaining = mg * 0.5^(hours/5) < 25
+  // hours > 5 * log2(mg/25)
+  var hoursNeeded = HALF_LIFE * Math.log2(state.mg / 25);
+  var cutoffMin = bedMin - hoursNeeded * 60;
+  document.getElementById('cutoff-time').textContent = formatTime(cutoffMin);
+}
+
+// Intersection Observer for reveal animations
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.2 });
+
+document.querySelectorAll('.reveal').forEach(function(el) {
+  observer.observe(el);
+});
+
+// Initial calculation
+calculate();
+</script>
+</body>
+</html>

@@ -5881,6 +5881,26 @@ def mockup_calc_v4():
 def mockup_calc_v5():
     return render_template('mockup-calc-v5.html')
 
+@app.route('/mockup-calc-v6')
+def mockup_calc_v6():
+    return render_template('mockup-calc-v6.html')
+
+@app.route('/mockup-calc-v7')
+def mockup_calc_v7():
+    return render_template('mockup-calc-v7.html')
+
+@app.route('/mockup-calc-v8')
+def mockup_calc_v8():
+    return render_template('mockup-calc-v8.html')
+
+@app.route('/mockup-calc-v9')
+def mockup_calc_v9():
+    return render_template('mockup-calc-v9.html')
+
+@app.route('/mockup-calc-v10')
+def mockup_calc_v10():
+    return render_template('mockup-calc-v10.html')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(
