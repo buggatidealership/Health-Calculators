@@ -5861,6 +5861,26 @@ def mockup_pin_v19():
 def mockup_pin_v20():
     return render_template('mockup-pin-v20.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-calc-v1')
+def mockup_calc_v1():
+    return render_template('mockup-calc-v1.html')
+
+@app.route('/mockup-calc-v2')
+def mockup_calc_v2():
+    return render_template('mockup-calc-v2.html')
+
+@app.route('/mockup-calc-v3')
+def mockup_calc_v3():
+    return render_template('mockup-calc-v3.html')
+
+@app.route('/mockup-calc-v4')
+def mockup_calc_v4():
+    return render_template('mockup-calc-v4.html')
+
+@app.route('/mockup-calc-v5')
+def mockup_calc_v5():
+    return render_template('mockup-calc-v5.html')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(

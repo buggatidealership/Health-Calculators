@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Caffeine Half-Life Calculator | Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #ffffff;
+  --text: #1a1a1a;
+  --text-dim: #999;
+  --text-light: #ccc;
+  --teal: #14b8a6;
+  --green: #22c55e;
+  --yellow: #ca8a04;
+  --red: #dc2626;
+  --border: #f0f0f0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+.app {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 24px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header — ultra minimal */
+.mini-header {
+  padding: 24px 0;
+  text-align: center;
+}
+.mini-brand {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+/* Steps */
+.step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 60vh;
+  padding: 20px 0;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.step.hidden {
+  display: none;
+}
+.step.fading-out {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+.step.fading-in {
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+/* Step 1: Source selection */
+.step-question {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(28px, 7vw, 40px);
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.25;
+  color: var(--text);
+}
+
+.source-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+.s-card {
+  background: none;
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 18px 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.2s;
+  font-family: inherit;
+  font-size: 15px;
+  color: var(--text);
+}
+.s-card:hover {
+  border-color: var(--text-light);
+}
+.s-card.active {
+  border-color: var(--teal);
+  color: var(--teal);
+}
+.s-card .s-mg {
+  display: block;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.s-card.active .s-mg { color: var(--teal); opacity: 0.6; }
+
+.custom-step-row {
+  display: none;
+  justify-content: center;
+  align-items: baseline;
+  gap: 8px;
+  margin-top: 16px;
+}
+.custom-step-row.show { display: flex; }
+.custom-step-row input {
+  width: 80px;
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: none;
+  padding: 6px 0;
+  font-family: inherit;
+  font-size: 24px;
+  color: var(--text);
+  text-align: center;
+  outline: none;
+}
+.custom-step-row input:focus { border-bottom-color: var(--teal); }
+.custom-step-row span { font-size: 16px; color: var(--text-dim); }
+
+.next-btn {
+  display: block;
+  margin: 32px auto 0;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--teal);
+  cursor: pointer;
+  padding: 12px 32px;
+  border-radius: 100px;
+  border: 2px solid var(--teal);
+  transition: all 0.2s;
+  font-weight: 500;
+}
+.next-btn:hover {
+  background: var(--teal);
+  color: white;
+}
+
+/* Step 2: Time inputs */
+.time-step-row {
+  max-width: 320px;
+  margin: 0 auto;
+}
+.time-step-field {
+  margin-bottom: 24px;
+  text-align: center;
+}
+.time-step-label {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.time-step-input {
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: none;
+  padding: 8px 0;
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: var(--text);
+  text-align: center;
+  outline: none;
+  width: 160px;
+  transition: border-color 0.2s;
+}
+.time-step-input:focus { border-bottom-color: var(--teal); }
+
+.back-link {
+  display: block;
+  text-align: center;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-light);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.back-link:hover { color: var(--text-dim); }
+
+/* Step 3: Results */
+.result-center {
+  text-align: center;
+}
+.result-micro {
+  font-size: 14px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.result-huge {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(72px, 18vw, 120px);
+  font-weight: 400;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.result-huge.good { color: var(--green); }
+.result-huge.caution { color: var(--yellow); }
+.result-huge.bad { color: var(--red); }
+.result-unit {
+  font-size: 16px;
+  color: var(--text-dim);
+  letter-spacing: 1px;
+}
+.result-message {
+  font-size: 17px;
+  color: var(--text-dim);
+  line-height: 1.6;
+  margin-top: 20px;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Minimal spectrum */
+.mini-spectrum {
+  margin: 28px auto;
+  max-width: 280px;
+}
+.mini-spectrum-track {
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--green), var(--yellow) 50%, var(--red));
+  position: relative;
+}
+.mini-spectrum-dot {
+  position: absolute;
+  top: -8px;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 3px solid var(--text);
+  background: white;
+  transform: translateX(-50%);
+  transition: left 0.5s ease;
+}
+
+.result-cutoff {
+  font-size: 15px;
+  color: var(--text-dim);
+  margin-top: 20px;
+}
+.result-cutoff strong {
+  color: var(--teal);
+  font-size: 18px;
+}
+
+/* Details toggle */
+.details-toggle {
+  margin-top: 28px;
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text-light);
+  cursor: pointer;
+  padding: 8px;
+}
+.details-toggle:hover { color: var(--text-dim); }
+
+.details-section {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.details-section.show { display: block; }
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+.detail-time { color: var(--text-dim); }
+.detail-mg { font-weight: 600; }
+.detail-mg.good { color: var(--green); }
+.detail-mg.caution { color: var(--yellow); }
+.detail-mg.bad { color: var(--red); }
+
+.restart-link {
+  display: block;
+  text-align: center;
+  margin-top: 32px;
+  font-size: 14px;
+  color: var(--text-light);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: inherit;
+}
+.restart-link:hover { color: var(--text-dim); }
+
+/* Ask Pulse — minimal */
+.ask-minimal {
+  padding: 48px 0 40px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  margin-top: 40px;
+}
+.ask-prompt {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+.ask-line-wrap {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+}
+.ask-line {
+  width: 100%;
+  border: none;
+  border-bottom: 2px solid var(--border);
+  background: none;
+  padding: 8px 0;
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text);
+  outline: none;
+  text-align: center;
+}
+.ask-line::placeholder { color: var(--text-light); }
+.ask-line:focus { border-bottom-color: var(--teal); }
+.ask-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 18px;
+  background: var(--teal);
+  animation: blink-cursor 1s step-end infinite;
+  vertical-align: text-bottom;
+  margin-left: 2px;
+}
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; } 51%, 100% { opacity: 0; }
+}
+.ask-ghost {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 16px;
+  color: var(--text-light);
+  pointer-events: none;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  transition: opacity 0.2s;
+}
+.ask-line:focus ~ .ask-ghost,
+.ask-line:not(:placeholder-shown) ~ .ask-ghost { opacity: 0; }
+
+@media (max-width: 480px) {
+  .app { padding: 0 20px; }
+  .source-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .s-card { padding: 14px 10px; font-size: 13px; }
+  .result-huge { font-size: 72px; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="mini-header">
+    <div class="mini-brand">Pulse</div>
+  </div>
+
+  <!-- Step 1: Source -->
+  <div class="step" id="step1">
+    <div class="step-question">What caffeine<br>did you have?</div>
+    <div class="source-cards" id="sourceGrid"></div>
+    <div class="custom-step-row" id="customRow">
+      <input type="number" id="customMg" placeholder="100" min="1" max="1000">
+      <span>mg</span>
+    </div>
+    <button class="next-btn" id="toStep2">Continue</button>
+  </div>
+
+  <!-- Step 2: Time -->
+  <div class="step hidden" id="step2">
+    <div class="step-question">When?</div>
+    <div class="time-step-row">
+      <div class="time-step-field">
+        <div class="time-step-label">Time consumed</div>
+        <input type="time" class="time-step-input" id="consumedTime" value="08:00">
+      </div>
+      <div class="time-step-field">
+        <div class="time-step-label">Bedtime</div>
+        <input type="time" class="time-step-input" id="bedtime" value="22:30">
+      </div>
+    </div>
+    <button class="next-btn" id="calcBtn">Show result</button>
+    <button class="back-link" id="backTo1">&larr; Change drink</button>
+  </div>
+
+  <!-- Step 3: Result -->
+  <div class="step hidden" id="step3">
+    <div class="result-center">
+      <div class="result-micro">Caffeine at bedtime</div>
+      <div class="result-huge" id="bigNum">--</div>
+      <div class="result-unit">mg</div>
+      <div class="result-message" id="verdict"></div>
+
+      <div class="mini-spectrum">
+        <div class="mini-spectrum-track">
+          <div class="mini-spectrum-dot" id="marker"></div>
+        </div>
+      </div>
+
+      <div class="result-cutoff" id="cutoffLine"></div>
+
+      <button class="details-toggle" id="detailsToggle">Show hour-by-hour</button>
+      <div class="details-section" id="detailsSection"></div>
+
+      <button class="restart-link" id="restart">&larr; Start over</button>
+    </div>
+
+    <div class="ask-minimal">
+      <div class="ask-prompt">Ask anything</div>
+      <div class="ask-line-wrap">
+        <input class="ask-line" type="text" placeholder=" " id="askInput">
+        <div class="ask-ghost">Type a question<span class="ask-cursor"></span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var HALF_LIFE = 5;
+var state = { mg: 95 };
+var currentStep = 1;
+
+var sources = [
+  { name: 'Coffee', mg: 95 },
+  { name: 'Tall coffee', mg: 142 },
+  { name: 'Espresso', mg: 63 },
+  { name: 'Cold brew', mg: 200 },
+  { name: 'Energy drink', mg: 160 },
+  { name: 'Bang / Reign', mg: 300 },
+  { name: 'Black tea', mg: 47 },
+  { name: 'Green tea', mg: 28 },
+  { name: 'Caffeine pill', mg: 200 },
+  { name: 'Cola', mg: 34 },
+  { name: 'Pre-workout', mg: 200 },
+  { name: 'Custom', mg: null }
+];
+
+function parseTime(val) {
+  if (!val) return null;
+  var parts = val.split(':');
+  return parseInt(parts[0]) * 60 + parseInt(parts[1]);
+}
+
+function formatTime(minutes) {
+  var m = ((minutes % 1440) + 1440) % 1440;
+  var h = Math.floor(m / 60);
+  var min = m % 60;
+  var ampm = h >= 12 ? 'PM' : 'AM';
+  var h12 = h % 12 || 12;
+  return h12 + ':' + String(min).padStart(2, '0') + ' ' + ampm;
+}
+
+function remaining(initialMg, hours) {
+  return initialMg * Math.pow(0.5, hours / HALF_LIFE);
+}
+
+function goToStep(n) {
+  var from = document.getElementById('step' + currentStep);
+  var to = document.getElementById('step' + n);
+  from.classList.add('fading-out');
+  setTimeout(function() {
+    from.classList.add('hidden');
+    from.classList.remove('fading-out');
+    to.classList.remove('hidden');
+    to.classList.add('fading-in');
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        to.classList.remove('fading-in');
+      });
+    });
+    currentStep = n;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 300);
+}
+
+// Build source cards
+var grid = document.getElementById('sourceGrid');
+sources.forEach(function(s, i) {
+  var btn = document.createElement('button');
+  btn.className = 's-card' + (i === 0 ? ' active' : '');
+  btn.innerHTML = s.name + (s.mg !== null ? '<span class="s-mg">' + s.mg + ' mg</span>' : '<span class="s-mg">Custom</span>');
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.s-card').forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    if (s.mg !== null) {
+      state.mg = s.mg;
+      document.getElementById('customRow').classList.remove('show');
+    } else {
+      document.getElementById('customRow').classList.add('show');
+      var cv = parseInt(document.getElementById('customMg').value);
+      state.mg = cv > 0 ? cv : 100;
+    }
+  });
+  grid.appendChild(btn);
+});
+
+document.getElementById('customMg').addEventListener('input', function() {
+  var v = parseInt(this.value);
+  if (v > 0) state.mg = v;
+});
+
+// Navigation
+document.getElementById('toStep2').addEventListener('click', function() { goToStep(2); });
+document.getElementById('backTo1').addEventListener('click', function() { goToStep(1); });
+document.getElementById('restart').addEventListener('click', function() { goToStep(1); });
+
+// Calculate
+document.getElementById('calcBtn').addEventListener('click', function() {
+  var ct = parseTime(document.getElementById('consumedTime').value);
+  var bt = parseTime(document.getElementById('bedtime').value);
+  if (ct === null || bt === null) return;
+
+  var diff = bt - ct;
+  if (diff <= 0) diff += 1440;
+  var hours = diff / 60;
+
+  var mgAtBed = remaining(state.mg, hours);
+  var mgRound = Math.round(mgAtBed);
+
+  var bigEl = document.getElementById('bigNum');
+  bigEl.textContent = mgRound;
+  bigEl.className = 'result-huge ' + (mgRound < 25 ? 'good' : mgRound <= 50 ? 'caution' : 'bad');
+
+  var v = document.getElementById('verdict');
+  if (mgRound < 25) v.textContent = "You're in the clear. This shouldn't affect your sleep.";
+  else if (mgRound <= 50) v.textContent = 'Borderline. Some people will feel this, others won\'t.';
+  else v.textContent = 'That\'s a lot of caffeine for bedtime. It will likely keep you up.';
+
+  var pct = Math.min(mgRound / 100, 1) * 100;
+  document.getElementById('marker').style.left = pct + '%';
+
+  var cutoffHours = HALF_LIFE * Math.log2(state.mg / 25);
+  var cutoffMin = bt - Math.round(cutoffHours * 60);
+  document.getElementById('cutoffLine').innerHTML = 'Last safe cup: <strong>' + formatTime(cutoffMin) + '</strong>';
+
+  // Details
+  var ds = document.getElementById('detailsSection');
+  ds.innerHTML = '';
+  ds.classList.remove('show');
+  document.getElementById('detailsToggle').textContent = 'Show hour-by-hour';
+  for (var h = 0; h <= Math.ceil(hours); h++) {
+    var mg = remaining(state.mg, h);
+    var mgR = Math.round(mg);
+    var cls = mgR < 25 ? 'good' : mgR <= 50 ? 'caution' : 'bad';
+    var timeM = ct + h * 60;
+    var row = document.createElement('div');
+    row.className = 'detail-row';
+    row.innerHTML = '<span class="detail-time">' + formatTime(timeM) + '</span><span class="detail-mg ' + cls + '">' + mgR + ' mg</span>';
+    ds.appendChild(row);
+  }
+
+  goToStep(3);
+});
+
+// Details toggle
+document.getElementById('detailsToggle').addEventListener('click', function() {
+  var ds = document.getElementById('detailsSection');
+  if (ds.classList.contains('show')) {
+    ds.classList.remove('show');
+    this.textContent = 'Show hour-by-hour';
+  } else {
+    ds.classList.add('show');
+    this.textContent = 'Hide hour-by-hour';
+  }
+});
+</script>
+</body>
+</html>
