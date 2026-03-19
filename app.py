@@ -3437,18 +3437,12 @@ def semaglutide_reconstitution_calculator():
 
 @app.route('/caffeine-half-life-calculator')
 def caffeine_half_life_calculator():
-    schema_name = "Caffeine Half Life Calculator"
-    schema_description = "Calculate how long caffeine stays in your system using pharmacokinetic half-life. See a personalized decay timeline and how much caffeine remains at bedtime."
-    schema_url = "/caffeine-half-life-calculator"
     return render_template(
-        'caffeine_half_life_calculator.html',
+        'caffeine_half_life_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        date_modified='2026-03-11'
+        breadcrumb_title='Caffeine Half Life Calculator',
+        robots_meta='index, follow'
     )
 
 
