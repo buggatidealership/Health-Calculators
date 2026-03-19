@@ -101,8 +101,17 @@
         .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) !important; stroke: var(--text) !important; }
         .site-header .logo-dot { color: var(--teal) !important; }
         .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
-        .breadcrumb { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.06) !important; }
-        .breadcrumb a, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] {
+            background: #0a0f1a !important;
+            border-bottom: 1px solid rgba(20,184,166,0.06) !important;
+        }
+        /* Kill any white container/wrapper between header and content */
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content {
+            background: transparent !important;
+        }
+        /* Full dark body background so no white gaps anywhere */
+        body { background: #0a0f1a !important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
         .breadcrumb a:hover { color: var(--teal) !important; }
         .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
         .nav-dropdown-link { color: var(--text-dim) !important; }
@@ -154,11 +163,15 @@
         }
 
         /* -- HERO -- */
+        /* Force all headings white on dark mode — overrides global styles.css h1/h2 color */
+        h1, h2, h3 { color: var(--text) !important; }
+
         .hero-title {
             font-family: var(--font-display);
             font-size: clamp(2rem, 5vw, 3.5rem);
             text-align: center;
             margin-bottom: 0.5rem;
+            color: #ffffff !important;
         }
         .hero-title span { color: var(--teal); }
         .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
