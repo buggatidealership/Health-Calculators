@@ -455,6 +455,7 @@ function timeToMinutes(t) {
 }
 
 function minutesToTime(m) {
+    m = Math.round(m);
     while (m < 0) m += 1440;
     m = m % 1440;
     const h = Math.floor(m / 60);
