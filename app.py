@@ -5921,6 +5921,10 @@ def mockup_calc_v14():
 def mockup_calc_v15():
     return render_template('mockup-calc-v15.html')
 
+@app.route('/mockup-calc-v16')
+def mockup_calc_v16():
+    return render_template('mockup-calc-v16.html')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(
