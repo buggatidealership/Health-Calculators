@@ -1713,16 +1713,10 @@ def diabetes_risk_calculator():
 
 @app.route('/ivf-due-date-calculator')
 def ivf_due_date_calculator():
-    schema_name = "FET Due Date Calculator"
-    schema_description = "Use this FET due date calculator to estimate pregnancy timeline by day 3, day 5, or frozen embryo transfer. Includes trimester and appointment estimates."
-    schema_url = "/ivf-due-date-calculator"
     return render_template(
-        'ivf_due_date_calculator.html',
+        'ivf_due_date_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-11'
+        date_modified='2026-03-20'
     )
 
 @app.route('/carb-cycling-calculator')
