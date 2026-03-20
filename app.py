@@ -2822,17 +2822,12 @@ def newborn_weight_loss_calculator():
 
 @app.route('/baldness-risk-calculator')
 def baldness_risk_calculator():
-    schema_name = "Baldness Risk Calculator"
-    schema_description = "Estimate your risk of going bald based on family history, age, lifestyle, and health. Backed by clinical studies."
-    schema_url = "/baldness-risk-calculator"
     return render_template(
-        'baldness_risk_calculator.html',
+        'baldness_risk_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        breadcrumb_title='Baldness Risk Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/resources/how-to-prevent-hair-loss')
