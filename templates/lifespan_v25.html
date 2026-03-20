@@ -1,4 +1,4 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     {% with
@@ -35,17 +35,17 @@
     
         /* Force dark inputs — override global styles.css */
         input, select, input[type="number"], input[type="text"], input[type="date"], input[type="time"], textarea {
-            background: rgba(255,255,255,0.05) \!important;
-            color: #e2e8f0 \!important;
-            border-color: rgba(20,184,166,0.12) \!important;
+            background: rgba(255,255,255,0.05) !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(20,184,166,0.12) !important;
         }
-        input:focus, select:focus, textarea:focus { border-color: #14b8a6 \!important; }
+        input:focus, select:focus, textarea:focus { border-color: #14b8a6 !important; }
         </style>
 </head>
 <body>
 {% include 'header.html' %}
 
-<\!-- HERO -->
+<!-- HERO -->
 <section class="section bg-1" id="hero-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
@@ -69,7 +69,7 @@
     </div>
 </section>
 
-<\!-- RESULT -->
+<!-- RESULT -->
 <section class="section bg-2 hidden-section" id="result-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
@@ -83,7 +83,7 @@
     </div>
 </section>
 
-<\!-- COACH -->
+<!-- COACH -->
 <section class="section bg-3 hidden-section" id="coach-section">
     <div class="coach-container fade-in">
         <h2 class="coach-title">Your longevity profile</h2>
@@ -99,10 +99,10 @@
     </div>
 </section>
 
-<\!-- Medical Disclaimer -->
+<!-- Medical Disclaimer -->
 <div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
 
-<\!-- FAQ -->
+<!-- FAQ -->
 <div class="seo-section bg-1" id="faq-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Frequently Asked Questions</h2>
@@ -115,7 +115,7 @@
     </div>
 </div>
 
-<\!-- Sources -->
+<!-- Sources -->
 <div class="seo-section bg-5" id="sources-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Sources</h2>
@@ -127,7 +127,7 @@
     </div>
 </div>
 
-<\!-- Methodology -->
+<!-- Methodology -->
 <div class="seo-section bg-1">
     <div class="seo-inner">
         <h2 class="seo-heading">Methodology</h2>
@@ -135,12 +135,12 @@
     </div>
 </div>
 
-<\!-- LLM Capsule -->
+<!-- LLM Capsule -->
 <div class="seo-section bg-5" data-nosnippet>
     <div class="seo-inner"><div class="llm-capsule"><p>Average life expectancy is about 79 years for women and 74 for men in the US. The biggest modifiable factors are smoking (-10 years for heavy smokers), exercise (+5 years for regular activity), diet quality (+5 years), and social connections (+4 years). Even adopting healthy behaviors in middle age shows measurable benefits.</p></div></div>
 </div>
 
-<\!-- Ask Pulse -->
+<!-- Ask Pulse -->
 
 <section class="section bg-6" id="ask-section">
     <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
@@ -169,7 +169,7 @@ function calcLifespan() {
     var stress = parseInt(document.getElementById('stress').value);
     var social = parseInt(document.getElementById('social').value);
 
-    if (\!age || \!bmi) { alert('Please fill all fields.'); return; }
+    if (!age || !bmi) { alert('Please fill all fields.'); return; }
 
     var base = gender === 'female' ? 74 : 70;
     var bmiE = bmi < 18.5 ? -3*(18.5-bmi) : bmi > 25 ? -0.5*(bmi-25) : 1;
@@ -197,7 +197,7 @@ function calcLifespan() {
     if (bmi > 25) tips.push('Reduce BMI to the healthy range (18.5-24.9)');
     if (sleep < 6 || sleep > 9) tips.push('Aim for 7-9 hours of sleep');
     if (social < 2) tips.push('Strengthen social connections');
-    if (\!tips.length) tips.push('You are doing great -- maintain these habits\!');
+    if (!tips.length) tips.push('You are doing great -- maintain these habits!');
 
     document.getElementById('coachCard').innerHTML = '<div class="coach-text">Estimated lifespan: <span class="hl">' + Math.round(total) + ' years</span><br>Average for ' + gender + ': <span class="hl">' + avg + ' years</span><div class="coach-rule">' + (diff >= 0 ? '+' : '') + diff + ' years vs average</div><div class="coach-advice"><em>Top recommendations:</em><br>' + tips.map(function(t){return '&bull; ' + t;}).join('<br>') + '</div></div>';
 
@@ -224,9 +224,9 @@ function updateShareButtons(shareText) {
 var copyBtn = document.getElementById('copyBtn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-        if (\!window._shareText) return;
+        if (!window._shareText) return;
         navigator.clipboard.writeText(window._shareText).then(function() {
-            copyBtn.textContent = 'Copied\!';
+            copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
         }).catch(function() {});
     });

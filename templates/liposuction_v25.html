@@ -1,4 +1,4 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     {% with
@@ -35,17 +35,17 @@
     
         /* Force dark inputs — override global styles.css */
         input, select, input[type="number"], input[type="text"], input[type="date"], input[type="time"], textarea {
-            background: rgba(255,255,255,0.05) \!important;
-            color: #e2e8f0 \!important;
-            border-color: rgba(20,184,166,0.12) \!important;
+            background: rgba(255,255,255,0.05) !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(20,184,166,0.12) !important;
         }
-        input:focus, select:focus, textarea:focus { border-color: #14b8a6 \!important; }
+        input:focus, select:focus, textarea:focus { border-color: #14b8a6 !important; }
         </style>
 </head>
 <body>
 {% include 'header.html' %}
 
-<\!-- HERO -->
+<!-- HERO -->
 <section class="section bg-1" id="hero-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
@@ -76,7 +76,7 @@
     </div>
 </section>
 
-<\!-- RESULT -->
+<!-- RESULT -->
 <section class="section bg-2 hidden-section" id="result-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
@@ -90,7 +90,7 @@
     </div>
 </section>
 
-<\!-- COACH -->
+<!-- COACH -->
 <section class="section bg-3 hidden-section" id="coach-section">
     <div class="coach-container fade-in">
         <h2 class="coach-title">Your lipo estimate</h2>
@@ -106,10 +106,10 @@
     </div>
 </section>
 
-<\!-- Medical Disclaimer -->
+<!-- Medical Disclaimer -->
 <div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
 
-<\!-- FAQ -->
+<!-- FAQ -->
 <div class="seo-section bg-1" id="faq-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Frequently Asked Questions</h2>
@@ -123,7 +123,7 @@
     </div>
 </div>
 
-<\!-- Sources -->
+<!-- Sources -->
 <div class="seo-section bg-5" id="sources-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Sources</h2>
@@ -135,7 +135,7 @@
     </div>
 </div>
 
-<\!-- Methodology -->
+<!-- Methodology -->
 <div class="seo-section bg-1">
     <div class="seo-inner">
         <h2 class="seo-heading">Methodology</h2>
@@ -143,12 +143,12 @@
     </div>
 </div>
 
-<\!-- LLM Capsule -->
+<!-- LLM Capsule -->
 <div class="seo-section bg-5" data-nosnippet>
     <div class="seo-inner"><div class="llm-capsule"><p>Liposuction safely removes 2-5 liters of fat per outpatient procedure. This equals roughly 4-11 pounds of fat tissue. The ASPS safety limit is 5 liters. Cost ranges from $2,000-$3,500 per area in the US. Liposuction is body contouring, not weight loss -- expect 5-10 pounds of actual weight change but significant improvements in body contour and measurements.</p></div></div>
 </div>
 
-<\!-- Ask Pulse -->
+<!-- Ask Pulse -->
 
 <section class="section bg-6" id="ask-section">
     <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
@@ -173,7 +173,7 @@ function calcLipo() {
     var location = document.getElementById('location').value;
     var areas = [];
     document.querySelectorAll('.check-grid input:checked').forEach(function(cb) { areas.push(cb.value); });
-    if (\!weight || \!height || \!areas.length) { alert('Please fill all fields and select areas.'); return; }
+    if (!weight || !height || !areas.length) { alert('Please fill all fields and select areas.'); return; }
 
     var bmi = (weight / (height * height)) * 703;
     var bmiCat = bmi < 18.5 ? 'Underweight' : bmi < 25 ? 'Normal' : bmi < 30 ? 'Overweight' : 'Obese';
@@ -215,9 +215,9 @@ function updateShareButtons(shareText) {
 var copyBtn = document.getElementById('copyBtn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-        if (\!window._shareText) return;
+        if (!window._shareText) return;
         navigator.clipboard.writeText(window._shareText).then(function() {
-            copyBtn.textContent = 'Copied\!';
+            copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
         }).catch(function() {});
     });

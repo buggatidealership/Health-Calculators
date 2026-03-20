@@ -1,4 +1,4 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     {% with
@@ -35,17 +35,17 @@
     
         /* Force dark inputs — override global styles.css */
         input, select, input[type="number"], input[type="text"], input[type="date"], input[type="time"], textarea {
-            background: rgba(255,255,255,0.05) \!important;
-            color: #e2e8f0 \!important;
-            border-color: rgba(20,184,166,0.12) \!important;
+            background: rgba(255,255,255,0.05) !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(20,184,166,0.12) !important;
         }
-        input:focus, select:focus, textarea:focus { border-color: #14b8a6 \!important; }
+        input:focus, select:focus, textarea:focus { border-color: #14b8a6 !important; }
         </style>
 </head>
 <body>
 {% include 'header.html' %}
 
-<\!-- HERO -->
+<!-- HERO -->
 <section class="section bg-1" id="hero-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
@@ -71,7 +71,7 @@
     </div>
 </section>
 
-<\!-- RESULT -->
+<!-- RESULT -->
 <section class="section bg-2 hidden-section" id="result-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
@@ -85,7 +85,7 @@
     </div>
 </section>
 
-<\!-- COACH -->
+<!-- COACH -->
 <section class="section bg-3 hidden-section" id="coach-section">
     <div class="coach-container fade-in">
         <h2 class="coach-title">Your daily nutrition plan</h2>
@@ -101,10 +101,10 @@
     </div>
 </section>
 
-<\!-- Medical Disclaimer -->
+<!-- Medical Disclaimer -->
 <div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
 
-<\!-- FAQ -->
+<!-- FAQ -->
 <div class="seo-section bg-1" id="faq-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Frequently Asked Questions</h2>
@@ -119,7 +119,7 @@
     </div>
 </div>
 
-<\!-- Sources -->
+<!-- Sources -->
 <div class="seo-section bg-5" id="sources-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Sources</h2>
@@ -132,7 +132,7 @@
     </div>
 </div>
 
-<\!-- Methodology -->
+<!-- Methodology -->
 <div class="seo-section bg-1">
     <div class="seo-inner">
         <h2 class="seo-heading">Methodology</h2>
@@ -140,12 +140,12 @@
     </div>
 </div>
 
-<\!-- LLM Capsule -->
+<!-- LLM Capsule -->
 <div class="seo-section bg-5" data-nosnippet>
     <div class="seo-inner"><div class="llm-capsule"><p>The Mifflin-St Jeor equation is the most accurate formula for estimating daily calorie needs. For a 70kg, 170cm, 30-year-old moderately active male: BMR is about 1,648 kcal, TDEE is about 2,555 kcal. Protein should be 1.6-2.2 g/kg for active individuals. A balanced macro split is 30% protein, 40% carbs, 30% fat. For weight loss, create a 250-500 calorie deficit.</p></div></div>
 </div>
 
-<\!-- Ask Pulse -->
+<!-- Ask Pulse -->
 
 <section class="section bg-6" id="ask-section">
     <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
@@ -174,7 +174,7 @@ function calcMacros() {
     var goal = parseFloat(document.getElementById('goal').value);
     var diet = document.getElementById('diet').value;
 
-    if (\!weight || \!height || \!age) { alert('Please fill all fields.'); return; }
+    if (!weight || !height || !age) { alert('Please fill all fields.'); return; }
 
     var bmr = gender === 'male' ? (10*weight)+(6.25*height)-(5*age)+5 : (10*weight)+(6.25*height)-(5*age)-161;
     var tdee = bmr * activity;
@@ -215,9 +215,9 @@ function updateShareButtons(shareText) {
 var copyBtn = document.getElementById('copyBtn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-        if (\!window._shareText) return;
+        if (!window._shareText) return;
         navigator.clipboard.writeText(window._shareText).then(function() {
-            copyBtn.textContent = 'Copied\!';
+            copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
         }).catch(function() {});
     });

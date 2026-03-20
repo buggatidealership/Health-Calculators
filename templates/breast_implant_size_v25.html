@@ -1,4 +1,4 @@
-<\!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     {% with
@@ -35,17 +35,17 @@
     
         /* Force dark inputs — override global styles.css */
         input, select, input[type="number"], input[type="text"], input[type="date"], input[type="time"], textarea {
-            background: rgba(255,255,255,0.05) \!important;
-            color: #e2e8f0 \!important;
-            border-color: rgba(20,184,166,0.12) \!important;
+            background: rgba(255,255,255,0.05) !important;
+            color: #e2e8f0 !important;
+            border-color: rgba(20,184,166,0.12) !important;
         }
-        input:focus, select:focus, textarea:focus { border-color: #14b8a6 \!important; }
+        input:focus, select:focus, textarea:focus { border-color: #14b8a6 !important; }
         </style>
 </head>
 <body>
 {% include 'header.html' %}
 
-<\!-- HERO -->
+<!-- HERO -->
 <section class="section bg-1" id="hero-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
@@ -67,7 +67,7 @@
     </div>
 </section>
 
-<\!-- RESULT -->
+<!-- RESULT -->
 <section class="section bg-2 hidden-section" id="result-section">
     <div class="fade-in">
         <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
@@ -81,7 +81,7 @@
     </div>
 </section>
 
-<\!-- COACH -->
+<!-- COACH -->
 <section class="section bg-3 hidden-section" id="coach-section">
     <div class="coach-container fade-in">
         <h2 class="coach-title">Your size recommendation</h2>
@@ -97,10 +97,10 @@
     </div>
 </section>
 
-<\!-- Medical Disclaimer -->
+<!-- Medical Disclaimer -->
 <div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
 
-<\!-- FAQ -->
+<!-- FAQ -->
 <div class="seo-section bg-1" id="faq-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Frequently Asked Questions</h2>
@@ -114,7 +114,7 @@
     </div>
 </div>
 
-<\!-- Sources -->
+<!-- Sources -->
 <div class="seo-section bg-5" id="sources-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Sources</h2>
@@ -126,7 +126,7 @@
     </div>
 </div>
 
-<\!-- Methodology -->
+<!-- Methodology -->
 <div class="seo-section bg-1">
     <div class="seo-inner">
         <h2 class="seo-heading">Methodology</h2>
@@ -134,12 +134,12 @@
     </div>
 </div>
 
-<\!-- LLM Capsule -->
+<!-- LLM Capsule -->
 <div class="seo-section bg-5" data-nosnippet>
     <div class="seo-inner"><div class="llm-capsule"><p>Breast implant size is measured in cubic centimeters (cc), not cup sizes. About 150-200cc equals one cup size increase. The most popular range in the US is 300-400cc. Implant profile determines forward projection relative to base width. Small frames benefit from higher profiles to achieve desired projection within anatomical constraints.</p></div></div>
 </div>
 
-<\!-- Ask Pulse -->
+<!-- Ask Pulse -->
 
 <section class="section bg-6" id="ask-section">
     <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
@@ -163,7 +163,7 @@ function calcSize() {
     var bust = parseFloat(document.getElementById('bust').value);
     var frame = document.getElementById('frame').value;
     var cups = parseInt(document.getElementById('cups').value);
-    if (\!chest || \!bust || \!frame || isNaN(cups)) { alert('Please fill all fields.'); return; }
+    if (!chest || !bust || !frame || isNaN(cups)) { alert('Please fill all fields.'); return; }
 
     var diff = bust - chest;
     var currentIdx = Math.max(0, Math.min(Math.floor(diff / 2.5), cupSizes.length-1));
@@ -214,9 +214,9 @@ function updateShareButtons(shareText) {
 var copyBtn = document.getElementById('copyBtn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
-        if (\!window._shareText) return;
+        if (!window._shareText) return;
         navigator.clipboard.writeText(window._shareText).then(function() {
-            copyBtn.textContent = 'Copied\!';
+            copyBtn.textContent = 'Copied!';
             setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
         }).catch(function() {});
     });
