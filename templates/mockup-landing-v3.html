@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Landing V3: The Proof Wall — HealthCalculators.xyz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0f1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --teal: #14b8a6;
+  --teal-dim: rgba(20, 184, 166, 0.12);
+  --teal-glow: rgba(20, 184, 166, 0.25);
+  --text: #f0f0f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --cream: #F5F0EA;
+  --border: rgba(255,255,255,0.06);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== HERO ===== */
+.proof-hero {
+  padding: 100px 24px 80px;
+  text-align: center;
+  position: relative;
+}
+
+.proof-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 40% at 50% 30%, rgba(20, 184, 166, 0.05), transparent);
+  pointer-events: none;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin: 0 auto 28px;
+  animation: dot-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--teal-glow); }
+  50% { box-shadow: 0 0 0 12px transparent; }
+}
+
+.hero-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--cream);
+  max-width: 700px;
+  margin: 0 auto 20px;
+  line-height: 1.2;
+}
+
+.hero-h1 .count {
+  color: var(--teal);
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--text-secondary);
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-stat-num {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--cream);
+  display: block;
+}
+
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 4px;
+}
+
+/* ===== MENTAL MODEL WALL ===== */
+.wall-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3.5vw, 32px);
+  color: var(--cream);
+  margin-bottom: 48px;
+}
+
+.wall-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .wall-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .wall-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.model-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.model-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(20, 184, 166, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.3);
+}
+
+.model-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.model-icon { font-size: 24px; }
+
+.model-name {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--cream);
+}
+
+.model-rule {
+  font-size: 16px;
+  color: var(--teal);
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 14px 16px;
+  background: var(--teal-dim);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  flex: 1;
+}
+
+.model-what {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.model-arrow {
+  position: absolute;
+  top: 24px;
+  right: 20px;
+  color: var(--text-muted);
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.model-card:hover .model-arrow {
+  color: var(--teal);
+  transform: translateX(4px);
+}
+
+/* ===== METHODOLOGY ===== */
+.method-section {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+.method-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+@media (min-width: 640px) {
+  .method-grid { grid-template-columns: 1fr 1fr; }
+}
+
+.method-card {
+  padding: 28px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.method-card h3 {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.method-card p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.method-card .highlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* ===== CTA ===== */
+.cta-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 24px 120px;
+  text-align: center;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 24px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--teal-glow);
+}
+
+/* Pulse input */
+.pulse-wrap {
+  margin-top: 48px;
+  padding-top: 48px;
+  border-top: 1px solid var(--border);
+}
+
+.pulse-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 20px;
+}
+
+.pulse-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  outline: none;
+}
+
+.pulse-input:focus { border-color: var(--teal); }
+
+.pulse-btn {
+  padding: 16px 24px;
+  background: var(--teal);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.pulse-btn:hover { transform: scale(1.03); }
+
+/* Footer */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="proof-hero">
+  <div class="hero-dot"></div>
+  <h1 class="hero-h1"><span class="count">90+</span> health calculators.<br>Each one teaches you a framework you'll never forget.</h1>
+  <p class="hero-sub">Free, evidence-based, no signup. Built on 220+ peer-reviewed citations.</p>
+
+  <div class="hero-stats">
+    <div>
+      <span class="hero-stat-num">220+</span>
+      <span class="hero-stat-label">Peer-reviewed citations</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">0</span>
+      <span class="hero-stat-label">Signups required</span>
+    </div>
+    <div>
+      <span class="hero-stat-num">&lt;60s</span>
+      <span class="hero-stat-label">To your answer</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENTAL MODEL WALL ===== -->
+<section class="wall-section">
+  <div class="section-label">The one rule from each calculator</div>
+  <h2 class="section-title">Remember the rule. Forget the tool.</h2>
+
+  <div class="wall-grid">
+    <a href="/caffeine-half-life-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#9749;</span>
+        <span class="model-name">Caffeine Half-Life</span>
+      </div>
+      <div class="model-rule">"Every 5 hours, half your caffeine is gone. Count backwards from bedtime."</div>
+      <div class="model-what">Calculate your personal cutoff time for better sleep tonight.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/tdee-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#128293;</span>
+        <span class="model-name">TDEE Calculator</span>
+      </div>
+      <div class="model-rule">"Your body burns a fixed budget daily. Every calorie is a spending decision."</div>
+      <div class="model-what">Find your exact daily burn rate based on 5 clinical studies.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/ozempic-pen-click-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#128137;</span>
+        <span class="model-name">Ozempic Pen Clicks</span>
+      </div>
+      <div class="model-rule">"Each click is an exact dose. One click wrong means under- or over-medicating."</div>
+      <div class="model-what">Get the precise click count for your pen type and dose.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/protein-intake-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#129385;</span>
+        <span class="model-name">Protein Intake</span>
+      </div>
+      <div class="model-rule">"0.7-1g per pound of body weight. More than that doesn't help."</div>
+      <div class="model-what">Find your personal target based on your goal and activity level.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/creatine-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#128170;</span>
+        <span class="model-name">Creatine Calculator</span>
+      </div>
+      <div class="model-rule">"5g daily. No loading phase needed. Timing doesn't matter."</div>
+      <div class="model-what">Skip the myths. Get the evidence-based dosage for your weight.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/sleep-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#128564;</span>
+        <span class="model-name">Sleep Calculator</span>
+      </div>
+      <div class="model-rule">"Sleep in 90-minute cycles. Wake between cycles, not during one."</div>
+      <div class="model-what">Calculate the best times to fall asleep or set your alarm.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/bmi-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#9878;</span>
+        <span class="model-name">BMI Calculator</span>
+      </div>
+      <div class="model-rule">"BMI correlates with body fat within 5% for 85% of people. The 15% who lift think they're the 85%."</div>
+      <div class="model-what">Get your number and see what it actually means in context.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/vitamin-d-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#9728;</span>
+        <span class="model-name">Vitamin D Calculator</span>
+      </div>
+      <div class="model-rule">"Most adults need 2,000-5,000 IU daily. Take it with fat. Test levels yearly."</div>
+      <div class="model-what">Find your optimal dose based on current levels and goals.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+
+    <a href="/body-fat-calculator" class="model-card">
+      <div class="model-card-header">
+        <span class="model-icon">&#128200;</span>
+        <span class="model-name">Body Fat Calculator</span>
+      </div>
+      <div class="model-rule">"Body fat percentage tells you what BMI can't: how much of your weight is actually fat."</div>
+      <div class="model-what">Estimate your body fat with the Navy method using 3 measurements.</div>
+      <span class="model-arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== METHODOLOGY ===== -->
+<section class="method-section">
+  <div class="section-label">Why trust these tools</div>
+  <h2 class="section-title">How we build every calculator</h2>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <h3>Peer-reviewed sources</h3>
+      <p>Every formula comes from published clinical research. We cite <span class="highlight">220+ papers</span> across our calculators. Not "a doctor said so" — actual citations you can verify.</p>
+    </div>
+    <div class="method-card">
+      <h3>Transparent methodology</h3>
+      <p>We show you which equation we use and why. Mifflin-St Jeor for TDEE. Navy method for body fat. <span class="highlight">No black boxes.</span></p>
+    </div>
+    <div class="method-card">
+      <h3>Tools, not advice</h3>
+      <p>We calculate numbers and explain frameworks. We never tell you what to do. <span class="highlight">Your healthcare provider does that.</span></p>
+    </div>
+    <div class="method-card">
+      <h3>Free forever</h3>
+      <p>No signup, no email wall, no "upgrade for results." <span class="highlight">Every calculator is 100% free</span> and always will be.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+  <h2 class="section-title" style="text-align:center;">Start with the calculator<br>you've been putting off</h2>
+  <a href="/calculators" class="cta-btn">Browse all 90+ calculators</a>
+
+  <div class="pulse-wrap">
+    <div class="section-label">Can't find what you need?</div>
+    <p style="color: var(--text-secondary); font-size: 15px; margin-top: 8px;">Ask Pulse. We read every submission.</p>
+    <div class="pulse-input-row">
+      <input type="text" class="pulse-input" placeholder="Your health question..." id="pulseInput">
+      <button class="pulse-btn" onclick="submitPulse()">Ask</button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 HealthCalculators.xyz &middot; <a href="/calculators">All Calculators</a> &middot; <a href="/resources">Resources</a></p>
+  <p style="margin-top: 8px;">Tools, not medical advice. Always consult your healthcare provider.</p>
+</footer>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "description": "90+ free health calculators backed by 220+ peer-reviewed citations. Each calculator teaches you a framework you'll never forget."
+}
+</script>
+
+<script>
+function submitPulse() {
+  const input = document.getElementById('pulseInput');
+  const q = input.value.trim();
+  if (!q) return;
+  const submissions = JSON.parse(localStorage.getItem('pulse_questions') || '[]');
+  submissions.push({ q, ts: Date.now() });
+  localStorage.setItem('pulse_questions', JSON.stringify(submissions));
+  input.value = '';
+  input.placeholder = 'Sent! We\'ll look into it.';
+  setTimeout(() => { input.placeholder = 'Your health question...'; }, 3000);
+}
+</script>
+
+</body>
+</html>

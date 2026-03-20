@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Landing V5: The Dashboard — HealthCalculators.xyz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0f1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --teal: #14b8a6;
+  --teal-dim: rgba(20, 184, 166, 0.12);
+  --teal-glow: rgba(20, 184, 166, 0.25);
+  --text: #f0f0f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --cream: #F5F0EA;
+  --border: rgba(255,255,255,0.06);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --yellow: #fbbf24;
+  --green: #34d399;
+  --blue: #60a5fa;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.top-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--cream);
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.brand-dot {
+  width: 8px;
+  height: 8px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: dot-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--teal-glow); }
+  50% { box-shadow: 0 0 0 8px transparent; }
+}
+
+.top-links {
+  display: flex;
+  gap: 20px;
+}
+
+.top-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s;
+}
+
+.top-links a:hover { color: var(--text); }
+
+/* ===== DASHBOARD LAYOUT ===== */
+.dashboard {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px 24px 100px;
+}
+
+/* Welcome section (first-time vs returning) */
+.welcome-section {
+  margin-bottom: 48px;
+}
+
+.welcome-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.welcome-sub {
+  font-size: 16px;
+  color: var(--text-secondary);
+}
+
+.welcome-sub .teal { color: var(--teal); font-weight: 600; }
+
+/* ===== YOUR NUMBERS (returning visitors) ===== */
+.your-numbers {
+  margin-bottom: 48px;
+  display: none; /* shown by JS if data exists */
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 640px) {
+  .numbers-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.number-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.number-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(20, 184, 166, 0.15);
+}
+
+.number-card-label {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.number-card-value {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--cream);
+}
+
+.number-card-unit {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-left: 4px;
+}
+
+.number-card-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.number-card-action {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 500;
+}
+
+/* ===== START HERE (first-time) ===== */
+.start-here {
+  margin-bottom: 48px;
+}
+
+.start-card {
+  background: var(--bg-card);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  border-radius: 16px;
+  padding: 36px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+  max-width: 480px;
+}
+
+@media (min-width: 640px) {
+  .start-card {
+    flex-direction: row;
+    text-align: left;
+    max-width: 100%;
+  }
+}
+
+.start-icon { font-size: 40px; }
+
+.start-text h3 {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.start-text p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 14px;
+}
+
+.start-btn {
+  display: inline-block;
+  padding: 12px 28px;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+
+.start-btn:hover { transform: translateY(-2px); }
+
+/* ===== TRENDING TOOLS ===== */
+.trending-section {
+  margin-bottom: 48px;
+}
+
+.trending-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+@media (min-width: 640px) {
+  .trending-list { grid-template-columns: 1fr 1fr; }
+}
+
+.trending-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+}
+
+.trending-item:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(20, 184, 166, 0.12);
+}
+
+.trending-rank {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--teal);
+  min-width: 24px;
+}
+
+.trending-icon { font-size: 20px; }
+
+.trending-info { flex: 1; }
+
+.trending-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--cream);
+}
+
+.trending-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.trending-arrow {
+  color: var(--text-muted);
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.trending-item:hover .trending-arrow {
+  color: var(--teal);
+  transform: translateX(3px);
+}
+
+/* ===== SUGGESTED FOR YOU ===== */
+.suggested-section {
+  margin-bottom: 48px;
+  display: none; /* shown by JS */
+}
+
+.suggested-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .suggested-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.suggested-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s;
+}
+
+.suggested-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+}
+
+.suggested-reason {
+  font-size: 11px;
+  color: var(--yellow);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.suggested-name {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--cream);
+  margin-bottom: 6px;
+}
+
+.suggested-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+/* ===== CATEGORIES ROW ===== */
+.categories-section {
+  margin-bottom: 48px;
+}
+
+.categories-scroll {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.categories-scroll::-webkit-scrollbar { height: 4px; }
+.categories-scroll::-webkit-scrollbar-track { background: transparent; }
+.categories-scroll::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+.cat-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  white-space: nowrap;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.cat-pill:hover {
+  background: var(--bg-card-hover);
+  color: var(--text);
+  border-color: rgba(20, 184, 166, 0.15);
+}
+
+.cat-pill-icon { font-size: 18px; }
+
+/* ===== ASK PULSE ===== */
+.pulse-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 36px 28px;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.pulse-h {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.pulse-p {
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+}
+
+.pulse-row {
+  display: flex;
+  gap: 8px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.pulse-input {
+  flex: 1;
+  padding: 14px 18px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  outline: none;
+}
+
+.pulse-input:focus { border-color: var(--teal); }
+
+.pulse-btn {
+  padding: 14px 22px;
+  background: var(--teal);
+  color: var(--bg);
+  border: none;
+  border-radius: 10px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* Footer */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<nav class="top-bar">
+  <a href="/" class="top-brand">
+    <span class="brand-dot"></span>
+    <span>HealthCalculators</span>
+  </a>
+  <div class="top-links">
+    <a href="/calculators">All Tools</a>
+    <a href="/resources">Resources</a>
+  </div>
+</nav>
+
+<!-- ===== DASHBOARD ===== -->
+<main class="dashboard">
+
+  <!-- Welcome -->
+  <div class="welcome-section">
+    <h1 class="welcome-h1" id="welcomeH1">Start with your most basic number</h1>
+    <p class="welcome-sub" id="welcomeSub">90+ free health calculators. <span class="teal">No signup.</span> Pick one and get a clear answer in under 60 seconds.</p>
+  </div>
+
+  <!-- YOUR NUMBERS (returning visitors — populated by JS) -->
+  <section class="your-numbers" id="yourNumbers">
+    <div class="section-label">Your numbers</div>
+    <div class="numbers-grid" id="numbersGrid">
+      <!-- Populated by JS from localStorage -->
+    </div>
+  </section>
+
+  <!-- START HERE (first-time visitors) -->
+  <section class="start-here" id="startHere">
+    <div class="section-label">Start here</div>
+    <div class="start-card">
+      <div class="start-icon">&#128293;</div>
+      <div class="start-text">
+        <h3>How many calories do you burn daily?</h3>
+        <p>Your TDEE (Total Daily Energy Expenditure) is the most useful number in health. It tells you exactly how much to eat to maintain, lose, or gain weight. Takes 30 seconds.</p>
+        <a href="/tdee-calculator" class="start-btn">Calculate your TDEE</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUGGESTED (returning visitors) -->
+  <section class="suggested-section" id="suggestedSection">
+    <div class="section-label">Suggested for you</div>
+    <div class="suggested-grid" id="suggestedGrid">
+      <!-- Populated by JS -->
+    </div>
+  </section>
+
+  <!-- TRENDING -->
+  <section class="trending-section">
+    <div class="section-label">Trending this week</div>
+    <div class="trending-list">
+      <a href="/tdee-calculator" class="trending-item">
+        <span class="trending-rank">1</span>
+        <span class="trending-icon">&#128293;</span>
+        <div class="trending-info">
+          <div class="trending-name">TDEE Calculator</div>
+          <div class="trending-desc">Daily calorie burn estimate</div>
+        </div>
+        <span class="trending-arrow">&rarr;</span>
+      </a>
+      <a href="/caffeine-half-life-calculator" class="trending-item">
+        <span class="trending-rank">2</span>
+        <span class="trending-icon">&#9749;</span>
+        <div class="trending-info">
+          <div class="trending-name">Caffeine Half-Life</div>
+          <div class="trending-desc">When to stop for better sleep</div>
+        </div>
+        <span class="trending-arrow">&rarr;</span>
+      </a>
+      <a href="/ozempic-pen-click-calculator" class="trending-item">
+        <span class="trending-rank">3</span>
+        <span class="trending-icon">&#128137;</span>
+        <div class="trending-info">
+          <div class="trending-name">Ozempic Pen Clicks</div>
+          <div class="trending-desc">Exact click count per dose</div>
+        </div>
+        <span class="trending-arrow">&rarr;</span>
+      </a>
+      <a href="/bmi-calculator" class="trending-item">
+        <span class="trending-rank">4</span>
+        <span class="trending-icon">&#9878;</span>
+        <div class="trending-info">
+          <div class="trending-name">BMI Calculator</div>
+          <div class="trending-desc">Your BMI, in context</div>
+        </div>
+        <span class="trending-arrow">&rarr;</span>
+      </a>
+      <a href="/protein-intake-calculator" class="trending-item">
+        <span class="trending-rank">5</span>
+        <span class="trending-icon">&#129385;</span>
+        <div class="trending-info">
+          <div class="trending-name">Protein Intake</div>
+          <div class="trending-desc">Your daily protein target</div>
+        </div>
+        <span class="trending-arrow">&rarr;</span>
+      </a>
+      <a href="/sleep-calculator" class="trending-item">
+        <span class="trending-rank">6</span>
+        <span class="trending-icon">&#128564;</span>
+        <div class="trending-info">
+          <div class="trending-name">Sleep Calculator</div>
+          <div class="trending-desc">Optimal bedtime by cycles</div>
+        </div>
+        <span class="trending-arrow">&rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="categories-section">
+    <div class="section-label">Browse by category</div>
+    <div class="categories-scroll">
+      <a href="/calculators?cat=nutrition" class="cat-pill">
+        <span class="cat-pill-icon">&#127823;</span> Nutrition
+      </a>
+      <a href="/calculators?cat=fitness" class="cat-pill">
+        <span class="cat-pill-icon">&#127947;</span> Fitness
+      </a>
+      <a href="/calculators?cat=medications" class="cat-pill">
+        <span class="cat-pill-icon">&#128138;</span> Medications
+      </a>
+      <a href="/calculators?cat=body-composition" class="cat-pill">
+        <span class="cat-pill-icon">&#9878;</span> Body Comp
+      </a>
+      <a href="/calculators?cat=fertility" class="cat-pill">
+        <span class="cat-pill-icon">&#128118;</span> Fertility
+      </a>
+      <a href="/calculators?cat=lab-results" class="cat-pill">
+        <span class="cat-pill-icon">&#128300;</span> Lab Results
+      </a>
+      <a href="/calculators?cat=sleep" class="cat-pill">
+        <span class="cat-pill-icon">&#127769;</span> Sleep
+      </a>
+      <a href="/calculators?cat=cosmetic" class="cat-pill">
+        <span class="cat-pill-icon">&#10024;</span> Cosmetic
+      </a>
+    </div>
+  </section>
+
+  <!-- ASK PULSE -->
+  <section class="pulse-section">
+    <div class="pulse-h">Can't find what you need?</div>
+    <div class="pulse-p">Ask Pulse anything. We read every submission.</div>
+    <div class="pulse-row">
+      <input type="text" class="pulse-input" placeholder="Your health question..." id="pulseInput">
+      <button class="pulse-btn" onclick="submitPulse()">Ask</button>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 HealthCalculators.xyz &middot; <a href="/calculators">All Calculators</a> &middot; <a href="/resources">Resources</a></p>
+  <p style="margin-top: 8px;">Tools, not medical advice. Always consult your healthcare provider.</p>
+</footer>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "description": "Your personal health dashboard. 90+ free calculators backed by 220+ peer-reviewed citations.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://healthcalculators.xyz/calculators?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script>
+// Dashboard personalization via localStorage
+const STORAGE_KEY = 'hc_dashboard';
+
+// Suggestion map: "if you used X, you might want Y"
+const suggestions = {
+  'tdee': [
+    { name: 'Caloric Intake & Macros', url: '/caloric-intake-macronutrient-calculator', reason: 'BASED ON YOUR TDEE', desc: 'Break your calories into protein, carbs, and fat targets' },
+    { name: 'Protein Intake', url: '/protein-intake-calculator', reason: 'PAIRS WITH TDEE', desc: 'Your daily protein target for your goal' },
+    { name: 'Body Fat Calculator', url: '/body-fat-calculator', reason: 'NEXT STEP', desc: 'Estimate your body fat percentage' },
+  ],
+  'bmi': [
+    { name: 'Body Fat Calculator', url: '/body-fat-calculator', reason: 'MORE ACCURATE', desc: 'Body fat tells you what BMI can\'t' },
+    { name: 'Ideal Body Weight', url: '/ideal-body-weight-calculator', reason: 'RELATED', desc: 'Find your ideal weight range' },
+    { name: 'TDEE Calculator', url: '/tdee-calculator', reason: 'NEXT STEP', desc: 'How many calories you actually burn' },
+  ],
+  'caffeine': [
+    { name: 'Sleep Calculator', url: '/sleep-calculator', reason: 'PAIRS WITH CAFFEINE', desc: 'Optimal bedtime based on sleep cycles' },
+    { name: 'TDEE Calculator', url: '/tdee-calculator', reason: 'POPULAR', desc: 'Your daily calorie burn rate' },
+  ]
+};
+
+function loadDashboard() {
+  const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+
+  if (data && data.results && Object.keys(data.results).length > 0) {
+    // Returning visitor
+    document.getElementById('welcomeH1').textContent = 'Welcome back';
+    document.getElementById('welcomeSub').innerHTML = 'Here are your numbers. <span class="teal">Pick up where you left off.</span>';
+
+    // Show your numbers
+    const numbersSection = document.getElementById('yourNumbers');
+    const grid = document.getElementById('numbersGrid');
+    numbersSection.style.display = 'block';
+
+    const results = data.results;
+    let html = '';
+
+    if (results.tdee) {
+      html += `<a href="/tdee-calculator" class="number-card">
+        <div class="number-card-label">Your TDEE</div>
+        <div class="number-card-value">${results.tdee.value}<span class="number-card-unit">cal/day</span></div>
+        <div class="number-card-date">Last calculated ${formatDate(results.tdee.date)}</div>
+        <span class="number-card-action">Recalculate &rarr;</span>
+      </a>`;
+    }
+
+    if (results.bmi) {
+      html += `<a href="/bmi-calculator" class="number-card">
+        <div class="number-card-label">Your BMI</div>
+        <div class="number-card-value">${results.bmi.value}</div>
+        <div class="number-card-date">Last calculated ${formatDate(results.bmi.date)}</div>
+        <span class="number-card-action">Recalculate &rarr;</span>
+      </a>`;
+    }
+
+    if (results.caffeine) {
+      html += `<a href="/caffeine-half-life-calculator" class="number-card">
+        <div class="number-card-label">Caffeine cutoff</div>
+        <div class="number-card-value">${results.caffeine.value}</div>
+        <div class="number-card-date">Last calculated ${formatDate(results.caffeine.date)}</div>
+        <span class="number-card-action">Recalculate &rarr;</span>
+      </a>`;
+    }
+
+    grid.innerHTML = html || '<p style="color: var(--text-muted);">No saved results yet.</p>';
+
+    // Hide start-here
+    document.getElementById('startHere').style.display = 'none';
+
+    // Show suggestions
+    const lastUsed = Object.keys(results)[0];
+    if (suggestions[lastUsed]) {
+      const sugSection = document.getElementById('suggestedSection');
+      sugSection.style.display = 'block';
+      document.getElementById('suggestedGrid').innerHTML = suggestions[lastUsed].map(s =>
+        `<a href="${s.url}" class="suggested-card">
+          <div class="suggested-reason">${s.reason}</div>
+          <div class="suggested-name">${s.name}</div>
+          <div class="suggested-desc">${s.desc}</div>
+        </a>`
+      ).join('');
+    }
+  }
+}
+
+function formatDate(ts) {
+  if (!ts) return 'recently';
+  const d = new Date(ts);
+  const now = new Date();
+  const diff = Math.floor((now - d) / (1000 * 60 * 60 * 24));
+  if (diff === 0) return 'today';
+  if (diff === 1) return 'yesterday';
+  if (diff < 7) return `${diff} days ago`;
+  return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+}
+
+function submitPulse() {
+  const input = document.getElementById('pulseInput');
+  const q = input.value.trim();
+  if (!q) return;
+  const submissions = JSON.parse(localStorage.getItem('pulse_questions') || '[]');
+  submissions.push({ q, ts: Date.now() });
+  localStorage.setItem('pulse_questions', JSON.stringify(submissions));
+  input.value = '';
+  input.placeholder = 'Sent! We\'ll look into it.';
+  setTimeout(() => { input.placeholder = 'Your health question...'; }, 3000);
+}
+
+// Demo: set some example data for testing returning visitor experience
+// Uncomment below to test:
+// localStorage.setItem(STORAGE_KEY, JSON.stringify({
+//   results: {
+//     tdee: { value: '2,450', date: Date.now() - 86400000*2 },
+//     bmi: { value: '23.4', date: Date.now() - 86400000*5 },
+//     caffeine: { value: '2:00 PM', date: Date.now() - 86400000 }
+//   }
+// }));
+
+loadDashboard();
+</script>
+
+</body>
+</html>

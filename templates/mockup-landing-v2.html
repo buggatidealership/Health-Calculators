@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Landing V2: The Search-First — HealthCalculators.xyz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0f1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --teal: #14b8a6;
+  --teal-dim: rgba(20, 184, 166, 0.12);
+  --teal-glow: rgba(20, 184, 166, 0.25);
+  --text: #f0f0f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --cream: #F5F0EA;
+  --border: rgba(255,255,255,0.06);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== HERO: SEARCH ENGINE ===== */
+.search-hero {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px 60px;
+  position: relative;
+}
+
+.search-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 40%, rgba(20, 184, 166, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin-bottom: 32px;
+  animation: dot-pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--teal-glow); }
+  50% { box-shadow: 0 0 0 12px transparent; }
+}
+
+.hero-h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 5vw, 44px);
+  color: var(--cream);
+  text-align: center;
+  max-width: 650px;
+  line-height: 1.3;
+  margin-bottom: 12px;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+/* Search Bar */
+.search-container {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  z-index: 10;
+}
+
+.search-bar {
+  width: 100%;
+  padding: 20px 56px 20px 24px;
+  background: var(--bg-card);
+  border: 1px solid rgba(20, 184, 166, 0.2);
+  border-radius: 16px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-bar::placeholder {
+  color: var(--text-muted);
+}
+
+.search-bar:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px var(--teal-dim);
+}
+
+.search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--teal);
+  font-size: 20px;
+  pointer-events: none;
+}
+
+/* Autocomplete dropdown */
+.autocomplete {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: none;
+  box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+  z-index: 20;
+}
+
+.autocomplete.active { display: block; }
+
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 15px;
+  transition: background 0.15s;
+  border-bottom: 1px solid var(--border);
+}
+
+.autocomplete-item:last-child { border-bottom: none; }
+.autocomplete-item:hover { background: var(--bg-card-hover); }
+
+.ac-icon { font-size: 18px; }
+.ac-category {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  padding: 3px 10px;
+  border-radius: 12px;
+}
+
+/* ===== TRENDING ===== */
+.trending-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 24px 80px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(22px, 3.5vw, 32px);
+  color: var(--cream);
+  margin-bottom: 40px;
+}
+
+.trending-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .trending-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .trending-grid { grid-template-columns: 1fr 1fr 1fr 1fr; }
+}
+
+.trending-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px 20px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.trending-card:hover {
+  background: var(--bg-card-hover);
+  transform: translateY(-3px);
+  border-color: rgba(20, 184, 166, 0.15);
+}
+
+.trending-rank {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--teal);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+.trending-name {
+  font-family: var(--font-serif);
+  font-size: 17px;
+  color: var(--cream);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.trending-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ===== RECENTLY ADDED ===== */
+.recent-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.recent-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.recent-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  text-decoration: none;
+  color: inherit;
+  transition: background 0.15s;
+  border-radius: 10px;
+}
+
+.recent-item:hover { background: var(--bg-card-hover); }
+
+.recent-badge {
+  padding: 3px 10px;
+  background: var(--teal-dim);
+  color: var(--teal);
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+
+.recent-name {
+  font-size: 15px;
+  color: var(--cream);
+  font-weight: 500;
+}
+
+.recent-arrow {
+  margin-left: auto;
+  color: var(--text-muted);
+  font-size: 16px;
+}
+
+/* ===== CATEGORIES GRID ===== */
+.cat-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+.cat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .cat-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .cat-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.cat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px 16px;
+  text-decoration: none;
+  color: inherit;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.cat-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(20, 184, 166, 0.15);
+}
+
+.cat-card-icon { font-size: 28px; margin-bottom: 8px; }
+.cat-card-name { font-size: 14px; font-weight: 500; color: var(--cream); }
+.cat-card-count { font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+
+/* ===== ASK PULSE ===== */
+.pulse-section {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 60px 24px 100px;
+  text-align: center;
+}
+
+.pulse-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.pulse-input {
+  flex: 1;
+  padding: 16px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  outline: none;
+}
+
+.pulse-input:focus { border-color: var(--teal); }
+
+.pulse-btn {
+  padding: 16px 24px;
+  background: var(--teal);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s;
+}
+
+.pulse-btn:hover { transform: scale(1.03); }
+
+/* ===== FOOTER ===== */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="search-hero">
+  <div class="hero-dot"></div>
+  <h1 class="hero-h1">What do you want to know about your health?</h1>
+  <p class="hero-sub">90+ free calculators. One search away.</p>
+
+  <div class="search-container">
+    <input type="text" class="search-bar" placeholder="Try: caffeine cutoff time, TDEE, ozempic clicks..." id="searchInput" autocomplete="off">
+    <span class="search-icon">&#128269;</span>
+
+    <div class="autocomplete" id="autocomplete">
+      <!-- Populated by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRENDING ===== -->
+<section class="trending-section">
+  <div class="section-label">Trending now</div>
+  <h2 class="section-title">Most used this week</h2>
+
+  <div class="trending-grid">
+    <a href="/tdee-calculator" class="trending-card">
+      <div class="trending-rank">#1 TRENDING</div>
+      <div class="trending-name">TDEE Calculator</div>
+      <div class="trending-desc">How many calories you actually burn daily</div>
+    </a>
+    <a href="/caffeine-half-life-calculator" class="trending-card">
+      <div class="trending-rank">#2 TRENDING</div>
+      <div class="trending-name">Caffeine Half-Life</div>
+      <div class="trending-desc">When to stop drinking coffee for better sleep</div>
+    </a>
+    <a href="/ozempic-pen-click-calculator" class="trending-card">
+      <div class="trending-rank">#3 TRENDING</div>
+      <div class="trending-name">Ozempic Pen Clicks</div>
+      <div class="trending-desc">Exact click count for your semaglutide dose</div>
+    </a>
+    <a href="/bmi-calculator" class="trending-card">
+      <div class="trending-rank">#4 TRENDING</div>
+      <div class="trending-name">BMI Calculator</div>
+      <div class="trending-desc">Where your BMI falls and what it actually means</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== RECENTLY ADDED ===== -->
+<section class="recent-section">
+  <div class="section-label">Recently added</div>
+  <h2 class="section-title">New tools</h2>
+
+  <div class="recent-list">
+    <a href="/cold-plunge-calculator" class="recent-item">
+      <span class="recent-badge">NEW</span>
+      <span class="recent-name">Cold Plunge Calculator</span>
+      <span class="recent-arrow">&rarr;</span>
+    </a>
+    <a href="/cholesterol-ratio-calculator" class="recent-item">
+      <span class="recent-badge">NEW</span>
+      <span class="recent-name">Cholesterol Ratio Calculator</span>
+      <span class="recent-arrow">&rarr;</span>
+    </a>
+    <a href="/hcg-doubling-calculator" class="recent-item">
+      <span class="recent-badge">NEW</span>
+      <span class="recent-name">hCG Doubling Time Calculator</span>
+      <span class="recent-arrow">&rarr;</span>
+    </a>
+    <a href="/protein-intake-calculator" class="recent-item">
+      <span class="recent-badge">UPDATED</span>
+      <span class="recent-name">Protein Intake Calculator</span>
+      <span class="recent-arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="cat-section">
+  <div class="section-label">Browse all</div>
+  <h2 class="section-title">Categories</h2>
+
+  <div class="cat-grid">
+    <a href="/calculators?cat=nutrition" class="cat-card">
+      <div class="cat-card-icon">&#127823;</div>
+      <div class="cat-card-name">Nutrition</div>
+      <div class="cat-card-count">18 tools</div>
+    </a>
+    <a href="/calculators?cat=fitness" class="cat-card">
+      <div class="cat-card-icon">&#127947;</div>
+      <div class="cat-card-name">Fitness</div>
+      <div class="cat-card-count">14 tools</div>
+    </a>
+    <a href="/calculators?cat=medications" class="cat-card">
+      <div class="cat-card-icon">&#128138;</div>
+      <div class="cat-card-name">Medications</div>
+      <div class="cat-card-count">12 tools</div>
+    </a>
+    <a href="/calculators?cat=body-composition" class="cat-card">
+      <div class="cat-card-icon">&#9878;</div>
+      <div class="cat-card-name">Body Comp</div>
+      <div class="cat-card-count">10 tools</div>
+    </a>
+    <a href="/calculators?cat=fertility" class="cat-card">
+      <div class="cat-card-icon">&#128118;</div>
+      <div class="cat-card-name">Fertility</div>
+      <div class="cat-card-count">8 tools</div>
+    </a>
+    <a href="/calculators?cat=lab-results" class="cat-card">
+      <div class="cat-card-icon">&#128300;</div>
+      <div class="cat-card-name">Lab Results</div>
+      <div class="cat-card-count">7 tools</div>
+    </a>
+    <a href="/calculators?cat=sleep" class="cat-card">
+      <div class="cat-card-icon">&#127769;</div>
+      <div class="cat-card-name">Sleep</div>
+      <div class="cat-card-count">5 tools</div>
+    </a>
+    <a href="/calculators?cat=cosmetic" class="cat-card">
+      <div class="cat-card-icon">&#10024;</div>
+      <div class="cat-card-name">Cosmetic</div>
+      <div class="cat-card-count">6 tools</div>
+    </a>
+  </div>
+</section>
+
+<!-- ===== ASK PULSE ===== -->
+<section class="pulse-section">
+  <div class="section-label">Can't find it?</div>
+  <h2 class="section-title" style="text-align:center;">Ask Pulse anything</h2>
+  <p style="color: var(--text-secondary); font-size: 14px;">We read every submission. If enough people ask, we build it.</p>
+
+  <div class="pulse-input-row">
+    <input type="text" class="pulse-input" placeholder="Your health question..." id="pulseInput">
+    <button class="pulse-btn" onclick="submitPulse()">Ask</button>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 HealthCalculators.xyz &middot; <a href="/calculators">All Calculators</a> &middot; <a href="/resources">Resources</a></p>
+  <p style="margin-top: 8px;">Tools, not medical advice. Always consult your healthcare provider.</p>
+</footer>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "description": "90+ free health calculators. Search for any health question and get a clear answer in under 60 seconds.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://healthcalculators.xyz/calculators?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script>
+const calculators = [
+  { name: 'TDEE Calculator', url: '/tdee-calculator', cat: 'Nutrition', icon: '&#128293;' },
+  { name: 'BMI Calculator', url: '/bmi-calculator', cat: 'Body Comp', icon: '&#9878;' },
+  { name: 'Caffeine Half-Life Calculator', url: '/caffeine-half-life-calculator', cat: 'Sleep', icon: '&#9749;' },
+  { name: 'Ozempic Pen Click Calculator', url: '/ozempic-pen-click-calculator', cat: 'Medications', icon: '&#128137;' },
+  { name: 'Protein Intake Calculator', url: '/protein-intake-calculator', cat: 'Nutrition', icon: '&#129385;' },
+  { name: 'Body Fat Calculator', url: '/body-fat-calculator', cat: 'Body Comp', icon: '&#128170;' },
+  { name: 'Caloric Intake Calculator', url: '/caloric-intake-macronutrient-calculator', cat: 'Nutrition', icon: '&#127858;' },
+  { name: 'Sleep Calculator', url: '/sleep-calculator', cat: 'Sleep', icon: '&#128564;' },
+  { name: 'Creatine Calculator', url: '/creatine-calculator', cat: 'Fitness', icon: '&#128170;' },
+  { name: 'Vitamin D Calculator', url: '/vitamin-d-calculator', cat: 'Lab Results', icon: '&#9728;' },
+  { name: 'hCG Doubling Calculator', url: '/hcg-doubling-calculator', cat: 'Fertility', icon: '&#128118;' },
+  { name: 'Ideal Body Weight Calculator', url: '/ideal-body-weight-calculator', cat: 'Body Comp', icon: '&#9878;' },
+  { name: 'Breast Implant Size Calculator', url: '/breast-implant-size-calculator', cat: 'Cosmetic', icon: '&#10024;' },
+  { name: 'Cold Plunge Calculator', url: '/cold-plunge-calculator', cat: 'Fitness', icon: '&#129398;' },
+  { name: 'Cholesterol Ratio Calculator', url: '/cholesterol-ratio-calculator', cat: 'Lab Results', icon: '&#128300;' },
+  { name: 'Fasting Weight Loss Calculator', url: '/fasting-weight-loss-calculator', cat: 'Nutrition', icon: '&#9201;' },
+  { name: 'Lip Filler Cost Calculator', url: '/lip-filler-cost-calculator', cat: 'Cosmetic', icon: '&#10024;' },
+  { name: 'Army Body Fat Calculator', url: '/army-body-fat-calculator', cat: 'Fitness', icon: '&#127947;' },
+];
+
+const searchInput = document.getElementById('searchInput');
+const autocomplete = document.getElementById('autocomplete');
+
+searchInput.addEventListener('input', function() {
+  const q = this.value.toLowerCase().trim();
+  if (q.length < 2) {
+    autocomplete.classList.remove('active');
+    return;
+  }
+
+  const matches = calculators.filter(c =>
+    c.name.toLowerCase().includes(q) ||
+    c.cat.toLowerCase().includes(q)
+  ).slice(0, 6);
+
+  if (matches.length === 0) {
+    autocomplete.classList.remove('active');
+    return;
+  }
+
+  autocomplete.innerHTML = matches.map(c =>
+    `<a href="${c.url}" class="autocomplete-item">
+      <span class="ac-icon">${c.icon}</span>
+      <span>${c.name}</span>
+      <span class="ac-category">${c.cat}</span>
+    </a>`
+  ).join('');
+  autocomplete.classList.add('active');
+});
+
+searchInput.addEventListener('blur', () => {
+  setTimeout(() => autocomplete.classList.remove('active'), 200);
+});
+
+searchInput.addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') {
+    const first = autocomplete.querySelector('.autocomplete-item');
+    if (first) window.location.href = first.href;
+  }
+});
+
+function submitPulse() {
+  const input = document.getElementById('pulseInput');
+  const q = input.value.trim();
+  if (!q) return;
+  const submissions = JSON.parse(localStorage.getItem('pulse_questions') || '[]');
+  submissions.push({ q, ts: Date.now() });
+  localStorage.setItem('pulse_questions', JSON.stringify(submissions));
+  input.value = '';
+  input.placeholder = 'Sent! We\'ll look into it.';
+  setTimeout(() => { input.placeholder = 'Your health question...'; }, 3000);
+}
+</script>
+
+</body>
+</html>

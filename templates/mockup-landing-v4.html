@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Landing V4: The Story — HealthCalculators.xyz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0f1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --teal: #14b8a6;
+  --teal-dim: rgba(20, 184, 166, 0.12);
+  --teal-glow: rgba(20, 184, 166, 0.25);
+  --text: #f0f0f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --cream: #F5F0EA;
+  --border: rgba(255,255,255,0.06);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== SCROLL NARRATIVE SECTIONS ===== */
+.story-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  position: relative;
+  text-align: center;
+}
+
+.story-section.compact {
+  min-height: auto;
+  padding: 80px 24px 100px;
+}
+
+/* Faded state for scroll animation */
+.story-content {
+  max-width: 640px;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.story-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section 1: The Problem */
+.s1-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 30% at 30% 40%, rgba(239, 68, 68, 0.03), transparent),
+    radial-gradient(ellipse 40% 30% at 70% 60%, rgba(59, 130, 246, 0.03), transparent);
+  pointer-events: none;
+}
+
+.story-icon {
+  font-size: 40px;
+  margin-bottom: 24px;
+  opacity: 0.7;
+}
+
+.story-h {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 48px);
+  color: var(--cream);
+  line-height: 1.25;
+  margin-bottom: 20px;
+}
+
+.story-p {
+  font-size: 18px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.story-emphasis {
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Section 2: The noise */
+.noise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  max-width: 480px;
+  margin: 32px auto 0;
+}
+
+@media (min-width: 640px) {
+  .noise-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.noise-tab {
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13px;
+  color: var(--text-muted);
+  text-align: center;
+  opacity: 0.6;
+}
+
+.noise-tab.red {
+  border-color: rgba(239, 68, 68, 0.2);
+  color: rgba(239, 68, 68, 0.6);
+}
+
+/* Section 3: The solution */
+.s3-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(20, 184, 166, 0.06), transparent);
+  pointer-events: none;
+}
+
+.solution-number {
+  font-family: var(--font-serif);
+  font-size: clamp(64px, 12vw, 120px);
+  color: var(--teal);
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0.9;
+}
+
+.solution-label {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+/* Section 4: Featured tools */
+.tools-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+@media (min-width: 640px) {
+  .tools-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (min-width: 900px) {
+  .tools-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.tool-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s;
+}
+
+.tool-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(20, 184, 166, 0.2);
+  transform: translateY(-3px);
+}
+
+.tool-icon { font-size: 24px; margin-bottom: 14px; }
+
+.tool-name {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--cream);
+  margin-bottom: 8px;
+}
+
+.tool-rule {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 500;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+.tool-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.tool-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Section 5: Ask Pulse */
+.pulse-dot {
+  width: 14px;
+  height: 14px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin: 0 auto 28px;
+  animation: p-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes p-glow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--teal-glow); }
+  50% { box-shadow: 0 0 0 14px transparent; }
+}
+
+.pulse-input-wrap {
+  max-width: 500px;
+  margin: 28px auto 0;
+  position: relative;
+}
+
+.pulse-input {
+  width: 100%;
+  padding: 18px 56px 18px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.pulse-input::placeholder { color: var(--text-muted); }
+.pulse-input:focus { border-color: var(--teal); }
+
+.pulse-send {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--teal);
+  border: none;
+  border-radius: 10px;
+  color: var(--bg);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pulse-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pulse-eg {
+  padding: 5px 14px;
+  background: var(--teal-dim);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--teal);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pulse-eg:hover { background: rgba(20, 184, 166, 0.2); }
+
+/* Divider */
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background: var(--border);
+  margin: 0 auto;
+}
+
+/* Browse CTA */
+.browse-cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-top: 32px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.browse-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--teal-glow);
+}
+
+/* Footer */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.page-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+/* Section label */
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SECTION 1: THE GOOGLE ===== -->
+<section class="story-section s1-bg">
+  <div class="story-content" data-animate>
+    <div class="story-icon">&#128269;</div>
+    <h1 class="story-h">You Googled a<br>health question.</h1>
+    <p class="story-p">"How many calories do I burn?" "When should I stop drinking coffee?" "Is my BMI actually useful?"</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: THE NOISE ===== -->
+<section class="story-section">
+  <div class="story-content" data-animate>
+    <div class="story-icon">&#128561;</div>
+    <h2 class="story-h">You got 10 tabs.<br>Conflicting answers.</h2>
+    <p class="story-p">One site says 2,000 calories. Another says 2,800. A third wants your email before showing the result. None of them <span class="story-emphasis">teach you anything.</span></p>
+
+    <div class="noise-grid">
+      <div class="noise-tab">healthsite.com</div>
+      <div class="noise-tab red">&#10005; Email required</div>
+      <div class="noise-tab">fitnessbro.io</div>
+      <div class="noise-tab red">&#10005; "Results vary"</div>
+      <div class="noise-tab">calctools.net</div>
+      <div class="noise-tab red">&#10005; Outdated 2018</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: THE ANSWER ===== -->
+<section class="story-section s3-bg">
+  <div class="story-content" data-animate>
+    <div class="solution-label">What if you got</div>
+    <div class="solution-number">1</div>
+    <h2 class="story-h">One number. One framework.<br>And moved on with your day.</h2>
+    <p class="story-p">No signup. No email wall. No conflicting advice. Just a <span class="story-emphasis">clear answer in under 60 seconds</span> — plus a framework you'll remember even without the calculator.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: THE TOOLS ===== -->
+<section class="story-section compact">
+  <div class="story-content" data-animate style="max-width: 900px;">
+    <div class="section-label">The tools</div>
+    <h2 class="story-h" style="font-size: clamp(24px, 4vw, 36px); margin-bottom: 40px;">90+ calculators. Each one teaches a framework.</h2>
+
+    <div class="tools-grid">
+      <a href="/caffeine-half-life-calculator" class="tool-card">
+        <div class="tool-icon">&#9749;</div>
+        <div class="tool-name">Caffeine Half-Life</div>
+        <div class="tool-rule">"Every 5 hours, half"</div>
+        <div class="tool-desc">Find your cutoff time so caffeine never costs you sleep.</div>
+        <span class="tool-link">Calculate &rarr;</span>
+      </a>
+
+      <a href="/tdee-calculator" class="tool-card">
+        <div class="tool-icon">&#128293;</div>
+        <div class="tool-name">TDEE Calculator</div>
+        <div class="tool-rule">"A fixed daily budget"</div>
+        <div class="tool-desc">How many calories you burn. Maintain, cut, or build.</div>
+        <span class="tool-link">Calculate &rarr;</span>
+      </a>
+
+      <a href="/ozempic-pen-click-calculator" class="tool-card">
+        <div class="tool-icon">&#128137;</div>
+        <div class="tool-name">Ozempic Pen Clicks</div>
+        <div class="tool-rule">"Each click is a dose"</div>
+        <div class="tool-desc">Exact click count for your pen type and dose schedule.</div>
+        <span class="tool-link">Calculate &rarr;</span>
+      </a>
+
+      <a href="/protein-intake-calculator" class="tool-card">
+        <div class="tool-icon">&#129385;</div>
+        <div class="tool-name">Protein Intake</div>
+        <div class="tool-rule">"0.7-1g per pound"</div>
+        <div class="tool-desc">Your target based on your body weight and activity level.</div>
+        <span class="tool-link">Calculate &rarr;</span>
+      </a>
+
+      <a href="/sleep-calculator" class="tool-card">
+        <div class="tool-icon">&#128564;</div>
+        <div class="tool-name">Sleep Calculator</div>
+        <div class="tool-rule">"Wake between cycles"</div>
+        <div class="tool-desc">Best times to sleep or wake based on 90-minute cycles.</div>
+        <span class="tool-link">Calculate &rarr;</span>
+      </a>
+
+      <a href="/bmi-calculator" class="tool-card">
+        <div class="tool-icon">&#9878;</div>
+        <div class="tool-name">BMI Calculator</div>
+        <div class="tool-rule">"Accurate for 85%"</div>
+        <div class="tool-desc">Your number, in context, with honest interpretation.</div>
+        <span class="tool-link">Calculate &rarr;</span>
+      </a>
+    </div>
+
+    <a href="/calculators" class="browse-cta">Browse all 90+ calculators</a>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: ASK PULSE ===== -->
+<section class="story-section compact">
+  <div class="story-content" data-animate>
+    <div class="pulse-dot"></div>
+    <h2 class="story-h" style="font-size: clamp(24px, 4vw, 36px);">Have another question?<br>Ask Pulse anything.</h2>
+    <p class="story-p" style="font-size: 15px;">We read every submission. No signup, no email. If enough people ask, we build it.</p>
+
+    <div class="pulse-input-wrap">
+      <input type="text" class="pulse-input" placeholder="What do you want to know about your health?" id="pulseInput">
+      <button class="pulse-send" onclick="submitPulse()" aria-label="Send">&#8593;</button>
+    </div>
+
+    <div class="pulse-examples">
+      <span class="pulse-eg" onclick="fillPulse(this)">Is creatine worth it?</span>
+      <span class="pulse-eg" onclick="fillPulse(this)">Cold plunge timing</span>
+      <span class="pulse-eg" onclick="fillPulse(this)">Vitamin D dose</span>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="page-footer">
+  <p>&copy; 2026 HealthCalculators.xyz &middot; <a href="/calculators">All Calculators</a> &middot; <a href="/resources">Resources</a></p>
+  <p style="margin-top: 8px;">Tools, not medical advice. Always consult your healthcare provider.</p>
+</footer>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "description": "90+ free health calculators backed by 220+ peer-reviewed citations. One number. One framework. Move on with your day."
+}
+</script>
+
+<script>
+// Scroll-driven reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+});
+
+document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+function fillPulse(el) {
+  document.getElementById('pulseInput').value = el.textContent;
+  document.getElementById('pulseInput').focus();
+}
+
+function submitPulse() {
+  const input = document.getElementById('pulseInput');
+  const q = input.value.trim();
+  if (!q) return;
+  const submissions = JSON.parse(localStorage.getItem('pulse_questions') || '[]');
+  submissions.push({ q, ts: Date.now() });
+  localStorage.setItem('pulse_questions', JSON.stringify(submissions));
+  input.value = '';
+  input.placeholder = 'Sent! We\'ll look into it.';
+  setTimeout(() => { input.placeholder = 'What do you want to know about your health?'; }, 3000);
+}
+</script>
+
+</body>
+</html>

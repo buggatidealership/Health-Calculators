@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Landing V1: The Portal — HealthCalculators.xyz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0f1a;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --teal: #14b8a6;
+  --teal-dim: rgba(20, 184, 166, 0.15);
+  --teal-glow: rgba(20, 184, 166, 0.3);
+  --text: #f0f0f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --cream: #F5F0EA;
+  --border: rgba(255,255,255,0.06);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ===== HERO: THE PORTAL ===== */
+.portal-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 60px 24px;
+}
+
+/* Subtle radial grid */
+.portal-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(20, 184, 166, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(20, 184, 166, 0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black, transparent);
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 50%, black, transparent);
+  pointer-events: none;
+}
+
+/* Pulsing green dot */
+.pulse-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--teal);
+  border-radius: 50%;
+  position: relative;
+  margin-bottom: 48px;
+  animation: pulse-glow 2.5s ease-in-out infinite;
+  opacity: 0;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+.pulse-dot::before {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: var(--teal-glow);
+  animation: pulse-ring 2.5s ease-in-out infinite;
+}
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -20px;
+  border-radius: 50%;
+  background: var(--teal-dim);
+  animation: pulse-ring 2.5s ease-in-out infinite 0.3s;
+}
+
+@keyframes pulse-glow {
+  0% { opacity: 0; transform: scale(0.5); }
+  20% { opacity: 1; transform: scale(1); }
+  50% { box-shadow: 0 0 20px var(--teal-glow); }
+  100% { opacity: 1; }
+}
+
+@keyframes pulse-ring {
+  0%, 100% { transform: scale(0.8); opacity: 0.4; }
+  50% { transform: scale(1.3); opacity: 0; }
+}
+
+/* Brand mark */
+.portal-brand {
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fade-up 1s ease 1s forwards;
+}
+
+/* Tagline */
+.portal-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 52px);
+  color: var(--cream);
+  text-align: center;
+  max-width: 600px;
+  line-height: 1.25;
+  opacity: 0;
+  animation: fade-up 1.2s ease 1.5s forwards;
+}
+
+.portal-tagline em {
+  font-style: italic;
+  color: var(--teal);
+}
+
+.portal-sub {
+  font-size: 17px;
+  color: var(--text-secondary);
+  margin-top: 20px;
+  text-align: center;
+  max-width: 480px;
+  opacity: 0;
+  animation: fade-up 1s ease 2s forwards;
+}
+
+.portal-cta {
+  margin-top: 40px;
+  opacity: 0;
+  animation: fade-up 1s ease 2.5s forwards;
+}
+
+.portal-cta a {
+  display: inline-block;
+  padding: 14px 36px;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.portal-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px var(--teal-glow);
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fade-up 1s ease 3s forwards;
+}
+
+.scroll-arrow {
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  animation: bounce-down 2s ease infinite;
+}
+
+@keyframes bounce-down {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(6px); }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== FEATURED CALCULATORS ===== */
+.featured-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 80px 24px 100px;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--cream);
+  margin-bottom: 48px;
+  line-height: 1.3;
+}
+
+.featured-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+}
+
+@media (min-width: 640px) {
+  .featured-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.featured-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.featured-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(20, 184, 166, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+}
+
+.card-icon {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.card-title {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 12px;
+}
+
+.card-mental-model {
+  font-size: 15px;
+  color: var(--teal);
+  font-weight: 500;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: var(--teal-dim);
+  border-radius: 8px;
+  line-height: 1.4;
+}
+
+.card-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card-arrow {
+  position: absolute;
+  top: 28px;
+  right: 24px;
+  color: var(--text-muted);
+  font-size: 18px;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.featured-card:hover .card-arrow {
+  transform: translateX(4px);
+  color: var(--teal);
+}
+
+/* ===== CATEGORIES ===== */
+.categories-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 100px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+@media (min-width: 640px) {
+  .category-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 900px) {
+  .category-grid { grid-template-columns: repeat(4, 1fr); }
+}
+
+.category-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 18px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.category-chip:hover {
+  background: var(--bg-card-hover);
+  color: var(--text);
+  border-color: rgba(20, 184, 166, 0.15);
+}
+
+.category-chip .cat-icon {
+  font-size: 20px;
+}
+
+.category-chip .cat-count {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* ===== ASK PULSE ===== */
+.pulse-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 80px 24px 120px;
+  text-align: center;
+}
+
+.pulse-input-wrap {
+  position: relative;
+  margin-top: 32px;
+}
+
+.pulse-input {
+  width: 100%;
+  padding: 18px 24px;
+  padding-right: 56px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.pulse-input::placeholder {
+  color: var(--text-muted);
+}
+
+.pulse-input:focus {
+  border-color: var(--teal);
+}
+
+.pulse-send {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--teal);
+  border: none;
+  border-radius: 10px;
+  color: var(--bg);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+.pulse-send:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+.pulse-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.pulse-example {
+  padding: 6px 14px;
+  background: rgba(20, 184, 166, 0.08);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  border-radius: 20px;
+  font-size: 13px;
+  color: var(--teal);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pulse-example:hover {
+  background: rgba(20, 184, 166, 0.15);
+}
+
+/* ===== TRUST BAR ===== */
+.trust-bar {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 24px 80px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 32px;
+  text-align: center;
+}
+
+.trust-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.trust-number {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  color: var(--cream);
+}
+
+.trust-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* ===== FOOTER ===== */
+.portal-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+.portal-footer a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.portal-footer a:hover {
+  color: var(--teal);
+}
+
+/* Schema (hidden) */
+.schema-hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO: THE PORTAL ===== -->
+<section class="portal-hero">
+  <div class="pulse-dot"></div>
+  <div class="portal-brand">Pulse</div>
+  <h1 class="portal-tagline">You always had a <em>pulse.</em><br>We help you find it.</h1>
+  <p class="portal-sub">90+ free health calculators. Each one teaches you a framework you'll carry forever.</p>
+  <div class="portal-cta">
+    <a href="/calculators">Explore calculators</a>
+  </div>
+  <div class="scroll-hint">
+    <span>SCROLL</span>
+    <div class="scroll-arrow"></div>
+  </div>
+</section>
+
+<!-- ===== TRUST BAR ===== -->
+<div class="trust-bar">
+  <div class="trust-stat">
+    <span class="trust-number">90+</span>
+    <span class="trust-label">Free calculators</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-number">220+</span>
+    <span class="trust-label">Peer-reviewed citations</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-number">&lt;60s</span>
+    <span class="trust-label">To your answer</span>
+  </div>
+  <div class="trust-stat">
+    <span class="trust-number">0</span>
+    <span class="trust-label">Signups required</span>
+  </div>
+</div>
+
+<!-- ===== FEATURED: MENTAL MODEL CARDS ===== -->
+<section class="featured-section">
+  <div class="section-label">Featured Tools</div>
+  <h2 class="section-title">One rule per calculator.<br>Remember the rule, forget the tool.</h2>
+
+  <div class="featured-grid">
+    <a href="/caffeine-half-life-calculator" class="featured-card">
+      <div class="card-icon">&#9749;</div>
+      <div class="card-title">Caffeine Half-Life</div>
+      <div class="card-mental-model">"Every 5 hours, half your caffeine is gone."</div>
+      <div class="card-desc">Find your exact cutoff time so caffeine never costs you sleep again.</div>
+      <span class="card-arrow">&rarr;</span>
+    </a>
+
+    <a href="/tdee-calculator" class="featured-card">
+      <div class="card-icon">&#128293;</div>
+      <div class="card-title">TDEE Calculator</div>
+      <div class="card-mental-model">"Your body burns a fixed budget daily. Spend it or save it."</div>
+      <div class="card-desc">Calculate exactly how many calories you burn, then decide: maintain, cut, or build.</div>
+      <span class="card-arrow">&rarr;</span>
+    </a>
+
+    <a href="/ozempic-pen-click-calculator" class="featured-card">
+      <div class="card-icon">&#128137;</div>
+      <div class="card-title">Ozempic Pen Clicks</div>
+      <div class="card-mental-model">"Each click is a precise dose. Count wrong and you under- or over-medicate."</div>
+      <div class="card-desc">Find your exact click count per pen type, plus your next injection date.</div>
+      <span class="card-arrow">&rarr;</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="categories-section">
+  <div class="section-label">Browse by category</div>
+  <h2 class="section-title">Find what you need</h2>
+
+  <div class="category-grid">
+    <a href="/calculators?cat=nutrition" class="category-chip">
+      <span class="cat-icon">&#127823;</span>
+      <span>Nutrition</span>
+      <span class="cat-count">18</span>
+    </a>
+    <a href="/calculators?cat=fitness" class="category-chip">
+      <span class="cat-icon">&#127947;</span>
+      <span>Fitness</span>
+      <span class="cat-count">14</span>
+    </a>
+    <a href="/calculators?cat=medications" class="category-chip">
+      <span class="cat-icon">&#128138;</span>
+      <span>Medications</span>
+      <span class="cat-count">12</span>
+    </a>
+    <a href="/calculators?cat=body-composition" class="category-chip">
+      <span class="cat-icon">&#9878;</span>
+      <span>Body Comp</span>
+      <span class="cat-count">10</span>
+    </a>
+    <a href="/calculators?cat=fertility" class="category-chip">
+      <span class="cat-icon">&#128118;</span>
+      <span>Fertility</span>
+      <span class="cat-count">8</span>
+    </a>
+    <a href="/calculators?cat=lab-results" class="category-chip">
+      <span class="cat-icon">&#128300;</span>
+      <span>Lab Results</span>
+      <span class="cat-count">7</span>
+    </a>
+    <a href="/calculators?cat=sleep" class="category-chip">
+      <span class="cat-icon">&#127769;</span>
+      <span>Sleep</span>
+      <span class="cat-count">5</span>
+    </a>
+    <a href="/calculators?cat=cosmetic" class="category-chip">
+      <span class="cat-icon">&#10024;</span>
+      <span>Cosmetic</span>
+      <span class="cat-count">6</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== ASK PULSE ===== -->
+<section class="pulse-section">
+  <div class="section-label">Demand Capture</div>
+  <h2 class="section-title" style="text-align:center;">Have a health question?<br>Ask Pulse anything.</h2>
+  <p style="color: var(--text-secondary); font-size: 15px; margin-top: 8px;">We read every submission. No signup, no email. Just ask.</p>
+
+  <div class="pulse-input-wrap">
+    <input type="text" class="pulse-input" placeholder="How much creatine should I take?" id="pulseInput">
+    <button class="pulse-send" onclick="submitPulse()" aria-label="Send">&#8593;</button>
+  </div>
+
+  <div class="pulse-examples">
+    <span class="pulse-example" onclick="fillPulse(this)">Is my BMI accurate if I lift?</span>
+    <span class="pulse-example" onclick="fillPulse(this)">When should I stop caffeine?</span>
+    <span class="pulse-example" onclick="fillPulse(this)">TDEE vs BMR difference?</span>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="portal-footer">
+  <p>&copy; 2026 HealthCalculators.xyz &middot; <a href="/calculators">All Calculators</a> &middot; <a href="/resources">Resources</a></p>
+  <p style="margin-top: 8px;">Tools, not medical advice. Always consult your healthcare provider.</p>
+</footer>
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "description": "90+ free health calculators backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://healthcalculators.xyz/calculators?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<script>
+function fillPulse(el) {
+  document.getElementById('pulseInput').value = el.textContent;
+  document.getElementById('pulseInput').focus();
+}
+function submitPulse() {
+  const q = document.getElementById('pulseInput').value.trim();
+  if (!q) return;
+  // Store in localStorage for now
+  const submissions = JSON.parse(localStorage.getItem('pulse_questions') || '[]');
+  submissions.push({ q, ts: Date.now() });
+  localStorage.setItem('pulse_questions', JSON.stringify(submissions));
+  document.getElementById('pulseInput').value = '';
+  document.getElementById('pulseInput').placeholder = 'Sent! We\'ll build it.';
+  setTimeout(() => {
+    document.getElementById('pulseInput').placeholder = 'Ask another question...';
+  }, 3000);
+}
+</script>
+
+</body>
+</html>
