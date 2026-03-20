@@ -32,7 +32,15 @@
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #ef4444; --accent-rgb: 239,68,68; }
 
-    </style>
+    
+        /* Force dark inputs — override global styles.css */
+        input, select, input[type="number"], input[type="text"], input[type="date"], input[type="time"], textarea {
+            background: rgba(255,255,255,0.05) \!important;
+            color: #e2e8f0 \!important;
+            border-color: rgba(20,184,166,0.12) \!important;
+        }
+        input:focus, select:focus, textarea:focus { border-color: #14b8a6 \!important; }
+        </style>
 </head>
 <body>
 {% include 'header.html' %}
