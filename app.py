@@ -6061,7 +6061,7 @@ def ffmi_calculator():
     schema_description = "Calculate your Fat-Free Mass Index (FFMI) and normalized FFMI. See how your lean muscle mass compares to natural limits based on the Kouri et al. study. Classification for men and women."
     schema_url = "/ffmi-calculator"
     return render_template(
-        'ffmi_calculator.html',
+        'ffmi_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
