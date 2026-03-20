@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="One Rep Max (1RM) Calculator — Estimate Your Max Lift",
+        meta_description="Calculate your one rep max using 7 proven formulas. Enter weight and reps to get estimated max for bench press, squat, deadlift, and more.",
+        og_title="One Rep Max (1RM) Calculator",
+        og_description="Calculate your one rep max using 7 proven formulas. Enter weight and reps to get estimated max for bench press, squat, deadlift, and more.",
+        og_url="/one-rep-max-calculator",
+        canonical_url="/one-rep-max-calculator",
+        schema_type="MedicalWebPage",
+        schema_name="One Rep Max Calculator",
+        schema_description="Estimate your one repetition maximum using 7 validated prediction formulas.",
+        schema_url="/one-rep-max-calculator",
+        schema_about="One Rep Max Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which 1RM formula is most accurate?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The average of multiple formulas is most reliable. Epley works best for low reps, Brzycki for mid-range."
+          }
+        },        {
+          "@type": "Question",
+          "name": "How often should I retest my 1RM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Every 4-8 weeks during structured training to keep programming accurate."
+          }
+        },        {
+          "@type": "Question",
+          "name": "Is it safe to test my actual 1RM?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Estimating from a 3-5 rep set is safer. Always use a spotter for actual 1RM tests."
+          }
+        },        {
+          "@type": "Question",
+          "name": "What's the difference between 1RM and training max?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Training max is 85-90% of 1RM, providing a safety margin for programming."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-1: #0a0f1a; --bg-2: #081a1a; --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07); --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6; --teal-dim: #0d9488; --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b;
+            --good: #14b8a6; --caution: #f59e0b; --bad: #ef4444;
+            --accent: #dc2626; --accent-glow: rgba(220, 38, 38, 0.3);
+            --font-body: 'DM Sans', sans-serif; --font-display: 'DM Serif Display', serif;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: #0a0f1a !important; }
+        .site-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.1) !important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) !important; stroke: var(--text) !important; }
+        .site-header .logo-dot { color: var(--teal) !important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.06) !important; }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content { background: transparent !important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
+        .breadcrumb a:hover { color: var(--teal) !important; }
+        .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
+        .nav-dropdown-link { color: var(--text-dim) !important; }
+        .nav-dropdown-link:hover { color: var(--teal) !important; }
+        .nav-dropdown-title { color: var(--text-muted) !important; }
+        .page-layout { display: contents !important; } .page-content { display: contents !important; } .page-sidebar { display: none !important; } main { display: contents; }
+        h1, h2, h3 { color: #ffffff !important; }
+        .section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 4rem 1.5rem; position: relative; }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-2 { background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%); }
+        .bg-3 { background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        .bg-6 { background: #060a14; }
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .pulse-dot { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; display: inline-block; animation: pulse 2.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(34,197,94,0.5); } 50% { box-shadow: 0 0 0 10px rgba(34,197,94,0); } }
+        .hero-title { font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem); text-align: center; margin-bottom: 0.5rem; color: #ffffff !important; }
+        .hero-title span { color: var(--accent); }
+        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
+        .form-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 2.5rem 2rem; max-width: 520px; width: 100%; backdrop-filter: blur(10px); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.4rem; font-weight: 500; }
+        .form-group input, .form-group select { width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px; color: var(--text); font-size: 1rem; padding: 0.7rem 1rem; font-family: var(--font-body); outline: none; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1); }
+        .form-group select option { background: #0d1420; color: var(--text); }
+        .calc-btn { background: var(--accent) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important; padding: 0.85rem 2.4rem !important; font-size: 1.05rem !important; font-weight: 700; cursor: pointer; margin-top: 0.5rem; font-family: var(--font-body); transition: all 0.2s; width: auto !important; box-shadow: none !important; }
+        .calc-btn::after { display: none !important; }
+        .calc-btn:hover { box-shadow: 0 6px 24px var(--accent-glow) !important; transform: translateY(-1px); }
+        .hidden-section { display: none; }
+        .result-number { font-family: var(--font-display); font-size: clamp(4rem, 14vw, 8rem); line-height: 1; text-align: center; color: var(--accent); text-shadow: 0 0 40px var(--accent-glow); }
+        .result-unit { font-size: 1.1rem; color: var(--text-dim); text-align: center; margin-top: 0.5rem; }
+        .result-sub { font-size: 1.1rem; text-align: center; margin-top: 0.8rem; font-weight: 600; color: var(--accent); }
+        .breakdown-row { display: flex; justify-content: space-between; padding: 0.8rem 0; border-bottom: 1px solid rgba(20,184,166,0.08); font-size: 0.9rem; }
+        .breakdown-label { color: var(--text-dim); } .breakdown-value { color: var(--text); font-weight: 600; }
+        .coach-container { max-width: 520px; width: 100%; }
+        .coach-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); text-align: center; margin-bottom: 2.5rem; }
+        .coach-card { background: linear-gradient(180deg, rgba(220, 38, 38, 0.06) 0%, rgba(220, 38, 38, 0.02) 100%); border: 1px solid rgba(220, 38, 38, 0.15); border-radius: 20px; padding: 2.5rem 2rem; margin-bottom: 2rem; }
+        .coach-text { font-size: 1.15rem; line-height: 2; color: var(--text); }
+        .coach-text .hl { color: var(--accent); font-weight: 700; }
+        .coach-rule { font-family: var(--font-display); font-size: 1.4rem; color: var(--accent); margin: 1.5rem 0; text-shadow: 0 0 20px var(--accent-glow); }
+        .coach-advice { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(220, 38, 38, 0.1); font-size: 1.05rem; line-height: 1.9; color: var(--text-dim); }
+        .coach-advice em { color: var(--text); font-style: normal; font-weight: 500; }
+        .share-row { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+        .share-btn { display: inline-flex !important; align-items: center; gap: 0.45rem; padding: 0.6rem 1.2rem !important; border-radius: 12px !important; font-size: 0.82rem !important; font-weight: 600; font-family: var(--font-body); cursor: pointer; transition: all 0.2s; text-decoration: none; border: none !important; width: auto !important; box-shadow: none !important; }
+        .share-btn::after { display: none !important; }
+        .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .share-btn.whatsapp { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.25) !important; color: #25d366; }
+        .share-btn.whatsapp:hover { background: rgba(37,211,102,0.2); box-shadow: 0 4px 14px rgba(37,211,102,0.15) !important; }
+        .share-btn.twitter { background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25) !important; color: #1d9bf0; }
+        .share-btn.twitter:hover { background: rgba(29,155,240,0.22); box-shadow: 0 4px 14px rgba(29,155,240,0.15) !important; }
+        .share-btn.copy { background: rgba(220, 38, 38, 0.1); border: 1px solid rgba(220, 38, 38, 0.25) !important; color: var(--accent); }
+        .share-btn.copy:hover { background: rgba(220, 38, 38, 0.2); box-shadow: 0 4px 14px var(--accent-glow) !important; }
+        .share-btn.copy.copied { background: var(--accent); color: #0a0f1a; }
+        .coach-cta { text-align: center; margin-top: 2rem; }
+        .coach-cta-text { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; }
+        .coach-cta-link { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.3); border-radius: 12px; color: var(--teal); padding: 0.7rem 1.4rem; font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: var(--font-body); transition: all 0.2s; text-decoration: none; }
+        .coach-cta-link:hover { background: rgba(20,184,166,0.2); box-shadow: 0 4px 16px var(--teal-glow); }
+        .seo-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--text); margin-bottom: 2rem; text-align: center; }
+        .faq-list { list-style: none; }
+        .faq-item { border: 1px solid rgba(20,184,166,0.1); border-radius: 14px; margin-bottom: 0.8rem; overflow: hidden; background: rgba(14,122,126,0.04); }
+        .faq-item:hover { border-color: rgba(20,184,166,0.25); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--text); background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+        .faq-question:hover { color: var(--teal); }
+        .faq-chevron { width: 20px; height: 20px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 1.5rem; }
+        .faq-item.faq-open .faq-answer { max-height: 300px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li { counter-increment: source; padding: 0.8rem 0; border-bottom: 1px solid rgba(20,184,166,0.06); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+        .sources-list li::before { content: counter(source) "."; color: var(--teal); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--teal); text-decoration: none; }
+        .sources-list li a:hover { text-decoration: underline; }
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code { background: rgba(20,184,166,0.1); padding: 0.15rem 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: var(--teal); }
+        .llm-capsule { background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.1); border-radius: 16px; padding: 2rem; }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+        .medical-disclaimer.pink-box { background: rgba(239,68,68,0.06) !important; border: 1px solid rgba(239,68,68,0.15) !important; border-radius: 14px !important; padding: 1.5rem !important; max-width: 680px; margin: 0 auto; }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) !important; font-size: 0.85rem !important; line-height: 1.6 !important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 !important; }
+        .site-footer { background: #060a14 !important; border-top: 1px solid rgba(20,184,166,0.08) !important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) !important; }
+        .site-footer a:hover { color: var(--teal) !important; }
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input { flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important; border-radius: 12px !important; color: var(--text) !important; padding: 0.85rem 1rem !important; font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none; width: auto !important; }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button { background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important; padding: 0 1.5rem !important; font-weight: 700 !important; cursor: pointer; font-family: var(--font-body) !important; transition: all 0.2s; width: auto !important; box-shadow: none !important; font-size: 0.95rem !important; }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill { background: rgba(255,255,255,0.03) !important; border: 1px solid var(--border) !important; border-radius: 20px !important; padding: 0.4rem 0.9rem !important; font-size: 0.78rem !important; color: var(--text-dim) !important; cursor: pointer; transition: all 0.2s; width: auto !important; box-shadow: none !important; }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal); color: var(--text); }
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .form-card { padding: 1.8rem 1.3rem; }
+            .coach-card { padding: 1.8rem 1.3rem; }
+            .ask-input-wrap { flex-direction: column; }
+            .ask-input-wrap button { padding: 0.8rem !important; }
+        }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">What's your <span>one rep max</span>?</h1>
+        <p class="hero-sub">7 formulas. Enter weight and reps.</p>
+    </div>
+    <div class="form-card fade-in" style="transition-delay:0.1s;">
+        <div class="form-group"><label for="exercise">Exercise</label><select id="exercise"><option>Bench Press</option><option>Back Squat</option><option>Deadlift</option><option>Overhead Press</option><option>Barbell Row</option><option>Other</option></select></div>
+        <div class="form-row">
+            <div class="form-group"><label for="weight">Weight lifted</label><input type="number" id="weight" step="0.5" placeholder="225"></div>
+            <div class="form-group"><label for="reps">Reps completed</label><input type="number" id="reps" min="1" max="30" placeholder="5"></div>
+        </div>
+        <div class="form-group"><label for="unit">Unit</label><select id="unit"><option value="lbs" selected>Pounds (lbs)</option><option value="kg">Kilograms (kg)</option></select></div>
+        <div style="text-align:center;">
+            <button class="calc-btn" id="calcBtn">Calculate 1RM</button>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">&mdash;</div>
+        <div class="result-unit" id="resultUnit">estimated one rep max</div>
+        <div class="result-sub" id="resultSub"></div>
+        <div style="max-width:400px;width:100%;margin:2rem auto 0;" id="breakdownWrap">
+            <div class="breakdown-row"><span class="breakdown-label">Strength (85%)</span><span class="breakdown-value" id="str85">&mdash;</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Hypertrophy (75%)</span><span class="breakdown-value" id="hyp75">&mdash;</span></div>
+            <div class="breakdown-row"><span class="breakdown-label">Endurance (65%)</span><span class="breakdown-value" id="end65">&mdash;</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Your training loads</h2>
+        <div class="coach-card" id="coachCard"></div>
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</a>
+            <button class="share-btn copy" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+        </div>
+        <div class="coach-cta">
+            <p class="coach-cta-text">Want programming advice?</p>
+            <a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a>
+        </div>
+    </div>
+</section>
+
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Which 1RM formula is most accurate?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>No single formula is universally best. Epley and Wathen work best for 2-5 reps, Brzycki for 3-10 reps, Mayhew for higher reps. The average of all formulas is most reliable.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How often should I retest my 1RM?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Every 4-8 weeks during structured training. Your 1RM changes as you get stronger, and outdated numbers lead to suboptimal training loads.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Is it safe to test my actual 1RM?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Use this calculator to estimate from a 3-5 rep set instead. If testing directly, always use a spotter and safety equipment.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    What's the difference between 1RM and training max?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Training max is typically 85-90% of 1RM, used for programming in systems like 5/3/1. It builds in a safety margin and allows better technique practice.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Epley B. Poundage Chart. Boyd Epley Workout. 1985.</li>
+            <li>Brzycki M. Strength Testing: Predicting a One-Rep Max. JOPERD. 1993;64(1):88-90.</li>
+            <li>LeSuer DA, et al. Accuracy of Prediction Equations for 1-RM. J Strength Cond Res. 1997;11(4):211-213.</li>
+            <li>Baechle TR, Earle RW. Essentials of Strength Training and Conditioning. 4th ed. NSCA. 2016.</li>
+        </ol>
+    </div>
+</div>
+
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>This calculator uses 7 validated 1RM prediction formulas: Epley (1985), Brzycki (1993), Lander (1985), Lombardi (1989), Mayhew (1992), OConner (1989), and Wathen (1994). The average of all 7 is displayed as the primary estimate. Training load percentages follow NSCA guidelines. Most accurate in the 2-10 rep range.</p></div>
+    </div>
+</div>
+
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner">
+        <div class="llm-capsule"><p>One rep max (1RM) is the maximum weight you can lift for one repetition. The Epley formula estimates it as: 1RM = Weight x (1 + Reps/30). For example, benching 225 lbs for 5 reps gives an estimated 1RM of about 263 lbs. Training zones: 85% for strength (6 reps), 75% for hypertrophy (10 reps), 65% for endurance (15+ reps).</p></div>
+    </div>
+</div>
+
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap">
+            <input type="text" id="askInput" placeholder="e.g. How often should I test my 1RM?">
+            <button id="askBtn">Ask</button>
+        </div>
+        <div class="ask-pills">
+            <span class="ask-pill">Strength vs hypertrophy</span>
+            <span class="ask-pill">Training max explained</span>
+            <span class="ask-pill">Best rep range</span>
+            <span class="ask-pill">Progressive overload</span>
+        </div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--teal); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script>
+document.getElementById('calcBtn').addEventListener('click', function() {
+    const w = parseFloat(document.getElementById('weight').value);
+    const r = parseInt(document.getElementById('reps').value);
+    const unit = document.getElementById('unit').value;
+    if (!w || !r || r < 1 || r > 30) return;
+    const epley = r === 1 ? w : w * (1 + r/30);
+    const brzycki = r === 1 ? w : w * (36/(37 - r));
+    const lander = r === 1 ? w : (100*w)/(101.3 - 2.67123*r);
+    const lombardi = r === 1 ? w : w * Math.pow(r, 0.10);
+    const mayhew = r === 1 ? w : (100*w)/(52.2 + 41.9*Math.exp(-0.055*r));
+    const oconner = r === 1 ? w : w * (1 + r/40);
+    const wathen = r === 1 ? w : (100*w)/(48.8 + 53.8*Math.exp(-0.075*r));
+    const avg = (epley + brzycki + lander + lombardi + mayhew + oconner + wathen) / 7;
+    const rnd = unit === 'kg' ? (v) => (Math.round(v*10)/10) : (v) => Math.round(v);
+
+    document.getElementById('resultNumber').textContent = rnd(avg) + ' ' + unit;
+    document.getElementById('str85').textContent = rnd(avg*0.85) + ' ' + unit + ' (6 reps)';
+    document.getElementById('hyp75').textContent = rnd(avg*0.75) + ' ' + unit + ' (10 reps)';
+    document.getElementById('end65').textContent = rnd(avg*0.65) + ' ' + unit + ' (15 reps)';
+    const ex = document.getElementById('exercise').value;
+    document.getElementById('coachCard').innerHTML = '<div class="coach-text">Your estimated <span class="hl">' + ex + '</span> 1RM is <span class="hl">' + rnd(avg) + ' ' + unit + '</span>.<div class="coach-rule">Based on ' + w + ' ' + unit + ' x ' + r + ' reps.</div><div class="coach-advice">For <em>strength</em>: ' + rnd(avg*0.85) + ' ' + unit + ' x 6 reps. For <em>hypertrophy</em>: ' + rnd(avg*0.75) + ' ' + unit + ' x 10 reps. Retest every 4-8 weeks.</div></div>';
+    const shareText = 'My estimated ' + ex + ' 1RM: ' + rnd(avg) + ' ' + unit + '\nBased on ' + w + ' x ' + r + '\n\nCalculate: healthcalculators.xyz/one-rep-max-calculator';
+    document.getElementById('shareRow').style.display = 'flex';
+    document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTwitter').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    window._shareText = shareText;
+    document.querySelectorAll('.hidden-section').forEach(el => el.classList.remove('hidden-section'));
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => document.querySelectorAll('.fade-in').forEach(el => observer.observe(el)), 100);
+});
+
+document.getElementById('copyBtn').addEventListener('click', function() {
+    if (!window._shareText) return;
+    navigator.clipboard.writeText(window._shareText).then(() => {
+        this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+        this.classList.add('copied');
+        setTimeout(() => {
+            this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+            this.classList.remove('copied');
+        }, 2000);
+    }).catch(() => {});
+});
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+document.getElementById('askBtn').addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() { document.getElementById('askInput').value = this.textContent; });
+});
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
