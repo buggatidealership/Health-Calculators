@@ -1712,7 +1712,7 @@ def retirement_savings_calculator():
     schema_description = "Estimate how much you'll need to retire comfortably. Calculate your target retirement savings based on age, income, expected expenses, and investment growth."
     schema_url = "/retirement-savings-calculator"
     return render_template(
-        'retirement_savings_calculator.html',
+        'retirement_savings_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
