@@ -2897,14 +2897,14 @@ def subway_calorie_calculator():
     schema_description = "Build your Subway sandwich and see real-time calories, protein, carbs, fat, fiber, and sodium. Covers all breads, proteins, cheeses, veggies, and sauces for 6-inch and footlong orders."
     schema_url = "/subway-calorie-calculator"
     return render_template(
-        'subway_nutrition_calculator.html',
+        'subway_nutrition_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-12'
+        date_modified='2026-03-20'
     )
 
 @app.route('/antidepressant-weight-gain-calculator')
