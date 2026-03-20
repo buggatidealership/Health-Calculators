@@ -3,6 +3,7 @@ import io
 import logging
 from flask import Flask, render_template, send_from_directory, redirect, Response, request, jsonify
 from request_logger import init_request_logger
+from pulse_bot import handle_telegram_update
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG)
@@ -5918,6 +5919,19 @@ def mockup_bmi_redesign():
         breadcrumb_title='BMI Check'
     )
 
+@app.route('/webhook/telegram', methods=['POST'])
+def telegram_webhook():
+    """Handle incoming Telegram bot messages."""
+    import threading
+    data = request.get_json(silent=True)
+    if not data:
+        return 'ok', 200
+    # Process in background thread so webhook returns 200 immediately
+    thread = threading.Thread(target=handle_telegram_update, args=(data,), daemon=True)
+    thread.start()
+    return 'ok', 200
+
+
 @app.route('/api/request-calculator', methods=['POST'])
 def request_calculator():
     import logging
@@ -5929,7 +5943,11 @@ def request_calculator():
     # Log to stdout — Render captures this in logs
     logging.info(f"CALCULATOR_REQUEST | what={what} | email={email}")
     print(f"[CALCULATOR REQUEST] what={what!r} email={email!r}")
-    return jsonify({'status': 'ok'})
+    return jsonify({
+        'status': 'ok',
+        'pulse_link': 'https://t.me/PulseHealthBot',
+        'pulse_message': 'Want an instant answer? Ask Pulse on Telegram: https://t.me/PulseHealthBot',
+    })
 
 @app.route('/mockup')
 def mockup():
