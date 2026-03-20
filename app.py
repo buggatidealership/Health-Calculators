@@ -3874,18 +3874,12 @@ def waist_to_hip_ratio_calculator():
 
 @app.route('/creatine-dosage-calculator')
 def creatine_dosage_calculator():
-    schema_name = "Creatine Dosage Calculator"
-    schema_description = "Calculate your optimal creatine monohydrate dose based on body weight. ISSN-backed loading phase (0.3 g/kg/day) and maintenance dose (3-5 g/day) protocols with teaspoon conversions."
-    schema_url = "/creatine-dosage-calculator"
     return render_template(
-        'creatine_dosage_calculator.html',
+        'creatine_dosage_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20'
+        breadcrumb_title='Creatine Dosage Calculator',
+        robots_meta='index, follow'
     )
 
 
@@ -5552,18 +5546,12 @@ def vo2_max_calculator():
 
 @app.route('/one-rep-max-calculator')
 def one_rep_max_calculator():
-    schema_name = "One Rep Max (1RM) Calculator"
-    schema_description = "Estimate your one repetition maximum for any barbell exercise using 7 validated prediction formulas (Epley, Brzycki, Lander, Lombardi, Mayhew, O'Conner, Wathen). Includes training load percentage table."
-    schema_url = "/one-rep-max-calculator"
     return render_template(
-        'one_rep_max_calculator.html',
+        'one_rep_max_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20'
+        breadcrumb_title='One Rep Max Calculator',
+        robots_meta='index, follow'
     )
 
 
@@ -6141,15 +6129,11 @@ def running_calorie_calculator():
     schema_description = "Calculate calories burned running by distance, time, and pace. Uses MET values from the Ainsworth et al. Compendium of Physical Activities. Supports 5K, 10K, half marathon, marathon, and custom distances with terrain adjustments."
     schema_url = "/running-calorie-calculator"
     return render_template(
-        'running_calorie_calculator.html',
+        'running_calorie_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        canonical_url=schema_url,
-        schema_type='WebPage',
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-12'
+        breadcrumb_title='Running Calorie Calculator',
+        robots_meta='index, follow'
     )
 
 
