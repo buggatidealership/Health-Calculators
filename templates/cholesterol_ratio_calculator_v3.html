@@ -1,0 +1,399 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with page_title="Cholesterol Ratio Calculator — Heart Disease Risk", meta_description="Calculate cholesterol ratios: Total/HDL, LDL/HDL, Trig/HDL, Non-HDL with cardiovascular risk assessment.", og_title="Cholesterol Ratio Calculator", og_description="Calculate cholesterol ratios: Total/HDL, LDL/HDL, Trig/HDL, Non-HDL with cardiovascular risk assessment.", og_url="/cholesterol-ratio-calculator", canonical_url="/cholesterol-ratio-calculator", schema_type="MedicalWebPage", schema_name="Cholesterol Ratio Calculator", schema_description="Calculate cholesterol ratios: Total/HDL, LDL/HDL, Trig/HDL, Non-HDL with cardiovascular risk assessment.", schema_url="/cholesterol-ratio-calculator", schema_about="Cholesterol Ratio Calculator", date_published="2025-06-01", date_modified="2026-03-20", og_image="default-calculator-og.jpg", robots_meta="noindex, nofollow" %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[        {"@type":"Question","name":"Most important ratio?","acceptedAnswer":{"@type":"Answer","text":"Total/HDL is most widely used. Non-HDL is increasingly favored by cardiologists."}},
+        {"@type":"Question","name":"What ratio is dangerous?","acceptedAnswer":{"@type":"Answer","text":"Total/HDL above 6.0 is high risk. LDL/HDL above 3.5 (men) or 3.0 (women) is elevated."}},
+        {"@type":"Question","name":"Can I improve ratios?","acceptedAnswer":{"@type":"Answer","text":"Yes. Exercise raises HDL, reducing saturated fat lowers LDL, limiting sugar lowers triglycerides."}},
+        {"@type":"Question","name":"What does TG/HDL mean?","acceptedAnswer":{"@type":"Answer","text":"Proxy for insulin resistance and small dense LDL. Above 3.0 suggests metabolic dysfunction."}}]}
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-1: #0a0f1a; --bg-card: rgba(239, 68, 68,0.07); --border: rgba(239, 68, 68,0.12); --accent: #ef4444; --accent-glow: rgba(239, 68, 68,0.3); --good: #14b8a6; --caution: #f59e0b; --bad: #ef4444; --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b; --font-body: 'DM Sans', sans-serif; --font-display: 'DM Serif Display', serif; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: #0a0f1a \!important; }
+        h1, h2, h3 { color: #ffffff \!important; }
+        .site-header { background: #0a0f1a \!important; border-bottom: 1px solid rgba(239, 68, 68,0.1) \!important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) \!important; stroke: var(--text) \!important; }
+        .site-header .logo-dot { color: var(--accent) \!important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) \!important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] { background: #0a0f1a \!important; border-bottom: 1px solid rgba(239, 68, 68,0.06) \!important; }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content { background: transparent \!important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) \!important; }
+        .breadcrumb a:hover { color: var(--accent) \!important; }
+        .nav-dropdown { background: #0d1420 \!important; border-color: rgba(239, 68, 68,0.1) \!important; }
+        .nav-dropdown-link { color: var(--text-dim) \!important; }
+        .nav-dropdown-link:hover { color: var(--accent) \!important; }
+        .page-layout { display: contents \!important; }
+        .page-content { display: contents \!important; }
+        .page-sidebar { display: none \!important; }
+        main { display: contents; }
+        /* Dark override all calc containers/elements */
+        .calculator { background: rgba(239, 68, 68,0.04) \!important; border: 1px solid rgba(239, 68, 68,0.1) \!important; border-radius: 16px \!important; padding: 2rem \!important; }
+        .calculator-container { max-width: 700px \!important; margin: 0 auto \!important; padding: 2rem 1rem \!important; }
+        .form-group label { color: var(--text-dim) \!important; }
+        .form-group input, .form-group select { background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(239, 68, 68,0.15) \!important; color: var(--text) \!important; border-radius: 10px \!important; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent) \!important; box-shadow: 0 0 0 3px rgba(239, 68, 68,0.1) \!important; }
+        .form-group select option { background: #0d1420 \!important; color: var(--text) \!important; }
+        .input-hint { color: var(--text-muted) \!important; }
+        .subtitle { color: var(--text-dim) \!important; }
+        .calculate-btn, button[type="button"].calculate-btn { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; font-weight: 700 \!important; width: auto \!important; box-shadow: none \!important; }
+        .calculate-btn::after { display: none \!important; }
+        .calculate-btn:hover { box-shadow: 0 6px 24px var(--accent-glow) \!important; }
+        button { width: auto \!important; box-shadow: none \!important; }
+        button::after { display: none \!important; }
+        .results-section { background: transparent \!important; }
+        .result-hero { border-color: var(--accent) \!important; }
+        .result-hero-number { color: var(--accent) \!important; }
+        .result-status { background: rgba(239, 68, 68,0.06) \!important; border-color: rgba(239, 68, 68,0.15) \!important; border-radius: 12px \!important; }
+        .result-status-text { color: var(--text-dim) \!important; }
+        .result-breakdown { background: rgba(239, 68, 68,0.04) \!important; border: 1px solid rgba(239, 68, 68,0.1) \!important; border-radius: 14px \!important; }
+        .result-breakdown-title { color: var(--text) \!important; }
+        .result-breakdown-key { color: var(--text-dim) \!important; }
+        .result-breakdown-val { color: var(--text) \!important; }
+        .result-comparison-box { background: rgba(239, 68, 68,0.06) \!important; border: 1px solid rgba(239, 68, 68,0.1) \!important; border-radius: 12px \!important; }
+        .result-comparison-label { color: var(--text-muted) \!important; }
+        .result-comparison-size { color: var(--text) \!important; }
+        .result-comparison-arrow { color: var(--text-muted) \!important; }
+        .result-gauge-labels span { color: var(--text-muted) \!important; }
+        .result-card { background: rgba(239, 68, 68,0.06) \!important; border: 1px solid rgba(239, 68, 68,0.1) \!important; border-radius: 14px \!important; }
+        .result-card-title { color: var(--text-dim) \!important; }
+        .result-card-value { color: var(--accent) \!important; }
+        .result-card-note { color: var(--text-muted) \!important; }
+        .info-toggle-btn { color: var(--text-dim) \!important; background: none \!important; border: 1px solid rgba(239, 68, 68,0.15) \!important; border-radius: 10px \!important; width: auto \!important; box-shadow: none \!important; }
+        .info-toggle-btn::after { display: none \!important; }
+        .info-panel { background: rgba(239, 68, 68,0.04) \!important; border: 1px solid rgba(239, 68, 68,0.1) \!important; color: var(--text-dim) \!important; border-radius: 14px \!important; }
+        .info-panel h4 { color: var(--text) \!important; }
+        .info-panel li { color: var(--text-dim) \!important; }
+        .data-table th { color: var(--text) \!important; background: rgba(239, 68, 68,0.06) \!important; }
+        .data-table td { color: var(--text-dim) \!important; }
+        .unit-btn { background: rgba(239, 68, 68,0.08) \!important; color: var(--text-dim) \!important; border: 1px solid rgba(239, 68, 68,0.15) \!important; border-radius: 8px \!important; width: auto \!important; box-shadow: none \!important; }
+        .unit-btn::after { display: none \!important; }
+        .unit-btn.active { background: var(--accent) \!important; color: #0a0f1a \!important; }
+        .add-drink-btn { width: auto \!important; box-shadow: none \!important; border-radius: 8px \!important; }
+        .add-drink-btn::after { display: none \!important; }
+        .drink-item { background: rgba(239, 68, 68,0.04) \!important; border-radius: 12px \!important; }
+        .hidden { display: none \!important; }
+        /* Medical disclaimer */
+        .medical-disclaimer.pink-box { background: rgba(239,68,68,0.06) \!important; border: 1px solid rgba(239,68,68,0.15) \!important; border-radius: 14px \!important; padding: 1.5rem \!important; max-width: 680px; margin: 0 auto; }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) \!important; font-size: 0.85rem \!important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 \!important; }
+        /* Footer */
+        .site-footer { background: #060a14 \!important; border-top: 1px solid rgba(239, 68, 68,0.08) \!important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) \!important; }
+        .site-footer a:hover { color: var(--accent) \!important; }
+        /* FAQ */
+        .seo-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 2rem; text-align: center; }
+        .faq-list { list-style: none; }
+        .faq-item { border: 1px solid rgba(239, 68, 68,0.1); border-radius: 14px; margin-bottom: 0.8rem; overflow: hidden; background: rgba(239, 68, 68,0.04); }
+        .faq-item:hover { border-color: rgba(239, 68, 68,0.25); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--text); background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+        .faq-question:hover { color: var(--accent); }
+        .faq-chevron { width: 20px; height: 20px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 1.5rem; }
+        .faq-item.faq-open .faq-answer { max-height: 400px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li { counter-increment: source; padding: 0.8rem 0; border-bottom: 1px solid rgba(239, 68, 68,0.06); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+        .sources-list li::before { content: counter(source) "."; color: var(--accent); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--accent); text-decoration: none; }
+        .sources-list li a:hover { text-decoration: underline; }
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code { background: rgba(239, 68, 68,0.1); padding: 0.15rem 0.5rem; border-radius: 6px; font-family: monospace; color: var(--accent); }
+        .llm-capsule { background: rgba(239, 68, 68,0.04); border: 1px solid rgba(239, 68, 68,0.1); border-radius: 16px; padding: 2rem; }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+        /* Ask Pulse */
+        .ask-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; background: #060a14; }
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input { flex: 1; background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(239, 68, 68,0.15) \!important; border-radius: 12px \!important; color: var(--text) \!important; padding: 0.85rem 1rem \!important; font-size: 0.95rem \!important; outline: none; width: auto \!important; }
+        .ask-input-wrap button { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; padding: 0 1.5rem \!important; font-weight: 700 \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-input-wrap button::after { display: none \!important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill { background: rgba(255,255,255,0.03) \!important; border: 1px solid rgba(239, 68, 68,0.15) \!important; border-radius: 20px \!important; padding: 0.4rem 0.9rem \!important; font-size: 0.78rem \!important; color: var(--text-dim) \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-pill::after { display: none \!important; }
+        .ask-pill:hover { border-color: var(--accent); color: var(--text); }
+        .pulse-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); } 50% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); } }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        @media (max-width: 600px) { .ask-input-wrap { flex-direction: column; } .ask-input-wrap button { padding: 0.8rem \!important; } }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+    <div style="text-align:center; margin-bottom:1rem;"><span class="pulse-dot"></span></div>
+    <h1 style="font-family:var(--font-display); text-align:center; margin-bottom:0.5rem;">What's your <span>cholesterol</span> ratio?</h1>
+    <p style="color:var(--text-dim); text-align:center; margin-bottom:2rem;">Enter your lipid panel numbers</p>
+
+<section id="calculator">
+        <h2>Calculate Your Cholesterol Ratios</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="unit-system">Units:</label>
+                    <select id="unit-system">
+                        <option value="mgdl">mg/dL (US)</option>
+                        <option value="mmol">mmol/L (International)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="total-cholesterol">Total Cholesterol:</label>
+                    <input type="number" id="total-cholesterol" min="0" step="1" placeholder="e.g. 200">
+                    <span class="input-hint" id="tc-hint">Desirable: &lt;200 mg/dL</span>
+                </div>
+                <div class="form-group">
+                    <label for="hdl">HDL ("Good") Cholesterol:</label>
+                    <input type="number" id="hdl" min="0" step="1" placeholder="e.g. 55">
+                    <span class="input-hint" id="hdl-hint">Optimal: &ge;60 mg/dL</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="ldl">LDL ("Bad") Cholesterol:</label>
+                    <input type="number" id="ldl" min="0" step="1" placeholder="e.g. 120">
+                    <span class="input-hint" id="ldl-hint">Optimal: &lt;100 mg/dL</span>
+                </div>
+                <div class="form-group">
+                    <label for="triglycerides">Triglycerides <span style="font-weight:400; color: var(--color-text-tertiary);">(optional)</span>:</label>
+                    <input type="number" id="triglycerides" min="0" step="1" placeholder="e.g. 150">
+                    <span class="input-hint" id="trig-hint">Normal: &lt;150 mg/dL</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="gender">Sex:</label>
+                    <select id="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Ratios</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <!-- Primary result: Total/HDL ratio -->
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="tc-hdl-ratio">--</div>
+                    <div class="result-hero-label">Total Cholesterol / HDL Ratio</div>
+                </div>
+
+                <div id="tc-hdl-status" class="result-status status-good">
+                    <span class="result-status-icon" id="tc-hdl-icon"></span>
+                    <span class="result-status-text" id="tc-hdl-description">--</span>
+                </div>
+
+                <div class="result-gauge">
+                    <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 6px;">Total/HDL Risk Level</div>
+                    <div class="result-gauge-bar" style="position: relative; background: linear-gradient(to right, #4caf50 0%, #4caf50 35%, #8bc34a 35%, #8bc34a 50%, #ff9800 50%, #ff9800 70%, #f44336 70%);">
+                        <div id="gauge-marker" style="position: absolute; width: 3px; height: 18px; background: #333; border-radius: 2px; top: -3px; left: 0; transition: left 0.4s ease;"></div>
+                    </div>
+                    <div class="result-gauge-labels">
+                        <span>Optimal (&lt;3.5)</span>
+                        <span>Desirable (&lt;5)</span>
+                        <span>Borderline (5-6)</span>
+                        <span>High (&gt;6)</span>
+                    </div>
+                </div>
+
+                <!-- All ratios breakdown -->
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Your Cholesterol Ratios</div>
+
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Total/HDL Ratio</span>
+                        <span class="result-breakdown-val" id="display-tc-hdl">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key" style="font-weight: 400; font-size: 0.85rem; color: var(--color-text-tertiary);" id="tc-hdl-interpret">--</span>
+                        <span class="result-breakdown-val"></span>
+                    </div>
+
+                    <div class="result-breakdown-row" style="margin-top: 8px;">
+                        <span class="result-breakdown-key">LDL/HDL Ratio</span>
+                        <span class="result-breakdown-val" id="display-ldl-hdl">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key" style="font-weight: 400; font-size: 0.85rem; color: var(--color-text-tertiary);" id="ldl-hdl-interpret">--</span>
+                        <span class="result-breakdown-val"></span>
+                    </div>
+
+                    <div class="result-breakdown-row" style="margin-top: 8px;">
+                        <span class="result-breakdown-key">Non-HDL Cholesterol</span>
+                        <span class="result-breakdown-val" id="display-non-hdl">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key" style="font-weight: 400; font-size: 0.85rem; color: var(--color-text-tertiary);" id="non-hdl-interpret">--</span>
+                        <span class="result-breakdown-val"></span>
+                    </div>
+
+                    <div id="trig-hdl-section" class="hidden">
+                        <div class="result-breakdown-row" style="margin-top: 8px;">
+                            <span class="result-breakdown-key">Triglyceride/HDL Ratio</span>
+                            <span class="result-breakdown-val" id="display-trig-hdl">--</span>
+                        </div>
+                        <div class="result-breakdown-row">
+                            <span class="result-breakdown-key" style="font-weight: 400; font-size: 0.85rem; color: var(--color-text-tertiary);" id="trig-hdl-interpret">--</span>
+                            <span class="result-breakdown-val"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Individual values summary -->
+                <div class="result-comparison">
+                    <div class="result-comparison-box before">
+                        <div class="result-comparison-label">Total</div>
+                        <div class="result-comparison-size" id="display-tc">--</div>
+                    </div>
+                    <div class="result-comparison-box after">
+                        <div class="result-comparison-label">HDL</div>
+                        <div class="result-comparison-size" id="display-hdl-val">--</div>
+                    </div>
+                    <div class="result-comparison-box before">
+                        <div class="result-comparison-label">LDL</div>
+                        <div class="result-comparison-size" id="display-ldl-val">--</div>
+                    </div>
+                    <div class="result-comparison-box after" id="trig-comparison-box" style="display:none;">
+                        <div class="result-comparison-label">Trig</div>
+                        <div class="result-comparison-size" id="display-trig-val">--</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about cholesterol ratios
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About Cholesterol Ratios</h4>
+                    <ul>
+                        <li><strong>Total/HDL Ratio:</strong> Total cholesterol divided by HDL. The AHA considers &lt;5 desirable. Below 3.5 is optimal.</li>
+                        <li><strong>LDL/HDL Ratio:</strong> LDL divided by HDL. Optimal is below 2.0. Values above 3.5 indicate elevated risk.</li>
+                        <li><strong>Non-HDL Cholesterol:</strong> Total cholesterol minus HDL. Captures all atherogenic lipoproteins (LDL + VLDL). ATP III target: &lt;130 mg/dL for most adults.</li>
+                        <li><strong>Triglyceride/HDL Ratio:</strong> A proxy marker for insulin resistance and small dense LDL particles. Optimal is below 2.0; above 3.0 suggests metabolic risk.</li>
+                        <li><strong>Why ratios matter:</strong> Individual cholesterol numbers don't tell the full story. A high total cholesterol with high HDL may be lower risk than a lower total cholesterol with very low HDL.</li>
+                    </ul>
+                </div>
+
+                
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<!-- FAQ -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Most important ratio?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Total/HDL is most widely used. Non-HDL is increasingly favored by cardiologists.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">What ratio is dangerous?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Total/HDL above 6.0 is high risk. LDL/HDL above 3.5 (men) or 3.0 (women) is elevated.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Can I improve ratios?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Yes. Exercise raises HDL, reducing saturated fat lowers LDL, limiting sugar lowers triglycerides.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">What does TG/HDL mean?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Proxy for insulin resistance and small dense LDL. Above 3.0 suggests metabolic dysfunction.</p></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sources -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Grundy SM et al. 2018 AHA/ACC Guideline. Circulation. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/30586774/" target="_blank" rel="noopener">Source</a></li>
+            <li>ATP III Guidelines. JAMA. 2001;285(19). <a href="https://pubmed.ncbi.nlm.nih.gov/11368702/" target="_blank" rel="noopener">Source</a></li>
+            <li>Millan J et al. Vasc Health Risk Manag. 2009;5:757-765. <a href="https://pubmed.ncbi.nlm.nih.gov/19774217/" target="_blank" rel="noopener">Source</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Computes Total/HDL, LDL/HDL, Non-HDL, and TG/HDL ratios. Thresholds from AHA/ACC 2018 and ATP III.</p></div>
+    </div>
+</div>
+
+<!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>Cholesterol ratios assess cardiovascular risk. Total/HDL below 3.5 is optimal. TG/HDL is a proxy for insulin resistance.</p></div></div>
+</div>
+
+<!-- Ask Pulse -->
+<div class="ask-section" id="ask-section">
+    <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+    <h2 class="ask-title">What else do you want to know?</h2>
+    <p class="ask-sub">Ask Pulse anything.</p>
+    <div class="ask-input-wrap">
+        <input type="text" id="askInput" placeholder="e.g. How to lower cholesterol?">
+        <button id="askBtn">Ask</button>
+    </div>
+    <div class="ask-pills">
+            <span class="ask-pill">Lower LDL</span>
+            <span class="ask-pill">Raise HDL</span>
+            <span class="ask-pill">Statin info</span>
+            <span class="ask-pill">Diet for cholesterol</span>
+    </div>
+    <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+</div>
+
+{% include 'footer.html' %}
+
+<script defer src="/static/js/cholesterol_ratio_calculator.js"></script>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+document.getElementById('askBtn')?.addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (\!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() { document.getElementById('askInput').value = this.textContent; });
+});
+</script>
+</body>
+</html>
