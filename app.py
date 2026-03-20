@@ -1759,17 +1759,16 @@ def retirement_savings_calculator():
 @app.route('/ideal-body-weight-calculator')
 def ideal_body_weight_calculator():
     schema_name = "Ideal Body Weight Calculator"
-    schema_description = "Calculate your ideal body weight based on height, gender, and frame size using evidence-based formulas like Devine, Robinson, and Miller."
+    schema_description = "Calculate your ideal body weight range using four medical formulas (Devine, Robinson, Miller, Hamwi) with frame size adjustment."
     schema_url = "/ideal-body-weight-calculator"
     return render_template(
-        'ideal_body_weight_calculator.html',
+        'ideal_body_weight_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-composition-calculators'},
+        date_modified='2026-03-20'
     )
 
 @app.route('/fasting-weight-loss-calculator')
