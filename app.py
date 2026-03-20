@@ -1468,18 +1468,12 @@ def sleep_calculator():
 
 @app.route('/calories-burned-calculator')
 def calories_burned_calculator():
-    schema_name = "Calories Burned Calculator"
-    schema_description = "Calculate calories burned during exercise and daily activities using MET values from the Compendium of Physical Activities for 30+ exercises including running, walking, cycling, and swimming."
-    schema_url = "/calories-burned-calculator"
     return render_template(
-        'calories_burned_calculator.html',
+        'calories_burned_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='WebPage'
+        breadcrumb_title='Calories Burned Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/bmi-calculator')
