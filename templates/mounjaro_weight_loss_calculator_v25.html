@@ -1,0 +1,911 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+
+{% set og_image = "mounjaro-weight-loss-calculator-og.jpg" %}
+{% with
+    meta_description="Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data.",
+    meta_keywords="mounjaro calculator, tirzepatide weight loss, mounjaro results, mounjaro weight loss estimator, tirzepatide calculator, mounjaro dosage",
+    og_title="Mounjaro Weight Loss Calculator – Tirzepatide Results Estimator",
+    og_description="Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data.",
+    og_url="/mounjaro-weight-loss-calculator",
+    page_title="Mounjaro Weight Loss Calculator — Results Estimator",
+    canonical_url="/mounjaro-weight-loss-calculator"
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-1: #0a0f1a; --bg-2: #081a1a; --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07); --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6; --teal-dim: #0d9488; --teal-glow: rgba(20, 184, 166, 0.3);
+            --accent: #7c3aed; --accent-glow: rgba(124, 58, 237, 0.3); --accent-bg: rgba(124, 58, 237, 0.1);
+            --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b;
+            --good: #14b8a6; --caution: #f59e0b; --bad: #ef4444;
+            --font-body: 'DM Sans', sans-serif; --font-display: 'DM Serif Display', serif;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: #0a0f1a \!important; }
+        .site-header { background: #0a0f1a \!important; border-bottom: 1px solid rgba(20,184,166,0.1) \!important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) \!important; stroke: var(--text) \!important; }
+        .site-header .logo-dot { color: var(--teal) \!important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) \!important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] { background: #0a0f1a \!important; border-bottom: 1px solid rgba(20,184,166,0.06) \!important; }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content { background: transparent \!important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) \!important; }
+        .breadcrumb a:hover { color: var(--teal) \!important; }
+        .nav-dropdown { background: #0d1420 \!important; border-color: rgba(20,184,166,0.1) \!important; }
+        .nav-dropdown-link { color: var(--text-dim) \!important; }
+        .nav-dropdown-link:hover { color: var(--teal) \!important; }
+        .nav-dropdown-title { color: var(--text-muted) \!important; }
+        .page-layout { display: contents \!important; }
+        .page-content { display: contents \!important; }
+        .page-sidebar { display: none \!important; }
+        main { display: contents; }
+        h1, h2, h3 { color: #ffffff \!important; }
+
+        /* Dark form overrides */
+        .calculator { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 16px \!important; padding: 2rem \!important; max-width: 580px; margin: 0 auto; }
+        .calculator .form-group label { color: var(--text-dim) \!important; }
+        .calculator .form-group input, .calculator .form-group select { background: rgba(255,255,255,0.05) \!important; border: 1px solid var(--border) \!important; border-radius: 10px \!important; color: var(--text) \!important; }
+        .calculator .form-group input:focus, .calculator .form-group select:focus { border-color: var(--teal) \!important; box-shadow: 0 0 0 3px rgba(20,184,166,0.1) \!important; }
+        .calculator .form-group input::placeholder { color: var(--text-muted) \!important; }
+        .calculator option { background: #0d1420 \!important; color: var(--text) \!important; }
+        .calculator .imperial-height { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+        .unit-btn { background: rgba(255,255,255,0.04) \!important; border: 1px solid var(--border) \!important; border-radius: 8px \!important; color: var(--text-dim) \!important; padding: 10px 16px \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .unit-btn::after { display: none \!important; }
+        .unit-btn:hover { color: var(--text) \!important; transform: none \!important; filter: none \!important; }
+        .unit-btn.active { background: rgba(20,184,166,0.15) \!important; color: var(--teal) \!important; font-weight: 600 \!important; border-color: rgba(20,184,166,0.3) \!important; }
+        .btn, .btn-pink, .calculate-btn, button[type="button"] { width: auto \!important; box-shadow: none \!important; }
+        .btn::after, .btn-pink::after, .calculate-btn::after { display: none \!important; }
+        .btn-pink, .calculate-btn { background: var(--accent) \!important; color: #fff \!important; border: none \!important; border-radius: 12px \!important; padding: 0.85rem 2rem \!important; font-weight: 700 \!important; }
+        .btn-pink:hover, .calculate-btn:hover { box-shadow: 0 6px 24px var(--accent-glow) \!important; }
+        .pill-toggle button { width: auto \!important; box-shadow: none \!important; }
+        .pill-toggle button::after { display: none \!important; }
+        .pill-toggle { background: rgba(255,255,255,0.04) \!important; border-radius: 8px \!important; }
+        .pill-toggle button.active { background: rgba(20,184,166,0.15) \!important; color: var(--teal) \!important; }
+        .oz-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+        /* Results dark */
+        .results-section, .results { background: transparent \!important; }
+        .result-hero { background: rgba(124, 58, 237, 0.1) \!important; border: 1px solid rgba(124, 58, 237, 0.15) \!important; border-radius: 16px \!important; padding: 2rem \!important; text-align: center; }
+        .result-hero-number { color: var(--accent) \!important; font-size: 3rem \!important; font-weight: 700; text-shadow: 0 0 30px var(--accent-glow); }
+        .result-hero-label { color: var(--text-dim) \!important; }
+        .result-hero-sublabel { color: var(--text-muted) \!important; }
+        .result-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-top: 1rem; }
+        .result-card { background: rgba(14,122,126,0.07) \!important; border: 1px solid rgba(20,184,166,0.12) \!important; border-radius: 14px \!important; padding: 1rem \!important; text-align: center; }
+        .result-card.blue, .result-card.green, .result-card.orange, .result-card.pink { background: rgba(14,122,126,0.07) \!important; border: 1px solid rgba(20,184,166,0.12) \!important; }
+        .result-card-title { color: var(--text-muted) \!important; font-size: 0.78rem \!important; }
+        .result-card-value { color: var(--text) \!important; font-size: 1.3rem \!important; font-weight: 700; }
+        .result-breakdown { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 14px \!important; padding: 1.2rem \!important; margin-top: 1rem; }
+        .result-breakdown-title { color: var(--text) \!important; font-weight: 700; font-size: 0.9rem; margin-bottom: 0.8rem; }
+        .result-breakdown-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(20,184,166,0.06); font-size: 0.88rem; }
+        .result-breakdown-row:last-child { border-bottom: none; }
+        .result-breakdown-key { color: var(--text-dim) \!important; }
+        .result-breakdown-val { color: var(--text) \!important; font-weight: 500; }
+        .chart-container { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 14px \!important; padding: 1rem \!important; margin-top: 1rem; }
+
+        /* Tables dark */
+        table { border-collapse: collapse; }
+        th { color: var(--text) \!important; background: rgba(20,184,166,0.06) \!important; padding: 10px \!important; text-align: left; border-bottom: 2px solid rgba(20,184,166,0.15) \!important; }
+        td { color: var(--text-dim) \!important; padding: 8px 10px \!important; border-bottom: 1px solid rgba(20,184,166,0.06) \!important; }
+        .td-bold { color: var(--text) \!important; font-weight: 600; }
+        .td-accent { color: var(--accent) \!important; font-weight: 600; }
+        caption { color: var(--text-muted) \!important; font-size: 0.82rem; }
+        .data-table { width: 100%; }
+        .answer-capsule { background: rgba(20,184,166,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 12px \!important; padding: 1.2rem \!important; color: var(--text-dim) \!important; }
+        .highlight-box { background: rgba(14,122,126,0.06) \!important; border-left: 3px solid var(--accent) \!important; border-radius: 0 12px 12px 0 \!important; padding: 1rem 1.2rem \!important; margin: 1rem 0; }
+        .highlight-box p { color: var(--text-dim) \!important; }
+        .highlight-box strong { color: var(--text) \!important; }
+        .info p, .info li { color: var(--text-dim) \!important; }
+        .info h4 { color: var(--text) \!important; }
+        .table-of-contents { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 12px \!important; padding: 1.2rem \!important; }
+        .table-of-contents h3 { color: var(--text) \!important; }
+        .table-of-contents a { color: var(--teal) \!important; }
+        .subtitle { color: var(--text-dim) \!important; }
+        .disclaimer-text { color: var(--text-muted) \!important; background: rgba(245,158,11,0.06) \!important; border: 1px solid rgba(245,158,11,0.15) \!important; border-radius: 10px \!important; padding: 12px 16px \!important; }
+        .disclaimer-text strong { color: var(--caution) \!important; }
+        .highlight { background: rgba(14,122,126,0.06) \!important; border-left: 3px solid var(--accent) \!important; border-radius: 0 12px 12px 0 \!important; padding: 1rem 1.2rem \!important; }
+        .highlight h3 { color: var(--text) \!important; }
+        .highlight p { color: var(--text-dim) \!important; }
+        .highlight a { color: var(--teal) \!important; }
+        .faq-item { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 12px \!important; margin-bottom: 0.8rem; }
+        .faq-item:hover { border-color: rgba(20,184,166,0.25) \!important; }
+        .faq-item h4 { color: var(--text) \!important; }
+        .faq-body, .faq-body p, .faq-answer, .faq-answer p { color: var(--text-dim) \!important; }
+        .risk-factor-label { color: var(--text) \!important; }
+        .risk-factor-score { color: var(--text-muted) \!important; }
+        .risk-factor-bar-bg { background: rgba(255,255,255,0.06) \!important; }
+        .risk-factor-detail { color: var(--text-muted) \!important; }
+        .risk-score-number { color: var(--accent) \!important; }
+        .rec-card { background: rgba(14,122,126,0.06) \!important; border-left: 3px solid var(--accent) \!important; }
+        .rec-title { color: var(--text) \!important; }
+        .rec-text { color: var(--text-dim) \!important; }
+        .slider-value-display { color: var(--accent) \!important; }
+        .calculator-row { margin-bottom: 1rem; }
+        .input-hint { color: var(--text-muted) \!important; font-size: 0.82rem; }
+        .result-status { border-radius: 10px \!important; padding: 0.8rem 1rem \!important; margin-top: 1rem; }
+        .result-status.status-good { background: rgba(20,184,166,0.08) \!important; border: 1px solid rgba(20,184,166,0.2) \!important; color: var(--teal) \!important; }
+        .result-status.status-warning { background: rgba(245,158,11,0.08) \!important; border: 1px solid rgba(245,158,11,0.2) \!important; color: var(--caution) \!important; }
+        .result-status.status-danger { background: rgba(239,68,68,0.08) \!important; border: 1px solid rgba(239,68,68,0.2) \!important; color: var(--bad) \!important; }
+        .result-gauge-bar { background: rgba(255,255,255,0.06) \!important; border: 1px solid rgba(20,184,166,0.15) \!important; }
+        .result-gauge-labels span { color: var(--text-muted) \!important; }
+        .result-comparison { display: flex; gap: 0.6rem; align-items: center; justify-content: center; flex-wrap: wrap; margin-top: 1rem; }
+        .result-comparison-box { background: rgba(14,122,126,0.06) \!important; border: 1px solid rgba(20,184,166,0.12) \!important; border-radius: 12px \!important; padding: 0.8rem 1rem \!important; text-align: center; }
+        .result-comparison-label { color: var(--text-muted) \!important; font-size: 0.78rem; }
+        .result-comparison-size { color: var(--text) \!important; font-weight: 700; font-size: 1.1rem; }
+        .result-comparison-arrow { color: var(--text-muted) \!important; font-size: 1.2rem; }
+        .info-toggle-btn { background: none \!important; border: 1px solid var(--border) \!important; border-radius: 10px \!important; color: var(--text-dim) \!important; padding: 0.5rem 1rem \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; font-size: 0.88rem \!important; }
+        .info-toggle-btn::after { display: none \!important; }
+        .info-panel { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 12px \!important; padding: 1.2rem \!important; margin-top: 0.8rem; }
+        .info-panel h4 { color: var(--text) \!important; }
+        .info-panel li { color: var(--text-dim) \!important; }
+        .important-box { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-left: 3px solid var(--accent) \!important; border-radius: 0 12px 12px 0 \!important; padding: 1.2rem \!important; margin: 1rem 0; }
+        .important-box h3 { color: var(--text) \!important; }
+        .important-box li, .important-box p { color: var(--text-dim) \!important; }
+        .important-box strong { color: var(--text) \!important; }
+        .related-tools { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 16px \!important; padding: 1.5rem \!important; margin-top: 2rem; }
+        .related-tools h3 { color: var(--text) \!important; }
+        .related-tool-card { background: rgba(14,122,126,0.06) \!important; border: 1px solid rgba(20,184,166,0.12) \!important; border-radius: 12px \!important; padding: 1rem \!important; text-decoration: none \!important; }
+        .related-tool-card h4 { color: var(--text) \!important; }
+        .related-tool-card p { color: var(--text-dim) \!important; }
+        .related-tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .tdee-primary-result { background: rgba(124, 58, 237, 0.1) \!important; border: 1px solid rgba(124, 58, 237, 0.15) \!important; border-radius: 16px \!important; padding: 2rem \!important; text-align: center; }
+        .tdee-number { color: var(--accent) \!important; font-size: 2.5rem; font-weight: 700; text-shadow: 0 0 30px var(--accent-glow); }
+        .tdee-label { color: var(--text-dim) \!important; }
+        .tdee-sublabel { color: var(--text-muted) \!important; }
+        .tdee-breakdown { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 14px \!important; padding: 1.2rem \!important; margin-top: 1rem; }
+        .tdee-breakdown-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid rgba(20,184,166,0.06); }
+        .tdee-breakdown-label { color: var(--text-dim) \!important; }
+        .tdee-breakdown-value { color: var(--text) \!important; font-weight: 500; }
+        .tdee-goals { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.8rem; }
+        .tdee-goal-card { background: rgba(14,122,126,0.07) \!important; border: 1px solid rgba(20,184,166,0.12) \!important; border-radius: 14px \!important; padding: 1rem \!important; text-align: center; }
+        .tdee-goal-title { color: var(--text) \!important; font-weight: 600; }
+        .tdee-goal-subtitle { color: var(--text-muted) \!important; font-size: 0.78rem; }
+        .tdee-goal-value { color: var(--accent) \!important; font-weight: 700; font-size: 1.2rem; margin-top: 0.3rem; }
+        #winner-banner { background: rgba(20,184,166,0.06) \!important; border: 1px solid rgba(20,184,166,0.2) \!important; color: var(--text) \!important; }
+        .share-card { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; }
+        .medical-disclaimer.pink-box { background: rgba(239,68,68,0.06) \!important; border: 1px solid rgba(239,68,68,0.15) \!important; border-radius: 14px \!important; padding: 1.5rem \!important; max-width: 680px; margin: 0 auto; }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) \!important; font-size: 0.85rem \!important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 \!important; }
+        .site-footer { background: #060a14 \!important; border-top: 1px solid rgba(20,184,166,0.08) \!important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) \!important; }
+        .site-footer a:hover { color: var(--teal) \!important; }
+        .sources-section { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 14px \!important; padding: 1.5rem \!important; margin-top: 2rem; }
+        .sources-section h3 { color: var(--text) \!important; }
+        .sources-section ol li { color: var(--text-dim) \!important; }
+        .sources-section a { color: var(--teal) \!important; }
+        #methodology div { background: rgba(14,122,126,0.04) \!important; border: 1px solid rgba(20,184,166,0.1) \!important; border-radius: 14px \!important; }
+        #methodology p { color: var(--text-dim) \!important; }
+        .slider-container input[type="range"] { accent-color: var(--accent); }
+        .form-hint { color: var(--text-muted) \!important; }
+        .pink-link { color: var(--teal) \!important; }
+        .oz-bmi-display { color: var(--text-muted) \!important; }
+        @media (max-width: 600px) {
+            .result-cards { grid-template-columns: 1fr 1fr; gap: 0.6rem; }
+            .calculator { padding: 1.2rem \!important; }
+            .oz-form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<div style="padding-top:0;">
+
+    
+
+    <div class="calculator-container">
+
+    <h1>Mounjaro Weight Loss Calculator</h1>
+    <p class="subtitle">Estimate your potential weight loss on Mounjaro (tirzepatide) based on SURMOUNT clinical trial data.</p>
+
+    <section id="calculator">
+        <div class="calculator">
+
+            <div class="disclaimer-text" style="background: #fff3cd; border: 1px solid #ffc107; border-radius: 8px; padding: 12px 16px; margin-bottom: 20px;">
+                <strong>Medical Disclaimer:</strong> This calculator provides estimates based on clinical trial data. Individual results vary significantly. Always consult your healthcare provider before starting or adjusting any medication.
+            </div>
+
+            <div class="form-group">
+                <label>Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metricBtn" class="unit-btn active">Metric (kg/cm)</button>
+                    <button type="button" id="imperialBtn" class="unit-btn">Imperial (lb/ft/in)</button>
+                </div>
+            </div>
+
+            <div class="form-group" id="weight-metric">
+                <label for="weight-kg">Current Weight (kg)</label>
+                <input type="number" id="weight-kg" min="30" max="300" step="0.1" placeholder="e.g. 95" required>
+            </div>
+
+            <div class="form-group hidden" id="weight-imperial">
+                <label for="weight-lb">Current Weight (lbs)</label>
+                <input type="number" id="weight-lb" min="66" max="660" step="1" placeholder="e.g. 210" required>
+            </div>
+
+            <div class="form-group" id="height-metric">
+                <label for="height-cm">Height (cm)</label>
+                <input type="number" id="height-cm" min="120" max="250" placeholder="e.g. 170" required>
+            </div>
+
+            <div class="form-group hidden" id="height-imperial">
+                <label>Height (ft/in)</label>
+                <div class="imperial-height">
+                    <div>
+                        <label for="height-ft">Feet</label>
+                        <input type="number" id="height-ft" min="3" max="8" value="5" required>
+                    </div>
+                    <div>
+                        <label for="height-in">Inches</label>
+                        <input type="number" id="height-in" min="0" max="11" value="7" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="18" max="100" placeholder="e.g. 45" required>
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Sex</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="dose">Starting Dose</label>
+                <select id="dose">
+                    <option value="2.5">2.5 mg (initial titration dose)</option>
+                    <option value="5" selected>5 mg (first maintenance dose)</option>
+                    <option value="7.5">7.5 mg</option>
+                    <option value="10">10 mg</option>
+                    <option value="12.5">12.5 mg</option>
+                    <option value="15">15 mg (maximum dose)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="duration">Duration on Medication</label>
+                <select id="duration">
+                    <option value="3">3 months</option>
+                    <option value="6">6 months</option>
+                    <option value="9">9 months</option>
+                    <option value="12" selected>12 months</option>
+                    <option value="18">18 months (~72 weeks, SURMOUNT-1 endpoint)</option>
+                    <option value="24">24 months</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity Level</label>
+                <select id="activity">
+                    <option value="sedentary">Sedentary (little or no exercise)</option>
+                    <option value="light">Lightly Active (exercise 1-3 days/week)</option>
+                    <option value="moderate" selected>Moderately Active (exercise 3-5 days/week)</option>
+                    <option value="very">Very Active (exercise 6-7 days/week)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="diet">Diet Adherence</label>
+                <select id="diet">
+                    <option value="poor">Poor (no dietary changes)</option>
+                    <option value="moderate">Moderate (some dietary improvements)</option>
+                    <option value="good" selected>Good (consistent calorie-controlled diet)</option>
+                    <option value="excellent">Excellent (strict adherence to nutrition plan)</option>
+                </select>
+            </div>
+
+            <button id="calculate-btn" class="btn btn-pink">Calculate Projected Weight Loss</button>
+
+            <div id="results" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number" id="weightLossRange">--</div>
+                    <div class="result-hero-label">Projected Weight Loss Range</div>
+                    <div class="result-hero-sublabel" id="loss-pct-label">--</div>
+                </div>
+
+                <div class="result-cards">
+                    <div class="result-card blue">
+                        <div class="result-card-title">Starting Weight</div>
+                        <div class="result-card-value" id="startWeight">--</div>
+                    </div>
+                    <div class="result-card green">
+                        <div class="result-card-title">Projected Weight</div>
+                        <div class="result-card-value" id="finalWeight">--</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Starting BMI</div>
+                        <div class="result-card-value" id="startBMI">--</div>
+                    </div>
+                    <div class="result-card pink">
+                        <div class="result-card-title">Projected BMI</div>
+                        <div class="result-card-value" id="finalBMI">--</div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Treatment Summary</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weekly Weight Loss Rate</span>
+                        <span class="result-breakdown-val" id="weeklyRate">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Starting Dose</span>
+                        <span class="result-breakdown-val" id="dose-display">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Treatment Duration</span>
+                        <span class="result-breakdown-val" id="duration-display">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Activity Modifier</span>
+                        <span class="result-breakdown-val" id="activity-modifier">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Diet Modifier</span>
+                        <span class="result-breakdown-val" id="diet-modifier">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Clinical Trial Basis</span>
+                        <span class="result-breakdown-val">SURMOUNT-1</span>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">With Medication vs. Without</h4>
+                <div class="result-cards">
+                    <div class="result-card green">
+                        <div class="result-card-title">With Mounjaro</div>
+                        <div class="result-card-value" id="withMedLoss">--</div>
+                    </div>
+                    <div class="result-card orange">
+                        <div class="result-card-title">Lifestyle Only</div>
+                        <div class="result-card-value" id="withoutMedLoss">--</div>
+                    </div>
+                </div>
+
+                <h4 style="margin-top: 24px; margin-bottom: 12px;">Monthly Weight Loss Trajectory</h4>
+                <div style="overflow-x: auto;">
+                    <table id="trajectory-table" style="width: 100%; border-collapse: collapse; margin-top: 8px;">
+                        <thead>
+                            <tr style="border-bottom: 2px solid #ddd;">
+                                <th style="text-align: left; padding: 8px;">Month</th>
+                                <th style="text-align: left; padding: 8px;">Projected Weight</th>
+                                <th style="text-align: left; padding: 8px;">Cumulative Loss</th>
+                                <th style="text-align: left; padding: 8px;">% Body Weight Lost</th>
+                            </tr>
+                        </thead>
+                        <tbody id="trajectory-body">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="chart-container" style="margin-top: 24px;">
+                    <canvas id="chart"></canvas>
+                </div>
+            </div>
+
+            <p class="disclaimer-text" style="margin-top: 16px;">
+                These are estimates based on average outcomes from the SURMOUNT clinical trials. Individual results vary significantly. Consult your healthcare provider before starting or adjusting any GLP-1/GIP medication.
+            </p>
+
+            {% include 'components/share-card.html' %}
+        </div>
+    </section>
+
+    <!-- Top Ad (after calculator, before content) -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Answer Capsule + TOC -->
+    <h2>What Is the Mounjaro Weight Loss Calculator?</h2>
+    <div class="answer-capsule">
+      This calculator estimates potential weight loss with Mounjaro (tirzepatide) based on clinical trial data from the SURMOUNT studies. It uses your current weight, height, planned dosage, treatment duration, activity level, and diet adherence to project weight loss outcomes. Mounjaro is the first dual GIP/GLP-1 receptor agonist approved for weight management, and the SURMOUNT trials showed it can produce greater weight loss than GLP-1-only medications like semaglutide.
+    </div>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Mounjaro Weight Loss Calculator</a></li>
+            <li><a href="#dosage-chart">Dosing Schedule & Weight Loss Data</a></li>
+            <li><a href="#how-it-works">How Mounjaro (Tirzepatide) Works for Weight Loss</a></li>
+            <li><a href="#dosing-schedule">Mounjaro Dosing Schedule</a></li>
+            <li><a href="#timeline">Expected Weight Loss Timeline</a></li>
+            <li><a href="#vs-ozempic">Mounjaro vs Ozempic Comparison</a></li>
+            <li><a href="#side-effects">Side Effects and Considerations</a></li>
+            <li><a href="#cost">Cost of Mounjaro</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#sources">Sources & Methodology</a></li>
+        </ul>
+    </div>
+
+    <!-- Mid Ad -->
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Mounjaro Dosing Schedule & Weight Loss Data -->
+    <section id="dosage-chart" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Mounjaro Dosing Schedule and Weight Loss by Dose</h2>
+            <div class="answer-capsule">
+                Mounjaro (tirzepatide) uses a 4-week dose escalation starting at 2.5 mg. The FDA-approved maintenance doses are 5 mg, 10 mg, and 15 mg weekly. Higher doses produce greater weight loss but also increase the likelihood of GI side effects.
+            </div>
+            <h4>Dose Escalation Schedule</h4>
+            <table class="data-table">
+                <caption>FDA-approved Mounjaro (tirzepatide) dose titration — Source: Eli Lilly prescribing information</caption>
+                <thead>
+                    <tr>
+                        <th>Weeks</th>
+                        <th>Dose</th>
+                        <th>Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">1–4</td><td>2.5 mg</td><td>Initiation (not therapeutic for weight loss)</td></tr>
+                    <tr><td class="td-bold">5–8</td><td>5.0 mg</td><td>First maintenance dose</td></tr>
+                    <tr><td class="td-bold">9–12</td><td>7.5 mg</td><td>Intermediate step (optional)</td></tr>
+                    <tr><td class="td-bold">13–16</td><td>10.0 mg</td><td>Standard maintenance dose</td></tr>
+                    <tr><td class="td-bold">17–20</td><td>12.5 mg</td><td>Intermediate step (optional)</td></tr>
+                    <tr><td class="td-bold">21+</td><td>15.0 mg</td><td>Maximum dose</td></tr>
+                </tbody>
+            </table>
+            <h4>SURMOUNT-1 Trial Results: Weight Loss by Dose at 72 Weeks</h4>
+            <table class="data-table">
+                <caption>Tirzepatide weight loss outcomes in adults without diabetes (N=2,539) — Source: Jastreboff et al., NEJM 2022</caption>
+                <thead>
+                    <tr>
+                        <th>Group</th>
+                        <th>Avg. Weight Loss (%)</th>
+                        <th>Avg. Weight Loss (lbs)*</th>
+                        <th>% Losing &ge;20%</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td class="td-bold">5 mg</td><td class="td-accent">15.0%</td><td>34 lbs</td><td>32%</td></tr>
+                    <tr><td class="td-bold">10 mg</td><td class="td-accent">19.5%</td><td>45 lbs</td><td>46%</td></tr>
+                    <tr><td class="td-bold">15 mg</td><td class="td-accent">22.5%</td><td>52 lbs</td><td>57%</td></tr>
+                    <tr><td>Placebo</td><td>3.1%</td><td>7 lbs</td><td>1.5%</td></tr>
+                </tbody>
+            </table>
+            <p class="td-muted" style="font-size:0.82rem; color:var(--color-text-tertiary); margin-top:8px;">*Approximate lbs based on mean baseline weight of 231 lbs (104.8 kg). Mean BMI at baseline was 38.0. All participants received lifestyle counseling.</p>
+        </div>
+    </section>
+
+    <!-- How Mounjaro Works -->
+    <section id="how-it-works" style="margin-top: 48px;">
+        <div class="info">
+            <h2>How Mounjaro (Tirzepatide) Works for Weight Loss</h2>
+            <div class="answer-capsule">
+                Mounjaro (tirzepatide) is the first dual GIP and GLP-1 receptor agonist. Unlike Ozempic, which targets only GLP-1 receptors, tirzepatide activates both glucose-dependent insulinotropic polypeptide (GIP) and glucagon-like peptide-1 (GLP-1) pathways. This dual mechanism produces greater appetite suppression, improved insulin sensitivity, and enhanced fat metabolism compared to GLP-1-only drugs.
+            </div>
+
+            <h4>Mechanism of Action</h4>
+            <div class="highlight-box">
+                <p><strong>GLP-1 receptor activation:</strong> Slows gastric emptying, reduces appetite, and increases satiety signals to the brain.</p>
+                <p><strong>GIP receptor activation:</strong> Enhances insulin secretion, improves fat metabolism, and may increase energy expenditure.</p>
+                <p><strong>Combined effect:</strong> Greater calorie reduction and metabolic improvement than either pathway alone.</p>
+            </div>
+
+            <p>In the SURMOUNT-1 trial (N=2,539), participants taking tirzepatide 15 mg lost an average of 22.5% of their body weight over 72 weeks, compared to 3.1% with placebo. This represents one of the largest weight reductions ever achieved with a pharmaceutical intervention in clinical trials.</p>
+
+            <h4>SURMOUNT Trial Results by Dose</h4>
+            <div class="highlight-box">
+                <p><strong>5 mg:</strong> 15.0% average body weight loss at 72 weeks (SURMOUNT-1)</p>
+                <p><strong>10 mg:</strong> 19.5% average body weight loss at 72 weeks (SURMOUNT-1)</p>
+                <p><strong>15 mg:</strong> 22.5% average body weight loss at 72 weeks (SURMOUNT-1)</p>
+                <p><strong>Placebo:</strong> 3.1% average body weight loss at 72 weeks</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dosing Schedule -->
+    <section id="dosing-schedule" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Mounjaro Dosing Schedule</h2>
+            <div class="answer-capsule">
+                Mounjaro follows a gradual dose escalation to minimize gastrointestinal side effects. Treatment begins at 2.5 mg weekly and increases every 4 weeks based on tolerability and treatment goals. The maximum dose is 15 mg weekly.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Weeks</th>
+                        <th style="text-align: left; padding: 8px;">Dose</th>
+                        <th style="text-align: left; padding: 8px;">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Weeks 1-4</td>
+                        <td style="padding: 8px; font-weight: 500;">2.5 mg</td>
+                        <td style="padding: 8px;">Initial titration (not a therapeutic dose for weight loss)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Weeks 5-8</td>
+                        <td style="padding: 8px; font-weight: 500;">5 mg</td>
+                        <td style="padding: 8px;">First maintenance dose; some weight loss begins</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Weeks 9-12</td>
+                        <td style="padding: 8px; font-weight: 500;">7.5 mg</td>
+                        <td style="padding: 8px;">Optional increase if tolerated and more loss desired</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Weeks 13-16</td>
+                        <td style="padding: 8px; font-weight: 500;">10 mg</td>
+                        <td style="padding: 8px;">Higher efficacy dose; significant appetite suppression</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Weeks 17-20</td>
+                        <td style="padding: 8px; font-weight: 500;">12.5 mg</td>
+                        <td style="padding: 8px;">Optional increase for additional weight loss</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Weeks 21+</td>
+                        <td style="padding: 8px; font-weight: 500;">15 mg</td>
+                        <td style="padding: 8px;">Maximum dose; highest efficacy in SURMOUNT trials</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 12px;">Not all patients will titrate to 15 mg. Your healthcare provider will determine the optimal dose based on your response, tolerability, and weight loss goals. The 2.5 mg dose is strictly a titration dose and is not intended as a maintenance dose.</p>
+        </div>
+    </section>
+
+    <!-- Expected Weight Loss Timeline -->
+    <section id="timeline" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Expected Weight Loss Timeline</h2>
+            <div class="answer-capsule">
+                Weight loss on Mounjaro is not linear. Based on SURMOUNT trial data, the most rapid weight loss occurs between months 3 and 9, during active dose escalation. Weight loss continues but gradually slows between months 9 and 18 as the body reaches a new metabolic equilibrium.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Timepoint</th>
+                        <th style="text-align: left; padding: 8px;">5 mg</th>
+                        <th style="text-align: left; padding: 8px;">10 mg</th>
+                        <th style="text-align: left; padding: 8px;">15 mg</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Month 3 (~12 weeks)</td>
+                        <td style="padding: 8px;">~5%</td>
+                        <td style="padding: 8px;">~7%</td>
+                        <td style="padding: 8px;">~8%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Month 6 (~24 weeks)</td>
+                        <td style="padding: 8px;">~10%</td>
+                        <td style="padding: 8px;">~14%</td>
+                        <td style="padding: 8px;">~16%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Month 9 (~36 weeks)</td>
+                        <td style="padding: 8px;">~13%</td>
+                        <td style="padding: 8px;">~17%</td>
+                        <td style="padding: 8px;">~20%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Month 12 (~52 weeks)</td>
+                        <td style="padding: 8px;">~14%</td>
+                        <td style="padding: 8px;">~19%</td>
+                        <td style="padding: 8px;">~21%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Month 18 (~72 weeks)</td>
+                        <td style="padding: 8px;">~15%</td>
+                        <td style="padding: 8px;">~19.5%</td>
+                        <td style="padding: 8px;">~22.5%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="margin-top: 8px; font-size: 0.85rem; color: #666;">Source: SURMOUNT-1 trial (Jastreboff et al., NEJM 2022). Values are approximate averages.</p>
+        </div>
+    </section>
+
+    <!-- Mounjaro vs Ozempic -->
+    <section id="vs-ozempic" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Mounjaro vs Ozempic Comparison</h2>
+            <div class="answer-capsule">
+                Both Mounjaro and Ozempic are injectable GLP-1 medications used for weight loss, but they work through different mechanisms and produce different results. Mounjaro targets two receptors (GIP + GLP-1) while Ozempic targets one (GLP-1 only).
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Feature</th>
+                        <th style="text-align: left; padding: 8px;">Mounjaro (tirzepatide)</th>
+                        <th style="text-align: left; padding: 8px;">Ozempic (semaglutide)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Mechanism</td>
+                        <td style="padding: 8px;">Dual GIP/GLP-1 agonist</td>
+                        <td style="padding: 8px;">GLP-1 agonist only</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Max Weight Loss</td>
+                        <td style="padding: 8px;">~22.5% (SURMOUNT-1)</td>
+                        <td style="padding: 8px;">~14.9% (STEP 1, Wegovy dose)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">Dose Range</td>
+                        <td style="padding: 8px;">2.5 mg - 15 mg weekly</td>
+                        <td style="padding: 8px;">0.25 mg - 2.4 mg weekly</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px; font-weight: 500;">FDA Approved For</td>
+                        <td style="padding: 8px;">Type 2 diabetes; weight management (as Zepbound)</td>
+                        <td style="padding: 8px;">Type 2 diabetes; weight management (as Wegovy)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; font-weight: 500;">Trial Duration</td>
+                        <td style="padding: 8px;">72 weeks (SURMOUNT-1)</td>
+                        <td style="padding: 8px;">68 weeks (STEP 1)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 12px;">For personalized Ozempic projections, try our <a href="/ozempic-weight-loss-calculator" style="color: var(--color-accent); font-weight: 500;">Ozempic Weight Loss Calculator</a>.</p>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Side Effects -->
+    <section id="side-effects" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Side Effects and Considerations</h2>
+            <div class="answer-capsule">
+                The most common side effects of Mounjaro are gastrointestinal, occurring primarily during dose escalation. Most side effects are mild to moderate and tend to decrease over time. Serious adverse events are rare but include pancreatitis, gallbladder disease, and thyroid C-cell tumors (observed in rodents).
+            </div>
+
+            <h4>Common Side Effects (SURMOUNT-1 Data)</h4>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Side Effect</th>
+                        <th style="text-align: left; padding: 8px;">Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Nausea</td>
+                        <td style="padding: 8px;">24-33%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Diarrhea</td>
+                        <td style="padding: 8px;">17-23%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Decreased appetite</td>
+                        <td style="padding: 8px;">15-20%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Vomiting</td>
+                        <td style="padding: 8px;">8-13%</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Constipation</td>
+                        <td style="padding: 8px;">6-11%</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Abdominal pain</td>
+                        <td style="padding: 8px;">5-8%</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h4 style="margin-top: 16px;">Contraindications</h4>
+            <ul>
+                <li>Personal or family history of medullary thyroid carcinoma (MTC)</li>
+                <li>Multiple endocrine neoplasia syndrome type 2 (MEN 2)</li>
+                <li>Known hypersensitivity to tirzepatide</li>
+                <li>Use with caution in patients with a history of pancreatitis or gallbladder disease</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Cost of Mounjaro -->
+    <section id="cost" style="margin-top: 48px;">
+        <div class="info">
+            <h2>Cost of Mounjaro</h2>
+            <div class="answer-capsule">
+                Mounjaro costs approximately $1,000-$1,200 per month without insurance. With commercial insurance or manufacturer savings programs, out-of-pocket costs can range from $25 to $500 per month depending on coverage. Zepbound (same drug, weight loss indication) has similar pricing.
+            </div>
+
+            <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
+                <thead>
+                    <tr style="border-bottom: 2px solid #ddd;">
+                        <th style="text-align: left; padding: 8px;">Coverage</th>
+                        <th style="text-align: left; padding: 8px;">Estimated Monthly Cost</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Without insurance (cash price)</td>
+                        <td style="padding: 8px;">$1,000 - $1,200</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Commercial insurance (with coverage)</td>
+                        <td style="padding: 8px;">$25 - $150</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 8px;">Manufacturer savings card (eligible patients)</td>
+                        <td style="padding: 8px;">As low as $25</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px;">Medicare/Medicaid</td>
+                        <td style="padding: 8px;">Varies; limited coverage for weight loss indication</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top: 12px;">Costs vary by pharmacy, insurance plan, and region. The manufacturer (Eli Lilly) offers a savings program for eligible commercially insured patients. Check with your insurance provider for specific coverage details.</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="info" style="margin-top: 48px;">
+        <h2>Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <h4>How much weight can I lose on Mounjaro?</h4>
+            <div class="faq-body">
+            <p>In the SURMOUNT-1 trial (N=2,539), participants taking the highest dose of tirzepatide (15 mg) lost an average of 22.5% of body weight over 72 weeks, compared to 3.1% with placebo. The 10 mg dose produced about 19.5% loss, and the 5 mg dose about 15%. Results depend on dose, duration, starting weight, diet, and exercise habits. Some participants lost more than 25% of their body weight.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>How does Mounjaro compare to Ozempic for weight loss?</h4>
+            <div class="faq-body">
+            <p>Mounjaro (tirzepatide) targets both GIP and GLP-1 receptors, while Ozempic (semaglutide) targets only GLP-1. In clinical trials, tirzepatide at maximum dose produced 22.5% average weight loss versus semaglutide's 14.9% at its highest weight-loss dose (Wegovy 2.4 mg). However, individual results vary, and the SURPASS-2 trial (tirzepatide vs semaglutide 1 mg for diabetes) showed tirzepatide produced greater weight loss at all doses. Use our <a href="/ozempic-weight-loss-calculator">Ozempic calculator</a> for semaglutide projections.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What is the Mounjaro dosing schedule?</h4>
+            <div class="faq-body">
+            <p>Mounjaro starts at 2.5 mg weekly for 4 weeks (titration only, not a therapeutic dose). After 4 weeks, the dose increases to 5 mg. Your provider may then increase the dose by 2.5 mg every 4 weeks (to 7.5 mg, 10 mg, 12.5 mg, or 15 mg) based on your response and tolerability. Not all patients need or tolerate the maximum 15 mg dose. The dose escalation is gradual to minimize gastrointestinal side effects.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>When will I start losing weight on Mounjaro?</h4>
+            <div class="faq-body">
+            <p>Most people notice weight loss within the first 4-8 weeks of treatment. In the SURMOUNT trials, significant weight loss was measurable by week 4, with the most rapid loss occurring between weeks 12 and 36 during active dose escalation. The initial 2.5 mg dose is primarily for tolerability, so meaningful weight loss typically begins at the 5 mg dose and above.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>What are the common side effects of Mounjaro?</h4>
+            <div class="faq-body">
+            <p>The most common side effects are gastrointestinal: nausea (24-33%), diarrhea (17-23%), decreased appetite (15-20%), vomiting (8-13%), constipation (6-11%), and abdominal pain (5-8%). These are typically mild to moderate and most common during dose escalation. Serious but rare side effects include pancreatitis, gallbladder problems, and hypoglycemia (especially when used with insulin or sulfonylureas).</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Will I regain weight after stopping Mounjaro?</h4>
+            <div class="faq-body">
+            <p>The SURMOUNT-4 trial studied this directly. Participants who switched from tirzepatide to placebo after 36 weeks regained approximately half of the weight they had lost over the following 52 weeks. Those who continued tirzepatide maintained their weight loss and lost additional weight. Maintaining dietary changes and exercise habits after stopping the medication can reduce the extent of regain, but some rebound is expected.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Is this calculator based on real clinical trials?</h4>
+            <div class="faq-body">
+            <p>Yes. The weight loss projections are derived from the SURMOUNT clinical trial program. SURMOUNT-1 was published in the New England Journal of Medicine (Jastreboff et al., 2022, N=2,539) and studied tirzepatide in adults with obesity or overweight without diabetes. SURMOUNT-2 studied tirzepatide in adults with obesity and type 2 diabetes. These trials represent the strongest available evidence for tirzepatide weight loss outcomes.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <h4>Can I take Mounjaro if I don't have diabetes?</h4>
+            <div class="faq-body">
+            <p>Mounjaro is FDA-approved for type 2 diabetes. However, the same drug (tirzepatide) is marketed as Zepbound for chronic weight management in adults with obesity (BMI 30+) or overweight (BMI 27+) with at least one weight-related condition. Your healthcare provider can determine which indication and brand is appropriate for your situation.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    <section id="methodology" style="margin-top: 48px;">
+        <h2>Methodology</h2>
+        <div style="background-color: #f8f9fa; border-radius: 8px; padding: 24px; margin: 20px 0;">
+            <p>This calculator projects weight loss using dose-specific percentage outcomes from the SURMOUNT-1 clinical trial (Jastreboff et al., NEJM 2022, N=2,539), which studied tirzepatide in adults with obesity or overweight without type 2 diabetes over 72 weeks. Base weight loss percentages are 15.0% for 5 mg, 19.5% for 10 mg, and 22.5% for 15 mg. These percentages are scaled proportionally to the selected treatment duration using a non-linear trajectory that reflects the clinical pattern of rapid loss during dose escalation (months 3-9) followed by gradual plateau. Activity level and diet adherence modifiers adjust the projection modestly based on lifestyle factors, since all SURMOUNT participants received standardized lifestyle counseling.</p>
+            <p style="margin-bottom: 0;">Projections represent population averages from a controlled trial setting. Individual results vary significantly based on genetics, adherence, metabolic health, and concurrent medications. The calculator does not account for dose titration timing, treatment interruptions, or the presence of type 2 diabetes (which typically reduces weight loss outcomes, as shown in SURMOUNT-2). This tool is for estimation purposes only and does not replace medical advice.</p>
+        </div>
+    </section>
+
+    <!-- Bottom Ad -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <!-- Sources -->
+    {% set sources = [
+        {"text": "Jastreboff AM, Aronne LJ, Ahmad NN, et al. Tirzepatide Once Weekly for the Treatment of Obesity. N Engl J Med. 2022;387(3):205-216. (SURMOUNT-1)", "url": "https://pubmed.ncbi.nlm.nih.gov/35658024/"},
+        {"text": "Garvey WT, Frias JP, Jastreboff AM, et al. Tirzepatide once weekly for the treatment of obesity in people with type 2 diabetes (SURMOUNT-2). Lancet. 2023;402(10402):613-626.", "url": "https://pubmed.ncbi.nlm.nih.gov/37385275/"},
+        {"text": "Aronne LJ, Sattar N, Horn DB, et al. Continued Treatment With Tirzepatide for Maintenance of Weight Reduction in Adults With Obesity (SURMOUNT-4). JAMA. 2024;331(1):38-48.", "url": "https://pubmed.ncbi.nlm.nih.gov/38078870/"},
+        {"text": "Eli Lilly. Mounjaro (tirzepatide) Prescribing Information. FDA.gov.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2022/215866s000lbl.pdf"},
+        {"text": "Eli Lilly. Zepbound (tirzepatide) Prescribing Information. FDA.gov.", "url": "https://www.accessdata.fda.gov/drugsatfda_docs/label/2023/215256s000lbl.pdf"}
+    ] %}
+    {% include 'components/sources.html' %}
+
+    </div> <!-- End of calculator-container -->
+    
+    
+
+    <!-- Chart.js for the results visualization -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="/static/js/result-animations.js"></script>
+    <script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+    <script defer src="/static/js/mounjaro_weight_loss_calculator.js"></script>
+    <script src="/static/js/example-prefill.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      prefillExample({
+        unit: 'imperial',
+        fields: { 'weight-lb': '220', 'height-ft': '5', 'height-in': '9', age: '45' },
+        selects: { gender: 'female', dose: '10', duration: '52', activity: 'light', diet: 'good' },
+        calculateFn: function() { document.getElementById('calculate-btn').click(); },
+        resultsId: 'results'
+      });
+    });
+    </script>
+
+</div>
+
+<\!-- ASK PULSE -->
+<div style="padding:4rem 1.5rem;background:#060a14;display:flex;flex-direction:column;align-items:center;" id="ask-section">
+    <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(1.5rem,4vw,2.5rem);text-align:center;margin-bottom:0.4rem;color:#fff;">What else do you want to know?</h2>
+    <p style="color:var(--text-dim);text-align:center;margin-bottom:1.5rem;font-size:0.95rem;">Ask Pulse anything.</p>
+    <div style="display:flex;gap:0.6rem;max-width:480px;width:100%;">
+        <input type="text" id="askInput" placeholder="Type your question..." style="flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(20,184,166,0.12);border-radius:12px;color:#e2e8f0;padding:0.85rem 1rem;font-size:0.95rem;outline:none;">
+        <button id="askBtn" style="background:#14b8a6;color:#0a0f1a;border:none;border-radius:12px;padding:0 1.5rem;font-weight:700;cursor:pointer;font-size:0.95rem;">Ask</button>
+    </div>
+    <div style="display:flex;gap:0.4rem;flex-wrap:wrap;justify-content:center;margin-top:1.2rem;">
+            <span class="ask-pill">Mounjaro vs Ozempic</span>
+            <span class="ask-pill">Tirzepatide mechanism</span>
+            <span class="ask-pill">Side effects</span>
+            <span class="ask-pill">Dosing schedule</span>
+    </div>
+    <div id="askThanks" style="display:none;margin-top:1.5rem;color:#14b8a6;font-weight:500;">Got it. Pulse is on it.</div>
+</div>
+
+{% include 'footer.html' %}
+
+<script>
+document.getElementById("askBtn").addEventListener("click", function() {
+    var q = document.getElementById("askInput").value.trim();
+    if (\!q) return;
+    document.getElementById("askInput").parentElement.style.display = "none";
+    document.getElementById("askThanks").style.display = "block";
+});
+document.querySelectorAll(".ask-pill").forEach(function(p) {
+    p.addEventListener("click", function() { document.getElementById("askInput").value = this.textContent; });
+});
+</script>
+</body>
+</html>
