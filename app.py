@@ -5582,18 +5582,12 @@ def heart_age_calculator():
 
 @app.route('/vo2-max-calculator')
 def vo2_max_calculator():
-    schema_name = "VO2 Max Calculator"
-    schema_description = "Estimate your maximal oxygen uptake (VO2 max) using 6 validated methods: Cooper 12-minute run, 1.5-mile run, Rockport walking test, Queens College step test, heart rate ratio, or non-exercise estimation. Fitness classification by age and sex."
-    schema_url = "/vo2-max-calculator"
     return render_template(
-        'vo2_max_calculator.html',
+        'vo2_max_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+        breadcrumb_title='VO2 Max Calculator',
+        robots_meta='index, follow'
     )
 
 
@@ -6129,18 +6123,12 @@ def hcg_injection_dosage_calculator():
 
 @app.route('/electrolyte-calculator')
 def electrolyte_calculator():
-    schema_name = "Electrolyte Calculator"
-    schema_description = "Calculate your personalized daily electrolyte needs for sodium, potassium, magnesium, and calcium based on age, activity level, climate, and diet type."
-    schema_url = "/electrolyte-calculator"
     return render_template(
-        'electrolyte_calculator.html',
+        'electrolyte_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        breadcrumb_title='Electrolyte Calculator',
+        robots_meta='index, follow'
     )
 
 
@@ -6179,18 +6167,12 @@ def breastfeeding_calorie_calculator():
 
 @app.route('/zone2-heart-rate-calculator')
 def zone2_heart_rate_calculator():
-    schema_name = "Zone 2 Heart Rate Calculator"
-    schema_description = "Calculate your Zone 2 heart rate training range for aerobic base building and fat oxidation. Supports percentage of max HR, Karvonen heart rate reserve, and Maffetone MAF methods. Shows all 5 heart rate zones."
-    schema_url = "/zone2-heart-rate-calculator"
     return render_template(
-        'zone2_heart_rate_calculator.html',
+        'zone2_heart_rate_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+        breadcrumb_title='Zone 2 Heart Rate Calculator',
+        robots_meta='index, follow'
     )
 
 
@@ -6341,7 +6323,7 @@ def treadmill_calorie_calculator():
     schema_description = "Calculate calories burned on a treadmill by speed, incline, duration, and body weight. Uses the ACSM metabolic equation — the gold standard for treadmill calorie estimation. Includes incline comparison table."
     schema_url = "/treadmill-calorie-calculator"
     return render_template(
-        'treadmill_calorie_calculator.html',
+        'treadmill_calorie_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
