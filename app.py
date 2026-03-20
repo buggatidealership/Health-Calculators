@@ -2792,18 +2792,12 @@ def adult_height_predictor_calculator():
 
 @app.route('/cc-to-bra-size-calculator')
 def cc_to_bra_size_calculator():
-    schema_name = "CC to Bra Size Calculator"
-    schema_description = "Convert breast implant volume (in CCs) to estimated bra cup size. Based on plastic surgery implant-to-size charts."
-    schema_url = "/cc-to-bra-size-calculator"
     return render_template(
-        'cc_to_bra_size_calculator.html',
+        'cc_to_bra_size_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_category={'name': 'Cosmetic & Aesthetic', 'url': '/cosmetic-procedure-calculators'},
+        breadcrumb_title='CC to Bra Size Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/dog-pregnancy-due-date-calculator')
