@@ -12,7 +12,9 @@ import time
 import sqlite3
 import threading
 import logging
-import requests as http_requests
+import urllib.request
+import urllib.parse
+import urllib.error
 
 logger = logging.getLogger(__name__)
 
@@ -118,14 +120,20 @@ def send_telegram_message(chat_id, text, parse_mode='Markdown'):
     if parse_mode:
         payload['parse_mode'] = parse_mode
     try:
-        resp = http_requests.post(url, json=payload, timeout=10)
-        if resp.status_code != 200:
-            # Retry without parse_mode if Markdown fails
-            if parse_mode:
-                payload.pop('parse_mode', None)
-                http_requests.post(url, json=payload, timeout=10)
-            else:
-                logger.error(f"Telegram send failed: {resp.status_code} {resp.text}")
+        data = json.dumps(payload).encode('utf-8')
+        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+        resp = urllib.request.urlopen(req, timeout=10)
+    except urllib.error.HTTPError as e:
+        if parse_mode:
+            payload.pop('parse_mode', None)
+            try:
+                data = json.dumps(payload).encode('utf-8')
+                req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+                urllib.request.urlopen(req, timeout=10)
+            except Exception:
+                pass
+        else:
+            logger.error(f"Telegram send failed: {e.code}")
     except Exception as e:
         logger.error(f"Telegram send error: {e}")
 
@@ -136,7 +144,9 @@ def send_telegram_chat_action(chat_id, action='typing'):
         return
     url = f'{TELEGRAM_API_BASE}/sendChatAction'
     try:
-        http_requests.post(url, json={'chat_id': chat_id, 'action': action}, timeout=5)
+        data = json.dumps({'chat_id': chat_id, 'action': action}).encode('utf-8')
+        req = urllib.request.Request(url, data=data, headers={'Content-Type': 'application/json'}, method='POST')
+        urllib.request.urlopen(req, timeout=5)
     except Exception:
         pass
 
@@ -368,12 +378,14 @@ def _call_claude(messages, tools=None):
         payload['tools'] = tools
 
     try:
-        resp = http_requests.post(ANTHROPIC_API_URL, headers=headers, json=payload, timeout=30)
-        if resp.status_code == 200:
-            return resp.json()
-        else:
-            logger.error(f"Claude API error: {resp.status_code} {resp.text[:500]}")
-            return None
+        data = json.dumps(payload).encode('utf-8')
+        req = urllib.request.Request(ANTHROPIC_API_URL, data=data, headers=headers, method='POST')
+        resp = urllib.request.urlopen(req, timeout=30)
+        return json.loads(resp.read())
+    except urllib.error.HTTPError as e:
+        body = e.read().decode()[:500]
+        logger.error(f"Claude API error: {e.code} {body}")
+        return None
     except Exception as e:
         logger.error(f"Claude API request failed: {e}")
         return None
