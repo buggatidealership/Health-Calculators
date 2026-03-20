@@ -1,0 +1,367 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with page_title="BAC Calculator — Blood Alcohol Content Estimate", meta_description="Estimate blood alcohol content based on drinks, weight, gender, and time using the Widmark formula.", og_title="BAC Calculator", og_description="Estimate blood alcohol content based on drinks, weight, gender, and time using the Widmark formula.", og_url="/bac-calculator", canonical_url="/bac-calculator", schema_type="MedicalWebPage", schema_name="BAC Calculator", schema_description="Estimate blood alcohol content based on drinks, weight, gender, and time using the Widmark formula.", schema_url="/bac-calculator", schema_about="BAC Calculator", date_published="2025-06-01", date_modified="2026-03-20", og_image="default-calculator-og.jpg", robots_meta="noindex, nofollow" %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[        {"@type":"Question","name":"What factors affect BAC?","acceptedAnswer":{"@type":"Answer","text":"Body weight, sex, drinks consumed, time elapsed, food in stomach, and metabolism rate."}},
+        {"@type":"Question","name":"Legal BAC limit?","acceptedAnswer":{"@type":"Answer","text":"0.08% in most US states. Some countries use 0.05%. Zero tolerance for under-21 drivers in many jurisdictions."}},
+        {"@type":"Question","name":"How long to sober up?","acceptedAnswer":{"@type":"Answer","text":"Body metabolizes about 0.015% BAC per hour. BAC 0.08% takes about 5.3 hours to reach zero."}},
+        {"@type":"Question","name":"Does coffee help?","acceptedAnswer":{"@type":"Answer","text":"No. Coffee may increase alertness but does not reduce BAC. Only time allows the liver to metabolize alcohol."}}]}
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-1: #0a0f1a; --bg-card: rgba(249, 115, 22,0.07); --border: rgba(249, 115, 22,0.12); --accent: #f97316; --accent-glow: rgba(249, 115, 22,0.3); --good: #14b8a6; --caution: #f59e0b; --bad: #ef4444; --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b; --font-body: 'DM Sans', sans-serif; --font-display: 'DM Serif Display', serif; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: #0a0f1a \!important; }
+        h1, h2, h3 { color: #ffffff \!important; }
+        .site-header { background: #0a0f1a \!important; border-bottom: 1px solid rgba(249, 115, 22,0.1) \!important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) \!important; stroke: var(--text) \!important; }
+        .site-header .logo-dot { color: var(--accent) \!important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) \!important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] { background: #0a0f1a \!important; border-bottom: 1px solid rgba(249, 115, 22,0.06) \!important; }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content { background: transparent \!important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) \!important; }
+        .breadcrumb a:hover { color: var(--accent) \!important; }
+        .nav-dropdown { background: #0d1420 \!important; border-color: rgba(249, 115, 22,0.1) \!important; }
+        .nav-dropdown-link { color: var(--text-dim) \!important; }
+        .nav-dropdown-link:hover { color: var(--accent) \!important; }
+        .page-layout { display: contents \!important; }
+        .page-content { display: contents \!important; }
+        .page-sidebar { display: none \!important; }
+        main { display: contents; }
+        /* Dark override all calc containers/elements */
+        .calculator { background: rgba(249, 115, 22,0.04) \!important; border: 1px solid rgba(249, 115, 22,0.1) \!important; border-radius: 16px \!important; padding: 2rem \!important; }
+        .calculator-container { max-width: 700px \!important; margin: 0 auto \!important; padding: 2rem 1rem \!important; }
+        .form-group label { color: var(--text-dim) \!important; }
+        .form-group input, .form-group select { background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(249, 115, 22,0.15) \!important; color: var(--text) \!important; border-radius: 10px \!important; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent) \!important; box-shadow: 0 0 0 3px rgba(249, 115, 22,0.1) \!important; }
+        .form-group select option { background: #0d1420 \!important; color: var(--text) \!important; }
+        .input-hint { color: var(--text-muted) \!important; }
+        .subtitle { color: var(--text-dim) \!important; }
+        .calculate-btn, button[type="button"].calculate-btn { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; font-weight: 700 \!important; width: auto \!important; box-shadow: none \!important; }
+        .calculate-btn::after { display: none \!important; }
+        .calculate-btn:hover { box-shadow: 0 6px 24px var(--accent-glow) \!important; }
+        button { width: auto \!important; box-shadow: none \!important; }
+        button::after { display: none \!important; }
+        .results-section { background: transparent \!important; }
+        .result-hero { border-color: var(--accent) \!important; }
+        .result-hero-number { color: var(--accent) \!important; }
+        .result-status { background: rgba(249, 115, 22,0.06) \!important; border-color: rgba(249, 115, 22,0.15) \!important; border-radius: 12px \!important; }
+        .result-status-text { color: var(--text-dim) \!important; }
+        .result-breakdown { background: rgba(249, 115, 22,0.04) \!important; border: 1px solid rgba(249, 115, 22,0.1) \!important; border-radius: 14px \!important; }
+        .result-breakdown-title { color: var(--text) \!important; }
+        .result-breakdown-key { color: var(--text-dim) \!important; }
+        .result-breakdown-val { color: var(--text) \!important; }
+        .result-comparison-box { background: rgba(249, 115, 22,0.06) \!important; border: 1px solid rgba(249, 115, 22,0.1) \!important; border-radius: 12px \!important; }
+        .result-comparison-label { color: var(--text-muted) \!important; }
+        .result-comparison-size { color: var(--text) \!important; }
+        .result-comparison-arrow { color: var(--text-muted) \!important; }
+        .result-gauge-labels span { color: var(--text-muted) \!important; }
+        .result-card { background: rgba(249, 115, 22,0.06) \!important; border: 1px solid rgba(249, 115, 22,0.1) \!important; border-radius: 14px \!important; }
+        .result-card-title { color: var(--text-dim) \!important; }
+        .result-card-value { color: var(--accent) \!important; }
+        .result-card-note { color: var(--text-muted) \!important; }
+        .info-toggle-btn { color: var(--text-dim) \!important; background: none \!important; border: 1px solid rgba(249, 115, 22,0.15) \!important; border-radius: 10px \!important; width: auto \!important; box-shadow: none \!important; }
+        .info-toggle-btn::after { display: none \!important; }
+        .info-panel { background: rgba(249, 115, 22,0.04) \!important; border: 1px solid rgba(249, 115, 22,0.1) \!important; color: var(--text-dim) \!important; border-radius: 14px \!important; }
+        .info-panel h4 { color: var(--text) \!important; }
+        .info-panel li { color: var(--text-dim) \!important; }
+        .data-table th { color: var(--text) \!important; background: rgba(249, 115, 22,0.06) \!important; }
+        .data-table td { color: var(--text-dim) \!important; }
+        .unit-btn { background: rgba(249, 115, 22,0.08) \!important; color: var(--text-dim) \!important; border: 1px solid rgba(249, 115, 22,0.15) \!important; border-radius: 8px \!important; width: auto \!important; box-shadow: none \!important; }
+        .unit-btn::after { display: none \!important; }
+        .unit-btn.active { background: var(--accent) \!important; color: #0a0f1a \!important; }
+        .add-drink-btn { width: auto \!important; box-shadow: none \!important; border-radius: 8px \!important; }
+        .add-drink-btn::after { display: none \!important; }
+        .drink-item { background: rgba(249, 115, 22,0.04) \!important; border-radius: 12px \!important; }
+        .hidden { display: none \!important; }
+        /* Medical disclaimer */
+        .medical-disclaimer.pink-box { background: rgba(239,68,68,0.06) \!important; border: 1px solid rgba(239,68,68,0.15) \!important; border-radius: 14px \!important; padding: 1.5rem \!important; max-width: 680px; margin: 0 auto; }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) \!important; font-size: 0.85rem \!important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 \!important; }
+        /* Footer */
+        .site-footer { background: #060a14 \!important; border-top: 1px solid rgba(249, 115, 22,0.08) \!important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) \!important; }
+        .site-footer a:hover { color: var(--accent) \!important; }
+        /* FAQ */
+        .seo-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 2rem; text-align: center; }
+        .faq-list { list-style: none; }
+        .faq-item { border: 1px solid rgba(249, 115, 22,0.1); border-radius: 14px; margin-bottom: 0.8rem; overflow: hidden; background: rgba(249, 115, 22,0.04); }
+        .faq-item:hover { border-color: rgba(249, 115, 22,0.25); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--text); background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+        .faq-question:hover { color: var(--accent); }
+        .faq-chevron { width: 20px; height: 20px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 1.5rem; }
+        .faq-item.faq-open .faq-answer { max-height: 400px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li { counter-increment: source; padding: 0.8rem 0; border-bottom: 1px solid rgba(249, 115, 22,0.06); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+        .sources-list li::before { content: counter(source) "."; color: var(--accent); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--accent); text-decoration: none; }
+        .sources-list li a:hover { text-decoration: underline; }
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code { background: rgba(249, 115, 22,0.1); padding: 0.15rem 0.5rem; border-radius: 6px; font-family: monospace; color: var(--accent); }
+        .llm-capsule { background: rgba(249, 115, 22,0.04); border: 1px solid rgba(249, 115, 22,0.1); border-radius: 16px; padding: 2rem; }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+        /* Ask Pulse */
+        .ask-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; background: #060a14; }
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input { flex: 1; background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(249, 115, 22,0.15) \!important; border-radius: 12px \!important; color: var(--text) \!important; padding: 0.85rem 1rem \!important; font-size: 0.95rem \!important; outline: none; width: auto \!important; }
+        .ask-input-wrap button { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; padding: 0 1.5rem \!important; font-weight: 700 \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-input-wrap button::after { display: none \!important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill { background: rgba(255,255,255,0.03) \!important; border: 1px solid rgba(249, 115, 22,0.15) \!important; border-radius: 20px \!important; padding: 0.4rem 0.9rem \!important; font-size: 0.78rem \!important; color: var(--text-dim) \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-pill::after { display: none \!important; }
+        .ask-pill:hover { border-color: var(--accent); color: var(--text); }
+        .pulse-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.5); } 50% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); } }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        @media (max-width: 600px) { .ask-input-wrap { flex-direction: column; } .ask-input-wrap button { padding: 0.8rem \!important; } }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+    <div style="text-align:center; margin-bottom:1rem;"><span class="pulse-dot"></span></div>
+    <h1 style="font-family:var(--font-display); text-align:center; margin-bottom:0.5rem;">What's your <span>BAC</span>?</h1>
+    <p style="color:var(--text-dim); text-align:center; margin-bottom:2rem;">Estimate blood alcohol content</p>
+
+<section id="calculator">
+        <div class="calculator">
+            <div class="form-group">
+                <label style="font-weight: 600;">Measurement Units:</label>
+                <div style="display: flex; gap: 10px; margin-top: 8px;">
+                    <button type="button" id="metric-btn" class="unit-btn active" onclick="setUnit('metric')">Metric (kg)</button>
+                    <button type="button" id="imperial-btn" class="unit-btn" onclick="setUnit('imperial')">Imperial (lb)</button>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select id="gender">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+                <small class="text-muted">Used for body water distribution differences</small>
+            </div>
+            
+            <div class="form-group metric-field">
+                <label for="weight-kg">Weight (kg)</label>
+                <input type="number" id="weight-kg" min="40" max="200" step="0.1" value="70">
+            </div>
+            
+            <div class="form-group imperial-field" style="display: none;">
+                <label for="weight-lb">Weight (lb)</label>
+                <input type="number" id="weight-lb" min="88" max="440" value="154">
+            </div>
+            
+            <div class="form-group">
+                <label for="time-elapsed">Time Since First Drink (hours)</label>
+                <input type="number" id="time-elapsed" min="0" max="24" step="0.5" value="1">
+            </div>
+            
+            <div class="form-group" style="border-top: 1px solid #dee2e6; padding-top: 15px; margin-top: 20px;">
+                <label style="font-weight: 600;">Drinks Consumed</label>
+                
+                <div id="drinks-container">
+                    <!-- Default drink (Beer) -->
+                    <div id="drink-0" class="drink-item" style="background-color: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; margin-top: 15px; position: relative;">
+                        <button type="button" class="remove-drink-btn" style="position: absolute; top: 10px; right: 10px; background: none; border: none; color: #dc3545; font-weight: bold;" onclick="removeDrink(0)">✕</button>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div>
+                                <label for="drink-type-0">Drink Type</label>
+                                <select id="drink-type-0" class="drink-type" onchange="updateDrinkType(0)">
+                                    <option value="beer">Beer</option>
+                                    <option value="wine">Wine</option>
+                                    <option value="spirits">Spirits/Shot</option>
+                                    <option value="cocktail">Cocktail</option>
+                                    <option value="custom">Custom</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="alcohol-percent-0">Alcohol %</label>
+                                <div style="display: flex; align-items: center;">
+                                    <input type="number" id="alcohol-percent-0" class="alcohol-percent" min="0" max="100" step="0.1" value="5">
+                                    <span style="margin-left: 5px;">%</span>
+                                </div>
+                            </div>
+                            
+                            <div class="metric-field" style="grid-column: span 2;">
+                                <label for="volume-0">Volume</label>
+                                <div style="display: flex; gap: 10px; align-items: center;">
+                                    <input type="number" id="volume-0" class="volume" min="0" max="2000" value="330">
+                                    <select id="volume-unit-0" class="volume-unit">
+                                        <option value="ml">ml</option>
+                                        <option value="oz">oz</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button type="button" class="add-drink-btn" style="background-color: rgba(59,130,246,0.08); color: #f97316; border: 1px solid rgba(249, 115, 22,0.2); padding: 8px 12px; border-radius: 4px;" onclick="addDrink('beer')">+ Beer</button>
+                    <button type="button" class="add-drink-btn" style="background-color: rgba(20,184,166,0.06); color: #f97316; border: 1px solid rgba(249, 115, 22,0.2); padding: 8px 12px; border-radius: 4px;" onclick="addDrink('wine')">+ Wine</button>
+                    <button type="button" class="add-drink-btn" style="background-color: rgba(249,115,22,0.08); color: #f97316; border: 1px solid rgba(249, 115, 22,0.2); padding: 8px 12px; border-radius: 4px;" onclick="addDrink('spirits')">+ Spirits</button>
+                    <button type="button" class="add-drink-btn" style="background-color: rgba(139,92,246,0.08); color: #f97316; border: 1px solid rgba(249, 115, 22,0.2); padding: 8px 12px; border-radius: 4px;" onclick="addDrink('cocktail')">+ Cocktail</button>
+                    <button type="button" class="add-drink-btn" style="background-color: rgba(6,182,212,0.08); color: #f97316; border: 1px solid rgba(249, 115, 22,0.2); padding: 8px 12px; border-radius: 4px;" onclick="addDrink('custom')">+ Custom</button>
+                </div>
+            </div>
+            
+            <button class="calculate-btn" onclick="calculateBAC()">Calculate BAC</button>
+        </div>
+        
+        <div id="results" class="results-section" style="display:none; margin-top: 30px;">
+            <h2>Your BAC Estimate</h2>
+            
+            <div class="results-section" style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 20px; margin-bottom: 30px; border: 2px solid #f97316; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                <h3 style="margin-top: 0; color: #f97316; font-weight: 600; font-size: 1.5rem;">Blood Alcohol Content (BAC)</h3>
+                <div class="results-row" style="margin-top: 12px; font-size: 1.1rem;">
+                    <div class="results-label"><strong>Estimated BAC:</strong></div>
+                    <div class="results-value" id="bac-result" style="font-weight: 600;">0.000%</div>
+                </div>
+            </div>
+            
+            <div id="impairment-result" class="macro-card-grid" style="display: grid;">
+                <!-- Impairment Card -->
+                <div id="impairment-card" style="background-color: rgba(255,255,255,0.03); border-radius: 8px; padding: 20px; border-top: 4px solid #f97316; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                    <h3 style="margin-top: 0; color: #f97316; font-weight: 600;">Impairment Level</h3>
+                    <p id="impairment-level" style="font-size: 1.1rem;">No alcohol in system</p>
+                </div>
+            </div>
+            
+            <div id="legal-warning" style="display: none; margin-top: 20px; background-color: rgba(239,68,68,0.06); border-radius: 8px; padding: 15px; border-left: 4px solid #ef4444;">
+                <h4 style="color: #ef4444; margin-top: 0;">WARNING: Above Legal Limit</h4>
+                <p>This BAC exceeds the legal limit (0.08%) for driving in most jurisdictions.</p>
+                <p><strong>DO NOT</strong> drive or operate heavy machinery. Wait until your BAC decreases to a safe level.</p>
+            </div>
+            
+            <div id="time-to-sober" style="margin-top: 20px; padding: 20px; background-color: rgba(20,184,166,0.06); border-radius: 8px; border-top: 4px solid #14b8a6; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                <h4 style="margin-top: 0; color: #14b8a6; font-weight: 600;">Time Until Sober</h4>
+                <p style="font-size: 1.1rem;">Estimated time until 0.00% BAC: <strong id="sober-time" style="color: #14b8a6;">0 hours</strong></p>
+                <p style="font-size: 1.1rem;">Estimated time until legal limit (0.08%): <strong id="legal-time" style="color: #14b8a6;">0 hours</strong></p>
+                <small>Based on average metabolism rate of 0.015% per hour. Individual rates may vary.</small>
+            </div>
+            
+            <div style="margin-top: 20px; padding: 15px; background-color: rgba(245,158,11,0.06); border-radius: 8px; border-left: 4px solid #f97316;">
+                <h4 style="margin-top: 0; color: #f97316;">Important Disclaimers</h4>
+                <ul style="padding-left: 20px; margin-bottom: 0;">
+                    <li>This is an estimation only and not a substitute for a breathalyzer or blood test.</li>
+                    <li>Individual alcohol metabolism rates vary based on many factors including liver function, medications, and genetics.</li>
+                    <li>Never drive after consuming alcohol, regardless of estimated BAC.</li>
+                    <li>This tool is for educational purposes only.</li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </section>
+</div>
+
+<!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<!-- FAQ -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">What factors affect BAC?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Body weight, sex, drinks consumed, time elapsed, food in stomach, and metabolism rate.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Legal BAC limit?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>0.08% in most US states. Some countries use 0.05%. Zero tolerance for under-21 drivers in many jurisdictions.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">How long to sober up?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Body metabolizes about 0.015% BAC per hour. BAC 0.08% takes about 5.3 hours to reach zero.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Does coffee help?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>No. Coffee may increase alertness but does not reduce BAC. Only time allows the liver to metabolize alcohol.</p></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sources -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Widmark EMP. Medicolegal Alcohol Determination. 1932. <a href="https://pubmed.ncbi.nlm.nih.gov/20857978/" target="_blank" rel="noopener">Source</a></li>
+            <li>Jones AW. Int J Legal Med. 1993;105(5):279-284. <a href="https://pubmed.ncbi.nlm.nih.gov/8420539/" target="_blank" rel="noopener">Source</a></li>
+            <li>NHTSA. The ABCs of BAC. <a href="https://www.nhtsa.gov/risky-driving/drunk-driving" target="_blank" rel="noopener">Source</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Widmark formula: BAC = (Alcohol grams / (Weight grams x r)) - (0.015 x hours). r=0.68 males, r=0.55 females.</p></div>
+    </div>
+</div>
+
+<!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>BAC estimated via Widmark formula. Legal limit: 0.08% in most US states. Body metabolizes ~0.015% per hour.</p></div></div>
+</div>
+
+<!-- Ask Pulse -->
+<div class="ask-section" id="ask-section">
+    <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+    <h2 class="ask-title">What else do you want to know?</h2>
+    <p class="ask-sub">Ask Pulse anything.</p>
+    <div class="ask-input-wrap">
+        <input type="text" id="askInput" placeholder="e.g. How long until sober?">
+        <button id="askBtn">Ask</button>
+    </div>
+    <div class="ask-pills">
+            <span class="ask-pill">Time to sober</span>
+            <span class="ask-pill">Legal limits</span>
+            <span class="ask-pill">Alcohol metabolism</span>
+            <span class="ask-pill">BAC factors</span>
+    </div>
+    <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+</div>
+
+{% include 'footer.html' %}
+
+<script defer src="/static/js/bac_calculator.js"></script>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+document.getElementById('askBtn')?.addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (\!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() { document.getElementById('askInput').value = this.textContent; });
+});
+</script>
+</body>
+</html>
