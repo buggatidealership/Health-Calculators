@@ -265,7 +265,326 @@
 </head>
 <body>
 {% include 'header.html' %}
-{% include 'bulking_calorie_calculator.html' %}
+<div class="calculator-container">
+    <h1>Bulking Calorie Calculator</h1>
+    <p class="subtitle">Calculate your optimal calorie surplus for lean muscle gain. Enter your stats to get a personalized bulking calorie target, macro breakdown, and weekly weight gain estimate using the Mifflin-St Jeor equation.</p>
+
+<section id="calculator">
+        <h2>Calculate Your Bulking Calories</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight">Body Weight:</label>
+                    <input type="number" id="weight" min="1" step="0.1" placeholder="e.g. 170">
+                </div>
+                <div class="form-group">
+                    <label for="weight-unit">Weight Unit:</label>
+                    <select id="weight-unit">
+                        <option value="lbs">Pounds</option>
+                        <option value="kg">Kilograms</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="height-system">Height System:</label>
+                    <select id="height-system">
+                        <option value="imperial">Imperial (ft/in)</option>
+                        <option value="metric">Metric (cm)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="imperial-height">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="height-ft">Height — Feet:</label>
+                        <input type="number" id="height-ft" min="1" max="8" placeholder="e.g. 5">
+                    </div>
+                    <div class="form-group">
+                        <label for="height-in">Inches:</label>
+                        <input type="number" id="height-in" min="0" max="11" step="1" placeholder="e.g. 10">
+                    </div>
+                </div>
+            </div>
+
+            <div id="metric-height" class="hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="height-cm">Height (cm):</label>
+                        <input type="number" id="height-cm" min="50" max="250" step="0.1" placeholder="e.g. 178">
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="age">Age:</label>
+                    <input type="number" id="age" min="15" max="100" placeholder="e.g. 25">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Sex:</label>
+                    <select id="sex">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="activity">Activity Level:</label>
+                    <select id="activity">
+                        <option value="1.2">Sedentary (little or no exercise)</option>
+                        <option value="1.375">Lightly Active (1-3 days/week)</option>
+                        <option value="1.55" selected>Moderately Active (3-5 days/week)</option>
+                        <option value="1.725">Very Active (6-7 days/week)</option>
+                        <option value="1.9">Extremely Active (2x/day or physical job)</option>
+                    </select>
+                    <span class="input-hint">Choose the level that best reflects your total weekly activity, including weight training.</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="surplus">Bulk Type:</label>
+                    <select id="surplus">
+                        <option value="lean">Lean Bulk (+250 cal)</option>
+                        <option value="moderate" selected>Moderate Bulk (+400 cal)</option>
+                        <option value="aggressive">Aggressive Bulk (+700 cal)</option>
+                    </select>
+                    <span class="input-hint">Lean bulk minimizes fat gain. Aggressive bulk maximizes muscle gain but adds more body fat.</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Bulking Calories</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number"><span id="bulk-result">--</span></div>
+                    <div class="result-hero-label" id="bulk-label">Daily Bulking Calories</div>
+                </div>
+
+                <div id="bulk-status" class="result-status status-good">
+                    <span class="result-status-icon" id="bulk-icon">--</span>
+                    <span class="result-status-text" id="bulk-description">--</span>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Calorie Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Maintenance</span>
+                            <span class="result-comparison-value" id="comp-maintain">--</span>
+                            <span class="result-comparison-unit">cal</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Bulking</span>
+                            <span class="result-comparison-value" id="comp-bulk">--</span>
+                            <span class="result-comparison-unit">cal</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Surplus</span>
+                            <span class="result-comparison-value" id="comp-surplus">--</span>
+                            <span class="result-comparison-unit">cal</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Calorie Breakdown</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">BMR</span>
+                        <span class="result-breakdown-val" id="display-bmr">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">TDEE</span>
+                        <span class="result-breakdown-val" id="display-tdee">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Surplus</span>
+                        <span class="result-breakdown-val" id="display-surplus">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Total Calories</span>
+                        <span class="result-breakdown-val" id="display-total">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Weekly Gain</span>
+                        <span class="result-breakdown-val" id="display-weekly-gain">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Monthly Gain</span>
+                        <span class="result-breakdown-val" id="display-monthly-gain">--</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Macro Breakdown</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Protein</span>
+                        <span class="result-breakdown-val" id="display-protein">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Carbohydrates</span>
+                        <span class="result-breakdown-val" id="display-carbs">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Fat</span>
+                        <span class="result-breakdown-val" id="display-fat">--</span>
+                    </div>
+                </div>
+
+                <!-- Surplus comparison table -->
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 1.05rem; margin-bottom: 12px;">Surplus Comparison</h3>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Plan</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Surplus</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Total</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Weekly Gain</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody id="surplus-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about calorie surplus strategies
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About Calorie Surplus Strategies</h4>
+                    <ul>
+                        <li><strong>Lean Bulk (+250 cal):</strong> A conservative surplus that minimizes fat gain while still supporting muscle growth. Best for intermediate-to-advanced lifters or those who want to stay relatively lean year-round. Expect ~0.5 lbs/week total gain.</li>
+                        <li><strong>Moderate Bulk (+400 cal):</strong> The most commonly recommended approach. Provides enough energy for consistent muscle protein synthesis without excessive fat storage. Expect ~0.8 lbs/week total gain.</li>
+                        <li><strong>Aggressive Bulk (+700 cal):</strong> Best suited for beginners who can gain muscle faster, hardgainers who struggle to gain weight, or those prioritizing strength gains over leanness. Expect ~1.4 lbs/week total gain with higher fat accumulation.</li>
+                        <li><strong>Macro split:</strong> Protein is set at 1 g per pound of bodyweight (a well-supported threshold for maximizing muscle protein synthesis). Fat is set at 25% of total calories to support hormone production. Remaining calories come from carbohydrates to fuel training.</li>
+                    </ul>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is a Calorie Surplus?</h2>
+    <div class="answer-capsule">
+      A calorie surplus means eating more calories than your body burns each day. Building muscle requires a surplus because muscle protein synthesis is an energy-intensive process. Your body needs both the raw material (protein) and the energy (calories) to construct new tissue. Without a surplus, your body lacks the excess energy needed to support maximal muscle growth — even if protein intake is adequate.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        This calculator uses the Mifflin-St Jeor equation to estimate your basal metabolic rate (BMR), multiplies it by an activity factor to get your Total Daily Energy Expenditure (TDEE), and then adds a calorie surplus based on your chosen bulk type. The result is your daily calorie target for muscle gain, along with a recommended macronutrient breakdown.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#how-it-works">How the Calculator Works</a></li>
+            <li><a href="#bulk-types">Lean Bulk vs. Moderate vs. Aggressive</a></li>
+            <li><a href="#macros">Optimal Macros for Muscle Gain</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="how-it-works" class="info">
+        <h2>How the Calculator Works</h2>
+        <p>The calculator estimates your bulking calorie target in three steps:</p>
+
+        <h3>Step 1: Basal Metabolic Rate (BMR)</h3>
+        <p>Your BMR is the number of calories your body burns at complete rest — just to keep your organs functioning, your blood circulating, and your cells alive. We use the <strong>Mifflin-St Jeor equation</strong>, which is the most accurate predictive BMR formula for most adults (validated in a 2005 ADA review of 173 studies):</p>
+        <div class="important-box">
+            <p><strong>Men:</strong> BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) + 5</p>
+            <p><strong>Women:</strong> BMR = (10 x weight in kg) + (6.25 x height in cm) - (5 x age) - 161</p>
+        </div>
+
+        <h3>Step 2: Total Daily Energy Expenditure (TDEE)</h3>
+        <p>TDEE accounts for all the calories you burn through daily activity and exercise. We multiply your BMR by an activity factor:</p>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Activity Level</th>
+                        <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Multiplier</th>
+                        <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">Sedentary</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1.2</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Desk job, no exercise</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">Lightly Active</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1.375</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Light exercise 1-3 days/week</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">Moderately Active</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1.55</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Moderate exercise 3-5 days/week</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">Very Active</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1.725</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">Hard exercise 6-7 days/week</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">Extremely Active</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">1.9</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">2x daily training or physical job + training</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Step 3: Add the Surplus</h3>
+        <p>The surplus is the additional calories above your TDEE that provide energy for building new muscle tissue. The optimal surplus depends on your training experience and goals. Research suggests that beginners can gain muscle faster and tolerate larger surpluses, while advanced lifters gain muscle more slowly and benefit from smaller surpluses to minimize fat gain (Iraki et al., 2019).</p>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="bulk-types" class="info">
+        <h2>Lean Bulk vs. Moderate vs. Aggressive</h2>
+        <p>The size of your calorie surplus determines the tradeoff between muscle gain speed and fat accumulation. No surplus eliminates fat gain entirely — the goal is to find the sweet spot where muscle growth is maximized relative to fat storage.</p>
+
+        <div class="important-box">
+            <h3>Comparing Bulk Approaches</h3>
+            <ul>
+                <li><strong>Lean Bulk (+250 cal/day):</strong> Produces roughly 0.5 lbs of weight gain per week. Research on trained lifters suggests muscle gain rates of 0.25-0.5 lbs/week are realistic, so a lean surplus closely matches the rate at which your body can actually build muscle. This approach keeps you relatively lean year-round and shortens any subsequent cutting phase. Best for intermediate and advanced lifters.</li>
+                <li><strong>Moderate Bulk (+400 cal/day):</strong> Produces roughly 0.8 lbs of weight gain per week. This is the most commonly recommended surplus in sports nutrition literature. It provides a comfortable energy buffer for muscle protein synthesis while keeping fat gain manageable. A solid default for most trainees.</li>
+                <li><strong>Aggressive Bulk (+700 cal/day):</strong> Produces roughly 1.4 lbs of weight gain per week. The extra calories ensure that energy availability is never a limiting factor for growth — but a significant portion of the additional weight will be fat. Best suited for true beginners (who can gain muscle faster due to "newbie gains"), naturally underweight individuals, or those who prioritize strength gains and plan to cut afterward.</li>
+            </ul>
+        </div>
+
+        <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+            The rate of muscle gain slows with training experience. Beginners might gain 1.5-2 lbs of muscle per month, intermediates 0.5-1.5 lbs, and advanced lifters only 0.25-0.5 lbs. This is why experienced lifters benefit more from a lean surplus — anything beyond what your body can use for muscle growth is stored as fat (Slater et al., 2019).
+        </p>
+    </section>
+
+    <section id="macros" class="info">
+        <h2>Optimal Macros for Muscle Gain</h2>
+        <p>Calorie totals matter, but the macronutrient breakdown determines how much of your weight gain is muscle versus fat. The calculator uses an evidence-based split optimized for hypertrophy:</p>
+
+        <div class="important-box">
+            <h3>Recommended Macro Split</h3>
+            <ul>
+                <li><strong>Protein: 1 g per pound of bodyweight</strong> — A 2018 meta-analysis by Morton et al. (49 studies, 1,863 participants) found that protein intakes above 1.6 g/kg/day (approximately 0.73 g/lb) did not further increase muscle gain in resistance-trained individuals. However, 1 g/lb (~2.2 g/kg) is a commonly used ceiling that provides a safety margin and is simple to calculate. Higher protein intakes have no demonstrated harm in healthy individuals.</li>
+                <li><strong>Fat: 25% of total calories</strong> — Dietary fat is essential for testosterone and hormone production. The International Society of Sports Nutrition recommends that athletes consume at least 20-35% of calories from fat. Setting fat at 25% supports hormonal health while leaving enough calories for carbohydrates.</li>
+                <li><strong>Carbohydrates: remaining calories</strong> — Carbs are the primary fuel for resistance training. They replenish muscle glycogen, support training performance, and create an insulin-mediated anabolic environment. In a bulking context, higher carb intake supports higher training volume and intensity.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Methodology -->
+    </div>
+
 
 <!-- V25 SEO Sections -->
 <div class="v25-seo-section" style="background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);">
@@ -379,5 +698,10 @@ document.querySelectorAll('.ask-pill').forEach(function(pill) {
     pill.addEventListener('click', function() { document.getElementById('v25AskInput').value = this.textContent; });
 });
 </script>
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/bulking_calorie_calculator.js"></script>
 </body>
 </html>

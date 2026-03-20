@@ -265,7 +265,424 @@
 </head>
 <body>
 {% include 'header.html' %}
-{% include 'running_pace_calculator.html' %}
+<div class="calculator-container">
+    <h1>Running Pace Calculator</h1>
+    <p class="subtitle">Calculate your pace per mile or per km, predict your finish time, or estimate distance — with mile-by-mile splits and race equivalents.</p>
+
+    <section id="calculator">
+        <h2>Calculate Running Pace, Time, or Distance</h2>
+        <div class="calculator">
+
+            <!-- Mode selector -->
+            <div class="calculator-row" style="margin-bottom: 4px;">
+                <div class="form-group" style="width: 100%;">
+                    <label>What do you want to calculate?</label>
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px;">
+                        <button type="button" class="pace-mode-btn active" data-mode="time"
+                            style="flex: 1; min-width: 120px; padding: 10px 14px; border: 2px solid var(--color-accent, #3b82f6); border-radius: 8px; background: var(--color-accent, #3b82f6); color: white; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                            Finish Time
+                        </button>
+                        <button type="button" class="pace-mode-btn" data-mode="pace"
+                            style="flex: 1; min-width: 120px; padding: 10px 14px; border: 2px solid #d1d5db; border-radius: 8px; background: white; color: #374151; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                            Required Pace
+                        </button>
+                        <button type="button" class="pace-mode-btn" data-mode="distance"
+                            style="flex: 1; min-width: 120px; padding: 10px 14px; border: 2px solid #d1d5db; border-radius: 8px; background: white; color: #374151; font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                            Distance Covered
+                        </button>
+                    </div>
+                    <p id="mode-description" style="font-size: 0.88rem; color: #6b7280; margin-top: 8px; margin-bottom: 0;">
+                        Enter your distance and pace to calculate your finish time.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Unit selector -->
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="unit-select">Units:</label>
+                    <select id="unit-select">
+                        <option value="miles">Miles (min/mile)</option>
+                        <option value="km">Kilometers (min/km)</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Distance row -->
+            <div id="row-distance" class="calculator-row">
+                <div class="form-group">
+                    <label for="distance-preset">Race Distance:</label>
+                    <select id="distance-preset">
+                        <option value="5k">5K (3.1 miles)</option>
+                        <option value="10k">10K (6.2 miles)</option>
+                        <option value="half">Half Marathon (13.1 miles)</option>
+                        <option value="marathon">Marathon (26.2 miles)</option>
+                        <option value="1mile">1 Mile</option>
+                        <option value="1km">1 Kilometer</option>
+                        <option value="15k">15K (9.3 miles)</option>
+                        <option value="custom">Custom distance…</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Custom distance row (hidden by default) -->
+            <div id="row-custom-distance" class="calculator-row hidden">
+                <div class="form-group">
+                    <label for="distance-custom">Custom Distance:</label>
+                    <input type="number" id="distance-custom" min="0.1" step="0.1" placeholder="e.g. 10">
+                    <span class="input-hint">Enter distance in the unit selected above (miles or km)</span>
+                </div>
+            </div>
+
+            <!-- Time row -->
+            <div id="row-time" class="calculator-row hidden">
+                <div class="form-group">
+                    <label>Time (h : min : sec):</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="number" id="time-hours"   min="0" max="23" step="1" placeholder="0"  style="width: 64px; text-align: center;">
+                        <span style="font-weight: 600; color: #6b7280;">:</span>
+                        <input type="number" id="time-minutes" min="0" max="59" step="1" placeholder="30" style="width: 64px; text-align: center;">
+                        <span style="font-weight: 600; color: #6b7280;">:</span>
+                        <input type="number" id="time-seconds" min="0" max="59" step="1" placeholder="00" style="width: 64px; text-align: center;">
+                    </div>
+                    <span class="input-hint">e.g. 0:25:00 for a 25-minute 5K</span>
+                </div>
+            </div>
+
+            <!-- Pace row -->
+            <div id="row-pace" class="calculator-row">
+                <div class="form-group">
+                    <label>Pace (min : sec per <span id="pace-unit-label">mile</span>):</label>
+                    <div style="display: flex; gap: 8px; align-items: center;">
+                        <input type="number" id="pace-mins" min="1" max="59" step="1" placeholder="9"  style="width: 64px; text-align: center;">
+                        <span style="font-weight: 600; color: #6b7280;">:</span>
+                        <input type="number" id="pace-secs" min="0" max="59" step="1" placeholder="00" style="width: 64px; text-align: center;">
+                    </div>
+                    <span class="input-hint">e.g. 9:30 = 9 minutes 30 seconds per mile</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate</button>
+            </div>
+
+            <!-- Results section -->
+            <div id="results-section" class="results-section hidden">
+
+                <div class="result-hero">
+                    <div class="result-hero-number" id="result-hero-number">--</div>
+                    <div class="result-hero-label" id="result-hero-label">Result</div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Pace Breakdown</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Pace per Mile</span>
+                        <span class="result-breakdown-val" id="result-pace-per-mile">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Pace per Kilometer</span>
+                        <span class="result-breakdown-val" id="result-pace-per-km">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Speed</span>
+                        <span class="result-breakdown-val" id="result-speed">--</span>
+                    </div>
+                </div>
+
+                <!-- Race Equivalents Table -->
+                <div style="margin-top: 16px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Race Time Equivalents at This Pace</div>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Race</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Finish Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="race-equiv-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Splits Table -->
+                <div style="margin-top: 20px;">
+                    <div style="font-size: 0.9rem; font-weight: 600; margin-bottom: 8px;">Mile / KM Splits</div>
+                    <div class="table-responsive" style="overflow-x: auto; max-height: 320px; overflow-y: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb); position: sticky; top: 0;">
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Split</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Cumulative Time</th>
+                                    <th style="padding: 8px 10px; text-align: left; border-bottom: 2px solid #e5e7eb;">Split Pace</th>
+                                </tr>
+                            </thead>
+                            <tbody id="splits-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    How does the pace calculator work?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>Pace Calculator Formula</h4>
+                    <ul>
+                        <li><strong>Pace = Time ÷ Distance</strong> (expressed as minutes:seconds per mile or per km)</li>
+                        <li><strong>Time = Pace × Distance</strong> (finish time from a known pace and distance)</li>
+                        <li><strong>Distance = Time ÷ Pace</strong> (how far you can run at a given pace for a given duration)</li>
+                        <li><strong>Mile ↔ Km conversion:</strong> 1 mile = 1.60934 km. To convert min/mile to min/km, divide by 1.60934.</li>
+                        <li><strong>Splits:</strong> This calculator assumes an even-split strategy (constant pace throughout). Real race performance varies with fatigue, terrain, and pacing strategy.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Ad -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is Running Pace?</h2>
+    <div class="answer-capsule">
+      Running pace is the time it takes to cover one unit of distance — expressed as minutes per mile (min/mile) in the United States, or minutes per kilometer (min/km) in most other countries. For example, a 9:00/mile pace means it takes exactly 9 minutes to run one mile. Pace is the inverse of speed: a pace of 9:00/mile equals a speed of 6.7 mph (10.7 km/h). Knowing your pace lets you predict race finish times, plan training runs, and execute proper pacing strategy on race day.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        Pace-based training is the foundation of virtually every distance running program. Whether you're training for your first 5K or chasing a Boston Qualifier, understanding your pace — and running at the right pace for each workout — is the single most important variable in structured training.
+    </p>
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#pace-chart">Common Race Paces Chart</a></li>
+            <li><a href="#pacing-strategy">Pacing Strategy for Race Day</a></li>
+            <li><a href="#training-paces">Training Pace Zones Explained</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="pace-chart" class="info">
+        <h2>Common Race Finish Time & Pace Reference</h2>
+        <p>The table below shows finish times and corresponding pace-per-mile for runners across the performance spectrum — from beginner to elite. Use it as a quick reference or to set realistic goals.</p>
+
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Level</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Pace/Mile</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">5K</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">10K</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Half Marathon</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Marathon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Beginner</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">13:00–15:00</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">40–47 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1:20–1:33</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">2:50–3:17</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5:40–6:33</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Recreational</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">10:00–12:00</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">31–37 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1:02–1:15</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">2:11–2:37</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">4:22–5:14</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Intermediate</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">8:00–9:59</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">25–31 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">50–62 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1:45–2:10</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">3:30–4:21</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Advanced</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">6:00–7:59</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">19–25 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">37–50 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1:18–1:45</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">2:37–3:29</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Competitive</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">5:00–5:59</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">15:30–19 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">31–37 min</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">1:05–1:18</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">2:10–2:36</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; font-weight: 600;">Elite</td>
+                        <td style="padding: 8px 12px;">Sub 5:00</td>
+                        <td style="padding: 8px 12px;">Sub 13:30</td>
+                        <td style="padding: 8px 12px;">Sub 28 min</td>
+                        <td style="padding: 8px 12px;">Sub 1:00</td>
+                        <td style="padding: 8px 12px;">Sub 2:05</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;">
+            Pace ranges are approximate and represent general performance bands. Individual results vary based on age, sex, training volume, and race conditions. Data adapted from Runners World and Running USA race statistics.
+        </p>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="pacing-strategy" class="info">
+        <h2>Pacing Strategy for Race Day</h2>
+        <p>How you distribute your effort over a race distance directly determines your finish time. Research consistently shows that the most effective race strategy is even pacing or a modest negative split (running the second half slightly faster than the first).</p>
+
+        <div class="important-box">
+            <h3>Even Split vs. Negative Split vs. Positive Split</h3>
+            <ul>
+                <li><strong>Even split:</strong> Run each mile at the same pace. Most calculators (including this one) assume even splits. Research shows this is near-optimal for recreational runners (Tucker et al., 2006).</li>
+                <li><strong>Negative split:</strong> Run the second half slightly faster than the first. Used by most world record holders. Requires conservative early pacing and excellent fitness awareness.</li>
+                <li><strong>Positive split:</strong> Start fast, slow down as fatigue sets in. The most common race execution mistake. Studies show 90%+ of runners who positive-split underperform their potential.</li>
+            </ul>
+        </div>
+
+        <div class="important-box" style="border-left-color: #059669;">
+            <h3>Practical Race-Day Pacing Tips</h3>
+            <ul>
+                <li><strong>Start 5–10 seconds per mile slower</strong> than goal pace in the first mile — the adrenaline and crowd will pull you fast. Resist it.</li>
+                <li><strong>Use GPS splits</strong> but trust your effort perception. GPS can be off by 2–5% due to satellite variance and weaving through crowds.</li>
+                <li><strong>Check splits at each mile marker</strong> rather than relying solely on your watch average.</li>
+                <li><strong>Negative splitting a 5K:</strong> Mile 1 at goal + 5 sec, miles 2–3 at goal, last 0.1 mile at max effort.</li>
+                <li><strong>The 10% rule:</strong> Most running coaches recommend not increasing weekly mileage by more than 10% per week to avoid injury while building the pace you need.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="training-paces" class="info">
+        <h2>Training Pace Zones Explained</h2>
+        <div class="answer-capsule">
+          Training pace zones are defined relative to your current race pace or lactate threshold. The most widely used system defines five zones: easy/recovery (65–75% effort), aerobic base (75–80%), tempo/threshold (85–90%), VO₂ max intervals (95–100%), and neuromuscular (all-out sprints). The majority of running training volume — roughly 80% — should be at easy and aerobic paces to build aerobic capacity without accumulating excessive fatigue.
+        </div>
+
+        <div class="table-responsive" style="overflow-x: auto; margin-top: 16px;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.88rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Zone</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Name</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">% of 5K Pace</th>
+                        <th style="padding: 10px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #2563eb;">Z1</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Recovery / Easy</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">+70–90 sec/mile</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Active recovery, long slow runs</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #16a34a;">Z2</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Aerobic Base</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">+45–70 sec/mile</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Aerobic capacity, fat oxidation</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #ca8a04;">Z3</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Tempo / Threshold</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">+15–30 sec/mile</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Lactate threshold, race-specific fitness</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0; font-weight: 600; color: #ea580c;">Z4</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">VO₂ Max Intervals</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Race pace or faster</td>
+                        <td style="padding: 8px 12px; border-bottom: 1px solid #f0f0f0;">Maximal oxygen uptake, speed</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px 12px; font-weight: 600; color: #dc2626;">Z5</td>
+                        <td style="padding: 8px 12px;">Neuromuscular</td>
+                        <td style="padding: 8px 12px;">All-out sprints</td>
+                        <td style="padding: 8px 12px;">Sprint speed, running economy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--color-text-tertiary); margin-top: 8px;">
+            Pace zones relative to your current 5K race pace. For heart rate-based zones, see the <a href="/zone2-heart-rate-calculator">Zone 2 Heart Rate Calculator</a>. Source: Jack Daniels' Running Formula, 4th ed.
+        </p>
+    </section>
+
+    <!-- Methodology -->
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/running-calorie-calculator" class="related-tool-card">
+                <h4>Running Calorie Calculator</h4>
+                <p>See how many calories your run burns based on pace, distance, and body weight.</p>
+            </a>
+            <a href="/zone2-heart-rate-calculator" class="related-tool-card">
+                <h4>Zone 2 Heart Rate Calculator</h4>
+                <p>Find the heart rate range for aerobic base runs — the pace that builds your engine.</p>
+            </a>
+            <a href="/vo2-max-calculator" class="related-tool-card">
+                <h4>VO₂ Max Calculator</h4>
+                <p>Estimate your aerobic capacity and see how it maps to race performance.</p>
+            </a>
+            <a href="/calories-burned-calculator" class="related-tool-card">
+                <h4>Calories Burned Calculator</h4>
+                <p>Compare calorie burn across running, cycling, swimming, and 30+ other activities.</p>
+            </a>
+        </div>
+    </div>
+
+    </div>
+
+    <!-- Mode button active style script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.pace-mode-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.pace-mode-btn').forEach(function(b) {
+                b.style.background = 'white';
+                b.style.color = '#374151';
+                b.style.borderColor = '#d1d5db';
+            });
+            btn.style.background = 'var(--color-accent, #3b82f6)';
+            btn.style.color = 'white';
+            btn.style.borderColor = 'var(--color-accent, #3b82f6)';
+        });
+    });
+});
+</script>
+
 
 <!-- V25 SEO Sections -->
 <div class="v25-seo-section" style="background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);">
@@ -378,5 +795,10 @@ document.querySelectorAll('.ask-pill').forEach(function(pill) {
     pill.addEventListener('click', function() { document.getElementById('v25AskInput').value = this.textContent; });
 });
 </script>
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/running_pace_calculator.js"></script>
 </body>
 </html>

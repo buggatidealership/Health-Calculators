@@ -265,7 +265,299 @@
 </head>
 <body>
 {% include 'header.html' %}
-{% include 'cycling_calorie_calculator.html' %}
+<div class="calculator-container">
+    <h1>Cycling Calorie Calculator</h1>
+    <p class="subtitle">Find out exactly how many calories you burn cycling — by intensity, duration, and body weight. Covers road cycling, mountain biking, and stationary bike.</p>
+
+    <section id="calculator">
+        <h2>Calculate Cycling Calories Burned</h2>
+        <div class="calculator">
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight">Body Weight:</label>
+                    <div style="display:flex;gap:8px;align-items:center;">
+                        <input type="number" id="weight" min="44" max="661" step="0.5" value="165" placeholder="e.g. 165" style="flex:1;">
+                        <select id="weight-unit" style="width:80px;">
+                            <option value="lbs" selected>lbs</option>
+                            <option value="kg">kg</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (minutes):</label>
+                    <input type="number" id="duration" min="1" max="600" step="1" value="45" placeholder="e.g. 45">
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group" style="width:100%;">
+                    <label for="cycling-type">Cycling Type / Intensity:</label>
+                    <select id="cycling-type" style="width:100%;">
+                        <optgroup label="Road Cycling">
+                            <option value="road-leisure">Leisurely — &lt;10 mph (casual riding)</option>
+                            <option value="road-easy">Easy — 10–11.9 mph (light effort)</option>
+                            <option value="road-moderate" selected>Moderate — 12–13.9 mph (moderate effort)</option>
+                            <option value="road-vigorous">Vigorous — 14–15.9 mph (fast, some effort)</option>
+                            <option value="road-racing">Racing — 16–19 mph (hard effort)</option>
+                            <option value="road-very-fast">Very Fast — ≥20 mph (elite/race pace)</option>
+                        </optgroup>
+                        <optgroup label="Off-Road">
+                            <option value="mountain">Mountain biking — general</option>
+                        </optgroup>
+                        <optgroup label="Stationary Bike">
+                            <option value="stationary-light">Stationary bike — light effort</option>
+                            <option value="stationary-moderate">Stationary bike — moderate effort</option>
+                            <option value="stationary-vigorous">Stationary bike — vigorous effort</option>
+                        </optgroup>
+                    </select>
+                    <span class="input-hint">MET values from the 2011 Compendium of Physical Activities (Ainsworth et al.)</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Calories Burned</button>
+            </div>
+
+            <div id="calc-error" class="error-message hidden" role="alert"></div>
+
+            <div id="results-section" class="results-section hidden">
+
+                <!-- Hero result -->
+                <div class="result-hero">
+                    <div class="result-hero-number" id="result-calories">--</div>
+                    <div class="result-hero-label">Calories Burned (kcal)</div>
+                </div>
+
+                <!-- Result breakdown -->
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Workout Summary</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Activity</span>
+                        <span class="result-breakdown-val" id="result-type">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Calories per Minute</span>
+                        <span class="result-breakdown-val" id="result-cal-per-min">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Calories per Hour</span>
+                        <span class="result-breakdown-val" id="result-per-hour">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Estimated Fat Burned</span>
+                        <span class="result-breakdown-val" id="result-fat">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">MET Value</span>
+                        <span class="result-breakdown-val" id="result-met">--</span>
+                    </div>
+                </div>
+
+                <!-- Inputs recap -->
+                <div class="result-breakdown" style="margin-top:12px;">
+                    <div class="result-breakdown-title">Your Inputs</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Body Weight</span>
+                        <span class="result-breakdown-val" id="display-weight">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Cycling Type</span>
+                        <span class="result-breakdown-val" id="display-type">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Duration</span>
+                        <span class="result-breakdown-val" id="display-duration">--</span>
+                    </div>
+                </div>
+
+                <!-- Intensity comparison table -->
+                <div style="margin-top:20px;">
+                    <div style="font-size:0.9rem;font-weight:600;margin-bottom:8px;">Intensity Comparison (same weight &amp; duration)</div>
+                    <div class="table-responsive" style="overflow-x:auto;">
+                        <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                            <thead>
+                                <tr style="background:var(--color-surface,#f9fafb);">
+                                    <th style="padding:8px 10px;text-align:left;border-bottom:2px solid #e5e7eb;">Cycling Type</th>
+                                    <th style="padding:8px 10px;text-align:left;border-bottom:2px solid #e5e7eb;">MET</th>
+                                    <th style="padding:8px 10px;text-align:left;border-bottom:2px solid #e5e7eb;">Calories</th>
+                                </tr>
+                            </thead>
+                            <tbody id="comparison-table-body"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                {% include 'components/share-card.html' %}
+            </div><!-- /results-section -->
+
+        </div><!-- /calculator -->
+    </section>
+
+    <!-- Top Ad -->
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>How Many Calories Does Cycling Burn?</h2>
+    <div class="answer-capsule">
+        Cycling burns roughly <strong>250–1,000 calories per hour</strong>, depending on your body weight and cycling intensity. A 155 lb (70 kg) person cycling at a moderate pace (12–14 mph) burns approximately 560 kcal/hour. Casual leisurely cycling burns around 280 kcal/hour, while racing pace (16–19 mph) can burn over 840 kcal/hour for the same person. Stationary bike at moderate effort burns around 385 kcal/hour — less than outdoor cycling at the same perceived intensity due to the absence of wind resistance.
+    </div>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#calorie-table">Cycling Calorie Reference Table</a></li>
+            <li><a href="#intensity-guide">Cycling Intensity Guide</a></li>
+            <li><a href="#road-vs-stationary">Road vs. Stationary Bike Calories</a></li>
+            <li><a href="#methodology">Methodology (MET Formula)</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <!-- Calorie reference table -->
+    <section id="calorie-table" class="info">
+        <h2>Cycling Calorie Reference Table</h2>
+        <p>Estimated calories burned cycling per 30 minutes, by body weight and intensity. Based on MET values from the 2011 Compendium of Physical Activities.</p>
+
+        <div class="table-responsive" style="overflow-x:auto;">
+            <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                <thead>
+                    <tr style="background:var(--color-surface,#f9fafb);">
+                        <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #e5e7eb;">Cycling Intensity</th>
+                        <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #e5e7eb;">MET</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">130 lbs<br>(59 kg)</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">155 lbs<br>(70 kg)</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">180 lbs<br>(82 kg)</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">205 lbs<br>(93 kg)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Leisurely &lt;10 mph</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">4.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">118</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">140</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">164</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">186</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Easy 10–11.9 mph</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">6.8</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">201</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">238</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">279</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">316</td></tr>
+                    <tr style="background:#f0fdf4;"><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;font-weight:600;">Moderate 12–13.9 mph</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;font-weight:600;">8.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">236</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">280</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">328</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">372</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Vigorous 14–15.9 mph</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">295</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">350</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">410</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">465</td></tr>
+                    <tr style="background:#eff6ff;"><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;font-weight:600;">Racing 16–19 mph</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;font-weight:600;">12.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">354</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">420</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">492</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">558</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Very Fast ≥20 mph</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">15.8</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">466</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">553</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">648</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">735</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Mountain biking</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">8.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">251</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">298</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">348</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">395</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Stationary — light</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">3.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">103</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">123</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">144</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">163</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Stationary — moderate</td><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">5.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">162</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">193</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">226</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">256</td></tr>
+                    <tr><td style="padding:7px 12px;">Stationary — vigorous</td><td style="padding:7px 12px;">8.5</td><td style="padding:7px 12px;text-align:center;">251</td><td style="padding:7px 12px;text-align:center;">298</td><td style="padding:7px 12px;text-align:center;">348</td><td style="padding:7px 12px;text-align:center;">395</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size:0.82rem;color:var(--color-text-tertiary);margin-top:8px;">
+            <strong>Source:</strong> MET values from Ainsworth BE et al. 2011 Compendium of Physical Activities. Med Sci Sports Exerc. 2011. Calories = MET × weight (kg) × duration (hours). Values are estimates; actual calorie burn varies by individual fitness, terrain, and equipment.
+        </p>
+    </section>
+
+    <section id="intensity-guide" class="info">
+        <h2>How Cycling Intensity Affects Calorie Burn</h2>
+        <div class="answer-capsule">
+            Cycling at 14–16 mph burns roughly 2.5 times more calories per hour than casual &lt;10 mph riding. The MET (Metabolic Equivalent of Task) for cycling ranges from 4.0 (leisurely) to 15.8 (elite race pace). Because calories = MET × body weight × hours, doubling your speed from 10 mph to 20 mph more than doubles your calorie burn — speed has a non-linear effect on energy expenditure because aerodynamic drag increases with the square of velocity.
+        </div>
+
+        <p>The key factors driving cycling calorie burn are:</p>
+
+        <div class="important-box">
+            <h3>Primary Factors Affecting Cycling Calorie Burn</h3>
+            <ul>
+                <li><strong>Speed / intensity:</strong> The single biggest factor. Racing pace (16–19 mph) burns 3× more than leisurely (&lt;10 mph). Air resistance increases as the square of speed — above 15 mph, overcoming wind drag dominates energy expenditure.</li>
+                <li><strong>Body weight:</strong> Heavier riders burn more calories at every intensity because more mass requires more energy to propel. A 205 lb rider burns ~33% more than a 155 lb rider at the same speed.</li>
+                <li><strong>Duration:</strong> Calories scale linearly with time at a constant intensity — 60 minutes burns exactly twice as many calories as 30 minutes.</li>
+                <li><strong>Terrain:</strong> Hills dramatically increase calorie burn — climbing requires significant additional energy to overcome gravity. This calculator uses general/flat MET values; actual burn on hilly terrain will be higher.</li>
+                <li><strong>Bike type and fit:</strong> Aerodynamic road bikes are more efficient than mountain bikes for the same speed. A rider at 12 mph on a mountain bike works harder than on a road bike.</li>
+            </ul>
+        </div>
+
+        <p>A 2013 study in the <em>Journal of Science and Medicine in Sport</em> (Peveler et al.) found that air resistance accounts for over 90% of total resistance at speeds above 15 mph on flat terrain — explaining why small increases in speed above 15 mph require exponentially more power and calorie expenditure.</p>
+    </section>
+
+    <section id="road-vs-stationary" class="info">
+        <h2>Road Cycling vs. Stationary Bike: Calorie Comparison</h2>
+        <p>Stationary bike workouts typically burn fewer calories than outdoor cycling at the same perceived effort level. This is because outdoor cycling involves wind resistance, dynamic balance, and stop-and-go traffic that add to total energy expenditure.</p>
+
+        <div class="table-responsive" style="overflow-x:auto;">
+            <table class="data-table" style="width:100%;border-collapse:collapse;font-size:0.88rem;">
+                <thead>
+                    <tr style="background:var(--color-surface,#f9fafb);">
+                        <th style="padding:9px 12px;text-align:left;border-bottom:2px solid #e5e7eb;">Activity</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">MET</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">Kcal/hr<br>(155 lb)</th>
+                        <th style="padding:9px 12px;text-align:center;border-bottom:2px solid #e5e7eb;">Intensity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Stationary bike — light</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">3.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">245</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Light</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Road cycling &lt;10 mph</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">4.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">280</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Light</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Stationary bike — moderate</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">5.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">385</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Moderate</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Road cycling 10–12 mph</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">6.8</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">476</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Moderate</td></tr>
+                    <tr style="background:#f0fdf4;"><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;font-weight:600;">Road cycling 12–14 mph</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">8.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">560</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;font-weight:600;">Vigorous</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Stationary bike — vigorous</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">8.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">595</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Vigorous</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Mountain biking</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">8.5</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">595</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Vigorous</td></tr>
+                    <tr><td style="padding:7px 12px;border-bottom:1px solid #f0f0f0;">Road cycling 14–16 mph</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">10.0</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">700</td><td style="padding:7px 12px;text-align:center;border-bottom:1px solid #f0f0f0;">Very Vigorous</td></tr>
+                    <tr><td style="padding:7px 12px;">Road cycling 16–19 mph</td><td style="padding:7px 12px;text-align:center;">12.0</td><td style="padding:7px 12px;text-align:center;">840</td><td style="padding:7px 12px;text-align:center;">High Intensity</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size:0.85rem;color:var(--color-text-tertiary);margin-top:8px;"><strong>Note:</strong> For a 155 lb (70 kg) person. Stationary bike vigorous effort (MET 8.5) approximates road cycling at 12–14 mph in terms of calorie burn.</p>
+
+        <div class="important-box">
+            <h3>Key Difference: Perceived Effort vs. Actual Calorie Burn</h3>
+            <ul>
+                <li><strong>On a stationary bike</strong>, "moderate" effort typically corresponds to MET 5.5 — similar to road cycling at 10–12 mph.</li>
+                <li><strong>Peloton/spin bikes</strong> with resistance can reach MET 8.5–10+ at high effort, matching vigorous outdoor cycling.</li>
+                <li><strong>Recumbent bikes</strong> generally burn slightly fewer calories than upright bikes at the same resistance because the reclined position reduces core muscle engagement.</li>
+                <li><strong>Heart rate monitors</strong> combined with power meters give the most accurate individual calorie estimates for cycling.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- In-article Ad -->
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    {% with ad_position="bottom" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <div class="related-tools">
+        <h3>Related Calculators</h3>
+        <div class="related-tools-grid">
+            <a href="/calories-burned-calculator" class="related-tool-card">
+                <h4>Calories Burned Calculator</h4>
+                <p>Compare cycling to running, swimming, strength training, and 100+ activities.</p>
+            </a>
+            <a href="/running-calorie-calculator" class="related-tool-card">
+                <h4>Running Calorie Calculator</h4>
+                <p>Calculate calories burned running by distance, pace, and body weight.</p>
+            </a>
+            <a href="/zone2-heart-rate-calculator" class="related-tool-card">
+                <h4>Zone 2 Heart Rate Calculator</h4>
+                <p>Find the cycling intensity that maximizes fat burning — your Zone 2 target.</p>
+            </a>
+            <a href="/tdee-calculator" class="related-tool-card">
+                <h4>TDEE Calculator</h4>
+                <p>See how your cycling sessions fit into your total daily calorie budget.</p>
+            </a>
+            <a href="/treadmill-calorie-calculator" class="related-tool-card">
+                <h4>Treadmill Calorie Calculator</h4>
+                <p>Compare indoor cycling to treadmill walking and running calorie burn.</p>
+            </a>
+        </div>
+    </div>
+
+    </div><!-- /calculator-container -->
+
 
 <!-- V25 SEO Sections -->
 <div class="v25-seo-section" style="background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);">
@@ -378,5 +670,10 @@ document.querySelectorAll('.ask-pill').forEach(function(pill) {
     pill.addEventListener('click', function() { document.getElementById('v25AskInput').value = this.textContent; });
 });
 </script>
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/cycling_calorie_calculator.js"></script>
 </body>
 </html>
