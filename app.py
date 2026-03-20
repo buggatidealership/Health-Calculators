@@ -2753,17 +2753,16 @@ def liposuction_weight_loss_calculator():
 @app.route('/lip-filler-cost-calculator')
 def lip_filler_cost_calculator():
     schema_name = "Lip Filler Cost Calculator"
-    schema_description = "Estimate the cost of lip filler injections based on desired volume, brand, and injector type. Personalized and aesthetic-focused."
+    schema_description = "Estimate the total cost of lip filler injections based on volume, provider, location, and brand using ASPS pricing data."
     schema_url = "/lip-filler-cost-calculator"
     return render_template(
-        'lip_filler_cost_calculator.html',
+        'lip_filler_cost_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_category={'name': 'Cosmetic & Aesthetic', 'url': '/cosmetic-procedure-calculators'},
+        date_modified='2026-03-20'
     )
 
 @app.route('/adult-height-predictor-calculator')
