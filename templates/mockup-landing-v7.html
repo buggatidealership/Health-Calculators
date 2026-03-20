@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Health Calculators — Intelligence, Not Just Math</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0f1a;
+            --bg-dark-2: #0d1220;
+            --teal: #14b8a6;
+            --teal-dim: rgba(20, 184, 166, 0.3);
+            --teal-glow: rgba(20, 184, 166, 0.6);
+            --cream: #F5F0EA;
+            --cream-dim: rgba(245, 240, 234, 0.7);
+            --cream-muted: rgba(245, 240, 234, 0.4);
+            --warm-tint: rgba(255, 180, 120, 0.08);
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== HERO: CINEMATIC SHOWCASE ===== */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            max-height: 1000px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(20, 184, 166, 0.04) 0%, var(--bg-dark) 70%);
+            transition: background 1.5s ease;
+        }
+
+        .hero-bg.warm {
+            background: radial-gradient(ellipse at center, var(--warm-tint) 0%, var(--bg-dark) 70%);
+        }
+
+        .hero-bg.teal-intense {
+            background: radial-gradient(ellipse at center, rgba(20, 184, 166, 0.08) 0%, var(--bg-dark) 60%);
+        }
+
+        /* Fragment system */
+        .fragment-container {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .fragment {
+            position: absolute;
+            font-family: 'DM Sans', sans-serif;
+            white-space: nowrap;
+            opacity: 0;
+            will-change: transform, opacity;
+            transition: none;
+        }
+
+        .fragment.flying {
+            animation: fragmentFly var(--fly-duration, 3s) var(--fly-delay, 0s) ease-out forwards;
+        }
+
+        .fragment.converging {
+            transition: all var(--converge-speed, 0.6s) cubic-bezier(0.23, 1, 0.32, 1);
+            opacity: 0 !important;
+            transform: translate(-50%, -50%) scale(0.2) !important;
+            left: 50% !important;
+            top: 50% !important;
+            filter: blur(8px);
+        }
+
+        @keyframes fragmentFly {
+            0% {
+                opacity: 0;
+                transform: translate(var(--start-x, 0), var(--start-y, 0)) scale(0.8);
+            }
+            15% {
+                opacity: var(--frag-opacity, 0.5);
+            }
+            85% {
+                opacity: var(--frag-opacity, 0.5);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--end-x, 0), var(--end-y, 0)) scale(0.9);
+            }
+        }
+
+        /* Convergence result */
+        .convergence-result {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            opacity: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .convergence-result.visible {
+            opacity: 1;
+        }
+
+        .result-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(3.5rem, 8vw, 6rem);
+            color: var(--cream);
+            text-shadow: 0 0 40px var(--teal-glow), 0 0 80px var(--teal-dim);
+            animation: numberPulse 2s ease-in-out infinite;
+            line-height: 1.1;
+        }
+
+        @keyframes numberPulse {
+            0%, 100% { text-shadow: 0 0 40px var(--teal-glow), 0 0 80px var(--teal-dim); }
+            50% { text-shadow: 0 0 60px var(--teal-glow), 0 0 120px var(--teal-dim), 0 0 160px rgba(20, 184, 166, 0.15); }
+        }
+
+        .result-unit {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(1rem, 2.5vw, 1.4rem);
+            color: var(--cream-muted);
+            margin-top: 0.3rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 300;
+        }
+
+        .result-card {
+            margin-top: 1.8rem;
+            padding: 1rem 1.8rem;
+            background: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 12px;
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--cream-dim);
+            opacity: 0;
+            transform: translateY(16px);
+            line-height: 1.5;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .result-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        /* Beat 7: Message */
+        .message-container {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin: 0 auto 2.5rem;
+            opacity: 0;
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 40px var(--teal-dim);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        .pulse-dot.visible { opacity: 1; transition: opacity 0.8s ease; }
+
+        @keyframes dotPulse {
+            0%, 100% { box-shadow: 0 0 20px var(--teal-glow), 0 0 40px var(--teal-dim); transform: scale(1); }
+            50% { box-shadow: 0 0 30px var(--teal-glow), 0 0 60px var(--teal-dim); transform: scale(1.15); }
+        }
+
+        .message-line {
+            font-family: 'DM Serif Display', serif;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: all 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+
+        .message-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .message-line.headline {
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            color: var(--cream);
+            margin-bottom: 0.6rem;
+        }
+
+        .message-line.subhead {
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+            color: var(--teal);
+            margin-bottom: 1.8rem;
+        }
+
+        .message-line.body {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: var(--cream-muted);
+            font-weight: 300;
+            max-width: 480px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: transparent;
+            border: 1px solid rgba(20, 184, 166, 0.4);
+            border-radius: 100px;
+            color: var(--teal);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.5s ease;
+            cursor: pointer;
+            letter-spacing: 0.02em;
+        }
+
+        .cta-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-btn:hover {
+            background: rgba(20, 184, 166, 0.1);
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-dim);
+        }
+
+        .cta-btn .arrow {
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover .arrow {
+            transform: translateX(4px);
+        }
+
+        /* ===== BELOW THE FOLD: FEATURED CARDS ===== */
+        .section {
+            padding: 6rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+            color: var(--cream);
+            margin-bottom: 3rem;
+            line-height: 1.2;
+        }
+
+        /* Featured calculator cards */
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .featured-grid { grid-template-columns: 1fr; gap: 1.2rem; }
+        }
+
+        .featured-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+        }
+
+        .featured-card.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .featured-card:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+            background: rgba(20, 184, 166, 0.04);
+            transform: translateY(-4px);
+        }
+
+        .featured-card:nth-child(2) { transition-delay: 0.15s; }
+        .featured-card:nth-child(3) { transition-delay: 0.3s; }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(20, 184, 166, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            margin-bottom: 1.2rem;
+            color: var(--teal);
+        }
+
+        .card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.25rem;
+            color: var(--cream);
+            margin-bottom: 0.6rem;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--cream-muted);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        .card-stat {
+            margin-top: 1.2rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.8rem;
+            color: var(--teal);
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+
+        /* Category pills */
+        .categories-section {
+            padding: 0 1.5rem 6rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .pill-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .pill {
+            padding: 0.55rem 1.2rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.03);
+            color: var(--cream-dim);
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .pill:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(20, 184, 166, 0.06);
+        }
+
+        /* Ask Pulse section */
+        .pulse-section {
+            padding: 5rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-dark-2) 100%);
+        }
+
+        .pulse-section .pulse-dot-lg {
+            width: 20px;
+            height: 20px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            box-shadow: 0 0 30px var(--teal-glow), 0 0 60px var(--teal-dim);
+            animation: dotPulse 2s ease-in-out infinite;
+        }
+
+        .pulse-section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--cream);
+            margin-bottom: 0.8rem;
+        }
+
+        .pulse-section p {
+            font-size: 1rem;
+            color: var(--cream-muted);
+            font-weight: 300;
+            max-width: 440px;
+            margin: 0 auto 2rem;
+            line-height: 1.6;
+        }
+
+        .pulse-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2.2rem;
+            background: var(--teal);
+            border: none;
+            border-radius: 100px;
+            color: var(--bg-dark);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .pulse-cta:hover {
+            background: #0ea394;
+            box-shadow: 0 0 30px var(--teal-dim);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .footer-brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: var(--cream-dim);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-sub {
+            font-size: 0.8rem;
+            color: var(--cream-muted);
+            font-weight: 300;
+        }
+
+        .footer-links {
+            margin-top: 1.2rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.8rem;
+            color: var(--cream-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--teal); }
+
+        /* Mobile adjustments */
+        @media (max-width: 640px) {
+            .hero { min-height: 500px; }
+            .result-card { margin-left: 1rem; margin-right: 1rem; padding: 0.8rem 1.2rem; }
+            .section { padding: 4rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO: CINEMATIC SHOWCASE ===== -->
+<section class="hero" id="hero">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="fragment-container" id="fragmentContainer"></div>
+
+    <!-- Convergence results (one per calculator) -->
+    <div class="convergence-result" id="result-tdee">
+        <div class="result-number">2,340</div>
+        <div class="result-unit">calories per day</div>
+        <div class="result-card" id="card-tdee">BMR is your body's rent. TDEE is rent + utilities.</div>
+    </div>
+
+    <div class="convergence-result" id="result-caffeine">
+        <div class="result-number">24 mg</div>
+        <div class="result-unit">remaining at bedtime</div>
+        <div class="result-card" id="card-caffeine">Every 5 hours, half.</div>
+    </div>
+
+    <div class="convergence-result" id="result-vitamind">
+        <div class="result-number">Sufficient</div>
+        <div class="result-unit">45 ng/mL = 112 nmol/L</div>
+        <div class="result-card" id="card-vitamind">Multiply by 2.5. That's the whole conversion.</div>
+    </div>
+
+    <!-- Beat 7: Final message -->
+    <div class="message-container" id="messageContainer">
+        <div class="pulse-dot" id="msgDot"></div>
+        <div class="message-line headline" id="msgLine1">Each calculator is intelligence.</div>
+        <div class="message-line subhead" id="msgLine2">Not just math.</div>
+        <div class="message-line body" id="msgLine3">90+ tools. Each one teaches you a framework you'll never forget.</div>
+        <a href="/calculators" class="cta-btn" id="msgCta">Explore calculators <span class="arrow">&rarr;</span></a>
+    </div>
+</section>
+
+<!-- ===== FEATURED CALCULATORS ===== -->
+<section class="section" id="featuredSection">
+    <div class="section-label">Featured</div>
+    <div class="section-title">Start with the questions people actually ask</div>
+    <div class="featured-grid">
+        <a href="/tdee-calculator" class="featured-card">
+            <div class="card-icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"/><path d="M12 18a3.75 3.75 0 0 0 .495-7.468 5.99 5.99 0 0 0-1.925 3.547 5.975 5.975 0 0 1-2.133-1.001A3.75 3.75 0 0 0 12 18Z"/></svg>
+            </div>
+            <div class="card-title">TDEE Calculator</div>
+            <div class="card-desc">Your total daily energy expenditure from Mifflin-St Jeor. The number behind every meal plan.</div>
+            <div class="card-stat">43K monthly searches</div>
+        </a>
+        <a href="/caffeine-half-life-calculator" class="featured-card">
+            <div class="card-icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+            </div>
+            <div class="card-title">Caffeine Half-Life</div>
+            <div class="card-desc">When to stop drinking coffee so it doesn't wreck your sleep. Pharmacokinetics made obvious.</div>
+            <div class="card-stat">PERFECT SERP opportunity</div>
+        </a>
+        <a href="/vitamin-d-calculator" class="featured-card">
+            <div class="card-icon">
+                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+            </div>
+            <div class="card-title">Vitamin D Status</div>
+            <div class="card-desc">nmol/L or ng/mL — one multiplication. Know whether your levels mean anything.</div>
+            <div class="card-stat">Cross-domain synthesis</div>
+        </a>
+    </div>
+</section>
+
+<!-- ===== CATEGORY PILLS ===== -->
+<section class="categories-section">
+    <div class="section-label">Categories</div>
+    <div class="section-title">Every question has a calculator</div>
+    <div class="pill-grid">
+        <a href="/calculators" class="pill">Body Composition</a>
+        <a href="/calculators" class="pill">Nutrition</a>
+        <a href="/calculators" class="pill">Strength & Fitness</a>
+        <a href="/calculators" class="pill">Hormones</a>
+        <a href="/calculators" class="pill">Women's Health</a>
+        <a href="/calculators" class="pill">Medication Timing</a>
+        <a href="/calculators" class="pill">Lab Results</a>
+        <a href="/calculators" class="pill">Weight Loss</a>
+        <a href="/calculators" class="pill">Pregnancy</a>
+        <a href="/calculators" class="pill">Running & Cardio</a>
+        <a href="/calculators" class="pill">Pediatric Health</a>
+        <a href="/calculators" class="pill">Financial</a>
+    </div>
+</section>
+
+<!-- ===== ASK PULSE ===== -->
+<section class="pulse-section">
+    <div class="pulse-dot-lg"></div>
+    <h2>Can't find what you need?</h2>
+    <p>Pulse synthesizes 90+ calculators into one conversation. Ask anything about your body, your labs, or your plan.</p>
+    <a href="/calculators" class="pulse-cta">Browse all tools <span>&rarr;</span></a>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-brand">HealthCalculators.xyz</div>
+    <div class="footer-sub">Intelligence, not just math.</div>
+    <div class="footer-links">
+        <a href="/calculators">Calculators</a>
+        <a href="/resources">Resources</a>
+        <a href="https://x.com/GetHealthC" target="_blank">Twitter</a>
+    </div>
+</footer>
+
+<script>
+(function() {
+    // ===== DATA: fragments for each beat =====
+    const FRAGMENTS = {
+        tdee: [
+            { text: 'how many calories should I eat', size: 0.95 },
+            { text: 'Mifflin-St Jeor equation', size: 0.8 },
+            { text: 'NEJM 2021;384', size: 0.7 },
+            { text: 'BMR = 10 x weight + 6.25 x height', size: 0.85 },
+            { text: 'is 1200 calories enough', size: 1 },
+            { text: 'metabolic adaptation', size: 0.75 },
+            { text: 'sedentary vs lightly active', size: 0.85 },
+            { text: 'thermic effect of food', size: 0.7 },
+            { text: 'NEAT variation 200-900 kcal', size: 0.75 },
+            { text: 'Harris-Benedict 1919', size: 0.65 },
+            { text: 'why am I not losing weight', size: 1.05 },
+            { text: 'basal metabolic rate', size: 0.8 },
+            { text: 'activity multiplier 1.2-1.9', size: 0.7 },
+            { text: 'adaptive thermogenesis', size: 0.75 },
+            { text: '10 x 70 + 6.25 x 175 - 5 x 30 - 161', size: 0.65 },
+            { text: 'Katch-McArdle formula', size: 0.7 },
+            { text: 'total daily energy expenditure', size: 0.9 },
+            { text: 'resting metabolic rate', size: 0.75 },
+        ],
+        caffeine: [
+            { text: 'half-life pharmacokinetics', size: 0.85 },
+            { text: 'CYP1A2 gene polymorphism', size: 0.75 },
+            { text: 'Drake et al. 2013', size: 0.65 },
+            { text: 'when to stop caffeine', size: 1 },
+            { text: 'sleep latency', size: 0.8 },
+            { text: 'adenosine receptor', size: 0.75 },
+            { text: '400mg FDA daily limit', size: 0.7 },
+            { text: 'cytochrome P450', size: 0.65 },
+            { text: 'caffeine crosses blood-brain barrier', size: 0.8 },
+            { text: 'slow metabolizer vs fast', size: 0.9 },
+            { text: 'espresso 63mg per shot', size: 0.7 },
+            { text: 'Landolt 2012 sleep disruption', size: 0.65 },
+            { text: 'plasma half-life 3-7 hours', size: 0.8 },
+            { text: 'how long does coffee last', size: 1.05 },
+            { text: 'first-order elimination kinetics', size: 0.7 },
+            { text: 'morning cortisol interaction', size: 0.75 },
+        ],
+        vitamind: [
+            { text: 'Endocrine Society 2024', size: 0.75 },
+            { text: '25-hydroxyvitamin D', size: 0.8 },
+            { text: 'nmol/L conversion', size: 0.85 },
+            { text: 'what does my level mean', size: 1.05 },
+            { text: 'calcidiol molecular weight 400.65', size: 0.65 },
+            { text: 'deficiency below 20 ng/mL', size: 0.8 },
+            { text: 'IOM vs Endocrine guidelines', size: 0.7 },
+            { text: 'UVB wavelength 290-315nm', size: 0.65 },
+            { text: 'vitamin D3 cholecalciferol', size: 0.75 },
+            { text: 'Holick 2007 NEJM', size: 0.65 },
+            { text: 'supplementation 1000-4000 IU', size: 0.8 },
+            { text: 'parathyroid hormone axis', size: 0.7 },
+            { text: 'is 30 ng/mL enough', size: 1 },
+            { text: 'bone mineral density', size: 0.75 },
+            { text: 'latitude and sun exposure', size: 0.8 },
+            { text: 'serum 25(OH)D assay', size: 0.65 },
+        ]
+    };
+
+    // ===== TIMING CONSTANTS =====
+    const T = {
+        BEAT1_START: 0,
+        BEAT1_END: 4000,
+        BEAT2_CONVERGE: 4000,
+        BEAT2_NUMBER: 4600,
+        BEAT2_CARD: 5200,
+        BEAT2_END: 8000,
+
+        BEAT3_START: 8000,
+        BEAT3_END: 12000,
+        BEAT4_CONVERGE: 12000,
+        BEAT4_NUMBER: 12400,
+        BEAT4_CARD: 12900,
+        BEAT4_END: 15500,
+
+        BEAT5_START: 15500,
+        BEAT5_END: 19000,
+        BEAT6_CONVERGE: 19000,
+        BEAT6_NUMBER: 19800,
+        BEAT6_CARD: 20500,
+        BEAT6_END: 23500,
+
+        BEAT7_START: 23500,
+        BEAT7_DOT: 24000,
+        BEAT7_LINE1: 24800,
+        BEAT7_LINE2: 27000,
+        BEAT7_LINE3: 28800,
+        BEAT7_CTA: 29800,
+        BEAT7_END: 33000,
+
+        LOOP_FADE: 33000,
+        TOTAL: 34000,
+    };
+
+    const container = document.getElementById('fragmentContainer');
+    const heroBg = document.getElementById('heroBg');
+    let animationTimer = null;
+    let fragmentPool = [];
+
+    // ===== FRAGMENT SPAWNING =====
+    function spawnFragments(dataKey, startTime, duration, speedMult) {
+        const frags = FRAGMENTS[dataKey];
+        const count = window.innerWidth < 640 ? 8 : frags.length;
+        const interval = duration / count;
+
+        for (let i = 0; i < count; i++) {
+            const delay = i * interval;
+            const fragData = frags[i % frags.length];
+
+            setTimeout(() => {
+                createFragment(fragData, duration - delay, speedMult);
+            }, delay);
+        }
+    }
+
+    function createFragment(data, lifetime, speedMult) {
+        const el = document.createElement('div');
+        el.className = 'fragment';
+        el.textContent = data.text;
+
+        const fontSize = data.size * (window.innerWidth < 640 ? 0.75 : 1);
+        el.style.fontSize = fontSize + 'rem';
+
+        // Random opacity between 0.15 and 0.55
+        const opacity = 0.15 + Math.random() * 0.4;
+        el.style.setProperty('--frag-opacity', opacity);
+
+        // Start from edges
+        const edge = Math.floor(Math.random() * 4);
+        let startX, startY, endX, endY;
+        const vw = window.innerWidth;
+        const vh = window.innerHeight;
+
+        switch (edge) {
+            case 0: // top
+                startX = (Math.random() - 0.5) * vw * 0.6;
+                startY = -vh * 0.3;
+                break;
+            case 1: // right
+                startX = vw * 0.4;
+                startY = (Math.random() - 0.5) * vh * 0.5;
+                break;
+            case 2: // bottom
+                startX = (Math.random() - 0.5) * vw * 0.6;
+                startY = vh * 0.3;
+                break;
+            case 3: // left
+                startX = -vw * 0.4;
+                startY = (Math.random() - 0.5) * vh * 0.5;
+                break;
+        }
+
+        // End position drifts toward center but not quite
+        endX = startX * 0.3 + (Math.random() - 0.5) * 100;
+        endY = startY * 0.3 + (Math.random() - 0.5) * 100;
+
+        // Place at center of viewport
+        el.style.left = '50%';
+        el.style.top = '50%';
+        el.style.setProperty('--start-x', startX + 'px');
+        el.style.setProperty('--start-y', startY + 'px');
+        el.style.setProperty('--end-x', endX + 'px');
+        el.style.setProperty('--end-y', endY + 'px');
+
+        const flyDuration = Math.max(1.5, (lifetime / 1000) * 0.8 / speedMult);
+        el.style.setProperty('--fly-duration', flyDuration + 's');
+
+        container.appendChild(el);
+        fragmentPool.push(el);
+
+        // Trigger animation
+        requestAnimationFrame(() => {
+            el.classList.add('flying');
+        });
+
+        // Remove after animation
+        setTimeout(() => {
+            if (el.parentNode) el.parentNode.removeChild(el);
+            const idx = fragmentPool.indexOf(el);
+            if (idx > -1) fragmentPool.splice(idx, 1);
+        }, flyDuration * 1000 + 100);
+    }
+
+    function convergeAll(speed) {
+        fragmentPool.forEach(el => {
+            el.style.setProperty('--converge-speed', speed + 's');
+            el.classList.remove('flying');
+            el.classList.add('converging');
+        });
+        // Clean up after convergence
+        setTimeout(() => {
+            fragmentPool.forEach(el => {
+                if (el.parentNode) el.parentNode.removeChild(el);
+            });
+            fragmentPool = [];
+        }, speed * 1000 + 100);
+    }
+
+    function showResult(id) {
+        const el = document.getElementById(id);
+        el.style.transition = 'opacity 0.5s ease';
+        el.classList.add('visible');
+    }
+
+    function showCard(id) {
+        document.getElementById(id).classList.add('visible');
+    }
+
+    function hideResult(id) {
+        const el = document.getElementById(id);
+        el.style.transition = 'opacity 0.6s ease';
+        el.classList.remove('visible');
+        // Also hide card
+        const card = el.querySelector('.result-card');
+        if (card) card.classList.remove('visible');
+    }
+
+    function hideAllResults() {
+        document.querySelectorAll('.convergence-result').forEach(el => {
+            el.classList.remove('visible');
+            el.querySelectorAll('.result-card').forEach(c => c.classList.remove('visible'));
+        });
+    }
+
+    function showMessage(id) {
+        document.getElementById(id).classList.add('visible');
+    }
+
+    function hideMessage() {
+        document.getElementById('msgDot').classList.remove('visible');
+        ['msgLine1', 'msgLine2', 'msgLine3', 'msgCta'].forEach(id => {
+            document.getElementById(id).classList.remove('visible');
+        });
+    }
+
+    // ===== MAIN ANIMATION SEQUENCE =====
+    function runAnimation() {
+        // Reset everything
+        hideAllResults();
+        hideMessage();
+        heroBg.className = 'hero-bg';
+        fragmentPool.forEach(el => { if (el.parentNode) el.parentNode.removeChild(el); });
+        fragmentPool = [];
+
+        const timers = [];
+        function at(ms, fn) {
+            timers.push(setTimeout(fn, ms));
+        }
+
+        // === BEAT 1: TDEE NOISE (0-4s) ===
+        at(T.BEAT1_START, () => spawnFragments('tdee', 0, 3800, 1));
+
+        // === BEAT 2: TDEE CONVERGENCE (4-8s) ===
+        at(T.BEAT2_CONVERGE, () => {
+            convergeAll(0.6);
+            heroBg.className = 'hero-bg teal-intense';
+        });
+        at(T.BEAT2_NUMBER, () => showResult('result-tdee'));
+        at(T.BEAT2_CARD, () => showCard('card-tdee'));
+        at(T.BEAT2_END - 500, () => {
+            hideResult('result-tdee');
+            heroBg.className = 'hero-bg';
+        });
+
+        // === BEAT 3: CAFFEINE NOISE (8-12s) ===
+        at(T.BEAT3_START, () => {
+            heroBg.className = 'hero-bg warm';
+            spawnFragments('caffeine', 0, 3800, 1.2);
+        });
+
+        // === BEAT 4: CAFFEINE CONVERGENCE (12-15.5s) — faster ===
+        at(T.BEAT4_CONVERGE, () => {
+            convergeAll(0.4);
+            heroBg.className = 'hero-bg teal-intense';
+        });
+        at(T.BEAT4_NUMBER, () => showResult('result-caffeine'));
+        at(T.BEAT4_CARD, () => showCard('card-caffeine'));
+        at(T.BEAT4_END - 500, () => {
+            hideResult('result-caffeine');
+            heroBg.className = 'hero-bg';
+        });
+
+        // === BEAT 5: VITAMIN D NOISE (15.5-19s) — fastest chaos ===
+        at(T.BEAT5_START, () => spawnFragments('vitamind', 0, 3200, 1.5));
+
+        // === BEAT 6: VITAMIN D CONVERGENCE (19-23.5s) — dramatic slow ===
+        at(T.BEAT6_CONVERGE, () => {
+            // Freeze first, then slow pull
+            fragmentPool.forEach(el => {
+                el.style.animationPlayState = 'paused';
+            });
+        });
+        at(T.BEAT6_CONVERGE + 400, () => {
+            convergeAll(1.0); // Slowest convergence
+            heroBg.className = 'hero-bg teal-intense';
+        });
+        at(T.BEAT6_NUMBER, () => showResult('result-vitamind'));
+        at(T.BEAT6_CARD, () => showCard('card-vitamind'));
+        at(T.BEAT6_END - 500, () => {
+            hideResult('result-vitamind');
+            heroBg.className = 'hero-bg';
+        });
+
+        // === BEAT 7: THE MESSAGE (23.5-33s) ===
+        at(T.BEAT7_DOT, () => showMessage('msgDot'));
+        at(T.BEAT7_LINE1, () => showMessage('msgLine1'));
+        at(T.BEAT7_LINE2, () => showMessage('msgLine2'));
+        at(T.BEAT7_LINE3, () => showMessage('msgLine3'));
+        at(T.BEAT7_CTA, () => {
+            document.getElementById('msgCta').classList.add('visible');
+        });
+
+        // === BEAT 8: LOOP ===
+        at(T.LOOP_FADE, () => {
+            hideMessage();
+        });
+        at(T.TOTAL, () => {
+            runAnimation();
+        });
+
+        animationTimer = timers;
+    }
+
+    // ===== SCROLL REVEAL FOR CARDS =====
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.featured-card').forEach(card => {
+        observer.observe(card);
+    });
+
+    // ===== START =====
+    // Auto-start when page loads (hero is above fold)
+    runAnimation();
+
+})();
+</script>
+
+</body>
+</html>

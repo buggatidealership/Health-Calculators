@@ -5898,6 +5898,10 @@ def mockup_landing_v5():
 def mockup_landing_v6():
     return render_template('mockup-landing-v6.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-landing-v7')
+def mockup_landing_v7():
+    return render_template('mockup-landing-v7.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-pulse-story')
 def mockup_pulse_story():
     return render_template(
