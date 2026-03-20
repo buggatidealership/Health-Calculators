@@ -2816,7 +2816,8 @@ def newborn_weight_loss_calculator():
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
-        date_modified='2026-03-20'
+        date_modified='2026-03-20',
+        robots_meta='noindex, nofollow'
     )
 
 @app.route('/baldness-risk-calculator')
