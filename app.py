@@ -2865,14 +2865,14 @@ def chipotle_nutrition_calculator():
     schema_description = "Build your Chipotle order and see real-time nutrition facts: calories, protein, carbs, fat, and fiber. Includes all protein, toppings, and sides."
     schema_url = "/chipotle-nutrition-calculator"
     return render_template(
-        'chipotle_nutrition_calculator.html',
+        'chipotle_nutrition_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-20'
     )
 
 @app.route('/starbucks-nutrition-calculator')
