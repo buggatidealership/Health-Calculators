@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="90+ free health calculators. TDEE, BMI, caffeine timing, vitamin D status, and more. Intelligence, not just math.">
+    <title>Health Calculators — Intelligence, Not Just Math</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "HealthCalculators.xyz",
+      "url": "https://healthcalculators.xyz",
+      "description": "90+ free health calculators with clinical-grade formulas."
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: var(--bg-1) !important; }
+        h1, h2, h3, h4 { color: var(--text) !important; }
+        button { background: none; border: none; color: inherit; cursor: pointer; width: auto !important; }
+        button::after { display: none !important; }
+
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 14px; height: 14px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 12px rgba(34, 197, 94, 0); }
+        }
+
+        /* === HERO: THE MINIMAL === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1.5rem;
+            background: radial-gradient(ellipse at center, rgba(20,184,166,0.03) 0%, var(--bg-1) 60%);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-dot {
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            color: #ffffff !important;
+            max-width: 600px;
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+
+        .hero-tagline {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: var(--teal);
+            margin-bottom: 3rem;
+        }
+
+        /* === FEATURED CARD (single) === */
+        .featured-single {
+            max-width: 520px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .single-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+        .single-card:hover {
+            border-color: rgba(20,184,166,0.3);
+            background: rgba(20,184,166,0.04);
+            transform: translateY(-4px);
+        }
+
+        .single-card-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.8rem;
+        }
+
+        .single-card-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3vw, 1.8rem);
+            color: var(--text);
+            margin-bottom: 0.6rem;
+        }
+
+        .single-card-desc {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .single-card-model {
+            padding: 1rem 1.3rem;
+            background: rgba(20,184,166,0.06);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 14px;
+            margin-bottom: 1.5rem;
+        }
+        .single-card-model p {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .single-card-model .hl { color: var(--teal); }
+
+        .single-card-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .single-card-cta span {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--teal);
+        }
+        .single-card-arrow {
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            border: 1px solid rgba(20,184,166,0.2);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--teal);
+            transition: all 0.3s;
+        }
+        .single-card:hover .single-card-arrow {
+            background: rgba(20,184,166,0.1);
+            border-color: var(--teal);
+        }
+
+        /* More link */
+        .more-link {
+            margin-top: 2rem;
+            text-align: center;
+        }
+        .more-link a {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            text-decoration: none;
+            transition: color 0.2s;
+            font-weight: 400;
+        }
+        .more-link a span { color: var(--teal); font-weight: 600; }
+        .more-link a:hover { color: var(--text); }
+
+        /* === ASK PULSE === */
+        .ask-section {
+            padding: 6rem 1.5rem 5rem;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-1) 0%, #081a1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ask-teal-dot {
+            width: 16px; height: 16px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 40px rgba(20,184,166,0.15);
+            animation: askPulse 2s ease-in-out infinite;
+        }
+        @keyframes askPulse {
+            0%, 100% { box-shadow: 0 0 20px var(--teal-glow); transform: scale(1); }
+            50% { box-shadow: 0 0 30px var(--teal-glow), 0 0 60px rgba(20,184,166,0.2); transform: scale(1.1); }
+        }
+        .ask-section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 0.6rem; }
+        .ask-section p { color: var(--text-dim); font-size: 0.95rem; max-width: 400px; margin: 0 auto 1.5rem; line-height: 1.6; font-weight: 300; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 460px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important;
+            border-radius: 12px !important; color: var(--text) !important; padding: 0.85rem 1rem !important;
+            font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none; width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important;
+            border-radius: 12px !important; padding: 0 1.5rem !important; font-weight: 700 !important;
+            font-family: var(--font-body) !important; font-size: 0.95rem !important;
+            width: auto !important; box-shadow: none !important; transition: all 0.2s;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 1.5rem; text-align: center;
+            border-top: 1px solid rgba(20,184,166,0.08); background: #060a14;
+        }
+        .footer-brand { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+        .footer-sub { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
+        .footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--teal); }
+    </style>
+</head>
+<body>
+
+<!-- === HERO: THE MINIMAL === -->
+<section class="hero">
+    <div class="hero-dot fade-in"><span class="pulse-dot"></span></div>
+    <h1 class="fade-in">You always had a pulse. We help you find it.</h1>
+    <div class="hero-tagline fade-in">90+ health calculators</div>
+</section>
+
+<!-- === SINGLE FEATURED CARD === -->
+<div class="featured-single">
+    <a href="/tdee-calculator" class="single-card fade-in">
+        <div class="single-card-label">Most Popular</div>
+        <div class="single-card-title">TDEE Calculator</div>
+        <div class="single-card-desc">How many calories you burn per day. Based on the Mifflin-St Jeor equation, recommended by the American Dietetic Association.</div>
+        <div class="single-card-model">
+            <p>BMR is your body's <span class="hl">rent</span>. TDEE is rent + utilities. You burn this much just existing + moving.</p>
+        </div>
+        <div class="single-card-cta">
+            <span>Calculate your TDEE</span>
+            <div class="single-card-arrow">&rarr;</div>
+        </div>
+    </a>
+
+    <div class="more-link fade-in">
+        <a href="/calculators"><span>89 more tools</span> &rarr;</a>
+    </div>
+</div>
+
+<!-- === ASK PULSE === -->
+<section class="ask-section">
+    <div class="ask-teal-dot fade-in"></div>
+    <h2 class="fade-in">Ask anything</h2>
+    <p class="fade-in">Pulse synthesizes 90+ calculators into one conversation.</p>
+    <div class="ask-input-wrap fade-in">
+        <input type="text" placeholder="How much vitamin D should I take?">
+        <button>Ask</button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-brand">HealthCalculators.xyz</div>
+    <div class="footer-sub">Intelligence, not just math.</div>
+    <div class="footer-links">
+        <a href="/calculators">Calculators</a>
+        <a href="/resources">Resources</a>
+        <a href="https://x.com/GetHealthC" target="_blank">Twitter</a>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

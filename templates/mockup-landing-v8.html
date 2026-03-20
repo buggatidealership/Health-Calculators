@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Calculate your Total Daily Energy Expenditure and explore 90+ free health calculators. TDEE, BMI, caffeine timing, vitamin D status, and more.">
+    <title>Health Calculators — Free TDEE, BMI, Caffeine &amp; 90+ Tools</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "HealthCalculators.xyz",
+      "url": "https://healthcalculators.xyz",
+      "description": "90+ free health calculators with clinical-grade formulas. TDEE, BMI, caffeine half-life, vitamin D status, and more.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://healthcalculators.xyz/calculators?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: var(--bg-1) !important; }
+        h1, h2, h3, h4 { color: var(--text) !important; }
+        button { background: none; border: none; color: inherit; cursor: pointer; width: auto !important; }
+        button::after { display: none !important; }
+
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* === HERO: CALCULATOR-FIRST === */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1.5rem;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.4rem 1rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #ffffff !important;
+        }
+        .hero h1 span { color: var(--teal); }
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            max-width: 460px;
+        }
+
+        /* Form */
+        .form-container {
+            max-width: 520px;
+            width: 100%;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group label {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+        }
+        .form-group input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1.1rem;
+            padding: 0.7rem 1rem;
+            font-family: var(--font-body);
+            outline: none;
+            width: 100%;
+        }
+        .form-group input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.1); }
+        .form-group input::placeholder { color: var(--text-muted); }
+
+        .pill-toggle {
+            display: flex;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 3px;
+        }
+        .pill-btn {
+            flex: 1;
+            padding: 0.6rem 0.8rem !important;
+            border: none !important;
+            border-radius: 8px !important;
+            background: transparent !important;
+            color: var(--text-muted) !important;
+            font-size: 0.88rem !important;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: auto !important;
+            box-shadow: none !important;
+            font-family: var(--font-body);
+        }
+        .pill-btn::after { display: none !important; }
+        .pill-btn:hover { color: var(--text) !important; transform: none !important; }
+        .pill-btn.active {
+            background: rgba(20,184,166,0.15) !important;
+            color: var(--teal) !important;
+            font-weight: 600;
+        }
+
+        .height-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+
+        .activity-section { margin-top: 0.5rem; margin-bottom: 1.5rem; }
+        .activity-section > label {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-bottom: 0.6rem;
+            display: block;
+            font-weight: 500;
+        }
+        .activity-cards { display: flex; flex-direction: column; gap: 0.5rem; }
+        .activity-card {
+            display: flex !important;
+            align-items: center !important;
+            gap: 12px !important;
+            padding: 0.9rem 1rem !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            background: rgba(255,255,255,0.02) !important;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: 100% !important;
+            text-align: left !important;
+            color: var(--text) !important;
+            font-size: 0.9rem !important;
+            box-shadow: none !important;
+            font-family: var(--font-body);
+        }
+        .activity-card::after { display: none !important; }
+        .activity-card:hover { border-color: rgba(20,184,166,0.3) !important; background: rgba(20,184,166,0.04) !important; transform: none !important; }
+        .activity-card.active {
+            border-color: var(--teal) !important;
+            background: rgba(20,184,166,0.08) !important;
+            box-shadow: 0 0 16px rgba(20,184,166,0.1) !important;
+        }
+        .activity-dot {
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            border: 2px solid var(--border);
+            flex-shrink: 0;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .activity-card.active .activity-dot { border-color: var(--teal); background: var(--teal); }
+        .activity-card.active .activity-dot::after {
+            content: ''; position: absolute; top: 3px; left: 3px;
+            width: 8px; height: 8px; border-radius: 50%; background: #0a0f1a;
+        }
+        .activity-text strong { display: block; font-size: 0.88rem; margin-bottom: 1px; color: var(--text); }
+        .activity-text span { font-size: 0.76rem; color: var(--text-muted); }
+
+        .calc-btn {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important;
+            padding: 0.85rem 2.4rem !important; font-size: 1.05rem !important; font-weight: 700; cursor: pointer;
+            margin-top: 0.5rem; font-family: var(--font-body); transition: all 0.2s;
+            width: 100% !important; box-shadow: none !important;
+        }
+        .calc-btn::after { display: none !important; }
+        .calc-btn:hover { box-shadow: 0 6px 24px var(--teal-glow) !important; transform: none !important; }
+
+        /* Result */
+        .result-area { display: none; margin-top: 2rem; text-align: center; width: 100%; max-width: 520px; }
+        .result-area.show { display: block; }
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 14vw, 8rem);
+            line-height: 1;
+            color: var(--teal);
+            text-shadow: 0 0 60px var(--teal-glow);
+        }
+        .result-unit { font-size: 1.1rem; color: var(--text-dim); margin-top: 0.5rem; }
+        .result-label { font-size: 1rem; color: var(--text-dim); margin-top: 0.3rem; font-weight: 500; }
+
+        .result-mental-model {
+            margin-top: 1.5rem;
+            padding: 1.2rem 1.5rem;
+            background: rgba(20,184,166,0.06);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 16px;
+        }
+        .result-mental-model p {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        .result-mental-model .hl { color: var(--teal); font-weight: 600; }
+
+        .result-cta {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+        .result-cta a { color: var(--teal); text-decoration: none; font-weight: 600; }
+        .result-cta a:hover { text-decoration: underline; }
+
+        /* === MORE TOOLS SECTION === */
+        .section-wrapper {
+            padding: 5rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: var(--text) !important;
+            margin-bottom: 2.5rem;
+            line-height: 1.2;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .tools-grid { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 1.8rem;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            border-color: rgba(20,184,166,0.3);
+            background: rgba(20,184,166,0.04);
+            transform: translateY(-4px);
+        }
+        .tool-card-icon {
+            width: 44px; height: 44px;
+            border-radius: 12px;
+            background: rgba(20,184,166,0.1);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1rem;
+            color: var(--teal);
+        }
+        .tool-card-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+        }
+        .tool-card-desc {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .tool-card-stat {
+            margin-top: 1rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.78rem;
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        /* Categories */
+        .categories-section {
+            padding: 0 1.5rem 5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .pill-grid { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+        .pill {
+            padding: 0.55rem 1.2rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        .pill:hover { border-color: var(--teal); color: var(--teal); background: rgba(20,184,166,0.06); }
+
+        /* Ask Pulse */
+        .ask-section {
+            padding: 5rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, #081a1a 0%, #0a1520 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ask-dot {
+            width: 16px; height: 16px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 40px rgba(20,184,166,0.15);
+            animation: askPulse 2s ease-in-out infinite;
+        }
+        @keyframes askPulse {
+            0%, 100% { box-shadow: 0 0 20px var(--teal-glow), 0 0 40px rgba(20,184,166,0.15); transform: scale(1); }
+            50% { box-shadow: 0 0 30px var(--teal-glow), 0 0 60px rgba(20,184,166,0.2); transform: scale(1.1); }
+        }
+        .ask-section h2 {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 3.5vw, 2rem);
+            margin-bottom: 0.6rem;
+        }
+        .ask-section p {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            max-width: 420px;
+            margin: 0 auto 1.5rem;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+        .ask-input-wrap {
+            display: flex;
+            gap: 0.6rem;
+            max-width: 480px;
+            width: 100%;
+        }
+        .ask-input-wrap input {
+            flex: 1;
+            background: rgba(255,255,255,0.05) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 12px !important;
+            color: var(--text) !important;
+            padding: 0.85rem 1rem !important;
+            font-size: 0.95rem !important;
+            font-family: var(--font-body) !important;
+            outline: none;
+            width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important;
+            color: #0a0f1a !important;
+            border: none !important;
+            border-radius: 12px !important;
+            padding: 0 1.5rem !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+            font-family: var(--font-body) !important;
+            transition: all 0.2s;
+            width: auto !important;
+            box-shadow: none !important;
+            font-size: 0.95rem !important;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; transform: none !important; }
+        .ask-pills {
+            display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem;
+        }
+        .ask-pill {
+            background: rgba(255,255,255,0.03) !important;
+            border: 1px solid var(--border) !important;
+            border-radius: 20px !important;
+            padding: 0.4rem 0.9rem !important;
+            font-size: 0.78rem !important;
+            color: var(--text-dim) !important;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: auto !important;
+            box-shadow: none !important;
+        }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal) !important; color: var(--text) !important; }
+
+        /* Ticker */
+        .ticker-section {
+            padding: 3rem 1.5rem;
+            overflow: hidden;
+            background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%);
+        }
+        .ticker-track {
+            display: flex;
+            gap: 2rem;
+            animation: tickerScroll 40s linear infinite;
+            width: max-content;
+        }
+        @keyframes tickerScroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .ticker-item {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            padding: 0.6rem 1.2rem;
+            border: 1px solid rgba(255,255,255,0.04);
+            border-radius: 10px;
+        }
+        .ticker-item .hl { color: var(--teal); }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid rgba(20,184,166,0.08);
+            background: #060a14;
+        }
+        .footer-brand { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+        .footer-sub { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
+        .footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--teal); }
+
+        @media (max-width: 640px) {
+            .hero { padding: 2rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- === HERO: CALCULATOR-FIRST === -->
+<section class="hero">
+    <div class="hero-badge fade-in">
+        <span class="pulse-dot"></span>
+        <span>90+ health calculators</span>
+    </div>
+
+    <h1 class="fade-in">How many <span>calories</span> do you burn?</h1>
+    <p class="hero-sub fade-in">Find out now. No signup, no paywall. Just the answer.</p>
+
+    <div class="form-container fade-in" id="calcForm">
+        <!-- Sex toggle -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>Sex</label>
+                <div class="pill-toggle">
+                    <button class="pill-btn active" data-sex="male" onclick="setSex('male')">Male</button>
+                    <button class="pill-btn" data-sex="female" onclick="setSex('female')">Female</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Units</label>
+                <div class="pill-toggle">
+                    <button class="pill-btn active" data-unit="imperial" onclick="setUnit('imperial')">Imperial</button>
+                    <button class="pill-btn" data-unit="metric" onclick="setUnit('metric')">Metric</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Age + Weight -->
+        <div class="form-row">
+            <div class="form-group">
+                <label>Age</label>
+                <input type="number" id="age" placeholder="30" min="15" max="100">
+            </div>
+            <div class="form-group">
+                <label id="weightLabel">Weight (lbs)</label>
+                <input type="number" id="weight" placeholder="170" min="50" max="700">
+            </div>
+        </div>
+
+        <!-- Height -->
+        <div class="form-group" style="margin-bottom: 1rem;">
+            <label id="heightLabel">Height</label>
+            <div class="height-row" id="heightImperial">
+                <input type="number" id="feet" placeholder="5" min="3" max="8">
+                <input type="number" id="inches" placeholder="10" min="0" max="11">
+            </div>
+            <div class="height-row" id="heightMetric" style="display: none;">
+                <input type="number" id="cm" placeholder="178" min="100" max="250">
+            </div>
+        </div>
+
+        <!-- Activity level -->
+        <div class="activity-section">
+            <label>Activity Level</label>
+            <div class="activity-cards">
+                <button class="activity-card" data-mult="1.2" onclick="setActivity(this)">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text"><strong>Sedentary</strong><span>Desk job, little exercise</span></div>
+                </button>
+                <button class="activity-card active" data-mult="1.375" onclick="setActivity(this)">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text"><strong>Lightly Active</strong><span>Light exercise 1-3 days/week</span></div>
+                </button>
+                <button class="activity-card" data-mult="1.55" onclick="setActivity(this)">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text"><strong>Moderately Active</strong><span>Exercise 3-5 days/week</span></div>
+                </button>
+                <button class="activity-card" data-mult="1.725" onclick="setActivity(this)">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text"><strong>Very Active</strong><span>Hard exercise 6-7 days/week</span></div>
+                </button>
+                <button class="activity-card" data-mult="1.9" onclick="setActivity(this)">
+                    <div class="activity-dot"></div>
+                    <div class="activity-text"><strong>Extremely Active</strong><span>Athlete / physical job + training</span></div>
+                </button>
+            </div>
+        </div>
+
+        <button class="calc-btn" onclick="calculate()">Calculate TDEE</button>
+    </div>
+
+    <!-- Result (inline) -->
+    <div class="result-area" id="resultArea">
+        <div class="result-number" id="resultNumber">2,340</div>
+        <div class="result-unit">calories per day</div>
+        <div class="result-label">Your Total Daily Energy Expenditure</div>
+        <div class="result-mental-model">
+            <p>BMR is your body's <span class="hl">rent</span>. TDEE is rent + utilities. You burn this much just existing + moving.</p>
+        </div>
+        <div class="result-cta">
+            <a href="/tdee-calculator">See full breakdown, macros & goals &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<!-- === THAT WAS TDEE === -->
+<div class="section-wrapper">
+    <div class="section-label fade-in">That was TDEE</div>
+    <div class="section-title fade-in">Here are 89 more tools like this</div>
+
+    <div class="tools-grid">
+        <a href="/caffeine-half-life-calculator" class="tool-card fade-in">
+            <div class="tool-card-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M19.8 15.3l-1.57.393A9.065 9.065 0 0 1 12 15a9.065 9.065 0 0 0-6.23.693L5 14.5m14.8.8 1.402 1.402c1.232 1.232.65 3.318-1.067 3.611A48.309 48.309 0 0 1 12 21c-2.773 0-5.491-.235-8.135-.687-1.718-.293-2.3-2.379-1.067-3.61L5 14.5"/></svg>
+            </div>
+            <div class="tool-card-title">Caffeine Half-Life</div>
+            <div class="tool-card-desc">When to stop drinking coffee so it does not wreck your sleep. Pharmacokinetics made obvious.</div>
+            <div class="tool-card-stat">Every 5 hours, half.</div>
+        </a>
+        <a href="/vitamin-d-calculator" class="tool-card fade-in">
+            <div class="tool-card-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"/></svg>
+            </div>
+            <div class="tool-card-title">Vitamin D Status</div>
+            <div class="tool-card-desc">nmol/L or ng/mL -- one multiplication. Know whether your levels mean anything.</div>
+            <div class="tool-card-stat">Multiply by 2.5. That is the whole conversion.</div>
+        </a>
+        <a href="/bmi-calculator" class="tool-card fade-in">
+            <div class="tool-card-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+            </div>
+            <div class="tool-card-title">BMI Calculator</div>
+            <div class="tool-card-desc">Body Mass Index with context that actually matters. Where you fall, and what it means.</div>
+            <div class="tool-card-stat">Context, not just a number.</div>
+        </a>
+        <a href="/creatine-calculator" class="tool-card fade-in">
+            <div class="tool-card-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3"/></svg>
+            </div>
+            <div class="tool-card-title">Creatine Dosage</div>
+            <div class="tool-card-desc">How much, exactly. Based on body weight, loading phase optional. The definitive answer.</div>
+            <div class="tool-card-stat">5g daily. No loading needed.</div>
+        </a>
+        <a href="/body-fat-calculator" class="tool-card fade-in">
+            <div class="tool-card-icon">
+                <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+            </div>
+            <div class="tool-card-title">Body Fat %</div>
+            <div class="tool-card-desc">Navy method or skinfold. Get a real estimate without a DEXA scan.</div>
+            <div class="tool-card-stat">More useful than BMI.</div>
+        </a>
+        <a href="/calculators" class="tool-card fade-in" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+            <div class="tool-card-title" style="font-size: 2rem; margin-bottom: 0.8rem;">89+</div>
+            <div class="tool-card-desc">Browse all calculators &rarr;</div>
+        </a>
+    </div>
+</div>
+
+<!-- Categories -->
+<section class="categories-section">
+    <div class="section-label fade-in">Categories</div>
+    <div class="section-title fade-in">Every question has a calculator</div>
+    <div class="pill-grid fade-in">
+        <a href="/calculators" class="pill">Body Composition</a>
+        <a href="/calculators" class="pill">Nutrition</a>
+        <a href="/calculators" class="pill">Strength & Fitness</a>
+        <a href="/calculators" class="pill">Hormones</a>
+        <a href="/calculators" class="pill">Women's Health</a>
+        <a href="/calculators" class="pill">Medication Timing</a>
+        <a href="/calculators" class="pill">Lab Results</a>
+        <a href="/calculators" class="pill">Weight Loss</a>
+        <a href="/calculators" class="pill">Pregnancy</a>
+        <a href="/calculators" class="pill">Running & Cardio</a>
+        <a href="/calculators" class="pill">Pediatric Health</a>
+    </div>
+</section>
+
+<!-- Ask Pulse -->
+<section class="ask-section">
+    <div class="ask-dot fade-in"></div>
+    <h2 class="fade-in">Not sure which tool you need?</h2>
+    <p class="fade-in">Describe your question. Pulse will point you to the right calculator.</p>
+    <div class="ask-input-wrap fade-in">
+        <input type="text" placeholder="How much protein should I eat?">
+        <button>Ask</button>
+    </div>
+    <div class="ask-pills fade-in">
+        <button class="ask-pill">How many calories?</button>
+        <button class="ask-pill">Is my vitamin D low?</button>
+        <button class="ask-pill">When to stop caffeine?</button>
+        <button class="ask-pill">Am I overweight?</button>
+    </div>
+</section>
+
+<!-- Ticker -->
+<section class="ticker-section">
+    <div class="ticker-track">
+        <div class="ticker-item"><span class="hl">BMR</span> is rent. TDEE is rent + utilities.</div>
+        <div class="ticker-item">Every <span class="hl">5 hours</span>, half.</div>
+        <div class="ticker-item">Multiply by <span class="hl">2.5</span>. That is the whole conversion.</div>
+        <div class="ticker-item">The bigger the pen, the fewer <span class="hl">clicks</span>.</div>
+        <div class="ticker-item"><span class="hl">5g daily</span>. No loading needed.</div>
+        <div class="ticker-item">Below <span class="hl">20 ng/mL</span> is deficiency.</div>
+        <div class="ticker-item"><span class="hl">BMR</span> is rent. TDEE is rent + utilities.</div>
+        <div class="ticker-item">Every <span class="hl">5 hours</span>, half.</div>
+        <div class="ticker-item">Multiply by <span class="hl">2.5</span>. That is the whole conversion.</div>
+        <div class="ticker-item">The bigger the pen, the fewer <span class="hl">clicks</span>.</div>
+        <div class="ticker-item"><span class="hl">5g daily</span>. No loading needed.</div>
+        <div class="ticker-item">Below <span class="hl">20 ng/mL</span> is deficiency.</div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-brand">HealthCalculators.xyz</div>
+    <div class="footer-sub">Intelligence, not just math.</div>
+    <div class="footer-links">
+        <a href="/calculators">Calculators</a>
+        <a href="/resources">Resources</a>
+        <a href="https://x.com/GetHealthC" target="_blank">Twitter</a>
+    </div>
+</footer>
+
+<script>
+(function() {
+    // State
+    let sex = 'male';
+    let unit = 'imperial';
+    let activityMult = 1.375;
+
+    window.setSex = function(s) {
+        sex = s;
+        document.querySelectorAll('[data-sex]').forEach(b => b.classList.toggle('active', b.dataset.sex === s));
+    };
+
+    window.setUnit = function(u) {
+        unit = u;
+        document.querySelectorAll('[data-unit]').forEach(b => b.classList.toggle('active', b.dataset.unit === u));
+        document.getElementById('heightImperial').style.display = u === 'imperial' ? 'grid' : 'none';
+        document.getElementById('heightMetric').style.display = u === 'metric' ? 'grid' : 'none';
+        document.getElementById('weightLabel').textContent = u === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)';
+        document.getElementById('heightLabel').textContent = 'Height';
+    };
+
+    window.setActivity = function(el) {
+        document.querySelectorAll('.activity-card').forEach(c => c.classList.remove('active'));
+        el.classList.add('active');
+        activityMult = parseFloat(el.dataset.mult);
+    };
+
+    window.calculate = function() {
+        const age = parseInt(document.getElementById('age').value);
+        let weightKg, heightCm;
+
+        if (unit === 'imperial') {
+            weightKg = parseFloat(document.getElementById('weight').value) * 0.453592;
+            const ft = parseInt(document.getElementById('feet').value) || 0;
+            const inc = parseInt(document.getElementById('inches').value) || 0;
+            heightCm = (ft * 12 + inc) * 2.54;
+        } else {
+            weightKg = parseFloat(document.getElementById('weight').value);
+            heightCm = parseFloat(document.getElementById('cm').value);
+        }
+
+        if (!age || !weightKg || !heightCm) return;
+
+        let bmr;
+        if (sex === 'male') {
+            bmr = 10 * weightKg + 6.25 * heightCm - 5 * age + 5;
+        } else {
+            bmr = 10 * weightKg + 6.25 * heightCm - 5 * age - 161;
+        }
+        const tdee = Math.round(bmr * activityMult);
+
+        document.getElementById('resultNumber').textContent = tdee.toLocaleString();
+        document.getElementById('resultArea').classList.add('show');
+        document.getElementById('resultArea').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    };
+
+    // IntersectionObserver
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

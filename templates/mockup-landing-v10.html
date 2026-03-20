@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="Health tools that teach you frameworks, not just numbers. 90+ free calculators for TDEE, BMI, caffeine timing, vitamin D, and more.">
+    <title>Health Calculators — Frameworks, Not Just Numbers</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "HealthCalculators.xyz",
+      "url": "https://healthcalculators.xyz",
+      "description": "90+ free health calculators that teach frameworks, not just numbers."
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: var(--bg-1) !important; }
+        h1, h2, h3, h4 { color: var(--text) !important; }
+        button { background: none; border: none; color: inherit; cursor: pointer; width: auto !important; }
+        button::after { display: none !important; }
+
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 12px; height: 12px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* === HERO === */
+        .hero {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 1.5rem 3rem;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+            text-align: center;
+        }
+
+        .hero-dot { margin-bottom: 2rem; }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: #ffffff !important;
+            margin-bottom: 0.6rem;
+            max-width: 700px;
+        }
+        .hero h1 span { color: var(--teal); }
+
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            max-width: 500px;
+            line-height: 1.6;
+            font-weight: 300;
+        }
+
+        /* === FRAMEWORK GALLERY === */
+        .gallery-section {
+            padding: 3rem 1.5rem 6rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2rem;
+        }
+        @media (min-width: 900px) {
+            .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .gallery-grid { grid-template-columns: 1fr; }
+        }
+
+        .framework-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 240px;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .framework-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--teal);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .framework-card:hover {
+            border-color: rgba(20,184,166,0.3);
+            background: rgba(20,184,166,0.04);
+            transform: translateY(-6px);
+        }
+        .framework-card:hover::before { opacity: 1; }
+
+        .framework-rule {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+            color: var(--text);
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+        .framework-rule .hl { color: var(--teal); }
+
+        .framework-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .framework-tool {
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .framework-arrow {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.08);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        .framework-card:hover .framework-arrow {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(20,184,166,0.1);
+        }
+
+        /* Large featured card */
+        .framework-card.large {
+            grid-column: span 2;
+            min-height: 200px;
+            background: linear-gradient(135deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border-color: rgba(20,184,166,0.15);
+        }
+        .framework-card.large .framework-rule {
+            font-size: clamp(1.5rem, 3vw, 2.2rem);
+        }
+        @media (max-width: 600px) {
+            .framework-card.large { grid-column: span 1; }
+        }
+
+        /* === ALL TOOLS CTA === */
+        .all-tools {
+            padding: 4rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, #081a1a 0%, #0a1520 100%);
+        }
+        .all-tools-count {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: var(--teal);
+            text-shadow: 0 0 40px var(--teal-glow);
+            margin-bottom: 0.5rem;
+        }
+        .all-tools-label {
+            color: var(--text-dim);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+        .all-tools-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: var(--font-body); font-size: 1rem; font-weight: 500;
+            text-decoration: none; transition: all 0.3s;
+        }
+        .all-tools-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(20,184,166,0.06);
+        }
+
+        /* === ASK PULSE === */
+        .ask-section {
+            padding: 5rem 1.5rem;
+            text-align: center;
+            background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .ask-teal-dot {
+            width: 16px; height: 16px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 40px rgba(20,184,166,0.15);
+            animation: askPulse 2s ease-in-out infinite;
+        }
+        @keyframes askPulse {
+            0%, 100% { box-shadow: 0 0 20px var(--teal-glow); transform: scale(1); }
+            50% { box-shadow: 0 0 30px var(--teal-glow), 0 0 60px rgba(20,184,166,0.2); transform: scale(1.1); }
+        }
+        .ask-section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 0.6rem; }
+        .ask-section p { color: var(--text-dim); font-size: 0.95rem; max-width: 440px; margin: 0 auto 1.5rem; line-height: 1.6; font-weight: 300; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important;
+            border-radius: 12px !important; color: var(--text) !important; padding: 0.85rem 1rem !important;
+            font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none; width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important;
+            border-radius: 12px !important; padding: 0 1.5rem !important; font-weight: 700 !important;
+            font-family: var(--font-body) !important; font-size: 0.95rem !important;
+            width: auto !important; box-shadow: none !important; transition: all 0.2s;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 1.5rem; text-align: center;
+            border-top: 1px solid rgba(20,184,166,0.08); background: #060a14;
+        }
+        .footer-brand { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+        .footer-sub { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
+        .footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--teal); }
+    </style>
+</head>
+<body>
+
+<!-- === HERO === -->
+<section class="hero">
+    <div class="hero-dot fade-in"><span class="pulse-dot"></span></div>
+    <h1 class="fade-in">Health tools that teach you <span>frameworks</span></h1>
+    <p class="hero-sub fade-in">Each calculator gives you a number and a mental model you will remember forever. 90+ tools, zero paywalls.</p>
+</section>
+
+<!-- === FRAMEWORK GALLERY === -->
+<section class="gallery-section">
+    <div class="gallery-grid">
+        <a href="/tdee-calculator" class="framework-card large fade-in">
+            <div class="framework-rule">BMR is your body's <span class="hl">rent</span>. TDEE is rent + utilities.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">TDEE Calculator</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/caffeine-half-life-calculator" class="framework-card fade-in">
+            <div class="framework-rule">Every <span class="hl">5 hours</span>, half.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">Caffeine Half-Life</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/vitamin-d-calculator" class="framework-card fade-in">
+            <div class="framework-rule">Multiply by <span class="hl">2.5</span>. That is the whole conversion.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">Vitamin D Status</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/ozempic-dosage-calculator" class="framework-card fade-in">
+            <div class="framework-rule">The bigger the pen, the fewer <span class="hl">clicks</span>.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">Ozempic Dosage</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/creatine-calculator" class="framework-card fade-in">
+            <div class="framework-rule"><span class="hl">5g daily</span>. No loading needed.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">Creatine Dosage</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/bmi-calculator" class="framework-card large fade-in">
+            <div class="framework-rule">BMI measures <span class="hl">weight</span>, not health. Context matters more than the number.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">BMI Calculator</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/body-fat-calculator" class="framework-card fade-in">
+            <div class="framework-rule">Navy method: neck, waist, height. No <span class="hl">DEXA</span> needed.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">Body Fat %</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/one-rep-max-calculator" class="framework-card fade-in">
+            <div class="framework-rule">Weight times reps times <span class="hl">0.0333</span>, plus the weight.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">One Rep Max</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+
+        <a href="/macro-calculator" class="framework-card fade-in">
+            <div class="framework-rule"><span class="hl">Protein first</span>. Fill the rest with what you prefer.</div>
+            <div class="framework-bottom">
+                <div class="framework-tool">Macro Calculator</div>
+                <div class="framework-arrow">&rarr;</div>
+            </div>
+        </a>
+    </div>
+</section>
+
+<!-- === ALL TOOLS === -->
+<section class="all-tools">
+    <div class="all-tools-count fade-in">90+</div>
+    <div class="all-tools-label fade-in">calculators, each with a framework</div>
+    <a href="/calculators" class="all-tools-btn fade-in">Browse all tools &rarr;</a>
+</section>
+
+<!-- === ASK PULSE === -->
+<section class="ask-section">
+    <div class="ask-teal-dot fade-in"></div>
+    <h2 class="fade-in">Ask Pulse</h2>
+    <p class="fade-in">Not sure which framework applies? Describe your question and Pulse will find the right tool.</p>
+    <div class="ask-input-wrap fade-in">
+        <input type="text" placeholder="I want to know how many calories I burn...">
+        <button>Ask</button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-brand">HealthCalculators.xyz</div>
+    <div class="footer-sub">Intelligence, not just math.</div>
+    <div class="footer-links">
+        <a href="/calculators">Calculators</a>
+        <a href="/resources">Resources</a>
+        <a href="https://x.com/GetHealthC" target="_blank">Twitter</a>
+    </div>
+</footer>
+
+<script>
+(function() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

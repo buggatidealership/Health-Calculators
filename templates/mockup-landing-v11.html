@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="description" content="90+ free health calculators. Each one gives you a number and a framework. TDEE, BMI, caffeine timing, vitamin D status, and more.">
+    <title>Health Calculators — 90+ Free Tools for TDEE, BMI, Caffeine &amp; More</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "HealthCalculators.xyz",
+      "url": "https://healthcalculators.xyz",
+      "description": "90+ free health calculators with clinical-grade formulas and mental models."
+    }
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: var(--bg-1) !important; }
+        h1, h2, h3, h4 { color: var(--text) !important; }
+        button { background: none; border: none; color: inherit; cursor: pointer; width: auto !important; }
+        button::after { display: none !important; }
+
+        .fade-in { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease-out, transform 0.7s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* === SPLIT HERO === */
+        .hero {
+            min-height: 100vh;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+            position: relative;
+        }
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                min-height: auto;
+                padding: 4rem 0 0;
+            }
+        }
+
+        /* Left side */
+        .hero-left {
+            padding: 4rem 3rem 4rem 5rem;
+        }
+        @media (max-width: 900px) {
+            .hero-left { padding: 2rem 1.5rem; text-align: center; }
+        }
+
+        .hero-left h1 {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: #ffffff !important;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+        .hero-left h1 span { color: var(--teal); }
+
+        .hero-desc {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+            max-width: 420px;
+            font-weight: 300;
+        }
+        @media (max-width: 900px) {
+            .hero-desc { margin-left: auto; margin-right: auto; }
+        }
+
+        .hero-pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        @media (max-width: 900px) {
+            .hero-pills { justify-content: center; }
+        }
+        .hero-pill {
+            padding: 0.45rem 1rem;
+            border-radius: 100px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.03);
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .hero-pill:hover { border-color: var(--teal); color: var(--teal); }
+
+        .hero-cta {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            padding: 0.9rem 2.2rem;
+            background: var(--teal); color: #0a0f1a;
+            border: none; border-radius: 12px;
+            font-family: var(--font-body); font-size: 1rem; font-weight: 700;
+            text-decoration: none; transition: all 0.2s;
+        }
+        .hero-cta:hover { box-shadow: 0 6px 24px var(--teal-glow); }
+
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.82rem; color: var(--text-muted);
+        }
+
+        /* Right side: preview */
+        .hero-right {
+            padding: 3rem 3rem 3rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        @media (max-width: 900px) {
+            .hero-right { padding: 2rem 1.5rem 3rem; }
+        }
+
+        .preview-container {
+            width: 100%;
+            max-width: 420px;
+            position: relative;
+        }
+
+        .preview-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        .preview-card.active {
+            opacity: 1;
+            transform: translateY(0);
+            position: relative;
+        }
+
+        .preview-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1rem;
+        }
+        .preview-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text);
+            margin-bottom: 0.8rem;
+        }
+
+        .preview-result-number {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 4.5rem);
+            color: var(--teal);
+            text-shadow: 0 0 40px var(--teal-glow);
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .preview-result-unit {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .preview-model {
+            padding: 1rem 1.2rem;
+            background: rgba(20,184,166,0.06);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 14px;
+        }
+        .preview-model p {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .preview-model .hl { color: var(--teal); }
+
+        /* Progress dots */
+        .preview-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 1.5rem;
+        }
+        .preview-dot-btn {
+            width: 8px; height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.15);
+            border: none !important;
+            padding: 0 !important;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .preview-dot-btn.active { background: var(--teal); width: 24px; border-radius: 4px; }
+
+        /* === FEATURED TOOLS === */
+        .section-wrapper {
+            padding: 5rem 1.5rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .section-bg { background: linear-gradient(180deg, #081a1a 0%, #0a1520 100%); }
+
+        .section-label {
+            font-size: 0.8rem; font-weight: 500; letter-spacing: 0.2em;
+            text-transform: uppercase; color: var(--teal); margin-bottom: 0.8rem;
+        }
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            margin-bottom: 2.5rem; line-height: 1.2;
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.2rem;
+        }
+        @media (max-width: 768px) {
+            .tools-grid { grid-template-columns: 1fr; }
+        }
+
+        .tool-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            padding: 1.8rem;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+        .tool-card:hover {
+            border-color: rgba(20,184,166,0.3);
+            background: rgba(20,184,166,0.04);
+            transform: translateY(-4px);
+        }
+        .tool-card-icon {
+            width: 44px; height: 44px; border-radius: 12px;
+            background: rgba(20,184,166,0.1);
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 1rem; color: var(--teal);
+        }
+        .tool-card-title { font-family: var(--font-display); font-size: 1.15rem; color: var(--text); margin-bottom: 0.5rem; }
+        .tool-card-desc { font-size: 0.88rem; color: var(--text-dim); line-height: 1.6; font-weight: 300; }
+        .tool-card-stat {
+            margin-top: 1rem; padding-top: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+            font-size: 0.78rem; color: var(--teal); font-weight: 500;
+        }
+
+        /* Trust */
+        .trust-row {
+            display: flex; justify-content: center; gap: 3rem;
+            padding: 3rem 1.5rem; flex-wrap: wrap;
+            background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%);
+        }
+        .trust-item { text-align: center; }
+        .trust-number { font-family: var(--font-display); font-size: 2rem; color: var(--teal); }
+        .trust-label { font-size: 0.8rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+        /* Ask Pulse */
+        .ask-section {
+            padding: 5rem 1.5rem; text-align: center;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+            display: flex; flex-direction: column; align-items: center;
+        }
+        .ask-teal-dot {
+            width: 16px; height: 16px;
+            background: var(--teal); border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 40px rgba(20,184,166,0.15);
+            animation: askPulse 2s ease-in-out infinite;
+        }
+        @keyframes askPulse {
+            0%, 100% { box-shadow: 0 0 20px var(--teal-glow); transform: scale(1); }
+            50% { box-shadow: 0 0 30px var(--teal-glow), 0 0 60px rgba(20,184,166,0.2); transform: scale(1.1); }
+        }
+        .ask-section h2 { font-family: var(--font-display); font-size: clamp(1.5rem, 3.5vw, 2rem); margin-bottom: 0.6rem; }
+        .ask-section p { color: var(--text-dim); font-size: 0.95rem; max-width: 420px; margin: 0 auto 1.5rem; line-height: 1.6; font-weight: 300; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important;
+            border-radius: 12px !important; color: var(--text) !important; padding: 0.85rem 1rem !important;
+            font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none; width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important;
+            border-radius: 12px !important; padding: 0 1.5rem !important; font-weight: 700 !important;
+            font-family: var(--font-body) !important; font-size: 0.95rem !important;
+            width: auto !important; box-shadow: none !important; transition: all 0.2s;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+        .ask-pill {
+            background: rgba(255,255,255,0.03) !important; border: 1px solid var(--border) !important;
+            border-radius: 20px !important; padding: 0.4rem 0.9rem !important; font-size: 0.78rem !important;
+            color: var(--text-dim) !important; cursor: pointer; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal) !important; color: var(--text) !important; }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 1.5rem; text-align: center;
+            border-top: 1px solid rgba(20,184,166,0.08); background: #060a14;
+        }
+        .footer-brand { font-family: var(--font-display); font-size: 1.1rem; color: var(--text-dim); margin-bottom: 0.4rem; }
+        .footer-sub { font-size: 0.8rem; color: var(--text-muted); font-weight: 300; }
+        .footer-links { margin-top: 1rem; display: flex; justify-content: center; gap: 1.5rem; }
+        .footer-links a { font-size: 0.8rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--teal); }
+    </style>
+</head>
+<body>
+
+<!-- === SPLIT HERO === -->
+<section class="hero">
+    <div class="hero-left fade-in">
+        <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>Live</span>
+        </div>
+        <h1>90+ health calculators. Each one gives you a number and a <span>framework</span>.</h1>
+        <p class="hero-desc">Clinical-grade formulas with mental models you will remember. TDEE, BMI, caffeine timing, vitamin D, creatine, and more.</p>
+        <div class="hero-pills">
+            <a href="/calculators" class="hero-pill">Nutrition</a>
+            <a href="/calculators" class="hero-pill">Body Composition</a>
+            <a href="/calculators" class="hero-pill">Strength</a>
+            <a href="/calculators" class="hero-pill">Lab Results</a>
+            <a href="/calculators" class="hero-pill">Medication</a>
+            <a href="/calculators" class="hero-pill">Women's Health</a>
+        </div>
+        <a href="/calculators" class="hero-cta">Explore all tools &rarr;</a>
+    </div>
+
+    <div class="hero-right">
+        <div class="preview-container" id="previewContainer">
+            <!-- TDEE -->
+            <div class="preview-card active" data-idx="0">
+                <div class="preview-label">TDEE Calculator</div>
+                <div class="preview-title">Total Daily Energy Expenditure</div>
+                <div class="preview-result-number">2,340</div>
+                <div class="preview-result-unit">calories per day</div>
+                <div class="preview-model">
+                    <p>BMR is your body's <span class="hl">rent</span>. TDEE is rent + utilities.</p>
+                </div>
+            </div>
+
+            <!-- Caffeine -->
+            <div class="preview-card" data-idx="1">
+                <div class="preview-label">Caffeine Half-Life</div>
+                <div class="preview-title">Caffeine remaining at bedtime</div>
+                <div class="preview-result-number">24 mg</div>
+                <div class="preview-result-unit">still in your system at 10 PM</div>
+                <div class="preview-model">
+                    <p>Every <span class="hl">5 hours</span>, half. That is pharmacokinetics in one sentence.</p>
+                </div>
+            </div>
+
+            <!-- Vitamin D -->
+            <div class="preview-card" data-idx="2">
+                <div class="preview-label">Vitamin D Status</div>
+                <div class="preview-title">Blood level interpretation</div>
+                <div class="preview-result-number">Sufficient</div>
+                <div class="preview-result-unit">45 ng/mL = 112 nmol/L</div>
+                <div class="preview-model">
+                    <p>Multiply by <span class="hl">2.5</span>. That is the whole conversion.</p>
+                </div>
+            </div>
+
+            <div class="preview-dots">
+                <button class="preview-dot-btn active" data-idx="0" onclick="goToSlide(0)"></button>
+                <button class="preview-dot-btn" data-idx="1" onclick="goToSlide(1)"></button>
+                <button class="preview-dot-btn" data-idx="2" onclick="goToSlide(2)"></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- === FEATURED === -->
+<div class="section-bg">
+    <div class="section-wrapper">
+        <div class="section-label fade-in">Featured Tools</div>
+        <div class="section-title fade-in">Start with the questions people actually ask</div>
+        <div class="tools-grid">
+            <a href="/bmi-calculator" class="tool-card fade-in">
+                <div class="tool-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 0 1 3 19.875v-6.75ZM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V8.625ZM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 0 1-1.125-1.125V4.125Z"/></svg>
+                </div>
+                <div class="tool-card-title">BMI Calculator</div>
+                <div class="tool-card-desc">Body Mass Index with context. Where you fall, what it means, and why it is not the full picture.</div>
+                <div class="tool-card-stat">Context, not just a number.</div>
+            </a>
+            <a href="/body-fat-calculator" class="tool-card fade-in">
+                <div class="tool-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"/></svg>
+                </div>
+                <div class="tool-card-title">Body Fat %</div>
+                <div class="tool-card-desc">Navy method or skinfold measurement. A real estimate without expensive equipment.</div>
+                <div class="tool-card-stat">More useful than BMI alone.</div>
+            </a>
+            <a href="/creatine-calculator" class="tool-card fade-in">
+                <div class="tool-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9.75 3.104v5.714a2.25 2.25 0 0 1-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 0 1 4.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3"/></svg>
+                </div>
+                <div class="tool-card-title">Creatine Dosage</div>
+                <div class="tool-card-desc">How much creatine based on body weight. Loading vs maintenance. The definitive answer.</div>
+                <div class="tool-card-stat">5g daily. No loading needed.</div>
+            </a>
+            <a href="/one-rep-max-calculator" class="tool-card fade-in">
+                <div class="tool-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg>
+                </div>
+                <div class="tool-card-title">One Rep Max</div>
+                <div class="tool-card-desc">Estimate your max from submaximal lifts. Epley, Brzycki, and Lombardi formulas.</div>
+                <div class="tool-card-stat">Know your ceiling without testing it.</div>
+            </a>
+            <a href="/ozempic-dosage-calculator" class="tool-card fade-in">
+                <div class="tool-card-icon">
+                    <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"/></svg>
+                </div>
+                <div class="tool-card-title">Ozempic Dosage</div>
+                <div class="tool-card-desc">Pen clicks per dose, how many doses per pen, and the escalation schedule made clear.</div>
+                <div class="tool-card-stat">The bigger the pen, the fewer clicks.</div>
+            </a>
+            <a href="/calculators" class="tool-card fade-in" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                <div class="tool-card-title" style="font-size: 2rem; margin-bottom: 0.5rem;">85+</div>
+                <div class="tool-card-desc">Browse all calculators &rarr;</div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Trust -->
+<div class="trust-row fade-in">
+    <div class="trust-item">
+        <div class="trust-number">90+</div>
+        <div class="trust-label">Calculators</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-number">12</div>
+        <div class="trust-label">Categories</div>
+    </div>
+    <div class="trust-item">
+        <div class="trust-number">0</div>
+        <div class="trust-label">Paywalls</div>
+    </div>
+</div>
+
+<!-- Ask Pulse -->
+<section class="ask-section">
+    <div class="ask-teal-dot fade-in"></div>
+    <h2 class="fade-in">Ask Pulse</h2>
+    <p class="fade-in">Not sure which calculator you need? Describe your question and Pulse will find the right tool.</p>
+    <div class="ask-input-wrap fade-in">
+        <input type="text" placeholder="How much protein should I eat?">
+        <button>Ask</button>
+    </div>
+    <div class="ask-pills fade-in">
+        <button class="ask-pill">How many calories?</button>
+        <button class="ask-pill">Is my vitamin D low?</button>
+        <button class="ask-pill">When to stop caffeine?</button>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+    <div class="footer-brand">HealthCalculators.xyz</div>
+    <div class="footer-sub">Intelligence, not just math.</div>
+    <div class="footer-links">
+        <a href="/calculators">Calculators</a>
+        <a href="/resources">Resources</a>
+        <a href="https://x.com/GetHealthC" target="_blank">Twitter</a>
+    </div>
+</footer>
+
+<script>
+(function() {
+    // Auto-cycling preview
+    const cards = document.querySelectorAll('.preview-card');
+    const dots = document.querySelectorAll('.preview-dot-btn');
+    let current = 0;
+    let timer;
+
+    function showSlide(idx) {
+        cards.forEach(c => c.classList.remove('active'));
+        dots.forEach(d => d.classList.remove('active'));
+        cards[idx].classList.add('active');
+        dots[idx].classList.add('active');
+        current = idx;
+    }
+
+    window.goToSlide = function(idx) {
+        showSlide(idx);
+        clearInterval(timer);
+        startTimer();
+    };
+
+    function startTimer() {
+        timer = setInterval(() => {
+            showSlide((current + 1) % cards.length);
+        }, 5000);
+    }
+
+    startTimer();
+
+    // Fade-in observer
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+})();
+</script>
+
+</body>
+</html>

@@ -5902,6 +5902,26 @@ def mockup_landing_v6():
 def mockup_landing_v7():
     return render_template('mockup-landing-v7.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-landing-v8')
+def mockup_landing_v8():
+    return render_template('mockup-landing-v8.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-landing-v9')
+def mockup_landing_v9():
+    return render_template('mockup-landing-v9.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-landing-v10')
+def mockup_landing_v10():
+    return render_template('mockup-landing-v10.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-landing-v11')
+def mockup_landing_v11():
+    return render_template('mockup-landing-v11.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-landing-v12')
+def mockup_landing_v12():
+    return render_template('mockup-landing-v12.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-pulse-story')
 def mockup_pulse_story():
     return render_template(
