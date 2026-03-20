@@ -2111,13 +2111,13 @@ def ozempic_weight_loss_calculator():
     schema_description = "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy). Get personalized projections based on clinical data and your individual profile."
     schema_url = "/ozempic-weight-loss-calculator"
     return render_template(
-        'ozempic_weight_loss_calculator.html',
+        'ozempic_weight_loss_calculator_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11',
+        date_modified='2026-03-20',
         robots_meta='noindex, nofollow'
     )
 
