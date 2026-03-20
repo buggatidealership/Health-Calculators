@@ -1168,7 +1168,7 @@ def home():
     schema_description = "90+ free health calculators built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds."
     schema_url = "/"
     return render_template(
-        'mockup-homepage-v2.html',
+        'mockup-homepage-v3.html',
         is_homepage=True,
         schema_name=schema_name,
         schema_description=schema_description,

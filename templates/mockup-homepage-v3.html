@@ -2,1214 +2,1609 @@
 <html lang="en">
 <head>
 {% with
-    meta_description="90+ free health calculators backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
-    meta_keywords="health calculators, TDEE calculator, BMI calculator, ozempic calculator, vitamin D calculator",
-    og_title="HealthCalculators.xyz — Clear Answers to Your Health Questions",
-    og_description="90+ free tools backed by 220+ peer-reviewed citations. Ask your question, get a clear answer in under 60 seconds.",
-    og_url="/mockup-homepage-v3",
+    meta_description="90+ free health calculators built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+    meta_keywords="health calculators, AI health tools, TDEE calculator, BMI calculator, nutrition calculator",
+    og_title="HealthCalculators.xyz — The Intelligent Health Calculator",
+    og_description="90+ free tools built by AI, backed by 220+ peer-reviewed citations. Get a clear answer in under 60 seconds.",
+    og_url="/",
     og_image="default-calculator-og.jpg",
-    page_title="HealthCalculators.xyz — Clear Answers to Your Health Questions",
-    canonical_url="/mockup-homepage-v3"
+    page_title="HealthCalculators.xyz — The Intelligent Health Calculator",
+    canonical_url="/"
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
 
 <style>
-/* ========== HOMEPAGE V3 — Question-Driven, Research-Verified ========== */
-
-/* --- Reset & Base --- */
-*, *::before, *::after { box-sizing: border-box; }
-
-/* --- Hero --- */
-.v3-hero {
-  position: relative;
-  padding: 80px 24px 64px;
-  overflow: hidden;
-  background: var(--color-bg);
-}
-
-.v3-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(ellipse 60% 50% at 30% 0%, rgba(14, 122, 126, 0.04) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 40% at 80% 20%, rgba(14, 122, 126, 0.03) 0%, transparent 60%);
-  pointer-events: none;
-}
-
-/* Dot grid */
-.v3-hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(14, 122, 126, 0.06) 1px, transparent 1px);
-  background-size: 24px 24px;
-  mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black, transparent);
-  -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 20%, black, transparent);
-  pointer-events: none;
-}
-
-.v3-hero-inner {
-  position: relative;
-  z-index: 1;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* Question rotator */
-.v3-question-label {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.82rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-}
-
-.v3-question-dot {
-  width: 6px;
-  height: 6px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  animation: v3-pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes v3-pulse {
-  0%, 100% { opacity: 0.4; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.4); }
-}
-
-.v3-hero h1 {
-  font-family: var(--font-display);
-  font-size: 3.2rem;
-  font-weight: 400;
-  color: var(--color-text);
-  line-height: 1.12;
-  margin: 0 0 12px;
-  letter-spacing: -0.02em;
-  min-height: 3.6em;
-}
-
-.v3-rotating-question {
-  display: block;
-  color: var(--color-accent);
-  font-style: italic;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-.v3-rotating-question.fade-out {
-  opacity: 0;
-  transform: translateY(-8px);
-}
-
-.v3-rotating-question.fade-in {
-  opacity: 0;
-  transform: translateY(8px);
-}
-
-.v3-hero-sub {
-  font-size: 1.15rem;
-  color: var(--color-text-secondary);
-  max-width: 540px;
-  margin: 0 auto 36px;
-  line-height: 1.55;
-}
-
-/* Search bar */
-.v3-search-wrap {
-  max-width: 560px;
-  margin: 0 auto 20px;
-  position: relative;
-}
-
-.v3-search-input {
-  width: 100%;
-  padding: 16px 20px 16px 48px;
-  border: 2px solid var(--color-border);
-  border-radius: 14px;
-  font-size: 1.05rem;
-  font-family: var(--font-body);
-  background: var(--color-surface);
-  color: var(--color-text);
-  transition: border-color 0.2s, box-shadow 0.2s;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.04);
-}
-
-.v3-search-input:focus {
-  outline: none;
-  border-color: var(--color-accent);
-  box-shadow: 0 2px 20px rgba(14, 122, 126, 0.12);
-}
-
-.v3-search-input::placeholder {
-  color: #aaa;
-}
-
-.v3-search-icon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #bbb;
-  pointer-events: none;
-}
-
-.v3-search-kbd {
-  position: absolute;
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 0.72rem;
-  color: #bbb;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 2px 6px;
-  font-family: var(--font-body);
-  pointer-events: none;
-}
-
-/* Trust strip */
-.v3-trust {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
-
-.v3-trust-item {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.v3-trust-num {
-  font-weight: 700;
-  color: var(--color-text);
-  font-size: 0.85rem;
-}
-
-/* --- Result Preview Strip --- */
-.v3-preview-section {
-  padding: 0 24px 64px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.v3-preview-label {
-  text-align: center;
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-text-secondary);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 24px;
-}
-
-.v3-preview-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-.v3-preview-card {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 28px 24px;
-  text-decoration: none;
-  color: inherit;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-}
-
-.v3-preview-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-  border-color: var(--color-accent);
-}
-
-.v3-preview-card::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: var(--color-accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.3s ease;
-}
-
-.v3-preview-card:hover::after {
-  transform: scaleX(1);
-}
-
-.v3-card-question {
-  font-size: 0.82rem;
-  color: var(--color-accent);
-  font-weight: 600;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.v3-card-question svg {
-  flex-shrink: 0;
-}
-
-.v3-card-result {
-  font-family: var(--font-display);
-  font-size: 2.8rem;
-  font-weight: 400;
-  color: var(--color-text);
-  line-height: 1;
-  margin-bottom: 4px;
-}
-
-.v3-card-result .v3-unit {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: var(--color-text-secondary);
-  margin-left: 4px;
-}
-
-.v3-card-context {
-  font-size: 0.85rem;
-  color: var(--color-text-secondary);
-  line-height: 1.4;
-  margin-bottom: 16px;
-}
-
-/* Mini bar chart in card */
-.v3-card-bar-wrap {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 6px;
-}
-
-.v3-card-bar-track {
-  flex: 1;
-  height: 6px;
-  background: var(--color-muted);
-  border-radius: 3px;
-  overflow: hidden;
-}
-
-.v3-card-bar-fill {
-  height: 100%;
-  background: var(--color-accent);
-  border-radius: 3px;
-  width: 0;
-  transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.v3-card-bar-label {
-  font-size: 0.72rem;
-  color: var(--color-text-secondary);
-  white-space: nowrap;
-  min-width: 60px;
-}
-
-.v3-card-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  margin-top: 12px;
-}
-
-.v3-card-cta svg {
-  transition: transform 0.2s;
-}
-
-.v3-preview-card:hover .v3-card-cta svg {
-  transform: translateX(3px);
-}
-
-/* --- Divider --- */
-.v3-divider {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 24px;
-}
-
-.v3-divider-line {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-border), transparent);
-}
-
-/* --- Category Section --- */
-.v3-categories {
-  padding: 64px 24px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.v3-section-header {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-.v3-section-eyebrow {
-  font-size: 0.78rem;
-  font-weight: 600;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  margin-bottom: 12px;
-}
-
-.v3-section-title {
-  font-family: var(--font-display);
-  font-size: 2.2rem;
-  font-weight: 400;
-  color: var(--color-text);
-  margin: 0 0 12px;
-  line-height: 1.15;
-}
-
-.v3-section-sub {
-  font-size: 1rem;
-  color: var(--color-text-secondary);
-  max-width: 480px;
-  margin: 0 auto;
-  line-height: 1.5;
-}
-
-.v3-cat-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: 16px;
-}
-
-.v3-cat-card {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 20px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 14px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-}
-
-.v3-cat-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-  border-color: var(--color-accent);
-}
-
-.v3-cat-icon {
-  font-size: 1.8rem;
-  width: 52px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-muted);
-  border-radius: 12px;
-  flex-shrink: 0;
-}
-
-.v3-cat-info {
-  flex: 1;
-  min-width: 0;
-}
-
-.v3-cat-name {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 3px;
-}
-
-.v3-cat-desc {
-  font-size: 0.82rem;
-  color: var(--color-text-secondary);
-  line-height: 1.35;
-}
-
-.v3-cat-count {
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  background: rgba(14, 122, 126, 0.08);
-  padding: 4px 10px;
-  border-radius: 20px;
-  white-space: nowrap;
-  flex-shrink: 0;
-}
-
-/* --- Popular Tools --- */
-.v3-popular {
-  padding: 64px 24px;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.v3-popular-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 14px;
-}
-
-.v3-tool-card {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  text-decoration: none;
-  color: inherit;
-  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
-}
-
-.v3-tool-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-  border-color: var(--color-accent);
-}
-
-.v3-tool-icon {
-  font-size: 1.4rem;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--color-muted);
-  border-radius: 10px;
-  flex-shrink: 0;
-}
-
-.v3-tool-name {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--color-text);
-  margin-bottom: 2px;
-}
-
-.v3-tool-desc {
-  font-size: 0.78rem;
-  color: var(--color-text-secondary);
-  line-height: 1.3;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.v3-tool-arrow {
-  margin-left: auto;
-  color: #ccc;
-  flex-shrink: 0;
-  transition: color 0.15s, transform 0.15s;
-}
-
-.v3-tool-card:hover .v3-tool-arrow {
-  color: var(--color-accent);
-  transform: translateX(2px);
-}
-
-/* --- How It Works --- */
-.v3-how {
-  padding: 64px 24px;
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-.v3-steps {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  counter-reset: step;
-}
-
-.v3-step {
-  text-align: center;
-  position: relative;
-  counter-increment: step;
-}
-
-.v3-step-num {
-  font-size: 0.72rem;
-  font-weight: 700;
-  color: var(--color-accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: 16px;
-}
-
-.v3-step-icon {
-  width: 56px;
-  height: 56px;
-  background: rgba(14, 122, 126, 0.06);
-  border: 1px solid rgba(14, 122, 126, 0.12);
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 16px;
-}
-
-.v3-step-title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--color-text);
-  margin-bottom: 8px;
-}
-
-.v3-step-desc {
-  font-size: 0.88rem;
-  color: var(--color-text-secondary);
-  line-height: 1.5;
-}
-
-/* Connector between steps */
-.v3-step:not(:last-child)::after {
-  content: '';
-  position: absolute;
-  top: 54px;
-  right: -16px;
-  width: 32px;
-  height: 1px;
-  background: linear-gradient(90deg, var(--color-border), rgba(14,122,126,0.2));
-}
-
-/* --- Demand Capture --- */
-.v3-demand {
-  padding: 48px 24px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.v3-demand-box {
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 16px;
-  padding: 32px;
-  text-align: center;
-}
-
-.v3-demand-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--color-text);
-  margin-bottom: 8px;
-}
-
-.v3-demand-sub {
-  font-size: 0.92rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 20px;
-  line-height: 1.5;
-}
-
-.v3-demand-form {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 400px;
-  margin: 0 auto;
-}
-
-.v3-demand-input {
-  padding: 12px 16px;
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  font-size: 0.92rem;
-  font-family: var(--font-body);
-  background: var(--color-bg);
-  color: var(--color-text);
-}
-
-.v3-demand-input:focus {
-  outline: none;
-  border-color: var(--color-accent);
-}
-
-.v3-demand-btn {
-  padding: 12px 20px;
-  background: var(--color-accent);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  font-size: 0.92rem;
-  font-weight: 600;
-  font-family: var(--font-body);
-  cursor: pointer;
-  transition: background 0.2s, transform 0.1s;
-}
-
-.v3-demand-btn:hover {
-  background: #0b6b6e;
-}
-
-.v3-demand-btn:active {
-  transform: scale(0.98);
-}
-
-.v3-demand-note {
-  font-size: 0.75rem;
-  color: var(--color-text-secondary);
-  margin-top: 8px;
-}
-
-/* --- Ticker (hypothesis — not data-derived) --- */
-.v3-ticker {
-  padding: 12px 24px;
-  text-align: center;
-  font-size: 0.78rem;
-  color: var(--color-text-secondary);
-  border-top: 1px solid var(--color-border);
-  overflow: hidden;
-}
-
-.v3-ticker-inner {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.v3-ticker-dot {
-  width: 5px;
-  height: 5px;
-  background: #22c55e;
-  border-radius: 50%;
-  animation: v3-ticker-pulse 1.5s ease-in-out infinite;
-}
-
-@keyframes v3-ticker-pulse {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
-}
-
-/* --- Responsive --- */
-@media (max-width: 768px) {
-  .v3-hero {
-    padding: 56px 20px 48px;
+  /* ========== V25 DARK MODE PALETTE ========== */
+  :root {
+    --color-text: #e2e8f0;
+    --color-text-secondary: #94a3b8;
+    --color-text-tertiary: #64748b;
+    --color-bg: #0a0f1a;
+    --color-surface: rgba(255,255,255,0.03);
+    --color-muted: rgba(255,255,255,0.05);
+    --color-border: rgba(20,184,166,0.12);
+    --color-border-light: rgba(20,184,166,0.06);
+    --color-accent: #14b8a6;
+    --color-accent-hover: #0d9488;
+    --color-accent-bg: rgba(20,184,166,0.06);
+    --color-accent-border: rgba(20,184,166,0.2);
+    --color-accent-glow: rgba(20,184,166,0.15);
+    --color-accent-deep: #0d9488;
+    --color-good: #22c55e;
+    --color-good-bg: rgba(34,197,94,0.12);
+    --color-good-border: rgba(34,197,94,0.2);
+    --color-danger: #ef4444;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+  }
+  body { background: #0a0f1a !important; color: #e2e8f0 !important; }
+
+  /* --- Dark mode heading overrides --- */
+  h1, h2, h3, h4, h5, h6 { color: var(--color-text) !important; }
+  a { color: var(--color-accent); }
+
+  /* --- Dark hero --- */
+  .v2-hero {
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(20,184,166,0.08) 0%, transparent 70%),
+      #0a0f1a !important;
+  }
+  .v2-hero::before {
+    background-image:
+      linear-gradient(rgba(20,184,166,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(20,184,166,0.04) 1px, transparent 1px) !important;
   }
 
-  .v3-hero h1 {
+  /* --- Pulse dot: green --- */
+  .v2-pulse-dot {
+    background: #22c55e !important;
+  }
+
+  /* --- Buttons: dark mode --- */
+  .v2-btn-primary {
+    background: #14b8a6 !important;
+    color: #0a0f1a !important;
+    box-shadow: 0 4px 14px rgba(20,184,166,0.25) !important;
+  }
+  .v2-btn-primary:hover {
+    background: #0d9488 !important;
+    box-shadow: 0 8px 24px rgba(20,184,166,0.35) !important;
+  }
+  .v2-btn-secondary {
+    background: transparent !important;
+    color: var(--color-text) !important;
+    border: 1.5px solid rgba(20,184,166,0.25) !important;
+  }
+  .v2-btn-secondary:hover {
+    border-color: #14b8a6 !important;
+    box-shadow: 0 0 0 4px rgba(20,184,166,0.08), var(--shadow-md) !important;
+  }
+
+  /* --- Showcase: dark --- */
+  .v2-showcase-frame {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(20,184,166,0.12) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 16px 48px rgba(0,0,0,0.4) !important;
+  }
+  .v2-showcase-body {
+    background: linear-gradient(160deg, rgba(20,184,166,0.04) 0%, rgba(20,184,166,0.08) 100%) !important;
+  }
+  .v2-showcase-input-pill {
+    background: rgba(255,255,255,0.05) !important;
+    border-color: rgba(20,184,166,0.1) !important;
+  }
+  .v2-showcase-input-pill strong { color: var(--color-text) !important; }
+
+  /* --- Trust icons: dark --- */
+  .v2-trust-icon {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(20,184,166,0.1) !important;
+  }
+
+  /* --- Cards: dark surface with border glow --- */
+  .v2-tool {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(20,184,166,0.08) !important;
+  }
+  .v2-tool:hover {
+    border-color: rgba(20,184,166,0.2) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(20,184,166,0.06) !important;
+  }
+
+  /* --- Steps: dark --- */
+  .v2-step {
+    background: #0a0f1a !important;
+    border-color: rgba(20,184,166,0.08) !important;
+  }
+  .v2-step:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 0 20px rgba(20,184,166,0.06) !important;
+  }
+  .v2-step-icon {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(20,184,166,0.12) !important;
+  }
+  .v2-step::before {
+    background: linear-gradient(90deg, #14b8a6, rgba(20,184,166,0.2)) !important;
+  }
+
+  /* --- How it works section: dark --- */
+  .v2-how {
+    background: rgba(255,255,255,0.02) !important;
+    border-color: rgba(20,184,166,0.06) !important;
+  }
+
+  /* --- Categories: dark --- */
+  .v2-categories {
+    background: rgba(255,255,255,0.02) !important;
+    border-color: rgba(20,184,166,0.06) !important;
+  }
+  .v2-cat-tag {
+    background: #0a0f1a !important;
+    border-color: rgba(20,184,166,0.12) !important;
+    color: var(--color-text) !important;
+  }
+  .v2-cat-tag:hover {
+    background: rgba(20,184,166,0.06) !important;
+    border-color: #14b8a6 !important;
+    color: #14b8a6 !important;
+  }
+  .v2-cat-count {
+    background: rgba(255,255,255,0.05) !important;
+    color: var(--color-text-tertiary) !important;
+  }
+
+  /* --- Resources card: dark --- */
+  .v2-resources-card {
+    background: rgba(255,255,255,0.04) !important;
+    border: 1px solid rgba(20,184,166,0.12) !important;
+    color: var(--color-text) !important;
+  }
+  .v2-resources-card::before {
+    background: radial-gradient(circle, rgba(20,184,166,0.15) 0%, transparent 70%) !important;
+  }
+  .v2-resources-heading { color: var(--color-text) !important; }
+  .v2-resources-desc { color: var(--color-text-secondary) !important; }
+  .v2-resources-btn {
+    background: #14b8a6 !important;
+    color: #0a0f1a !important;
+  }
+  .v2-resources-btn:hover {
+    box-shadow: 0 8px 24px rgba(20,184,166,0.3) !important;
+  }
+  .v2-resources .v2-section-label { color: var(--color-accent) !important; }
+
+  /* --- Request box: constrained width + micro interaction --- */
+  .v2-request {
+    max-width: fit-content;
+  }
+  .v2-request-toggle {
+    width: auto;
+    transition: all 0.3s ease;
+    border-color: rgba(20,184,166,0.2) !important;
+  }
+  .v2-request-toggle:hover {
+    border-color: #14b8a6 !important;
+    box-shadow: 0 0 0 4px rgba(20,184,166,0.1), 0 0 20px rgba(20,184,166,0.08) !important;
+    transform: translateY(-1px);
+  }
+  .v2-request.open {
+    animation: requestGlow 0.4s ease;
+  }
+  @keyframes requestGlow {
+    0% { box-shadow: none; }
+    50% { box-shadow: 0 0 30px rgba(20,184,166,0.15); }
+    100% { box-shadow: 0 0 0 1px rgba(20,184,166,0.1); }
+  }
+  .v2-request-form {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: #14b8a6 !important;
+  }
+  .v2-request-field {
+    background: #0a0f1a !important;
+    border-color: rgba(20,184,166,0.12) !important;
+    color: var(--color-text) !important;
+  }
+  .v2-request-field:focus {
+    border-color: #14b8a6 !important;
+    box-shadow: 0 0 0 3px rgba(20,184,166,0.15) !important;
+  }
+  .v2-request-submit {
+    background: #14b8a6 !important;
+    color: #0a0f1a !important;
+  }
+  .v2-request-submit:hover {
+    background: #0d9488 !important;
+    box-shadow: 0 4px 12px rgba(20,184,166,0.3) !important;
+  }
+  .v2-request-success {
+    background: rgba(255,255,255,0.03) !important;
+    border-color: rgba(34,197,94,0.2) !important;
+  }
+
+  /* --- Calculator container: no white bg --- */
+  .calculator-container {
+    background: transparent !important;
+  }
+
+  /* ========== HOMEPAGE V2 — Twitter-Optimized Synthesis ========== */
+
+  /* --- Hero: Split layout (Option C) --- */
+  .v2-hero {
+    position: relative;
+    padding: 64px 24px 56px;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(14, 122, 126, 0.05) 0%, transparent 70%),
+      var(--color-bg);
+  }
+
+  /* Subtle grid texture */
+  .v2-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(14, 122, 126, 0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(14, 122, 126, 0.025) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black, transparent);
+    pointer-events: none;
+  }
+
+  .v2-hero-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  /* Left: copy */
+  .v2-hero-copy {
+    max-width: 480px;
+  }
+
+  .v2-hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px 6px 10px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 24px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .v2-pulse-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: v2-pulse 2.5s ease-in-out infinite;
+  }
+
+  @keyframes v2-pulse {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+  }
+
+  .v2-hero h1 {
+    font-family: var(--font-display);
+    font-size: 3.4rem;
+    font-weight: 400;
+    color: var(--color-text);
+    line-height: 1.1;
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .v2-hero h1 em {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+
+  .v2-hero-sub {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+    margin: 0 0 28px;
+  }
+
+  .v2-hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+
+  .v2-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+    border: none;
+  }
+
+  .v2-btn:hover { transform: translateY(-2px); }
+
+  .v2-btn-primary {
+    background: var(--color-text);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(27, 27, 50, 0.2);
+  }
+
+  .v2-btn-primary:hover {
+    box-shadow: 0 8px 24px rgba(27, 27, 50, 0.28);
+  }
+
+  .v2-btn-secondary {
+    background: var(--color-surface);
+    color: var(--color-text);
+    border: 1.5px solid var(--color-border);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .v2-btn-secondary:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-md);
+  }
+
+  .v2-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  /* Request a calculator */
+  .v2-request {
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: background 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .v2-request-toggle {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    background: none;
+    border: 1.5px dashed var(--color-accent-border);
+    border-radius: 12px;
+    padding: 14px 20px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    width: 100%;
+    transition: all 0.3s ease;
+  }
+
+  .v2-request-toggle:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    box-shadow: 0 0 0 4px rgba(14, 122, 126, 0.06);
+  }
+
+  .v2-request-toggle svg.v2-request-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: var(--color-accent);
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .v2-request.open .v2-request-toggle svg.v2-request-icon {
+    transform: rotate(135deg);
+  }
+
+  .v2-request-toggle-text {
+    flex: 1;
+    text-align: left;
+  }
+
+  .v2-request-toggle-text strong {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .v2-request-toggle-sub {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    font-weight: 400;
+    display: block;
+    margin-top: 1px;
+  }
+
+  .v2-request.open .v2-request-toggle {
+    border-color: var(--color-accent);
+    border-style: solid;
+    border-radius: 12px 12px 0 0;
+    background: var(--color-accent-bg);
+    color: var(--color-accent);
+  }
+
+  /* Form: slide-down reveal */
+  .v2-request-form {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1),
+                opacity 0.35s ease 0.05s,
+                padding 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 20px;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-accent);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+  }
+
+  .v2-request.open .v2-request-form {
+    max-height: 320px;
+    opacity: 1;
+    padding: 20px;
+  }
+
+  /* Stagger fields in */
+  .v2-request-form > * {
+    transform: translateY(8px);
+    opacity: 0;
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  .v2-request.open .v2-request-form > * {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .v2-request.open .v2-request-form > *:nth-child(1) { transition-delay: 0.1s; }
+  .v2-request.open .v2-request-form > *:nth-child(2) { transition-delay: 0.18s; }
+  .v2-request.open .v2-request-form > *:nth-child(3) { transition-delay: 0.26s; }
+  .v2-request.open .v2-request-form > *:nth-child(4) { transition-delay: 0.32s; }
+
+  .v2-request-field {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    background: var(--color-bg);
+    box-sizing: border-box;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .v2-request-field:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(14, 122, 126, 0.1);
+  }
+
+  .v2-request-field::placeholder {
+    color: var(--color-text-tertiary);
+  }
+
+  .v2-request-field + .v2-request-field {
+    margin-top: 10px;
+  }
+
+  .v2-request-submit {
+    margin-top: 12px;
+    padding: 12px 20px;
+    background: var(--color-accent);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-family: var(--font-body);
+    font-size: 0.88rem;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.25s ease;
+  }
+
+  .v2-request-submit:hover {
+    background: var(--color-accent-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(14, 122, 126, 0.25);
+  }
+
+  .v2-request-submit:active {
+    transform: translateY(0);
+    box-shadow: none;
+  }
+
+  /* Ripple on submit */
+  .v2-request-submit::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255,255,255,0.3) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  .v2-request-submit.v2-ripple::after {
+    opacity: 1;
+    animation: v2-ripple-out 0.6s ease forwards;
+  }
+
+  @keyframes v2-ripple-out {
+    0% { opacity: 1; transform: scale(0.3); }
+    100% { opacity: 0; transform: scale(2); }
+  }
+
+  .v2-request-consent {
+    font-size: 0.7rem;
+    color: var(--color-text-tertiary);
+    margin-top: 10px;
+    line-height: 1.4;
+  }
+
+  /* Success state */
+  .v2-request-success {
+    display: none;
+    text-align: center;
+    padding: 28px 20px;
+    background: var(--color-surface);
+    border: 1.5px solid var(--color-good-border);
+    border-radius: 12px;
+  }
+
+  .v2-request-success.v2-show {
+    display: block;
+    animation: v2-success-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  @keyframes v2-success-in {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .v2-request-success-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    background: var(--color-good-bg);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-good);
+    animation: v2-check-pop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
+  }
+
+  @keyframes v2-check-pop {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+  }
+
+  .v2-request-success-icon svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .v2-request-success-msg {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: 4px;
+  }
+
+  .v2-request-success-sub {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Right: product showcase */
+  .v2-showcase {
+    position: relative;
+  }
+
+  .v2-showcase-frame {
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    box-shadow:
+      0 4px 8px rgba(27, 27, 50, 0.04),
+      0 16px 48px rgba(27, 27, 50, 0.08);
+    overflow: hidden;
+  }
+
+  .v2-showcase-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 16px;
+    background: var(--color-muted);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-showcase-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--color-border);
+  }
+
+  .v2-showcase-url {
+    flex: 1;
+    text-align: center;
+    font-size: 0.72rem;
+    color: var(--color-text-tertiary);
+    font-weight: 500;
+  }
+
+  .v2-showcase-body {
+    padding: 32px 28px 28px;
+    text-align: center;
+    background: linear-gradient(160deg, #fafcfc 0%, var(--color-accent-bg) 100%);
+  }
+
+  .v2-showcase-calc-name {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+  }
+
+  .v2-showcase-heartbeat {
+    display: block;
+    margin: 0 auto 20px;
+  }
+
+  .v2-showcase-number {
+    font-family: var(--font-display);
+    font-size: 5rem;
+    font-weight: 400;
+    color: var(--color-accent);
+    line-height: 1;
+    margin-bottom: 4px;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .v2-showcase-unit {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent-deep);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .v2-showcase-context {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    padding: 0 8px;
+  }
+
+  .v2-showcase-inputs {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .v2-showcase-input-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 5px 12px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+  }
+
+  .v2-showcase-input-pill strong {
+    color: var(--color-text);
+    font-weight: 600;
+  }
+
+  /* --- Trust strip (below hero) --- */
+  .v2-trust {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+  }
+
+  .v2-trust-icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border-light);
+    box-shadow: var(--shadow-sm);
+    flex-shrink: 0;
+  }
+
+  .v2-trust-icon svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-accent);
+  }
+
+  .v2-trust-num {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 0.95rem;
+  }
+
+  /* Pulse activity line */
+  .v2-pulse-line {
+    text-align: center;
+    padding: 14px 24px;
+    font-size: 0.78rem;
+    color: var(--color-text-tertiary);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-pulse-line strong {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  /* --- Heartbeat divider --- */
+  .v2-divider {
+    text-align: center;
+    padding: 40px 0;
+  }
+
+  .v2-divider svg {
+    width: 140px;
+    height: 16px;
+  }
+
+  /* --- How It Works --- */
+  .v2-how {
+    padding: 64px 24px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-how-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .v2-section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-accent);
+    margin-bottom: 10px;
+  }
+
+  .v2-section-label::before {
+    content: '';
+    width: 20px;
+    height: 1.5px;
+    background: var(--color-accent);
+    border-radius: 1px;
+  }
+
+  .v2-how-heading {
+    font-family: var(--font-display);
     font-size: 2.2rem;
-    min-height: 2.8em;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 10px;
+    line-height: 1.15;
   }
 
-  .v3-hero-sub {
+  .v2-how-desc {
     font-size: 1rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+    max-width: 520px;
+    margin-bottom: 40px;
   }
 
-  .v3-preview-grid {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  .v2-steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
   }
 
-  .v3-card-result {
-    font-size: 2.2rem;
+  .v2-step {
+    position: relative;
+    padding: 28px 24px 24px;
+    background: var(--color-bg);
+    border-radius: 14px;
+    border: 1px solid var(--color-border-light);
+    transition: transform 0.25s, box-shadow 0.25s;
   }
 
-  .v3-trust {
+  .v2-step::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-accent), rgba(14, 122, 126, 0.2));
+    border-radius: 0 0 3px 3px;
+  }
+
+  .v2-step:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .v2-step-num {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 14px;
+  }
+
+  .v2-step-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .v2-step-icon svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-accent);
+  }
+
+  .v2-step-title {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 6px;
+  }
+
+  .v2-step-desc {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+  }
+
+  /* --- Featured Tools --- */
+  .v2-tools {
+    padding: 64px 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .v2-tools-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .v2-tools-heading {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.15;
+  }
+
+  .v2-tools-link {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s;
+  }
+
+  .v2-tools-link:hover { gap: 10px; }
+
+  .v2-tools-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 
-  .v3-trust-item {
-    font-size: 0.75rem;
+  .v2-tool {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 22px 20px;
+    background: var(--color-surface);
+    border-radius: 14px;
+    border: 1px solid var(--color-border-light);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    box-shadow: var(--shadow-sm);
   }
 
-  .v3-cat-grid {
-    grid-template-columns: 1fr;
+  .v2-tool:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border);
   }
 
-  .v3-popular-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .v3-steps {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .v3-step:not(:last-child)::after {
-    display: none;
-  }
-
-  .v3-section-title {
-    font-size: 1.7rem;
-  }
-
-  .v3-search-kbd {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .v3-hero h1 {
+  .v2-tool-emoji {
     font-size: 1.8rem;
+    margin-bottom: 12px;
+    line-height: 1;
   }
 
-  .v3-hero-sub {
+  .v2-tool-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin-bottom: 5px;
+  }
+
+  .v2-tool-desc {
+    font-size: 0.82rem;
+    color: var(--color-text-secondary);
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 14px;
+  }
+
+  .v2-tool-cta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+  }
+
+  .v2-tool:hover .v2-tool-cta { gap: 8px; }
+
+  /* --- Categories --- */
+  .v2-categories {
+    padding: 56px 24px;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border-light);
+    border-bottom: 1px solid var(--color-border-light);
+  }
+
+  .v2-categories-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .v2-categories-heading {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--color-text);
+    margin: 0 0 24px;
+  }
+
+  .v2-cat-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+
+  .v2-cat-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 0.88rem;
+    font-weight: 500;
+    transition: all 0.2s;
+  }
+
+  .v2-cat-tag:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background: var(--color-accent-bg);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .v2-cat-count {
+    font-size: 0.72rem;
+    color: var(--color-text-tertiary);
+    background: var(--color-surface);
+    padding: 2px 8px;
+    border-radius: 100px;
+    font-weight: 600;
+  }
+
+  /* --- Resources banner --- */
+  .v2-resources {
+    padding: 64px 24px;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .v2-resources-card {
+    position: relative;
+    padding: 44px 36px;
+    background: var(--color-text);
+    border-radius: 18px;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .v2-resources-card::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(14, 122, 126, 0.25) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .v2-resources-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .v2-resources-heading {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0 0 10px;
+    line-height: 1.2;
+  }
+
+  .v2-resources-desc {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    max-width: 460px;
+  }
+
+  .v2-resources-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    background: #fff;
+    color: var(--color-text);
+    border-radius: 10px;
     font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
   }
 
-  .v3-demand-box {
-    padding: 24px 20px;
+  .v2-resources-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   }
-}
+
+  /* --- Scroll reveal --- */
+  .v2-reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .v2-reveal.v2-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .v2-stagger > .v2-reveal:nth-child(1) { transition-delay: 0s; }
+  .v2-stagger > .v2-reveal:nth-child(2) { transition-delay: 0.08s; }
+  .v2-stagger > .v2-reveal:nth-child(3) { transition-delay: 0.16s; }
+  .v2-stagger > .v2-reveal:nth-child(4) { transition-delay: 0.24s; }
+  .v2-stagger > .v2-reveal:nth-child(5) { transition-delay: 0.32s; }
+  .v2-stagger > .v2-reveal:nth-child(6) { transition-delay: 0.4s; }
+
+  /* --- Responsive --- */
+  @media (max-width: 900px) {
+    .v2-hero-inner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+      text-align: center;
+    }
+    .v2-hero-copy {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .v2-hero h1 { font-size: 2.6rem; }
+    .v2-showcase-number { font-size: 4rem; }
+  }
+
+  @media (max-width: 768px) {
+    .v2-hero { padding: 40px 20px 36px; }
+    .v2-hero h1 { font-size: 2.2rem; }
+    .v2-hero-sub { font-size: 1rem; }
+    .v2-showcase-body { padding: 24px 20px 20px; }
+    .v2-showcase-number { font-size: 3.5rem; }
+    .v2-steps { grid-template-columns: 1fr; gap: 14px; }
+    .v2-how-heading { font-size: 1.7rem; }
+    .v2-tools-grid { grid-template-columns: 1fr; gap: 12px; }
+    .v2-tools-heading { font-size: 1.4rem; }
+    .v2-trust { gap: 16px; }
+    .v2-trust-item { font-size: 0.8rem; }
+    .v2-resources-card { padding: 32px 24px; }
+    .v2-resources-heading { font-size: 1.4rem; }
+    .v2-cat-tag { padding: 9px 16px; font-size: 0.82rem; }
+  }
+
+  @media (max-width: 480px) {
+    .v2-hero h1 { font-size: 1.9rem; }
+    .v2-showcase-number { font-size: 3rem; }
+    .v2-hero-actions {
+      flex-direction: column;
+    }
+    .v2-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
 </style>
 </head>
 <body>
 {% include 'header.html' %}
 
-<!-- ===== HERO: Question-Driven ===== -->
-<section class="v3-hero">
-  <div class="v3-hero-inner">
-    <div class="v3-question-label">
-      <span class="v3-question-dot"></span>
-      People are asking
+<div class="calculator-container" style="max-width: none; padding: 0;">
+
+  <!-- ===== HERO: Split layout ===== -->
+  <section class="v2-hero">
+    <div class="v2-hero-inner">
+
+      <!-- Left: Copy -->
+      <div class="v2-hero-copy v2-reveal">
+        <div class="v2-hero-badge">
+          <span class="v2-pulse-dot"></span>
+          Pulse · Built by AI, updated continuously
+        </div>
+
+        <h1>The <em>Intelligent</em><br>Health Calculator</h1>
+
+        <p class="v2-hero-sub">
+          90+ free tools backed by 220+ peer-reviewed citations.
+          Get a clear, personalized answer in under 60 seconds.
+        </p>
+
+        <div class="v2-hero-actions">
+          <a href="/tdee-calculator" class="v2-btn v2-btn-primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            Try TDEE Calculator
+          </a>
+          <a href="/calculators" class="v2-btn v2-btn-secondary">
+            Browse All Tools
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- Request a calculator -->
+        <div class="v2-request" id="v2-request">
+          <button class="v2-request-toggle" id="v2-request-toggle" type="button">
+            <svg class="v2-request-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>
+            <span class="v2-request-toggle-text">
+              <strong>Tell Pulse what you need.</strong> We'll build it in 48 hours.
+            </span>
+          </button>
+          <div class="v2-request-form" id="v2-request-form">
+            <input type="text" class="v2-request-field" id="v2-request-what" placeholder="e.g. A creatine loading calculator" required>
+            <input type="email" class="v2-request-field" id="v2-request-email" placeholder="Your email (we'll notify you when it's ready)">
+            <button type="button" class="v2-request-submit" id="v2-request-submit">Submit Request</button>
+            <p class="v2-request-consent">We only use your email to notify you when your calculator is ready. Nothing else.</p>
+          </div>
+          <div class="v2-request-success" id="v2-request-success">
+            <div class="v2-request-success-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div class="v2-request-success-msg">Request received!</div>
+            <div class="v2-request-success-sub">Pulse is on it. We'll email you when your calculator is ready.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Product showcase -->
+      <div class="v2-showcase v2-reveal">
+        <div class="v2-showcase-frame">
+          <div class="v2-showcase-bar">
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-dot"></span>
+            <span class="v2-showcase-url">healthcalculators.xyz/tdee-calculator</span>
+          </div>
+          <div class="v2-showcase-body">
+            <div class="v2-showcase-calc-name">TDEE Calculator</div>
+            <svg class="v2-showcase-heartbeat" width="80" height="12" viewBox="0 0 80 12" fill="none">
+              <path d="M0 6 L24 6 L32 2 L38 10 L44 4 L50 6 L80 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
+            </svg>
+            <div class="v2-showcase-number" id="v2-hero-num">2,340</div>
+            <div class="v2-showcase-unit">calories / day</div>
+            <div class="v2-showcase-context">
+              Your maintenance calories based on the Mifflin-St Jeor equation.
+              Moderately active — higher than average for your profile.
+            </div>
+            <div class="v2-showcase-inputs">
+              <span class="v2-showcase-input-pill"><strong>28</strong> years</span>
+              <span class="v2-showcase-input-pill"><strong>165</strong> lbs</span>
+              <span class="v2-showcase-input-pill"><strong>5'10"</strong></span>
+              <span class="v2-showcase-input-pill"><strong>Active</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </section>
 
-    <h1>
-      Clear answers to<br>
-      <span class="v3-rotating-question" id="rotating-q">"How many calories do I actually burn?"</span>
-    </h1>
-
-    <p class="v3-hero-sub">
-      90+ free calculators backed by 220+ peer-reviewed citations.
-      Get your number in under 60 seconds.
-    </p>
-
-    <!-- Search -->
-    <div class="v3-search-wrap">
-      <svg class="v3-search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" class="v3-search-input" id="v3-search" placeholder="What do you want to calculate?" autocomplete="off" aria-label="Search health calculators">
-      <span class="v3-search-kbd">/</span>
+  <!-- ===== Trust strip ===== -->
+  <div class="v2-trust v2-reveal">
+    <div class="v2-trust-item">
+      <div class="v2-trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+      </div>
+      <div><span class="v2-trust-num">220+</span> Peer-Reviewed Citations</div>
     </div>
-
-    <div class="v3-trust">
-      <div class="v3-trust-item"><span class="v3-trust-num">220+</span> citations</div>
-      <div class="v3-trust-item"><span class="v3-trust-num">90+</span> free tools</div>
-      <div class="v3-trust-item"><span class="v3-trust-num">28</span> guides</div>
+    <div class="v2-trust-item">
+      <div class="v2-trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9z"/></svg>
+      </div>
+      <div><span class="v2-trust-num">90+</span> Free Tools</div>
     </div>
-  </div>
-</section>
-
-<!-- ===== RESULT PREVIEW STRIP ===== -->
-<section class="v3-preview-section">
-  <div class="v3-preview-label">See what you get — before you click</div>
-  <div class="v3-preview-grid">
-
-    <!-- Card 1: TDEE (action topic → list/protocol, reference mode) -->
-    <a href="/tdee-calculator" class="v3-preview-card" data-animate>
-      <div class="v3-card-question">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        "How many calories should I eat?"
+    <div class="v2-trust-item">
+      <div class="v2-trust-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
       </div>
-      <div class="v3-card-result">
-        <span class="v3-count" data-target="2340">0</span><span class="v3-unit">cal / day</span>
-      </div>
-      <div class="v3-card-context">
-        Your maintenance calories using the Mifflin-St Jeor equation. Moderately active.
-      </div>
-      <div class="v3-card-bar-wrap">
-        <div class="v3-card-bar-track"><div class="v3-card-bar-fill" data-width="68"></div></div>
-        <div class="v3-card-bar-label">68th percentile</div>
-      </div>
-      <div class="v3-card-cta">
-        Calculate yours <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-    </a>
-
-    <!-- Card 2: Ozempic (medical topic → Q&A, engagement mode) -->
-    <a href="/ozempic-pen-click-calculator" class="v3-preview-card" data-animate>
-      <div class="v3-card-question">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        "How many clicks for my Ozempic dose?"
-      </div>
-      <div class="v3-card-result">
-        <span class="v3-count" data-target="36">0</span><span class="v3-unit">clicks</span>
-      </div>
-      <div class="v3-card-context">
-        0.5mg dose on the 2mg pen (green). Verified against FDA prescribing info.
-      </div>
-      <div class="v3-card-bar-wrap">
-        <div class="v3-card-bar-track"><div class="v3-card-bar-fill" data-width="50"></div></div>
-        <div class="v3-card-bar-label">mid-range dose</div>
-      </div>
-      <div class="v3-card-cta">
-        Check your dosing <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-    </a>
-
-    <!-- Card 3: Vitamin D (supplement → data/study, reference mode) -->
-    <a href="/vitamin-d-conversion-calculator" class="v3-preview-card" data-animate>
-      <div class="v3-card-question">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        "What does my vitamin D level mean?"
-      </div>
-      <div class="v3-card-result">
-        <span class="v3-count" data-target="32">0</span><span class="v3-unit">ng/mL</span>
-      </div>
-      <div class="v3-card-context">
-        Sufficient range (30–100 ng/mL). Equivalent to 80 nmol/L. Above deficiency threshold.
-      </div>
-      <div class="v3-card-bar-wrap">
-        <div class="v3-card-bar-track"><div class="v3-card-bar-fill" data-width="42"></div></div>
-        <div class="v3-card-bar-label">sufficient</div>
-      </div>
-      <div class="v3-card-cta">
-        Convert your levels <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </div>
-    </a>
-
-  </div>
-</section>
-
-<div class="v3-divider"><div class="v3-divider-line"></div></div>
-
-<!-- ===== CATEGORIES ===== -->
-<section class="v3-categories">
-  <div class="v3-section-header">
-    <div class="v3-section-eyebrow">Explore</div>
-    <h2 class="v3-section-title">Find the right tool</h2>
-    <p class="v3-section-sub">7 categories, 90+ calculators. Each one built from peer-reviewed research, not guesswork.</p>
-  </div>
-
-  <div class="v3-cat-grid">
-    <a href="/nutrition-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">🥗</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Nutrition & Diet</div>
-        <div class="v3-cat-desc">TDEE, macros, protein, calories burned, meal planning</div>
-      </div>
-      <span class="v3-cat-count">20+</span>
-    </a>
-    <a href="/weight-loss-medication-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">💊</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Weight Loss Medications</div>
-        <div class="v3-cat-desc">Ozempic, Mounjaro, Wegovy dosing and tracking</div>
-      </div>
-      <span class="v3-cat-count">12+</span>
-    </a>
-    <a href="/fitness-body-composition-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">💪</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Fitness & Body</div>
-        <div class="v3-cat-desc">Body fat, training volume, creatine, one-rep max</div>
-      </div>
-      <span class="v3-cat-count">15+</span>
-    </a>
-    <a href="/cosmetic-procedure-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">✨</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Cosmetic & Aesthetic</div>
-        <div class="v3-cat-desc">Breast implant sizing, bra conversion, procedure costs</div>
-      </div>
-      <span class="v3-cat-count">10+</span>
-    </a>
-    <a href="/pregnancy-fertility-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">🤰</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Pregnancy & Fertility</div>
-        <div class="v3-cat-desc">IVF due date, HCG doubling, ovulation, weight gain</div>
-      </div>
-      <span class="v3-cat-count">12+</span>
-    </a>
-    <a href="/health-longevity-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">❤️</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Health & Longevity</div>
-        <div class="v3-cat-desc">Blood pressure, cholesterol, sleep, caffeine, fasting</div>
-      </div>
-      <span class="v3-cat-count">15+</span>
-    </a>
-    <a href="/financial-earnings-calculators" class="v3-cat-card">
-      <div class="v3-cat-icon">💰</div>
-      <div class="v3-cat-info">
-        <div class="v3-cat-name">Financial & Earnings</div>
-        <div class="v3-cat-desc">Procedure costs, insurance estimates, earnings calculators</div>
-      </div>
-      <span class="v3-cat-count">6+</span>
-    </a>
-  </div>
-</section>
-
-<div class="v3-divider"><div class="v3-divider-line"></div></div>
-
-<!-- ===== POPULAR TOOLS ===== -->
-<section class="v3-popular">
-  <div class="v3-section-header">
-    <div class="v3-section-eyebrow">Most used</div>
-    <h2 class="v3-section-title">Popular right now</h2>
-  </div>
-
-  <div class="v3-popular-grid">
-    <a href="/ozempic-pen-click-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">💉</div>
-      <div>
-        <div class="v3-tool-name">Ozempic Pen Click</div>
-        <div class="v3-tool-desc">Accurate dosing by pen type and dose</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/vitamin-d-conversion-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">🔄</div>
-      <div>
-        <div class="v3-tool-name">Vitamin D Conversion</div>
-        <div class="v3-tool-desc">ng/mL ↔ nmol/L with interpretation</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/tdee-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">🔥</div>
-      <div>
-        <div class="v3-tool-name">TDEE Calculator</div>
-        <div class="v3-tool-desc">Total daily energy expenditure</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/ivf-due-date-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">👶</div>
-      <div>
-        <div class="v3-tool-name">IVF Due Date</div>
-        <div class="v3-tool-desc">Fresh and frozen embryo transfers</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/creatine-water-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">💧</div>
-      <div>
-        <div class="v3-tool-name">Creatine Hydration</div>
-        <div class="v3-tool-desc">Optimal water intake on creatine</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/training-volume-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">📊</div>
-      <div>
-        <div class="v3-tool-name">Training Volume</div>
-        <div class="v3-tool-desc">Personalized weekly sets per muscle</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/bmi-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">⚖️</div>
-      <div>
-        <div class="v3-tool-name">BMI Calculator</div>
-        <div class="v3-tool-desc">Body mass index with context</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-    <a href="/calories-burned-calculator" class="v3-tool-card">
-      <div class="v3-tool-icon">🏃</div>
-      <div>
-        <div class="v3-tool-name">Calories Burned</div>
-        <div class="v3-tool-desc">By activity, duration, and weight</div>
-      </div>
-      <span class="v3-tool-arrow">›</span>
-    </a>
-  </div>
-</section>
-
-<div class="v3-divider"><div class="v3-divider-line"></div></div>
-
-<!-- ===== HOW IT WORKS ===== -->
-<section class="v3-how">
-  <div class="v3-section-header">
-    <div class="v3-section-eyebrow">How it works</div>
-    <h2 class="v3-section-title">Built on research, not guesswork</h2>
-  </div>
-
-  <div class="v3-steps">
-    <div class="v3-step">
-      <div class="v3-step-num">Step 01</div>
-      <div class="v3-step-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-      </div>
-      <div class="v3-step-title">Reads the research</div>
-      <p class="v3-step-desc">Analyzes peer-reviewed papers from PubMed, NIH, and WHO to find validated clinical formulas.</p>
-    </div>
-    <div class="v3-step">
-      <div class="v3-step-num">Step 02</div>
-      <div class="v3-step-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
-      </div>
-      <div class="v3-step-title">Builds the tool</div>
-      <p class="v3-step-desc">Transforms equations into instant calculators with validated ranges and real-time results.</p>
-    </div>
-    <div class="v3-step">
-      <div class="v3-step-num">Step 03</div>
-      <div class="v3-step-icon">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-      </div>
-      <div class="v3-step-title">Cites every source</div>
-      <p class="v3-step-desc">Every result links to the original research. You can verify the science yourself, always.</p>
+      <div><span class="v2-trust-num">28</span> Evidence-Based Guides</div>
     </div>
   </div>
-</section>
 
-<div class="v3-divider"><div class="v3-divider-line"></div></div>
+  <!-- Pulse activity line -->
+  <div class="v2-pulse-line v2-reveal">
+    <strong>Pulse</strong> verified 227 citations across 92 calculators · Last updated March 2026
+  </div>
 
-<!-- ===== DEMAND CAPTURE ===== -->
-<section class="v3-demand">
-  <div class="v3-demand-box">
-    <h2 class="v3-demand-title">Can't find what you need?</h2>
-    <p class="v3-demand-sub">Tell us what calculator you're looking for. We build new tools from real requests — usually within 48 hours.</p>
-    <div class="v3-demand-form" id="demand-form">
-      <input type="text" class="v3-demand-input" placeholder='e.g. "A creatine loading calculator"' id="demand-request" aria-label="Calculator request">
-      <input type="email" class="v3-demand-input" placeholder="Your email (we'll notify you)" id="demand-email" aria-label="Email for notification">
-      <button class="v3-demand-btn" id="demand-submit">Submit Request</button>
+  <!-- ===== Featured Tools (emoji on cards) — above How It Works ===== -->
+  <section class="v2-tools" id="v2-tools-section">
+    <div class="v2-tools-header v2-reveal">
+      <div>
+        <div class="v2-section-label">Popular</div>
+        <h2 class="v2-tools-heading">Most Used Tools</h2>
+      </div>
+      <a href="/calculators" class="v2-tools-link">
+        View all 90+ tools <span>&rarr;</span>
+      </a>
     </div>
-    <p class="v3-demand-note">We only use your email to notify you when it's ready.</p>
-  </div>
-</section>
 
-<!-- ===== TICKER (hypothesis — social proof) ===== -->
-<div class="v3-ticker">
-  <div class="v3-ticker-inner">
-    <span class="v3-ticker-dot"></span>
-    <span id="ticker-text">2,847 calculations today</span>
+    <div class="v2-tools-grid v2-stagger">
+      <a href="/ozempic-pen-click-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">💉</div>
+        <div class="v2-tool-title">Ozempic Pen Click</div>
+        <div class="v2-tool-desc">Calculate accurate Ozempic dosing, check safety alerts, and track injection schedules.</div>
+        <div class="v2-tool-cta">Check Dosing <span>&rarr;</span></div>
+      </a>
+
+      <a href="/vitamin-d-conversion-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">🔄</div>
+        <div class="v2-tool-title">Vitamin D Conversion</div>
+        <div class="v2-tool-desc">Convert vitamin D levels between ng/mL and nmol/L for interpreting lab results.</div>
+        <div class="v2-tool-cta">Convert Units <span>&rarr;</span></div>
+      </a>
+
+      <a href="/tdee-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">🔥</div>
+        <div class="v2-tool-title">TDEE Calculator</div>
+        <div class="v2-tool-desc">Estimate your Total Daily Energy Expenditure for effective weight management.</div>
+        <div class="v2-tool-cta">Calculate TDEE <span>&rarr;</span></div>
+      </a>
+
+      <a href="/ivf-due-date-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">👶</div>
+        <div class="v2-tool-title">IVF Due Date</div>
+        <div class="v2-tool-desc">Predict your baby's due date after IVF for both fresh and frozen embryo transfers.</div>
+        <div class="v2-tool-cta">Calculate Due Date <span>&rarr;</span></div>
+      </a>
+
+      <a href="/creatine-water-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">💧</div>
+        <div class="v2-tool-title">Creatine Hydration</div>
+        <div class="v2-tool-desc">Calculate optimal water intake when using creatine based on weight, activity, and dosage.</div>
+        <div class="v2-tool-cta">Calculate Hydration <span>&rarr;</span></div>
+      </a>
+
+      <a href="/training-volume-calculator" class="v2-tool v2-reveal">
+        <div class="v2-tool-emoji">📊</div>
+        <div class="v2-tool-title">Training Volume</div>
+        <div class="v2-tool-desc">Personalized weekly sets per muscle group based on experience, goals, and recovery.</div>
+        <div class="v2-tool-cta">Get My Volume <span>&rarr;</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== Categories ===== -->
+  <section class="v2-categories">
+    <div class="v2-categories-inner">
+      <div class="v2-section-label v2-reveal">Explore</div>
+      <h2 class="v2-categories-heading v2-reveal">Browse by Category</h2>
+      <div class="v2-cat-grid v2-stagger">
+        <a href="/nutrition-calculators" class="v2-cat-tag v2-reveal">
+          🥗 Nutrition & Diet
+          <span class="v2-cat-count">20+</span>
+        </a>
+        <a href="/weight-loss-medication-calculators" class="v2-cat-tag v2-reveal">
+          💊 Weight Loss Medications
+          <span class="v2-cat-count">12+</span>
+        </a>
+        <a href="/fitness-body-composition-calculators" class="v2-cat-tag v2-reveal">
+          💪 Fitness & Body Composition
+          <span class="v2-cat-count">15+</span>
+        </a>
+        <a href="/cosmetic-procedure-calculators" class="v2-cat-tag v2-reveal">
+          ✨ Cosmetic & Aesthetic
+          <span class="v2-cat-count">10+</span>
+        </a>
+        <a href="/pregnancy-fertility-calculators" class="v2-cat-tag v2-reveal">
+          🤰 Pregnancy & Fertility
+          <span class="v2-cat-count">12+</span>
+        </a>
+        <a href="/health-longevity-calculators" class="v2-cat-tag v2-reveal">
+          ❤️ Health & Longevity
+          <span class="v2-cat-count">15+</span>
+        </a>
+        <a href="/financial-earnings-calculators" class="v2-cat-tag v2-reveal">
+          💰 Financial & Earnings
+          <span class="v2-cat-count">6+</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Heartbeat divider ===== -->
+  <div class="v2-divider" aria-hidden="true">
+    <svg viewBox="0 0 200 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 8 L70 8 L80 3 L88 13 L96 5 L102 8 L200 8"
+            stroke="var(--color-accent)" stroke-width="1.5"
+            stroke-linecap="round" stroke-linejoin="round" opacity="0.2"/>
+    </svg>
   </div>
+
+  <!-- ===== How It Works ===== -->
+  <section class="v2-how">
+    <div class="v2-how-inner">
+      <div class="v2-section-label v2-reveal">How it works</div>
+      <h2 class="v2-how-heading v2-reveal">Built different. By design.</h2>
+      <p class="v2-how-desc v2-reveal">
+        Every calculator starts with research and ends with a citation.
+        No guesswork. No paywalls. No ads hiding the answer.
+      </p>
+
+      <div class="v2-steps v2-stagger">
+        <div class="v2-step v2-reveal">
+          <div class="v2-step-num">Step 01</div>
+          <div class="v2-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+          </div>
+          <div class="v2-step-title">Reads the Research</div>
+          <p class="v2-step-desc">Pulse analyzes peer-reviewed papers from PubMed, NIH, and WHO to find validated clinical formulas.</p>
+        </div>
+
+        <div class="v2-step v2-reveal">
+          <div class="v2-step-num">Step 02</div>
+          <div class="v2-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/><line x1="14.5" y1="4" x2="9.5" y2="20"/></svg>
+          </div>
+          <div class="v2-step-title">Builds the Tool</div>
+          <p class="v2-step-desc">Transforms clinical equations into instant calculators with clear inputs, validated ranges, and real-time results.</p>
+        </div>
+
+        <div class="v2-step v2-reveal">
+          <div class="v2-step-num">Step 03</div>
+          <div class="v2-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="v2-step-title">Cites Every Source</div>
+          <p class="v2-step-desc">Every result links back to the original research. You can verify the science yourself, always.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Resources Banner ===== -->
+  <section class="v2-resources">
+    <div class="v2-resources-card v2-reveal">
+      <div class="v2-resources-inner">
+        <div class="v2-section-label" style="color: rgba(255,255,255,0.5);">Guides</div>
+        <h2 class="v2-resources-heading">Understand What Your<br>Numbers Mean</h2>
+        <p class="v2-resources-desc">
+          28 evidence-based guides that explain your results, what to do next, and when to talk to a doctor.
+        </p>
+        <a href="/resources" class="v2-resources-btn">
+          Browse All Guides
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 {% include 'footer.html' %}
 
 <script>
+// Scroll-triggered reveal
 (function() {
-  // --- Question Rotator ---
-  // Source: 616-tweet dataset — real user questions
-  var questions = [
-    '"How many calories do I actually burn?"',
-    '"How much creatine should I take?"',
-    '"What does my vitamin D level mean?"',
-    '"How many clicks for my Ozempic dose?"',
-    '"Is my BMI actually accurate?"',
-    '"When is my IVF due date?"',
-    '"How much protein do I need?"',
-    '"What\'s my body fat percentage?"'
-  ];
-  var qEl = document.getElementById('rotating-q');
-  var idx = 0;
-
-  setInterval(function() {
-    qEl.classList.add('fade-out');
-    setTimeout(function() {
-      idx = (idx + 1) % questions.length;
-      qEl.textContent = questions[idx];
-      qEl.classList.remove('fade-out');
-      qEl.classList.add('fade-in');
-      requestAnimationFrame(function() {
-        requestAnimationFrame(function() {
-          qEl.classList.remove('fade-in');
-        });
-      });
-    }, 400);
-  }, 3500);
-
-  // --- Count-Up Animation ---
-  function animateCount(el, target) {
-    var start = 0;
-    var duration = 1200;
-    var startTime = null;
-
-    function step(timestamp) {
-      if (!startTime) startTime = timestamp;
-      var progress = Math.min((timestamp - startTime) / duration, 1);
-      var eased = 1 - Math.pow(1 - progress, 3);
-      var current = Math.round(eased * target);
-      el.textContent = current.toLocaleString();
-      if (progress < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+  var els = document.querySelectorAll('.v2-reveal');
+  if (!('IntersectionObserver' in window)) {
+    els.forEach(function(el) { el.classList.add('v2-visible'); });
+    return;
   }
-
-  // --- Intersection Observer for animations ---
-  var observer = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        var card = entry.target;
-
-        // Count-up
-        var countEl = card.querySelector('.v3-count');
-        if (countEl) {
-          var target = parseInt(countEl.getAttribute('data-target'), 10);
-          animateCount(countEl, target);
-        }
-
-        // Bar fill
-        var bar = card.querySelector('.v3-card-bar-fill');
-        if (bar) {
-          setTimeout(function() {
-            bar.style.width = bar.getAttribute('data-width') + '%';
-          }, 300);
-        }
-
-        observer.unobserve(card);
+  var obs = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('v2-visible');
+        obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.3 });
+  }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(function(el) { obs.observe(el); });
+})();
 
-  document.querySelectorAll('[data-animate]').forEach(function(card) {
-    observer.observe(card);
-  });
+// Count-up for showcase number
+(function() {
+  var el = document.getElementById('v2-hero-num');
+  if (!el) return;
+  var target = 2340, dur = 1000;
+  var obs = new IntersectionObserver(function(entries) {
+    if (entries[0].isIntersecting) {
+      var start = performance.now();
+      (function tick(now) {
+        var p = Math.min((now - start) / dur, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * eased).toLocaleString();
+        if (p < 1) requestAnimationFrame(tick);
+      })(performance.now());
+      obs.unobserve(el);
+    }
+  }, { threshold: 0.5 });
+  obs.observe(el);
+})();
 
-  // --- Search (redirect to /calculators with query) ---
-  var searchInput = document.getElementById('v3-search');
-  searchInput.addEventListener('keydown', function(e) {
-    if (e.key === 'Enter' && searchInput.value.trim()) {
-      window.location.href = '/calculators?q=' + encodeURIComponent(searchInput.value.trim());
+// Request form toggle
+(function() {
+  var toggle = document.getElementById('v2-request-toggle');
+  var wrapper = document.getElementById('v2-request');
+  if (!toggle || !wrapper) return;
+
+  toggle.addEventListener('click', function() {
+    wrapper.classList.toggle('open');
+    if (wrapper.classList.contains('open')) {
+      // Focus first field after transition
+      setTimeout(function() {
+        document.getElementById('v2-request-what').focus();
+      }, 350);
     }
   });
+})();
 
-  // Keyboard shortcut: / to focus search
-  document.addEventListener('keydown', function(e) {
-    if (e.key === '/' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
-      e.preventDefault();
-      searchInput.focus();
-    }
+// Request form submission with ripple
+(function() {
+  var btn = document.getElementById('v2-request-submit');
+  if (!btn) return;
+
+  // Ripple on click
+  btn.addEventListener('mousedown', function(e) {
+    var rect = btn.getBoundingClientRect();
+    btn.style.setProperty('--ripple-x', ((e.clientX - rect.left) / rect.width * 100) + '%');
+    btn.style.setProperty('--ripple-y', ((e.clientY - rect.top) / rect.height * 100) + '%');
+    btn.classList.remove('v2-ripple');
+    void btn.offsetWidth;
+    btn.classList.add('v2-ripple');
   });
 
-  // --- Demand Capture ---
-  var demandBtn = document.getElementById('demand-submit');
-  if (demandBtn) {
-    demandBtn.addEventListener('click', function() {
-      var request = document.getElementById('demand-request').value.trim();
-      var email = document.getElementById('demand-email').value.trim();
-      if (!request) return;
+  btn.addEventListener('click', function() {
+    var what = document.getElementById('v2-request-what').value.trim();
+    var email = document.getElementById('v2-request-email').value.trim();
+    if (!what) {
+      var field = document.getElementById('v2-request-what');
+      field.focus();
+      field.style.borderColor = 'var(--color-danger)';
+      field.style.boxShadow = '0 0 0 3px rgba(192, 48, 48, 0.1)';
+      setTimeout(function() {
+        field.style.borderColor = '';
+        field.style.boxShadow = '';
+      }, 1500);
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+    fetch('/api/request-calculator', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ what: what, email: email })
+    }).then(function(r) { return r.json(); })
+    .then(function() { showSuccess(); })
+    .catch(function() { showSuccess(); });
 
-      fetch('/api/feature-request', {
-        method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({request: request, email: email})
-      }).then(function() {
-        demandBtn.textContent = 'Submitted!';
-        demandBtn.disabled = true;
-        demandBtn.style.background = '#22c55e';
-      }).catch(function() {
-        demandBtn.textContent = 'Submitted!';
-        demandBtn.disabled = true;
-      });
-    });
-  }
+    function showSuccess() {
+      var wrapper = document.getElementById('v2-request');
+      var form = document.getElementById('v2-request-form');
+      var success = document.getElementById('v2-request-success');
+      var toggle = document.getElementById('v2-request-toggle');
+      // Collapse form
+      wrapper.classList.remove('open');
+      setTimeout(function() {
+        toggle.style.display = 'none';
+        form.style.display = 'none';
+        success.classList.add('v2-show');
+      }, 450);
+    }
+  });
 })();
 </script>
 </body>
