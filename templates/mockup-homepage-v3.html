@@ -41,6 +41,16 @@
   }
   body { background: #0a0f1a !important; color: #e2e8f0 !important; }
 
+  /* Dark header — match calculator pages */
+  .site-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.1) !important; }
+  .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: #e2e8f0 !important; stroke: #e2e8f0 !important; }
+  .site-header .logo-dot { color: #14b8a6 !important; }
+  .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
+  .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
+  .nav-dropdown-link { color: #94a3b8 !important; }
+  .nav-dropdown-link:hover { color: #14b8a6 !important; }
+  .nav-dropdown-title { color: #64748b !important; }
+
   /* --- Dark mode heading overrides --- */
   h1, h2, h3, h4, h5, h6 { color: var(--color-text) !important; }
   a { color: var(--color-accent); }
@@ -96,6 +106,91 @@
     border-color: rgba(20,184,166,0.1) !important;
   }
   .v2-showcase-input-pill strong { color: var(--color-text) !important; }
+
+  /* Cycling preview panel (replaces static showcase) */
+  .v2-preview-container {
+    width: 100%;
+    position: relative;
+  }
+  .v2-preview-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(20,184,166,0.12);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+  }
+  .v2-preview-card.active {
+    opacity: 1;
+    transform: translateY(0);
+    position: relative;
+    pointer-events: auto;
+  }
+  .v2-preview-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: 1rem;
+  }
+  .v2-preview-title {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: 1.2rem;
+    color: var(--color-text);
+    margin-bottom: 0.8rem;
+  }
+  .v2-preview-number {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: clamp(3rem, 8vw, 4.5rem);
+    color: var(--color-accent);
+    text-shadow: 0 0 40px rgba(20,184,166,0.3);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .v2-preview-unit {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1.5rem;
+  }
+  .v2-preview-model {
+    padding: 1rem 1.2rem;
+    background: rgba(20,184,166,0.06);
+    border: 1px solid rgba(20,184,166,0.15);
+    border-radius: 14px;
+  }
+  .v2-preview-model p {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.5;
+    margin: 0;
+  }
+  .v2-hl { color: var(--color-accent); font-weight: 700; }
+  .v2-preview-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  .v2-preview-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    border: none !important;
+    padding: 0 !important;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: none !important;
+    width: auto !important;
+    min-width: 8px;
+  }
+  .v2-preview-dot::after { display: none !important; }
+  .v2-preview-dot.active { background: var(--color-accent); width: 24px !important; min-width: 24px; border-radius: 4px; }
 
   /* --- Trust icons: dark --- */
   .v2-trust-icon {
@@ -1270,33 +1365,39 @@
         </div>
       </div>
 
-      <!-- Right: Product showcase -->
-      <div class="v2-showcase v2-reveal">
-        <div class="v2-showcase-frame">
-          <div class="v2-showcase-bar">
-            <span class="v2-showcase-dot"></span>
-            <span class="v2-showcase-dot"></span>
-            <span class="v2-showcase-dot"></span>
-            <span class="v2-showcase-url">healthcalculators.xyz/tdee-calculator</span>
+      <!-- Right: Cycling calculator preview (from V11) -->
+      <div class="v2-preview-container v2-reveal">
+        <div class="v2-preview-card active" data-idx="0">
+          <div class="v2-preview-label">TDEE Calculator</div>
+          <div class="v2-preview-title">Total Daily Energy Expenditure</div>
+          <div class="v2-preview-number">2,340</div>
+          <div class="v2-preview-unit">calories per day</div>
+          <div class="v2-preview-model">
+            <p>BMR is your body's <span class="v2-hl">rent</span>. TDEE is rent + utilities.</p>
           </div>
-          <div class="v2-showcase-body">
-            <div class="v2-showcase-calc-name">TDEE Calculator</div>
-            <svg class="v2-showcase-heartbeat" width="80" height="12" viewBox="0 0 80 12" fill="none">
-              <path d="M0 6 L24 6 L32 2 L38 10 L44 4 L50 6 L80 6" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.35"/>
-            </svg>
-            <div class="v2-showcase-number" id="v2-hero-num">2,340</div>
-            <div class="v2-showcase-unit">calories / day</div>
-            <div class="v2-showcase-context">
-              Your maintenance calories based on the Mifflin-St Jeor equation.
-              Moderately active — higher than average for your profile.
-            </div>
-            <div class="v2-showcase-inputs">
-              <span class="v2-showcase-input-pill"><strong>28</strong> years</span>
-              <span class="v2-showcase-input-pill"><strong>165</strong> lbs</span>
-              <span class="v2-showcase-input-pill"><strong>5'10"</strong></span>
-              <span class="v2-showcase-input-pill"><strong>Active</strong></span>
-            </div>
+        </div>
+        <div class="v2-preview-card" data-idx="1">
+          <div class="v2-preview-label">Caffeine Half-Life</div>
+          <div class="v2-preview-title">Caffeine remaining at bedtime</div>
+          <div class="v2-preview-number">24 mg</div>
+          <div class="v2-preview-unit">still in your system at 10 PM</div>
+          <div class="v2-preview-model">
+            <p>Every <span class="v2-hl">5 hours</span>, half. That's the whole model.</p>
           </div>
+        </div>
+        <div class="v2-preview-card" data-idx="2">
+          <div class="v2-preview-label">Vitamin D Status</div>
+          <div class="v2-preview-title">Blood level interpretation</div>
+          <div class="v2-preview-number">Sufficient</div>
+          <div class="v2-preview-unit">45 ng/mL = 112 nmol/L</div>
+          <div class="v2-preview-model">
+            <p>Multiply by <span class="v2-hl">2.5</span>. That's the whole conversion.</p>
+          </div>
+        </div>
+        <div class="v2-preview-dots">
+          <button class="v2-preview-dot active" data-idx="0"></button>
+          <button class="v2-preview-dot" data-idx="1"></button>
+          <button class="v2-preview-dot" data-idx="2"></button>
         </div>
       </div>
 
@@ -1605,6 +1706,40 @@
       }, 450);
     }
   });
+})();
+
+// Cycling preview panel
+(function() {
+  var cards = document.querySelectorAll('.v2-preview-card');
+  var dots = document.querySelectorAll('.v2-preview-dot');
+  if (!cards.length) return;
+  var current = 0;
+  var timer;
+
+  function showSlide(idx) {
+    cards.forEach(function(c) { c.classList.remove('active'); });
+    dots.forEach(function(d) { d.classList.remove('active'); });
+    cards[idx].classList.add('active');
+    dots[idx].classList.add('active');
+    current = idx;
+  }
+
+  function startTimer() {
+    timer = setInterval(function() {
+      showSlide((current + 1) % cards.length);
+    }, 5000);
+  }
+
+  dots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var idx = parseInt(this.getAttribute('data-idx'));
+      showSlide(idx);
+      clearInterval(timer);
+      startTimer();
+    });
+  });
+
+  startTimer();
 })();
 </script>
 </body>
