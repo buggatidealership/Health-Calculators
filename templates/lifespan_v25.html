@@ -1,0 +1,202 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Lifespan Calculator — Estimate Longevity by Lifestyle",
+        meta_description="Predict your potential lifespan based on health, habits, diet, and lifestyle factors.",
+        og_title="Lifespan & Longevity Calculator",
+        og_description="Estimate how long you might live based on your health and lifestyle.",
+        og_url="/lifespan-longevity-calculator",
+        canonical_url="/lifespan-longevity-calculator",
+        schema_type="WebPage",
+        schema_name="Lifespan Calculator",
+        schema_description="Estimate life expectancy based on health and lifestyle factors.",
+        schema_url="/lifespan-longevity-calculator",
+        schema_about="Lifespan Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="noindex, nofollow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{{"@type":"Question","name":"How accurate is this lifespan calculator?","acceptedAnswer":{{"@type":"Answer","text":"This provides statistical estimates based on population-level research, not individual predictions. Consider results as general guidelines."}}}},{{"@type":"Question","name":"Can I really add years by changing habits?","acceptedAnswer":{{"@type":"Answer","text":"Yes. The big four behaviors -- not smoking, healthy weight, exercise, and good diet -- are associated with 11-14 years of increased life expectancy."}}}},{{"@type":"Question","name":"Why does social connection affect lifespan?","acceptedAnswer":{{"@type":"Answer","text":"Meta-analyses show social isolation has mortality risk comparable to smoking 15 cigarettes daily, exceeding risks of obesity and inactivity."}}}},{{"@type":"Question","name":"How much can genetics determine lifespan?","acceptedAnswer":{{"@type":"Answer","text":"Twin studies suggest 20-30% of lifespan variation is genetic. Lifestyle remains more influential for most people."}}}}]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/static/css/v25-dark.css">
+    <style>:root { --accent: #22d3ee; --accent-rgb: 34,211,238; }
+
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<\!-- HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">How long will you <span>live</span>?</h1>
+        <p class="hero-sub">Based on research from the Framingham Heart Study and WHO data</p>
+    </div>
+    <div class="form-card fade-in" style="transition-delay:0.15s;">
+
+        <div class="form-row">
+            <div class="form-group"><label for="age">Current Age</label><input type="number" id="age" min="18" max="100" value="30"></div>
+            <div class="form-group"><label for="gender">Gender</label><select id="gender"><option value="female">Female</option><option value="male">Male</option></select></div>
+        </div>
+        <div class="form-group"><label for="bmi">BMI</label><input type="number" id="bmi" step="0.1" min="15" max="45" placeholder="e.g. 22"><small>Healthy: 18.5-24.9</small></div>
+        <div class="form-group"><label for="exercise">Weekly Exercise (minutes)</label><input type="number" id="exercise" min="0" max="600" value="150"><small>Recommended: 150+ minutes</small></div>
+        <div class="form-group"><label for="smoking">Smoking</label><select id="smoking"><option value="0" selected>Never smoked</option><option value="-3">Quit within 5 years</option><option value="-5">Light smoker</option><option value="-7">Moderate smoker</option><option value="-10">Heavy smoker (1+ packs/day)</option></select></div>
+        <div class="form-group"><label for="diet">Diet Quality</label><select id="diet"><option value="-5">Poor</option><option value="-2">Average</option><option value="0" selected>Good</option><option value="3">Very Good</option><option value="5">Excellent</option></select></div>
+        <div class="form-group"><label for="sleep">Sleep (hours/night)</label><input type="number" id="sleep" step="0.5" min="4" max="12" value="7"><small>Optimal: 7-9 hours</small></div>
+        <div class="form-group"><label for="stress">Stress Level</label><select id="stress"><option value="-5">High, poor coping</option><option value="-2">Moderate</option><option value="0" selected>Average</option><option value="2">Good management</option><option value="5">Excellent</option></select></div>
+        <div class="form-group"><label for="social">Social Connections</label><select id="social"><option value="-3">Isolated</option><option value="0" selected>Average</option><option value="2">Strong network</option><option value="4">Very strong community</option></select></div>
+        <button class="calc-btn" id="calcBtn" onclick="calcLifespan()">Calculate Lifespan</button>
+    </div>
+</section>
+
+<\!-- RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">--</div>
+        <div class="result-unit" id="resultUnit">years estimated lifespan</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+        <div class="detail-grid" id="detailGrid">
+            <div class="detail-card"><div class="d-val" id="dDiff">--</div><div class="d-lbl">vs Average</div></div>
+            <div class="detail-card"><div class="d-val" id="dRemain">--</div><div class="d-lbl">Years Remaining</div></div>
+            <div class="detail-card"><div class="d-val" id="dScore">--</div><div class="d-lbl">Health Score</div></div></div>
+    </div>
+</section>
+
+<\!-- COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Your longevity profile</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</a>
+            <button class="share-btn copy" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+        </div>
+
+        <div class="coach-cta"><p class="coach-cta-text">Want more insights?</p><a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a></div>
+    </div>
+</section>
+
+<\!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<\!-- FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How accurate is this lifespan calculator?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>This provides statistical estimates based on population-level research, not individual predictions. Consider results as general guidelines.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Can I really add years by changing habits?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Yes. The big four behaviors -- not smoking, healthy weight, exercise, and good diet -- are associated with 11-14 years of increased life expectancy.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Why does social connection affect lifespan?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Meta-analyses show social isolation has mortality risk comparable to smoking 15 cigarettes daily, exceeding risks of obesity and inactivity.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How much can genetics determine lifespan?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Twin studies suggest 20-30% of lifespan variation is genetic. Lifestyle remains more influential for most people.</p></div></li>
+        </ul>
+    </div>
+</div>
+
+<\!-- Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Social Security Administration. Actuarial Life Table. <a href="https://www.ssa.gov/oact/STATS/table4c6.html" target="_blank" rel="noopener">Link</a></li>
+            <li>CDC/NCHS. National Vital Statistics Reports. <a href="https://www.cdc.gov/nchs/products/life_tables.htm" target="_blank" rel="noopener">Link</a></li>
+            <li>Li K, et al. Lifestyle risk factors and residual life expectancy. BMC Med. 2014;12:59. <a href="https://pubmed.ncbi.nlm.nih.gov/24708705/" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+    </div>
+</div>
+
+<\!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Starts with WHO baseline life expectancy (74 for females, 70 for males) and applies additive adjustments from epidemiological research. BMI follows a J-shaped mortality curve. Exercise contributes up to +5 years. Smoking applies up to -10 years. Sleep follows a U-shaped curve. Results are bounded to 50-120 years.</p></div>
+    </div>
+</div>
+
+<\!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>Average life expectancy is about 79 years for women and 74 for men in the US. The biggest modifiable factors are smoking (-10 years for heavy smokers), exercise (+5 years for regular activity), diet quality (+5 years), and social connections (+4 years). Even adopting healthy behaviors in middle age shows measurable benefits.</p></div></div>
+</div>
+
+<\!-- Ask Pulse -->
+
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap"><input type="text" id="askInput" placeholder="e.g. Can I add years by changing habits?"><button id="askBtn">Ask</button></div>
+        <div class="ask-pills"><span class="ask-pill">Exercise impact</span><span class="ask-pill">Sleep and longevity</span><span class="ask-pill">Diet quality</span><span class="ask-pill">Social connections</span></div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script src="/static/js/v25-shared.js" defer></script>
+<script>
+
+function calcLifespan() {
+    var age = parseInt(document.getElementById('age').value);
+    var gender = document.getElementById('gender').value;
+    var bmi = parseFloat(document.getElementById('bmi').value);
+    var exercise = parseInt(document.getElementById('exercise').value);
+    var smoking = parseInt(document.getElementById('smoking').value);
+    var diet = parseInt(document.getElementById('diet').value);
+    var sleep = parseFloat(document.getElementById('sleep').value);
+    var stress = parseInt(document.getElementById('stress').value);
+    var social = parseInt(document.getElementById('social').value);
+
+    if (\!age || \!bmi) { alert('Please fill all fields.'); return; }
+
+    var base = gender === 'female' ? 74 : 70;
+    var bmiE = bmi < 18.5 ? -3*(18.5-bmi) : bmi > 25 ? -0.5*(bmi-25) : 1;
+    var exE = Math.min(exercise / 50, 5);
+    var sleepE = sleep < 6 ? -5+sleep : sleep > 9 ? -2*(sleep-9) : 1;
+
+    var total = base + bmiE + exE + diet + sleepE + stress + smoking + social;
+    total = Math.max(50, Math.min(120, total));
+    var avg = gender === 'female' ? 79 : 74;
+    var diff = Math.round(total) - avg;
+    var remain = Math.round(total) - age;
+    var score = bmiE + exE + diet + sleepE + stress + smoking + social;
+
+    document.getElementById('resultNumber').textContent = Math.round(total);
+    document.getElementById('resultNumber').className = 'result-number ' + (diff >= 0 ? 'glow-good' : 'glow-bad');
+    document.getElementById('resultVerdict').textContent = diff >= 0 ? diff + ' years above average' : Math.abs(diff) + ' years below average';
+    document.getElementById('resultVerdict').style.color = diff >= 0 ? 'var(--good)' : 'var(--bad)';
+    document.getElementById('dDiff').textContent = (diff >= 0 ? '+' : '') + diff;
+    document.getElementById('dRemain').textContent = remain > 0 ? remain : 0;
+    document.getElementById('dScore').textContent = (score >= 0 ? '+' : '') + score.toFixed(1);
+
+    var tips = [];
+    if (smoking < 0) tips.push('Quit smoking -- the single most impactful change');
+    if (exercise < 150) tips.push('Increase to 150+ minutes of exercise per week');
+    if (bmi > 25) tips.push('Reduce BMI to the healthy range (18.5-24.9)');
+    if (sleep < 6 || sleep > 9) tips.push('Aim for 7-9 hours of sleep');
+    if (social < 2) tips.push('Strengthen social connections');
+    if (\!tips.length) tips.push('You are doing great -- maintain these habits\!');
+
+    document.getElementById('coachCard').innerHTML = '<div class="coach-text">Estimated lifespan: <span class="hl">' + Math.round(total) + ' years</span><br>Average for ' + gender + ': <span class="hl">' + avg + ' years</span><div class="coach-rule">' + (diff >= 0 ? '+' : '') + diff + ' years vs average</div><div class="coach-advice"><em>Top recommendations:</em><br>' + tips.map(function(t){return '&bull; ' + t;}).join('<br>') + '</div></div>';
+
+    v25Share('My estimated lifespan: ' + Math.round(total) + ' years (' + (diff >= 0 ? '+' : '') + diff + ' vs average)\n\nCheck yours: healthcalculators.xyz/lifespan-longevity-calculator');
+    v25Reveal();
+    if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Lifespan Calculator', page_path: '/lifespan-longevity-calculator'});
+}
+</script>
+</body>
+</html>
