@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Health Calculators — Tools That Teach Frameworks</title>
+<meta name="description" content="90+ free health calculators backed by peer-reviewed research. Get one number, one framework, and move on with your day.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+<!-- Schema.org -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "description": "90+ free health calculators backed by peer-reviewed research. One number. One framework. Move on with your day."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HealthCalculators.xyz",
+  "url": "https://healthcalculators.xyz",
+  "logo": "https://healthcalculators.xyz/static/images/logo.png",
+  "sameAs": ["https://x.com/GetHealthC"]
+}
+</script>
+
+<style>
+/* ===== RESET & VARIABLES ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0f1a;
+  --bg-mid: #0c1220;
+  --bg-card: #111827;
+  --bg-card-hover: #1a2332;
+  --teal: #14b8a6;
+  --teal-dim: rgba(20, 184, 166, 0.12);
+  --teal-glow: rgba(20, 184, 166, 0.25);
+  --teal-bright: #2dd4bf;
+  --text: #f0f0f0;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --cream: #F5F0EA;
+  --border: rgba(255,255,255,0.06);
+  --border-teal: rgba(20, 184, 166, 0.15);
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+  --red: #ef4444;
+  --red-dim: rgba(239, 68, 68, 0.15);
+}
+
+/* ===== GLOBAL OVERRIDES ===== */
+body {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: var(--font-sans) !important;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white !important;
+  margin: 0;
+}
+
+a { color: inherit; text-decoration: none; }
+button { border: none; background: none; cursor: pointer; font-family: inherit; }
+input { font-family: inherit; }
+
+/* ===== SCROLL SECTIONS ===== */
+.section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== REVEAL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.15s; }
+.reveal-delay-2 { transition-delay: 0.3s; }
+.reveal-delay-3 { transition-delay: 0.45s; }
+.reveal-delay-4 { transition-delay: 0.6s; }
+
+/* ========================================
+   SECTION 1: HERO
+   ======================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+/* Ambient background glow */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: heroGlowPulse 6s ease-in-out infinite;
+}
+
+@keyframes heroGlowPulse {
+  0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 1; transform: translate(-50%, -50%) scale(1.15); }
+}
+
+/* Pulsing dot */
+.pulse-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin-bottom: 48px;
+  position: relative;
+  animation: dotBreathe 3s ease-in-out infinite;
+}
+
+.pulse-dot::before,
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--teal);
+}
+
+.pulse-dot::before {
+  animation: dotRing 3s ease-in-out infinite;
+}
+
+.pulse-dot::after {
+  animation: dotRing 3s ease-in-out infinite 1.5s;
+}
+
+@keyframes dotBreathe {
+  0%, 100% { box-shadow: 0 0 20px rgba(20, 184, 166, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(20, 184, 166, 0.7); }
+}
+
+@keyframes dotRing {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+/* Hero tagline — typewriter */
+.hero-tagline {
+  font-family: var(--font-serif);
+  font-size: clamp(32px, 6vw, 56px);
+  color: var(--cream) !important;
+  line-height: 1.2;
+  max-width: 700px;
+  margin-bottom: 24px;
+  min-height: 1.2em;
+}
+
+.hero-tagline .cursor {
+  display: inline-block;
+  width: 3px;
+  height: 0.9em;
+  background: var(--teal);
+  margin-left: 4px;
+  vertical-align: text-bottom;
+  animation: cursorBlink 0.8s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-sub {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-secondary);
+  max-width: 500px;
+  opacity: 0;
+  transition: opacity 1s ease 0.5s;
+}
+
+.hero-sub.show { opacity: 1; }
+
+/* Video placeholder */
+.hero-video {
+  width: min(90vw, 800px);
+  aspect-ratio: 16/9;
+  border-radius: 20px;
+  margin-top: 48px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(30px) scale(0.97);
+  transition: opacity 1.2s ease 1s, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 1s;
+}
+
+.hero-video.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #0a0f1a 0%, #0f1a2e 25%, #0c1f2d 50%, #0a1a1f 75%, #0a0f1a 100%);
+  background-size: 300% 300%;
+  animation: videoGradient 10s ease infinite;
+}
+
+@keyframes videoGradient {
+  0%, 100% { background-position: 0% 50%; }
+  25% { background-position: 100% 0%; }
+  50% { background-position: 100% 100%; }
+  75% { background-position: 0% 100%; }
+}
+
+.hero-video-label {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: var(--text-muted);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+.scroll-chevron {
+  width: 24px;
+  height: 24px;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg);
+  opacity: 0.5;
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ========================================
+   SECTION 2: THE PROBLEM
+   ======================================== */
+.problem {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.problem::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 30% at 30% 40%, rgba(239, 68, 68, 0.04), transparent),
+    radial-gradient(ellipse 40% 30% at 70% 60%, rgba(59, 130, 246, 0.03), transparent);
+  pointer-events: none;
+}
+
+.problem-lead {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 5vw, 44px);
+  color: var(--cream) !important;
+  line-height: 1.25;
+  margin-bottom: 48px;
+  max-width: 600px;
+}
+
+/* Browser tab cards */
+.tab-chaos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto 48px;
+  perspective: 800px;
+}
+
+.tab-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px) rotateX(5deg);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  max-width: 220px;
+  text-align: left;
+}
+
+.tab-card.scattered {
+  opacity: 1;
+  transform: translateY(0) rotateX(0);
+}
+
+.tab-card:nth-child(1).scattered { transform: rotate(-3deg) translateY(-5px); }
+.tab-card:nth-child(2).scattered { transform: rotate(2deg) translateY(8px); }
+.tab-card:nth-child(3).scattered { transform: rotate(-1deg) translateY(-3px); }
+.tab-card:nth-child(4).scattered { transform: rotate(4deg) translateY(5px); }
+
+.tab-card .tab-url {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.tab-card .tab-url::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  opacity: 0.5;
+}
+
+.tab-card .tab-question {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.problem-conclusion {
+  font-size: clamp(18px, 3vw, 24px);
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.6;
+}
+
+.problem-conclusion strong {
+  color: var(--red);
+  font-weight: 600;
+}
+
+/* ========================================
+   SECTION 3: THE SOLUTION (Calculator Demo)
+   ======================================== */
+.solution {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.solution::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 40% at 50% 50%, rgba(20, 184, 166, 0.06), transparent);
+  pointer-events: none;
+}
+
+.solution-intro {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4.5vw, 40px);
+  color: var(--cream) !important;
+  line-height: 1.3;
+  margin-bottom: 56px;
+  max-width: 550px;
+}
+
+/* Calculator demo window */
+.demo-window {
+  width: min(90vw, 520px);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  text-align: left;
+  position: relative;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(20, 184, 166, 0.05);
+}
+
+.demo-titlebar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.02);
+  border-bottom: 1px solid var(--border);
+}
+
+.demo-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.demo-dot:nth-child(1) { background: #ff5f57; }
+.demo-dot:nth-child(2) { background: #ffbd2e; }
+.demo-dot:nth-child(3) { background: #28c840; }
+
+.demo-titlebar-text {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-left: 8px;
+}
+
+.demo-body {
+  padding: 32px 28px;
+  min-height: 320px;
+  position: relative;
+}
+
+/* Demo steps */
+.demo-step {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  margin-bottom: 20px;
+}
+
+.demo-step.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-emoji {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+.demo-input-display {
+  font-size: 16px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.demo-input-display .typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background: var(--teal);
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: cursorBlink 0.6s step-end infinite;
+}
+
+.demo-input-label {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.demo-result {
+  display: inline-block;
+  padding: 12px 24px;
+  background: var(--teal-dim);
+  border: 1px solid var(--border-teal);
+  border-radius: 12px;
+  margin-bottom: 8px;
+}
+
+.demo-result-number {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.demo-result-label {
+  font-size: 13px;
+  color: var(--teal);
+  opacity: 0.8;
+  margin-top: 4px;
+}
+
+.demo-framework {
+  background: rgba(20, 184, 166, 0.06);
+  border-left: 3px solid var(--teal);
+  padding: 14px 18px;
+  border-radius: 0 10px 10px 0;
+  margin-bottom: 16px;
+}
+
+.demo-framework-text {
+  font-family: var(--font-serif);
+  font-size: 18px;
+  color: var(--cream);
+}
+
+.demo-framework-label {
+  font-size: 12px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.demo-verdict {
+  font-size: 15px;
+  color: var(--teal-bright);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.demo-verdict-check {
+  width: 20px;
+  height: 20px;
+  background: var(--teal);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--bg);
+  flex-shrink: 0;
+}
+
+/* Replay button */
+.demo-replay {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  padding: 6px 14px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.demo-replay:hover {
+  color: var(--teal);
+  border-color: var(--border-teal);
+}
+
+/* ========================================
+   SECTION 4: FEATURED CALCULATORS
+   ======================================== */
+.featured {
+  padding: 100px 24px 120px;
+  text-align: center;
+}
+
+.section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--teal);
+  margin-bottom: 16px;
+}
+
+.section-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--cream) !important;
+  line-height: 1.3;
+  margin-bottom: 56px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .cards-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
+
+.calc-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 36px 28px 28px;
+  text-align: left;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+
+.calc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.calc-card:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: rgba(20, 184, 166, 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 40px rgba(20, 184, 166, 0.08);
+}
+
+.calc-card:hover::before { opacity: 1; }
+
+.card-emoji {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.card-name {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  color: var(--cream);
+  margin-bottom: 10px;
+}
+
+.card-rule {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 500;
+  line-height: 1.5;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.card-hook {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+  transition: gap 0.3s;
+}
+
+.calc-card:hover .card-cta { gap: 10px; }
+
+/* Browse all CTA */
+.browse-cta {
+  display: inline-block;
+  padding: 16px 40px;
+  background: var(--teal);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 12px;
+  text-decoration: none;
+  margin-top: 56px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: auto !important;
+}
+
+.browse-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px var(--teal-glow);
+}
+
+/* ========================================
+   SECTION 5: CATEGORIES
+   ======================================== */
+.categories {
+  padding: 80px 24px;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.cat-scroll {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 639px) {
+  .cat-scroll {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding: 0 24px 12px;
+    margin: 0 -24px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .cat-scroll::-webkit-scrollbar { display: none; }
+}
+
+.cat-pill {
+  padding: 12px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all 0.3s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cat-pill:hover {
+  background: var(--teal-dim);
+  border-color: var(--border-teal);
+  color: var(--teal);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   SECTION 6: FRAMEWORK PROMISE
+   ======================================== */
+.framework-promise {
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+}
+
+.framework-promise::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 50%, rgba(20, 184, 166, 0.04), transparent);
+  pointer-events: none;
+}
+
+.promise-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4.5vw, 42px);
+  color: var(--cream) !important;
+  line-height: 1.3;
+  margin-bottom: 56px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Ticker / marquee */
+.ticker-wrap {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+}
+
+.ticker {
+  display: flex;
+  gap: 0;
+  animation: tickerScroll 30s linear infinite;
+  width: max-content;
+}
+
+.ticker-item {
+  padding: 0 32px;
+  font-family: var(--font-serif);
+  font-size: clamp(16px, 2.5vw, 22px);
+  color: var(--text-muted);
+  white-space: nowrap;
+  line-height: 2;
+  position: relative;
+}
+
+.ticker-item::after {
+  content: '|';
+  position: absolute;
+  right: 0;
+  color: var(--border);
+}
+
+.ticker-item:nth-child(odd) { color: var(--text-secondary); }
+
+@keyframes tickerScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Second ticker row, opposite direction */
+.ticker-reverse {
+  animation: tickerScrollReverse 35s linear infinite;
+  margin-top: 8px;
+}
+
+@keyframes tickerScrollReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* ========================================
+   SECTION 7: ASK PULSE
+   ======================================== */
+.ask-pulse {
+  padding: 100px 24px 120px;
+  text-align: center;
+  position: relative;
+}
+
+.ask-pulse::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(20, 184, 166, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.pulse-dot-lg {
+  width: 18px;
+  height: 18px;
+  background: var(--teal);
+  border-radius: 50%;
+  margin: 0 auto 36px;
+  animation: dotBreathe 3s ease-in-out infinite;
+  position: relative;
+}
+
+.pulse-dot-lg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid var(--teal);
+  animation: dotRing 3s ease-in-out infinite;
+}
+
+.ask-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(24px, 4vw, 36px);
+  color: var(--cream) !important;
+  margin-bottom: 12px;
+}
+
+.ask-sub {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 36px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.pulse-input-wrap {
+  max-width: 500px;
+  margin: 0 auto 16px;
+  position: relative;
+}
+
+.pulse-input {
+  width: 100%;
+  padding: 18px 56px 18px 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.pulse-input::placeholder { color: var(--text-muted); }
+
+.pulse-input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+.pulse-send {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: var(--teal);
+  border: none;
+  border-radius: 10px;
+  color: var(--bg);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.pulse-send:hover {
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 4px 16px var(--teal-glow);
+}
+
+.suggestion-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto 28px;
+}
+
+.suggestion-pill {
+  padding: 7px 16px;
+  background: var(--teal-dim);
+  border: 1px solid rgba(20, 184, 166, 0.15);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--teal);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.suggestion-pill:hover {
+  background: rgba(20, 184, 166, 0.2);
+  transform: translateY(-1px);
+}
+
+.telegram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-top: 8px;
+  transition: color 0.2s;
+}
+
+.telegram-link:hover { color: var(--teal); }
+
+/* ========================================
+   SECTION 8: FOOTER
+   ======================================== */
+.page-footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 24px;
+  text-align: center;
+}
+
+.footer-links {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  font-size: 14px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover { color: var(--teal); }
+
+.footer-copy {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.footer-disclaimer {
+  font-size: 12px;
+  color: var(--text-muted);
+  opacity: 0.7;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .hero-video {
+    margin-top: 36px;
+    border-radius: 14px;
+  }
+
+  .demo-body {
+    padding: 24px 20px;
+    min-height: 280px;
+  }
+
+  .demo-result-number { font-size: 26px; }
+
+  .tab-chaos { gap: 10px; }
+  .tab-card { padding: 12px 14px; max-width: 160px; }
+}
+
+@media (max-width: 375px) {
+  .hero { padding: 32px 16px; }
+  .demo-body { padding: 20px 16px; }
+  .calc-card { padding: 28px 20px 24px; }
+}
+
+/* ===== BACKGROUND GRADIENT SHIFT ON SCROLL ===== */
+.bg-gradient-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: var(--bg);
+  transition: background 0.8s ease;
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2); }
+</style>
+</head>
+<body>
+
+<!-- Background gradient layer -->
+<div class="bg-gradient-layer" id="bgLayer"></div>
+
+<!-- ===== SECTION 1: HERO ===== -->
+<section class="section hero" id="heroSection">
+  <div class="pulse-dot"></div>
+
+  <h1 class="hero-tagline" id="heroTagline">
+    <span id="typewriterText"></span><span class="cursor"></span>
+  </h1>
+
+  <p class="hero-sub" id="heroSub">90+ health calculators. Each one teaches you a framework.</p>
+
+  <div class="hero-video" id="hero-video">
+    <div class="hero-video-bg"></div>
+    <div class="hero-video-label">Video coming soon</div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-chevron"></div>
+  </div>
+</section>
+
+<!-- ===== SECTION 2: THE PROBLEM ===== -->
+<section class="section problem" id="problemSection">
+  <div class="reveal" data-animate>
+    <p class="problem-lead">You Googled a health question.</p>
+  </div>
+
+  <div class="tab-chaos" id="tabChaos">
+    <div class="tab-card" data-tab="0">
+      <div class="tab-url">healthsite.com</div>
+      <div class="tab-question">"how many calories should I eat"</div>
+    </div>
+    <div class="tab-card" data-tab="1">
+      <div class="tab-url">fitnessbro.io</div>
+      <div class="tab-question">"is my BMI actually accurate"</div>
+    </div>
+    <div class="tab-card" data-tab="2">
+      <div class="tab-url">wellnessmd.com</div>
+      <div class="tab-question">"when to stop caffeine before bed"</div>
+    </div>
+    <div class="tab-card" data-tab="3">
+      <div class="tab-url">calctools.net</div>
+      <div class="tab-question">"how much protein do I need"</div>
+    </div>
+  </div>
+
+  <div class="reveal" data-animate>
+    <p class="problem-conclusion"><strong>10 tabs. Conflicting answers.</strong><br>Still confused.</p>
+  </div>
+</section>
+
+<!-- ===== SECTION 3: THE SOLUTION ===== -->
+<section class="section solution" id="solutionSection">
+  <div class="reveal" data-animate>
+    <p class="solution-intro">What if you got one number<br>and one framework?</p>
+  </div>
+
+  <div class="demo-window reveal" data-animate id="demoWindow">
+    <div class="demo-titlebar">
+      <div class="demo-dot"></div>
+      <div class="demo-dot"></div>
+      <div class="demo-dot"></div>
+      <span class="demo-titlebar-text">Caffeine Half-Life Calculator</span>
+    </div>
+    <div class="demo-body" id="demoBody">
+      <!-- Step 1: Coffee emoji -->
+      <div class="demo-step" id="demoStep1">
+        <div class="demo-emoji">&#9749;</div>
+      </div>
+      <!-- Step 2: Input typing -->
+      <div class="demo-step" id="demoStep2">
+        <div class="demo-input-label">Your caffeine intake</div>
+        <div class="demo-input-display" id="demoInputText"></div>
+      </div>
+      <!-- Step 3: Result -->
+      <div class="demo-step" id="demoStep3">
+        <div class="demo-result">
+          <div class="demo-result-number">24 mg</div>
+          <div class="demo-result-label">remaining at bedtime</div>
+        </div>
+      </div>
+      <!-- Step 4: Framework -->
+      <div class="demo-step" id="demoStep4">
+        <div class="demo-framework">
+          <div class="demo-framework-text">"Every 5 hours, half."</div>
+          <div class="demo-framework-label">The mental model</div>
+        </div>
+      </div>
+      <!-- Step 5: Verdict -->
+      <div class="demo-step" id="demoStep5">
+        <div class="demo-verdict">
+          <div class="demo-verdict-check">&#10003;</div>
+          You're in the clear for sleep.
+        </div>
+      </div>
+      <button class="demo-replay" id="demoReplay" style="display:none;">Replay</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: FEATURED CALCULATORS ===== -->
+<section class="section featured">
+  <div class="reveal" data-animate>
+    <div class="section-label">Featured Tools</div>
+    <h2 class="section-heading">90+ calculators. Each one teaches a framework.</h2>
+  </div>
+
+  <div class="cards-grid">
+    <a href="/caffeine-half-life-calculator" class="calc-card reveal" data-animate>
+      <div class="card-emoji">&#9749;</div>
+      <div class="card-name">Caffeine Half-Life</div>
+      <div class="card-rule">"Every 5 hours, half."</div>
+      <div class="card-hook">Find your personal cutoff time so caffeine never costs you sleep again.</div>
+      <span class="card-cta">Calculate <span>&#8594;</span></span>
+    </a>
+
+    <a href="/tdee-calculator" class="calc-card reveal reveal-delay-1" data-animate>
+      <div class="card-emoji">&#128293;</div>
+      <div class="card-name">TDEE Calculator</div>
+      <div class="card-rule">"BMR is your rent. TDEE is rent + utilities."</div>
+      <div class="card-hook">Know your daily calorie budget. Maintain, cut, or build from there.</div>
+      <span class="card-cta">Calculate <span>&#8594;</span></span>
+    </a>
+
+    <a href="/bmi-calculator" class="calc-card reveal reveal-delay-2" data-animate>
+      <div class="card-emoji">&#9878;</div>
+      <div class="card-name">BMI Calculator</div>
+      <div class="card-rule">"A screening tool, not a diagnosis."</div>
+      <div class="card-hook">Your number, in context, with honest interpretation and real limitations.</div>
+      <span class="card-cta">Calculate <span>&#8594;</span></span>
+    </a>
+  </div>
+
+  <div class="reveal" data-animate>
+    <a href="/calculators" class="browse-cta">Browse all 90+ calculators</a>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: CATEGORIES ===== -->
+<section class="section categories">
+  <div class="reveal" data-animate>
+    <div class="section-label">Categories</div>
+    <div class="cat-scroll">
+      <a href="/category/nutrition" class="cat-pill">&#127823; Nutrition</a>
+      <a href="/category/fitness" class="cat-pill">&#128170; Fitness</a>
+      <a href="/category/weight-loss-meds" class="cat-pill">&#128137; Weight Loss Meds</a>
+      <a href="/category/cosmetic" class="cat-pill">&#10024; Cosmetic</a>
+      <a href="/category/pregnancy" class="cat-pill">&#129328; Pregnancy</a>
+      <a href="/category/health" class="cat-pill">&#129657; Health</a>
+      <a href="/category/sleep" class="cat-pill">&#128564; Sleep</a>
+      <a href="/category/mental-health" class="cat-pill">&#129504; Mental Health</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: FRAMEWORK PROMISE ===== -->
+<section class="section framework-promise">
+  <div class="reveal" data-animate>
+    <h2 class="promise-heading">Every calculator teaches you one thing you'll never forget.</h2>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker1">
+      <div class="ticker-item">Every 5 hours, half</div>
+      <div class="ticker-item">BMR is rent, TDEE is rent + utilities</div>
+      <div class="ticker-item">Multiply ng/mL by 2.5</div>
+      <div class="ticker-item">150-200cc = one cup size</div>
+      <div class="ticker-item">The bigger the pen, the fewer clicks</div>
+      <div class="ticker-item">Up to 7% is normal</div>
+      <div class="ticker-item">0.7-1g protein per pound</div>
+      <div class="ticker-item">Wake between cycles, not during</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item">Every 5 hours, half</div>
+      <div class="ticker-item">BMR is rent, TDEE is rent + utilities</div>
+      <div class="ticker-item">Multiply ng/mL by 2.5</div>
+      <div class="ticker-item">150-200cc = one cup size</div>
+      <div class="ticker-item">The bigger the pen, the fewer clicks</div>
+      <div class="ticker-item">Up to 7% is normal</div>
+      <div class="ticker-item">0.7-1g protein per pound</div>
+      <div class="ticker-item">Wake between cycles, not during</div>
+    </div>
+  </div>
+
+  <div class="ticker-wrap" style="margin-top: 8px;">
+    <div class="ticker ticker-reverse" id="ticker2">
+      <div class="ticker-item">Doubling time reveals viability</div>
+      <div class="ticker-item">500 deficit = 1 lb per week</div>
+      <div class="ticker-item">Total:HDL under 3.5 is ideal</div>
+      <div class="ticker-item">Zone 2 is where fat burns</div>
+      <div class="ticker-item">1 drink = 1 hour to clear</div>
+      <div class="ticker-item">8mg/kg is the danger zone</div>
+      <div class="ticker-item">RMR drops 2% per decade</div>
+      <div class="ticker-item">90 minutes per sleep cycle</div>
+      <!-- Duplicate for seamless loop -->
+      <div class="ticker-item">Doubling time reveals viability</div>
+      <div class="ticker-item">500 deficit = 1 lb per week</div>
+      <div class="ticker-item">Total:HDL under 3.5 is ideal</div>
+      <div class="ticker-item">Zone 2 is where fat burns</div>
+      <div class="ticker-item">1 drink = 1 hour to clear</div>
+      <div class="ticker-item">8mg/kg is the danger zone</div>
+      <div class="ticker-item">RMR drops 2% per decade</div>
+      <div class="ticker-item">90 minutes per sleep cycle</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 7: ASK PULSE ===== -->
+<section class="section ask-pulse">
+  <div class="reveal" data-animate>
+    <div class="pulse-dot-lg"></div>
+    <h2 class="ask-heading">Still have a question?</h2>
+    <p class="ask-sub">We read every submission. No signup, no email. If enough people ask, we build it.</p>
+
+    <div class="pulse-input-wrap">
+      <input type="text" class="pulse-input" placeholder="What do you want to know about your health?" id="pulseInput">
+      <button class="pulse-send" onclick="submitPulse()" aria-label="Send">&#8593;</button>
+    </div>
+
+    <div class="suggestion-pills">
+      <span class="suggestion-pill" onclick="fillPulse(this)">Is creatine worth it?</span>
+      <span class="suggestion-pill" onclick="fillPulse(this)">Cold plunge timing</span>
+      <span class="suggestion-pill" onclick="fillPulse(this)">Vitamin D dose</span>
+      <span class="suggestion-pill" onclick="fillPulse(this)">Ozempic vs Mounjaro</span>
+    </div>
+
+    <a href="https://t.me/healthcalculators" class="telegram-link" target="_blank" rel="noopener">
+      Ask Pulse on Telegram &#8594;
+    </a>
+  </div>
+</section>
+
+<!-- ===== SECTION 8: FOOTER ===== -->
+<footer class="page-footer">
+  <div class="footer-links">
+    <a href="/calculators">All Calculators</a>
+    <a href="/resources">Resources</a>
+    <a href="/caffeine-half-life-calculator">Caffeine Calculator</a>
+    <a href="/tdee-calculator">TDEE Calculator</a>
+    <a href="/bmi-calculator">BMI Calculator</a>
+    <a href="/ozempic-pen-click-calculator">Ozempic Calculator</a>
+  </div>
+  <p class="footer-copy">&copy; 2026 HealthCalculators.xyz</p>
+  <p class="footer-disclaimer">Tools, not medical advice. Always consult your healthcare provider.</p>
+</footer>
+
+<script>
+// ===== TYPEWRITER EFFECT =====
+(function() {
+  const text = "You always had a pulse. We help you find it.";
+  const el = document.getElementById('typewriterText');
+  const sub = document.getElementById('heroSub');
+  const video = document.getElementById('hero-video');
+  let i = 0;
+
+  function type() {
+    if (i < text.length) {
+      el.textContent += text.charAt(i);
+      i++;
+      // Variable speed: pause longer on periods and commas
+      const char = text.charAt(i - 1);
+      const delay = char === '.' ? 300 : char === ',' ? 150 : char === ' ' ? 60 : 45;
+      setTimeout(type, delay);
+    } else {
+      // Typing done — show sub and video
+      sub.classList.add('show');
+      video.classList.add('show');
+    }
+  }
+
+  // Start after a short pause
+  setTimeout(type, 800);
+})();
+
+// ===== INTERSECTION OBSERVER FOR REVEALS =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, {
+  threshold: 0.12,
+  rootMargin: '0px 0px -50px 0px'
+});
+
+document.querySelectorAll('[data-animate]').forEach(el => revealObserver.observe(el));
+
+// ===== TAB SCATTER ANIMATION =====
+const tabObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.tab-card');
+      cards.forEach((card, idx) => {
+        setTimeout(() => {
+          card.classList.add('scattered');
+        }, idx * 200);
+      });
+      tabObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.3 });
+
+tabObserver.observe(document.getElementById('tabChaos'));
+
+// ===== CALCULATOR DEMO ANIMATION =====
+let demoRunning = false;
+let demoHasRun = false;
+
+function runDemo() {
+  if (demoRunning) return;
+  demoRunning = true;
+
+  const steps = ['demoStep1', 'demoStep2', 'demoStep3', 'demoStep4', 'demoStep5'];
+  const replay = document.getElementById('demoReplay');
+
+  // Reset all steps
+  steps.forEach(id => {
+    document.getElementById(id).classList.remove('active');
+  });
+  document.getElementById('demoInputText').innerHTML = '';
+  replay.style.display = 'none';
+
+  const inputText = "95 mg at 2:00 PM";
+  let charIdx = 0;
+
+  // Timeline
+  // 0ms: Show coffee emoji
+  setTimeout(() => {
+    document.getElementById('demoStep1').classList.add('active');
+  }, 300);
+
+  // 1200ms: Start typing input
+  setTimeout(() => {
+    document.getElementById('demoStep2').classList.add('active');
+    const inputEl = document.getElementById('demoInputText');
+
+    function typeInput() {
+      if (charIdx < inputText.length) {
+        inputEl.innerHTML = inputText.substring(0, charIdx + 1) + '<span class="typing-cursor"></span>';
+        charIdx++;
+        setTimeout(typeInput, 55);
+      } else {
+        // Remove cursor after typing done
+        setTimeout(() => {
+          inputEl.innerHTML = inputText;
+        }, 600);
+      }
+    }
+    typeInput();
+  }, 1200);
+
+  // 3500ms: Show result
+  setTimeout(() => {
+    document.getElementById('demoStep3').classList.add('active');
+  }, 3500);
+
+  // 5000ms: Show framework
+  setTimeout(() => {
+    document.getElementById('demoStep4').classList.add('active');
+  }, 5000);
+
+  // 6500ms: Show verdict
+  setTimeout(() => {
+    document.getElementById('demoStep5').classList.add('active');
+  }, 6500);
+
+  // 8000ms: Show replay button and mark done
+  setTimeout(() => {
+    replay.style.display = 'block';
+    demoRunning = false;
+    demoHasRun = true;
+  }, 8000);
+}
+
+// Trigger demo on scroll
+const demoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !demoHasRun) {
+      runDemo();
+    }
+  });
+}, { threshold: 0.4 });
+
+demoObserver.observe(document.getElementById('demoWindow'));
+
+// Replay button
+document.getElementById('demoReplay').addEventListener('click', () => {
+  demoHasRun = false;
+  runDemo();
+});
+
+// ===== BACKGROUND GRADIENT SHIFT =====
+const bgLayer = document.getElementById('bgLayer');
+const sections = document.querySelectorAll('.section');
+
+function updateBgGradient() {
+  const scrollY = window.scrollY;
+  const viewportH = window.innerHeight;
+  const docH = document.documentElement.scrollHeight;
+  const progress = scrollY / (docH - viewportH);
+
+  // Dark -> slight teal tint at middle -> dark at bottom
+  const tealIntensity = Math.sin(progress * Math.PI) * 0.03;
+  bgLayer.style.background = `linear-gradient(180deg,
+    #0a0f1a 0%,
+    rgba(10, 20, 30, ${1 - tealIntensity}) 50%,
+    #0a0f1a 100%)`;
+}
+
+window.addEventListener('scroll', updateBgGradient, { passive: true });
+
+// ===== PULSE INPUT =====
+function fillPulse(el) {
+  document.getElementById('pulseInput').value = el.textContent;
+  document.getElementById('pulseInput').focus();
+}
+
+function submitPulse() {
+  const input = document.getElementById('pulseInput');
+  const q = input.value.trim();
+  if (!q) return;
+
+  const submissions = JSON.parse(localStorage.getItem('pulse_questions') || '[]');
+  submissions.push({ q: q, ts: Date.now() });
+  localStorage.setItem('pulse_questions', JSON.stringify(submissions));
+
+  input.value = '';
+  input.placeholder = 'Sent! We will look into it.';
+  setTimeout(() => {
+    input.placeholder = 'What do you want to know about your health?';
+  }, 3000);
+}
+
+// ===== HIDE SCROLL INDICATOR ON SCROLL =====
+const scrollIndicator = document.querySelector('.scroll-indicator');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 100) {
+    scrollIndicator.style.opacity = '0';
+    scrollIndicator.style.transition = 'opacity 0.5s';
+  } else {
+    scrollIndicator.style.opacity = '1';
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
