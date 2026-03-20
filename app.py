@@ -1657,16 +1657,12 @@ def breast_implant_cost_calculator():
 
 @app.route('/vitamin-d-intake-calculator')
 def vitamin_d_intake_calculator():
-    schema_name = "Vitamin D Intake Calculator"
-    schema_description = "Determine your ideal vitamin D supplementation based on lifestyle factors. Get personalized recommendations for optimal vitamin D intake based on sun exposure, diet, and other factors."
-    schema_url = "/vitamin-d-intake-calculator"
     return render_template(
-        'vitamin_d_intake_calculator.html',
+        'vitamin_d_intake_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        breadcrumb_title='Vitamin D Intake Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/vitamin-d-conversion-calculator')

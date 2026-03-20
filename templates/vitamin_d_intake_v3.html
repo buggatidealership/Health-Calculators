@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Vitamin D Intake Calculator — How Much Do You Need?",
+        meta_description="Calculate your ideal daily vitamin D dose based on age, weight, blood level, and sun exposure. Evidence-based recommendations from NIH and Endocrine Society.",
+        og_title="How much vitamin D should you take?",
+        og_description="Calculate your ideal daily vitamin D dose based on age, weight, blood level, and sun exposure. Evidence-based recommendations from NIH and Endocrine Society.",
+        og_url="/vitamin-d-intake-calculator",
+        canonical_url="/vitamin-d-intake-calculator",
+        schema_type="MedicalWebPage",
+        schema_name="Vitamin D Intake Calculator",
+        schema_description="Calculate your personalized daily vitamin D intake based on age, weight, blood level, sun exposure, and risk factors.",
+        schema_url="/vitamin-d-intake-calculator",
+        schema_about="Vitamin D Intake Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <!-- FAQPage JSON-LD (server-side) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much vitamin D should I take daily?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Most adults need 600-2000 IU of vitamin D daily. The NIH recommends 600 IU for ages 1-70 and 800 IU for 71+. Many clinicians recommend 1000-2000 IU for general supplementation, especially for those with limited sun exposure."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good vitamin D blood level?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A blood level of 30-50 ng/mL (75-125 nmol/L) is considered sufficient by most medical organizations. Below 20 ng/mL is deficient, 20-29 is insufficient. Some health optimization experts target 40-60 ng/mL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you take too much vitamin D?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The safe upper limit is 4,000 IU per day for adults according to the Institute of Medicine. Toxicity can occur above 10,000 IU daily over extended periods, causing high blood calcium, nausea, and kidney problems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Should I take vitamin D2 or D3?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Vitamin D3 (cholecalciferol) is generally preferred. Research shows D3 is 2-3 times more effective than D2 at raising blood levels. D3 is the same form your skin produces naturally."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does skin color affect vitamin D needs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Melanin in darker skin acts as a natural sunscreen, reducing vitamin D production from sunlight. People with darker skin may need 3-5 times more sun exposure to produce the same amount of vitamin D."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --good: #14b8a6;
+            --caution: #f59e0b;
+            --bad: #ef4444;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; }
+
+        /* Override header/footer/breadcrumb for dark theme */
+        .site-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.1) !important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) !important; stroke: var(--text) !important; }
+        .site-header .logo-dot { color: var(--teal) !important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] {
+            background: #0a0f1a !important;
+            border-bottom: 1px solid rgba(20,184,166,0.06) !important;
+        }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content {
+            background: transparent !important;
+        }
+        body { background: #0a0f1a !important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
+        .breadcrumb a:hover { color: var(--teal) !important; }
+        .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
+        .nav-dropdown-link { color: var(--text-dim) !important; }
+        .nav-dropdown-link:hover { color: var(--teal) !important; }
+        .nav-dropdown-title { color: var(--text-muted) !important; }
+        .page-layout { display: contents !important; }
+        .page-content { display: contents !important; }
+        .page-sidebar { display: none !important; }
+        main { display: contents; }
+
+        /* Force all headings white */
+        h1, h2, h3 { color: #ffffff !important; }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .section-content {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-2 { background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%); }
+        .bg-3 { background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%); }
+        .bg-4 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        .bg-6 { background: #060a14; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* -- HERO -- */
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #ffffff !important;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
+
+        /* -- INPUT FORM -- */
+        .input-container {
+            max-width: 520px;
+            width: 100%;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-label {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .input-field {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1.1rem;
+            padding: 0.8rem 1rem;
+            font-family: var(--font-body);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .input-field:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(20,184,166,0.1);
+        }
+        .input-row {
+            display: flex;
+            gap: 1rem;
+        }
+        .input-row .input-group { flex: 1; }
+        .input-hint {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+        }
+        .optional-badge {
+            font-size: 0.72rem;
+            color: var(--teal);
+            font-weight: 400;
+            margin-left: 0.3rem;
+        }
+
+        /* Sun exposure tappable cards */
+        .sun-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+        }
+        .sun-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+        .sun-card:hover {
+            border-color: rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(20, 184, 166, 0.1);
+        }
+        .sun-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 0 1px var(--teal);
+            transform: scale(1.03);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .sun-card .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+        .sun-card .name { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+        .sun-card .desc { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+
+        /* Target level cards */
+        .target-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.6rem;
+        }
+        .target-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+        .target-card:hover {
+            border-color: rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+        }
+        .target-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 0 1px var(--teal);
+            transform: scale(1.03);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .target-card .name { font-size: 0.82rem; font-weight: 600; color: var(--text); }
+        .target-card .range { font-size: 0.72rem; color: var(--text-dim); margin-top: 2px; }
+
+        .calc-btn {
+            background: var(--teal) !important;
+            color: #0a0f1a !important;
+            border: none !important;
+            border-radius: 12px !important;
+            padding: 0.85rem 2.4rem !important;
+            font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            cursor: pointer;
+            margin-top: 2rem;
+            font-family: var(--font-body) !important;
+            transition: all 0.2s;
+            width: auto !important;
+            box-shadow: none !important;
+        }
+        .calc-btn::after { display: none !important; }
+        .calc-btn:hover { box-shadow: 0 6px 24px var(--teal-glow) !important; transform: translateY(-1px); }
+
+        /* -- RESULT -- */
+        .hidden-section { display: none; }
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 16vw, 10rem);
+            line-height: 1;
+            text-align: center;
+        }
+        .result-unit { font-size: 1.1rem; color: var(--text-dim); text-align: center; margin-top: 0.5rem; }
+        .result-verdict {
+            font-size: 1.2rem; text-align: center; margin-top: 1rem;
+            font-weight: 600;
+        }
+        .glow-good { color: var(--good); text-shadow: 0 0 40px var(--teal-glow); }
+        .glow-caution { color: var(--caution); text-shadow: 0 0 40px rgba(245, 158, 11, 0.25); }
+        .glow-bad { color: var(--bad); text-shadow: 0 0 40px rgba(239, 68, 68, 0.25); }
+
+        .result-details {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            max-width: 400px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid rgba(20,184,166,0.06);
+        }
+        .detail-label { color: var(--text-dim); font-size: 0.88rem; }
+        .detail-value { color: var(--text); font-weight: 600; font-size: 0.95rem; }
+        .detail-value.teal { color: var(--teal); }
+
+        /* Level bar visualization */
+        .level-bar-container {
+            margin-top: 2rem;
+            max-width: 400px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .level-bar-label { font-size: 0.82rem; color: var(--text-dim); margin-bottom: 0.5rem; text-align: center; }
+        .level-bar-track {
+            height: 28px;
+            background: rgba(255,255,255,0.03);
+            border-radius: 14px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+        }
+        .level-zone {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.62rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.5);
+        }
+        .level-zone.deficient { background: rgba(239,68,68,0.25); flex: 20; }
+        .level-zone.insufficient { background: rgba(245,158,11,0.2); flex: 10; }
+        .level-zone.sufficient { background: rgba(20,184,166,0.2); flex: 20; }
+        .level-zone.high { background: rgba(245,158,11,0.15); flex: 50; }
+        .level-marker {
+            position: absolute;
+            top: -6px;
+            width: 3px;
+            height: 40px;
+            background: var(--teal);
+            border-radius: 2px;
+            box-shadow: 0 0 10px var(--teal-glow);
+            transition: left 0.6s ease-out;
+        }
+        .level-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.3rem;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* -- PERSONAL COACH -- */
+        .coach-container {
+            max-width: 520px;
+            width: 100%;
+        }
+        .coach-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .coach-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text);
+        }
+        .coach-text .hl { color: var(--teal); font-weight: 700; }
+        .coach-text .dim { color: var(--text-dim); }
+        .coach-rule {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--teal);
+            margin: 1.5rem 0;
+            text-shadow: 0 0 20px var(--teal-glow);
+        }
+        .coach-advice {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dim);
+        }
+        .coach-advice em {
+            color: var(--text);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Cofactor cards */
+        .cofactor-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.8rem;
+            margin-top: 1.5rem;
+        }
+        .cofactor-card {
+            background: rgba(20,184,166,0.04);
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 14px;
+            padding: 1.2rem;
+        }
+        .cofactor-card .cofactor-name {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+        .cofactor-card .cofactor-why {
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            line-height: 1.5;
+        }
+
+        /* Share buttons */
+        .share-row {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 12px !important;
+            font-size: 0.82rem !important;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            border: none !important;
+            width: auto !important;
+            box-shadow: none !important;
+        }
+        .share-btn::after { display: none !important; }
+        .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .share-btn.whatsapp {
+            background: rgba(37,211,102,0.1);
+            border: 1px solid rgba(37,211,102,0.25) !important;
+            color: #25d366;
+        }
+        .share-btn.whatsapp:hover { background: rgba(37,211,102,0.2); box-shadow: 0 4px 14px rgba(37,211,102,0.15) !important; }
+        .share-btn.twitter {
+            background: rgba(29,155,240,0.12);
+            border: 1px solid rgba(29,155,240,0.25) !important;
+            color: #1d9bf0;
+        }
+        .share-btn.twitter:hover { background: rgba(29,155,240,0.22); box-shadow: 0 4px 14px rgba(29,155,240,0.15) !important; }
+        .share-btn.telegram {
+            background: rgba(0,136,204,0.1);
+            border: 1px solid rgba(0,136,204,0.25) !important;
+            color: #0088cc;
+        }
+        .share-btn.telegram:hover { background: rgba(0,136,204,0.2); box-shadow: 0 4px 14px rgba(0,136,204,0.15) !important; }
+        .share-btn.copy {
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.25) !important;
+            color: var(--teal);
+        }
+        .share-btn.copy:hover { background: rgba(20,184,166,0.2); box-shadow: 0 4px 14px var(--teal-glow) !important; }
+        .share-btn.copy.copied { background: var(--teal); color: #0a0f1a; }
+
+        .coach-cta { text-align: center; margin-top: 2rem; }
+        .coach-cta-text { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; }
+        .coach-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.3);
+            border-radius: 12px;
+            color: var(--teal);
+            padding: 0.7rem 1.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .coach-cta-link:hover {
+            background: rgba(20,184,166,0.2);
+            box-shadow: 0 4px 16px var(--teal-glow);
+        }
+
+        /* -- STATIC EXAMPLE (SEO) -- */
+        .static-example {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            padding: 1.5rem 2rem;
+            background: rgba(20,184,166,0.04);
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .static-example p {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+        .static-example .hl { color: var(--teal); font-weight: 600; }
+
+        /* -- SEO SECTIONS -- */
+        .seo-section {
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .seo-inner {
+            max-width: 680px;
+            width: 100%;
+        }
+        .seo-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--text);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* FAQ accordion */
+        .faq-list { list-style: none; }
+        .faq-item {
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 14px;
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+            background: rgba(14,122,126,0.04);
+            transition: border-color 0.2s;
+        }
+        .faq-item:hover { border-color: rgba(20,184,166,0.25); }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: var(--font-body);
+        }
+        .faq-question:hover { color: var(--teal); }
+        .faq-chevron {
+            width: 20px; height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-item.faq-open .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.2rem;
+        }
+        .faq-answer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Sources */
+        .sources-list {
+            list-style: none;
+            counter-reset: source;
+        }
+        .sources-list li {
+            counter-increment: source;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(20,184,166,0.06);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+        .sources-list li::before {
+            content: counter(source) ".";
+            color: var(--teal);
+            font-weight: 700;
+            margin-right: 0.6rem;
+        }
+        .sources-list li a {
+            color: var(--teal);
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .sources-list li a:hover { text-decoration: underline; }
+
+        /* Methodology */
+        .methodology-text {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .methodology-text code {
+            background: rgba(20,184,166,0.1);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--teal);
+        }
+
+        /* LLM capsule */
+        .llm-capsule {
+            background: rgba(20,184,166,0.04);
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .llm-capsule p {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        /* Medical disclaimer */
+        .medical-disclaimer.pink-box {
+            background: rgba(239,68,68,0.06) !important;
+            border: 1px solid rgba(239,68,68,0.15) !important;
+            border-radius: 14px !important;
+            padding: 1.5rem !important;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .medical-disclaimer.pink-box p {
+            color: var(--text-dim) !important;
+            font-size: 0.85rem !important;
+            line-height: 1.6 !important;
+        }
+        .medical-disclaimer.pink-box strong {
+            color: #ef4444 !important;
+        }
+
+        /* Footer dark override */
+        .site-footer {
+            background: #060a14 !important;
+            border-top: 1px solid rgba(20,184,166,0.08) !important;
+        }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text {
+            color: var(--text-dim) !important;
+        }
+        .site-footer a:hover { color: var(--teal) !important; }
+
+        /* -- ASK PULSE -- */
+        .ask-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important; border-radius: 12px !important;
+            color: var(--text) !important; padding: 0.85rem 1rem !important; font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none;
+            width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important;
+            padding: 0 1.5rem !important; font-weight: 700 !important; cursor: pointer; font-family: var(--font-body) !important;
+            transition: all 0.2s; width: auto !important; box-shadow: none !important;
+            font-size: 0.95rem !important; letter-spacing: normal !important;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; transform: none !important; filter: none !important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill {
+            background: rgba(255,255,255,0.03) !important; border: 1px solid var(--border) !important; border-radius: 20px !important;
+            padding: 0.4rem 0.9rem !important; font-size: 0.78rem !important; color: var(--text-dim) !important; cursor: pointer; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal) !important; color: var(--text) !important; }
+
+        @media (max-width: 600px) {
+            .sun-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .target-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .cofactor-grid { grid-template-columns: 1fr; }
+            .input-row { flex-direction: column; gap: 0; }
+            .coach-container { max-width: 100%; }
+            .coach-card { padding: 1.8rem 1.3rem; }
+            .coach-text { font-size: 1.05rem; }
+            .ask-input-wrap { flex-direction: column; }
+            .ask-input-wrap button { padding: 0.8rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<!-- SECTION 1: HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">How much <span>vitamin D</span> do you need?</h1>
+        <p class="hero-sub">Personalized daily dose based on your profile</p>
+    </div>
+
+    <div class="input-container fade-in" style="transition-delay:0.1s;">
+        <div class="input-row">
+            <div class="input-group">
+                <label class="input-label">Age</label>
+                <input type="number" class="input-field" id="inputAge" min="0" max="120" value="30" inputmode="numeric">
+            </div>
+            <div class="input-group">
+                <label class="input-label">Weight</label>
+                <div style="display:flex;gap:0.5rem;">
+                    <input type="number" class="input-field" id="inputWeight" min="20" max="400" value="154" inputmode="numeric" style="flex:1;">
+                    <select class="input-field" id="weightUnit" style="width:70px;flex:none;padding:0.8rem 0.4rem;font-size:0.9rem;">
+                        <option value="lbs">lbs</option>
+                        <option value="kg">kg</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Current vitamin D level <span class="optional-badge">optional</span></label>
+            <input type="number" class="input-field" id="inputLevel" placeholder="e.g. 25" min="0" max="200" inputmode="decimal">
+            <div class="input-hint">From your blood test, in ng/mL. Leave blank if unknown.</div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Target level</label>
+            <div class="target-grid" id="targetGrid">
+                <div class="target-card" data-target="30" onclick="selectTarget(this)">
+                    <div class="name">Sufficient</div>
+                    <div class="range">30 ng/mL</div>
+                </div>
+                <div class="target-card selected" data-target="40" onclick="selectTarget(this)">
+                    <div class="name">Optimal</div>
+                    <div class="range">40 ng/mL</div>
+                </div>
+                <div class="target-card" data-target="50" onclick="selectTarget(this)">
+                    <div class="name">High-optimal</div>
+                    <div class="range">50 ng/mL</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label class="input-label">Sun exposure (weekly, without sunscreen)</label>
+            <div class="sun-grid" id="sunGrid">
+                <div class="sun-card" data-sun="low" onclick="selectSun(this)">
+                    <span class="emoji">&#127751;</span>
+                    <span class="name">Minimal</span>
+                    <span class="desc">&lt;30 min</span>
+                </div>
+                <div class="sun-card selected" data-sun="moderate" onclick="selectSun(this)">
+                    <span class="emoji">&#9925;</span>
+                    <span class="name">Some</span>
+                    <span class="desc">30 min - 2 hrs</span>
+                </div>
+                <div class="sun-card" data-sun="high" onclick="selectSun(this)">
+                    <span class="emoji">&#9728;&#65039;</span>
+                    <span class="name">Plenty</span>
+                    <span class="desc">2+ hours</span>
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align:center;">
+            <button class="calc-btn" id="calcBtn">Calculate My Dose</button>
+        </div>
+    </div>
+
+    <!-- Static example for SEO -->
+    <div class="static-example" id="staticExample">
+        <p>A <span class="hl">30-year-old</span> adult weighing <span class="hl">154 lbs</span> with <span class="hl">moderate sun exposure</span> and no known deficiency typically needs <span class="hl">1,000-2,000 IU</span> of vitamin D daily to maintain optimal blood levels of 40-60 ng/mL.</p>
+    </div>
+</section>
+
+<!-- SECTION 2: RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number glow-good" id="resultNumber">0</div>
+        <div class="result-unit">IU per day</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+
+        <div class="result-details" id="resultDetails">
+            <div class="detail-row">
+                <span class="detail-label">In micrograms</span>
+                <span class="detail-value teal" id="detailMcg">--</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Upper safe limit</span>
+                <span class="detail-value" id="detailUpperLimit">4,000 IU</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Your current level</span>
+                <span class="detail-value" id="detailCurrentLevel">Unknown</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label">Retest in</span>
+                <span class="detail-value teal" id="detailRetest">--</span>
+            </div>
+        </div>
+
+        <div class="level-bar-container" id="levelBarContainer" style="display:none;">
+            <div class="level-bar-label">Where your current level falls</div>
+            <div class="level-bar-track">
+                <div class="level-zone deficient">Deficient</div>
+                <div class="level-zone insufficient">Low</div>
+                <div class="level-zone sufficient">Good</div>
+                <div class="level-zone high">High</div>
+                <div class="level-marker" id="levelMarker" style="left:0%;"></div>
+            </div>
+            <div class="level-labels">
+                <span>0</span>
+                <span>20</span>
+                <span>30</span>
+                <span>50</span>
+                <span>100+</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Here's your rule of thumb</h2>
+
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="cofactor-grid" id="cofactorGrid">
+            <div class="cofactor-card">
+                <div class="cofactor-name">Vitamin K2</div>
+                <div class="cofactor-why">Directs calcium to bones, not arteries. Take with D3.</div>
+            </div>
+            <div class="cofactor-card">
+                <div class="cofactor-name">Magnesium</div>
+                <div class="cofactor-why">Required for vitamin D activation. Many adults are low.</div>
+            </div>
+        </div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+            </a>
+            <a class="share-btn telegram" id="shareTelegram" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Telegram
+            </a>
+            <button class="share-btn copy" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy
+            </button>
+        </div>
+
+        <div class="coach-cta">
+            <p class="coach-cta-text">Want more frameworks like this?</p>
+            <a class="coach-cta-link" href="#ask-section">
+                <span class="pulse-dot"></span>
+                Ask Pulse
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: Medical Disclaimer -->
+<div class="seo-section bg-4">
+    <div class="seo-inner">
+        {% include 'components/medical-disclaimer.html' %}
+    </div>
+</div>
+
+<!-- SEO SECTION: FAQ -->
+<div class="seo-section bg-5" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    How much vitamin D should I take daily?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Most adults need 600-2,000 IU of vitamin D daily. The NIH recommends 600 IU for ages 1-70 and 800 IU for 71+, but many clinicians recommend 1,000-2,000 IU for general supplementation, especially for those with limited sun exposure or darker skin.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    What is a good vitamin D blood level?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>A blood level of 30-50 ng/mL (75-125 nmol/L) is considered sufficient. Below 20 ng/mL is deficient, 20-29 ng/mL is insufficient. Many health optimization experts target 40-60 ng/mL, though the clinical benefit of levels above 30 ng/mL is debated.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Can you take too much vitamin D?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. The safe upper limit is 4,000 IU per day for adults per the Institute of Medicine. Toxicity generally occurs above 10,000 IU daily for extended periods. Symptoms include high blood calcium, nausea, confusion, and kidney problems.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Should I take vitamin D2 or D3?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Vitamin D3 (cholecalciferol) is recommended over D2 (ergocalciferol). D3 is 2-3 times more effective at raising and maintaining blood levels. It is the same form your skin produces from sunlight.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Does skin color affect vitamin D needs?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Melanin reduces UVB-mediated vitamin D synthesis. People with darker skin may need 3-5 times more sun exposure to produce the same amount. African Americans have approximately 50% lower blood vitamin D levels on average compared to white Americans.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- SEO SECTION: Sources -->
+<div class="seo-section bg-1" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Demay MB, Pittas AG, Bikle DD, et al. Vitamin D for the prevention of disease: an Endocrine Society clinical practice guideline. <em>J Clin Endocrinol Metab.</em> 2024;109(8):1907-1947. <a href="https://pubmed.ncbi.nlm.nih.gov/38828931/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>Holick MF, Binkley NC, Bischoff-Ferrari HA, et al. Evaluation, treatment, and prevention of vitamin D deficiency: an Endocrine Society clinical practice guideline. <em>J Clin Endocrinol Metab.</em> 2011;96(7):1911-1930. <a href="https://pubmed.ncbi.nlm.nih.gov/21646368/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>Institute of Medicine. Dietary Reference Intakes for Calcium and Vitamin D. Washington, DC: National Academies Press; 2011. <a href="https://pubmed.ncbi.nlm.nih.gov/21796828/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>NIH Office of Dietary Supplements. Vitamin D Fact Sheet for Health Professionals. <a href="https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/" target="_blank" rel="noopener">NIH</a></li>
+            <li>Harvard T.H. Chan School of Public Health. Vitamin D. <a href="https://www.health.harvard.edu/staying-healthy/taking-too-much-vitamin-d-can-cloud-its-benefits-and-create-health-risks" target="_blank" rel="noopener">Harvard Health</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- SEO SECTION: Methodology -->
+<div class="seo-section bg-5" id="methodology-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text">
+            <p>This calculator estimates daily vitamin D intake requirements using a multi-factor model based on Endocrine Society (2011 &amp; 2024), IOM, and NIH guidelines.</p>
+            <p style="margin-top: 1rem;"><strong>Base recommendations by age:</strong> 400 IU (infants), 600 IU (ages 1-70), 800 IU (ages 71+). These are adjusted upward based on risk factors.</p>
+            <p style="margin-top: 1rem;"><strong>Adjustments:</strong> Sun exposure level modifies the base (low = +400 IU, moderate = baseline, high = -400 IU). BMI above 30 adds 400 IU because vitamin D is sequestered in adipose tissue. If a current blood level is provided, the dose is calculated to reach the target level using the approximation that <code>100 IU/day raises blood level by ~1 ng/mL</code> over 2-3 months.</p>
+            <p style="margin-top: 1rem;"><strong>Caps:</strong> The calculator enforces a minimum of 400 IU and a maximum of 4,000 IU (IOM upper limit). Doses above 4,000 IU require medical supervision and are not recommended by this tool. IU-to-mcg conversion: <code>1 IU = 0.025 mcg</code>.</p>
+            <p style="margin-top: 1rem;">This tool provides general educational estimates. Sun exposure adjustments are approximate, as actual cutaneous production varies with latitude, season, time of day, altitude, skin pigmentation, and sunscreen use.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEO SECTION: LLM Answer Capsule -->
+<div class="seo-section bg-1" data-nosnippet>
+    <div class="seo-inner">
+        <div class="llm-capsule">
+            <p>Most adults need 600-2,000 IU of vitamin D daily, depending on age, sun exposure, skin color, weight, and current blood levels. The NIH recommends 600 IU for ages 1-70 and 800 IU for 71+. A blood level of 30-50 ng/mL is considered sufficient, with below 20 ng/mL classified as deficient. The safe upper limit is 4,000 IU per day for adults. Vitamin D3 is preferred over D2 as it is 2-3 times more effective at raising blood levels. Key cofactors include vitamin K2 (directs calcium to bones) and magnesium (required for vitamin D activation). People with darker skin, limited sun exposure, obesity, or age over 65 generally need higher supplementation.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION: ASK PULSE -->
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap">
+            <input type="text" id="askInput" placeholder="e.g. Should I take D3 with food?">
+            <button id="askBtn">Ask</button>
+        </div>
+        <div class="ask-pills">
+            <span class="ask-pill">D2 vs D3</span>
+            <span class="ask-pill">Vitamin D and sleep</span>
+            <span class="ask-pill">Best time to take D3</span>
+            <span class="ask-pill">K2 + D3 pairing</span>
+        </div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--teal); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script>
+let selectedSun = 'moderate';
+let selectedTarget = 40;
+
+function selectSun(el) {
+    document.querySelectorAll('.sun-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedSun = el.dataset.sun;
+}
+function selectTarget(el) {
+    document.querySelectorAll('.target-card').forEach(c => c.classList.remove('selected'));
+    el.classList.add('selected');
+    selectedTarget = parseInt(el.dataset.target);
+}
+
+document.getElementById('calcBtn').addEventListener('click', calculate);
+
+function calculate() {
+    const age = parseInt(document.getElementById('inputAge').value);
+    const weightVal = parseFloat(document.getElementById('inputWeight').value);
+    const weightUnit = document.getElementById('weightUnit').value;
+    const levelInput = document.getElementById('inputLevel').value;
+    const currentLevel = levelInput ? parseFloat(levelInput) : null;
+
+    if (isNaN(age) || age < 0 || age > 120) { alert('Please enter a valid age (0-120).'); return; }
+    if (isNaN(weightVal) || weightVal <= 0) { alert('Please enter a valid weight.'); return; }
+
+    // Convert weight to kg
+    const weightKg = weightUnit === 'lbs' ? weightVal * 0.4536 : weightVal;
+    const bmi = weightKg / Math.pow(1.7, 2); // rough estimate with avg height
+
+    // Hide static example
+    const staticEx = document.getElementById('staticExample');
+    if (staticEx) staticEx.style.display = 'none';
+
+    // Base recommendation by age (IOM RDA)
+    let baseIU;
+    let upperLimit;
+    if (age < 1) {
+        baseIU = 400;
+        upperLimit = 1000;
+    } else if (age <= 8) {
+        baseIU = 600;
+        upperLimit = 2500;
+    } else if (age <= 70) {
+        baseIU = 600;
+        upperLimit = 4000;
+    } else {
+        baseIU = 800;
+        upperLimit = 4000;
+    }
+
+    // Sun exposure adjustment
+    let sunAdj = 0;
+    if (selectedSun === 'low') sunAdj = 400;
+    else if (selectedSun === 'moderate') sunAdj = 0;
+    else if (selectedSun === 'high') sunAdj = -400;
+
+    // BMI adjustment (obesity increases needs)
+    let bmiAdj = 0;
+    if (bmi > 30) bmiAdj = 400;
+    else if (bmi > 25) bmiAdj = 200;
+
+    // Age adjustment for older adults (skin produces less)
+    let ageAdj = 0;
+    if (age >= 65) ageAdj = 400;
+
+    // Level-based calculation
+    let levelAdj = 0;
+    let levelCategory = 'unknown';
+    let retestWeeks = 12;
+    if (currentLevel !== null) {
+        if (currentLevel < 20) {
+            levelCategory = 'deficient';
+            // Raise to target: ~100 IU per 1 ng/mL
+            levelAdj = (selectedTarget - currentLevel) * 100;
+            retestWeeks = 8;
+        } else if (currentLevel < 30) {
+            levelCategory = 'insufficient';
+            levelAdj = (selectedTarget - currentLevel) * 100;
+            retestWeeks = 12;
+        } else if (currentLevel >= 30 && currentLevel < selectedTarget) {
+            levelCategory = 'sufficient';
+            levelAdj = (selectedTarget - currentLevel) * 100;
+            retestWeeks = 12;
+        } else if (currentLevel >= selectedTarget && currentLevel <= 80) {
+            levelCategory = 'optimal';
+            levelAdj = 0;
+            retestWeeks = 24;
+        } else if (currentLevel > 80) {
+            levelCategory = 'high';
+            levelAdj = -600;
+            retestWeeks = 8;
+        }
+    } else {
+        // No level known: use moderate supplementation assumption
+        levelAdj = 600; // Most people are below optimal
+    }
+
+    let totalIU = baseIU + sunAdj + bmiAdj + ageAdj + levelAdj;
+
+    // Clamp
+    totalIU = Math.max(400, Math.min(totalIU, upperLimit));
+    // Round to nearest 100
+    totalIU = Math.round(totalIU / 100) * 100;
+
+    const mcg = (totalIU * 0.025).toFixed(1);
+
+    // Determine verdict
+    let verdictText = '';
+    let verdictColor = 'var(--good)';
+    let resultClass = 'glow-good';
+
+    if (currentLevel !== null) {
+        if (levelCategory === 'deficient') {
+            verdictText = 'Your level is deficient. Prioritize supplementation.';
+            verdictColor = 'var(--bad)';
+            resultClass = 'glow-bad';
+        } else if (levelCategory === 'insufficient') {
+            verdictText = 'Your level is low. A boost will help.';
+            verdictColor = 'var(--caution)';
+            resultClass = 'glow-caution';
+        } else if (levelCategory === 'sufficient') {
+            verdictText = 'You\'re sufficient but have room to optimize.';
+            verdictColor = 'var(--good)';
+        } else if (levelCategory === 'optimal') {
+            verdictText = 'You\'re in a great range. Maintain it.';
+            verdictColor = 'var(--good)';
+        } else if (levelCategory === 'high') {
+            verdictText = 'Your level is high. Consider reducing intake.';
+            verdictColor = 'var(--caution)';
+            resultClass = 'glow-caution';
+        }
+    } else {
+        verdictText = 'Recommended maintenance dose for your profile';
+    }
+
+    // Display result
+    document.getElementById('resultNumber').textContent = totalIU.toLocaleString();
+    document.getElementById('resultNumber').className = 'result-number ' + resultClass;
+    const verdict = document.getElementById('resultVerdict');
+    verdict.textContent = verdictText;
+    verdict.style.color = verdictColor;
+
+    // Details
+    document.getElementById('detailMcg').textContent = mcg + ' mcg';
+    document.getElementById('detailUpperLimit').textContent = upperLimit.toLocaleString() + ' IU';
+    document.getElementById('detailCurrentLevel').textContent = currentLevel !== null ? currentLevel + ' ng/mL' : 'Not provided';
+    document.getElementById('detailRetest').textContent = retestWeeks + ' weeks';
+
+    // Level bar
+    if (currentLevel !== null) {
+        document.getElementById('levelBarContainer').style.display = 'block';
+        const maxLevel = 100;
+        let pct = Math.min(currentLevel / maxLevel * 100, 100);
+        document.getElementById('levelMarker').style.left = pct + '%';
+    } else {
+        document.getElementById('levelBarContainer').style.display = 'none';
+    }
+
+    // Coach card
+    const coachCard = document.getElementById('coachCard');
+    let coachHTML = '<div class="coach-text">';
+    if (currentLevel !== null) {
+        coachHTML += `Your level is <span class="hl">${currentLevel} ng/mL</span>.<br>`;
+        coachHTML += `You're aiming for <span class="hl">${selectedTarget} ng/mL</span>.<br>`;
+        if (currentLevel < selectedTarget) {
+            const deficit = selectedTarget - currentLevel;
+            coachHTML += `That's a <span class="hl">${deficit} ng/mL</span> gap to close.`;
+        } else {
+            coachHTML += `You're already <span class="hl">at or above</span> your target.`;
+        }
+    } else {
+        coachHTML += `No blood level entered <span class="dim">&mdash; this is a general estimate.</span><br>`;
+        coachHTML += `For a precise dose, <span class="hl">get a 25(OH)D blood test</span>.`;
+    }
+    coachHTML += '</div>';
+    coachHTML += `<div class="coach-rule">The rule: most adults need 600-2,000 IU daily.</div>`;
+    coachHTML += '<div class="coach-advice">';
+    coachHTML += `Take <em>${totalIU.toLocaleString()} IU of D3</em> daily with a fat-containing meal.<br>`;
+    coachHTML += `Pair with <em>vitamin K2</em> and <em>magnesium</em> for best absorption.<br>`;
+    coachHTML += `Retest your blood level in <em>${retestWeeks} weeks</em>.`;
+    coachHTML += '</div>';
+    coachCard.innerHTML = coachHTML;
+
+    // Share text
+    const shareText = currentLevel !== null
+        ? `My vitamin D level: ${currentLevel} ng/mL\nTarget: ${selectedTarget} ng/mL\nRecommended dose: ${totalIU.toLocaleString()} IU/day\n\nCalculator: healthcalculators.xyz/vitamin-d-intake-calculator`
+        : `My recommended vitamin D dose: ${totalIU.toLocaleString()} IU/day\n\nMost adults need 600-2,000 IU. Get your blood tested to personalize.\n\nCalculator: healthcalculators.xyz/vitamin-d-intake-calculator`;
+
+    window._shareText = shareText;
+    document.getElementById('shareRow').style.display = 'flex';
+    document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTwitter').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTelegram').href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz/vitamin-d-intake-calculator') + '&text=' + encodeURIComponent(shareText);
+
+    // Show sections
+    document.querySelectorAll('.hidden-section').forEach(el => el.classList.remove('hidden-section'));
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, 100);
+
+    // Track
+    if (typeof hcTrackEvent === 'function') {
+        hcTrackEvent('calculator_complete', {
+            calculator_name: 'Vitamin D Intake Calculator',
+            page_path: '/vitamin-d-intake-calculator'
+        });
+    }
+}
+
+document.getElementById('copyBtn').addEventListener('click', function() {
+    if (!window._shareText) return;
+    navigator.clipboard.writeText(window._shareText).then(() => {
+        this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+        this.classList.add('copied');
+        setTimeout(() => {
+            this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+            this.classList.remove('copied');
+        }, 2000);
+    }).catch(() => {});
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+
+// Ask Pulse
+document.getElementById('askBtn').addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+        document.getElementById('askInput').value = this.textContent;
+    });
+});
+
+// Fade-in observer
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
