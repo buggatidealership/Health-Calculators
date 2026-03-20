@@ -1837,13 +1837,14 @@ def ozempic_pen_click_calculator():
     schema_description = "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool."
     schema_url = "/ozempic-pen-click-calculator"
     return render_template(
-        'ozempic_pen_click_calculator.html', 
+        'ozempic_pen_click_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
+        robots_meta='index, follow',
         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-11'
+        date_modified='2026-03-20'
     )
 
 # === V2 TEMPLATE MOCKUP (noindex, for evaluation) ===
