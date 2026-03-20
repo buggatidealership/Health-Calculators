@@ -1,0 +1,51 @@
+name: Template Lint
+
+on:
+  push:
+    paths:
+      - 'templates/**'
+  pull_request:
+    paths:
+      - 'templates/**'
+
+jobs:
+  check-nested-documents:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for v3 templates including standalone HTML documents
+        run: |
+          # Find all _v3.html templates that include non-component templates
+          # (i.e., templates that are full standalone pages with their own DOCTYPE)
+          ERRORS=0
+
+          for v3 in templates/*_v3.html; do
+            # Extract included template names (exclude known-safe partials)
+            includes=$(grep -oP "{% include '\K[^']+(?=')" "$v3" | \
+              grep -v '^head_seo\.html$' | \
+              grep -v '^header\.html$' | \
+              grep -v '^footer\.html$' | \
+              grep -v '^components/' | \
+              grep -v '^calculator_v3\.html$')
+
+            for inc in $includes; do
+              if [ -f "templates/$inc" ]; then
+                # Check if the included template is a standalone HTML document
+                if grep -q '<!DOCTYPE' "templates/$inc"; then
+                  echo "::error file=$v3::NESTED DOCUMENT: $v3 includes '$inc' which is a standalone HTML document (has <!DOCTYPE>). Inline the body content instead."
+                  ERRORS=$((ERRORS + 1))
+                fi
+              fi
+            done
+          done
+
+          if [ $ERRORS -gt 0 ]; then
+            echo ""
+            echo "Found $ERRORS template(s) including standalone HTML documents."
+            echo "This causes duplicate headers, FAQ/Sources/Methodology sections, and broken dark mode."
+            echo "Fix: inline the body content from the included template, excluding DOCTYPE/head/body/header/footer/FAQ/Sources."
+            exit 1
+          fi
+
+          echo "All v3 templates clean — no nested document includes found."
