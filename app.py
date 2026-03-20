@@ -1510,18 +1510,12 @@ def body_roundness_index_calculator():
 
 @app.route('/protein-intake-calculator')
 def protein_intake_calculator():
-    schema_name = "Protein Intake Calculator"
-    schema_description = "Calculate your optimal daily protein intake based on weight, activity level, and fitness goals. Science-backed recommendations for muscle building, weight loss, and general health."
-    schema_url = "/protein-intake-calculator"
     return render_template(
-        'protein_intake_calculator.html',
+        'protein_intake_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_title='Protein Intake Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/water-intake-calculator')
