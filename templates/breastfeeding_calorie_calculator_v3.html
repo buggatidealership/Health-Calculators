@@ -1,0 +1,447 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with page_title="Breastfeeding Calorie Calculator — How Much to Eat Nursing", meta_description="Calculate calorie needs while breastfeeding with safe weight loss guidance.", og_title="Breastfeeding Calorie Calculator", og_description="Calculate calorie needs while breastfeeding with safe weight loss guidance.", og_url="/breastfeeding-calorie-calculator", canonical_url="/breastfeeding-calorie-calculator", schema_type="MedicalWebPage", schema_name="Breastfeeding Calorie Calculator", schema_description="Calculate calorie needs while breastfeeding with safe weight loss guidance.", schema_url="/breastfeeding-calorie-calculator", schema_about="Breastfeeding Calorie Calculator", date_published="2025-06-01", date_modified="2026-03-20", og_image="default-calculator-og.jpg", robots_meta="noindex, nofollow" %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[        {"@type":"Question","name":"Extra calories for breastfeeding?","acceptedAnswer":{"@type":"Answer","text":"Exclusive: +500 kcal/day months 1-6, +400 months 7-12. Partial: +250 kcal/day."}},
+        {"@type":"Question","name":"Can I lose weight nursing?","acceptedAnswer":{"@type":"Answer","text":"Yes, but slowly. 500 kcal/day deficit is safe after 6-8 weeks. Never below 1,500 kcal/day."}},
+        {"@type":"Question","name":"Important nutrients?","acceptedAnswer":{"@type":"Answer","text":"Calcium 1,000mg, iodine 290mcg, DHA 200-300mg, vitamin D 600 IU, protein 1.3g/kg."}},
+        {"@type":"Question","name":"How much water?","acceptedAnswer":{"@type":"Answer","text":"About 128 oz (3.8L) per day. Nursing increases fluid needs significantly."}}]}
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-1: #0a0f1a; --bg-card: rgba(236, 72, 153,0.07); --border: rgba(236, 72, 153,0.12); --accent: #ec4899; --accent-glow: rgba(236, 72, 153,0.3); --good: #14b8a6; --caution: #f59e0b; --bad: #ef4444; --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b; --font-body: 'DM Sans', sans-serif; --font-display: 'DM Serif Display', serif; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: #0a0f1a \!important; }
+        h1, h2, h3 { color: #ffffff \!important; }
+        .site-header { background: #0a0f1a \!important; border-bottom: 1px solid rgba(236, 72, 153,0.1) \!important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) \!important; stroke: var(--text) \!important; }
+        .site-header .logo-dot { color: var(--accent) \!important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) \!important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] { background: #0a0f1a \!important; border-bottom: 1px solid rgba(236, 72, 153,0.06) \!important; }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content { background: transparent \!important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) \!important; }
+        .breadcrumb a:hover { color: var(--accent) \!important; }
+        .nav-dropdown { background: #0d1420 \!important; border-color: rgba(236, 72, 153,0.1) \!important; }
+        .nav-dropdown-link { color: var(--text-dim) \!important; }
+        .nav-dropdown-link:hover { color: var(--accent) \!important; }
+        .page-layout { display: contents \!important; }
+        .page-content { display: contents \!important; }
+        .page-sidebar { display: none \!important; }
+        main { display: contents; }
+        /* Dark override all calc containers/elements */
+        .calculator { background: rgba(236, 72, 153,0.04) \!important; border: 1px solid rgba(236, 72, 153,0.1) \!important; border-radius: 16px \!important; padding: 2rem \!important; }
+        .calculator-container { max-width: 700px \!important; margin: 0 auto \!important; padding: 2rem 1rem \!important; }
+        .form-group label { color: var(--text-dim) \!important; }
+        .form-group input, .form-group select { background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(236, 72, 153,0.15) \!important; color: var(--text) \!important; border-radius: 10px \!important; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent) \!important; box-shadow: 0 0 0 3px rgba(236, 72, 153,0.1) \!important; }
+        .form-group select option { background: #0d1420 \!important; color: var(--text) \!important; }
+        .input-hint { color: var(--text-muted) \!important; }
+        .subtitle { color: var(--text-dim) \!important; }
+        .calculate-btn, button[type="button"].calculate-btn { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; font-weight: 700 \!important; width: auto \!important; box-shadow: none \!important; }
+        .calculate-btn::after { display: none \!important; }
+        .calculate-btn:hover { box-shadow: 0 6px 24px var(--accent-glow) \!important; }
+        button { width: auto \!important; box-shadow: none \!important; }
+        button::after { display: none \!important; }
+        .results-section { background: transparent \!important; }
+        .result-hero { border-color: var(--accent) \!important; }
+        .result-hero-number { color: var(--accent) \!important; }
+        .result-status { background: rgba(236, 72, 153,0.06) \!important; border-color: rgba(236, 72, 153,0.15) \!important; border-radius: 12px \!important; }
+        .result-status-text { color: var(--text-dim) \!important; }
+        .result-breakdown { background: rgba(236, 72, 153,0.04) \!important; border: 1px solid rgba(236, 72, 153,0.1) \!important; border-radius: 14px \!important; }
+        .result-breakdown-title { color: var(--text) \!important; }
+        .result-breakdown-key { color: var(--text-dim) \!important; }
+        .result-breakdown-val { color: var(--text) \!important; }
+        .result-comparison-box { background: rgba(236, 72, 153,0.06) \!important; border: 1px solid rgba(236, 72, 153,0.1) \!important; border-radius: 12px \!important; }
+        .result-comparison-label { color: var(--text-muted) \!important; }
+        .result-comparison-size { color: var(--text) \!important; }
+        .result-comparison-arrow { color: var(--text-muted) \!important; }
+        .result-gauge-labels span { color: var(--text-muted) \!important; }
+        .result-card { background: rgba(236, 72, 153,0.06) \!important; border: 1px solid rgba(236, 72, 153,0.1) \!important; border-radius: 14px \!important; }
+        .result-card-title { color: var(--text-dim) \!important; }
+        .result-card-value { color: var(--accent) \!important; }
+        .result-card-note { color: var(--text-muted) \!important; }
+        .info-toggle-btn { color: var(--text-dim) \!important; background: none \!important; border: 1px solid rgba(236, 72, 153,0.15) \!important; border-radius: 10px \!important; width: auto \!important; box-shadow: none \!important; }
+        .info-toggle-btn::after { display: none \!important; }
+        .info-panel { background: rgba(236, 72, 153,0.04) \!important; border: 1px solid rgba(236, 72, 153,0.1) \!important; color: var(--text-dim) \!important; border-radius: 14px \!important; }
+        .info-panel h4 { color: var(--text) \!important; }
+        .info-panel li { color: var(--text-dim) \!important; }
+        .data-table th { color: var(--text) \!important; background: rgba(236, 72, 153,0.06) \!important; }
+        .data-table td { color: var(--text-dim) \!important; }
+        .unit-btn { background: rgba(236, 72, 153,0.08) \!important; color: var(--text-dim) \!important; border: 1px solid rgba(236, 72, 153,0.15) \!important; border-radius: 8px \!important; width: auto \!important; box-shadow: none \!important; }
+        .unit-btn::after { display: none \!important; }
+        .unit-btn.active { background: var(--accent) \!important; color: #0a0f1a \!important; }
+        .add-drink-btn { width: auto \!important; box-shadow: none \!important; border-radius: 8px \!important; }
+        .add-drink-btn::after { display: none \!important; }
+        .drink-item { background: rgba(236, 72, 153,0.04) \!important; border-radius: 12px \!important; }
+        .hidden { display: none \!important; }
+        /* Medical disclaimer */
+        .medical-disclaimer.pink-box { background: rgba(239,68,68,0.06) \!important; border: 1px solid rgba(239,68,68,0.15) \!important; border-radius: 14px \!important; padding: 1.5rem \!important; max-width: 680px; margin: 0 auto; }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) \!important; font-size: 0.85rem \!important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 \!important; }
+        /* Footer */
+        .site-footer { background: #060a14 \!important; border-top: 1px solid rgba(236, 72, 153,0.08) \!important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) \!important; }
+        .site-footer a:hover { color: var(--accent) \!important; }
+        /* FAQ */
+        .seo-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 2rem; text-align: center; }
+        .faq-list { list-style: none; }
+        .faq-item { border: 1px solid rgba(236, 72, 153,0.1); border-radius: 14px; margin-bottom: 0.8rem; overflow: hidden; background: rgba(236, 72, 153,0.04); }
+        .faq-item:hover { border-color: rgba(236, 72, 153,0.25); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--text); background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+        .faq-question:hover { color: var(--accent); }
+        .faq-chevron { width: 20px; height: 20px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 1.5rem; }
+        .faq-item.faq-open .faq-answer { max-height: 400px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li { counter-increment: source; padding: 0.8rem 0; border-bottom: 1px solid rgba(236, 72, 153,0.06); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+        .sources-list li::before { content: counter(source) "."; color: var(--accent); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--accent); text-decoration: none; }
+        .sources-list li a:hover { text-decoration: underline; }
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code { background: rgba(236, 72, 153,0.1); padding: 0.15rem 0.5rem; border-radius: 6px; font-family: monospace; color: var(--accent); }
+        .llm-capsule { background: rgba(236, 72, 153,0.04); border: 1px solid rgba(236, 72, 153,0.1); border-radius: 16px; padding: 2rem; }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+        /* Ask Pulse */
+        .ask-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; background: #060a14; }
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input { flex: 1; background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(236, 72, 153,0.15) \!important; border-radius: 12px \!important; color: var(--text) \!important; padding: 0.85rem 1rem \!important; font-size: 0.95rem \!important; outline: none; width: auto \!important; }
+        .ask-input-wrap button { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; padding: 0 1.5rem \!important; font-weight: 700 \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-input-wrap button::after { display: none \!important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill { background: rgba(255,255,255,0.03) \!important; border: 1px solid rgba(236, 72, 153,0.15) \!important; border-radius: 20px \!important; padding: 0.4rem 0.9rem \!important; font-size: 0.78rem \!important; color: var(--text-dim) \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-pill::after { display: none \!important; }
+        .ask-pill:hover { border-color: var(--accent); color: var(--text); }
+        .pulse-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.5); } 50% { box-shadow: 0 0 0 10px rgba(236, 72, 153, 0); } }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        @media (max-width: 600px) { .ask-input-wrap { flex-direction: column; } .ask-input-wrap button { padding: 0.8rem \!important; } }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+    <div style="text-align:center; margin-bottom:1rem;"><span class="pulse-dot"></span></div>
+    <h1 style="font-family:var(--font-display); text-align:center; margin-bottom:0.5rem;">How many <span>calories</span> while nursing?</h1>
+    <p style="color:var(--text-dim); text-align:center; margin-bottom:2rem;">Personalized for your body and feeding type</p>
+
+<section id="calculator">
+    <h2>Calculate Your Breastfeeding Calorie Needs</h2>
+    <div class="calculator">
+
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="unit-system">Units:</label>
+                <select id="unit-system">
+                    <option value="imperial" selected>Imperial (lbs, ft/in)</option>
+                    <option value="metric">Metric (kg, cm)</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Imperial inputs -->
+        <div id="imperial-inputs">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight-lbs">Current Weight (lbs):</label>
+                    <input type="number" id="weight-lbs" min="66" max="550" step="0.5" placeholder="e.g. 145">
+                </div>
+                <div class="form-group">
+                    <label>Height:</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="number" id="height-ft" min="3" max="7" step="1" placeholder="ft" style="flex: 1;">
+                        <input type="number" id="height-in" min="0" max="11" step="0.5" placeholder="in" style="flex: 1;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Metric inputs -->
+        <div id="metric-inputs" class="hidden">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="weight-kg">Current Weight (kg):</label>
+                    <input type="number" id="weight-kg" min="30" max="250" step="0.5" placeholder="e.g. 66">
+                </div>
+                <div class="form-group">
+                    <label for="height-cm">Height (cm):</label>
+                    <input type="number" id="height-cm" min="100" max="230" step="0.5" placeholder="e.g. 165">
+                </div>
+            </div>
+        </div>
+
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="age">Age (years):</label>
+                <input type="number" id="age" min="15" max="65" step="1" placeholder="e.g. 30">
+            </div>
+            <div class="form-group">
+                <label for="months-postpartum">Months Since Birth:</label>
+                <select id="months-postpartum">
+                    <option value="1">1 month postpartum</option>
+                    <option value="2">2 months postpartum</option>
+                    <option value="3" selected>3 months postpartum</option>
+                    <option value="4">4 months postpartum</option>
+                    <option value="5">5 months postpartum</option>
+                    <option value="6">6 months postpartum</option>
+                    <option value="7">7 months postpartum</option>
+                    <option value="8">8 months postpartum</option>
+                    <option value="9">9 months postpartum</option>
+                    <option value="10">10 months postpartum</option>
+                    <option value="11">11 months postpartum</option>
+                    <option value="12">12 months postpartum</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="bf-type">Feeding Type:</label>
+                <select id="bf-type">
+                    <option value="exclusive" selected>Exclusive breastfeeding</option>
+                    <option value="pumping_only">Exclusive pumping</option>
+                    <option value="partial">Partial / combo feeding (breast + formula)</option>
+                </select>
+                <span class="input-hint">Exclusive breastfeeding burns ~500 extra kcal/day</span>
+            </div>
+            <div class="form-group">
+                <label for="activity-level">Activity Level:</label>
+                <select id="activity-level">
+                    <option value="1.2">Sedentary (little/no exercise)</option>
+                    <option value="1.375" selected>Lightly active (light exercise 1–3 days/week)</option>
+                    <option value="1.55">Moderately active (3–5 days/week)</option>
+                    <option value="1.725">Very active (hard exercise 6–7 days/week)</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="calculator-row">
+            <div class="form-group">
+                <label for="goal">Your Goal:</label>
+                <select id="goal">
+                    <option value="maintain" selected>Maintain current weight</option>
+                    <option value="lose">Lose weight safely</option>
+                    <option value="gain">Gain weight / rebuild</option>
+                </select>
+                <span class="input-hint">Weight loss not recommended before 6–8 weeks postpartum</span>
+            </div>
+        </div>
+
+        <div class="calculator-row">
+            <button type="button" class="calculate-btn" id="calculate-btn">Calculate My Calorie Needs</button>
+        </div>
+
+        <div id="results-section" class="results-section hidden">
+            <div class="result-hero" id="result-hero">
+                <div class="result-hero-number" id="calorie-result">--</div>
+                <div class="result-hero-label" id="calorie-label">calories per day</div>
+            </div>
+
+            <div id="calorie-status" class="result-status status-good">
+                <span class="result-status-icon" id="calorie-icon">✓</span>
+                <span class="result-status-text" id="calorie-description">--</span>
+            </div>
+
+            <div class="result-breakdown">
+                <div class="result-breakdown-title">How Your Calorie Needs Are Calculated</div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Basal Metabolic Rate (BMR)</span>
+                    <span class="result-breakdown-val" id="display-bmr">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">TDEE (BMR × Activity)</span>
+                    <span class="result-breakdown-val" id="display-tdee">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Lactation Addition</span>
+                    <span class="result-breakdown-val" id="display-lactation">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Goal Adjustment</span>
+                    <span class="result-breakdown-val" id="display-goal">--</span>
+                </div>
+                <div class="result-breakdown-row" style="font-weight: 700; border-top: 2px solid #e5e7eb; margin-top: 4px; padding-top: 8px;">
+                    <span class="result-breakdown-key">Total Daily Calories</span>
+                    <span class="result-breakdown-val" id="display-total">--</span>
+                </div>
+            </div>
+
+            <div id="minimum-note" class="important-box hidden" style="margin-top: 16px;">
+                <strong>⚠ Safe Minimum Applied:</strong> Your calorie target was adjusted to <strong id="minimum-value">1,500</strong> kcal/day, the minimum recommended for breastfeeding women. Going below this can reduce milk supply and deplete maternal stores. Talk to your doctor or a lactation consultant before cutting calories while nursing.
+            </div>
+
+            <div class="result-breakdown" style="margin-top: 16px;">
+                <div class="result-breakdown-title">Recommended Macronutrients</div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Protein</span>
+                    <span class="result-breakdown-val" id="display-protein">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Healthy Fats (30%)</span>
+                    <span class="result-breakdown-val" id="display-fat">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Carbohydrates</span>
+                    <span class="result-breakdown-val" id="display-carbs">--</span>
+                </div>
+            </div>
+
+            <div class="result-breakdown" style="margin-top: 16px;">
+                <div class="result-breakdown-title">Key Nutrients While Breastfeeding</div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Calcium</span>
+                    <span class="result-breakdown-val" id="display-calcium">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Iodine</span>
+                    <span class="result-breakdown-val" id="display-iodine">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Iron</span>
+                    <span class="result-breakdown-val" id="display-iron">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">DHA (Omega-3)</span>
+                    <span class="result-breakdown-val" id="display-dha">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Folate</span>
+                    <span class="result-breakdown-val" id="display-folate">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Vitamin D</span>
+                    <span class="result-breakdown-val" id="display-vitd">--</span>
+                </div>
+                <div class="result-breakdown-row">
+                    <span class="result-breakdown-key">Water</span>
+                    <span class="result-breakdown-val" id="display-water">--</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-toggle">
+            <button id="toggle-info-btn" class="info-toggle-btn">
+                Learn more about the breastfeeding calorie formula
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </button>
+            <div id="info-panel" class="info-panel hidden">
+                <h4>Methodology</h4>
+                <ul>
+                    <li><strong>BMR Formula:</strong> Mifflin-St. Jeor equation — the most validated formula for resting metabolic rate in clinical practice. BMR = (10 × kg) + (6.25 × cm) − (5 × age) − 161 for women.</li>
+                    <li><strong>Activity Factor:</strong> TDEE = BMR × activity multiplier (1.2–1.725). This is the Harris-Benedict-updated method used by the Academy of Nutrition and Dietetics.</li>
+                    <li><strong>Lactation Addition:</strong> Based on the 2005 and 2023 National Academy of Medicine Dietary Reference Intakes. Exclusive breastfeeding requires approximately +500 kcal/day in the first 6 months and +400 kcal/day from 6–12 months. Partial feeding is estimated at +250 kcal/day.</li>
+                    <li><strong>Safe Weight Loss:</strong> A maximum deficit of 500 kcal/day (≈1 lb/week loss) is considered safe for breastfeeding women after 6–8 weeks postpartum, provided intake stays above 1,500 kcal/day. Below this threshold, milk supply and maternal nutrient stores can be compromised.</li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</section>
+</div>
+
+<!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<!-- FAQ -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Extra calories for breastfeeding?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Exclusive: +500 kcal/day months 1-6, +400 months 7-12. Partial: +250 kcal/day.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Can I lose weight nursing?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Yes, but slowly. 500 kcal/day deficit is safe after 6-8 weeks. Never below 1,500 kcal/day.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Important nutrients?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Calcium 1,000mg, iodine 290mcg, DHA 200-300mg, vitamin D 600 IU, protein 1.3g/kg.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">How much water?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>About 128 oz (3.8L) per day. Nursing increases fluid needs significantly.</p></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sources -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>IOM Dietary Reference Intakes for Energy. 2005. <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">Source</a></li>
+            <li>ACOG Postpartum Weight Management. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">Source</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Mifflin-St Jeor BMR for women x activity factor + lactation calories. Safe minimum: 1,500 kcal/day.</p></div>
+    </div>
+</div>
+
+<!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>Breastfeeding adds ~500 kcal/day for exclusive nursing. Safe weight loss: max 1 lb/week, never below 1,500 kcal/day.</p></div></div>
+</div>
+
+<!-- Ask Pulse -->
+<div class="ask-section" id="ask-section">
+    <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+    <h2 class="ask-title">What else do you want to know?</h2>
+    <p class="ask-sub">Ask Pulse anything.</p>
+    <div class="ask-input-wrap">
+        <input type="text" id="askInput" placeholder="e.g. Can I diet while nursing?">
+        <button id="askBtn">Ask</button>
+    </div>
+    <div class="ask-pills">
+            <span class="ask-pill">Safe weight loss</span>
+            <span class="ask-pill">Milk supply</span>
+            <span class="ask-pill">Key nutrients</span>
+            <span class="ask-pill">Hydration needs</span>
+    </div>
+    <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+</div>
+
+{% include 'footer.html' %}
+
+<script defer src="/static/js/breastfeeding_calorie_calculator.js"></script>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+document.getElementById('askBtn')?.addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (\!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() { document.getElementById('askInput').value = this.textContent; });
+});
+</script>
+</body>
+</html>
