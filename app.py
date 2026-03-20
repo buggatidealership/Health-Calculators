@@ -1581,7 +1581,7 @@ def creatine_water_calculator():
     schema_description = "Calculate optimal water intake when using creatine supplements. Get personalized hydration recommendations based on your weight, activity level, and creatine dosage."
     schema_url = "/creatine-water-calculator"
     return render_template(
-        'creatine_water_calculator.html', 
+        'creatine_water_calculator_v3.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1680,7 +1680,7 @@ def diabetes_risk_calculator():
     schema_description = "Assess your risk of developing type 2 diabetes based on age, BMI, family history, activity level, and other clinical risk factors. Adapted from the ADA risk test and Finnish Diabetes Risk Score (FINDRISC)."
     schema_url = "/diabetes-risk-calculator"
     return render_template(
-        'diabetes_risk_calculator.html',
+        'diabetes_risk_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2678,7 +2678,7 @@ def female_fertility_calculator():
     schema_description = "Estimate your fertile window and ovulation date based on your menstrual cycle length, designed to help with natural conception planning."
     schema_url = "/female-fertility-calculator"
     return render_template(
-        'female_fertility_calculator.html',
+        'female_fertility_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2693,7 +2693,7 @@ def menopause_calculator():
     schema_description = "Predict when you may enter perimenopause and menopause based on family history, lifestyle factors, and medical research. Evidence-based tool."
     schema_url = "/menopause-calculator"
     return render_template(
-        'menopause_calculator.html',
+        'menopause_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2831,7 +2831,7 @@ def bac_calculator():
     schema_description = "Use this BAC calculator to estimate your blood alcohol content based on number of drinks, body weight, gender, and time."
     schema_url = "/bac-calculator"
     return render_template(
-        'bac_calculator.html',
+        'bac_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2895,7 +2895,7 @@ def antidepressant_weight_gain_calculator():
     schema_description = "Estimate your potential body fat gain from antidepressants like SSRIs, SNRIs, TCAs, and atypicals. Personalized results by dose, duration, and drug class."
     schema_url = "/antidepressant-weight-gain-calculator"
     return render_template(
-        'antidepressant_weight_gain_calculator.html',
+        'antidepressant_weight_gain_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -3846,7 +3846,7 @@ def hcg_calculator():
     schema_description = "Calculate hCG doubling time from two beta-hCG blood draws. Shows whether levels are rising at a normal rate for early pregnancy based on established clinical reference ranges."
     schema_url = "/hcg-doubling-time-calculator"
     return render_template(
-        'hcg_calculator.html',
+        'hcg_doubling_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -3865,7 +3865,7 @@ def gestational_age_calculator():
     schema_description = "Calculate gestational age from last menstrual period (LMP), ultrasound, or IVF transfer date. Shows weeks and days pregnant, estimated due date, trimester, and ACOG term classification."
     schema_url = "/gestational-age-calculator"
     return render_template(
-        'gestational_age_calculator.html',
+        'gestational_age_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -3883,7 +3883,7 @@ def waist_to_hip_ratio_calculator():
     schema_description = "Calculate your waist-to-hip ratio (WHR) and health risk category. WHO-based thresholds for men and women with body shape classification and waist circumference risk assessment."
     schema_url = "/waist-to-hip-ratio-calculator"
     return render_template(
-        'waist_to_hip_ratio_calculator.html',
+        'waist_to_hip_ratio_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -3918,7 +3918,7 @@ def cholesterol_ratio_calculator():
     schema_description = "Calculate Total/HDL ratio, LDL/HDL ratio, Triglyceride/HDL ratio, and Non-HDL cholesterol from your lipid panel results. Risk categories based on AHA and ATP III guidelines."
     schema_url = "/cholesterol-ratio-calculator"
     return render_template(
-        'cholesterol_ratio_calculator.html',
+        'cholesterol_ratio_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -3936,7 +3936,7 @@ def pregnancy_weight_gain_calculator():
     schema_description = "Calculate your recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines. Week-by-week tracker for single and twin pregnancies."
     schema_url = "/pregnancy-weight-gain-calculator"
     return render_template(
-        'pregnancy_weight_gain_calculator.html',
+        'pregnancy_weight_gain_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -6014,7 +6014,7 @@ def glycemic_index_calculator():
     schema_description = "Look up the glycemic index and calculate glycemic load of over 100 common foods. Includes a meal builder for total glycemic load. Data from University of Sydney GI database."
     schema_url = "/glycemic-index-calculator"
     return render_template(
-        'glycemic_index_calculator.html',
+        'glycemic_index_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -6032,7 +6032,7 @@ def formula_feeding_calculator():
     schema_description = "Calculate how much formula your baby needs per feeding and per day based on age and weight. Follows AAP guidelines with feeding schedule from birth to 12 months."
     schema_url = "/formula-feeding-calculator"
     return render_template(
-        'formula_feeding_calculator.html',
+        'formula_feeding_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -6078,7 +6078,7 @@ def hcg_injection_dosage_calculator():
     schema_description = "Calculate HCG injection volume from vial strength and bacteriostatic water volume. Shows mL, insulin syringe units, concentration, and doses per vial."
     schema_url = "/hcg-injection-dosage-calculator"
     return render_template(
-        'hcg_injection_calculator.html',
+        'hcg_injection_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -6122,7 +6122,7 @@ def breastfeeding_calorie_calculator():
     schema_description = "Calculate how many calories you need while breastfeeding. Personalized estimate using the Mifflin-St Jeor equation and IOM lactation guidelines, with safe weight loss guidance and key nutrient targets."
     schema_url = "/breastfeeding-calorie-calculator"
     return render_template(
-        'breastfeeding_calorie_calculator.html',
+        'breastfeeding_calorie_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
