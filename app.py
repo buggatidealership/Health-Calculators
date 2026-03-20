@@ -1676,13 +1676,13 @@ def a1c_calculator():
     schema_description = "Convert between A1C percentage and estimated average glucose (eAG) in mg/dL or mmol/L. Uses the ADA-standard DCCT formula with diabetes risk categorization."
     schema_url = "/a1c-calculator"
     return render_template(
-        'a1c_calculator.html',
+        'a1c_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
         canonical_url=schema_url,
-        date_modified='2026-03-11',
+        date_modified='2026-03-20',
         robots_meta='noindex, nofollow'
     )
 
