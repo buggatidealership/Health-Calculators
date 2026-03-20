@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pinned Tweet V3</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f0f0f0;
+            overflow: hidden;
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* ============================================
+           ACT 1: WEB2 CHAOS (0-12s)
+           ============================================ */
+
+        .web2-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+
+        /* Google-style search bar */
+        .search-bar {
+            position: absolute;
+            top: 180px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 580px;
+            height: 44px;
+            background: #fff;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            padding: 0 16px;
+            box-shadow: 0 1px 6px rgba(32,33,36,0.12);
+            z-index: 10;
+            opacity: 0;
+        }
+
+        .search-bar .icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 12px;
+            color: #9aa0a6;
+        }
+
+        .search-bar .query {
+            font-size: 16px;
+            color: #202124;
+            flex: 1;
+        }
+
+        .search-bar .cursor {
+            width: 1px;
+            height: 20px;
+            background: #202124;
+            animation: blink 0.8s step-end infinite;
+        }
+
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Search results */
+        .search-results {
+            position: absolute;
+            top: 260px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 620px;
+            opacity: 0;
+            z-index: 5;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .result-item .url {
+            font-size: 12px;
+            color: #006621;
+            margin-bottom: 2px;
+        }
+
+        .result-item .title {
+            font-size: 18px;
+            color: #1a0dab;
+            text-decoration: underline;
+            margin-bottom: 4px;
+            cursor: pointer;
+        }
+
+        .result-item .snippet {
+            font-size: 13px;
+            color: #545454;
+            line-height: 1.4;
+        }
+
+        .result-item .snippet .contradiction {
+            background: #fff3cd;
+            padding: 0 2px;
+        }
+
+        /* Blog post overlay - cluttered */
+        .blog-overlay {
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            opacity: 0;
+            z-index: 20;
+            overflow: hidden;
+        }
+
+        .blog-header {
+            background: #2c3e50;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .blog-header .logo { color: #fff; font-size: 14px; font-weight: bold; }
+        .blog-header .nav { display: flex; gap: 16px; }
+        .blog-header .nav span { color: #bdc3c7; font-size: 12px; }
+
+        .blog-content {
+            padding: 30px 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog-content h1 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .blog-content .meta {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .blog-content p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        /* Sidebar ads */
+        .sidebar-ads {
+            position: absolute;
+            right: 20px;
+            top: 100px;
+            width: 280px;
+            z-index: 25;
+            opacity: 0;
+        }
+
+        .ad-box {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            padding: 12px;
+            margin-bottom: 12px;
+            position: relative;
+        }
+
+        .ad-box .ad-label {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            font-size: 9px;
+            color: #999;
+            background: #f5f5f5;
+            padding: 1px 4px;
+            border-radius: 2px;
+        }
+
+        .ad-box .ad-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #c0392b;
+            margin-bottom: 6px;
+        }
+
+        .ad-box .ad-text {
+            font-size: 11px;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        .ad-box .ad-cta {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 6px 16px;
+            background: #e74c3c;
+            color: #fff;
+            font-size: 11px;
+            font-weight: bold;
+            border-radius: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Cookie banner */
+        .cookie-banner {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #333;
+            color: #fff;
+            padding: 14px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 50;
+            opacity: 0;
+            transform: translateY(100%);
+        }
+
+        .cookie-banner p { font-size: 12px; color: #ccc; }
+        .cookie-banner .btn {
+            padding: 8px 20px;
+            background: #27ae60;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        /* Newsletter popup */
+        .newsletter-popup {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            width: 420px;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            z-index: 60;
+            opacity: 0;
+            text-align: center;
+        }
+
+        .newsletter-popup .close {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-size: 18px;
+            color: #999;
+            cursor: pointer;
+        }
+
+        .newsletter-popup h2 {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .newsletter-popup p {
+            font-size: 13px;
+            color: #777;
+            margin-bottom: 16px;
+        }
+
+        .newsletter-popup input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-popup .submit {
+            width: 100%;
+            padding: 10px;
+            background: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Popup overlay dim */
+        .popup-dim {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.4);
+            z-index: 55;
+            opacity: 0;
+        }
+
+        /* Second search - different query, more frustration */
+        .search2-overlay {
+            position: absolute;
+            inset: 0;
+            background: #fff;
+            opacity: 0;
+            z-index: 30;
+        }
+
+        /* Contradicting numbers overlay */
+        .numbers-flash {
+            position: absolute;
+            inset: 0;
+            z-index: 35;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            opacity: 0;
+            background: #f8f8f8;
+        }
+
+        .numbers-flash .num-card {
+            width: 33.33%;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e0e0e0;
+        }
+
+        .numbers-flash .num-card .source {
+            font-size: 11px;
+            color: #999;
+            margin-bottom: 4px;
+        }
+
+        .numbers-flash .num-card .number {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .numbers-flash .num-card .label {
+            font-size: 12px;
+            color: #666;
+            margin-top: 4px;
+        }
+
+        /* Glitch / interference effect */
+        .glitch-lines {
+            position: absolute;
+            inset: 0;
+            z-index: 70;
+            pointer-events: none;
+            opacity: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+        }
+
+        /* ============================================
+           ACT 2: THE BREAK (12-14s)
+           ============================================ */
+
+        .blackout {
+            position: absolute;
+            inset: 0;
+            background: #000;
+            z-index: 100;
+            opacity: 0;
+        }
+
+        /* ============================================
+           ACT 3: PULSE DOT (14-20s)
+           ============================================ */
+
+        .pulse-layer {
+            position: absolute;
+            inset: 0;
+            background: #000;
+            z-index: 90;
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pulse-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #0e7a7e;
+            box-shadow:
+                0 0 20px rgba(14, 122, 126, 0.6),
+                0 0 60px rgba(14, 122, 126, 0.3),
+                0 0 120px rgba(14, 122, 126, 0.1);
+            opacity: 0;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow:
+                    0 0 20px rgba(14, 122, 126, 0.6),
+                    0 0 60px rgba(14, 122, 126, 0.3),
+                    0 0 120px rgba(14, 122, 126, 0.1);
+            }
+            50% {
+                transform: scale(1.8);
+                box-shadow:
+                    0 0 40px rgba(14, 122, 126, 0.8),
+                    0 0 100px rgba(14, 122, 126, 0.4),
+                    0 0 200px rgba(14, 122, 126, 0.15);
+            }
+        }
+
+        .pulse-dot.breathing {
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        /* Brand text */
+        .brand-text {
+            position: absolute;
+            bottom: 240px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 300;
+            letter-spacing: 4px;
+            color: rgba(255,255,255,0);
+            z-index: 91;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SCANLINES -->
+    <div class="glitch-lines"></div>
+
+    <!-- ACT 1: WEB2 CHAOS -->
+    <div class="web2-layer" id="web2">
+
+        <!-- Search bar -->
+        <div class="search-bar" id="searchBar">
+            <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+            <span class="query" id="searchQuery"></span>
+            <span class="cursor" id="searchCursor"></span>
+        </div>
+
+        <!-- Search results -->
+        <div class="search-results" id="searchResults">
+            <div class="result-item">
+                <div class="url">www.healthline.com > nutrition > vitamin-d</div>
+                <div class="title">How Much Vitamin D Should You Take? A Doctor Explains</div>
+                <div class="snippet">Most adults need <span class="contradiction">600-800 IU daily</span>, according to the NIH. However, many experts argue this is far too low...</div>
+            </div>
+            <div class="result-item">
+                <div class="url">www.webmd.com > vitamins > vitamin-d-dosage</div>
+                <div class="title">Vitamin D Dosage: Why You Might Be Taking Too Much</div>
+                <div class="snippet">Taking more than <span class="contradiction">4,000 IU per day</span> can be dangerous. Toxicity symptoms include nausea, kidney problems, and...</div>
+            </div>
+            <div class="result-item">
+                <div class="url">www.examine.com > supplements > vitamin-d</div>
+                <div class="title">Vitamin D Supplementation Guide (2026 Update)</div>
+                <div class="snippet">Research suggests <span class="contradiction">2,000-5,000 IU</span> may be optimal for most adults. The RDA of 600 IU is considered outdated by...</div>
+            </div>
+            <div class="result-item">
+                <div class="url">reddit.com > r/supplements > vitamin_d_dose</div>
+                <div class="title">I've been taking 10,000 IU daily for 2 years — blood work fine</div>
+                <div class="snippet">My doctor said <span class="contradiction">10,000 IU is safe</span> if you take K2 with it. But another doctor told me to stop immediately...</div>
+            </div>
+        </div>
+
+        <!-- Blog overlay -->
+        <div class="blog-overlay" id="blogOverlay">
+            <div class="blog-header">
+                <span class="logo">WellnessToday</span>
+                <div class="nav">
+                    <span>Nutrition</span>
+                    <span>Supplements</span>
+                    <span>Weight Loss</span>
+                    <span>Mental Health</span>
+                </div>
+            </div>
+            <div class="blog-content">
+                <h1>10 Signs You're Not Getting Enough Vitamin D (And What To Do About It)</h1>
+                <div class="meta">By Dr. Sarah Mitchell | Updated March 2026 | 12 min read | 2.3M views</div>
+                <p>If you're feeling tired, experiencing mood swings, or noticing your hair thinning, you might be one of the <strong>42% of Americans</strong> who are vitamin D deficient. But before you reach for a supplement, there are some things you need to know...</p>
+                <p>The truth is, the internet is full of conflicting advice about vitamin D. Some sites tell you to take 600 IU. Others say 5,000. Your friend swears by 10,000 IU with K2. Your doctor says just "get more sun." <strong>So who's right?</strong></p>
+                <p>The answer is complicated, and it depends on factors like your skin tone, latitude, diet, and current blood levels. But what's NOT complicated is that you deserve a clear answer...</p>
+            </div>
+        </div>
+
+        <!-- Sidebar ads -->
+        <div class="sidebar-ads" id="sidebarAds">
+            <div class="ad-box">
+                <span class="ad-label">Sponsored</span>
+                <div class="ad-title">VITAMIN D3 50,000 IU</div>
+                <div class="ad-text">Doctor-formulated. Maximum strength. "The only vitamin D you'll ever need."</div>
+                <div class="ad-cta">BUY NOW - 60% OFF</div>
+            </div>
+            <div class="ad-box">
+                <span class="ad-label">Ad</span>
+                <div class="ad-title">FREE Health Assessment</div>
+                <div class="ad-text">Take our 2-minute quiz to find out if you're vitamin D deficient!</div>
+                <div class="ad-cta">START QUIZ</div>
+            </div>
+            <div class="ad-box">
+                <span class="ad-label">Sponsored</span>
+                <div class="ad-title">SUBSCRIBE & SAVE</div>
+                <div class="ad-text">Monthly vitamin packs tailored to YOUR needs. First box free.</div>
+                <div class="ad-cta">CLAIM FREE BOX</div>
+            </div>
+        </div>
+
+        <!-- Cookie banner -->
+        <div class="cookie-banner" id="cookieBanner">
+            <p>We use cookies to personalize your experience and show you relevant ads. By continuing, you agree to our use of cookies.</p>
+            <button class="btn">Accept All</button>
+        </div>
+
+        <!-- Newsletter popup -->
+        <div class="popup-dim" id="popupDim"></div>
+        <div class="newsletter-popup" id="newsletterPopup">
+            <span class="close">&times;</span>
+            <h2>Wait! Don't leave!</h2>
+            <p>Get our FREE Vitamin D Guide + exclusive supplement discounts delivered to your inbox.</p>
+            <input type="email" placeholder="Enter your email...">
+            <button class="submit">GET FREE GUIDE</button>
+        </div>
+
+        <!-- Contradicting numbers flash -->
+        <div class="numbers-flash" id="numbersFlash">
+            <div class="num-card">
+                <div class="source">NIH</div>
+                <div class="number" style="color: #2ecc71;">600</div>
+                <div class="label">IU / day</div>
+            </div>
+            <div class="num-card">
+                <div class="source">Examine.com</div>
+                <div class="number" style="color: #3498db;">2,000</div>
+                <div class="label">IU / day</div>
+            </div>
+            <div class="num-card">
+                <div class="source">Your Doctor</div>
+                <div class="number" style="color: #e67e22;">1,000</div>
+                <div class="label">IU / day</div>
+            </div>
+            <div class="num-card">
+                <div class="source">Reddit</div>
+                <div class="number" style="color: #e74c3c;">10,000</div>
+                <div class="label">IU / day</div>
+            </div>
+            <div class="num-card">
+                <div class="source">Healthline</div>
+                <div class="number" style="color: #9b59b6;">4,000</div>
+                <div class="label">IU / day (max)</div>
+            </div>
+            <div class="num-card">
+                <div class="source">WebMD</div>
+                <div class="number" style="color: #c0392b;">DANGER</div>
+                <div class="label">> 4,000 IU</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ACT 2: BLACKOUT -->
+    <div class="blackout" id="blackout"></div>
+
+    <!-- ACT 3: PULSE -->
+    <div class="pulse-layer" id="pulseLayer">
+        <div class="pulse-dot" id="pulseDot"></div>
+    </div>
+    <div class="brand-text" id="brandText">healthcalculators.xyz</div>
+
+    <script>
+        const timeline = [
+            // ACT 1: WEB2 CHAOS
+
+            // 0.0s - Search bar appears
+            { t: 0, fn: () => {
+                el('searchBar').style.opacity = '1';
+                el('searchBar').style.transition = 'opacity 0.3s';
+            }},
+
+            // 0.3s - Start typing query
+            { t: 300, fn: () => typeQuery('how much vitamin d should i take', 'searchQuery', 60) },
+
+            // 2.5s - Results appear one by one
+            { t: 2500, fn: () => {
+                el('searchResults').style.opacity = '1';
+                showResultsSequentially();
+            }},
+
+            // 4.0s - Glitch lines appear (CRT effect)
+            { t: 4000, fn: () => {
+                el('glitch-lines') && (document.querySelector('.glitch-lines').style.opacity = '0.5');
+            }},
+
+            // 4.5s - Blog overlay slides in
+            { t: 4500, fn: () => {
+                const blog = el('blogOverlay');
+                blog.style.transition = 'opacity 0.4s';
+                blog.style.opacity = '1';
+            }},
+
+            // 5.0s - Sidebar ads appear
+            { t: 5000, fn: () => {
+                const ads = el('sidebarAds');
+                ads.style.transition = 'opacity 0.3s';
+                ads.style.opacity = '1';
+            }},
+
+            // 5.8s - Cookie banner slides up
+            { t: 5800, fn: () => {
+                const cookie = el('cookieBanner');
+                cookie.style.transition = 'opacity 0.3s, transform 0.4s';
+                cookie.style.opacity = '1';
+                cookie.style.transform = 'translateY(0)';
+            }},
+
+            // 7.0s - Newsletter popup
+            { t: 7000, fn: () => {
+                el('popupDim').style.transition = 'opacity 0.3s';
+                el('popupDim').style.opacity = '1';
+                el('newsletterPopup').style.transition = 'opacity 0.3s';
+                el('newsletterPopup').style.opacity = '1';
+            }},
+
+            // 8.5s - Everything clears, contradicting numbers flash
+            { t: 8500, fn: () => {
+                el('blogOverlay').style.opacity = '0';
+                el('sidebarAds').style.opacity = '0';
+                el('cookieBanner').style.opacity = '0';
+                el('popupDim').style.opacity = '0';
+                el('newsletterPopup').style.opacity = '0';
+                el('searchBar').style.opacity = '0';
+                el('searchResults').style.opacity = '0';
+            }},
+
+            // 9.0s - Numbers appear — 6 different sources, 6 different answers
+            { t: 9000, fn: () => {
+                const nums = el('numbersFlash');
+                nums.style.transition = 'opacity 0.3s';
+                nums.style.opacity = '1';
+                // Rapid flash between cards to show confusion
+                flashNumbers();
+            }},
+
+            // 11.5s - Glitch intensifies
+            { t: 11500, fn: () => {
+                document.querySelector('.glitch-lines').style.opacity = '1';
+                document.querySelector('.glitch-lines').style.background = `
+                    repeating-linear-gradient(0deg, transparent, transparent 1px, rgba(0,0,0,0.08) 1px, rgba(0,0,0,0.08) 2px)
+                `;
+            }},
+
+            // ACT 2: THE BREAK
+
+            // 12.0s - Hard cut to black
+            { t: 12000, fn: () => {
+                const blackout = el('blackout');
+                blackout.style.opacity = '1';
+                // No transition - HARD CUT
+            }},
+
+            // ACT 3: PULSE DOT
+
+            // 14.0s - Pulse layer visible
+            { t: 14000, fn: () => {
+                el('pulseLayer').style.opacity = '1';
+            }},
+
+            // 14.5s - Dot fades in
+            { t: 14500, fn: () => {
+                const dot = el('pulseDot');
+                dot.style.transition = 'opacity 1.5s ease-in';
+                dot.style.opacity = '1';
+            }},
+
+            // 15.5s - Dot starts breathing
+            { t: 15500, fn: () => {
+                el('pulseDot').classList.add('breathing');
+            }},
+
+            // 17.5s - Brand text fades in
+            { t: 17500, fn: () => {
+                const text = el('brandText');
+                text.style.transition = 'color 2s ease-in';
+                text.style.color = 'rgba(255,255,255,0.5)';
+            }},
+        ];
+
+        // Utilities
+        function el(id) { return document.getElementById(id); }
+
+        function typeQuery(text, targetId, speed) {
+            const target = document.getElementById(targetId);
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    target.textContent += text[i];
+                    i++;
+                } else {
+                    clearInterval(interval);
+                    document.getElementById('searchCursor').style.display = 'none';
+                }
+            }, speed);
+        }
+
+        function showResultsSequentially() {
+            const items = document.querySelectorAll('.result-item');
+            items.forEach((item, i) => {
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.3s, transform 0.3s';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, i * 300);
+            });
+        }
+
+        function flashNumbers() {
+            const cards = document.querySelectorAll('.num-card');
+            let flashCount = 0;
+            const interval = setInterval(() => {
+                cards.forEach(card => {
+                    const num = card.querySelector('.number');
+                    num.style.transform = `scale(${0.9 + Math.random() * 0.3})`;
+                    num.style.transition = 'transform 0.15s';
+                    card.style.background = Math.random() > 0.7 ? '#fff3cd' : '#fff';
+                    card.style.transition = 'background 0.15s';
+                });
+                flashCount++;
+                if (flashCount > 15) clearInterval(interval);
+            }, 180);
+        }
+
+        // Run timeline
+        function runTimeline() {
+            timeline.forEach(({ t, fn }) => {
+                setTimeout(fn, t);
+            });
+        }
+
+        // Auto-start
+        window.addEventListener('load', () => {
+            setTimeout(runTimeline, 500);
+        });
+    </script>
+</body>
+</html>

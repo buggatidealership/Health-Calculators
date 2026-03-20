@@ -5639,6 +5639,13 @@ def preview_pinned_tweet():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/pinned-tweet-v3')
+def pinned_tweet_v3():
+    return render_template(
+        'pinned-tweet-v3.html',
+        robots_meta='noindex, nofollow'
+    )
+
 @app.route('/mockup-tdee-v3')
 def mockup_tdee_v3():
     return render_template(
