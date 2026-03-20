@@ -1605,17 +1605,17 @@ def creatine_water_calculator():
 
 @app.route('/breast-implant-calculator')
 def breast_implant_calculator():
-    schema_name = "Breast Implant Calculator"
-    schema_description = "Find your ideal implant size based on your measurements and goals. Get personalized recommendations for breast implant volume, projection, and diameter."
+    schema_name = "Breast Implant Size & Cost Calculator"
+    schema_description = "Estimate breast implant volume, profile, and cost based on body measurements and aesthetic goals using the Tebbetts-Adams sizing method."
     schema_url = "/breast-implant-calculator"
     return render_template(
-        'breast_implant_calculator.html',
+        'breast_implant_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Cosmetic & Aesthetic', 'url': '/cosmetic-procedure-calculators'},
+        date_modified='2026-03-20'
     )
 
 @app.route('/breast-implant-size-calculator')
