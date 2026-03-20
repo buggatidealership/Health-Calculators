@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"What factors determine breast implant size?","acceptedAnswer":{{"@type":"Answer","text":"Breast base width, chest wall dimensions, existing breast tissue, skin elasticity, body frame type, and aesthetic goals all influence appropriate sizing."}}}},{{"@type":"Question","name":"How is implant size measured?","acceptedAnswer":{{"@type":"Answer","text":"Implants are measured in cubic centimeters (cc). Approximately 130-200 cc equals one cup size increase, depending on chest width."}}}},{{"@type":"Question","name":"What is the average breast implant size?","acceptedAnswer":{{"@type":"Answer","text":"In the US, the most common sizes range from 300-400cc. Small-framed women typically choose 250-300cc, medium-framed 300-400cc, large-framed 400-500cc."}}}},{{"@type":"Question","name":"How do implant profiles differ?","acceptedAnswer":{{"@type":"Answer","text":"Low profile: widest base, minimal projection. Moderate: balanced. High: narrower base, more forward projection. Ultra-high: narrowest, maximum projection."}}}},{{"@type":"Question","name":"Will bigger implants look more natural?","acceptedAnswer":{{"@type":"Answer","text":"Not necessarily. Implants that match your natural breast dimensions and are proportionate to your frame give the most natural results."}}}}]
+      "mainEntity": [{"@type":"Question","name":"What factors determine breast implant size?","acceptedAnswer":{"@type":"Answer","text":"Breast base width, chest wall dimensions, existing breast tissue, skin elasticity, body frame type, and aesthetic goals all influence appropriate sizing."}},{"@type":"Question","name":"How is implant size measured?","acceptedAnswer":{"@type":"Answer","text":"Implants are measured in cubic centimeters (cc). Approximately 130-200 cc equals one cup size increase, depending on chest width."}},{"@type":"Question","name":"What is the average breast implant size?","acceptedAnswer":{"@type":"Answer","text":"In the US, the most common sizes range from 300-400cc. Small-framed women typically choose 250-300cc, medium-framed 300-400cc, large-framed 400-500cc."}},{"@type":"Question","name":"How do implant profiles differ?","acceptedAnswer":{"@type":"Answer","text":"Low profile: widest base, minimal projection. Moderate: balanced. High: narrower base, more forward projection. Ultra-high: narrowest, maximum projection."}},{"@type":"Question","name":"Will bigger implants look more natural?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Implants that match your natural breast dimensions and are proportionate to your frame give the most natural results."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #ec4899; --accent-rgb: 236,72,153; }
@@ -195,6 +195,33 @@ function calcSize() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Breast Implant Size Calculator', page_path: '/breast-implant-size-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

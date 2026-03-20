@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"How accurate is this lifespan calculator?","acceptedAnswer":{{"@type":"Answer","text":"This provides statistical estimates based on population-level research, not individual predictions. Consider results as general guidelines."}}}},{{"@type":"Question","name":"Can I really add years by changing habits?","acceptedAnswer":{{"@type":"Answer","text":"Yes. The big four behaviors -- not smoking, healthy weight, exercise, and good diet -- are associated with 11-14 years of increased life expectancy."}}}},{{"@type":"Question","name":"Why does social connection affect lifespan?","acceptedAnswer":{{"@type":"Answer","text":"Meta-analyses show social isolation has mortality risk comparable to smoking 15 cigarettes daily, exceeding risks of obesity and inactivity."}}}},{{"@type":"Question","name":"How much can genetics determine lifespan?","acceptedAnswer":{{"@type":"Answer","text":"Twin studies suggest 20-30% of lifespan variation is genetic. Lifestyle remains more influential for most people."}}}}]
+      "mainEntity": [{"@type":"Question","name":"How accurate is this lifespan calculator?","acceptedAnswer":{"@type":"Answer","text":"This provides statistical estimates based on population-level research, not individual predictions. Consider results as general guidelines."}},{"@type":"Question","name":"Can I really add years by changing habits?","acceptedAnswer":{"@type":"Answer","text":"Yes. The big four behaviors -- not smoking, healthy weight, exercise, and good diet -- are associated with 11-14 years of increased life expectancy."}},{"@type":"Question","name":"Why does social connection affect lifespan?","acceptedAnswer":{"@type":"Answer","text":"Meta-analyses show social isolation has mortality risk comparable to smoking 15 cigarettes daily, exceeding risks of obesity and inactivity."}},{"@type":"Question","name":"How much can genetics determine lifespan?","acceptedAnswer":{"@type":"Answer","text":"Twin studies suggest 20-30% of lifespan variation is genetic. Lifestyle remains more influential for most people."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #22d3ee; --accent-rgb: 34,211,238; }
@@ -205,6 +205,33 @@ function calcLifespan() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Lifespan Calculator', page_path: '/lifespan-longevity-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

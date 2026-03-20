@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"What is the Army body fat standard?","acceptedAnswer":{{"@type":"Answer","text":"Standards vary by age and gender per AR 600-9. Males 17-20: 20%, 21-27: 22%, 28-39: 24%, 40+: 26%. Females 17-20: 30%, 21-27: 32%, 28-39: 34%, 40+: 36%."}}}},{{"@type":"Question","name":"How accurate is the Army tape test?","acceptedAnswer":{{"@type":"Answer","text":"It has a standard error of 3-4% compared to DEXA scans. Measurement technique significantly affects accuracy."}}}},{{"@type":"Question","name":"Can civilians use this calculator?","acceptedAnswer":{{"@type":"Answer","text":"Yes, anyone can use it to estimate body fat percentage or compare to military standards."}}}},{{"@type":"Question","name":"What is the Army tape test formula?","acceptedAnswer":{{"@type":"Answer","text":"Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females include hip measurement in the formula."}}}}]
+      "mainEntity": [{"@type":"Question","name":"What is the Army body fat standard?","acceptedAnswer":{"@type":"Answer","text":"Standards vary by age and gender per AR 600-9. Males 17-20: 20%, 21-27: 22%, 28-39: 24%, 40+: 26%. Females 17-20: 30%, 21-27: 32%, 28-39: 34%, 40+: 36%."}},{"@type":"Question","name":"How accurate is the Army tape test?","acceptedAnswer":{"@type":"Answer","text":"It has a standard error of 3-4% compared to DEXA scans. Measurement technique significantly affects accuracy."}},{"@type":"Question","name":"Can civilians use this calculator?","acceptedAnswer":{"@type":"Answer","text":"Yes, anyone can use it to estimate body fat percentage or compare to military standards."}},{"@type":"Question","name":"What is the Army tape test formula?","acceptedAnswer":{"@type":"Answer","text":"Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females include hip measurement in the formula."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #4ade80; --accent-rgb: 74,222,128; }
@@ -204,6 +204,33 @@ function calcArmy() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Army Body Fat Calculator', page_path: '/army-body-fat-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

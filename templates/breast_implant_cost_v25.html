@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"How much do breast implants cost?","acceptedAnswer":{{"@type":"Answer","text":"In the US, total cost typically ranges from $5,000 to $10,000. This includes surgeon fee ($2,500-$4,500), anesthesia ($600-$1,000), facility ($800-$1,200), and implants ($1,000-$3,000)."}}}},{{"@type":"Question","name":"Does insurance cover breast implants?","acceptedAnswer":{{"@type":"Answer","text":"Cosmetic augmentation is almost never covered. Reconstructive surgery post-mastectomy is covered under the Women's Health and Cancer Rights Act of 1998."}}}},{{"@type":"Question","name":"Are silicone implants more expensive than saline?","acceptedAnswer":{{"@type":"Answer","text":"Yes. Saline implants cost $1,000-$1,500 per pair. Standard silicone: $2,000-$2,500. Gummy bear: $2,500-$3,000. Structured: $2,500-$3,500."}}}},{{"@type":"Question","name":"What factors affect breast implant costs?","acceptedAnswer":{{"@type":"Answer","text":"Geographic location, surgeon experience, implant type and brand, procedure complexity, anesthesia type, and facility type all affect the total price."}}}},{{"@type":"Question","name":"Is medical tourism for breast implants safe?","acceptedAnswer":{{"@type":"Answer","text":"It can offer 40-70% savings but carries risks: difficulty verifying credentials, language barriers, limited follow-up, and complications requiring local treatment after return."}}}}]
+      "mainEntity": [{"@type":"Question","name":"How much do breast implants cost?","acceptedAnswer":{"@type":"Answer","text":"In the US, total cost typically ranges from $5,000 to $10,000. This includes surgeon fee ($2,500-$4,500), anesthesia ($600-$1,000), facility ($800-$1,200), and implants ($1,000-$3,000)."}},{"@type":"Question","name":"Does insurance cover breast implants?","acceptedAnswer":{"@type":"Answer","text":"Cosmetic augmentation is almost never covered. Reconstructive surgery post-mastectomy is covered under the Women's Health and Cancer Rights Act of 1998."}},{"@type":"Question","name":"Are silicone implants more expensive than saline?","acceptedAnswer":{"@type":"Answer","text":"Yes. Saline implants cost $1,000-$1,500 per pair. Standard silicone: $2,000-$2,500. Gummy bear: $2,500-$3,000. Structured: $2,500-$3,500."}},{"@type":"Question","name":"What factors affect breast implant costs?","acceptedAnswer":{"@type":"Answer","text":"Geographic location, surgeon experience, implant type and brand, procedure complexity, anesthesia type, and facility type all affect the total price."}},{"@type":"Question","name":"Is medical tourism for breast implants safe?","acceptedAnswer":{"@type":"Answer","text":"It can offer 40-70% savings but carries risks: difficulty verifying credentials, language barriers, limited follow-up, and complications requiring local treatment after return."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #f472b6; --accent-rgb: 244,114,182; }
@@ -188,6 +188,33 @@ function calcCost() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Breast Implant Cost Calculator', page_path: '/breast-implant-cost-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

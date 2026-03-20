@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"How much fat can liposuction remove?","acceptedAnswer":{{"@type":"Answer","text":"Most outpatient procedures safely remove 2-5 liters (4.4-11 lbs) of fat. The maximum safe amount is 5 liters per the ASPS guidelines."}}}},{{"@type":"Question","name":"Will my weight drop after liposuction?","acceptedAnswer":{{"@type":"Answer","text":"Modestly -- typically 5-10 lbs. Liposuction is body contouring, not a weight loss solution. Expect bigger changes in measurements and clothing fit."}}}},{{"@type":"Question","name":"Is the fat removal permanent?","acceptedAnswer":{{"@type":"Answer","text":"Fat cells removed do not regenerate. However, remaining cells can still expand with weight gain, potentially creating new proportional changes."}}}},{{"@type":"Question","name":"What BMI is recommended for liposuction?","acceptedAnswer":{{"@type":"Answer","text":"Most surgeons recommend BMI under 35. Ideal candidates are within 30% of their ideal body weight."}}}},{{"@type":"Question","name":"How is cost calculated?","acceptedAnswer":{{"@type":"Answer","text":"By region, number of areas, gender (males pay slightly more), and facility type. Multi-area procedures may get discounts."}}}}]
+      "mainEntity": [{"@type":"Question","name":"How much fat can liposuction remove?","acceptedAnswer":{"@type":"Answer","text":"Most outpatient procedures safely remove 2-5 liters (4.4-11 lbs) of fat. The maximum safe amount is 5 liters per the ASPS guidelines."}},{"@type":"Question","name":"Will my weight drop after liposuction?","acceptedAnswer":{"@type":"Answer","text":"Modestly -- typically 5-10 lbs. Liposuction is body contouring, not a weight loss solution. Expect bigger changes in measurements and clothing fit."}},{"@type":"Question","name":"Is the fat removal permanent?","acceptedAnswer":{"@type":"Answer","text":"Fat cells removed do not regenerate. However, remaining cells can still expand with weight gain, potentially creating new proportional changes."}},{"@type":"Question","name":"What BMI is recommended for liposuction?","acceptedAnswer":{"@type":"Answer","text":"Most surgeons recommend BMI under 35. Ideal candidates are within 30% of their ideal body weight."}},{"@type":"Question","name":"How is cost calculated?","acceptedAnswer":{"@type":"Answer","text":"By region, number of areas, gender (males pay slightly more), and facility type. Multi-area procedures may get discounts."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #f97316; --accent-rgb: 249,115,22; }
@@ -196,6 +196,33 @@ function calcLipo() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Liposuction Weight Loss Calculator', page_path: '/liposuction-weight-loss-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

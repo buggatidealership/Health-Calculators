@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"How long do Botox results last?","acceptedAnswer":{{"@type":"Answer","text":"Most treatments last 3-4 months for first-time patients. Regular users may see 4-6 months as muscles become conditioned."}}}},{{"@type":"Question","name":"Why do men need more Botox?","acceptedAnswer":{{"@type":"Answer","text":"Men have stronger, denser facial muscles requiring 20-30% more units for equivalent relaxation."}}}},{{"@type":"Question","name":"Is this calculator accurate for Dysport?","acceptedAnswer":{{"@type":"Answer","text":"No. Dysport requires 2.5-3x more units than Botox for equivalent results. This calculator is for Botox (onabotulinumtoxinA) only."}}}},{{"@type":"Question","name":"What is the most common Botox treatment area?","acceptedAnswer":{{"@type":"Answer","text":"Glabella (frown lines between eyebrows) is the most treated area, typically requiring 20 units for women."}}}},{{"@type":"Question","name":"How much does Botox cost per unit?","acceptedAnswer":{{"@type":"Answer","text":"In the US, Botox costs $10-16 per unit depending on provider type. Dermatologists charge the most, medical spas the least."}}}}]
+      "mainEntity": [{"@type":"Question","name":"How long do Botox results last?","acceptedAnswer":{"@type":"Answer","text":"Most treatments last 3-4 months for first-time patients. Regular users may see 4-6 months as muscles become conditioned."}},{"@type":"Question","name":"Why do men need more Botox?","acceptedAnswer":{"@type":"Answer","text":"Men have stronger, denser facial muscles requiring 20-30% more units for equivalent relaxation."}},{"@type":"Question","name":"Is this calculator accurate for Dysport?","acceptedAnswer":{"@type":"Answer","text":"No. Dysport requires 2.5-3x more units than Botox for equivalent results. This calculator is for Botox (onabotulinumtoxinA) only."}},{"@type":"Question","name":"What is the most common Botox treatment area?","acceptedAnswer":{"@type":"Answer","text":"Glabella (frown lines between eyebrows) is the most treated area, typically requiring 20 units for women."}},{"@type":"Question","name":"How much does Botox cost per unit?","acceptedAnswer":{"@type":"Answer","text":"In the US, Botox costs $10-16 per unit depending on provider type. Dermatologists charge the most, medical spas the least."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #a78bfa; --accent-rgb: 167,139,250; }
@@ -211,6 +211,33 @@ function calcBotox() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Botox Dosage Calculator', page_path: '/botox-dosage-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

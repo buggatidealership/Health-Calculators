@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"How accurate is this calculator?","acceptedAnswer":{{"@type":"Answer","text":"Uses the Mifflin-St Jeor equation, which predicts BMR within 10% for 82% of individuals per the American Dietetic Association."}}}},{{"@type":"Question","name":"What are macronutrients?","acceptedAnswer":{{"@type":"Answer","text":"The three main nutrients: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Each serves distinct functions in the body."}}}},{{"@type":"Question","name":"What is the best macro split for weight loss?","acceptedAnswer":{{"@type":"Answer","text":"Higher protein (25-35% of calories, or 1.6-2.2 g/kg) preserves muscle during a deficit. A 30/40/30 P/C/F split works for most people."}}}},{{"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{{"@type":"Answer","text":"The ISSN recommends 1.4-2.0 g/kg for active individuals. During a calorie deficit, aim for 1.6-2.2 g/kg to preserve muscle."}}}},{{"@type":"Question","name":"Should I adjust macros on rest days?","acceptedAnswer":{{"@type":"Answer","text":"Some benefit from reducing carbs 10-20% on rest days while keeping protein consistent. For most recreational exercisers, keeping macros consistent is simpler."}}}}]
+      "mainEntity": [{"@type":"Question","name":"How accurate is this calculator?","acceptedAnswer":{"@type":"Answer","text":"Uses the Mifflin-St Jeor equation, which predicts BMR within 10% for 82% of individuals per the American Dietetic Association."}},{"@type":"Question","name":"What are macronutrients?","acceptedAnswer":{"@type":"Answer","text":"The three main nutrients: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Each serves distinct functions in the body."}},{"@type":"Question","name":"What is the best macro split for weight loss?","acceptedAnswer":{"@type":"Answer","text":"Higher protein (25-35% of calories, or 1.6-2.2 g/kg) preserves muscle during a deficit. A 30/40/30 P/C/F split works for most people."}},{"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"The ISSN recommends 1.4-2.0 g/kg for active individuals. During a calorie deficit, aim for 1.6-2.2 g/kg to preserve muscle."}},{"@type":"Question","name":"Should I adjust macros on rest days?","acceptedAnswer":{"@type":"Answer","text":"Some benefit from reducing carbs 10-20% on rest days while keeping protein consistent. For most recreational exercisers, keeping macros consistent is simpler."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #38bdf8; --accent-rgb: 56,189,248; }
@@ -196,6 +196,33 @@ function calcMacros() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Caloric Intake & Macronutrient Calculator', page_path: '/caloric-intake-macronutrient-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>

@@ -21,13 +21,13 @@
     {% include 'head_seo.html' %}
     {% endwith %}
 
-    <script type="application/ld+json">
+    <script type="application/ld+json">{% raw %}
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
-      "mainEntity": [{{"@type":"Question","name":"What is heart age?","acceptedAnswer":{{"@type":"Answer","text":"Heart age expresses cardiovascular risk as an equivalent age. If your heart age is 55 but you are 45, your risk factors match a healthy 55-year-old."}}}},{{"@type":"Question","name":"How accurate is this calculator?","acceptedAnswer":{{"@type":"Answer","text":"This is a simplified estimate based on major Framingham risk factors. Clinical tools include additional variables. Consider results approximate guidance."}}}},{{"@type":"Question","name":"Can I lower my heart age?","acceptedAnswer":{{"@type":"Answer","text":"Yes. Quitting smoking can reduce heart age by up to 8 years. Lowering blood pressure, improving cholesterol, and exercising each reduce it by several years."}}}},{{"@type":"Question","name":"Why is HDL measured separately?","acceptedAnswer":{{"@type":"Answer","text":"HDL (\\"good\\") cholesterol protects against heart disease. High total cholesterol with very high HDL may be lower risk than lower total with very low HDL."}}}},{{"@type":"Question","name":"What is 10-year CVD risk?","acceptedAnswer":{{"@type":"Answer","text":"The probability of having a cardiovascular event (heart attack, stroke) in the next 10 years, based on your risk factor profile."}}}}]
+      "mainEntity": [{"@type":"Question","name":"What is heart age?","acceptedAnswer":{"@type":"Answer","text":"Heart age expresses cardiovascular risk as an equivalent age. If your heart age is 55 but you are 45, your risk factors match a healthy 55-year-old."}},{"@type":"Question","name":"How accurate is this calculator?","acceptedAnswer":{"@type":"Answer","text":"This is a simplified estimate based on major Framingham risk factors. Clinical tools include additional variables. Consider results approximate guidance."}},{"@type":"Question","name":"Can I lower my heart age?","acceptedAnswer":{"@type":"Answer","text":"Yes. Quitting smoking can reduce heart age by up to 8 years. Lowering blood pressure, improving cholesterol, and exercising each reduce it by several years."}},{"@type":"Question","name":"Why is HDL measured separately?","acceptedAnswer":{"@type":"Answer","text":"HDL (\\"good\\") cholesterol protects against heart disease. High total cholesterol with very high HDL may be lower risk than lower total with very low HDL."}},{"@type":"Question","name":"What is 10-year CVD risk?","acceptedAnswer":{"@type":"Answer","text":"The probability of having a cardiovascular event (heart attack, stroke) in the next 10 years, based on your risk factor profile."}}]
     }
-    </script>
+    {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
     <style>:root { --accent: #ef4444; --accent-rgb: 239,68,68; }
@@ -233,6 +233,33 @@ function calcHeart() {
     v25Reveal();
     if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Heart Age Calculator', page_path: '/heart-age-calculator'});
 }
+
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (\!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied\!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
 </script>
 </body>
 </html>
