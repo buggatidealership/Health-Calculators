@@ -1492,7 +1492,7 @@ def body_roundness_index_calculator():
     schema_description = "Calculate your Body Roundness Index using waist circumference and height. BRI measures central adiposity and predicts health risk more accurately than BMI alone."
     schema_url = "/body-roundness-index-calculator"
     return render_template(
-        'bri_calculator.html',
+        'bri_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
