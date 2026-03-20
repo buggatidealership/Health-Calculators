@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Lipid Panel Calculator — Understand Your Cholesterol",
+        meta_description="Enter your cholesterol numbers. See what each one means, whether you're in range, and what to do next. Color-coded lipid panel interpreter.",
+        og_title="What do my cholesterol numbers mean?",
+        og_description="Enter your lipid panel results. Get instant color-coded interpretation of total cholesterol, LDL, HDL, and triglycerides.",
+        og_url="/lipid-panel-goals-calculator",
+        canonical_url="/lipid-panel-goals-calculator",
+        schema_type="MedicalWebPage",
+        schema_name="Lipid Panel Goals Calculator",
+        schema_description="Calculate your ideal cholesterol targets. Color-coded interpretation of total cholesterol, LDL, HDL, triglycerides, non-HDL, and TC:HDL ratio based on AHA/ACC guidelines.",
+        schema_url="/lipid-panel-goals-calculator",
+        schema_about="Lipid Panel Goals Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow",
+        breadcrumb_category=breadcrumb_category
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <!-- FAQPage JSON-LD (server-side) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is a normal lipid panel result?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A normal lipid panel shows total cholesterol below 200 mg/dL, LDL below 100 mg/dL, HDL above 40 mg/dL for men or 50 mg/dL for women, and triglycerides below 150 mg/dL. Non-HDL cholesterol should be below 130 mg/dL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the difference between LDL and HDL cholesterol?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "LDL (low-density lipoprotein) is called 'bad' cholesterol because high levels cause plaque buildup in arteries. HDL (high-density lipoprotein) is 'good' cholesterol because it removes LDL from your bloodstream and carries it to the liver for disposal. You want LDL low and HDL high."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does non-HDL cholesterol mean?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non-HDL cholesterol equals your total cholesterol minus HDL. It captures all atherogenic (artery-clogging) particles including LDL, VLDL, and Lp(a). Many cardiologists consider it a better predictor of cardiovascular risk than LDL alone, especially when triglycerides are elevated."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a good total cholesterol to HDL ratio?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A TC:HDL ratio below 3.5 is optimal. Between 3.5 and 5.0 is acceptable. Above 5.0 indicates elevated cardiovascular risk. The ratio matters because having high total cholesterol with very high HDL is less concerning than the same total cholesterol with low HDL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you lower cholesterol without medication?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Regular exercise (150+ minutes per week), a diet rich in fiber, fruits, and vegetables, limiting saturated fat, losing excess weight, and quitting smoking can all improve your lipid panel. However, some people need statins due to genetics or very high LDL levels. Discuss options with your doctor."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --good: #14b8a6;
+            --caution: #f59e0b;
+            --bad: #ef4444;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; }
+
+        /* Override header/footer/breadcrumb for dark theme */
+        .site-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.1) !important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) !important; stroke: var(--text) !important; }
+        .site-header .logo-dot { color: var(--teal) !important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] {
+            background: #0a0f1a !important;
+            border-bottom: 1px solid rgba(20,184,166,0.06) !important;
+        }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content {
+            background: transparent !important;
+        }
+        body { background: #0a0f1a !important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
+        .breadcrumb a:hover { color: var(--teal) !important; }
+        .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
+        .nav-dropdown-link { color: var(--text-dim) !important; }
+        .nav-dropdown-link:hover { color: var(--teal) !important; }
+        .nav-dropdown-title { color: var(--text-muted) !important; }
+        .page-layout { display: contents !important; }
+        .page-content { display: contents !important; }
+        .page-sidebar { display: none !important; }
+        main { display: contents; }
+
+        /* Force all headings white */
+        h1, h2, h3 { color: #ffffff !important; }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .section-content {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-2 { background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%); }
+        .bg-3 { background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%); }
+        .bg-4 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        .bg-6 { background: #060a14; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* -- HERO -- */
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #ffffff !important;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
+
+        /* -- INPUT SECTION -- */
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 520px;
+            width: 100%;
+        }
+        .input-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.2rem;
+            transition: border-color 0.2s;
+        }
+        .input-card:hover { border-color: rgba(20,184,166,0.3); }
+        .input-card label {
+            display: block;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+            margin-bottom: 0.4rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .input-card input {
+            width: 100%;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1.3rem;
+            padding: 0.7rem 0.8rem;
+            font-family: var(--font-body);
+            outline: none;
+            text-align: center;
+            font-weight: 600;
+        }
+        .input-card input:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.1); }
+        .input-card .unit { font-size: 0.72rem; color: var(--text-muted); text-align: center; margin-top: 0.3rem; }
+        .input-full { grid-column: 1 / -1; }
+
+        .gender-toggle {
+            display: flex;
+            gap: 0.5rem;
+            margin-top: 0.3rem;
+        }
+        .gender-btn {
+            flex: 1;
+            padding: 0.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            width: auto !important;
+            box-shadow: none !important;
+        }
+        .gender-btn::after { display: none !important; }
+        .gender-btn.active {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(20,184,166,0.1);
+        }
+
+        .calc-btn {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important;
+            padding: 0.85rem 2.4rem !important; font-size: 1.05rem !important; font-weight: 700 !important; cursor: pointer;
+            margin-top: 1.5rem; font-family: var(--font-body); transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .calc-btn::after { display: none !important; }
+        .calc-btn:hover { box-shadow: 0 6px 24px var(--teal-glow) !important; transform: translateY(-1px); }
+
+        /* -- RESULT SECTION -- */
+        .hidden-section { display: none; }
+
+        .result-summary {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .result-summary-label { font-size: 0.85rem; color: var(--text-dim); margin-bottom: 0.3rem; }
+        .result-score {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 5rem);
+            line-height: 1;
+        }
+        .result-score-label { font-size: 1.1rem; margin-top: 0.5rem; font-weight: 600; }
+        .glow-good { color: var(--good); text-shadow: 0 0 40px var(--teal-glow); }
+        .glow-caution { color: var(--caution); text-shadow: 0 0 40px rgba(245, 158, 11, 0.25); }
+        .glow-bad { color: var(--bad); text-shadow: 0 0 40px rgba(239, 68, 68, 0.25); }
+
+        /* Marker cards */
+        .marker-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        .marker-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.12);
+            border-radius: 16px;
+            padding: 1.4rem;
+            transition: border-color 0.3s;
+        }
+        .marker-card.status-good { border-left: 3px solid var(--good); }
+        .marker-card.status-caution { border-left: 3px solid var(--caution); }
+        .marker-card.status-bad { border-left: 3px solid var(--bad); }
+        .marker-name {
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+        }
+        .marker-value {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            line-height: 1;
+            margin-bottom: 0.3rem;
+        }
+        .marker-unit { font-size: 0.75rem; color: var(--text-muted); }
+        .marker-status {
+            font-size: 0.82rem;
+            font-weight: 600;
+            margin-top: 0.4rem;
+        }
+        .marker-range {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+        .marker-card-full { grid-column: 1 / -1; }
+
+        /* Ratio row */
+        .ratio-row {
+            display: flex;
+            gap: 1rem;
+            max-width: 600px;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .ratio-card {
+            flex: 1;
+            background: rgba(14,122,126,0.04);
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 14px;
+            padding: 1.2rem;
+            text-align: center;
+        }
+        .ratio-label { font-size: 0.72rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+        .ratio-value { font-family: var(--font-display); font-size: 1.5rem; }
+        .ratio-status { font-size: 0.78rem; font-weight: 600; margin-top: 0.3rem; }
+
+        /* -- PERSONAL COACH -- */
+        .coach-container {
+            max-width: 520px;
+            width: 100%;
+        }
+        .coach-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .coach-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text);
+        }
+        .coach-text .hl { color: var(--teal); font-weight: 700; }
+        .coach-text .dim { color: var(--text-dim); }
+        .coach-text .good { color: var(--good); font-weight: 600; }
+        .coach-text .warn { color: var(--caution); font-weight: 600; }
+        .coach-text .bad { color: var(--bad); font-weight: 600; }
+        .coach-rule {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--teal);
+            margin: 1.5rem 0;
+            text-shadow: 0 0 20px var(--teal-glow);
+        }
+        .coach-advice {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dim);
+        }
+        .coach-advice em { color: var(--text); font-style: normal; font-weight: 500; }
+
+        /* Share buttons */
+        .share-row {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 12px !important;
+            font-size: 0.82rem !important;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            border: none !important;
+            width: auto !important;
+            box-shadow: none !important;
+        }
+        .share-btn::after { display: none !important; }
+        .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .share-btn.whatsapp {
+            background: rgba(37,211,102,0.1);
+            border: 1px solid rgba(37,211,102,0.25);
+            color: #25d366;
+        }
+        .share-btn.whatsapp:hover { background: rgba(37,211,102,0.2); box-shadow: 0 4px 14px rgba(37,211,102,0.15); }
+        .share-btn.twitter {
+            background: rgba(29,155,240,0.12);
+            border: 1px solid rgba(29,155,240,0.25);
+            color: #1d9bf0;
+        }
+        .share-btn.twitter:hover { background: rgba(29,155,240,0.22); box-shadow: 0 4px 14px rgba(29,155,240,0.15); }
+        .share-btn.telegram {
+            background: rgba(0,136,204,0.1);
+            border: 1px solid rgba(0,136,204,0.25);
+            color: #0088cc;
+        }
+        .share-btn.telegram:hover { background: rgba(0,136,204,0.2); box-shadow: 0 4px 14px rgba(0,136,204,0.15); }
+        .share-btn.copy {
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.25);
+            color: var(--teal);
+        }
+        .share-btn.copy:hover { background: rgba(20,184,166,0.2); box-shadow: 0 4px 14px var(--teal-glow); }
+        .share-btn.copy.copied { background: var(--teal); color: #0a0f1a; }
+
+        .coach-cta { text-align: center; margin-top: 2rem; }
+        .coach-cta-text { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; }
+        .coach-cta-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.3);
+            border-radius: 12px; color: var(--teal); padding: 0.7rem 1.4rem;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer; font-family: var(--font-body);
+            transition: all 0.2s; text-decoration: none;
+        }
+        .coach-cta-link:hover { background: rgba(20,184,166,0.2); box-shadow: 0 4px 16px var(--teal-glow); }
+
+        /* -- SEO SECTIONS -- */
+        .seo-section {
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--text);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* FAQ accordion */
+        .faq-list { list-style: none; }
+        .faq-item {
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 14px;
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+            background: rgba(14,122,126,0.04);
+            transition: border-color 0.2s;
+        }
+        .faq-item:hover { border-color: rgba(20,184,166,0.25); }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600;
+            font-size: 0.95rem; color: var(--text); background: none;
+            border: none; width: 100%; text-align: left; font-family: var(--font-body);
+        }
+        .faq-question:hover { color: var(--teal); }
+        .faq-chevron {
+            width: 20px; height: 20px; color: var(--text-muted);
+            transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem;
+        }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0; overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-item.faq-open .faq-answer { max-height: 400px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+
+        /* Sources */
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li {
+            counter-increment: source; padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(20,184,166,0.06);
+            font-size: 0.85rem; color: var(--text-dim); line-height: 1.6;
+        }
+        .sources-list li::before { content: counter(source) "."; color: var(--teal); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--teal); text-decoration: none; word-break: break-all; }
+        .sources-list li a:hover { text-decoration: underline; }
+
+        /* Methodology */
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code {
+            background: rgba(20,184,166,0.1); padding: 0.15rem 0.5rem;
+            border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: var(--teal);
+        }
+
+        /* LLM answer capsule */
+        .llm-capsule {
+            background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 16px; padding: 2rem;
+        }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+
+        /* Medical disclaimer override */
+        .medical-disclaimer.pink-box {
+            background: rgba(239,68,68,0.06) !important;
+            border: 1px solid rgba(239,68,68,0.15) !important;
+            border-radius: 14px !important;
+            padding: 1.5rem !important;
+            max-width: 680px; margin: 0 auto;
+        }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) !important; font-size: 0.85rem !important; line-height: 1.6 !important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 !important; }
+
+        /* Footer dark override */
+        .site-footer { background: #060a14 !important; border-top: 1px solid rgba(20,184,166,0.08) !important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) !important; }
+        .site-footer a:hover { color: var(--teal) !important; }
+
+        /* -- ASK PULSE -- */
+        .ask-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center; margin-bottom: 0.4rem;
+        }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important;
+            border-radius: 12px !important; color: var(--text) !important; padding: 0.85rem 1rem !important;
+            font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none; width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important;
+            border-radius: 12px !important; padding: 0 1.5rem !important; font-weight: 700 !important;
+            cursor: pointer; font-family: var(--font-body) !important; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important; font-size: 0.95rem !important;
+            letter-spacing: normal !important;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; transform: none !important; filter: none !important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill {
+            background: rgba(255,255,255,0.03) !important; border: 1px solid var(--border) !important;
+            border-radius: 20px !important; padding: 0.4rem 0.9rem !important; font-size: 0.78rem !important;
+            color: var(--text-dim) !important; cursor: pointer; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal); color: var(--text); }
+
+        /* Static example */
+        .static-example {
+            max-width: 600px; margin: 2rem auto 0; padding: 1.5rem 2rem;
+            background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 16px; text-align: center;
+        }
+        .static-example p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.7; }
+        .static-example .hl { color: var(--teal); font-weight: 600; }
+
+        @media (max-width: 600px) {
+            .input-grid { grid-template-columns: 1fr; }
+            .marker-grid { grid-template-columns: 1fr; }
+            .ratio-row { flex-direction: column; }
+            .coach-container { max-width: 100%; }
+            .coach-card { padding: 1.8rem 1.3rem; }
+            .coach-text { font-size: 1.05rem; }
+            .ask-input-wrap { flex-direction: column; }
+            .ask-input-wrap button { padding: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<!-- SECTION 1: HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">What do your <span>cholesterol numbers</span> mean?</h1>
+        <p class="hero-sub">Enter your lipid panel. Get instant interpretation.</p>
+    </div>
+
+    <div class="input-grid fade-in" style="transition-delay:0.1s;">
+        <div class="input-card">
+            <label>Total Cholesterol</label>
+            <input type="number" id="inputTC" placeholder="200" min="50" max="500">
+            <div class="unit">mg/dL</div>
+        </div>
+        <div class="input-card">
+            <label>LDL Cholesterol</label>
+            <input type="number" id="inputLDL" placeholder="100" min="20" max="400">
+            <div class="unit">mg/dL &mdash; "bad" cholesterol</div>
+        </div>
+        <div class="input-card">
+            <label>HDL Cholesterol</label>
+            <input type="number" id="inputHDL" placeholder="55" min="10" max="150">
+            <div class="unit">mg/dL &mdash; "good" cholesterol</div>
+        </div>
+        <div class="input-card">
+            <label>Triglycerides</label>
+            <input type="number" id="inputTG" placeholder="130" min="20" max="2000">
+            <div class="unit">mg/dL</div>
+        </div>
+        <div class="input-card input-full">
+            <label>Sex (affects HDL target)</label>
+            <div class="gender-toggle">
+                <button class="gender-btn active" data-gender="male">Male</button>
+                <button class="gender-btn" data-gender="female">Female</button>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center;">
+        <button class="calc-btn" id="calcBtn">Interpret My Results</button>
+    </div>
+
+    <!-- Static example for SEO -->
+    <div class="static-example" id="staticExample">
+        <p>Example: A <span class="hl">45-year-old male</span> with total cholesterol <span class="hl">220 mg/dL</span>, LDL <span class="hl">140 mg/dL</span>, HDL <span class="hl">48 mg/dL</span>, and triglycerides <span class="hl">160 mg/dL</span> has borderline high LDL, low HDL, and borderline high triglycerides. Non-HDL is <span class="hl">172 mg/dL</span> (high), and TC:HDL ratio is <span class="hl">4.6</span> (borderline).</p>
+    </div>
+</section>
+
+<!-- SECTION 2: RESULTS -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div class="result-summary">
+            <div class="result-summary-label">Your lipid panel overall</div>
+            <div class="result-score" id="overallScore">--</div>
+            <div class="result-score-label" id="overallLabel">--</div>
+        </div>
+
+        <div class="marker-grid" id="markerGrid">
+            <!-- Populated by JS -->
+        </div>
+
+        <div class="ratio-row" id="ratioRow">
+            <!-- Populated by JS -->
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: PERSONAL COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Here's what matters most</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+            </a>
+            <a class="share-btn telegram" id="shareTelegram" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Telegram
+            </a>
+            <button class="share-btn copy" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy
+            </button>
+        </div>
+
+        <div class="coach-cta">
+            <p class="coach-cta-text">Have questions about your results?</p>
+            <a class="coach-cta-link" href="#ask-section">
+                <span class="pulse-dot"></span>
+                Ask Pulse
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SEO SECTION: Medical Disclaimer -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        {% include 'components/medical-disclaimer.html' %}
+    </div>
+</div>
+
+<!-- SEO SECTION: FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    What is a normal lipid panel result?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>A normal lipid panel shows total cholesterol below 200 mg/dL, LDL below 100 mg/dL (optimal), HDL above 40 mg/dL for men or 50 mg/dL for women, and triglycerides below 150 mg/dL. Non-HDL cholesterol (total minus HDL) should ideally be below 130 mg/dL.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    What is the difference between LDL and HDL cholesterol?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>LDL (low-density lipoprotein) is "bad" cholesterol &mdash; high levels cause plaque buildup in arteries. HDL (high-density lipoprotein) is "good" cholesterol &mdash; it removes LDL from your bloodstream. You want LDL low and HDL high. Think of LDL as delivery trucks dumping cholesterol in your arteries, and HDL as cleanup trucks hauling it away.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    What does non-HDL cholesterol mean?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Non-HDL cholesterol equals total cholesterol minus HDL. It captures all atherogenic (artery-clogging) particles including LDL, VLDL, and Lp(a). Many cardiologists consider it a better single predictor of cardiovascular risk than LDL alone, especially when triglycerides are elevated above 200 mg/dL.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    What is a good total cholesterol to HDL ratio?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>A TC:HDL ratio below 3.5 is optimal. Between 3.5 and 5.0 is acceptable. Above 5.0 indicates elevated cardiovascular risk. The ratio matters because having high total cholesterol with very high HDL is less concerning than the same total with low HDL.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Can you lower cholesterol without medication?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Regular exercise (150+ minutes per week), eating more fiber and vegetables, limiting saturated fat, losing excess weight, and quitting smoking can all improve your lipid panel. However, some people need statins due to genetics (familial hypercholesterolemia) or very high LDL. Discuss options with your doctor.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How often should I get a lipid panel?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Adults with normal risk should get a lipid panel every 4-6 years. If you have risk factors for heart disease, abnormal previous results, or are on cholesterol medication, your doctor may recommend annual testing or more frequently.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Do I need to fast before a lipid panel?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Traditional guidance recommends 9-12 hours of fasting before a lipid panel. However, recent research shows non-fasting lipid panels are acceptable for initial screening. Fasting primarily affects triglyceride levels. If your non-fasting triglycerides are above 200 mg/dL, your doctor may order a fasting retest.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- SEO SECTION: Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Grundy SM, Stone NJ, Bailey AL, et al. 2018 AHA/ACC/Multisociety Guideline on the Management of Blood Cholesterol. <em>Circulation.</em> 2019;139(25):e1082-e1143. <a href="https://pubmed.ncbi.nlm.nih.gov/30586774/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>NCEP Expert Panel. Third Report on Detection, Evaluation, and Treatment of High Blood Cholesterol in Adults (ATP III). <em>JAMA.</em> 2001;285(19):2486-2497. <a href="https://pubmed.ncbi.nlm.nih.gov/11368702/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the Management of Dyslipidaemias. <em>Eur Heart J.</em> 2020;41(1):111-188. <a href="https://pubmed.ncbi.nlm.nih.gov/31504418/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>Arnett DK, Blumenthal RS, Fonarow GC, et al. 2019 ACC/AHA Guideline on the Primary Prevention of Cardiovascular Disease. <em>Circulation.</em> 2019;140(11):e596-e646. <a href="https://pubmed.ncbi.nlm.nih.gov/30879355/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>Centers for Disease Control and Prevention. Getting Your Cholesterol Checked. <a href="https://www.cdc.gov/cholesterol/checked.htm" target="_blank" rel="noopener">CDC.gov</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- SEO SECTION: Methodology -->
+<div class="seo-section bg-1" id="methodology-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text">
+            <p>This calculator interprets lipid panel results using clinical thresholds from the 2018 AHA/ACC Multisociety Guideline on Blood Cholesterol Management and the NCEP ATP III guidelines.</p>
+            <p style="margin-top:1rem;">Total cholesterol is classified as desirable (<code>&lt; 200</code>), borderline high (<code>200-239</code>), or high (<code>&ge; 240</code>). LDL uses a five-tier scale: optimal (<code>&lt; 100</code>), near optimal (<code>100-129</code>), borderline high (<code>130-159</code>), high (<code>160-189</code>), and very high (<code>&ge; 190</code>). HDL thresholds are sex-specific: low is <code>&lt; 40 mg/dL</code> for males and <code>&lt; 50 mg/dL</code> for females; <code>&ge; 60 mg/dL</code> is considered protective. Triglycerides are normal (<code>&lt; 150</code>), borderline high (<code>150-199</code>), high (<code>200-499</code>), or very high (<code>&ge; 500</code>).</p>
+            <p style="margin-top:1rem;">Non-HDL cholesterol is computed as <code>Total Cholesterol - HDL</code>. The TC:HDL ratio is computed as <code>Total Cholesterol / HDL</code>. The overall score counts how many of the four primary markers are in optimal range. This calculator does not implement the full Pooled Cohort Equations for 10-year ASCVD risk and does not account for family history, blood pressure, diabetes, smoking, or medication use.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEO SECTION: LLM Answer Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner">
+        <div class="llm-capsule">
+            <p>A lipid panel measures four key blood fats: total cholesterol (desirable below 200 mg/dL), LDL or "bad" cholesterol (optimal below 100 mg/dL), HDL or "good" cholesterol (above 40 mg/dL for men, 50 mg/dL for women), and triglycerides (normal below 150 mg/dL). Non-HDL cholesterol (total minus HDL) captures all atherogenic particles and should be below 130 mg/dL. The TC:HDL ratio below 3.5 is optimal; above 5.0 indicates elevated risk. These thresholds come from the 2018 AHA/ACC guidelines and NCEP ATP III. Lifestyle changes including exercise, diet, and weight management can improve all four markers. Always consult your healthcare provider for personalized interpretation.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION: ASK PULSE -->
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything about cholesterol.</p>
+        <div class="ask-input-wrap">
+            <input type="text" id="askInput" placeholder="e.g. Is my LDL 140 dangerous?">
+            <button id="askBtn">Ask</button>
+        </div>
+        <div class="ask-pills">
+            <span class="ask-pill">How to lower LDL naturally</span>
+            <span class="ask-pill">Do I need statins?</span>
+            <span class="ask-pill">HDL vs LDL explained</span>
+            <span class="ask-pill">What is ApoB?</span>
+        </div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--teal); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script>
+// === LIPID PANEL CALCULATOR ===
+const RANGES = {
+    tc: [
+        { max: 200, label: 'Desirable', cls: 'good' },
+        { max: 239, label: 'Borderline High', cls: 'caution' },
+        { max: Infinity, label: 'High', cls: 'bad' }
+    ],
+    ldl: [
+        { max: 100, label: 'Optimal', cls: 'good' },
+        { max: 129, label: 'Near Optimal', cls: 'good' },
+        { max: 159, label: 'Borderline High', cls: 'caution' },
+        { max: 189, label: 'High', cls: 'bad' },
+        { max: Infinity, label: 'Very High', cls: 'bad' }
+    ],
+    hdl_male: [
+        { min: 60, label: 'Optimal', cls: 'good' },
+        { min: 40, label: 'Good', cls: 'good' },
+        { min: 0, label: 'Low', cls: 'bad' }
+    ],
+    hdl_female: [
+        { min: 60, label: 'Optimal', cls: 'good' },
+        { min: 50, label: 'Good', cls: 'good' },
+        { min: 0, label: 'Low', cls: 'bad' }
+    ],
+    tg: [
+        { max: 150, label: 'Normal', cls: 'good' },
+        { max: 199, label: 'Borderline High', cls: 'caution' },
+        { max: 499, label: 'High', cls: 'bad' },
+        { max: Infinity, label: 'Very High', cls: 'bad' }
+    ],
+    nonHdl: [
+        { max: 130, label: 'Optimal', cls: 'good' },
+        { max: 159, label: 'Above Optimal', cls: 'caution' },
+        { max: Infinity, label: 'High', cls: 'bad' }
+    ],
+    ratio: [
+        { max: 3.5, label: 'Optimal', cls: 'good' },
+        { max: 5.0, label: 'Borderline', cls: 'caution' },
+        { max: Infinity, label: 'High Risk', cls: 'bad' }
+    ]
+};
+
+function classify(value, ranges) {
+    if (ranges[0].hasOwnProperty('max')) {
+        for (const r of ranges) {
+            if (value < r.max || (r.max === Infinity && value >= (ranges[ranges.length-2]?.max || 0))) {
+                return r;
+            }
+        }
+        return ranges[ranges.length - 1];
+    } else {
+        // HDL: min-based (higher is better)
+        for (const r of ranges) {
+            if (value >= r.min) return r;
+        }
+        return ranges[ranges.length - 1];
+    }
+}
+
+function getGlowClass(cls) {
+    if (cls === 'good') return 'glow-good';
+    if (cls === 'caution') return 'glow-caution';
+    return 'glow-bad';
+}
+
+function getColorVar(cls) {
+    if (cls === 'good') return 'var(--good)';
+    if (cls === 'caution') return 'var(--caution)';
+    return 'var(--bad)';
+}
+
+let gender = 'male';
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Gender toggle
+    document.querySelectorAll('.gender-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            gender = this.dataset.gender;
+        });
+    });
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const item = this.closest('.faq-item');
+            item.classList.toggle('faq-open');
+            this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+        });
+    });
+
+    // Calculate button
+    document.getElementById('calcBtn').addEventListener('click', calculate);
+
+    // Ask Pulse
+    document.getElementById('askBtn').addEventListener('click', function() {
+        const q = document.getElementById('askInput').value.trim();
+        if (!q) return;
+        document.querySelector('.ask-input-wrap').style.display = 'none';
+        document.querySelector('.ask-pills').style.display = 'none';
+        document.getElementById('askThanks').style.display = 'block';
+    });
+    document.querySelectorAll('.ask-pill').forEach(pill => {
+        pill.addEventListener('click', function() {
+            document.getElementById('askInput').value = this.textContent;
+        });
+    });
+
+    // Copy button
+    document.getElementById('copyBtn').addEventListener('click', function() {
+        if (!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(() => {
+            this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+            this.classList.add('copied');
+            setTimeout(() => {
+                this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+                this.classList.remove('copied');
+            }, 2000);
+        }).catch(() => {});
+    });
+});
+
+function calculate() {
+    const tc = parseInt(document.getElementById('inputTC').value) || 0;
+    const ldl = parseInt(document.getElementById('inputLDL').value) || 0;
+    const hdl = parseInt(document.getElementById('inputHDL').value) || 0;
+    const tg = parseInt(document.getElementById('inputTG').value) || 0;
+
+    if (!tc || !ldl || !hdl || !tg) return;
+
+    // Hide static example
+    const staticEx = document.getElementById('staticExample');
+    if (staticEx) staticEx.style.display = 'none';
+
+    // Calculate derived values
+    const nonHdl = tc - hdl;
+    const ratio = hdl > 0 ? (tc / hdl) : 0;
+
+    // Classify each marker
+    const tcResult = classify(tc, RANGES.tc);
+    const ldlResult = classify(ldl, RANGES.ldl);
+    const hdlRanges = gender === 'female' ? RANGES.hdl_female : RANGES.hdl_male;
+    const hdlResult = classify(hdl, hdlRanges);
+    const tgResult = classify(tg, RANGES.tg);
+    const nonHdlResult = classify(nonHdl, RANGES.nonHdl);
+    const ratioResult = classify(ratio, RANGES.ratio);
+
+    // Overall score: count optimal markers (out of 4 primary)
+    let optimalCount = 0;
+    if (tcResult.cls === 'good') optimalCount++;
+    if (ldlResult.cls === 'good') optimalCount++;
+    if (hdlResult.cls === 'good') optimalCount++;
+    if (tgResult.cls === 'good') optimalCount++;
+
+    const overallLabels = ['Needs Attention', 'Needs Work', 'Getting There', 'Almost There', 'All Clear'];
+    const overallClasses = ['bad', 'bad', 'caution', 'caution', 'good'];
+    const overallScore = document.getElementById('overallScore');
+    const overallLabel = document.getElementById('overallLabel');
+    overallScore.textContent = optimalCount + '/4';
+    overallScore.className = 'result-score ' + getGlowClass(overallClasses[optimalCount]);
+    overallLabel.textContent = overallLabels[optimalCount] + ' markers in range';
+    overallLabel.style.color = getColorVar(overallClasses[optimalCount]);
+
+    // Build marker cards
+    const hdlTarget = gender === 'female' ? '> 50' : '> 40';
+    const markers = [
+        { name: 'Total Cholesterol', value: tc, unit: 'mg/dL', result: tcResult, range: '< 200 desirable' },
+        { name: 'LDL ("Bad")', value: ldl, unit: 'mg/dL', result: ldlResult, range: '< 100 optimal' },
+        { name: 'HDL ("Good")', value: hdl, unit: 'mg/dL', result: hdlResult, range: hdlTarget + ' mg/dL' },
+        { name: 'Triglycerides', value: tg, unit: 'mg/dL', result: tgResult, range: '< 150 normal' }
+    ];
+
+    const grid = document.getElementById('markerGrid');
+    grid.innerHTML = markers.map(m => `
+        <div class="marker-card status-${m.result.cls}">
+            <div class="marker-name">${m.name}</div>
+            <div class="marker-value" style="color:${getColorVar(m.result.cls)}">${m.value}</div>
+            <div class="marker-unit">${m.unit}</div>
+            <div class="marker-status" style="color:${getColorVar(m.result.cls)}">${m.result.label}</div>
+            <div class="marker-range">Target: ${m.range}</div>
+        </div>
+    `).join('');
+
+    // Ratio row
+    const ratioRow = document.getElementById('ratioRow');
+    ratioRow.innerHTML = `
+        <div class="ratio-card">
+            <div class="ratio-label">Non-HDL Cholesterol</div>
+            <div class="ratio-value" style="color:${getColorVar(nonHdlResult.cls)}">${nonHdl}</div>
+            <div class="ratio-status" style="color:${getColorVar(nonHdlResult.cls)}">${nonHdlResult.label} (< 130 optimal)</div>
+        </div>
+        <div class="ratio-card">
+            <div class="ratio-label">TC : HDL Ratio</div>
+            <div class="ratio-value" style="color:${getColorVar(ratioResult.cls)}">${ratio.toFixed(1)}</div>
+            <div class="ratio-status" style="color:${getColorVar(ratioResult.cls)}">${ratioResult.label} (< 3.5 optimal)</div>
+        </div>
+    `;
+
+    // Build coach card
+    buildCoachCard(tc, ldl, hdl, tg, nonHdl, ratio, tcResult, ldlResult, hdlResult, tgResult, nonHdlResult, ratioResult, optimalCount);
+
+    // Build share text
+    const shareText = `My Lipid Panel Results:\n\nTotal Cholesterol: ${tc} (${tcResult.label})\nLDL: ${ldl} (${ldlResult.label})\nHDL: ${hdl} (${hdlResult.label})\nTriglycerides: ${tg} (${tgResult.label})\nNon-HDL: ${nonHdl} (${nonHdlResult.label})\nTC:HDL Ratio: ${ratio.toFixed(1)} (${ratioResult.label})\n\nScore: ${optimalCount}/4 markers in range\n\nCheck yours: healthcalculators.xyz/lipid-panel-goals-calculator`;
+    window._shareText = shareText;
+
+    document.getElementById('shareRow').style.display = 'flex';
+    document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTwitter').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTelegram').href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz/lipid-panel-goals-calculator') + '&text=' + encodeURIComponent(shareText);
+
+    // Show sections
+    document.querySelectorAll('.hidden-section').forEach(el => el.classList.remove('hidden-section'));
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, 100);
+
+    // Track
+    if (typeof hcTrackEvent === 'function') {
+        hcTrackEvent('calculator_complete', {
+            calculator_name: 'Lipid Panel Goals Calculator',
+            page_path: '/lipid-panel-goals-calculator'
+        });
+    }
+}
+
+function buildCoachCard(tc, ldl, hdl, tg, nonHdl, ratio, tcR, ldlR, hdlR, tgR, nonHdlR, ratioR, score) {
+    const card = document.getElementById('coachCard');
+
+    // Find the biggest concern
+    const concerns = [];
+    if (ldlR.cls === 'bad') concerns.push({ marker: 'LDL', value: ldl, label: ldlR.label, priority: 1 });
+    if (hdlR.cls === 'bad') concerns.push({ marker: 'HDL', value: hdl, label: hdlR.label, priority: 2 });
+    if (tgR.cls === 'bad') concerns.push({ marker: 'Triglycerides', value: tg, label: tgR.label, priority: 3 });
+    if (tcR.cls === 'bad') concerns.push({ marker: 'Total Cholesterol', value: tc, label: tcR.label, priority: 4 });
+    if (ldlR.cls === 'caution') concerns.push({ marker: 'LDL', value: ldl, label: ldlR.label, priority: 5 });
+    if (tgR.cls === 'caution') concerns.push({ marker: 'Triglycerides', value: tg, label: tgR.label, priority: 6 });
+    if (tcR.cls === 'caution') concerns.push({ marker: 'Total Cholesterol', value: tc, label: tcR.label, priority: 7 });
+
+    concerns.sort((a, b) => a.priority - b.priority);
+
+    let coachHtml = '';
+
+    if (score === 4) {
+        coachHtml = `
+            <div class="coach-text">
+                All four markers are in range.<br>
+                Your LDL is <span class="good">${ldl} mg/dL</span>,
+                HDL is <span class="good">${hdl} mg/dL</span>,
+                triglycerides are <span class="good">${tg} mg/dL</span>,
+                and total cholesterol is <span class="good">${tc} mg/dL</span>.<br>
+                <span class="dim">Non-HDL is ${nonHdl} and your TC:HDL ratio is ${ratio.toFixed(1)}.</span>
+            </div>
+            <div class="coach-rule">The rule: keep doing what you're doing.</div>
+            <div class="coach-advice">
+                Retest in <em>4-6 years</em> unless risk factors change.<br>
+                <em>Exercise, fiber, and healthy fats</em> are your best maintenance tools.
+            </div>
+        `;
+    } else if (score >= 3) {
+        const c = concerns[0];
+        coachHtml = `
+            <div class="coach-text">
+                Three of four markers look good.<br>
+                The one to watch: <span class="warn">${c.marker} at ${c.value} mg/dL</span> (${c.label}).<br>
+                <span class="dim">Everything else is in range.</span>
+            </div>
+            <div class="coach-rule">The rule: one number to focus on.</div>
+            <div class="coach-advice">
+                ${getAdvice(c.marker)}<br>
+                <em>Retest in 6-12 months</em> to track improvement.
+            </div>
+        `;
+    } else {
+        const topConcerns = concerns.slice(0, 2);
+        const names = topConcerns.map(c => `<span class="bad">${c.marker} (${c.value})</span>`).join(' and ');
+        coachHtml = `
+            <div class="coach-text">
+                ${score} of 4 markers are in range.<br>
+                Priority areas: ${names}.<br>
+                <span class="dim">Your TC:HDL ratio is ${ratio.toFixed(1)} (${ratioR.label}).</span>
+            </div>
+            <div class="coach-rule">The rule: bring this panel to your doctor.</div>
+            <div class="coach-advice">
+                ${getAdvice(topConcerns[0].marker)}<br>
+                <em>Schedule a follow-up</em> with your healthcare provider to discuss these results and whether medication may be appropriate.
+            </div>
+        `;
+    }
+
+    card.innerHTML = coachHtml;
+}
+
+function getAdvice(marker) {
+    switch (marker) {
+        case 'LDL':
+            return '<em>Reduce saturated fat</em> (red meat, full-fat dairy, fried foods). Add <em>soluble fiber</em> (oats, beans, apples). Exercise 150+ min/week.';
+        case 'HDL':
+            return '<em>Exercise is the most effective HDL booster</em> &mdash; aim for 150+ min/week of moderate activity. Quit smoking if applicable. Add healthy fats (olive oil, nuts, avocado).';
+        case 'Triglycerides':
+            return '<em>Cut refined carbs and sugar</em> &mdash; triglycerides respond strongly to carbohydrate intake. Reduce alcohol. Add omega-3 fatty acids (fish, walnuts, flaxseed).';
+        case 'Total Cholesterol':
+            return '<em>Total cholesterol follows LDL and triglycerides</em> &mdash; focus on lowering those two and total will follow. Diet and exercise improvements cascade across all markers.';
+        default:
+            return 'Discuss these results with your healthcare provider for personalized guidance.';
+    }
+}
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

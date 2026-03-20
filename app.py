@@ -1781,17 +1781,17 @@ def ideal_body_weight_calculator():
 @app.route('/fasting-weight-loss-calculator')
 def fasting_weight_loss_calculator():
     schema_name = "Fasting Weight Loss Calculator"
-    schema_description = "Calculate potential weight loss from intermittent fasting protocols. Get personalized estimates for fat loss based on your fasting schedule, body composition, and activity level."
+    schema_description = "Calculate potential weight loss from intermittent fasting protocols with a personalized week-by-week timeline."
     schema_url = "/fasting-weight-loss-calculator"
     return render_template(
-        'fasting_weight_loss_calculator.html', 
+        'fasting_weight_loss_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        date_modified='2026-03-20',
+        schema_type='MedicalWebPage'
     )
 
 
@@ -3380,12 +3380,14 @@ def lipid_panel_goals_calculator():
     schema_description = "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol."
     schema_url = "/lipid-panel-goals-calculator"
     return render_template(
-        'lipid_panel_goals_calculator.html',
+        'lipid_panel_goals_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        schema_type='MedicalWebPage',
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        date_modified='2026-03-20'
     )
 
 
