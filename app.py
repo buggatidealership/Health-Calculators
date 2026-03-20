@@ -1484,18 +1484,12 @@ def calories_burned_calculator():
 
 @app.route('/bmi-calculator')
 def bmi_calculator():
-    schema_name = "BMI Calculator"
-    schema_description = "Calculate your Body Mass Index (BMI) using weight and height. Determine your weight category based on WHO guidelines and find your healthy weight range."
-    schema_url = "/bmi-calculator"
     return render_template(
-        'bmi_calculator.html',
+        'bmi_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_title='BMI Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/body-roundness-index-calculator')
