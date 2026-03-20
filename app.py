@@ -1443,18 +1443,12 @@ def comparison_ozempic_vs_mounjaro():
 
 @app.route('/tdee-calculator')
 def tdee_calculator():
-    schema_name = "TDEE Calculator"
-    schema_description = "Estimate your Total Daily Energy Expenditure (TDEE) using age, weight, height, gender, and activity level. Calculate how many calories you burn daily."
-    schema_url = "/tdee-calculator"
     return render_template(
-        'tdee_calculator.html', 
+        'tdee_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_title='TDEE Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/sleep-calculator')
