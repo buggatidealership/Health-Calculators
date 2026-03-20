@@ -2722,16 +2722,17 @@ def menopause_calculator():
 
 @app.route('/child-growth-calculator')
 def child_growth_calculator():
-    schema_name = "Child Growth Calculator"
-    schema_description = "Track your child's height, weight, and BMI percentile using CDC or WHO charts. Personalized and evidence-based."
+    schema_name = "Child Growth Percentile Calculator"
+    schema_description = "Check your child's height, weight, and BMI percentile by age using CDC and WHO growth charts."
     schema_url = "/child-growth-calculator"
     return render_template(
-        'child_growth_calculator.html',
+        'child_growth_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        date_modified='2026-03-20'
     )
 
 @app.route('/liposuction-weight-loss-calculator')
