@@ -2913,7 +2913,7 @@ def alcohol_impact_calculator():
     schema_description = "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration. Based on current research."
     schema_url = "/alcohol-impact-calculator"
     return render_template(
-        'alcohol_impact_calculator.html',
+        'alcohol_impact_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
