@@ -3362,16 +3362,17 @@ def body_fat_percentage_chart():
 @app.route('/plasma-donation-earnings-calculator')
 def plasma_donation_earnings_calculator():
     schema_name = "Plasma Donation Earnings Calculator"
-    schema_description = "Calculate your potential plasma donation earnings based on weight, frequency, location, and donor status. Includes new donor bonuses and eligibility check."
+    schema_description = "Calculate your potential plasma donation earnings based on weight, frequency, location, and donor status. Includes new donor bonuses and effective hourly rate."
     schema_url = "/plasma-donation-earnings-calculator"
     return render_template(
-        'plasma_donation_earnings_calculator.html', 
+        'plasma_donation_earnings_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
         schema_type='WebPage',
-        date_modified='2026-03-11'
+        breadcrumb_category={'name': 'Financial & Earnings', 'url': '/financial-earnings-calculators'},
+        date_modified='2026-03-20'
     )
 
 @app.route('/lipid-panel-goals-calculator')

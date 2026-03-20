@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Plasma Donation Earnings Calculator — How Much Can You Make?",
+        meta_description="Calculate how much you can earn donating plasma. See per-visit pay, monthly income, and your effective hourly rate based on your weight and location.",
+        og_title="How much can you make donating plasma?",
+        og_description="Calculate your plasma donation earnings. See weekly, monthly, and yearly estimates with net pay after travel costs.",
+        og_url="/plasma-donation-earnings-calculator",
+        canonical_url="/plasma-donation-earnings-calculator",
+        schema_type="WebPage",
+        schema_name="Plasma Donation Earnings Calculator",
+        schema_description="Calculate your potential plasma donation earnings based on weight, frequency, location, and donor status. Includes new donor bonuses and effective hourly rate.",
+        schema_url="/plasma-donation-earnings-calculator",
+        schema_about="Plasma Donation Earnings Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <!-- FAQPage JSON-LD (server-side) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How much does plasma donation pay?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Plasma donation typically pays $30-75 per visit for regular donors and $50-100+ for new donors during promotional periods. Pay varies by center, location, and donor weight. Heavier donors (175+ lbs) earn more because they can safely donate a larger volume."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often can you donate plasma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The FDA allows up to two plasma donations within a 7-day period, with at least one day between sessions. This means a maximum of about 104 donations per year."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much can you make donating plasma per month?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Donating plasma twice a week, regular donors can earn $260-650 per month depending on location and weight. New donors often earn more during their first month due to bonus programs, sometimes $500-1,000+."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do heavier people get paid more for plasma?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Donors weighing over 175 lbs can safely donate a larger volume of plasma and typically receive $5-15 more per donation than lighter donors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is donating plasma worth the time?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "At typical rates, plasma donation pays an effective $20-50 per hour when factoring in appointment time. First-time visits take 2-3 hours, but return visits average 45-90 minutes. Whether it's worth it depends on your alternative earning options and how much you value your time."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --good: #22c55e;
+            --caution: #f59e0b;
+            --bad: #ef4444;
+            --money: #22c55e;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; }
+
+        /* Override header/footer/breadcrumb for dark theme */
+        .site-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.1) !important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) !important; stroke: var(--text) !important; }
+        .site-header .logo-dot { color: var(--teal) !important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] {
+            background: #0a0f1a !important;
+            border-bottom: 1px solid rgba(20,184,166,0.06) !important;
+        }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content {
+            background: transparent !important;
+        }
+        body { background: #0a0f1a !important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
+        .breadcrumb a:hover { color: var(--teal) !important; }
+        .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
+        .nav-dropdown-link { color: var(--text-dim) !important; }
+        .nav-dropdown-link:hover { color: var(--teal) !important; }
+        .nav-dropdown-title { color: var(--text-muted) !important; }
+        .page-layout { display: contents !important; }
+        .page-content { display: contents !important; }
+        .page-sidebar { display: none !important; }
+        main { display: contents; }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .section-content {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-2 { background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%); }
+        .bg-3 { background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%); }
+        .bg-4 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        .bg-6 { background: #060a14; }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        /* Force all headings white on dark mode */
+        h1, h2, h3 { color: #ffffff !important; }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #ffffff !important;
+        }
+        .hero-title span { color: var(--money); }
+        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
+
+        /* -- TAPPABLE CARDS -- */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 0.6rem;
+            max-width: 680px;
+            width: 100%;
+        }
+        .card-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .tap-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.2rem 0.8rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+        .tap-card:hover {
+            border-color: rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(20, 184, 166, 0.1);
+        }
+        .tap-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 0 1px var(--teal);
+            transform: scale(1.03);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .tap-card .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+        .tap-card .name { font-size: 0.85rem; font-weight: 600; }
+        .tap-card .detail { font-size: 0.72rem; color: var(--text-dim); margin-top: 4px; }
+
+        /* -- SECTION TITLES -- */
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* -- INPUTS -- */
+        .input-group { margin-top: 1.5rem; text-align: center; max-width: 680px; width: 100%; }
+        .input-group label { display: block; color: var(--text-dim); font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .input-group select, .input-group input[type="number"] {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 12px;
+            color: var(--text); font-size: 1.1rem; padding: 0.75rem 1.2rem; font-family: var(--font-body); outline: none;
+            width: 100%; max-width: 320px;
+            appearance: none; -webkit-appearance: none;
+        }
+        .input-group select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        .input-group select:focus, .input-group input:focus {
+            border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.1);
+        }
+        .input-group select option { background: #0d1420; color: var(--text); }
+
+        .calc-btn {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important;
+            padding: 0.85rem 2.4rem !important; font-size: 1.05rem !important; font-weight: 700; cursor: pointer;
+            margin-top: 2rem; font-family: var(--font-body); transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .calc-btn::after { display: none !important; }
+        .calc-btn:hover { box-shadow: 0 6px 24px var(--teal-glow) !important; transform: translateY(-1px); }
+
+        /* -- RESULT -- */
+        .hidden-section { display: none; }
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 14vw, 8rem);
+            line-height: 1;
+            text-align: center;
+            color: var(--money);
+            text-shadow: 0 0 40px rgba(34, 197, 94, 0.3);
+        }
+        .result-unit { font-size: 1.1rem; color: var(--text-dim); text-align: center; margin-top: 0.5rem; }
+        .result-label { font-size: 0.9rem; color: var(--text-muted); text-align: center; margin-top: 0.3rem; }
+
+        .earnings-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            max-width: 560px;
+            width: 100%;
+            margin-top: 2.5rem;
+        }
+        .earnings-card {
+            background: rgba(14, 122, 126, 0.06);
+            border: 1px solid rgba(20,184,166,0.12);
+            border-radius: 16px;
+            padding: 1.5rem 1rem;
+            text-align: center;
+        }
+        .earnings-card .period { font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+        .earnings-card .amount { font-family: var(--font-display); font-size: 1.6rem; color: var(--money); }
+        .earnings-card .note { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.3rem; }
+
+        .hourly-rate {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            text-align: center;
+        }
+        .hourly-label { font-size: 1rem; color: var(--text-dim); margin-bottom: 0.3rem; }
+        .hourly-value {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--teal);
+            text-shadow: 0 0 30px var(--teal-glow);
+        }
+        .hourly-note { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; max-width: 380px; margin-left: auto; margin-right: auto; }
+
+        /* -- PERSONAL COACH -- */
+        .coach-container {
+            max-width: 520px;
+            width: 100%;
+        }
+        .coach-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+        }
+        .coach-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text);
+        }
+        .coach-text .hl { color: var(--money); font-weight: 700; }
+        .coach-text .teal { color: var(--teal); font-weight: 700; }
+        .coach-text .dim { color: var(--text-dim); }
+        .coach-rule {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            color: var(--teal);
+            margin: 1.5rem 0;
+            text-shadow: 0 0 20px var(--teal-glow);
+        }
+        .coach-advice {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dim);
+        }
+        .coach-advice em {
+            color: var(--text);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        /* Share buttons */
+        .share-row {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .share-btn {
+            display: inline-flex !important;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.6rem 1.2rem !important;
+            border-radius: 12px !important;
+            font-size: 0.82rem !important;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            border: none !important;
+            width: auto !important;
+            box-shadow: none !important;
+        }
+        .share-btn::after { display: none !important; }
+        .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .share-btn.whatsapp {
+            background: rgba(37,211,102,0.1) !important;
+            border: 1px solid rgba(37,211,102,0.25) !important;
+            color: #25d366 !important;
+        }
+        .share-btn.whatsapp:hover { background: rgba(37,211,102,0.2) !important; box-shadow: 0 4px 14px rgba(37,211,102,0.15) !important; }
+        .share-btn.twitter {
+            background: rgba(29,155,240,0.12) !important;
+            border: 1px solid rgba(29,155,240,0.25) !important;
+            color: #1d9bf0 !important;
+        }
+        .share-btn.twitter:hover { background: rgba(29,155,240,0.22) !important; box-shadow: 0 4px 14px rgba(29,155,240,0.15) !important; }
+        .share-btn.telegram {
+            background: rgba(0,136,204,0.1) !important;
+            border: 1px solid rgba(0,136,204,0.25) !important;
+            color: #0088cc !important;
+        }
+        .share-btn.telegram:hover { background: rgba(0,136,204,0.2) !important; box-shadow: 0 4px 14px rgba(0,136,204,0.15) !important; }
+        .share-btn.copy {
+            background: rgba(20,184,166,0.1) !important;
+            border: 1px solid rgba(20,184,166,0.25) !important;
+            color: var(--teal) !important;
+        }
+        .share-btn.copy:hover { background: rgba(20,184,166,0.2) !important; box-shadow: 0 4px 14px var(--teal-glow) !important; }
+        .share-btn.copy.copied { background: var(--teal) !important; color: #0a0f1a !important; }
+
+        .coach-cta {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .coach-cta-text {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .coach-cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.3);
+            border-radius: 12px;
+            color: var(--teal);
+            padding: 0.7rem 1.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+        .coach-cta-link:hover {
+            background: rgba(20,184,166,0.2);
+            box-shadow: 0 4px 16px var(--teal-glow);
+        }
+
+        /* -- BREAKDOWN TOGGLE -- */
+        .breakdown-toggle { margin-top: 2rem; text-align: center; }
+        .breakdown-toggle-btn {
+            background: none !important; border: 1px solid var(--border) !important; border-radius: 10px !important;
+            color: var(--text-dim) !important; padding: 0.5rem 1.2rem !important; font-size: 0.85rem !important;
+            cursor: pointer; font-family: var(--font-body); transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .breakdown-toggle-btn::after { display: none !important; }
+        .breakdown-toggle-btn:hover { border-color: var(--teal) !important; color: var(--text) !important; }
+        .breakdown-detail { display: none; margin-top: 1.5rem; }
+        .breakdown-detail.show { display: block; }
+        .breakdown-row {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0.6rem 0; border-bottom: 1px solid rgba(20,184,166,0.06);
+            font-size: 0.85rem;
+        }
+        .breakdown-row .label { color: var(--text-dim); }
+        .breakdown-row .value { color: var(--text); font-weight: 600; }
+        .breakdown-row .value.bonus { color: var(--money); }
+
+        /* -- ASK PULSE -- */
+        .ask-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important; border-radius: 12px !important;
+            color: var(--text) !important; padding: 0.85rem 1rem !important; font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none;
+            width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important;
+            padding: 0 1.5rem !important; font-weight: 700 !important; cursor: pointer; font-family: var(--font-body) !important;
+            transition: all 0.2s; width: auto !important; box-shadow: none !important;
+            font-size: 0.95rem !important; letter-spacing: normal !important;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; transform: none !important; filter: none !important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill {
+            background: rgba(255,255,255,0.03) !important; border: 1px solid var(--border) !important; border-radius: 20px !important;
+            padding: 0.4rem 0.9rem !important; font-size: 0.78rem !important; color: var(--text-dim) !important; cursor: pointer; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal) !important; color: var(--text) !important; }
+
+        /* -- STATIC EXAMPLE (SEO pre-render) -- */
+        .static-example {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            padding: 1.5rem 2rem;
+            background: rgba(34,197,94,0.04);
+            border: 1px solid rgba(34,197,94,0.1);
+            border-radius: 16px;
+            text-align: center;
+        }
+        .static-example p {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.7;
+        }
+        .static-example .hl { color: var(--money); font-weight: 600; }
+
+        /* -- SEO SECTIONS -- */
+        .seo-section {
+            padding: 4rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .seo-inner {
+            max-width: 680px;
+            width: 100%;
+        }
+        .seo-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 1.8rem);
+            color: var(--text);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* FAQ accordion */
+        .faq-list { list-style: none; }
+        .faq-item {
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 14px;
+            margin-bottom: 0.8rem;
+            overflow: hidden;
+            background: rgba(14,122,126,0.04);
+            transition: border-color 0.2s;
+        }
+        .faq-item:hover { border-color: rgba(20,184,166,0.25); }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            font-family: var(--font-body);
+        }
+        .faq-question:hover { color: var(--teal); }
+        .faq-chevron {
+            width: 20px; height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+            margin-left: 1rem;
+        }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease, padding 0.35s ease;
+            padding: 0 1.5rem;
+        }
+        .faq-item.faq-open .faq-answer {
+            max-height: 300px;
+            padding: 0 1.5rem 1.2rem;
+        }
+        .faq-answer p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.7;
+        }
+
+        /* Sources */
+        .sources-list {
+            list-style: none;
+            counter-reset: source;
+        }
+        .sources-list li {
+            counter-increment: source;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(20,184,166,0.06);
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+        .sources-list li::before {
+            content: counter(source) ".";
+            color: var(--teal);
+            font-weight: 700;
+            margin-right: 0.6rem;
+        }
+        .sources-list li a {
+            color: var(--teal);
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .sources-list li a:hover { text-decoration: underline; }
+
+        /* Methodology */
+        .methodology-text {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+        .methodology-text code {
+            background: rgba(20,184,166,0.1);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: var(--teal);
+        }
+
+        /* LLM answer capsule */
+        .llm-capsule {
+            background: rgba(20,184,166,0.04);
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+        }
+        .llm-capsule p {
+            color: var(--text-dim);
+            font-size: 0.92rem;
+            line-height: 1.8;
+        }
+
+        /* Disclaimer override for dark theme */
+        .medical-disclaimer.pink-box {
+            background: rgba(245,158,11,0.06) !important;
+            border: 1px solid rgba(245,158,11,0.15) !important;
+            border-radius: 14px !important;
+            padding: 1.5rem !important;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .medical-disclaimer.pink-box p {
+            color: var(--text-dim) !important;
+            font-size: 0.85rem !important;
+            line-height: 1.6 !important;
+        }
+        .medical-disclaimer.pink-box strong {
+            color: #f59e0b !important;
+        }
+        .medical-disclaimer {
+            background: rgba(245,158,11,0.06) !important;
+            border: 1px solid rgba(245,158,11,0.15) !important;
+            border-radius: 14px !important;
+            padding: 1.5rem !important;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .medical-disclaimer p {
+            color: var(--text-dim) !important;
+            font-size: 0.85rem !important;
+            line-height: 1.6 !important;
+        }
+        .medical-disclaimer strong {
+            color: #f59e0b !important;
+        }
+
+        /* Footer dark override */
+        .site-footer {
+            background: #060a14 !important;
+            border-top: 1px solid rgba(20,184,166,0.08) !important;
+        }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text {
+            color: var(--text-dim) !important;
+        }
+        .site-footer a:hover { color: var(--teal) !important; }
+
+        /* ALL buttons catch-all override */
+        button, .btn, [type="button"], [type="submit"] {
+            box-shadow: none !important;
+        }
+        button::after, .btn::after, [type="button"]::after, [type="submit"]::after {
+            display: none !important;
+        }
+
+        @media (max-width: 600px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); gap: 0.5rem; }
+            .card-grid-3 { grid-template-columns: repeat(3, 1fr); }
+            .tap-card { padding: 1rem 0.5rem; }
+            .tap-card .emoji { font-size: 1.3rem; }
+            .tap-card .name { font-size: 0.78rem; }
+            .earnings-grid { grid-template-columns: 1fr; gap: 0.6rem; }
+            .coach-container { max-width: 100%; }
+            .coach-card { padding: 1.8rem 1.3rem; }
+            .coach-text { font-size: 1.05rem; }
+            .ask-input-wrap { flex-direction: column; }
+            .ask-input-wrap button { padding: 0.8rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<!-- SECTION 1: HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">How much can you <span>earn</span> donating plasma?</h1>
+        <p class="hero-sub">Tell us about yourself</p>
+    </div>
+
+    <!-- Donor Status -->
+    <div class="fade-in" style="transition-delay:0.1s; text-align:center; max-width:680px; width:100%;">
+        <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.8rem;">Have you donated before?</p>
+        <div class="card-grid" style="grid-template-columns: repeat(2, 1fr); max-width:340px; margin:0 auto;">
+            <div class="tap-card" data-group="donor" data-value="new">
+                <span class="emoji">&#127381;</span>
+                <span class="name">First time</span>
+                <span class="detail">Higher initial pay</span>
+            </div>
+            <div class="tap-card" data-group="donor" data-value="returning">
+                <span class="emoji">&#128260;</span>
+                <span class="name">Returning donor</span>
+                <span class="detail">Regular rates</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Static example for SEO -->
+    <div class="static-example" id="staticExample">
+        <p>A <span class="hl">new donor</span> weighing <span class="hl">175+ lbs</span> donating <span class="hl">twice per week</span> can earn <span class="hl">$520-$900+ per month</span> including first-month bonuses. Regular donors typically earn <span class="hl">$260-$650/month</span>.</p>
+    </div>
+</section>
+
+<!-- SECTION 2: DETAILS -->
+<section class="section bg-2" id="details-section">
+    <div class="fade-in">
+        <h2 class="section-title">How often will you donate?</h2>
+
+        <!-- Frequency -->
+        <div style="text-align:center; max-width:680px; width:100%; margin-bottom:2rem;">
+            <div class="card-grid card-grid-3" style="max-width:480px; margin:0 auto;">
+                <div class="tap-card" data-group="frequency" data-value="1">
+                    <span class="emoji">1x</span>
+                    <span class="name">Once a week</span>
+                    <span class="detail">~4/month</span>
+                </div>
+                <div class="tap-card selected" data-group="frequency" data-value="2">
+                    <span class="emoji">2x</span>
+                    <span class="name">Twice a week</span>
+                    <span class="detail">Max allowed</span>
+                </div>
+                <div class="tap-card" data-group="frequency" data-value="0.375">
+                    <span class="emoji">1-2x</span>
+                    <span class="name">Per month</span>
+                    <span class="detail">Casual</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weight -->
+        <div style="text-align:center; max-width:680px; width:100%; margin-bottom:2rem;">
+            <p style="color:var(--text-dim); font-size:0.85rem; margin-bottom:0.8rem;">Your weight range</p>
+            <div class="card-grid card-grid-3" style="max-width:480px; margin:0 auto;">
+                <div class="tap-card" data-group="weight" data-value="light">
+                    <span class="emoji">&#9878;&#65039;</span>
+                    <span class="name">110-149 lbs</span>
+                    <span class="detail">Standard volume</span>
+                </div>
+                <div class="tap-card" data-group="weight" data-value="medium">
+                    <span class="emoji">&#9878;&#65039;</span>
+                    <span class="name">150-174 lbs</span>
+                    <span class="detail">Standard volume</span>
+                </div>
+                <div class="tap-card" data-group="weight" data-value="heavy">
+                    <span class="emoji">&#11014;&#65039;</span>
+                    <span class="name">175+ lbs</span>
+                    <span class="detail">Higher pay</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- State -->
+        <div class="input-group">
+            <label>Your state</label>
+            <select id="stateSelect">
+                <option value="">Select state...</option>
+                <option value="high">CA, NY, NJ, MA, WA, CT</option>
+                <option value="mid-high">TX, FL, IL, PA, CO, AZ, VA</option>
+                <option value="mid">OH, GA, NC, MI, TN, MO, IN, MN, WI, OR</option>
+                <option value="mid-low">AL, AR, IA, KS, KY, LA, MS, NE, NM, OK, SC, UT</option>
+                <option value="low">AK, HI, ID, ME, MT, ND, NH, SD, VT, WV, WY</option>
+            </select>
+        </div>
+
+        <!-- Travel Cost -->
+        <div class="input-group" style="margin-top:1.2rem;">
+            <label>Round-trip travel cost (optional)</label>
+            <input type="number" id="travelCost" placeholder="e.g. 5" min="0" max="100" step="1">
+        </div>
+
+        <div style="text-align:center;">
+            <button class="calc-btn" id="calcBtn">Calculate my earnings</button>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 3: RESULT -->
+<section class="section bg-3 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">$0</div>
+        <div class="result-unit">estimated per month</div>
+        <div class="result-label" id="resultLabel"></div>
+
+        <div class="earnings-grid" id="earningsGrid">
+            <div class="earnings-card">
+                <div class="period">Per visit</div>
+                <div class="amount" id="perVisit">$0</div>
+                <div class="note" id="perVisitNote"></div>
+            </div>
+            <div class="earnings-card">
+                <div class="period">Weekly</div>
+                <div class="amount" id="weekly">$0</div>
+                <div class="note" id="weeklyNote"></div>
+            </div>
+            <div class="earnings-card">
+                <div class="period">Yearly</div>
+                <div class="amount" id="yearly">$0</div>
+                <div class="note" id="yearlyNote"></div>
+            </div>
+        </div>
+
+        <div class="hourly-rate">
+            <div class="hourly-label">Your effective hourly rate</div>
+            <div class="hourly-value" id="hourlyRate">$0/hr</div>
+            <p class="hourly-note" id="hourlyNote">Based on average appointment time of 75 minutes for return visits.</p>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION 4: PERSONAL COACH -->
+<section class="section bg-4 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Here's your game plan</h2>
+
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+            </a>
+            <a class="share-btn telegram" id="shareTelegram" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Telegram
+            </a>
+            <button class="share-btn copy" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy
+            </button>
+        </div>
+
+        <div class="coach-cta">
+            <p class="coach-cta-text">Want to maximize your earnings?</p>
+            <a class="coach-cta-link" href="#ask-section">
+                <span class="pulse-dot"></span>
+                Ask Pulse
+            </a>
+        </div>
+
+        <div class="breakdown-toggle">
+            <button class="breakdown-toggle-btn" id="breakdownToggle">Show earnings breakdown</button>
+        </div>
+        <div class="breakdown-detail" id="breakdownDetail"></div>
+    </div>
+</section>
+
+<!-- SEO SECTION: Disclaimer -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        <div class="medical-disclaimer">
+            <p><strong>Earnings estimates only.</strong> Actual plasma donation compensation varies by center, location, promotional offers, and individual eligibility. This calculator provides educational estimates based on publicly available data from major plasma collection centers. Always confirm current rates with your local center.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEO SECTION: FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    How much does plasma donation pay?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Plasma donation typically pays $30-75 per visit for regular donors and $50-100+ for new donors during promotional periods. Pay depends on your weight, location, and the donation center. Heavier donors (175+ lbs) earn more because they can safely donate a larger volume.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    How often can you donate plasma?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The FDA allows up to two plasma donations within a 7-day period, with at least one day between sessions. That works out to a maximum of about 104 donations per year.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    How much can you make donating plasma per month?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Donating twice a week, regular donors can earn $260-650 per month depending on location and weight. New donors often earn more during the first month due to bonus programs, sometimes $500-1,000+.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Do heavier people get paid more for plasma?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Donors over 175 lbs can safely donate a larger volume of plasma and typically receive $5-15 more per donation compared to lighter donors.</p>
+                </div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    Is donating plasma worth the time?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>At typical rates, plasma donation pays an effective $20-50 per hour when factoring in appointment time. First visits take 2-3 hours, but return visits average 45-90 minutes. Whether it is worth it depends on your alternative earning options.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- SEO SECTION: Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>U.S. Food and Drug Administration. 21 CFR Part 640, Subpart G &mdash; Additional Standards for Source Plasma. <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-F/part-640/subpart-G" target="_blank" rel="noopener">eCFR</a></li>
+            <li>Plasma Protein Therapeutics Association (PPTA). Donating Plasma FAQ. <a href="https://www.donatingplasma.org/" target="_blank" rel="noopener">DonatingPlasma.org</a></li>
+            <li>American Red Cross. Plasma Donation Eligibility Requirements. <a href="https://www.redcrossblood.org/donate-blood/how-to-donate/types-of-blood-donations/plasma-donation.html" target="_blank" rel="noopener">RedCrossBlood.org</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- SEO SECTION: Methodology -->
+<div class="seo-section bg-1" id="methodology-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text">
+            <p>This calculator estimates plasma donation earnings using publicly available compensation data from major plasma collection centers (BioLife, CSL Plasma, Grifols, Octapharma) as of early 2026.</p>
+            <p style="margin-top: 1rem;">Compensation is calculated using: <code>Net Earnings = (Base Rate + Weight Bonus + New Donor Bonus) &times; Donations per Period &minus; Travel Costs</code></p>
+            <p style="margin-top: 1rem;">Base rates are adjusted by geographic region (cost-of-living factor), donor weight category (175+ lbs qualifies for higher volume collection and higher pay), and new donor promotional bonuses (typically the first 6-8 donations). The effective hourly rate divides net earnings per visit by average appointment duration (75 minutes for return visits, 150 minutes for first visits).</p>
+            <p style="margin-top: 1rem;">Actual compensation varies significantly between individual donation centers, promotional periods, and market conditions. The estimates represent typical ranges rather than guaranteed rates.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEO SECTION: LLM Answer Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner">
+        <div class="llm-capsule">
+            <p>Plasma donation pays $30-75 per visit for regular donors and $50-100+ for new donors. The FDA allows up to two donations per week with at least one day between sessions. Heavier donors (175+ lbs) earn more because they donate a larger volume of plasma. Donating twice weekly, a regular donor can earn approximately $260-650 per month, or $3,100-7,800 per year. New donor bonuses can add $200-1,000+ in the first month. The effective hourly rate works out to roughly $20-50/hour based on a 75-minute average return visit. Pay varies by location, with California, New York, and Texas generally paying the most.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SECTION 5: ASK PULSE -->
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap">
+            <input type="text" id="askInput" placeholder="e.g. Which center pays the most near me?">
+            <button id="askBtn">Ask</button>
+        </div>
+        <div class="ask-pills">
+            <span class="ask-pill">Best center near me</span>
+            <span class="ask-pill">New donor bonuses</span>
+            <span class="ask-pill">Tips to earn more</span>
+            <span class="ask-pill">Side effects</span>
+        </div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--teal); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script>
+// Compensation data
+const RATES = {
+    base: { new: { min: 50, max: 75 }, returning: { min: 30, max: 55 } },
+    newBonus: 25, // extra per visit for first ~8 donations
+    weightBonus: { light: 0, medium: 0, heavy: 10 },
+    regionMod: { high: 1.25, 'mid-high': 1.1, mid: 1.0, 'mid-low': 0.9, low: 0.85 },
+    avgTime: { new: 150, returning: 75 } // minutes per visit
+};
+
+let selections = { donor: null, frequency: '2', weight: null };
+
+// Card selection logic
+document.querySelectorAll('.tap-card[data-group]').forEach(card => {
+    card.addEventListener('click', function() {
+        const group = this.dataset.group;
+        const value = this.dataset.value;
+        document.querySelectorAll(`.tap-card[data-group="${group}"]`).forEach(c => c.classList.remove('selected'));
+        this.classList.add('selected');
+        selections[group] = value;
+
+        // Auto-scroll to next section after donor selection
+        if (group === 'donor') {
+            setTimeout(() => {
+                document.getElementById('details-section').scrollIntoView({ behavior: 'smooth' });
+            }, 350);
+        }
+    });
+});
+
+// Set default frequency
+selections.frequency = '2';
+
+document.getElementById('calcBtn').addEventListener('click', calculate);
+
+function calculate() {
+    const donor = selections.donor;
+    const freq = parseFloat(selections.frequency);
+    const weight = selections.weight;
+    const region = document.getElementById('stateSelect').value;
+    const travelCost = parseFloat(document.getElementById('travelCost').value) || 0;
+
+    if (!donor || !weight || !region) {
+        // Highlight what's missing
+        if (!donor) document.querySelectorAll('.tap-card[data-group="donor"]').forEach(c => { c.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(() => c.style.borderColor = '', 1500); });
+        if (!weight) document.querySelectorAll('.tap-card[data-group="weight"]').forEach(c => { c.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(() => c.style.borderColor = '', 1500); });
+        if (!region) { const s = document.getElementById('stateSelect'); s.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(() => s.style.borderColor = '', 1500); }
+        return;
+    }
+
+    // Hide the static example
+    const staticEx = document.getElementById('staticExample');
+    if (staticEx) staticEx.style.display = 'none';
+
+    const isNew = donor === 'new';
+    const base = isNew ? RATES.base.new : RATES.base.returning;
+    const regionMod = RATES.regionMod[region] || 1;
+    const wBonus = RATES.weightBonus[weight] || 0;
+    const nBonus = isNew ? RATES.newBonus : 0;
+
+    const minPerVisit = Math.round((base.min + wBonus + nBonus) * regionMod);
+    const maxPerVisit = Math.round((base.max + wBonus + nBonus) * regionMod);
+    const avgPerVisit = Math.round((minPerVisit + maxPerVisit) / 2);
+
+    const netPerVisit = avgPerVisit - travelCost;
+    const weeklyDonations = freq;
+    const monthlyDonations = freq * 4.33;
+    const yearlyDonations = freq * 52;
+
+    const monthlyMin = Math.round(minPerVisit * monthlyDonations - travelCost * monthlyDonations);
+    const monthlyMax = Math.round(maxPerVisit * monthlyDonations - travelCost * monthlyDonations);
+    const monthlyAvg = Math.round((monthlyMin + monthlyMax) / 2);
+
+    const weeklyMin = Math.round(minPerVisit * weeklyDonations - travelCost * weeklyDonations);
+    const weeklyMax = Math.round(maxPerVisit * weeklyDonations - travelCost * weeklyDonations);
+
+    const yearlyMin = Math.round(minPerVisit * yearlyDonations - travelCost * yearlyDonations);
+    const yearlyMax = Math.round(maxPerVisit * yearlyDonations - travelCost * yearlyDonations);
+
+    const visitTime = isNew ? RATES.avgTime.new : RATES.avgTime.returning;
+    const hourlyRate = Math.round((netPerVisit / visitTime) * 60);
+
+    // Update result section
+    document.getElementById('resultNumber').textContent = `$${monthlyMin}-$${monthlyMax}`;
+    document.getElementById('resultLabel').textContent = travelCost > 0 ? 'After travel costs' : 'Before travel costs';
+
+    document.getElementById('perVisit').textContent = `$${minPerVisit}-$${maxPerVisit}`;
+    document.getElementById('perVisitNote').textContent = travelCost > 0 ? `Net: $${minPerVisit - travelCost}-$${maxPerVisit - travelCost}` : '';
+
+    document.getElementById('weekly').textContent = `$${weeklyMin}-$${weeklyMax}`;
+    document.getElementById('weeklyNote').textContent = `${weeklyDonations}x per week`;
+
+    document.getElementById('yearly').textContent = `$${yearlyMin.toLocaleString()}-$${yearlyMax.toLocaleString()}`;
+    document.getElementById('yearlyNote').textContent = `${Math.round(yearlyDonations)} donations`;
+
+    document.getElementById('hourlyRate').textContent = `$${hourlyRate}/hr`;
+    document.getElementById('hourlyNote').textContent = isNew
+        ? 'Based on ~2.5 hour first visit. Return visits average ~75 min, increasing your effective rate.'
+        : 'Based on average 75-minute return visit including check-in and recovery.';
+
+    // Build coach card
+    const freqLabel = freq >= 2 ? 'twice a week' : freq >= 1 ? 'once a week' : '1-2 times a month';
+    const monthLabel = monthlyAvg >= 600 ? "That's solid side income" : monthlyAvg >= 350 ? "That covers a car payment or groceries" : "Every bit adds up";
+
+    const coachCard = document.getElementById('coachCard');
+    coachCard.innerHTML = `
+        <div class="coach-text">
+            Donating <span class="teal">${freqLabel}</span> as a <span class="teal">${isNew ? 'new' : 'returning'} donor</span>,<br>
+            you're looking at <span class="hl">$${monthlyMin}-$${monthlyMax}/month</span>.
+
+            <div class="coach-rule">${monthLabel}.</div>
+
+            <div class="coach-advice">
+                <em>Maximize your earnings:</em><br>
+                ${isNew ? 'Complete all 8 initial donations to capture the full new-donor bonus.<br>' : ''}
+                Drink 8-12 glasses of water the day before &mdash; <em>faster flow = faster visits</em>.<br>
+                ${weight === 'heavy' ? 'Your weight qualifies you for higher-volume collection &mdash; that is extra money every visit.<br>' : ''}
+                ${travelCost > 0 ? `Travel costs you <em>$${Math.round(travelCost * monthlyDonations)}/month</em>. Carpooling or biking saves that.` : 'Track your travel costs to know your true net earnings.'}
+            </div>
+        </div>
+    `;
+
+    // Share text
+    const shareText = `I calculated my plasma donation earnings:\n\n${freqLabel}: $${monthlyMin}-$${monthlyMax}/month\nEffective rate: $${hourlyRate}/hr\n\nTry it: healthcalculators.xyz/plasma-donation-earnings-calculator`;
+
+    document.getElementById('shareRow').style.display = 'flex';
+    document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTwitter').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTelegram').href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz/plasma-donation-earnings-calculator') + '&text=' + encodeURIComponent(shareText);
+    window._shareText = shareText;
+
+    // Breakdown detail
+    const bd = document.getElementById('breakdownDetail');
+    bd.innerHTML = `
+        <div class="breakdown-row"><span class="label">Base rate per visit</span><span class="value">$${base.min}-$${base.max}</span></div>
+        ${wBonus > 0 ? `<div class="breakdown-row"><span class="label">Weight bonus (175+ lbs)</span><span class="value bonus">+$${wBonus}</span></div>` : ''}
+        ${nBonus > 0 ? `<div class="breakdown-row"><span class="label">New donor bonus</span><span class="value bonus">+$${nBonus}</span></div>` : ''}
+        <div class="breakdown-row"><span class="label">Region modifier</span><span class="value">${regionMod}x</span></div>
+        ${travelCost > 0 ? `<div class="breakdown-row"><span class="label">Travel cost per visit</span><span class="value" style="color:var(--bad)">-$${travelCost}</span></div>` : ''}
+        <div class="breakdown-row"><span class="label">Adjusted per visit</span><span class="value">$${minPerVisit}-$${maxPerVisit}</span></div>
+        <div class="breakdown-row"><span class="label">Donations per week</span><span class="value">${weeklyDonations}</span></div>
+        <div class="breakdown-row"><span class="label">Avg visit time</span><span class="value">${visitTime} min</span></div>
+    `;
+
+    // Show sections
+    document.querySelectorAll('.hidden-section').forEach(el => el.classList.remove('hidden-section'));
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, 100);
+
+    // Track
+    if (typeof hcTrackEvent === 'function') {
+        hcTrackEvent('calculator_complete', {
+            calculator_name: 'Plasma Donation Earnings Calculator',
+            page_path: '/plasma-donation-earnings-calculator'
+        });
+    }
+}
+
+document.getElementById('copyBtn').addEventListener('click', function() {
+    if (!window._shareText) return;
+    navigator.clipboard.writeText(window._shareText).then(() => {
+        this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+        this.classList.add('copied');
+        setTimeout(() => {
+            this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+            this.classList.remove('copied');
+        }, 2000);
+    }).catch(() => {});
+});
+
+document.getElementById('breakdownToggle').addEventListener('click', function() {
+    const detail = document.getElementById('breakdownDetail');
+    detail.classList.toggle('show');
+    this.textContent = detail.classList.contains('show') ? 'Hide earnings breakdown' : 'Show earnings breakdown';
+});
+
+document.getElementById('askBtn').addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+        document.getElementById('askInput').value = this.textContent;
+    });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
