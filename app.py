@@ -1677,17 +1677,12 @@ def vitamin_d_intake_calculator():
 
 @app.route('/vitamin-d-conversion-calculator')
 def vitamin_d_conversion_calculator():
-    schema_name = "Vitamin D Conversion Calculator"
-    schema_description = "Convert vitamin D levels between ng/mL and nmol/L instantly. A simple tool to help interpret lab results, supplement labels, and international medical guidelines."
-    schema_url = "/vitamin-d-conversion-calculator"
     return render_template(
-        'vitamin_d_conversion_calculator.html',
+        'vitamin_d_conversion_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        breadcrumb_title='Vitamin D Conversion Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/a1c-calculator')
