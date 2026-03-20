@@ -1,0 +1,28 @@
+name: Warm Ping — Prevent Render Cold Starts
+
+on:
+  schedule:
+    - cron: '*/14 * * * *'  # Every 14 minutes (Render sleeps after 15 min inactivity)
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Ping homepage
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://healthcalculators.xyz/)
+          echo "Homepage: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "::error::Homepage returned $STATUS"
+            exit 1
+          fi
+
+      - name: Ping sitemap
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://healthcalculators.xyz/sitemap.xml)
+          echo "Sitemap: $STATUS"
+          if [ "$STATUS" != "200" ]; then
+            echo "::error::Sitemap returned $STATUS"
+            exit 1
+          fi
