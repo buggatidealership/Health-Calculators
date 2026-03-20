@@ -2840,7 +2840,7 @@ def starbucks_nutrition_calculator():
     schema_description = "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and seasonal items."
     schema_url = "/starbucks-nutrition-calculator"
     return render_template(
-        'starbucks_nutrition_calculator.html', 
+        'starbucks_nutrition_calculator_v3.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
