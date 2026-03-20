@@ -1453,17 +1453,12 @@ def tdee_calculator():
 
 @app.route('/sleep-calculator')
 def sleep_calculator():
-    schema_name = "Sleep Calculator"
-    schema_description = "Calculate the best time to go to bed or wake up based on 90-minute sleep cycles. Wake up feeling refreshed by timing your sleep to complete full cycles."
-    schema_url = "/sleep-calculator"
     return render_template(
-        'sleep_calculator.html',
+        'sleep_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        schema_type='WebPage'
+        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+        breadcrumb_title='Sleep Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/calories-burned-calculator')
@@ -1514,18 +1509,12 @@ def protein_intake_calculator():
 
 @app.route('/water-intake-calculator')
 def water_intake_calculator():
-    schema_name = "Water Intake Calculator"
-    schema_description = "Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations backed by IOM guidelines."
-    schema_url = "/water-intake-calculator"
     return render_template(
-        'water_intake_calculator.html',
+        'water_intake_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='WebPage'
+        breadcrumb_title='Water Intake Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/caloric-intake-macronutrient-calculator')
@@ -1709,18 +1698,12 @@ def carb_cycling_calculator():
 
 @app.route('/keto-calculator')
 def keto_calculator():
-    schema_name = "Keto Macro Calculator"
-    schema_description = "Calculate your personalized ketogenic diet macros for fat, protein, and carbs. Supports standard, modified, and high-protein keto approaches."
-    schema_url = "/keto-calculator"
     return render_template(
-        'keto_calculator.html',
+        'keto_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='WebPage'
+        breadcrumb_title='Keto Macro Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/retirement-savings-calculator')
@@ -1772,18 +1755,12 @@ def fasting_weight_loss_calculator():
 
 @app.route('/intermittent-fasting-calculator')
 def intermittent_fasting_calculator():
-    schema_name = "Intermittent Fasting Schedule Calculator"
-    schema_description = "Plan your personalized intermittent fasting schedule based on wake time, bedtime, and fasting protocol. Get a visual daily timeline showing exactly when to eat and fast."
-    schema_url = "/intermittent-fasting-calculator"
     return render_template(
-        'intermittent_fasting_calculator.html',
+        'intermittent_fasting_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='WebPage'
+        breadcrumb_title='Intermittent Fasting Calculator',
+        robots_meta='index, follow'
     )
 @app.route('/ozempic-pen-click-calculator')
 def ozempic_pen_click_calculator():
@@ -2777,7 +2754,7 @@ def dog_pregnancy_due_date_calculator():
     schema_description = "Estimate your dog's due date based on mating date. Based on average canine pregnancy length (63 days) with breed-specific adjustments."
     schema_url = "/dog-pregnancy-due-date-calculator"
     return render_template(
-        'dog_pregnancy_due_date_calculator.html',
+        'dog_pregnancy_due_date_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
