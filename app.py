@@ -2221,7 +2221,7 @@ def metabolic_age_calculator():
     schema_description = "Calculate your metabolic age by comparing your BMR to population averages. Find out if your metabolism is younger or older than your actual age using Mifflin-St Jeor and Katch-McArdle formulas."
     schema_url = "/metabolic-age-calculator"
     return render_template(
-        'metabolic_age_calculator.html',
+        'metabolic_age_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
