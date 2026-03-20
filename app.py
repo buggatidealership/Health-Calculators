@@ -1534,7 +1534,7 @@ def caloric_macronutrient_calculator():
     schema_description = "Calculate your daily caloric needs and macronutrient breakdown with our free, science-based calculator. Personalize for weight loss, maintenance, or muscle gain."
     schema_url = "/caloric-intake-macronutrient-calculator"
     return render_template(
-        'caloric_macronutrient_calculator.html', 
+        'caloric_macro_v25.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1550,7 +1550,7 @@ def botox_calculator():
     schema_description = "Determine the appropriate Botox units for different treatment areas with our free calculator. Get personalized dosage estimates based on treatment intensity."
     schema_url = "/botox-dosage-calculator"
     return render_template(
-        'botox_calculator.html', 
+        'botox_v25.html', 
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1565,7 +1565,7 @@ def lifespan_calculator():
     schema_description = "Estimate your life expectancy based on health and lifestyle factors with our evidence-based longevity calculator. Get personalized insights into how your habits affect your lifespan."
     schema_url = "/lifespan-longevity-calculator"
     return render_template(
-        'lifespan_calculator.html',
+        'lifespan_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1612,7 +1612,7 @@ def breast_implant_size_calculator():
     schema_description = "Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate by region."
     schema_url = "/breast-implant-size-calculator"
     return render_template(
-        'breast_implant_size_calculator.html',
+        'breast_implant_size_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -1627,7 +1627,7 @@ def breast_implant_cost_calculator():
     schema_description = "Estimate your total breast augmentation cost based on implant type, region, and anesthesia. Includes surgeon fees, facility costs, and material."
     schema_url = "/breast-implant-cost-calculator"
     return render_template(
-        'breast_implant_cost_calculator.html',
+        'breast_implant_cost_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2723,7 +2723,7 @@ def liposuction_weight_loss_calculator():
     schema_description = "Calculate how much fat and weight you might lose with liposuction, and what it may cost based on body areas and region."
     schema_url = "/liposuction-weight-loss-calculator"
     return render_template(
-        'liposuction_weight_loss_calculator.html',
+        'liposuction_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -2910,7 +2910,7 @@ def army_body_fat_calculator():
     schema_description = "Estimate your body fat percentage using U.S. Army tape test standards. Based on gender, age, height, neck, and waist measurements."
     schema_url = "/army-body-fat-calculator"
     return render_template(
-        'army_body_fat_calculator.html',
+        'army_body_fat_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
@@ -5553,7 +5553,7 @@ def heart_age_calculator():
     schema_description = "Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study. Find out if your heart is older or younger than you and get actionable tips to lower your heart age."
     schema_url = "/heart-age-calculator"
     return render_template(
-        'heart_age_calculator.html',
+        'heart_age_v25.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,

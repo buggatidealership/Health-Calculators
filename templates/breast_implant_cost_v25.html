@@ -1,0 +1,185 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Breast Implant Cost Calculator — Price by Region",
+        meta_description="Estimate your total breast augmentation cost based on implant type, region, and anesthesia. Includes surgeon fees, facility costs, and material.",
+        og_title="Breast Implant Cost Estimator",
+        og_description="See a breakdown of breast implant costs by location, implant type, and surgeon experience.",
+        og_url="/breast-implant-cost-calculator",
+        canonical_url="/breast-implant-cost-calculator",
+        schema_type="WebPage",
+        schema_name="Breast Implant Cost Calculator",
+        schema_description="Estimate total breast augmentation cost by implant type, region, and surgeon experience.",
+        schema_url="/breast-implant-cost-calculator",
+        schema_about="Breast Implant Cost Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{{"@type":"Question","name":"How much do breast implants cost?","acceptedAnswer":{{"@type":"Answer","text":"In the US, total cost typically ranges from $5,000 to $10,000. This includes surgeon fee ($2,500-$4,500), anesthesia ($600-$1,000), facility ($800-$1,200), and implants ($1,000-$3,000)."}}}},{{"@type":"Question","name":"Does insurance cover breast implants?","acceptedAnswer":{{"@type":"Answer","text":"Cosmetic augmentation is almost never covered. Reconstructive surgery post-mastectomy is covered under the Women's Health and Cancer Rights Act of 1998."}}}},{{"@type":"Question","name":"Are silicone implants more expensive than saline?","acceptedAnswer":{{"@type":"Answer","text":"Yes. Saline implants cost $1,000-$1,500 per pair. Standard silicone: $2,000-$2,500. Gummy bear: $2,500-$3,000. Structured: $2,500-$3,500."}}}},{{"@type":"Question","name":"What factors affect breast implant costs?","acceptedAnswer":{{"@type":"Answer","text":"Geographic location, surgeon experience, implant type and brand, procedure complexity, anesthesia type, and facility type all affect the total price."}}}},{{"@type":"Question","name":"Is medical tourism for breast implants safe?","acceptedAnswer":{{"@type":"Answer","text":"It can offer 40-70% savings but carries risks: difficulty verifying credentials, language barriers, limited follow-up, and complications requiring local treatment after return."}}}}]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/static/css/v25-dark.css">
+    <style>:root { --accent: #f472b6; --accent-rgb: 244,114,182; }
+
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<\!-- HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">How much will <span>implants</span> cost?</h1>
+        <p class="hero-sub">Personalized estimate by country, implant type, and surgeon</p>
+    </div>
+    <div class="form-card fade-in" style="transition-delay:0.15s;">
+
+        <div class="form-group"><label for="country">Country</label>
+            <select id="country"><option value="">Select country</option><option value="us">United States</option><option value="uk">United Kingdom</option><option value="canada">Canada</option><option value="australia">Australia</option><option value="brazil">Brazil</option><option value="mexico">Mexico</option><option value="korea">South Korea</option><option value="thailand">Thailand</option></select></div>
+        <div class="form-group"><label for="city-tier">Location Type</label>
+            <select id="city-tier"><option value="">Select</option><option value="major">Major Metro</option><option value="mid">Mid-sized City</option><option value="small">Smaller City</option></select></div>
+        <div class="form-group"><label for="implant-type">Implant Type</label>
+            <select id="implant-type"><option value="">Select type</option><option value="saline">Saline</option><option value="silicone">Standard Silicone</option><option value="gummy">Gummy Bear (Cohesive Gel)</option><option value="structured">Structured (IDEAL)</option><option value="anatomical">Anatomical (Teardrop)</option></select></div>
+        <div class="form-group"><label for="surgeon-tier">Surgeon Experience</label>
+            <select id="surgeon-tier"><option value="">Select</option><option value="top">Top Specialist (Premium)</option><option value="board">Board Certified (Standard)</option><option value="less">Less Experienced</option></select></div>
+        <button class="calc-btn" id="calcBtn" onclick="calcCost()">Calculate Cost</button>
+    </div>
+</section>
+
+<\!-- RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">--</div>
+        <div class="result-unit" id="resultUnit">estimated total cost</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+        <div class="detail-grid" id="detailGrid">
+            <div class="detail-card"><div class="d-val" id="dCountry">--</div><div class="d-lbl">Country</div></div>
+            <div class="detail-card"><div class="d-val" id="dType">--</div><div class="d-lbl">Implant Type</div></div>
+            <div class="detail-card"><div class="d-val" id="dSurgeon">--</div><div class="d-lbl">Surgeon Level</div></div></div>
+    </div>
+</section>
+
+<\!-- COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Your cost breakdown</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</a>
+            <button class="share-btn copy" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+        </div>
+
+        <div class="coach-cta"><p class="coach-cta-text">Want more insights?</p><a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a></div>
+    </div>
+</section>
+
+<\!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<\!-- FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How much do breast implants cost?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>In the US, total cost typically ranges from $5,000 to $10,000. This includes surgeon fee ($2,500-$4,500), anesthesia ($600-$1,000), facility ($800-$1,200), and implants ($1,000-$3,000).</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Does insurance cover breast implants?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Cosmetic augmentation is almost never covered. Reconstructive surgery post-mastectomy is covered under the Women's Health and Cancer Rights Act of 1998.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Are silicone implants more expensive than saline?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Yes. Saline implants cost $1,000-$1,500 per pair. Standard silicone: $2,000-$2,500. Gummy bear: $2,500-$3,000. Structured: $2,500-$3,500.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What factors affect breast implant costs?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Geographic location, surgeon experience, implant type and brand, procedure complexity, anesthesia type, and facility type all affect the total price.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Is medical tourism for breast implants safe?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>It can offer 40-70% savings but carries risks: difficulty verifying credentials, language barriers, limited follow-up, and complications requiring local treatment after return.</p></div></li>
+        </ul>
+    </div>
+</div>
+
+<\!-- Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>ASPS. 2024 Plastic Surgery Statistics Report. <a href="https://www.plasticsurgery.org/news/plastic-surgery-statistics" target="_blank" rel="noopener">Link</a></li>
+            <li>U.S. FDA. Breast Implants -- Certain Labeling Recommendations. <a href="https://www.fda.gov/medical-devices/breast-implants/breast-implant-certain-labeling-recommendations" target="_blank" rel="noopener">Link</a></li>
+            <li>Alderman AK, et al. Understanding breast augmentation effect on quality of life. Plast Reconstr Surg. 2014;133(4):787-795. <a href="https://pubmed.ncbi.nlm.nih.gov/24675183/" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+    </div>
+</div>
+
+<\!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>This calculator estimates total breast augmentation cost by combining a country-specific base cost with multiplicative factors for city tier, surgeon experience level, and implant type. Base costs and multiplier ranges are derived from the ASPS 2024 statistics and aggregated international pricing data. A +/-7% range reflects real-world price variability. The estimate includes surgeon fees, implant costs, and standard facility fees but excludes anesthesia, medical tests, and post-surgical garments.</p></div>
+    </div>
+</div>
+
+<\!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>Breast augmentation in the United States costs between $5,000 and $10,000 on average. The surgeon fee averages $4,294 according to ASPS 2024 statistics. Silicone implants cost $1,000-$1,500 more than saline. Costs are highest in major metros (NYC, LA, SF) and lowest in smaller cities. International options like Thailand and Mexico can be 40-60% less expensive.</p></div></div>
+</div>
+
+<\!-- Ask Pulse -->
+
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap"><input type="text" id="askInput" placeholder="e.g. Are silicone implants worth the extra cost?"><button id="askBtn">Ask</button></div>
+        <div class="ask-pills"><span class="ask-pill">Saline vs silicone</span><span class="ask-pill">Insurance coverage</span><span class="ask-pill">Payment plans</span><span class="ask-pill">Recovery cost</span></div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script src="/static/js/v25-shared.js" defer></script>
+<script>
+
+var costBases = {us:6500, uk:5500, canada:8500, australia:10000, brazil:4000, mexico:4500, korea:7000, thailand:4000};
+var cityMult = {major:1.3, mid:1.0, small:0.85};
+var surgeonMult = {top:1.4, board:1.0, less:0.8};
+var typeMult = {saline:0.9, silicone:1.0, gummy:1.2, structured:1.25, anatomical:1.15};
+var symbols = {us:'$', uk:'\u00a3', canada:'CA$', australia:'A$', brazil:'$', mexico:'$', korea:'$', thailand:'$'};
+
+function calcCost() {
+    var country = document.getElementById('country').value;
+    var city = document.getElementById('city-tier').value;
+    var type = document.getElementById('implant-type').value;
+    var surgeon = document.getElementById('surgeon-tier').value;
+    if (\!country || \!city || \!type || \!surgeon) { alert('Please fill all fields.'); return; }
+
+    var base = costBases[country] || 6500;
+    var cost = base * (cityMult[city]||1) * (surgeonMult[surgeon]||1) * (typeMult[type]||1);
+    var low = Math.round(cost * 0.93 / 100) * 100;
+    var high = Math.round(cost * 1.07 / 100) * 100;
+    var sym = symbols[country] || '$';
+
+    document.getElementById('resultNumber').textContent = sym + low.toLocaleString() + ' - ' + sym + high.toLocaleString();
+    document.getElementById('resultNumber').style.fontSize = 'clamp(2rem, 6vw, 4rem)';
+    document.getElementById('resultUnit').textContent = 'estimated total cost range';
+    document.getElementById('dCountry').textContent = country.toUpperCase();
+    document.getElementById('dType').textContent = type;
+    document.getElementById('dSurgeon').textContent = surgeon;
+
+    document.getElementById('coachCard').innerHTML = '<div class="coach-text">For a <span class="hl">' + type + '</span> implant procedure in <span class="hl">' + country.toUpperCase() + '</span> with a <span class="hl">' + surgeon + '</span> surgeon:<div class="coach-rule">' + sym + low.toLocaleString() + ' - ' + sym + high.toLocaleString() + '</div><div class="coach-advice"><em>This includes:</em> surgeon fee, implant cost, and facility fees.<br><em>Not included:</em> anesthesia (10-15% extra), medical tests, garments, medications.</div></div>';
+
+    v25Share('Breast implant cost estimate: ' + sym + low.toLocaleString() + '-' + sym + high.toLocaleString() + ' for ' + type + ' in ' + country.toUpperCase() + '\n\nGet yours: healthcalculators.xyz/breast-implant-cost-calculator');
+    v25Reveal();
+    if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Breast Implant Cost Calculator', page_path: '/breast-implant-cost-calculator'});
+}
+</script>
+</body>
+</html>
