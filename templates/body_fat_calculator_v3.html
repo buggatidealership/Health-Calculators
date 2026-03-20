@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Body Fat Calculator — Navy Method Body Fat Percentage",
+        meta_description="Calculate your body fat percentage using the U.S. Navy method. Simple measurements of neck, waist, and hip circumference give accurate body composition estimates.",
+        og_title="Body Fat Calculator – Navy Method Body Fat Percentage",
+        og_description="Calculate your body fat percentage using the U.S. Navy method. Accurate body composition estimates from simple tape measurements.",
+        og_url="/body-fat-calculator",
+        canonical_url="/body-fat-calculator",
+        schema_type="MedicalWebPage",
+        schema_name="Body Fat Percentage Calculator",
+        schema_description="Calculate your body fat percentage using the U.S. Navy method (Hodgdon-Beckett equation). Uses neck, waist, and hip circumference measurements.",
+        schema_url="/body-fat-calculator",
+        schema_about="Body Fat Percentage Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <!-- FAQPage JSON-LD (server-side) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the U.S. Navy body fat method?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The U.S. Navy method estimates body fat percentage using circumference measurements of the neck, waist, and hips (for women), along with height. Developed by Hodgdon and Beckett in 1984 at the Naval Health Research Center."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How accurate is the Navy method compared to DEXA?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Navy method typically estimates body fat within 3-4 percentage points of DEXA scan results for most individuals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is a healthy body fat percentage?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "According to the ACE: Men - Essential 2-5%, Athletes 6-13%, Fitness 14-17%, Average 18-24%, Obese 25%+. Women - Essential 10-13%, Athletes 14-20%, Fitness 21-24%, Average 25-31%, Obese 32%+."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why is body fat percentage better than BMI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "BMI only considers height and weight and cannot distinguish between muscle and fat. Body fat percentage directly measures your fat-to-lean ratio, giving a more accurate picture of body composition."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where should I measure my waist for the Navy method?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Measure your waist at the navel (belly button) level. Stand relaxed, exhale normally without sucking in your stomach, and wrap the tape horizontally around your abdomen."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --good: #14b8a6;
+            --caution: #f59e0b;
+            --bad: #ef4444;
+            --accent: #14b8a6;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; }
+
+        /* Override header/footer/breadcrumb for dark theme */
+        .site-header { background: #0a0f1a !important; border-bottom: 1px solid rgba(20,184,166,0.1) !important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) !important; stroke: var(--text) !important; }
+        .site-header .logo-dot { color: var(--teal) !important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) !important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] {
+            background: #0a0f1a !important;
+            border-bottom: 1px solid rgba(20,184,166,0.06) !important;
+        }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content {
+            background: transparent !important;
+        }
+        body { background: #0a0f1a !important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) !important; }
+        .breadcrumb a:hover { color: var(--teal) !important; }
+        .nav-dropdown { background: #0d1420 !important; border-color: rgba(20,184,166,0.1) !important; }
+        .nav-dropdown-link { color: var(--text-dim) !important; }
+        .nav-dropdown-link:hover { color: var(--teal) !important; }
+        .nav-dropdown-title { color: var(--text-muted) !important; }
+        .page-layout { display: contents !important; }
+        .page-content { display: contents !important; }
+        .page-sidebar { display: none !important; }
+        main { display: contents; }
+
+        h1, h2, h3 { color: #ffffff !important; }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .section-content {
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-2 { background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%); }
+        .bg-3 { background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%); }
+        .bg-4 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        .bg-6 { background: #060a14; }
+
+        .fade-in {
+            opacity: 0; transform: translateY(24px);
+            transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+        }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+        .pulse-dot {
+            width: 10px; height: 10px; background: #22c55e; border-radius: 50%;
+            display: inline-block; animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+        }
+
+        .hero-title {
+            font-family: var(--font-display); font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center; margin-bottom: 0.5rem; color: #ffffff !important;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
+
+        /* Form styles */
+        .form-card {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px;
+            padding: 2.5rem 2rem; max-width: 520px; width: 100%; backdrop-filter: blur(10px);
+        }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+        .form-group { margin-bottom: 1rem; }
+        .form-group label { display: block; color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.4rem; font-weight: 500; }
+        .form-group input, .form-group select {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 10px;
+            color: var(--text); font-size: 1rem; padding: 0.7rem 1rem; font-family: var(--font-body); outline: none;
+        }
+        .form-group input:focus, .form-group select:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(20,184,166,0.1); }
+        .form-group select option { background: #0d1420; color: var(--text); }
+
+        .unit-toggle { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+        .unit-btn {
+            flex: 1; padding: 0.6rem; border: 1px solid var(--border); border-radius: 10px;
+            background: transparent; color: var(--text-dim); font-size: 0.85rem; cursor: pointer;
+            font-family: var(--font-body); transition: all 0.2s; width: auto !important; box-shadow: none !important;
+        }
+        .unit-btn::after { display: none !important; }
+        .unit-btn:hover { border-color: rgba(20,184,166,0.3); color: var(--text); }
+        .unit-btn.active { border-color: var(--teal); background: rgba(20,184,166,0.1); color: var(--teal); font-weight: 600; }
+
+        .calc-btn {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important; border-radius: 12px !important;
+            padding: 0.85rem 2.4rem !important; font-size: 1.05rem !important; font-weight: 700; cursor: pointer;
+            margin-top: 0.5rem; font-family: var(--font-body); transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .calc-btn::after { display: none !important; }
+        .calc-btn:hover { box-shadow: 0 6px 24px var(--teal-glow) !important; transform: translateY(-1px); }
+
+        .hidden-section { display: none; }
+
+        /* Result */
+        .result-number {
+            font-family: var(--font-display); font-size: clamp(5rem, 16vw, 10rem);
+            line-height: 1; text-align: center;
+        }
+        .result-unit { font-size: 1.1rem; color: var(--text-dim); text-align: center; margin-top: 0.5rem; }
+        .result-verdict { font-size: 1.2rem; text-align: center; margin-top: 1rem; font-weight: 600; }
+        .glow-good { color: var(--good); text-shadow: 0 0 40px var(--teal-glow); }
+        .glow-caution { color: var(--caution); text-shadow: 0 0 40px rgba(245, 158, 11, 0.25); }
+        .glow-bad { color: var(--bad); text-shadow: 0 0 40px rgba(239, 68, 68, 0.25); }
+
+        /* Gauge */
+        .gauge-wrap { max-width: 500px; width: 100%; margin: 2rem auto 0; }
+        .gauge-labels { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 4px; }
+        .gauge-track {
+            position: relative; height: 20px; border-radius: 10px; overflow: hidden;
+            background: linear-gradient(to right, #0891b2 0%, #16a34a 25%, #22c55e 45%, #d97706 70%, #dc2626 100%);
+        }
+        .gauge-marker {
+            position: absolute; top: -2px; width: 4px; height: 24px;
+            background: #fff; border-radius: 2px; transition: left 0.6s ease;
+        }
+
+        /* Breakdown */
+        .breakdown-row {
+            display: flex; justify-content: space-between; padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(20,184,166,0.08); font-size: 0.9rem;
+        }
+        .breakdown-label { color: var(--text-dim); }
+        .breakdown-value { color: var(--text); font-weight: 600; }
+
+        /* Coach card */
+        .coach-container { max-width: 520px; width: 100%; }
+        .coach-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.2rem); text-align: center; margin-bottom: 2.5rem; }
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15); border-radius: 20px; padding: 2.5rem 2rem; margin-bottom: 2rem;
+        }
+        .coach-text { font-size: 1.15rem; line-height: 2; color: var(--text); }
+        .coach-text .hl { color: var(--teal); font-weight: 700; }
+        .coach-text .dim { color: var(--text-dim); }
+        .coach-rule { font-family: var(--font-display); font-size: 1.5rem; color: var(--teal); margin: 1.5rem 0; text-shadow: 0 0 20px var(--teal-glow); }
+        .coach-advice { margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(20,184,166,0.1); font-size: 1.05rem; line-height: 1.9; color: var(--text-dim); }
+        .coach-advice em { color: var(--text); font-style: normal; font-weight: 500; }
+
+        /* Share buttons */
+        .share-row { display: flex; gap: 0.6rem; justify-content: center; margin-top: 1.5rem; flex-wrap: wrap; }
+        .share-btn {
+            display: inline-flex !important; align-items: center; gap: 0.45rem;
+            padding: 0.6rem 1.2rem !important; border-radius: 12px !important;
+            font-size: 0.82rem !important; font-weight: 600; font-family: var(--font-body);
+            cursor: pointer; transition: all 0.2s; text-decoration: none;
+            border: none !important; width: auto !important; box-shadow: none !important;
+        }
+        .share-btn::after { display: none !important; }
+        .share-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+        .share-btn.whatsapp { background: rgba(37,211,102,0.1); border: 1px solid rgba(37,211,102,0.25) !important; color: #25d366; }
+        .share-btn.whatsapp:hover { background: rgba(37,211,102,0.2); box-shadow: 0 4px 14px rgba(37,211,102,0.15) !important; }
+        .share-btn.twitter { background: rgba(29,155,240,0.12); border: 1px solid rgba(29,155,240,0.25) !important; color: #1d9bf0; }
+        .share-btn.twitter:hover { background: rgba(29,155,240,0.22); box-shadow: 0 4px 14px rgba(29,155,240,0.15) !important; }
+        .share-btn.copy { background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.25) !important; color: var(--teal); }
+        .share-btn.copy:hover { background: rgba(20,184,166,0.2); box-shadow: 0 4px 14px var(--teal-glow) !important; }
+        .share-btn.copy.copied { background: var(--teal); color: #0a0f1a; }
+
+        .coach-cta { text-align: center; margin-top: 2rem; }
+        .coach-cta-text { color: var(--text-dim); font-size: 0.95rem; margin-bottom: 1rem; }
+        .coach-cta-link {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            background: rgba(20,184,166,0.1); border: 1px solid rgba(20,184,166,0.3);
+            border-radius: 12px; color: var(--teal); padding: 0.7rem 1.4rem;
+            font-size: 0.9rem; font-weight: 600; cursor: pointer;
+            font-family: var(--font-body); transition: all 0.2s; text-decoration: none;
+        }
+        .coach-cta-link:hover { background: rgba(20,184,166,0.2); box-shadow: 0 4px 16px var(--teal-glow); }
+
+        /* ACE Table */
+        .ace-table { width: 100%; border-collapse: collapse; max-width: 520px; margin: 1.5rem auto 0; }
+        .ace-table th { text-align: left; padding: 0.7rem; font-size: 0.8rem; color: var(--text-muted); border-bottom: 1px solid rgba(20,184,166,0.15); }
+        .ace-table td { padding: 0.7rem; font-size: 0.85rem; color: var(--text-dim); border-bottom: 1px solid rgba(20,184,166,0.06); }
+        .ace-table tr.active { background: rgba(20,184,166,0.08); }
+        .ace-table tr.active td { color: var(--teal); font-weight: 600; }
+
+        /* Ask Pulse */
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05) !important; border: 1px solid var(--border) !important;
+            border-radius: 12px !important; color: var(--text) !important; padding: 0.85rem 1rem !important;
+            font-size: 0.95rem !important; font-family: var(--font-body) !important; outline: none; width: auto !important;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal) !important; }
+        .ask-input-wrap button {
+            background: var(--teal) !important; color: #0a0f1a !important; border: none !important;
+            border-radius: 12px !important; padding: 0 1.5rem !important; font-weight: 700 !important;
+            cursor: pointer; font-family: var(--font-body) !important; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important; font-size: 0.95rem !important;
+        }
+        .ask-input-wrap button::after { display: none !important; }
+        .ask-input-wrap button:hover { box-shadow: 0 4px 16px var(--teal-glow) !important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill {
+            background: rgba(255,255,255,0.03) !important; border: 1px solid var(--border) !important;
+            border-radius: 20px !important; padding: 0.4rem 0.9rem !important; font-size: 0.78rem !important;
+            color: var(--text-dim) !important; cursor: pointer; transition: all 0.2s;
+            width: auto !important; box-shadow: none !important;
+        }
+        .ask-pill::after { display: none !important; }
+        .ask-pill:hover { border-color: var(--teal); color: var(--text); }
+
+        /* Static example */
+        .static-example {
+            max-width: 600px; margin: 2rem auto 0; padding: 1.5rem 2rem;
+            background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 16px; text-align: center;
+        }
+        .static-example p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.7; }
+        .static-example .hl { color: var(--teal); font-weight: 600; }
+
+        /* SEO sections */
+        .seo-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); color: var(--text); margin-bottom: 2rem; text-align: center; }
+
+        /* FAQ accordion */
+        .faq-list { list-style: none; }
+        .faq-item { border: 1px solid rgba(20,184,166,0.1); border-radius: 14px; margin-bottom: 0.8rem; overflow: hidden; background: rgba(14,122,126,0.04); transition: border-color 0.2s; }
+        .faq-item:hover { border-color: rgba(20,184,166,0.25); }
+        .faq-question {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem;
+            color: var(--text); background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body);
+        }
+        .faq-question:hover { color: var(--teal); }
+        .faq-chevron { width: 20px; height: 20px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 1.5rem; }
+        .faq-item.faq-open .faq-answer { max-height: 300px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+
+        /* Sources */
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li { counter-increment: source; padding: 0.8rem 0; border-bottom: 1px solid rgba(20,184,166,0.06); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+        .sources-list li::before { content: counter(source) "."; color: var(--teal); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--teal); text-decoration: none; word-break: break-all; }
+        .sources-list li a:hover { text-decoration: underline; }
+
+        /* Methodology */
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code { background: rgba(20,184,166,0.1); padding: 0.15rem 0.5rem; border-radius: 6px; font-family: monospace; font-size: 0.85rem; color: var(--teal); }
+
+        /* LLM capsule */
+        .llm-capsule { background: rgba(20,184,166,0.04); border: 1px solid rgba(20,184,166,0.1); border-radius: 16px; padding: 2rem; }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+
+        /* Medical disclaimer override */
+        .medical-disclaimer.pink-box {
+            background: rgba(239,68,68,0.06) !important; border: 1px solid rgba(239,68,68,0.15) !important;
+            border-radius: 14px !important; padding: 1.5rem !important; max-width: 680px; margin: 0 auto;
+        }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) !important; font-size: 0.85rem !important; line-height: 1.6 !important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 !important; }
+
+        /* Footer dark */
+        .site-footer { background: #060a14 !important; border-top: 1px solid rgba(20,184,166,0.08) !important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) !important; }
+        .site-footer a:hover { color: var(--teal) !important; }
+
+        @media (max-width: 600px) {
+            .form-row { grid-template-columns: 1fr; }
+            .form-card { padding: 1.8rem 1.3rem; }
+            .coach-container { max-width: 100%; }
+            .coach-card { padding: 1.8rem 1.3rem; }
+            .coach-text { font-size: 1.05rem; }
+            .ask-input-wrap { flex-direction: column; }
+            .ask-input-wrap button { padding: 0.8rem !important; }
+        }
+    </style>
+</head>
+<body>
+
+{% include 'header.html' %}
+
+<!-- SECTION 1: HERO + FORM -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">What's your <span>body fat</span>?</h1>
+        <p class="hero-sub">Navy method. Tape measure only.</p>
+    </div>
+
+    <div class="form-card fade-in" style="transition-delay:0.1s;">
+        <div class="unit-toggle">
+            <button type="button" class="unit-btn active" id="imperial-btn" onclick="setUnit('imperial')">Imperial (in)</button>
+            <button type="button" class="unit-btn" id="metric-btn" onclick="setUnit('metric')">Metric (cm)</button>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label for="gender">Sex</label>
+                <select id="gender" onchange="toggleHip()">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="age">Age</label>
+                <input type="number" id="age" min="15" max="100" placeholder="30">
+            </div>
+        </div>
+
+        <!-- Imperial fields -->
+        <div id="imperial-fields">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="height_ft">Height (ft)</label>
+                    <input type="number" id="height_ft" min="3" max="8" placeholder="5">
+                </div>
+                <div class="form-group">
+                    <label for="height_in">Height (in)</label>
+                    <input type="number" id="height_in" min="0" max="11" placeholder="10">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="neck_in">Neck circumference (in)</label>
+                <input type="number" id="neck_in" step="0.1" placeholder="15.5">
+            </div>
+            <div class="form-group">
+                <label for="waist_in">Waist at navel (in)</label>
+                <input type="number" id="waist_in" step="0.1" placeholder="34">
+            </div>
+            <div class="form-group hip-field" style="display:none;">
+                <label for="hip_in">Hip circumference (in)</label>
+                <input type="number" id="hip_in" step="0.1" placeholder="38">
+            </div>
+            <div class="form-group">
+                <label for="weight_lb">Weight (lbs) <span style="font-weight:normal;color:var(--text-muted);">optional</span></label>
+                <input type="number" id="weight_lb" step="0.1" placeholder="180">
+            </div>
+        </div>
+
+        <!-- Metric fields -->
+        <div id="metric-fields" style="display:none;">
+            <div class="form-group">
+                <label for="height_cm">Height (cm)</label>
+                <input type="number" id="height_cm" step="0.1" placeholder="178">
+            </div>
+            <div class="form-group">
+                <label for="neck_cm">Neck circumference (cm)</label>
+                <input type="number" id="neck_cm" step="0.1" placeholder="39">
+            </div>
+            <div class="form-group">
+                <label for="waist_cm">Waist at navel (cm)</label>
+                <input type="number" id="waist_cm" step="0.1" placeholder="86">
+            </div>
+            <div class="form-group hip-field-m" style="display:none;">
+                <label for="hip_cm">Hip circumference (cm)</label>
+                <input type="number" id="hip_cm" step="0.1" placeholder="97">
+            </div>
+            <div class="form-group">
+                <label for="weight_kg">Weight (kg) <span style="font-weight:normal;color:var(--text-muted);">optional</span></label>
+                <input type="number" id="weight_kg" step="0.1" placeholder="82">
+            </div>
+        </div>
+
+        <div style="text-align:center;">
+            <button class="calc-btn" id="calcBtn">Calculate Body Fat</button>
+        </div>
+    </div>
+
+    <div class="static-example" id="staticExample">
+        <p>A <span class="hl">5'10" male</span> with a <span class="hl">15.5" neck</span> and <span class="hl">34" waist</span> has approximately <span class="hl">17.5% body fat</span> &mdash; in the fitness range.</p>
+    </div>
+</section>
+
+<!-- SECTION 2: RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">0</div>
+        <div class="result-unit">% body fat</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+
+        <div class="gauge-wrap">
+            <div class="gauge-labels">
+                <span>Essential</span><span>Athletes</span><span>Fitness</span><span>Average</span><span>Obese</span>
+            </div>
+            <div class="gauge-track">
+                <div class="gauge-marker" id="gaugeMarker"></div>
+            </div>
+        </div>
+
+        <div style="max-width:400px;width:100%;margin:2rem auto 0;" id="massBreakdown" style="display:none;">
+            <div class="breakdown-row">
+                <span class="breakdown-label">Fat Mass</span>
+                <span class="breakdown-value" id="fatMassDisplay">&mdash;</span>
+            </div>
+            <div class="breakdown-row">
+                <span class="breakdown-label">Lean Body Mass</span>
+                <span class="breakdown-value" id="leanMassDisplay">&mdash;</span>
+            </div>
+        </div>
+
+        <table class="ace-table" id="aceTable">
+            <thead><tr><th>Category</th><th>Men</th><th>Women</th></tr></thead>
+            <tbody>
+                <tr id="ace-essential"><td>Essential Fat</td><td>2-5%</td><td>10-13%</td></tr>
+                <tr id="ace-athletes"><td>Athletes</td><td>6-13%</td><td>14-20%</td></tr>
+                <tr id="ace-fitness"><td>Fitness</td><td>14-17%</td><td>21-24%</td></tr>
+                <tr id="ace-average"><td>Average</td><td>18-24%</td><td>25-31%</td></tr>
+                <tr id="ace-obese"><td>Obese</td><td>25%+</td><td>32%+</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- SECTION 3: COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">What this means for you</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                WhatsApp
+            </a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share on X
+            </a>
+            <button class="share-btn copy" id="copyBtn">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                Copy
+            </button>
+        </div>
+
+        <div class="coach-cta">
+            <p class="coach-cta-text">Want a deeper breakdown?</p>
+            <a class="coach-cta-link" href="#ask-section">
+                <span class="pulse-dot"></span>
+                Ask Pulse
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- SEO: Medical Disclaimer -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        {% include 'components/medical-disclaimer.html' %}
+    </div>
+</div>
+
+<!-- SEO: FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">
+                    What is the U.S. Navy body fat method?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The U.S. Navy method estimates body fat percentage using circumference measurements of the neck, waist, and hips (for women), along with height. Developed by Hodgdon and Beckett in 1984 at the Naval Health Research Center, it uses logarithmic equations validated against hydrostatic weighing.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    How accurate is the Navy method compared to DEXA?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>The Navy method typically estimates body fat within 3-4 percentage points of DEXA scan results. Accuracy decreases at extreme body fat levels. For tracking changes over time, the Navy method is highly effective when measurements are taken consistently.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    What is a healthy body fat percentage?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>According to the ACE: Men &mdash; Essential 2-5%, Athletes 6-13%, Fitness 14-17%, Average 18-24%, Obese 25%+. Women &mdash; Essential 10-13%, Athletes 14-20%, Fitness 21-24%, Average 25-31%, Obese 32%+. The fitness range is generally considered optimal for long-term health.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Why is body fat percentage better than BMI?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>BMI only considers height and weight and cannot distinguish between muscle and fat. A muscular athlete may have an "overweight" BMI but very low body fat. Body fat percentage directly measures your fat-to-lean ratio, giving a more accurate picture of body composition and health risks.</p>
+                </div>
+            </li>
+            <li class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    Where should I measure my waist?
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>For the Navy method, measure your waist at the navel (belly button) level. Stand relaxed, exhale normally without sucking in your stomach, and wrap the tape horizontally around your abdomen. The tape should be snug but not compressing the skin.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- SEO: Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Hodgdon JA, Beckett MB. Prediction of percent body fat for U.S. Navy men and women from body circumferences and height. Report No. 84-29 and 84-11. Naval Health Research Center, San Diego, 1984. <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>American Council on Exercise. ACE Personal Trainer Manual, 5th Edition. Body Composition Assessment. <a href="https://www.acefitness.org/" target="_blank" rel="noopener">ACE Fitness</a></li>
+            <li>Sahakyan KR, et al. Normal-Weight Central Obesity: Implications for Total and Cardiovascular Mortality. Ann Intern Med. 2015;163(11):827-835. <a href="https://pubmed.ncbi.nlm.nih.gov/26551006/" target="_blank" rel="noopener">PubMed</a></li>
+            <li>Romero-Corral A, et al. Accuracy of body mass index in diagnosing obesity in the adult general population. Int J Obes. 2008;32(6):959-966. <a href="https://pubmed.ncbi.nlm.nih.gov/18283284/" target="_blank" rel="noopener">PubMed</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- SEO: Methodology -->
+<div class="seo-section bg-1" id="methodology-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text">
+            <p>This calculator uses the Hodgdon-Beckett equations (U.S. Navy method, 1984).</p>
+            <p style="text-align:center;margin:1.5rem 0;"><code>Men: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76</code></p>
+            <p style="text-align:center;margin:1.5rem 0;"><code>Women: BF% = 163.205 x log10(waist + hip - neck) - 97.684 x log10(height) + 36.76</code></p>
+            <p>All measurements are converted to centimeters before calculation. Standard error of estimate is approximately 3.5% for men and 3.7% for women compared to hydrostatic weighing. Body fat categories follow the ACE classification system.</p>
+        </div>
+    </div>
+</div>
+
+<!-- SEO: LLM Answer Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner">
+        <div class="llm-capsule">
+            <p>Body fat percentage is the proportion of your total body weight that is fat tissue. The U.S. Navy method estimates body fat from neck, waist, and hip circumference measurements using logarithmic equations. For men, the formula uses waist minus neck circumference relative to height. For women, it adds hip circumference. According to the American Council on Exercise, healthy body fat ranges are: Men - Athletes 6-13%, Fitness 14-17%, Average 18-24%. Women - Athletes 14-20%, Fitness 21-24%, Average 25-31%. The Navy method is accurate within 3-4% of DEXA scan results for most individuals.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ASK PULSE -->
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap">
+            <input type="text" id="askInput" placeholder="e.g. How do I reduce body fat safely?">
+            <button id="askBtn">Ask</button>
+        </div>
+        <div class="ask-pills">
+            <span class="ask-pill">Best way to lose body fat</span>
+            <span class="ask-pill">Body fat vs BMI</span>
+            <span class="ask-pill">DEXA scan accuracy</span>
+            <span class="ask-pill">Recomposition tips</span>
+        </div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--teal); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script>
+let unitSystem = 'imperial';
+
+function setUnit(unit) {
+    unitSystem = unit;
+    document.getElementById('imperial-btn').classList.toggle('active', unit === 'imperial');
+    document.getElementById('metric-btn').classList.toggle('active', unit === 'metric');
+    document.getElementById('imperial-fields').style.display = unit === 'imperial' ? 'block' : 'none';
+    document.getElementById('metric-fields').style.display = unit === 'metric' ? 'block' : 'none';
+    toggleHip();
+}
+
+function toggleHip() {
+    const isFemale = document.getElementById('gender').value === 'female';
+    document.querySelectorAll('.hip-field').forEach(el => el.style.display = (isFemale && unitSystem === 'imperial') ? 'block' : 'none');
+    document.querySelectorAll('.hip-field-m').forEach(el => el.style.display = (isFemale && unitSystem === 'metric') ? 'block' : 'none');
+}
+
+function getACECategory(bf, gender) {
+    if (gender === 'male') {
+        if (bf < 6) return { name: 'Essential Fat', id: 'essential', color: 'var(--good)' };
+        if (bf <= 13) return { name: 'Athletes', id: 'athletes', color: 'var(--good)' };
+        if (bf <= 17) return { name: 'Fitness', id: 'fitness', color: 'var(--good)' };
+        if (bf <= 24) return { name: 'Average', id: 'average', color: 'var(--caution)' };
+        return { name: 'Obese', id: 'obese', color: 'var(--bad)' };
+    } else {
+        if (bf < 14) return { name: 'Essential Fat', id: 'essential', color: 'var(--good)' };
+        if (bf <= 20) return { name: 'Athletes', id: 'athletes', color: 'var(--good)' };
+        if (bf <= 24) return { name: 'Fitness', id: 'fitness', color: 'var(--good)' };
+        if (bf <= 31) return { name: 'Average', id: 'average', color: 'var(--caution)' };
+        return { name: 'Obese', id: 'obese', color: 'var(--bad)' };
+    }
+}
+
+document.getElementById('calcBtn').addEventListener('click', function() {
+    const gender = document.getElementById('gender').value;
+    let heightCm, neckCm, waistCm, hipCm = 0, weightKg = 0;
+
+    if (unitSystem === 'imperial') {
+        const ft = parseFloat(document.getElementById('height_ft').value) || 0;
+        const inches = parseFloat(document.getElementById('height_in').value) || 0;
+        heightCm = (ft * 12 + inches) * 2.54;
+        neckCm = (parseFloat(document.getElementById('neck_in').value) || 0) * 2.54;
+        waistCm = (parseFloat(document.getElementById('waist_in').value) || 0) * 2.54;
+        hipCm = (parseFloat(document.getElementById('hip_in').value) || 0) * 2.54;
+        const lbs = parseFloat(document.getElementById('weight_lb').value) || 0;
+        weightKg = lbs > 0 ? lbs * 0.453592 : 0;
+    } else {
+        heightCm = parseFloat(document.getElementById('height_cm').value) || 0;
+        neckCm = parseFloat(document.getElementById('neck_cm').value) || 0;
+        waistCm = parseFloat(document.getElementById('waist_cm').value) || 0;
+        hipCm = parseFloat(document.getElementById('hip_cm').value) || 0;
+        weightKg = parseFloat(document.getElementById('weight_kg').value) || 0;
+    }
+
+    if (heightCm <= 0 || neckCm <= 0 || waistCm <= 0) return;
+    if (gender === 'female' && hipCm <= 0) return;
+    if (neckCm >= waistCm) return;
+
+    // Hide static example
+    const staticEx = document.getElementById('staticExample');
+    if (staticEx) staticEx.style.display = 'none';
+
+    // Hodgdon-Beckett
+    let bf;
+    if (gender === 'male') {
+        bf = 86.010 * Math.log10(waistCm - neckCm) - 70.041 * Math.log10(heightCm) + 36.76;
+    } else {
+        bf = 163.205 * Math.log10(waistCm + hipCm - neckCm) - 97.684 * Math.log10(heightCm) + 36.76;
+    }
+    if (isNaN(bf) || !isFinite(bf)) return;
+    bf = Math.max(bf, 0);
+    bf = Math.round(bf * 10) / 10;
+
+    const cat = getACECategory(bf, gender);
+
+    // Result
+    const resultEl = document.getElementById('resultNumber');
+    resultEl.textContent = bf + '%';
+    resultEl.className = 'result-number';
+    if (cat.id === 'obese') resultEl.classList.add('glow-bad');
+    else if (cat.id === 'average') resultEl.classList.add('glow-caution');
+    else resultEl.classList.add('glow-good');
+
+    document.getElementById('resultVerdict').textContent = cat.name;
+    document.getElementById('resultVerdict').style.color = cat.color;
+
+    // Gauge
+    const maxBf = gender === 'male' ? 40 : 50;
+    const pct = Math.min(Math.max(bf / maxBf * 100, 0), 100);
+    document.getElementById('gaugeMarker').style.left = 'calc(' + pct + '% - 2px)';
+
+    // ACE table highlight
+    ['essential','athletes','fitness','average','obese'].forEach(id => {
+        document.getElementById('ace-' + id).classList.remove('active');
+    });
+    document.getElementById('ace-' + cat.id).classList.add('active');
+
+    // Mass breakdown
+    const massDiv = document.getElementById('massBreakdown');
+    if (weightKg > 0) {
+        const fatKg = weightKg * (bf / 100);
+        const leanKg = weightKg - fatKg;
+        if (unitSystem === 'imperial') {
+            document.getElementById('fatMassDisplay').textContent = (fatKg / 0.453592).toFixed(1) + ' lbs';
+            document.getElementById('leanMassDisplay').textContent = (leanKg / 0.453592).toFixed(1) + ' lbs';
+        } else {
+            document.getElementById('fatMassDisplay').textContent = fatKg.toFixed(1) + ' kg';
+            document.getElementById('leanMassDisplay').textContent = leanKg.toFixed(1) + ' kg';
+        }
+        massDiv.style.display = 'block';
+    } else {
+        massDiv.style.display = 'none';
+    }
+
+    // Coach card
+    const coachCard = document.getElementById('coachCard');
+    let advice = '';
+    if (cat.id === 'essential' || cat.id === 'athletes') {
+        advice = `<div class="coach-text">
+            Your body fat is <span class="hl">${bf}%</span> &mdash; <span class="hl">${cat.name}</span> range.<br>
+            You're leaner than most. Focus on <span class="hl">maintenance</span>.
+            <div class="coach-rule">Lean enough. Now optimize performance.</div>
+            <div class="coach-advice">
+                At this level, prioritize <em>adequate nutrition</em> and <em>recovery</em>.<br>
+                Going lower isn't always better &mdash; essential fat supports hormonal health.
+            </div>
+        </div>`;
+    } else if (cat.id === 'fitness') {
+        advice = `<div class="coach-text">
+            Your body fat is <span class="hl">${bf}%</span> &mdash; <span class="hl">${cat.name}</span> range.<br>
+            This is the sweet spot for health and performance.
+            <div class="coach-rule">You're in the zone. Stay consistent.</div>
+            <div class="coach-advice">
+                The fitness range is associated with <em>low disease risk</em> and <em>good muscle definition</em>.<br>
+                Maintain with strength training and adequate protein (1.6-2.2 g/kg).
+            </div>
+        </div>`;
+    } else if (cat.id === 'average') {
+        advice = `<div class="coach-text">
+            Your body fat is <span class="hl">${bf}%</span> &mdash; <span class="hl">${cat.name}</span> range.<br>
+            Typical of the general population. Room to improve.
+            <div class="coach-rule">Small deficit + strength training = big change.</div>
+            <div class="coach-advice">
+                A <em>300-500 calorie deficit</em> with <em>resistance training 3x/week</em><br>
+                can move you into the fitness range in 3-6 months.
+            </div>
+        </div>`;
+    } else {
+        advice = `<div class="coach-text">
+            Your body fat is <span class="hl">${bf}%</span> &mdash; above the <span class="hl">average</span> range.<br>
+            Elevated risk for metabolic conditions.
+            <div class="coach-rule">Start with consistency, not intensity.</div>
+            <div class="coach-advice">
+                Focus on <em>sustainable calorie reduction</em> and <em>daily movement</em>.<br>
+                Even a 5% reduction in body fat significantly improves health markers.
+            </div>
+        </div>`;
+    }
+    coachCard.innerHTML = advice;
+
+    // Share
+    const shareText = `My body fat: ${bf}% (${cat.name})\n\nNavy Method (Hodgdon-Beckett equation)\n\nCheck yours: healthcalculators.xyz/body-fat-calculator`;
+    document.getElementById('shareRow').style.display = 'flex';
+    document.getElementById('shareWhatsApp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    document.getElementById('shareTwitter').href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    window._shareText = shareText;
+
+    // Show sections
+    document.querySelectorAll('.hidden-section').forEach(el => el.classList.remove('hidden-section'));
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+    setTimeout(() => {
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    }, 100);
+
+    if (typeof hcTrackEvent === 'function') {
+        hcTrackEvent('calculator_complete', { calculator_name: 'Body Fat Calculator', page_path: '/body-fat-calculator' });
+    }
+});
+
+document.getElementById('copyBtn').addEventListener('click', function() {
+    if (!window._shareText) return;
+    navigator.clipboard.writeText(window._shareText).then(() => {
+        this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+        this.classList.add('copied');
+        setTimeout(() => {
+            this.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy';
+            this.classList.remove('copied');
+        }, 2000);
+    }).catch(() => {});
+});
+
+// FAQ toggle
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+
+// Ask Pulse
+document.getElementById('askBtn').addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() {
+        document.getElementById('askInput').value = this.textContent;
+    });
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

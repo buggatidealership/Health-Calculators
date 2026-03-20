@@ -2940,18 +2940,12 @@ def army_body_fat_calculator():
 
 @app.route('/body-fat-calculator')
 def body_fat_calculator():
-    schema_name = "Body Fat Percentage Calculator"
-    schema_description = "Calculate your body fat percentage using the U.S. Navy method. Simple measurements of neck, waist, and hip circumference give accurate body composition estimates."
-    schema_url = "/body-fat-calculator"
     return render_template(
-        'body_fat_calculator.html',
+        'body_fat_calculator_v3.html',
         is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-11',
-        schema_type='WebPage'
+        breadcrumb_title='Body Fat Calculator',
+        robots_meta='index, follow'
     )
 
 @app.route('/alcohol-impact-calculator')
@@ -6315,7 +6309,7 @@ def steps_to_calories_calculator():
     schema_description = "Calculate calories burned from step count using your body weight, stride length, and walking pace. Based on MET values from the Ainsworth Compendium of Physical Activities."
     schema_url = "/steps-to-calories-calculator"
     return render_template(
-        'steps_to_calories_calculator.html',
+        'steps_to_calories_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
