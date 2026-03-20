@@ -2730,7 +2730,7 @@ def adult_height_predictor_calculator():
     schema_description = "Predict a child's future adult height based on their age, current height, gender, and parental height using validated models like mid-parental height and Khamis-Roche."
     schema_url = "/adult-height-predictor-calculator"
     return render_template(
-        'adult_height_predictor_calculator.html',
+        'adult_height_predictor_calculator_v3.html',
         is_homepage=False,
         schema_name=schema_name,
         schema_description=schema_description,
