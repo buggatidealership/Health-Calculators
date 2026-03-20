@@ -265,7 +265,439 @@
 </head>
 <body>
 {% include 'header.html' %}
-{% include 'vo2_max_calculator.html' %}
+<div class="calculator-container">
+    <h1>VO2 Max Calculator</h1>
+    <p class="subtitle">Estimate your maximal aerobic capacity using 6 validated methods — from a 12-minute run to a no-exercise estimate. See your fitness level compared to your age group.</p>
+
+<section id="calculator">
+        <h2>Calculate Your VO2 Max</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group" style="flex: 1 1 100%;">
+                    <label for="test-method">Test Method:</label>
+                    <select id="test-method">
+                        <option value="cooper">Cooper 12-Minute Run Test</option>
+                        <option value="mile-run">1.5-Mile Run Test</option>
+                        <option value="rockport">Rockport 1-Mile Walking Test</option>
+                        <option value="step">Queens College Step Test</option>
+                        <option value="hr-ratio">Heart Rate Ratio (No Exercise)</option>
+                        <option value="non-exercise">Non-Exercise Estimate (Age/Weight/Activity)</option>
+                    </select>
+                    <span class="input-hint">Choose based on what test you can perform. Running tests are most accurate; non-exercise is least precise but requires no physical test.</span>
+                </div>
+            </div>
+
+            <!-- Cooper 12-Min Run -->
+            <div id="panel-cooper" class="method-panel">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="cooper-distance">Distance Covered in 12 Minutes:</label>
+                        <input type="number" id="cooper-distance" min="0" step="0.01" placeholder="e.g. 1.5">
+                    </div>
+                    <div class="form-group">
+                        <label for="cooper-unit">Distance Unit:</label>
+                        <select id="cooper-unit">
+                            <option value="miles">Miles</option>
+                            <option value="km">Kilometers</option>
+                            <option value="meters">Meters</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="cooper-age">Age:</label>
+                        <input type="number" id="cooper-age" min="15" max="100" placeholder="e.g. 30">
+                    </div>
+                    <div class="form-group">
+                        <label for="cooper-sex">Sex:</label>
+                        <select id="cooper-sex"><option value="male">Male</option><option value="female">Female</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 1.5-Mile Run -->
+            <div id="panel-mile-run" class="method-panel hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="run-minutes">Time — Minutes:</label>
+                        <input type="number" id="run-minutes" min="0" max="60" placeholder="e.g. 12">
+                    </div>
+                    <div class="form-group">
+                        <label for="run-seconds">Seconds:</label>
+                        <input type="number" id="run-seconds" min="0" max="59" placeholder="e.g. 30">
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="run-age">Age:</label>
+                        <input type="number" id="run-age" min="15" max="100" placeholder="e.g. 30">
+                    </div>
+                    <div class="form-group">
+                        <label for="run-sex">Sex:</label>
+                        <select id="run-sex"><option value="male">Male</option><option value="female">Female</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rockport Walk -->
+            <div id="panel-rockport" class="method-panel hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="walk-minutes">Walk Time — Minutes:</label>
+                        <input type="number" id="walk-minutes" min="0" max="30" placeholder="e.g. 15">
+                    </div>
+                    <div class="form-group">
+                        <label for="walk-seconds">Seconds:</label>
+                        <input type="number" id="walk-seconds" min="0" max="59" placeholder="e.g. 0">
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="walk-weight">Body Weight:</label>
+                        <input type="number" id="walk-weight" min="1" step="0.1" placeholder="e.g. 160">
+                    </div>
+                    <div class="form-group">
+                        <label for="walk-weight-unit">Weight Unit:</label>
+                        <select id="walk-weight-unit"><option value="lbs">Pounds</option><option value="kg">Kilograms</option></select>
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="walk-hr">Heart Rate at End of Walk (bpm):</label>
+                        <input type="number" id="walk-hr" min="40" max="220" placeholder="e.g. 130">
+                        <span class="input-hint">Count pulse for 15 seconds immediately after finishing, multiply by 4</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="walk-age">Age:</label>
+                        <input type="number" id="walk-age" min="15" max="100" placeholder="e.g. 50">
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="walk-sex">Sex:</label>
+                        <select id="walk-sex"><option value="male">Male</option><option value="female">Female</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step Test -->
+            <div id="panel-step" class="method-panel hidden">
+                <p style="font-size: 0.88rem; color: var(--color-text-secondary); margin-bottom: 12px;">Step up and down on a 16-inch (41 cm) bench for 3 minutes. Men: 24 steps/min (metronome at 96). Women: 22 steps/min (metronome at 88). Immediately after, count your pulse for 15 seconds and multiply by 4.</p>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="step-hr">Recovery Heart Rate (bpm):</label>
+                        <input type="number" id="step-hr" min="40" max="220" placeholder="e.g. 140">
+                        <span class="input-hint">15-second pulse count × 4, taken immediately after stepping</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="step-age">Age:</label>
+                        <input type="number" id="step-age" min="15" max="100" placeholder="e.g. 30">
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="step-sex">Sex:</label>
+                        <select id="step-sex"><option value="male">Male</option><option value="female">Female</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Heart Rate Ratio -->
+            <div id="panel-hr-ratio" class="method-panel hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="hr-rest">Resting Heart Rate (bpm):</label>
+                        <input type="number" id="hr-rest" min="30" max="120" placeholder="e.g. 65">
+                        <span class="input-hint">Measure first thing in the morning while still lying down</span>
+                    </div>
+                    <div class="form-group">
+                        <label for="hr-max">Max Heart Rate (bpm, optional):</label>
+                        <input type="number" id="hr-max" min="100" max="220" placeholder="Leave blank to estimate">
+                        <span class="input-hint">If unknown, we'll estimate using 208 − 0.7 × age (Tanaka formula)</span>
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="hr-age">Age:</label>
+                        <input type="number" id="hr-age" min="15" max="100" placeholder="e.g. 30">
+                    </div>
+                    <div class="form-group">
+                        <label for="hr-sex">Sex:</label>
+                        <select id="hr-sex"><option value="male">Male</option><option value="female">Female</option></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Non-Exercise -->
+            <div id="panel-non-exercise" class="method-panel hidden">
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="ne-age">Age:</label>
+                        <input type="number" id="ne-age" min="15" max="100" placeholder="e.g. 35">
+                    </div>
+                    <div class="form-group">
+                        <label for="ne-sex">Sex:</label>
+                        <select id="ne-sex"><option value="male">Male</option><option value="female">Female</option></select>
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="ne-weight">Weight:</label>
+                        <input type="number" id="ne-weight" min="1" step="0.1" placeholder="e.g. 170">
+                    </div>
+                    <div class="form-group">
+                        <label for="ne-weight-unit">Unit:</label>
+                        <select id="ne-weight-unit"><option value="lbs">Pounds</option><option value="kg">Kilograms</option></select>
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group">
+                        <label for="ne-height">Height:</label>
+                        <input type="number" id="ne-height" min="1" step="0.1" placeholder="e.g. 70">
+                    </div>
+                    <div class="form-group">
+                        <label for="ne-height-unit">Unit:</label>
+                        <select id="ne-height-unit"><option value="in">Inches</option><option value="cm">Centimeters</option></select>
+                    </div>
+                </div>
+                <div class="calculator-row">
+                    <div class="form-group" style="flex: 1 1 100%;">
+                        <label for="ne-par">Physical Activity Rating (PAR):</label>
+                        <select id="ne-par">
+                            <option value="0">0 — Avoid walking or exertion</option>
+                            <option value="1">1 — Walk for pleasure; use stairs</option>
+                            <option value="2">2 — 10-60 min/week of activity</option>
+                            <option value="3" selected>3 — Over 1 hour/week of activity</option>
+                            <option value="4">4 — Run &lt;1 mile/week or &lt;30 min/week other</option>
+                            <option value="5">5 — Run 1-5 miles/week or 30-60 min/week other</option>
+                            <option value="6">6 — Run 5-10 miles/week or 1-3 hours/week other</option>
+                            <option value="7">7 — Run &gt;10 miles/week or &gt;3 hours/week other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate VO2 Max</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero">
+                    <div class="result-hero-number"><span id="vo2-result">--</span> <span style="font-size: 0.4em;">ml/kg/min</span></div>
+                    <div class="result-hero-label">Estimated VO2 Max — <span id="vo2-category" style="font-weight: 700;">--</span></div>
+                </div>
+
+                <div id="vo2-status" class="result-status status-good">
+                    <span class="result-status-icon">💪</span>
+                    <span class="result-status-text" id="vo2-status-text">--</span>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">VO2 Max</span>
+                            <span class="result-comparison-value" id="comp-vo2">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Fitness Level</span>
+                            <span class="result-comparison-value" id="comp-category">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Fitness Age</span>
+                            <span class="result-comparison-value" id="comp-fitness-age">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">VO2 Max</span>
+                        <span class="result-breakdown-val" id="display-vo2">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Classification</span>
+                        <span class="result-breakdown-val" id="display-category">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Fitness Age</span>
+                        <span class="result-breakdown-val" id="display-fitness-age">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">MET Capacity</span>
+                        <span class="result-breakdown-val" id="display-mets">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Test Method</span>
+                        <span class="result-breakdown-val" id="display-method">--</span>
+                    </div>
+                </div>
+
+                <!-- Classification table -->
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 1.05rem; margin-bottom: 12px;">Your Age Group Classification</h3>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: var(--color-surface, #f9fafb);">
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">Category</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid #e5e7eb;">VO2 Max (ml/kg/min)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="class-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 6px;">Source: Cooper Institute Physical Fitness Specialist Certification Manual (1997).</p>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about VO2 max testing methods
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>About These Test Methods</h4>
+                    <ul>
+                        <li><strong>Cooper 12-Min Run (1968):</strong> Run as far as you can in 12 minutes. Correlation with lab VO2 max: r = 0.90. Most accurate of the field tests.</li>
+                        <li><strong>1.5-Mile Run:</strong> Time how long it takes to run 1.5 miles at maximum effort. Common military fitness test.</li>
+                        <li><strong>Rockport Walk (1987):</strong> Walk 1 mile as fast as possible and record your heart rate at the end. Best for older adults or those who cannot run.</li>
+                        <li><strong>Queens College Step Test (1972):</strong> Step up and down on a 16-inch bench for 3 minutes. Requires no track — just a bench and timer.</li>
+                        <li><strong>Heart Rate Ratio (2004):</strong> Uses the ratio of your max HR to resting HR. Simplest method but less accurate for sedentary or elderly populations.</li>
+                        <li><strong>Non-Exercise (1990):</strong> Estimates VO2 max from age, sex, BMI, and physical activity level alone. Least precise but requires no physical test at all.</li>
+                    </ul>
+                </div>
+                {% include 'components/share-card.html' %}
+            </div>
+        </div>
+    </section>
+
+    {% with ad_position="top" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <h2>What Is VO2 Max?</h2>
+    <div class="answer-capsule">
+      VO2 max (maximal oxygen uptake) is the maximum rate at which your body can consume oxygen during intense exercise. Measured in milliliters of oxygen per kilogram of body weight per minute (ml/kg/min), it is the single best measure of cardiovascular fitness. Higher VO2 max is associated with lower risk of heart disease, cancer, and all-cause mortality — research on 122,000 patients found that elite fitness reduces mortality risk by 80% compared to low fitness.
+    </div>
+
+    <p style="font-size: 0.95rem; color: #555; margin-top: 12px;">
+        While lab testing with a metabolic cart (indirect calorimetry) is the gold standard, validated field tests can estimate VO2 max within 5-10% of lab values. This calculator offers 6 methods ranging from a maximal run test to a no-exercise estimate — choose the one that matches your fitness level and available equipment.
+    </p>
+
+    {% include 'components/medical-disclaimer.html' %}
+
+    <div class="table-of-contents">
+        <h3>Contents</h3>
+        <ul>
+            <li><a href="#calculator">Calculator</a></li>
+            <li><a href="#classification">VO2 Max Classification Charts</a></li>
+            <li><a href="#mortality">VO2 Max and Mortality</a></li>
+            <li><a href="#how-to-improve">How to Improve Your VO2 Max</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#sources-section">Sources</a></li>
+        </ul>
+    </div>
+
+    {% with ad_position="middle" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="classification" class="info">
+        <h2>VO2 Max Classification by Age and Sex</h2>
+
+        <h3>Men (ml/kg/min)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Age</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c03030;">Very Poor</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c03030;">Poor</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c27a0e;">Below Avg</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c27a0e;">Average</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#1a8a4a;">Above Avg</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#1a8a4a;">Good</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#0a7e8c;">Excellent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">18-25</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">30-36</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">37-41</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">42-46</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">47-51</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">52-60</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;60</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">26-35</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">30-34</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">35-39</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">40-42</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">43-48</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">49-56</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;56</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">36-45</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;26</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">26-30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">31-34</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">35-38</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">39-42</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">43-51</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;51</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">46-55</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;25</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">25-28</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">29-31</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">32-35</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">36-38</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">39-45</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;45</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">56-65</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;22</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">22-25</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">26-29</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">30-31</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">32-35</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">36-41</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;41</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">66+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;20</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">20-21</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">22-25</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">26-28</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">29-32</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">33-37</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;37</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3 style="margin-top: 20px;">Women (ml/kg/min)</h3>
+        <div class="table-responsive" style="overflow-x: auto;">
+            <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+                <thead>
+                    <tr style="background: var(--color-surface, #f9fafb);">
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb;">Age</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c03030;">Very Poor</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c03030;">Poor</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c27a0e;">Below Avg</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#c27a0e;">Average</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#1a8a4a;">Above Avg</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#1a8a4a;">Good</th>
+                        <th style="padding: 8px 10px; border-bottom: 2px solid #e5e7eb; color:#0a7e8c;">Excellent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">18-25</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;28</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">28-32</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">33-37</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">38-41</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">42-46</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">47-56</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;56</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">26-35</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;26</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">26-30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">31-34</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">35-38</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">39-44</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">45-52</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;52</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">36-45</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;22</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">22-26</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">27-30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">31-33</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">34-37</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">38-45</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;45</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">46-55</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;20</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">20-24</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">25-27</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">28-30</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">31-33</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">34-40</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;40</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">56-65</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;18</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">18-21</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">22-24</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">25-27</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">28-31</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">32-37</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;37</td></tr>
+                    <tr><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;font-weight:600;">66+</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&lt;17</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">17-18</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">19-21</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">22-24</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">25-27</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">28-32</td><td style="padding:6px 10px;border-bottom:1px solid #f0f0f0;">&gt;32</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 8px;">Source: Cooper Institute Physical Fitness Specialist Certification Manual, revised 1997. Also referenced in ACSM's Guidelines for Exercise Testing and Prescription.</p>
+    </section>
+
+    {% with ad_position="in-article" %}
+    {% include 'components/ad-unit.html' %}
+    {% endwith %}
+
+    <section id="mortality" class="info">
+        <h2>VO2 Max and Mortality Risk</h2>
+        <p>VO2 max is one of the strongest predictors of lifespan — stronger than smoking, diabetes, or hypertension as an independent risk factor.</p>
+
+        <div class="important-box">
+            <h3>Key Research Findings</h3>
+            <ul>
+                <li><strong>Mandsager et al. (2018):</strong> Study of 122,007 patients. Elite fitness reduced all-cause mortality by 80% compared to low fitness. Moving from "low" to "below average" fitness alone cut mortality risk by ~50%.</li>
+                <li><strong>Each 1 MET increase</strong> (approximately 3.5 ml/kg/min) is associated with a 13-15% reduction in all-cause mortality.</li>
+                <li><strong>No upper limit:</strong> Higher fitness continues to confer survival benefit. There is no point of diminishing returns where more cardio fitness stops helping.</li>
+                <li><strong>Independent of other risk factors:</strong> VO2 max predicts mortality even after adjusting for age, sex, BMI, smoking, diabetes, and hypertension.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="how-to-improve" class="info">
+        <h2>How to Improve Your VO2 Max</h2>
+        <p>VO2 max is highly trainable. Untrained individuals can improve by 15-20% within 8-12 weeks of structured aerobic training.</p>
+
+        <div class="important-box">
+            <h3>Evidence-Based Strategies</h3>
+            <ul>
+                <li><strong>High-Intensity Interval Training (HIIT):</strong> 4×4 minute intervals at 90-95% max heart rate with 3-minute recovery. This is the most effective single protocol for VO2 max improvement (Helgerud et al., 2007).</li>
+                <li><strong>Zone 2 base training:</strong> Long duration (30-60+ minutes) at conversational pace (60-70% max HR). Builds mitochondrial density and aerobic foundation. Should comprise 80% of total training volume.</li>
+                <li><strong>Consistency over intensity:</strong> 3-5 sessions per week. Even moderate-intensity continuous training (30 min at 70% max HR) improves VO2 max by 5-10% over 12 weeks.</li>
+                <li><strong>Progressive overload:</strong> Gradually increase either duration or intensity (not both) every 1-2 weeks.</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
 
 <!-- V25 SEO Sections -->
 <div class="v25-seo-section" style="background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);">
@@ -379,5 +811,11 @@ document.querySelectorAll('.ask-pill').forEach(function(pill) {
     pill.addEventListener('click', function() { document.getElementById('v25AskInput').value = this.textContent; });
 });
 </script>
+
+{% include 'footer.html' %}
+<script defer src="/static/js/result-animations.js"></script>
+<script defer src="/static/js/sidebar-toc.js"></script>
+<script defer src="/static/js/content-loops.js"></script>
+<script defer src="/static/js/vo2_max_calculator.js"></script>
 </body>
 </html>
