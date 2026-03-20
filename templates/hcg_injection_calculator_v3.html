@@ -1,0 +1,377 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with page_title="HCG Injection Dosage Calculator", meta_description="Calculate HCG injection volume from vial strength and bacteriostatic water volume.", og_title="HCG Injection Dosage Calculator", og_description="Calculate HCG injection volume from vial strength and bacteriostatic water volume.", og_url="/hcg-injection-dosage-calculator", canonical_url="/hcg-injection-dosage-calculator", schema_type="MedicalWebPage", schema_name="HCG Injection Dosage Calculator", schema_description="Calculate HCG injection volume from vial strength and bacteriostatic water volume.", schema_url="/hcg-injection-dosage-calculator", schema_about="HCG Injection Dosage Calculator", date_published="2025-06-01", date_modified="2026-03-20", og_image="default-calculator-og.jpg", robots_meta="noindex, nofollow" %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[        {"@type":"Question","name":"How to calculate dose?","acceptedAnswer":{"@type":"Answer","text":"Concentration = vial IU / water mL. Injection volume = prescribed dose / concentration."}},
+        {"@type":"Question","name":"What syringe to use?","acceptedAnswer":{"@type":"Answer","text":"Most HCG injections use U-100 insulin syringes. 1 mL = 100 units."}},
+        {"@type":"Question","name":"How long does mixed HCG last?","acceptedAnswer":{"@type":"Answer","text":"Refrigerated with bacteriostatic water: typically 30 days. Check product labeling."}},
+        {"@type":"Question","name":"Bacteriostatic vs sterile water?","acceptedAnswer":{"@type":"Answer","text":"Bacteriostatic water for multi-dose vials (has preservative). Sterile water for single-dose only."}}]}
+    </script>
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --bg-1: #0a0f1a; --bg-card: rgba(6, 182, 212,0.07); --border: rgba(6, 182, 212,0.12); --accent: #06b6d4; --accent-glow: rgba(6, 182, 212,0.3); --good: #14b8a6; --caution: #f59e0b; --bad: #ef4444; --text: #e2e8f0; --text-dim: #94a3b8; --text-muted: #64748b; --font-body: 'DM Sans', sans-serif; --font-display: 'DM Serif Display', serif; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text); overflow-x: hidden; margin: 0; background: #0a0f1a \!important; }
+        h1, h2, h3 { color: #ffffff \!important; }
+        .site-header { background: #0a0f1a \!important; border-bottom: 1px solid rgba(6, 182, 212,0.1) \!important; }
+        .site-header .logo-text, .site-header .nav-link, .site-header .nav-menu-btn svg { color: var(--text) \!important; stroke: var(--text) \!important; }
+        .site-header .logo-dot { color: var(--accent) \!important; }
+        .site-header.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.4) \!important; }
+        .breadcrumb, .breadcrumb-container, .breadcrumb-wrap, nav[aria-label="breadcrumb"] { background: #0a0f1a \!important; border-bottom: 1px solid rgba(6, 182, 212,0.06) \!important; }
+        .calculator-container, .page-wrapper, .content-wrapper, .main-content { background: transparent \!important; }
+        .breadcrumb a, .breadcrumb span, .breadcrumb .breadcrumb-current, .breadcrumb .breadcrumb-sep { color: var(--text-dim) \!important; }
+        .breadcrumb a:hover { color: var(--accent) \!important; }
+        .nav-dropdown { background: #0d1420 \!important; border-color: rgba(6, 182, 212,0.1) \!important; }
+        .nav-dropdown-link { color: var(--text-dim) \!important; }
+        .nav-dropdown-link:hover { color: var(--accent) \!important; }
+        .page-layout { display: contents \!important; }
+        .page-content { display: contents \!important; }
+        .page-sidebar { display: none \!important; }
+        main { display: contents; }
+        /* Dark override all calc containers/elements */
+        .calculator { background: rgba(6, 182, 212,0.04) \!important; border: 1px solid rgba(6, 182, 212,0.1) \!important; border-radius: 16px \!important; padding: 2rem \!important; }
+        .calculator-container { max-width: 700px \!important; margin: 0 auto \!important; padding: 2rem 1rem \!important; }
+        .form-group label { color: var(--text-dim) \!important; }
+        .form-group input, .form-group select { background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(6, 182, 212,0.15) \!important; color: var(--text) \!important; border-radius: 10px \!important; }
+        .form-group input:focus, .form-group select:focus { border-color: var(--accent) \!important; box-shadow: 0 0 0 3px rgba(6, 182, 212,0.1) \!important; }
+        .form-group select option { background: #0d1420 \!important; color: var(--text) \!important; }
+        .input-hint { color: var(--text-muted) \!important; }
+        .subtitle { color: var(--text-dim) \!important; }
+        .calculate-btn, button[type="button"].calculate-btn { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; font-weight: 700 \!important; width: auto \!important; box-shadow: none \!important; }
+        .calculate-btn::after { display: none \!important; }
+        .calculate-btn:hover { box-shadow: 0 6px 24px var(--accent-glow) \!important; }
+        button { width: auto \!important; box-shadow: none \!important; }
+        button::after { display: none \!important; }
+        .results-section { background: transparent \!important; }
+        .result-hero { border-color: var(--accent) \!important; }
+        .result-hero-number { color: var(--accent) \!important; }
+        .result-status { background: rgba(6, 182, 212,0.06) \!important; border-color: rgba(6, 182, 212,0.15) \!important; border-radius: 12px \!important; }
+        .result-status-text { color: var(--text-dim) \!important; }
+        .result-breakdown { background: rgba(6, 182, 212,0.04) \!important; border: 1px solid rgba(6, 182, 212,0.1) \!important; border-radius: 14px \!important; }
+        .result-breakdown-title { color: var(--text) \!important; }
+        .result-breakdown-key { color: var(--text-dim) \!important; }
+        .result-breakdown-val { color: var(--text) \!important; }
+        .result-comparison-box { background: rgba(6, 182, 212,0.06) \!important; border: 1px solid rgba(6, 182, 212,0.1) \!important; border-radius: 12px \!important; }
+        .result-comparison-label { color: var(--text-muted) \!important; }
+        .result-comparison-size { color: var(--text) \!important; }
+        .result-comparison-arrow { color: var(--text-muted) \!important; }
+        .result-gauge-labels span { color: var(--text-muted) \!important; }
+        .result-card { background: rgba(6, 182, 212,0.06) \!important; border: 1px solid rgba(6, 182, 212,0.1) \!important; border-radius: 14px \!important; }
+        .result-card-title { color: var(--text-dim) \!important; }
+        .result-card-value { color: var(--accent) \!important; }
+        .result-card-note { color: var(--text-muted) \!important; }
+        .info-toggle-btn { color: var(--text-dim) \!important; background: none \!important; border: 1px solid rgba(6, 182, 212,0.15) \!important; border-radius: 10px \!important; width: auto \!important; box-shadow: none \!important; }
+        .info-toggle-btn::after { display: none \!important; }
+        .info-panel { background: rgba(6, 182, 212,0.04) \!important; border: 1px solid rgba(6, 182, 212,0.1) \!important; color: var(--text-dim) \!important; border-radius: 14px \!important; }
+        .info-panel h4 { color: var(--text) \!important; }
+        .info-panel li { color: var(--text-dim) \!important; }
+        .data-table th { color: var(--text) \!important; background: rgba(6, 182, 212,0.06) \!important; }
+        .data-table td { color: var(--text-dim) \!important; }
+        .unit-btn { background: rgba(6, 182, 212,0.08) \!important; color: var(--text-dim) \!important; border: 1px solid rgba(6, 182, 212,0.15) \!important; border-radius: 8px \!important; width: auto \!important; box-shadow: none \!important; }
+        .unit-btn::after { display: none \!important; }
+        .unit-btn.active { background: var(--accent) \!important; color: #0a0f1a \!important; }
+        .add-drink-btn { width: auto \!important; box-shadow: none \!important; border-radius: 8px \!important; }
+        .add-drink-btn::after { display: none \!important; }
+        .drink-item { background: rgba(6, 182, 212,0.04) \!important; border-radius: 12px \!important; }
+        .hidden { display: none \!important; }
+        /* Medical disclaimer */
+        .medical-disclaimer.pink-box { background: rgba(239,68,68,0.06) \!important; border: 1px solid rgba(239,68,68,0.15) \!important; border-radius: 14px \!important; padding: 1.5rem \!important; max-width: 680px; margin: 0 auto; }
+        .medical-disclaimer.pink-box p { color: var(--text-dim) \!important; font-size: 0.85rem \!important; }
+        .medical-disclaimer.pink-box strong { color: #ef4444 \!important; }
+        /* Footer */
+        .site-footer { background: #060a14 \!important; border-top: 1px solid rgba(6, 182, 212,0.08) \!important; }
+        .site-footer, .site-footer a, .footer-col h4, .footer-bottom p, .footer-disclaimer-text { color: var(--text-dim) \!important; }
+        .site-footer a:hover { color: var(--accent) \!important; }
+        /* FAQ */
+        .seo-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; }
+        .seo-inner { max-width: 680px; width: 100%; }
+        .seo-heading { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.8rem); margin-bottom: 2rem; text-align: center; }
+        .faq-list { list-style: none; }
+        .faq-item { border: 1px solid rgba(6, 182, 212,0.1); border-radius: 14px; margin-bottom: 0.8rem; overflow: hidden; background: rgba(6, 182, 212,0.04); }
+        .faq-item:hover { border-color: rgba(6, 182, 212,0.25); }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 1.5rem; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--text); background: none; border: none; width: 100%; text-align: left; font-family: var(--font-body); }
+        .faq-question:hover { color: var(--accent); }
+        .faq-chevron { width: 20px; height: 20px; color: var(--text-muted); transition: transform 0.3s; flex-shrink: 0; margin-left: 1rem; }
+        .faq-item.faq-open .faq-chevron { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; padding: 0 1.5rem; }
+        .faq-item.faq-open .faq-answer { max-height: 400px; padding: 0 1.5rem 1.2rem; }
+        .faq-answer p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.7; }
+        .sources-list { list-style: none; counter-reset: source; }
+        .sources-list li { counter-increment: source; padding: 0.8rem 0; border-bottom: 1px solid rgba(6, 182, 212,0.06); font-size: 0.85rem; color: var(--text-dim); line-height: 1.6; }
+        .sources-list li::before { content: counter(source) "."; color: var(--accent); font-weight: 700; margin-right: 0.6rem; }
+        .sources-list li a { color: var(--accent); text-decoration: none; }
+        .sources-list li a:hover { text-decoration: underline; }
+        .methodology-text { color: var(--text-dim); font-size: 0.9rem; line-height: 1.8; }
+        .methodology-text code { background: rgba(6, 182, 212,0.1); padding: 0.15rem 0.5rem; border-radius: 6px; font-family: monospace; color: var(--accent); }
+        .llm-capsule { background: rgba(6, 182, 212,0.04); border: 1px solid rgba(6, 182, 212,0.1); border-radius: 16px; padding: 2rem; }
+        .llm-capsule p { color: var(--text-dim); font-size: 0.92rem; line-height: 1.8; }
+        /* Ask Pulse */
+        .ask-section { padding: 4rem 1.5rem; display: flex; flex-direction: column; align-items: center; background: #060a14; }
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.5rem, 4vw, 2.5rem); text-align: center; margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); text-align: center; margin-bottom: 1.5rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 480px; width: 100%; }
+        .ask-input-wrap input { flex: 1; background: rgba(255,255,255,0.05) \!important; border: 1px solid rgba(6, 182, 212,0.15) \!important; border-radius: 12px \!important; color: var(--text) \!important; padding: 0.85rem 1rem \!important; font-size: 0.95rem \!important; outline: none; width: auto \!important; }
+        .ask-input-wrap button { background: var(--accent) \!important; color: #0a0f1a \!important; border: none \!important; border-radius: 12px \!important; padding: 0 1.5rem \!important; font-weight: 700 \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-input-wrap button::after { display: none \!important; }
+        .ask-pills { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill { background: rgba(255,255,255,0.03) \!important; border: 1px solid rgba(6, 182, 212,0.15) \!important; border-radius: 20px \!important; padding: 0.4rem 0.9rem \!important; font-size: 0.78rem \!important; color: var(--text-dim) \!important; cursor: pointer; width: auto \!important; box-shadow: none \!important; }
+        .ask-pill::after { display: none \!important; }
+        .ask-pill:hover { border-color: var(--accent); color: var(--text); }
+        .pulse-dot { width: 10px; height: 10px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2.5s ease-in-out infinite; }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.5); } 50% { box-shadow: 0 0 0 10px rgba(6, 182, 212, 0); } }
+        .bg-1 { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-5 { background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%); }
+        @media (max-width: 600px) { .ask-input-wrap { flex-direction: column; } .ask-input-wrap button { padding: 0.8rem \!important; } }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<div class="calculator-container">
+    <div style="text-align:center; margin-bottom:1rem;"><span class="pulse-dot"></span></div>
+    <h1 style="font-family:var(--font-display); text-align:center; margin-bottom:0.5rem;">How much <span>HCG</span> to inject?</h1>
+    <p style="color:var(--text-dim); text-align:center; margin-bottom:2rem;">Calculate your exact injection volume</p>
+
+<section id="calculator">
+        <h2>Calculate Your HCG Injection Volume</h2>
+        <div class="calculator">
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="vial-strength">Vial Strength (IU):</label>
+                    <select id="vial-strength">
+                        <option value="1500">1,500 IU</option>
+                        <option value="2000">2,000 IU</option>
+                        <option value="5000" selected>5,000 IU</option>
+                        <option value="10000">10,000 IU</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div id="custom-vial-group" class="form-group hidden">
+                    <label for="custom-vial">Custom Vial Strength (IU):</label>
+                    <input type="number" id="custom-vial" min="1" step="1" placeholder="e.g. 6000">
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="water-volume">Bacteriostatic Water (mL):</label>
+                    <select id="water-volume">
+                        <option value="1">1 mL</option>
+                        <option value="2" selected>2 mL</option>
+                        <option value="3">3 mL</option>
+                        <option value="5">5 mL</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div id="custom-water-group" class="form-group hidden">
+                    <label for="custom-water">Custom Water Volume (mL):</label>
+                    <input type="number" id="custom-water" min="0.1" step="0.1" placeholder="e.g. 2.5">
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <div class="form-group">
+                    <label for="desired-dose">Desired Dose (IU):</label>
+                    <input type="number" id="desired-dose" min="1" step="1" placeholder="e.g. 250">
+                    <span class="input-hint">Enter the dose prescribed by your doctor in International Units (IU).</span>
+                </div>
+            </div>
+
+            <div class="calculator-row">
+                <button type="button" class="calculate-btn" id="calculate-btn">Calculate Injection Volume</button>
+            </div>
+
+            <div id="results-section" class="results-section hidden">
+                <div class="result-hero" id="result-hero">
+                    <div class="result-hero-number"><span id="dose-result">--</span></div>
+                    <div class="result-hero-label" id="dose-label">Injection Volume</div>
+                </div>
+
+                <div id="dose-status" class="result-status status-good">
+                    <span class="result-status-icon" id="dose-icon"></span>
+                    <span class="result-status-text" id="dose-description">--</span>
+                </div>
+
+                <div class="result-comparison">
+                    <div class="result-comparison-title">Summary</div>
+                    <div class="result-comparison-grid">
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Injection Volume</span>
+                            <span class="result-comparison-value" id="comp-volume">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Syringe Units</span>
+                            <span class="result-comparison-value" id="comp-units">--</span>
+                        </div>
+                        <div class="result-comparison-box">
+                            <span class="result-comparison-label">Doses per Vial</span>
+                            <span class="result-comparison-value" id="comp-doses">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="result-breakdown-title">Details</div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Concentration</span>
+                        <span class="result-breakdown-val" id="display-concentration">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Injection Volume</span>
+                        <span class="result-breakdown-val" id="display-injection-ml">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Syringe Units</span>
+                        <span class="result-breakdown-val" id="display-syringe-units">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Doses per Vial</span>
+                        <span class="result-breakdown-val" id="display-doses">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Waste per Vial</span>
+                        <span class="result-breakdown-val" id="display-waste">--</span>
+                    </div>
+                    <div class="result-breakdown-row">
+                        <span class="result-breakdown-key">Vial Setup</span>
+                        <span class="result-breakdown-val" id="display-vial">--</span>
+                    </div>
+                </div>
+
+                <!-- Quick reference table -->
+                <div style="margin-top: 24px;">
+                    <h3 style="font-size: 1.05rem; margin-bottom: 12px;">Quick Reference Table</h3>
+                    <div class="table-responsive" style="overflow-x: auto;">
+                        <table class="data-table" style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.05);">
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid rgba(6, 182, 212,0.15);">Dose</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid rgba(6, 182, 212,0.15);">Volume</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid rgba(6, 182, 212,0.15);">Syringe Units</th>
+                                    <th style="padding: 8px 12px; text-align: left; border-bottom: 2px solid rgba(6, 182, 212,0.15);">Doses/Vial</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ref-tbody"></tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.82rem; color: var(--color-text-tertiary); margin-top: 6px;">Based on your vial strength and water volume. Syringe units assume a U-100 insulin syringe.</p>
+                </div>
+            </div>
+
+            <div class="info-toggle">
+                <button id="toggle-info-btn" class="info-toggle-btn">
+                    Learn more about HCG reconstitution and injection dosing
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="toggle-icon">
+                        <polyline points="6 9 12 15 18 9"></polyline>
+                    </svg>
+                </button>
+                <div id="info-panel" class="info-panel hidden">
+                    <h4>How the Calculation Works</h4>
+                    <p><strong>Concentration</strong> = Vial Strength (IU) &divide; Bacteriostatic Water (mL)</p>
+                    <p><strong>Injection Volume</strong> = Desired Dose (IU) &divide; Concentration (IU/mL)</p>
+                    <p><strong>Syringe Units</strong> = Injection Volume (mL) &times; 100 (on a U-100 insulin syringe)</p>
+                    <p>For example, a 5,000 IU vial reconstituted with 2 mL of bacteriostatic water gives a concentration of 2,500 IU/mL. A 250 IU dose would require 0.10 mL, which is 10 units on a U-100 insulin syringe.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<!-- FAQ -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">How to calculate dose?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Concentration = vial IU / water mL. Injection volume = prescribed dose / concentration.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">What syringe to use?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Most HCG injections use U-100 insulin syringes. 1 mL = 100 units.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">How long does mixed HCG last?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Refrigerated with bacteriostatic water: typically 30 days. Check product labeling.</p></div>
+            </li>
+            <li class="faq-item faq-open">
+                <button class="faq-question" aria-expanded="true">Bacteriostatic vs sterile water?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button>
+                <div class="faq-answer"><p>Bacteriostatic water for multi-dose vials (has preservative). Sterile water for single-dose only.</p></div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sources -->
+<div class="seo-section bg-5">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>FDA HCG Prescribing Information. <a href="https://www.fda.gov/" target="_blank" rel="noopener">Source</a></li>
+            <li>Endocrine Society Guidelines on Hypogonadism. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/29562364/" target="_blank" rel="noopener">Source</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Concentration = Vial IU / Water mL. Volume = Dose / Concentration. Syringe Units = Volume x 100.</p></div>
+    </div>
+</div>
+
+<!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>HCG dose calculation: divide vial strength by water volume for concentration, then divide prescribed dose by concentration for injection volume.</p></div></div>
+</div>
+
+<!-- Ask Pulse -->
+<div class="ask-section" id="ask-section">
+    <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+    <h2 class="ask-title">What else do you want to know?</h2>
+    <p class="ask-sub">Ask Pulse anything.</p>
+    <div class="ask-input-wrap">
+        <input type="text" id="askInput" placeholder="e.g. How to mix HCG?">
+        <button id="askBtn">Ask</button>
+    </div>
+    <div class="ask-pills">
+            <span class="ask-pill">Mixing guide</span>
+            <span class="ask-pill">Storage tips</span>
+            <span class="ask-pill">Syringe types</span>
+            <span class="ask-pill">Injection sites</span>
+    </div>
+    <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+</div>
+
+{% include 'footer.html' %}
+
+<script defer src="/static/js/hcg_injection_calculator.js"></script>
+<script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', function() {
+        const item = this.closest('.faq-item');
+        item.classList.toggle('faq-open');
+        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+    });
+});
+document.getElementById('askBtn')?.addEventListener('click', function() {
+    const q = document.getElementById('askInput').value.trim();
+    if (\!q) return;
+    document.querySelector('.ask-input-wrap').style.display = 'none';
+    document.querySelector('.ask-pills').style.display = 'none';
+    document.getElementById('askThanks').style.display = 'block';
+});
+document.querySelectorAll('.ask-pill').forEach(pill => {
+    pill.addEventListener('click', function() { document.getElementById('askInput').value = this.textContent; });
+});
+</script>
+</body>
+</html>
