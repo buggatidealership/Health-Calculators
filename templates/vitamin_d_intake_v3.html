@@ -171,7 +171,15 @@
             color: #ffffff !important;
         }
         .hero-title span { color: var(--teal); }
-        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; }
+        .hero-sub { color: var(--text-dim); font-size: 1.05rem; text-align: center; margin-bottom: 2.5rem; margin-left: auto; margin-right: auto; max-width: 520px; }
+
+        /* Force dark inputs — override global styles.css */
+        input, select, input[type="number"], input[type="text"], input[type="date"] {
+            background: rgba(255,255,255,0.05) !important;
+            color: var(--text) !important;
+            border-color: var(--border) !important;
+        }
+        input:focus, select:focus { border-color: var(--teal) !important; }
 
         /* -- INPUT FORM -- */
         .input-container {

@@ -1014,6 +1014,15 @@ function runCalculation() {
 
     // Show sections
     document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+
+    // Scroll to result on first calculation (user doesn't know results are below)
+    if (!window._hasScrolledToResult) {
+        window._hasScrolledToResult = true;
+        setTimeout(function() {
+            document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 200);
+    }
+
     setTimeout(function() {
         document.querySelectorAll('.fade-in').forEach(function(el) { observer.observe(el); });
     }, 100);
