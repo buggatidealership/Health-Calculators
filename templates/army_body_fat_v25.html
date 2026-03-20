@@ -1,0 +1,201 @@
+<\!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Army Body Fat Calculator — Tape Test % Estimator",
+        meta_description="Use this Army Body Fat Calculator to estimate your body fat percentage using tape test standards. Based on gender, age, height, neck, and waist.",
+        og_title="Army Body Fat Calculator",
+        og_description="Estimate your body fat percentage using U.S. Army tape test standards.",
+        og_url="/army-body-fat-calculator",
+        canonical_url="/army-body-fat-calculator",
+        schema_type="WebPage",
+        schema_name="Army Body Fat Calculator",
+        schema_description="Estimate body fat percentage using U.S. Army tape test standards.",
+        schema_url="/army-body-fat-calculator",
+        schema_about="Army Body Fat Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-20",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow"
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{{"@type":"Question","name":"What is the Army body fat standard?","acceptedAnswer":{{"@type":"Answer","text":"Standards vary by age and gender per AR 600-9. Males 17-20: 20%, 21-27: 22%, 28-39: 24%, 40+: 26%. Females 17-20: 30%, 21-27: 32%, 28-39: 34%, 40+: 36%."}}}},{{"@type":"Question","name":"How accurate is the Army tape test?","acceptedAnswer":{{"@type":"Answer","text":"It has a standard error of 3-4% compared to DEXA scans. Measurement technique significantly affects accuracy."}}}},{{"@type":"Question","name":"Can civilians use this calculator?","acceptedAnswer":{{"@type":"Answer","text":"Yes, anyone can use it to estimate body fat percentage or compare to military standards."}}}},{{"@type":"Question","name":"What is the Army tape test formula?","acceptedAnswer":{{"@type":"Answer","text":"Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females include hip measurement in the formula."}}}}]
+    }
+    </script>
+
+    <link rel="stylesheet" href="/static/css/v25-dark.css">
+    <style>:root { --accent: #4ade80; --accent-rgb: 74,222,128; }
+.female-field { display: none; }
+    </style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<\!-- HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">What's your <span>body fat</span> %?</h1>
+        <p class="hero-sub">U.S. Army tape test method -- male and female standards</p>
+    </div>
+    <div class="form-card fade-in" style="transition-delay:0.15s;">
+
+        <div class="form-row">
+            <div class="form-group"><label for="gender">Gender</label><select id="gender" onchange="toggleHip()"><option value="male">Male</option><option value="female">Female</option></select></div>
+            <div class="form-group"><label for="age">Age</label><input type="number" id="age" min="17" max="62" value="25"></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group"><label for="heightFt">Height (ft)</label><input type="number" id="heightFt" min="4" max="7" value="5"></div>
+            <div class="form-group"><label for="heightIn">Height (in)</label><input type="number" id="heightIn" min="0" max="11" value="9"></div>
+        </div>
+        <div class="form-group"><label for="neck">Neck Circumference (inches)</label><input type="number" id="neck" step="0.5" min="10" max="30" placeholder="e.g. 15"><small>Measure at narrowest point below the Adam's apple</small></div>
+        <div class="form-group"><label for="waist">Waist Circumference (inches)</label><input type="number" id="waist" step="0.5" min="20" max="60" placeholder="e.g. 34"><small>Males: at navel. Females: narrowest point</small></div>
+        <div class="form-group female-field" id="hipField"><label for="hip">Hip Circumference (inches)</label><input type="number" id="hip" step="0.5" min="20" max="60" placeholder="e.g. 36"><small>Widest point around buttocks</small></div>
+        <button class="calc-btn" id="calcBtn" onclick="calcArmy()">Calculate Body Fat</button>
+    </div>
+</section>
+
+<\!-- RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">--</div>
+        <div class="result-unit" id="resultUnit">% body fat (Army tape test)</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+        <div class="detail-grid" id="detailGrid">
+            <div class="detail-card"><div class="d-val" id="dBF">--%</div><div class="d-lbl">Body Fat %</div></div>
+            <div class="detail-card"><div class="d-val" id="dMax">--%</div><div class="d-lbl">Max Allowed</div></div>
+            <div class="detail-card"><div class="d-val" id="dStatus">--</div><div class="d-lbl">Status</div></div></div>
+    </div>
+</section>
+
+<\!-- COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Your body composition</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</a>
+            <button class="share-btn copy" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+        </div>
+
+        <div class="coach-cta"><p class="coach-cta-text">Want more insights?</p><a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a></div>
+    </div>
+</section>
+
+<\!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<\!-- FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What is the Army body fat standard?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Standards vary by age and gender per AR 600-9. Males 17-20: 20%, 21-27: 22%, 28-39: 24%, 40+: 26%. Females 17-20: 30%, 21-27: 32%, 28-39: 34%, 40+: 36%.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How accurate is the Army tape test?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>It has a standard error of 3-4% compared to DEXA scans. Measurement technique significantly affects accuracy.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Can civilians use this calculator?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Yes, anyone can use it to estimate body fat percentage or compare to military standards.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What is the Army tape test formula?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females include hip measurement in the formula.</p></div></li>
+        </ul>
+    </div>
+</div>
+
+<\!-- Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>DoD Instruction 1308.03: DoD Physical Fitness/Body Composition Program. <a href="https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/130803p.pdf" target="_blank" rel="noopener">Link</a></li>
+            <li>AR 600-9: The Army Body Composition Program. Updated 2023. <a href="https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1021431" target="_blank" rel="noopener">Link</a></li>
+            <li>Hodgdon JA, Beckett MB. Prediction of percent body fat for U.S. Navy. Naval Health Research Center, 1984.</li>
+        </ol>
+    </div>
+</div>
+
+<\!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Uses the DoD circumference-based body fat formulas from AR 600-9. Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females: BF% = 163.205 x log10(waist + hip - neck) - 97.684 x log10(height) - 78.387. All measurements in inches. Compliance thresholds are age- and gender-dependent per AR 600-9.</p></div>
+    </div>
+</div>
+
+<\!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>The U.S. Army tape test estimates body fat using circumference measurements. For males: measure neck (narrowest point) and waist (at navel). For females: add hip measurement. The formula uses logarithmic calculations with height. Maximum allowed body fat ranges from 20-26% for males and 30-36% for females depending on age group. The test has a standard error of 3-4% compared to DEXA.</p></div></div>
+</div>
+
+<\!-- Ask Pulse -->
+
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap"><input type="text" id="askInput" placeholder="e.g. How to pass the Army tape test?"><button id="askBtn">Ask</button></div>
+        <div class="ask-pills"><span class="ask-pill">Army BF standards</span><span class="ask-pill">Tape test accuracy</span><span class="ask-pill">How to measure neck</span><span class="ask-pill">Reduce body fat</span></div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script src="/static/js/v25-shared.js" defer></script>
+<script>
+
+function toggleHip() {
+    var isFemale = document.getElementById('gender').value === 'female';
+    document.getElementById('hipField').style.display = isFemale ? 'block' : 'none';
+}
+
+function calcArmy() {
+    var gender = document.getElementById('gender').value;
+    var age = parseInt(document.getElementById('age').value);
+    var hFt = parseInt(document.getElementById('heightFt').value) || 0;
+    var hIn = parseInt(document.getElementById('heightIn').value) || 0;
+    var height = hFt * 12 + hIn;
+    var neck = parseFloat(document.getElementById('neck').value);
+    var waist = parseFloat(document.getElementById('waist').value);
+    var hip = gender === 'female' ? parseFloat(document.getElementById('hip').value) : 0;
+
+    if (\!height || \!neck || \!waist || (gender === 'female' && \!hip)) { alert('Please fill all fields.'); return; }
+    if (neck >= waist) { alert('Neck must be smaller than waist.'); return; }
+
+    var bf;
+    if (gender === 'male') {
+        bf = 86.010 * Math.log10(waist - neck) - 70.041 * Math.log10(height) + 36.76;
+    } else {
+        bf = 163.205 * Math.log10(waist + hip - neck) - 97.684 * Math.log10(height) - 78.387;
+    }
+    bf = Math.max(0, Math.round(bf * 10) / 10);
+
+    var standards = gender === 'male' ? {'17-20':20,'21-27':22,'28-39':24,'40+':26} : {'17-20':30,'21-27':32,'28-39':34,'40+':36};
+    var ageGroup = age <= 20 ? '17-20' : age <= 27 ? '21-27' : age <= 39 ? '28-39' : '40+';
+    var maxBF = standards[ageGroup];
+    var pass = bf <= maxBF;
+
+    document.getElementById('resultNumber').textContent = bf;
+    document.getElementById('resultNumber').className = 'result-number ' + (pass ? 'glow-good' : 'glow-bad');
+    document.getElementById('resultVerdict').textContent = pass ? 'PASS -- Within Army standards' : 'FAIL -- Exceeds maximum for your age group';
+    document.getElementById('resultVerdict').style.color = pass ? 'var(--good)' : 'var(--bad)';
+    document.getElementById('dBF').textContent = bf + '%';
+    document.getElementById('dMax').textContent = maxBF + '%';
+    document.getElementById('dStatus').textContent = pass ? 'PASS' : 'FAIL';
+    document.getElementById('dStatus').style.color = pass ? 'var(--good)' : 'var(--bad)';
+
+    document.getElementById('coachCard').innerHTML = '<div class="coach-text">Your body fat: <span class="hl">' + bf + '%</span><br>Army max for ' + gender + ' age ' + ageGroup + ': <span class="hl">' + maxBF + '%</span><div class="coach-rule">' + (pass ? 'You pass by ' + (maxBF - bf).toFixed(1) + '%' : 'You need to lose ' + (bf - maxBF).toFixed(1) + '% body fat') + '</div><div class="coach-advice"><em>Method:</em> DoD circumference-based formula (AR 600-9)<br><em>Accuracy:</em> Standard error of 3-4% vs DEXA scans</div></div>';
+
+    v25Share('Army Body Fat Test: ' + bf + '% (' + (pass ? 'PASS' : 'FAIL') + ')\nMax allowed: ' + maxBF + '% (age ' + ageGroup + ')\n\nCheck yours: healthcalculators.xyz/army-body-fat-calculator');
+    v25Reveal();
+    if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Army Body Fat Calculator', page_path: '/army-body-fat-calculator'});
+}
+</script>
+</body>
+</html>
