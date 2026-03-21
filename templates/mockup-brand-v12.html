@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Brand Manifesto V12 — The Text Thread</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #F5F0EA;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Film grain — subtle on light bg */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.02;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            animation: grain 0.5s steps(1) infinite;
+        }
+
+        @keyframes grain {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-2%, -3%); }
+            30% { transform: translate(3%, 2%); }
+            50% { transform: translate(-1%, 4%); }
+            70% { transform: translate(2%, -2%); }
+            90% { transform: translate(-3%, 1%); }
+        }
+
+        .phone-frame {
+            width: 390px;
+            max-width: 95vw;
+            height: 85vh;
+            max-height: 780px;
+            background: #FFFFFF;
+            border-radius: 40px;
+            box-shadow:
+                0 0 0 2px rgba(0,0,0,0.06),
+                0 20px 60px rgba(0,0,0,0.12),
+                0 4px 12px rgba(0,0,0,0.06);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Status bar */
+        .status-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 28px 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            flex-shrink: 0;
+        }
+
+        .status-bar .time { font-size: 15px; font-weight: 600; }
+        .status-bar .icons { display: flex; gap: 5px; align-items: center; }
+        .status-bar .icons span { font-size: 13px; }
+
+        /* Chat header */
+        .chat-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px 12px;
+            border-bottom: 0.5px solid rgba(0,0,0,0.08);
+            flex-shrink: 0;
+        }
+
+        .chat-header .back-arrow {
+            color: #007AFF;
+            font-size: 22px;
+            font-weight: 300;
+        }
+
+        .chat-header .avatar {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4ECDC4, #2AB5AC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .chat-header .contact-info {
+            flex: 1;
+        }
+
+        .chat-header .contact-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .chat-header .contact-status {
+            font-size: 12px;
+            color: #8e8e93;
+        }
+
+        /* Chat area */
+        .chat-area {
+            flex: 1;
+            overflow-y: auto;
+            padding: 16px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            scrollbar-width: none;
+        }
+
+        .chat-area::-webkit-scrollbar { display: none; }
+
+        /* Message bubbles */
+        .message-row {
+            display: flex;
+            opacity: 0;
+            transform: translateY(18px) scale(0.92);
+            max-width: 100%;
+        }
+
+        .message-row.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            animation: springIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes springIn {
+            0% {
+                opacity: 0;
+                transform: translateY(18px) scale(0.92);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-3px) scale(1.02);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .message-row.sent {
+            justify-content: flex-end;
+        }
+
+        .message-row.received {
+            justify-content: flex-start;
+        }
+
+        .bubble {
+            padding: 8px 14px;
+            border-radius: 18px;
+            font-size: 16px;
+            line-height: 1.35;
+            max-width: 75%;
+            word-wrap: break-word;
+            position: relative;
+        }
+
+        .sent .bubble {
+            background: #007AFF;
+            color: white;
+            border-bottom-right-radius: 6px;
+        }
+
+        .received .bubble {
+            background: #E9E9EB;
+            color: #1a1a1a;
+            border-bottom-left-radius: 6px;
+        }
+
+        /* Consecutive messages from same sender — tighter spacing, adjusted radius */
+        .message-row.sent + .message-row.sent {
+            margin-top: -1px;
+        }
+        .message-row.sent + .message-row.sent .bubble {
+            border-top-right-radius: 6px;
+        }
+
+        .message-row.received + .message-row.received {
+            margin-top: -1px;
+        }
+        .message-row.received + .message-row.received .bubble {
+            border-top-left-radius: 6px;
+        }
+
+        /* Gap between different senders */
+        .message-row.sent + .message-row.received,
+        .message-row.received + .message-row.sent {
+            margin-top: 10px;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            justify-content: flex-start;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.25s, transform 0.25s;
+        }
+
+        .typing-indicator.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typing-indicator.sent-typing {
+            justify-content: flex-end;
+        }
+
+        .typing-dots {
+            background: #E9E9EB;
+            padding: 10px 16px;
+            border-radius: 18px;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        .typing-indicator.sent-typing .typing-dots {
+            background: #007AFF;
+        }
+
+        .typing-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #8e8e93;
+            animation: typingBounce 1.2s infinite;
+        }
+
+        .typing-indicator.sent-typing .typing-dot {
+            background: rgba(255,255,255,0.7);
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.15s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        /* Link preview card */
+        .link-preview {
+            background: #F2F2F7;
+            border-radius: 14px;
+            overflow: hidden;
+            max-width: 240px;
+            border: 0.5px solid rgba(0,0,0,0.08);
+        }
+
+        .link-preview .preview-image {
+            width: 100%;
+            height: 120px;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a2a2a 50%, #0a0a0a 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .link-preview .preview-image .calc-mockup {
+            text-align: center;
+            color: white;
+        }
+
+        .link-preview .preview-image .calc-icon {
+            font-size: 28px;
+            margin-bottom: 4px;
+        }
+
+        .link-preview .preview-image .calc-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 13px;
+            color: #4ECDC4;
+            letter-spacing: 0.02em;
+        }
+
+        .link-preview .preview-image .calc-subtitle {
+            font-size: 9px;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 2px;
+        }
+
+        /* Pulsing green dot in preview */
+        .link-preview .preview-image .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: #4ECDC4;
+            border-radius: 50%;
+            display: inline-block;
+            margin-top: 6px;
+            animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(78, 205, 196, 0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(78, 205, 196, 0); }
+        }
+
+        .link-preview .preview-meta {
+            padding: 10px 12px;
+        }
+
+        .link-preview .preview-domain {
+            font-size: 11px;
+            color: #8e8e93;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .link-preview .preview-title-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-top: 2px;
+            line-height: 1.25;
+        }
+
+        /* Link card special entrance */
+        .message-row.link-card.visible {
+            animation: linkCardIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes linkCardIn {
+            0% {
+                opacity: 0;
+                transform: translateY(24px) scale(0.85);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-5px) scale(1.03);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Emotional peak messages — slightly larger */
+        .message-row.peak .bubble {
+            font-size: 17px;
+            font-weight: 500;
+        }
+
+        /* Time stamp */
+        .timestamp {
+            text-align: center;
+            font-size: 11px;
+            color: #8e8e93;
+            padding: 8px 0 12px;
+            opacity: 0;
+        }
+        .timestamp.visible {
+            opacity: 1;
+            transition: opacity 0.5s;
+        }
+
+        /* Closing sequence */
+        .closing-overlay {
+            position: absolute;
+            inset: 0;
+            background: #F5F0EA;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 1.2s ease;
+            z-index: 10;
+        }
+
+        .closing-overlay.visible {
+            opacity: 1;
+        }
+
+        .closing-orb {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 40% 35%, #4ECDC4, #2AB5AC);
+            box-shadow: 0 0 30px rgba(78, 205, 196, 0.3);
+            margin-bottom: 28px;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .closing-orb.visible {
+            opacity: 1;
+            transform: scale(1);
+            animation: orbPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes orbPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(78, 205, 196, 0.3); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(78, 205, 196, 0.45); transform: scale(1.05); }
+        }
+
+        .closing-tagline {
+            font-family: 'DM Serif Display', serif;
+            font-size: 19px;
+            color: #1a1a1a;
+            text-align: center;
+            line-height: 1.4;
+            max-width: 280px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.8s ease 0.3s, transform 0.8s ease 0.3s;
+        }
+
+        .closing-tagline.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .closing-position {
+            font-size: 12px;
+            color: #8e8e93;
+            text-align: center;
+            margin-top: 12px;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.8s ease 0.8s;
+        }
+
+        .closing-position.visible {
+            opacity: 0.8;
+        }
+
+        /* Input bar (decorative) */
+        .input-bar {
+            padding: 8px 12px 28px;
+            border-top: 0.5px solid rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-shrink: 0;
+        }
+
+        .input-bar .input-field {
+            flex: 1;
+            height: 36px;
+            border-radius: 18px;
+            border: 0.5px solid rgba(0,0,0,0.12);
+            background: #F9F9F9;
+            padding: 0 14px;
+            font-size: 16px;
+            color: #8e8e93;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-bar .send-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #007AFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0.3;
+        }
+
+        .input-bar .send-btn svg {
+            fill: white;
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Replay button */
+        .replay-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            padding: 10px 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: 100;
+        }
+
+        .replay-btn.visible {
+            opacity: 1;
+        }
+
+        .replay-btn:hover {
+            background: rgba(0,0,0,0.85);
+        }
+
+        /* Responsive */
+        @media (max-width: 440px) {
+            body { align-items: flex-start; padding: 0; }
+            .phone-frame {
+                width: 100%;
+                height: 100vh;
+                max-height: none;
+                border-radius: 0;
+                box-shadow: none;
+            }
+            .replay-btn { bottom: 100px; right: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="phone-frame">
+    <div class="status-bar">
+        <span class="time">11:47 PM</span>
+        <div class="icons">
+            <span>&#9679;&#9679;&#9679;&#9679;&#9675;</span>
+            <span style="font-size:16px">&#128267;</span>
+        </div>
+    </div>
+
+    <div class="chat-header">
+        <span class="back-arrow">&#8249;</span>
+        <div class="avatar">M</div>
+        <div class="contact-info">
+            <div class="contact-name">Marcus</div>
+            <div class="contact-status">online</div>
+        </div>
+    </div>
+
+    <div class="chat-area" id="chatArea">
+        <div class="timestamp" id="timestamp">Today 11:42 PM</div>
+        <!-- Messages will be inserted by JS -->
+    </div>
+
+    <div class="input-bar">
+        <div class="input-field">iMessage</div>
+        <div class="send-btn">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </div>
+    </div>
+
+    <div class="closing-overlay" id="closingOverlay">
+        <div class="closing-orb" id="closingOrb"></div>
+        <div class="closing-tagline" id="closingTagline">You always had a pulse.<br>We help you find it.</div>
+        <div class="closing-position" id="closingPosition">Where noise is reduced to portable signal.</div>
+    </div>
+</div>
+
+<button class="replay-btn" id="replayBtn" onclick="replay()">Replay</button>
+
+<script>
+const MESSAGES = [
+    // [sender, text, flags]
+    // sender: 'r' = received (gray, left), 's' = sent (blue, right)
+    // flags: 'peak' for emotional peak, 'link' for link card
+    ['r', 'dude I literally cannot sleep', ''],
+    ['r', "I've been googling caffeine half life for 20 min", ''],
+    ['s', 'wait', ''],
+    ['s', 'try this', 'link'],
+    ['r', '...', ''],
+    ['r', 'bro', 'peak'],
+    ['r', 'every 5 hours it halves???', ''],
+    ['r', 'so my 3pm coffee means 25mg at 11pm', ''],
+    ['r', "THAT'S why I can't sleep", 'peak'],
+    ['s', 'yep. one rule. carry it forever.', ''],
+    ['r', 'this thing also has TDEE, BMI, everything', ''],
+    ['s', "and there's this Pulse thing", ''],
+    ['s', 'it literally texted me to stop drinking coffee at 2pm yesterday', ''],
+    ['r', 'wait what', 'peak'],
+    ['s', 'it remembers. it learns. it\'s like having a health coach in WhatsApp', ''],
+    ['r', 'signing up rn', ''],
+];
+
+// Compute reading time: 2.5 words/sec, minimum 800ms
+function readTime(text) {
+    const words = text.split(/\s+/).length;
+    return Math.max(800, (words / 2.5) * 1000);
+}
+
+// Compute typing duration: shorter messages = shorter typing
+function typingTime(text) {
+    const words = text.split(/\s+/).length;
+    if (words <= 2) return 800;
+    if (words <= 5) return 1200;
+    return 1800;
+}
+
+const chatArea = document.getElementById('chatArea');
+const timestamp = document.getElementById('timestamp');
+
+function createBubble(sender, text, flags) {
+    const row = document.createElement('div');
+    const cls = sender === 's' ? 'sent' : 'received';
+    row.className = `message-row ${cls}`;
+    if (flags === 'peak') row.classList.add('peak');
+    if (flags === 'link') row.classList.add('link-card');
+
+    if (flags === 'link') {
+        // Link preview card
+        const card = document.createElement('div');
+        card.className = 'link-preview';
+        card.innerHTML = `
+            <div class="preview-image">
+                <div class="calc-mockup">
+                    <div class="calc-icon">&#9749;</div>
+                    <div class="calc-title">Caffeine Half-Life</div>
+                    <div class="calc-subtitle">Calculator</div>
+                    <div class="pulse-dot"></div>
+                </div>
+            </div>
+            <div class="preview-meta">
+                <div class="preview-domain">healthcalculators.xyz</div>
+                <div class="preview-title-text">Caffeine Half-Life Calculator</div>
+            </div>
+        `;
+        row.appendChild(card);
+    } else {
+        const bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.textContent = text;
+        row.appendChild(bubble);
+    }
+
+    return row;
+}
+
+function createTypingIndicator(sender) {
+    const el = document.createElement('div');
+    const cls = sender === 's' ? 'sent-typing' : '';
+    el.className = `typing-indicator ${cls}`;
+    el.innerHTML = `
+        <div class="typing-dots">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+    `;
+    return el;
+}
+
+function sleep(ms) {
+    return new Promise(r => setTimeout(r, ms));
+}
+
+function scrollToBottom() {
+    chatArea.scrollTo({ top: chatArea.scrollHeight, behavior: 'smooth' });
+}
+
+let abortController = null;
+
+async function runSequence() {
+    // Clear previous
+    chatArea.innerHTML = '';
+    chatArea.appendChild(timestamp);
+    document.getElementById('closingOverlay').classList.remove('visible');
+    document.getElementById('closingOrb').classList.remove('visible');
+    document.getElementById('closingTagline').classList.remove('visible');
+    document.getElementById('closingPosition').classList.remove('visible');
+    document.getElementById('replayBtn').classList.remove('visible');
+
+    abortController = new AbortController();
+    const signal = abortController.signal;
+
+    const abortable = (ms) => new Promise((resolve, reject) => {
+        const t = setTimeout(resolve, ms);
+        signal.addEventListener('abort', () => { clearTimeout(t); reject('aborted'); });
+    });
+
+    try {
+        // Show timestamp
+        await abortable(600);
+        timestamp.classList.add('visible');
+        await abortable(500);
+
+        for (let i = 0; i < MESSAGES.length; i++) {
+            const [sender, text, flags] = MESSAGES[i];
+
+            // Show typing indicator
+            const typing = createTypingIndicator(sender);
+            chatArea.appendChild(typing);
+            scrollToBottom();
+            await abortable(80);
+            typing.classList.add('visible');
+            scrollToBottom();
+
+            // Wait for typing duration
+            await abortable(typingTime(text));
+
+            // Remove typing indicator
+            typing.classList.remove('visible');
+            await abortable(150);
+            chatArea.removeChild(typing);
+
+            // Show message
+            const row = createBubble(sender, text, flags);
+            chatArea.appendChild(row);
+            scrollToBottom();
+
+            // Trigger spring animation
+            await abortable(30);
+            row.classList.add('visible');
+            scrollToBottom();
+
+            // Wait for reading time
+            // Extra pause after emotional peaks
+            let pause = readTime(text);
+            if (flags === 'peak') pause += 400;
+            if (flags === 'link') pause += 600;
+            // Extra pause after "..." (anticipation)
+            if (text === '...') pause = 1600;
+            await abortable(pause);
+        }
+
+        // Pause before closing
+        await abortable(1800);
+
+        // Fade to closing
+        const overlay = document.getElementById('closingOverlay');
+        overlay.classList.add('visible');
+        await abortable(800);
+
+        document.getElementById('closingOrb').classList.add('visible');
+        await abortable(600);
+
+        document.getElementById('closingTagline').classList.add('visible');
+        await abortable(500);
+
+        document.getElementById('closingPosition').classList.add('visible');
+        await abortable(1500);
+
+        document.getElementById('replayBtn').classList.add('visible');
+
+    } catch(e) {
+        if (e !== 'aborted') throw e;
+    }
+}
+
+function replay() {
+    if (abortController) abortController.abort();
+    setTimeout(() => runSequence(), 100);
+}
+
+// Auto-start
+window.addEventListener('load', () => {
+    setTimeout(runSequence, 800);
+});
+</script>
+
+</body>
+</html>
