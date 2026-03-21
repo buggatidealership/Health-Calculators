@@ -6457,5 +6457,10 @@ def cycling_calorie_guide():
     )
 
 
+@app.route('/mockup-product-v1')
+def mockup_product_v1():
+    return render_template('mockup-product-v1.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

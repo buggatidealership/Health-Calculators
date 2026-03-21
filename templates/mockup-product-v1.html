@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Product Mockup V1 — Caffeine Calculator Reimagined</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --teal-subtle: rgba(20, 184, 166, 0.06);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --good: #14b8a6;
+            --caution: #f59e0b;
+            --bad: #ef4444;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg-1);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ── SECTIONS ── */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            position: relative;
+        }
+
+        .bg-hero { background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%); }
+        .bg-time { background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%); }
+        .bg-result { background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%); }
+        .bg-coach { background: linear-gradient(180deg, #0a0f1a 0%, #060a14 100%); }
+
+        /* ── HEADER BAR ── */
+        .mockup-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 1rem 1.5rem;
+            background: rgba(10, 15, 26, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(20, 184, 166, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .mockup-header .logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--text);
+            letter-spacing: -0.01em;
+        }
+        .mockup-header .logo-dot {
+            color: var(--teal);
+        }
+        .pulse-dot {
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+            margin-left: 0.3rem;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        /* ── HERO / SOURCE SELECTION ── */
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            max-width: 480px;
+        }
+
+        /* Back-channel: caffeine amount echo */
+        .echo-bar {
+            height: 32px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .echo-text {
+            font-size: 0.85rem;
+            color: var(--teal);
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+        .echo-text.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Source cards grid */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.6rem;
+            max-width: 560px;
+            width: 100%;
+        }
+        .source-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+            position: relative;
+            overflow: hidden;
+        }
+        .source-card::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 14px;
+            opacity: 0;
+            background: radial-gradient(circle at center, rgba(20, 184, 166, 0.15), transparent 70%);
+            transition: opacity 0.3s;
+        }
+        .source-card:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+            transform: translateY(-2px);
+        }
+        .source-card:hover::after { opacity: 1; }
+        .source-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 24px var(--teal-glow), 0 0 0 1px var(--teal);
+            transform: scale(1.04);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .source-card.selected::after { opacity: 1; }
+        .source-card .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+        .source-card .name { font-size: 0.8rem; font-weight: 600; }
+        .source-card .mg { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+
+        /* Cups selector */
+        .cups-section {
+            margin-top: 2rem;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            pointer-events: none;
+        }
+        .cups-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+        .cups-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 0.75rem;
+        }
+        .cups-row {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .cup-btn {
+            width: 48px; height: 48px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            color: var(--text);
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-family: var(--font-body);
+        }
+        .cup-btn:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+            transform: translateY(-2px);
+        }
+        .cup-btn.selected {
+            border-color: var(--teal);
+            background: rgba(20, 184, 166, 0.12);
+            color: var(--teal);
+            box-shadow: 0 0 16px rgba(20, 184, 166, 0.2);
+        }
+
+        /* ── TIMELINE PREVIEW (back-channel) ── */
+        .timeline-preview {
+            margin-top: 2rem;
+            height: 48px;
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+        }
+        .timeline-preview.visible { opacity: 1; }
+        .timeline-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: rgba(20, 184, 166, 0.1);
+            border-radius: 1px;
+        }
+        .timeline-fill {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: var(--teal);
+            border-radius: 1px;
+            width: 0%;
+            transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            box-shadow: 0 0 12px var(--teal-glow);
+        }
+        .timeline-markers {
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .timeline-marker {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            opacity: 0;
+            transform: translateY(4px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .timeline-marker.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ── TIME SECTION ── */
+        .time-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .time-sub {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        .time-inputs {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .time-group { text-align: center; }
+        .time-group label {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-bottom: 0.4rem;
+        }
+        .time-input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1.3rem;
+            padding: 0.8rem 1.2rem;
+            font-family: var(--font-body);
+            outline: none;
+            width: 160px;
+            text-align: center;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .time-input:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+        /* Back-channel: field confirmation checkmark */
+        .field-confirm {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(20, 184, 166, 0.1);
+            margin-left: 0.5rem;
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            vertical-align: middle;
+        }
+        .field-confirm.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .field-confirm svg {
+            width: 12px;
+            height: 12px;
+            stroke: var(--teal);
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        /* ── CALCULATE BUTTON — transforms, doesn't just enable ── */
+        .calc-btn-wrap {
+            margin-top: 2.5rem;
+            text-align: center;
+        }
+        .calc-btn {
+            position: relative;
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 2.8rem;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            overflow: hidden;
+            color: var(--text-dim);
+            background: transparent;
+            transition: color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+            letter-spacing: 0.01em;
+        }
+        .calc-btn .btn-fill {
+            position: absolute;
+            inset: 0;
+            background: var(--teal);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            border-radius: 13px;
+            z-index: 0;
+        }
+        .calc-btn .btn-text {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+        .calc-btn.ready {
+            border-color: var(--teal);
+            cursor: pointer;
+        }
+        .calc-btn.ready .btn-fill {
+            transform: scaleX(1);
+        }
+        .calc-btn.ready .btn-text {
+            color: #0a0f1a;
+        }
+        .calc-btn.ready:hover {
+            box-shadow: 0 8px 32px var(--teal-glow);
+            transform: translateY(-2px);
+        }
+        .calc-btn:not(.ready) {
+            cursor: default;
+            pointer-events: none;
+        }
+        /* Text swap */
+        .btn-text-default, .btn-text-ready { transition: opacity 0.3s, transform 0.3s; }
+        .calc-btn:not(.ready) .btn-text-ready { display: none; }
+        .calc-btn.ready .btn-text-default { display: none; }
+
+        /* ── THRESHOLD STATE ── */
+        .threshold-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            background: rgba(10, 15, 26, 0.97);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .threshold-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .threshold-line {
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--text-muted);
+            opacity: 0;
+            transform: translateY(6px);
+            margin-bottom: 0.6rem;
+            letter-spacing: 0.03em;
+            transition: opacity 0.2s ease, transform 0.2s ease, color 0.3s ease;
+        }
+        .threshold-line.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .threshold-line.resolved {
+            color: var(--teal);
+        }
+        .threshold-line .val {
+            font-weight: 600;
+            color: var(--text);
+            transition: color 0.3s;
+        }
+        .threshold-line.resolved .val {
+            color: var(--teal);
+        }
+        .threshold-dots {
+            display: flex;
+            gap: 6px;
+            margin-top: 1.5rem;
+        }
+        .threshold-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--text-muted);
+            transition: background 0.3s;
+        }
+        .threshold-dot.done {
+            background: var(--teal);
+            box-shadow: 0 0 8px var(--teal-glow);
+        }
+
+        /* ── RESULT SECTION ── */
+        .result-section {
+            display: none;
+        }
+        .result-section.visible {
+            display: flex;
+        }
+
+        .result-hero-wrap {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .result-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 1rem;
+        }
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(5rem, 18vw, 11rem);
+            line-height: 1;
+            color: var(--teal);
+            text-shadow: 0 0 60px var(--teal-glow);
+            transition: color 1s ease, text-shadow 1s ease;
+        }
+        .result-number.caution {
+            color: var(--caution);
+            text-shadow: 0 0 60px rgba(245, 158, 11, 0.3);
+        }
+        .result-number.bad {
+            color: var(--bad);
+            text-shadow: 0 0 60px rgba(239, 68, 68, 0.3);
+        }
+        .result-unit {
+            font-size: 1.1rem;
+            color: var(--text-dim);
+            margin-top: 0.5rem;
+        }
+        .result-verdict {
+            font-size: 1.15rem;
+            margin-top: 1.5rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.6s ease 0.8s, transform 0.6s ease 0.8s;
+        }
+        .result-verdict.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cutoff time */
+        .cutoff-block {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2.5rem;
+            border-top: 1px solid rgba(20, 184, 166, 0.08);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.6s ease 1.2s, transform 0.6s ease 1.2s;
+        }
+        .cutoff-block.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .cutoff-label {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+        }
+        .cutoff-time {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            color: var(--teal);
+            text-shadow: 0 0 30px var(--teal-glow);
+        }
+        .cutoff-note {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            margin-top: 0.5rem;
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ── COACH SECTION ── */
+        .coach-section {
+            display: none;
+        }
+        .coach-section.visible {
+            display: flex;
+        }
+        .coach-container {
+            max-width: 520px;
+            width: 100%;
+        }
+        .coach-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.5rem, 4vw, 2.2rem);
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #fff;
+            opacity: 0;
+            transform: translateY(16px);
+        }
+        .coach-title.animate {
+            animation: springIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            opacity: 0;
+            transform: translateY(20px) scale(0.97);
+        }
+        .coach-card.animate {
+            animation: springCard 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s forwards;
+        }
+        @keyframes springIn {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes springCard {
+            from { opacity: 0; transform: translateY(20px) scale(0.97); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .coach-text {
+            font-size: 1.15rem;
+            line-height: 2;
+            color: var(--text);
+        }
+        .coach-text .hl { color: var(--teal); font-weight: 700; }
+        .coach-text .dim { color: var(--text-dim); }
+        .coach-rule {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--teal);
+            margin: 1.5rem 0;
+            text-shadow: 0 0 20px var(--teal-glow);
+        }
+        .coach-advice {
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            font-size: 1.05rem;
+            line-height: 1.9;
+            color: var(--text-dim);
+        }
+        .coach-advice em { color: var(--text); font-style: normal; font-weight: 500; }
+
+        /* ── MOCKUP LABEL ── */
+        .mockup-badge {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 300;
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 8px;
+            padding: 0.4rem 0.8rem;
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            backdrop-filter: blur(10px);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .section { padding: 3rem 1.25rem; }
+            .source-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+            .time-inputs { flex-direction: column; align-items: center; gap: 1.5rem; }
+            .coach-card { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="mockup-header">
+        <span class="logo">Health<span class="logo-dot">.</span></span>
+        <span class="pulse-dot"></span>
+    </div>
+
+    <!-- SECTION 1: Source Selection (Nucleation) -->
+    <section class="section bg-hero" id="hero-section">
+        <h1 class="hero-title">How long will your <span>caffeine</span> last?</h1>
+        <p class="hero-sub">Select your source. We'll show you exactly when it wears off.</p>
+
+        <!-- Back-channel echo: shows caffeine mg as source is selected -->
+        <div class="echo-bar">
+            <span class="echo-text" id="echo-text"></span>
+        </div>
+
+        <div class="source-grid" id="source-grid">
+            <div class="source-card" data-mg="95" data-name="Coffee" onclick="selectSource(this)">
+                <span class="emoji">&#9749;</span>
+                <span class="name">Coffee</span>
+                <span class="mg">95 mg</span>
+            </div>
+            <div class="source-card" data-mg="63" data-name="Espresso" onclick="selectSource(this)">
+                <span class="emoji">&#9749;</span>
+                <span class="name">Espresso</span>
+                <span class="mg">63 mg</span>
+            </div>
+            <div class="source-card" data-mg="26" data-name="Green Tea" onclick="selectSource(this)">
+                <span class="emoji">&#127861;</span>
+                <span class="name">Green Tea</span>
+                <span class="mg">26 mg</span>
+            </div>
+            <div class="source-card" data-mg="47" data-name="Black Tea" onclick="selectSource(this)">
+                <span class="emoji">&#127861;</span>
+                <span class="name">Black Tea</span>
+                <span class="mg">47 mg</span>
+            </div>
+            <div class="source-card" data-mg="34" data-name="Cola" onclick="selectSource(this)">
+                <span class="emoji">&#129380;</span>
+                <span class="name">Cola</span>
+                <span class="mg">34 mg</span>
+            </div>
+            <div class="source-card" data-mg="80" data-name="Energy Drink" onclick="selectSource(this)">
+                <span class="emoji">&#9889;</span>
+                <span class="name">Energy Drink</span>
+                <span class="mg">80 mg</span>
+            </div>
+            <div class="source-card" data-mg="200" data-name="Pre-Workout" onclick="selectSource(this)">
+                <span class="emoji">&#128170;</span>
+                <span class="name">Pre-Workout</span>
+                <span class="mg">200 mg</span>
+            </div>
+            <div class="source-card" data-mg="100" data-name="Caffeine Pill" onclick="selectSource(this)">
+                <span class="emoji">&#128138;</span>
+                <span class="name">Caffeine Pill</span>
+                <span class="mg">100 mg</span>
+            </div>
+        </div>
+
+        <!-- Cups selector — appears after source selection (nucleation: structure unfolds) -->
+        <div class="cups-section" id="cups-section">
+            <p class="cups-label">How many?</p>
+            <div class="cups-row">
+                <button class="cup-btn" data-cups="1" onclick="selectCups(this)">1</button>
+                <button class="cup-btn" data-cups="2" onclick="selectCups(this)">2</button>
+                <button class="cup-btn" data-cups="3" onclick="selectCups(this)">3</button>
+                <button class="cup-btn" data-cups="4" onclick="selectCups(this)">4</button>
+                <button class="cup-btn" data-cups="5" onclick="selectCups(this)">5</button>
+            </div>
+        </div>
+
+        <!-- Timeline preview (back-channel: system builds while you input) -->
+        <div class="timeline-preview" id="timeline-preview">
+            <div class="timeline-markers" id="timeline-markers"></div>
+            <div class="timeline-bar"></div>
+            <div class="timeline-fill" id="timeline-fill"></div>
+        </div>
+    </section>
+
+    <!-- SECTION 2: Time Inputs -->
+    <section class="section bg-time" id="time-section" style="display: none;">
+        <h2 class="time-title">When did you have it?</h2>
+        <p class="time-sub">Your timeline starts here.</p>
+
+        <div class="time-inputs">
+            <div class="time-group">
+                <label>
+                    I had caffeine at
+                    <span class="field-confirm" id="confirm-intake">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                </label>
+                <input type="time" class="time-input" id="intake-time" value="08:00" onchange="onTimeChange()">
+            </div>
+            <div class="time-group">
+                <label>
+                    I want to sleep by
+                    <span class="field-confirm" id="confirm-bedtime">
+                        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                </label>
+                <input type="time" class="time-input" id="bedtime" value="22:00" onchange="onTimeChange()">
+            </div>
+        </div>
+
+        <!-- Calculate button: transforms from dormant → alive -->
+        <div class="calc-btn-wrap">
+            <button class="calc-btn" id="calc-btn" onclick="calculate()">
+                <span class="btn-fill"></span>
+                <span class="btn-text">
+                    <span class="btn-text-default">Waiting for your times...</span>
+                    <span class="btn-text-ready">Show my timeline</span>
+                </span>
+            </button>
+        </div>
+    </section>
+
+    <!-- THRESHOLD OVERLAY (the system visibly works) -->
+    <div class="threshold-overlay" id="threshold-overlay">
+        <div class="threshold-line" id="th-line-1">
+            Calculating total intake... <span class="val" id="th-val-1"></span>
+        </div>
+        <div class="threshold-line" id="th-line-2">
+            Applying 5-hour half-life... <span class="val" id="th-val-2"></span>
+        </div>
+        <div class="threshold-line" id="th-line-3">
+            Checking your bedtime... <span class="val" id="th-val-3"></span>
+        </div>
+        <div class="threshold-line" id="th-line-4">
+            Comparing to sleep threshold... <span class="val" id="th-val-4"></span>
+        </div>
+        <div class="threshold-dots">
+            <span class="threshold-dot" id="th-dot-1"></span>
+            <span class="threshold-dot" id="th-dot-2"></span>
+            <span class="threshold-dot" id="th-dot-3"></span>
+            <span class="threshold-dot" id="th-dot-4"></span>
+        </div>
+    </div>
+
+    <!-- SECTION 3: Result (the release) -->
+    <section class="section bg-result result-section" id="result-section">
+        <div class="result-hero-wrap">
+            <p class="result-label">Caffeine at bedtime</p>
+            <div class="result-number" id="result-number">0</div>
+            <p class="result-unit">milligrams remaining</p>
+            <p class="result-verdict" id="result-verdict"></p>
+        </div>
+
+        <div class="cutoff-block" id="cutoff-block">
+            <p class="cutoff-label">Your last safe cup</p>
+            <div class="cutoff-time" id="cutoff-time"></div>
+            <p class="cutoff-note">To have less than 25 mg of caffeine at bedtime — the threshold where sleep architecture is unaffected.</p>
+        </div>
+    </section>
+
+    <!-- SECTION 4: Coach Card (spring entry, emotional release) -->
+    <section class="section bg-coach coach-section" id="coach-section">
+        <div class="coach-container">
+            <h2 class="coach-title" id="coach-title">The one rule</h2>
+            <div class="coach-card" id="coach-card">
+                <p class="coach-text" id="coach-text"></p>
+                <p class="coach-rule" id="coach-rule"></p>
+                <div class="coach-advice" id="coach-advice"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mockup badge -->
+    <div class="mockup-badge">PRODUCT MOCKUP V1</div>
+
+    <script>
+        // ── STATE ──
+        let state = {
+            source: null,
+            mgPer: 0,
+            cups: 0,
+            totalMg: 0,
+            intakeTime: '08:00',
+            bedtime: '22:00',
+            fieldsConfirmed: { intake: false, bedtime: false }
+        };
+
+        // ── SOURCE SELECTION ──
+        function selectSource(card) {
+            // Deselect all
+            document.querySelectorAll('.source-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+
+            state.source = card.dataset.name;
+            state.mgPer = parseInt(card.dataset.mg);
+
+            // Back-channel echo: "95 mg of caffeine per cup"
+            const echo = document.getElementById('echo-text');
+            echo.textContent = `${state.mgPer} mg of caffeine per ${state.source.toLowerCase()}`;
+            echo.classList.add('visible');
+
+            // Nucleation: cups section unfolds from selection
+            setTimeout(() => {
+                document.getElementById('cups-section').classList.add('visible');
+            }, 200);
+
+            // If cups already selected, update total
+            if (state.cups > 0) {
+                updateTotal();
+            }
+        }
+
+        // ── CUPS SELECTION ──
+        function selectCups(btn) {
+            document.querySelectorAll('.cup-btn').forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+
+            state.cups = parseInt(btn.dataset.cups);
+            updateTotal();
+        }
+
+        function updateTotal() {
+            state.totalMg = state.mgPer * state.cups;
+
+            // Update echo with total
+            const echo = document.getElementById('echo-text');
+            const cupWord = state.cups === 1 ? state.source.toLowerCase() : state.source.toLowerCase() + 's';
+            echo.textContent = `${state.cups} ${cupWord} = ${state.totalMg} mg total caffeine`;
+            echo.classList.add('visible');
+
+            // Show timeline preview (back-channel: system is already working)
+            showTimelinePreview();
+
+            // Scroll to time section after a beat
+            setTimeout(() => {
+                showTimeSection();
+            }, 600);
+        }
+
+        // ── TIMELINE PREVIEW (back-channel signal during input) ──
+        function showTimelinePreview() {
+            const preview = document.getElementById('timeline-preview');
+            preview.classList.add('visible');
+
+            // Build hour markers
+            const markers = document.getElementById('timeline-markers');
+            markers.innerHTML = '';
+            const hours = ['Now', '+2h', '+5h', '+10h', '+15h'];
+            hours.forEach((h, i) => {
+                const m = document.createElement('span');
+                m.className = 'timeline-marker';
+                m.textContent = h;
+                markers.appendChild(m);
+                setTimeout(() => m.classList.add('visible'), 100 + i * 80);
+            });
+
+            // Fill bar based on total mg (more caffeine = longer timeline)
+            const fill = document.getElementById('timeline-fill');
+            const pct = Math.min(100, (state.totalMg / 400) * 100);
+            setTimeout(() => { fill.style.width = pct + '%'; }, 200);
+        }
+
+        // ── TIME SECTION ──
+        function showTimeSection() {
+            const section = document.getElementById('time-section');
+            section.style.display = 'flex';
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(24px)';
+
+            requestAnimationFrame(() => {
+                section.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+                section.style.opacity = '1';
+                section.style.transform = 'translateY(0)';
+            });
+
+            // Smooth scroll to time section
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+
+            // Auto-confirm default fields with back-channel signals
+            setTimeout(() => {
+                document.getElementById('confirm-intake').classList.add('visible');
+                state.fieldsConfirmed.intake = true;
+            }, 800);
+            setTimeout(() => {
+                document.getElementById('confirm-bedtime').classList.add('visible');
+                state.fieldsConfirmed.bedtime = true;
+            }, 1100);
+
+            // Button transforms after confirmations
+            setTimeout(() => {
+                transformButton();
+            }, 1400);
+        }
+
+        // ── FIELD CHANGE (back-channel confirmation) ──
+        function onTimeChange() {
+            state.intakeTime = document.getElementById('intake-time').value;
+            state.bedtime = document.getElementById('bedtime').value;
+
+            // Re-confirm with visual signal
+            const intakeConfirm = document.getElementById('confirm-intake');
+            const bedtimeConfirm = document.getElementById('confirm-bedtime');
+
+            intakeConfirm.classList.remove('visible');
+            bedtimeConfirm.classList.remove('visible');
+
+            setTimeout(() => {
+                intakeConfirm.classList.add('visible');
+                state.fieldsConfirmed.intake = true;
+            }, 150);
+            setTimeout(() => {
+                bedtimeConfirm.classList.add('visible');
+                state.fieldsConfirmed.bedtime = true;
+            }, 300);
+
+            transformButton();
+        }
+
+        // ── BUTTON TRANSFORMATION ──
+        function transformButton() {
+            const btn = document.getElementById('calc-btn');
+            if (state.totalMg > 0 && state.fieldsConfirmed.intake && state.fieldsConfirmed.bedtime) {
+                btn.classList.add('ready');
+            }
+        }
+
+        // ── CALCULATION + THRESHOLD STATE ──
+        function calculate() {
+            const btn = document.getElementById('calc-btn');
+            if (!btn.classList.contains('ready')) return;
+
+            // Parse times
+            const [intH, intM] = state.intakeTime.split(':').map(Number);
+            const [bedH, bedM] = state.bedtime.split(':').map(Number);
+            let intakeMinutes = intH * 60 + intM;
+            let bedtimeMinutes = bedH * 60 + bedM;
+            if (bedtimeMinutes <= intakeMinutes) bedtimeMinutes += 24 * 60;
+
+            const hoursElapsed = (bedtimeMinutes - intakeMinutes) / 60;
+            const halfLife = 5;
+            const mgAtBedtime = state.totalMg * Math.pow(0.5, hoursElapsed / halfLife);
+            const roundedMg = Math.round(mgAtBedtime);
+
+            // Calculate last safe cup time (< 25mg at bedtime)
+            // 25 = totalMg * 0.5^(hours/5)  →  hours = 5 * log2(totalMg/25)
+            const safeHours = halfLife * Math.log2(state.totalMg / 25);
+            let safeMinutes = bedtimeMinutes - safeHours * 60;
+            if (safeMinutes < 0) safeMinutes += 24 * 60;
+            const safeH = Math.floor(safeMinutes / 60) % 24;
+            const safeM = Math.round(safeMinutes % 60);
+
+            // ── ENTER THRESHOLD STATE ──
+            const overlay = document.getElementById('threshold-overlay');
+            overlay.classList.add('active');
+
+            // Line 1: total intake
+            setTimeout(() => {
+                document.getElementById('th-val-1').textContent = state.totalMg + ' mg';
+                document.getElementById('th-line-1').classList.add('visible');
+            }, 100);
+            setTimeout(() => {
+                document.getElementById('th-line-1').classList.add('resolved');
+                document.getElementById('th-dot-1').classList.add('done');
+            }, 500);
+
+            // Line 2: half-life
+            setTimeout(() => {
+                document.getElementById('th-val-2').textContent = hoursElapsed.toFixed(1) + ' hours to bedtime';
+                document.getElementById('th-line-2').classList.add('visible');
+            }, 600);
+            setTimeout(() => {
+                document.getElementById('th-line-2').classList.add('resolved');
+                document.getElementById('th-dot-2').classList.add('done');
+            }, 1000);
+
+            // Line 3: bedtime
+            setTimeout(() => {
+                document.getElementById('th-val-3').textContent = formatTime(bedH, bedM);
+                document.getElementById('th-line-3').classList.add('visible');
+            }, 1100);
+            setTimeout(() => {
+                document.getElementById('th-line-3').classList.add('resolved');
+                document.getElementById('th-dot-3').classList.add('done');
+            }, 1500);
+
+            // Line 4: threshold comparison
+            setTimeout(() => {
+                const comparison = roundedMg <= 25 ? 'below 25 mg threshold' : 'above 25 mg threshold';
+                document.getElementById('th-val-4').textContent = roundedMg + ' mg — ' + comparison;
+                document.getElementById('th-line-4').classList.add('visible');
+            }, 1600);
+            setTimeout(() => {
+                document.getElementById('th-line-4').classList.add('resolved');
+                document.getElementById('th-dot-4').classList.add('done');
+            }, 2000);
+
+            // ── EXIT THRESHOLD → SHOW RESULT ──
+            setTimeout(() => {
+                overlay.classList.remove('active');
+                showResult(roundedMg, safeH, safeM, hoursElapsed);
+            }, 2600);
+        }
+
+        // ── RESULT REVEAL ──
+        function showResult(mg, safeH, safeM, hoursElapsed) {
+            const resultSection = document.getElementById('result-section');
+            const coachSection = document.getElementById('coach-section');
+
+            resultSection.classList.add('visible');
+            resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+            // Count-up animation with decelerate easing
+            const resultEl = document.getElementById('result-number');
+            const duration = 1200;
+            const start = performance.now();
+
+            function countUp(now) {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                // Decelerate easing: 1 - (1 - t)^3
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(eased * mg);
+                resultEl.textContent = current;
+
+                // Color shift at threshold crossing
+                if (current <= 25) {
+                    resultEl.className = 'result-number';
+                } else if (current <= 50) {
+                    resultEl.className = 'result-number caution';
+                } else {
+                    resultEl.className = 'result-number bad';
+                }
+
+                if (progress < 1) {
+                    requestAnimationFrame(countUp);
+                } else {
+                    // Final state
+                    resultEl.textContent = mg;
+                    if (mg <= 25) {
+                        resultEl.className = 'result-number';
+                    } else if (mg <= 50) {
+                        resultEl.className = 'result-number caution';
+                    } else {
+                        resultEl.className = 'result-number bad';
+                    }
+                    onCountComplete(mg, safeH, safeM, hoursElapsed);
+                }
+            }
+            requestAnimationFrame(countUp);
+        }
+
+        function onCountComplete(mg, safeH, safeM, hoursElapsed) {
+            // Verdict text (release matched to tension type)
+            const verdict = document.getElementById('result-verdict');
+            if (mg <= 25) {
+                verdict.textContent = 'Your caffeine will be below the sleep threshold. You\'re clear.';
+                verdict.style.color = 'var(--good)';
+            } else if (mg <= 50) {
+                verdict.textContent = 'Some caffeine will linger. You might feel it at bedtime.';
+                verdict.style.color = 'var(--caution)';
+            } else {
+                verdict.textContent = 'Significant caffeine at bedtime. Sleep quality will be affected.';
+                verdict.style.color = 'var(--bad)';
+            }
+            verdict.classList.add('visible');
+
+            // Cutoff time reveal
+            const cutoffBlock = document.getElementById('cutoff-block');
+            const cutoffTime = document.getElementById('cutoff-time');
+            cutoffTime.textContent = formatTime(safeH, safeM);
+            cutoffBlock.classList.add('visible');
+
+            // Coach card after result absorbs
+            setTimeout(() => {
+                showCoach(mg, safeH, safeM, hoursElapsed);
+            }, 1800);
+        }
+
+        // ── COACH CARD (spring easing entry) ──
+        function showCoach(mg, safeH, safeM, hoursElapsed) {
+            const section = document.getElementById('coach-section');
+            section.classList.add('visible');
+
+            setTimeout(() => {
+                section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+
+            // Build coach content
+            const coachText = document.getElementById('coach-text');
+            const coachRule = document.getElementById('coach-rule');
+            const coachAdvice = document.getElementById('coach-advice');
+
+            coachText.innerHTML = `You had <span class="hl">${state.totalMg} mg</span> of caffeine from ${state.cups} ${state.source.toLowerCase()}${state.cups > 1 ? 's' : ''}. ` +
+                `<span class="dim">After ${hoursElapsed.toFixed(1)} hours, your body will have processed most of it</span> — ` +
+                `but <span class="hl">${mg} mg</span> will still be active at bedtime.`;
+
+            coachRule.textContent = 'Every 5 hours, half.';
+
+            if (mg <= 25) {
+                coachAdvice.innerHTML = `Your timing is good. At <em>${formatTime(safeH, safeM)}</em>, you have a natural cutoff that keeps caffeine below the sleep threshold. ` +
+                    `The half-life does the work — you just need to respect the clock.`;
+            } else {
+                coachAdvice.innerHTML = `Your last safe cup is <em>${formatTime(safeH, safeM)}</em> — that's when ${state.totalMg} mg of ${state.source.toLowerCase()} will decay to under 25 mg by bedtime. ` +
+                    `Everything after that is borrowing from tonight's sleep.`;
+            }
+
+            // Spring animation triggers
+            setTimeout(() => {
+                document.getElementById('coach-title').classList.add('animate');
+            }, 300);
+            setTimeout(() => {
+                document.getElementById('coach-card').classList.add('animate');
+            }, 400);
+        }
+
+        // ── HELPERS ──
+        function formatTime(h, m) {
+            const period = h >= 12 ? 'PM' : 'AM';
+            const displayH = h % 12 || 12;
+            const displayM = String(Math.round(m)).padStart(2, '0');
+            return `${displayH}:${displayM} ${period}`;
+        }
+    </script>
+</body>
+</html>
