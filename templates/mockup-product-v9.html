@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pulse Onboarding — Enclosure/Intimacy Gradient</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            /* The Field — warm, open, inviting */
+            --warm-bg: #F5F0EA;
+            --warm-bg-subtle: #EDE7DF;
+            --warm-text: #2D2A26;
+            --warm-text-dim: #6B6560;
+            --warm-text-muted: #9B9590;
+
+            /* The Room / Reveal — dark, private, contained */
+            --dark-bg: #0a0f1a;
+            --dark-bg-card: #111827;
+            --dark-bg-result: #0d1f2d;
+            --dark-border: rgba(20, 184, 166, 0.15);
+            --dark-text: #e2e8f0;
+            --dark-text-dim: #94a3b8;
+
+            /* Accent */
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.25);
+            --pulse-green: #10b981;
+
+            /* Type */
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+
+            /* Enclosure progression */
+            --border-radius-soft: 24px;
+            --border-radius-defined: 16px;
+            --border-radius-tight: 12px;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--warm-bg);
+            color: var(--warm-text);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ========== STEP SYSTEM ========== */
+        .step {
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .step.hidden {
+            display: none;
+        }
+
+        .step.entering {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .step.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .step.exiting {
+            opacity: 0;
+            transform: translateY(-20px) scale(0.98);
+        }
+
+        /* =============================================
+           STEP 1: THE FIELD
+           No enclosure. Open space. Floating elements.
+           Permeability: fully open.
+           ============================================= */
+        .step-field {
+            background: var(--warm-bg);
+            padding: 2rem;
+        }
+
+        .field-question {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            color: var(--warm-text);
+            text-align: center;
+            margin-bottom: 3.5rem;
+            line-height: 1.3;
+            max-width: 600px;
+        }
+
+        /* Loose pills — no container, no card. Floating in space. */
+        .field-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            max-width: 560px;
+        }
+
+        .field-pill {
+            padding: 14px 28px;
+            background: transparent;
+            border: 1.5px solid rgba(45, 42, 38, 0.15);
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--warm-text);
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            /* No background — pill floats on the field */
+        }
+
+        .field-pill:hover {
+            border-color: var(--teal-dim);
+            color: var(--teal-dim);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(13, 148, 136, 0.08);
+        }
+
+        .field-pill.selected {
+            background: var(--warm-text);
+            color: var(--warm-bg);
+            border-color: var(--warm-text);
+            transform: translateY(-2px);
+        }
+
+        /* Subtle hint text — no container */
+        .field-hint {
+            margin-top: 3rem;
+            font-size: 0.85rem;
+            color: var(--warm-text-muted);
+            opacity: 0;
+            transition: opacity 0.6s ease 0.3s;
+        }
+
+        .field-hint.visible {
+            opacity: 1;
+        }
+
+        /* Pulse dot — the only brand signal in open field */
+        .pulse-dot-field {
+            width: 8px;
+            height: 8px;
+            background: var(--pulse-green);
+            border-radius: 50%;
+            position: absolute;
+            top: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: pulse-breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-breathe {
+            0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
+            50% { opacity: 1; transform: translateX(-50%) scale(1.3); }
+        }
+
+        /* =============================================
+           STEP 2: THE COURTYARD
+           Moderate enclosure. A zone appears.
+           Background shift creates boundary without line.
+           Permeability: soft — zone is present but open.
+           ============================================= */
+        .step-courtyard {
+            background: var(--warm-bg);
+            padding: 2rem;
+        }
+
+        /* The courtyard zone — a background value shift, not a bordered card.
+           "Shared field grouping" — the gradient IS the container. */
+        .courtyard-zone {
+            background: var(--warm-bg-subtle);
+            border-radius: var(--border-radius-soft);
+            padding: clamp(2.5rem, 5vw, 4rem);
+            max-width: 560px;
+            width: 100%;
+            position: relative;
+            /* No border yet — just a tonal shift */
+            transition: box-shadow 0.6s ease;
+        }
+
+        .courtyard-zone:hover {
+            box-shadow: 0 8px 40px rgba(45, 42, 38, 0.06);
+        }
+
+        .courtyard-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal-dim);
+            margin-bottom: 1.5rem;
+        }
+
+        .courtyard-question {
+            font-family: var(--font-display);
+            font-size: clamp(1.6rem, 4vw, 2.2rem);
+            color: var(--warm-text);
+            margin-bottom: 2.5rem;
+            line-height: 1.35;
+        }
+
+        .courtyard-options {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .courtyard-option {
+            padding: 18px 24px;
+            background: var(--warm-bg);
+            border: 1px solid rgba(45, 42, 38, 0.08);
+            border-radius: var(--border-radius-defined);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--warm-text);
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            text-align: left;
+            width: 100%;
+        }
+
+        .courtyard-option:hover {
+            border-color: rgba(13, 148, 136, 0.3);
+            background: #fff;
+            transform: translateX(4px);
+        }
+
+        .courtyard-option.selected {
+            border-color: var(--teal-dim);
+            background: #fff;
+            box-shadow: 0 0 0 1px var(--teal-dim);
+        }
+
+        .courtyard-icon {
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .courtyard-option-text {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .courtyard-option-label {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .courtyard-option-sub {
+            font-size: 0.82rem;
+            color: var(--warm-text-dim);
+        }
+
+        /* =============================================
+           STEP 3: THE ROOM
+           High enclosure. Well-defined form.
+           Dark mode = private space. Borders are clear.
+           Permeability: semi-modal — demands completion.
+           ============================================= */
+        .step-room {
+            background: var(--dark-bg);
+            padding: 2rem;
+        }
+
+        /* The room — clear boundary, contained space */
+        .room-container {
+            background: var(--dark-bg-card);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--border-radius-defined);
+            padding: clamp(2rem, 5vw, 3rem);
+            max-width: 520px;
+            width: 100%;
+            position: relative;
+        }
+
+        /* Subtle inner glow — the room has atmosphere */
+        .room-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 120px;
+            background: linear-gradient(to bottom, rgba(20, 184, 166, 0.03), transparent);
+            border-radius: var(--border-radius-defined) var(--border-radius-defined) 0 0;
+            pointer-events: none;
+        }
+
+        .room-header {
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .room-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .room-label .pulse-dot-small {
+            width: 6px;
+            height: 6px;
+            background: var(--pulse-green);
+            border-radius: 50%;
+            animation: pulse-breathe 3s ease-in-out infinite;
+        }
+
+        .room-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.4rem, 3.5vw, 1.8rem);
+            color: var(--dark-text);
+            line-height: 1.3;
+        }
+
+        .room-subtitle {
+            font-size: 0.9rem;
+            color: var(--dark-text-dim);
+            margin-top: 0.5rem;
+            line-height: 1.5;
+        }
+
+        /* Form inputs — enclosed, defined */
+        .room-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .room-field {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .room-field label {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--dark-text-dim);
+            letter-spacing: 0.02em;
+        }
+
+        .room-field input,
+        .room-field select {
+            padding: 14px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: var(--border-radius-tight);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--dark-text);
+            transition: all 0.25s ease;
+            -webkit-appearance: none;
+            appearance: none;
+        }
+
+        .room-field input:focus,
+        .room-field select:focus {
+            outline: none;
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px var(--teal-glow);
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .room-field input::placeholder {
+            color: var(--dark-text-dim);
+            opacity: 0.5;
+        }
+
+        .room-field select option {
+            background: var(--dark-bg-card);
+            color: var(--dark-text);
+        }
+
+        .room-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .room-calculate-btn {
+            margin-top: 8px;
+            padding: 16px;
+            background: var(--teal);
+            border: none;
+            border-radius: var(--border-radius-tight);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .room-calculate-btn:hover {
+            background: var(--teal-dim);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 20px var(--teal-glow);
+        }
+
+        .room-calculate-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Back-channel signal during calculation */
+        .room-calculate-btn.calculating {
+            pointer-events: none;
+        }
+
+        .room-calculate-btn.calculating::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            animation: calc-sweep 1.2s ease-in-out;
+        }
+
+        @keyframes calc-sweep {
+            to { left: 100%; }
+        }
+
+        /* =============================================
+           STEP 4: THE REVEAL
+           Maximum enclosure — result at overlay depth.
+           Still on dark background (private space).
+           Coach card uses background shift, NOT nesting.
+           ============================================= */
+        .step-reveal {
+            background: var(--dark-bg);
+            padding: 2rem;
+            min-height: 100vh;
+            min-height: 100dvh;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: max(3rem, 6vh);
+        }
+
+        /* Result card — the most enclosed element (overlay depth) */
+        .reveal-card {
+            background: var(--dark-bg-card);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--border-radius-defined);
+            max-width: 520px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4),
+                        0 0 80px rgba(20, 184, 166, 0.06);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .reveal-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-header {
+            padding: 2rem 2rem 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .reveal-eyebrow {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .reveal-eyebrow .pulse-dot-small {
+            width: 6px;
+            height: 6px;
+            background: var(--pulse-green);
+            border-radius: 50%;
+            animation: pulse-breathe 3s ease-in-out infinite;
+        }
+
+        .reveal-title {
+            font-family: var(--font-display);
+            font-size: 1.6rem;
+            color: var(--dark-text);
+            line-height: 1.3;
+        }
+
+        /* Result metrics */
+        .reveal-metrics {
+            padding: 1.5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .reveal-metric {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .reveal-metric-label {
+            font-size: 0.88rem;
+            color: var(--dark-text-dim);
+        }
+
+        .reveal-metric-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--dark-text);
+        }
+
+        .reveal-metric-value.highlight {
+            color: var(--teal);
+        }
+
+        .reveal-metric-unit {
+            font-family: var(--font-body);
+            font-size: 0.8rem;
+            color: var(--dark-text-dim);
+            margin-left: 4px;
+        }
+
+        /* Timeline — result visualization */
+        .reveal-timeline {
+            padding: 0 2rem 1.5rem;
+        }
+
+        .timeline-bar-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+
+        .timeline-bar-bg {
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 4px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .timeline-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--teal), var(--pulse-green));
+            border-radius: 4px;
+            width: 0%;
+            transition: width 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+        }
+
+        .timeline-bar-label {
+            font-size: 0.75rem;
+            color: var(--dark-text-dim);
+            white-space: nowrap;
+        }
+
+        .timeline-detail {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            color: var(--dark-text-dim);
+            margin-top: 4px;
+        }
+
+        /* Coach insight — background color shift, NOT a card-in-card.
+           "Boundaries don't recurse" — no bordered cards in bordered cards.
+           Instead: tonal shift within the same container. */
+        .reveal-coach {
+            background: var(--dark-bg-result);
+            padding: 1.5rem 2rem;
+            /* No border, no border-radius — it's a ZONE within the card, not a nested card */
+        }
+
+        .coach-label {
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .coach-message {
+            font-size: 0.95rem;
+            color: var(--dark-text);
+            line-height: 1.65;
+        }
+
+        .coach-message strong {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        /* CTA at bottom of result card */
+        .reveal-cta {
+            padding: 1.5rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 12px;
+        }
+
+        .reveal-cta-btn {
+            flex: 1;
+            padding: 14px;
+            border-radius: var(--border-radius-tight);
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            border: none;
+        }
+
+        .reveal-cta-primary {
+            background: var(--teal);
+            color: #fff;
+        }
+
+        .reveal-cta-primary:hover {
+            background: var(--teal-dim);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 16px var(--teal-glow);
+        }
+
+        .reveal-cta-secondary {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--dark-text-dim);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .reveal-cta-secondary:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--dark-text);
+        }
+
+        /* =============================================
+           PROGRESS INDICATOR
+           Minimal. Enclosure level shown via dot fill.
+           ============================================= */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            padding: 1.5rem;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .progress-dots {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .progress-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Dot states match enclosure level */
+        .progress-dot.empty {
+            background: transparent;
+            border: 1.5px solid rgba(45, 42, 38, 0.2);
+        }
+
+        .progress-dot.filling {
+            background: rgba(45, 42, 38, 0.3);
+            border: 1.5px solid rgba(45, 42, 38, 0.3);
+        }
+
+        .progress-dot.full {
+            background: var(--teal);
+            border: 1.5px solid var(--teal);
+            box-shadow: 0 0 8px var(--teal-glow);
+        }
+
+        /* Dark mode progress dots */
+        .step-room .progress-dot.empty,
+        .step-reveal .progress-dot.empty {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Progress dots adapt to current step background */
+        .progress-bar.dark-mode .progress-dot.empty {
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+
+        .progress-bar.dark-mode .progress-dot.filling {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .progress-connector {
+            width: 24px;
+            height: 1.5px;
+            background: rgba(45, 42, 38, 0.1);
+            transition: background 0.5s ease;
+        }
+
+        .progress-bar.dark-mode .progress-connector {
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .progress-connector.active {
+            background: var(--teal);
+        }
+
+        /* =============================================
+           TRANSITION OVERLAY
+           "A transition is a third state"
+           ============================================= */
+        .transition-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        .transition-overlay.warm-to-dark {
+            background: linear-gradient(to bottom, var(--warm-bg), var(--dark-bg));
+        }
+
+        .transition-overlay.active {
+            animation: transition-sweep 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        @keyframes transition-sweep {
+            0% { opacity: 0; }
+            40% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* =============================================
+           TYPOGRAPHY UTILITIES
+           ============================================= */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
+        /* =============================================
+           MOBILE ADJUSTMENTS
+           ============================================= */
+        @media (max-width: 480px) {
+            .field-options {
+                gap: 10px;
+            }
+
+            .field-pill {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .courtyard-zone {
+                padding: 2rem 1.5rem;
+            }
+
+            .room-container {
+                padding: 1.5rem;
+            }
+
+            .room-row {
+                grid-template-columns: 1fr;
+            }
+
+            .reveal-header,
+            .reveal-metrics,
+            .reveal-coach,
+            .reveal-cta {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .reveal-cta {
+                flex-direction: column;
+            }
+
+            .reveal-metric-value {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Progress indicator — dots fill as enclosure increases -->
+    <div class="progress-bar" id="progressBar">
+        <div class="progress-dots">
+            <div class="progress-dot full" data-step="1"></div>
+            <div class="progress-connector" data-connector="1"></div>
+            <div class="progress-dot empty" data-step="2"></div>
+            <div class="progress-connector" data-connector="2"></div>
+            <div class="progress-dot empty" data-step="3"></div>
+            <div class="progress-connector" data-connector="3"></div>
+            <div class="progress-dot empty" data-step="4"></div>
+        </div>
+    </div>
+
+    <!-- Transition overlay -->
+    <div class="transition-overlay warm-to-dark" id="transitionOverlay"></div>
+
+    <!-- ==========================================
+         STEP 1: THE FIELD
+         Enclosure: NONE
+         Permeability: Fully open
+         Background: Warm (#F5F0EA)
+         Borders: None
+         ========================================== -->
+    <div class="step step-field active" id="step1">
+        <div class="pulse-dot-field"></div>
+
+        <h1 class="field-question">What brought you here today?</h1>
+
+        <div class="field-options" role="group" aria-label="What brought you here">
+            <button class="field-pill" data-value="energy" onclick="selectField(this)">My energy levels</button>
+            <button class="field-pill" data-value="weight" onclick="selectField(this)">Understanding my weight</button>
+            <button class="field-pill" data-value="sleep" onclick="selectField(this)">Better sleep</button>
+            <button class="field-pill" data-value="fitness" onclick="selectField(this)">Fitness goals</button>
+            <button class="field-pill" data-value="nutrition" onclick="selectField(this)">What to eat</button>
+            <button class="field-pill" data-value="curious" onclick="selectField(this)">Just curious</button>
+        </div>
+
+        <p class="field-hint" id="fieldHint">No account needed. Just a question.</p>
+    </div>
+
+    <!-- ==========================================
+         STEP 2: THE COURTYARD
+         Enclosure: MODERATE (background value shift)
+         Permeability: Soft boundary
+         Background: Warm, but zone appears
+         Borders: None visible — tonal grouping only
+         ========================================== -->
+    <div class="step step-courtyard hidden" id="step2">
+        <div class="courtyard-zone">
+            <p class="courtyard-label">Getting closer</p>
+            <h2 class="courtyard-question">When does your biggest health question hit?</h2>
+
+            <div class="courtyard-options" role="group" aria-label="When does your health question arise">
+                <button class="courtyard-option" onclick="selectCourtyard(this)" data-value="morning">
+                    <span class="courtyard-icon">6am</span>
+                    <span class="courtyard-option-text">
+                        <span class="courtyard-option-label">Morning routine</span>
+                        <span class="courtyard-option-sub">Coffee, supplements, should I eat first?</span>
+                    </span>
+                </button>
+                <button class="courtyard-option" onclick="selectCourtyard(this)" data-value="afternoon">
+                    <span class="courtyard-icon">2pm</span>
+                    <span class="courtyard-option-text">
+                        <span class="courtyard-option-label">The afternoon wall</span>
+                        <span class="courtyard-option-sub">Energy crash, reaching for caffeine again</span>
+                    </span>
+                </button>
+                <button class="courtyard-option" onclick="selectCourtyard(this)" data-value="evening">
+                    <span class="courtyard-icon">9pm</span>
+                    <span class="courtyard-option-text">
+                        <span class="courtyard-option-label">Before bed</span>
+                        <span class="courtyard-option-sub">Can't sleep, mind racing about tomorrow</span>
+                    </span>
+                </button>
+                <button class="courtyard-option" onclick="selectCourtyard(this)" data-value="random">
+                    <span class="courtyard-icon">???</span>
+                    <span class="courtyard-option-text">
+                        <span class="courtyard-option-label">Random moments</span>
+                        <span class="courtyard-option-sub">Something triggers it, never predictable</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         STEP 3: THE ROOM
+         Enclosure: HIGH (defined borders, dark mode)
+         Permeability: Semi-modal (demands completion)
+         Background: Dark (#0a0f1a — private space)
+         Borders: Visible, defined
+         ========================================== -->
+    <div class="step step-room hidden" id="step3">
+        <div class="room-container">
+            <div class="room-header">
+                <p class="room-label"><span class="pulse-dot-small"></span> Your space</p>
+                <h2 class="room-title">Let's find your caffeine cutoff time.</h2>
+                <p class="room-subtitle">Caffeine has a half-life of ~5 hours. We'll calculate when your last cup should be.</p>
+            </div>
+
+            <form class="room-form" onsubmit="return false;">
+                <div class="room-row">
+                    <div class="room-field">
+                        <label for="cups">Cups per day</label>
+                        <select id="cups">
+                            <option value="1">1 cup</option>
+                            <option value="2" selected>2 cups</option>
+                            <option value="3">3 cups</option>
+                            <option value="4">4 cups</option>
+                            <option value="5">5+ cups</option>
+                        </select>
+                    </div>
+                    <div class="room-field">
+                        <label for="mgPerCup">mg per cup</label>
+                        <input type="number" id="mgPerCup" value="95" placeholder="95">
+                    </div>
+                </div>
+
+                <div class="room-field">
+                    <label for="bedtime">Target bedtime</label>
+                    <input type="time" id="bedtime" value="23:00">
+                </div>
+
+                <div class="room-field">
+                    <label for="sensitivity">Caffeine sensitivity</label>
+                    <select id="sensitivity">
+                        <option value="low">Low — coffee barely affects me</option>
+                        <option value="normal" selected>Normal — takes about 5 hours to halve</option>
+                        <option value="high">High — I feel one cup for hours</option>
+                    </select>
+                </div>
+
+                <button class="room-calculate-btn" id="calculateBtn" onclick="calculate()">
+                    Calculate my cutoff
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         STEP 4: THE REVEAL
+         Enclosure: MAXIMUM (overlay depth result card)
+         Coach uses background shift, not card-in-card
+         "Boundaries don't recurse"
+         ========================================== -->
+    <div class="step step-reveal hidden" id="step4">
+        <div class="reveal-card" id="revealCard">
+            <div class="reveal-header">
+                <p class="reveal-eyebrow"><span class="pulse-dot-small"></span> Your result</p>
+                <h2 class="reveal-title" id="revealTitle">Your last cup: before 2:00 PM</h2>
+            </div>
+
+            <div class="reveal-metrics">
+                <div class="reveal-metric">
+                    <span class="reveal-metric-label">Daily caffeine intake</span>
+                    <span class="reveal-metric-value" id="totalMg">190<span class="reveal-metric-unit">mg</span></span>
+                </div>
+                <div class="reveal-metric">
+                    <span class="reveal-metric-label">Cutoff time</span>
+                    <span class="reveal-metric-value highlight" id="cutoffTime">2:00 PM</span>
+                </div>
+                <div class="reveal-metric">
+                    <span class="reveal-metric-label">At bedtime you'll have</span>
+                    <span class="reveal-metric-value" id="remainingMg">~24<span class="reveal-metric-unit">mg</span></span>
+                </div>
+            </div>
+
+            <div class="reveal-timeline">
+                <div class="timeline-bar-container">
+                    <span class="timeline-bar-label" id="timelineCutoff">2 PM</span>
+                    <div class="timeline-bar-bg">
+                        <div class="timeline-bar-fill" id="timelineFill"></div>
+                    </div>
+                    <span class="timeline-bar-label" id="timelineBed">11 PM</span>
+                </div>
+                <div class="timeline-detail">
+                    <span>Caffeine clearing</span>
+                    <span id="timelinePercent">87% metabolized by bedtime</span>
+                </div>
+            </div>
+
+            <!-- Coach insight — background shift, NOT nested card -->
+            <div class="reveal-coach">
+                <p class="coach-label"><span class="pulse-dot-small"></span> The one rule</p>
+                <p class="coach-message" id="coachMessage">
+                    <strong>Every 5 hours, half.</strong> Your 2 PM cup starts at 190mg. By 7 PM: 95mg. By midnight: ~47mg. That's still like half a cup keeping your brain alert. The math is simple, but most people have never done it.
+                </p>
+            </div>
+
+            <div class="reveal-cta">
+                <button class="reveal-cta-btn reveal-cta-primary" onclick="resetFlow()">Ask another question</button>
+                <button class="reveal-cta-btn reveal-cta-secondary" onclick="shareResult()">Share this</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // STATE
+        // ========================================
+        let currentStep = 1;
+        let selections = {};
+
+        // ========================================
+        // STEP 1: THE FIELD
+        // ========================================
+        function selectField(pill) {
+            // Deselect siblings
+            document.querySelectorAll('.field-pill').forEach(p => p.classList.remove('selected'));
+            pill.classList.add('selected');
+            selections.field = pill.dataset.value;
+
+            // Show hint briefly, then advance
+            document.getElementById('fieldHint').classList.add('visible');
+
+            setTimeout(() => {
+                goToStep(2);
+            }, 600);
+        }
+
+        // ========================================
+        // STEP 2: THE COURTYARD
+        // ========================================
+        function selectCourtyard(option) {
+            document.querySelectorAll('.courtyard-option').forEach(o => o.classList.remove('selected'));
+            option.classList.add('selected');
+            selections.courtyard = option.dataset.value;
+
+            setTimeout(() => {
+                goToStep(3);
+            }, 500);
+        }
+
+        // ========================================
+        // STEP 3: THE ROOM — CALCULATE
+        // ========================================
+        function calculate() {
+            const btn = document.getElementById('calculateBtn');
+            btn.classList.add('calculating');
+            btn.textContent = 'Calculating...';
+
+            const cups = parseInt(document.getElementById('cups').value);
+            const mgPerCup = parseInt(document.getElementById('mgPerCup').value) || 95;
+            const bedtime = document.getElementById('bedtime').value;
+            const sensitivity = document.getElementById('sensitivity').value;
+
+            const totalMg = cups * mgPerCup;
+
+            // Half-life varies by sensitivity
+            const halfLife = sensitivity === 'low' ? 4 : sensitivity === 'high' ? 7 : 5;
+
+            // Parse bedtime
+            const [bedH, bedM] = bedtime.split(':').map(Number);
+            let bedMinutes = bedH * 60 + bedM;
+
+            // Want < 25mg at bedtime. Hours needed: log2(totalMg/25) * halfLife
+            const hoursNeeded = Math.log2(totalMg / 25) * halfLife;
+            let cutoffMinutes = bedMinutes - Math.round(hoursNeeded * 60);
+            if (cutoffMinutes < 0) cutoffMinutes += 24 * 60;
+
+            const cutoffH = Math.floor(cutoffMinutes / 60) % 24;
+            const cutoffM = cutoffMinutes % 60;
+            const cutoffTime = formatTime(cutoffH, cutoffM);
+            const bedtimeFormatted = formatTime(bedH, bedM);
+
+            // Remaining mg at bedtime if last cup at cutoff
+            const hoursUntilBed = hoursNeeded;
+            const remainingMg = Math.round(totalMg * Math.pow(0.5, hoursUntilBed / halfLife));
+
+            // Percent metabolized
+            const pctMetabolized = Math.round((1 - remainingMg / totalMg) * 100);
+
+            // Fill in results
+            document.getElementById('revealTitle').textContent = `Your last cup: before ${cutoffTime}`;
+            document.getElementById('totalMg').innerHTML = `${totalMg}<span class="reveal-metric-unit">mg</span>`;
+            document.getElementById('cutoffTime').textContent = cutoffTime;
+            document.getElementById('remainingMg').innerHTML = `~${remainingMg}<span class="reveal-metric-unit">mg</span>`;
+            document.getElementById('timelineCutoff').textContent = cutoffTime;
+            document.getElementById('timelineBed').textContent = bedtimeFormatted;
+            document.getElementById('timelinePercent').textContent = `${pctMetabolized}% metabolized by bedtime`;
+
+            // Coach message adapts
+            const halfLifeHours = halfLife;
+            const midpointH = Math.round(hoursNeeded / 2);
+            const midMg = Math.round(totalMg / 2);
+            document.getElementById('coachMessage').innerHTML =
+                `<strong>Every ${halfLifeHours} hours, half.</strong> Your ${cutoffTime} cup starts at ${totalMg}mg. ` +
+                `After ${halfLifeHours} hours: ${midMg}mg. By bedtime: ~${remainingMg}mg. ` +
+                `${remainingMg < 30
+                    ? "That's low enough for most people to sleep well."
+                    : "That's still enough to keep you alert. Consider cutting one cup or switching to decaf after lunch."}`;
+
+            // "The threshold is its own state" — 300-600ms visible calculation
+            setTimeout(() => {
+                btn.textContent = 'Calculate my cutoff';
+                btn.classList.remove('calculating');
+                goToStep(4);
+
+                // Animate timeline bar after reveal
+                setTimeout(() => {
+                    document.getElementById('timelineFill').style.width = `${pctMetabolized}%`;
+                }, 300);
+            }, 500);
+        }
+
+        function formatTime(h, m) {
+            const period = h >= 12 ? 'PM' : 'AM';
+            const displayH = h % 12 || 12;
+            const displayM = m.toString().padStart(2, '0');
+            return `${displayH}:${displayM} ${period}`;
+        }
+
+        // ========================================
+        // STEP TRANSITIONS
+        // "A transition is a third state"
+        // ========================================
+        function goToStep(step) {
+            const currentEl = document.getElementById(`step${currentStep}`);
+            const nextEl = document.getElementById(`step${step}`);
+
+            // Trigger warm-to-dark transition overlay for step 2→3
+            if (currentStep === 2 && step === 3) {
+                const overlay = document.getElementById('transitionOverlay');
+                overlay.classList.add('active');
+                setTimeout(() => overlay.classList.remove('active'), 800);
+            }
+
+            // Exit current step
+            currentEl.classList.remove('active');
+            currentEl.classList.add('exiting');
+
+            setTimeout(() => {
+                currentEl.classList.remove('exiting');
+                currentEl.classList.add('hidden');
+
+                // Prepare next step
+                nextEl.classList.remove('hidden');
+                nextEl.classList.add('entering');
+
+                // Update body background for dark steps
+                if (step >= 3) {
+                    document.body.style.background = 'var(--dark-bg)';
+                    document.getElementById('progressBar').classList.add('dark-mode');
+                } else {
+                    document.body.style.background = 'var(--warm-bg)';
+                    document.getElementById('progressBar').classList.remove('dark-mode');
+                }
+
+                // Force reflow
+                nextEl.offsetHeight;
+
+                // Enter next step
+                requestAnimationFrame(() => {
+                    nextEl.classList.remove('entering');
+                    nextEl.classList.add('active');
+                });
+
+                // Update progress dots
+                updateProgress(step);
+
+                // Reveal card animation for step 4
+                if (step === 4) {
+                    setTimeout(() => {
+                        document.getElementById('revealCard').classList.add('visible');
+                    }, 200);
+                }
+
+                currentStep = step;
+            }, 400);
+        }
+
+        function updateProgress(step) {
+            for (let i = 1; i <= 4; i++) {
+                const dot = document.querySelector(`.progress-dot[data-step="${i}"]`);
+                const connector = document.querySelector(`.progress-connector[data-connector="${i - 1}"]`);
+
+                if (i < step) {
+                    dot.className = 'progress-dot full';
+                    if (connector) connector.classList.add('active');
+                } else if (i === step) {
+                    dot.className = 'progress-dot filling';
+                } else {
+                    dot.className = 'progress-dot empty';
+                    if (connector) connector.classList.remove('active');
+                }
+            }
+        }
+
+        // ========================================
+        // RESET / SHARE
+        // ========================================
+        function resetFlow() {
+            document.getElementById('revealCard').classList.remove('visible');
+
+            setTimeout(() => {
+                // Reset all
+                document.querySelectorAll('.field-pill').forEach(p => p.classList.remove('selected'));
+                document.querySelectorAll('.courtyard-option').forEach(o => o.classList.remove('selected'));
+                document.getElementById('fieldHint').classList.remove('visible');
+                document.getElementById('timelineFill').style.width = '0%';
+                selections = {};
+
+                const currentEl = document.getElementById(`step${currentStep}`);
+                currentEl.classList.remove('active');
+                currentEl.classList.add('hidden');
+
+                document.body.style.background = 'var(--warm-bg)';
+                document.getElementById('progressBar').classList.remove('dark-mode');
+
+                const step1 = document.getElementById('step1');
+                step1.classList.remove('hidden');
+                step1.classList.add('active');
+
+                currentStep = 1;
+                updateProgress(1);
+            }, 300);
+        }
+
+        function shareResult() {
+            const title = document.getElementById('revealTitle').textContent;
+            if (navigator.share) {
+                navigator.share({ title: 'My Caffeine Cutoff', text: title, url: window.location.href });
+            } else {
+                navigator.clipboard.writeText(title).then(() => {
+                    const btn = event.target;
+                    btn.textContent = 'Copied!';
+                    setTimeout(() => { btn.textContent = 'Share this'; }, 1500);
+                });
+            }
+        }
+
+        // Initialize progress
+        updateProgress(1);
+    </script>
+</body>
+</html>
