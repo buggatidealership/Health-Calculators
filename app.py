@@ -5943,6 +5943,10 @@ def mockup_calc_v24():
 def mockup_calc_v25():
     return render_template('mockup-calc-v25.html')
 
+@app.route('/mockup-product-v5')
+def mockup_product_v5():
+    return render_template('mockup-product-v5.html')
+
 @app.route('/mockup-ozempic-v3')
 def mockup_ozempic_v3():
     return render_template(
@@ -6460,6 +6464,10 @@ def cycling_calorie_guide():
 @app.route('/mockup-product-v1')
 def mockup_product_v1():
     return render_template('mockup-product-v1.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-product-v4')
+def mockup_product_v4():
+    return render_template('mockup-product-v4.html', is_homepage=True, robots_meta='noindex, nofollow')
 
 
 if __name__ == '__main__':

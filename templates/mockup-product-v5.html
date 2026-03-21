@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Share Card Experience — View Back Principle</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --good: #14b8a6;
+            --caution: #f59e0b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg-1);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 { color: var(--text); }
+
+        /* ========== CALCULATOR PAGE (the "building" you're inside) ========== */
+        .calculator-page {
+            position: relative;
+            transition: filter 0.6s ease;
+        }
+
+        .calculator-page.dimmed {
+            filter: brightness(0.3) blur(2px);
+            pointer-events: none;
+        }
+
+        .calc-section {
+            padding: 3rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.7s ease,
+                        max-height 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+            transform-origin: center center;
+            overflow: hidden;
+        }
+
+        /* Compression targets — each section gets pulled toward center */
+        .calc-section.compress-up {
+            transform: translateY(40vh) scale(0.3);
+            opacity: 0;
+            max-height: 0;
+            padding: 0;
+        }
+        .calc-section.compress-down {
+            transform: translateY(-40vh) scale(0.3);
+            opacity: 0;
+            max-height: 0;
+            padding: 0;
+        }
+        .calc-section.compress-center {
+            transform: scale(0);
+            opacity: 0;
+            max-height: 0;
+            padding: 0;
+        }
+
+        /* Hero */
+        .hero-section {
+            min-height: 50vh;
+            justify-content: center;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+        }
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        /* Source cards */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+            gap: 0.5rem;
+            max-width: 600px;
+            width: 100%;
+        }
+        .source-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 0.8rem 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s;
+        }
+        .source-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-glow);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .source-card .emoji { font-size: 1.4rem; display: block; margin-bottom: 0.3rem; }
+        .source-card .name { font-size: 0.78rem; font-weight: 600; }
+        .source-card .mg { font-size: 0.65rem; color: var(--text-dim); margin-top: 2px; }
+
+        /* Result section */
+        .result-section {
+            min-height: 60vh;
+            justify-content: center;
+            background: linear-gradient(180deg, #081a1a 0%, #0c1f20 50%, #0a1520 100%);
+        }
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 14vw, 8rem);
+            line-height: 1;
+            text-align: center;
+            color: var(--caution);
+            text-shadow: 0 0 60px rgba(245, 158, 11, 0.2);
+        }
+        .result-unit {
+            font-size: 1rem;
+            color: var(--text-dim);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        .result-verdict {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-top: 1rem;
+            font-weight: 600;
+            color: var(--caution);
+        }
+        .cutoff-block {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            text-align: center;
+        }
+        .cutoff-label { font-size: 0.9rem; color: var(--text-dim); margin-bottom: 0.3rem; }
+        .cutoff-time {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--teal);
+            text-shadow: 0 0 30px var(--teal-glow);
+        }
+
+        /* Coach section */
+        .coach-section {
+            min-height: 60vh;
+            justify-content: center;
+            background: linear-gradient(180deg, #0a1520 0%, #0a0f1a 100%);
+        }
+        .coach-container { max-width: 520px; width: 100%; }
+        .coach-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+        }
+        .coach-text {
+            font-size: 1.05rem;
+            line-height: 2;
+            color: var(--text);
+        }
+        .coach-text .hl { color: var(--teal); font-weight: 700; }
+        .coach-text .dim { color: var(--text-dim); }
+        .coach-rule {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--teal);
+            margin: 1.2rem 0;
+            text-shadow: 0 0 20px var(--teal-glow);
+        }
+
+        /* Share trigger row (inside calculator page) */
+        .share-trigger-row {
+            display: flex;
+            gap: 0.6rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .share-trigger-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.7rem 1.4rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.3);
+            color: var(--teal);
+        }
+        .share-trigger-btn:hover {
+            background: rgba(20,184,166,0.2);
+            box-shadow: 0 4px 20px var(--teal-glow);
+            transform: translateY(-1px);
+        }
+        .share-trigger-btn svg { width: 18px; height: 18px; }
+
+        /* FAQ section */
+        .faq-section {
+            padding: 3rem 1.5rem;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+        }
+        .faq-section h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .faq-item {
+            border: 1px solid rgba(20,184,166,0.1);
+            border-radius: 14px;
+            margin-bottom: 0.6rem;
+            padding: 1rem 1.2rem;
+            background: rgba(20,184,166,0.03);
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== SHARE CARD OVERLAY ========== */
+        .share-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        .share-overlay.active {
+            pointer-events: auto;
+            opacity: 1;
+        }
+
+        /* The card itself */
+        .share-card {
+            width: min(90vw, 600px);
+            aspect-ratio: 1200 / 675;
+            background: linear-gradient(135deg, #0a0f1a 0%, #0c1920 30%, #081a1a 60%, #0a1218 100%);
+            border: 1px solid rgba(20,184,166,0.2);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 80px rgba(20, 184, 166, 0.08), 0 20px 60px rgba(0,0,0,0.6);
+
+            /* Start state — will animate in */
+            transform: scale(0.1);
+            opacity: 0;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        opacity 0.8s ease;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+        .share-overlay.active .share-card {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        /* Internal gradient cycling */
+        .share-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 30% 40%, rgba(20,184,166,0.06) 0%, transparent 60%),
+                        radial-gradient(ellipse at 70% 60%, rgba(14,122,126,0.04) 0%, transparent 50%);
+            animation: gradient-cycle 8s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes gradient-cycle {
+            0% {
+                background: radial-gradient(ellipse at 30% 40%, rgba(20,184,166,0.06) 0%, transparent 60%),
+                            radial-gradient(ellipse at 70% 60%, rgba(14,122,126,0.04) 0%, transparent 50%);
+            }
+            50% {
+                background: radial-gradient(ellipse at 60% 30%, rgba(20,184,166,0.08) 0%, transparent 55%),
+                            radial-gradient(ellipse at 30% 70%, rgba(14,122,126,0.05) 0%, transparent 45%);
+            }
+            100% {
+                background: radial-gradient(ellipse at 45% 55%, rgba(20,184,166,0.05) 0%, transparent 65%),
+                            radial-gradient(ellipse at 55% 35%, rgba(14,122,126,0.06) 0%, transparent 55%);
+            }
+        }
+
+        /* Card grid structure — the "lattice" */
+        .card-lattice {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.03;
+        }
+        .card-lattice::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(90deg, rgba(20,184,166,0.3) 1px, transparent 1px),
+                linear-gradient(0deg, rgba(20,184,166,0.3) 1px, transparent 1px);
+            background-size: 60px 60px;
+            animation: lattice-breathe 6s ease-in-out infinite;
+        }
+        @keyframes lattice-breathe {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Card content elements */
+        .card-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            width: 100%;
+        }
+
+        .card-number {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 5rem);
+            line-height: 1;
+            color: var(--caution);
+            text-shadow: 0 0 40px rgba(245, 158, 11, 0.25);
+            opacity: 0;
+            transform: scale(3) translateY(20px);
+            transition: all 1s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+        }
+        .share-overlay.active .card-number {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .card-number-unit {
+            font-size: 0.6em;
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-weight: 400;
+        }
+
+        .card-context {
+            font-size: clamp(0.7rem, 2vw, 0.9rem);
+            color: var(--text-dim);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.7s ease 0.7s;
+        }
+        .share-overlay.active .card-context {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-divider {
+            width: 40px;
+            height: 1px;
+            background: rgba(20,184,166,0.3);
+            margin: 0.6rem 0;
+            opacity: 0;
+            transform: scaleX(0);
+            transition: all 0.6s ease 0.9s;
+        }
+        .share-overlay.active .card-divider {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+
+        .card-rule {
+            font-family: var(--font-display);
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
+            color: var(--teal);
+            text-shadow: 0 0 20px var(--teal-glow);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.7s ease 1.1s;
+        }
+        .share-overlay.active .card-rule {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-source-label {
+            font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            opacity: 0;
+            transition: opacity 0.5s ease 1.3s;
+        }
+        .share-overlay.active .card-source-label {
+            opacity: 1;
+        }
+
+        /* Pulse dot on card */
+        .card-pulse {
+            position: absolute;
+            bottom: 1.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: card-pulse-anim 2.5s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 0.5s ease 1.4s;
+        }
+        .share-overlay.active .card-pulse {
+            opacity: 1;
+        }
+        @keyframes card-pulse-anim {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        /* Brand in card */
+        .card-brand {
+            position: absolute;
+            top: 1rem;
+            left: 1.2rem;
+            font-size: clamp(0.55rem, 1.5vw, 0.7rem);
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            opacity: 0;
+            transition: opacity 0.5s ease 1.5s;
+        }
+        .share-overlay.active .card-brand {
+            opacity: 1;
+        }
+        .card-brand-dot {
+            width: 5px; height: 5px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: card-pulse-anim 2.5s ease-in-out infinite;
+        }
+
+        /* Decay mini-bars in card (the nucleation lattice) */
+        .card-decay-strip {
+            position: absolute;
+            bottom: 2.5rem;
+            left: 1.2rem;
+            right: 1.2rem;
+            display: flex;
+            gap: 3px;
+            height: 3px;
+            opacity: 0;
+            transition: opacity 0.8s ease 1.2s;
+        }
+        .share-overlay.active .card-decay-strip {
+            opacity: 1;
+        }
+        .card-decay-bar {
+            flex: 1;
+            border-radius: 2px;
+            transition: width 0.6s ease;
+        }
+
+        /* Share action buttons (appear after card forms) */
+        .share-actions {
+            display: flex;
+            gap: 0.6rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .share-action-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.65rem 1.2rem;
+            border-radius: 12px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            font-family: var(--font-body);
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            /* Spring entrance — start hidden */
+            opacity: 0;
+            transform: translateY(20px) scale(0.8);
+        }
+        .share-action-btn.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+        .share-action-btn svg { width: 16px; height: 16px; }
+
+        .share-action-btn.twitter {
+            background: rgba(29,155,240,0.15);
+            border: 1px solid rgba(29,155,240,0.3);
+            color: #1d9bf0;
+        }
+        .share-action-btn.twitter:hover { background: rgba(29,155,240,0.25); box-shadow: 0 4px 14px rgba(29,155,240,0.2); }
+
+        .share-action-btn.whatsapp {
+            background: rgba(37,211,102,0.12);
+            border: 1px solid rgba(37,211,102,0.3);
+            color: #25d366;
+        }
+        .share-action-btn.whatsapp:hover { background: rgba(37,211,102,0.22); box-shadow: 0 4px 14px rgba(37,211,102,0.2); }
+
+        .share-action-btn.telegram {
+            background: rgba(0,136,204,0.12);
+            border: 1px solid rgba(0,136,204,0.3);
+            color: #0088cc;
+        }
+        .share-action-btn.telegram:hover { background: rgba(0,136,204,0.22); box-shadow: 0 4px 14px rgba(0,136,204,0.2); }
+
+        .share-action-btn.copy {
+            background: rgba(20,184,166,0.12);
+            border: 1px solid rgba(20,184,166,0.3);
+            color: var(--teal);
+        }
+        .share-action-btn.copy:hover { background: rgba(20,184,166,0.22); box-shadow: 0 4px 14px var(--teal-glow); }
+        .share-action-btn.copy.copied { background: var(--teal); color: #0a0f1a; }
+
+        /* Close / back button */
+        .share-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 1001;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-dim);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+            opacity: 0;
+            transition: opacity 0.5s ease 1.8s, background 0.2s, border-color 0.2s;
+        }
+        .share-overlay.active .share-close {
+            opacity: 1;
+        }
+        .share-close:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: rgba(255,255,255,0.2);
+            color: var(--text);
+        }
+
+        /* ========== POST-SHARE STATE ========== */
+        /* After returning from share card, the page gets a subtle recontextualization */
+        .calculator-page.recontextualized .coach-card {
+            box-shadow: 0 0 30px rgba(20, 184, 166, 0.08);
+            border-color: rgba(20, 184, 166, 0.25);
+        }
+        .calculator-page.recontextualized .result-number {
+            text-shadow: 0 0 80px rgba(245, 158, 11, 0.15);
+        }
+        .recontextualize-badge {
+            display: none;
+            text-align: center;
+            margin-top: 1rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            animation: badge-fade 0.8s ease forwards;
+        }
+        .calculator-page.recontextualized .recontextualize-badge {
+            display: block;
+        }
+        @keyframes badge-fade {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========== INSTRUCTION BANNER ========== */
+        .demo-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0; right: 0;
+            z-index: 2000;
+            background: rgba(10, 15, 26, 0.95);
+            border-top: 1px solid rgba(20,184,166,0.15);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            backdrop-filter: blur(20px);
+        }
+        .demo-banner p {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+        .demo-banner .hl { color: var(--teal); font-weight: 600; }
+        .demo-banner .principle {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            font-style: italic;
+        }
+
+        /* Pulse dot (inline) */
+        .pulse-dot-inline {
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 0.3rem;
+            animation: card-pulse-anim 2.5s ease-in-out infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            .share-card { padding: 1.5rem 1rem; border-radius: 16px; }
+            .card-number { font-size: 3rem; }
+            .card-rule { font-size: 0.9rem; }
+            .source-grid { grid-template-columns: repeat(3, 1fr); }
+            .share-actions { gap: 0.4rem; }
+            .share-action-btn { padding: 0.55rem 0.9rem; font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== THE CALCULATOR PAGE (the building) ========== -->
+    <div class="calculator-page" id="calcPage">
+
+        <!-- HERO: Caffeine source selection (already completed) -->
+        <section class="calc-section hero-section" data-compress="up">
+            <h1 class="hero-title">How long does <span>caffeine</span> last?</h1>
+            <p class="hero-sub">Select your source. We'll do the pharmacokinetics.</p>
+            <div class="source-grid">
+                <div class="source-card">
+                    <span class="emoji">☕</span>
+                    <div class="name">Espresso</div>
+                    <div class="mg">63 mg</div>
+                </div>
+                <div class="source-card">
+                    <span class="emoji">🫖</span>
+                    <div class="name">Green Tea</div>
+                    <div class="mg">28 mg</div>
+                </div>
+                <div class="source-card selected">
+                    <span class="emoji">🧊</span>
+                    <div class="name">Cold Brew</div>
+                    <div class="mg">200 mg</div>
+                </div>
+                <div class="source-card">
+                    <span class="emoji">🥤</span>
+                    <div class="name">Energy Drink</div>
+                    <div class="mg">160 mg</div>
+                </div>
+                <div class="source-card">
+                    <span class="emoji">💊</span>
+                    <div class="name">Caffeine Pill</div>
+                    <div class="mg">200 mg</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESULT: The key number -->
+        <section class="calc-section result-section" data-compress="center-key">
+            <div class="result-number">29</div>
+            <div class="result-unit">mg remaining at bedtime</div>
+            <div class="result-verdict">Mild — may affect light sleepers</div>
+
+            <div class="cutoff-block">
+                <div class="cutoff-label">Last safe cup</div>
+                <div class="cutoff-time">12:00 PM</div>
+            </div>
+        </section>
+
+        <!-- COACH: The mental model -->
+        <section class="calc-section coach-section" data-compress="center-key">
+            <div class="coach-container">
+                <h2 class="coach-title"><span class="pulse-dot-inline"></span> Your Personal Coach</h2>
+                <div class="coach-card">
+                    <div class="coach-text">
+                        You drank <span class="hl">200 mg</span> of cold brew.
+                        <span class="dim">By bedtime (10:00 PM), you'll still have</span>
+                        <span class="hl">29 mg</span> <span class="dim">circulating.</span>
+                    </div>
+                    <div class="coach-rule">"Every 5 hours, half."</div>
+                    <div class="coach-text dim" style="font-size: 0.92rem; line-height: 1.8;">
+                        200 mg at 2 PM → 100 mg at 7 PM → 50 mg at midnight.
+                        <br>The half-life is the only number that matters.
+                    </div>
+                </div>
+
+                <!-- Share trigger -->
+                <div class="share-trigger-row">
+                    <button class="share-trigger-btn" id="shareBtn" onclick="initiateShare()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                        </svg>
+                        Share Result
+                    </button>
+                </div>
+
+                <div class="recontextualize-badge">
+                    <span style="color: var(--teal);">Shared</span> — the framework travels with them
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="calc-section faq-section" data-compress="down">
+            <h2>Common Questions</h2>
+            <div class="faq-item">How long does caffeine last in your system?</div>
+            <div class="faq-item">When should I stop drinking coffee before bed?</div>
+            <div class="faq-item">How much caffeine is too much?</div>
+            <div class="faq-item">Does caffeine half-life change with age?</div>
+        </section>
+    </div>
+
+    <!-- ========== SHARE CARD OVERLAY ========== -->
+    <div class="share-overlay" id="shareOverlay">
+
+        <button class="share-close" id="shareClose" onclick="closeShare()">✕</button>
+
+        <!-- The card — nucleation seed -->
+        <div class="share-card" id="shareCard">
+            <!-- Lattice geometry -->
+            <div class="card-lattice"></div>
+
+            <!-- Brand -->
+            <div class="card-brand">
+                <span class="card-brand-dot"></span>
+                healthcalculators.xyz
+            </div>
+
+            <!-- Content -->
+            <div class="card-content">
+                <div class="card-number">29<span class="card-number-unit">mg</span></div>
+                <div class="card-context">caffeine remaining at bedtime</div>
+                <div class="card-divider"></div>
+                <div class="card-rule">"Every 5 hours, half."</div>
+                <div class="card-source-label">200 mg cold brew → 10 PM bedtime</div>
+            </div>
+
+            <!-- Pulse -->
+            <div class="card-pulse"></div>
+
+            <!-- Decay strip — the system's geometry in miniature -->
+            <div class="card-decay-strip" id="decayStrip"></div>
+        </div>
+
+        <!-- Share action buttons -->
+        <div class="share-actions" id="shareActions">
+            <button class="share-action-btn twitter" data-delay="0">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Post on X
+            </button>
+            <button class="share-action-btn whatsapp" data-delay="1">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492l4.647-1.516A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75c-2.16 0-4.16-.69-5.795-1.86l-.36-.24-2.835.925.9-2.73-.263-.39A9.69 9.69 0 012.25 12 9.75 9.75 0 0112 2.25 9.75 9.75 0 0121.75 12 9.75 9.75 0 0112 21.75z"/></svg>
+                WhatsApp
+            </button>
+            <button class="share-action-btn telegram" data-delay="2">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 000 12a12 12 0 0012 12 12 12 0 0012-12A12 12 0 0012 0h-.056zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                Telegram
+            </button>
+            <button class="share-action-btn copy" data-delay="3" onclick="copyCardText()">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                </svg>
+                Copy
+            </button>
+        </div>
+    </div>
+
+    <!-- ========== DEMO INSTRUCTION BANNER ========== -->
+    <div class="demo-banner" id="demoBanner">
+        <p>Click <span class="hl">Share Result</span> to see the view-back compression</p>
+        <p class="principle">Principle: "An ending is a transfer, not a termination. A figure dissolves into its ground."</p>
+    </div>
+
+    <script>
+        // Build the decay strip (nucleation geometry — the full experience as a miniature bar chart)
+        function buildDecayStrip() {
+            const strip = document.getElementById('decayStrip');
+            const hours = [200, 168, 141, 119, 100, 84, 71, 59, 50, 42, 35, 29];
+            const max = 200;
+            hours.forEach((mg, i) => {
+                const bar = document.createElement('div');
+                bar.className = 'card-decay-bar';
+                const pct = mg / max;
+                // Color gradient from teal to amber as it decays
+                const r = Math.round(20 + (245 - 20) * (1 - pct));
+                const g = Math.round(184 + (158 - 184) * (1 - pct));
+                const b = Math.round(166 + (11 - 166) * (1 - pct));
+                bar.style.background = `rgba(${r}, ${g}, ${b}, ${0.3 + pct * 0.7})`;
+                bar.style.height = `${3 * pct}px`;
+                bar.style.minHeight = '1px';
+                strip.appendChild(bar);
+            });
+        }
+        buildDecayStrip();
+
+        // State
+        let shareOpen = false;
+        let hasShared = false;
+
+        // ========== SHARE INITIATION — THE COMPRESSION ==========
+        function initiateShare() {
+            if (shareOpen) return;
+            shareOpen = true;
+
+            const page = document.getElementById('calcPage');
+            const overlay = document.getElementById('shareOverlay');
+            const banner = document.getElementById('demoBanner');
+
+            // Phase 1: Compress the page sections
+            // Each section collapses toward center with staggered timing
+            const sections = page.querySelectorAll('.calc-section');
+            sections.forEach((section, i) => {
+                const compress = section.dataset.compress;
+                // Stagger: outer sections first, inner last
+                const delays = { 'up': 0, 'center-key': 200, 'down': 50 };
+                const delay = delays[compress] || 0;
+
+                setTimeout(() => {
+                    if (compress === 'up') {
+                        section.classList.add('compress-up');
+                    } else if (compress === 'down') {
+                        section.classList.add('compress-down');
+                    } else if (compress === 'center-key') {
+                        // Key sections (result + coach) compress last and toward center
+                        section.classList.add('compress-center');
+                    }
+                }, delay);
+            });
+
+            // Phase 2: Dim the page
+            setTimeout(() => {
+                page.classList.add('dimmed');
+            }, 300);
+
+            // Phase 3: Show the share card overlay
+            setTimeout(() => {
+                overlay.classList.add('active');
+                banner.style.display = 'none';
+            }, 500);
+
+            // Phase 4: Staggered spring entrance for share buttons
+            setTimeout(() => {
+                const buttons = document.querySelectorAll('.share-action-btn');
+                buttons.forEach((btn, i) => {
+                    const d = parseInt(btn.dataset.delay) || 0;
+                    setTimeout(() => {
+                        btn.style.transition = `all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)`;
+                        btn.classList.add('visible');
+                    }, d * 120);
+                });
+            }, 1600);
+        }
+
+        // ========== CLOSE — THE DECOMPRESSION ==========
+        function closeShare() {
+            if (!shareOpen) return;
+
+            const page = document.getElementById('calcPage');
+            const overlay = document.getElementById('shareOverlay');
+            const banner = document.getElementById('demoBanner');
+
+            // Reverse: hide overlay first
+            overlay.classList.remove('active');
+
+            // Hide share buttons
+            document.querySelectorAll('.share-action-btn').forEach(btn => {
+                btn.classList.remove('visible');
+            });
+
+            // Un-dim page
+            setTimeout(() => {
+                page.classList.remove('dimmed');
+            }, 200);
+
+            // Decompress sections (ritardando — slower than compression)
+            setTimeout(() => {
+                const sections = page.querySelectorAll('.calc-section');
+                sections.forEach((section, i) => {
+                    // Reverse order: center first, then outward
+                    const compress = section.dataset.compress;
+                    const delays = { 'center-key': 0, 'up': 200, 'down': 200 };
+                    const delay = delays[compress] || 0;
+
+                    setTimeout(() => {
+                        section.classList.remove('compress-up', 'compress-down', 'compress-center');
+                    }, delay);
+                });
+            }, 300);
+
+            // Recontextualize: after returning, the page feels different
+            setTimeout(() => {
+                if (!hasShared) {
+                    hasShared = true;
+                    page.classList.add('recontextualized');
+                    banner.innerHTML = `
+                        <p><span class="hl">Exit recontextualizes what remains.</span> The coach card now glows differently.</p>
+                        <p class="principle">The framework was always yours. Sharing made you see it.</p>
+                    `;
+                }
+                banner.style.display = 'block';
+                shareOpen = false;
+            }, 800);
+        }
+
+        // Copy card text
+        function copyCardText() {
+            const text = `29mg caffeine at bedtime. "Every 5 hours, half." — healthcalculators.xyz/caffeine-half-life-calculator`;
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.querySelector('.share-action-btn.copy');
+                btn.classList.add('copied');
+                btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Copied`;
+                setTimeout(() => {
+                    btn.classList.remove('copied');
+                    btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg> Copy`;
+                }, 2000);
+            });
+        }
+
+        // Keyboard: Escape closes
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && shareOpen) closeShare();
+        });
+    </script>
+</body>
+</html>

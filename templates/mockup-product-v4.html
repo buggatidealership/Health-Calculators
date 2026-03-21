@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pulse — Onboarding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #1a1510;
+            --bg-warm: #211c14;
+            --bg-card: rgba(255, 243, 224, 0.04);
+            --bg-card-active: rgba(255, 243, 224, 0.08);
+            --border: rgba(255, 200, 120, 0.12);
+            --border-active: rgba(255, 200, 120, 0.25);
+            --amber: #f0b060;
+            --amber-dim: #c89040;
+            --amber-glow: rgba(240, 176, 96, 0.25);
+            --green: #34d399;
+            --green-glow: rgba(52, 211, 153, 0.3);
+            --text: #f5efe6;
+            --text-dim: #b8a88a;
+            --text-muted: #7a6b55;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Film grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.5;
+        }
+
+        /* === PROGRESS BAR === */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 200, 120, 0.08);
+            z-index: 100;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--amber-dim), var(--amber), var(--green));
+            transition: width 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            border-radius: 0 2px 2px 0;
+            box-shadow: 0 0 12px var(--amber-glow);
+        }
+
+        /* === BRAND HEADER === */
+        .brand-header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .brand-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green-glow);
+            animation: pulse-dot 2.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.7; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .brand-name {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-dim);
+            letter-spacing: 0.04em;
+        }
+
+        /* === MAIN CONTAINER === */
+        .onboard-container {
+            max-width: 520px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 4rem;
+            position: relative;
+        }
+
+        /* === STEP STRUCTURE === */
+        .step {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .step.active {
+            display: block;
+            animation: step-enter 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        .step.exiting {
+            display: block;
+            animation: step-exit 0.35s ease-in forwards;
+        }
+
+        @keyframes step-enter {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes step-exit {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(-16px); }
+        }
+
+        /* === STEP COUNTER === */
+        .step-counter {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .step-counter span {
+            color: var(--amber);
+        }
+
+        /* === QUESTION === */
+        .question {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            line-height: 1.3;
+            color: var(--text);
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .question { font-size: 2.1rem; }
+        }
+
+        /* === PILLS === */
+        .pills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .pill {
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: var(--bg-card);
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            user-select: none;
+        }
+
+        .pill:hover {
+            border-color: var(--border-active);
+            background: var(--bg-card-active);
+            color: var(--text);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .pill.selected {
+            border-color: var(--amber);
+            background: rgba(240, 176, 96, 0.12);
+            color: var(--amber);
+            box-shadow: 0 0 20px rgba(240, 176, 96, 0.1);
+        }
+
+        /* === FREE TEXT INPUT === */
+        .free-input-wrap {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .free-input {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            background: var(--bg-card);
+            color: var(--text);
+            font-family: var(--font-body);
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .free-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .free-input:focus {
+            border-color: var(--amber-dim);
+            box-shadow: 0 0 0 3px rgba(240, 176, 96, 0.08);
+        }
+
+        .or-divider {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 1.25rem 0;
+            position: relative;
+        }
+
+        .or-divider::before,
+        .or-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 35%;
+            height: 1px;
+            background: var(--border);
+        }
+        .or-divider::before { left: 0; }
+        .or-divider::after { right: 0; }
+
+        /* === SUBSTRATE REVEAL === */
+        .substrate {
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: opacity 0.6s ease, max-height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .substrate.visible {
+            opacity: 1;
+            max-height: 300px;
+        }
+
+        .substrate-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .substrate-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--amber), transparent);
+            border-radius: 3px 0 0 3px;
+        }
+
+        .substrate-stat {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            color: var(--text);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .substrate-stat .highlight {
+            color: var(--amber);
+        }
+
+        .substrate-source {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* === TIME PICKER === */
+        .time-picker-wrap {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .time-input-group {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem 0.75rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .time-input-group:focus-within {
+            border-color: var(--amber-dim);
+            box-shadow: 0 0 0 3px rgba(240, 176, 96, 0.08);
+        }
+
+        .time-digit {
+            width: 2.5rem;
+            text-align: center;
+            padding: 0.5rem 0;
+            border: none;
+            background: transparent;
+            color: var(--text);
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            outline: none;
+            -moz-appearance: textfield;
+        }
+
+        .time-digit::-webkit-outer-spin-button,
+        .time-digit::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        .time-sep {
+            color: var(--text-muted);
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            line-height: 1;
+        }
+
+        .time-period-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .time-period-btn {
+            padding: 0.25rem 0.6rem;
+            border: 1px solid var(--border);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.7rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            letter-spacing: 0.05em;
+        }
+
+        .time-period-btn:first-child { border-radius: 6px 6px 0 0; }
+        .time-period-btn:last-child { border-radius: 0 0 6px 6px; }
+
+        .time-period-btn.active {
+            background: rgba(240, 176, 96, 0.15);
+            border-color: var(--amber-dim);
+            color: var(--amber);
+        }
+
+        .time-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* === CONTINUE BUTTON === */
+        .continue-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.85rem 2rem;
+            border: none;
+            border-radius: 100px;
+            background: var(--amber);
+            color: var(--bg);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            margin-top: 1.5rem;
+        }
+
+        .continue-btn.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .continue-btn:hover {
+            background: #e5a050;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(240, 176, 96, 0.3);
+        }
+
+        .continue-btn .arrow {
+            transition: transform 0.3s;
+        }
+
+        .continue-btn:hover .arrow {
+            transform: translateX(3px);
+        }
+
+        /* === LIVE CAFFEINE DISPLAY (Step 2 substrate) === */
+        .caffeine-live {
+            display: flex;
+            align-items: baseline;
+            gap: 0.4rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .caffeine-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            color: var(--amber);
+            line-height: 1;
+        }
+
+        .caffeine-unit {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .caffeine-label {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin-bottom: 0.25rem;
+        }
+
+        /* === RESULT CARD (Step 4) === */
+        .result-card {
+            background: linear-gradient(135deg, rgba(240, 176, 96, 0.08), rgba(52, 211, 153, 0.06));
+            border: 1px solid rgba(240, 176, 96, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle at center, rgba(240, 176, 96, 0.06) 0%, transparent 60%);
+            animation: result-glow 4s ease-in-out infinite;
+        }
+
+        @keyframes result-glow {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+        }
+
+        .result-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .result-rule {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+            position: relative;
+        }
+
+        @media (min-width: 640px) {
+            .result-rule { font-size: 1.8rem; }
+        }
+
+        .result-rule .time-val {
+            color: var(--amber);
+            white-space: nowrap;
+        }
+
+        .result-context {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .result-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--border-active);
+            margin: 1.5rem auto;
+        }
+
+        /* === REMIND ME BUTTON === */
+        .remind-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1rem 2rem;
+            border: 1px solid var(--green);
+            border-radius: 100px;
+            background: rgba(52, 211, 153, 0.1);
+            color: var(--green);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+        }
+
+        .remind-btn:hover {
+            background: rgba(52, 211, 153, 0.18);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(52, 211, 153, 0.2);
+        }
+
+        .remind-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--green);
+            box-shadow: 0 0 8px var(--green-glow);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        /* === REFRAME SUMMARY === */
+        .reframe {
+            margin-top: 2rem;
+            padding: 1.25rem;
+            background: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 200, 120, 0.06);
+        }
+
+        .reframe-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+        }
+
+        .reframe-row + .reframe-row {
+            border-top: 1px solid rgba(255, 200, 120, 0.06);
+        }
+
+        .reframe-label {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .reframe-value {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-weight: 500;
+        }
+
+        .reframe-value.amber { color: var(--amber); }
+
+        /* === GAP VISUALIZATION (Step 3) === */
+        .gap-visual {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin: 1rem 0;
+            position: relative;
+            height: 48px;
+        }
+
+        .gap-bar {
+            height: 6px;
+            border-radius: 3px;
+            position: relative;
+        }
+
+        .gap-bar.caffeine {
+            background: linear-gradient(90deg, var(--amber), var(--amber-dim));
+            flex-shrink: 0;
+        }
+
+        .gap-bar.gap-zone {
+            background: repeating-linear-gradient(
+                90deg,
+                rgba(255, 200, 120, 0.15) 0px,
+                rgba(255, 200, 120, 0.15) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+            flex: 1;
+            position: relative;
+        }
+
+        .gap-bar.sleep {
+            background: linear-gradient(90deg, #6366f1, #818cf8);
+            width: 60px;
+            flex-shrink: 0;
+        }
+
+        .gap-marker {
+            position: absolute;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .gap-marker.left { left: 0; top: -18px; }
+        .gap-marker.right { right: 0; top: -18px; }
+
+        .gap-label {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 0.7rem;
+            color: var(--amber-dim);
+            white-space: nowrap;
+            background: var(--bg-warm);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* === BACK-CHANNEL (processing indicator) === */
+        .backch {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: backch-in 0.5s 0.2s ease forwards;
+        }
+
+        @keyframes backch-in {
+            from { opacity: 0; transform: translateX(-8px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .backch-dots {
+            display: flex;
+            gap: 3px;
+        }
+
+        .backch-dots span {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--amber-dim);
+            animation: backch-bounce 1.2s ease-in-out infinite;
+        }
+
+        .backch-dots span:nth-child(2) { animation-delay: 0.15s; }
+        .backch-dots span:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes backch-bounce {
+            0%, 80%, 100% { transform: translateY(0); opacity: 0.4; }
+            40% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        /* === TENSION DARKENING === */
+        .tension-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0);
+            transition: background 1.2s ease;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .tension-overlay[data-level="1"] { background: rgba(0, 0, 0, 0.03); }
+        .tension-overlay[data-level="2"] { background: rgba(0, 0, 0, 0.07); }
+        .tension-overlay[data-level="3"] { background: rgba(0, 0, 0, 0.12); }
+
+        /* === TAGLINE === */
+        .tagline {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 200, 120, 0.06);
+        }
+
+        .tagline p {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* === MOBILE ADJUSTMENTS === */
+        @media (max-width: 480px) {
+            .onboard-container { padding: 1.5rem 1.25rem 3rem; }
+            .question { font-size: 1.5rem; }
+            .caffeine-number { font-size: 2rem; }
+            .result-rule { font-size: 1.3rem; }
+            .time-digit { font-size: 1.5rem; width: 2rem; }
+            .time-sep { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="tension-overlay" id="tensionOverlay" data-level="0"></div>
+
+<!-- Progress bar -->
+<div class="progress-bar">
+    <div class="progress-fill" id="progressFill"></div>
+</div>
+
+<!-- Brand header -->
+<div class="brand-header">
+    <div class="brand-dot"></div>
+    <span class="brand-name">Pulse</span>
+</div>
+
+<div class="onboard-container">
+
+    <!-- ====== STEP 1: Health Question ====== -->
+    <div class="step active" id="step1">
+        <div class="step-counter">Step <span>1</span> of 4</div>
+        <h1 class="question">What's your one health question right now?</h1>
+
+        <div class="free-input-wrap">
+            <input type="text" class="free-input" id="freeQuestion" placeholder="Type anything — sleep, energy, weight...">
+        </div>
+
+        <div class="or-divider">or pick one</div>
+
+        <div class="pills">
+            <button class="pill" data-topic="sleep">Sleep</button>
+            <button class="pill" data-topic="weight">Weight</button>
+            <button class="pill" data-topic="energy">Energy</button>
+            <button class="pill" data-topic="fitness">Fitness</button>
+        </div>
+
+        <!-- Substrate: pattern stat -->
+        <div class="substrate" id="substrate1">
+            <div class="substrate-card">
+                <div class="backch">
+                    <div class="backch-dots"><span></span><span></span><span></span></div>
+                    <span>processing</span>
+                </div>
+                <p class="substrate-stat" id="substrate1Text"></p>
+                <span class="substrate-source" id="substrate1Source"></span>
+            </div>
+            <button class="continue-btn" id="continue1" onclick="goToStep(2)">
+                Let's find out <span class="arrow">&rarr;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ====== STEP 2: Last Coffee ====== -->
+    <div class="step" id="step2">
+        <div class="step-counter">Step <span>2</span> of 4</div>
+        <h2 class="question">When did you have your last coffee today?</h2>
+
+        <div class="time-picker-wrap">
+            <div class="time-input-group">
+                <input type="number" class="time-digit" id="coffeeHour" min="1" max="12" placeholder="2" value="">
+                <span class="time-sep">:</span>
+                <input type="number" class="time-digit" id="coffeeMin" min="0" max="59" placeholder="30" value="">
+                <div class="time-period-toggle">
+                    <button class="time-period-btn" data-period="AM" onclick="setPeriod(this, 'coffee')">AM</button>
+                    <button class="time-period-btn active" data-period="PM" onclick="setPeriod(this, 'coffee')">PM</button>
+                </div>
+            </div>
+            <span class="time-label">today</span>
+        </div>
+
+        <!-- Substrate: live caffeine -->
+        <div class="substrate" id="substrate2">
+            <div class="substrate-card">
+                <div class="backch">
+                    <div class="backch-dots"><span></span><span></span><span></span></div>
+                    <span>calculating</span>
+                </div>
+                <p class="caffeine-label">Still active in your system right now</p>
+                <div class="caffeine-live">
+                    <span class="caffeine-number" id="caffeineNow">--</span>
+                    <span class="caffeine-unit">mg caffeine</span>
+                </div>
+                <p class="substrate-stat">
+                    That's <span class="highlight" id="caffeinePercent">--</span> of your original cup still circulating.
+                </p>
+                <span class="substrate-source">Based on 95 mg per cup, 5-hour half-life</span>
+            </div>
+            <button class="continue-btn" id="continue2" onclick="goToStep(3)">
+                One more thing <span class="arrow">&rarr;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ====== STEP 3: Bedtime ====== -->
+    <div class="step" id="step3">
+        <div class="step-counter">Step <span>3</span> of 4</div>
+        <h2 class="question">What time do you go to bed?</h2>
+
+        <div class="time-picker-wrap">
+            <div class="time-input-group">
+                <input type="number" class="time-digit" id="bedHour" min="1" max="12" placeholder="10" value="">
+                <span class="time-sep">:</span>
+                <input type="number" class="time-digit" id="bedMin" min="0" max="59" placeholder="00" value="">
+                <div class="time-period-toggle">
+                    <button class="time-period-btn" data-period="AM" onclick="setPeriod(this, 'bed')">AM</button>
+                    <button class="time-period-btn active" data-period="PM" onclick="setPeriod(this, 'bed')">PM</button>
+                </div>
+            </div>
+            <span class="time-label">tonight</span>
+        </div>
+
+        <!-- Substrate: gap visualization -->
+        <div class="substrate" id="substrate3">
+            <div class="substrate-card">
+                <div class="backch">
+                    <div class="backch-dots"><span></span><span></span><span></span></div>
+                    <span>mapping your window</span>
+                </div>
+                <div class="gap-visual" id="gapVisual">
+                    <div class="gap-bar caffeine" style="width: 30px;">
+                        <span class="gap-marker left" id="gapCoffeeTime"></span>
+                    </div>
+                    <div class="gap-bar gap-zone">
+                        <span class="gap-label" id="gapHoursLabel"></span>
+                    </div>
+                    <div class="gap-bar sleep">
+                        <span class="gap-marker right" id="gapBedTime"></span>
+                    </div>
+                </div>
+                <p class="substrate-stat" id="substrate3Text"></p>
+                <span class="substrate-source" id="substrate3Verdict"></span>
+            </div>
+            <button class="continue-btn" id="continue3" onclick="goToStep(4)">
+                Show me the answer <span class="arrow">&rarr;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- ====== STEP 4: The Rule ====== -->
+    <div class="step" id="step4">
+        <div class="step-counter">Step <span>4</span> of 4 &mdash; <span style="color: var(--green);">your signal</span></div>
+        <h2 class="question" style="font-size: 1.3rem; color: var(--text-dim); margin-bottom: 2.5rem;">Everything you told us points to one thing.</h2>
+
+        <div class="result-card">
+            <p class="result-label">Your one rule</p>
+            <p class="result-rule" id="resultRule"></p>
+            <div class="result-divider"></div>
+            <p class="result-context" id="resultContext"></p>
+            <button class="remind-btn" id="remindBtn" onclick="handleRemind()">
+                <span class="remind-dot"></span>
+                We'll remind you
+            </button>
+        </div>
+
+        <!-- Reframe of all inputs -->
+        <div class="reframe" id="reframe">
+            <div class="reframe-row">
+                <span class="reframe-label">Your question</span>
+                <span class="reframe-value" id="reframeTopic"></span>
+            </div>
+            <div class="reframe-row">
+                <span class="reframe-label">Last coffee</span>
+                <span class="reframe-value" id="reframeCoffee"></span>
+            </div>
+            <div class="reframe-row">
+                <span class="reframe-label">Bedtime</span>
+                <span class="reframe-value" id="reframeBed"></span>
+            </div>
+            <div class="reframe-row">
+                <span class="reframe-label">Caffeine at bedtime</span>
+                <span class="reframe-value amber" id="reframeCaffBed"></span>
+            </div>
+        </div>
+
+        <div class="tagline">
+            <p>You always had a pulse. We help you find it.</p>
+        </div>
+    </div>
+
+</div>
+
+<script>
+(function() {
+    // === STATE ===
+    let currentStep = 1;
+    let selectedTopic = '';
+    let coffeePeriod = 'PM';
+    let bedPeriod = 'PM';
+    const HALF_LIFE = 5; // hours
+    const CUP_MG = 95;
+    const SLEEP_THRESHOLD = 25; // mg
+
+    // === SUBSTRATE DATA ===
+    const topicStats = {
+        sleep: {
+            stat: '<span class="highlight">68%</span> of people who ask about sleep have a caffeine timing issue &mdash; not a sleep disorder.',
+            source: 'Sleep Foundation, 2024 survey data'
+        },
+        weight: {
+            stat: '<span class="highlight">73%</span> of people tracking weight overlook metabolic rate changes &mdash; the scale stops moving, but they don\'t know why.',
+            source: 'NIH metabolic adaptation research'
+        },
+        energy: {
+            stat: '<span class="highlight">82%</span> of midday energy crashes trace back to two variables: sleep quality and caffeine timing. Not willpower.',
+            source: 'Chronobiology International, 2023'
+        },
+        fitness: {
+            stat: 'People who train consistently but plateau almost always share one thing: <span class="highlight">recovery timing</span> is off, not effort.',
+            source: 'NSCA position statement on recovery'
+        },
+        custom: {
+            stat: 'The answer to most health questions hides in <span class="highlight">2&ndash;3 daily habits</span> &mdash; not a new supplement or program.',
+            source: 'Behavioral medicine consensus, 2024'
+        }
+    };
+
+    // === PROGRESS BAR ===
+    function updateProgress(step) {
+        const pct = (step / 4) * 100;
+        document.getElementById('progressFill').style.width = pct + '%';
+    }
+
+    // === TENSION OVERLAY ===
+    function updateTension(level) {
+        document.getElementById('tensionOverlay').dataset.level = level;
+    }
+
+    // === STEP NAVIGATION ===
+    window.goToStep = function(step) {
+        const current = document.getElementById('step' + currentStep);
+        const next = document.getElementById('step' + step);
+
+        current.classList.remove('active');
+        current.classList.add('exiting');
+
+        setTimeout(() => {
+            current.classList.remove('exiting');
+            current.style.display = 'none';
+            next.classList.add('active');
+            currentStep = step;
+            updateProgress(step);
+            updateTension(step - 1);
+
+            if (step === 4) {
+                buildResult();
+            }
+        }, 350);
+    };
+
+    // === STEP 1: Topic selection ===
+    const pills = document.querySelectorAll('.pill');
+    const freeInput = document.getElementById('freeQuestion');
+
+    pills.forEach(pill => {
+        pill.addEventListener('click', function() {
+            pills.forEach(p => p.classList.remove('selected'));
+            this.classList.add('selected');
+            freeInput.value = '';
+            selectedTopic = this.dataset.topic;
+            revealSubstrate1(selectedTopic);
+        });
+    });
+
+    freeInput.addEventListener('keyup', function(e) {
+        if (this.value.trim().length > 2) {
+            pills.forEach(p => p.classList.remove('selected'));
+            selectedTopic = 'custom';
+            // Debounce
+            clearTimeout(this._debounce);
+            this._debounce = setTimeout(() => revealSubstrate1('custom'), 600);
+        }
+        if (e.key === 'Enter' && this.value.trim().length > 2) {
+            revealSubstrate1('custom');
+        }
+    });
+
+    function revealSubstrate1(topic) {
+        const data = topicStats[topic] || topicStats.custom;
+        const el = document.getElementById('substrate1');
+        const textEl = document.getElementById('substrate1Text');
+        const srcEl = document.getElementById('substrate1Source');
+
+        // Back-channel first, then stat
+        el.classList.add('visible');
+        textEl.innerHTML = '';
+        srcEl.textContent = '';
+
+        setTimeout(() => {
+            textEl.innerHTML = data.stat;
+            srcEl.textContent = data.source;
+            document.getElementById('continue1').classList.add('visible');
+        }, 900);
+    }
+
+    // === STEP 2: Coffee time ===
+    const coffeeHour = document.getElementById('coffeeHour');
+    const coffeeMinInput = document.getElementById('coffeeMin');
+
+    function onCoffeeTimeChange() {
+        const h = parseInt(coffeeHour.value);
+        const m = parseInt(coffeeMinInput.value) || 0;
+        if (isNaN(h) || h < 1 || h > 12) return;
+
+        revealSubstrate2(h, m, coffeePeriod);
+    }
+
+    coffeeHour.addEventListener('input', function() {
+        if (this.value.length >= 2 || parseInt(this.value) > 1) {
+            coffeeMinInput.focus();
+        }
+        onCoffeeTimeChange();
+    });
+    coffeeMinInput.addEventListener('input', onCoffeeTimeChange);
+
+    window.setPeriod = function(btn, type) {
+        const parent = btn.parentElement;
+        parent.querySelectorAll('.time-period-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        if (type === 'coffee') {
+            coffeePeriod = btn.dataset.period;
+            onCoffeeTimeChange();
+        } else {
+            bedPeriod = btn.dataset.period;
+            onBedTimeChange();
+        }
+    };
+
+    function revealSubstrate2(h, m, period) {
+        const now = new Date();
+        let coffeeHour24 = h;
+        if (period === 'PM' && h !== 12) coffeeHour24 += 12;
+        if (period === 'AM' && h === 12) coffeeHour24 = 0;
+
+        const coffeeTime = new Date(now.getFullYear(), now.getMonth(), now.getDate(), coffeeHour24, m);
+        const hoursElapsed = (now - coffeeTime) / (1000 * 60 * 60);
+
+        if (hoursElapsed < 0) return; // coffee in the future
+
+        const remaining = CUP_MG * Math.pow(0.5, hoursElapsed / HALF_LIFE);
+        const pct = ((remaining / CUP_MG) * 100).toFixed(0);
+
+        const el = document.getElementById('substrate2');
+        el.classList.add('visible');
+
+        setTimeout(() => {
+            // Animate the number counting up
+            animateNumber('caffeineNow', 0, Math.round(remaining), 600);
+            document.getElementById('caffeinePercent').textContent = pct + '%';
+            document.getElementById('continue2').classList.add('visible');
+        }, 900);
+    }
+
+    function animateNumber(id, from, to, duration) {
+        const el = document.getElementById(id);
+        const start = performance.now();
+        function tick(t) {
+            const progress = Math.min((t - start) / duration, 1);
+            // Ease out cubic
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(from + (to - from) * eased);
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
+
+    // === STEP 3: Bedtime ===
+    const bedHourInput = document.getElementById('bedHour');
+    const bedMinInput = document.getElementById('bedMin');
+
+    function onBedTimeChange() {
+        const h = parseInt(bedHourInput.value);
+        const m = parseInt(bedMinInput.value) || 0;
+        if (isNaN(h) || h < 1 || h > 12) return;
+
+        revealSubstrate3(h, m, bedPeriod);
+    }
+
+    bedHourInput.addEventListener('input', function() {
+        if (this.value.length >= 2 || parseInt(this.value) > 1) {
+            bedMinInput.focus();
+        }
+        onBedTimeChange();
+    });
+    bedMinInput.addEventListener('input', onBedTimeChange);
+
+    function revealSubstrate3(bedH, bedM, period) {
+        const cH = parseInt(coffeeHour.value);
+        const cM = parseInt(coffeeMinInput.value) || 0;
+        if (isNaN(cH)) return;
+
+        // Convert to 24h
+        let coffeeH24 = cH;
+        if (coffeePeriod === 'PM' && cH !== 12) coffeeH24 += 12;
+        if (coffeePeriod === 'AM' && cH === 12) coffeeH24 = 0;
+
+        let bedH24 = bedH;
+        if (period === 'PM' && bedH !== 12) bedH24 += 12;
+        if (period === 'AM' && bedH === 12) bedH24 = 0;
+
+        // Hours between coffee and bed
+        let hoursGap = (bedH24 + bedM / 60) - (coffeeH24 + cM / 60);
+        if (hoursGap < 0) hoursGap += 24;
+
+        const caffAtBed = CUP_MG * Math.pow(0.5, hoursGap / HALF_LIFE);
+        const aboveThreshold = caffAtBed > SLEEP_THRESHOLD;
+
+        // Format times
+        const coffeeTimeStr = cH + ':' + String(cM).padStart(2, '0') + ' ' + coffeePeriod;
+        const bedTimeStr = bedH + ':' + String(bedM).padStart(2, '0') + ' ' + period;
+
+        const el = document.getElementById('substrate3');
+        el.classList.add('visible');
+
+        setTimeout(() => {
+            document.getElementById('gapCoffeeTime').textContent = coffeeTimeStr;
+            document.getElementById('gapBedTime').textContent = bedTimeStr;
+            document.getElementById('gapHoursLabel').textContent = hoursGap.toFixed(1) + 'h gap';
+
+            const textEl = document.getElementById('substrate3Text');
+            textEl.innerHTML = '<span class="highlight">' + Math.round(caffAtBed) + ' mg</span> will still be active at bedtime. That\'s ' +
+                (aboveThreshold
+                    ? '<span style="color: #f59e0b;">above</span> the sleep interference threshold.'
+                    : '<span style="color: var(--green);">below</span> the sleep interference threshold.');
+
+            document.getElementById('substrate3Verdict').textContent = aboveThreshold
+                ? 'Above 25 mg at bedtime correlates with delayed sleep onset (Journal of Clinical Sleep Medicine)'
+                : 'Below 25 mg — caffeine is unlikely to affect your sleep quality.';
+
+            document.getElementById('continue3').classList.add('visible');
+
+            // Store for result
+            window._caffAtBed = caffAtBed;
+            window._hoursGap = hoursGap;
+            window._aboveThreshold = aboveThreshold;
+        }, 900);
+    }
+
+    // === STEP 4: Build result ===
+    function buildResult() {
+        const cH = parseInt(coffeeHour.value);
+        const cM = parseInt(coffeeMinInput.value) || 0;
+
+        // Calculate ideal last coffee time: bed time minus enough hours for caffeine to drop below threshold
+        // 95 * 0.5^(h/5) = 25 → h = 5 * log2(95/25) = 5 * 1.926 ≈ 9.6 hours
+        const hoursNeeded = HALF_LIFE * Math.log2(CUP_MG / SLEEP_THRESHOLD);
+
+        let bedH24 = parseInt(bedHourInput.value);
+        const bedM = parseInt(bedMinInput.value) || 0;
+        if (bedPeriod === 'PM' && bedH24 !== 12) bedH24 += 12;
+        if (bedPeriod === 'AM' && bedH24 === 12) bedH24 = 0;
+
+        let cutoffH24 = bedH24 - Math.floor(hoursNeeded);
+        let cutoffM = bedM - Math.round((hoursNeeded % 1) * 60);
+        if (cutoffM < 0) { cutoffM += 60; cutoffH24--; }
+        if (cutoffH24 < 0) cutoffH24 += 24;
+
+        // Format cutoff to 12h
+        let cutoffPeriod = cutoffH24 >= 12 ? 'PM' : 'AM';
+        let cutoffH12 = cutoffH24 % 12;
+        if (cutoffH12 === 0) cutoffH12 = 12;
+        const cutoffStr = cutoffH12 + ':' + String(cutoffM).padStart(2, '0') + ' ' + cutoffPeriod;
+
+        // Build the rule sentence — verb-final
+        document.getElementById('resultRule').innerHTML =
+            'Last coffee by <span class="time-val">' + cutoffStr + '</span>.';
+
+        document.getElementById('resultContext').innerHTML =
+            'That gives caffeine ' + hoursNeeded.toFixed(1) + ' hours to drop below the sleep threshold (' + SLEEP_THRESHOLD + ' mg) before you fall asleep. ' +
+            'Right now, you\'re ' + (window._aboveThreshold
+                ? 'cutting it close &mdash; ' + Math.round(window._caffAtBed) + ' mg active at bedtime.'
+                : 'in good shape &mdash; only ' + Math.round(window._caffAtBed) + ' mg at bedtime.');
+
+        // Reframe summary
+        const topic = selectedTopic === 'custom' ? document.getElementById('freeQuestion').value : selectedTopic;
+        document.getElementById('reframeTopic').textContent = topic.charAt(0).toUpperCase() + topic.slice(1);
+        document.getElementById('reframeCoffee').textContent = cH + ':' + String(cM).padStart(2, '0') + ' ' + coffeePeriod;
+        document.getElementById('reframeBed').textContent = parseInt(bedHourInput.value) + ':' + String(bedM).padStart(2, '0') + ' ' + bedPeriod;
+        document.getElementById('reframeCaffBed').textContent = Math.round(window._caffAtBed) + ' mg';
+    }
+
+    // === REMIND BUTTON ===
+    window.handleRemind = function() {
+        const btn = document.getElementById('remindBtn');
+        btn.innerHTML = '<span class="remind-dot"></span> Reminder set via Pulse';
+        btn.style.borderColor = 'var(--green)';
+        btn.style.pointerEvents = 'none';
+
+        // Brief celebration
+        btn.style.transform = 'scale(1.05)';
+        setTimeout(() => { btn.style.transform = ''; }, 300);
+    };
+
+    // Initialize
+    updateProgress(1);
+})();
+</script>
+
+</body>
+</html>
