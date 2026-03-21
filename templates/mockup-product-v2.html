@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Pulse — Chat Experience</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #F5F0EA;
+            --cream-dark: #EDE7DF;
+            --text-primary: #1A1A1A;
+            --text-secondary: #6B6560;
+            --text-tertiary: #9B9590;
+            --pulse-teal: #0D9488;
+            --pulse-teal-light: rgba(13, 148, 136, 0.08);
+            --pulse-teal-glow: rgba(13, 148, 136, 0.25);
+            --pulse-green: #4ADE80;
+            --user-bubble: #2A2520;
+            --user-text: #FAF8F5;
+            --pulse-bubble: #FFFFFF;
+            --pulse-border: rgba(0,0,0,0.06);
+            --reframe-bg: rgba(13, 148, 136, 0.06);
+            --warm-flash: rgba(13, 148, 136, 0.12);
+            --card-bg: #FFFFFF;
+            --card-border: rgba(0,0,0,0.08);
+            --card-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            min-height: 100vh;
+            min-height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        /* === HEADER === */
+        .chat-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(245, 240, 234, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .header-avatar-letter {
+            color: var(--cream);
+            font-family: 'DM Serif Display', serif;
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .header-dot {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--pulse-green);
+            border: 2px solid var(--cream);
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); opacity: 0.9; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-name {
+            font-weight: 500;
+            font-size: 15px;
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        .header-status {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-weight: 400;
+        }
+
+        /* === CHAT AREA === */
+        .chat-container {
+            flex: 1;
+            max-width: 680px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 24px 16px 120px;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* === MESSAGES === */
+        .message-row {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 4px;
+            opacity: 0;
+            transform: translateY(16px) scale(0.97);
+        }
+
+        .message-row.visible {
+            animation: msg-in 400ms var(--spring) forwards;
+        }
+
+        .message-row.user {
+            align-items: flex-end;
+        }
+
+        .message-row.pulse {
+            align-items: flex-start;
+        }
+
+        .message-group-gap {
+            margin-top: 16px;
+        }
+
+        @keyframes msg-in {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* === PULSE AVATAR INLINE === */
+        .pulse-row {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+        }
+
+        .inline-avatar {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--text-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-bottom: 2px;
+            position: relative;
+        }
+
+        .inline-avatar-letter {
+            color: var(--cream);
+            font-family: 'DM Serif Display', serif;
+            font-size: 12px;
+            line-height: 1;
+        }
+
+        .inline-avatar .mini-dot {
+            position: absolute;
+            bottom: -1px;
+            right: -1px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--pulse-green);
+            border: 1.5px solid var(--cream);
+            animation: breathe 3s ease-in-out infinite;
+        }
+
+        /* Hide avatar on consecutive pulse messages */
+        .avatar-hidden {
+            visibility: hidden;
+        }
+
+        /* === BUBBLES === */
+        .bubble {
+            padding: 12px 16px;
+            font-size: 15px;
+            line-height: 1.55;
+            max-width: min(75%, 440px);
+            word-wrap: break-word;
+        }
+
+        .bubble-user {
+            background: var(--user-bubble);
+            color: var(--user-text);
+            border-radius: 20px 20px 6px 20px;
+            font-weight: 400;
+        }
+
+        .bubble-pulse {
+            background: var(--pulse-bubble);
+            color: var(--text-primary);
+            border-radius: 6px 20px 20px 20px;
+            border: 1px solid var(--pulse-border);
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        /* === REFRAME BUBBLE — the moment === */
+        .bubble-reframe {
+            background: var(--reframe-bg);
+            border: 1.5px solid rgba(13, 148, 136, 0.2);
+            border-radius: 6px 20px 20px 20px;
+            box-shadow: 0 2px 16px rgba(13, 148, 136, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bubble-reframe .reframe-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: 17px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .bubble-reframe .teal-highlight {
+            color: var(--pulse-teal);
+            font-weight: 400;
+        }
+
+        /* Warm flash overlay */
+        .bubble-reframe .warm-flash {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 30% 50%, var(--warm-flash), transparent 70%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .bubble-reframe.flash-active .warm-flash {
+            animation: flash-pulse 1.8s ease-out forwards;
+        }
+
+        @keyframes flash-pulse {
+            0% { opacity: 0; }
+            15% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* Reframe label */
+        .reframe-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--pulse-teal);
+            margin-bottom: 8px;
+        }
+
+        .reframe-label-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--pulse-teal);
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        /* === TYPING INDICATOR === */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 14px 18px;
+            background: var(--pulse-bubble);
+            border-radius: 6px 20px 20px 20px;
+            border: 1px solid var(--pulse-border);
+            width: fit-content;
+        }
+
+        .typing-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--text-tertiary);
+            animation: typing-bounce 1.4s ease-in-out infinite;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+        .typing-dot:nth-child(3) { animation-delay: 0s; }
+
+        @keyframes typing-bounce {
+            0%, 80%, 100% { transform: scale(0.5); opacity: 0.35; }
+            40% { transform: scale(1); opacity: 0.9; }
+        }
+
+        /* === QUICK REPLY PILLS === */
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 4px 0 0 36px;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .quick-replies.visible {
+            animation: msg-in 400ms var(--spring) forwards;
+        }
+
+        .pill {
+            padding: 10px 18px;
+            border-radius: 24px;
+            border: 1.5px solid var(--user-bubble);
+            background: transparent;
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 200ms ease;
+            white-space: nowrap;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .pill:hover {
+            background: var(--user-bubble);
+            color: var(--user-text);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .pill:active {
+            transform: scale(0.96);
+        }
+
+        .pill.selected {
+            background: var(--user-bubble);
+            color: var(--user-text);
+            pointer-events: none;
+        }
+
+        .pill.faded {
+            opacity: 0;
+            transform: scale(0.9);
+            pointer-events: none;
+            transition: all 300ms ease;
+        }
+
+        /* === ACTION CARDS === */
+        .action-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 4px 0 0 36px;
+            max-width: min(85%, 480px);
+        }
+
+        .action-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 16px 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 200ms ease;
+            box-shadow: var(--card-shadow);
+            opacity: 0;
+            transform: translateY(20px) scale(0.95);
+        }
+
+        .action-card.visible {
+            animation: card-in 500ms var(--spring) forwards;
+        }
+
+        .action-card:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-color: rgba(13, 148, 136, 0.2);
+        }
+
+        @keyframes card-in {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .card-icon.grocery { background: rgba(251, 191, 36, 0.12); }
+        .card-icon.training { background: rgba(59, 130, 246, 0.10); }
+        .card-icon.checkin { background: rgba(13, 148, 136, 0.10); }
+
+        .card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-title {
+            font-weight: 500;
+            font-size: 14px;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: var(--text-secondary);
+            line-height: 1.45;
+        }
+
+        .card-arrow {
+            color: var(--text-tertiary);
+            font-size: 18px;
+            margin-top: 2px;
+            flex-shrink: 0;
+            transition: transform 200ms ease;
+        }
+
+        .action-card:hover .card-arrow {
+            transform: translateX(3px);
+        }
+
+        /* === BACK-CHANNEL INDICATOR === */
+        .backchannel {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 0 0 36px;
+            margin: -2px 0 4px;
+            opacity: 0;
+        }
+
+        .backchannel.visible {
+            animation: backchannel-in 600ms ease forwards;
+        }
+
+        @keyframes backchannel-in {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .backchannel-text {
+            font-size: 12px;
+            color: var(--text-tertiary);
+            font-style: italic;
+        }
+
+        /* === BOTTOM BAR === */
+        .input-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(245, 240, 234, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(0,0,0,0.06);
+            padding: 12px 16px;
+            padding-bottom: max(12px, env(safe-area-inset-bottom, 12px));
+            z-index: 100;
+        }
+
+        .input-row {
+            max-width: 680px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .input-field {
+            flex: 1;
+            background: var(--pulse-bubble);
+            border: 1px solid rgba(0,0,0,0.08);
+            border-radius: 24px;
+            padding: 12px 18px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            color: var(--text-primary);
+            outline: none;
+            transition: border-color 200ms ease;
+        }
+
+        .input-field::placeholder {
+            color: var(--text-tertiary);
+        }
+
+        .input-field:focus {
+            border-color: rgba(13, 148, 136, 0.3);
+        }
+
+        .send-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--user-bubble);
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 200ms ease;
+            flex-shrink: 0;
+        }
+
+        .send-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .send-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: var(--cream);
+        }
+
+        /* === TIMESTAMP === */
+        .timestamp {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            text-align: center;
+            padding: 16px 0 8px;
+        }
+
+        /* === RESTART BUTTON === */
+        .restart-bar {
+            position: fixed;
+            top: 72px;
+            right: 16px;
+            z-index: 200;
+        }
+
+        .restart-btn {
+            padding: 8px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: rgba(255,255,255,0.8);
+            backdrop-filter: blur(10px);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 200ms ease;
+        }
+
+        .restart-btn:hover {
+            background: var(--pulse-bubble);
+            color: var(--text-primary);
+            border-color: rgba(0,0,0,0.15);
+        }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 480px) {
+            .bubble { max-width: min(82%, 340px); }
+            .action-cards { max-width: 90%; }
+            .chat-container { padding: 16px 12px 110px; }
+        }
+
+        @media (min-width: 768px) {
+            .chat-container { padding: 32px 24px 120px; }
+        }
+
+        /* === REDUCED MOTION === */
+        @media (prefers-reduced-motion: reduce) {
+            .message-row.visible { animation: fade-only 200ms ease forwards; }
+            .action-card.visible { animation: fade-only 200ms ease forwards; }
+            .quick-replies.visible { animation: fade-only 200ms ease forwards; }
+            .header-dot, .inline-avatar .mini-dot, .reframe-label-dot { animation: none; }
+            .typing-dot { animation: none; opacity: 0.6; }
+            @keyframes fade-only { to { opacity: 1; transform: none; } }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="chat-header">
+        <div class="header-avatar">
+            <span class="header-avatar-letter">P</span>
+            <span class="header-dot"></span>
+        </div>
+        <div class="header-info">
+            <span class="header-name">Pulse</span>
+            <span class="header-status">Online</span>
+        </div>
+    </header>
+
+    <!-- Restart -->
+    <div class="restart-bar">
+        <button class="restart-btn" onclick="restartConversation()">Replay</button>
+    </div>
+
+    <!-- Chat -->
+    <div class="chat-container" id="chat">
+        <div class="timestamp">Today</div>
+    </div>
+
+    <!-- Input bar -->
+    <div class="input-bar">
+        <div class="input-row">
+            <input class="input-field" type="text" placeholder="Ask Pulse anything..." disabled>
+            <button class="send-btn" aria-label="Send">
+                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    (function() {
+        const chat = document.getElementById('chat');
+        let step = 0;
+        let timeouts = [];
+
+        // Conversation script
+        // Each step: { type, delay (ms before this step), duration (typing indicator ms), ... }
+        const script = [
+            // USER: opening question
+            {
+                type: 'user',
+                text: "Why am I gaining weight? I've been training 4x a week.",
+                delay: 800
+            },
+            // PULSE: back-channel acknowledgment during "processing"
+            {
+                type: 'backchannel',
+                text: 'Pulse is reading your message...',
+                delay: 400,
+                duration: 800
+            },
+            // PULSE: doesn't answer — asks a counter-question (SUBSTRATE RULE)
+            {
+                type: 'pulse',
+                text: "Before I answer that — how has your sleep been lately?",
+                delay: 600,
+                typingDuration: 1800
+            },
+            // Quick reply pills
+            {
+                type: 'pills',
+                options: [
+                    "Honestly, terrible",
+                    "6 hours maybe",
+                    "Pretty good actually"
+                ],
+                delay: 300,
+                correctIndex: 0  // "Honestly, terrible" progresses the substrate
+            },
+            // USER: selects pill (auto-played)
+            {
+                type: 'user-auto',
+                text: "Honestly, terrible",
+                delay: 1200,
+                pillIndex: 0
+            },
+            // PULSE: back-channel (IMPEDANCE MATCHING — short input gets brief ack)
+            {
+                type: 'backchannel',
+                text: 'Connecting the dots...',
+                delay: 300,
+                duration: 1200
+            },
+            // PULSE: follow-up — building the substrate
+            {
+                type: 'pulse',
+                text: "And when you do sleep — are you waking up in the middle of the night, or just not getting enough hours?",
+                delay: 400,
+                typingDuration: 2400
+            },
+            // Quick reply pills round 2
+            {
+                type: 'pills',
+                options: [
+                    "Wake up at 3am every night",
+                    "Just going to bed too late"
+                ],
+                delay: 300,
+                correctIndex: 0
+            },
+            // USER: selects pill
+            {
+                type: 'user-auto',
+                text: "Wake up at 3am every night",
+                delay: 1400,
+                pillIndex: 0
+            },
+            // PULSE: back-channel — longer this time (IMPEDANCE: system is doing real work)
+            {
+                type: 'backchannel',
+                text: 'Pulse is thinking...',
+                delay: 400,
+                duration: 1800
+            },
+            // === THE REFRAME MOMENT ===
+            {
+                type: 'reframe',
+                label: 'The connection',
+                text: [
+                    { normal: "Waking at 3am is a " },
+                    { highlight: "cortisol spike" },
+                    { normal: ". Your body floods stress hormone in the middle of the night — then you carry elevated cortisol all day." },
+                    { break: true },
+                    { break: true },
+                    { normal: "High cortisol tells your body to " },
+                    { highlight: "hold fat, even when you train" },
+                    { normal: ". You're not failing — " },
+                    { highlight: "your body is protecting itself from what it thinks is danger" },
+                    { normal: "." }
+                ],
+                delay: 600,
+                typingDuration: 3200  // Long typing — proportional to response weight
+            },
+            // PULSE: bridge to action (after the reframe lands)
+            {
+                type: 'pulse',
+                text: "The training isn't the problem. The signal your body is getting at 3am is. Here's where I'd start:",
+                delay: 1800,  // Longer delay — let the reframe breathe
+                typingDuration: 1600
+            },
+            // ACTION CARDS — spring entrance with stagger
+            {
+                type: 'actions',
+                cards: [
+                    {
+                        icon: '🌙',
+                        iconClass: 'grocery',
+                        title: 'Evening wind-down protocol',
+                        desc: 'Dim lights at 8pm, no screens after 9, magnesium at 9:30'
+                    },
+                    {
+                        icon: '🏋️',
+                        iconClass: 'training',
+                        title: 'Shift training earlier',
+                        desc: 'Move workouts before 4pm — late sessions spike cortisol at night'
+                    },
+                    {
+                        icon: '📊',
+                        iconClass: 'checkin',
+                        title: '7-day sleep check-in',
+                        desc: "I'll check back in a week to see if the 3am wake-ups change"
+                    }
+                ],
+                delay: 500,
+                stagger: 180  // ms between each card
+            }
+        ];
+
+        function scrollToBottom() {
+            // Smooth scroll with a slight delay for the animation to start
+            requestAnimationFrame(() => {
+                window.scrollTo({
+                    top: document.body.scrollHeight,
+                    behavior: 'smooth'
+                });
+            });
+        }
+
+        function createMessageRow(classes) {
+            const row = document.createElement('div');
+            row.className = 'message-row ' + classes;
+            return row;
+        }
+
+        function addUserMessage(text) {
+            const row = createMessageRow('user message-group-gap');
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble bubble-user';
+            bubble.textContent = text;
+            row.appendChild(bubble);
+            chat.appendChild(row);
+            requestAnimationFrame(() => {
+                row.classList.add('visible');
+                scrollToBottom();
+            });
+        }
+
+        function addBackchannel(text, duration) {
+            const bc = document.createElement('div');
+            bc.className = 'backchannel';
+            bc.innerHTML = `<span class="backchannel-text">${text}</span>`;
+            chat.appendChild(bc);
+            requestAnimationFrame(() => {
+                bc.classList.add('visible');
+                scrollToBottom();
+            });
+            // Remove after duration
+            const t = setTimeout(() => {
+                bc.style.transition = 'opacity 400ms ease';
+                bc.style.opacity = '0';
+                const t2 = setTimeout(() => bc.remove(), 400);
+                timeouts.push(t2);
+            }, duration);
+            timeouts.push(t);
+        }
+
+        function showTypingIndicator() {
+            const row = createMessageRow('pulse');
+            row.id = 'typing-row';
+            const pulseRow = document.createElement('div');
+            pulseRow.className = 'pulse-row';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'inline-avatar';
+            avatar.innerHTML = '<span class="inline-avatar-letter">P</span><span class="mini-dot"></span>';
+
+            const indicator = document.createElement('div');
+            indicator.className = 'typing-indicator';
+            indicator.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+
+            pulseRow.appendChild(avatar);
+            pulseRow.appendChild(indicator);
+            row.appendChild(pulseRow);
+            chat.appendChild(row);
+            requestAnimationFrame(() => {
+                row.classList.add('visible');
+                scrollToBottom();
+            });
+        }
+
+        function removeTypingIndicator() {
+            const el = document.getElementById('typing-row');
+            if (el) el.remove();
+        }
+
+        function addPulseMessage(text, showAvatar) {
+            removeTypingIndicator();
+            const row = createMessageRow('pulse');
+            const pulseRow = document.createElement('div');
+            pulseRow.className = 'pulse-row';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'inline-avatar' + (showAvatar === false ? ' avatar-hidden' : '');
+            avatar.innerHTML = '<span class="inline-avatar-letter">P</span><span class="mini-dot"></span>';
+
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble bubble-pulse';
+            bubble.textContent = text;
+
+            pulseRow.appendChild(avatar);
+            pulseRow.appendChild(bubble);
+            row.appendChild(pulseRow);
+            chat.appendChild(row);
+            requestAnimationFrame(() => {
+                row.classList.add('visible');
+                scrollToBottom();
+            });
+        }
+
+        function addReframeMessage(label, parts, showAvatar) {
+            removeTypingIndicator();
+            const row = createMessageRow('pulse message-group-gap');
+            const pulseRow = document.createElement('div');
+            pulseRow.className = 'pulse-row';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'inline-avatar' + (showAvatar === false ? ' avatar-hidden' : '');
+            avatar.innerHTML = '<span class="inline-avatar-letter">P</span><span class="mini-dot"></span>';
+
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble bubble-reframe';
+
+            // Label
+            const labelEl = document.createElement('div');
+            labelEl.className = 'reframe-label';
+            labelEl.innerHTML = `<span class="reframe-label-dot"></span>${label}`;
+            bubble.appendChild(labelEl);
+
+            // Text
+            const textEl = document.createElement('div');
+            textEl.className = 'reframe-text';
+            parts.forEach(part => {
+                if (part.normal) {
+                    textEl.appendChild(document.createTextNode(part.normal));
+                } else if (part.highlight) {
+                    const span = document.createElement('span');
+                    span.className = 'teal-highlight';
+                    span.textContent = part.highlight;
+                    textEl.appendChild(span);
+                } else if (part.break) {
+                    textEl.appendChild(document.createElement('br'));
+                }
+            });
+            bubble.appendChild(textEl);
+
+            // Warm flash overlay
+            const flash = document.createElement('div');
+            flash.className = 'warm-flash';
+            bubble.appendChild(flash);
+
+            pulseRow.appendChild(avatar);
+            pulseRow.appendChild(bubble);
+            row.appendChild(pulseRow);
+            chat.appendChild(row);
+
+            requestAnimationFrame(() => {
+                row.classList.add('visible');
+                scrollToBottom();
+                // Trigger flash after message appears
+                const t = setTimeout(() => {
+                    bubble.classList.add('flash-active');
+                }, 300);
+                timeouts.push(t);
+            });
+        }
+
+        function addQuickReplies(options) {
+            const container = document.createElement('div');
+            container.className = 'quick-replies';
+            container.id = 'current-pills';
+            options.forEach((text, i) => {
+                const pill = document.createElement('button');
+                pill.className = 'pill';
+                pill.textContent = text;
+                pill.dataset.index = i;
+                container.appendChild(pill);
+            });
+            chat.appendChild(container);
+            requestAnimationFrame(() => {
+                container.classList.add('visible');
+                scrollToBottom();
+            });
+        }
+
+        function selectPill(index) {
+            const container = document.getElementById('current-pills');
+            if (!container) return;
+            const pills = container.querySelectorAll('.pill');
+            pills.forEach((pill, i) => {
+                if (i === index) {
+                    pill.classList.add('selected');
+                } else {
+                    pill.classList.add('faded');
+                }
+            });
+            // Remove container after animation
+            const t = setTimeout(() => {
+                container.remove();
+            }, 400);
+            timeouts.push(t);
+        }
+
+        function addActionCards(cards, stagger) {
+            const container = document.createElement('div');
+            container.className = 'action-cards';
+            cards.forEach((card, i) => {
+                const el = document.createElement('div');
+                el.className = 'action-card';
+                el.innerHTML = `
+                    <div class="card-icon ${card.iconClass}">${card.icon}</div>
+                    <div class="card-content">
+                        <div class="card-title">${card.title}</div>
+                        <div class="card-desc">${card.desc}</div>
+                    </div>
+                    <span class="card-arrow">&rsaquo;</span>
+                `;
+                container.appendChild(el);
+
+                // Staggered entrance
+                const t = setTimeout(() => {
+                    el.classList.add('visible');
+                    scrollToBottom();
+                }, i * stagger);
+                timeouts.push(t);
+            });
+            chat.appendChild(container);
+            scrollToBottom();
+        }
+
+        // Track whether current message group shows avatar
+        let lastSender = null;
+
+        function playStep() {
+            if (step >= script.length) return;
+            const s = script[step];
+            const delay = s.delay || 0;
+
+            const t = setTimeout(() => {
+                switch (s.type) {
+                    case 'user':
+                        lastSender = 'user';
+                        addUserMessage(s.text);
+                        step++;
+                        playStep();
+                        break;
+
+                    case 'user-auto':
+                        // Select pill first
+                        selectPill(s.pillIndex);
+                        const t2 = setTimeout(() => {
+                            lastSender = 'user';
+                            addUserMessage(s.text);
+                            step++;
+                            playStep();
+                        }, 400);
+                        timeouts.push(t2);
+                        break;
+
+                    case 'backchannel':
+                        addBackchannel(s.text, s.duration);
+                        step++;
+                        playStep();
+                        break;
+
+                    case 'pulse':
+                        showTypingIndicator();
+                        const showAv = lastSender !== 'pulse';
+                        const t3 = setTimeout(() => {
+                            lastSender = 'pulse';
+                            addPulseMessage(s.text, showAv);
+                            step++;
+                            playStep();
+                        }, s.typingDuration);
+                        timeouts.push(t3);
+                        break;
+
+                    case 'reframe':
+                        showTypingIndicator();
+                        const showAvR = lastSender !== 'pulse';
+                        const t4 = setTimeout(() => {
+                            lastSender = 'pulse';
+                            addReframeMessage(s.label, s.text, showAvR);
+                            step++;
+                            playStep();
+                        }, s.typingDuration);
+                        timeouts.push(t4);
+                        break;
+
+                    case 'pills':
+                        addQuickReplies(s.options);
+                        step++;
+                        playStep();
+                        break;
+
+                    case 'actions':
+                        addActionCards(s.cards, s.stagger);
+                        step++;
+                        // Don't play next — conversation ends
+                        break;
+                }
+            }, delay);
+            timeouts.push(t);
+        }
+
+        // Restart
+        window.restartConversation = function() {
+            // Clear all pending timeouts
+            timeouts.forEach(t => clearTimeout(t));
+            timeouts = [];
+            // Clear chat
+            chat.innerHTML = '<div class="timestamp">Today</div>';
+            step = 0;
+            lastSender = null;
+            // Restart
+            const t = setTimeout(playStep, 600);
+            timeouts.push(t);
+        };
+
+        // Start
+        const t = setTimeout(playStep, 800);
+        timeouts.push(t);
+    })();
+    </script>
+</body>
+</html>
