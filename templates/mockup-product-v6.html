@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Depth Planes — Caffeine Calculator Mockup</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+
+            /* Depth system tokens */
+            --shadow-ground: none;
+            --shadow-raised: 0 2px 8px rgba(0,0,0,0.2), 0 0 0 1px rgba(20,184,166,0.08);
+            --shadow-floating: 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(0,0,0,0.3), 0 0 0 1px rgba(20,184,166,0.12);
+            --shadow-overlay: 0 16px 64px rgba(0,0,0,0.6), 0 8px 24px rgba(0,0,0,0.4), 0 0 80px rgba(20,184,166,0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg-1);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ===== DEPTH LAYER: GROUND ===== */
+        /* The substrate — educational content, FAQ, always present, low cognitive priority */
+
+        .depth-ground {
+            transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        filter 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        opacity 0.8s ease;
+        }
+
+        /* When result is visible, ground recedes */
+        body.has-result .depth-ground {
+            transform: scale(0.98);
+            filter: blur(2px);
+            opacity: 0.7;
+        }
+
+        /* ===== PAGE STRUCTURE ===== */
+
+        .page-canvas {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem 6rem;
+            position: relative;
+        }
+
+        /* ===== HEADER ===== */
+        .page-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-top: 1rem;
+        }
+        .brand-mark {
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .pulse-dot {
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: #fff;
+            margin-bottom: 0.75rem;
+            line-height: 1.15;
+        }
+        .page-title span { color: var(--teal); }
+        .page-subtitle {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        /* ===== DEPTH LAYER: RAISED — The Active Workspace ===== */
+
+        .depth-raised {
+            position: relative;
+            z-index: 10;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        filter 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        opacity 0.7s ease,
+                        box-shadow 0.7s ease;
+        }
+
+        .form-surface {
+            background: linear-gradient(180deg, rgba(20,184,166,0.05) 0%, rgba(14,122,126,0.02) 100%);
+            border: 1px solid rgba(20,184,166,0.12);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-raised);
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Form dims to ground level after calculation */
+        body.has-result .form-surface {
+            box-shadow: var(--shadow-ground);
+            filter: blur(1.5px);
+            opacity: 0.5;
+            transform: scale(0.97);
+            border-color: rgba(20,184,166,0.06);
+        }
+
+        .form-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        /* Source selection grid */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.6rem;
+            margin-bottom: 2rem;
+        }
+        .source-card {
+            background: rgba(14, 122, 126, 0.06);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .source-card:hover {
+            border-color: rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(20, 184, 166, 0.1);
+        }
+        .source-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 0 1px var(--teal);
+            transform: scale(1.03);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .source-card .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+        .source-card .name { font-size: 0.8rem; font-weight: 600; color: var(--text); }
+        .source-card .mg { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+
+        /* Time inputs */
+        .time-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+        .time-group label {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-bottom: 0.4rem;
+            text-align: center;
+        }
+        .time-group input[type="time"] {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1.2rem;
+            padding: 0.7rem 1rem;
+            font-family: var(--font-body);
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .time-group input[type="time"]:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(20,184,166,0.1);
+        }
+
+        /* Back-channel signal: subtle acknowledgment when user selects source */
+        .source-card.selected ~ .back-channel-signal {
+            opacity: 1;
+        }
+        .back-channel-signal {
+            text-align: center;
+            color: var(--teal-dim);
+            font-size: 0.78rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            margin-bottom: 1rem;
+            height: 1.2rem;
+        }
+
+        /* Calculate button */
+        .calc-btn {
+            display: block;
+            width: 100%;
+            max-width: 280px;
+            margin: 0 auto;
+            background: var(--teal);
+            color: #0a0f1a;
+            border: none;
+            border-radius: 14px;
+            padding: 0.95rem 2rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .calc-btn:hover {
+            box-shadow: 0 6px 24px var(--teal-glow);
+            transform: translateY(-2px);
+        }
+        .calc-btn:active {
+            transform: translateY(0) scale(0.98);
+        }
+
+        /* ===== DEPTH LAYER: FLOATING — The Result ===== */
+        /* Emerges FROM the form surface: scale 0.95 -> 1.0, shadow grows */
+
+        .depth-floating {
+            position: relative;
+            z-index: 20;
+            margin-top: -3rem; /* Overlaps the form — lifts from it */
+            padding-top: 1rem;
+        }
+
+        .result-surface {
+            background: linear-gradient(180deg, rgba(20,184,166,0.08) 0%, rgba(10,15,26,0.95) 100%);
+            border: 1px solid rgba(20,184,166,0.18);
+            border-radius: 28px;
+            padding: 3rem 2rem;
+            box-shadow: var(--shadow-floating);
+            position: relative;
+            z-index: 20;
+
+            /* Initial: hidden below form, compressed */
+            opacity: 0;
+            transform: scale(0.95) translateY(20px);
+            pointer-events: none;
+            transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        box-shadow 0.6s ease;
+            transition-delay: 0.4s; /* After processing state resolves */
+        }
+
+        body.has-result .result-surface {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(4rem, 14vw, 8rem);
+            line-height: 1;
+            text-align: center;
+            color: #fff;
+        }
+        .result-unit {
+            font-size: 1rem;
+            color: var(--text-dim);
+            text-align: center;
+            margin-top: 0.5rem;
+        }
+        .result-verdict {
+            font-size: 1.15rem;
+            text-align: center;
+            margin-top: 1.25rem;
+            font-weight: 600;
+        }
+        .glow-good { color: #14b8a6; text-shadow: 0 0 40px rgba(20,184,166,0.3); }
+        .glow-caution { color: #f59e0b; text-shadow: 0 0 40px rgba(245,158,11,0.25); }
+        .glow-bad { color: #ef4444; text-shadow: 0 0 40px rgba(239,68,68,0.25); }
+
+        .cutoff-section {
+            margin-top: 2.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(20,184,166,0.1);
+            text-align: center;
+        }
+        .cutoff-label { font-size: 0.95rem; color: var(--text-dim); margin-bottom: 0.3rem; }
+        .cutoff-time {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 7vw, 3.5rem);
+            color: var(--teal);
+            text-shadow: 0 0 30px var(--teal-glow);
+        }
+        .cutoff-note {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            margin-top: 0.5rem;
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Decay timeline inside result */
+        .decay-timeline {
+            margin-top: 2.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 4px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 1rem;
+        }
+        .decay-bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+            flex: 1;
+        }
+        .decay-bar {
+            width: 100%;
+            max-width: 36px;
+            border-radius: 6px 6px 0 0;
+            background: linear-gradient(180deg, var(--teal) 0%, rgba(20,184,166,0.3) 100%);
+            transition: height 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+            min-height: 4px;
+        }
+        .decay-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+        .decay-mg {
+            font-size: 0.7rem;
+            color: var(--text-dim);
+            font-weight: 600;
+        }
+
+        /* ===== DEPTH LAYER: OVERLAY — The Coach Mental Model ===== */
+        /* Descends from above — rack focus reveal. Maximum shadow. Background dims. */
+
+        .depth-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+
+            /* Initial: invisible, above viewport */
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.5s ease;
+            transition-delay: 1s; /* Appears after result has settled */
+        }
+
+        body.has-coach .depth-overlay {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Dim layer — the canopy effect */
+        .overlay-dim {
+            position: absolute;
+            inset: 0;
+            background: rgba(6, 10, 20, 0.75);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            transition-delay: 1s;
+        }
+        body.has-coach .overlay-dim {
+            opacity: 1;
+        }
+
+        .coach-surface {
+            position: relative;
+            z-index: 101;
+            max-width: 480px;
+            width: 100%;
+            background: linear-gradient(180deg, #0f1f2e 0%, #0a1520 100%);
+            border: 1px solid rgba(20,184,166,0.2);
+            border-radius: 28px;
+            padding: 3rem 2.5rem;
+            box-shadow: var(--shadow-overlay);
+
+            /* Descends from above — rack focus */
+            transform: translateY(-40px) scale(0.96);
+            opacity: 0;
+            transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                        opacity 0.6s ease;
+            transition-delay: 1.15s;
+        }
+        body.has-coach .coach-surface {
+            transform: translateY(0) scale(1);
+            opacity: 1;
+        }
+
+        .coach-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(20,184,166,0.1);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .coach-rule {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4vw, 2.4rem);
+            color: #fff;
+            line-height: 1.3;
+            margin-bottom: 1.5rem;
+        }
+        .coach-rule span { color: var(--teal); }
+
+        .coach-explanation {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text-dim);
+            margin-bottom: 2rem;
+        }
+        .coach-explanation .hl {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .coach-close {
+            display: block;
+            width: 100%;
+            background: transparent;
+            border: 1px solid rgba(20,184,166,0.2);
+            border-radius: 14px;
+            padding: 0.85rem;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.25s ease;
+        }
+        .coach-close:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+            background: rgba(20,184,166,0.05);
+        }
+
+        /* ===== PROCESSING STATE — The Threshold ===== */
+        /* "The threshold is its own state" — 300-600ms where dimensions visibly resolve */
+
+        .processing-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(6, 10, 20, 0.6);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+        .processing-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .processing-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(10,15,26,0.95) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-floating);
+            text-align: center;
+            min-width: 280px;
+        }
+
+        .dimension-line {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        .dimension-line.resolved {
+            opacity: 1;
+            transform: translateX(0);
+            transition: opacity 0.25s ease, transform 0.25s ease;
+        }
+        .dimension-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            min-width: 80px;
+            text-align: right;
+        }
+        .dimension-value {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--teal);
+            font-family: var(--font-body);
+        }
+        .dimension-check {
+            color: var(--teal);
+            font-size: 0.9rem;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+        .dimension-line.resolved .dimension-check {
+            opacity: 1;
+        }
+
+        /* ===== GROUND CONTENT: Educational + FAQ ===== */
+
+        .ground-content {
+            margin-top: 4rem;
+        }
+
+        .edu-section {
+            margin-bottom: 3rem;
+        }
+        .edu-title {
+            font-family: var(--font-display);
+            font-size: 1.4rem;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+        .edu-text {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+        .edu-text .hl {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .faq-list {
+            list-style: none;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(20,184,166,0.08);
+            padding: 1.25rem 0;
+        }
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 0.5rem;
+            cursor: default;
+        }
+        .faq-a {
+            font-size: 0.88rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+        }
+
+        /* ===== RESET BUTTON ===== */
+        .reset-btn {
+            display: none;
+            margin: 2rem auto 0;
+            background: transparent;
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 12px;
+            padding: 0.7rem 1.8rem;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.25s ease;
+            position: relative;
+            z-index: 25;
+        }
+        .reset-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+        body.has-result .reset-btn {
+            display: block;
+        }
+
+        /* ===== DEPTH ANNOTATION — developer reference ===== */
+        .depth-label {
+            position: absolute;
+            right: -0.5rem;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(20,184,166,0.25);
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 600px) {
+            .page-canvas { padding: 2rem 1rem 4rem; }
+            .form-surface { padding: 1.75rem 1.25rem; }
+            .result-surface { padding: 2rem 1.25rem; }
+            .coach-surface { padding: 2rem 1.5rem; margin: 0 0.5rem; }
+            .source-grid { grid-template-columns: repeat(3, 1fr); }
+            .decay-timeline { padding: 0; }
+            .depth-label { display: none; }
+        }
+
+        /* ===== NUCLEATION: first element contains structural geometry ===== */
+        /* The brand mark's pulse dot + text set the rhythm for everything after */
+
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .page-header { animation: fadeSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+        .form-surface { animation: fadeSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.15s both; }
+        .ground-content { animation: fadeSlideUp 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s both; }
+    </style>
+</head>
+<body>
+
+    <div class="page-canvas">
+
+        <!-- === HEADER === -->
+        <header class="page-header">
+            <div class="brand-mark">
+                <span class="pulse-dot"></span>
+                HealthCalculators
+            </div>
+            <h1 class="page-title">How Long Does Your <span>Caffeine</span> Last?</h1>
+            <p class="page-subtitle">
+                Select your source, enter your timing, and watch the depth shift.
+                The interface reorganizes around your result.
+            </p>
+        </header>
+
+        <!-- === RAISED: The Form Workspace === -->
+        <div class="depth-raised">
+            <div class="form-surface" id="formSurface">
+                <span class="depth-label">Raised</span>
+
+                <h2 class="form-title">What did you drink?</h2>
+
+                <div class="source-grid" id="sourceGrid">
+                    <div class="source-card" data-mg="95" onclick="selectSource(this)">
+                        <span class="emoji">&#9749;</span>
+                        <div class="name">Coffee</div>
+                        <div class="mg">95 mg</div>
+                    </div>
+                    <div class="source-card" data-mg="63" onclick="selectSource(this)">
+                        <span class="emoji">&#127861;</span>
+                        <div class="name">Espresso</div>
+                        <div class="mg">63 mg</div>
+                    </div>
+                    <div class="source-card" data-mg="47" onclick="selectSource(this)">
+                        <span class="emoji">&#127812;</span>
+                        <div class="name">Black Tea</div>
+                        <div class="mg">47 mg</div>
+                    </div>
+                    <div class="source-card" data-mg="28" onclick="selectSource(this)">
+                        <span class="emoji">&#127811;</span>
+                        <div class="name">Green Tea</div>
+                        <div class="mg">28 mg</div>
+                    </div>
+                    <div class="source-card" data-mg="160" onclick="selectSource(this)">
+                        <span class="emoji">&#9889;</span>
+                        <div class="name">Energy Drink</div>
+                        <div class="mg">160 mg</div>
+                    </div>
+                    <div class="source-card" data-mg="40" onclick="selectSource(this)">
+                        <span class="emoji">&#127851;</span>
+                        <div class="name">Cola</div>
+                        <div class="mg">40 mg</div>
+                    </div>
+                </div>
+
+                <div class="back-channel-signal" id="backChannel"></div>
+
+                <div class="time-row">
+                    <div class="time-group">
+                        <label>When did you drink it?</label>
+                        <input type="time" id="drinkTime" value="08:00">
+                    </div>
+                    <div class="time-group">
+                        <label>When do you want to sleep?</label>
+                        <input type="time" id="bedTime" value="22:00">
+                    </div>
+                </div>
+
+                <button class="calc-btn" id="calcBtn" onclick="calculate()">
+                    Calculate
+                </button>
+            </div>
+        </div>
+
+        <!-- === FLOATING: The Result === -->
+        <div class="depth-floating">
+            <div class="result-surface" id="resultSurface">
+                <span class="depth-label">Floating</span>
+
+                <div class="result-number" id="resultNumber">—</div>
+                <div class="result-unit" id="resultUnit">mg remaining at bedtime</div>
+                <div class="result-verdict" id="resultVerdict"></div>
+
+                <div class="decay-timeline" id="decayTimeline"></div>
+
+                <div class="cutoff-section">
+                    <div class="cutoff-label">Last safe cup</div>
+                    <div class="cutoff-time" id="cutoffTime">—</div>
+                    <div class="cutoff-note">To have less than 25 mg at bedtime</div>
+                </div>
+            </div>
+
+            <button class="reset-btn" onclick="resetCalculator()">Recalculate</button>
+        </div>
+
+        <!-- === GROUND: Educational Content === -->
+        <div class="depth-ground ground-content">
+            <span class="depth-label" style="top: 2rem; transform: rotate(90deg);">Ground</span>
+
+            <div class="edu-section">
+                <h2 class="edu-title">The One Rule</h2>
+                <p class="edu-text">
+                    Caffeine follows a simple exponential decay.
+                    Every <span class="hl">5 hours</span>, your body eliminates <span class="hl">half</span> the remaining caffeine.
+                    This isn't an approximation — it's the pharmacokinetic model used in clinical research.
+                    A 95 mg cup at 8 AM becomes 47 mg by 1 PM, 24 mg by 6 PM, and 12 mg by 11 PM.
+                </p>
+            </div>
+
+            <div class="edu-section">
+                <h2 class="edu-title">Why It Matters</h2>
+                <p class="edu-text">
+                    Sleep researchers define "caffeine-free sleep" as having less than <span class="hl">25 mg</span> in your system at bedtime.
+                    Above that threshold, caffeine reduces deep sleep duration even if you fall asleep normally.
+                    You don't feel wired — you just don't recover.
+                </p>
+            </div>
+
+            <div class="edu-section">
+                <h2 class="edu-title">Frequently Asked Questions</h2>
+                <ul class="faq-list">
+                    <li class="faq-item">
+                        <div class="faq-q">How long does caffeine stay in your system?</div>
+                        <div class="faq-a">Caffeine has a half-life of about 5 hours. A typical cup of coffee (95 mg) takes 10-15 hours to drop below perceptible levels.</div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="faq-q">When should I stop drinking coffee before bed?</div>
+                        <div class="faq-a">At least 8-10 hours before bedtime. For a 10 PM bedtime, your last cup should be by noon to 2 PM.</div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="faq-q">Does caffeine half-life vary between people?</div>
+                        <div class="faq-a">Yes. Genetics, age, liver function, pregnancy, and some medications can shift half-life from 3 to 7+ hours. This calculator uses the clinical average of 5 hours.</div>
+                    </li>
+                    <li class="faq-item">
+                        <div class="faq-q">Is 400 mg per day really safe?</div>
+                        <div class="faq-a">The FDA recommends no more than 400 mg/day for healthy adults. The issue isn't total intake — it's timing. 400 mg at 8 AM is very different from 400 mg at 3 PM.</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div><!-- /page-canvas -->
+
+    <!-- === OVERLAY: Coach Card === -->
+    <div class="depth-overlay" id="coachOverlay">
+        <div class="overlay-dim" onclick="closeCoach()"></div>
+        <div class="coach-surface">
+            <span class="depth-label" style="right: -2rem;">Overlay</span>
+
+            <div class="coach-badge">
+                <span class="pulse-dot" style="width:6px;height:6px;"></span>
+                The Mental Model
+            </div>
+
+            <div class="coach-rule" id="coachRule">
+                Every <span>5 hours</span>, half.
+            </div>
+
+            <p class="coach-explanation" id="coachExplanation">
+                You drank <span class="hl" id="coachDrinkName">coffee</span> at <span class="hl" id="coachDrinkTime">8:00 AM</span>.
+                By <span class="hl" id="coachHalfTime">1:00 PM</span>, half was gone.
+                By <span class="hl" id="coachBedLabel">bedtime</span>, you'll have <span class="hl" id="coachRemaining">—</span> mg left.
+                <br><br>
+                That's the entire model. Once you know the rule, you never need this calculator again.
+            </p>
+
+            <button class="coach-close" onclick="closeCoach()">Got it — I'll remember the rule</button>
+        </div>
+    </div>
+
+    <!-- === PROCESSING: Threshold State === -->
+    <div class="processing-overlay" id="processingOverlay">
+        <div class="processing-card">
+            <div class="dimension-line" id="dim1">
+                <span class="dimension-label">Source</span>
+                <span class="dimension-value" id="dimSource">—</span>
+                <span class="dimension-check">&#10003;</span>
+            </div>
+            <div class="dimension-line" id="dim2">
+                <span class="dimension-label">Caffeine</span>
+                <span class="dimension-value" id="dimCaffeine">—</span>
+                <span class="dimension-check">&#10003;</span>
+            </div>
+            <div class="dimension-line" id="dim3">
+                <span class="dimension-label">Elapsed</span>
+                <span class="dimension-value" id="dimElapsed">—</span>
+                <span class="dimension-check">&#10003;</span>
+            </div>
+            <div class="dimension-line" id="dim4">
+                <span class="dimension-label">Remaining</span>
+                <span class="dimension-value" id="dimRemaining">—</span>
+                <span class="dimension-check">&#10003;</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ===== STATE =====
+        let selectedMg = null;
+        let selectedName = '';
+
+        // ===== SOURCE SELECTION with back-channel =====
+        function selectSource(card) {
+            document.querySelectorAll('.source-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            selectedMg = parseInt(card.dataset.mg);
+            selectedName = card.querySelector('.name').textContent;
+
+            // Back-channel signal: "uh-huh, I received that"
+            const bc = document.getElementById('backChannel');
+            bc.textContent = selectedMg + ' mg of ' + selectedName.toLowerCase() + ' — got it';
+            bc.style.opacity = '1';
+        }
+
+        // ===== TIME HELPERS =====
+        function parseTime(val) {
+            const [h, m] = val.split(':').map(Number);
+            return h * 60 + m;
+        }
+
+        function formatTime12(minutes) {
+            let h = Math.floor(minutes / 60) % 24;
+            const m = Math.round(minutes % 60);
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return h + ':' + String(m).padStart(2, '0') + ' ' + ampm;
+        }
+
+        function formatTimeShort(minutes) {
+            let h = Math.floor(minutes / 60) % 24;
+            const ampm = h >= 12 ? 'PM' : 'AM';
+            h = h % 12 || 12;
+            return h + ' ' + ampm;
+        }
+
+        // ===== CALCULATE =====
+        function calculate() {
+            if (!selectedMg) {
+                // Nudge — highlight source grid briefly
+                document.querySelector('.source-grid').style.outline = '2px solid rgba(239,68,68,0.5)';
+                setTimeout(() => {
+                    document.querySelector('.source-grid').style.outline = 'none';
+                }, 800);
+                return;
+            }
+
+            const drinkMin = parseTime(document.getElementById('drinkTime').value);
+            const bedMin = parseTime(document.getElementById('bedTime').value);
+            const halfLife = 5 * 60; // 5 hours in minutes
+
+            let elapsed = bedMin - drinkMin;
+            if (elapsed < 0) elapsed += 24 * 60; // next day
+
+            const halvings = elapsed / halfLife;
+            const remaining = selectedMg * Math.pow(0.5, halvings);
+            const remainingRound = Math.round(remaining);
+
+            // === PHASE 1: Processing threshold (the third state) ===
+            const overlay = document.getElementById('processingOverlay');
+            overlay.classList.add('active');
+
+            // Resolve dimensions sequentially — "show calculation dimensions resolving, not spinner"
+            const dims = [
+                { id: 'dim1', valId: 'dimSource', val: selectedName },
+                { id: 'dim2', valId: 'dimCaffeine', val: selectedMg + ' mg' },
+                { id: 'dim3', valId: 'dimElapsed', val: Math.round(elapsed / 60 * 10) / 10 + ' hours' },
+                { id: 'dim4', valId: 'dimRemaining', val: remainingRound + ' mg' },
+            ];
+
+            dims.forEach((d, i) => {
+                setTimeout(() => {
+                    document.getElementById(d.valId).textContent = d.val;
+                    document.getElementById(d.id).classList.add('resolved');
+                }, 120 * (i + 1)); // Staggered: 120ms apart
+            });
+
+            // === PHASE 2: After processing resolves, shift depth layers ===
+            setTimeout(() => {
+                overlay.classList.remove('active');
+
+                // Populate result
+                document.getElementById('resultNumber').textContent = remainingRound;
+
+                // Verdict
+                const verdict = document.getElementById('resultVerdict');
+                if (remainingRound <= 25) {
+                    verdict.textContent = 'You\'re in the clear. Sleep should be unaffected.';
+                    verdict.className = 'result-verdict glow-good';
+                } else if (remainingRound <= 50) {
+                    verdict.textContent = 'Borderline. Deep sleep may be reduced.';
+                    verdict.className = 'result-verdict glow-caution';
+                } else {
+                    verdict.textContent = 'Too much caffeine for restful sleep.';
+                    verdict.className = 'result-verdict glow-bad';
+                }
+
+                // Cutoff time: when remaining < 25mg
+                const hoursTo25 = Math.log(selectedMg / 25) / Math.log(2) * 5;
+                const cutoffMin = drinkMin + hoursTo25 * 60;
+                // Last safe cup = bedtime minus hoursTo25
+                const lastSafeMin = bedMin - hoursTo25 * 60;
+                const safeMod = ((lastSafeMin % (24 * 60)) + 24 * 60) % (24 * 60);
+                document.getElementById('cutoffTime').textContent = formatTime12(safeMod);
+
+                // Decay timeline bars
+                buildDecayTimeline(selectedMg, drinkMin, elapsed);
+
+                // DEPTH SHIFT: body gets result class
+                document.body.classList.add('has-result');
+
+                // Scroll to result gently
+                setTimeout(() => {
+                    document.getElementById('resultSurface').scrollIntoView({
+                        behavior: 'smooth', block: 'center'
+                    });
+                }, 300);
+
+                // === PHASE 3: Coach overlay after result settles ===
+                setTimeout(() => {
+                    // Populate coach
+                    document.getElementById('coachDrinkName').textContent = selectedName.toLowerCase();
+                    document.getElementById('coachDrinkTime').textContent = formatTime12(drinkMin);
+
+                    const halfTimeMin = drinkMin + halfLife;
+                    document.getElementById('coachHalfTime').textContent = formatTime12(halfTimeMin % (24*60));
+                    document.getElementById('coachRemaining').textContent = remainingRound;
+
+                    document.body.classList.add('has-coach');
+                }, 2000);
+
+            }, 700); // Processing phase duration
+        }
+
+        // ===== DECAY TIMELINE =====
+        function buildDecayTimeline(mg, startMin, totalElapsed) {
+            const container = document.getElementById('decayTimeline');
+            container.innerHTML = '';
+
+            const halfLife = 5; // hours
+            const maxHours = Math.min(Math.ceil(totalElapsed / 60), 24);
+            const steps = Math.min(6, Math.max(3, Math.ceil(maxHours / halfLife) + 1));
+            const interval = maxHours / (steps - 1);
+
+            for (let i = 0; i < steps; i++) {
+                const hours = Math.round(interval * i);
+                const remaining = mg * Math.pow(0.5, hours / halfLife);
+                const barHeight = Math.max(4, (remaining / mg) * 100);
+                const timeMin = (startMin + hours * 60) % (24 * 60);
+
+                const group = document.createElement('div');
+                group.className = 'decay-bar-group';
+
+                const mgLabel = document.createElement('div');
+                mgLabel.className = 'decay-mg';
+                mgLabel.textContent = Math.round(remaining);
+
+                const bar = document.createElement('div');
+                bar.className = 'decay-bar';
+                bar.style.height = '0px';
+
+                const timeLabel = document.createElement('div');
+                timeLabel.className = 'decay-label';
+                timeLabel.textContent = formatTimeShort(timeMin);
+
+                group.appendChild(mgLabel);
+                group.appendChild(bar);
+                group.appendChild(timeLabel);
+                container.appendChild(group);
+
+                // Animate bar height after a delay
+                setTimeout(() => {
+                    bar.style.height = barHeight + 'px';
+                }, 200 + i * 120);
+            }
+        }
+
+        // ===== CLOSE COACH =====
+        function closeCoach() {
+            document.body.classList.remove('has-coach');
+        }
+
+        // ===== RESET =====
+        function resetCalculator() {
+            document.body.classList.remove('has-result');
+            document.body.classList.remove('has-coach');
+
+            // Reset processing dimensions
+            document.querySelectorAll('.dimension-line').forEach(d => d.classList.remove('resolved'));
+
+            // Scroll back to form
+            setTimeout(() => {
+                document.getElementById('formSurface').scrollIntoView({
+                    behavior: 'smooth', block: 'center'
+                });
+            }, 400);
+        }
+
+        // ===== INIT: Select coffee by default =====
+        document.addEventListener('DOMContentLoaded', () => {
+            // No default selection — let user choose (nucleation: first interaction sets the pattern)
+        });
+    </script>
+</body>
+</html>
