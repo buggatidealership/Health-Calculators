@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Product Mockup V10 — Scale/Proportion Regime Shift</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --amber: #f59e0b;
+            --amber-glow: rgba(245, 158, 11, 0.25);
+            --coral: #f87171;
+            --coral-glow: rgba(248, 113, 113, 0.25);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg-1);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* ---- FILM GRAIN ---- */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 256px 256px;
+        }
+
+        /* ---- PHASE: FORM (NARRATIVE REGIME) ---- */
+        .form-phase {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 1.5rem;
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+            transition: min-height 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        padding 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+        }
+
+        /* Compressed state — INSTRUMENTAL regime */
+        .form-phase.compressed {
+            min-height: 0;
+            padding: 1.5rem 1.5rem 1rem;
+            justify-content: flex-start;
+            border-bottom: 1px solid rgba(20, 184, 166, 0.08);
+        }
+
+        .form-phase.compressed .hero-title {
+            font-size: 1rem;
+            margin-bottom: 0;
+        }
+        .form-phase.compressed .hero-sub {
+            display: none;
+        }
+        .form-phase.compressed .source-grid {
+            display: none;
+        }
+        .form-phase.compressed .time-section {
+            display: none;
+        }
+        .form-phase.compressed .calc-btn {
+            display: none;
+        }
+        .form-phase.compressed .compressed-summary {
+            display: flex;
+        }
+
+        /* ---- HERO ---- */
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+            transition: font-size 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+                        margin 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .hero-title .accent { color: var(--teal); }
+
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            transition: opacity 0.4s ease;
+        }
+
+        /* ---- PULSE DOT ---- */
+        .pulse-dot {
+            width: 8px; height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            animation: pulse 2.5s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        /* ---- DRINK CARDS (NARRATIVE SCALE: 15-50% viewport) ---- */
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.6rem;
+            max-width: 640px;
+            width: 100%;
+            transition: opacity 0.4s ease, max-height 0.6s ease;
+        }
+
+        .source-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            backdrop-filter: blur(10px);
+        }
+        .source-card:hover {
+            border-color: rgba(20, 184, 166, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(20, 184, 166, 0.1);
+        }
+        .source-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 20px var(--teal-glow), 0 0 0 1px var(--teal);
+            transform: scale(1.03);
+            background: rgba(20, 184, 166, 0.1);
+        }
+        .source-card .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+        .source-card .name { font-size: 0.8rem; font-weight: 600; }
+        .source-card .mg { font-size: 0.68rem; color: var(--text-dim); margin-top: 2px; }
+
+        /* ---- CUSTOM MG ---- */
+        .custom-wrap { display: none; margin-top: 1rem; text-align: center; }
+        .custom-wrap.show { display: block; }
+        .custom-wrap input {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text);
+            font-size: 1.1rem;
+            padding: 0.6rem 1rem;
+            width: 140px;
+            text-align: center;
+            outline: none;
+            font-family: var(--font-body);
+        }
+        .custom-wrap input:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+        .custom-wrap label {
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            display: block;
+            margin-bottom: 0.4rem;
+        }
+
+        /* ---- TIME INPUTS ---- */
+        .time-section {
+            margin-top: 2.5rem;
+            text-align: center;
+            transition: opacity 0.4s ease;
+        }
+        .time-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            margin-bottom: 1.5rem;
+            color: #ffffff;
+        }
+        .time-inputs {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .time-group label {
+            display: block;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            margin-bottom: 0.4rem;
+            text-align: center;
+        }
+        .time-group input[type="time"] {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1.3rem;
+            padding: 0.8rem 1.2rem;
+            font-family: var(--font-body);
+            outline: none;
+        }
+        .time-group input[type="time"]:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+        }
+
+        /* ---- CALCULATE BUTTON ---- */
+        .calc-btn {
+            background: var(--teal);
+            color: #0a0f1a;
+            border: none;
+            border-radius: 12px;
+            padding: 0.85rem 2.4rem;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 2rem;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+        .calc-btn:hover {
+            box-shadow: 0 6px 24px var(--teal-glow);
+            transform: translateY(-1px);
+        }
+
+        /* ---- COMPRESSED SUMMARY (visible only in compressed state) ---- */
+        .compressed-summary {
+            display: none;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .compressed-summary .tag {
+            background: rgba(20, 184, 166, 0.1);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 8px;
+            padding: 0.3rem 0.8rem;
+            font-size: 0.78rem;
+            color: var(--text-dim);
+        }
+        .compressed-summary .tag .val {
+            color: var(--teal);
+            font-weight: 600;
+        }
+        .compressed-summary .edit-btn {
+            background: none;
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 8px;
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            padding: 0.25rem 0.6rem;
+            cursor: pointer;
+            font-family: var(--font-body);
+            transition: all 0.2s;
+        }
+        .compressed-summary .edit-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* ============================================
+           PHASE: RESULT (ATMOSPHERIC REGIME)
+           ============================================ */
+        .result-phase {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(180deg, #081a1a 0%, #0a0f1a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        .result-phase.visible {
+            display: flex;
+        }
+
+        /* -- ATMOSPHERIC ZONE: 60vh hero number -- */
+        .atmospheric-zone {
+            min-height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 1.5rem;
+            position: relative;
+            width: 100%;
+        }
+
+        /* Ambient glow behind the number */
+        .atmospheric-zone::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0;
+            transition: opacity 1.2s ease-out 0.3s;
+            pointer-events: none;
+        }
+        .atmospheric-zone.glow-teal::before {
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.15) 0%, transparent 70%);
+            opacity: 1;
+        }
+        .atmospheric-zone.glow-amber::before {
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.12) 0%, transparent 70%);
+            opacity: 1;
+        }
+        .atmospheric-zone.glow-coral::before {
+            background: radial-gradient(circle, rgba(248, 113, 113, 0.12) 0%, transparent 70%);
+            opacity: 1;
+        }
+
+        /* THE NUMBER — atmospheric scale (5:1 ratio from body text) */
+        .atmo-number {
+            font-family: var(--font-display);
+            font-size: clamp(80px, 20vw, 200px); /* 5:1 minimum ratio to 16px body */
+            line-height: 0.9;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: scale(0.7);
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s,
+                        transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+        }
+        .atmo-number.revealed {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        /* Color classes for the number */
+        .atmo-number.color-teal {
+            color: var(--teal);
+            text-shadow: 0 0 80px var(--teal-glow), 0 0 160px rgba(20, 184, 166, 0.1);
+        }
+        .atmo-number.color-amber {
+            color: var(--amber);
+            text-shadow: 0 0 80px var(--amber-glow), 0 0 160px rgba(245, 158, 11, 0.08);
+        }
+        .atmo-number.color-coral {
+            color: var(--coral);
+            text-shadow: 0 0 80px var(--coral-glow), 0 0 160px rgba(248, 113, 113, 0.08);
+        }
+
+        /* Context label — INSTRUMENTAL scale, gives the atmospheric number meaning */
+        .atmo-label {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-align: center;
+            margin-top: 1rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease 0.6s, transform 0.6s ease 0.6s;
+        }
+        .atmo-label.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Verdict line */
+        .atmo-verdict {
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-align: center;
+            margin-top: 1.5rem;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 0.6s ease 0.9s, transform 0.6s ease 0.9s;
+        }
+        .atmo-verdict.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Cutoff time — secondary atmospheric element */
+        .cutoff-zone {
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.04);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.6s ease 1.2s;
+        }
+        .cutoff-zone.revealed { opacity: 1; }
+        .cutoff-zone .cutoff-label {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+            letter-spacing: 0.05em;
+        }
+        .cutoff-zone .cutoff-time {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--teal);
+            text-shadow: 0 0 30px var(--teal-glow);
+        }
+        .cutoff-zone .cutoff-note {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin-top: 0.4rem;
+        }
+
+        /* ---- NARRATIVE ZONE: Coach card (15-30% viewport) ---- */
+        .narrative-zone {
+            width: 100%;
+            max-width: 580px;
+            padding: 3rem 1.5rem 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease 1.5s, transform 0.7s ease 1.5s;
+        }
+        .narrative-zone.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .coach-card {
+            background: linear-gradient(180deg, rgba(20,184,166,0.06) 0%, rgba(14,122,126,0.03) 100%);
+            border: 1px solid rgba(20,184,166,0.15);
+            border-radius: 20px;
+            padding: 2rem 1.8rem;
+        }
+        .coach-card-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.2rem;
+        }
+        .coach-card-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem; /* 28px — narrative heading scale */
+            color: #ffffff;
+        }
+        .coach-text {
+            font-size: 1rem; /* 16px — body text baseline */
+            line-height: 1.9;
+            color: var(--text);
+        }
+        .coach-text .hl {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        /* ---- INSTRUMENTAL ZONE: Share + FAQ (<15% viewport) ---- */
+        .instrumental-zone {
+            width: 100%;
+            max-width: 580px;
+            padding: 1rem 1.5rem 3rem;
+            opacity: 0;
+            transition: opacity 0.6s ease 2s;
+        }
+        .instrumental-zone.revealed {
+            opacity: 1;
+        }
+
+        /* Share buttons — instrumental scale (13px labels) */
+        .share-row {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        .share-btn {
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            padding: 0.5rem 0.9rem;
+            color: var(--text-muted);
+            font-size: 0.8125rem; /* 13px — instrumental */
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .share-btn:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+            color: var(--text-dim);
+        }
+        .share-btn svg {
+            width: 14px;
+            height: 14px;
+            fill: currentColor;
+        }
+
+        /* FAQ — instrumental scale */
+        .faq-section {
+            border-top: 1px solid rgba(255,255,255,0.04);
+            padding-top: 1.5rem;
+        }
+        .faq-title {
+            font-size: 0.8125rem; /* 13px */
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+            padding: 0.8rem 0;
+        }
+        .faq-q {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-q::after {
+            content: '+';
+            font-size: 1rem;
+            color: var(--text-muted);
+            transition: transform 0.2s;
+        }
+        .faq-item.open .faq-q::after {
+            transform: rotate(45deg);
+        }
+        .faq-a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-a {
+            max-height: 200px;
+            padding-top: 0.6rem;
+        }
+
+        /* ---- RECALCULATE BUTTON ---- */
+        .recalc-btn {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            background: rgba(20, 184, 166, 0.15);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 12px;
+            padding: 0.6rem 1.2rem;
+            color: var(--teal);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: var(--font-body);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.2s;
+            display: none;
+        }
+        .recalc-btn.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .recalc-btn:hover {
+            box-shadow: 0 4px 20px rgba(20, 184, 166, 0.2);
+        }
+
+        /* ---- REGIME LABEL (dev reference, hidden by default) ---- */
+        .regime-label {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 0.6rem;
+            color: rgba(255,255,255,0.08);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        /* ---- LOADING STATE — "the threshold is its own state" ---- */
+        .loading-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(10, 15, 26, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 200;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .loading-overlay.active {
+            display: flex;
+        }
+        .loading-text {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text-dim);
+        }
+        .loading-bar {
+            width: 120px;
+            height: 2px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .loading-bar-fill {
+            width: 0%;
+            height: 100%;
+            background: var(--teal);
+            border-radius: 2px;
+            transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* ---- MOBILE ---- */
+        @media (max-width: 600px) {
+            .source-grid {
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 100%;
+            }
+            .atmo-number {
+                font-size: clamp(64px, 22vw, 140px);
+            }
+            .time-inputs {
+                gap: 1rem;
+            }
+            .coach-card {
+                padding: 1.5rem 1.2rem;
+            }
+            .share-row {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ============================================
+     LOADING OVERLAY — the threshold is its own state
+     ============================================ -->
+<div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-text">Calculating decay curve...</div>
+    <div class="loading-bar">
+        <div class="loading-bar-fill" id="loadingFill"></div>
+    </div>
+</div>
+
+<!-- ============================================
+     FORM PHASE — NARRATIVE REGIME (15-50% viewport)
+     Standard calculator UI. Task mode. Comprehension.
+     ============================================ -->
+<div class="form-phase" id="formPhase">
+    <div class="regime-label">narrative regime</div>
+
+    <h1 class="hero-title">
+        How much <span class="accent">caffeine</span> is keeping you up?
+    </h1>
+    <p class="hero-sub">
+        <span class="pulse-dot"></span>
+        Pick your drink. We'll show what's left at bedtime.
+    </p>
+
+    <!-- Drink selection cards -->
+    <div class="source-grid" id="sourceGrid">
+        <div class="source-card" data-mg="95" onclick="selectDrink(this)">
+            <span class="emoji">&#9749;</span>
+            <span class="name">Coffee</span>
+            <span class="mg">95 mg</span>
+        </div>
+        <div class="source-card" data-mg="63" onclick="selectDrink(this)">
+            <span class="emoji">&#9749;</span>
+            <span class="name">Espresso</span>
+            <span class="mg">63 mg</span>
+        </div>
+        <div class="source-card" data-mg="47" onclick="selectDrink(this)">
+            <span class="emoji">&#127861;</span>
+            <span class="name">Black Tea</span>
+            <span class="mg">47 mg</span>
+        </div>
+        <div class="source-card" data-mg="28" onclick="selectDrink(this)">
+            <span class="emoji">&#127869;</span>
+            <span class="name">Green Tea</span>
+            <span class="mg">28 mg</span>
+        </div>
+        <div class="source-card" data-mg="80" onclick="selectDrink(this)">
+            <span class="emoji">&#9889;</span>
+            <span class="name">Energy Drink</span>
+            <span class="mg">80 mg</span>
+        </div>
+        <div class="source-card" data-mg="40" onclick="selectDrink(this)">
+            <span class="emoji">&#127870;</span>
+            <span class="name">Cola</span>
+            <span class="mg">40 mg</span>
+        </div>
+        <div class="source-card" data-mg="200" onclick="selectDrink(this)">
+            <span class="emoji">&#128138;</span>
+            <span class="name">Caffeine Pill</span>
+            <span class="mg">200 mg</span>
+        </div>
+        <div class="source-card" data-mg="0" data-custom="true" onclick="selectDrink(this)">
+            <span class="emoji">&#9999;&#65039;</span>
+            <span class="name">Custom</span>
+            <span class="mg">Your mg</span>
+        </div>
+    </div>
+
+    <div class="custom-wrap" id="customWrap">
+        <label>Caffeine (mg)</label>
+        <input type="number" id="customMg" min="1" max="1000" placeholder="100">
+    </div>
+
+    <!-- Time inputs -->
+    <div class="time-section">
+        <div class="time-inputs">
+            <div class="time-group">
+                <label>When did you drink it?</label>
+                <input type="time" id="drinkTime" value="14:00">
+            </div>
+            <div class="time-group">
+                <label>When do you want to sleep?</label>
+                <input type="time" id="bedTime" value="22:00">
+            </div>
+        </div>
+
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">
+            Calculate
+        </button>
+    </div>
+
+    <!-- Compressed summary — visible only after regime shift -->
+    <div class="compressed-summary" id="compressedSummary">
+        <span class="tag"><span class="val" id="sumDrink">Coffee</span> &middot; <span class="val" id="sumMg">95</span> mg</span>
+        <span class="tag">at <span class="val" id="sumTime">2:00 PM</span></span>
+        <span class="tag">bed <span class="val" id="sumBed">10:00 PM</span></span>
+        <button class="edit-btn" onclick="editInputs()">Edit</button>
+    </div>
+</div>
+
+<!-- ============================================
+     RESULT PHASE — REGIME SHIFT
+     Atmospheric (>50% viewport) → Narrative → Instrumental
+     ============================================ -->
+<div class="result-phase" id="resultPhase">
+
+    <!-- ATMOSPHERIC ZONE — the number IS the environment -->
+    <div class="atmospheric-zone" id="atmoZone">
+        <div class="regime-label">atmospheric regime</div>
+
+        <div class="atmo-number" id="atmoNumber">29</div>
+        <!-- Context collapse prevention: small label gives the large element meaning -->
+        <div class="atmo-label" id="atmoLabel">mg remaining at bedtime</div>
+        <div class="atmo-verdict" id="atmoVerdict"></div>
+
+        <div class="cutoff-zone" id="cutoffZone">
+            <div class="cutoff-label">Last safe cup</div>
+            <div class="cutoff-time" id="cutoffTime">2:00 PM</div>
+            <div class="cutoff-note">To stay under 25 mg by bedtime</div>
+        </div>
+    </div>
+
+    <!-- NARRATIVE ZONE — coach card, content to read -->
+    <div class="narrative-zone" id="narrativeZone">
+        <div class="regime-label">narrative regime</div>
+
+        <div class="coach-card">
+            <div class="coach-card-header">
+                <span class="pulse-dot"></span>
+                <span class="coach-card-title">The one rule</span>
+            </div>
+            <div class="coach-text" id="coachText">
+                Caffeine has a <span class="hl">half-life of ~5 hours</span>. That means every 5 hours, your body eliminates half. A 95 mg coffee at 2 PM becomes <span class="hl">47 mg by 7 PM</span>, then <span class="hl">24 mg by midnight</span>. The math is simple. The implication: your afternoon coffee is still in your bloodstream when you go to bed.
+            </div>
+        </div>
+    </div>
+
+    <!-- INSTRUMENTAL ZONE — tools, not content -->
+    <div class="instrumental-zone" id="instrumentalZone">
+        <div class="regime-label">instrumental regime</div>
+
+        <div class="share-row">
+            <button class="share-btn" onclick="shareTwitter()">
+                <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                Share
+            </button>
+            <button class="share-btn" onclick="shareWhatsApp()">
+                <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.955 9.955 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a8 8 0 01-4.243-1.214l-.257-.154-2.874.854.854-2.874-.154-.257A8 8 0 1112 20z"/></svg>
+                WhatsApp
+            </button>
+            <button class="share-btn" onclick="copyResult()">
+                <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+                Copy
+            </button>
+        </div>
+
+        <div class="faq-section">
+            <div class="faq-title">Common questions</div>
+
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">How long does caffeine last?</div>
+                <div class="faq-a">Caffeine has a half-life of about 5 hours. A 95 mg cup of coffee takes 10-15 hours to fully clear your system. Most people still have ~24 mg at the 10-hour mark.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">When should I stop drinking coffee?</div>
+                <div class="faq-a">At least 8-10 hours before bedtime. For a 10 PM bedtime, your last cup should be by noon to 2 PM to stay under 25 mg at bedtime.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">Does caffeine sensitivity change with age?</div>
+                <div class="faq-a">Yes. Caffeine half-life tends to increase with age. Older adults metabolize caffeine more slowly, meaning the same cup lasts longer in their system.</div>
+            </div>
+            <div class="faq-item" onclick="toggleFaq(this)">
+                <div class="faq-q">What is a safe amount of caffeine per day?</div>
+                <div class="faq-a">The FDA recommends no more than 400 mg per day for healthy adults, roughly 4 cups of brewed coffee. Sensitivity varies by individual.</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recalculate floating button -->
+<button class="recalc-btn" id="recalcBtn" onclick="editInputs()">
+    &#8635; Recalculate
+</button>
+
+<script>
+    // ---- STATE ----
+    let selectedMg = 0;
+    let selectedName = '';
+    const HALF_LIFE = 5; // hours
+
+    // ---- DRINK SELECTION ----
+    function selectDrink(card) {
+        document.querySelectorAll('.source-card').forEach(c => c.classList.remove('selected'));
+        card.classList.add('selected');
+
+        const isCustom = card.dataset.custom === 'true';
+        document.getElementById('customWrap').classList.toggle('show', isCustom);
+
+        if (!isCustom) {
+            selectedMg = parseInt(card.dataset.mg);
+            selectedName = card.querySelector('.name').textContent;
+        } else {
+            selectedName = 'Custom';
+        }
+    }
+
+    // ---- CALCULATE ----
+    function calculate() {
+        // Get custom mg if needed
+        if (selectedName === 'Custom') {
+            const customVal = parseInt(document.getElementById('customMg').value);
+            if (!customVal || customVal < 1) {
+                document.getElementById('customMg').focus();
+                return;
+            }
+            selectedMg = customVal;
+        }
+
+        if (selectedMg === 0) {
+            // Flash the grid briefly
+            document.getElementById('sourceGrid').style.outline = '2px solid rgba(248,113,113,0.5)';
+            setTimeout(() => document.getElementById('sourceGrid').style.outline = 'none', 800);
+            return;
+        }
+
+        const drinkTime = document.getElementById('drinkTime').value;
+        const bedTime = document.getElementById('bedTime').value;
+
+        if (!drinkTime || !bedTime) return;
+
+        // Parse times
+        const [dH, dM] = drinkTime.split(':').map(Number);
+        const [bH, bM] = bedTime.split(':').map(Number);
+
+        let drinkMinutes = dH * 60 + dM;
+        let bedMinutes = bH * 60 + bM;
+
+        // Handle next-day bedtime
+        if (bedMinutes <= drinkMinutes) bedMinutes += 24 * 60;
+
+        const hoursElapsed = (bedMinutes - drinkMinutes) / 60;
+
+        // Caffeine remaining: mg * (0.5 ^ (hours / halfLife))
+        const remaining = selectedMg * Math.pow(0.5, hoursElapsed / HALF_LIFE);
+        const remainingRounded = Math.round(remaining);
+
+        // Find last safe cup time (when remaining would be <=25mg at bedtime)
+        // 25 = mg * 0.5^(h/5)  =>  h = 5 * log2(mg/25)
+        const hoursNeeded = HALF_LIFE * Math.log2(selectedMg / 25);
+        const safeMinutes = bedMinutes - (hoursNeeded * 60);
+        let safeMins = ((safeMinutes % (24*60)) + (24*60)) % (24*60);
+
+        // Half-life steps for coach text
+        const midHours = hoursElapsed / 2;
+        const midRemaining = Math.round(selectedMg * Math.pow(0.5, midHours / HALF_LIFE));
+
+        // ---- TRIGGER REGIME SHIFT ----
+        showLoading(() => {
+            // Update compressed summary
+            document.getElementById('sumDrink').textContent = selectedName;
+            document.getElementById('sumMg').textContent = selectedMg;
+            document.getElementById('sumTime').textContent = formatTime(dH, dM);
+            document.getElementById('sumBed').textContent = formatTime(bH, bM);
+
+            // Compress form phase (narrative → instrumental)
+            document.getElementById('formPhase').classList.add('compressed');
+
+            // Show result phase
+            const resultPhase = document.getElementById('resultPhase');
+            resultPhase.classList.add('visible');
+
+            // Set atmospheric number
+            const atmoNumber = document.getElementById('atmoNumber');
+            atmoNumber.textContent = remainingRounded;
+
+            // Color based on threshold
+            atmoNumber.className = 'atmo-number';
+            const atmoZone = document.getElementById('atmoZone');
+            atmoZone.className = 'atmospheric-zone';
+
+            let verdictText = '';
+            if (remainingRounded < 25) {
+                atmoNumber.classList.add('color-teal');
+                atmoZone.classList.add('glow-teal');
+                verdictText = 'You\'re in the clear. Sleep should be unaffected.';
+            } else if (remainingRounded <= 50) {
+                atmoNumber.classList.add('color-amber');
+                atmoZone.classList.add('glow-amber');
+                verdictText = 'Borderline. You may notice lighter sleep.';
+            } else {
+                atmoNumber.classList.add('color-coral');
+                atmoZone.classList.add('glow-coral');
+                verdictText = 'That\'s enough to disrupt your sleep cycle.';
+            }
+
+            document.getElementById('atmoVerdict').textContent = verdictText;
+            document.getElementById('atmoVerdict').style.color =
+                remainingRounded < 25 ? 'var(--teal)' :
+                remainingRounded <= 50 ? 'var(--amber)' : 'var(--coral)';
+
+            // Cutoff time
+            const safeH = Math.floor(safeMins / 60);
+            const safeM = Math.round(safeMins % 60);
+            document.getElementById('cutoffTime').textContent = formatTime(safeH, safeM);
+
+            // Update coach text with actual values
+            const midTimeH = dH + Math.floor(midHours);
+            const midTimeM = dM + Math.round((midHours % 1) * 60);
+            document.getElementById('coachText').innerHTML =
+                `Caffeine has a <span class="hl">half-life of ~5 hours</span>. That means every 5 hours, your body eliminates half. ` +
+                `Your ${selectedMg} mg ${selectedName.toLowerCase()} at ${formatTime(dH, dM)} becomes ` +
+                `<span class="hl">${midRemaining} mg by ${formatTime(midTimeH % 24, midTimeM % 60)}</span>, then ` +
+                `<span class="hl">${remainingRounded} mg by ${formatTime(bH, bM)}</span>. ` +
+                `The math is simple. The implication: ${remainingRounded < 25 ?
+                    'you timed it right — your system will be mostly clear by bedtime.' :
+                    'your ' + selectedName.toLowerCase() + ' is still circulating when you try to sleep.'}`;
+
+            // Stagger reveals — the bandwidth principle (all transitions distributed across time)
+            setTimeout(() => atmoNumber.classList.add('revealed'), 100);
+            setTimeout(() => document.getElementById('atmoLabel').classList.add('revealed'), 400);
+            setTimeout(() => {
+                document.getElementById('atmoVerdict').classList.add('revealed');
+            }, 700);
+            setTimeout(() => document.getElementById('cutoffZone').classList.add('revealed'), 1000);
+            setTimeout(() => document.getElementById('narrativeZone').classList.add('revealed'), 1300);
+            setTimeout(() => document.getElementById('instrumentalZone').classList.add('revealed'), 1800);
+            setTimeout(() => document.getElementById('recalcBtn').classList.add('visible'), 2200);
+
+            // Scroll to atmospheric zone
+            setTimeout(() => {
+                resultPhase.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 200);
+        });
+    }
+
+    // ---- LOADING STATE — "the threshold is its own state" ----
+    function showLoading(callback) {
+        const overlay = document.getElementById('loadingOverlay');
+        const fill = document.getElementById('loadingFill');
+        overlay.classList.add('active');
+
+        // Progressive fill — shows "calculation dimensions resolving"
+        setTimeout(() => fill.style.width = '30%', 50);
+        setTimeout(() => fill.style.width = '60%', 200);
+        setTimeout(() => fill.style.width = '85%', 350);
+        setTimeout(() => fill.style.width = '100%', 450);
+        setTimeout(() => {
+            overlay.classList.remove('active');
+            fill.style.width = '0%';
+            callback();
+        }, 600);
+    }
+
+    // ---- EDIT / RECALCULATE ----
+    function editInputs() {
+        // Reset result phase
+        document.getElementById('resultPhase').classList.remove('visible');
+        document.getElementById('formPhase').classList.remove('compressed');
+
+        // Reset all reveal states
+        document.querySelectorAll('.revealed').forEach(el => el.classList.remove('revealed'));
+        document.getElementById('recalcBtn').classList.remove('visible');
+
+        // Reset atmospheric zone glow
+        document.getElementById('atmoZone').className = 'atmospheric-zone';
+
+        // Scroll back to form
+        document.getElementById('formPhase').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // ---- SHARE ----
+    function getShareText() {
+        const mg = document.getElementById('atmoNumber').textContent;
+        return `${mg} mg of caffeine still in my system at bedtime. Calculated with HealthCalculators.xyz`;
+    }
+
+    function shareTwitter() {
+        const text = encodeURIComponent(getShareText());
+        window.open(`https://x.com/intent/tweet?text=${text}`, '_blank');
+    }
+
+    function shareWhatsApp() {
+        const text = encodeURIComponent(getShareText());
+        window.open(`https://wa.me/?text=${text}`, '_blank');
+    }
+
+    function copyResult() {
+        navigator.clipboard.writeText(getShareText()).then(() => {
+            const btn = event.target.closest('.share-btn');
+            const original = btn.innerHTML;
+            btn.innerHTML = '<svg viewBox="0 0 24 24" style="width:14px;height:14px;fill:currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg> Copied';
+            setTimeout(() => btn.innerHTML = original, 1500);
+        });
+    }
+
+    // ---- FAQ ----
+    function toggleFaq(item) {
+        item.classList.toggle('open');
+    }
+
+    // ---- HELPERS ----
+    function formatTime(h, m) {
+        h = ((h % 24) + 24) % 24;
+        m = Math.max(0, Math.min(59, Math.round(m)));
+        const ampm = h >= 12 ? 'PM' : 'AM';
+        const h12 = h % 12 || 12;
+        return `${h12}:${String(m).padStart(2, '0')} ${ampm}`;
+    }
+</script>
+
+</body>
+</html>

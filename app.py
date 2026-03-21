@@ -6501,6 +6501,10 @@ def mockup_product_v7():
 def mockup_product_v9():
     return render_template('mockup-product-v9.html')
 
+@app.route('/mockup-product-v10')
+def mockup_product_v10():
+    return render_template('mockup-product-v10.html')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
