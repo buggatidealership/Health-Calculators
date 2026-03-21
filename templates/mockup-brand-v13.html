@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>24 Hours with Pulse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif}
+body{background:#1a1410;transition:background 1.2s cubic-bezier(0.4,0,0.2,1)}
+
+/* Film grain overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:100;
+  opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+
+.film{position:relative;width:100vw;height:100vh;overflow:hidden;display:flex}
+
+/* ================================
+   LEFT: TIMELINE
+   ================================ */
+.timeline{position:relative;width:120px;min-width:120px;height:100vh;display:flex;
+  flex-direction:column;align-items:center;padding:40px 0;z-index:5}
+
+.tl-title{font-family:'DM Serif Display',serif;font-size:0.72rem;color:rgba(255,255,255,0.25);
+  letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;writing-mode:vertical-lr;
+  transform:rotate(180deg);opacity:0;transition:opacity 0.8s}
+.tl-title.in{opacity:1}
+
+.tl-track{position:relative;flex:1;width:2px;background:rgba(255,255,255,0.06);border-radius:1px}
+.tl-fill{position:absolute;top:0;left:0;width:100%;height:0;border-radius:1px;
+  background:linear-gradient(180deg,#14b8a6,#0e7a7e);
+  transition:height 1.4s cubic-bezier(0.34,1.02,0.64,1);
+  box-shadow:0 0 12px rgba(20,184,166,0.3)}
+
+.tl-dot{position:absolute;left:50%;transform:translateX(-50%);width:12px;height:12px;
+  border-radius:50%;background:#1a1410;border:2px solid rgba(255,255,255,0.1);
+  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1);z-index:2}
+.tl-dot.active{border-color:#14b8a6;background:#14b8a6;
+  box-shadow:0 0 16px rgba(20,184,166,0.5)}
+.tl-dot.active::after{content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:1px solid rgba(20,184,166,0.3);animation:dot-pulse 2s ease-in-out infinite}
+.tl-dot.passed{border-color:rgba(20,184,166,0.4);background:rgba(20,184,166,0.3)}
+
+.tl-time{position:absolute;right:24px;font-size:0.62rem;font-weight:600;
+  color:rgba(255,255,255,0.2);white-space:nowrap;
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);transform:translateX(5px)}
+.tl-time.active{color:#14b8a6;transform:translateX(0)}
+.tl-time.passed{color:rgba(20,184,166,0.35);transform:translateX(0)}
+
+.tl-emoji{position:absolute;left:24px;font-size:0.72rem;
+  opacity:0;transform:scale(0.5) translateX(-5px);
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.tl-emoji.in{opacity:1;transform:scale(1) translateX(0)}
+
+@keyframes dot-pulse{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.6);opacity:0}}
+
+/* ================================
+   RIGHT: PHONE + CONTEXT
+   ================================ */
+.stage{flex:1;display:flex;align-items:center;justify-content:center;flex-direction:column;
+  position:relative;padding:20px}
+
+/* Ambient light shifts */
+.ambient{position:absolute;width:500px;height:500px;border-radius:50%;
+  pointer-events:none;opacity:0;transition:opacity 1.2s}
+.amb-morning{background:radial-gradient(circle,rgba(251,191,36,0.06),transparent 70%);
+  top:20%;right:10%}
+.amb-afternoon{background:radial-gradient(circle,rgba(20,184,166,0.05),transparent 70%);
+  top:30%;left:20%}
+.amb-evening{background:radial-gradient(circle,rgba(99,102,241,0.05),transparent 70%);
+  top:40%;right:15%}
+
+/* Time context label */
+.ctx-time{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4vw,2.8rem);
+  color:rgba(255,255,255,0.06);position:absolute;top:40px;right:40px;
+  transition:all 0.8s cubic-bezier(0.16,1,0.3,1);opacity:0;transform:translateY(10px)}
+.ctx-time.in{opacity:1;transform:translateY(0)}
+.ctx-label{font-size:0.68rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;
+  color:rgba(255,255,255,0.15);position:absolute;top:88px;right:42px;
+  transition:all 0.6s;opacity:0}
+.ctx-label.in{opacity:1}
+
+/* Phone mockup */
+.phone{width:340px;max-width:88vw;border-radius:28px;overflow:hidden;
+  background:#faf9f6;
+  box-shadow:0 20px 60px rgba(0,0,0,0.3),0 0 0 1px rgba(255,255,255,0.05);
+  opacity:0;transform:translateY(40px) scale(0.9);
+  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.phone.in{opacity:1;transform:translateY(0) scale(1)}
+
+.ph-notch{height:28px;background:#f5f4f0;display:flex;align-items:center;justify-content:center}
+.ph-notch-pill{width:80px;height:5px;border-radius:3px;background:rgba(0,0,0,0.08)}
+
+.ph-header{display:flex;align-items:center;gap:10px;padding:10px 16px;
+  background:#faf9f6;border-bottom:1px solid rgba(0,0,0,0.04)}
+.ph-av{width:30px;height:30px;border-radius:50%;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;position:relative}
+.ph-av::after{content:'';position:absolute;bottom:0;right:0;width:7px;height:7px;
+  border-radius:50%;background:#22c55e;border:2px solid #faf9f6}
+.ph-av span{color:#fff;font-weight:700;font-size:0.62rem}
+.ph-name{font-weight:600;font-size:0.78rem;color:#1a1a1e}
+.ph-status{font-size:0.54rem;color:#22c55e;font-weight:500}
+
+.ph-msgs{padding:10px 12px;display:flex;flex-direction:column;gap:6px;
+  min-height:180px;max-height:280px;overflow:hidden}
+
+/* Bubbles — warm cream chat from JTBD */
+.bub{max-width:84%;padding:9px 14px;border-radius:18px;font-size:0.76rem;line-height:1.5;
+  color:#2a2a2e;opacity:0;transform:translateY(12px) scale(0.88);
+  transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.bub.in{opacity:1;transform:translateY(0) scale(1)}
+.bub.u{background:#d1fae5;align-self:flex-end;border-bottom-right-radius:6px}
+.bub.a{background:#f0eeeb;align-self:flex-start;border-bottom-left-radius:6px}
+.bub .hl{color:#0e7a7e;font-weight:700}
+.bub .warm{color:#b45309;font-weight:500}
+.bub .dim{color:#8a8a8e;font-size:0.66rem}
+.bub .stat{display:inline-block;background:rgba(14,122,126,0.08);padding:1px 7px;
+  border-radius:8px;font-weight:600;color:#0e7a7e;font-size:0.72rem}
+
+.dots{display:inline-flex;gap:4px;padding:2px 0}
+.dots span{width:5px;height:5px;border-radius:50%;background:#b4b8c0;animation:tb 1.2s ease-in-out infinite}
+.dots span:nth-child(2){animation-delay:0.15s}
+.dots span:nth-child(3){animation-delay:0.3s}
+@keyframes tb{0%,60%,100%{transform:translateY(0);opacity:0.4}30%{transform:translateY(-4px);opacity:1}}
+
+/* Notification toast */
+.notif{position:absolute;top:60px;left:50%;transform:translateX(-50%) translateY(-20px) scale(0.9);
+  background:rgba(255,255,255,0.95);border-radius:16px;padding:10px 16px;
+  box-shadow:0 8px 30px rgba(0,0,0,0.12);display:flex;gap:10px;align-items:center;
+  max-width:320px;width:90%;opacity:0;z-index:10;
+  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.notif.in{opacity:1;transform:translateX(-50%) translateY(0) scale(1)}
+.notif-icon{font-size:1.1rem;flex-shrink:0}
+.notif-text{font-size:0.72rem;color:#2a2a2e;line-height:1.4}
+.notif-app{font-size:0.56rem;font-weight:600;color:#0e7a7e;text-transform:uppercase;letter-spacing:0.05em}
+
+/* Meal options cards */
+.meal-opts{display:flex;gap:6px;flex-wrap:wrap;margin-top:4px}
+.meal-opt{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:10px;
+  padding:6px 10px;font-size:0.64rem;color:#2a2a2e;
+  opacity:0;transform:scale(0.8);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.meal-opt.in{opacity:1;transform:scale(1)}
+.meal-opt .cal{color:#8a8a8e;font-size:0.56rem}
+
+/* Summary checklist */
+.check-row{display:flex;align-items:center;gap:6px;font-size:0.72rem;color:#2a2a2e;
+  opacity:0;transform:translateX(-8px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.check-row.in{opacity:1;transform:translateX(0)}
+.check-icon{width:16px;height:16px;border-radius:50%;background:#0e7a7e;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;transform:scale(0);
+  transition:transform 0.3s cubic-bezier(0,1.5,0.5,1)}
+.check-icon.in{transform:scale(1)}
+.check-icon::after{content:'';width:5px;height:3px;border-left:1.5px solid #fff;
+  border-bottom:1.5px solid #fff;transform:rotate(-45deg) translateY(-0.5px)}
+
+/* ================================
+   CLOSE / END SCENE
+   ================================ */
+.sc-close{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;z-index:20;opacity:0;pointer-events:none;
+  transition:opacity 0.8s}
+.sc-close.on{opacity:1}
+
+.close-line{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,2rem);
+  color:rgba(255,255,255,0.9);text-align:center;line-height:1.5;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:0 10px}
+.close-word{display:inline-block;opacity:0;transform:translateY(100%);
+  transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.close-word.in{opacity:1;transform:translateY(0)}
+.close-word.accent{color:#14b8a6;font-style:italic}
+
+.close-orb{width:64px;height:64px;border-radius:50%;margin:0 auto 28px;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  box-shadow:0 4px 30px rgba(14,122,126,0.3);
+  animation:orb-breathe 3.75s ease-in-out infinite;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:scale(0.3);transition:all 0.7s cubic-bezier(0,1.5,0.5,1)}
+.close-orb.in{opacity:1;transform:scale(1)}
+.close-orb span{color:#fff;font-weight:700;font-size:1.2rem}
+@keyframes orb-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+.close-sub{font-size:0.72rem;color:rgba(255,255,255,0.35);margin-top:18px;text-align:center;
+  opacity:0;transition:opacity 0.6s}
+.close-sub.in{opacity:1}
+.close-brand{margin-top:20px;text-align:center;opacity:0;transition:opacity 0.6s}
+.close-brand.in{opacity:1}
+.close-brand-name{font-size:0.78rem;font-weight:600;color:rgba(255,255,255,0.6)}
+.close-brand-handle{font-size:0.58rem;color:#14b8a6;margin-top:2px}
+
+/* Confetti + sparks */
+.spark{position:fixed;border-radius:50%;pointer-events:none;z-index:30}
+@keyframes spark-out{0%{opacity:0.9;transform:translate(0,0) scale(1)}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+.confetti{position:fixed;pointer-events:none;z-index:30;opacity:0.9}
+@keyframes conf-fall{0%{transform:translateY(0) rotate(0deg);opacity:0.9}
+  100%{transform:translateY(var(--fall)) rotate(var(--spin));opacity:0}}
+
+/* ================================
+   RESPONSIVE
+   ================================ */
+@media(max-width:700px){
+  .timeline{width:60px;min-width:60px;padding:24px 0}
+  .tl-title{display:none}
+  .tl-time{font-size:0.5rem;right:16px}
+  .tl-emoji{left:16px;font-size:0.6rem}
+  .phone{width:280px}
+  .ctx-time{font-size:1.4rem;top:20px;right:20px}
+  .ctx-label{top:52px;right:22px;font-size:0.56rem}
+  .notif{max-width:260px}
+}
+</style>
+</head>
+<body>
+<div class="film" id="film">
+
+  <!-- LEFT: TIMELINE -->
+  <div class="timeline" id="timeline">
+    <div class="tl-title" id="tlTitle">24 Hours</div>
+    <div class="tl-track" id="tlTrack">
+      <div class="tl-fill" id="tlFill"></div>
+    </div>
+  </div>
+
+  <!-- RIGHT: STAGE -->
+  <div class="stage" id="stage">
+    <!-- Ambient light layers -->
+    <div class="ambient amb-morning" id="ambMorning"></div>
+    <div class="ambient amb-afternoon" id="ambAfternoon"></div>
+    <div class="ambient amb-evening" id="ambEvening"></div>
+
+    <!-- Context time display -->
+    <div class="ctx-time" id="ctxTime"></div>
+    <div class="ctx-label" id="ctxLabel"></div>
+
+    <!-- Notification toast (reused) -->
+    <div class="notif" id="notif">
+      <div class="notif-icon"></div>
+      <div>
+        <div class="notif-app">Pulse</div>
+        <div class="notif-text" id="notifText"></div>
+      </div>
+    </div>
+
+    <!-- Phone mockup -->
+    <div class="phone" id="phone">
+      <div class="ph-notch"><div class="ph-notch-pill"></div></div>
+      <div class="ph-header">
+        <div class="ph-av"><span>P</span></div>
+        <div><div class="ph-name">Pulse</div><div class="ph-status">online</div></div>
+      </div>
+      <div class="ph-msgs" id="msgs"></div>
+    </div>
+  </div>
+
+  <!-- CLOSE SCENE -->
+  <div class="sc-close" id="scClose">
+    <div class="close-orb" id="closeOrb"><span>P</span></div>
+    <div class="close-line" id="closeLine"></div>
+    <div class="close-sub" id="closeSub">Your health companion. All signal, zero noise.</div>
+    <div class="close-brand" id="closeBrand">
+      <div class="close-brand-name">healthcalculators.xyz</div>
+      <div class="close-brand-handle">@GetHealthC</div>
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+
+  var body=document.body;
+
+  // ============================================================
+  // UTILITIES
+  // ============================================================
+  function clearMsgs(){
+    var m=document.getElementById('msgs');
+    while(m.firstChild)m.removeChild(m.firstChild);
+  }
+
+  function addBub(cls,html,delay,cb){
+    setTimeout(function(){
+      var m=document.createElement('div');m.className='bub '+cls;m.innerHTML=html;
+      document.getElementById('msgs').appendChild(m);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){
+        m.classList.add('in');if(cb)setTimeout(cb,80)})});
+    },delay);
+  }
+
+  function showDots(delay,dur,cb){
+    setTimeout(function(){
+      var d=document.createElement('div');d.className='bub a';
+      d.innerHTML='<span class="dots"><span></span><span></span><span></span></span>';
+      document.getElementById('msgs').appendChild(d);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('in')})});
+      setTimeout(function(){d.remove();if(cb)cb()},dur);
+    },delay);
+  }
+
+  function showNotif(icon,text,delay,dur){
+    setTimeout(function(){
+      var n=document.getElementById('notif');
+      n.querySelector('.notif-icon').textContent=icon;
+      document.getElementById('notifText').textContent=text;
+      n.classList.add('in');
+      setTimeout(function(){n.classList.remove('in')},dur||3000);
+    },delay);
+  }
+
+  function setCtx(time,label,delay){
+    setTimeout(function(){
+      var t=document.getElementById('ctxTime');
+      var l=document.getElementById('ctxLabel');
+      t.classList.remove('in');l.classList.remove('in');
+      setTimeout(function(){
+        t.textContent=time;l.textContent=label;
+        t.classList.add('in');
+        setTimeout(function(){l.classList.add('in')},150);
+      },300);
+    },delay);
+  }
+
+  function setAmbient(which){
+    document.getElementById('ambMorning').style.opacity=which==='morning'?'1':'0';
+    document.getElementById('ambAfternoon').style.opacity=which==='afternoon'?'1':'0';
+    document.getElementById('ambEvening').style.opacity=which==='evening'?'1':'0';
+  }
+
+  function confetti(cx,cy,n){
+    var cols=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#f472b6','#3b82f6','#22c55e'];
+    for(var i=0;i<n;i++){var c=document.createElement('div');c.className='confetti';
+      var x=cx+(Math.random()-0.5)*280,w=4+Math.random()*4,h=Math.random()>0.5?w:w*2.5;
+      c.style.cssText='left:'+x+'px;top:'+(cy-60)+'px;width:'+w+'px;height:'+h+
+        'px;background:'+cols[Math.floor(Math.random()*cols.length)]+';--fall:'+
+        (200+Math.random()*280)+'px;--spin:'+(200+Math.random()*500)+'deg;animation:conf-fall '+
+        (1.2+Math.random()*0.8)+'s ease-out forwards;animation-delay:'+(i*0.02)+
+        's;border-radius:'+(Math.random()>0.5?'50%':'2px');
+      document.body.appendChild(c);setTimeout(function(el){el.remove()},2500,c)}
+  }
+
+  function sparks(x,y,n){
+    var cols=['#14b8a6','#5eead4','#f59e0b','#22c55e','#a78bfa'];
+    for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spark';
+      var sz=3+Math.random()*5,a=Math.random()*Math.PI*2,d=20+Math.random()*45;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+
+        cols[Math.floor(Math.random()*cols.length)]+';--dx:'+(Math.cos(a)*d)+'px;--dy:'+
+        (Math.sin(a)*d-15)+'px;animation:spark-out '+(0.35+Math.random()*0.25)+
+        's ease-out forwards;animation-delay:'+(i*0.02)+'s';
+      document.body.appendChild(s);setTimeout(function(el){el.remove()},900,s)}
+  }
+
+  // ============================================================
+  // TIMELINE SETUP
+  // ============================================================
+  var events=[
+    {time:'6:30',label:'AM',emoji:'\u2600\ufe0f',pct:0},
+    {time:'8:00',label:'AM',emoji:'\u2615',pct:14},
+    {time:'12:30',label:'PM',emoji:'\ud83e\udd57',pct:36},
+    {time:'1:00',label:'PM',emoji:'\u2615',pct:39},
+    {time:'3:30',label:'PM',emoji:'\ud83d\udcad',pct:54},
+    {time:'6:00',label:'PM',emoji:'\ud83c\udfcb\ufe0f',pct:71},
+    {time:'9:30',label:'PM',emoji:'\ud83c\udf19',pct:89},
+    {time:'10:00',label:'PM',emoji:'\ud83d\ude34',pct:100}
+  ];
+
+  var track=document.getElementById('tlTrack');
+  var dots=[];
+  events.forEach(function(ev,i){
+    // Dot
+    var dot=document.createElement('div');
+    dot.className='tl-dot';
+    dot.id='dot'+i;
+    dot.style.top=ev.pct+'%';
+    track.appendChild(dot);
+    dots.push(dot);
+
+    // Time label
+    var tl=document.createElement('div');
+    tl.className='tl-time';
+    tl.id='ttime'+i;
+    tl.textContent=ev.time;
+    tl.style.top=(ev.pct-1)+'%';
+    track.appendChild(tl);
+
+    // Emoji
+    var em=document.createElement('div');
+    em.className='tl-emoji';
+    em.id='temoji'+i;
+    em.textContent=ev.emoji;
+    em.style.top=(ev.pct-1)+'%';
+    track.appendChild(em);
+  });
+
+  function activateEvent(idx){
+    events.forEach(function(_,i){
+      var d=document.getElementById('dot'+i);
+      var t=document.getElementById('ttime'+i);
+      var e=document.getElementById('temoji'+i);
+      if(i<idx){
+        d.className='tl-dot passed';
+        t.className='tl-time passed';
+        e.classList.add('in');
+      }else if(i===idx){
+        d.className='tl-dot active';
+        t.className='tl-time active';
+        e.classList.add('in');
+      }else{
+        d.className='tl-dot';
+        t.className='tl-time';
+        e.classList.remove('in');
+      }
+    });
+    // Fill line
+    document.getElementById('tlFill').style.height=events[idx].pct+'%';
+  }
+
+  // ============================================================
+  // PHONE
+  // ============================================================
+  var phone=document.getElementById('phone');
+
+  // ============================================================
+  // SCENE SEQUENCE — ~65 seconds total
+  // ============================================================
+
+  // --- INTRO (0-1.5s): Title appears, phone enters
+  setTimeout(function(){document.getElementById('tlTitle').classList.add('in')},300);
+  setTimeout(function(){phone.classList.add('in')},800);
+
+  // --- EVENT 0: 6:30 AM — Wake up (1.5s-9s)
+  setTimeout(function(){
+    activateEvent(0);
+    setAmbient('morning');
+    setCtx('6:30 AM','Wake up',0);
+    body.style.background='#1a1714';
+
+    showDots(400,700,function(){
+      addBub('a','Good morning. Quick check-in?',0);
+    });
+
+    addBub('u','down 0.3kg',3200);
+
+    showDots(4500,600,function(){
+      addBub('a','That\u2019s <span class="stat">1.2kg this month</span> \ud83c\udfaf',0);
+    });
+  },1500);
+
+  // --- EVENT 1: 8:00 AM — Coffee (9-16s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(1);
+    setCtx('8:00 AM','Coffee',0);
+
+    showDots(400,600,function(){
+      addBub('a','You\u2019re at <span class="hl">200mg caffeine</span>. Cutoff today is <span class="hl">1pm</span>.',0);
+    });
+
+    addBub('a','<span class="dim">Based on your 10pm bedtime and 5.7hr half-life</span>',3800);
+  },9000);
+
+  // --- EVENT 2: 12:30 PM — Lunch (16-24s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(2);
+    setAmbient('afternoon');
+    setCtx('12:30 PM','Lunch',0);
+    body.style.background='#171614';
+
+    showNotif('\ud83e\udd57','Here\u2019s what fits your macros for lunch',200,3500);
+
+    showDots(1200,700,function(){
+      addBub('a','3 options that hit your protein target:',0,function(){
+        // Meal option cards
+        setTimeout(function(){
+          var opts=[
+            {name:'Grilled chicken bowl',cal:'520 cal \u2022 42g protein'},
+            {name:'Tuna salad wrap',cal:'480 cal \u2022 38g protein'},
+            {name:'Greek yogurt + granola',cal:'390 cal \u2022 28g protein'}
+          ];
+          var container=document.createElement('div');container.className='meal-opts';
+          opts.forEach(function(o,i){
+            var card=document.createElement('div');card.className='meal-opt';
+            card.innerHTML=o.name+'<br><span class="cal">'+o.cal+'</span>';
+            container.appendChild(card);
+            setTimeout(function(){card.classList.add('in')},i*120);
+          });
+          document.getElementById('msgs').appendChild(container);
+        },200);
+      });
+    });
+
+    addBub('u','chicken bowl \ud83d\ude0b',5800);
+  },16000);
+
+  // --- EVENT 3: 1:00 PM — Caffeine cutoff (24-30s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(3);
+    setCtx('1:00 PM','Caffeine cutoff',0);
+
+    showNotif('\u2615','Last regular coffee. Switch to decaf after this.',200,3500);
+
+    showDots(800,600,function(){
+      addBub('a','\u2615 Last regular coffee for today. Decaf after this one.',0);
+    });
+
+    addBub('a','<span class="dim">Your sleep improved 18% since you started the cutoff</span>',3500);
+  },24000);
+
+  // --- EVENT 4: 3:30 PM — Craving (30-38s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(4);
+    setCtx('3:30 PM','The craving',0);
+
+    addBub('u','really want a coffee \u2615',500);
+
+    showDots(2500,900,function(){
+      addBub('a','Your sleep improved <span class="stat">31%</span> since you started the cutoff.',0);
+    });
+
+    showDots(5000,500,function(){
+      addBub('a','<span class="warm">Worth it?</span>',0);
+    });
+  },30000);
+
+  // --- EVENT 5: 6:00 PM — Gym (38-46s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(5);
+    setAmbient('afternoon');
+    setCtx('6:00 PM','Gym',0);
+    body.style.background='#161518';
+
+    showDots(400,600,function(){
+      addBub('a','Your workout is ready. Sent it 2 hours ago \ud83c\udfcb\ufe0f',0);
+    });
+
+    addBub('a','<span class="hl">Upper body push</span> \u2022 4 exercises \u2022 ~45 min<br><span class="dim">Adjusted for yesterday\u2019s recovery score</span>',3200);
+
+    addBub('u','let\u2019s go \ud83d\udcaa',5800);
+  },38000);
+
+  // --- EVENT 6: 9:30 PM — Wind down / Summary (46-58s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(6);
+    setAmbient('evening');
+    setCtx('9:30 PM','Wind down',0);
+    body.style.background='#12111a';
+
+    showDots(400,900,function(){
+      addBub('a','Great day. Here\u2019s your summary:',0,function(){
+        // Checklist items
+        var checks=[
+          'Caffeine cutoff \u2014 hit',
+          'Protein target \u2014 42g over',
+          'Workout \u2014 completed',
+          'Sleep prediction: 7.2 hours'
+        ];
+        setTimeout(function(){
+          checks.forEach(function(txt,i){
+            setTimeout(function(){
+              var row=document.createElement('div');row.className='check-row';
+              var icon=document.createElement('div');icon.className='check-icon';
+              var label=document.createElement('span');label.textContent=txt;
+              row.appendChild(icon);row.appendChild(label);
+              document.getElementById('msgs').appendChild(row);
+              requestAnimationFrame(function(){requestAnimationFrame(function(){
+                row.classList.add('in');
+                setTimeout(function(){icon.classList.add('in')},150);
+              })});
+
+              // Confetti on the last check
+              if(i===checks.length-1){
+                setTimeout(function(){
+                  var ph=phone.getBoundingClientRect();
+                  confetti(ph.left+ph.width/2,ph.top+ph.height*0.4,40);
+                },500);
+              }
+            },i*600);
+          });
+        },300);
+      });
+    });
+  },46000);
+
+  // --- EVENT 7: 10:00 PM — Sleep (58-62s)
+  setTimeout(function(){
+    clearMsgs();
+    activateEvent(7);
+    setCtx('10:00 PM','Sleep',0);
+    body.style.background='#0e0d14';
+
+    showDots(400,800,function(){
+      addBub('a','Good night. I\u2019ll be here tomorrow. \ud83d\ude34',0);
+    });
+
+    // Phone dims
+    setTimeout(function(){
+      phone.style.transition='all 1.5s ease-in';
+      phone.style.opacity='0.3';
+      phone.style.filter='brightness(0.4)';
+    },3200);
+  },56000);
+
+  // --- CLOSE (62-72s): "One day. Zero noise. All signal."
+  setTimeout(function(){
+    // Hide timeline + phone
+    document.getElementById('timeline').style.transition='opacity 0.8s';
+    document.getElementById('timeline').style.opacity='0';
+    document.getElementById('stage').style.transition='opacity 0.6s';
+    document.getElementById('stage').style.opacity='0';
+
+    body.style.background='#0f1419';
+
+    setTimeout(function(){
+      document.getElementById('scClose').classList.add('on');
+
+      setTimeout(function(){document.getElementById('closeOrb').classList.add('in')},300);
+
+      var words=[
+        {text:'One',accent:false,delay:700},
+        {text:'day.',accent:false,delay:1100},
+        {text:'Zero',accent:false,delay:2600},
+        {text:'noise.',accent:false,delay:3000},
+        {text:'All',accent:false,delay:4400},
+        {text:'signal.',accent:true,delay:4900}
+      ];
+      var line=document.getElementById('closeLine');
+      words.forEach(function(w){
+        var span=document.createElement('span');
+        span.className='close-word'+(w.accent?' accent':'');
+        span.textContent=w.text;
+        line.appendChild(span);
+        setTimeout(function(){span.classList.add('in')},w.delay);
+      });
+
+      // Sparks on "signal."
+      setTimeout(function(){
+        var orb=document.getElementById('closeOrb').getBoundingClientRect();
+        sparks(orb.left+orb.width/2,orb.top+orb.height/2,18);
+      },5200);
+
+      setTimeout(function(){document.getElementById('closeSub').classList.add('in')},6200);
+      setTimeout(function(){document.getElementById('closeBrand').classList.add('in')},6800);
+    },800);
+  },62000);
+
+  // Loop
+  setTimeout(function(){
+    document.getElementById('scClose').style.transition='opacity 0.6s';
+    document.getElementById('scClose').style.opacity='0';
+    setTimeout(function(){location.reload()},700);
+  },72000);
+
+})();
+</script>
+</body>
+</html>
