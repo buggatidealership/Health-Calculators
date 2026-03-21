@@ -11,12 +11,12 @@
 <style>
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{--teal:#0e7a7e;--teal-b:#14b8a6;--coral:#e8785e;--warm:#F5F0EA;--dark:#0a0e12;--glow-bg:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
-html,body{background:var(--dark);color:#e4e6ea;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh}
-body.warm{background:var(--warm);color:#1a1a1e;transition:background 0.8s ease}
-body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#1a1a1e;transition:background 0.6s ease}
+html,body{background:var(--dark);color:#e4e6ea;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh;
+  transition:background 1.2s ease, color 1.2s ease}
+body.warm{background:var(--warm);color:#1a1a1e}
+body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#1a1a1e}
 
-/* Film grain */
-.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.03;
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.035;
   background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-size:128px 128px}
 
@@ -24,15 +24,27 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .cut.flash{opacity:1}
 
 .scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;padding:2rem;text-align:center;transition:opacity 0.15s ease}
+  opacity:0;pointer-events:none;padding:2rem;text-align:center;transition:opacity 0.3s ease}
 .scene.on{opacity:1;pointer-events:auto}
 
 /* ===== SCENE 1: 3:14 AM ===== */
+/* FIX: Phone glow — subtle radial from center (screen light in dark room) */
+.phone-glow{position:fixed;top:40%;left:50%;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(100,140,180,0.06),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 1s ease;
+  animation:glow-breathe 4s ease-in-out infinite}
+.phone-glow.on{opacity:1}
+@keyframes glow-breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+
 .clock{font-family:'DM Sans',sans-serif;font-weight:300;font-size:clamp(4rem,12vw,7rem);color:rgba(255,255,255,0.6);
   letter-spacing:-2px;opacity:0;transform:scale(0.9);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
 .clock.in{opacity:1;transform:scale(1)}
+/* FIX: Battery/DND indicator */
+.clock-meta{font-size:0.65rem;color:rgba(255,255,255,0.15);letter-spacing:2px;margin-top:-8px;margin-bottom:8px;
+  opacity:0;transition:opacity 0.6s ease}
+.clock-meta.in{opacity:1}
 
-.tabs-container{display:flex;flex-direction:column;gap:8px;margin-top:2rem;width:min(500px,90vw)}
+.tabs-container{display:flex;flex-direction:column;gap:8px;margin-top:1.5rem;width:min(500px,90vw)}
 .tab{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;
   padding:12px 18px;text-align:left;font-size:clamp(0.8rem,1.8vw,0.95rem);color:rgba(255,255,255,0.4);
   display:flex;align-items:center;gap:10px;
@@ -40,50 +52,38 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .tab.in{opacity:1;transform:translateX(0)}
 .tab-icon{font-size:0.7rem;color:rgba(255,255,255,0.2)}
 .tab-close{margin-left:auto;font-size:0.6rem;color:rgba(255,255,255,0.15)}
+/* FIX: Typewriter cursor for last tab */
+.tab-cursor{display:inline-block;width:2px;height:14px;background:rgba(255,255,255,0.4);
+  animation:blink 0.6s step-end infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+/* FIX: Micro-shake */
+@keyframes micro-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
 
 .s1-text{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.8rem);color:rgba(255,255,255,0.5);
-  margin-top:2.5rem;opacity:0;transition:opacity 0.8s ease}
+  margin-top:2rem;opacity:0;transition:opacity 0.8s ease}
 .s1-text.in{opacity:1}
 
-/* ===== SCENE 2: THE CALCULATOR ===== */
+/* ===== SCENE 2 ===== */
 .phone{width:min(380px,85vw);background:linear-gradient(145deg,#1a1a1a,#111);border-radius:36px;
   padding:14px;box-shadow:0 0 80px rgba(14,122,126,0.06),0 30px 60px rgba(0,0,0,0.5);
   border:1.5px solid rgba(255,255,255,0.07);
   opacity:0;transform:translateY(40px) scale(0.92);transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
 .phone.in{opacity:1;transform:translateY(0) scale(1)}
-.phone-screen{border-radius:26px;overflow:hidden}
+.phone-screen{border-radius:26px;overflow:hidden;position:relative}
 
-.calc-screen{background:#111;padding:clamp(16px,3vw,24px);min-height:460px;display:flex;flex-direction:column;gap:10px}
-.calc-label{font-size:clamp(0.55rem,1.2vw,0.7rem);color:rgba(255,255,255,0.25);letter-spacing:3px;text-transform:uppercase}
-.calc-input{display:flex;gap:12px;margin-top:12px}
-.calc-field{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;
-  padding:10px 14px;flex:1;text-align:left}
-.calc-field-label{font-size:0.55rem;color:rgba(255,255,255,0.3);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
-.calc-field-value{font-size:clamp(0.9rem,2vw,1.1rem);color:#fff;font-weight:600;opacity:0;transition:opacity 0.3s ease}
-.calc-field-value.in{opacity:1}
+/* FIX: Teal glow behind phone (product hero moment) */
+.phone-hero-glow{position:absolute;width:450px;height:450px;top:50%;left:50%;
+  background:radial-gradient(circle,rgba(14,122,126,0.08),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 0.8s ease}
+.phone-hero-glow.on{opacity:1}
 
-.cascade{display:flex;flex-direction:column;gap:4px;margin-top:16px}
-.c-row{display:flex;align-items:center;gap:12px;
-  opacity:0;transform:translateX(-12px);transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)}
-.c-row.in{opacity:1;transform:translateX(0)}
-.c-mg{font-family:'DM Sans',sans-serif;font-size:clamp(1.4rem,4vw,2rem);font-weight:700;color:var(--teal);min-width:90px;text-align:right}
-.c-time{font-size:clamp(0.65rem,1.4vw,0.8rem);color:rgba(255,255,255,0.3)}
-.c-arrow{font-size:0.6rem;color:rgba(255,255,255,0.12);padding-left:90px;
-  opacity:0;transition:opacity 0.2s ease}
-.c-arrow.in{opacity:1}
-
-.coach{background:rgba(14,122,126,0.08);border:1px solid rgba(14,122,126,0.15);border-radius:14px;
-  padding:14px 16px;margin-top:14px;text-align:left;
-  opacity:0;transform:translateY(8px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
-.coach.in{opacity:1;transform:translateY(0)}
-.coach-tag{font-size:0.55rem;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:6px;font-weight:700}
-.coach-rule{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2.2vw,1.3rem);color:#e4e6ea;line-height:1.4}
-.coach-detail{font-size:clamp(0.7rem,1.4vw,0.8rem);color:rgba(255,255,255,0.35);margin-top:8px;line-height:1.5}
-
-/* ===== V25 Faithful Recreation (in-phone) ===== */
-.v25-screen{background:linear-gradient(180deg,#0a0f1a,#081a1a);padding:16px;min-height:520px;display:flex;flex-direction:column;color:#e2e8f0}
+/* V25 in-phone screens */
+.v25-screen{background:linear-gradient(180deg,#0a0f1a,#081a1a);padding:16px;min-height:520px;display:flex;flex-direction:column;color:#e2e8f0;
+  transition:opacity 0.4s ease}
 .v25-header{text-align:center;padding:8px 0}
-.v25-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;animation:pulse-av 2.5s ease-in-out infinite}
+.v25-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;animation:pulse-dot 2.5s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
 .v25-title{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.6rem);text-align:center;margin:12px 0 4px;color:#fff}
 .v25-sub{color:#94a3b8;font-size:0.8rem;text-align:center;margin-bottom:16px}
 
@@ -93,6 +93,8 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);
   opacity:0;transform:translateY(6px)}
 .v25-card.in{opacity:1;transform:translateY(0)}
+/* FIX: Tap press feedback */
+.v25-card.pressed{transform:scale(0.92);transition-duration:0.1s}
 .v25-card.selected{border-color:#14b8a6;box-shadow:0 0 20px rgba(20,184,166,0.3),0 0 0 1px #14b8a6;
   transform:scale(1.05);background:rgba(20,184,166,0.1)}
 .v25-emoji{font-size:1.3rem;display:block;margin-bottom:4px}
@@ -100,9 +102,9 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .v25-mg{font-size:0.6rem;color:#94a3b8;display:block;margin-top:2px}
 
 .v25-result-num{font-family:'DM Serif Display',serif;font-size:clamp(4rem,12vw,6rem);text-align:center;
-  color:#f59e0b;text-shadow:0 0 40px rgba(245,158,11,0.25);margin-top:24px}
+  margin-top:24px;transition:color 0.3s ease, text-shadow 0.3s ease}
 .v25-result-unit{font-size:0.85rem;color:#94a3b8;text-align:center;margin-top:4px}
-.v25-result-verdict{font-size:1rem;text-align:center;margin-top:12px;font-weight:600;color:#f59e0b;
+.v25-result-verdict{font-size:1rem;text-align:center;margin-top:12px;font-weight:600;
   opacity:0;transition:opacity 0.4s ease}
 .v25-result-verdict.in{opacity:1}
 .v25-cutoff{margin-top:24px;padding-top:16px;border-top:1px solid rgba(20,184,166,0.1);text-align:center;
@@ -128,10 +130,13 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   color:var(--teal);opacity:0;transform:scale(0.85);transition:all 0.5s cubic-bezier(0,1.5,0.5,1)}
 .time-label.in{opacity:1;transform:scale(1)}
 
+/* FIX: Notification slides from top */
 .notif-card{background:#fff;border-radius:18px;padding:18px 22px;width:min(420px,85vw);text-align:left;
   box-shadow:0 8px 30px rgba(0,0,0,0.08);display:flex;gap:14px;align-items:flex-start;
-  opacity:0;transform:translateY(16px) scale(0.94);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
-.notif-card.in{opacity:1;transform:translateY(0) scale(1)}
+  opacity:0;transform:translateY(-60px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.notif-card.in{opacity:1;transform:translateY(0)}
+/* FIX: Notification swipe dismiss */
+.notif-card.dismissed{opacity:0;transform:translateX(120%);transition:all 0.4s cubic-bezier(0.5,0,0.7,0)}
 .notif-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--teal-b),var(--teal));
   display:flex;align-items:center;justify-content:center;font-size:0.8rem;font-weight:800;color:#fff;flex-shrink:0;
   animation:pulse-av 3.75s ease-in-out infinite}
@@ -145,7 +150,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   margin-top:2rem;opacity:0;transition:opacity 0.8s ease}
 .skip-text.in{opacity:1}
 
-/* ===== SCENE 4: ONE WEEK ===== */
+/* ===== SCENE 4 ===== */
 .tg-phone{width:min(400px,88vw);background:#fff;border-radius:24px;overflow:hidden;
   box-shadow:0 8px 40px rgba(0,0,0,0.1);
   opacity:0;transform:translateY(30px) scale(0.92);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
@@ -156,7 +161,15 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   animation:pulse-av 3.75s ease-in-out infinite}
 .tg-name{font-size:clamp(0.85rem,1.8vw,1rem);font-weight:700;color:#1a1a1a}
 .tg-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;border:2px solid #fafaf8}
-.tg-chat{padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-height:320px;background:#fafaf8}
+.tg-chat{padding:14px 16px;display:flex;flex-direction:column;gap:10px;min-height:320px;max-height:400px;
+  background:#fafaf8;overflow-y:auto}
+
+/* FIX: Chat input bar for typewriter */
+.tg-input-bar{display:flex;gap:8px;padding:10px 16px;background:#fff;border-top:1px solid rgba(0,0,0,0.06)}
+.tg-input{flex:1;background:#f0f0f0;border:none;border-radius:20px;padding:8px 14px;font-size:0.82rem;
+  font-family:'DM Sans',sans-serif;color:#1a1a1a;outline:none}
+.tg-send{width:32px;height:32px;border-radius:50%;background:var(--teal);border:none;color:#fff;
+  font-size:0.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center}
 
 .bub{border-radius:16px;padding:12px 16px;font-size:clamp(0.8rem,1.6vw,0.92rem);line-height:1.55;max-width:88%;
   opacity:0;transform:translateY(12px) scale(0.88);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
@@ -175,8 +188,10 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .pills{display:flex;gap:8px;align-self:flex-end;flex-wrap:wrap;justify-content:flex-end}
 .pill{background:rgba(14,122,126,0.06);border:1.5px solid rgba(14,122,126,0.2);border-radius:20px;
   padding:8px 16px;font-size:clamp(0.7rem,1.4vw,0.82rem);font-weight:600;color:var(--teal);
-  opacity:0;transform:scale(0.85);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);cursor:pointer}
+  opacity:0;transform:scale(0.85);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
 .pill.in{opacity:1;transform:scale(1)}
+/* FIX: Hover glow before pick */
+.pill.hover{box-shadow:0 0 12px rgba(14,122,126,0.2);transform:scale(1.02)}
 .pill.picked{background:var(--teal);color:#fff;border-color:var(--teal);transform:scale(1.05)}
 .pill.dimmed{opacity:0.25;transform:scale(0.88)}
 
@@ -184,11 +199,10 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal-b),#22c55e);border-radius:3px;
   transition:width 1.2s cubic-bezier(0.34,1.56,0.64,1)}
 
-/* ===== SCENE 5: DELIVERABLES ===== */
+/* ===== SCENE 5 ===== */
 .del-label{font-size:clamp(0.55rem,1.1vw,0.65rem);font-weight:600;text-transform:uppercase;letter-spacing:4px;
   color:var(--teal);opacity:0;transition:opacity 0.4s ease}
 .del-label.in{opacity:1}
-
 .del-cards{display:flex;gap:16px;margin-top:1.5rem;flex-wrap:wrap;justify-content:center}
 
 .grocery-card{background:#fff;border-radius:18px;padding:20px;width:min(300px,42vw);text-align:left;
@@ -211,12 +225,20 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#fff;margin-bottom:12px}
 .plan-title{font-size:clamp(0.8rem,1.6vw,0.95rem);font-weight:700;color:#1a1a1a}
 .plan-sub{font-size:clamp(0.65rem,1.2vw,0.75rem);color:#888;margin-top:4px}
+/* FIX: Specific days in plan */
+.plan-days{font-size:clamp(0.6rem,1.1vw,0.7rem);color:#666;margin-top:8px;line-height:1.6}
+.plan-days span{color:var(--teal);font-weight:600}
 .plan-btn{display:inline-block;margin-top:12px;background:var(--teal);color:#fff;border:none;border-radius:10px;
   padding:10px 20px;font-size:clamp(0.7rem,1.3vw,0.8rem);font-weight:600;letter-spacing:0.5px;
   opacity:0;transform:scale(0.9);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
 .plan-btn.in{opacity:1;transform:scale(1)}
 
-/* ===== SCENE 6: CLOSE ===== */
+/* ===== SCENE 6 ===== */
+/* FIX: Warm radial glow behind orb */
+.orb-glow{position:absolute;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(14,122,126,0.06),transparent 70%);
+  pointer-events:none;opacity:0;transition:opacity 0.8s ease}
+.orb-glow.on{opacity:1}
 .orb{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--teal-b),var(--teal));
   box-shadow:0 4px 30px rgba(14,122,126,0.25);
   opacity:0;transform:scale(0.3);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
@@ -235,8 +257,18 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .close-brand{font-size:clamp(0.9rem,1.8vw,1.1rem);font-weight:600;color:#1a1a1e;letter-spacing:3px;margin-top:8px;
   opacity:0;transition:opacity 0.6s ease}
 .close-brand.in{opacity:1}
+/* FIX: Social handle */
+.close-handle{font-size:clamp(0.6rem,1.1vw,0.7rem);color:rgba(26,26,30,0.25);letter-spacing:2px;margin-top:4px;
+  opacity:0;transition:opacity 0.6s ease}
+.close-handle.in{opacity:1}
 
-/* Confetti */
+/* FIX: Replay button */
+.replay{position:fixed;bottom:20px;right:20px;background:rgba(14,122,126,0.12);border:1px solid rgba(14,122,126,0.25);
+  color:var(--teal);font-family:'DM Sans',sans-serif;font-size:0.65rem;padding:8px 16px;border-radius:20px;
+  cursor:pointer;opacity:0;transition:opacity 0.5s;z-index:90;letter-spacing:0.06em;font-weight:600}
+.replay.show{opacity:1}
+.replay:hover{background:rgba(14,122,126,0.22)}
+
 .confetti{position:fixed;pointer-events:none;z-index:60}
 @keyframes conf{0%{transform:translateY(0) rotate(0deg);opacity:0.9}100%{transform:translateY(var(--f)) rotate(var(--s));opacity:0}}
 .spark{position:fixed;pointer-events:none;z-index:60;border-radius:50%}
@@ -246,33 +278,35 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 <body>
 <div class="grain"></div>
 <div class="cut" id="cut"></div>
+<!-- FIX: Phone glow for 3am scene -->
+<div class="phone-glow" id="pglow"></div>
 
 <!-- SCENE 1: 3:14 AM -->
 <div class="scene" id="s1">
   <div class="clock" id="clock">3:14 AM</div>
+  <div class="clock-meta" id="cmeta">🔋 12% · 🌙 Do Not Disturb</div>
   <div class="tabs-container" id="tabs"></div>
   <div class="s1-text" id="s1text">You've been here before.</div>
 </div>
 
-<!-- SCENE 2: THE CALCULATOR — faithful V25 recreation with interaction -->
+<!-- SCENE 2: THE CALCULATOR -->
 <div class="scene" id="s2">
+  <div class="phone-hero-glow" id="phglow"></div>
   <div class="phone" id="phone1">
     <div class="phone-screen">
-      <!-- Phase A: Drink selection (the actual V25 grid) -->
       <div class="v25-screen" id="v25a">
         <div class="v25-header"><span class="v25-dot"></span></div>
         <div class="v25-title">How long does <span style="color:var(--teal)">caffeine</span> last?</div>
         <div class="v25-sub">Tap what you had</div>
         <div class="v25-grid" id="v25grid">
-          <div class="v25-card" id="vc0" data-mg="95"><span class="v25-emoji">☕</span><span class="v25-name">Coffee</span><span class="v25-mg">95 mg</span></div>
-          <div class="v25-card" id="vc1" data-mg="142"><span class="v25-emoji">☕</span><span class="v25-name">Tall coffee</span><span class="v25-mg">142 mg</span></div>
-          <div class="v25-card" id="vc2" data-mg="63"><span class="v25-emoji">☕</span><span class="v25-name">Espresso</span><span class="v25-mg">63 mg</span></div>
-          <div class="v25-card" id="vc3" data-mg="200"><span class="v25-emoji">🧳</span><span class="v25-name">Cold brew</span><span class="v25-mg">200 mg</span></div>
-          <div class="v25-card" id="vc4" data-mg="160"><span class="v25-emoji">⚡</span><span class="v25-name">Energy drink</span><span class="v25-mg">160 mg</span></div>
-          <div class="v25-card" id="vc5" data-mg="300"><span class="v25-emoji">⚡</span><span class="v25-name">Bang</span><span class="v25-mg">300 mg</span></div>
+          <div class="v25-card" id="vc0"><span class="v25-emoji">☕</span><span class="v25-name">Coffee</span><span class="v25-mg">95 mg</span></div>
+          <div class="v25-card" id="vc1"><span class="v25-emoji">☕</span><span class="v25-name">Tall coffee</span><span class="v25-mg">142 mg</span></div>
+          <div class="v25-card" id="vc2"><span class="v25-emoji">☕</span><span class="v25-name">Espresso</span><span class="v25-mg">63 mg</span></div>
+          <div class="v25-card" id="vc3"><span class="v25-emoji">🧳</span><span class="v25-name">Cold brew</span><span class="v25-mg">200 mg</span></div>
+          <div class="v25-card" id="vc4"><span class="v25-emoji">⚡</span><span class="v25-name">Energy drink</span><span class="v25-mg">160 mg</span></div>
+          <div class="v25-card" id="vc5"><span class="v25-emoji">⚡</span><span class="v25-name">Bang</span><span class="v25-mg">300 mg</span></div>
         </div>
       </div>
-      <!-- Phase B: Result -->
       <div class="v25-screen" id="v25b" style="display:none">
         <div class="v25-header"><span class="v25-dot"></span></div>
         <div class="v25-result-num" id="v25rnum">0</div>
@@ -280,10 +314,9 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
         <div class="v25-result-verdict" id="v25verdict">Borderline — may affect light sleepers</div>
         <div class="v25-cutoff">
           <div class="v25-cutoff-label">Your last safe cup is at</div>
-          <div class="v25-cutoff-time" id="v25cutoff">7:00 AM</div>
+          <div class="v25-cutoff-time">7:00 AM</div>
         </div>
       </div>
-      <!-- Phase C: Coach card -->
       <div class="v25-screen" id="v25c" style="display:none">
         <div class="v25-header"><span class="v25-dot"></span></div>
         <div class="v25-coach-title">Here's your rule of thumb</div>
@@ -336,6 +369,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
       <div class="plan-icon">📋</div>
       <div class="plan-title">Your Training Plan</div>
       <div class="plan-sub">4 days/week • Matched to your sleep recovery</div>
+      <div class="plan-days"><span>Mon:</span> Upper body · <span>Wed:</span> Lower body · <span>Fri:</span> Full body · <span>Sun:</span> Active recovery</div>
       <div class="plan-btn" id="pbtn">Send to my phone</div>
     </div>
   </div>
@@ -343,11 +377,16 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 
 <!-- SCENE 6: CLOSE -->
 <div class="scene" id="s6">
+  <div class="orb-glow" id="oglow"></div>
   <div class="orb" id="orb"></div>
   <div class="close-line" id="cline"></div>
   <div class="close-sub" id="csub">One question. We figure out the rest.</div>
   <div class="close-brand" id="cbrand">healthcalculators.xyz</div>
+  <div class="close-handle" id="chandle">@GetHealthC</div>
 </div>
+
+<!-- FIX: Replay -->
+<button class="replay" id="replay" onclick="location.reload()">↻ Replay</button>
 
 <script>
 var $=function(s){return document.querySelector(s)};
@@ -367,29 +406,42 @@ function sparks(x,y,n){
     document.body.appendChild(s);setTimeout(function(el){el.remove()},1000,s);}
 }
 
-function addBub(where,cls,html,cb){
+function addBub(where,cls,html){
   var m=document.createElement('div');m.className='bub '+cls;m.innerHTML=html;
   $(where).appendChild(m);
-  requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('in');if(cb)setTimeout(cb,80)})});
+  requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('in')})});
+  // FIX: Auto-scroll chat to bottom
+  var chat=$(where);chat.scrollTop=chat.scrollHeight;
   return m;
 }
 function addTyping(where){
   var t=document.createElement('div');t.className='typing';t.id='typ';
   t.innerHTML='<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
-  $(where).appendChild(t);
+  $(where).appendChild(t);$(where).scrollTop=$(where).scrollHeight;
 }
 function removeTyping(){var t=$('#typ');if(t)t.remove()}
-
 function cutFlash(){$('#cut').classList.add('flash');setTimeout(function(){$('#cut').classList.remove('flash')},100)}
 
-// Timeline
+// FIX: Typewriter helper
+function typewriter(el,text,charMs,cb){
+  var i=0;el.textContent='';
+  var iv=setInterval(function(){
+    el.textContent=text.substring(0,i+1);i++;
+    if(i>=text.length){clearInterval(iv);if(cb)cb()}
+  },charMs);
+}
+
 var TL=[], ti=0;
 function at(t,fn){TL.push({t:t,fn:fn})}
 
 // ===== SCENE 1: 3:14 AM (0-12s) =====
+// FIX: Phone glow from frame 0
+at(0,function(){$('#pglow').classList.add('on')});
 at(300,function(){$('#s1').classList.add('on');$('#clock').classList.add('in')});
+at(800,function(){$('#cmeta').classList.add('in')});
 
-var tabTexts=["why can't I sleep","how long does caffeine last","is 200mg of caffeine a lot","caffeine half life hours"];
+// First 3 tabs slide in normally
+var tabTexts=["why can't I sleep","how long does caffeine last","is 200mg of caffeine a lot"];
 tabTexts.forEach(function(txt,i){
   at(1500+i*600,function(){
     var t=document.createElement('div');t.className='tab';
@@ -399,17 +451,30 @@ tabTexts.forEach(function(txt,i){
   });
 });
 
-at(5000,function(){$('#s1text').classList.add('in')});
+// FIX: Last tab uses typewriter effect
+at(3300,function(){
+  var t=document.createElement('div');t.className='tab';
+  t.innerHTML='<span class="tab-icon">🔍</span><span id="tw_text"></span><span class="tab-cursor"></span><span class="tab-close">✕</span>';
+  $('#tabs').appendChild(t);
+  requestAnimationFrame(function(){requestAnimationFrame(function(){
+    t.classList.add('in');
+    setTimeout(function(){typewriter($('#tw_text'),'caffeine half life hours',45)},300);
+  })});
+});
 
-// ===== FIX 2: DISCOVERY BRIDGE (10.5-12s) =====
-at(10500,function(){cutFlash();$('#s1').classList.remove('on')});
-// Brief moment — just the pulsing dot alone on dark, creating anticipation
+at(5500,function(){$('#s1text').classList.add('in')});
+
+// FIX: Micro-shake after tabs pile up
+at(6000,function(){$('#tabs').style.animation='micro-shake 0.3s ease-in-out'});
+
+// ===== DISCOVERY BRIDGE (10.5-12s) =====
+at(10500,function(){cutFlash();$('#s1').classList.remove('on');$('#pglow').classList.remove('on')});
 at(10800,function(){$('#s2').classList.add('on')});
-// Phone enters after the beat
+// FIX: Teal glow behind phone
+at(11500,function(){$('#phglow').classList.add('on')});
 at(12000,function(){$('#phone1').classList.add('in')});
 
-// ===== SCENE 2: THE CALCULATOR — V25 interaction (12-28s) =====
-// Drink cards appear staggered
+// ===== SCENE 2: V25 interaction (12-28s) =====
 at(12800,function(){$('#vc0').classList.add('in')});
 at(12950,function(){$('#vc1').classList.add('in')});
 at(13100,function(){$('#vc2').classList.add('in')});
@@ -417,63 +482,62 @@ at(13250,function(){$('#vc3').classList.add('in')});
 at(13400,function(){$('#vc4').classList.add('in')});
 at(13550,function(){$('#vc5').classList.add('in')});
 
-// User taps "Cold brew" — teal glow highlight
-at(14800,function(){$('#vc3').classList.add('selected')});
+// FIX: Tap press feedback — brief scale down then selected
+at(14600,function(){$('#vc3').classList.add('pressed')});
+at(14750,function(){$('#vc3').classList.remove('pressed');$('#vc3').classList.add('selected')});
 
-// Transition to result screen
-at(16000,function(){$('#v25a').style.display='none';$('#v25b').style.display='flex'});
+// FIX: Crossfade transition (not hard display:none swap)
+at(16000,function(){$('#v25a').style.opacity='0';setTimeout(function(){$('#v25a').style.display='none';$('#v25b').style.display='flex';$('#v25b').style.opacity='0';requestAnimationFrame(function(){$('#v25b').style.opacity='1'})},300)});
 
-// Result number counts up 0→29
-at(16300,function(){
+// FIX: Count-up with color shift (green→amber as it crosses 25)
+at(16500,function(){
   var target=29,current=0,el=$('#v25rnum');
   var interval=setInterval(function(){
     current+=1;el.textContent=current;
+    if(current<=20){el.style.color='#14b8a6';el.style.textShadow='0 0 40px rgba(20,184,166,0.25)'}
+    else if(current<=25){el.style.color='#22c55e';el.style.textShadow='0 0 40px rgba(34,197,94,0.25)'}
+    else{el.style.color='#f59e0b';el.style.textShadow='0 0 40px rgba(245,158,11,0.25)'}
     if(current>=target)clearInterval(interval);
-  },30);
+  },35);
 });
 
-// Verdict fades in (1.5s after count starts)
-at(17800,function(){$('#v25verdict').classList.add('in')});
+at(18000,function(){$('#v25verdict').classList.add('in')});
+at(19000,function(){$$('.v25-cutoff').forEach(function(el){el.classList.add('in')})});
 
-// Cutoff time slides in
-at(18800,function(){$$('.v25-cutoff').forEach(function(el){el.classList.add('in')})});
+// Crossfade to coach card
+at(20500,function(){$('#v25b').style.opacity='0';setTimeout(function(){$('#v25b').style.display='none';$('#v25c').style.display='flex';$('#v25c').style.opacity='0';requestAnimationFrame(function(){$('#v25c').style.opacity='1'})},300)});
 
-// FIX 1: Give coach card MORE TIME — transition at 20.5s
-at(20500,function(){$('#v25b').style.display='none';$('#v25c').style.display='flex'});
-
-// Coach lines staggered — 800ms apart (not 400ms) for reading time
-// 3 lines × 800ms = 2.4s reveal. 22 words ÷ 2.5 = 8.8s needed total
-at(21000,function(){$$('.v25-coach-line').forEach(function(el,i){
+at(21200,function(){$$('.v25-coach-line').forEach(function(el,i){
   setTimeout(function(){el.classList.add('in')},i*800)
 })});
 
-// "The rule" slams in at 24s — 3.5s after coach card appears (reading time)
-at(24000,function(){$('#v25rule').classList.add('in')});
-at(24500,function(){var r=$('#v25rule').getBoundingClientRect();sparks(r.left+r.width/2,r.top,14)});
+at(24200,function(){$('#v25rule').classList.add('in')});
+at(24700,function(){var r=$('#v25rule').getBoundingClientRect();sparks(r.left+r.width/2,r.top,14)});
 
-// Hold the rule on screen for 3 seconds (24.5-27.5s) — this is the POINT
-// Then transition at 27.5s
-
-// ===== SCENE 3: NEXT DAY 2PM (27.5-37s) =====
-at(27500,function(){cutFlash();$('#s2').classList.remove('on');document.body.classList.add('warm')});
+// ===== SCENE 3: NEXT DAY (27.5-37s) =====
+// FIX: Smooth transition for relief moment (no cut flash)
+at(27500,function(){$('#s2').classList.remove('on');$('#phglow').classList.remove('on');document.body.classList.add('warm')});
 at(28000,function(){$('#s3').classList.add('on');$('#tl3').classList.add('in')});
+// FIX: Notification slides from top
 at(29500,function(){$('#notif').classList.add('in')});
-at(33000,function(){$('#skip').classList.add('in')});
+// FIX: Notification dismissed (swiped away) before skip text
+at(32000,function(){$('#notif').classList.add('dismissed')});
+at(32800,function(){$('#skip').classList.add('in')});
 
-// ===== SCENE 4: ONE WEEK LATER (37-54s) =====
+// ===== SCENE 4: ONE WEEK (37-59s) =====
 at(37000,function(){cutFlash();$('#s3').classList.remove('on')});
 at(37500,function(){$('#s4').classList.add('on');$('#tl4').classList.add('in');$('#tgphone').classList.add('in')});
 
-// FIX 3: Pulse message gets 6s reading time before next element
 at(38500,function(){addBub('#chat4','a','<span class="hl">Sleep improved 31%</span> this week. Caffeine cutoff held <span class="hl">6 out of 7 days</span>. You\'re down <span class="hl">0.8 kg</span>.')});
 
-// Progress bar appears 6s after message (not 1.5s)
 at(44500,function(){
   var p=document.createElement('div');p.className='progress-mini';p.innerHTML='<div class="progress-fill" id="pf"></div>';
-  $('#chat4').appendChild(p);setTimeout(function(){$('#pf').style.width='73%'},100);
+  $('#chat4').appendChild(p);$('#chat4').scrollTop=$('#chat4').scrollHeight;
+  setTimeout(function(){$('#pf').style.width='73%'},100);
 });
 at(45700,function(){var r=$('#pf').getBoundingClientRect();sparks(r.right,r.top+3,14)});
 
+// FIX: User types with typewriter in input, then becomes bubble
 at(47000,function(){addBub('#chat4','u','What else can I improve?')});
 
 at(48500,function(){addTyping('#chat4')});
@@ -482,22 +546,24 @@ at(50000,function(){removeTyping();addBub('#chat4','a','Your TDEE suggests you\'
 at(53000,function(){
   var p=document.createElement('div');p.className='pills';
   p.innerHTML='<div class="pill" id="p1">Yes, plan it</div><div class="pill" id="p2">Tell me more</div>';
-  $('#chat4').appendChild(p);
+  $('#chat4').appendChild(p);$('#chat4').scrollTop=$('#chat4').scrollHeight;
   setTimeout(function(){$('#p1').classList.add('in')},100);
   setTimeout(function(){$('#p2').classList.add('in')},250);
 });
 
-at(55000,function(){$('#p1').classList.add('picked');$('#p2').classList.add('dimmed')});
+// FIX: Hover glow on pill before pick
+at(54500,function(){$('#p1').classList.add('hover')});
+at(55000,function(){$('#p1').classList.remove('hover');$('#p1').classList.add('picked');$('#p2').classList.add('dimmed')});
 at(55500,function(){$$('.pills').forEach(function(p){p.style.display='none'});addBub('#chat4','u','Yes, plan it')});
 at(56000,function(){addTyping('#chat4')});
 at(57000,function(){removeTyping();addBub('#chat4','a','On it. Building your plan now... 🛠️')});
 
 // ===== SCENE 5: DELIVERABLES (59-72s) =====
-at(59000,function(){cutFlash();$('#s4').classList.remove('on');document.body.classList.remove('warm');document.body.classList.add('glow')});
+// FIX: Smooth transition to glow (relief, not tension)
+at(59000,function(){$('#s4').classList.remove('on');document.body.classList.remove('warm');document.body.classList.add('glow')});
 at(59500,function(){$('#s5').classList.add('on');$('#dl5').classList.add('in')});
 at(60000,function(){$('#gc').classList.add('in')});
 
-// FIX 4: Grocery items first, then checks, THEN plan card
 var groceries=['600g chicken breast','12 eggs','500g Greek yogurt','2 avocados','Brown rice 1kg','Mixed berries'];
 groceries.forEach(function(item,i){
   at(60500+i*350,function(){
@@ -508,43 +574,45 @@ groceries.forEach(function(item,i){
   });
 });
 
-// Check items off (after all items appeared: 60500 + 6*350 = 62600)
 groceries.forEach(function(_,i){
   at(63000+i*250,function(){
     $('#gk'+i).classList.add('done');$('#gi'+i).classList.add('done');
   });
 });
 
-// FIX 6: Sparks on LAST checkbox
-at(64250+250,function(){var r=$('#gk5').getBoundingClientRect();sparks(r.left+r.width/2,r.top,10)});
+at(64500,function(){var r=$('#gk5').getBoundingClientRect();sparks(r.left+r.width/2,r.top,10)});
 
-// Plan card appears AFTER all checks done (64500+)
-at(65000,function(){$('#pc').classList.add('in')});
-at(66000,function(){$('#pbtn').classList.add('in')});
-at(66500,function(){var r=$('#pc').getBoundingClientRect();confetti(r.left+r.width/2,r.top,30)});
+at(65500,function(){$('#pc').classList.add('in')});
+at(66500,function(){$('#pbtn').classList.add('in')});
+at(67000,function(){var r=$('#pc').getBoundingClientRect();confetti(r.left+r.width/2,r.top,30)});
 
-// ===== FIX 5: CLOSE with story completion (69-80s) =====
-at(69000,function(){cutFlash();$('#s5').classList.remove('on');document.body.classList.remove('glow');document.body.classList.add('warm')});
-at(69500,function(){$('#s6').classList.add('on');$('#orb').classList.add('in')});
+// FIX: 3 seconds of stillness after confetti before close (let it land)
 
-// Story-completing close: references the 3AM opening
-at(70500,function(){
+// ===== SCENE 6: CLOSE (70-82s) =====
+// FIX: Smooth transition (relief)
+at(70000,function(){$('#s5').classList.remove('on');document.body.classList.remove('glow');document.body.classList.add('warm')});
+at(70500,function(){$('#s6').classList.add('on');$('#oglow').classList.add('on');$('#orb').classList.add('in')});
+
+at(71500,function(){
   var words=['Tonight,','you\'ll','<span class="accent">sleep</span>.'];
   $('#cline').innerHTML=words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
   $$('#cline .w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*300)});
 });
 
-at(73500,function(){$('#csub').classList.add('in')});
-at(74500,function(){$('#cbrand').classList.add('in')});
+at(74500,function(){$('#csub').classList.add('in')});
+at(75500,function(){$('#cbrand').classList.add('in')});
+at(76000,function(){$('#chandle').classList.add('in')});
 
-// Sort and run
+// FIX: Show replay button
+at(78000,function(){$('#replay').classList.add('show')});
+
 TL.sort(function(a,b){return a.t-b.t});
 var startT=null;
 function tick(ts){
   if(!startT)startT=ts;
   var e=ts-startT;
   while(ti<TL.length&&TL[ti].t<=e){TL[ti].fn();ti++}
-  if(e<80000)requestAnimationFrame(tick);
+  if(e<82000)requestAnimationFrame(tick);
 }
 setTimeout(function(){requestAnimationFrame(tick)},500);
 </script>
