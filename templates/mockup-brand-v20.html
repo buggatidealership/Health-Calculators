@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brand V20 — Accumulation/Release</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif}
+body{background:#09090b;color:#fff}
+
+/* Film grain */
+.grain{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px;animation:grain-drift 0.5s steps(4) infinite}
+@keyframes grain-drift{0%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(1px,-1px)}75%{transform:translate(-1px,2px)}100%{transform:translate(2px,-2px)}}
+
+/* Stage */
+.stage{position:relative;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+/* ================================
+   THE QUESTION — stays throughout loading phase
+   ================================ */
+.the-question{position:absolute;top:15vh;left:50%;transform:translateX(-50%);
+  text-align:center;z-index:10;opacity:0;transition:opacity 0.6s linear}
+.the-question.on{opacity:1}
+.the-question h1{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.2vw,1.9rem);
+  color:rgba(255,255,255,0.7);line-height:1.35;max-width:500px}
+
+/* ================================
+   ANSWER STACK — accumulates, compresses
+   ================================ */
+.answer-stack{position:relative;width:min(90vw,520px);display:flex;flex-direction:column;gap:0;z-index:5}
+
+.bad-answer{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);
+  border-radius:10px;padding:14px 18px;
+  opacity:0;transform:translateY(30px);
+  /* MECHANICAL easing — linear, no spring, no life */
+  transition:all 0.45s linear;
+  position:relative;overflow:hidden;margin-bottom:8px}
+.bad-answer.entered{opacity:1;transform:translateY(0)}
+/* As stack compresses, old answers fade and shrink */
+.bad-answer.compressed{opacity:0.25;transform:scale(0.92) translateY(0);
+  padding:8px 18px;margin-bottom:4px;
+  transition:all 0.6s linear}
+.bad-answer.deep-compressed{opacity:0.1;transform:scale(0.85) translateY(0);
+  padding:4px 18px;margin-bottom:2px;max-height:28px;overflow:hidden;
+  transition:all 0.6s linear}
+
+/* Source badge */
+.src-badge{display:inline-flex;align-items:center;gap:5px;
+  font-size:0.58rem;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;
+  color:rgba(255,255,255,0.2);margin-bottom:7px}
+.src-icon{width:14px;height:14px;border-radius:3px;display:flex;align-items:center;justify-content:center;
+  font-size:0.5rem;font-weight:700}
+
+/* Source-specific colors */
+.src-google .src-icon{background:rgba(66,133,244,0.2);color:#4285f4}
+.src-reddit .src-icon{background:rgba(255,69,0,0.2);color:#ff4500}
+.src-chatgpt .src-icon{background:rgba(16,163,127,0.2);color:#10a37f}
+.src-tiktok .src-icon{background:rgba(255,0,80,0.2);color:#ff0050}
+.src-webmd .src-icon{background:rgba(0,124,186,0.2);color:#007cba}
+
+.bad-text{font-size:0.82rem;color:rgba(255,255,255,0.32);line-height:1.55}
+.bad-text em{font-style:italic;color:rgba(255,255,255,0.22)}
+.bad-text .hedge{color:rgba(255,255,255,0.18)}
+.bad-text .wrong{color:rgba(239,68,68,0.6);font-weight:500}
+.bad-text .bold{font-weight:600;color:rgba(255,255,255,0.4)}
+
+/* Tension meter — visual spring compression */
+.tension-bar{position:fixed;left:24px;top:50%;transform:translateY(-50%);
+  width:3px;height:200px;background:rgba(255,255,255,0.04);border-radius:3px;
+  z-index:20;overflow:hidden;opacity:0;transition:opacity 0.5s}
+.tension-bar.on{opacity:1}
+.tension-fill{position:absolute;bottom:0;width:100%;background:linear-gradient(to top,#ef4444,#f97316,#eab308);
+  border-radius:3px;height:0%;transition:height 0.8s linear}
+/* Spring state — loaded */
+.tension-bar.loaded .tension-fill{height:100%}
+.tension-bar.loaded{animation:bar-vibrate 0.15s linear 3}
+@keyframes bar-vibrate{0%,100%{transform:translateY(-50%) translateX(0)}
+  25%{transform:translateY(-50%) translateX(-2px)}75%{transform:translateY(-50%) translateX(2px)}}
+
+/* Answer counter */
+.answer-counter{position:fixed;right:24px;top:50%;transform:translateY(-50%);
+  z-index:20;opacity:0;transition:opacity 0.5s}
+.answer-counter.on{opacity:1}
+.counter-num{font-family:'DM Serif Display',serif;font-size:2.5rem;
+  color:rgba(255,255,255,0.08);line-height:1;
+  transition:color 0.3s linear}
+.counter-label{font-size:0.5rem;text-transform:uppercase;letter-spacing:0.12em;
+  color:rgba(255,255,255,0.1);text-align:center;margin-top:4px}
+/* Counter heats up */
+.counter-heat-1 .counter-num{color:rgba(239,68,68,0.12)}
+.counter-heat-2 .counter-num{color:rgba(239,68,68,0.18)}
+.counter-heat-3 .counter-num{color:rgba(239,68,68,0.25)}
+.counter-heat-4 .counter-num{color:rgba(239,68,68,0.35)}
+.counter-heat-5 .counter-num{color:rgba(239,68,68,0.5)}
+
+/* ================================
+   THE SILENCE — gap between tension and release
+   ================================ */
+.the-silence{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  z-index:15;opacity:0;pointer-events:none}
+.the-silence.on{opacity:1;transition:opacity 0.3s}
+.silence-line{font-family:'DM Serif Display',serif;font-size:clamp(0.95rem,2.2vw,1.2rem);
+  color:rgba(255,255,255,0.35);text-align:center;max-width:440px;line-height:1.7;
+  opacity:0;transform:translateY(12px);transition:all 0.7s linear}
+.silence-line.in{opacity:1;transform:translateY(0)}
+
+/* ================================
+   THE RELEASE — coach card, spring easing
+   ================================ */
+.the-release{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;z-index:16;opacity:0;pointer-events:none;padding:20px}
+.the-release.on{opacity:1;transition:opacity 0.4s}
+
+.coach-card{max-width:480px;width:90vw;background:rgba(20,184,166,0.06);
+  border-left:3px solid #14b8a6;border-radius:14px;padding:24px 28px;
+  opacity:0;transform:translateY(40px) scale(0.9);
+  /* SPRING easing — this is alive */
+  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.coach-card.landed{opacity:1;transform:translateY(0) scale(1)}
+
+.coach-label{font-size:0.55rem;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
+  color:rgba(20,184,166,0.5);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.coach-dot{width:6px;height:6px;border-radius:50%;background:#14b8a6;
+  box-shadow:0 0 12px rgba(20,184,166,0.4)}
+.coach-dot.pulse{animation:coach-pulse 2s ease-in-out infinite}
+@keyframes coach-pulse{0%,100%{box-shadow:0 0 12px rgba(20,184,166,0.3);transform:scale(1)}
+  50%{box-shadow:0 0 30px rgba(20,184,166,0.6);transform:scale(1.4)}}
+
+.coach-answer{font-family:'DM Serif Display',serif;
+  font-size:clamp(1.2rem,3vw,1.7rem);color:#5eead4;line-height:1.4;
+  opacity:0;transform:translateY(8px);
+  transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.3s}
+.coach-answer.in{opacity:1;transform:translateY(0)}
+
+.coach-sub{font-size:0.78rem;color:rgba(255,255,255,0.35);line-height:1.6;margin-top:12px;
+  opacity:0;transition:opacity 0.6s cubic-bezier(0.34,1.56,0.64,1) 0.6s}
+.coach-sub.in{opacity:1}
+
+.coach-portable{display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:6px 14px;
+  border-radius:20px;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.15);
+  font-size:0.65rem;font-weight:500;color:rgba(20,184,166,0.6);
+  opacity:0;transform:translateY(6px);
+  transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1) 0.9s}
+.coach-portable.in{opacity:1;transform:translateY(0)}
+
+/* Warm glow behind card */
+.release-glow{position:absolute;width:400px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(20,184,166,0.05),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+  opacity:0;transition:opacity 2s cubic-bezier(0.34,1.56,0.64,1)}
+.release-glow.on{opacity:1}
+
+/* ================================
+   CLOSE — brand resolve
+   ================================ */
+.the-close{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;z-index:17;opacity:0;pointer-events:none}
+.the-close.on{opacity:1;transition:opacity 0.5s}
+
+.close-tagline{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2.6vw,1.4rem);
+  color:rgba(255,255,255,0.5);text-align:center;max-width:440px;line-height:1.6;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1)}
+.close-tagline.in{opacity:1;transform:translateY(0)}
+.close-tagline .accent{color:rgba(255,255,255,0.9)}
+
+.close-brand{margin-top:36px;opacity:0;transition:opacity 1s;text-align:center}
+.close-brand.in{opacity:1}
+.brand-name{font-family:'DM Serif Display',serif;font-size:clamp(0.9rem,2.2vw,1.15rem);
+  color:rgba(255,255,255,0.7);letter-spacing:0.02em}
+.brand-pulse{display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:#14b8a6;margin-left:5px;vertical-align:middle;
+  animation:coach-pulse 2s ease-in-out infinite}
+
+/* Replay */
+.replay{position:fixed;bottom:20px;right:20px;z-index:50;padding:8px 16px;
+  border-radius:20px;font-size:0.7rem;font-weight:500;cursor:pointer;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.4);transition:all 0.3s;opacity:0;pointer-events:none}
+.replay.on{opacity:1;pointer-events:auto}
+.replay:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7)}
+
+/* Progress bar — thin line at bottom */
+.progress{position:fixed;bottom:0;left:0;height:2px;background:rgba(255,255,255,0.06);
+  width:100%;z-index:30}
+.progress-fill{height:100%;width:0%;background:linear-gradient(90deg,rgba(255,255,255,0.08),rgba(20,184,166,0.3));
+  transition:width 0.4s linear}
+
+@media(max-width:600px){
+  .tension-bar,.answer-counter{display:none}
+  .the-question{top:10vh}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="stage" id="stage">
+
+  <!-- THE QUESTION — persists while bad answers accumulate -->
+  <div class="the-question" id="theQuestion">
+    <h1>"When should I stop<br>drinking coffee?"</h1>
+  </div>
+
+  <!-- ANSWER STACK — bad answers accumulate here -->
+  <div class="answer-stack" id="answerStack">
+
+    <!-- Answer 1: Google -->
+    <div class="bad-answer" id="a1">
+      <div class="src-badge src-google">
+        <span class="src-icon">G</span>
+        Google — Featured Snippet
+      </div>
+      <div class="bad-text"><span class="hedge">"Most experts recommend avoiding caffeine at least 6 hours before bedtime, though this can vary depending on individual sensitivity, metabolism, age, and other factors..."</span></div>
+    </div>
+
+    <!-- Answer 2: Reddit -->
+    <div class="bad-answer" id="a2">
+      <div class="src-badge src-reddit">
+        <span class="src-icon">r/</span>
+        Reddit — r/coffee
+      </div>
+      <div class="bad-text">"lol I drink espresso at 10pm and sleep fine. everyone's different tbh. my buddy can't have any after noon though. <span class="wrong">just experiment and see what works</span>"</div>
+    </div>
+
+    <!-- Answer 3: ChatGPT -->
+    <div class="bad-answer" id="a3">
+      <div class="src-badge src-chatgpt">
+        <span class="src-icon">⬡</span>
+        ChatGPT
+      </div>
+      <div class="bad-text"><span class="hedge">"Great question! The ideal cutoff time for caffeine depends on several factors. Generally, caffeine has a half-life of approximately 3-7 hours, so</span> <span class="bold">it's best to avoid it 8-10 hours before bed</span><span class="hedge">. However, individual variation means...</span>"</div>
+    </div>
+
+    <!-- Answer 4: TikTok -->
+    <div class="bad-answer" id="a4">
+      <div class="src-badge src-tiktok">
+        <span class="src-icon">♪</span>
+        TikTok — @biohackerbro
+      </div>
+      <div class="bad-text">"<span class="wrong">STOP drinking coffee IMMEDIATELY</span>. Switch to matcha. The L-theanine cancels out the caffeine. I haven't had coffee in 3 months and my cortisol is 📉" <em>— 2.1M views</em></div>
+    </div>
+
+    <!-- Answer 5: WebMD -->
+    <div class="bad-answer" id="a5">
+      <div class="src-badge src-webmd">
+        <span class="src-icon">+</span>
+        WebMD
+      </div>
+      <div class="bad-text"><span class="hedge">"Caffeine can stay in your system for up to 12 hours. Talk to your doctor about how caffeine may interact with your medications. Caffeine may cause anxiety, insomnia, digestive issues..."</span> <span class="wrong">See also: 14 Signs You Drink Too Much Coffee →</span></div>
+    </div>
+
+  </div>
+
+  <!-- TENSION BAR — legible potential energy -->
+  <div class="tension-bar" id="tensionBar">
+    <div class="tension-fill" id="tensionFill"></div>
+  </div>
+
+  <!-- ANSWER COUNTER -->
+  <div class="answer-counter" id="answerCounter">
+    <div class="counter-num" id="counterNum">0</div>
+    <div class="counter-label">answers</div>
+  </div>
+
+  <!-- THE SILENCE — breathing room before release -->
+  <div class="the-silence" id="theSilence">
+    <div class="silence-line" id="silenceLine">Five answers.<br>None of them yours.</div>
+  </div>
+
+  <!-- THE RELEASE -->
+  <div class="the-release" id="theRelease">
+    <div class="release-glow" id="releaseGlow"></div>
+    <div class="coach-card" id="coachCard">
+      <div class="coach-label">
+        <span class="coach-dot" id="coachDot"></span>
+        Your Coach
+      </div>
+      <div class="coach-answer" id="coachAnswer">Every 5 hours, half.</div>
+      <div class="coach-sub" id="coachSub">Your 3pm coffee is 50% gone by 8pm, 25% at 1am.<br>Last cup by 2pm, and you sleep clean.</div>
+      <div class="coach-portable" id="coachPortable">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        Portable. Shareable. Yours.
+      </div>
+    </div>
+  </div>
+
+  <!-- THE CLOSE -->
+  <div class="the-close" id="theClose">
+    <div class="close-tagline" id="closeTagline">You always had a pulse.<br><span class="accent">We help you find it.</span></div>
+    <div class="close-brand" id="closeBrand">
+      <span class="brand-name">HealthCalculators</span><span class="brand-pulse"></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- PROGRESS -->
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- REPLAY -->
+<button class="replay" id="replayBtn" onclick="location.reload()">↻ Replay</button>
+
+<script>
+// === TIMELINE ENGINE ===
+// 45 seconds total. The periodic sentence: context, context, context, context, context, then the verb.
+// Bad answers use LINEAR transitions (mechanical, dead).
+// Resolution uses SPRING easing (alive, breathing).
+
+const TOTAL = 45000; // 45s
+const $ = id => document.getElementById(id);
+
+// Elements
+const question = $('theQuestion');
+const stack = $('answerStack');
+const answers = [1,2,3,4,5].map(i => $('a'+i));
+const tensionBar = $('tensionBar');
+const tensionFill = $('tensionFill');
+const counter = $('answerCounter');
+const counterNum = $('counterNum');
+const silence = $('theSilence');
+const silenceLine = $('silenceLine');
+const release = $('theRelease');
+const releaseGlow = $('releaseGlow');
+const coachCard = $('coachCard');
+const coachDot = $('coachDot');
+const coachAnswer = $('coachAnswer');
+const coachSub = $('coachSub');
+const coachPortable = $('coachPortable');
+const theClose = $('theClose');
+const closeTagline = $('closeTagline');
+const closeBrand = $('closeBrand');
+const progressFill = $('progressFill');
+const replayBtn = $('replayBtn');
+
+// Tension levels (each answer fills 20% of the bar)
+const tensionLevels = [20, 40, 60, 80, 100];
+
+function updateProgress(ms) {
+  progressFill.style.width = Math.min(100, (ms / TOTAL) * 100) + '%';
+}
+
+function setCounter(n) {
+  counterNum.textContent = n;
+  counter.className = 'answer-counter on counter-heat-' + n;
+}
+
+function compressOlder(currentIdx) {
+  // Compress all answers before currentIdx
+  answers.forEach((a, i) => {
+    if (i < currentIdx - 1) {
+      a.classList.remove('compressed');
+      a.classList.add('deep-compressed');
+    } else if (i < currentIdx) {
+      a.classList.remove('deep-compressed');
+      a.classList.add('compressed');
+    }
+  });
+}
+
+function hideLoadingUI() {
+  question.classList.remove('on');
+  tensionBar.classList.remove('on');
+  counter.classList.remove('on');
+  // Fade out all bad answers
+  answers.forEach(a => {
+    a.style.transition = 'opacity 0.5s linear';
+    a.style.opacity = '0';
+  });
+  stack.style.transition = 'opacity 0.5s linear';
+  stack.style.opacity = '0';
+}
+
+// === SEQUENCE ===
+// Phase 1: Question appears (0-2s)
+// Phase 2: Bad answers accumulate (2s-26s) — ~4.8s each, accelerating
+// Phase 3: Silence / breathing room (26s-31s)
+// Phase 4: Resolution (31s-39s)
+// Phase 5: Close (39s-45s)
+
+const timeline = [];
+
+function at(ms, fn) {
+  timeline.push({ ms, fn });
+}
+
+// --- Phase 1: The Question ---
+at(500, () => {
+  question.classList.add('on');
+  tensionBar.classList.add('on');
+  counter.classList.add('on');
+  updateProgress(500);
+});
+
+// --- Phase 2: Bad Answers Accumulate ---
+// Each answer: appear -> slight pause -> next appears + previous compresses
+// Timing accelerates: 5.5s, 5s, 4.5s, 4s, 3.5s (total ~22.5s, fits 2s-26s)
+
+const answerTimes = [2000, 7000, 11500, 15500, 19000];
+const tensionSteps = [20, 40, 65, 85, 100]; // Non-linear — last two compress harder
+
+answerTimes.forEach((t, i) => {
+  at(t, () => {
+    answers[i].classList.add('entered');
+    setCounter(i + 1);
+    tensionFill.style.height = tensionSteps[i] + '%';
+    if (i > 0) compressOlder(i);
+    updateProgress(t);
+  });
+});
+
+// Tension bar vibrates at full load
+at(22000, () => {
+  tensionBar.classList.add('loaded');
+  updateProgress(22000);
+});
+
+// Stack fully compressed — all visible but crushed
+at(24000, () => {
+  answers.forEach((a, i) => {
+    if (i < 4) a.classList.add('deep-compressed');
+  });
+  updateProgress(24000);
+});
+
+// --- Phase 3: The Silence ---
+// Everything clears. Breath. The periodic sentence pauses before the verb.
+at(26000, () => {
+  hideLoadingUI();
+  updateProgress(26000);
+});
+
+at(27500, () => {
+  silence.classList.add('on');
+  silenceLine.classList.add('in');
+  updateProgress(27500);
+});
+
+// Silence holds for 3s — this is the loading. The bomb is under the table.
+at(31000, () => {
+  silence.classList.remove('on');
+  silenceLine.classList.remove('in');
+  updateProgress(31000);
+});
+
+// --- Phase 4: The Release ---
+// Background shifts from pure black to dark teal
+at(32000, () => {
+  document.body.style.background = '#0a1210';
+  document.body.style.transition = 'background 1.5s cubic-bezier(0.34,1.56,0.64,1)';
+  release.classList.add('on');
+  releaseGlow.classList.add('on');
+  updateProgress(32000);
+});
+
+// Coach card lands — SPRING easing. This is the chord change.
+at(32500, () => {
+  coachCard.classList.add('landed');
+  coachDot.classList.add('pulse');
+  updateProgress(32500);
+});
+
+// Answer reveals — delayed, verb-final
+at(33300, () => {
+  coachAnswer.classList.add('in');
+  updateProgress(33300);
+});
+
+// Sub-text — the framework made portable
+at(34500, () => {
+  coachSub.classList.add('in');
+  updateProgress(34500);
+});
+
+// Portable badge
+at(36000, () => {
+  coachPortable.classList.add('in');
+  updateProgress(36000);
+});
+
+// --- Phase 5: Close ---
+at(39000, () => {
+  release.classList.remove('on');
+  updateProgress(39000);
+});
+
+at(40000, () => {
+  theClose.classList.add('on');
+  closeTagline.classList.add('in');
+  updateProgress(40000);
+});
+
+at(42500, () => {
+  closeBrand.classList.add('in');
+  updateProgress(42500);
+});
+
+at(44000, () => {
+  replayBtn.classList.add('on');
+  updateProgress(44000);
+});
+
+at(45000, () => {
+  updateProgress(45000);
+});
+
+// === RUN ===
+const start = performance.now();
+timeline.sort((a, b) => a.ms - b.ms);
+
+timeline.forEach(({ ms, fn }) => {
+  setTimeout(fn, ms);
+});
+
+// Smooth progress updates
+(function tick() {
+  const elapsed = performance.now() - start;
+  if (elapsed < TOTAL) {
+    updateProgress(elapsed);
+    requestAnimationFrame(tick);
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>One Rule. Three Lives. — HealthCalculators</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #1a1410;
+            --bg-warm: #1e1712;
+            --card-bg: rgba(255, 248, 240, 0.04);
+            --card-border: rgba(255, 248, 240, 0.08);
+            --card-border-active: rgba(255, 248, 240, 0.18);
+            --text: #f5efe6;
+            --text-dim: #b8a99a;
+            --text-muted: #7a6e62;
+            --accent-caffeine: #14b8a6;
+            --accent-tdee: #f59e0b;
+            --accent-bmi: #e8917a;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+            --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+        }
+
+        html, body {
+            width: 100%; height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            font-family: var(--font-body);
+            color: var(--text);
+        }
+
+        .stage {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg);
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            inset: -50%;
+            width: 200%; height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1000;
+            animation: grainShift 0.5s steps(3) infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(-2px, 1px); }
+            66% { transform: translate(1px, -2px); }
+            100% { transform: translate(-1px, 2px); }
+        }
+
+        /* Warm ambient glow — trust = warmth */
+        .ambient {
+            position: fixed;
+            width: 600px; height: 600px;
+            border-radius: 50%;
+            filter: blur(180px);
+            opacity: 0;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 1.5s var(--ease-out);
+        }
+
+        .ambient-1 {
+            top: 30%; left: 40%;
+            background: radial-gradient(circle, rgba(228, 180, 130, 0.12) 0%, transparent 70%);
+        }
+
+        .ambient-2 {
+            bottom: 20%; right: 30%;
+            background: radial-gradient(circle, rgba(200, 160, 120, 0.08) 0%, transparent 70%);
+        }
+
+        .ambient.visible { opacity: 1; }
+
+        /* Scene containers */
+        .scene {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ---- COACH CARD (the consistent structure) ---- */
+        .coach-card {
+            width: 380px;
+            max-width: 90vw;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 32px 28px;
+            backdrop-filter: blur(20px);
+            transform: scale(0.92) translateY(20px);
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .coach-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--accent-caffeine);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.6s var(--ease-out);
+        }
+
+        .coach-card.caffeine::before { background: var(--accent-caffeine); }
+        .coach-card.tdee::before { background: var(--accent-tdee); }
+        .coach-card.bmi::before { background: var(--accent-bmi); }
+
+        .coach-card.revealed::before { transform: scaleX(1); }
+
+        .card-label {
+            font-family: var(--font-body);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .card-label.caffeine { color: var(--accent-caffeine); }
+        .card-label.tdee { color: var(--accent-tdee); }
+        .card-label.bmi { color: var(--accent-bmi); }
+
+        .card-rule {
+            font-family: var(--font-display);
+            font-size: 22px;
+            line-height: 1.35;
+            color: var(--text);
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .card-context {
+            font-family: var(--font-body);
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-dim);
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        .card-context .highlight {
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        /* Notification badge for caffeine scene */
+        .notification {
+            position: absolute;
+            top: -60px;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            background: rgba(20, 184, 166, 0.12);
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 12px;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            opacity: 0;
+            white-space: nowrap;
+        }
+
+        .notification .time {
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--accent-caffeine);
+        }
+
+        .notification .msg {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--text-dim);
+        }
+
+        /* Meal adjustment for TDEE scene */
+        .meal-adjust {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            opacity: 0;
+        }
+
+        .meal-bar {
+            width: 80px; height: 6px;
+            border-radius: 3px;
+            background: rgba(245, 158, 11, 0.15);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .meal-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            background: var(--accent-tdee);
+            width: 0%;
+            transition: width 1.2s var(--ease-out);
+        }
+
+        .meal-label {
+            font-family: var(--font-body);
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* BMI reframe badge */
+        .reframe {
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-10px);
+            opacity: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .reframe-old {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: line-through;
+            text-decoration-color: rgba(122, 110, 98, 0.5);
+        }
+
+        .reframe-arrow {
+            color: var(--text-muted);
+            font-size: 12px;
+        }
+
+        .reframe-new {
+            font-family: var(--font-body);
+            font-size: 13px;
+            color: var(--accent-bmi);
+            font-weight: 500;
+        }
+
+        /* ---- CONVERGENCE SCENE (all three) ---- */
+        .convergence {
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+        }
+
+        .convergence .coach-card {
+            width: 300px;
+            padding: 24px 22px;
+        }
+
+        .convergence .card-rule {
+            font-size: 18px;
+        }
+
+        .convergence .card-context {
+            font-size: 13px;
+        }
+
+        /* Connecting line between cards */
+        .thread {
+            position: absolute;
+            top: 50%;
+            left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 5%,
+                rgba(255, 248, 240, 0.06) 20%,
+                rgba(255, 248, 240, 0.06) 80%,
+                transparent 95%
+            );
+            transform: scaleX(0);
+            z-index: 0;
+        }
+
+        /* ---- CLOSING ---- */
+        .closing {
+            text-align: center;
+        }
+
+        .closing-count {
+            font-family: var(--font-display);
+            font-size: 48px;
+            color: var(--text);
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .closing-line {
+            font-family: var(--font-body);
+            font-size: 16px;
+            color: var(--text-dim);
+            margin-top: 12px;
+            opacity: 0;
+            transform: translateY(8px);
+            letter-spacing: 0.02em;
+        }
+
+        .closing-tagline {
+            font-family: var(--font-display);
+            font-size: 20px;
+            color: var(--text);
+            margin-top: 32px;
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        /* Pulsing dot */
+        .pulse-dot {
+            display: inline-block;
+            width: 8px; height: 8px;
+            background: var(--accent-caffeine);
+            border-radius: 50%;
+            margin-right: 8px;
+            vertical-align: middle;
+            animation: pulse 2s ease-in-out infinite;
+            opacity: 0;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(20, 184, 166, 0.4); }
+            50% { box-shadow: 0 0 0 6px rgba(20, 184, 166, 0); }
+        }
+
+        /* ---- PROGRESS BAR ---- */
+        .progress {
+            position: fixed;
+            bottom: 0; left: 0;
+            height: 2px;
+            background: rgba(255, 248, 240, 0.15);
+            z-index: 100;
+            width: 0%;
+            transition: width 0.3s linear;
+        }
+
+        /* ---- REPLAY ---- */
+        .replay-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-size: 13px;
+            padding: 10px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            opacity: 0;
+            z-index: 50;
+            transition: opacity 0.5s, border-color 0.3s;
+        }
+
+        .replay-btn:hover { border-color: var(--card-border-active); color: var(--text); }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .convergence {
+                flex-direction: column;
+                gap: 16px;
+                align-items: center;
+            }
+            .convergence .coach-card {
+                width: 320px;
+                padding: 20px 18px;
+            }
+            .convergence .card-rule { font-size: 16px; }
+            .coach-card { width: 340px; }
+            .closing-count { font-size: 36px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="ambient ambient-1"></div>
+        <div class="ambient ambient-2"></div>
+
+        <!-- Scene 1: Caffeine — "Every 5 hours, half." -->
+        <div class="scene" id="scene-caffeine">
+            <div class="coach-card caffeine" id="card-caffeine">
+                <div class="notification" id="notif-caffeine">
+                    <span class="time">2:00 PM</span>
+                    <span class="msg">Last safe cup before 10pm sleep</span>
+                </div>
+                <div class="card-label caffeine">Caffeine Half-Life</div>
+                <div class="card-rule" id="rule-caffeine">"Every 5 hours, half."</div>
+                <div class="card-context" id="ctx-caffeine">
+                    Your 2pm coffee still has <span class="highlight">25% caffeine at midnight</span>. She checks the notification, closes the app, puts the mug down.
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 2: TDEE — "BMR is rent. TDEE is rent + utilities." -->
+        <div class="scene" id="scene-tdee">
+            <div class="coach-card tdee" id="card-tdee">
+                <div class="card-label tdee">TDEE Calculator</div>
+                <div class="card-rule" id="rule-tdee">"BMR is rent. TDEE is rent + utilities."</div>
+                <div class="card-context" id="ctx-tdee">
+                    He adjusts the meal plan. Not fewer calories &mdash; <span class="highlight">the right calories</span>. The framework did the thinking. He just followed the math.
+                </div>
+                <div class="meal-adjust" id="meal-adjust">
+                    <div class="meal-bar"><div class="meal-bar-fill" id="bar-bmr"></div></div>
+                    <span class="meal-label">BMR</span>
+                    <div class="meal-bar"><div class="meal-bar-fill" id="bar-tdee"></div></div>
+                    <span class="meal-label">TDEE</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 3: BMI — "Above healthy range, not obese." -->
+        <div class="scene" id="scene-bmi">
+            <div class="coach-card bmi" id="card-bmi">
+                <div class="card-label bmi">BMI Calculator</div>
+                <div class="card-rule" id="rule-bmi">"Above healthy range, not obese."</div>
+                <div class="card-context" id="ctx-bmi">
+                    Same number. <span class="highlight">Different frame</span>. She screenshots the result. Not because it changed her body &mdash; because it changed the conversation.
+                </div>
+                <div class="reframe" id="reframe">
+                    <span class="reframe-old">Obese</span>
+                    <span class="reframe-arrow">&rarr;</span>
+                    <span class="reframe-new">Above healthy range</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 4: Convergence — all three together -->
+        <div class="scene" id="scene-convergence">
+            <div class="thread" id="thread"></div>
+            <div class="convergence">
+                <div class="coach-card caffeine" id="conv-caffeine">
+                    <div class="card-label caffeine">Caffeine</div>
+                    <div class="card-rule">"Every 5 hours, half."</div>
+                </div>
+                <div class="coach-card tdee" id="conv-tdee">
+                    <div class="card-label tdee">TDEE</div>
+                    <div class="card-rule">"BMR is rent. TDEE is rent + utilities."</div>
+                </div>
+                <div class="coach-card bmi" id="conv-bmi">
+                    <div class="card-label bmi">BMI</div>
+                    <div class="card-rule">"Above healthy range, not obese."</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scene 5: Closing -->
+        <div class="scene" id="scene-closing">
+            <div class="closing">
+                <div class="closing-count" id="closing-count">82 signals.</div>
+                <div class="closing-line" id="closing-line">One structure. Yours to carry.</div>
+                <div class="closing-tagline" id="closing-tagline">
+                    <span class="pulse-dot" id="pulse-dot"></span>HealthCalculators
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grain"></div>
+    <div class="progress" id="progress"></div>
+    <button class="replay-btn" id="replay" onclick="replay()">Replay</button>
+
+    <script>
+        // ---- Animation Engine ----
+        // Total: ~35 seconds
+        // Each person: ~6.5s, Convergence: ~6s, Closing: ~5s, Transitions: ~4.5s
+
+        const TOTAL_DURATION = 35000;
+        let startTime = 0;
+        let animFrame = null;
+
+        function springIn(el, delay, duration = 600) {
+            setTimeout(() => {
+                el.style.transition = `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.34, 1.56, 0.64, 1)`;
+                el.style.opacity = '1';
+                el.style.transform = 'scale(1) translateY(0)';
+            }, delay);
+        }
+
+        function fadeIn(el, delay, duration = 500) {
+            setTimeout(() => {
+                el.style.transition = `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1), transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1)`;
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }, delay);
+        }
+
+        function fadeOut(el, delay, duration = 400) {
+            setTimeout(() => {
+                el.style.transition = `opacity ${duration}ms cubic-bezier(0.65, 0, 0.35, 1)`;
+                el.style.opacity = '0';
+            }, delay);
+        }
+
+        function showScene(id, delay) {
+            setTimeout(() => {
+                document.getElementById(id).style.opacity = '1';
+            }, delay);
+        }
+
+        function hideScene(id, delay, duration = 500) {
+            setTimeout(() => {
+                const el = document.getElementById(id);
+                el.style.transition = `opacity ${duration}ms cubic-bezier(0.65, 0, 0.35, 1)`;
+                el.style.opacity = '0';
+            }, delay);
+        }
+
+        function revealCard(cardEl, ruleEl, ctxEl, baseDelay) {
+            // Card container springs in
+            springIn(cardEl, baseDelay, 700);
+            // Top accent line draws
+            setTimeout(() => cardEl.classList.add('revealed'), baseDelay + 200);
+            // Rule text fades up
+            fadeIn(ruleEl, baseDelay + 350, 500);
+            // Context fades up
+            fadeIn(ctxEl, baseDelay + 700, 500);
+        }
+
+        function runAnimation() {
+            startTime = performance.now();
+
+            // Warm ambient glow comes in immediately
+            document.querySelector('.ambient-1').classList.add('visible');
+            setTimeout(() => document.querySelector('.ambient-2').classList.add('visible'), 800);
+
+            // ---- SCENE 1: Caffeine (0ms - 7500ms) ----
+            const s1 = 500;
+            showScene('scene-caffeine', s1);
+            revealCard(
+                document.getElementById('card-caffeine'),
+                document.getElementById('rule-caffeine'),
+                document.getElementById('ctx-caffeine'),
+                s1 + 100
+            );
+            // Notification slides down
+            const notif = document.getElementById('notif-caffeine');
+            setTimeout(() => {
+                notif.style.transition = 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+                notif.style.opacity = '1';
+                notif.style.transform = 'translateX(-50%) translateY(0)';
+            }, s1 + 1200);
+
+            hideScene('scene-caffeine', 7000, 600);
+
+            // ---- SCENE 2: TDEE (8000ms - 15500ms) ----
+            const s2 = 8000;
+            showScene('scene-tdee', s2);
+            revealCard(
+                document.getElementById('card-tdee'),
+                document.getElementById('rule-tdee'),
+                document.getElementById('ctx-tdee'),
+                s2 + 100
+            );
+            // Meal bars animate
+            const mealAdj = document.getElementById('meal-adjust');
+            setTimeout(() => {
+                mealAdj.style.transition = 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+                mealAdj.style.opacity = '1';
+                mealAdj.style.transform = 'translateX(-50%) translateY(0)';
+            }, s2 + 1200);
+            setTimeout(() => {
+                document.getElementById('bar-bmr').style.width = '55%';
+                document.getElementById('bar-tdee').style.width = '82%';
+            }, s2 + 1600);
+
+            hideScene('scene-tdee', 14500, 600);
+
+            // ---- SCENE 3: BMI (15500ms - 23000ms) ----
+            const s3 = 15500;
+            showScene('scene-bmi', s3);
+            revealCard(
+                document.getElementById('card-bmi'),
+                document.getElementById('rule-bmi'),
+                document.getElementById('ctx-bmi'),
+                s3 + 100
+            );
+            // Reframe badge
+            const reframe = document.getElementById('reframe');
+            setTimeout(() => {
+                reframe.style.transition = 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 400ms cubic-bezier(0.34, 1.56, 0.64, 1)';
+                reframe.style.opacity = '1';
+                reframe.style.transform = 'translateX(-50%) translateY(0)';
+            }, s3 + 1200);
+
+            hideScene('scene-bmi', 22000, 600);
+
+            // ---- SCENE 4: Convergence (23000ms - 29000ms) ----
+            const s4 = 23000;
+            showScene('scene-convergence', s4);
+
+            // Thread line draws across
+            setTimeout(() => {
+                const thread = document.getElementById('thread');
+                thread.style.transition = 'transform 1s cubic-bezier(0.16, 1, 0.3, 1)';
+                thread.style.transformOrigin = 'center';
+                thread.style.transform = 'scaleX(1)';
+            }, s4 + 200);
+
+            // Cards spring in staggered — same structure, different accent
+            const convCards = ['conv-caffeine', 'conv-tdee', 'conv-bmi'];
+            convCards.forEach((id, i) => {
+                const card = document.getElementById(id);
+                const rule = card.querySelector('.card-rule');
+                springIn(card, s4 + 400 + (i * 300), 600);
+                setTimeout(() => card.classList.add('revealed'), s4 + 600 + (i * 300));
+                fadeIn(rule, s4 + 700 + (i * 300), 400);
+            });
+
+            hideScene('scene-convergence', 28500, 700);
+
+            // ---- SCENE 5: Closing (29500ms - 35000ms) ----
+            const s5 = 29500;
+            showScene('scene-closing', s5);
+            fadeIn(document.getElementById('closing-count'), s5 + 300, 600);
+            fadeIn(document.getElementById('closing-line'), s5 + 900, 600);
+            fadeIn(document.getElementById('closing-tagline'), s5 + 1600, 700);
+            setTimeout(() => {
+                document.getElementById('pulse-dot').style.opacity = '1';
+            }, s5 + 2000);
+
+            // Show replay
+            setTimeout(() => {
+                document.getElementById('replay').style.opacity = '1';
+            }, TOTAL_DURATION);
+
+            // Progress bar
+            function updateProgress() {
+                const elapsed = performance.now() - startTime;
+                const pct = Math.min(100, (elapsed / TOTAL_DURATION) * 100);
+                document.getElementById('progress').style.width = pct + '%';
+                if (elapsed < TOTAL_DURATION + 500) {
+                    animFrame = requestAnimationFrame(updateProgress);
+                }
+            }
+            animFrame = requestAnimationFrame(updateProgress);
+        }
+
+        function resetAllElements() {
+            // Reset scenes
+            document.querySelectorAll('.scene').forEach(s => {
+                s.style.opacity = '0';
+                s.style.transition = 'none';
+            });
+
+            // Reset cards
+            document.querySelectorAll('.coach-card').forEach(c => {
+                c.style.opacity = '0';
+                c.style.transform = 'scale(0.92) translateY(20px)';
+                c.style.transition = 'none';
+                c.classList.remove('revealed');
+            });
+
+            // Reset text elements
+            document.querySelectorAll('.card-rule, .card-context, .closing-count, .closing-line, .closing-tagline').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(8px)';
+                el.style.transition = 'none';
+            });
+
+            // Reset notification
+            const notif = document.getElementById('notif-caffeine');
+            notif.style.opacity = '0';
+            notif.style.transform = 'translateX(-50%) translateY(10px)';
+            notif.style.transition = 'none';
+
+            // Reset meal adjust
+            const meal = document.getElementById('meal-adjust');
+            meal.style.opacity = '0';
+            meal.style.transform = 'translateX(-50%) translateY(-10px)';
+            meal.style.transition = 'none';
+            document.getElementById('bar-bmr').style.width = '0%';
+            document.getElementById('bar-tdee').style.width = '0%';
+            document.getElementById('bar-bmr').style.transition = 'none';
+            document.getElementById('bar-tdee').style.transition = 'none';
+
+            // Reset reframe
+            const reframe = document.getElementById('reframe');
+            reframe.style.opacity = '0';
+            reframe.style.transform = 'translateX(-50%) translateY(-10px)';
+            reframe.style.transition = 'none';
+
+            // Reset thread
+            const thread = document.getElementById('thread');
+            thread.style.transform = 'scaleX(0)';
+            thread.style.transition = 'none';
+
+            // Reset pulse dot
+            document.getElementById('pulse-dot').style.opacity = '0';
+
+            // Reset progress
+            document.getElementById('progress').style.width = '0%';
+
+            // Reset replay
+            document.getElementById('replay').style.opacity = '0';
+
+            // Reset ambients
+            document.querySelectorAll('.ambient').forEach(a => {
+                a.classList.remove('visible');
+                a.style.transition = 'none';
+            });
+
+            // Re-enable transitions after a frame
+            requestAnimationFrame(() => {
+                document.getElementById('bar-bmr').style.transition = 'width 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                document.getElementById('bar-tdee').style.transition = 'width 1.2s cubic-bezier(0.16, 1, 0.3, 1)';
+                document.querySelectorAll('.ambient').forEach(a => {
+                    a.style.transition = 'opacity 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                });
+            });
+        }
+
+        function replay() {
+            if (animFrame) cancelAnimationFrame(animFrame);
+            resetAllElements();
+            // Small delay to let transition:none take effect
+            setTimeout(runAnimation, 50);
+        }
+
+        // Start on load
+        window.addEventListener('load', () => {
+            setTimeout(runAnimation, 300);
+        });
+    </script>
+</body>
+</html>
