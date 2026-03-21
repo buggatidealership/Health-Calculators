@@ -6493,6 +6493,10 @@ def mockup_product_v1():
 def mockup_product_v4():
     return render_template('mockup-product-v4.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-product-v7')
+def mockup_product_v7():
+    return render_template('mockup-product-v7.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

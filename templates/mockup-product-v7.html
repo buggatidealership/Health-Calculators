@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Product Mockup V7 — Duration as Value-Weight</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-1: #0a0f1a;
+            --bg-2: #081a1a;
+            --bg-3: #0a1520;
+            --bg-card: rgba(14, 122, 126, 0.07);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-dim: #0d9488;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+            --accent: #14b8a6;
+            --accent-glow: rgba(20, 184, 166, 0.3);
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-body);
+            color: var(--text);
+            background: var(--bg-1);
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 { color: var(--text) !important; }
+
+        /* ── LAYOUT ── */
+        .scene {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem 1.5rem;
+            position: relative;
+        }
+
+        .scene-input {
+            background: linear-gradient(180deg, #0a0f1a 0%, #081a1a 100%);
+        }
+
+        .scene-result {
+            background: linear-gradient(180deg, #081a1a 0%, #0a1520 100%);
+            display: none;
+        }
+
+        .scene-result.active {
+            display: flex;
+        }
+
+        /* ── HERO / TITLE ── */
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            text-align: center;
+            margin-bottom: 0.5rem;
+            color: #fff !important;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 500px;
+        }
+
+        /* ── FORM ── */
+        .form-container {
+            width: 100%;
+            max-width: 480px;
+            position: relative;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .form-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-dim);
+            font-size: 0.82rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-label .check-mark {
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 1.5px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            flex-shrink: 0;
+        }
+
+        .form-label .check-mark.filled {
+            border-color: var(--teal);
+            background: var(--teal);
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        .form-label .check-mark.filled::after {
+            content: '✓';
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #0a0f1a;
+            font-size: 10px;
+            font-weight: 700;
+            width: 100%;
+            height: 100%;
+        }
+
+        .form-input {
+            width: 100%;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-size: 1.1rem;
+            padding: 0.85rem 1.2rem;
+            font-family: var(--font-body);
+            outline: none;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: var(--teal);
+            box-shadow: 0 0 0 3px rgba(20,184,166,0.1);
+        }
+
+        .form-input::placeholder {
+            color: var(--text-muted);
+        }
+
+        /* Unit toggle */
+        .unit-toggle {
+            display: flex;
+            gap: 0;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+        }
+        .unit-btn {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            background: transparent;
+            border: none;
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .unit-btn.active {
+            background: rgba(20, 184, 166, 0.12);
+            color: var(--teal);
+        }
+
+        /* Row layout for height fields */
+        .form-row {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .form-row .form-group {
+            flex: 1;
+        }
+
+        /* Gender cards */
+        .gender-cards {
+            display: flex;
+            gap: 0.75rem;
+        }
+        .gender-card {
+            flex: 1;
+            padding: 0.85rem 1rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dim);
+        }
+        .gender-card:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+        .gender-card.selected {
+            border-color: var(--teal);
+            background: rgba(20, 184, 166, 0.08);
+            color: var(--text);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        /* Activity cards */
+        .activity-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+        .activity-card {
+            padding: 0.75rem 0.8rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .activity-card:hover {
+            border-color: rgba(20, 184, 166, 0.3);
+        }
+        .activity-card.selected {
+            border-color: var(--teal);
+            background: rgba(20, 184, 166, 0.08);
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+        .activity-card .activity-name {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 2px;
+        }
+        .activity-card .activity-desc {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+        }
+        .activity-card .activity-mult {
+            font-size: 0.68rem;
+            color: var(--teal);
+            margin-top: 3px;
+            font-weight: 600;
+        }
+
+        /* ── PROGRESS RING ── */
+        .progress-ring-container {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.4s;
+        }
+        .progress-ring-container.visible {
+            opacity: 1;
+        }
+        .progress-ring-container.complete {
+            opacity: 0;
+            transition: opacity 0.6s 0.3s;
+        }
+
+        .progress-ring {
+            width: 48px;
+            height: 48px;
+            transform: rotate(-90deg);
+        }
+        .progress-ring-bg {
+            fill: none;
+            stroke: rgba(20, 184, 166, 0.1);
+            stroke-width: 3;
+        }
+        .progress-ring-fill {
+            fill: none;
+            stroke: var(--teal);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-dasharray: 126;
+            stroke-dashoffset: 126;
+            transition: stroke-dashoffset 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .progress-ring-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--teal);
+        }
+
+        /* ── CALCULATE BUTTON ── */
+        .calc-btn-wrap {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .calc-btn {
+            padding: 0.9rem 2.4rem;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            font-family: var(--font-body);
+            cursor: pointer;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Ghost state (incomplete form) */
+        .calc-btn.ghost {
+            background: transparent;
+            border: 2px solid var(--border);
+            color: var(--text-muted);
+            cursor: default;
+        }
+
+        /* Filled state (form complete) */
+        .calc-btn.ready {
+            background: var(--teal);
+            border: 2px solid var(--teal);
+            color: #0a0f1a;
+            cursor: pointer;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+        .calc-btn.ready:hover {
+            box-shadow: 0 6px 28px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+
+        /* ── RESULT SCENE ── */
+        .result-container {
+            width: 100%;
+            max-width: 580px;
+        }
+
+        /* Each result component */
+        .result-component {
+            opacity: 0;
+            transform: translateY(16px);
+            margin-bottom: 1.5rem;
+        }
+
+        .result-component.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BMR result */
+        .result-standard {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .result-standard .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+        .result-standard .value {
+            font-family: var(--font-display);
+            font-size: 1.8rem;
+            color: var(--text);
+        }
+        .result-standard .unit {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+        }
+
+        /* Activity multiplier */
+        .result-factor {
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+        }
+        .result-factor .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+        .result-factor .value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--text-dim);
+        }
+
+        /* Threshold / computing state */
+        .result-threshold {
+            text-align: center;
+            padding: 1.5rem 0;
+        }
+        .threshold-text {
+            font-size: 0.9rem;
+            color: var(--teal);
+            font-weight: 500;
+            letter-spacing: 0.03em;
+        }
+        .threshold-dots {
+            display: inline-flex;
+            gap: 4px;
+            margin-left: 4px;
+        }
+        .threshold-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--teal);
+            animation: thresholdPulse 1.2s ease-in-out infinite;
+        }
+        .threshold-dot:nth-child(2) { animation-delay: 0.2s; }
+        .threshold-dot:nth-child(3) { animation-delay: 0.4s; }
+        @keyframes thresholdPulse {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 1; }
+        }
+
+        /* TDEE — the ceremonial result */
+        .result-ceremonial {
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .result-ceremonial .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+        .result-ceremonial .value {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            color: #fff;
+            line-height: 1.1;
+            position: relative;
+        }
+        .result-ceremonial .unit {
+            font-family: var(--font-body);
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            font-weight: 400;
+            margin-left: 0.3rem;
+        }
+
+        /* Glow effect on TDEE number */
+        .result-ceremonial .value::after {
+            content: '';
+            position: absolute;
+            inset: -20px -30px;
+            background: radial-gradient(ellipse at center, var(--accent-glow) 0%, transparent 70%);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.8s;
+        }
+        .result-ceremonial .value.glowing::after {
+            opacity: 1;
+        }
+
+        /* Divider line */
+        .result-divider {
+            width: 60px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--teal), transparent);
+            margin: 0.5rem auto;
+            opacity: 0;
+            transition: opacity 0.6s;
+        }
+        .result-divider.visible {
+            opacity: 1;
+        }
+
+        /* Coach card */
+        .coach-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem 1.8rem;
+            position: relative;
+            backdrop-filter: blur(10px);
+        }
+        .coach-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 20%;
+            right: 20%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--teal), transparent);
+            border-radius: 2px;
+        }
+        .coach-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.75rem;
+        }
+        .coach-dot {
+            width: 7px;
+            height: 7px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: coachPulse 2.5s ease-in-out infinite;
+        }
+        @keyframes coachPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+            50% { box-shadow: 0 0 0 6px rgba(34, 197, 94, 0); }
+        }
+        .coach-quote {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            color: var(--text);
+            line-height: 1.5;
+        }
+        .coach-quote em {
+            color: var(--teal);
+            font-style: normal;
+        }
+
+        /* Context section */
+        .result-context {
+            padding: 1rem 0;
+        }
+        .context-title {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+        .context-items {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .context-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+        .context-item .dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--teal);
+            flex-shrink: 0;
+        }
+
+        /* ── DURATION LEGEND ── */
+        .duration-legend {
+            position: fixed;
+            top: 1.5rem;
+            right: 1.5rem;
+            z-index: 100;
+            display: none;
+        }
+        .duration-legend.active {
+            display: block;
+        }
+        .legend-inner {
+            background: rgba(10, 15, 26, 0.92);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 1.2rem;
+            backdrop-filter: blur(12px);
+        }
+        .legend-title {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.6rem;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.35rem;
+            font-size: 0.72rem;
+            color: var(--text-dim);
+        }
+        .legend-bar {
+            height: 3px;
+            border-radius: 2px;
+            background: var(--teal);
+            opacity: 0.4;
+            transition: opacity 0.3s, background 0.3s;
+        }
+        .legend-item.active-step .legend-bar {
+            opacity: 1;
+            background: #fff;
+        }
+        .legend-item.active-step {
+            color: #fff;
+        }
+
+        /* ── RECALCULATE ── */
+        .recalc-btn {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 0.7rem 1.8rem;
+            background: transparent;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            color: var(--text-dim);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .recalc-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 600px) {
+            .activity-cards {
+                grid-template-columns: 1fr;
+            }
+            .duration-legend {
+                top: auto;
+                bottom: 1rem;
+                right: 1rem;
+            }
+            .legend-inner {
+                padding: 0.7rem 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════ INPUT SCENE ═══════════ -->
+<section class="scene scene-input" id="inputScene">
+    <h1 class="hero-title">Your Daily <span>Energy</span></h1>
+    <p class="hero-sub">How many calories does your body burn every day — just by being you?</p>
+
+    <div class="form-container">
+
+        <!-- Unit toggle -->
+        <div class="unit-toggle">
+            <button class="unit-btn active" data-unit="imperial" onclick="setUnit('imperial')">Imperial</button>
+            <button class="unit-btn" data-unit="metric" onclick="setUnit('metric')">Metric</button>
+        </div>
+
+        <!-- Gender -->
+        <div class="form-group">
+            <label class="form-label">
+                <span class="check-mark" id="checkGender"></span>
+                Sex
+            </label>
+            <div class="gender-cards">
+                <div class="gender-card" data-value="male" onclick="selectGender(this)">Male</div>
+                <div class="gender-card" data-value="female" onclick="selectGender(this)">Female</div>
+            </div>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group">
+            <label class="form-label">
+                <span class="check-mark" id="checkAge"></span>
+                Age
+            </label>
+            <input type="number" class="form-input" id="ageInput" placeholder="e.g. 28" min="15" max="100" oninput="onFieldChange()">
+        </div>
+
+        <!-- Height (Imperial) -->
+        <div class="form-row" id="heightImperial">
+            <div class="form-group">
+                <label class="form-label">
+                    <span class="check-mark" id="checkHeight"></span>
+                    Height
+                </label>
+                <input type="number" class="form-input" id="heightFt" placeholder="ft" min="3" max="8" oninput="onFieldChange()">
+            </div>
+            <div class="form-group">
+                <label class="form-label">&nbsp;</label>
+                <input type="number" class="form-input" id="heightIn" placeholder="in" min="0" max="11" oninput="onFieldChange()">
+            </div>
+        </div>
+
+        <!-- Height (Metric) -->
+        <div class="form-row" id="heightMetric" style="display:none;">
+            <div class="form-group">
+                <label class="form-label">
+                    <span class="check-mark" id="checkHeightM"></span>
+                    Height (cm)
+                </label>
+                <input type="number" class="form-input" id="heightCm" placeholder="e.g. 175" min="100" max="250" oninput="onFieldChange()">
+            </div>
+        </div>
+
+        <!-- Weight -->
+        <div class="form-group">
+            <label class="form-label">
+                <span class="check-mark" id="checkWeight"></span>
+                <span id="weightLabel">Weight (lbs)</span>
+            </label>
+            <input type="number" class="form-input" id="weightInput" placeholder="e.g. 165" min="50" max="700" oninput="onFieldChange()">
+        </div>
+
+        <!-- Activity Level -->
+        <div class="form-group">
+            <label class="form-label">
+                <span class="check-mark" id="checkActivity"></span>
+                Activity Level
+            </label>
+            <div class="activity-cards">
+                <div class="activity-card" data-mult="1.2" onclick="selectActivity(this)">
+                    <div class="activity-name">Sedentary</div>
+                    <div class="activity-desc">Desk job, little exercise</div>
+                    <div class="activity-mult">× 1.2</div>
+                </div>
+                <div class="activity-card" data-mult="1.375" onclick="selectActivity(this)">
+                    <div class="activity-name">Lightly Active</div>
+                    <div class="activity-desc">Light exercise 1–3 days</div>
+                    <div class="activity-mult">× 1.375</div>
+                </div>
+                <div class="activity-card" data-mult="1.55" onclick="selectActivity(this)">
+                    <div class="activity-name">Moderately Active</div>
+                    <div class="activity-desc">Moderate exercise 3–5 days</div>
+                    <div class="activity-mult">× 1.55</div>
+                </div>
+                <div class="activity-card" data-mult="1.725" onclick="selectActivity(this)">
+                    <div class="activity-name">Very Active</div>
+                    <div class="activity-desc">Hard exercise 6–7 days</div>
+                    <div class="activity-mult">× 1.725</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div class="calc-btn-wrap">
+            <button class="calc-btn ghost" id="calcBtn" disabled onclick="showResults()">Calculate</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════ RESULT SCENE ═══════════ -->
+<section class="scene scene-result" id="resultScene">
+    <div class="result-container">
+
+        <!-- 1. BMR — 250ms (standard) -->
+        <div class="result-component" id="resBmr" data-duration="250" data-step="0">
+            <div class="result-standard">
+                <span class="label">Your BMR</span>
+                <span class="value" id="bmrValue">—</span>
+                <span class="unit">cal/day</span>
+            </div>
+        </div>
+
+        <!-- 2. Activity multiplier — 250ms (standard) -->
+        <div class="result-component" id="resMult" data-duration="250" data-step="1">
+            <div class="result-factor">
+                <span class="label">Activity multiplier</span>
+                <span class="value" id="multValue">—</span>
+            </div>
+        </div>
+
+        <!-- 3. Threshold state — 400ms (system computing) -->
+        <div class="result-component" id="resThreshold" data-duration="400" data-step="2">
+            <div class="result-threshold">
+                <span class="threshold-text">
+                    Calculating your daily energy expenditure
+                    <span class="threshold-dots">
+                        <span class="threshold-dot"></span>
+                        <span class="threshold-dot"></span>
+                        <span class="threshold-dot"></span>
+                    </span>
+                </span>
+            </div>
+        </div>
+
+        <div class="result-divider" id="resDivider"></div>
+
+        <!-- 4. TDEE — 1200ms (CEREMONIAL) -->
+        <div class="result-component" id="resTdee" data-duration="1200" data-step="3">
+            <div class="result-ceremonial">
+                <div class="label">Your TDEE</div>
+                <div class="value" id="tdeeValue">0<span class="unit">cal/day</span></div>
+            </div>
+        </div>
+
+        <!-- 5. Coach card — 500ms (significant) -->
+        <div class="result-component" id="resCoach" data-duration="500" data-step="4">
+            <div class="coach-card">
+                <div class="coach-label">
+                    <span class="coach-dot"></span>
+                    Your Coach
+                </div>
+                <p class="coach-quote">
+                    <em>BMR is rent.</em> It's what your body charges just to keep the lights on — breathing, thinking, circulating blood. <em>TDEE is rent + utilities.</em> Every step, every workout, every fidget adds to the bill.
+                </p>
+            </div>
+        </div>
+
+        <!-- 6. Context — 250ms (standard) -->
+        <div class="result-component" id="resContext" data-duration="250" data-step="5">
+            <div class="result-context">
+                <div class="context-title">What this means for you</div>
+                <div class="context-items" id="contextItems">
+                    <!-- Filled dynamically -->
+                </div>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button class="recalc-btn" onclick="resetForm()">← Recalculate</button>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════ PROGRESS RING (back-channel) ═══════════ -->
+<div class="progress-ring-container" id="progressRing">
+    <svg class="progress-ring" viewBox="0 0 48 48">
+        <circle class="progress-ring-bg" cx="24" cy="24" r="20"/>
+        <circle class="progress-ring-fill" cx="24" cy="24" r="20" id="ringFill"/>
+    </svg>
+    <div class="progress-ring-text" id="ringText">0/5</div>
+</div>
+
+<!-- ═══════════ DURATION LEGEND ═══════════ -->
+<div class="duration-legend" id="durationLegend">
+    <div class="legend-inner">
+        <div class="legend-title">Duration = Value Weight</div>
+        <div class="legend-item" data-step="0">
+            <span class="legend-bar" style="width: 14px;"></span>
+            <span>BMR — 250ms</span>
+        </div>
+        <div class="legend-item" data-step="1">
+            <span class="legend-bar" style="width: 14px;"></span>
+            <span>Multiplier — 250ms</span>
+        </div>
+        <div class="legend-item" data-step="2">
+            <span class="legend-bar" style="width: 22px;"></span>
+            <span>Threshold — 400ms</span>
+        </div>
+        <div class="legend-item" data-step="3">
+            <span class="legend-bar" style="width: 64px;"></span>
+            <span>TDEE — 1200ms</span>
+        </div>
+        <div class="legend-item" data-step="4">
+            <span class="legend-bar" style="width: 28px;"></span>
+            <span>Coach — 500ms</span>
+        </div>
+        <div class="legend-item" data-step="5">
+            <span class="legend-bar" style="width: 14px;"></span>
+            <span>Context — 250ms</span>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // ═══════════ STATE ═══════════
+    const state = {
+        unit: 'imperial',
+        gender: null,
+        age: null,
+        heightCm: null,
+        weight: null,
+        activityMult: null,
+    };
+
+    const FIELDS_TOTAL = 5; // gender, age, height, weight, activity
+    const CIRCUMFERENCE = 2 * Math.PI * 20; // 126
+
+    // ═══════════ UNIT TOGGLE ═══════════
+    function setUnit(unit) {
+        state.unit = unit;
+        document.querySelectorAll('.unit-btn').forEach(b => {
+            b.classList.toggle('active', b.dataset.unit === unit);
+        });
+        document.getElementById('heightImperial').style.display = unit === 'imperial' ? 'flex' : 'none';
+        document.getElementById('heightMetric').style.display = unit === 'metric' ? 'flex' : 'none';
+        document.getElementById('weightLabel').textContent = unit === 'imperial' ? 'Weight (lbs)' : 'Weight (kg)';
+        document.getElementById('weightInput').placeholder = unit === 'imperial' ? 'e.g. 165' : 'e.g. 75';
+        onFieldChange();
+    }
+
+    // ═══════════ GENDER ═══════════
+    function selectGender(el) {
+        document.querySelectorAll('.gender-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        state.gender = el.dataset.value;
+        onFieldChange();
+    }
+
+    // ═══════════ ACTIVITY ═══════════
+    function selectActivity(el) {
+        document.querySelectorAll('.activity-card').forEach(c => c.classList.remove('selected'));
+        el.classList.add('selected');
+        state.activityMult = parseFloat(el.dataset.mult);
+        onFieldChange();
+    }
+
+    // ═══════════ FIELD CHANGE — back-channel + button transform ═══════════
+    function onFieldChange() {
+        // Gather values
+        const age = parseInt(document.getElementById('ageInput').value);
+        state.age = isNaN(age) ? null : age;
+
+        if (state.unit === 'imperial') {
+            const ft = parseInt(document.getElementById('heightFt').value);
+            const inches = parseInt(document.getElementById('heightIn').value);
+            if (!isNaN(ft)) {
+                state.heightCm = (ft * 12 + (isNaN(inches) ? 0 : inches)) * 2.54;
+            } else {
+                state.heightCm = null;
+            }
+        } else {
+            const cm = parseInt(document.getElementById('heightCm').value);
+            state.heightCm = isNaN(cm) ? null : cm;
+        }
+
+        const w = parseFloat(document.getElementById('weightInput').value);
+        state.weight = isNaN(w) ? null : w;
+
+        // Count filled fields
+        let filled = 0;
+        const checks = {
+            gender: state.gender !== null,
+            age: state.age !== null,
+            height: state.heightCm !== null,
+            weight: state.weight !== null,
+            activity: state.activityMult !== null,
+        };
+
+        // Update check marks
+        document.getElementById('checkGender').classList.toggle('filled', checks.gender);
+        document.getElementById('checkAge').classList.toggle('filled', checks.age);
+
+        if (state.unit === 'imperial') {
+            document.getElementById('checkHeight').classList.toggle('filled', checks.height);
+        } else {
+            document.getElementById('checkHeightM').classList.toggle('filled', checks.height);
+        }
+        document.getElementById('checkWeight').classList.toggle('filled', checks.weight);
+        document.getElementById('checkActivity').classList.toggle('filled', checks.activity);
+
+        for (const k in checks) if (checks[k]) filled++;
+
+        // Update progress ring
+        const ring = document.getElementById('progressRing');
+        const ringFill = document.getElementById('ringFill');
+        const ringText = document.getElementById('ringText');
+
+        if (filled > 0 && filled < FIELDS_TOTAL) {
+            ring.classList.add('visible');
+            ring.classList.remove('complete');
+        } else if (filled === FIELDS_TOTAL) {
+            ring.classList.add('visible');
+            setTimeout(() => ring.classList.add('complete'), 600);
+        } else {
+            ring.classList.remove('visible');
+        }
+
+        const offset = CIRCUMFERENCE - (filled / FIELDS_TOTAL) * CIRCUMFERENCE;
+        ringFill.style.strokeDashoffset = offset;
+        ringText.textContent = `${filled}/${FIELDS_TOTAL}`;
+
+        // Button state transition
+        const btn = document.getElementById('calcBtn');
+        const allFilled = filled === FIELDS_TOTAL;
+
+        if (allFilled) {
+            btn.classList.remove('ghost');
+            btn.classList.add('ready');
+            btn.disabled = false;
+            btn.textContent = 'Show my TDEE';
+        } else {
+            btn.classList.remove('ready');
+            btn.classList.add('ghost');
+            btn.disabled = true;
+            btn.textContent = 'Calculate';
+        }
+    }
+
+    // ═══════════ CALCULATION ═══════════
+    function calculateTDEE() {
+        // Mifflin-St Jeor
+        let weightKg = state.weight;
+        if (state.unit === 'imperial') {
+            weightKg = state.weight * 0.453592;
+        }
+
+        let bmr;
+        if (state.gender === 'male') {
+            bmr = 10 * weightKg + 6.25 * state.heightCm - 5 * state.age + 5;
+        } else {
+            bmr = 10 * weightKg + 6.25 * state.heightCm - 5 * state.age - 161;
+        }
+
+        const tdee = bmr * state.activityMult;
+        return { bmr: Math.round(bmr), tdee: Math.round(tdee), mult: state.activityMult };
+    }
+
+    // ═══════════ RESULT REVEAL — duration-weighted ═══════════
+    function showResults() {
+        const { bmr, tdee, mult } = calculateTDEE();
+
+        // Set static values
+        document.getElementById('bmrValue').textContent = bmr.toLocaleString();
+        document.getElementById('multValue').textContent = `× ${mult}`;
+
+        // Build context items
+        const contextItems = document.getElementById('contextItems');
+        contextItems.innerHTML = '';
+
+        const deficit = tdee - 500;
+        const surplus = tdee + 300;
+
+        const contexts = [
+            `To lose ~1 lb/week, target ${deficit.toLocaleString()} cal/day`,
+            `To gain lean mass, target ${surplus.toLocaleString()} cal/day`,
+            `Your body burns ${bmr.toLocaleString()} cal even at complete rest`,
+        ];
+
+        contexts.forEach(text => {
+            const div = document.createElement('div');
+            div.className = 'context-item';
+            div.innerHTML = `<span class="dot"></span><span>${text}</span>`;
+            contextItems.appendChild(div);
+        });
+
+        // Hide input, show result
+        document.getElementById('inputScene').style.display = 'none';
+        document.getElementById('resultScene').classList.add('active');
+
+        // Show duration legend
+        document.getElementById('durationLegend').classList.add('active');
+
+        // Scroll to top
+        window.scrollTo(0, 0);
+
+        // ── Duration-weighted reveal sequence ──
+        const sequence = [
+            { id: 'resBmr',       duration: 250,  easing: 'ease-out' },
+            { id: 'resMult',      duration: 250,  easing: 'ease-out' },
+            { id: 'resThreshold', duration: 400,  easing: 'linear', isThreshold: true },
+            { id: 'resTdee',      duration: 1200, easing: 'cubic-bezier(0.16, 1, 0.3, 1)', isCeremonial: true },
+            { id: 'resCoach',     duration: 500,  easing: 'ease-out' },
+            { id: 'resContext',   duration: 250,  easing: 'ease-out' },
+        ];
+
+        let cumulativeDelay = 300; // initial pause after scene transition
+
+        sequence.forEach((step, i) => {
+            setTimeout(() => {
+                const el = document.getElementById(step.id);
+
+                // Highlight legend step
+                document.querySelectorAll('.legend-item').forEach(li => li.classList.remove('active-step'));
+                const legendItem = document.querySelector(`.legend-item[data-step="${i}"]`);
+                if (legendItem) legendItem.classList.add('active-step');
+
+                if (step.isThreshold) {
+                    // Threshold: appear, hold, then fade
+                    el.style.transition = `opacity 0.15s linear, transform 0.15s linear`;
+                    el.classList.add('revealed');
+
+                    setTimeout(() => {
+                        el.style.transition = 'opacity 0.2s ease-out';
+                        el.style.opacity = '0.3';
+                    }, step.duration);
+
+                } else if (step.isCeremonial) {
+                    // TDEE: count-up animation with decelerate easing
+                    el.style.transition = `opacity ${step.duration}ms ${step.easing}, transform ${step.duration}ms ${step.easing}`;
+                    el.classList.add('revealed');
+
+                    // Show divider
+                    document.getElementById('resDivider').classList.add('visible');
+
+                    // Count-up animation
+                    const tdeeEl = document.getElementById('tdeeValue');
+                    const startTime = performance.now();
+                    const countDuration = step.duration;
+
+                    function countUp(now) {
+                        const elapsed = now - startTime;
+                        const progress = Math.min(elapsed / countDuration, 1);
+                        // Decelerate easing: 1 - (1-t)^3
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.round(eased * tdee);
+                        tdeeEl.innerHTML = `${current.toLocaleString()}<span class="unit">cal/day</span>`;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(countUp);
+                        } else {
+                            // Fermata — 400ms of stillness, then glow
+                            setTimeout(() => {
+                                tdeeEl.classList.add('glowing');
+                            }, 400);
+                        }
+                    }
+                    requestAnimationFrame(countUp);
+
+                } else {
+                    // Standard reveal
+                    el.style.transition = `opacity ${step.duration}ms ${step.easing}, transform ${step.duration}ms ${step.easing}`;
+                    el.classList.add('revealed');
+                }
+
+            }, cumulativeDelay);
+
+            // Gap between steps: each step's duration + small breathing room
+            const breathingRoom = step.isCeremonial ? 600 : 150; // extra hold after ceremonial
+            cumulativeDelay += step.duration + breathingRoom;
+        });
+
+        // Clear all legend highlights after sequence
+        setTimeout(() => {
+            document.querySelectorAll('.legend-item').forEach(li => li.classList.remove('active-step'));
+        }, cumulativeDelay + 200);
+    }
+
+    // ═══════════ RESET ═══════════
+    function resetForm() {
+        // Reset state
+        state.gender = null;
+        state.age = null;
+        state.heightCm = null;
+        state.weight = null;
+        state.activityMult = null;
+
+        // Reset form
+        document.querySelectorAll('.gender-card, .activity-card').forEach(c => c.classList.remove('selected'));
+        document.getElementById('ageInput').value = '';
+        document.getElementById('heightFt').value = '';
+        document.getElementById('heightIn').value = '';
+        document.getElementById('heightCm').value = '';
+        document.getElementById('weightInput').value = '';
+
+        // Reset result components
+        document.querySelectorAll('.result-component').forEach(c => {
+            c.classList.remove('revealed');
+            c.style.opacity = '0';
+            c.style.transform = 'translateY(16px)';
+            c.style.transition = 'none';
+        });
+        document.getElementById('resDivider').classList.remove('visible');
+        document.getElementById('tdeeValue').classList.remove('glowing');
+
+        // Hide result, show input
+        document.getElementById('resultScene').classList.remove('active');
+        document.getElementById('inputScene').style.display = 'flex';
+        document.getElementById('durationLegend').classList.remove('active');
+
+        // Reset ring and button
+        onFieldChange();
+        window.scrollTo(0, 0);
+    }
+</script>
+
+</body>
+</html>
