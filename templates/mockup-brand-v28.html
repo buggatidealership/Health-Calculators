@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Which Way — Brand Animation V28</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0f1a;
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --text-muted: #64748b;
+            --teal: #14b8a6;
+            --teal-glow: rgba(20, 184, 166, 0.25);
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            color: var(--text);
+            font-family: var(--font-body);
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 128px 128px;
+        }
+
+        /* Animated grain shift */
+        @keyframes grainShift {
+            0%, 100% { transform: translate(0, 0); }
+            10% { transform: translate(-2%, -3%); }
+            20% { transform: translate(3%, 1%); }
+            30% { transform: translate(-1%, 4%); }
+            40% { transform: translate(4%, -2%); }
+            50% { transform: translate(-3%, 2%); }
+            60% { transform: translate(2%, -4%); }
+            70% { transform: translate(-4%, 1%); }
+            80% { transform: translate(1%, 3%); }
+            90% { transform: translate(3%, -1%); }
+        }
+
+        .grain {
+            animation: grainShift 0.8s steps(1) infinite;
+        }
+
+        /* Stage */
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        /* Every text element is absolutely positioned at center */
+        .phrase {
+            position: absolute;
+            white-space: nowrap;
+            opacity: 0;
+            will-change: transform, opacity;
+            text-align: center;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* --- FALLING phrases (wrong answers) --- */
+        /* Start at center, fall downward with ease-in (accelerating toward ground) */
+        .falling {
+            font-family: var(--font-body);
+            font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: -0.01em;
+        }
+
+        @keyframes fallIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) translateY(-8px);
+            }
+            8% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+            /* Hold at center briefly so it's readable */
+            35% {
+                opacity: 0.7;
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+            /* Fall — ease-in: slow start, accelerates */
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) translateY(calc(50vh + 40px));
+            }
+        }
+
+        /* --- RISING phrase (the rule) --- */
+        .rising {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4.5vw, 3.2rem);
+            color: var(--text);
+            letter-spacing: -0.02em;
+        }
+
+        @keyframes riseUp {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) translateY(calc(40vh));
+            }
+            /* Rise with ease-out: fast start, decelerates as it earns its place */
+            60% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(-8px);
+            }
+            /* Settle to exact center — earned arrival */
+            80% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(2px);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+        }
+
+        /* Rule hold and fade */
+        @keyframes ruleHoldFade {
+            0% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+            70% { opacity: 1; transform: translate(-50%, -50%) translateY(0); }
+            100% { opacity: 0; transform: translate(-50%, -50%) translateY(0); }
+        }
+
+        /* --- SETTLING phrases (portable signals) --- */
+        .settling {
+            font-family: var(--font-body);
+            font-size: clamp(1.1rem, 2.8vw, 1.6rem);
+            font-weight: 500;
+            color: var(--teal);
+        }
+
+        /* Spring with undershoot: arrives from above, passes target, bounces back up slightly, settles */
+        @keyframes settleDown {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) translateY(-60px);
+            }
+            25% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(8px);
+            }
+            45% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(-3px);
+            }
+            60% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(1px);
+            }
+            75%, 100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) translateY(0px);
+            }
+        }
+
+        /* Settle hold then fade */
+        @keyframes settleHoldFade {
+            0% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        /* --- LOGO (ground state) --- */
+        .logo {
+            font-family: var(--font-display);
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: var(--text);
+            letter-spacing: 0.02em;
+        }
+
+        @keyframes logoAppear {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* Teal dot that pulses gently on the logo */
+        .logo-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--teal);
+            border-radius: 50%;
+            margin-left: 2px;
+            vertical-align: middle;
+            box-shadow: 0 0 12px var(--teal-glow);
+        }
+
+        @keyframes dotPulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 12px var(--teal-glow); }
+            50% { opacity: 0.6; box-shadow: 0 0 20px var(--teal-glow); }
+        }
+
+        /* Subtle vignette */
+        .vignette {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+        }
+
+        /* Replay button */
+        .replay {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 100;
+            background: transparent;
+            border: 1px solid var(--text-muted);
+            color: var(--text-muted);
+            font-family: var(--font-body);
+            font-size: 0.85rem;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.6s ease, border-color 0.3s, color 0.3s;
+        }
+        .replay:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+        .replay.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="vignette"></div>
+    <div class="grain"></div>
+
+    <div class="stage" id="stage">
+        <!-- All phrases injected by JS for precise timing control -->
+    </div>
+
+    <button class="replay" id="replayBtn" onclick="replay()">Replay</button>
+
+    <script>
+        // =====================================================
+        // "Which Way" — Direction of Movement as Emotion
+        //
+        // Directional logic:
+        //   FALLING (ease-in)  = wrong answers, heavy, no energy to sustain
+        //   RISING  (ease-out) = the rule, costly, aspirational, earned
+        //   SETTLING (spring)  = personal signals, delivered, arrive at rest
+        //   STILL              = logo, ground state, the foundation
+        //
+        // Total: ~35 seconds
+        // =====================================================
+
+        const stage = document.getElementById('stage');
+        const replayBtn = document.getElementById('replayBtn');
+
+        // Timeline definition
+        // { text, type, startMs, durationMs, offsetY (for settling vertical offset) }
+        const timeline = [
+            // === ACT 1: THE FALLING (wrong answers) ===
+            // Each appears at center, holds briefly, then falls with gravity
+            {
+                text: '"It depends."',
+                type: 'falling',
+                startMs: 1500,
+                durationMs: 3200,
+            },
+            {
+                text: '"Just eat less."',
+                type: 'falling',
+                startMs: 5200,
+                durationMs: 3200,
+            },
+            {
+                text: '"3–5 hours probably."',
+                type: 'falling',
+                startMs: 8900,
+                durationMs: 3200,
+            },
+
+            // === BEAT: silence (12100 - 14000) ===
+
+            // === ACT 2: THE RISING (the rule) ===
+            {
+                text: '"Every 5 hours, half."',
+                type: 'rising',
+                startMs: 14500,
+                durationMs: 3500,
+            },
+
+            // Rule holds, then fades (18000 - 21500)
+            {
+                text: '__rule_hold_fade__',
+                type: 'rule-fade',
+                startMs: 18500,
+                durationMs: 3000,
+            },
+
+            // === ACT 3: THE SETTLING (portable signals) ===
+            {
+                text: '"Your last coffee by 2pm."',
+                type: 'settling',
+                startMs: 22500,
+                durationMs: 1200,
+                offsetY: -24,
+            },
+            {
+                text: '"Sleep improved 31%."',
+                type: 'settling',
+                startMs: 25000,
+                durationMs: 1200,
+                offsetY: 24,
+            },
+
+            // Settle signals hold, then fade (26200 - 29500)
+            {
+                text: '__settle_hold_fade__',
+                type: 'settle-fade',
+                startMs: 28500,
+                durationMs: 2500,
+            },
+
+            // === CLOSE: LOGO (ground state) ===
+            {
+                text: '__logo__',
+                type: 'logo',
+                startMs: 31500,
+                durationMs: 1200,
+            },
+        ];
+
+        let activeElements = [];
+        let timeouts = [];
+
+        function createPhrase(text, className) {
+            const el = document.createElement('div');
+            el.className = `phrase ${className}`;
+            el.textContent = text;
+            stage.appendChild(el);
+            activeElements.push(el);
+            return el;
+        }
+
+        function createLogo() {
+            const el = document.createElement('div');
+            el.className = 'phrase logo';
+            el.innerHTML = 'healthcalculators<span class="logo-dot"></span>xyz';
+            stage.appendChild(el);
+            activeElements.push(el);
+            return el;
+        }
+
+        // References to persistent elements
+        let ruleEl = null;
+        let settleEls = [];
+        let logoEl = null;
+
+        function runTimeline() {
+            // Clear previous
+            activeElements.forEach(el => el.remove());
+            activeElements = [];
+            timeouts.forEach(t => clearTimeout(t));
+            timeouts = [];
+            ruleEl = null;
+            settleEls = [];
+            logoEl = null;
+            replayBtn.classList.remove('visible');
+
+            timeline.forEach(item => {
+                const t = setTimeout(() => {
+                    if (item.type === 'falling') {
+                        const el = createPhrase(item.text, 'falling');
+                        // ease-in for falling: slow start, accelerates into ground
+                        el.style.animation = `fallIn ${item.durationMs}ms cubic-bezier(0.55, 0, 1, 0.45) forwards`;
+                    }
+
+                    else if (item.type === 'rising') {
+                        ruleEl = createPhrase(item.text, 'rising');
+                        // ease-out for rising: fast departure, decelerates as it earns arrival
+                        ruleEl.style.animation = `riseUp ${item.durationMs}ms cubic-bezier(0, 0, 0.2, 1) forwards`;
+                    }
+
+                    else if (item.type === 'rule-fade') {
+                        // Fade out the rule
+                        if (ruleEl) {
+                            ruleEl.style.animation = `ruleHoldFade ${item.durationMs}ms ease forwards`;
+                        }
+                    }
+
+                    else if (item.type === 'settling') {
+                        const el = createPhrase(item.text, 'settling');
+                        // Offset vertically so multiple settle lines stack
+                        const yOff = item.offsetY || 0;
+                        el.style.top = `calc(50% + ${yOff}px)`;
+                        // Spring with undershoot
+                        el.style.animation = `settleDown ${item.durationMs}ms cubic-bezier(0.34, 1.56, 0.64, 1) forwards`;
+                        settleEls.push(el);
+                    }
+
+                    else if (item.type === 'settle-fade') {
+                        settleEls.forEach(el => {
+                            el.style.animation = `settleHoldFade ${item.durationMs}ms ease forwards`;
+                        });
+                    }
+
+                    else if (item.type === 'logo') {
+                        logoEl = createLogo();
+                        logoEl.style.animation = `logoAppear ${item.durationMs}ms cubic-bezier(0, 0, 0.2, 1) forwards`;
+                        // Start dot pulse after logo appears
+                        const dot = logoEl.querySelector('.logo-dot');
+                        if (dot) {
+                            setTimeout(() => {
+                                dot.style.animation = 'dotPulse 2.5s ease-in-out infinite';
+                            }, item.durationMs);
+                        }
+                    }
+                }, item.startMs);
+
+                timeouts.push(t);
+            });
+
+            // Show replay button after animation completes (~35s)
+            const showReplay = setTimeout(() => {
+                replayBtn.classList.add('visible');
+            }, 34000);
+            timeouts.push(showReplay);
+        }
+
+        function replay() {
+            runTimeline();
+        }
+
+        // Start on load
+        runTimeline();
+    </script>
+</body>
+</html>

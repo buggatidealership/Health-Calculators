@@ -5851,6 +5851,14 @@ def mockup_brand_v27():
 def mockup_brand_v25():
     return render_template('mockup-brand-v25.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-brand-v28')
+def mockup_brand_v28():
+    return render_template('mockup-brand-v28.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-brand-v26')
+def mockup_brand_v26():
+    return render_template('mockup-brand-v26.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-calc-v1')
 def mockup_calc_v1():
     return render_template('mockup-calc-v1.html')
