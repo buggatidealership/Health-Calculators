@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Brand Animation V19 — Nucleation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0f1a;
+            --card-bg: #111827;
+            --card-border: rgba(94, 234, 212, 0.15);
+            --teal: #5eead4;
+            --teal-glow: rgba(94, 234, 212, 0.3);
+            --text-primary: #f1f5f9;
+            --text-secondary: rgba(241, 245, 249, 0.6);
+            --text-tertiary: rgba(241, 245, 249, 0.35);
+            --coral: #f0a090;
+            --purple: #c4b5fd;
+            --amber: #fbbf24;
+            --green-pulse: #22c55e;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: var(--bg);
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text-primary);
+        }
+
+        /* 9:16 vertical container */
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            max-width: 430px;
+            margin: 0 auto;
+            overflow: hidden;
+            background: var(--bg);
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            animation: grain-drift 0.5s steps(3) infinite;
+        }
+        @keyframes grain-drift {
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(-2px, 1px); }
+            66% { transform: translate(1px, -1px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* ===== SEED CARD — the nucleation point ===== */
+        .seed-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.92);
+            width: 340px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 36px 28px 32px;
+            opacity: 0;
+            filter: blur(16px);
+            z-index: 10;
+            box-shadow: 0 0 80px rgba(94, 234, 212, 0.08), 0 4px 40px rgba(0,0,0,0.5);
+            will-change: transform, opacity, filter;
+        }
+
+        .seed-card .card-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 16px;
+            opacity: 0.8;
+        }
+        .seed-card .card-badge .dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 0.4; box-shadow: 0 0 0 0 var(--teal-glow); }
+            50% { opacity: 1; box-shadow: 0 0 8px 3px var(--teal-glow); }
+        }
+
+        .seed-card .card-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 26px;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .seed-card .card-rule {
+            font-family: 'DM Serif Display', serif;
+            font-size: 36px;
+            line-height: 1.15;
+            color: var(--teal);
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+
+        .seed-card .card-body {
+            font-size: 14px;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        /* Mini decay viz inside the seed card */
+        .decay-viz {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 48px;
+            margin-bottom: 20px;
+        }
+        .decay-viz .bar {
+            flex: 1;
+            border-radius: 4px 4px 0 0;
+            background: var(--teal);
+            opacity: 0;
+            transform: scaleY(0);
+            transform-origin: bottom;
+            will-change: transform, opacity;
+        }
+        .decay-viz .bar-label {
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            color: var(--text-tertiary);
+            white-space: nowrap;
+        }
+        .decay-viz .bar-wrap {
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+
+        .seed-card .card-source {
+            font-size: 11px;
+            color: var(--text-tertiary);
+            border-top: 1px solid rgba(255,255,255,0.06);
+            padding-top: 14px;
+        }
+
+        /* ===== EXPANSION: counter + lattice cards ===== */
+        .counter-text {
+            position: absolute;
+            bottom: 140px;
+            left: 0; right: 0;
+            text-align: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            color: var(--text-secondary);
+            opacity: 0;
+            z-index: 8;
+            will-change: opacity;
+        }
+        .counter-text .num {
+            color: var(--teal);
+            font-size: 48px;
+            display: block;
+            margin-bottom: 4px;
+            letter-spacing: -2px;
+        }
+
+        /* Lattice cards — echoes of the seed */
+        .lattice-card {
+            position: absolute;
+            width: 280px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 24px 20px 20px;
+            opacity: 0;
+            z-index: 5;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+            will-change: transform, opacity;
+        }
+        .lattice-card .lc-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .lattice-card .lc-badge .dot {
+            width: 5px; height: 5px;
+            border-radius: 50%;
+        }
+        .lattice-card .lc-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 18px;
+            line-height: 1.25;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .lattice-card .lc-rule {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        .lattice-card .lc-body {
+            font-size: 12px;
+            line-height: 1.55;
+            color: var(--text-secondary);
+        }
+
+        /* Card 1: TDEE */
+        .lattice-tdee {
+            --accent: var(--amber);
+        }
+        .lattice-tdee .lc-badge { color: var(--amber); }
+        .lattice-tdee .lc-badge .dot { background: var(--amber); }
+        .lattice-tdee .lc-rule { color: var(--amber); }
+        .lattice-tdee { border-color: rgba(251, 191, 36, 0.15); }
+
+        /* Card 2: BMI */
+        .lattice-bmi {
+            --accent: var(--coral);
+        }
+        .lattice-bmi .lc-badge { color: var(--coral); }
+        .lattice-bmi .lc-badge .dot { background: var(--coral); }
+        .lattice-bmi .lc-rule { color: var(--coral); }
+        .lattice-bmi { border-color: rgba(240, 160, 144, 0.15); }
+
+        /* Card 3: Vitamin D */
+        .lattice-vitd {
+            --accent: var(--purple);
+        }
+        .lattice-vitd .lc-badge { color: var(--purple); }
+        .lattice-vitd .lc-badge .dot { background: var(--purple); }
+        .lattice-vitd .lc-rule { color: var(--purple); }
+        .lattice-vitd { border-color: rgba(196, 181, 253, 0.15); }
+
+        /* Final tagline */
+        .tagline {
+            position: absolute;
+            bottom: 80px;
+            left: 0; right: 0;
+            text-align: center;
+            opacity: 0;
+            z-index: 20;
+            will-change: opacity;
+        }
+        .tagline .line-1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 24px;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+        .tagline .line-2 {
+            font-size: 14px;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Wordmark */
+        .wordmark {
+            position: absolute;
+            bottom: 36px;
+            left: 0; right: 0;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            opacity: 0;
+            z-index: 20;
+            will-change: opacity;
+        }
+        .wordmark .wm-dot {
+            display: inline-block;
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green-pulse);
+            margin-right: 6px;
+            vertical-align: middle;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        /* Ambient glow behind seed */
+        .ambient-glow {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px; height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(94, 234, 212, 0.12) 0%, transparent 70%);
+            opacity: 0;
+            z-index: 1;
+            will-change: opacity, transform;
+        }
+
+        /* Connecting lines between cards */
+        .connection-lines {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 3;
+            opacity: 0;
+            will-change: opacity;
+        }
+        .connection-lines svg {
+            width: 100%; height: 100%;
+        }
+        .connection-lines line {
+            stroke: var(--teal);
+            stroke-width: 0.5;
+            opacity: 0.15;
+            stroke-dasharray: 4 4;
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="grain"></div>
+
+        <!-- Ambient glow -->
+        <div class="ambient-glow" id="ambientGlow"></div>
+
+        <!-- THE SEED: One complete signal -->
+        <div class="seed-card" id="seedCard">
+            <div class="card-badge"><span class="dot"></span> Caffeine Half-Life</div>
+            <div class="card-title">How long does caffeine last?</div>
+            <div class="card-rule">Every 5 hours, half.</div>
+            <div class="card-body">
+                Your 8 AM coffee is still 25% active at 6 PM. That's not a guess — it's pharmacokinetics.
+            </div>
+            <div class="decay-viz" id="decayViz">
+                <div class="bar-wrap"><div class="bar" style="height: 100%"></div></div>
+                <div class="bar-wrap"><div class="bar" style="height: 50%"></div></div>
+                <div class="bar-wrap"><div class="bar" style="height: 25%"></div></div>
+                <div class="bar-wrap"><div class="bar" style="height: 12.5%"></div></div>
+                <div class="bar-wrap"><div class="bar" style="height: 6.25%"></div></div>
+            </div>
+            <div class="card-source">Pharmacokinetic half-life model · FDA guidelines</div>
+        </div>
+
+        <!-- Counter: "One of 82" -->
+        <div class="counter-text" id="counterText">
+            <span class="num" id="counterNum">1</span>
+            of 82 signals
+        </div>
+
+        <!-- Lattice cards -->
+        <div class="lattice-card lattice-tdee" id="latticeTdee" style="top: 15%; left: 50%; transform: translate(-50%, 0) scale(0.88);">
+            <div class="lc-badge"><span class="dot"></span> TDEE Calculator</div>
+            <div class="lc-title">How many calories do you really burn?</div>
+            <div class="lc-rule">BMR is rent. TDEE is rent + utilities.</div>
+            <div class="lc-body">Your body burns energy even at rest. Activity adds 30-80% more.</div>
+        </div>
+
+        <div class="lattice-card lattice-bmi" id="latticeBmi" style="top: 45%; left: 50%; transform: translate(-50%, 0) scale(0.88);">
+            <div class="lc-badge"><span class="dot"></span> BMI Calculator</div>
+            <div class="lc-title">Where do you fall on the range?</div>
+            <div class="lc-rule">One number. Five categories. Context matters.</div>
+            <div class="lc-body">BMI is a screening tool, not a verdict. Here's what yours means.</div>
+        </div>
+
+        <div class="lattice-card lattice-vitd" id="latticeVitd" style="top: 72%; left: 50%; transform: translate(-50%, 0) scale(0.88);">
+            <div class="lc-badge"><span class="dot"></span> Vitamin D Intake</div>
+            <div class="lc-title">How much vitamin D do you need?</div>
+            <div class="lc-rule">Your latitude decides your baseline.</div>
+            <div class="lc-body">Above 37°N, winter sun can't produce enough. Supplementation fills the gap.</div>
+        </div>
+
+        <!-- Connection lines -->
+        <div class="connection-lines" id="connectionLines">
+            <svg viewBox="0 0 430 932" preserveAspectRatio="none">
+                <line x1="215" y1="280" x2="215" y2="180" />
+                <line x1="215" y1="520" x2="215" y2="480" />
+                <line x1="215" y1="720" x2="215" y2="680" />
+            </svg>
+        </div>
+
+        <!-- Final tagline -->
+        <div class="tagline" id="tagline">
+            <div class="line-1">Where noise becomes signal.</div>
+            <div class="line-2">82 calculators. One framework each.</div>
+        </div>
+
+        <!-- Wordmark -->
+        <div class="wordmark" id="wordmark">
+            <span class="wm-dot"></span>HealthCalculators
+        </div>
+    </div>
+
+    <script>
+        // Spring easing: attempt a natural spring feel via cubic-bezier and keyframes
+        // Using Web Animations API for precise timing control
+
+        const $ = id => document.getElementById(id);
+        const seedCard = $('seedCard');
+        const ambientGlow = $('ambientGlow');
+        const decayBars = document.querySelectorAll('.decay-viz .bar');
+        const counterText = $('counterText');
+        const counterNum = $('counterNum');
+        const latticeTdee = $('latticeTdee');
+        const latticeBmi = $('latticeBmi');
+        const latticeVitd = $('latticeVitd');
+        const connectionLines = $('connectionLines');
+        const tagline = $('tagline');
+        const wordmark = $('wordmark');
+
+        // Spring easing approximation (slight overshoot + settle)
+        const springIn = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+        const springSettle = 'cubic-bezier(0.22, 0.68, 0.36, 1.0)';
+        const easeOut = 'cubic-bezier(0.16, 1, 0.3, 1)';
+
+        function animate(el, keyframes, options) {
+            return el.animate(keyframes, options);
+        }
+
+        function delay(ms) {
+            return new Promise(r => setTimeout(r, ms));
+        }
+
+        async function run() {
+            // Ensure fonts are loaded
+            await document.fonts.ready;
+            await delay(300);
+
+            // ===== BEAT 1: THE SEED (0-5s) =====
+            // Ambient glow fades in first (field principle: shape the environment)
+            animate(ambientGlow, [
+                { opacity: 0, transform: 'translate(-50%, -50%) scale(0.5)' },
+                { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' }
+            ], { duration: 1200, easing: easeOut, fill: 'forwards' });
+
+            await delay(400);
+
+            // Seed card: blur-to-sharp + scale reveal (nucleation moment)
+            animate(seedCard, [
+                { opacity: 0, filter: 'blur(16px)', transform: 'translate(-50%, -50%) scale(0.92)' },
+                { opacity: 0.3, filter: 'blur(10px)', transform: 'translate(-50%, -50%) scale(0.95)', offset: 0.2 },
+                { opacity: 0.7, filter: 'blur(4px)', transform: 'translate(-50%, -50%) scale(0.98)', offset: 0.5 },
+                { opacity: 1, filter: 'blur(0px)', transform: 'translate(-50%, -50%) scale(1)' }
+            ], { duration: 1400, easing: springSettle, fill: 'forwards' });
+
+            // Wait for card to be mostly visible, then animate decay bars
+            await delay(1000);
+
+            // Decay bars animate in sequence — the model itself appearing
+            for (let i = 0; i < decayBars.length; i++) {
+                animate(decayBars[i], [
+                    { opacity: 0, transform: 'scaleY(0)' },
+                    { opacity: 0.9 - (i * 0.15), transform: 'scaleY(1)' }
+                ], {
+                    duration: 400,
+                    delay: i * 120,
+                    easing: springIn,
+                    fill: 'forwards'
+                });
+            }
+
+            // Seed card is now fully formed and screenshot-worthy
+            // Hold it. Let it breathe. (Loading principle: value is in the hold)
+            await delay(2800);
+
+            // ===== BEAT 2: THE EXPANSION (5-18s) =====
+            // Seed card shrinks and moves up — making room for the lattice
+            animate(seedCard, [
+                { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                { transform: 'translate(-50%, -50%) scale(0.72)', opacity: 0.4, offset: 0.6 },
+                { transform: 'translate(-50%, -180%) scale(0.55)', opacity: 0 }
+            ], { duration: 1400, easing: easeOut, fill: 'forwards' });
+
+            // Ambient glow expands as system expands
+            animate(ambientGlow, [
+                { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
+                { opacity: 0.4, transform: 'translate(-50%, -50%) scale(2.5)' }
+            ], { duration: 2000, easing: easeOut, fill: 'forwards' });
+
+            await delay(600);
+
+            // Counter appears: "1 of 82 signals"
+            animate(counterText, [
+                { opacity: 0, transform: 'translateY(20px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], { duration: 800, easing: easeOut, fill: 'forwards' });
+
+            await delay(1200);
+
+            // Count up from 1 to 82
+            let count = 1;
+            const countUp = setInterval(() => {
+                count += Math.ceil((82 - count) * 0.12);
+                if (count >= 82) {
+                    count = 82;
+                    clearInterval(countUp);
+                }
+                counterNum.textContent = count;
+            }, 60);
+
+            await delay(1800);
+
+            // Counter fades out
+            animate(counterText, [
+                { opacity: 1 },
+                { opacity: 0 }
+            ], { duration: 600, easing: easeOut, fill: 'forwards' });
+
+            await delay(400);
+
+            // ===== BEAT 3: THE LATTICE (18-26s) =====
+            // Three echo cards appear in sequence — proving the seed predicted the system
+            // Each uses the SAME visual structure (nucleation proven)
+
+            // TDEE card slides in from blur
+            animate(latticeTdee, [
+                { opacity: 0, filter: 'blur(8px)', transform: 'translate(-50%, 20px) scale(0.88)' },
+                { opacity: 1, filter: 'blur(0px)', transform: 'translate(-50%, 0) scale(0.88)' }
+            ], { duration: 900, easing: springSettle, fill: 'forwards' });
+
+            await delay(700);
+
+            // BMI card
+            animate(latticeBmi, [
+                { opacity: 0, filter: 'blur(8px)', transform: 'translate(-50%, 20px) scale(0.88)' },
+                { opacity: 1, filter: 'blur(0px)', transform: 'translate(-50%, 0) scale(0.88)' }
+            ], { duration: 900, easing: springSettle, fill: 'forwards' });
+
+            await delay(700);
+
+            // Vitamin D card
+            animate(latticeVitd, [
+                { opacity: 0, filter: 'blur(8px)', transform: 'translate(-50%, 20px) scale(0.88)' },
+                { opacity: 1, filter: 'blur(0px)', transform: 'translate(-50%, 0) scale(0.88)' }
+            ], { duration: 900, easing: springSettle, fill: 'forwards' });
+
+            // Connection lines fade in — the lattice is connected
+            await delay(400);
+            animate(connectionLines, [
+                { opacity: 0 },
+                { opacity: 1 }
+            ], { duration: 1000, easing: easeOut, fill: 'forwards' });
+
+            await delay(1800);
+
+            // ===== BEAT 4: THE CLOSE (26-30s) =====
+            // Lattice cards fade, tagline resolves
+            // Ritardando: last 15% takes 40% of remaining time
+
+            // Fade lattice cards simultaneously
+            [latticeTdee, latticeBmi, latticeVitd, connectionLines].forEach((el, i) => {
+                animate(el, [
+                    { opacity: parseFloat(getComputedStyle(el).opacity) },
+                    { opacity: 0 }
+                ], { duration: 800, delay: i * 100, easing: easeOut, fill: 'forwards' });
+            });
+
+            // Ambient glow contracts to center point
+            animate(ambientGlow, [
+                { opacity: 0.4, transform: 'translate(-50%, -50%) scale(2.5)' },
+                { opacity: 0.6, transform: 'translate(-50%, -30%) scale(0.8)' }
+            ], { duration: 1200, easing: easeOut, fill: 'forwards' });
+
+            await delay(1000);
+
+            // Tagline appears — the synthesis
+            animate(tagline, [
+                { opacity: 0, transform: 'translateY(12px)' },
+                { opacity: 1, transform: 'translateY(0)' }
+            ], { duration: 1200, easing: easeOut, fill: 'forwards' });
+
+            await delay(600);
+
+            // Wordmark fades in last (ritardando — slowest at the end)
+            animate(wordmark, [
+                { opacity: 0 },
+                { opacity: 1 }
+            ], { duration: 1500, easing: easeOut, fill: 'forwards' });
+
+            // Hold the final frame indefinitely — screenshot-worthy ending
+        }
+
+        run();
+    </script>
+</body>
+</html>

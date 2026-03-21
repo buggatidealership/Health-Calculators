@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Brand V21 — Field Reduction</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --warm-center: #1a1412;
+            --cool-edge: #0a0e14;
+            --signal-green: #4ade80;
+            --grain-opacity: 0.035;
+        }
+
+        body {
+            background: var(--cool-edge);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        /* --- WARMTH GRADIENT (the field's emotional temperature) --- */
+        .field {
+            position: fixed;
+            inset: 0;
+            /* Radial: warm center, cool edges */
+            background: radial-gradient(ellipse 60% 50% at 50% 50%, var(--warm-center), var(--cool-edge));
+        }
+
+        /* --- FILM GRAIN --- */
+        .grain {
+            position: fixed;
+            inset: -50%;
+            width: 200%;
+            height: 200%;
+            pointer-events: none;
+            opacity: var(--grain-opacity);
+            z-index: 100;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            background-size: 256px 256px;
+            animation: grainShift 0.4s steps(4) infinite;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-64px, 32px); }
+            50% { transform: translate(32px, -64px); }
+            75% { transform: translate(-32px, 64px); }
+            100% { transform: translate(64px, -32px); }
+        }
+
+        /* --- NOISE FRAGMENTS --- */
+        .fragment {
+            position: absolute;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.12);
+            white-space: nowrap;
+            pointer-events: none;
+            transition: none;
+            will-change: transform, opacity, filter;
+            /* Desaturated by default */
+            filter: saturate(0.3);
+        }
+
+        /* --- SIGNAL (the emergent statement) --- */
+        .signal-container {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .signal-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            color: rgba(255, 255, 255, 0);
+            letter-spacing: 0.02em;
+            text-align: center;
+            /* Starts invisible, emerges */
+            transition: none;
+            will-change: color, filter, text-shadow;
+            filter: saturate(0) blur(2px);
+        }
+
+        .signal-sub {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+            color: rgba(255, 255, 255, 0);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-top: 1.2rem;
+            will-change: color;
+        }
+
+        /* --- PROXY ATTENTION VECTOR --- */
+        /* A single thin line that subtly points toward center */
+        .proxy-vector {
+            position: fixed;
+            z-index: 40;
+            pointer-events: none;
+            opacity: 0;
+            will-change: opacity;
+        }
+
+        .proxy-vector svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* --- PULSING DOT (brand element, appears with signal) --- */
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--signal-green);
+            margin-top: 2rem;
+            opacity: 0;
+            will-change: opacity;
+            box-shadow: 0 0 12px rgba(74, 222, 128, 0.4);
+        }
+
+        @keyframes gentlePulse {
+            0%, 100% { opacity: 0.7; box-shadow: 0 0 12px rgba(74, 222, 128, 0.3); }
+            50% { opacity: 1; box-shadow: 0 0 20px rgba(74, 222, 128, 0.6); }
+        }
+
+        /* --- VIGNETTE (strengthens during reduction) --- */
+        .vignette {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 30;
+            background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 30%, rgba(0,0,0,0) 100%);
+            will-change: background;
+        }
+    </style>
+</head>
+<body>
+    <div class="field" id="field"></div>
+    <div class="vignette" id="vignette"></div>
+
+    <!-- Proxy attention vector: a converging line from upper-left area toward center -->
+    <div class="proxy-vector" id="proxyVector" style="position:fixed;inset:0;width:100vw;height:100vh;">
+        <svg viewBox="0 0 1000 1000" preserveAspectRatio="none" style="width:100%;height:100%;">
+            <line id="proxyLine" x1="150" y1="180" x2="480" y2="480"
+                  stroke="rgba(74,222,128,0.08)" stroke-width="0.5" stroke-dasharray="4 8"/>
+        </svg>
+    </div>
+
+    <div class="signal-container">
+        <div class="signal-text" id="signalText">Every 5 hours, half.</div>
+        <div class="signal-sub" id="signalSub">The signal was always there</div>
+        <div class="pulse-dot" id="pulseDot"></div>
+    </div>
+
+    <div class="grain"></div>
+
+    <script>
+    (function() {
+        'use strict';
+
+        // --- FRAGMENT CONTENT: health noise ---
+        const noiseFragments = [
+            // Conflicting advice
+            'Eat 6 small meals a day',
+            'Intermittent fasting is the only way',
+            'Carbs are the enemy',
+            'You need carbs for energy',
+            'Never eat after 8pm',
+            'Meal timing doesn\'t matter',
+            'Drink 8 glasses of water',
+            'Actually, drink when you\'re thirsty',
+            'Keto changes everything',
+            'Keto is unsustainable long-term',
+            'Supplements are essential',
+            'Supplements are a waste of money',
+
+            // Scary stats
+            '73% of adults are overweight',
+            '1 in 3 have prediabetes',
+            'Sitting is the new smoking',
+            'Average vitamin D: dangerously low',
+            'Your metabolism slows 2% per decade',
+            'Sleep debt is cumulative',
+
+            // Influencer quotes
+            '"This changed my life completely"',
+            '"Doctors don\'t want you to know"',
+            '"I lost 30 lbs in 2 weeks"',
+            '"The science is clear"',
+            '"Trust me on this one"',
+            '"Game changer honestly"',
+
+            // Supplement claims
+            'Ashwagandha for cortisol',
+            'Turkesterone for gains',
+            'Creatine is safe... probably',
+            'Berberine: nature\'s Ozempic',
+            'Magnesium for everything',
+            '10,000 IU vitamin D daily',
+
+            // More noise
+            'TDEE is just a number',
+            'Calories in, calories out',
+            'It\'s not about calories',
+            'Hormones override everything',
+            'Just move more',
+            'Exercise doesn\'t matter for weight loss',
+            'BMI is outdated',
+            'BMI still matters',
+            'Get 10,000 steps',
+            'Steps don\'t count intensity',
+            'Zone 2 cardio only',
+            'HIIT is superior',
+            'Cold plunges boost metabolism',
+            'There\'s no evidence for cold plunges',
+        ];
+
+        const field = document.getElementById('field');
+        const vignette = document.getElementById('vignette');
+        const signalText = document.getElementById('signalText');
+        const signalSub = document.getElementById('signalSub');
+        const pulseDot = document.getElementById('pulseDot');
+        const proxyVector = document.getElementById('proxyVector');
+
+        // --- CREATE FRAGMENTS ---
+        const fragmentEls = [];
+        const fragmentData = [];
+        const NUM_FRAGMENTS = noiseFragments.length;
+
+        for (let i = 0; i < NUM_FRAGMENTS; i++) {
+            const el = document.createElement('div');
+            el.className = 'fragment';
+            el.textContent = noiseFragments[i];
+
+            // Distribute across the viewport, avoiding dead center
+            // Use polar-ish distribution — more at edges
+            const angle = (i / NUM_FRAGMENTS) * Math.PI * 2 + (Math.random() * 0.4 - 0.2);
+            const minR = 15; // % from center minimum
+            const maxR = 48; // % from center maximum
+            const r = minR + Math.random() * (maxR - minR);
+
+            const cx = 50 + r * Math.cos(angle);
+            const cy = 50 + r * Math.sin(angle);
+
+            // Size variation
+            const fontSize = 0.75 + Math.random() * 0.55; // 0.75 - 1.3rem
+            el.style.fontSize = fontSize + 'rem';
+
+            // Position
+            el.style.left = cx + '%';
+            el.style.top = cy + '%';
+            el.style.transform = 'translate(-50%, -50%)';
+
+            field.appendChild(el);
+            fragmentEls.push(el);
+
+            // Store data for animation
+            const distFromCenter = Math.sqrt((cx - 50) ** 2 + (cy - 50) ** 2);
+            fragmentData.push({
+                el,
+                baseX: cx,
+                baseY: cy,
+                distFromCenter,
+                driftX: (Math.random() - 0.5) * 0.3,  // slow drift per frame
+                driftY: (Math.random() - 0.5) * 0.2,
+                driftPhase: Math.random() * Math.PI * 2,
+                fontSize,
+                baseOpacity: 0.06 + Math.random() * 0.09  // 0.06 - 0.15
+            });
+        }
+
+        // --- ANIMATION TIMELINE (40 seconds) ---
+        // Phase 1 (0-12s): Ambient drift. All fragments visible at low opacity. Field is neutral.
+        // Phase 2 (12-25s): Gradient surround activates. Fragments near center dim MORE.
+        //                    Edge fragments blur MORE. Vignette strengthens. Warmth gradient intensifies.
+        // Phase 3 (25-35s): Signal emerges. "Every 5 hours, half." fades in with full saturation.
+        //                    Proxy vector becomes subtly visible. Pulse dot appears.
+        // Phase 4 (35-40s): Hold. Signal is vivid. Noise is near-gone. Subtitle appears.
+
+        const TOTAL_DURATION = 40000; // ms
+        let startTime = null;
+
+        function easeInOutCubic(t) {
+            return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+        function easeOutQuart(t) {
+            return 1 - Math.pow(1 - t, 4);
+        }
+        function clamp(v, min, max) {
+            return Math.max(min, Math.min(max, v));
+        }
+        function lerp(a, b, t) {
+            return a + (b - a) * t;
+        }
+
+        function animate(timestamp) {
+            if (!startTime) startTime = timestamp;
+            const elapsed = timestamp - startTime;
+            const progress = clamp(elapsed / TOTAL_DURATION, 0, 1);
+
+            // --- PHASE PROGRESS ---
+            // Phase 1: 0 - 0.3 (0-12s)
+            // Phase 2: 0.3 - 0.625 (12-25s)
+            // Phase 3: 0.625 - 0.875 (25-35s)
+            // Phase 4: 0.875 - 1.0 (35-40s)
+
+            const reductionProgress = clamp((progress - 0.25) / 0.5, 0, 1); // 0.25-0.75 ramp
+            const signalProgress = clamp((progress - 0.6) / 0.25, 0, 1);    // 0.6-0.85
+            const subProgress = clamp((progress - 0.85) / 0.1, 0, 1);       // 0.85-0.95
+            const dotProgress = clamp((progress - 0.82) / 0.08, 0, 1);      // 0.82-0.90
+            const proxyProgress = clamp((progress - 0.5) / 0.3, 0, 1);      // 0.5-0.8
+
+            const easedReduction = easeInOutCubic(reductionProgress);
+            const easedSignal = easeOutQuart(signalProgress);
+            const easedSub = easeOutQuart(subProgress);
+
+            // --- UPDATE FRAGMENTS ---
+            const time = elapsed * 0.001;
+
+            for (let i = 0; i < NUM_FRAGMENTS; i++) {
+                const d = fragmentData[i];
+                const el = d.el;
+
+                // Ambient drift (always active, slows during reduction)
+                const driftScale = 1 - easedReduction * 0.6;
+                const driftX = Math.sin(time * 0.15 + d.driftPhase) * d.driftX * 12 * driftScale;
+                const driftY = Math.cos(time * 0.12 + d.driftPhase * 1.3) * d.driftY * 10 * driftScale;
+
+                const x = d.baseX + driftX;
+                const y = d.baseY + driftY;
+
+                el.style.left = x + '%';
+                el.style.top = y + '%';
+
+                // --- FIELD PRINCIPLE: Tilt the floor ---
+                // Instead of spotlighting center, we DE-EMPHASIZE based on position.
+                // GRADIENT SURROUND: the further from center, the more blur.
+                // NEAR center: opacity dims (creates void = lowest potential energy).
+
+                const dist = d.distFromCenter;
+
+                // Opacity: starts at base, then during reduction:
+                //   - ALL fragments dim
+                //   - Near-center fragments dim MORE (creating the void)
+                //   - Far fragments dim slightly less (they blur instead)
+                const centerProximity = 1 - clamp(dist / 50, 0, 1); // 1 at center, 0 at edges
+                const centerDimExtra = centerProximity * 0.7; // Extra dimming near center
+
+                let opacity = d.baseOpacity;
+                // During reduction, everything dims — but center dims faster
+                const dimFactor = 1 - easedReduction * (0.65 + centerDimExtra * 0.35);
+                opacity *= Math.max(dimFactor, 0);
+
+                el.style.opacity = opacity;
+
+                // Blur: edges blur more during reduction
+                const edgeness = clamp(dist / 40, 0, 1);
+                const blur = easedReduction * edgeness * 6; // up to 6px blur at edges
+                // Near-center fragments also get slight blur (but less)
+                const centerBlur = easedReduction * centerProximity * 2;
+
+                el.style.filter = `saturate(${0.3 - easedReduction * 0.25}) blur(${blur + centerBlur}px)`;
+            }
+
+            // --- VIGNETTE: strengthens during reduction ---
+            const vignetteStrength = 0.5 + easedReduction * 0.4;
+            vignette.style.background = `radial-gradient(ellipse ${70 - easedReduction * 20}% ${60 - easedReduction * 15}% at 50% 50%, transparent ${30 - easedReduction * 20}%, rgba(0,0,0,${vignetteStrength}) 100%)`;
+
+            // --- WARMTH GRADIENT: intensifies at center ---
+            const warmR = Math.round(26 + easedReduction * 10);
+            const warmG = Math.round(20 + easedReduction * 4);
+            const warmB = Math.round(18 + easedReduction * 2);
+            field.style.background = `radial-gradient(ellipse 60% 50% at 50% 50%, rgb(${warmR},${warmG},${warmB}), var(--cool-edge))`;
+
+            // --- SIGNAL EMERGENCE ---
+            // The text doesn't "appear" — it becomes the only thing with contrast
+            const signalOpacity = easedSignal * 0.95;
+            const signalBlur = (1 - easedSignal) * 4;
+            const signalSat = easedSignal;
+            signalText.style.color = `rgba(255, 255, 255, ${signalOpacity})`;
+            signalText.style.filter = `saturate(${signalSat}) blur(${signalBlur}px)`;
+
+            // Subtle warm glow on signal when fully emerged
+            if (easedSignal > 0.5) {
+                const glowStrength = (easedSignal - 0.5) * 2;
+                signalText.style.textShadow = `0 0 ${30 * glowStrength}px rgba(255, 230, 200, ${0.12 * glowStrength})`;
+            }
+
+            // --- SUBTITLE ---
+            signalSub.style.color = `rgba(255, 255, 255, ${easedSub * 0.45})`;
+
+            // --- PULSE DOT ---
+            const dotOpacity = easeOutQuart(dotProgress);
+            pulseDot.style.opacity = dotOpacity;
+            if (dotProgress > 0.8) {
+                pulseDot.style.animation = 'gentlePulse 3s ease-in-out infinite';
+            }
+
+            // --- PROXY ATTENTION VECTOR ---
+            // A single dashed line from upper-left quadrant pointing toward center
+            // Becomes visible mid-reduction — the ONE element that "points"
+            const proxyOpacity = easeOutQuart(proxyProgress) * 0.5;
+            proxyVector.style.opacity = proxyOpacity;
+
+            // Continue animation
+            if (progress < 1) {
+                requestAnimationFrame(animate);
+            }
+        }
+
+        // Small delay before starting so the page renders first
+        setTimeout(() => {
+            requestAnimationFrame(animate);
+        }, 300);
+
+    })();
+    </script>
+</body>
+</html>
