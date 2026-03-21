@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>The Rhythm — Brand Animation V23</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0a0a;
+            color: #f0efe9;
+            font-family: 'DM Serif Display', serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            animation: grainShift 0.4s steps(3) infinite;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(-2px, 1px); }
+            66% { transform: translate(1px, -2px); }
+            100% { transform: translate(-1px, 2px); }
+        }
+
+        .stage {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            text-align: center;
+            padding: 0 2rem;
+        }
+
+        .line {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            opacity: 0;
+            pointer-events: none;
+            padding: 0 2rem;
+        }
+
+        .line .text {
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            color: #f0efe9;
+        }
+
+        .line.accent .text {
+            color: #4ecdc4;
+        }
+
+        .line.stat .text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.4rem, 3.5vw, 2.8rem);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .line.rule .text {
+            font-size: clamp(2.4rem, 6vw, 5rem);
+            color: #4ecdc4;
+        }
+
+        .line.close .text {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: clamp(1.1rem, 2.8vw, 2rem);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #f0efe988;
+        }
+
+        /* Kinetic technique styles applied via JS */
+        .line .char {
+            display: inline-block;
+            opacity: 0;
+        }
+
+        /* Beat marker — subtle pulse at bottom */
+        .beat-marker {
+            position: fixed;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ecdc4;
+            opacity: 0;
+            z-index: 100;
+        }
+
+        /* Replay button */
+        .replay {
+            position: fixed;
+            bottom: 2.5rem;
+            right: 2.5rem;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: #f0efe944;
+            background: none;
+            border: 1px solid #f0efe922;
+            padding: 0.6rem 1.2rem;
+            cursor: pointer;
+            z-index: 100;
+            opacity: 0;
+            transition: color 0.3s, border-color 0.3s, opacity 0.6s;
+        }
+        .replay:hover {
+            color: #f0efe9aa;
+            border-color: #f0efe944;
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <div class="stage" id="stage">
+        <!-- Lines are created dynamically -->
+    </div>
+
+    <div class="beat-marker" id="beatMarker"></div>
+    <button class="replay" id="replay" onclick="runAnimation()">Replay</button>
+
+    <script>
+    // =========================================================
+    // THE RHYTHM — Pink Noise Pacing Brand Animation
+    // =========================================================
+    //
+    // MACRO structure (3 acts):
+    //   Act 1: Medium tempo — "They give you..." pattern (3x) + violation
+    //   Act 2: Fast tempo — "One..." pattern (3x) + held payoff
+    //   Act 3: Slow — earned close
+    //
+    // MESO variation: each section has its own base tempo
+    // MICRO jitter: 5-15% randomness on every timing value
+    //
+    // THREE-BEFORE-ONE: pattern established 3x, violated on 4th
+    // RESOLUTION DEBT: violations repaid with simplicity/hold
+    // =========================================================
+
+    const LINES = [
+        // ACT 1: Medium tempo — "noise" pattern
+        { text: "They give you content.", type: 'normal', technique: 'slam', baseDuration: 600, holdAfter: 1400 },
+        { text: "They give you numbers.", type: 'normal', technique: 'blur', baseDuration: 600, holdAfter: 1400 },
+        { text: "They give you noise.",   type: 'normal', technique: 'mask', baseDuration: 600, holdAfter: 1400 },
+        // VIOLATION: double speed, no pause
+        { text: "We give you one rule you carry forever.", type: 'accent', technique: 'stagger', baseDuration: 300, holdAfter: 200 },
+        // RESOLUTION: held 2x longest previous element
+        { text: "Every 5 hours, half.", type: 'rule', technique: 'fade-slow', baseDuration: 1200, holdAfter: 3600 },
+
+        // ACT 2: Fast tempo — "one" pattern
+        { text: "One question.", type: 'normal', technique: 'slam', baseDuration: 350, holdAfter: 600 },
+        { text: "One plan.",     type: 'normal', technique: 'blur', baseDuration: 350, holdAfter: 600 },
+        { text: "One check-in.", type: 'normal', technique: 'mask', baseDuration: 350, holdAfter: 600 },
+        // VIOLATION: held payoff
+        { text: "Sleep improved 31%.", type: 'stat', technique: 'count-up', baseDuration: 800, holdAfter: 3000 },
+
+        // ACT 3: Slow earned close
+        { text: "Where noise is reduced to portable signal.", type: 'close', technique: 'char-fade', baseDuration: 2400, holdAfter: 3000 },
+    ];
+
+    // Spring easing approximation (attempt to mimic underdamped spring)
+    function springEase(t) {
+        // Attempt: fast approach with slight overshoot
+        const c4 = (2 * Math.PI) / 3;
+        if (t === 0 || t === 1) return t;
+        return Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * c4) + 1;
+    }
+
+    // Micro-jitter: adds 5-15% variation to any timing value
+    function jitter(value) {
+        const pct = 0.05 + Math.random() * 0.10; // 5-15%
+        const sign = Math.random() > 0.5 ? 1 : -1;
+        return Math.round(value * (1 + sign * pct));
+    }
+
+    // Split text into individual character spans
+    function splitChars(text) {
+        return text.split('').map((ch, i) => {
+            if (ch === ' ') return `<span class="char" style="width:0.3em;display:inline-block;">&nbsp;</span>`;
+            return `<span class="char" data-i="${i}">${ch}</span>`;
+        }).join('');
+    }
+
+    const stage = document.getElementById('stage');
+    const beatMarker = document.getElementById('beatMarker');
+    const replayBtn = document.getElementById('replay');
+    let animationTimer = null;
+
+    function clearStage() {
+        stage.innerHTML = '';
+        replayBtn.style.opacity = '0';
+    }
+
+    function createLine(config) {
+        const el = document.createElement('div');
+        el.className = `line ${config.type || ''} ${config.technique || ''}`;
+        el.innerHTML = `<div class="text">${splitChars(config.text)}</div>`;
+        stage.appendChild(el);
+        return el;
+    }
+
+    // Beat marker flash
+    function flashBeat() {
+        beatMarker.style.transition = 'none';
+        beatMarker.style.opacity = '0.8';
+        beatMarker.style.transform = 'translateX(-50%) scale(1.5)';
+        requestAnimationFrame(() => {
+            beatMarker.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            beatMarker.style.opacity = '0';
+            beatMarker.style.transform = 'translateX(-50%) scale(1)';
+        });
+    }
+
+    // =========================================================
+    // KINETIC TECHNIQUES
+    // Each word arrives with a DIFFERENT kinetic method
+    // =========================================================
+
+    function animateSlam(el, duration) {
+        return new Promise(resolve => {
+            const chars = el.querySelectorAll('.char');
+            el.style.opacity = '1';
+            el.style.transform = 'translate(-50%, -50%) scale(1.3)';
+            el.style.transition = `transform ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+
+            // All chars appear at once with a slam
+            chars.forEach(ch => {
+                ch.style.opacity = '1';
+            });
+
+            requestAnimationFrame(() => {
+                el.style.transform = 'translate(-50%, -50%) scale(1)';
+            });
+
+            setTimeout(resolve, duration);
+        });
+    }
+
+    function animateBlur(el, duration) {
+        return new Promise(resolve => {
+            const chars = el.querySelectorAll('.char');
+            el.style.opacity = '1';
+            el.style.filter = 'blur(20px)';
+            el.style.transition = `filter ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+
+            chars.forEach(ch => {
+                ch.style.opacity = '1';
+            });
+
+            requestAnimationFrame(() => {
+                el.style.filter = 'blur(0px)';
+            });
+
+            setTimeout(resolve, duration);
+        });
+    }
+
+    function animateMask(el, duration) {
+        return new Promise(resolve => {
+            el.style.opacity = '1';
+            el.style.clipPath = 'inset(0 100% 0 0)';
+            el.style.transition = `clip-path ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+
+            const chars = el.querySelectorAll('.char');
+            chars.forEach(ch => { ch.style.opacity = '1'; });
+
+            requestAnimationFrame(() => {
+                el.style.clipPath = 'inset(0 0% 0 0)';
+            });
+
+            setTimeout(resolve, duration);
+        });
+    }
+
+    function animateStagger(el, duration) {
+        return new Promise(resolve => {
+            el.style.opacity = '1';
+            const chars = el.querySelectorAll('.char');
+            const perChar = duration / chars.length;
+
+            chars.forEach((ch, i) => {
+                setTimeout(() => {
+                    ch.style.transition = `opacity ${jitter(80)}ms ease-out, transform ${jitter(150)}ms cubic-bezier(0.22, 1, 0.36, 1)`;
+                    ch.style.transform = 'translateY(0)';
+                    ch.style.opacity = '1';
+                }, jitter(i * perChar));
+                // Start state
+                ch.style.transform = 'translateY(12px)';
+            });
+
+            setTimeout(resolve, duration + 100);
+        });
+    }
+
+    function animateFadeSlow(el, duration) {
+        return new Promise(resolve => {
+            el.style.opacity = '0';
+            el.style.transition = `opacity ${duration}ms ease-in-out`;
+
+            const chars = el.querySelectorAll('.char');
+            chars.forEach(ch => { ch.style.opacity = '1'; });
+
+            requestAnimationFrame(() => {
+                el.style.opacity = '1';
+            });
+
+            setTimeout(resolve, duration);
+        });
+    }
+
+    function animateCountUp(el, duration) {
+        return new Promise(resolve => {
+            el.style.opacity = '1';
+            const chars = el.querySelectorAll('.char');
+
+            // Find the number chars (3, 1, %)
+            const textContent = el.querySelector('.text').textContent;
+            const numberMatch = textContent.match(/(\d+)/);
+
+            chars.forEach(ch => { ch.style.opacity = '1'; });
+
+            if (numberMatch) {
+                const targetNum = parseInt(numberMatch[1]);
+                const numChars = [];
+                let numStartIdx = -1;
+
+                chars.forEach((ch, i) => {
+                    const c = ch.textContent;
+                    if (/\d/.test(c)) {
+                        if (numStartIdx === -1) numStartIdx = i;
+                        numChars.push(ch);
+                    }
+                });
+
+                // Count from 0 to target
+                const steps = 20;
+                const stepDur = duration / steps;
+                let step = 0;
+
+                // Initially hide number chars, show others
+                chars.forEach((ch, i) => {
+                    if (/\d/.test(ch.textContent)) {
+                        ch.style.opacity = '0';
+                    }
+                });
+
+                // Quick reveal of non-number text via blur
+                el.style.filter = 'blur(8px)';
+                el.style.transition = `filter ${jitter(300)}ms ease-out`;
+                requestAnimationFrame(() => { el.style.filter = 'blur(0px)'; });
+
+                const countInterval = setInterval(() => {
+                    step++;
+                    const current = Math.round((step / steps) * targetNum);
+                    const currentStr = String(current).padStart(String(targetNum).length, ' ');
+
+                    numChars.forEach((ch, i) => {
+                        ch.textContent = currentStr[i] || '';
+                        ch.style.opacity = '1';
+                        ch.style.transition = 'none';
+                    });
+
+                    if (step >= steps) {
+                        clearInterval(countInterval);
+                        // Restore original
+                        const targetStr = String(targetNum);
+                        numChars.forEach((ch, i) => {
+                            ch.textContent = targetStr[i];
+                        });
+                        resolve();
+                    }
+                }, stepDur);
+            } else {
+                resolve();
+            }
+        });
+    }
+
+    function animateCharFade(el, duration) {
+        return new Promise(resolve => {
+            el.style.opacity = '1';
+            const chars = el.querySelectorAll('.char');
+            const perChar = duration / chars.length;
+
+            chars.forEach((ch, i) => {
+                setTimeout(() => {
+                    ch.style.transition = `opacity ${jitter(400)}ms ease-in-out`;
+                    ch.style.opacity = '1';
+                }, jitter(i * perChar));
+            });
+
+            setTimeout(resolve, duration + 500);
+        });
+    }
+
+    const TECHNIQUES = {
+        'slam': animateSlam,
+        'blur': animateBlur,
+        'mask': animateMask,
+        'stagger': animateStagger,
+        'fade-slow': animateFadeSlow,
+        'count-up': animateCountUp,
+        'char-fade': animateCharFade,
+    };
+
+    // =========================================================
+    // Fade out a line
+    // =========================================================
+    function fadeOut(el, duration = 400) {
+        return new Promise(resolve => {
+            el.style.transition = `opacity ${duration}ms ease-in-out`;
+            el.style.opacity = '0';
+            setTimeout(() => {
+                el.remove();
+                resolve();
+            }, duration);
+        });
+    }
+
+    // =========================================================
+    // MAIN SEQUENCE
+    // =========================================================
+    function sleep(ms) {
+        return new Promise(resolve => {
+            animationTimer = setTimeout(resolve, jitter(ms));
+        });
+    }
+
+    async function runAnimation() {
+        clearStage();
+
+        // Initial pause — let the darkness breathe
+        await sleep(1200);
+
+        // ------- ACT 1: Medium tempo -------
+        // Three pattern lines + violation + resolution
+        for (let i = 0; i < 5; i++) {
+            const config = LINES[i];
+            const el = createLine(config);
+            const technique = TECHNIQUES[config.technique];
+
+            flashBeat();
+            await technique(el, jitter(config.baseDuration));
+            await sleep(config.holdAfter);
+
+            // Don't fade out the resolution line (index 4) until its hold is done
+            if (i < 4) {
+                // Fade out before next line — overlap slightly for rhythm
+                fadeOut(el, jitter(350));
+                await sleep(150);
+            } else {
+                // Resolution line: hold, then slow fade (ritardando)
+                await fadeOut(el, jitter(1200));
+                await sleep(800);
+            }
+        }
+
+        // ------- ACT 2: Fast tempo -------
+        // Gap between acts — the silence is part of the rhythm
+        await sleep(600);
+
+        for (let i = 5; i < 9; i++) {
+            const config = LINES[i];
+            const el = createLine(config);
+            const technique = TECHNIQUES[config.technique];
+
+            flashBeat();
+            await technique(el, jitter(config.baseDuration));
+            await sleep(config.holdAfter);
+
+            if (i < 8) {
+                fadeOut(el, jitter(250));
+                await sleep(100);
+            } else {
+                // "Sleep improved 31%" — the payoff holds
+                await fadeOut(el, jitter(1000));
+                await sleep(1000);
+            }
+        }
+
+        // ------- ACT 3: Slow earned close -------
+        await sleep(800);
+
+        const closeConfig = LINES[9];
+        const closeEl = createLine(closeConfig);
+        const closeTechnique = TECHNIQUES[closeConfig.technique];
+
+        flashBeat();
+        await closeTechnique(closeEl, jitter(closeConfig.baseDuration));
+        await sleep(closeConfig.holdAfter);
+
+        // Ritardando exit — last 15% takes 40%+ of exit time
+        closeEl.style.transition = 'opacity 2.4s ease-in-out';
+        closeEl.style.opacity = '0.3';
+        await sleep(2400);
+        closeEl.style.transition = 'opacity 1.6s ease-in-out';
+        closeEl.style.opacity = '0';
+        await sleep(1800);
+
+        // Show replay
+        replayBtn.style.opacity = '1';
+    }
+
+    // Start on load
+    window.addEventListener('load', () => {
+        setTimeout(runAnimation, 300);
+    });
+    </script>
+</body>
+</html>
