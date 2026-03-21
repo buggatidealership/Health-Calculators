@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>One Night. One Week.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+/* === SATURATION SYSTEM (4 levels) === */
+:root{
+  --teal-dim: hsl(175, 40%, 15%);
+  --teal-mid: hsl(175, 70%, 28%);
+  --teal-bright: hsl(175, 85%, 42%);
+  --teal-vivid: hsl(175, 95%, 50%);
+  --warm:#F5F0EA;
+  --spring-in: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-exit: ease-in;
+  --spring-soft: cubic-bezier(0.16, 1, 0.3, 1);
+}
+html,body{background:#0a0e12;color:#e4e6ea;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh}
+
+/* Film grain at 3.5% */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+
+/* Vignette overlay for dark scenes */
+.vignette{position:fixed;inset:0;pointer-events:none;z-index:99;
+  background:radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.35) 100%);
+  opacity:1;transition:opacity 1s ease}
+
+/* Flash overlay for visual punctuation */
+.flash-overlay{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:80;transition:opacity 0.05s}
+.flash-overlay.hit{opacity:0.08}
+
+/* Viewport pulse for impact moments */
+.viewport-pulse{animation:vpulse 0.3s var(--spring-in)}
+@keyframes vpulse{0%{transform:scale(1)}50%{transform:scale(1.003)}100%{transform:scale(1)}}
+
+.cut{position:fixed;inset:0;background:#000;z-index:50;opacity:0;pointer-events:none;transition:opacity 0.05s}
+.cut.flash{opacity:1}
+
+/* Scenes — only used for non-phone content (S1 tabs, S5 close) */
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;padding:2rem;text-align:center;transition:opacity 0.3s var(--ease-exit)}
+.scene.on{opacity:1;pointer-events:auto}
+
+/* Phone glow for 3AM — cool blue, subdued */
+.phone-glow{position:fixed;top:40%;left:50%;width:500px;height:500px;
+  background:radial-gradient(circle,rgba(100,140,180,0.06),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 1.2s ease;
+  animation:gb 4s ease-in-out infinite}
+.phone-glow.on{opacity:1}
+@keyframes gb{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+
+/* === S1: 3AM — SLOW, melancholy === */
+.clock{font-family:'DM Sans',sans-serif;font-weight:300;font-size:clamp(4rem,12vw,7rem);color:rgba(255,255,255,0.6);
+  letter-spacing:-2px;opacity:0;transform:scale(0.9);transition:all 1s var(--spring-soft)}
+.clock.in{opacity:1;transform:scale(1)}
+.clock-meta{font-size:0.65rem;color:rgba(255,255,255,0.15);letter-spacing:2px;margin-top:-8px;margin-bottom:8px;
+  opacity:0;transition:opacity 0.8s ease}.clock-meta.in{opacity:1}
+.tabs-container{display:flex;flex-direction:column;gap:8px;margin-top:1.5rem;width:min(500px,90vw)}
+.tab{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:10px;
+  padding:12px 18px;text-align:left;font-size:clamp(0.8rem,1.8vw,0.95rem);color:rgba(255,255,255,0.4);
+  display:flex;align-items:center;gap:10px;opacity:0;transform:translateX(-20px);transition:all 0.5s var(--spring-in)}
+.tab.in{opacity:1;transform:translateX(0)}
+.tab-icon{font-size:0.7rem;color:rgba(255,255,255,0.2)}
+.tab-close{margin-left:auto;font-size:0.6rem;color:rgba(255,255,255,0.15)}
+.tab-cursor{display:inline-block;width:2px;height:14px;background:rgba(255,255,255,0.4);
+  animation:blink 0.6s step-end infinite;vertical-align:middle;margin-left:2px}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+@keyframes micro-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+.s1-text{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.8rem);color:rgba(255,255,255,0.5);
+  margin-top:2rem;opacity:0;transition:opacity 1s ease}.s1-text.in{opacity:1}
+
+/* === THE PHONE (persistent) === */
+.phone-wrap{position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);z-index:10;
+  opacity:0;pointer-events:none;transition:opacity 0.3s var(--ease-exit)}
+.phone-wrap.on{opacity:1}
+.phone{width:min(380px,85vw);background:linear-gradient(145deg,#1a1a1a,#111);border-radius:36px;
+  padding:14px;
+  /* Double shadow: tight + diffused for premium depth */
+  box-shadow:0 0 80px rgba(14,122,126,0.06),0 30px 60px rgba(0,0,0,0.5),0 60px 120px rgba(0,0,0,0.3);
+  border:1.5px solid rgba(255,255,255,0.07);
+  transform:translateY(40px) scale(0.92);transition:all 0.8s var(--spring-in)}
+.phone.in{transform:translateY(0) scale(1)}
+.phone-screen{border-radius:26px;overflow:hidden;position:relative;min-height:520px}
+
+/* Phone hero glow — uses teal-dim, NOT teal-bright */
+.phone-hero-glow{position:fixed;top:50%;left:50%;width:500px;height:500px;
+  background:radial-gradient(circle,var(--teal-dim),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 0.8s ease;z-index:5}
+.phone-hero-glow.on{opacity:1}
+
+/* Phone vibrate — micro-shake for WhatsApp notification */
+@keyframes vibrate{0%,100%{transform:translate(-50%,-50%)}20%{transform:translate(-52%,-50%)}40%{transform:translate(-48%,-50%)}60%{transform:translate(-51%,-50%)}80%{transform:translate(-49%,-50%)}}
+/* Gentler notification shake: ±2px */
+@keyframes notif-shake{0%,100%{transform:translate(-50%,-50%)}25%{transform:translate(calc(-50% - 2px),-50%)}75%{transform:translate(calc(-50% + 2px),-50%)}}
+
+/* Screen content layers (stack, crossfade) */
+.sc{position:absolute;inset:0;opacity:0;transition:opacity 0.4s ease;display:flex;flex-direction:column}
+.sc.active{opacity:1}
+
+/* V25 calc screen */
+.v25{background:linear-gradient(180deg,#0a0f1a,#081a1a);padding:16px;color:#e2e8f0;min-height:520px;display:flex;flex-direction:column}
+.v25-header{text-align:center;padding:8px 0}
+.v25-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;
+  animation:pdot 2.5s ease-in-out infinite}
+@keyframes pdot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.5)}50%{box-shadow:0 0 0 8px rgba(34,197,94,0)}}
+.v25-title{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.6rem);text-align:center;margin:12px 0 4px;color:#fff}
+.v25-sub{color:#94a3b8;font-size:0.8rem;text-align:center;margin-bottom:16px}
+.v25-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+/* Drink cards use teal-dim for unselected background */
+.v25-card{background:rgba(14,122,126,0.07);border:1px solid rgba(20,184,166,0.12);border-radius:12px;
+  padding:12px 6px;text-align:center;transition:all 0.25s var(--spring-in);opacity:0;transform:translateY(6px)}
+.v25-card.in{opacity:1;transform:translateY(0)}
+.v25-card.pressed{transform:scale(0.92);transition-duration:0.1s}
+/* Selected card uses teal-bright */
+.v25-card.selected{border-color:var(--teal-bright);box-shadow:0 0 20px rgba(20,184,166,0.3),0 0 0 1px var(--teal-bright);transform:scale(1.05);background:rgba(20,184,166,0.1)}
+.v25-emoji{font-size:1.3rem;display:block;margin-bottom:4px}
+.v25-name{font-size:0.7rem;font-weight:600;display:block}
+.v25-mg{font-size:0.6rem;color:#94a3b8;display:block;margin-top:2px}
+
+.v25-result-num{font-family:'DM Serif Display',serif;font-size:clamp(4rem,12vw,6rem);text-align:center;margin-top:24px;
+  transition:color 0.3s ease,text-shadow 0.3s ease}
+.v25-result-unit{font-size:0.85rem;color:#94a3b8;text-align:center;margin-top:4px}
+.v25-result-verdict{font-size:1rem;text-align:center;margin-top:12px;font-weight:600;opacity:0;transition:opacity 0.4s var(--spring-in)}
+.v25-result-verdict.in{opacity:1}
+.v25-cutoff{margin-top:24px;padding-top:16px;border-top:1px solid rgba(20,184,166,0.1);text-align:center;
+  opacity:0;transform:translateY(8px);transition:all 0.5s var(--spring-in)}
+.v25-cutoff.in{opacity:1;transform:translateY(0)}
+.v25-cutoff-label{font-size:0.85rem;color:#94a3b8}
+.v25-cutoff-time{font-family:'DM Serif Display',serif;font-size:clamp(2rem,6vw,3rem);color:var(--teal-mid);margin-top:4px}
+
+/* Coach card title uses teal-mid text */
+.v25-coach-title{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.5rem);text-align:center;margin:20px 0 16px;color:#fff}
+/* Coach card body uses teal-dim background, 50% larger padding for "the rule" moment */
+.v25-coach-body{background:linear-gradient(180deg,rgba(20,184,166,0.06),rgba(14,122,126,0.03));
+  border:1px solid rgba(20,184,166,0.15);border-radius:16px;padding:20px 16px;text-align:left;
+  transition:padding 0.6s var(--spring-in)}
+.v25-coach-body.expanded{padding:30px 24px}
+.v25-coach-line{font-size:0.9rem;line-height:2;color:#e2e8f0;opacity:0;transform:translateY(6px);
+  transition:all 0.5s var(--spring-in)}
+.v25-coach-line.in{opacity:1;transform:translateY(0)}
+/* teal-mid for coach text highlights */
+.v25-coach-line .hl{color:var(--teal-mid);font-weight:700}
+/* The rule uses teal-vivid — ONLY here and sparks */
+.v25-coach-rule{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--teal-vivid);margin-top:14px;
+  text-shadow:0 0 30px rgba(20,184,166,0.4);opacity:0;transform:scale(0.9);
+  transition:all 0.5s var(--spring-in)}
+.v25-coach-rule.in{opacity:1;transform:scale(1)}
+
+/* WhatsApp notification (in-phone) */
+.wa-screen{background:linear-gradient(180deg,#0a0f1a,#0d1520);padding:0;min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#e2e8f0}
+/* Notification drops in gently: 600ms spring */
+.wa-notif{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.08);border-radius:16px;
+  padding:16px 18px;width:90%;display:flex;gap:12px;align-items:flex-start;
+  opacity:0;transform:translateY(-40px);transition:all 0.6s var(--spring-in)}
+.wa-notif.in{opacity:1;transform:translateY(0)}
+.wa-notif.dismissed{opacity:0;transform:translateX(120%);transition:all 0.4s var(--ease-exit)}
+.wa-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-bright),var(--teal-mid));
+  display:flex;align-items:center;justify-content:center;font-size:0.75rem;font-weight:800;color:#fff;flex-shrink:0;
+  animation:pav 3.75s ease-in-out infinite}
+@keyframes pav{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.wa-app{font-size:0.55rem;color:rgba(255,255,255,0.3);font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.wa-text{font-size:clamp(0.82rem,1.6vw,0.92rem);color:rgba(255,255,255,0.7);margin-top:4px;line-height:1.5;text-align:left}
+.wa-time{font-size:0.6rem;color:rgba(255,255,255,0.2);margin-top:6px}
+
+/* Telegram chat (in-phone) */
+.tg-screen{background:#fafaf8;min-height:520px;display:flex;flex-direction:column}
+.tg-header{display:flex;align-items:center;gap:12px;padding:14px 18px;background:#fafaf8;border-bottom:1px solid rgba(0,0,0,0.06)}
+.tg-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-bright),var(--teal-mid));
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;animation:pav 3.75s ease-in-out infinite}
+.tg-name{font-size:clamp(0.85rem,1.8vw,1rem);font-weight:700;color:#1a1a1a}
+.tg-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;border:2px solid #fafaf8}
+.tg-chat{padding:14px 16px;display:flex;flex-direction:column;gap:10px;flex:1;overflow-y:auto;background:#fafaf8}
+
+.bub{border-radius:16px;padding:12px 16px;font-size:clamp(0.8rem,1.6vw,0.92rem);line-height:1.55;max-width:88%;
+  opacity:0;transform:translateY(12px) scale(0.88);transition:all 0.4s var(--spring-in)}
+.bub.in{opacity:1;transform:translateY(0) scale(1)}
+.bub.u{background:#d1fae5;color:#1a1a1a;align-self:flex-end;border-bottom-right-radius:4px}
+.bub.a{background:#fff;color:#2a2a2a;align-self:flex-start;border-bottom-left-radius:4px;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.bub .hl{color:var(--teal-mid);font-weight:700}
+.bub .warm{color:#b45309;font-weight:600}
+
+.typing{display:flex;gap:4px;padding:10px 16px;align-self:flex-start}
+.typing-dot{width:7px;height:7px;border-radius:50%;background:rgba(0,0,0,0.15);animation:tdot 1.2s infinite}
+.typing-dot:nth-child(2){animation-delay:0.2s}
+.typing-dot:nth-child(3){animation-delay:0.4s}
+@keyframes tdot{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-5px)}}
+
+.pills{display:flex;gap:8px;align-self:flex-end;flex-wrap:wrap;justify-content:flex-end}
+.pill{background:rgba(14,122,126,0.06);border:1.5px solid rgba(14,122,126,0.2);border-radius:20px;
+  padding:8px 16px;font-size:clamp(0.7rem,1.4vw,0.82rem);font-weight:600;color:var(--teal-mid);
+  opacity:0;transform:scale(0.85);transition:all 0.3s var(--spring-in)}
+.pill.in{opacity:1;transform:scale(1)}
+.pill.hover{box-shadow:0 0 12px rgba(14,122,126,0.2);transform:scale(1.02)}
+.pill.picked{background:var(--teal-mid);color:#fff;border-color:var(--teal-mid);transform:scale(1.05)}
+.pill.dimmed{opacity:0.25;transform:scale(0.88);transition:all 0.3s var(--ease-exit)}
+
+.progress-mini{width:100%;height:6px;background:rgba(14,122,126,0.1);border-radius:3px;margin-top:8px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal-bright),#22c55e);border-radius:3px;
+  transition:width 1.2s var(--spring-in)}
+
+/* Time labels (float above phone) */
+.time-float{position:fixed;top:12%;left:50%;transform:translateX(-50%);z-index:15;
+  font-size:clamp(0.6rem,1.2vw,0.7rem);font-weight:600;text-transform:uppercase;letter-spacing:4px;
+  opacity:0;transition:all 0.5s var(--spring-in)}
+.time-float.in{opacity:1}
+.time-float.dark{color:rgba(255,255,255,0.4)}
+.time-float.warm{color:var(--teal-mid)}
+
+/* Thought text (float below phone) */
+.thought-float{position:fixed;bottom:12%;left:50%;transform:translateX(-50%);z-index:15;
+  font-family:'DM Serif Display',serif;font-size:clamp(1rem,2.5vw,1.4rem);font-style:italic;
+  opacity:0;transition:opacity 1s ease;max-width:500px;text-align:center}
+.thought-float.in{opacity:1}
+.thought-float.dark{color:rgba(255,255,255,0.5)}
+.thought-float.warm{color:#555}
+
+/* === S5: Close — VERY SLOW, generous space === */
+.orb-glow{position:fixed;top:50%;left:50%;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(14,122,126,0.06),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 0.8s ease;z-index:8}
+.orb-glow.on{opacity:1}
+.orb{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--teal-bright),var(--teal-mid));
+  box-shadow:0 4px 30px rgba(14,122,126,0.25);
+  opacity:0;transform:scale(0.3);transition:all 0.6s var(--spring-in)}
+.orb.in{opacity:1;transform:scale(1);animation:ob 3s ease-in-out infinite}
+@keyframes ob{0%,100%{transform:scale(1);box-shadow:0 4px 30px rgba(14,122,126,0.25)}50%{transform:scale(1.12);box-shadow:0 4px 50px rgba(14,122,126,0.4)}}
+
+/* Close text — generous spacing, nothing competing */
+.close-line{font-family:'DM Serif Display',serif;font-size:clamp(1.3rem,3.5vw,2rem);line-height:1.4;max-width:600px;margin-top:2.5rem}
+.close-line .w{display:inline-block;opacity:0;transform:translateY(100%);transition:all 0.5s var(--spring-soft)}
+.close-line .w.in{opacity:1;transform:translateY(0)}
+.close-line .accent{color:var(--teal-bright);font-style:italic}
+.close-sub{font-size:clamp(0.7rem,1.4vw,0.82rem);color:rgba(26,26,30,0.4);margin-top:2rem;letter-spacing:1px;
+  opacity:0;transition:opacity 0.8s ease}.close-sub.in{opacity:1}
+.close-brand{font-size:clamp(0.9rem,1.8vw,1.1rem);font-weight:600;color:#1a1a1e;letter-spacing:3px;margin-top:8px;
+  opacity:0;transition:opacity 0.8s ease}.close-brand.in{opacity:1}
+.close-handle{font-size:clamp(0.6rem,1.1vw,0.7rem);color:rgba(26,26,30,0.25);letter-spacing:2px;margin-top:4px;
+  opacity:0;transition:opacity 0.8s ease}.close-handle.in{opacity:1}
+
+.replay{position:fixed;bottom:20px;right:20px;background:rgba(14,122,126,0.12);border:1px solid rgba(14,122,126,0.25);
+  color:var(--teal-mid);font-family:'DM Sans',sans-serif;font-size:0.65rem;padding:8px 16px;border-radius:20px;
+  cursor:pointer;opacity:0;transition:opacity 0.5s;z-index:90;letter-spacing:0.06em;font-weight:600}
+.replay.show{opacity:1}.replay:hover{background:rgba(14,122,126,0.22)}
+
+/* Sparks use teal-vivid */
+.spark{position:fixed;pointer-events:none;z-index:60;border-radius:50%}
+@keyframes spk{0%{opacity:0.9;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="vignette" id="vignette"></div>
+<div class="cut" id="cut"></div>
+<div class="flash-overlay" id="flash"></div>
+<div class="phone-glow" id="pglow"></div>
+<div class="phone-hero-glow" id="phglow"></div>
+
+<!-- S1: 3:14 AM -->
+<div class="scene" id="s1">
+  <div class="clock" id="clock">3:14 AM</div>
+  <div class="clock-meta" id="cmeta">🔋 12% · 🌙 Do Not Disturb</div>
+  <div class="tabs-container" id="tabs"></div>
+  <div class="s1-text" id="s1text">You've been here before.</div>
+</div>
+
+<!-- THE PHONE (persistent — lives outside scenes) -->
+<div class="phone-wrap" id="pw">
+  <div class="phone" id="phone">
+    <div class="phone-screen" id="pscreen">
+
+      <!-- Screen: V25 Calculator (drink grid) -->
+      <div class="sc" id="sc-grid">
+        <div class="v25">
+          <div class="v25-header"><span class="v25-dot"></span></div>
+          <div class="v25-title">How long does <span style="color:var(--teal-mid)">caffeine</span> last?</div>
+          <div class="v25-sub">Tap what you had</div>
+          <div class="v25-grid">
+            <div class="v25-card" id="vc0"><span class="v25-emoji">☕</span><span class="v25-name">Coffee</span><span class="v25-mg">95 mg</span></div>
+            <div class="v25-card" id="vc1"><span class="v25-emoji">☕</span><span class="v25-name">Tall coffee</span><span class="v25-mg">142 mg</span></div>
+            <div class="v25-card" id="vc2"><span class="v25-emoji">☕</span><span class="v25-name">Espresso</span><span class="v25-mg">63 mg</span></div>
+            <div class="v25-card" id="vc3"><span class="v25-emoji">🧳</span><span class="v25-name">Cold brew</span><span class="v25-mg">200 mg</span></div>
+            <div class="v25-card" id="vc4"><span class="v25-emoji">⚡</span><span class="v25-name">Energy drink</span><span class="v25-mg">160 mg</span></div>
+            <div class="v25-card" id="vc5"><span class="v25-emoji">⚡</span><span class="v25-name">Bang</span><span class="v25-mg">300 mg</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen: V25 Result -->
+      <div class="sc" id="sc-result">
+        <div class="v25">
+          <div class="v25-header"><span class="v25-dot"></span></div>
+          <div class="v25-result-num" id="rnum">0</div>
+          <div class="v25-result-unit">mg remaining at bedtime</div>
+          <div class="v25-result-verdict" id="rverdict" style="color:#f59e0b">Borderline — may affect light sleepers</div>
+          <div class="v25-cutoff" id="rcutoff">
+            <div class="v25-cutoff-label">Your last safe cup is at</div>
+            <div class="v25-cutoff-time">7:00 AM</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen: V25 Coach card -->
+      <div class="sc" id="sc-coach">
+        <div class="v25">
+          <div class="v25-header"><span class="v25-dot"></span></div>
+          <div class="v25-coach-title">Here's your rule of thumb</div>
+          <div class="v25-coach-body" id="coachbody">
+            <div class="v25-coach-line" id="cl0">You had <span class="hl">cold brew</span> at <span class="hl">8:00 AM</span>.</div>
+            <div class="v25-coach-line" id="cl1">By <span class="hl">1:00 PM</span>, half was gone.</div>
+            <div class="v25-coach-line" id="cl2">By <span class="hl">6:00 PM</span>, you're in the clear.</div>
+            <div class="v25-coach-rule" id="crule">The rule: every 5 hours, half.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen: WhatsApp notification -->
+      <div class="sc" id="sc-wa">
+        <div class="wa-screen">
+          <div class="wa-notif" id="wanotif">
+            <div class="wa-icon">P</div>
+            <div>
+              <div class="wa-app">Pulse via WhatsApp</div>
+              <div class="wa-text">☕ Last regular coffee for today if you want to sleep better tonight.</div>
+              <div class="wa-time">2:00 PM</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Screen: Telegram chat -->
+      <div class="sc" id="sc-tg">
+        <div class="tg-screen">
+          <div class="tg-header">
+            <div class="tg-av">P</div>
+            <div style="display:flex;align-items:center;gap:5px"><span class="tg-name">Pulse</span><span class="tg-dot"></span></div>
+          </div>
+          <div class="tg-chat" id="chat"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Floating time labels + thoughts (appear above/below phone) -->
+<div class="time-float dark" id="tf1"></div>
+<div class="thought-float dark" id="th1"></div>
+
+<!-- S5: Close -->
+<div class="scene" id="s5">
+  <div class="orb-glow" id="oglow"></div>
+  <div class="orb" id="orb"></div>
+  <div class="close-line" id="cline"></div>
+  <div class="close-sub" id="csub">One question. We figure out the rest.</div>
+  <div class="close-brand" id="cbrand">healthcalculators.xyz</div>
+  <div class="close-handle" id="chandle">@GetHealthC</div>
+</div>
+
+<button class="replay" id="replay" onclick="location.reload()">↻ Replay</button>
+
+<script>
+var $=function(s){return document.querySelector(s)},$$=function(s){return document.querySelectorAll(s)};
+/* Sparks use teal-vivid palette */
+var COLS=['hsl(175,95%,50%)','hsl(175,85%,42%)','#5eead4','#a78bfa','#f59e0b','#f472b6','#3b82f6','#22c55e'];
+
+function sparks(x,y,n){for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spark';
+  var sz=3+Math.random()*5,a=Math.random()*Math.PI*2,d=20+Math.random()*40;
+  s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+COLS[Math.floor(Math.random()*COLS.length)]+';--dx:'+(Math.cos(a)*d)+'px;--dy:'+(Math.sin(a)*d-15)+'px;animation:spk '+(0.4+Math.random()*0.3)+'s ease-out forwards;animation-delay:'+(i*0.02)+'s';
+  document.body.appendChild(s);setTimeout(function(el){el.remove()},1000,s);}}
+
+function addBub(cls,html){var m=document.createElement('div');m.className='bub '+cls;m.innerHTML=html;
+  $('#chat').appendChild(m);requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('in')})});
+  $('#chat').scrollTop=$('#chat').scrollHeight;return m}
+function addTyping(){var t=document.createElement('div');t.className='typing';t.id='typ';
+  t.innerHTML='<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  $('#chat').appendChild(t);$('#chat').scrollTop=$('#chat').scrollHeight}
+function removeTyping(){var t=$('#typ');if(t)t.remove()}
+function cutFlash(){$('#cut').classList.add('flash');setTimeout(function(){$('#cut').classList.remove('flash')},100)}
+function flash(){$('#flash').classList.add('hit');setTimeout(function(){$('#flash').classList.remove('hit')},60)}
+function viewportPulse(){document.body.classList.add('viewport-pulse');setTimeout(function(){document.body.classList.remove('viewport-pulse')},300)}
+function showScreen(id){$$('.sc').forEach(function(s){s.classList.remove('active')});$('#'+id).classList.add('active')}
+function typewriter(el,text,ms,cb){var i=0;el.textContent='';var iv=setInterval(function(){el.textContent=text.substring(0,i+1);i++;if(i>=text.length){clearInterval(iv);if(cb)cb()}},ms)}
+
+// Continuous color arc
+function setWarmth(t){
+  if(t<20){document.body.style.background='#0a0e12';document.body.style.color='#e4e6ea';return}
+  var p=Math.min((t-20)/35,1);
+  var r=Math.round(10+p*235),g=Math.round(14+p*226),b=Math.round(18+p*222);
+  document.body.style.background='rgb('+r+','+g+','+b+')';
+  if(p>0.3){document.body.style.color='#1a1a1e'}
+  // Fade vignette as scene warms
+  if(p>0.5){$('#vignette').style.opacity=Math.max(0,1-((p-0.5)*2))}
+}
+
+var TL=[],ti=0;
+function at(t,fn){TL.push({t:t,fn:fn})}
+
+// ===== S1: 3:14 AM (0-10.5s) — SLOW rhythm, melancholy =====
+// Clock fades in over 1s (slow, deliberate)
+at(0,function(){$('#pglow').classList.add('on')});
+at(300,function(){$('#s1').classList.add('on');$('#clock').classList.add('in')});
+at(900,function(){$('#cmeta').classList.add('in')});
+
+// Tabs stagger at 700ms (slower than v8's 600ms — this moment is quiet)
+var tabTexts=["why can't I sleep","how long does caffeine last","is 200mg of caffeine a lot"];
+tabTexts.forEach(function(txt,i){at(1600+i*700,function(){
+  var t=document.createElement('div');t.className='tab';
+  t.innerHTML='<span class="tab-icon">🔍</span><span>'+txt+'</span><span class="tab-close">✕</span>';
+  $('#tabs').appendChild(t);requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('in')})});
+})});
+// Typing tab at adjusted timing
+at(3700,function(){var t=document.createElement('div');t.className='tab';
+  t.innerHTML='<span class="tab-icon">🔍</span><span id="tw"></span><span class="tab-cursor"></span><span class="tab-close">✕</span>';
+  $('#tabs').appendChild(t);requestAnimationFrame(function(){requestAnimationFrame(function(){t.classList.add('in');
+    setTimeout(function(){typewriter($('#tw'),'caffeine half life hours',45)},300)})})});
+at(6000,function(){$('#s1text').classList.add('in')});
+at(6600,function(){$('#tabs').style.animation='micro-shake 0.3s ease-in-out'});
+
+// ===== S2: Calculator (10.5-27.5s) — MEDIUM → FAST rhythm =====
+at(10500,function(){cutFlash();$('#s1').classList.remove('on');$('#pglow').classList.remove('on')});
+at(11000,function(){$('#phglow').classList.add('on');$('#pw').classList.add('on');showScreen('sc-grid')});
+at(11500,function(){$('#phone').classList.add('in')});
+
+// Variable stagger: 120, 180, 100, 200, 140, 160ms (organic, not uniform)
+at(12300,function(){$('#vc0').classList.add('in')});
+at(12420,function(){$('#vc1').classList.add('in')});  // +120
+at(12600,function(){$('#vc2').classList.add('in')});  // +180
+at(12700,function(){$('#vc3').classList.add('in')});  // +100
+at(12900,function(){$('#vc4').classList.add('in')});  // +200
+at(13040,function(){$('#vc5').classList.add('in')});  // +140 (+160 to next beat)
+
+at(14600,function(){$('#vc3').classList.add('pressed')});
+at(14750,function(){$('#vc3').classList.remove('pressed');$('#vc3').classList.add('selected')});
+
+at(16000,function(){showScreen('sc-result')});
+// Result counts up FAST: 25ms per step (energetic)
+at(16300,function(){var target=29,cur=0,el=$('#rnum');
+  var iv=setInterval(function(){cur++;el.textContent=cur;
+    if(cur<=20){el.style.color='var(--teal-bright)';el.style.textShadow='0 0 40px rgba(20,184,166,0.25)'}
+    else if(cur<=25){el.style.color='#22c55e';el.style.textShadow='0 0 40px rgba(34,197,94,0.25)'}
+    else{el.style.color='#f59e0b';el.style.textShadow='0 0 40px rgba(245,158,11,0.25)'}
+    if(cur>=target)clearInterval(iv)},25)});
+at(17800,function(){$('#rverdict').classList.add('in')});
+at(18800,function(){$('#rcutoff').classList.add('in')});
+
+at(20500,function(){showScreen('sc-coach')});
+// Coach lines at 900ms stagger (slowing for emphasis)
+at(21000,function(){['cl0','cl1','cl2'].forEach(function(id,i){setTimeout(function(){$('#'+id).classList.add('in')},i*900)})});
+
+// === "The rule" — VISUAL PUNCTUATION MOMENT ===
+// 1. Expand coach body padding (negative space for hero moment)
+at(23500,function(){$('#coachbody').classList.add('expanded')});
+// 2. The rule appears + white flash + viewport pulse
+at(24200,function(){$('#crule').classList.add('in');flash();viewportPulse()});
+// 3. Sparks (teal-vivid)
+at(24700,function(){var r=$('#crule').getBoundingClientRect();sparks(r.left+r.width/2,r.top,14)});
+
+// ===== S3: Next Day — SLOW rhythm (the world is warm now) =====
+// No cut flash — smooth warmth transition (relief, not tension)
+at(27500,function(){showScreen('sc-wa');
+  $('#tf1').textContent='Next day — 2:00 PM';$('#tf1').className='time-float warm in'});
+// Notification drops in gently (600ms spring via CSS) + phone micro-shake
+at(29000,function(){$('#wanotif').classList.add('in');
+  // Micro-shake ±2px
+  $('#pw').style.animation='notif-shake 0.2s ease'});
+at(29300,function(){$('#pw').style.animation=''});
+// Hold for 4 seconds before dismiss (SLOW — let it breathe)
+at(33000,function(){$('#wanotif').classList.add('dismissed')});
+at(33800,function(){$('#th1').textContent='You skip the 3 PM coffee. First time in months.';
+  $('#th1').className='thought-float warm in'});
+
+// ===== S4: One Week — MEDIUM rhythm (conversational) =====
+at(38000,function(){cutFlash();$('#tf1').className='time-float';$('#th1').className='thought-float';
+  showScreen('sc-tg');
+  setTimeout(function(){$('#tf1').textContent='One week later';$('#tf1').className='time-float warm in'},400)});
+
+at(39500,function(){addBub('a','<span class="hl">Sleep improved 31%</span> this week. Caffeine cutoff held <span class="hl">6 out of 7 days</span>. You\'re down <span class="hl">0.8 kg</span>.')});
+
+// Progress bar — sparks + viewport pulse when it reaches 73%
+at(45500,function(){var p=document.createElement('div');p.className='progress-mini';p.innerHTML='<div class="progress-fill" id="pf"></div>';
+  $('#chat').appendChild(p);$('#chat').scrollTop=$('#chat').scrollHeight;setTimeout(function(){$('#pf').style.width='73%'},100)});
+at(46700,function(){var r=$('#pf').getBoundingClientRect();sparks(r.right,r.top+3,14);viewportPulse()});
+
+// 2-second consideration pause before user responds
+at(49000,function(){addBub('u','What else can I improve?')});
+at(50500,function(){addTyping()});
+at(52000,function(){removeTyping();addBub('a','Your TDEE suggests you\'re <span class="warm">~100 cal over</span> maintenance. Want me to build a nutrition plan?')});
+
+at(55000,function(){var p=document.createElement('div');p.className='pills';
+  p.innerHTML='<div class="pill" id="p1">Yes, plan it</div><div class="pill" id="p2">Tell me more</div>';
+  $('#chat').appendChild(p);$('#chat').scrollTop=$('#chat').scrollHeight;
+  setTimeout(function(){$('#p1').classList.add('in')},100);setTimeout(function(){$('#p2').classList.add('in')},250)});
+at(56500,function(){$('#p1').classList.add('hover')});
+at(57000,function(){$('#p1').classList.remove('hover');$('#p1').classList.add('picked');$('#p2').classList.add('dimmed')});
+at(57500,function(){$$('.pills').forEach(function(p){p.style.display='none'});addBub('u','Yes, plan it')});
+at(58000,function(){addTyping()});
+at(59000,function(){removeTyping();addBub('a','On it. Building your plan now...')});
+
+// ===== S5: Close (60-70s) — VERY SLOW, generous space =====
+at(60500,function(){$('#pw').style.opacity='0';$('#pw').style.transition='opacity 1s ease';
+  $('#phglow').classList.remove('on');$('#tf1').className='time-float'});
+at(62000,function(){$('#pw').classList.remove('on');$('#s5').classList.add('on');$('#oglow').classList.add('on');$('#orb').classList.add('in')});
+
+// "Tonight, you'll sleep." — 400ms stagger per word (earned slow moment)
+// This is the ONLY element on screen — orb + text + generous space. Nothing competing.
+at(63500,function(){var words=['Tonight,','you\'ll','<span class="accent">sleep</span>.'];
+  $('#cline').innerHTML=words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
+  $$('#cline .w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*400)})});
+at(66500,function(){$('#csub').classList.add('in')});
+at(67500,function(){$('#cbrand').classList.add('in')});
+at(68200,function(){$('#chandle').classList.add('in')});
+at(69500,function(){$('#replay').classList.add('show')});
+
+TL.sort(function(a,b){return a.t-b.t});
+var startT=null;
+function tick(ts){
+  if(!startT)startT=ts;var e=ts-startT;var t=e/1000;
+  setWarmth(t);
+  while(ti<TL.length&&TL[ti].t<=e){TL[ti].fn();ti++}
+  if(e<75000)requestAnimationFrame(tick);
+}
+setTimeout(function(){requestAnimationFrame(tick)},500);
+</script>
+</body>
+</html>
