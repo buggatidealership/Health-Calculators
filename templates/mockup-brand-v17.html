@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Brand Animation V17 — Reframe</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-ch1: hsl(220, 18%, 7%);
+            --bg-ch2: hsl(215, 16%, 8%);
+            --bg-ch3: hsl(210, 14%, 9%);
+            --bg-close: hsl(200, 12%, 10%);
+            --teal: #2dd4a8;
+            --warm-coral: #e8835a;
+            --muted: hsl(220, 8%, 35%);
+            --muted-light: hsl(220, 6%, 50%);
+            --white: #f0f0f0;
+            --grain-opacity: 0.035;
+            --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-out-back: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --spring-snappy: cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        body {
+            background: var(--bg-ch1);
+            color: var(--white);
+            font-family: 'Inter', -apple-system, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 1.2s ease;
+        }
+
+        /* Film grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.5'/%3E%3C/svg%3E");
+            opacity: var(--grain-opacity);
+            pointer-events: none;
+            z-index: 9999;
+            mix-blend-mode: overlay;
+        }
+
+        .stage {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            min-height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* Chapter container */
+        .chapter {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            padding: 2rem;
+        }
+
+        .chapter.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        /* Divider line between chapters */
+        .divider {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0;
+            height: 1px;
+            background: var(--teal);
+            opacity: 0;
+            z-index: 100;
+            transition: none;
+        }
+
+        .divider.flash {
+            opacity: 1;
+            width: 120px;
+            animation: divider-flash 0.6s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes divider-flash {
+            0% { width: 0; opacity: 0; }
+            30% { width: 120px; opacity: 0.8; }
+            100% { width: 0; opacity: 0; }
+        }
+
+        /* Text line styles */
+        .line {
+            text-align: center;
+            overflow: hidden;
+            margin: 0.3em 0;
+        }
+
+        .line-inner {
+            display: inline-block;
+            transform: translateY(110%);
+            opacity: 0;
+        }
+
+        .line-inner.visible {
+            animation: line-rise 0.7s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes line-rise {
+            from { transform: translateY(110%); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Wrong text: typewriter, muted, struck-through */
+        .wrong {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            color: var(--muted);
+            letter-spacing: 0.02em;
+            font-weight: 400;
+        }
+
+        .wrong .line-inner {
+            opacity: 0;
+        }
+
+        .wrong .line-inner.visible {
+            animation: typewriter-in 0.5s ease forwards;
+        }
+
+        @keyframes typewriter-in {
+            from { transform: translateY(0); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Strike-through animation */
+        .wrong .line-inner.struck {
+            position: relative;
+        }
+
+        .wrong .line-inner.struck::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 0;
+            height: 1.5px;
+            background: var(--muted-light);
+            animation: strike-through 0.4s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes strike-through {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        /* Reframe text: bold, white/teal, mask reveal */
+        .reframe {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 4vw, 2.8rem);
+            color: var(--white);
+            line-height: 1.3;
+        }
+
+        .reframe .line-inner.visible {
+            animation: mask-reveal 0.8s var(--ease-out-expo) forwards;
+        }
+
+        @keyframes mask-reveal {
+            from {
+                transform: translateY(0);
+                opacity: 0;
+                clip-path: inset(0 100% 0 0);
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+                clip-path: inset(0 0% 0 0);
+            }
+        }
+
+        /* Accent colors */
+        .teal { color: var(--teal); }
+        .coral { color: var(--warm-coral); }
+        .dim { color: var(--muted); }
+
+        /* Sub text (analogies, explanations) */
+        .sub {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(0.95rem, 2vw, 1.15rem);
+            color: hsl(220, 6%, 65%);
+            font-weight: 300;
+            letter-spacing: 0.01em;
+        }
+
+        .sub .line-inner.visible {
+            animation: fade-in 0.6s ease forwards;
+        }
+
+        @keyframes fade-in {
+            from { transform: translateY(8px); opacity: 0; }
+            to { transform: translateY(0); opacity: 0.85; }
+        }
+
+        /* The big number (28.4) */
+        .big-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(4rem, 12vw, 8rem);
+            font-weight: 400;
+            line-height: 1;
+            margin: 0.15em 0;
+        }
+
+        .big-number .line-inner.visible {
+            animation: number-land 0.9s var(--spring-snappy) forwards;
+        }
+
+        @keyframes number-land {
+            0% { transform: translateY(40px) scale(0.9); opacity: 0; }
+            60% { transform: translateY(-4px) scale(1.02); opacity: 1; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+
+        /* Cascade numbers (200 -> 100 -> 50 -> 25) */
+        .cascade {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: clamp(0.5rem, 2vw, 1.5rem);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: clamp(1.4rem, 4vw, 2.4rem);
+            font-weight: 500;
+            margin: 0.4em 0;
+        }
+
+        .cascade-num {
+            opacity: 0;
+            transform: scale(1.3);
+            color: var(--teal);
+        }
+
+        .cascade-num.visible {
+            animation: cascade-in 0.5s var(--spring-snappy) forwards;
+        }
+
+        @keyframes cascade-in {
+            0% { opacity: 0; transform: scale(1.4); }
+            60% { opacity: 1; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .cascade-arrow {
+            opacity: 0;
+            color: var(--muted);
+            font-size: 0.7em;
+        }
+
+        .cascade-arrow.visible {
+            animation: arrow-in 0.3s ease forwards;
+        }
+
+        @keyframes arrow-in {
+            from { opacity: 0; transform: translateX(-8px); }
+            to { opacity: 0.5; transform: translateX(0); }
+        }
+
+        /* Each cascade number dims as next appears */
+        .cascade-num.dimmed {
+            transition: color 0.4s ease, opacity 0.4s ease;
+            color: var(--muted);
+            opacity: 0.5;
+        }
+
+        /* Close section */
+        .close-section {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .close-section .reframe {
+            font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+        }
+
+        .close-section .sub {
+            font-size: clamp(0.85rem, 1.8vw, 1rem);
+            color: hsl(220, 6%, 55%);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Pulsing dot for brand */
+        .pulse-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        /* Replay button */
+        .replay-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: transparent;
+            border: 1px solid hsl(220, 6%, 25%);
+            color: hsl(220, 6%, 55%);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.5s ease, border-color 0.3s ease, color 0.3s ease;
+            z-index: 200;
+            letter-spacing: 0.04em;
+        }
+
+        .replay-btn.visible {
+            opacity: 1;
+        }
+
+        .replay-btn:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* Progress bar */
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 2px;
+            background: var(--teal);
+            opacity: 0.4;
+            width: 0%;
+            z-index: 200;
+            transition: width 0.3s linear;
+        }
+
+        /* Chapter label */
+        .chapter-label {
+            position: fixed;
+            top: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.65rem;
+            color: hsl(220, 6%, 30%);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            z-index: 200;
+        }
+
+        .chapter-label.visible {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            .stage { padding: 1.2rem; }
+            .cascade { gap: 0.4rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress" id="progress"></div>
+    <div class="chapter-label" id="chapterLabel"></div>
+    <div class="divider" id="divider"></div>
+
+    <div class="stage">
+        <!-- CHAPTER 1: TDEE -->
+        <div class="chapter" id="ch1">
+            <div class="line wrong"><span class="line-inner" id="c1-wrong">Your TDEE is not a diet number.</span></div>
+            <div class="line reframe" style="margin-top: 0.6em;"><span class="line-inner teal" id="c1-r1">It's your maintenance floor.</span></div>
+            <div class="line sub" style="margin-top: 0.8em;"><span class="line-inner" id="c1-r2">BMR is rent. TDEE is rent + utilities.</span></div>
+            <div class="line sub"><span class="line-inner" id="c1-r3">Everything above it is savings.</span></div>
+            <div class="line sub"><span class="line-inner" id="c1-r4">Everything below is debt.</span></div>
+        </div>
+
+        <!-- CHAPTER 2: BMI -->
+        <div class="chapter" id="ch2">
+            <div class="line wrong"><span class="line-inner" id="c2-wrong">BMI doesn't tell you if you're fat.</span></div>
+            <div class="line reframe" style="margin-top: 0.6em;"><span class="line-inner" id="c2-r1">It tells you where you are.</span></div>
+            <div class="line sub" style="margin-top: 0.5em;"><span class="line-inner" id="c2-r2">Not a judgment. A coordinate.</span></div>
+            <div class="big-number"><span class="line-inner coral" id="c2-number">28.4</span></div>
+            <div class="line sub"><span class="line-inner" id="c2-r3">isn't "obese." It's <span class="coral">"above healthy range."</span></span></div>
+        </div>
+
+        <!-- CHAPTER 3: Caffeine -->
+        <div class="chapter" id="ch3">
+            <div class="line wrong"><span class="line-inner" id="c3-wrong">Caffeine doesn't "wear off."</span></div>
+            <div class="line reframe" style="margin-top: 0.6em;"><span class="line-inner teal" id="c3-r1">It halves.</span></div>
+            <div class="line sub" style="margin-top: 0.4em;"><span class="line-inner" id="c3-r2">Every 5 hours, half remains.</span></div>
+            <div class="cascade" id="cascade">
+                <span class="cascade-num" id="cas-200">200</span>
+                <span class="cascade-arrow" id="cas-a1">&rarr;</span>
+                <span class="cascade-num" id="cas-100">100</span>
+                <span class="cascade-arrow" id="cas-a2">&rarr;</span>
+                <span class="cascade-num" id="cas-50">50</span>
+                <span class="cascade-arrow" id="cas-a3">&rarr;</span>
+                <span class="cascade-num" id="cas-25">25</span>
+            </div>
+            <div class="line sub"><span class="line-inner" id="c3-r3">That <span class="teal">25</span> is why you're reading this at 3am.</span></div>
+        </div>
+
+        <!-- CLOSE -->
+        <div class="chapter close-section" id="ch-close">
+            <div class="line reframe"><span class="line-inner" id="cl-1">We don't give you numbers.</span></div>
+            <div class="line reframe" style="margin-top: 0.2em;"><span class="line-inner teal" id="cl-2">We give you frameworks you carry forever.</span></div>
+            <div class="line sub" style="margin-top: 1.5em;"><span class="line-inner" id="cl-3">healthcalculators.xyz &mdash; 82 signals<span class="pulse-dot"></span></span></div>
+        </div>
+    </div>
+
+    <button class="replay-btn" id="replayBtn" onclick="replay()">Replay</button>
+
+    <script>
+        // Timing engine
+        const BEAT = 400; // base beat in ms
+
+        function wait(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        function show(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('visible');
+        }
+
+        function strike(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('struck');
+        }
+
+        function activateChapter(id) {
+            document.querySelectorAll('.chapter').forEach(ch => ch.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function flashDivider() {
+            const d = document.getElementById('divider');
+            d.classList.remove('flash');
+            void d.offsetWidth; // force reflow
+            d.classList.add('flash');
+        }
+
+        function setLabel(text) {
+            const el = document.getElementById('chapterLabel');
+            el.textContent = text;
+            el.classList.add('visible');
+        }
+
+        function hideLabel() {
+            document.getElementById('chapterLabel').classList.remove('visible');
+        }
+
+        function setProgress(pct) {
+            document.getElementById('progress').style.width = pct + '%';
+        }
+
+        function setBg(cssVar) {
+            document.body.style.backgroundColor = `var(${cssVar})`;
+        }
+
+        // Cascade with stagger + dimming
+        async function playCascade() {
+            const nums = ['cas-200', 'cas-100', 'cas-50', 'cas-25'];
+            const arrows = ['cas-a1', 'cas-a2', 'cas-a3'];
+
+            for (let i = 0; i < nums.length; i++) {
+                show(nums[i]);
+                if (i > 0) {
+                    // Dim previous numbers
+                    for (let j = 0; j < i; j++) {
+                        document.getElementById(nums[j]).classList.add('dimmed');
+                    }
+                }
+                await wait(BEAT * 0.9);
+                if (i < arrows.length) {
+                    show(arrows[i]);
+                    await wait(BEAT * 0.4);
+                }
+            }
+            // Un-dim all at end for final look
+            await wait(BEAT * 0.5);
+            nums.forEach(n => document.getElementById(n).classList.remove('dimmed'));
+        }
+
+        // Main sequence
+        async function runAnimation() {
+            // Reset
+            document.querySelectorAll('.line-inner, .cascade-num, .cascade-arrow').forEach(el => {
+                el.classList.remove('visible', 'struck', 'dimmed');
+            });
+            document.querySelectorAll('.chapter').forEach(ch => ch.classList.remove('active'));
+            document.getElementById('replayBtn').classList.remove('visible');
+            hideLabel();
+            setProgress(0);
+            setBg('--bg-ch1');
+
+            await wait(800);
+
+            // ===== CHAPTER 1: TDEE =====
+            setLabel('01 / TDEE');
+            activateChapter('ch1');
+            setProgress(5);
+
+            // Wrong appears (typewriter feel)
+            show('c1-wrong');
+            await wait(BEAT * 4); // hold — let them read
+
+            // Strike through the wrong
+            strike('c1-wrong');
+            await wait(BEAT * 1.5);
+            setProgress(12);
+
+            // Reframe reveals
+            show('c1-r1');
+            await wait(BEAT * 4);
+            setProgress(18);
+
+            // Analogy
+            show('c1-r2');
+            await wait(BEAT * 3.5);
+            setProgress(22);
+
+            // Savings / Debt
+            show('c1-r3');
+            await wait(BEAT * 2);
+            show('c1-r4');
+            await wait(BEAT * 3);
+            setProgress(28);
+
+            // ===== TRANSITION =====
+            hideLabel();
+            await wait(BEAT * 1);
+            activateChapter('ch1'); // fade out handled by removing active
+            document.getElementById('ch1').classList.remove('active');
+            flashDivider();
+            setBg('--bg-ch2');
+            await wait(BEAT * 1.5);
+
+            // ===== CHAPTER 2: BMI =====
+            setLabel('02 / BMI');
+            activateChapter('ch2');
+            setProgress(33);
+
+            show('c2-wrong');
+            await wait(BEAT * 4);
+
+            strike('c2-wrong');
+            await wait(BEAT * 1.5);
+            setProgress(40);
+
+            show('c2-r1');
+            await wait(BEAT * 3.5);
+            setProgress(45);
+
+            show('c2-r2');
+            await wait(BEAT * 3);
+            setProgress(50);
+
+            // Big number lands
+            show('c2-number');
+            await wait(BEAT * 4);
+            setProgress(58);
+
+            show('c2-r3');
+            await wait(BEAT * 4);
+            setProgress(62);
+
+            // ===== TRANSITION =====
+            hideLabel();
+            await wait(BEAT * 1);
+            document.getElementById('ch2').classList.remove('active');
+            flashDivider();
+            setBg('--bg-ch3');
+            await wait(BEAT * 1.5);
+
+            // ===== CHAPTER 3: CAFFEINE =====
+            setLabel('03 / CAFFEINE');
+            activateChapter('ch3');
+            setProgress(67);
+
+            show('c3-wrong');
+            await wait(BEAT * 3.5);
+
+            strike('c3-wrong');
+            await wait(BEAT * 1.5);
+            setProgress(72);
+
+            show('c3-r1');
+            await wait(BEAT * 3);
+            setProgress(76);
+
+            show('c3-r2');
+            await wait(BEAT * 3);
+            setProgress(80);
+
+            // Cascade
+            await playCascade();
+            setProgress(88);
+            await wait(BEAT * 1.5);
+
+            // Punchline
+            show('c3-r3');
+            await wait(BEAT * 4);
+            setProgress(92);
+
+            // ===== TRANSITION TO CLOSE =====
+            hideLabel();
+            await wait(BEAT * 1);
+            document.getElementById('ch3').classList.remove('active');
+            flashDivider();
+            setBg('--bg-close');
+            await wait(BEAT * 2);
+
+            // ===== CLOSE =====
+            activateChapter('ch-close');
+            setProgress(95);
+
+            show('cl-1');
+            await wait(BEAT * 3);
+
+            show('cl-2');
+            await wait(BEAT * 4);
+            setProgress(98);
+
+            show('cl-3');
+            await wait(BEAT * 3);
+            setProgress(100);
+
+            // Show replay
+            await wait(BEAT * 3);
+            document.getElementById('replayBtn').classList.add('visible');
+        }
+
+        function replay() {
+            runAnimation();
+        }
+
+        // Auto-start
+        runAnimation();
+    </script>
+</body>
+</html>

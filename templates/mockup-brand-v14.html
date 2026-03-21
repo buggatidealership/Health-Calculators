@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>One Night. One Week. (V14)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0e7a7e;--teal-b:#14b8a6;
+  --bg-h:220;--bg-s:15;--bg-l:8;
+}
+html,body{
+  background:hsl(var(--bg-h),calc(var(--bg-s)*1%),calc(var(--bg-l)*1%));
+  color:#e4e6ea;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh;
+  transition:background 0.8s ease,color 0.8s ease;
+}
+
+/* Film grain — 3.5% */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+
+/* Flash overlay for visual punctuation */
+.flash-overlay{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:80;transition:opacity 0.05s}
+.flash-overlay.hit{opacity:0.06}
+
+/* Beat-boundary cut */
+.cut{position:fixed;inset:0;background:#000;z-index:50;opacity:0;pointer-events:none;transition:opacity 0.05s}
+.cut.flash{opacity:1}
+
+/* Scenes */
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;padding:2rem;text-align:center;transition:opacity 0.6s cubic-bezier(0.16,1,0.3,1)}
+.scene.on{opacity:1;pointer-events:auto}
+
+/* ============================================
+   SCENE 1 — 3AM: THE FEELING
+   ============================================ */
+
+/* Ambient glow — cold blue, anxious */
+.ambient-glow{position:fixed;top:50%;left:50%;width:600px;height:600px;
+  background:radial-gradient(circle,rgba(100,130,180,0.04),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 1.2s ease;
+  animation:glow-breathe 5s ease-in-out infinite}
+.ambient-glow.on{opacity:1}
+@keyframes glow-breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.15)}}
+
+/* Clock */
+.clock{font-family:'DM Sans',sans-serif;font-weight:300;font-size:clamp(4.5rem,14vw,8rem);
+  color:rgba(255,255,255,0.5);letter-spacing:-3px;
+  opacity:0;filter:blur(20px);transform:scale(0.85);
+  transition:all 1s cubic-bezier(0.16,1,0.3,1)}
+.clock.in{opacity:1;filter:blur(0px);transform:scale(1)}
+
+/* Thought text — DM Serif for emotional moments */
+.thought{font-family:'DM Serif Display',serif;font-size:clamp(1.1rem,3vw,1.6rem);
+  color:rgba(255,255,255,0.45);font-style:italic;max-width:500px;line-height:1.5;
+  opacity:0;transform:translateY(12px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.thought.in{opacity:1;transform:translateY(0)}
+.thought.shake{animation:micro-shake 0.35s ease-in-out}
+@keyframes micro-shake{0%,100%{transform:translateX(0)}20%{transform:translateX(-4px)}40%{transform:translateX(4px)}60%{transform:translateX(-3px)}80%{transform:translateX(2px)}}
+
+/* Realization text */
+.realization{font-family:'DM Sans',sans-serif;font-size:clamp(0.8rem,1.8vw,0.95rem);
+  color:rgba(255,255,255,0.25);letter-spacing:1px;margin-top:1.2rem;
+  opacity:0;transition:opacity 0.6s ease}
+.realization.in{opacity:1}
+
+/* ============================================
+   SCENE 2 — DISCOVERY: THE RULE (not the phone)
+   ============================================ */
+
+/* The phone — SMALL, supporting prop */
+.phone-container{position:fixed;bottom:8%;right:8%;z-index:10;
+  opacity:0;transform:translateY(30px) scale(0.88);
+  transition:all 0.8s cubic-bezier(0.34,1.56,0.64,1);pointer-events:none}
+.phone-container.on{opacity:1;transform:translateY(0) scale(1)}
+
+/* Six-layer phone mockup */
+.phone-mockup{position:relative;width:180px;height:368px}
+.phone-bevel{position:absolute;inset:0;border-radius:22px;padding:1px;
+  background:linear-gradient(135deg,#555 0%,#1a1a1a 50%,#000 100%)}
+.phone-body{position:absolute;inset:1px;border-radius:21px;background:#111;padding:6px}
+.phone-screen{width:100%;height:100%;border-radius:16px;overflow:hidden;position:relative;
+  background:linear-gradient(180deg,#0a0f1a,#081a1a)}
+/* Depth ring */
+.phone-screen::before{content:'';position:absolute;inset:0;border-radius:inherit;
+  box-shadow:inset 0 0 0 1px rgba(0,0,0,0.5),inset 0 2px 4px rgba(0,0,0,0.3);z-index:10;pointer-events:none}
+/* Glass glint */
+.phone-screen::after{content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(145deg,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.03) 30%,transparent 60%);
+  z-index:11;pointer-events:none}
+
+.phone-content{position:relative;padding:10px;color:#e2e8f0;font-size:0.55rem;z-index:5;
+  display:flex;flex-direction:column;align-items:center;height:100%}
+.phone-dot{width:5px;height:5px;background:#22c55e;border-radius:50%;margin:6px auto 8px;
+  animation:pdot 2.5s ease-in-out infinite}
+@keyframes pdot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}50%{box-shadow:0 0 0 5px rgba(34,197,94,0)}}
+.phone-title{font-family:'DM Serif Display',serif;font-size:0.7rem;text-align:center;color:#fff}
+.phone-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;margin-top:6px;width:100%}
+.phone-card{background:rgba(14,122,126,0.08);border:1px solid rgba(20,184,166,0.12);border-radius:6px;
+  padding:4px 2px;text-align:center;font-size:0.45rem;opacity:0;transform:translateY(3px);
+  transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.phone-card.in{opacity:1;transform:translateY(0)}
+.phone-card.selected{border-color:#14b8a6;box-shadow:0 0 10px rgba(20,184,166,0.3);background:rgba(20,184,166,0.1)}
+.phone-result{font-family:'DM Serif Display',serif;font-size:1.4rem;color:#14b8a6;text-align:center;
+  margin-top:auto;opacity:0;transition:opacity 0.5s ease}
+.phone-result.in{opacity:1}
+.phone-label{font-size:0.4rem;color:#94a3b8;text-align:center;margin-top:2px;
+  opacity:0;transition:opacity 0.4s ease}
+.phone-label.in{opacity:1}
+
+/* THE HERO — the rule, typographic, OUTSIDE the phone */
+.rule-hero{position:relative;z-index:15;text-align:center;max-width:700px;padding:0 1.5rem}
+.rule-line{font-family:'DM Serif Display',serif;font-size:clamp(2.2rem,6vw,3.8rem);
+  line-height:1.2;color:#fff;overflow:hidden}
+.rule-word{display:inline-block;opacity:0;clip-path:inset(0 100% 0 0);
+  transition:all 0.7s cubic-bezier(0.77,0,0.175,1)}
+.rule-word.in{opacity:1;clip-path:inset(0 0% 0 0)}
+.rule-accent{color:#14b8a6;text-shadow:0 0 40px rgba(20,184,166,0.3)}
+.rule-sub{font-family:'DM Sans',sans-serif;font-size:clamp(0.75rem,1.5vw,0.9rem);
+  color:rgba(255,255,255,0.35);margin-top:1rem;letter-spacing:0.5px;
+  opacity:0;transform:translateY(8px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
+.rule-sub.in{opacity:1;transform:translateY(0)}
+
+/* ============================================
+   SCENE 3 — NEXT DAY: NO PHONE
+   ============================================ */
+.notif-thought{position:relative;z-index:15;text-align:center;max-width:550px}
+.notif-time{font-family:'DM Sans',sans-serif;font-size:clamp(0.6rem,1.2vw,0.7rem);
+  font-weight:600;text-transform:uppercase;letter-spacing:4px;
+  color:rgba(255,255,255,0.3);margin-bottom:1.5rem;
+  opacity:0;transition:opacity 0.5s ease}
+.notif-time.in{opacity:1}
+.notif-text{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.8rem);
+  color:rgba(255,255,255,0.6);font-style:italic;line-height:1.5;
+  opacity:0;filter:blur(8px);transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.notif-text.in{opacity:1;filter:blur(0)}
+.notif-text .hl{color:#14b8a6;font-style:normal;font-weight:500}
+.notif-source{font-size:clamp(0.55rem,1vw,0.65rem);color:rgba(255,255,255,0.15);
+  margin-top:0.5rem;letter-spacing:2px;font-weight:600;
+  opacity:0;transition:opacity 0.4s ease}
+.notif-source.in{opacity:1}
+
+.action-text{font-family:'DM Sans',sans-serif;font-size:clamp(1rem,2.5vw,1.4rem);
+  color:rgba(255,255,255,0.5);margin-top:2.5rem;font-weight:600;
+  opacity:0;transform:translateY(10px);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
+.action-text.in{opacity:1;transform:translateY(0)}
+
+/* ============================================
+   SCENE 4 — ONE WEEK: NUMBERS AS HERO
+   ============================================ */
+.stats-container{position:relative;z-index:15;text-align:center;max-width:600px}
+.stat-block{margin-bottom:clamp(1.5rem,4vw,2.5rem);opacity:0;transform:translateY(20px);
+  transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+.stat-block.in{opacity:1;transform:translateY(0)}
+.stat-number{font-family:'DM Serif Display',serif;font-size:clamp(3rem,10vw,5rem);
+  line-height:1;transition:color 0.4s ease}
+.stat-label{font-family:'DM Sans',sans-serif;font-size:clamp(0.7rem,1.4vw,0.85rem);
+  color:rgba(255,255,255,0.35);margin-top:0.3rem;letter-spacing:1px}
+
+/* ============================================
+   SCENE 5 — CLOSE: "Tonight, you'll sleep."
+   ============================================ */
+.orb-glow{position:fixed;top:50%;left:50%;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(14,122,126,0.06),transparent 70%);
+  transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity 0.8s ease;z-index:8}
+.orb-glow.on{opacity:1}
+.orb{width:50px;height:50px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal-b),var(--teal));
+  box-shadow:0 4px 30px rgba(14,122,126,0.25);
+  opacity:0;transform:scale(0.3);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
+.orb.in{opacity:1;transform:scale(1);animation:ob 3s ease-in-out infinite}
+@keyframes ob{0%,100%{transform:scale(1);box-shadow:0 4px 30px rgba(14,122,126,0.25)}50%{transform:scale(1.12);box-shadow:0 4px 50px rgba(14,122,126,0.4)}}
+
+/* Close text — character stagger at 400ms */
+.close-line{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4.5vw,2.8rem);
+  line-height:1.3;max-width:600px;margin-top:1.5rem}
+.close-char{display:inline-block;opacity:0;transform:translateY(100%);filter:blur(6px);
+  transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.close-char.in{opacity:1;transform:translateY(0);filter:blur(0)}
+.close-char.space{width:0.3em}
+.accent{color:var(--teal-b);font-style:italic}
+.close-sub{font-size:clamp(0.7rem,1.4vw,0.82rem);color:rgba(255,255,255,0.3);
+  margin-top:1.5rem;letter-spacing:1px;
+  opacity:0;transition:opacity 0.6s ease}.close-sub.in{opacity:1}
+.close-brand{font-size:clamp(0.9rem,1.8vw,1.1rem);font-weight:600;
+  color:rgba(255,255,255,0.7);letter-spacing:3px;margin-top:8px;
+  opacity:0;transition:opacity 0.6s ease}.close-brand.in{opacity:1}
+.close-handle{font-size:clamp(0.6rem,1.1vw,0.7rem);color:rgba(255,255,255,0.2);
+  letter-spacing:2px;margin-top:4px;
+  opacity:0;transition:opacity 0.6s ease}.close-handle.in{opacity:1}
+
+/* Replay */
+.replay{position:fixed;bottom:20px;right:20px;background:rgba(14,122,126,0.12);
+  border:1px solid rgba(14,122,126,0.25);color:var(--teal-b);
+  font-family:'DM Sans',sans-serif;font-size:0.65rem;padding:8px 16px;
+  border-radius:20px;cursor:pointer;opacity:0;transition:opacity 0.5s;
+  z-index:90;letter-spacing:0.06em;font-weight:600}
+.replay.show{opacity:1}.replay:hover{background:rgba(14,122,126,0.22)}
+
+/* Utility */
+.spark{position:fixed;pointer-events:none;z-index:60;border-radius:50%}
+@keyframes spk{0%{opacity:0.9;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cut" id="cut"></div>
+<div class="flash-overlay" id="flash"></div>
+
+<!-- Ambient glow (cold, anxious — Scene 1) -->
+<div class="ambient-glow" id="aglow"></div>
+
+<!-- ===== SCENE 1: 3AM — THE FEELING ===== -->
+<div class="scene" id="s1">
+  <div class="clock" id="clock">3:14 AM</div>
+  <div class="thought" id="thought1" style="margin-top:1.5rem">why am I still awake?</div>
+  <div class="realization" id="realize">I had cold brew at 3 PM.</div>
+</div>
+
+<!-- ===== SCENE 2: DISCOVERY — THE RULE IS THE HERO ===== -->
+<div class="scene" id="s2">
+  <div class="rule-hero" id="rulehero">
+    <div class="rule-line" id="ruleline"></div>
+    <div class="rule-sub" id="rulesub">The phone showed you the math. This is the takeaway.</div>
+  </div>
+</div>
+
+<!-- Phone — small, supporting, bottom-right -->
+<div class="phone-container" id="phoneC">
+  <div class="phone-mockup">
+    <div class="phone-bevel">
+      <div class="phone-body">
+        <div class="phone-screen">
+          <div class="phone-content">
+            <div class="phone-dot"></div>
+            <div class="phone-title">Caffeine <span style="color:var(--teal-b)">Calculator</span></div>
+            <div class="phone-grid" id="pgrid">
+              <div class="phone-card" id="pc0">Coffee<br><span style="color:#94a3b8">95mg</span></div>
+              <div class="phone-card" id="pc1">Tall<br><span style="color:#94a3b8">142mg</span></div>
+              <div class="phone-card" id="pc2">Espresso<br><span style="color:#94a3b8">63mg</span></div>
+              <div class="phone-card" id="pc3">Cold brew<br><span style="color:#94a3b8">200mg</span></div>
+              <div class="phone-card" id="pc4">Energy<br><span style="color:#94a3b8">160mg</span></div>
+              <div class="phone-card" id="pc5">Bang<br><span style="color:#94a3b8">300mg</span></div>
+            </div>
+            <div class="phone-result" id="presult">29 mg</div>
+            <div class="phone-label" id="plabel">remaining at bedtime</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCENE 3: NEXT DAY — NO PHONE ===== -->
+<div class="scene" id="s3">
+  <div class="notif-thought">
+    <div class="notif-time" id="ntime">2:00 PM — Next Day</div>
+    <div class="notif-text" id="ntext"><span class="hl">Pulse:</span> last coffee for today if you want to sleep better tonight.</div>
+    <div class="notif-source" id="nsource">VIA TELEGRAM</div>
+    <div class="action-text" id="atext">You skip it.</div>
+  </div>
+</div>
+
+<!-- ===== SCENE 4: ONE WEEK — NUMBERS AS HERO ===== -->
+<div class="scene" id="s4">
+  <div class="stats-container">
+    <div class="stat-block" id="stat1">
+      <div class="stat-number" id="sn1" style="color:#14b8a6">0%</div>
+      <div class="stat-label">Sleep improved</div>
+    </div>
+    <div class="stat-block" id="stat2">
+      <div class="stat-number" id="sn2" style="color:#22c55e">0/7</div>
+      <div class="stat-label">Caffeine cutoff held</div>
+    </div>
+    <div class="stat-block" id="stat3">
+      <div class="stat-number" id="sn3" style="color:#f59e0b">0 kg</div>
+      <div class="stat-label">Down</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SCENE 5: CLOSE ===== -->
+<div class="scene" id="s5">
+  <div class="orb-glow" id="oglow"></div>
+  <div class="orb" id="orb"></div>
+  <div class="close-line" id="cline"></div>
+  <div class="close-sub" id="csub">One question. We figure out the rest.</div>
+  <div class="close-brand" id="cbrand">HEALTHCALCULATORS.XYZ</div>
+  <div class="close-handle" id="chandle">@GetHealthC</div>
+</div>
+
+<button class="replay" id="replay" onclick="location.reload()">Replay</button>
+
+<script>
+var $=function(s){return document.querySelector(s)};
+var $$=function(s){return document.querySelectorAll(s)};
+var COLS=['#0e7a7e','#14b8a6','#5eead4','#22c55e','#f59e0b'];
+
+function sparks(x,y,n){
+  for(var i=0;i<n;i++){
+    var s=document.createElement('div');s.className='spark';
+    var sz=2+Math.random()*4,a=Math.random()*Math.PI*2,d=15+Math.random()*35;
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+COLS[Math.floor(Math.random()*COLS.length)]+';--dx:'+(Math.cos(a)*d)+'px;--dy:'+(Math.sin(a)*d-12)+'px;animation:spk '+(0.35+Math.random()*0.25)+'s ease-out forwards;animation-delay:'+(i*0.015)+'s';
+    document.body.appendChild(s);setTimeout(function(el){el.remove()},900,s);
+  }
+}
+
+function cutFlash(){$('#cut').classList.add('flash');setTimeout(function(){$('#cut').classList.remove('flash')},90)}
+function flash(){$('#flash').classList.add('hit');setTimeout(function(){$('#flash').classList.remove('hit')},50)}
+
+// Count-up animation for stat numbers
+function countUp(el,target,suffix,duration,cb){
+  var start=performance.now();
+  var isFloat=target%1!==0;
+  function step(now){
+    var p=Math.min((now-start)/duration,1);
+    // Spring-like ease out
+    var ep=1-Math.pow(1-p,3);
+    var val=ep*target;
+    el.textContent=(isFloat?val.toFixed(1):Math.round(val))+suffix;
+    if(p<1)requestAnimationFrame(step);
+    else if(cb)cb();
+  }
+  requestAnimationFrame(step);
+}
+
+// Pixar color script — continuous warmth arc
+// Cold blue-gray (anxiety) -> neutral (discovery) -> warm amber-green (progress) -> warm cream-green (resolution)
+function setColorArc(t){
+  var h,s,l;
+  if(t<6){
+    // Scene 1: cold anxiety — HSL(220,15%,8%)
+    h=220;s=15;l=8;
+  } else if(t<8){
+    // Transition: anxiety -> discovery
+    var p=(t-6)/2;
+    h=220-p*20; // 220->200
+    s=15+p*5;   // 15->20
+    l=8+p*2;    // 8->10
+  } else if(t<18){
+    // Scene 2: discovery — HSL(200,20%,10%)
+    h=200;s=20;l=10;
+  } else if(t<20){
+    // Transition: discovery -> next day warmth
+    var p=(t-18)/2;
+    h=200-p*30; // 200->170
+    s=20+p*10;  // 20->30
+    l=10+p*3;   // 10->13
+  } else if(t<28){
+    // Scene 3: next day — HSL(170,30%,13%)
+    h=170;s=30;l=13;
+  } else if(t<30){
+    // Transition: next day -> progress
+    var p=(t-28)/2;
+    h=170-p*20; // 170->150
+    s=30+p*10;  // 30->40
+    l=13+p*3;   // 13->16
+  } else if(t<42){
+    // Scene 4: progress — HSL(150,40%,16%)
+    h=150;s=40;l=16;
+  } else if(t<44){
+    // Transition: progress -> resolution
+    var p=(t-42)/2;
+    h=150;s=40+p*5;  // 40->45
+    l=16+p*2;        // 16->18
+  } else {
+    // Scene 5: resolution — HSL(150,45%,18%)
+    h=150;s=45;l=18;
+  }
+  document.documentElement.style.setProperty('--bg-h',h);
+  document.documentElement.style.setProperty('--bg-s',s);
+  document.documentElement.style.setProperty('--bg-l',l);
+  document.body.style.background='hsl('+h+','+s+'%,'+l+'%)';
+}
+
+// Character stagger for close line
+function staggerChars(el,html,delayPerChar,startDelay){
+  // Parse html to get text and accent spans
+  var container=document.createElement('div');
+  container.innerHTML=html;
+  var output='';
+  var charIndex=0;
+  function processNode(node){
+    if(node.nodeType===3){
+      // Text node
+      var chars=node.textContent.split('');
+      chars.forEach(function(c){
+        if(c===' '){
+          output+='<span class="close-char space" style="transition-delay:'+(startDelay+charIndex*delayPerChar)+'ms">&nbsp;</span>';
+        } else {
+          output+='<span class="close-char" style="transition-delay:'+(startDelay+charIndex*delayPerChar)+'ms">'+c+'</span>';
+        }
+        charIndex++;
+      });
+    } else if(node.nodeType===1){
+      // Element node — wrap in same tag with classes
+      var tag=node.tagName.toLowerCase();
+      var cls=node.className?' class="'+node.className+'"':'';
+      output+='<'+tag+cls+'>';
+      node.childNodes.forEach(processNode);
+      output+='</'+tag+'>';
+    }
+  }
+  container.childNodes.forEach(processNode);
+  el.innerHTML=output;
+  // Trigger reflow then add .in
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      $$('#cline .close-char').forEach(function(c){c.classList.add('in')});
+    });
+  });
+}
+
+// ===== TIMELINE =====
+var TL=[],ti=0;
+function at(t,fn){TL.push({t:t,fn:fn})}
+
+// ===== SCENE 1: 3AM — THE FEELING (0 - 8s) =====
+// Ambient cold glow
+at(0,function(){$('#aglow').classList.add('on')});
+
+// Clock: blur-to-sharp reveal
+at(400,function(){$('#s1').classList.add('on')});
+at(600,function(){$('#clock').classList.add('in')});
+
+// "why am I still awake?" — with screen shake
+at(2200,function(){
+  $('#thought1').classList.add('in');
+});
+at(3000,function(){
+  $('#thought1').classList.add('shake');
+});
+
+// Realization fades in
+at(4500,function(){$('#realize').classList.add('in')});
+
+// ===== SCENE 2: DISCOVERY — PHONE AS PROP, RULE AS HERO (8 - 20s) =====
+// Beat-boundary cut
+at(8000,function(){
+  cutFlash();
+  $('#s1').classList.remove('on');
+  $('#aglow').classList.remove('on');
+});
+
+// Phone appears small, bottom-right — the tool, not the star
+at(8800,function(){
+  $('#s2').classList.add('on');
+  $('#phoneC').classList.add('on');
+});
+
+// Phone cards cascade in
+at(9500,function(){
+  ['pc0','pc1','pc2','pc3','pc4','pc5'].forEach(function(id,i){
+    setTimeout(function(){$('#'+id).classList.add('in')},i*80);
+  });
+});
+
+// Cold brew selected
+at(10800,function(){$('#pc3').classList.add('selected')});
+
+// Phone shows result
+at(11800,function(){
+  $('#presult').classList.add('in');
+  $('#plabel').classList.add('in');
+});
+
+// THE HERO MOMENT — rule appears large, typographic, OUTSIDE the phone
+// Mask reveal (clip-path wipe)
+at(13000,function(){
+  var words=[
+    {text:'Every ',cls:''},
+    {text:'5 hours',cls:'rule-accent'},
+    {text:', ',cls:''},
+    {text:'half',cls:'rule-accent'},
+    {text:'.',cls:''}
+  ];
+  var html='';
+  words.forEach(function(w){
+    if(w.cls){
+      html+='<span class="rule-word '+w.cls+'">'+w.text+'</span>';
+    } else {
+      html+='<span class="rule-word">'+w.text+'</span>';
+    }
+  });
+  $('#ruleline').innerHTML=html;
+  // Stagger the mask reveal
+  var rwords=$$('#ruleline .rule-word');
+  rwords.forEach(function(w,i){
+    setTimeout(function(){w.classList.add('in')},i*200);
+  });
+});
+
+// Visual punctuation: flash on the rule
+at(14200,function(){flash()});
+
+// Subtitle
+at(15500,function(){$('#rulesub').classList.add('in')});
+
+// Phone fades out
+at(18000,function(){
+  $('#phoneC').style.opacity='0';
+  $('#phoneC').style.transition='opacity 0.6s ease';
+});
+
+// ===== SCENE 3: NEXT DAY — NO PHONE AT ALL (20 - 30s) =====
+at(20000,function(){
+  cutFlash();
+  $('#s2').classList.remove('on');
+  $('#phoneC').classList.remove('on');
+});
+
+at(20800,function(){$('#s3').classList.add('on')});
+
+// Time label
+at(21200,function(){$('#ntime').classList.add('in')});
+
+// Notification as thought — blur to sharp
+at(22000,function(){$('#ntext').classList.add('in')});
+
+// Source line
+at(23200,function(){$('#nsource').classList.add('in')});
+
+// "You skip it." — weight, deliberate
+at(25500,function(){$('#atext').classList.add('in')});
+
+// ===== SCENE 4: ONE WEEK — NUMBERS AS HERO (30 - 42s) =====
+at(30000,function(){
+  cutFlash();
+  $('#s3').classList.remove('on');
+});
+
+at(30800,function(){$('#s4').classList.add('on')});
+
+// Stat 1: Sleep improved 31% — count up
+at(31500,function(){
+  $('#stat1').classList.add('in');
+  countUp($('#sn1'),31,'%',1200);
+});
+
+// Stat 2: 6/7 days — count up
+at(33500,function(){
+  $('#stat2').classList.add('in');
+  countUp($('#sn2'),6,'/7',900);
+});
+
+// Stat 3: 0.8 kg — count up
+at(35500,function(){
+  $('#stat3').classList.add('in');
+  countUp($('#sn3'),0.8,' kg',800);
+});
+
+// No celebration effects — just the numbers sitting there, proof, not party.
+
+// ===== SCENE 5: CLOSE (44 - 52s) =====
+at(44000,function(){
+  $('#s4').classList.remove('on');
+  $('#s4').style.transition='opacity 0.8s ease';
+  $('#s4').style.opacity='0';
+});
+
+at(45000,function(){
+  $('#s5').classList.add('on');
+  $('#oglow').classList.add('on');
+  $('#orb').classList.add('in');
+});
+
+// "Tonight, you'll sleep." — character stagger at ~60ms per char (slowest, most premium)
+at(46000,function(){
+  staggerChars($('#cline'),'Tonight, you\'ll <span class="accent">sleep</span>.',60,0);
+});
+
+at(48500,function(){$('#csub').classList.add('in')});
+at(49500,function(){$('#cbrand').classList.add('in')});
+at(50000,function(){$('#chandle').classList.add('in')});
+at(51000,function(){$('#replay').classList.add('show')});
+
+// ===== RUN =====
+TL.sort(function(a,b){return a.t-b.t});
+var startT=null;
+function tick(ts){
+  if(!startT)startT=ts;
+  var e=ts-startT;
+  var t=e/1000;
+  setColorArc(t);
+  while(ti<TL.length&&TL[ti].t<=e){TL[ti].fn();ti++}
+  if(e<55000)requestAnimationFrame(tick);
+}
+setTimeout(function(){requestAnimationFrame(tick)},500);
+</script>
+</body>
+</html>
