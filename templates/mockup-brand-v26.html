@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Order Matters — HealthCalculators Brand Film</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0f1a;
+            --text-muted: #4a5568;
+            --text-dim: #64748b;
+            --text-bright: #e2e8f0;
+            --text-white: #f8fafc;
+            --accent: #2dd4bf;
+            --accent-glow: rgba(45, 212, 191, 0.15);
+            --accent-pulse: rgba(45, 212, 191, 0.4);
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-white);
+            font-family: 'Inter', -apple-system, sans-serif;
+            min-height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 1000;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-size: 128px 128px;
+        }
+
+        .grain.animated {
+            animation: grainShift 0.3s steps(3) infinite;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(-2px, 1px); }
+            66% { transform: translate(1px, -2px); }
+            100% { transform: translate(-1px, 2px); }
+        }
+
+        /* Stage */
+        .stage {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        /* Text elements */
+        .line {
+            opacity: 0;
+            transform: translateY(0);
+            position: absolute;
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            will-change: opacity, transform;
+        }
+
+        /* PART 1 — Wrong order: mechanical, desaturated */
+        .part1-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+        }
+
+        .p1-number {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(48px, 10vw, 96px);
+            color: var(--text-dim);
+            font-weight: 400;
+            line-height: 1.1;
+        }
+
+        .p1-context {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: 300;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .p1-origin {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(14px, 2.5vw, 18px);
+            font-weight: 300;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        /* PART 2 — Right order: spring easing, full brand palette */
+        .p2-origin {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(18px, 3.5vw, 28px);
+            font-weight: 400;
+            color: var(--text-bright);
+            line-height: 1.5;
+        }
+
+        .p2-framework {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 3vw, 24px);
+            font-weight: 300;
+            color: var(--accent);
+            line-height: 1.5;
+        }
+
+        .p2-result {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(36px, 8vw, 72px);
+            color: var(--text-white);
+            font-weight: 400;
+            line-height: 1.15;
+        }
+
+        .p2-result .number-highlight {
+            color: var(--accent);
+            text-shadow: 0 0 40px var(--accent-glow);
+        }
+
+        .p2-consequence {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(16px, 3vw, 22px);
+            font-weight: 400;
+            color: var(--text-bright);
+            line-height: 1.5;
+        }
+
+        /* Divider between parts */
+        .divider-line {
+            width: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--text-muted), transparent);
+            position: absolute;
+            opacity: 0;
+        }
+
+        /* Part labels */
+        .part-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            position: absolute;
+            opacity: 0;
+        }
+
+        .part-label.wrong { color: #374151; }
+        .part-label.right { color: var(--accent); }
+
+        /* Closing sequence */
+        .close-insight {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(20px, 4vw, 36px);
+            color: var(--text-bright);
+            line-height: 1.4;
+            max-width: 700px;
+        }
+
+        .close-brand {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(13px, 2vw, 16px);
+            font-weight: 400;
+            color: var(--text-dim);
+            letter-spacing: 0.5px;
+        }
+
+        .close-brand .brand-name {
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .close-brand .brand-tagline {
+            font-style: italic;
+        }
+
+        /* Pulse dot */
+        .pulse-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: inline-block;
+            margin-left: 8px;
+            opacity: 0;
+            vertical-align: middle;
+        }
+
+        .pulse-dot.active {
+            opacity: 1;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--accent-pulse); }
+            50% { box-shadow: 0 0 0 8px transparent; }
+        }
+
+        /* Progress bar */
+        .progress {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: var(--accent);
+            z-index: 100;
+            width: 0;
+            opacity: 0.4;
+        }
+
+        /* Replay button */
+        .replay-btn {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            z-index: 100;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-dim);
+            background: none;
+            border: 1px solid #1e293b;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .replay-btn:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+        }
+
+        /* Subtle background glow for Part 2 */
+        .bg-glow {
+            position: fixed;
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            opacity: 0;
+            pointer-events: none;
+            will-change: opacity;
+        }
+    </style>
+</head>
+<body>
+    <div class="grain" id="grain"></div>
+    <div class="bg-glow" id="bgGlow"></div>
+
+    <div class="stage" id="stage">
+        <!-- All lines are positioned absolutely and shown/hidden by the timeline -->
+        <div class="line part-label wrong" id="labelWrong">Wrong Order</div>
+        <div class="line p1-number" id="p1Number">29mg.</div>
+        <div class="line p1-context" id="p1Context">That's what remains at bedtime.</div>
+        <div class="line p1-origin" id="p1Origin">From a cold brew at 3pm.</div>
+
+        <div class="line divider-line" id="divider"></div>
+
+        <div class="line part-label right" id="labelRight">Right Order</div>
+        <div class="line p2-origin" id="p2Origin">You had a cold brew at 3pm.</div>
+        <div class="line p2-framework" id="p2Framework">Caffeine halves every 5 hours.</div>
+        <div class="line p2-result" id="p2Result">At bedtime: <span class="number-highlight">29mg</span>.</div>
+        <div class="line p2-consequence" id="p2Consequence">That's why you can't sleep.</div>
+
+        <div class="line close-insight" id="closeInsight">The answer was always the same.<br>The order made it yours.</div>
+        <div class="line close-brand" id="closeBrand"><span class="brand-name">healthcalculators.xyz</span> <span class="brand-tagline">— we give you the frame first.</span><span class="pulse-dot" id="pulseDot"></span></div>
+    </div>
+
+    <div class="progress" id="progress"></div>
+    <button class="replay-btn" id="replayBtn" onclick="replay()">Replay</button>
+
+    <script>
+    (function() {
+        const TOTAL_DURATION = 35000; // 35 seconds
+        let animationFrame;
+        let startTime;
+        let timeouts = [];
+
+        // Easing functions
+        // Part 1: mechanical, linear-ish (wrong system)
+        function mechanicalEase(t) {
+            // Cubic ease-in-out — stiff, predictable, robotic
+            return t < 0.5
+                ? 4 * t * t * t
+                : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        }
+
+        // Part 2: spring easing (right system) — organic, alive
+        function springEase(t) {
+            const c4 = (2 * Math.PI) / 3;
+            if (t === 0) return 0;
+            if (t === 1) return 1;
+            // Damped spring
+            return t < 0.5
+                ? -(Math.pow(2, 20 * t - 10) * Math.sin((20 * t - 11.125) * c4)) / 2
+                : (Math.pow(2, -20 * t + 10) * Math.sin((20 * t - 11.125) * c4)) / 2 + 1;
+        }
+
+        // Gentler spring for text (less oscillation)
+        function gentleSpring(t) {
+            if (t === 0) return 0;
+            if (t === 1) return 1;
+            return 1 - Math.pow(2, -8 * t) * Math.cos(t * Math.PI * 2.5);
+        }
+
+        // Animation helpers
+        function animate(el, props, duration, easeFn, delay) {
+            const tid = setTimeout(() => {
+                const start = performance.now();
+                const initial = {};
+                const targets = {};
+
+                for (const [key, val] of Object.entries(props)) {
+                    if (key === 'opacity') {
+                        initial[key] = parseFloat(getComputedStyle(el).opacity) || 0;
+                        targets[key] = val;
+                    } else if (key === 'translateY') {
+                        initial[key] = 0;
+                        targets[key] = val;
+                    } else if (key === 'width') {
+                        initial[key] = parseFloat(el.style.width) || 0;
+                        targets[key] = val;
+                    } else if (key === 'scale') {
+                        initial[key] = 1;
+                        targets[key] = val;
+                    }
+                }
+
+                function step(now) {
+                    const elapsed = now - start;
+                    const raw = Math.min(elapsed / duration, 1);
+                    const t = easeFn(raw);
+
+                    let transform = '';
+                    for (const [key, target] of Object.entries(targets)) {
+                        const from = initial[key];
+                        const current = from + (target - from) * t;
+
+                        if (key === 'opacity') {
+                            el.style.opacity = current;
+                        } else if (key === 'translateY') {
+                            transform += `translateY(${current}px) `;
+                        } else if (key === 'width') {
+                            el.style.width = current + '%';
+                        } else if (key === 'scale') {
+                            transform += `scale(${current}) `;
+                        }
+                    }
+                    if (transform) el.style.transform = transform.trim();
+
+                    if (raw < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }, delay);
+            timeouts.push(tid);
+        }
+
+        function fadeOut(el, duration, easeFn, delay) {
+            animate(el, { opacity: 0 }, duration, easeFn, delay);
+        }
+
+        function showLine(el, fromY, duration, easeFn, delay) {
+            el.style.transform = `translateY(${fromY}px)`;
+            el.style.opacity = '0';
+            animate(el, { opacity: 1, translateY: 0 }, duration, easeFn, delay);
+        }
+
+        // Progress bar
+        function runProgress() {
+            const bar = document.getElementById('progress');
+            const s = performance.now();
+            function tick() {
+                const elapsed = performance.now() - s;
+                const pct = Math.min((elapsed / TOTAL_DURATION) * 100, 100);
+                bar.style.width = pct + '%';
+                if (pct < 100) requestAnimationFrame(tick);
+            }
+            requestAnimationFrame(tick);
+        }
+
+        function resetAll() {
+            timeouts.forEach(t => clearTimeout(t));
+            timeouts = [];
+
+            const lines = document.querySelectorAll('.line');
+            lines.forEach(l => {
+                l.style.opacity = '0';
+                l.style.transform = 'translateY(0)';
+            });
+
+            document.getElementById('progress').style.width = '0';
+            document.getElementById('replayBtn').style.opacity = '0';
+            document.getElementById('replayBtn').style.pointerEvents = 'none';
+            document.getElementById('bgGlow').style.opacity = '0';
+            document.getElementById('pulseDot').classList.remove('active');
+            document.getElementById('grain').classList.remove('animated');
+
+            // Reset divider
+            document.getElementById('divider').style.width = '0';
+        }
+
+        function runSequence() {
+            resetAll();
+            const grain = document.getElementById('grain');
+            grain.classList.add('animated');
+
+            runProgress();
+
+            // ===== PART 1: WRONG ORDER =====
+            // Mechanical easing. Desaturated. The number arrives with no context.
+            // Frame before content is VIOLATED — content arrives naked.
+
+            const p1Start = 500;
+
+            // "Wrong Order" label — faint
+            const labelW = document.getElementById('labelWrong');
+            labelW.style.top = '28%';
+            showLine(labelW, 0, 400, mechanicalEase, p1Start);
+
+            // "29mg." — the number floats, contextless
+            const p1Num = document.getElementById('p1Number');
+            p1Num.style.top = '38%';
+            // Mechanical: slides in from below, stiff
+            showLine(p1Num, 30, 600, mechanicalEase, p1Start + 600);
+
+            // Hold the number alone — let viewer feel the emptiness
+            // "That's what remains at bedtime." — context arrives too late
+            const p1Ctx = document.getElementById('p1Context');
+            p1Ctx.style.top = '54%';
+            showLine(p1Ctx, 15, 500, mechanicalEase, p1Start + 3200);
+
+            // "From a cold brew at 3pm." — origin arrives last (backwards)
+            const p1Org = document.getElementById('p1Origin');
+            p1Org.style.top = '62%';
+            showLine(p1Org, 10, 500, mechanicalEase, p1Start + 5400);
+
+            // Let Part 1 sit — viewer feels the flatness
+            // Fade out Part 1 — mechanical exit
+            fadeOut(labelW, 600, mechanicalEase, p1Start + 8000);
+            fadeOut(p1Num, 600, mechanicalEase, p1Start + 8000);
+            fadeOut(p1Ctx, 600, mechanicalEase, p1Start + 8200);
+            fadeOut(p1Org, 600, mechanicalEase, p1Start + 8400);
+
+            // ===== DIVIDER =====
+            const dividerStart = p1Start + 9600;
+            const divider = document.getElementById('divider');
+            divider.style.top = '50%';
+            divider.style.left = '50%';
+            divider.style.transform = 'translateX(-50%)';
+            const divTid = setTimeout(() => {
+                divider.style.opacity = '1';
+                divider.style.transition = 'width 800ms cubic-bezier(0.16, 1, 0.3, 1)';
+                divider.style.width = '120px';
+            }, dividerStart);
+            timeouts.push(divTid);
+
+            // Fade divider
+            fadeOut(divider, 400, mechanicalEase, dividerStart + 1400);
+
+            // ===== PART 2: RIGHT ORDER =====
+            // Spring easing. Full palette. Frame established BEFORE content.
+            // The Kuleshov effect: context transforms the meaning of data.
+
+            const p2Start = dividerStart + 2200;
+
+            // Background glow activates — the environment shifts
+            const glow = document.getElementById('bgGlow');
+            const glowTid = setTimeout(() => {
+                glow.style.transition = 'opacity 2s ease';
+                glow.style.opacity = '1';
+            }, p2Start - 400);
+            timeouts.push(glowTid);
+
+            // "Right Order" label — accent color
+            const labelR = document.getElementById('labelRight');
+            labelR.style.top = '25%';
+            showLine(labelR, 0, 500, gentleSpring, p2Start);
+
+            // STEP 1: Origin first — "You had a cold brew at 3pm."
+            // Context BEFORE content. Frame established.
+            const p2Org = document.getElementById('p2Origin');
+            p2Org.style.top = '38%';
+            showLine(p2Org, 20, 700, gentleSpring, p2Start + 600);
+
+            // STEP 2: Framework — "Caffeine halves every 5 hours."
+            // The interpretive lens is handed to the viewer.
+            const p2Fw = document.getElementById('p2Framework');
+            p2Fw.style.top = '48%';
+            showLine(p2Fw, 20, 700, gentleSpring, p2Start + 3400);
+
+            // STEP 3: Result — NOW the number lands.
+            // Same number. But it MEANS something now.
+            const p2Res = document.getElementById('p2Result');
+            p2Res.style.top = '38%';
+
+            // First, fade out origin + framework to clear the field
+            fadeOut(labelR, 400, gentleSpring, p2Start + 6000);
+            fadeOut(p2Org, 500, gentleSpring, p2Start + 6000);
+            fadeOut(p2Fw, 500, gentleSpring, p2Start + 6200);
+
+            // Result arrives with spring — the payoff
+            showLine(p2Res, 30, 800, gentleSpring, p2Start + 7200);
+
+            // "That's why you can't sleep." — the consequence
+            const p2Con = document.getElementById('p2Consequence');
+            p2Con.style.top = '54%';
+            showLine(p2Con, 15, 600, gentleSpring, p2Start + 8800);
+
+            // Hold the impact
+
+            // Fade Part 2
+            fadeOut(p2Res, 800, gentleSpring, p2Start + 11500);
+            fadeOut(p2Con, 800, gentleSpring, p2Start + 11700);
+
+            // Dim the glow
+            const glowFadeTid = setTimeout(() => {
+                glow.style.transition = 'opacity 1.5s ease';
+                glow.style.opacity = '0.4';
+            }, p2Start + 12000);
+            timeouts.push(glowFadeTid);
+
+            // ===== CLOSING =====
+            const closeStart = p2Start + 13400;
+
+            // "The answer was always the same. The order made it yours."
+            const closeIn = document.getElementById('closeInsight');
+            closeIn.style.top = '40%';
+            showLine(closeIn, 25, 900, gentleSpring, closeStart);
+
+            // Brand line + pulse dot
+            const closeBr = document.getElementById('closeBrand');
+            closeBr.style.top = '58%';
+            showLine(closeBr, 15, 700, gentleSpring, closeStart + 2400);
+
+            // Activate pulse dot
+            const pulseTid = setTimeout(() => {
+                document.getElementById('pulseDot').classList.add('active');
+            }, closeStart + 3200);
+            timeouts.push(pulseTid);
+
+            // Show replay button (ritardando — slow exit)
+            const replayTid = setTimeout(() => {
+                const btn = document.getElementById('replayBtn');
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            }, closeStart + 4000);
+            timeouts.push(replayTid);
+        }
+
+        // Start on load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Small delay for fonts to load
+            setTimeout(runSequence, 300);
+        });
+
+        // Expose replay
+        window.replay = function() {
+            runSequence();
+        };
+    })();
+    </script>
+</body>
+</html>

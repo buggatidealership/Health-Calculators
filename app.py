@@ -5843,6 +5843,10 @@ def mockup_brand_v22():
 def mockup_brand_v23():
     return render_template('mockup-brand-v23.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-brand-v24')
+def mockup_brand_v24():
+    return render_template('mockup-brand-v24.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-brand-v27')
 def mockup_brand_v27():
     return render_template('mockup-brand-v27.html', is_homepage=True, robots_meta='noindex, nofollow')
