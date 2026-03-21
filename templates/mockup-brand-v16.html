@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>The Decay Curve — HealthCalculators.xyz</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: hsl(220, 20%, 6%);
+            --teal: hsl(165, 82%, 51%);
+            --teal-dim: hsl(165, 60%, 35%);
+            --amber: hsl(38, 92%, 55%);
+            --amber-dim: hsl(38, 70%, 40%);
+            --warm-red: hsl(15, 80%, 55%);
+            --text-primary: hsl(0, 0%, 95%);
+            --text-secondary: hsl(0, 0%, 60%);
+            --text-dim: hsl(0, 0%, 40%);
+            --grain-opacity: 0.035;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-primary);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Film grain overlay */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+            opacity: var(--grain-opacity);
+            pointer-events: none;
+            z-index: 1000;
+            mix-blend-mode: overlay;
+        }
+
+        .stage {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        /* ---- THE NUMBER ---- */
+        .mg-counter {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: clamp(5rem, 15vw, 10rem);
+            line-height: 1;
+            letter-spacing: -0.03em;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            opacity: 0;
+            transition: color 2s ease;
+        }
+
+        .mg-unit {
+            font-size: 0.35em;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-left: 0.1em;
+            vertical-align: baseline;
+        }
+
+        /* Subtle glow behind the number */
+        .mg-counter::after {
+            content: '';
+            position: absolute;
+            inset: -40px;
+            background: radial-gradient(ellipse at center, hsla(165, 80%, 50%, 0.08) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+            transition: background 2s ease;
+        }
+
+        /* ---- TIMESTAMP ---- */
+        .timestamp {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.9rem, 2.5vw, 1.15rem);
+            color: var(--text-secondary);
+            margin-top: 1rem;
+            text-align: center;
+            opacity: 0;
+            min-height: 1.6em;
+            transition: opacity 0.6s ease;
+        }
+
+        /* ---- SVG CURVE ---- */
+        .curve-container {
+            width: 100%;
+            max-width: 700px;
+            height: 200px;
+            margin-top: 2.5rem;
+            position: relative;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .decay-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .decay-path {
+            fill: none;
+            stroke: var(--teal);
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            filter: drop-shadow(0 0 6px hsla(165, 80%, 50%, 0.3));
+            transition: stroke 2s ease;
+        }
+
+        .decay-glow {
+            fill: none;
+            stroke: hsla(165, 80%, 50%, 0.1);
+            stroke-width: 8;
+            stroke-linecap: round;
+        }
+
+        /* Axis lines */
+        .axis-line {
+            stroke: hsla(0, 0%, 100%, 0.06);
+            stroke-width: 1;
+        }
+
+        /* Tick marks at half-life points */
+        .tick-mark {
+            opacity: 0;
+            transform-origin: center;
+        }
+
+        .tick-line {
+            stroke: hsla(0, 0%, 100%, 0.2);
+            stroke-width: 1;
+            stroke-dasharray: 4 3;
+        }
+
+        .tick-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            fill: var(--text-dim);
+        }
+
+        .tick-value {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 10px;
+            fill: var(--text-dim);
+        }
+
+        /* Sleep threshold line */
+        .sleep-threshold {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        .threshold-line {
+            stroke: var(--amber);
+            stroke-width: 1;
+            stroke-dasharray: 6 4;
+            opacity: 0.5;
+        }
+
+        .threshold-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 11px;
+            fill: var(--amber-dim);
+        }
+
+        /* ---- SLEEP MESSAGE ---- */
+        .sleep-message {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: var(--amber-dim);
+            margin-top: 1.2rem;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        /* ---- RULE REVEAL ---- */
+        .rule-reveal {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .rule-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            color: var(--text-primary);
+            text-align: center;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+        }
+
+        .insight-text {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+            color: var(--text-secondary);
+            margin-top: 1.5rem;
+            text-align: center;
+            opacity: 0;
+        }
+
+        /* ---- ENDCARD ---- */
+        .endcard {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .endcard-count {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--teal);
+            letter-spacing: -0.02em;
+        }
+
+        .endcard-url {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+            letter-spacing: 0.08em;
+        }
+
+        /* ---- PLAY BUTTON (before auto-start) ---- */
+        .play-btn {
+            position: absolute;
+            z-index: 20;
+            background: none;
+            border: 2px solid hsla(165, 80%, 50%, 0.4);
+            color: var(--teal);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 60px;
+            cursor: pointer;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .play-btn:hover {
+            background: hsla(165, 80%, 50%, 0.08);
+            border-color: var(--teal);
+        }
+
+        .play-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ---- REPLAY ---- */
+        .replay-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            z-index: 30;
+            background: none;
+            border: 1px solid hsla(0, 0%, 100%, 0.15);
+            color: var(--text-secondary);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.8rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            cursor: pointer;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .replay-btn:hover {
+            border-color: hsla(0, 0%, 100%, 0.3);
+            color: var(--text-primary);
+        }
+
+        .replay-btn.visible {
+            opacity: 1;
+        }
+
+        /* ---- PROGRESS BAR ---- */
+        .progress-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: var(--teal);
+            opacity: 0.4;
+            z-index: 50;
+            transition: width 0.1s linear;
+        }
+
+        /* ---- RESPONSIVE ---- */
+        @media (max-width: 600px) {
+            .curve-container {
+                height: 150px;
+            }
+            .stage {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="stage" id="stage">
+    <!-- The living number -->
+    <div class="mg-counter" id="mgCounter">200<span class="mg-unit">mg</span></div>
+
+    <!-- Timestamp caption -->
+    <div class="timestamp" id="timestamp">8:00 AM — You had a cold brew.</div>
+
+    <!-- Decay curve SVG -->
+    <div class="curve-container" id="curveContainer">
+        <svg class="decay-svg" viewBox="0 0 700 200" preserveAspectRatio="none">
+            <!-- Horizontal axis guides -->
+            <line class="axis-line" x1="0" y1="199" x2="700" y2="199"/>
+            <line class="axis-line" x1="0" y1="100" x2="700" y2="100"/>
+            <line class="axis-line" x1="0" y1="0" x2="700" y2="0"/>
+
+            <!-- Sleep threshold (25mg = 87.5% down from 200 = y ~175) -->
+            <g class="sleep-threshold" id="sleepThreshold">
+                <line class="threshold-line" x1="0" y1="175" x2="700" y2="175"/>
+                <text class="threshold-label" x="706" y="179" text-anchor="start" font-size="10">sleep threshold</text>
+            </g>
+
+            <!-- Glow path (drawn behind main path) -->
+            <path class="decay-glow" id="decayGlow" d=""/>
+
+            <!-- Main decay path -->
+            <path class="decay-path" id="decayPath" d=""/>
+
+            <!-- Tick marks (added dynamically) -->
+            <g id="tickMarks"></g>
+        </svg>
+    </div>
+
+    <!-- Sleep message -->
+    <div class="sleep-message" id="sleepMessage">This is when you're trying to sleep.</div>
+
+    <!-- Rule reveal overlay -->
+    <div class="rule-reveal" id="ruleReveal">
+        <div class="rule-text">Every 5 hours, half.</div>
+        <div class="insight-text" id="insightText">You just learned something<br>no calculator ever showed you.</div>
+    </div>
+
+    <!-- End card -->
+    <div class="endcard" id="endcard">
+        <div class="endcard-count">82 more.</div>
+        <div class="endcard-url">healthcalculators.xyz</div>
+    </div>
+</div>
+
+<button class="play-btn" id="playBtn">Watch</button>
+<button class="replay-btn" id="replayBtn">Replay</button>
+
+<script>
+(function() {
+    // ---- CONSTANTS ----
+    const TOTAL_DURATION = 42000; // 42s total
+    const HALF_LIFE_HOURS = 5;
+    const INITIAL_MG = 200;
+    const SLEEP_THRESHOLD_MG = 25;
+
+    // Timeline markers (ms)
+    const T = {
+        numberAppear:   0,
+        timestampShow:  800,
+        curveStart:     2000,
+        curveEnd:       25000,
+        sleepMsg:       20000,
+        thresholdLine:  22000,
+        holdPause:      25000,
+        fadeToRule:      27000,
+        ruleShow:       28000,
+        insightShow:    31000,
+        insightHold:    34000,
+        fadeToEnd:      36000,
+        endcardShow:    37000,
+        endcardHold:    42000
+    };
+
+    // Time-to-mg mapping: mg = 200 * (0.5)^(hours/5)
+    // We simulate 0-24 hours mapped across the curve drawing phase
+    const SIMULATED_HOURS = 20;
+
+    // SVG dimensions
+    const SVG_W = 700;
+    const SVG_H = 200;
+    const CURVE_PADDING_TOP = 10;
+    const CURVE_PADDING_BOTTOM = 10;
+
+    // Half-life tick data
+    const TICKS = [
+        { hours: 5,  mg: 100, time: '1:00 PM' },
+        { hours: 10, mg: 50,  time: '6:00 PM' },
+        { hours: 15, mg: 25,  time: '11:00 PM' },
+    ];
+
+    // Elements
+    const mgCounter = document.getElementById('mgCounter');
+    const timestamp = document.getElementById('timestamp');
+    const curveContainer = document.getElementById('curveContainer');
+    const decayPath = document.getElementById('decayPath');
+    const decayGlow = document.getElementById('decayGlow');
+    const tickMarks = document.getElementById('tickMarks');
+    const sleepThreshold = document.getElementById('sleepThreshold');
+    const sleepMessage = document.getElementById('sleepMessage');
+    const ruleReveal = document.getElementById('ruleReveal');
+    const insightText = document.getElementById('insightText');
+    const endcard = document.getElementById('endcard');
+    const playBtn = document.getElementById('playBtn');
+    const replayBtn = document.getElementById('replayBtn');
+    const progressBar = document.getElementById('progressBar');
+
+    // ---- MATH HELPERS ----
+    function mgAtHour(h) {
+        return INITIAL_MG * Math.pow(0.5, h / HALF_LIFE_HOURS);
+    }
+
+    function hourToX(h) {
+        return (h / SIMULATED_HOURS) * SVG_W;
+    }
+
+    function mgToY(mg) {
+        // 200mg = top, 0mg = bottom
+        const ratio = mg / INITIAL_MG;
+        return CURVE_PADDING_TOP + (1 - ratio) * (SVG_H - CURVE_PADDING_TOP - CURVE_PADDING_BOTTOM);
+    }
+
+    // Build the full decay path data
+    function buildFullPath() {
+        const points = [];
+        const steps = 200;
+        for (let i = 0; i <= steps; i++) {
+            const h = (i / steps) * SIMULATED_HOURS;
+            const x = hourToX(h);
+            const y = mgToY(mgAtHour(h));
+            points.push({ x, y });
+        }
+        let d = `M ${points[0].x} ${points[0].y}`;
+        for (let i = 1; i < points.length; i++) {
+            d += ` L ${points[i].x} ${points[i].y}`;
+        }
+        return d;
+    }
+
+    const fullPathD = buildFullPath();
+
+    // ---- COLOR INTERPOLATION (HSL) ----
+    // Teal (165, 82%, 51%) -> Amber (38, 92%, 55%) -> WarmRed (15, 80%, 55%)
+    function getNumberColor(mg) {
+        const ratio = mg / INITIAL_MG; // 1.0 = 200mg, 0 = 0mg
+        let h, s, l;
+        if (ratio > 0.5) {
+            // 200-100mg: teal to slightly warm teal
+            const t = (ratio - 0.5) / 0.5;
+            h = 165 - (1 - t) * 40; // 165 -> 125
+            s = 82 - (1 - t) * 10;
+            l = 51;
+        } else if (ratio > 0.15) {
+            // 100-30mg: warm teal to amber
+            const t = (ratio - 0.15) / 0.35;
+            h = 125 * t + 38 * (1 - t);
+            s = 72 + (92 - 72) * (1 - t);
+            l = 51 + (55 - 51) * (1 - t);
+        } else {
+            // 30-0mg: amber to warm red
+            const t = ratio / 0.15;
+            h = 38 * t + 15 * (1 - t);
+            s = 92 * t + 80 * (1 - t);
+            l = 55;
+        }
+        return `hsl(${Math.round(h)}, ${Math.round(s)}%, ${Math.round(l)}%)`;
+    }
+
+    function getStrokeColor(mg) {
+        const ratio = mg / INITIAL_MG;
+        if (ratio > 0.5) {
+            const t = (ratio - 0.5) / 0.5;
+            const h = 165 - (1 - t) * 30;
+            return `hsl(${Math.round(h)}, 70%, 45%)`;
+        } else if (ratio > 0.15) {
+            const t = (ratio - 0.15) / 0.35;
+            const h = 135 * t + 45 * (1 - t);
+            return `hsl(${Math.round(h)}, 65%, 45%)`;
+        } else {
+            return `hsl(40, 60%, 42%)`;
+        }
+    }
+
+    // ---- TIMESTAMP LABELS ----
+    function getTimestampText(hours) {
+        if (hours < 0.5) return '8:00 AM \u2014 You had a cold brew.';
+        // Map hours to clock time starting at 8 AM
+        const clockHour = 8 + hours;
+        const h12 = Math.floor(clockHour) % 12 || 12;
+        const period = clockHour >= 12 && clockHour < 24 ? 'PM' : 'AM';
+        const mins = Math.round((clockHour % 1) * 60);
+        const timeStr = `${h12}:${mins.toString().padStart(2, '0')} ${period}`;
+        const mg = Math.round(mgAtHour(hours));
+        return `${timeStr} \u2014 ${mg}mg remaining`;
+    }
+
+    // ---- SVG PATH DRAWING ----
+    // Use stroke-dasharray/offset for progressive reveal
+    function setupPathDrawing() {
+        const pathEl = decayPath;
+        const glowEl = decayGlow;
+        pathEl.setAttribute('d', fullPathD);
+        glowEl.setAttribute('d', fullPathD);
+
+        const pathLen = pathEl.getTotalLength();
+        pathEl.style.strokeDasharray = pathLen;
+        pathEl.style.strokeDashoffset = pathLen;
+        glowEl.style.strokeDasharray = pathLen;
+        glowEl.style.strokeDashoffset = pathLen;
+
+        return pathLen;
+    }
+
+    // ---- TICK MARK CREATION ----
+    function createTickMark(tick) {
+        const x = hourToX(tick.hours);
+        const y = mgToY(tick.mg);
+
+        const g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+        g.classList.add('tick-mark');
+        g.setAttribute('data-hours', tick.hours);
+
+        // Vertical dashed line
+        const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+        line.classList.add('tick-line');
+        line.setAttribute('x1', x);
+        line.setAttribute('y1', y);
+        line.setAttribute('x2', x);
+        line.setAttribute('y2', SVG_H);
+        g.appendChild(line);
+
+        // Time label below
+        const timeLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        timeLabel.classList.add('tick-label');
+        timeLabel.setAttribute('x', x);
+        timeLabel.setAttribute('y', SVG_H - 4);
+        timeLabel.setAttribute('text-anchor', 'middle');
+        timeLabel.textContent = tick.time;
+        g.appendChild(timeLabel);
+
+        // mg value at curve intersection
+        const valLabel = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        valLabel.classList.add('tick-value');
+        valLabel.setAttribute('x', x + 8);
+        valLabel.setAttribute('y', y - 8);
+        valLabel.setAttribute('text-anchor', 'start');
+        valLabel.textContent = tick.mg + 'mg';
+        g.appendChild(valLabel);
+
+        // Small dot at intersection
+        const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        dot.setAttribute('cx', x);
+        dot.setAttribute('cy', y);
+        dot.setAttribute('r', 4);
+        dot.setAttribute('fill', 'var(--teal)');
+        dot.style.filter = 'drop-shadow(0 0 4px hsla(165, 80%, 50%, 0.5))';
+        g.appendChild(dot);
+
+        tickMarks.appendChild(g);
+        return g;
+    }
+
+    // ---- ANIMATION ENGINE ----
+    let animationId = null;
+    let startTime = null;
+    let pathLength = 0;
+    let tickElements = [];
+    let tickRevealed = [false, false, false];
+
+    function reset() {
+        if (animationId) cancelAnimationFrame(animationId);
+        startTime = null;
+
+        // Clear ticks
+        tickMarks.innerHTML = '';
+        tickElements = [];
+        tickRevealed = [false, false, false];
+
+        // Reset elements
+        mgCounter.style.opacity = '0';
+        mgCounter.style.color = 'var(--teal)';
+        mgCounter.innerHTML = '200<span class="mg-unit">mg</span>';
+        mgCounter.style.transform = 'scale(1)';
+
+        timestamp.style.opacity = '0';
+        timestamp.textContent = '8:00 AM \u2014 You had a cold brew.';
+
+        curveContainer.style.opacity = '0';
+
+        sleepThreshold.style.opacity = '0';
+        sleepMessage.style.opacity = '0';
+
+        ruleReveal.style.opacity = '0';
+        insightText.style.opacity = '0';
+
+        endcard.style.opacity = '0';
+
+        replayBtn.classList.remove('visible');
+        progressBar.style.width = '0%';
+
+        // Pre-create tick elements
+        TICKS.forEach(tick => {
+            const el = createTickMark(tick);
+            tickElements.push(el);
+        });
+
+        // Setup path
+        pathLength = setupPathDrawing();
+    }
+
+    function easeOutCubic(t) {
+        return 1 - Math.pow(1 - t, 3);
+    }
+
+    function springBounce(t) {
+        // Quick overshoot then settle
+        if (t < 0.7) return (t / 0.7) * 1.15;
+        return 1.15 - 0.15 * ((t - 0.7) / 0.3);
+    }
+
+    function animate(now) {
+        if (!startTime) startTime = now;
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / TOTAL_DURATION, 1);
+
+        // Progress bar
+        progressBar.style.width = (progress * 100) + '%';
+
+        // ---- PHASE 1: Number appears (0-2s) ----
+        if (elapsed >= T.numberAppear && elapsed < T.curveStart) {
+            const fadeT = Math.min((elapsed - T.numberAppear) / 800, 1);
+            mgCounter.style.opacity = easeOutCubic(fadeT);
+
+            // Subtle pulse
+            const pulse = 1 + Math.sin(elapsed / 400) * 0.008;
+            mgCounter.style.transform = `scale(${pulse})`;
+        }
+
+        // Timestamp appears
+        if (elapsed >= T.timestampShow && elapsed < T.curveStart) {
+            const fadeT = Math.min((elapsed - T.timestampShow) / 600, 1);
+            timestamp.style.opacity = easeOutCubic(fadeT);
+        }
+
+        // ---- PHASE 2: Curve drawing + counter decay (2s-25s) ----
+        if (elapsed >= T.curveStart && elapsed < T.holdPause) {
+            // Show curve container
+            curveContainer.style.opacity = '1';
+
+            const curveDuration = T.curveEnd - T.curveStart;
+            const curveElapsed = elapsed - T.curveStart;
+            const curveProgress = Math.min(curveElapsed / curveDuration, 1);
+
+            // Ease the curve drawing (ease-out so it slows as values flatten)
+            const easedProgress = easeOutCubic(curveProgress);
+
+            // Map progress to simulated hours
+            const currentHours = easedProgress * SIMULATED_HOURS;
+            const currentMg = mgAtHour(currentHours);
+
+            // Update counter
+            const displayMg = Math.round(currentMg);
+            mgCounter.innerHTML = displayMg + '<span class="mg-unit">mg</span>';
+
+            // Color shift via HSL
+            const numColor = getNumberColor(currentMg);
+            mgCounter.style.color = numColor;
+
+            // Subtle pulse that slows as mg drops
+            const pulseSpeed = 400 + (1 - currentMg / INITIAL_MG) * 600;
+            const pulse = 1 + Math.sin(elapsed / pulseSpeed) * (0.008 * (currentMg / INITIAL_MG));
+            mgCounter.style.transform = `scale(${pulse})`;
+
+            // Update stroke color
+            const strokeColor = getStrokeColor(currentMg);
+            decayPath.style.stroke = strokeColor;
+
+            // Draw path via dashoffset
+            const drawOffset = pathLength * (1 - easedProgress);
+            decayPath.style.strokeDashoffset = drawOffset;
+            decayGlow.style.strokeDashoffset = drawOffset;
+
+            // Update timestamp
+            timestamp.textContent = getTimestampText(currentHours);
+
+            // Reveal tick marks with spring bounce
+            TICKS.forEach((tick, i) => {
+                if (currentHours >= tick.hours && !tickRevealed[i]) {
+                    tickRevealed[i] = true;
+                    const el = tickElements[i];
+                    el.style.transition = 'none';
+                    el.style.opacity = '0';
+                    el.style.transform = 'scale(0.3)';
+
+                    requestAnimationFrame(() => {
+                        el.style.transition = 'opacity 0.4s ease-out, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                        el.style.opacity = '1';
+                        el.style.transform = 'scale(1)';
+                    });
+                }
+            });
+
+            // Sleep threshold line appears
+            if (elapsed >= T.thresholdLine) {
+                sleepThreshold.style.opacity = '1';
+            }
+
+            // Sleep message
+            if (elapsed >= T.sleepMsg) {
+                sleepMessage.style.opacity = '1';
+            }
+        }
+
+        // ---- PHASE 3: Hold at 25mg (25s-27s) ----
+        if (elapsed >= T.holdPause && elapsed < T.fadeToRule) {
+            // Counter stubbornly at ~25
+            mgCounter.innerHTML = '25<span class="mg-unit">mg</span>';
+            mgCounter.style.color = getNumberColor(25);
+
+            // Full curve drawn
+            decayPath.style.strokeDashoffset = '0';
+            decayGlow.style.strokeDashoffset = '0';
+
+            timestamp.textContent = '11:00 PM \u2014 still in your system.';
+            sleepMessage.style.opacity = '1';
+            sleepThreshold.style.opacity = '1';
+        }
+
+        // ---- PHASE 4: Fade out data, reveal the rule (27s-35s) ----
+        if (elapsed >= T.fadeToRule && elapsed < T.fadeToEnd) {
+            // Fade out the data visualization
+            const fadeOutT = Math.min((elapsed - T.fadeToRule) / 1000, 1);
+            mgCounter.style.opacity = 1 - fadeOutT;
+            curveContainer.style.opacity = 1 - fadeOutT;
+            timestamp.style.opacity = 1 - fadeOutT;
+            sleepMessage.style.opacity = 1 - fadeOutT;
+        }
+
+        // Rule text appears
+        if (elapsed >= T.ruleShow && elapsed < T.fadeToEnd) {
+            const fadeT = Math.min((elapsed - T.ruleShow) / 800, 1);
+            ruleReveal.style.opacity = easeOutCubic(fadeT);
+        }
+
+        // Insight text appears
+        if (elapsed >= T.insightShow && elapsed < T.fadeToEnd) {
+            const fadeT = Math.min((elapsed - T.insightShow) / 800, 1);
+            insightText.style.opacity = easeOutCubic(fadeT);
+        }
+
+        // ---- PHASE 5: Fade to endcard (36s-42s) ----
+        if (elapsed >= T.fadeToEnd) {
+            // Fade out rule
+            const fadeOutT = Math.min((elapsed - T.fadeToEnd) / 800, 1);
+            ruleReveal.style.opacity = 1 - fadeOutT;
+        }
+
+        if (elapsed >= T.endcardShow) {
+            const fadeT = Math.min((elapsed - T.endcardShow) / 800, 1);
+            endcard.style.opacity = easeOutCubic(fadeT);
+        }
+
+        // ---- END ----
+        if (elapsed >= TOTAL_DURATION) {
+            replayBtn.classList.add('visible');
+            progressBar.style.width = '100%';
+            return;
+        }
+
+        animationId = requestAnimationFrame(animate);
+    }
+
+    function start() {
+        reset();
+        playBtn.classList.add('hidden');
+        animationId = requestAnimationFrame(animate);
+    }
+
+    // ---- EVENT LISTENERS ----
+    playBtn.addEventListener('click', start);
+    replayBtn.addEventListener('click', () => {
+        replayBtn.classList.remove('visible');
+        start();
+    });
+
+    // Keyboard shortcut
+    document.addEventListener('keydown', (e) => {
+        if (e.code === 'Space') {
+            e.preventDefault();
+            if (!playBtn.classList.contains('hidden')) {
+                start();
+            } else {
+                // Replay
+                replayBtn.classList.remove('visible');
+                start();
+            }
+        }
+    });
+
+    // Pre-setup so SVG is ready
+    reset();
+})();
+</script>
+
+</body>
+</html>
