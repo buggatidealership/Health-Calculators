@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>The Focus Drain — HealthCalculators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0e12;
+  --teal:#14b8a6;
+  --teal-deep:#0e7a7e;
+  --amber:#f59e0b;
+  --red:#ef4444;
+  --green:#22c55e;
+  --bar-glow-r:20;--bar-glow-g:184;--bar-glow-b:166;
+}
+html,body{background:var(--bg);color:#e4e6ea;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
+
+/* Film grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+
+/* Screen shake */
+.shake-container{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+.shake-container.shaking{animation:screenShake 0.5s ease-out}
+@keyframes screenShake{
+  0%{transform:translate(0,0)}
+  10%{transform:translate(-8px,4px)}
+  20%{transform:translate(6px,-6px)}
+  30%{transform:translate(-5px,3px)}
+  40%{transform:translate(4px,-2px)}
+  50%{transform:translate(-3px,5px)}
+  60%{transform:translate(3px,-3px)}
+  70%{transform:translate(-2px,2px)}
+  80%{transform:translate(1px,-1px)}
+  90%{transform:translate(-1px,1px)}
+  100%{transform:translate(0,0)}
+}
+
+/* Flash overlay */
+.flash-overlay{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:9000;transition:opacity 0.06s}
+
+/* Container */
+.stage{width:min(900px,92vw);display:flex;flex-direction:column;align-items:center;gap:2rem;position:relative}
+
+/* Title */
+.title-line{font-family:'DM Serif Display',serif;font-size:clamp(1.1rem,2.5vw,1.6rem);color:rgba(255,255,255,0.15);
+  letter-spacing:0.5px;opacity:0;transform:translateY(12px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.title-line.in{opacity:1;transform:translateY(0)}
+
+/* ===== THE BAR ===== */
+.bar-wrapper{width:100%;position:relative}
+.bar-label-row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.bar-label{font-family:'DM Serif Display',serif;font-size:clamp(0.85rem,1.8vw,1.1rem);color:rgba(255,255,255,0.5);
+  opacity:0;transition:opacity 0.5s ease}.bar-label.in{opacity:1}
+.bar-pct{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(1.8rem,5vw,3rem);
+  color:var(--teal);opacity:0;transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  text-shadow:0 0 30px rgba(var(--bar-glow-r),var(--bar-glow-g),var(--bar-glow-b),0.4)}
+.bar-pct.in{opacity:1}
+
+.bar-track{width:100%;height:clamp(28px,5vw,44px);background:rgba(255,255,255,0.04);border-radius:22px;
+  position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.06)}
+.bar-fill{height:100%;border-radius:22px;position:relative;
+  transition:width 0.3s cubic-bezier(0.34,1.56,0.64,1),background 0.4s ease,box-shadow 0.4s ease;
+  background:linear-gradient(90deg,var(--teal-deep),var(--teal));
+  box-shadow:0 0 20px rgba(var(--bar-glow-r),var(--bar-glow-g),var(--bar-glow-b),0.3),
+             inset 0 1px 0 rgba(255,255,255,0.1)}
+.bar-fill::after{content:'';position:absolute;inset:0;border-radius:22px;
+  background:linear-gradient(180deg,rgba(255,255,255,0.08) 0%,transparent 60%)}
+
+/* Shimmer on bar */
+.bar-fill::before{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06),transparent);
+  animation:shimmer 3s ease-in-out infinite}
+@keyframes shimmer{0%{left:-100%}100%{left:200%}}
+
+/* ===== TOOL SLAM ===== */
+.tool-slam{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;
+  opacity:0;pointer-events:none;z-index:20}
+.tool-name{font-family:'DM Serif Display',serif;font-size:clamp(2rem,7vw,4.5rem);font-weight:400;
+  color:rgba(255,255,255,0.9);white-space:nowrap}
+.tool-stat{font-family:'DM Sans',sans-serif;font-size:clamp(0.7rem,1.5vw,0.95rem);font-weight:400;
+  color:rgba(255,255,255,0.35);margin-top:8px;letter-spacing:0.5px}
+.tool-drain{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(0.9rem,2vw,1.2rem);
+  color:var(--red);margin-top:4px;opacity:0}
+
+/* ===== REFILL STEP ===== */
+.refill-step{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;
+  opacity:0;pointer-events:none;z-index:20}
+.refill-name{font-family:'DM Serif Display',serif;font-size:clamp(1.8rem,6vw,3.8rem);font-weight:400;
+  color:var(--teal);white-space:nowrap}
+.refill-detail{font-family:'DM Sans',sans-serif;font-size:clamp(0.75rem,1.5vw,1rem);font-weight:400;
+  color:rgba(255,255,255,0.5);margin-top:10px;letter-spacing:0.3px}
+.refill-gain{font-family:'DM Sans',sans-serif;font-weight:700;font-size:clamp(0.9rem,2vw,1.2rem);
+  color:var(--green);margin-top:4px;opacity:0}
+
+/* ===== DRAMATIC TEXT ===== */
+.dramatic{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);text-align:center;
+  opacity:0;pointer-events:none;z-index:20;width:90%}
+.dramatic-main{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,5vw,3.2rem);
+  color:rgba(255,255,255,0.85);line-height:1.2}
+.dramatic-sub{font-family:'DM Sans',sans-serif;font-size:clamp(0.8rem,1.6vw,1.05rem);
+  color:rgba(255,255,255,0.3);margin-top:14px;letter-spacing:0.3px}
+
+/* ===== CLOSE ===== */
+.close-section{position:absolute;top:38%;left:50%;transform:translate(-50%,-50%);text-align:center;
+  opacity:0;pointer-events:none;z-index:20;width:90%}
+.close-tagline{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2.5vw,1.6rem);
+  color:rgba(255,255,255,0.4);letter-spacing:0.5px;margin-top:16px}
+.close-brand{font-family:'DM Serif Display',serif;font-size:clamp(1.4rem,4vw,2.4rem);
+  color:var(--teal);margin-top:8px;text-shadow:0 0 40px rgba(20,184,166,0.3)}
+
+/* Pulsing dot */
+.pulse-dot{display:inline-block;width:8px;height:8px;background:var(--green);border-radius:50%;
+  margin-right:6px;vertical-align:middle;animation:pulseDot 2s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4);transform:scale(1)}
+  50%{box-shadow:0 0 0 6px rgba(34,197,94,0);transform:scale(1.1)}}
+
+/* Replay */
+.replay-btn{position:fixed;bottom:24px;right:24px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.4);font-family:'DM Sans',sans-serif;font-size:0.75rem;padding:8px 16px;
+  border-radius:8px;cursor:pointer;z-index:9999;opacity:0;transition:all 0.3s ease;letter-spacing:0.5px}
+.replay-btn:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7)}
+.replay-btn.in{opacity:1}
+
+/* Vignette */
+.vignette{position:fixed;inset:0;pointer-events:none;z-index:50;
+  background:radial-gradient(ellipse at center,transparent 50%,rgba(0,0,0,0.5) 100%)}
+
+/* Low bar pulse warning */
+@keyframes lowPulse{0%,100%{opacity:0.6}50%{opacity:1}}
+
+/* Responsive */
+@media(max-width:600px){
+  .stage{gap:1.2rem}
+  .bar-track{height:24px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="vignette"></div>
+<div class="flash-overlay" id="flash"></div>
+
+<div class="shake-container" id="shaker">
+<div class="stage" id="stage">
+  <!-- Title -->
+  <div class="title-line" id="titleLine">Your mental clarity today</div>
+
+  <!-- Bar -->
+  <div class="bar-wrapper">
+    <div class="bar-label-row">
+      <span class="bar-label" id="barLabel">Focus</span>
+      <span class="bar-pct" id="barPct">100%</span>
+    </div>
+    <div class="bar-track">
+      <div class="bar-fill" id="barFill" style="width:100%"></div>
+    </div>
+  </div>
+
+  <!-- Tool slams (reused) -->
+  <div class="tool-slam" id="toolSlam">
+    <div class="tool-name" id="toolName"></div>
+    <div class="tool-stat" id="toolStat"></div>
+    <div class="tool-drain" id="toolDrain"></div>
+  </div>
+
+  <!-- Refill steps (reused) -->
+  <div class="refill-step" id="refillStep">
+    <div class="refill-name" id="refillName"></div>
+    <div class="refill-detail" id="refillDetail"></div>
+    <div class="refill-gain" id="refillGain"></div>
+  </div>
+
+  <!-- Dramatic text -->
+  <div class="dramatic" id="dramatic">
+    <div class="dramatic-main" id="dramaticMain"></div>
+    <div class="dramatic-sub" id="dramaticSub"></div>
+  </div>
+
+  <!-- Close -->
+  <div class="close-section" id="closeSection">
+    <div class="close-brand"><span class="pulse-dot"></span>HealthCalculators</div>
+    <div class="close-tagline">Where noise is reduced to portable signal.</div>
+  </div>
+</div>
+</div>
+
+<button class="replay-btn" id="replayBtn" onclick="location.reload()">Replay</button>
+
+<script>
+// Elements
+const barFill = document.getElementById('barFill');
+const barPct = document.getElementById('barPct');
+const barLabel = document.getElementById('barLabel');
+const titleLine = document.getElementById('titleLine');
+const toolSlam = document.getElementById('toolSlam');
+const toolName = document.getElementById('toolName');
+const toolStat = document.getElementById('toolStat');
+const toolDrain = document.getElementById('toolDrain');
+const refillStep = document.getElementById('refillStep');
+const refillName = document.getElementById('refillName');
+const refillDetail = document.getElementById('refillDetail');
+const refillGain = document.getElementById('refillGain');
+const dramatic = document.getElementById('dramatic');
+const dramaticMain = document.getElementById('dramaticMain');
+const dramaticSub = document.getElementById('dramaticSub');
+const closeSection = document.getElementById('closeSection');
+const flash = document.getElementById('flash');
+const shaker = document.getElementById('shaker');
+const replayBtn = document.getElementById('replayBtn');
+
+let currentPct = 100;
+
+// Color interpolation for bar
+function getBarColor(pct) {
+  if (pct > 60) {
+    // teal range: 100-60
+    const t = (pct - 60) / 40;
+    return { r: 14 + (1-t)*231, g: 184 - (1-t)*69, b: 166 - (1-t)*155, hex: interpolateHex('#14b8a6', '#f59e0b', 1-t) };
+  } else if (pct > 25) {
+    // amber to red: 60-25
+    const t = (pct - 25) / 35;
+    return { r: 245 - (1-t)*6, g: 158 - (1-t)*90, b: 11 + (1-t)*57, hex: interpolateHex('#f59e0b', '#ef4444', 1-t) };
+  } else {
+    // deep red: 25-0
+    const t = pct / 25;
+    return { r: 239, g: 68 * t, b: 68 * t, hex: '#ef4444' };
+  }
+}
+
+function getRefillColor(pct) {
+  if (pct < 30) {
+    return interpolateHex('#ef4444', '#f59e0b', pct / 30);
+  } else if (pct < 60) {
+    return interpolateHex('#f59e0b', '#14b8a6', (pct - 30) / 30);
+  } else {
+    return interpolateHex('#14b8a6', '#22c55e', (pct - 60) / 40);
+  }
+}
+
+function interpolateHex(a, b, t) {
+  const ar = parseInt(a.slice(1,3),16), ag = parseInt(a.slice(3,5),16), ab = parseInt(a.slice(5,7),16);
+  const br = parseInt(b.slice(1,3),16), bg = parseInt(b.slice(3,5),16), bb = parseInt(b.slice(5,7),16);
+  const r = Math.round(ar + (br-ar)*t), g = Math.round(ag + (bg-ag)*t), bl = Math.round(ab + (bb-ab)*t);
+  return `rgb(${r},${g},${bl})`;
+}
+
+function setBar(pct, duration) {
+  currentPct = pct;
+  barFill.style.transition = `width ${duration}ms cubic-bezier(0.34,1.56,0.64,1), background ${duration}ms ease, box-shadow ${duration}ms ease`;
+  barFill.style.width = pct + '%';
+
+  const color = pct > 30 ? getRefillColor(pct) : getBarColor(pct).hex;
+  barFill.style.background = `linear-gradient(90deg, ${color}, ${color})`;
+
+  // Glow intensity scales with pct
+  const glowAlpha = Math.max(0.05, pct / 300);
+  barFill.style.boxShadow = `0 0 ${pct/3}px rgba(${getBarColor(pct).r||20},${getBarColor(pct).g||184},${getBarColor(pct).b||166},${glowAlpha}), inset 0 1px 0 rgba(255,255,255,0.1)`;
+
+  // Animate pct number
+  animateNumber(barPct, pct, duration);
+
+  // Color the pct number
+  barPct.style.color = color;
+  barPct.style.textShadow = `0 0 30px ${color}40`;
+
+  // Low pulse
+  if (pct <= 10) {
+    barFill.style.animation = 'lowPulse 0.8s ease-in-out infinite';
+  } else {
+    barFill.style.animation = 'none';
+  }
+}
+
+function animateNumber(el, target, duration) {
+  const start = parseInt(el.textContent);
+  const diff = target - start;
+  const startTime = performance.now();
+  function tick(now) {
+    const elapsed = now - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    // Ease out
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const current = Math.round(start + diff * eased);
+    el.textContent = current + '%';
+    if (progress < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+function flashScreen() {
+  flash.style.opacity = '0.12';
+  setTimeout(() => flash.style.opacity = '0', 80);
+}
+
+function shake() {
+  shaker.classList.add('shaking');
+  setTimeout(() => shaker.classList.remove('shaking'), 500);
+}
+
+function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
+
+// Tool slam animation
+async function slamTool(name, stat, drainAmt, drainDuration) {
+  toolName.textContent = name;
+  toolStat.textContent = stat;
+  toolDrain.textContent = '−' + drainAmt + '%';
+
+  // Slam in with spring
+  toolSlam.style.opacity = '0';
+  toolSlam.style.transform = 'translate(-50%,-50%) scale(1.4)';
+  toolSlam.style.transition = 'none';
+  await sleep(20);
+
+  toolSlam.style.transition = 'all 0.18s cubic-bezier(0.34,1.56,0.64,1)';
+  toolSlam.style.opacity = '1';
+  toolSlam.style.transform = 'translate(-50%,-50%) scale(1)';
+
+  flashScreen();
+  await sleep(200);
+
+  // Show drain number
+  toolDrain.style.opacity = '1';
+  toolDrain.style.transition = 'opacity 0.15s ease';
+
+  // Drain bar
+  const newPct = Math.max(0, currentPct - drainAmt);
+  setBar(newPct, drainDuration);
+
+  await sleep(drainDuration + 300);
+
+  // Fade out
+  toolSlam.style.transition = 'all 0.15s ease';
+  toolSlam.style.opacity = '0';
+  toolDrain.style.opacity = '0';
+
+  await sleep(200);
+}
+
+// Refill animation
+async function refillTo(name, detail, gainAmt, refillDuration) {
+  refillName.textContent = name;
+  refillDetail.textContent = detail;
+  refillGain.textContent = '+' + gainAmt + '%';
+
+  // Fade in gently
+  refillStep.style.opacity = '0';
+  refillStep.style.transform = 'translate(-50%,-50%) translateY(20px)';
+  refillStep.style.transition = 'none';
+  await sleep(20);
+
+  refillStep.style.transition = 'all 0.6s cubic-bezier(0.34,1.56,0.64,1)';
+  refillStep.style.opacity = '1';
+  refillStep.style.transform = 'translate(-50%,-50%) translateY(0)';
+
+  await sleep(400);
+
+  // Show gain
+  refillGain.style.opacity = '1';
+  refillGain.style.transition = 'opacity 0.3s ease';
+
+  // Fill bar
+  const newPct = Math.min(100, currentPct + gainAmt);
+  setBar(newPct, refillDuration);
+
+  await sleep(refillDuration + 500);
+
+  // Fade out
+  refillStep.style.transition = 'all 0.3s ease';
+  refillStep.style.opacity = '0';
+  refillGain.style.opacity = '0';
+
+  await sleep(350);
+}
+
+async function showDramatic(main, sub, duration) {
+  dramaticMain.textContent = main;
+  dramaticSub.textContent = sub || '';
+
+  dramatic.style.opacity = '0';
+  dramatic.style.transform = 'translate(-50%,-50%) scale(0.95)';
+  dramatic.style.transition = 'none';
+  await sleep(20);
+
+  dramatic.style.transition = 'all 0.8s cubic-bezier(0.34,1.56,0.64,1)';
+  dramatic.style.opacity = '1';
+  dramatic.style.transform = 'translate(-50%,-50%) scale(1)';
+
+  await sleep(duration);
+
+  dramatic.style.transition = 'all 0.4s ease';
+  dramatic.style.opacity = '0';
+
+  await sleep(450);
+}
+
+// ===== MAIN SEQUENCE =====
+async function run() {
+  // Phase 0: Establish — bar appears at 100%
+  await sleep(600);
+  titleLine.classList.add('in');
+  await sleep(400);
+  barLabel.classList.add('in');
+  await sleep(200);
+  barPct.classList.add('in');
+  await sleep(1200);
+
+  // Phase 1: THE DRAIN — fast, aggressive
+  // Google
+  await slamTool('Google', '10 results. 3 ads. 2 from 2019.', 20, 220);
+
+  // Reddit
+  await slamTool('Reddit', '"Am I dying?" — 847 upvotes.', 20, 200);
+
+  // ChatGPT
+  await slamTool('ChatGPT', '"It depends." 600 words later, no number.', 15, 180);
+
+  // Instagram
+  await slamTool('Instagram', '"What I eat in a day." She\'s 22 and sells tea.', 25, 200);
+
+  // TikTok
+  await slamTool('TikTok', '60 seconds of confidence. Zero sources.', 15, 180);
+
+  // Phase 2: BOTTOM — dramatic pause
+  await sleep(300);
+  shake();
+  flashScreen();
+  await sleep(200);
+  flashScreen();
+
+  // Bar should be at 5% — pulsing red
+  await sleep(800);
+
+  // Hide title and bar label for dramatic text
+  titleLine.style.transition = 'opacity 0.5s ease';
+  titleLine.style.opacity = '0';
+
+  await showDramatic('Your attention is gone.', '', 2500);
+
+  await sleep(300);
+
+  await showDramatic('What if something actually focused it?', '', 2200);
+
+  // Phase 3: THE REFILL — slow, earned
+  await sleep(400);
+
+  // Change bar label
+  barLabel.textContent = 'Clarity';
+
+  // HealthCalculators
+  await refillTo('HealthCalculators', 'One calculator. One answer. Under 30 seconds.', 30, 800);
+
+  // One Rule
+  await refillTo('"One Rule"', '"Every 5 hours, half your caffeine is gone."', 25, 800);
+
+  // Pulse
+  await refillTo('Pulse', '"Sleep improved 31%. Here\'s why."', 40, 900);
+
+  // Phase 4: CLOSE
+  await sleep(500);
+
+  // Final bar state — 95%, green-teal, bright glow
+  barFill.style.transition = 'box-shadow 1.5s ease';
+  barFill.style.boxShadow = '0 0 40px rgba(34,197,94,0.25), 0 0 80px rgba(20,184,166,0.15), inset 0 1px 0 rgba(255,255,255,0.1)';
+
+  // Fade bar elements
+  await sleep(600);
+  barLabel.style.transition = 'opacity 0.8s ease';
+  barLabel.style.opacity = '0.3';
+  barPct.style.transition = 'opacity 0.8s ease';
+  barPct.style.opacity = '0.3';
+
+  // Show close section
+  closeSection.style.transition = 'all 1s cubic-bezier(0.34,1.56,0.64,1)';
+  closeSection.style.opacity = '1';
+  closeSection.style.transform = 'translate(-50%,-50%) scale(1)';
+
+  await sleep(2000);
+
+  // Replay button
+  replayBtn.classList.add('in');
+}
+
+// Reduced motion check
+const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (prefersReduced) {
+  // Show end state immediately
+  titleLine.classList.add('in');
+  barLabel.classList.add('in');
+  barPct.classList.add('in');
+  setBar(95, 0);
+  closeSection.style.opacity = '1';
+  closeSection.style.transform = 'translate(-50%,-50%) scale(1)';
+  replayBtn.classList.add('in');
+} else {
+  run();
+}
+</script>
+</body>
+</html>
