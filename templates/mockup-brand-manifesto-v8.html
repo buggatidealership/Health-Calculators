@@ -345,7 +345,7 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 <div class="scene" id="s6">
   <div class="orb" id="orb"></div>
   <div class="close-line" id="cline"></div>
-  <div class="close-sub" id="csub">Your health companion. Cited, personal, always learning.</div>
+  <div class="close-sub" id="csub">One question. We figure out the rest.</div>
   <div class="close-brand" id="cbrand">healthcalculators.xyz</div>
 </div>
 
@@ -401,26 +401,30 @@ tabTexts.forEach(function(txt,i){
 
 at(5000,function(){$('#s1text').classList.add('in')});
 
-// ===== SCENE 2: THE CALCULATOR — V25 interaction flow (12-25s) =====
+// ===== FIX 2: DISCOVERY BRIDGE (10.5-12s) =====
 at(10500,function(){cutFlash();$('#s1').classList.remove('on')});
-at(10800,function(){$('#s2').classList.add('on');$('#phone1').classList.add('in')});
+// Brief moment — just the pulsing dot alone on dark, creating anticipation
+at(10800,function(){$('#s2').classList.add('on')});
+// Phone enters after the beat
+at(12000,function(){$('#phone1').classList.add('in')});
 
-// Drink cards appear staggered (the grid)
-at(11300,function(){$('#vc0').classList.add('in')});
-at(11450,function(){$('#vc1').classList.add('in')});
-at(11600,function(){$('#vc2').classList.add('in')});
-at(11750,function(){$('#vc3').classList.add('in')});
-at(11900,function(){$('#vc4').classList.add('in')});
-at(12050,function(){$('#vc5').classList.add('in')});
+// ===== SCENE 2: THE CALCULATOR — V25 interaction (12-28s) =====
+// Drink cards appear staggered
+at(12800,function(){$('#vc0').classList.add('in')});
+at(12950,function(){$('#vc1').classList.add('in')});
+at(13100,function(){$('#vc2').classList.add('in')});
+at(13250,function(){$('#vc3').classList.add('in')});
+at(13400,function(){$('#vc4').classList.add('in')});
+at(13550,function(){$('#vc5').classList.add('in')});
 
-// User taps "Cold brew" — it highlights with teal glow
-at(13200,function(){$('#vc3').classList.add('selected')});
+// User taps "Cold brew" — teal glow highlight
+at(14800,function(){$('#vc3').classList.add('selected')});
 
 // Transition to result screen
-at(14500,function(){$('#v25a').style.display='none';$('#v25b').style.display='flex'});
+at(16000,function(){$('#v25a').style.display='none';$('#v25b').style.display='flex'});
 
-// Result number counts up from 0 to 29
-at(14800,function(){
+// Result number counts up 0→29
+at(16300,function(){
   var target=29,current=0,el=$('#v25rnum');
   var interval=setInterval(function(){
     current+=1;el.textContent=current;
@@ -428,50 +432,54 @@ at(14800,function(){
   },30);
 });
 
-// Verdict fades in
-at(15800,function(){$('#v25verdict').classList.add('in')});
+// Verdict fades in (1.5s after count starts)
+at(17800,function(){$('#v25verdict').classList.add('in')});
 
 // Cutoff time slides in
-at(16500,function(){$$('.v25-cutoff').forEach(function(el){el.classList.add('in')})});
+at(18800,function(){$$('.v25-cutoff').forEach(function(el){el.classList.add('in')})});
 
-// Transition to coach card
-at(18000,function(){$('#v25b').style.display='none';$('#v25c').style.display='flex'});
+// FIX 1: Give coach card MORE TIME — transition at 20.5s
+at(20500,function(){$('#v25b').style.display='none';$('#v25c').style.display='flex'});
 
-// Coach lines appear staggered
-at(18500,function(){$$('.v25-coach-line').forEach(function(el,i){
-  setTimeout(function(){el.classList.add('in')},i*400)
+// Coach lines staggered — 800ms apart (not 400ms) for reading time
+// 3 lines × 800ms = 2.4s reveal. 22 words ÷ 2.5 = 8.8s needed total
+at(21000,function(){$$('.v25-coach-line').forEach(function(el,i){
+  setTimeout(function(){el.classList.add('in')},i*800)
 })});
 
-// "The rule" slams in
-at(20000,function(){$('#v25rule').classList.add('in')});
+// "The rule" slams in at 24s — 3.5s after coach card appears (reading time)
+at(24000,function(){$('#v25rule').classList.add('in')});
+at(24500,function(){var r=$('#v25rule').getBoundingClientRect();sparks(r.left+r.width/2,r.top,14)});
 
-// Sparks on the rule
-at(20500,function(){var r=$('#v25rule').getBoundingClientRect();sparks(r.left+r.width/2,r.top,14)});
+// Hold the rule on screen for 3 seconds (24.5-27.5s) — this is the POINT
+// Then transition at 27.5s
 
-// ===== SCENE 3: NEXT DAY 2PM (25-35s) =====
-at(23000,function(){cutFlash();$('#s2').classList.remove('on');document.body.classList.add('warm')});
-at(23400,function(){$('#s3').classList.add('on');$('#tl3').classList.add('in')});
-at(24500,function(){$('#notif').classList.add('in')});
-at(28000,function(){$('#skip').classList.add('in')});
+// ===== SCENE 3: NEXT DAY 2PM (27.5-37s) =====
+at(27500,function(){cutFlash();$('#s2').classList.remove('on');document.body.classList.add('warm')});
+at(28000,function(){$('#s3').classList.add('on');$('#tl3').classList.add('in')});
+at(29500,function(){$('#notif').classList.add('in')});
+at(33000,function(){$('#skip').classList.add('in')});
 
-// ===== SCENE 4: ONE WEEK LATER (35-50s) =====
-at(33000,function(){cutFlash();$('#s3').classList.remove('on')});
-at(33400,function(){$('#s4').classList.add('on');$('#tl4').classList.add('in');$('#tgphone').classList.add('in')});
+// ===== SCENE 4: ONE WEEK LATER (37-54s) =====
+at(37000,function(){cutFlash();$('#s3').classList.remove('on')});
+at(37500,function(){$('#s4').classList.add('on');$('#tl4').classList.add('in');$('#tgphone').classList.add('in')});
 
-at(34500,function(){addBub('#chat4','a','<span class="hl">Sleep improved 31%</span> this week. Caffeine cutoff held <span class="hl">6 out of 7 days</span>. You\'re down <span class="hl">0.8 kg</span>.')});
+// FIX 3: Pulse message gets 6s reading time before next element
+at(38500,function(){addBub('#chat4','a','<span class="hl">Sleep improved 31%</span> this week. Caffeine cutoff held <span class="hl">6 out of 7 days</span>. You\'re down <span class="hl">0.8 kg</span>.')});
 
-at(36000,function(){
+// Progress bar appears 6s after message (not 1.5s)
+at(44500,function(){
   var p=document.createElement('div');p.className='progress-mini';p.innerHTML='<div class="progress-fill" id="pf"></div>';
   $('#chat4').appendChild(p);setTimeout(function(){$('#pf').style.width='73%'},100);
 });
-at(37200,function(){var r=$('#pf').getBoundingClientRect();sparks(r.right,r.top+3,14)});
+at(45700,function(){var r=$('#pf').getBoundingClientRect();sparks(r.right,r.top+3,14)});
 
-at(38500,function(){addBub('#chat4','u','What else can I improve?')});
+at(47000,function(){addBub('#chat4','u','What else can I improve?')});
 
-at(40000,function(){addTyping('#chat4')});
-at(41500,function(){removeTyping();addBub('#chat4','a','Your TDEE suggests you\'re <span class="warm">~100 cal over</span> maintenance. Want me to build a nutrition plan?')});
+at(48500,function(){addTyping('#chat4')});
+at(50000,function(){removeTyping();addBub('#chat4','a','Your TDEE suggests you\'re <span class="warm">~100 cal over</span> maintenance. Want me to build a nutrition plan?')});
 
-at(44000,function(){
+at(53000,function(){
   var p=document.createElement('div');p.className='pills';
   p.innerHTML='<div class="pill" id="p1">Yes, plan it</div><div class="pill" id="p2">Tell me more</div>';
   $('#chat4').appendChild(p);
@@ -479,19 +487,20 @@ at(44000,function(){
   setTimeout(function(){$('#p2').classList.add('in')},250);
 });
 
-at(46000,function(){$('#p1').classList.add('picked');$('#p2').classList.add('dimmed')});
-at(46500,function(){$$('.pills').forEach(function(p){p.style.display='none'});addBub('#chat4','u','Yes, plan it')});
-at(47000,function(){addTyping('#chat4')});
-at(48000,function(){removeTyping();addBub('#chat4','a','On it. Building your plan now... 🛠️')});
+at(55000,function(){$('#p1').classList.add('picked');$('#p2').classList.add('dimmed')});
+at(55500,function(){$$('.pills').forEach(function(p){p.style.display='none'});addBub('#chat4','u','Yes, plan it')});
+at(56000,function(){addTyping('#chat4')});
+at(57000,function(){removeTyping();addBub('#chat4','a','On it. Building your plan now... 🛠️')});
 
-// ===== SCENE 5: DELIVERABLES (50-62s) =====
-at(50000,function(){cutFlash();$('#s4').classList.remove('on');document.body.classList.remove('warm');document.body.classList.add('glow')});
-at(50400,function(){$('#s5').classList.add('on');$('#dl5').classList.add('in')});
-at(51000,function(){$('#gc').classList.add('in')});
+// ===== SCENE 5: DELIVERABLES (59-72s) =====
+at(59000,function(){cutFlash();$('#s4').classList.remove('on');document.body.classList.remove('warm');document.body.classList.add('glow')});
+at(59500,function(){$('#s5').classList.add('on');$('#dl5').classList.add('in')});
+at(60000,function(){$('#gc').classList.add('in')});
 
+// FIX 4: Grocery items first, then checks, THEN plan card
 var groceries=['600g chicken breast','12 eggs','500g Greek yogurt','2 avocados','Brown rice 1kg','Mixed berries'];
 groceries.forEach(function(item,i){
-  at(51500+i*350,function(){
+  at(60500+i*350,function(){
     var g=document.createElement('div');g.className='grocery-item';g.id='gi'+i;
     g.innerHTML='<div class="gcheck" id="gk'+i+'"></div><span class="gtext">'+item+'</span>';
     $('#gitems').appendChild(g);
@@ -499,29 +508,34 @@ groceries.forEach(function(item,i){
   });
 });
 
-// Check items off
+// Check items off (after all items appeared: 60500 + 6*350 = 62600)
 groceries.forEach(function(_,i){
-  at(54000+i*250,function(){
+  at(63000+i*250,function(){
     $('#gk'+i).classList.add('done');$('#gi'+i).classList.add('done');
   });
 });
 
-at(52500,function(){$('#pc').classList.add('in')});
-at(55500,function(){$('#pbtn').classList.add('in')});
-at(56500,function(){var r=$('#pc').getBoundingClientRect();confetti(r.left+r.width/2,r.top,30)});
+// FIX 6: Sparks on LAST checkbox
+at(64250+250,function(){var r=$('#gk5').getBoundingClientRect();sparks(r.left+r.width/2,r.top,10)});
 
-// ===== SCENE 6: CLOSE (62-72s) =====
-at(60000,function(){cutFlash();$('#s5').classList.remove('on');document.body.classList.remove('glow');document.body.classList.add('warm')});
-at(60500,function(){$('#s6').classList.add('on');$('#orb').classList.add('in')});
+// Plan card appears AFTER all checks done (64500+)
+at(65000,function(){$('#pc').classList.add('in')});
+at(66000,function(){$('#pbtn').classList.add('in')});
+at(66500,function(){var r=$('#pc').getBoundingClientRect();confetti(r.left+r.width/2,r.top,30)});
 
-at(61500,function(){
-  var words=['One','question.','We','figure','out','the','<span class="accent">rest</span>.'];
+// ===== FIX 5: CLOSE with story completion (69-80s) =====
+at(69000,function(){cutFlash();$('#s5').classList.remove('on');document.body.classList.remove('glow');document.body.classList.add('warm')});
+at(69500,function(){$('#s6').classList.add('on');$('#orb').classList.add('in')});
+
+// Story-completing close: references the 3AM opening
+at(70500,function(){
+  var words=['Tonight,','you\'ll','<span class="accent">sleep</span>.'];
   $('#cline').innerHTML=words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
-  $$('#cline .w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*200)});
+  $$('#cline .w').forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*300)});
 });
 
-at(64500,function(){$('#csub').classList.add('in')});
-at(65500,function(){$('#cbrand').classList.add('in')});
+at(73500,function(){$('#csub').classList.add('in')});
+at(74500,function(){$('#cbrand').classList.add('in')});
 
 // Sort and run
 TL.sort(function(a,b){return a.t-b.t});
@@ -530,7 +544,7 @@ function tick(ts){
   if(!startT)startT=ts;
   var e=ts-startT;
   while(ti<TL.length&&TL[ti].t<=e){TL[ti].fn();ti++}
-  if(e<72000)requestAnimationFrame(tick);
+  if(e<80000)requestAnimationFrame(tick);
 }
 setTimeout(function(){requestAnimationFrame(tick)},500);
 </script>
