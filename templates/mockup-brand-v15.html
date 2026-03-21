@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brand Manifesto — The Paradox | HealthCalculators</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --spring-snappy: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  body {
+    background: #000;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── 9:16 STAGE ── */
+  .stage {
+    position: fixed;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: min(100vw, calc(100vh * 9 / 16));
+    height: min(100vh, calc(100vw * 16 / 9));
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Animated background — cold→warm color arc */
+  .bg {
+    position: absolute; inset: 0;
+    background: hsl(220, 15%, 6%);
+    transition: background 2s ease;
+    z-index: 0;
+  }
+
+  /* Film grain overlay */
+  .grain {
+    position: absolute; inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.045;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 128px 128px;
+    animation: grain-drift 0.4s steps(3) infinite;
+  }
+  @keyframes grain-drift {
+    0%   { transform: translate(0, 0); }
+    33%  { transform: translate(-2px, 1px); }
+    66%  { transform: translate(1px, -2px); }
+    100% { transform: translate(0, 0); }
+  }
+
+  /* ── TEXT CONTAINER ── */
+  .content {
+    position: relative;
+    z-index: 10;
+    width: 82%;
+    max-width: 420px;
+    text-align: center;
+  }
+
+  /* ── SCENES ── */
+  .scene {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 82%;
+    max-width: 420px;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+  }
+  .scene.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* ── TYPOGRAPHY ── */
+  .paradox-line {
+    font-family: 'DM Serif Display', serif;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(22px, 5.5vw, 36px);
+    line-height: 1.35;
+    margin-bottom: 0.6em;
+    /* Mask reveal */
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
+  }
+  .paradox-line.reveal {
+    animation: mask-wipe 0.7s var(--ease-out-expo) forwards;
+  }
+  @keyframes mask-wipe {
+    0%   { clip-path: inset(0 100% 0 0); opacity: 0; }
+    1%   { opacity: 1; }
+    100% { clip-path: inset(0 0% 0 0); opacity: 1; }
+  }
+
+  .hook-line {
+    font-family: 'DM Serif Display', serif;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(22px, 5.5vw, 36px);
+    line-height: 1.35;
+    margin-bottom: 0.5em;
+    opacity: 0;
+  }
+  .hook-line.tired {
+    font-size: clamp(24px, 6vw, 40px);
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
+  }
+
+  /* Blur-to-sharp for "Because..." lines */
+  .blur-reveal {
+    filter: blur(14px);
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  .blur-reveal.sharp {
+    animation: blur-in 0.9s var(--ease-out-quart) forwards;
+  }
+  @keyframes blur-in {
+    0%   { filter: blur(14px); opacity: 0; transform: translateY(6px); }
+    40%  { filter: blur(6px); opacity: 0.7; }
+    100% { filter: blur(0px); opacity: 1; transform: translateY(0); }
+  }
+
+  /* Character stagger for "Every 5 hours, half." */
+  .stagger-container {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 7vw, 48px);
+    line-height: 1.3;
+    color: #4aeaad;
+    opacity: 0;
+  }
+  .stagger-container.active { opacity: 1; }
+  .stagger-container .char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(24px) scale(0.85);
+    filter: blur(4px);
+  }
+  .stagger-container .char.pop {
+    animation: char-pop 0.45s var(--spring-snappy) forwards;
+  }
+  @keyframes char-pop {
+    0%   { opacity: 0; transform: translateY(24px) scale(0.85); filter: blur(4px); }
+    60%  { opacity: 1; filter: blur(0); }
+    100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+  }
+
+  .rule-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(14px, 3.5vw, 20px);
+    color: rgba(255, 255, 255, 0.45);
+    margin-top: 0.8em;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  .rule-sub.fade-in {
+    animation: fade-up 0.7s var(--ease-out-expo) forwards;
+  }
+
+  /* Flash highlight */
+  .flash-text {
+    position: relative;
+    display: inline;
+  }
+  .flash-text::after {
+    content: '';
+    position: absolute;
+    inset: -4px -8px;
+    background: rgba(74, 234, 173, 0);
+    border-radius: 4px;
+    z-index: -1;
+    transition: background 0.15s;
+  }
+  .flash-text.flash::after {
+    animation: text-flash 0.5s ease forwards;
+  }
+  @keyframes text-flash {
+    0%   { background: rgba(74, 234, 173, 0); }
+    15%  { background: rgba(74, 234, 173, 0.25); }
+    100% { background: rgba(74, 234, 173, 0); }
+  }
+
+  /* Close scene */
+  .close-count {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 8vw, 56px);
+    color: #4aeaad;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  .close-count.pop {
+    animation: count-pop 0.6s var(--spring-snappy) forwards;
+  }
+  @keyframes count-pop {
+    0%   { opacity: 0; transform: scale(0.9); }
+    50%  { opacity: 1; transform: scale(1.06); }
+    100% { opacity: 1; transform: scale(1); }
+  }
+
+  .close-sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: clamp(15px, 4vw, 22px);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 0.5em;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  .close-sub.fade-in {
+    animation: fade-up 0.8s var(--ease-out-expo) forwards;
+  }
+
+  .brand-url {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(14px, 3.5vw, 18px);
+    letter-spacing: 0.12em;
+    color: rgba(74, 234, 173, 0.7);
+    margin-top: 2em;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  .brand-url.fade-in {
+    animation: fade-up 0.9s var(--ease-out-expo) forwards;
+  }
+
+  @keyframes fade-up {
+    0%   { opacity: 0; transform: translateY(12px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Viewport pulse — whole stage pulses once */
+  .stage.pulse-viewport {
+    animation: viewport-pulse 0.6s ease;
+  }
+  @keyframes viewport-pulse {
+    0%   { box-shadow: inset 0 0 0 0 rgba(74, 234, 173, 0); }
+    30%  { box-shadow: inset 0 0 80px 20px rgba(74, 234, 173, 0.06); }
+    100% { box-shadow: inset 0 0 0 0 rgba(74, 234, 173, 0); }
+  }
+
+  /* Pulsing dot */
+  .pulse-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #4aeaad;
+    margin-left: 6px;
+    vertical-align: middle;
+    opacity: 0;
+  }
+  .pulse-dot.active {
+    opacity: 1;
+    animation: dot-pulse 2s ease-in-out infinite;
+  }
+  @keyframes dot-pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(74, 234, 173, 0.5); }
+    50%      { box-shadow: 0 0 0 6px rgba(74, 234, 173, 0); }
+  }
+
+  /* ── CONTROLS ── */
+  .controls {
+    position: fixed;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    display: flex;
+    gap: 12px;
+    opacity: 0.7;
+  }
+  .controls button {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    transition: background 0.2s;
+  }
+  .controls button:hover {
+    background: rgba(255,255,255,0.2);
+  }
+
+  /* Progress bar */
+  .progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: #4aeaad;
+    z-index: 200;
+    width: 0%;
+    transition: width 0.3s linear;
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<div class="stage" id="stage">
+  <div class="bg" id="bg"></div>
+  <div class="grain"></div>
+
+  <!-- SCENE 1: The Paradox (0s–6.5s) -->
+  <div class="scene" id="scene1">
+    <div class="paradox-line" id="p1">You sleep 8 hours a night.</div>
+    <div class="paradox-line" id="p2">You exercise 4 times a week.</div>
+    <div class="paradox-line" id="p3">You eat clean.</div>
+  </div>
+
+  <!-- SCENE 2: The Question (6.5s–10.5s) -->
+  <div class="scene" id="scene2">
+    <div class="hook-line tired blur-reveal" id="q1">You still can't figure out<br>why you're tired.</div>
+  </div>
+
+  <!-- SCENE 3: The Revelation (11.5s–18s) -->
+  <div class="scene" id="scene3">
+    <div class="hook-line blur-reveal" id="r1">Because no one told you</div>
+    <div class="hook-line blur-reveal" id="r2">that your 3pm cold brew</div>
+    <div class="hook-line blur-reveal" id="r3">is still <span class="flash-text" id="flash1">25% active</span> at 11pm.</div>
+  </div>
+
+  <!-- SCENE 4: The Rule (19s–24s) -->
+  <div class="scene" id="scene4">
+    <div class="stagger-container" id="rule-main">Every 5 hours, half.</div>
+    <div class="rule-sub" id="rule-sub">That's the rule no calculator ever taught you.</div>
+  </div>
+
+  <!-- SCENE 5: The Close (25s–30s) -->
+  <div class="scene" id="scene5">
+    <div class="close-count" id="close-count">82 rules like this.</div>
+    <div class="close-sub" id="close-sub">Each one yours to carry.</div>
+    <div class="brand-url" id="brand-url">healthcalculators.xyz<span class="pulse-dot" id="pulse-dot"></span></div>
+  </div>
+</div>
+
+<div class="controls">
+  <button onclick="startAnimation()">Play</button>
+  <button onclick="resetAnimation()">Reset</button>
+</div>
+
+<script>
+// ── TIMING MAP (validated at 2.5 words/sec) ──
+// Scene 1: 3 paradox lines, mask reveal, staggered
+//   "You sleep 8 hours a night." — 6w → 2.4s
+//   "You exercise 4 times a week." — 6w → 2.4s
+//   "You eat clean." — 3w → 1.2s
+//   Total read: ~6s + entrance anim
+// Scene 2: "You still can't figure out why you're tired." — 9w → 3.6s
+// Scene 3: "Because no one told you that your 3pm cold brew is still 25% active at 11pm." — 16w → 6.4s
+// Scene 4: "Every 5 hours, half." — 4w → 1.6s + "That's the rule..." 8w → 3.2s
+// Scene 5: "82 rules like this." — 4w → 1.6s + "Each one yours to carry." 5w → 2s + URL 1s
+
+const bg = document.getElementById('bg');
+const stage = document.getElementById('stage');
+const progress = document.getElementById('progress');
+let animTimeout = [];
+const TOTAL_DURATION = 30000;
+
+// Color arc: cold → warm (Pixar color script)
+const colorSteps = [
+  { t: 0,     hsl: [220, 15, 6] },   // deep cold dark
+  { t: 6500,  hsl: [215, 18, 7] },   // slightly cooler
+  { t: 10500, hsl: [210, 20, 8] },   // searching
+  { t: 18000, hsl: [185, 25, 9] },   // warming
+  { t: 24000, hsl: [165, 30, 10] },  // warm arrival
+  { t: 30000, hsl: [150, 35, 11] },  // trust green-dark
+];
+
+function lerpColor(t) {
+  let i = 0;
+  for (let j = 1; j < colorSteps.length; j++) {
+    if (t < colorSteps[j].t) { i = j - 1; break; }
+    if (j === colorSteps.length - 1) i = j - 1;
+  }
+  const a = colorSteps[i], b = colorSteps[i + 1] || colorSteps[i];
+  const range = b.t - a.t || 1;
+  const p = Math.min(1, Math.max(0, (t - a.t) / range));
+  const h = a.hsl[0] + (b.hsl[0] - a.hsl[0]) * p;
+  const s = a.hsl[1] + (b.hsl[1] - a.hsl[1]) * p;
+  const l = a.hsl[2] + (b.hsl[2] - a.hsl[2]) * p;
+  return `hsl(${h}, ${s}%, ${l}%)`;
+}
+
+let colorRAF;
+let startTime;
+
+function updateColor() {
+  const elapsed = Date.now() - startTime;
+  if (elapsed > TOTAL_DURATION) return;
+  bg.style.background = lerpColor(elapsed);
+  progress.style.width = ((elapsed / TOTAL_DURATION) * 100) + '%';
+  colorRAF = requestAnimationFrame(updateColor);
+}
+
+// ── CHARACTER STAGGER UTILITY ──
+function staggerChars(el) {
+  const text = el.textContent;
+  el.innerHTML = '';
+  for (let i = 0; i < text.length; i++) {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = text[i] === ' ' ? '\u00A0' : text[i];
+    span.style.animationDelay = (i * 35) + 'ms';
+    el.appendChild(span);
+  }
+}
+
+function triggerStagger(el) {
+  const chars = el.querySelectorAll('.char');
+  chars.forEach(c => c.classList.add('pop'));
+}
+
+// ── SCENE MANAGEMENT ──
+function showScene(id) {
+  document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+function schedule(fn, delay) {
+  animTimeout.push(setTimeout(fn, delay));
+}
+
+function startAnimation() {
+  resetAnimation();
+  startTime = Date.now();
+  updateColor();
+
+  // Prepare stagger characters
+  const ruleMain = document.getElementById('rule-main');
+  staggerChars(ruleMain);
+
+  let t = 0;
+
+  // ═══ SCENE 1: The Paradox ═══ (0–6.5s)
+  schedule(() => {
+    showScene('scene1');
+  }, t);
+
+  // Line 1 mask reveal at 0.3s
+  t = 300;
+  schedule(() => {
+    document.getElementById('p1').classList.add('reveal');
+  }, t);
+
+  // Line 2 at 2.5s
+  t = 2500;
+  schedule(() => {
+    document.getElementById('p2').classList.add('reveal');
+  }, t);
+
+  // Line 3 at 4.7s
+  t = 4700;
+  schedule(() => {
+    document.getElementById('p3').classList.add('reveal');
+  }, t);
+
+  // ═══ SCENE 2: The Question ═══ (6.5s–10.5s)
+  t = 6500;
+  schedule(() => {
+    showScene('scene2');
+  }, t);
+
+  // Blur-to-sharp reveal
+  t = 6800;
+  schedule(() => {
+    document.getElementById('q1').classList.add('sharp');
+  }, t);
+
+  // ═══ Beat pause ═══ (10.5s–11.5s)
+
+  // ═══ SCENE 3: The Revelation ═══ (11.5s–18.5s)
+  t = 11500;
+  schedule(() => {
+    showScene('scene3');
+  }, t);
+
+  t = 11800;
+  schedule(() => {
+    document.getElementById('r1').classList.add('sharp');
+  }, t);
+
+  t = 13400;
+  schedule(() => {
+    document.getElementById('r2').classList.add('sharp');
+  }, t);
+
+  t = 15200;
+  schedule(() => {
+    document.getElementById('r3').classList.add('sharp');
+  }, t);
+
+  // Flash on "25% active" at moment it becomes readable
+  t = 16200;
+  schedule(() => {
+    document.getElementById('flash1').classList.add('flash');
+  }, t);
+
+  // ═══ Beat pause ═══ (18.5s–19.5s)
+
+  // ═══ SCENE 4: The Rule ═══ (19.5s–25s)
+  t = 19500;
+  schedule(() => {
+    showScene('scene4');
+    const rm = document.getElementById('rule-main');
+    rm.classList.add('active');
+    // Viewport pulse
+    stage.classList.add('pulse-viewport');
+    setTimeout(() => stage.classList.remove('pulse-viewport'), 700);
+  }, t);
+
+  t = 19700;
+  schedule(() => {
+    triggerStagger(document.getElementById('rule-main'));
+  }, t);
+
+  // Subline
+  t = 21800;
+  schedule(() => {
+    document.getElementById('rule-sub').classList.add('fade-in');
+  }, t);
+
+  // ═══ SCENE 5: The Close ═══ (25s–30s)
+  t = 25000;
+  schedule(() => {
+    showScene('scene5');
+  }, t);
+
+  t = 25300;
+  schedule(() => {
+    document.getElementById('close-count').classList.add('pop');
+  }, t);
+
+  t = 27000;
+  schedule(() => {
+    document.getElementById('close-sub').classList.add('fade-in');
+  }, t);
+
+  t = 28500;
+  schedule(() => {
+    document.getElementById('brand-url').classList.add('fade-in');
+  }, t);
+
+  t = 29200;
+  schedule(() => {
+    document.getElementById('pulse-dot').classList.add('active');
+  }, t);
+}
+
+function resetAnimation() {
+  // Clear all scheduled timeouts
+  animTimeout.forEach(clearTimeout);
+  animTimeout = [];
+  cancelAnimationFrame(colorRAF);
+
+  // Reset background
+  bg.style.background = 'hsl(220, 15%, 6%)';
+  progress.style.width = '0%';
+
+  // Hide all scenes
+  document.querySelectorAll('.scene').forEach(s => s.classList.remove('active'));
+
+  // Reset Scene 1
+  document.querySelectorAll('.paradox-line').forEach(el => el.classList.remove('reveal'));
+
+  // Reset Scene 2
+  document.getElementById('q1').classList.remove('sharp');
+
+  // Reset Scene 3
+  ['r1','r2','r3'].forEach(id => document.getElementById(id).classList.remove('sharp'));
+  document.getElementById('flash1').classList.remove('flash');
+
+  // Reset Scene 4
+  const rm = document.getElementById('rule-main');
+  rm.classList.remove('active');
+  rm.textContent = 'Every 5 hours, half.'; // restore from staggered spans
+  document.getElementById('rule-sub').classList.remove('fade-in');
+  stage.classList.remove('pulse-viewport');
+
+  // Reset Scene 5
+  document.getElementById('close-count').classList.remove('pop');
+  document.getElementById('close-sub').classList.remove('fade-in');
+  document.getElementById('brand-url').classList.remove('fade-in');
+  document.getElementById('pulse-dot').classList.remove('active');
+}
+
+// Auto-play on load
+window.addEventListener('load', () => {
+  setTimeout(startAnimation, 800);
+});
+</script>
+
+</body>
+</html>
