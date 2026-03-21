@@ -5771,6 +5771,10 @@ def mockup_pin_v19():
 def mockup_pin_v20():
     return render_template('mockup-pin-v20.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-brand-manifesto-v7')
+def mockup_brand_manifesto_v7():
+    return render_template('mockup-brand-manifesto-v7.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-calc-v1')
 def mockup_calc_v1():
     return render_template('mockup-calc-v1.html')

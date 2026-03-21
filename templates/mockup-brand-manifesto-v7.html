@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Brand Manifesto v7</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --teal:#0e7a7e;--teal-bright:#14b8a6;--coral:#e8785e;
+  --warm:#F5F0EA;--dark:#0f1419;--black:#0a0a0a;
+}
+body{width:100vw;height:100vh;overflow:hidden;font-family:'DM Sans',sans-serif;
+  background:var(--dark);color:#e4e6ea;transition:background 0.8s ease}
+body.warm{background:var(--warm);color:#1a1a1e}
+body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee)}
+
+/* Film grain */
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+
+/* Cut flash */
+.cut{position:fixed;inset:0;background:var(--black);z-index:50;opacity:0;pointer-events:none}
+
+/* Scene system */
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;padding:40px;text-align:center;gap:16px}
+.scene.on{opacity:1;pointer-events:auto}
+
+/* Slam animation */
+.slam{opacity:0;transform:translateY(30px) scale(0.92)}
+.slam.in{opacity:1;transform:translateY(0) scale(1);transition:all 0.15s cubic-bezier(0.16,1,0.3,1)}
+
+/* Fade up */
+.fade{opacity:0;transform:translateY(12px)}
+.fade.in{opacity:1;transform:translateY(0);transition:all 0.6s cubic-bezier(0.16,1,0.3,1)}
+
+/* Bounce entrance */
+.bounce{opacity:0;transform:translateY(30px) scale(0.92)}
+.bounce.in{opacity:1;transform:translateY(0) scale(1);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+
+/* ===== SCENE 1: THE NOISE (0-10s) ===== */
+.search-bar{background:#1e2328;border:1px solid rgba(255,255,255,0.08);border-radius:16px;
+  padding:18px 28px;display:flex;align-items:center;gap:14px;width:700px;
+  opacity:0;transform:translateY(10px);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.search-bar.in{opacity:1;transform:translateY(0)}
+.search-icon{color:rgba(255,255,255,0.3);font-size:20px}
+.search-text{font-size:18px;color:rgba(255,255,255,0.7);font-family:'DM Sans',sans-serif}
+.search-cursor{display:inline-block;width:2px;height:20px;background:var(--teal-bright);animation:blink 0.6s step-end infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+
+.search-results{display:flex;flex-direction:column;gap:10px;width:680px;margin-top:20px}
+.sr{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);border-radius:12px;
+  padding:14px 20px;opacity:0;transform:translateY(8px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1);
+  text-align:left;display:flex;justify-content:space-between;align-items:center}
+.sr.in{opacity:1;transform:translateY(0)}
+.sr-name{font-size:13px;font-weight:700;margin-bottom:4px}
+.sr-answer{font-size:14px;color:rgba(255,255,255,0.5);line-height:1.4}
+.sr-conflict{font-size:11px;color:rgba(239,68,68,0.7);margin-top:4px;font-weight:600}
+
+@keyframes micro-shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-3px)}75%{transform:translateX(3px)}}
+
+.big-q{font-family:'DM Serif Display',serif;font-size:72px;color:#fff;
+  opacity:0;transform:scale(0.5);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
+.big-q.in{opacity:1;transform:scale(1)}
+
+/* ===== SCENE 2: OUR PRODUCT (10-28s) ===== */
+.phone{width:380px;background:linear-gradient(145deg,#1a1a1a,#111);border-radius:36px;
+  padding:14px;box-shadow:0 0 80px rgba(14,122,126,0.06),0 30px 60px rgba(0,0,0,0.4);
+  border:1.5px solid rgba(255,255,255,0.07);
+  opacity:0;transform:translateY(30px) scale(0.92);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+.phone.in{opacity:1;transform:translateY(0) scale(1)}
+.phone-screen{border-radius:26px;overflow:hidden}
+
+/* V25 dark calculator screen */
+.calc-screen{background:#111;padding:24px;min-height:520px;display:flex;flex-direction:column;gap:12px}
+.calc-label{font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:3px;text-transform:uppercase}
+.calc-result{font-family:'DM Sans',sans-serif;font-size:56px;font-weight:700;color:var(--teal);
+  opacity:0;transform:translateY(12px) scale(0.88);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.calc-result.in{opacity:1;transform:translateY(0) scale(1)}
+.calc-sub{font-size:13px;color:rgba(255,255,255,0.35)}
+
+/* Coach card */
+.coach{background:rgba(14,122,126,0.08);border:1px solid rgba(14,122,126,0.15);border-radius:16px;
+  padding:18px;margin-top:16px;text-align:left;
+  opacity:0;transform:translateY(10px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.coach.in{opacity:1;transform:translateY(0)}
+.coach-tag{font-size:10px;color:var(--teal);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-weight:700}
+.coach-rule{font-family:'DM Serif Display',serif;font-size:22px;color:#e4e6ea;line-height:1.4}
+
+/* Caffeine cascade */
+.cascade{display:flex;flex-direction:column;gap:6px;margin-top:20px}
+.c-row{display:flex;align-items:center;gap:12px;
+  opacity:0;transform:translateX(-10px);transition:all 0.3s cubic-bezier(0.34,1.56,0.64,1)}
+.c-row.in{opacity:1;transform:translateX(0)}
+.c-mg{font-family:'DM Sans',sans-serif;font-size:36px;font-weight:700;color:var(--teal);min-width:110px;text-align:right}
+.c-time{font-size:14px;color:rgba(255,255,255,0.35)}
+.c-arrow{font-size:11px;color:rgba(255,255,255,0.15);padding-left:110px}
+
+/* Coral variant */
+.coral .calc-result{color:var(--coral)}
+.coral .coach{background:rgba(232,120,94,0.08);border-color:rgba(232,120,94,0.15)}
+.coral .coach-tag{color:var(--coral)}
+
+/* Text statements */
+.statement{font-family:'DM Serif Display',serif;font-size:56px;color:#fff;max-width:1200px;line-height:1.3}
+.statement .w{display:inline-block;opacity:0;transform:translateY(100%);transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.statement .w.in{opacity:1;transform:translateY(0)}
+.statement .accent{color:var(--teal)}
+
+/* ===== SCENE 3: PULSE COMPANION (28-40s) ===== */
+.tg-phone{width:380px;background:#fff;border-radius:24px;overflow:hidden;
+  box-shadow:0 8px 40px rgba(0,0,0,0.1);
+  opacity:0;transform:translateY(30px) scale(0.92);transition:all 0.7s cubic-bezier(0.34,1.56,0.64,1)}
+.tg-phone.in{opacity:1;transform:translateY(0) scale(1)}
+.tg-header{display:flex;align-items:center;gap:12px;padding:16px 20px;background:#fafaf8;border-bottom:1px solid rgba(0,0,0,0.06)}
+.tg-av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--teal-bright),var(--teal));
+  display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:#fff;
+  animation:pulse-av 3.75s ease-in-out infinite}
+@keyframes pulse-av{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.tg-name{font-size:15px;font-weight:700;color:#1a1a1a}
+.tg-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;border:2px solid #fafaf8;margin-left:-4px}
+.tg-chat{padding:16px;display:flex;flex-direction:column;gap:10px;min-height:380px;background:#fafaf8}
+.bub{border-radius:16px;padding:12px 16px;font-size:14px;line-height:1.5;max-width:85%;
+  opacity:0;transform:translateY(12px) scale(0.88);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.bub.in{opacity:1;transform:translateY(0) scale(1)}
+.bub.u{background:#d1fae5;color:#1a1a1a;align-self:flex-end;border-bottom-right-radius:4px}
+.bub.a{background:#fff;color:#2a2a2a;align-self:flex-start;border-bottom-left-radius:4px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
+.bub .hl{color:var(--teal);font-weight:700}
+
+/* Mini cards */
+.cards-row{display:flex;gap:10px;margin-top:8px}
+.mini-card{background:#fff;border:1px solid rgba(0,0,0,0.06);border-radius:14px;padding:12px 16px;
+  text-align:center;min-width:100px;box-shadow:0 2px 8px rgba(0,0,0,0.03);
+  opacity:0;transform:translateY(8px) scale(0.9);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.mini-card.in{opacity:1;transform:translateY(0) scale(1)}
+.card-icon{font-size:20px;margin-bottom:6px}
+.card-label{font-size:11px;font-weight:600;color:#555;letter-spacing:0.5px}
+
+/* Typing dots */
+.typing{display:flex;gap:4px;padding:10px 16px;align-self:flex-start}
+.typing-dot{width:8px;height:8px;border-radius:50%;background:rgba(0,0,0,0.15);animation:typing-bounce 1.2s infinite}
+.typing-dot:nth-child(2){animation-delay:0.2s}
+.typing-dot:nth-child(3){animation-delay:0.4s}
+@keyframes typing-bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+
+/* ===== SCENE 4: PROOF (40-46s) ===== */
+.time-badge{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:3px;color:var(--teal);
+  background:rgba(14,122,126,0.08);padding:6px 18px;border-radius:20px;
+  opacity:0;transform:scale(0.8);transition:all 0.4s cubic-bezier(0,1.5,0.5,1)}
+.time-badge.in{opacity:1;transform:scale(1)}
+
+.progress-bar{width:260px;height:8px;background:rgba(14,122,126,0.1);border-radius:4px;margin-top:10px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal-bright),#22c55e);border-radius:4px;
+  transition:width 1.2s cubic-bezier(0.34,1.56,0.64,1)}
+
+/* ===== SCENE 5: CLOSE (46-52s) ===== */
+.orb{width:60px;height:60px;border-radius:50%;
+  background:linear-gradient(135deg,var(--teal-bright),var(--teal));
+  box-shadow:0 4px 30px rgba(14,122,126,0.25);
+  opacity:0;transform:scale(0.4);transition:all 0.6s cubic-bezier(0,1.5,0.5,1)}
+.orb.in{opacity:1;transform:scale(1);animation:orb-breathe 3s ease-in-out infinite}
+@keyframes orb-breathe{0%,100%{transform:scale(1);box-shadow:0 4px 30px rgba(14,122,126,0.25)}
+  50%{transform:scale(1.12);box-shadow:0 4px 50px rgba(14,122,126,0.35)}}
+
+.close-serif{font-family:'DM Serif Display',serif;font-size:42px;color:#1a1a1e;line-height:1.4;max-width:800px}
+.close-serif .w{display:inline-block;opacity:0;transform:translateY(100%);transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.close-serif .w.in{opacity:1;transform:translateY(0)}
+.close-serif .accent{color:var(--teal);font-style:italic}
+.close-sub{font-size:14px;color:rgba(26,26,30,0.4);letter-spacing:1px;margin-top:16px;opacity:0;transition:opacity 0.6s ease}
+.close-sub.in{opacity:1}
+.close-brand{font-size:18px;font-weight:600;color:#1a1a1e;letter-spacing:3px;margin-top:8px;opacity:0;transition:opacity 0.6s ease}
+.close-brand.in{opacity:1}
+.close-handle{font-size:12px;color:rgba(26,26,30,0.25);letter-spacing:2px;margin-top:4px;opacity:0;transition:opacity 0.6s ease}
+.close-handle.in{opacity:1}
+
+/* Confetti */
+.confetti{position:fixed;pointer-events:none;z-index:60}
+@keyframes conf-fall{0%{transform:translateY(0) rotate(0deg);opacity:0.9}100%{transform:translateY(var(--fall)) rotate(var(--spin));opacity:0}}
+
+/* Spark */
+.spark{position:fixed;pointer-events:none;z-index:60;border-radius:50%}
+@keyframes spark-out{0%{opacity:0.9;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="cut" id="cut"></div>
+
+<!-- SCENE 1: THE NOISE (0-10s) -->
+<div class="scene" id="s1">
+  <div class="search-bar" id="sbar">
+    <span class="search-icon">🔍</span>
+    <span class="search-text" id="stext"></span><span class="search-cursor"></span>
+  </div>
+  <div class="search-results" id="sresults"></div>
+  <div class="big-q" id="bigq">Who do I trust?</div>
+</div>
+
+<!-- SCENE 2: OUR PRODUCT — Caffeine (10-16s) -->
+<div class="scene" id="s2a">
+  <div class="phone" id="phone_caff">
+    <div class="phone-screen"><div class="calc-screen">
+      <div class="calc-label">Caffeine Half-Life</div>
+      <div class="cascade" id="caff_cascade">
+        <div class="c-row" data-s="0"><div class="c-mg">200mg</div><div class="c-time">8:00 AM</div></div>
+        <div class="c-arrow" data-s="1">↓ half</div>
+        <div class="c-row" data-s="1"><div class="c-mg">100mg</div><div class="c-time">1:00 PM</div></div>
+        <div class="c-arrow" data-s="2">↓ half</div>
+        <div class="c-row" data-s="2"><div class="c-mg">50mg</div><div class="c-time">6:00 PM</div></div>
+        <div class="c-arrow" data-s="3">↓ half</div>
+        <div class="c-row" data-s="3"><div class="c-mg">25mg</div><div class="c-time">11:00 PM</div></div>
+      </div>
+      <div class="coach" data-s="4" id="coach_caff">
+        <div class="coach-tag">Your Signal</div>
+        <div class="coach-rule">Every 5 hours, half.</div>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- SCENE 2: OUR PRODUCT — TDEE (16-20s) -->
+<div class="scene" id="s2b">
+  <div class="phone" id="phone_tdee">
+    <div class="phone-screen"><div class="calc-screen">
+      <div class="calc-label">TDEE Calculator</div>
+      <div style="display:flex;gap:40px;align-items:center;margin-top:40px;justify-content:center">
+        <div style="text-align:center" data-s="0">
+          <div class="calc-result">1,847</div>
+          <div class="calc-sub">BMR</div>
+        </div>
+        <div style="font-size:28px;color:rgba(255,255,255,0.15)" data-s="1">→</div>
+        <div style="text-align:center" data-s="1">
+          <div class="calc-result">2,247</div>
+          <div class="calc-sub">TDEE</div>
+        </div>
+      </div>
+      <div class="coach" data-s="2" id="coach_tdee">
+        <div class="coach-tag">Your Signal</div>
+        <div class="coach-rule">BMR is rent. TDEE is rent + utilities.</div>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- SCENE 2: OUR PRODUCT — BMI (20-24s) -->
+<div class="scene" id="s2c">
+  <div class="phone" id="phone_bmi">
+    <div class="phone-screen"><div class="calc-screen coral">
+      <div class="calc-label">BMI Calculator</div>
+      <div style="margin-top:50px;text-align:center">
+        <div class="calc-result" data-s="0">28.4</div>
+        <div class="calc-sub" data-s="1" style="color:var(--coral);font-size:15px;margin-top:8px">Above healthy range</div>
+      </div>
+      <div class="coach" data-s="2" id="coach_bmi">
+        <div class="coach-tag">Your Signal</div>
+        <div class="coach-rule">We don't label. We locate.</div>
+      </div>
+    </div></div>
+  </div>
+</div>
+
+<!-- SCENE 2: Thesis -->
+<div class="scene" id="s2d">
+  <div class="statement" id="thesis">Not a number. A <span class="accent">signal</span>.</div>
+</div>
+
+<!-- SCENE 3: PULSE COMPANION (28-40s) -->
+<div class="scene" id="s3">
+  <div class="tg-phone" id="tg_phone">
+    <div class="tg-header">
+      <div class="tg-av">P</div>
+      <div style="display:flex;align-items:center;gap:5px">
+        <span class="tg-name">Pulse</span>
+        <span class="tg-dot"></span>
+      </div>
+    </div>
+    <div class="tg-chat" id="tg_chat"></div>
+  </div>
+</div>
+
+<!-- SCENE 4: PROOF (40-46s) -->
+<div class="scene" id="s4">
+  <div class="time-badge" id="tbadge">2 Weeks Later</div>
+  <div class="tg-phone" id="tg_phone2" style="margin-top:16px">
+    <div class="tg-header">
+      <div class="tg-av">P</div>
+      <div style="display:flex;align-items:center;gap:5px">
+        <span class="tg-name">Pulse</span>
+        <span class="tg-dot"></span>
+      </div>
+    </div>
+    <div class="tg-chat" id="tg_chat2"></div>
+  </div>
+</div>
+
+<!-- SCENE 5: CLOSE (46-52s) -->
+<div class="scene" id="s5">
+  <div class="orb" id="orb"></div>
+  <div class="close-serif" id="close_text" style="margin-top:24px"></div>
+  <div class="close-sub" id="close_sub">Your health companion. Cited, personal, always learning.</div>
+  <div class="close-brand" id="close_brand">healthcalculators.xyz</div>
+  <div class="close-handle" id="close_handle">@GetHealthC</div>
+</div>
+
+<script>
+// Confetti + sparks
+var COLS=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#f472b6','#3b82f6','#22c55e'];
+function confetti(cx,cy,n){
+  for(var i=0;i<n;i++){
+    var c=document.createElement('div');c.className='confetti';
+    var x=cx+(Math.random()-0.5)*300,w=4+Math.random()*5,h=Math.random()>0.5?w:w*2.5;
+    c.style.cssText='left:'+x+'px;top:'+(cy-50)+'px;width:'+w+'px;height:'+h+'px;background:'+COLS[Math.floor(Math.random()*COLS.length)]+';--fall:'+(180+Math.random()*250)+'px;--spin:'+(200+Math.random()*500)+'deg;animation:conf-fall '+(1.2+Math.random()*0.8)+'s ease-out forwards;animation-delay:'+(i*0.02)+'s;border-radius:'+(Math.random()>0.5?'50%':'2px');
+    document.body.appendChild(c);setTimeout(function(el){el.remove()},2500,c);
+  }
+}
+function sparks(x,y,n){
+  for(var i=0;i<n;i++){
+    var s=document.createElement('div');s.className='spark';
+    var sz=3+Math.random()*5,a=Math.random()*Math.PI*2,d=25+Math.random()*50;
+    s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+COLS[Math.floor(Math.random()*COLS.length)]+';--dx:'+(Math.cos(a)*d)+'px;--dy:'+(Math.sin(a)*d-20)+'px;animation:spark-out '+(0.4+Math.random()*0.3)+'s ease-out forwards;animation-delay:'+(i*0.02)+'s';
+    document.body.appendChild(s);setTimeout(function(el){el.remove()},1000,s);
+  }
+}
+
+// Build timeline
+var TL=[];
+var tlIdx=0;
+
+// Helper
+function q(sel){return document.querySelector(sel)}
+function qa(sel){return document.querySelectorAll(sel)}
+function show(id){q('#'+id).classList.add('on')}
+function hide(id){q('#'+id).classList.remove('on')}
+function cutFlash(){var c=q('#cut');c.style.opacity='1';setTimeout(function(){c.style.opacity='0'},100)}
+
+// SCENE 1: THE NOISE
+var searchQuery="is it normal to gain weight even though i exercise";
+var sources=[
+  {name:'Google',color:'#4285f4',answer:'"Eat less, move more"',conflict:''},
+  {name:'Reddit',color:'#ff4500',answer:'"Just do CICO bro"',conflict:'⚠ Contradicts Google'},
+  {name:'ChatGPT',color:'#10a37f',answer:'"It depends on many factors..."',conflict:''},
+  {name:'TikTok',color:'#fff',answer:'"Cortisol is making you fat"',conflict:'⚠ Contradicts ChatGPT'},
+];
+
+TL.push({t:300,fn:function(){show('s1');q('#sbar').classList.add('in')}});
+
+// Typewriter for search
+for(var i=0;i<searchQuery.length;i++){
+  (function(idx){
+    TL.push({t:600+idx*40,fn:function(){q('#stext').textContent=searchQuery.substring(0,idx+1)}});
+  })(i);
+}
+
+// Search results appear
+var srStart=600+searchQuery.length*40+400;
+sources.forEach(function(src,i){
+  TL.push({t:srStart+i*500,fn:function(){
+    var d=document.createElement('div');d.className='sr';
+    d.innerHTML='<div><div class="sr-name" style="color:'+src.color+'">'+src.name+'</div><div class="sr-answer">'+src.answer+'</div>'+(src.conflict?'<div class="sr-conflict">'+src.conflict+'</div>':'')+'</div>';
+    q('#sresults').appendChild(d);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('in')})});
+  }});
+});
+
+// Micro-shake
+TL.push({t:srStart+sources.length*500+500,fn:function(){
+  q('#sbar').style.animation='micro-shake 0.3s ease-in-out';
+}});
+
+// "Who do I trust?"
+TL.push({t:8000,fn:function(){q('#bigq').classList.add('in')}});
+
+// CUT to Scene 2
+TL.push({t:10000,fn:function(){cutFlash();hide('s1');document.body.classList.remove('warm','glow')}});
+
+// SCENE 2A: Caffeine
+TL.push({t:10200,fn:function(){show('s2a');q('#phone_caff').classList.add('in')}});
+[0,1,2,3].forEach(function(step){
+  TL.push({t:10800+step*500,fn:function(){
+    qa('#s2a [data-s="'+step+'"]').forEach(function(el){el.classList.add('in')});
+  }});
+});
+TL.push({t:13000,fn:function(){q('#coach_caff').classList.add('in')}});
+
+// Sparks on coach card
+TL.push({t:13400,fn:function(){var r=q('#coach_caff').getBoundingClientRect();sparks(r.left+r.width/2,r.top,12)}});
+
+// CUT to TDEE
+TL.push({t:15500,fn:function(){cutFlash();hide('s2a')}});
+TL.push({t:15700,fn:function(){show('s2b');q('#phone_tdee').classList.add('in')}});
+[0,1].forEach(function(step){
+  TL.push({t:16200+step*600,fn:function(){
+    qa('#s2b [data-s="'+step+'"]').forEach(function(el){el.classList.add('in')});
+  }});
+});
+TL.push({t:17500,fn:function(){q('#coach_tdee').classList.add('in')}});
+TL.push({t:17900,fn:function(){var r=q('#coach_tdee').getBoundingClientRect();sparks(r.left+r.width/2,r.top,12)}});
+
+// CUT to BMI
+TL.push({t:19500,fn:function(){cutFlash();hide('s2b')}});
+TL.push({t:19700,fn:function(){show('s2c');q('#phone_bmi').classList.add('in')}});
+[0,1].forEach(function(step){
+  TL.push({t:20200+step*500,fn:function(){
+    qa('#s2c [data-s="'+step+'"]').forEach(function(el){el.classList.add('in')});
+  }});
+});
+TL.push({t:21500,fn:function(){q('#coach_bmi').classList.add('in')}});
+
+// CUT to thesis
+TL.push({t:23500,fn:function(){cutFlash();hide('s2c')}});
+TL.push({t:24000,fn:function(){
+  show('s2d');
+  var words='Not a number. A <span class="accent">signal</span>.'.split(' ');
+  q('#thesis').innerHTML=words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
+  var wels=qa('#thesis .w');
+  wels.forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*120)});
+}});
+
+// Confetti on "signal"
+TL.push({t:24800,fn:function(){confetti(960,540,30)}});
+
+// SCENE 3: PULSE — switch to warm background
+TL.push({t:27000,fn:function(){cutFlash();hide('s2d');document.body.classList.add('warm')}});
+TL.push({t:27300,fn:function(){show('s3');q('#tg_phone').classList.add('in')}});
+
+// Chat messages
+TL.push({t:28000,fn:function(){
+  var m=document.createElement('div');m.className='bub u';m.textContent="Stuck at 185 lbs for 3 weeks. Eating 1,800 cal/day.";
+  q('#tg_chat').appendChild(m);requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('in')})});
+}});
+
+// Typing dots
+TL.push({t:29000,fn:function(){
+  var t=document.createElement('div');t.className='typing';t.id='typing1';
+  t.innerHTML='<div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div>';
+  q('#tg_chat').appendChild(t);
+}});
+
+// AI response
+TL.push({t:30500,fn:function(){
+  var t=q('#typing1');if(t)t.remove();
+  var m=document.createElement('div');m.className='bub a';
+  m.innerHTML='At your TDEE, you\'re <span class="hl">~100 cal over</span>. Drop to 1,720 for 10 days. I\'ll check in Wednesday.';
+  q('#tg_chat').appendChild(m);requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('in')})});
+}});
+
+// Mini cards
+TL.push({t:32000,fn:function(){
+  var row=document.createElement('div');row.className='cards-row';
+  row.innerHTML='<div class="mini-card" id="mc1"><div class="card-icon">🔔</div><div class="card-label">Wed check-in</div></div><div class="mini-card" id="mc2"><div class="card-icon">🥗</div><div class="card-label">Meal plan</div></div><div class="mini-card" id="mc3"><div class="card-icon">📈</div><div class="card-label">Progress</div></div>';
+  q('#tg_chat').appendChild(row);
+  setTimeout(function(){q('#mc1').classList.add('in')},100);
+  setTimeout(function(){q('#mc2').classList.add('in')},280);
+  setTimeout(function(){q('#mc3').classList.add('in')},460);
+}});
+
+// Confetti on cards
+TL.push({t:33000,fn:function(){var r=q('#mc2').getBoundingClientRect();confetti(r.left+r.width/2,r.top,25)}});
+
+// SCENE 4: PROOF
+TL.push({t:38000,fn:function(){cutFlash();hide('s3')}});
+TL.push({t:38300,fn:function(){show('s4');q('#tbadge').classList.add('in');q('#tg_phone2').classList.add('in')}});
+
+TL.push({t:39000,fn:function(){
+  var m=document.createElement('div');m.className='bub a';
+  m.innerHTML='Caffeine cutoff <span class="hl">12 days straight</span>. Sleep up <span class="hl">23%</span>. Down <span class="hl">1.4 kg</span>.';
+  q('#tg_chat2').appendChild(m);requestAnimationFrame(function(){requestAnimationFrame(function(){m.classList.add('in')})});
+}});
+
+TL.push({t:40000,fn:function(){
+  var p=document.createElement('div');p.className='progress-bar';p.innerHTML='<div class="progress-fill" id="pf"></div>';
+  q('#tg_chat2').appendChild(p);
+  setTimeout(function(){q('#pf').style.width='73%'},100);
+}});
+
+// Sparks on progress
+TL.push({t:41500,fn:function(){var r=q('#pf').getBoundingClientRect();sparks(r.right,r.top+4,16)}});
+
+// SCENE 5: CLOSE
+TL.push({t:44000,fn:function(){cutFlash();hide('s4');document.body.classList.remove('warm');document.body.classList.add('warm')}});
+TL.push({t:44500,fn:function(){show('s5');q('#orb').classList.add('in')}});
+
+TL.push({t:45500,fn:function(){
+  var text='One question. We figure out the <span class="accent">rest</span>.';
+  var words=text.split(' ');
+  q('#close_text').innerHTML=words.map(function(w){return '<span class="w">'+w+'</span>'}).join(' ');
+  var wels=qa('#close_text .w');
+  wels.forEach(function(w,i){setTimeout(function(){w.classList.add('in')},i*200)});
+}});
+
+TL.push({t:48000,fn:function(){q('#close_sub').classList.add('in')}});
+TL.push({t:48800,fn:function(){q('#close_brand').classList.add('in')}});
+TL.push({t:49200,fn:function(){q('#close_handle').classList.add('in')}});
+
+// Sort timeline
+TL.sort(function(a,b){return a.t-b.t});
+
+// Playback engine
+var startTime=null;
+function tick(ts){
+  if(window.stopAnimation)return;
+  if(!startTime)startTime=ts;
+  var elapsed=ts-startTime;
+  while(tlIdx<TL.length&&TL[tlIdx].t<=elapsed){
+    TL[tlIdx].fn();tlIdx++;
+  }
+  if(elapsed<52000)requestAnimationFrame(tick);
+}
+
+// setTime for frame-by-frame rendering
+window.setTime=function(t){
+  var ms=t*1000;
+  // Reset everything
+  document.body.className='';
+  qa('.scene').forEach(function(s){s.classList.remove('on')});
+  qa('.phone,.tg-phone').forEach(function(p){p.classList.remove('in');p.style.opacity='0';p.style.transform='translateY(30px) scale(0.92)'});
+  qa('.slam,.fade,.bounce,.search-bar,.sr,.big-q,.calc-result,.coach,.c-row,.c-arrow,.time-badge,.orb,.close-sub,.close-brand,.close-handle,.mini-card,.bub,.typing').forEach(function(el){
+    el.classList.remove('in');el.style.opacity='0';el.style.transform='';
+  });
+  qa('[data-s]').forEach(function(el){el.classList.remove('in');el.style.opacity='0'});
+  q('#stext').textContent='';
+  q('#sresults').innerHTML='';
+  q('#tg_chat').innerHTML='';
+  q('#tg_chat2').innerHTML='';
+  q('#cut').style.opacity='0';
+  q('#thesis').innerHTML='Not a number. A <span class="accent">signal</span>.';
+  q('#close_text').innerHTML='';
+  // Remove particles
+  qa('.confetti,.spark').forEach(function(el){el.remove()});
+
+  // Replay timeline up to this point
+  tlIdx=0;
+  for(var i=0;i<TL.length;i++){
+    if(TL[i].t<=ms){TL[i].fn()}
+  }
+};
+
+// Auto-play
+setTimeout(function(){
+  if(!window.stopAnimation)requestAnimationFrame(tick);
+},500);
+</script>
+</body>
+</html>
