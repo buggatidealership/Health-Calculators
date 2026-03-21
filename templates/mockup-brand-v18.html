@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Before / After — The Mind Transformation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;font-family:'DM Sans',sans-serif}
+body{background:#0a0a0e;transition:background 1.2s cubic-bezier(0.4,0,0.2,1)}
+
+/* Film grain overlay */
+.grain{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:0.04;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px;animation:grain-drift 0.5s steps(4) infinite}
+@keyframes grain-drift{0%{transform:translate(0)}25%{transform:translate(-2px,1px)}50%{transform:translate(1px,-1px)}75%{transform:translate(-1px,2px)}100%{transform:translate(2px,-2px)}}
+
+/* Phase states */
+body.before{background:#0a0a0e}
+body.transition-phase{background:#0d1117}
+body.after{background:#0d1a18}
+body.close-phase{background:#0a1210}
+
+.film{position:relative;width:100vw;height:100vh;overflow:hidden}
+
+/* Scene container */
+.sc{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  flex-direction:column;opacity:0;transition:opacity 0.7s;pointer-events:none;z-index:2;padding:20px}
+.sc.on{opacity:1}
+
+/* ================================
+   BEFORE SECTION — cold, clinical
+   ================================ */
+.before-filter{filter:saturate(0.3);transition:filter 1.5s}
+
+/* Question thought bubble */
+.thought{max-width:520px;width:90vw;margin-bottom:28px;opacity:0;
+  transform:translateY(14px);transition:all 0.4s ease-out}
+.thought.in{opacity:1;transform:translateY(0)}
+.thought.out{opacity:0;transform:translateY(-8px);transition:all 0.35s ease-in}
+
+.thought-q{font-family:'DM Serif Display',serif;font-size:clamp(1.1rem,2.8vw,1.5rem);
+  color:rgba(255,255,255,0.7);margin-bottom:12px;line-height:1.3}
+
+/* Cold answer card */
+.cold-answer{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.06);
+  border-radius:10px;padding:14px 18px;max-width:520px;width:90vw;
+  opacity:0;transform:translateY(8px) scale(0.98);
+  transition:all 0.3s ease-out}
+.cold-answer.in{opacity:1;transform:translateY(0) scale(1)}
+.cold-answer.out{opacity:0;transform:translateY(-6px);transition:all 0.3s ease-in}
+
+.cold-source{font-size:0.6rem;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;
+  color:rgba(255,255,255,0.25);margin-bottom:6px}
+.cold-text{font-size:0.85rem;color:rgba(255,255,255,0.35);line-height:1.5}
+.cold-highlight{color:#ef4444;font-weight:600}
+
+/* ================================
+   TRANSITION
+   ================================ */
+.trans-text{font-family:'DM Serif Display',serif;
+  font-size:clamp(1rem,2.4vw,1.3rem);color:rgba(255,255,255,0.5);
+  text-align:center;max-width:480px;line-height:1.6;
+  opacity:0;transform:translateY(16px);
+  transition:all 0.8s cubic-bezier(0.16,1,0.3,1)}
+.trans-text.in{opacity:1;transform:translateY(0);color:rgba(255,255,255,0.8)}
+
+.teal-pulse{width:6px;height:6px;border-radius:50%;background:#14b8a6;
+  margin:20px auto 0;opacity:0;transform:scale(0);
+  transition:all 0.5s cubic-bezier(0,1.5,0.5,1);
+  box-shadow:0 0 20px rgba(20,184,166,0.4)}
+.teal-pulse.in{opacity:1;transform:scale(1);
+  animation:pulse-glow 2s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(20,184,166,0.3);transform:scale(1)}
+  50%{box-shadow:0 0 40px rgba(20,184,166,0.6);transform:scale(1.3)}}
+
+/* ================================
+   AFTER SECTION — warm, alive
+   ================================ */
+.after-filter{filter:saturate(1);transition:filter 1.5s}
+
+/* Warm answer card */
+.warm-answer{max-width:540px;width:90vw;margin-bottom:10px;
+  opacity:0;transform:translateY(20px) scale(0.95);
+  transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.warm-answer.in{opacity:1;transform:translateY(0) scale(1)}
+
+.warm-q{font-family:'DM Serif Display',serif;font-size:clamp(0.9rem,2.2vw,1.15rem);
+  color:rgba(255,255,255,0.45);margin-bottom:10px;line-height:1.3}
+
+/* Different kinetic techniques per answer */
+.warm-card{border-radius:14px;padding:18px 22px;position:relative;overflow:hidden}
+
+/* Card 1: TDEE — gradient left border */
+.warm-card.tdee{background:rgba(20,184,166,0.08);border-left:3px solid #14b8a6}
+.warm-card.tdee .warm-insight{color:#5eead4;font-size:1.05rem;font-weight:600;line-height:1.5}
+.warm-card.tdee .warm-sub{color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:6px}
+
+/* Card 2: BMI — reframed */
+.warm-card.bmi{background:rgba(251,146,60,0.06);border-left:3px solid #fb923c}
+.warm-card.bmi .warm-insight{color:#fdba74;font-size:1.05rem;font-weight:600;line-height:1.5}
+.warm-card.bmi .warm-sub{color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:6px}
+
+/* Card 3: Caffeine — specific, portable */
+.warm-card.caffeine{background:rgba(168,85,247,0.06);border-left:3px solid #a855f7}
+.warm-card.caffeine .warm-insight{color:#c084fc;font-size:1.05rem;font-weight:600;line-height:1.5}
+.warm-card.caffeine .warm-sub{color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:6px}
+
+/* Card 4: Pulse chat — personalized */
+.warm-card.pulse{background:rgba(34,197,94,0.06);border-left:3px solid #22c55e;
+  display:flex;gap:12px;align-items:flex-start}
+.pulse-av{width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  background:linear-gradient(135deg,#14b8a6,#0e7a7e);
+  display:flex;align-items:center;justify-content:center;position:relative}
+.pulse-av::after{content:'';position:absolute;bottom:-1px;right:-1px;width:8px;height:8px;
+  border-radius:50%;background:#22c55e;border:2px solid #0d1a18}
+.pulse-av span{color:#fff;font-weight:700;font-size:0.55rem}
+.warm-card.pulse .warm-insight{color:#86efac;font-size:0.95rem;font-weight:500;line-height:1.5}
+.warm-card.pulse .warm-sub{color:rgba(255,255,255,0.4);font-size:0.75rem;margin-top:6px}
+
+/* Warm glow behind cards */
+.warm-glow{position:absolute;width:300px;height:300px;border-radius:50%;
+  background:radial-gradient(circle,rgba(20,184,166,0.06),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0;
+  transition:opacity 1.5s}
+.warm-glow.in{opacity:1}
+
+/* ================================
+   CLOSE
+   ================================ */
+.close-wrap{text-align:center;max-width:500px}
+
+.close-line{overflow:hidden;margin-bottom:12px}
+.close-word{font-family:'DM Serif Display',serif;font-size:clamp(1.1rem,2.8vw,1.5rem);
+  color:rgba(255,255,255,0.4);line-height:1.6;
+  opacity:0;transform:translateY(100%);
+  transition:all 0.5s cubic-bezier(0.16,1,0.3,1)}
+.close-word.in{opacity:1;transform:translateY(0)}
+.close-word.accent{color:rgba(255,255,255,0.9)}
+.close-word.teal{color:#5eead4}
+
+.close-brand{margin-top:32px;opacity:0;transition:opacity 0.8s}
+.close-brand.in{opacity:1}
+.brand-name{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2.5vw,1.3rem);
+  color:rgba(255,255,255,0.8);letter-spacing:0.02em}
+.brand-dot{display:inline-block;width:6px;height:6px;border-radius:50%;
+  background:#14b8a6;margin-left:4px;vertical-align:middle;
+  animation:pulse-glow 2s ease-in-out infinite}
+
+/* Before section label */
+.phase-label{position:absolute;top:24px;left:50%;transform:translateX(-50%);
+  font-size:0.56rem;font-weight:600;text-transform:uppercase;letter-spacing:0.2em;
+  padding:5px 16px;border-radius:20px;opacity:0;transition:all 0.5s;z-index:10}
+.phase-label.in{opacity:1}
+.phase-label.before-label{color:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.08)}
+.phase-label.after-label{color:#5eead4;border:1px solid rgba(20,184,166,0.2);
+  background:rgba(20,184,166,0.05)}
+
+/* Replay */
+.replay{position:fixed;bottom:20px;right:20px;z-index:50;padding:8px 16px;
+  border-radius:20px;font-size:0.7rem;font-weight:500;cursor:pointer;
+  background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);
+  color:rgba(255,255,255,0.4);transition:all 0.3s;opacity:0}
+.replay.in{opacity:1}
+.replay:hover{background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7)}
+
+/* Sparkle effects */
+.sparkle{position:fixed;pointer-events:none;z-index:20}
+@keyframes sparkle-out{0%{opacity:0.8;transform:translate(0,0) scale(1)}
+  100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+
+/* Answer number counter animation */
+@keyframes count-up{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.count-num{display:inline-block;animation:count-up 0.4s cubic-bezier(0.34,1.56,0.64,1) both}
+
+/* Underline draw effect */
+.draw-underline{position:relative;display:inline}
+.draw-underline::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;
+  border-radius:1px;transition:width 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.draw-underline.drawn::after{width:100%}
+.draw-underline.teal::after{background:#14b8a6}
+.draw-underline.coral::after{background:#fb923c}
+.draw-underline.purple::after{background:#a855f7}
+.draw-underline.green::after{background:#22c55e}
+
+/* Type-in effect */
+.type-cursor{display:inline-block;width:2px;height:1em;background:rgba(255,255,255,0.5);
+  margin-left:2px;animation:blink 0.8s step-end infinite;vertical-align:text-bottom}
+@keyframes blink{50%{opacity:0}}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:0.01ms!important;transition-duration:0.01ms!important}
+}
+</style>
+</head>
+<body class="before">
+<div class="grain"></div>
+
+<div class="film" id="film">
+
+  <!-- BEFORE label -->
+  <div class="phase-label before-label" id="beforeLabel">Before</div>
+
+  <!-- SCENE 1: BEFORE — Question 1 -->
+  <div class="sc on before-filter" id="sc1">
+    <div class="thought" id="q1thought">
+      <div class="thought-q">"How many calories should I eat?"</div>
+    </div>
+    <div class="cold-answer" id="q1answer">
+      <div class="cold-source">Google &mdash; Top Result</div>
+      <div class="cold-text">"It depends on many factors including your age, sex, height, weight, and activity level..."</div>
+    </div>
+  </div>
+
+  <!-- SCENE 2: BEFORE — Question 2 -->
+  <div class="sc before-filter" id="sc2">
+    <div class="thought" id="q2thought">
+      <div class="thought-q">"Is my BMI bad?"</div>
+    </div>
+    <div class="cold-answer" id="q2answer">
+      <div class="cold-source">BMI Calculator &mdash; Result</div>
+      <div class="cold-text">Your BMI: <span class="cold-highlight">27.4 &mdash; Overweight</span></div>
+    </div>
+  </div>
+
+  <!-- SCENE 3: BEFORE — Question 3 -->
+  <div class="sc before-filter" id="sc3">
+    <div class="thought" id="q3thought">
+      <div class="thought-q">"Why can't I sleep?"</div>
+    </div>
+    <div class="cold-answer" id="q3answer">
+      <div class="cold-source">Reddit &mdash; r/sleep</div>
+      <div class="cold-text">"just don't drink coffee after 2pm bro"</div>
+    </div>
+  </div>
+
+  <!-- SCENE 4: BEFORE — Question 4 -->
+  <div class="sc before-filter" id="sc4">
+    <div class="thought" id="q4thought">
+      <div class="thought-q">"Am I doing this right?"</div>
+    </div>
+    <div class="cold-answer" id="q4answer">
+      <div class="cold-source" style="opacity:0.15">...</div>
+      <div class="cold-text" style="opacity:0.2;font-style:italic">No answer. Just more content to consume.</div>
+    </div>
+  </div>
+
+  <!-- SCENE 5: TRANSITION -->
+  <div class="sc" id="sc5">
+    <div class="trans-text" id="transText">What if the answer was something<br>you never forgot?</div>
+    <div class="teal-pulse" id="tealPulse"></div>
+  </div>
+
+  <!-- AFTER label -->
+  <div class="phase-label after-label" id="afterLabel">After</div>
+
+  <!-- SCENE 6: AFTER — Answer 1 (TDEE mental model) -->
+  <div class="sc after-filter" id="sc6">
+    <div class="warm-glow" id="glow6"></div>
+    <div class="warm-answer" id="a1wrap">
+      <div class="warm-q">"How many calories should I eat?"</div>
+      <div class="warm-card tdee">
+        <div class="warm-insight" id="a1text"></div>
+        <div class="warm-sub">The mental model that makes calorie counting intuitive.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 7: AFTER — Answer 2 (BMI reframed) -->
+  <div class="sc after-filter" id="sc7">
+    <div class="warm-glow" id="glow7"></div>
+    <div class="warm-answer" id="a2wrap">
+      <div class="warm-q">"Is my BMI bad?"</div>
+      <div class="warm-card bmi">
+        <div class="warm-insight" id="a2text"></div>
+        <div class="warm-sub">Reframed. Not judged.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 8: AFTER — Answer 3 (Caffeine half-life) -->
+  <div class="sc after-filter" id="sc8">
+    <div class="warm-glow" id="glow8"></div>
+    <div class="warm-answer" id="a3wrap">
+      <div class="warm-q">"Why can't I sleep?"</div>
+      <div class="warm-card caffeine">
+        <div class="warm-insight" id="a3text"></div>
+        <div class="warm-sub">Specific. Portable. Yours forever.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 9: AFTER — Answer 4 (Pulse personalized) -->
+  <div class="sc after-filter" id="sc9">
+    <div class="warm-glow" id="glow9"></div>
+    <div class="warm-answer" id="a4wrap">
+      <div class="warm-q">"Am I doing this right?"</div>
+      <div class="warm-card pulse">
+        <div class="pulse-av"><span>P</span></div>
+        <div>
+          <div class="warm-insight" id="a4text"></div>
+          <div class="warm-sub">Personalized. Data-backed. Yes, you are.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCENE 10: CLOSE -->
+  <div class="sc" id="sc10">
+    <div class="close-wrap">
+      <div class="close-line" id="closeLine1"></div>
+      <div class="close-line" id="closeLine2"></div>
+      <div class="close-line" id="closeLine3" style="margin-top:20px"></div>
+      <div class="close-brand" id="closeBrand">
+        <div class="brand-name">healthcalculators.xyz<span class="brand-dot"></span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="replay" id="replay">Replay</div>
+
+<script>
+(function(){
+
+  // --- Utilities ---
+  function show(id){
+    document.querySelectorAll('.sc').forEach(function(s){s.classList.remove('on')});
+    document.getElementById(id).classList.add('on');
+  }
+
+  function fadeIn(el,delay){
+    setTimeout(function(){
+      if(typeof el==='string') el=document.getElementById(el);
+      el.classList.add('in');
+    },delay||0);
+  }
+
+  function fadeOut(el,delay){
+    setTimeout(function(){
+      if(typeof el==='string') el=document.getElementById(el);
+      el.classList.add('out');
+    },delay||0);
+  }
+
+  function sparkles(x,y,n){
+    var cols=['#14b8a6','#5eead4','#a855f7','#22c55e','#86efac'];
+    for(var i=0;i<n;i++){
+      var s=document.createElement('div');s.className='sparkle';
+      var sz=3+Math.random()*4,a=Math.random()*Math.PI*2,d=20+Math.random()*40;
+      s.style.cssText='width:'+sz+'px;height:'+sz+'px;border-radius:50%;left:'+x+'px;top:'+y+
+        'px;background:'+cols[Math.floor(Math.random()*cols.length)]+';--dx:'+
+        (Math.cos(a)*d)+'px;--dy:'+(Math.sin(a)*d-15)+'px;animation:sparkle-out '+
+        (0.4+Math.random()*0.3)+'s ease-out forwards;animation-delay:'+(i*0.02)+'s';
+      document.body.appendChild(s);
+      setTimeout(function(el){el.remove()},1000,s);
+    }
+  }
+
+  // Typewriter for warm answers — character by character
+  function typeText(elId,text,speed,cb){
+    var el=document.getElementById(elId);
+    var i=0;
+    el.innerHTML='<span class="type-cursor"></span>';
+    var span=document.createElement('span');
+    el.insertBefore(span,el.firstChild);
+    var timer=setInterval(function(){
+      if(i<text.length){
+        // Handle HTML tags
+        if(text[i]==='<'){
+          var closeIdx=text.indexOf('>',i);
+          span.innerHTML+=text.substring(i,closeIdx+1);
+          i=closeIdx+1;
+        }else{
+          span.innerHTML+=text[i];
+          i++;
+        }
+      }else{
+        clearInterval(timer);
+        // Remove cursor
+        var cursor=el.querySelector('.type-cursor');
+        if(cursor) cursor.remove();
+        if(cb) cb();
+      }
+    },speed);
+  }
+
+  // Word-by-word reveal for warm answers (spring bounce per word)
+  function revealWords(elId,text,wordDelay,cb){
+    var el=document.getElementById(elId);
+    el.innerHTML='';
+    var words=text.split(' ');
+    words.forEach(function(w,i){
+      var span=document.createElement('span');
+      span.style.cssText='display:inline-block;opacity:0;transform:translateY(12px) scale(0.9);'+
+        'transition:all 0.45s cubic-bezier(0.34,1.56,0.64,1);margin-right:0.3em';
+      span.innerHTML=w;
+      el.appendChild(span);
+      setTimeout(function(){
+        span.style.opacity='1';
+        span.style.transform='translateY(0) scale(1)';
+      },i*wordDelay);
+    });
+    if(cb) setTimeout(cb,words.length*wordDelay+300);
+  }
+
+  // Letter-by-letter cascade
+  function cascadeLetters(elId,text,letterDelay,cb){
+    var el=document.getElementById(elId);
+    el.innerHTML='';
+    for(var i=0;i<text.length;i++){
+      (function(idx){
+        var span=document.createElement('span');
+        span.style.cssText='display:inline-block;opacity:0;transform:translateY(8px);'+
+          'transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)';
+        if(text[idx]===' '){span.innerHTML='&nbsp;';span.style.width='0.3em'}
+        else span.textContent=text[idx];
+        el.appendChild(span);
+        setTimeout(function(){
+          span.style.opacity='1';
+          span.style.transform='translateY(0)';
+        },idx*letterDelay);
+      })(i);
+    }
+    if(cb) setTimeout(cb,text.length*letterDelay+300);
+  }
+
+  // Stamp-in effect (scale bounce from large)
+  function stampIn(elId,html,cb){
+    var el=document.getElementById(elId);
+    el.innerHTML=html;
+    el.style.opacity='0';
+    el.style.transform='scale(1.3)';
+    el.style.transition='all 0.5s cubic-bezier(0.34,1.56,0.64,1)';
+    requestAnimationFrame(function(){requestAnimationFrame(function(){
+      el.style.opacity='1';
+      el.style.transform='scale(1)';
+      if(cb) setTimeout(cb,500);
+    })});
+  }
+
+  // --- Timeline ---
+  var t=0;
+
+  // ============================================
+  // BEFORE SECTION (0-20s) — cold, desaturated
+  // ============================================
+
+  // Show "Before" label
+  setTimeout(function(){fadeIn('beforeLabel')},300);
+
+  // Q1: "How many calories?" (0-5s)
+  t=400;
+  setTimeout(function(){fadeIn('q1thought')},t);
+  setTimeout(function(){fadeIn('q1answer')},t+800);
+  // Answer fades quickly — nothing sticks
+  setTimeout(function(){
+    fadeOut('q1thought');
+    fadeOut('q1answer');
+  },t+2200);
+
+  // Q2: "Is my BMI bad?" (5-10s)
+  t=5000;
+  setTimeout(function(){
+    show('sc2');
+    fadeIn('q2thought',200);
+    fadeIn('q2answer',900);
+  },t);
+  setTimeout(function(){
+    fadeOut('q2thought');
+    fadeOut('q2answer');
+  },t+2500);
+
+  // Q3: "Why can't I sleep?" (10-15s)
+  t=10000;
+  setTimeout(function(){
+    show('sc3');
+    fadeIn('q3thought',200);
+    fadeIn('q3answer',900);
+  },t);
+  setTimeout(function(){
+    fadeOut('q3thought');
+    fadeOut('q3answer');
+  },t+2500);
+
+  // Q4: "Am I doing this right?" (15-20s)
+  t=15000;
+  setTimeout(function(){
+    show('sc4');
+    fadeIn('q4thought',200);
+    fadeIn('q4answer',1200);
+  },t);
+  // Longer hold — the silence IS the point
+  setTimeout(function(){
+    document.getElementById('beforeLabel').classList.remove('in');
+  },t+3000);
+
+  // ============================================
+  // TRANSITION (20-25s)
+  // ============================================
+  t=20000;
+  setTimeout(function(){
+    show('sc5');
+    document.body.className='transition-phase';
+    // Increase grain for transition
+    document.querySelector('.grain').style.opacity='0.06';
+    setTimeout(function(){fadeIn('transText')},400);
+    setTimeout(function(){fadeIn('tealPulse')},1200);
+  },t);
+
+  // ============================================
+  // AFTER SECTION (25-45s) — warm, saturated
+  // ============================================
+
+  // A1: TDEE mental model (25-30s) — word-by-word spring bounce
+  t=25000;
+  setTimeout(function(){
+    show('sc6');
+    document.body.className='after';
+    document.querySelector('.grain').style.opacity='0.06';
+    fadeIn('afterLabel',100);
+    fadeIn('glow6',200);
+
+    var wrap=document.getElementById('a1wrap');
+    wrap.classList.add('in');
+
+    setTimeout(function(){
+      revealWords('a1text',
+        '<span class="draw-underline teal">BMR is rent.</span> <span class="draw-underline teal">TDEE is rent + utilities.</span>',
+        120,
+        function(){
+          // Draw the underlines after words appear
+          document.querySelectorAll('#a1text .draw-underline').forEach(function(u,i){
+            setTimeout(function(){u.classList.add('drawn')},i*400);
+          });
+        }
+      );
+    },600);
+  },t);
+
+  // A2: BMI reframed (30-35s) — stamp-in effect (bounces in from scale)
+  t=30500;
+  setTimeout(function(){
+    show('sc7');
+    fadeIn('glow7',200);
+
+    var wrap=document.getElementById('a2wrap');
+    wrap.classList.add('in');
+
+    setTimeout(function(){
+      stampIn('a2text',
+        '<span style="color:#fdba74;font-size:1.3em" class="count-num">28.4</span> &mdash; <span class="draw-underline coral">Above healthy range</span>',
+        function(){
+          setTimeout(function(){
+            document.querySelector('#a2text .draw-underline').classList.add('drawn');
+          },300);
+        }
+      );
+    },600);
+  },t);
+
+  // A3: Caffeine half-life (35-40s) — letter cascade
+  t=36000;
+  setTimeout(function(){
+    show('sc8');
+    fadeIn('glow8',200);
+
+    var wrap=document.getElementById('a3wrap');
+    wrap.classList.add('in');
+
+    setTimeout(function(){
+      cascadeLetters('a3text',
+        'Every 5 hours, half. Your 3pm coffee = 25mg at 11pm.',
+        35,
+        function(){
+          // Sparkle on the specific numbers
+          var el=document.getElementById('a3text');
+          var r=el.getBoundingClientRect();
+          sparkles(r.left+r.width*0.15,r.top+r.height/2,8);
+          sparkles(r.left+r.width*0.75,r.top+r.height/2,8);
+        }
+      );
+    },600);
+  },t);
+
+  // A4: Pulse personalized (40-45s) — typewriter with cursor
+  t=41500;
+  setTimeout(function(){
+    show('sc9');
+    fadeIn('glow9',200);
+
+    var wrap=document.getElementById('a4wrap');
+    wrap.classList.add('in');
+
+    setTimeout(function(){
+      typeText('a4text',
+        'Sleep improved 31%. Caffeine cutoff 6/7 days. Yes, you are.',
+        30,
+        function(){
+          var el=document.getElementById('a4text');
+          var r=el.getBoundingClientRect();
+          sparkles(r.left+r.width/2,r.top,12);
+        }
+      );
+    },800);
+  },t);
+
+  // ============================================
+  // CLOSE (45-50s)
+  // ============================================
+  t=46500;
+  setTimeout(function(){
+    show('sc10');
+    document.body.className='close-phase';
+    document.getElementById('afterLabel').classList.remove('in');
+    document.querySelector('.grain').style.opacity='0.05';
+
+    // Line 1: "Before: you consumed answers."
+    var line1=document.getElementById('closeLine1');
+    var words1=[
+      {text:'Before:',accent:false,delay:400},
+      {text:'you',accent:false,delay:700},
+      {text:'consumed',accent:false,delay:900},
+      {text:'answers.',accent:true,delay:1200}
+    ];
+    words1.forEach(function(w){
+      var span=document.createElement('span');
+      span.className='close-word'+(w.accent?' accent':'');
+      span.textContent=w.text+' ';
+      span.style.display='inline-block';
+      line1.appendChild(span);
+      setTimeout(function(){span.classList.add('in')},w.delay);
+    });
+
+    // Line 2: "After: you carry signals."
+    var line2=document.getElementById('closeLine2');
+    var words2=[
+      {text:'After:',accent:false,delay:2200},
+      {text:'you',accent:false,delay:2500},
+      {text:'carry',accent:false,delay:2700},
+      {text:'signals.',accent:false,teal:true,delay:3100}
+    ];
+    words2.forEach(function(w){
+      var span=document.createElement('span');
+      span.className='close-word'+(w.accent?' accent':'')+(w.teal?' teal':'');
+      span.textContent=w.text+' ';
+      span.style.display='inline-block';
+      line2.appendChild(span);
+      setTimeout(function(){span.classList.add('in')},w.delay);
+    });
+
+    // Line 3: brand
+    var line3=document.getElementById('closeLine3');
+    setTimeout(function(){
+      fadeIn('closeBrand');
+      // Final sparkle burst on brand
+      setTimeout(function(){
+        var el=document.getElementById('closeBrand');
+        var r=el.getBoundingClientRect();
+        sparkles(r.left+r.width/2,r.top+r.height/2,16);
+      },600);
+    },4500);
+  },t);
+
+  // Show replay button
+  setTimeout(function(){fadeIn('replay')},52000);
+
+  // Replay handler
+  document.getElementById('replay').addEventListener('click',function(){
+    location.reload();
+  });
+
+})();
+</script>
+</body>
+</html>
