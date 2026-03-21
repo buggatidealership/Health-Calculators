@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>How Long Does It Last? — Brand Animation V25</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #0a0f1a;
+            color: #f0efe9;
+            font-family: 'DM Serif Display', serif;
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.4'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 1000;
+            animation: grainShift 0.5s steps(4) infinite;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-2%, 3%); }
+            50% { transform: translate(3%, -1%); }
+            75% { transform: translate(-3%, -2%); }
+            100% { transform: translate(1%, 2%); }
+        }
+
+        /* Stage */
+        .stage {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Duration bar — thin line at bottom showing elapsed time */
+        .duration-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #2dd4a8, #1fb890);
+            width: 0%;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.5s;
+        }
+        .duration-bar.active {
+            opacity: 1;
+        }
+
+        /* Each content element */
+        .duration-element {
+            position: absolute;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            transform: translateY(8px);
+            pointer-events: none;
+        }
+
+        /* The fleeting content cards */
+        .fleeting-card {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 12px;
+            padding: 32px 48px;
+            text-align: center;
+            max-width: 560px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fleeting-card .source-icon {
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.25);
+            margin-bottom: 16px;
+        }
+
+        .fleeting-card .content-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(22px, 3.2vw, 32px);
+            line-height: 1.35;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Duration label below card */
+        .duration-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.15);
+            margin-top: 4px;
+        }
+
+        /* Decay animation — card dissolves from edges */
+        @keyframes cardDecay {
+            0% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+            70% { opacity: 0.6; transform: translateY(0) scale(1); filter: blur(0); }
+            100% { opacity: 0; transform: translateY(-6px) scale(0.98); filter: blur(4px); }
+        }
+
+        /* The signal — the one that stays */
+        .signal-card {
+            background: rgba(45, 212, 168, 0.04);
+            border: 1px solid rgba(45, 212, 168, 0.15);
+            border-radius: 12px;
+            padding: 40px 56px;
+            text-align: center;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .signal-card .content-text {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(26px, 3.8vw, 40px);
+            line-height: 1.3;
+            color: #2dd4a8;
+        }
+
+        .signal-card .duration-label {
+            color: rgba(45, 212, 168, 0.35);
+        }
+
+        /* Subtle glow that builds over time the signal stays */
+        @keyframes signalGlow {
+            0% { box-shadow: 0 0 0 0 rgba(45, 212, 168, 0); }
+            30% { box-shadow: 0 0 30px -10px rgba(45, 212, 168, 0.06); }
+            60% { box-shadow: 0 0 60px -10px rgba(45, 212, 168, 0.1); }
+            100% { box-shadow: 0 0 80px -10px rgba(45, 212, 168, 0.14); }
+        }
+
+        /* Ghost traces — afterimages of vanished content */
+        .ghost-trace {
+            position: absolute;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0);
+            pointer-events: none;
+            opacity: 0;
+        }
+
+        /* Opening question */
+        .opening {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(28px, 4.5vw, 48px);
+            color: rgba(255, 255, 255, 0.85);
+            opacity: 0;
+            position: absolute;
+            text-align: center;
+            line-height: 1.25;
+        }
+
+        /* Closing */
+        .closing {
+            position: absolute;
+            opacity: 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .closing .tagline {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(13px, 1.8vw, 16px);
+            font-weight: 400;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.35);
+        }
+
+        .closing .brand {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(20px, 3vw, 32px);
+            color: #2dd4a8;
+        }
+
+        .closing .count {
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.2);
+            letter-spacing: 0.08em;
+        }
+
+        /* Replay button */
+        .replay-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.3);
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            z-index: 200;
+            opacity: 0;
+            transition: opacity 0.6s, background 0.3s, color 0.3s;
+        }
+        .replay-btn:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Elapsed counter — top right */
+        .elapsed {
+            position: fixed;
+            top: 24px;
+            right: 28px;
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 400;
+            letter-spacing: 0.12em;
+            color: rgba(255, 255, 255, 0.12);
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.8s;
+        }
+        .elapsed.active {
+            opacity: 1;
+        }
+
+        /* Duration countdown inside cards */
+        .time-remaining {
+            position: absolute;
+            bottom: 10px;
+            right: 14px;
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.1);
+            letter-spacing: 0.06em;
+        }
+
+        .signal-card .time-remaining {
+            color: rgba(45, 212, 168, 0.15);
+        }
+
+        /* Stacking ghost labels for vanished items */
+        .graveyard {
+            position: fixed;
+            bottom: 28px;
+            left: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            z-index: 50;
+        }
+
+        .graveyard-item {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.08);
+            opacity: 0;
+            transform: translateX(-8px);
+            transition: opacity 0.4s, transform 0.4s;
+            text-decoration: line-through;
+            text-decoration-color: rgba(255, 255, 255, 0.04);
+        }
+        .graveyard-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="grain"></div>
+
+    <div class="duration-bar" id="durationBar"></div>
+    <div class="elapsed" id="elapsed">0.0s</div>
+
+    <div class="stage" id="stage">
+        <!-- Opening question -->
+        <div class="opening" id="opening">How long does it last?</div>
+
+        <!-- Fleeting elements -->
+        <div class="duration-element" id="el-google">
+            <div class="fleeting-card">
+                <div class="source-icon">Google Search</div>
+                <div class="content-text">"Caffeine stays in your system for about 5 hours"</div>
+                <div class="time-remaining" id="timer-google"></div>
+            </div>
+            <div class="duration-label">Remembered for 3 seconds</div>
+        </div>
+
+        <div class="duration-element" id="el-reddit">
+            <div class="fleeting-card">
+                <div class="source-icon">Reddit Answer</div>
+                <div class="content-text">"Just drink less coffee lol"</div>
+                <div class="time-remaining" id="timer-reddit"></div>
+            </div>
+            <div class="duration-label">Applied for 0 seconds</div>
+        </div>
+
+        <div class="duration-element" id="el-instagram">
+            <div class="fleeting-card">
+                <div class="source-icon">Instagram Post</div>
+                <div class="content-text">"10 things about caffeine your doctor won't tell you"</div>
+                <div class="time-remaining" id="timer-instagram"></div>
+            </div>
+            <div class="duration-label">Scrolled past in 2 seconds</div>
+        </div>
+
+        <div class="duration-element" id="el-tiktok">
+            <div class="fleeting-card">
+                <div class="source-icon">TikTok</div>
+                <div class="content-text">"WAIT til you hear this caffeine hack"</div>
+                <div class="time-remaining" id="timer-tiktok"></div>
+            </div>
+            <div class="duration-label">Forgotten in 1 second</div>
+        </div>
+
+        <!-- The Signal -->
+        <div class="duration-element" id="el-signal">
+            <div class="signal-card" id="signalCard">
+                <div class="content-text">"Every 5 hours, half."</div>
+                <div class="time-remaining" id="timer-signal"></div>
+            </div>
+            <div class="duration-label">This stays.</div>
+        </div>
+
+        <!-- Closing -->
+        <div class="closing" id="closing">
+            <div class="tagline">Some things last.</div>
+            <div class="brand">healthcalculators.xyz</div>
+            <div class="count">82 signals that stay</div>
+        </div>
+    </div>
+
+    <!-- Graveyard of vanished content -->
+    <div class="graveyard" id="graveyard">
+        <div class="graveyard-item" id="grave-google">Google — 0.5s</div>
+        <div class="graveyard-item" id="grave-reddit">Reddit — 0.3s</div>
+        <div class="graveyard-item" id="grave-instagram">Instagram — 0.2s</div>
+        <div class="graveyard-item" id="grave-tiktok">TikTok — 0.15s</div>
+    </div>
+
+    <button class="replay-btn" id="replayBtn">Replay</button>
+
+    <script>
+        // ============================================================
+        // "How Long Does It Last?" — Duration as design material
+        //
+        // Each element stays on screen for its claimed duration
+        // (proportionally scaled). The contrast between vanishing
+        // and staying IS the argument.
+        //
+        // Total runtime: ~30 seconds
+        // ============================================================
+
+        const TOTAL_DURATION = 30000; // 30s
+        let startTime = null;
+        let animFrame = null;
+
+        const bar = document.getElementById('durationBar');
+        const elapsed = document.getElementById('elapsed');
+        const replayBtn = document.getElementById('replayBtn');
+
+        // Timeline: [startMs, element, displayDurationMs, graveyardId]
+        // Fleeting items get proportionally tiny display durations
+        // Signal gets 8 full seconds
+        const timeline = [
+            // Opening question: 0 - 3s
+            { start: 0, end: 3000, el: 'opening', type: 'opening' },
+
+            // Google: appears at 3.5s, stays 0.5s (it lasted nothing)
+            { start: 3500, displayMs: 500, el: 'el-google', type: 'fleeting', grave: 'grave-google', timer: 'timer-google' },
+
+            // Reddit: appears at 5s, stays 0.3s
+            { start: 5000, displayMs: 300, el: 'el-reddit', type: 'fleeting', grave: 'grave-reddit', timer: 'timer-reddit' },
+
+            // Instagram: appears at 6.5s, stays 0.2s
+            { start: 6500, displayMs: 200, el: 'el-instagram', type: 'fleeting', grave: 'grave-instagram', timer: 'timer-instagram' },
+
+            // TikTok: appears at 8s, stays 0.15s
+            { start: 8000, displayMs: 150, el: 'el-tiktok', type: 'fleeting', grave: 'grave-tiktok', timer: 'timer-tiktok' },
+
+            // Brief pause — emptiness. Nothing on screen. The absence is felt.
+            // 8.15s - 10.5s: just the graveyard and the bar
+
+            // The Signal: appears at 10.5s, stays 8 SECONDS
+            { start: 10500, displayMs: 8000, el: 'el-signal', type: 'signal', timer: 'timer-signal' },
+
+            // Brief pause after signal fades: 18.5s - 20s
+
+            // Closing: appears at 20s, stays until end
+            { start: 20000, end: 30000, el: 'closing', type: 'closing' },
+        ];
+
+        function easeOutCubic(t) {
+            return 1 - Math.pow(1 - t, 3);
+        }
+
+        function showElement(id, fadeInMs = 300) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            el.style.transition = `opacity ${fadeInMs}ms ease-out, transform ${fadeInMs}ms ease-out`;
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+        }
+
+        function hideElement(id, fadeOutMs = 200) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            // Fast decay — content that doesn't last dissolves quickly
+            el.style.transition = `opacity ${fadeOutMs}ms ease-in, transform ${fadeOutMs}ms ease-in, filter ${fadeOutMs}ms ease-in`;
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-6px) scale(0.98)';
+            el.style.filter = 'blur(3px)';
+        }
+
+        function hideElementSlow(id, fadeOutMs = 1200) {
+            const el = document.getElementById(id);
+            if (!el) return;
+            // Ritardando exit for the signal — last 15% takes 40%+ of exit duration
+            el.style.transition = `opacity ${fadeOutMs}ms cubic-bezier(0.4, 0, 0.2, 1), transform ${fadeOutMs}ms ease-out`;
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(-4px)';
+        }
+
+        function showGrave(id) {
+            const el = document.getElementById(id);
+            if (el) el.classList.add('visible');
+        }
+
+        function updateTimer(timerId, remainingMs) {
+            const el = document.getElementById(timerId);
+            if (!el) return;
+            if (remainingMs <= 0) {
+                el.textContent = '';
+            } else {
+                el.textContent = (remainingMs / 1000).toFixed(1) + 's';
+            }
+        }
+
+        // Track which timeline items have been triggered
+        let triggered = {};
+        let hidden = {};
+
+        function runAnimation() {
+            startTime = performance.now();
+            triggered = {};
+            hidden = {};
+
+            // Reset all elements
+            timeline.forEach(item => {
+                const el = document.getElementById(item.el);
+                if (el) {
+                    el.style.opacity = '0';
+                    el.style.transform = 'translateY(8px)';
+                    el.style.filter = 'none';
+                }
+            });
+
+            // Reset graveyard
+            document.querySelectorAll('.graveyard-item').forEach(g => g.classList.remove('visible'));
+
+            // Reset bar and elapsed
+            bar.style.width = '0%';
+            bar.classList.add('active');
+            elapsed.classList.add('active');
+            replayBtn.style.opacity = '0';
+            replayBtn.style.pointerEvents = 'none';
+
+            // Start signal glow reset
+            const signalCard = document.getElementById('signalCard');
+            if (signalCard) signalCard.style.animation = 'none';
+
+            tick();
+        }
+
+        function tick() {
+            const now = performance.now();
+            const dt = now - startTime;
+            const progress = Math.min(dt / TOTAL_DURATION, 1);
+
+            // Update progress bar
+            bar.style.width = (progress * 100) + '%';
+
+            // Update elapsed counter
+            elapsed.textContent = (dt / 1000).toFixed(1) + 's';
+
+            // Process timeline
+            timeline.forEach((item, i) => {
+                const key = item.el + '_' + i;
+
+                // Show
+                if (dt >= item.start && !triggered[key]) {
+                    triggered[key] = true;
+
+                    if (item.type === 'opening') {
+                        showElement(item.el, 600);
+                    } else if (item.type === 'fleeting') {
+                        showElement(item.el, 150); // Fast appearance — it's already forgettable
+                    } else if (item.type === 'signal') {
+                        showElement(item.el, 800); // Slow, deliberate arrival
+                        // Start glow animation
+                        const signalCard = document.getElementById('signalCard');
+                        if (signalCard) {
+                            signalCard.style.animation = `signalGlow ${item.displayMs}ms ease-out forwards`;
+                        }
+                    } else if (item.type === 'closing') {
+                        showElement(item.el, 1000);
+                    }
+                }
+
+                // Hide (for elements with displayMs)
+                if (item.displayMs) {
+                    const hideAt = item.start + item.displayMs;
+                    if (dt >= hideAt && !hidden[key]) {
+                        hidden[key] = true;
+                        if (item.type === 'signal') {
+                            hideElementSlow(item.el, 1200); // Ritardando — the signal lingers
+                        } else {
+                            hideElement(item.el, 180); // Snap gone
+                            if (item.grave) showGrave(item.grave);
+                        }
+                    }
+
+                    // Update countdown timer while visible
+                    if (dt >= item.start && dt < hideAt && item.timer) {
+                        updateTimer(item.timer, hideAt - dt);
+                    }
+                }
+
+                // Hide opening
+                if (item.type === 'opening' && item.end && dt >= item.end && !hidden[key]) {
+                    hidden[key] = true;
+                    hideElementSlow(item.el, 800);
+                }
+            });
+
+            // Continue or finish
+            if (progress < 1) {
+                animFrame = requestAnimationFrame(tick);
+            } else {
+                // Done
+                elapsed.textContent = '30.0s';
+                setTimeout(() => {
+                    replayBtn.style.opacity = '1';
+                    replayBtn.style.pointerEvents = 'auto';
+                }, 500);
+            }
+        }
+
+        // Replay
+        replayBtn.addEventListener('click', () => {
+            if (animFrame) cancelAnimationFrame(animFrame);
+            runAnimation();
+        });
+
+        // Auto-start after a brief pause (loading = anticipation, per Loading Principle)
+        setTimeout(runAnimation, 800);
+    </script>
+</body>
+</html>

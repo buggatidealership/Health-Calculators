@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Bring It Forward — Brand Animation V27</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #0a0e12;
+            color: #fff;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .scene {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ─── FILM GRAIN ─── */
+        .grain {
+            position: fixed;
+            inset: 0;
+            z-index: 100;
+            pointer-events: none;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-size: 128px 128px;
+            animation: grainShift 0.3s steps(3) infinite;
+        }
+
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(-2px, 1px); }
+            66% { transform: translate(1px, -2px); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* ─── DEPTH LAYERS ─── */
+
+        /* BACKGROUND LAYER — blur 16px, opacity 0.3 */
+        .layer-bg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            filter: blur(16px);
+            opacity: 0.3;
+            transition: opacity 2s ease-out;
+            z-index: 1;
+        }
+
+        .layer-bg.fade-out {
+            opacity: 0;
+        }
+
+        .noise-item {
+            position: absolute;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            white-space: nowrap;
+            user-select: none;
+        }
+
+        .noise-item.size-sm { font-size: clamp(11px, 1.2vw, 14px); }
+        .noise-item.size-md { font-size: clamp(14px, 1.6vw, 18px); }
+        .noise-item.size-lg { font-size: clamp(17px, 2vw, 22px); }
+
+        /* MIDGROUND LAYER — blur 4px, opacity 0.6 */
+        .layer-mid {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: blur(4px);
+            opacity: 0.6;
+            z-index: 2;
+            transition: opacity 2s ease-out;
+        }
+
+        .layer-mid.fade-out {
+            opacity: 0;
+        }
+
+        .mid-item {
+            position: absolute;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.85);
+            white-space: nowrap;
+            user-select: none;
+            font-size: clamp(16px, 2vw, 24px);
+        }
+
+        /* FOREGROUND LAYER — sharp, full opacity */
+        .layer-fg {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+        }
+
+        /* ─── THE SIGNAL ─── */
+        .signal {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(32px, 6vw, 72px);
+            color: #fff;
+            text-align: center;
+            line-height: 1.2;
+            /* Starts in background state */
+            filter: blur(16px);
+            opacity: 0.3;
+            transform: scale(0.85) translateZ(0);
+            transition: none; /* controlled by JS */
+        }
+
+        /* ─── CLOSING LINE ─── */
+        .closing {
+            position: absolute;
+            bottom: 18%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            font-size: clamp(14px, 1.8vw, 22px);
+            color: rgba(255, 255, 255, 0);
+            letter-spacing: 0.08em;
+            text-align: center;
+            white-space: nowrap;
+            transition: color 2.5s ease-out;
+            z-index: 4;
+        }
+
+        .closing.visible {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ─── SUBTLE VIGNETTE ─── */
+        .vignette {
+            position: fixed;
+            inset: 0;
+            z-index: 50;
+            pointer-events: none;
+            background: radial-gradient(
+                ellipse 70% 60% at 50% 50%,
+                transparent 0%,
+                rgba(10, 14, 18, 0.4) 70%,
+                rgba(10, 14, 18, 0.85) 100%
+            );
+        }
+
+        /* ─── REPLAY ─── */
+        .replay-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 200;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            letter-spacing: 0.06em;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.6s ease, border-color 0.3s ease, color 0.3s ease;
+            pointer-events: none;
+        }
+
+        .replay-btn.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .replay-btn:hover {
+            border-color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+        }
+    </style>
+</head>
+<body>
+
+<div class="scene">
+    <!-- Background noise layer -->
+    <div class="layer-bg" id="layerBg"></div>
+
+    <!-- Midground layer -->
+    <div class="layer-mid" id="layerMid"></div>
+
+    <!-- Foreground layer -->
+    <div class="layer-fg">
+        <div class="signal" id="signal">Every 5 hours, half.</div>
+    </div>
+</div>
+
+<div class="closing" id="closing">Where noise is reduced to portable signal.</div>
+
+<div class="vignette"></div>
+<div class="grain"></div>
+
+<button class="replay-btn" id="replayBtn">Watch again</button>
+
+<script>
+(function() {
+    // ─── NOISE DATA ───
+    const bgNoise = [
+        "Drink 8 glasses of water a day",
+        "Coffee is bad for you",
+        "Actually coffee is good for you",
+        "BMI is outdated",
+        "BMI is the gold standard",
+        "Eat 6 small meals a day",
+        "Intermittent fasting is better",
+        "Cardio kills gains",
+        "You need 10,000 steps",
+        "Calories in, calories out",
+        "Not all calories are equal",
+        "Keto is the only way",
+        "Carbs are essential",
+        "Red meat causes cancer",
+        "Protein is protein",
+        "Take vitamin D",
+        "You get enough from sunlight",
+        "30 minutes of exercise daily",
+        "HIIT is more efficient",
+        "Sleep 8 hours",
+        "Some people only need 6",
+        "Breakfast is the most important meal",
+        "Skip breakfast for longevity",
+        "Creatine is dangerous",
+        "Creatine is the most studied supplement",
+        "Detox your body",
+        "Your liver already detoxes",
+        "Go gluten-free",
+        "Gluten is fine for most people",
+        "Omega-3 prevents everything",
+        "Supplements are a waste",
+        "Eat organic only",
+        "Organic has no nutritional difference",
+        "Stretch before exercise",
+        "Static stretching reduces performance",
+        "Running destroys your knees",
+        "Runners have healthier joints",
+        "Egg yolks are dangerous",
+        "Eat the whole egg",
+        "Count your macros",
+        "Intuitive eating is better",
+    ];
+
+    const midItems = [
+        "Caffeine lasts 3-5 hours",
+        "BMI over 25 is overweight",
+        "TDEE depends on activity level",
+        "Vitamin D: 600-4000 IU daily",
+        "Normal resting heart rate: 60-100",
+        "Half-life varies by substance",
+    ];
+
+    // ─── PLACE BACKGROUND ITEMS ───
+    const layerBg = document.getElementById('layerBg');
+    const sizes = ['size-sm', 'size-md', 'size-lg'];
+
+    // Seeded random-ish placement to fill the viewport
+    bgNoise.forEach((text, i) => {
+        const el = document.createElement('div');
+        el.className = 'noise-item ' + sizes[i % 3];
+        el.textContent = text;
+
+        // Distribute across viewport with some overlap
+        const row = Math.floor(i / 6);
+        const col = i % 6;
+        const top = 8 + row * 13 + (Math.sin(i * 2.7) * 4);
+        const left = 3 + col * 16 + (Math.cos(i * 1.9) * 5);
+
+        el.style.top = top + '%';
+        el.style.left = left + '%';
+
+        // Slight rotation for organic feel
+        const rot = (Math.sin(i * 3.1) * 3).toFixed(1);
+        el.style.transform = 'rotate(' + rot + 'deg)';
+
+        layerBg.appendChild(el);
+    });
+
+    // ─── PLACE MIDGROUND ITEMS ───
+    const layerMid = document.getElementById('layerMid');
+    const midPositions = [
+        { top: '25%', left: '15%' },
+        { top: '35%', left: '65%' },
+        { top: '55%', left: '20%' },
+        { top: '45%', left: '72%' },
+        { top: '70%', left: '40%' },
+        { top: '18%', left: '50%' },
+    ];
+
+    midItems.forEach((text, i) => {
+        const el = document.createElement('div');
+        el.className = 'mid-item';
+        el.textContent = text;
+        el.style.top = midPositions[i].top;
+        el.style.left = midPositions[i].left;
+        const rot = (Math.sin(i * 2.3) * 2).toFixed(1);
+        el.style.transform = 'rotate(' + rot + 'deg)';
+        layerMid.appendChild(el);
+    });
+
+    // ─── ANIMATION TIMELINE ───
+    const signal = document.getElementById('signal');
+    const closing = document.getElementById('closing');
+    const replayBtn = document.getElementById('replayBtn');
+
+    function runAnimation() {
+        // Reset everything
+        layerBg.classList.remove('fade-out');
+        layerBg.style.opacity = '';
+        layerBg.style.filter = '';
+        layerMid.classList.remove('fade-out');
+        layerMid.style.opacity = '';
+        layerMid.style.filter = '';
+        closing.classList.remove('visible');
+        replayBtn.classList.remove('visible');
+
+        // Signal starts in background state
+        signal.style.transition = 'none';
+        signal.style.filter = 'blur(16px)';
+        signal.style.opacity = '0.3';
+        signal.style.transform = 'scale(0.85) translateZ(0)';
+
+        // Force reflow
+        signal.offsetHeight;
+
+        // ─── PHASE 1: Hold in noise (0-8s) ───
+        // Everything sits in its depth layer. Viewer reads the noise.
+        // Subtle drift on background items
+        const bgItems = layerBg.querySelectorAll('.noise-item');
+        bgItems.forEach((el, i) => {
+            el.style.transition = 'transform 30s linear';
+            const dx = (Math.sin(i * 1.7) * 8).toFixed(1);
+            const dy = (Math.cos(i * 2.3) * 6).toFixed(1);
+            const rot = (Math.sin(i * 3.1) * 3).toFixed(1);
+            el.style.transform = 'rotate(' + rot + 'deg) translate(' + dx + 'px, ' + dy + 'px)';
+        });
+
+        // ─── PHASE 2: Signal pulls to midground (8-18s) ───
+        setTimeout(function() {
+            signal.style.transition = 'filter 6s cubic-bezier(0.22, 1, 0.36, 1), opacity 5s cubic-bezier(0.22, 1, 0.36, 1), transform 6s cubic-bezier(0.22, 1, 0.36, 1)';
+            signal.style.filter = 'blur(4px)';
+            signal.style.opacity = '0.6';
+            signal.style.transform = 'scale(0.92) translateZ(0)';
+        }, 8000);
+
+        // ─── Midground begins to soften as signal enters its space (12s) ───
+        setTimeout(function() {
+            layerMid.style.transition = 'filter 8s ease-out, opacity 8s ease-out';
+            layerMid.style.filter = 'blur(8px)';
+            layerMid.style.opacity = '0.35';
+        }, 12000);
+
+        // ─── Background pushes further back (14s) ───
+        setTimeout(function() {
+            layerBg.style.transition = 'filter 10s ease-out, opacity 10s ease-out';
+            layerBg.style.filter = 'blur(24px)';
+            layerBg.style.opacity = '0.15';
+        }, 14000);
+
+        // ─── PHASE 3: Signal arrives in foreground (18-26s) ───
+        setTimeout(function() {
+            signal.style.transition = 'filter 5s cubic-bezier(0.22, 1, 0.36, 1), opacity 4s cubic-bezier(0.22, 1, 0.36, 1), transform 5s cubic-bezier(0.22, 1, 0.36, 1)';
+            signal.style.filter = 'blur(0px)';
+            signal.style.opacity = '1';
+            signal.style.transform = 'scale(1) translateZ(0)';
+        }, 18000);
+
+        // ─── PHASE 4: Noise fades to black (24-30s) ───
+        setTimeout(function() {
+            layerBg.style.transition = 'opacity 4s ease-out';
+            layerBg.style.opacity = '0';
+        }, 24000);
+
+        setTimeout(function() {
+            layerMid.style.transition = 'opacity 3.5s ease-out';
+            layerMid.style.opacity = '0';
+        }, 24500);
+
+        // ─── PHASE 5: Closing line + hold (27-30s) ───
+        setTimeout(function() {
+            closing.classList.add('visible');
+        }, 27000);
+
+        // ─── Show replay (32s) ───
+        setTimeout(function() {
+            replayBtn.classList.add('visible');
+        }, 32000);
+    }
+
+    // Start animation
+    // Small delay so fonts load
+    setTimeout(runAnimation, 800);
+
+    // Replay
+    replayBtn.addEventListener('click', function() {
+        runAnimation();
+    });
+})();
+</script>
+
+</body>
+</html>
