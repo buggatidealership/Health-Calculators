@@ -211,22 +211,14 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   <div class="s1-text" id="s1text">You've been here before.</div>
 </div>
 
-<!-- SCENE 2: THE CALCULATOR -->
+<!-- SCENE 2: THE CALCULATOR — uses actual product screenshots -->
 <div class="scene" id="s2">
   <div class="phone" id="phone1">
-    <div class="phone-screen"><div class="calc-screen">
-      <div class="calc-label">Caffeine Half-Life Calculator</div>
-      <div class="calc-input">
-        <div class="calc-field"><div class="calc-field-label">Cups</div><div class="calc-field-value" id="cv1">2 cups</div></div>
-        <div class="calc-field"><div class="calc-field-label">Last coffee</div><div class="calc-field-value" id="cv2">8:00 AM</div></div>
-      </div>
-      <div class="cascade" id="cascade"></div>
-      <div class="coach" id="coach1">
-        <div class="coach-tag">Your Signal</div>
-        <div class="coach-rule">Every 5 hours, half.</div>
-        <div class="coach-detail" id="coach-detail">Your 8 AM coffee means 25mg is still in your system right now. That's why you're awake.</div>
-      </div>
-    </div></div>
+    <div class="phone-screen" style="position:relative;min-height:520px;overflow:hidden">
+      <img src="/static/caffeine-mobile-hero.png" class="phone-img" id="pimg1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease">
+      <img src="/static/caffeine-mobile-result.png" class="phone-img" id="pimg2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease">
+      <img src="/static/caffeine-mobile-coach.png" class="phone-img" id="pimg3" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease">
+    </div>
   </div>
 </div>
 
@@ -333,33 +325,17 @@ tabTexts.forEach(function(txt,i){
 
 at(5000,function(){$('#s1text').classList.add('in')});
 
-// ===== SCENE 2: THE CALCULATOR (12-25s) =====
+// ===== SCENE 2: THE CALCULATOR — actual product screenshots (12-25s) =====
 at(10500,function(){cutFlash();$('#s1').classList.remove('on')});
 at(10800,function(){$('#s2').classList.add('on');$('#phone1').classList.add('in')});
-at(11500,function(){$('#cv1').classList.add('in')});
-at(11800,function(){$('#cv2').classList.add('in')});
-
-var cascadeData=[
-  {mg:'200mg',time:'8:00 AM',arrow:false},
-  {mg:'',time:'',arrow:true},
-  {mg:'100mg',time:'1:00 PM',arrow:false},
-  {mg:'',time:'',arrow:true},
-  {mg:'50mg',time:'6:00 PM',arrow:false},
-  {mg:'',time:'',arrow:true},
-  {mg:'25mg',time:'11:00 PM',arrow:false}
-];
-cascadeData.forEach(function(d,i){
-  at(12500+i*400,function(){
-    var el=document.createElement('div');
-    if(d.arrow){el.className='c-arrow';el.textContent='↓ half'}
-    else{el.className='c-row';el.innerHTML='<div class="c-mg">'+d.mg+'</div><div class="c-time">'+d.time+'</div>'}
-    $('#cascade').appendChild(el);
-    requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('in')})});
-  });
-});
-
-at(16000,function(){$('#coach1').classList.add('in')});
-at(16500,function(){var r=$('#coach1').getBoundingClientRect();sparks(r.left+r.width/2,r.top,12)});
+// Show hero (drink selection cards)
+at(11500,function(){$('#pimg1').style.opacity='1'});
+// Transition to result
+at(14000,function(){$('#pimg1').style.opacity='0';$('#pimg2').style.opacity='1'});
+// Transition to coach card
+at(17000,function(){$('#pimg2').style.opacity='0';$('#pimg3').style.opacity='1'});
+// Sparks on the coach card reveal
+at(17500,function(){var r=$('#phone1').getBoundingClientRect();sparks(r.left+r.width/2,r.top+r.height*0.6,14)});
 
 // ===== SCENE 3: NEXT DAY 2PM (25-35s) =====
 at(23000,function(){cutFlash();$('#s2').classList.remove('on');document.body.classList.add('warm')});
