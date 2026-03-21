@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pulse — Weekly Health Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ── Reset & Base ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg-deep: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a26;
+  --bg-surface: #16161f;
+  --text-primary: #e8e8ed;
+  --text-secondary: #8a8a9a;
+  --text-muted: #5a5a6a;
+
+  /* Signal accents — functionally grouped */
+  --caffeine-hue: 168;
+  --caffeine: hsl(168, 72%, 50%);
+  --caffeine-glow: hsla(168, 72%, 50%, 0.3);
+
+  --sleep-hue: 220;
+  --sleep: hsl(220, 72%, 60%);
+  --sleep-glow: hsla(220, 72%, 60%, 0.3);
+
+  --calorie-hue: 32;
+  --calorie: hsl(32, 85%, 55%);
+  --calorie-glow: hsla(32, 85%, 55%, 0.3);
+
+  --score-hue: 150;
+  --score: hsl(150, 65%, 50%);
+  --score-glow: hsla(150, 65%, 50%, 0.4);
+
+  /* Shared easing — caffeine & sleep share curve (grouped) */
+  --spring: linear(0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.354 8.1%,
+    0.577 11.8%, 0.774 15.8%, 0.917 20.3%, 1.001 25.7%,
+    1.035 29%, 1.045 32%, 1.035 38%, 1.015 45%, 1.005 53%, 1);
+  --spring-soft: cubic-bezier(0.25, 1, 0.5, 1);
+  --ritardando: cubic-bezier(0.1, 0.8, 0.2, 1);
+
+  /* Layout */
+  --max-width: 420px;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { font-size: 16px; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Film Grain ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px;
+}
+
+/* ── Layout ── */
+.dashboard {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+  position: relative;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 32px;
+  opacity: 0;
+  animation: fadeSlideIn 0.6s var(--spring-soft) 0.2s forwards;
+}
+
+.header-left h1 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.header-left .date-range {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 2px;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--score);
+  animation: microPulse 2.8s ease-in-out infinite;
+  box-shadow: 0 0 8px var(--score-glow);
+}
+
+@keyframes microPulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 1; }
+}
+
+/* ── Score Ring (central) ── */
+.score-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 36px;
+  opacity: 0;
+  animation: fadeSlideIn 0.8s var(--spring-soft) 0.5s forwards;
+}
+
+.score-ring-container {
+  position: relative;
+  width: 180px;
+  height: 180px;
+}
+
+.score-ring-container svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.score-track {
+  fill: none;
+  stroke: #1a1a2e;
+  stroke-width: 6;
+}
+
+.score-fill {
+  fill: none;
+  stroke: var(--score);
+  stroke-width: 6;
+  stroke-linecap: round;
+  stroke-dasharray: 0 100;
+  filter: drop-shadow(0 0 6px var(--score-glow));
+  transition: stroke-dasharray 2s var(--spring), filter 0.3s ease;
+}
+
+.score-fill.pulse-absorb {
+  filter: drop-shadow(0 0 20px var(--score-glow)) drop-shadow(0 0 40px var(--score-glow));
+}
+
+.score-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 2.8rem;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.score-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.score-subtitle {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 12px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeSlideIn 0.6s var(--spring-soft) 2.5s forwards;
+}
+
+/* ── Signal Rings Row ── */
+.signals-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.signal-card {
+  flex: 1;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  padding: 16px 10px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(16px);
+  /* touch swipe */
+  touch-action: pan-y;
+  transition: transform 0.5s var(--ritardando), opacity 0.5s var(--ritardando),
+              background 0.2s ease;
+}
+
+.signal-card:hover {
+  background: var(--bg-card-hover);
+}
+
+.signal-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.signal-card.dismissing {
+  transform: translateX(120%) scale(0.8);
+  opacity: 0;
+  transition: transform 0.8s var(--ritardando), opacity 0.6s ease 0.2s;
+}
+
+.signal-card.dismissed {
+  flex: 0;
+  padding: 0;
+  margin: 0;
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  transition: all 0.5s var(--ritardando);
+}
+
+/* Shared field gradient for caffeine+sleep grouping */
+.signal-card[data-group="circadian"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    hsla(var(--caffeine-hue), 50%, 40%, 0.06),
+    hsla(var(--sleep-hue), 50%, 40%, 0.06)
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.signal-ring-wrap {
+  position: relative;
+  width: 56px;
+  height: 56px;
+}
+
+.signal-ring-wrap svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.signal-track {
+  fill: none;
+  stroke: #1a1a2e;
+  stroke-width: 4;
+}
+
+.signal-fill {
+  fill: none;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 0 100;
+  transition: stroke-dasharray 1.2s var(--spring);
+}
+
+.signal-fill[data-signal="caffeine"] {
+  stroke: var(--caffeine);
+  filter: drop-shadow(0 0 4px var(--caffeine-glow));
+}
+.signal-fill[data-signal="sleep"] {
+  stroke: var(--sleep);
+  filter: drop-shadow(0 0 4px var(--sleep-glow));
+}
+.signal-fill[data-signal="calorie"] {
+  stroke: var(--calorie);
+  filter: drop-shadow(0 0 4px var(--calorie-glow));
+}
+
+/* Internal cycling — micro-pulse at rest */
+.signal-fill.at-rest {
+  animation: ringBreath 3s ease-in-out infinite;
+}
+
+@keyframes ringBreath {
+  0%, 100% { stroke-width: 4; opacity: 1; }
+  50% { stroke-width: 4.4; opacity: 0.92; }
+}
+
+.signal-value {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.signal-label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-secondary);
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── Sparkline Section ── */
+.sparkline-section {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px 20px 16px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeSlideIn 0.6s var(--spring-soft) 1.8s forwards;
+}
+
+.sparkline-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.sparkline-title {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.sparkline-trend {
+  font-size: 0.75rem;
+  color: var(--score);
+  font-weight: 500;
+}
+
+.sparkline-canvas {
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+.sparkline-canvas svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.sparkline-grid-line {
+  stroke: #1a1a2e;
+  stroke-width: 1;
+}
+
+.sparkline-goal-line {
+  stroke: var(--score);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  opacity: 0.3;
+}
+
+.sparkline-path {
+  fill: none;
+  stroke: var(--score);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  filter: drop-shadow(0 0 4px var(--score-glow));
+  stroke-dasharray: var(--path-length);
+  stroke-dashoffset: var(--path-length);
+  animation: drawPath 2s var(--ritardando) 2.2s forwards;
+}
+
+.sparkline-area {
+  opacity: 0;
+  animation: fadeIn 1s ease 3s forwards;
+}
+
+.sparkline-dot {
+  r: 3.5;
+  fill: var(--score);
+  opacity: 0;
+  filter: drop-shadow(0 0 4px var(--score-glow));
+}
+
+.sparkline-dot.final {
+  animation: dotAppear 0.5s var(--spring) 3.8s forwards;
+}
+
+.sparkline-day-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding: 0 2px;
+}
+
+.sparkline-day {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sparkline-day.today {
+  color: var(--score);
+  font-weight: 600;
+}
+
+/* Goal label */
+.goal-label {
+  position: absolute;
+  right: 0;
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0;
+  animation: fadeIn 0.5s ease 3.5s forwards;
+}
+
+/* ── Insight Card ── */
+.insight-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 20px;
+  border-left: 3px solid var(--score);
+  opacity: 0;
+  animation: fadeSlideIn 0.6s var(--spring-soft) 3.2s forwards;
+}
+
+.insight-text {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.insight-text strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.insight-tag {
+  display: inline-block;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--score);
+  margin-top: 10px;
+  opacity: 0.7;
+}
+
+/* ── Day Detail Row ── */
+.day-detail {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin-bottom: 8px;
+  opacity: 0;
+  animation: fadeSlideIn 0.4s var(--spring-soft) forwards;
+}
+
+.day-detail .day-name {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  width: 32px;
+  flex-shrink: 0;
+}
+
+.day-bar-track {
+  flex: 1;
+  height: 4px;
+  background: #1a1a2e;
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+}
+
+.day-bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 0.9s var(--spring);
+}
+
+.day-bar-fill[data-signal="caffeine"] { background: var(--caffeine); }
+.day-bar-fill[data-signal="sleep"] { background: var(--sleep); }
+.day-bar-fill[data-signal="calorie"] { background: var(--calorie); }
+
+.day-score {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  width: 28px;
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ── Footer ── */
+.footer-tag {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0;
+  animation: fadeSlideIn 0.6s var(--spring-soft) 4s forwards;
+}
+
+.footer-tag p {
+  font-family: 'DM Serif Display', serif;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* ── Keyframes ── */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes drawPath {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes dotAppear {
+  from { opacity: 0; r: 0; }
+  to { opacity: 1; r: 3.5; }
+}
+
+/* ── Dismiss hint ── */
+.dismiss-hint {
+  text-align: center;
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: -16px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 0.5s ease 2s forwards;
+}
+
+/* ── Responsive ── */
+@media (min-width: 600px) {
+  .dashboard {
+    padding-top: 60px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="dashboard">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>Your Week</h1>
+      <div class="date-range">Mar 15 — 21</div>
+    </div>
+    <div class="pulse-dot" title="Pulse is tracking"></div>
+  </div>
+
+  <!-- Central Score Ring -->
+  <div class="score-section">
+    <div class="score-ring-container">
+      <svg viewBox="0 0 36 36">
+        <circle class="score-track" cx="18" cy="18" r="15.9155" />
+        <circle class="score-fill" id="scoreRing" cx="18" cy="18" r="15.9155" />
+      </svg>
+      <div class="score-center">
+        <div class="score-number" id="scoreNumber">0</div>
+        <div class="score-label">Pulse Score</div>
+      </div>
+    </div>
+    <div class="score-subtitle">Approaching your best week yet</div>
+  </div>
+
+  <!-- Signal Rings -->
+  <div class="signals-row" id="signalsRow">
+
+    <!-- Caffeine — circadian group -->
+    <div class="signal-card" data-group="circadian" data-signal="caffeine" data-value="85">
+      <div class="signal-ring-wrap">
+        <svg viewBox="0 0 36 36">
+          <circle class="signal-track" cx="18" cy="18" r="15.9155" />
+          <circle class="signal-fill" data-signal="caffeine" cx="18" cy="18" r="15.9155" />
+        </svg>
+        <div class="signal-value" id="caffeineValue">0%</div>
+      </div>
+      <div class="signal-label">Caffeine<br>Cutoff</div>
+    </div>
+
+    <!-- Sleep — circadian group (shared field with caffeine) -->
+    <div class="signal-card" data-group="circadian" data-signal="sleep" data-value="72">
+      <div class="signal-ring-wrap">
+        <svg viewBox="0 0 36 36">
+          <circle class="signal-track" cx="18" cy="18" r="15.9155" />
+          <circle class="signal-fill" data-signal="sleep" cx="18" cy="18" r="15.9155" />
+        </svg>
+        <div class="signal-value" id="sleepValue">0%</div>
+      </div>
+      <div class="signal-label">Sleep<br>Quality</div>
+    </div>
+
+    <!-- Calorie — separate group -->
+    <div class="signal-card" data-group="nutrition" data-signal="calorie" data-value="68">
+      <div class="signal-ring-wrap">
+        <svg viewBox="0 0 36 36">
+          <circle class="signal-track" cx="18" cy="18" r="15.9155" />
+          <circle class="signal-fill" data-signal="calorie" cx="18" cy="18" r="15.9155" />
+        </svg>
+        <div class="signal-value" id="calorieValue">0%</div>
+      </div>
+      <div class="signal-label">Calorie<br>Target</div>
+    </div>
+
+  </div>
+
+  <div class="dismiss-hint">Tap a signal to transfer it to your score</div>
+
+  <!-- 7-Day Sparkline -->
+  <div class="sparkline-section">
+    <div class="sparkline-header">
+      <span class="sparkline-title">Weekly Trajectory</span>
+      <span class="sparkline-trend" id="trendLabel">+12% this week</span>
+    </div>
+    <div class="sparkline-canvas">
+      <div class="goal-label" style="top: 8px;">Goal</div>
+      <svg viewBox="0 0 380 100" preserveAspectRatio="none" id="sparklineSvg">
+        <!-- Grid lines -->
+        <line class="sparkline-grid-line" x1="0" y1="25" x2="380" y2="25" />
+        <line class="sparkline-grid-line" x1="0" y1="50" x2="380" y2="50" />
+        <line class="sparkline-grid-line" x1="0" y1="75" x2="380" y2="75" />
+
+        <!-- Goal line — asymptotic target, never quite reached -->
+        <line class="sparkline-goal-line" x1="0" y1="12" x2="380" y2="12" />
+
+        <!-- Area fill -->
+        <path class="sparkline-area" id="sparklineArea" fill="url(#areaGrad)" />
+
+        <!-- Gradient definition -->
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="var(--score)" stop-opacity="0.15" />
+            <stop offset="100%" stop-color="var(--score)" stop-opacity="0" />
+          </linearGradient>
+        </defs>
+
+        <!-- Line path (drawn via JS) -->
+        <path class="sparkline-path" id="sparklinePath" />
+
+        <!-- End dot -->
+        <circle class="sparkline-dot final" id="sparklineDot" cx="0" cy="0" />
+      </svg>
+    </div>
+    <div class="sparkline-day-labels">
+      <span class="sparkline-day">Mon</span>
+      <span class="sparkline-day">Tue</span>
+      <span class="sparkline-day">Wed</span>
+      <span class="sparkline-day">Thu</span>
+      <span class="sparkline-day">Fri</span>
+      <span class="sparkline-day">Sat</span>
+      <span class="sparkline-day today">Sun</span>
+    </div>
+  </div>
+
+  <!-- Insight -->
+  <div class="insight-card">
+    <div class="insight-text">
+      Your <strong>caffeine cutoff</strong> compliance improved sleep quality by an estimated
+      <strong>18%</strong> this week. The signals are linked — one habit moves two numbers.
+    </div>
+    <div class="insight-tag">Circadian Pattern Detected</div>
+  </div>
+
+  <!-- Day Detail Bars -->
+  <div id="dayDetails"></div>
+
+  <!-- Footer -->
+  <div class="footer-tag">
+    <p>"You always had a pulse. We help you find it."</p>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Data ──
+  // Asymptotic: scores approach but never reach 100
+  const weekData = [
+    { day: 'Mon', caffeine: 60, sleep: 45, calorie: 50, score: 52 },
+    { day: 'Tue', caffeine: 70, sleep: 55, calorie: 55, score: 58 },
+    { day: 'Wed', caffeine: 75, sleep: 58, calorie: 62, score: 64 },
+    { day: 'Thu', caffeine: 80, sleep: 65, calorie: 58, score: 67 },
+    { day: 'Fri', caffeine: 85, sleep: 70, calorie: 65, score: 73 },
+    { day: 'Sat', caffeine: 82, sleep: 68, calorie: 72, score: 74 },
+    { day: 'Sun', caffeine: 85, sleep: 72, calorie: 68, score: 76 },
+  ];
+
+  // Asymptotic goal: 92 (never 100)
+  const GOAL = 92;
+
+  // ── Utility: spring easing for JS animations ──
+  function springEase(t) {
+    // Attempt to match CSS spring — overshoot then settle
+    const c4 = (2 * Math.PI) / 3;
+    if (t === 0 || t === 1) return t;
+    return t < 0.5
+      ? 1 - Math.pow(1 - 2 * t, 3)
+      : 1 + 0.05 * Math.sin((t - 0.5) * Math.PI * 4) * (1 - t) * 2;
+  }
+
+  function easeOut(t) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+
+  // ── Count-up animation ──
+  function countUp(el, target, duration, suffix, delay) {
+    suffix = suffix || '';
+    delay = delay || 0;
+    setTimeout(() => {
+      const start = performance.now();
+      function tick(now) {
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        const value = Math.round(easeOut(progress) * target);
+        el.textContent = value + suffix;
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }, delay);
+  }
+
+  // ── Animate score ring (asymptotic — caps at 76/100, never full) ──
+  function animateScoreRing() {
+    const ring = document.getElementById('scoreRing');
+    const scoreEl = document.getElementById('scoreNumber');
+    const targetScore = 76; // asymptotically approaching GOAL (92), never there
+
+    // Delay to let entrance animations land
+    setTimeout(() => {
+      ring.style.strokeDasharray = `${targetScore} 100`;
+      countUp(scoreEl, targetScore, 1800, '', 0);
+    }, 800);
+  }
+
+  // ── Animate signal rings with staggered spring ──
+  function animateSignalRings() {
+    const cards = document.querySelectorAll('.signal-card');
+    const delays = [1000, 1200, 1500]; // caffeine & sleep closer (grouped)
+
+    cards.forEach((card, i) => {
+      // Entrance
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, delays[i]);
+
+      // Ring fill
+      const ring = card.querySelector('.signal-fill');
+      const value = parseInt(card.dataset.value);
+      const valueEl = card.querySelector('.signal-value');
+
+      setTimeout(() => {
+        ring.style.strokeDasharray = `${value} 100`;
+        countUp(valueEl, value, 1000, '%', 0);
+
+        // After fill, add micro-pulse (internal cycling)
+        setTimeout(() => {
+          ring.classList.add('at-rest');
+        }, 1200);
+      }, delays[i] + 300);
+    });
+  }
+
+  // ── Build sparkline (asymptotic approach to goal) ──
+  function buildSparkline() {
+    const svg = document.getElementById('sparklineSvg');
+    const pathEl = document.getElementById('sparklinePath');
+    const areaEl = document.getElementById('sparklineArea');
+    const dotEl = document.getElementById('sparklineDot');
+
+    const w = 380, h = 100;
+    const padding = { top: 5, bottom: 10 };
+    const usableH = h - padding.top - padding.bottom;
+
+    // Map scores to Y (inverted: higher score = lower y)
+    const points = weekData.map((d, i) => {
+      const x = (i / (weekData.length - 1)) * w;
+      // Scale: 40-GOAL range mapped to usable height
+      const normalizedScore = (d.score - 40) / (GOAL - 40);
+      const y = padding.top + usableH * (1 - normalizedScore);
+      return { x, y };
+    });
+
+    // Build smooth curve using cardinal spline approximation
+    let pathD = `M ${points[0].x} ${points[0].y}`;
+    for (let i = 1; i < points.length; i++) {
+      const prev = points[i - 1];
+      const curr = points[i];
+      const cpx = (prev.x + curr.x) / 2;
+      pathD += ` C ${cpx} ${prev.y}, ${cpx} ${curr.y}, ${curr.x} ${curr.y}`;
+    }
+
+    pathEl.setAttribute('d', pathD);
+
+    // Area path (close to bottom)
+    const areaD = pathD + ` L ${points[points.length - 1].x} ${h} L ${points[0].x} ${h} Z`;
+    areaEl.setAttribute('d', areaD);
+
+    // Set final dot position
+    const lastPt = points[points.length - 1];
+    dotEl.setAttribute('cx', lastPt.x);
+    dotEl.setAttribute('cy', lastPt.y);
+
+    // Measure path length for draw animation
+    requestAnimationFrame(() => {
+      const len = pathEl.getTotalLength();
+      pathEl.style.setProperty('--path-length', len);
+      pathEl.style.strokeDasharray = len;
+      pathEl.style.strokeDashoffset = len;
+      // Re-trigger animation
+      pathEl.style.animation = 'none';
+      pathEl.offsetHeight; // force reflow
+      pathEl.style.animation = `drawPath 2s var(--ritardando) 2.2s forwards`;
+    });
+  }
+
+  // ── Build day detail bars ──
+  function buildDayDetails() {
+    const container = document.getElementById('dayDetails');
+    const signals = ['caffeine', 'sleep', 'calorie'];
+    const colors = { caffeine: '--caffeine', sleep: '--sleep', calorie: '--calorie' };
+
+    weekData.forEach((day, di) => {
+      const row = document.createElement('div');
+      row.className = 'day-detail';
+      row.style.animationDelay = `${3.5 + di * 0.08}s`;
+
+      // Average of 3 signals for the day score
+      const avg = Math.round((day.caffeine + day.sleep + day.calorie) / 3);
+
+      let barsHTML = '';
+      signals.forEach(sig => {
+        barsHTML += `<div class="day-bar-track"><div class="day-bar-fill" data-signal="${sig}" data-fill="${day[sig]}"></div></div>`;
+      });
+
+      row.innerHTML = `
+        <span class="day-name">${day.day}</span>
+        ${barsHTML}
+        <span class="day-score">${avg}</span>
+      `;
+      container.appendChild(row);
+
+      // Animate bars after entrance
+      setTimeout(() => {
+        row.querySelectorAll('.day-bar-fill').forEach(bar => {
+          const fill = parseInt(bar.dataset.fill) / 100;
+          bar.style.transform = `scaleX(${fill})`;
+        });
+      }, (3.5 + di * 0.08) * 1000 + 200);
+    });
+  }
+
+  // ── Card dismiss → energy transfer to score ring ──
+  function setupDismiss() {
+    const cards = document.querySelectorAll('.signal-card');
+    const scoreRing = document.getElementById('scoreRing');
+    const scoreEl = document.getElementById('scoreNumber');
+
+    let currentScore = 76;
+    const scoreIncrement = 3; // Each dismissed card adds ~3 to score (still never reaches GOAL)
+
+    cards.forEach(card => {
+      let startX = 0;
+      let isDragging = false;
+
+      // Click to dismiss (for demo purposes)
+      card.addEventListener('click', (e) => {
+        if (card.classList.contains('dismissing') || card.classList.contains('dismissed')) return;
+
+        // Departure: ritardando exit — last 15% of animation takes 40% of duration
+        card.classList.add('dismissing');
+
+        // Energy transfer: score ring pulses brighter
+        setTimeout(() => {
+          scoreRing.classList.add('pulse-absorb');
+          currentScore = Math.min(currentScore + scoreIncrement, GOAL - 2); // Asymptotic: never reach GOAL
+          scoreRing.style.strokeDasharray = `${currentScore} 100`;
+          countUp(scoreEl, currentScore, 600, '', 0);
+
+          // Remove absorb glow after pulse
+          setTimeout(() => {
+            scoreRing.classList.remove('pulse-absorb');
+          }, 600);
+        }, 400); // Transfer happens mid-exit, not after
+
+        // Collapse space after card exits
+        setTimeout(() => {
+          card.classList.add('dismissed');
+        }, 900);
+      });
+    });
+  }
+
+  // ── Init ──
+  function init() {
+    animateScoreRing();
+    animateSignalRings();
+    buildSparkline();
+    buildDayDetails();
+    setupDismiss();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+})();
+</script>
+
+</body>
+</html>

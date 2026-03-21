@@ -6038,6 +6038,21 @@ def mockup_pulse_dashboard():
         breadcrumb_title='Pulse Dashboard'
     )
 
+@app.route('/mockup-product-v3')
+def mockup_product_v3():
+    return render_template(
+        'mockup-product-v3.html',
+        is_homepage=False,
+        is_catalog=True,
+        schema_type='WebPage',
+        schema_name='Pulse Weekly Dashboard',
+        schema_description='Animated health tracking dashboard demonstrating cross-domain design principles.',
+        schema_url='/mockup-product-v3',
+        canonical_url='/mockup-product-v3',
+        robots_meta='noindex, nofollow',
+        breadcrumb_title='Pulse Dashboard V3'
+    )
+
 @app.route('/mockup-bmi-redesign')
 def mockup_bmi_redesign():
     return render_template(
