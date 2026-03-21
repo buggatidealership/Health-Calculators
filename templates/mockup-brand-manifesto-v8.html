@@ -80,6 +80,49 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
 .coach-rule{font-family:'DM Serif Display',serif;font-size:clamp(1rem,2.2vw,1.3rem);color:#e4e6ea;line-height:1.4}
 .coach-detail{font-size:clamp(0.7rem,1.4vw,0.8rem);color:rgba(255,255,255,0.35);margin-top:8px;line-height:1.5}
 
+/* ===== V25 Faithful Recreation (in-phone) ===== */
+.v25-screen{background:linear-gradient(180deg,#0a0f1a,#081a1a);padding:16px;min-height:520px;display:flex;flex-direction:column;color:#e2e8f0}
+.v25-header{text-align:center;padding:8px 0}
+.v25-dot{width:8px;height:8px;background:#22c55e;border-radius:50%;display:inline-block;animation:pulse-av 2.5s ease-in-out infinite}
+.v25-title{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.6rem);text-align:center;margin:12px 0 4px;color:#fff}
+.v25-sub{color:#94a3b8;font-size:0.8rem;text-align:center;margin-bottom:16px}
+
+.v25-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.v25-card{background:rgba(14,122,126,0.07);border:1px solid rgba(20,184,166,0.12);border-radius:12px;
+  padding:12px 6px;text-align:center;
+  transition:all 0.25s cubic-bezier(0.34,1.56,0.64,1);
+  opacity:0;transform:translateY(6px)}
+.v25-card.in{opacity:1;transform:translateY(0)}
+.v25-card.selected{border-color:#14b8a6;box-shadow:0 0 20px rgba(20,184,166,0.3),0 0 0 1px #14b8a6;
+  transform:scale(1.05);background:rgba(20,184,166,0.1)}
+.v25-emoji{font-size:1.3rem;display:block;margin-bottom:4px}
+.v25-name{font-size:0.7rem;font-weight:600;display:block}
+.v25-mg{font-size:0.6rem;color:#94a3b8;display:block;margin-top:2px}
+
+.v25-result-num{font-family:'DM Serif Display',serif;font-size:clamp(4rem,12vw,6rem);text-align:center;
+  color:#f59e0b;text-shadow:0 0 40px rgba(245,158,11,0.25);margin-top:24px}
+.v25-result-unit{font-size:0.85rem;color:#94a3b8;text-align:center;margin-top:4px}
+.v25-result-verdict{font-size:1rem;text-align:center;margin-top:12px;font-weight:600;color:#f59e0b;
+  opacity:0;transition:opacity 0.4s ease}
+.v25-result-verdict.in{opacity:1}
+.v25-cutoff{margin-top:24px;padding-top:16px;border-top:1px solid rgba(20,184,166,0.1);text-align:center;
+  opacity:0;transform:translateY(8px);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.v25-cutoff.in{opacity:1;transform:translateY(0)}
+.v25-cutoff-label{font-size:0.85rem;color:#94a3b8}
+.v25-cutoff-time{font-family:'DM Serif Display',serif;font-size:clamp(2rem,6vw,3rem);color:#14b8a6;margin-top:4px}
+
+.v25-coach-title{font-family:'DM Serif Display',serif;font-size:clamp(1.2rem,3vw,1.5rem);text-align:center;margin:20px 0 16px;color:#fff}
+.v25-coach-body{background:linear-gradient(180deg,rgba(20,184,166,0.06),rgba(14,122,126,0.03));
+  border:1px solid rgba(20,184,166,0.15);border-radius:16px;padding:20px 16px;text-align:left}
+.v25-coach-line{font-size:0.9rem;line-height:2;color:#e2e8f0;
+  opacity:0;transform:translateY(6px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.v25-coach-line.in{opacity:1;transform:translateY(0)}
+.v25-coach-line .hl{color:#14b8a6;font-weight:700}
+.v25-coach-rule{font-family:'DM Serif Display',serif;font-size:1.2rem;color:#14b8a6;margin-top:14px;
+  text-shadow:0 0 20px rgba(20,184,166,0.3);
+  opacity:0;transform:scale(0.9);transition:all 0.5s cubic-bezier(0.34,1.56,0.64,1)}
+.v25-coach-rule.in{opacity:1;transform:scale(1)}
+
 /* ===== SCENE 3: NEXT DAY ===== */
 .time-label{font-size:clamp(0.6rem,1.2vw,0.7rem);font-weight:600;text-transform:uppercase;letter-spacing:4px;
   color:var(--teal);opacity:0;transform:scale(0.85);transition:all 0.5s cubic-bezier(0,1.5,0.5,1)}
@@ -211,13 +254,46 @@ body.glow{background:linear-gradient(160deg,#eef7f6,#F5F0EA 50%,#fef5ee);color:#
   <div class="s1-text" id="s1text">You've been here before.</div>
 </div>
 
-<!-- SCENE 2: THE CALCULATOR — uses actual product screenshots -->
+<!-- SCENE 2: THE CALCULATOR — faithful V25 recreation with interaction -->
 <div class="scene" id="s2">
   <div class="phone" id="phone1">
-    <div class="phone-screen" style="position:relative;min-height:520px;overflow:hidden">
-      <img src="/static/caffeine-mobile-hero.png" class="phone-img" id="pimg1" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease">
-      <img src="/static/caffeine-mobile-result.png" class="phone-img" id="pimg2" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease">
-      <img src="/static/caffeine-mobile-coach.png" class="phone-img" id="pimg3" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;opacity:0;transition:opacity 0.5s ease">
+    <div class="phone-screen">
+      <!-- Phase A: Drink selection (the actual V25 grid) -->
+      <div class="v25-screen" id="v25a">
+        <div class="v25-header"><span class="v25-dot"></span></div>
+        <div class="v25-title">How long does <span style="color:var(--teal)">caffeine</span> last?</div>
+        <div class="v25-sub">Tap what you had</div>
+        <div class="v25-grid" id="v25grid">
+          <div class="v25-card" id="vc0" data-mg="95"><span class="v25-emoji">☕</span><span class="v25-name">Coffee</span><span class="v25-mg">95 mg</span></div>
+          <div class="v25-card" id="vc1" data-mg="142"><span class="v25-emoji">☕</span><span class="v25-name">Tall coffee</span><span class="v25-mg">142 mg</span></div>
+          <div class="v25-card" id="vc2" data-mg="63"><span class="v25-emoji">☕</span><span class="v25-name">Espresso</span><span class="v25-mg">63 mg</span></div>
+          <div class="v25-card" id="vc3" data-mg="200"><span class="v25-emoji">🧳</span><span class="v25-name">Cold brew</span><span class="v25-mg">200 mg</span></div>
+          <div class="v25-card" id="vc4" data-mg="160"><span class="v25-emoji">⚡</span><span class="v25-name">Energy drink</span><span class="v25-mg">160 mg</span></div>
+          <div class="v25-card" id="vc5" data-mg="300"><span class="v25-emoji">⚡</span><span class="v25-name">Bang</span><span class="v25-mg">300 mg</span></div>
+        </div>
+      </div>
+      <!-- Phase B: Result -->
+      <div class="v25-screen" id="v25b" style="display:none">
+        <div class="v25-header"><span class="v25-dot"></span></div>
+        <div class="v25-result-num" id="v25rnum">0</div>
+        <div class="v25-result-unit">mg remaining at bedtime</div>
+        <div class="v25-result-verdict" id="v25verdict">Borderline — may affect light sleepers</div>
+        <div class="v25-cutoff">
+          <div class="v25-cutoff-label">Your last safe cup is at</div>
+          <div class="v25-cutoff-time" id="v25cutoff">7:00 AM</div>
+        </div>
+      </div>
+      <!-- Phase C: Coach card -->
+      <div class="v25-screen" id="v25c" style="display:none">
+        <div class="v25-header"><span class="v25-dot"></span></div>
+        <div class="v25-coach-title">Here's your rule of thumb</div>
+        <div class="v25-coach-body">
+          <div class="v25-coach-line">You had <span class="hl">cold brew</span> at <span class="hl">8:00 AM</span>.</div>
+          <div class="v25-coach-line">By <span class="hl">1:00 PM</span>, half was gone.</div>
+          <div class="v25-coach-line">By <span class="hl">6:00 PM</span>, you're in the clear.</div>
+          <div class="v25-coach-rule" id="v25rule">The rule: every 5 hours, half.</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -325,17 +401,52 @@ tabTexts.forEach(function(txt,i){
 
 at(5000,function(){$('#s1text').classList.add('in')});
 
-// ===== SCENE 2: THE CALCULATOR — actual product screenshots (12-25s) =====
+// ===== SCENE 2: THE CALCULATOR — V25 interaction flow (12-25s) =====
 at(10500,function(){cutFlash();$('#s1').classList.remove('on')});
 at(10800,function(){$('#s2').classList.add('on');$('#phone1').classList.add('in')});
-// Show hero (drink selection cards)
-at(11500,function(){$('#pimg1').style.opacity='1'});
-// Transition to result
-at(14000,function(){$('#pimg1').style.opacity='0';$('#pimg2').style.opacity='1'});
+
+// Drink cards appear staggered (the grid)
+at(11300,function(){$('#vc0').classList.add('in')});
+at(11450,function(){$('#vc1').classList.add('in')});
+at(11600,function(){$('#vc2').classList.add('in')});
+at(11750,function(){$('#vc3').classList.add('in')});
+at(11900,function(){$('#vc4').classList.add('in')});
+at(12050,function(){$('#vc5').classList.add('in')});
+
+// User taps "Cold brew" — it highlights with teal glow
+at(13200,function(){$('#vc3').classList.add('selected')});
+
+// Transition to result screen
+at(14500,function(){$('#v25a').style.display='none';$('#v25b').style.display='flex'});
+
+// Result number counts up from 0 to 29
+at(14800,function(){
+  var target=29,current=0,el=$('#v25rnum');
+  var interval=setInterval(function(){
+    current+=1;el.textContent=current;
+    if(current>=target)clearInterval(interval);
+  },30);
+});
+
+// Verdict fades in
+at(15800,function(){$('#v25verdict').classList.add('in')});
+
+// Cutoff time slides in
+at(16500,function(){$$('.v25-cutoff').forEach(function(el){el.classList.add('in')})});
+
 // Transition to coach card
-at(17000,function(){$('#pimg2').style.opacity='0';$('#pimg3').style.opacity='1'});
-// Sparks on the coach card reveal
-at(17500,function(){var r=$('#phone1').getBoundingClientRect();sparks(r.left+r.width/2,r.top+r.height*0.6,14)});
+at(18000,function(){$('#v25b').style.display='none';$('#v25c').style.display='flex'});
+
+// Coach lines appear staggered
+at(18500,function(){$$('.v25-coach-line').forEach(function(el,i){
+  setTimeout(function(){el.classList.add('in')},i*400)
+})});
+
+// "The rule" slams in
+at(20000,function(){$('#v25rule').classList.add('in')});
+
+// Sparks on the rule
+at(20500,function(){var r=$('#v25rule').getBoundingClientRect();sparks(r.left+r.width/2,r.top,14)});
 
 // ===== SCENE 3: NEXT DAY 2PM (25-35s) =====
 at(23000,function(){cutFlash();$('#s2').classList.remove('on');document.body.classList.add('warm')});
