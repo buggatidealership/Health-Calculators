@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Two Phones — HealthCalculators Brand</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --teal: #2dd4bf;
+  --teal-dim: rgba(45, 212, 191, 0.15);
+  --green-pulse: #22c55e;
+  --noise-gray: #6b7280;
+  --noise-bg: #0a0a0c;
+  --signal-bg: #0d1117;
+  --warm-glow: rgba(45, 212, 191, 0.08);
+  --coral: #f87171;
+  --ad-yellow: #fbbf24;
+  --reddit-orange: #ff4500;
+  --insta-pink: #e1306c;
+}
+
+body {
+  background: #000;
+  color: #e5e7eb;
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Film grain overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 128px;
+  animation: grain 0.5s steps(1) infinite;
+}
+
+@keyframes grain {
+  0%, 100% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -10%); }
+  30% { transform: translate(3%, -15%); }
+  50% { transform: translate(-8%, 5%); }
+  70% { transform: translate(9%, 8%); }
+  90% { transform: translate(-3%, 12%); }
+}
+
+/* ==================== STAGE ==================== */
+.stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ==================== SPLIT CONTAINER ==================== */
+.split-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  position: relative;
+  opacity: 0;
+}
+
+/* The pulsing divider line */
+.divider {
+  width: 2px;
+  height: 580px;
+  background: var(--teal);
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  animation: dividerPulse 2s ease-in-out infinite;
+}
+
+@keyframes dividerPulse {
+  0%, 100% { box-shadow: 0 0 8px var(--teal), 0 0 20px rgba(45, 212, 191, 0.3); }
+  50% { box-shadow: 0 0 15px var(--teal), 0 0 40px rgba(45, 212, 191, 0.5); }
+}
+
+/* ==================== PHONE FRAME ==================== */
+.phone-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.phone-side .label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0;
+  height: 24px;
+}
+
+.left-side .label { color: var(--noise-gray); }
+.right-side .label { color: var(--teal); }
+
+.phone {
+  width: 280px;
+  height: 560px;
+  border-radius: 36px;
+  border: 3px solid #1f2937;
+  background: var(--noise-bg);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+
+/* Notch */
+.phone::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #000;
+  border-radius: 0 0 16px 16px;
+  z-index: 50;
+}
+
+/* Status bar */
+.phone::after {
+  content: '9:41';
+  position: absolute;
+  top: 6px;
+  left: 24px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #9ca3af;
+  z-index: 60;
+}
+
+.phone-screen {
+  width: 100%;
+  height: 100%;
+  padding: 40px 16px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==================== LEFT PHONE - NOISE ==================== */
+.left-side .phone {
+  filter: saturate(0.35) brightness(0.9);
+  border-color: #374151;
+}
+
+/* Background stays cold */
+.left-side .phone-screen {
+  background: var(--noise-bg);
+}
+
+/* --- SCENE 1: Google Search --- */
+.noise-scene {
+  position: absolute;
+  inset: 0;
+  padding: 40px 16px 16px;
+  opacity: 0;
+  transition: none;
+}
+
+.google-bar {
+  background: #1a1a2e;
+  border-radius: 20px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.google-bar .g-icon {
+  width: 18px; height: 18px;
+  background: conic-gradient(#4285f4 0deg 90deg, #ea4335 90deg 180deg, #fbbc05 180deg 270deg, #34a853 270deg 360deg);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.google-bar .search-text {
+  font-size: 13px;
+  color: #9ca3af;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.search-result {
+  background: #111827;
+  border-radius: 10px;
+  padding: 12px;
+  margin-bottom: 8px;
+  border-left: 3px solid transparent;
+}
+
+.search-result.ad {
+  border-left-color: var(--ad-yellow);
+}
+
+.search-result .sr-url {
+  font-size: 10px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.search-result .sr-title {
+  font-size: 12px;
+  color: #93c5fd;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.search-result .sr-desc {
+  font-size: 10px;
+  color: #6b7280;
+  line-height: 1.3;
+}
+
+.search-result .ad-badge {
+  font-size: 9px;
+  color: var(--ad-yellow);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+/* --- SCENE 2: Reddit --- */
+.reddit-header {
+  background: var(--reddit-orange);
+  border-radius: 8px 8px 0 0;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 0;
+}
+
+.reddit-header .reddit-icon {
+  width: 20px; height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.reddit-header .reddit-icon::after {
+  content: '';
+  position: absolute;
+  top: 5px; left: 5px;
+  width: 10px; height: 10px;
+  background: var(--reddit-orange);
+  border-radius: 50%;
+}
+
+.reddit-header span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.reddit-body {
+  background: #1a1a2e;
+  border-radius: 0 0 8px 8px;
+  padding: 12px;
+  margin-bottom: 12px;
+}
+
+.reddit-post {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #2a2a3e;
+}
+
+.reddit-post:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.reddit-user {
+  font-size: 10px;
+  color: #6b7280;
+  margin-bottom: 4px;
+}
+
+.reddit-comment {
+  font-size: 11px;
+  color: #d1d5db;
+  line-height: 1.4;
+}
+
+.reddit-votes {
+  font-size: 10px;
+  color: var(--reddit-orange);
+  margin-top: 4px;
+}
+
+/* --- SCENE 3: Instagram influencer --- */
+.insta-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.insta-avatar {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--insta-pink), #833ab4, #fd1d1d);
+  padding: 2px;
+}
+
+.insta-avatar-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: #1a1a2e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.insta-name {
+  font-size: 12px;
+  font-weight: 700;
+  color: #e5e7eb;
+}
+
+.insta-handle {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.insta-post {
+  background: #1a1a2e;
+  border-radius: 12px;
+  padding: 16px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.insta-post .big-claim {
+  font-family: 'DM Serif Display', serif;
+  font-size: 20px;
+  color: var(--insta-pink);
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+
+.insta-post .small-text {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.insta-caption {
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.4;
+}
+
+.insta-caption .hashtags {
+  color: #60a5fa;
+}
+
+/* --- SCENE 4: Chaos overlay --- */
+.chaos-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.chaos-tab {
+  position: absolute;
+  background: #1f2937;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 9px;
+  color: #9ca3af;
+  white-space: nowrap;
+  border: 1px solid #374151;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+.chaos-notif {
+  position: absolute;
+  background: var(--coral);
+  border-radius: 12px;
+  padding: 4px 8px;
+  font-size: 8px;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ==================== RIGHT PHONE - SIGNAL ==================== */
+.right-side .phone {
+  border-color: #1f3a37;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.6), 0 0 80px rgba(45, 212, 191, 0.05);
+}
+
+.right-side .phone-screen {
+  background: var(--signal-bg);
+}
+
+/* --- SCENE 1: Calculator --- */
+.signal-scene {
+  position: absolute;
+  inset: 0;
+  padding: 40px 16px 16px;
+  opacity: 0;
+  transition: none;
+}
+
+.calc-header {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.calc-header h3 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 16px;
+  color: var(--teal);
+  margin-bottom: 4px;
+}
+
+.calc-header p {
+  font-size: 10px;
+  color: #6b7280;
+}
+
+.calc-form {
+  background: rgba(45, 212, 191, 0.06);
+  border: 1px solid rgba(45, 212, 191, 0.15);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 16px;
+}
+
+.calc-field {
+  margin-bottom: 12px;
+}
+
+.calc-field:last-child { margin-bottom: 0; }
+
+.calc-field label {
+  font-size: 10px;
+  color: #9ca3af;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.calc-field .input-row {
+  display: flex;
+  gap: 6px;
+}
+
+.calc-field .fake-input {
+  flex: 1;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  color: #e5e7eb;
+}
+
+.drink-cards {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.drink-card {
+  background: rgba(45, 212, 191, 0.08);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 10px;
+  color: #9ca3af;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.drink-card.selected {
+  background: rgba(45, 212, 191, 0.2);
+  border-color: var(--teal);
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* --- SCENE 2: Result + Coach Card --- */
+.result-section {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.result-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: 48px;
+  color: var(--teal);
+  line-height: 1;
+}
+
+.result-unit {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 4px;
+}
+
+.result-context {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 8px;
+  line-height: 1.4;
+}
+
+.coach-card {
+  background: linear-gradient(135deg, rgba(45, 212, 191, 0.12), rgba(45, 212, 191, 0.04));
+  border: 1px solid rgba(45, 212, 191, 0.25);
+  border-radius: 14px;
+  padding: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.coach-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+
+.coach-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--teal);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.coach-label .pulse-dot {
+  width: 6px; height: 6px;
+  background: var(--green-pulse);
+  border-radius: 50%;
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; box-shadow: 0 0 4px var(--green-pulse); }
+  50% { opacity: 0.5; box-shadow: 0 0 8px var(--green-pulse), 0 0 16px rgba(34, 197, 94, 0.3); }
+}
+
+.coach-text {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: #e5e7eb;
+  line-height: 1.3;
+}
+
+/* --- SCENE 3: Pulse notification --- */
+.pulse-notif-container {
+  padding-top: 60px;
+}
+
+.pulse-notification {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(34, 197, 94, 0.05));
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 14px;
+  padding: 14px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pulse-notif-icon {
+  width: 32px; height: 32px;
+  background: rgba(34, 197, 94, 0.2);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 14px;
+}
+
+.pulse-notif-content h4 {
+  font-size: 12px;
+  font-weight: 600;
+  color: #e5e7eb;
+  margin-bottom: 4px;
+}
+
+.pulse-notif-content p {
+  font-size: 11px;
+  color: #9ca3af;
+  line-height: 1.3;
+}
+
+.pulse-notif-time {
+  font-size: 9px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+/* --- SCENE 4: One week later --- */
+.week-later-badge {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.week-later-badge span {
+  background: rgba(45, 212, 191, 0.1);
+  border: 1px solid rgba(45, 212, 191, 0.2);
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 10px;
+  color: var(--teal);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.improvement-card {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.12), rgba(45, 212, 191, 0.06));
+  border: 1px solid rgba(34, 197, 94, 0.25);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.improvement-stat {
+  font-family: 'DM Serif Display', serif;
+  font-size: 42px;
+  color: var(--green-pulse);
+  line-height: 1;
+}
+
+.improvement-label {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+.improvement-detail {
+  font-size: 10px;
+  color: #6b7280;
+  margin-top: 12px;
+  line-height: 1.4;
+}
+
+.mini-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  justify-content: center;
+  margin-top: 16px;
+  height: 50px;
+}
+
+.chart-bar {
+  width: 16px;
+  background: rgba(34, 197, 94, 0.3);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.chart-bar.highlight {
+  background: var(--green-pulse);
+}
+
+/* ==================== CENTER LABELS ==================== */
+.center-labels {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 300px;
+  pointer-events: none;
+}
+
+.center-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0;
+  white-space: nowrap;
+}
+
+.center-label.noise-label { color: var(--noise-gray); }
+.center-label.signal-label { color: var(--teal); }
+
+/* ==================== CLOSING SEQUENCE ==================== */
+.closing-text {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  opacity: 0;
+  z-index: 30;
+  white-space: nowrap;
+}
+
+.closing-text .tagline {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #e5e7eb;
+  line-height: 1.3;
+}
+
+.closing-text .position {
+  font-size: 13px;
+  color: var(--teal);
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+
+/* ==================== WARM BACKGROUND GLOW (right side) ==================== */
+.warm-bg {
+  position: absolute;
+  top: 50%;
+  right: 25%;
+  transform: translate(50%, -50%);
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(45, 212, 191, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+  .phone {
+    width: 180px;
+    height: 380px;
+    border-radius: 24px;
+  }
+  .phone::before {
+    width: 80px;
+    height: 20px;
+    border-radius: 0 0 10px 10px;
+  }
+  .phone-side { padding: 0 16px; }
+  .divider { height: 400px; }
+  .phone-screen { padding: 30px 10px 10px; }
+  .calc-header h3 { font-size: 13px; }
+  .result-number { font-size: 36px; }
+  .coach-text { font-size: 14px; }
+  .insta-post .big-claim { font-size: 16px; }
+  .improvement-stat { font-size: 32px; }
+  .closing-text .tagline { font-size: 18px; }
+  .closing-text .position { font-size: 11px; }
+  .center-labels { gap: 200px; }
+}
+
+@media (max-width: 480px) {
+  .phone {
+    width: 140px;
+    height: 300px;
+    border-radius: 20px;
+  }
+  .phone-side { padding: 0 8px; }
+  .divider { height: 320px; }
+  .phone::before { width: 60px; height: 16px; }
+  .phone::after { font-size: 9px; top: 4px; left: 16px; }
+  .phone-screen { padding: 24px 8px 8px; }
+  .google-bar { padding: 6px 8px; }
+  .google-bar .search-text { font-size: 10px; }
+  .search-result { padding: 8px; margin-bottom: 6px; }
+  .search-result .sr-title { font-size: 10px; }
+  .calc-form { padding: 10px; }
+  .coach-card { padding: 10px; }
+  .coach-text { font-size: 12px; }
+  .result-number { font-size: 28px; }
+  .closing-text .tagline { font-size: 14px; }
+  .center-labels { gap: 160px; }
+}
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="warm-bg" id="warmBg"></div>
+
+  <div class="split-container" id="splitContainer">
+
+    <!-- ==================== LEFT PHONE: THE NOISE ==================== -->
+    <div class="phone-side left-side">
+      <div class="label" id="leftLabel">Their answer</div>
+      <div class="phone" id="leftPhone">
+        <div class="phone-screen">
+
+          <!-- NOISE SCENE 1: Google search -->
+          <div class="noise-scene" id="noiseScene1">
+            <div class="google-bar">
+              <div class="g-icon"></div>
+              <div class="search-text" id="googleTyping"></div>
+            </div>
+            <div class="search-result ad" id="noiseResult1" style="opacity:0">
+              <div class="ad-badge">Sponsored</div>
+              <div class="sr-title">Buy Caffeine Supplements - 50% Off Today</div>
+              <div class="sr-desc">Shop premium caffeine pills. Free shipping on orders $35+</div>
+            </div>
+            <div class="search-result ad" id="noiseResult2" style="opacity:0">
+              <div class="ad-badge">Sponsored</div>
+              <div class="sr-title">Energy Drinks Delivered - Subscribe & Save</div>
+              <div class="sr-desc">Never run out of energy. Monthly plans from $19.99</div>
+            </div>
+            <div class="search-result" id="noiseResult3" style="opacity:0">
+              <div class="sr-url">healthline.com</div>
+              <div class="sr-title">How Long Does Caffeine Last? Effects & More</div>
+              <div class="sr-desc">Caffeine can last 3-5 hours in your system, though effects vary...</div>
+            </div>
+            <div class="search-result" id="noiseResult4" style="opacity:0">
+              <div class="sr-url">webmd.com</div>
+              <div class="sr-title">Caffeine: Uses, Side Effects, Interactions</div>
+              <div class="sr-desc">Caffeine is a stimulant that can have various effects on...</div>
+            </div>
+            <div class="search-result" id="noiseResult5" style="opacity:0">
+              <div class="sr-url">mayoclinic.org</div>
+              <div class="sr-title">Caffeine: How much is too much?</div>
+              <div class="sr-desc">Up to 400mg of caffeine a day appears to be safe for most...</div>
+            </div>
+          </div>
+
+          <!-- NOISE SCENE 2: Reddit conflicting advice -->
+          <div class="noise-scene" id="noiseScene2">
+            <div class="reddit-header">
+              <div class="reddit-icon"></div>
+              <span>r/coffee</span>
+            </div>
+            <div class="reddit-body">
+              <div class="reddit-post">
+                <div class="reddit-user">u/caffeineKing42</div>
+                <div class="reddit-comment">bro just drink water after 2pm and you'll be fine. caffeine leaves your system in like 4 hours</div>
+                <div class="reddit-votes">+127</div>
+              </div>
+              <div class="reddit-post">
+                <div class="reddit-user">u/sleepSci_PhD</div>
+                <div class="reddit-comment">That's not how half-life works. 200mg at noon = 100mg at 5pm = 50mg at 10pm. You still have caffeine in you at midnight.</div>
+                <div class="reddit-votes">+89</div>
+              </div>
+              <div class="reddit-post">
+                <div class="reddit-user">u/gymBro99</div>
+                <div class="reddit-comment">just drink water bro</div>
+                <div class="reddit-votes">+312</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NOISE SCENE 3: Instagram influencer -->
+          <div class="noise-scene" id="noiseScene3">
+            <div class="insta-header">
+              <div class="insta-avatar">
+                <div class="insta-avatar-inner">&#128170;</div>
+              </div>
+              <div>
+                <div class="insta-name">@FitLifeCoach</div>
+                <div class="insta-handle">Wellness Influencer | 2.1M</div>
+              </div>
+            </div>
+            <div class="insta-post">
+              <div class="big-claim">CAFFEINE IS DESTROYING YOUR SLEEP</div>
+              <div class="small-text">No credentials. No sources. Just vibes.</div>
+            </div>
+            <div class="insta-caption">
+              I stopped drinking coffee 6 months ago and it CHANGED MY LIFE. Here's what Big Caffeine doesn't want you to know...
+              <br><br>
+              <span class="hashtags">#wellness #biohacking #nocaffeine #healthtips #fitfam</span>
+            </div>
+          </div>
+
+          <!-- Chaos overlay (tabs, notifications pile up) -->
+          <div class="chaos-overlay" id="chaosOverlay">
+            <div class="chaos-tab" style="top:80px;left:10px;transform:rotate(-3deg)">12 tabs open</div>
+            <div class="chaos-tab" style="top:140px;right:5px;transform:rotate(2deg)">WebMD: Side Effects</div>
+            <div class="chaos-tab" style="top:220px;left:15px;transform:rotate(-1deg)">Reddit - conflicting</div>
+            <div class="chaos-tab" style="top:300px;right:10px;transform:rotate(4deg)">YouTube: 23:41</div>
+            <div class="chaos-tab" style="top:370px;left:5px;transform:rotate(-2deg)">TikTok: "trust me"</div>
+            <div class="chaos-notif" style="top:60px;right:15px">3 new ads</div>
+            <div class="chaos-notif" style="top:180px;left:20px">Cookie consent</div>
+            <div class="chaos-notif" style="top:260px;right:20px">Newsletter popup</div>
+            <div class="chaos-notif" style="top:420px;left:10px">Push notifications?</div>
+            <div class="chaos-tab" style="top:450px;right:5px;transform:rotate(-3deg)">30 min later...</div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== DIVIDER ==================== -->
+    <div class="divider" id="divider"></div>
+
+    <!-- ==================== RIGHT PHONE: THE SIGNAL ==================== -->
+    <div class="phone-side right-side">
+      <div class="label" id="rightLabel">Your signal</div>
+      <div class="phone" id="rightPhone">
+        <div class="phone-screen">
+
+          <!-- SIGNAL SCENE 1: Calculator input -->
+          <div class="signal-scene" id="signalScene1">
+            <div class="calc-header">
+              <h3>Caffeine Half-Life</h3>
+              <p>How long until it's out of your system?</p>
+            </div>
+            <div class="calc-form">
+              <div class="calc-field">
+                <label>What did you drink?</label>
+                <div class="drink-cards">
+                  <div class="drink-card" id="drinkEspresso">Espresso</div>
+                  <div class="drink-card" id="drinkColdBrew">Cold Brew</div>
+                  <div class="drink-card" id="drinkTea">Green Tea</div>
+                </div>
+              </div>
+              <div class="calc-field">
+                <label>When?</label>
+                <div class="fake-input" id="timeInput">2:00 PM</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIGNAL SCENE 2: Result + Coach Card -->
+          <div class="signal-scene" id="signalScene2">
+            <div class="result-section">
+              <div class="result-number" id="resultNum">29</div>
+              <div class="result-unit">mg remaining by bedtime</div>
+              <div class="result-context">From 200mg cold brew at 2:00 PM</div>
+            </div>
+            <div class="coach-card">
+              <div class="coach-label">
+                <div class="pulse-dot"></div>
+                The One Rule
+              </div>
+              <div class="coach-text">Every 5 hours, half.</div>
+            </div>
+          </div>
+
+          <!-- SIGNAL SCENE 3: Pulse notification -->
+          <div class="signal-scene" id="signalScene3">
+            <div class="pulse-notif-container">
+              <div class="pulse-notification">
+                <div class="pulse-notif-icon">&#9201;</div>
+                <div class="pulse-notif-content">
+                  <h4>Last coffee for today</h4>
+                  <p>Based on your 10:30 PM bedtime, your cutoff is now. Anything after this = 50+ mg at midnight.</p>
+                  <div class="pulse-notif-time">Just now</div>
+                </div>
+              </div>
+              <div class="pulse-notification" style="opacity: 0.6">
+                <div class="pulse-notif-icon">&#9749;</div>
+                <div class="pulse-notif-content">
+                  <h4>Morning check-in</h4>
+                  <p>You had 1 coffee yesterday (down from 3). Your body is adjusting. Energy dip around 2 PM is normal this week.</p>
+                  <div class="pulse-notif-time">8:00 AM</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- SIGNAL SCENE 4: One week later -->
+          <div class="signal-scene" id="signalScene4">
+            <div class="week-later-badge">
+              <span>One week later</span>
+            </div>
+            <div class="improvement-card">
+              <div class="improvement-stat" id="sleepStat">0</div>
+              <div class="improvement-label">sleep quality improved</div>
+              <div class="improvement-detail">Average time to fall asleep dropped from 42 min to 19 min</div>
+            </div>
+            <div class="mini-chart" id="miniChart">
+              <div class="chart-bar" style="height: 10%"></div>
+              <div class="chart-bar" style="height: 20%"></div>
+              <div class="chart-bar" style="height: 25%"></div>
+              <div class="chart-bar" style="height: 40%"></div>
+              <div class="chart-bar" style="height: 55%"></div>
+              <div class="chart-bar" style="height: 75%"></div>
+              <div class="chart-bar highlight" style="height: 92%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Center comparison labels -->
+  <div class="center-labels" id="centerLabels" style="display:none">
+    <div class="center-label noise-label" id="noiseCenterLabel">Their answer</div>
+    <div class="center-label signal-label" id="signalCenterLabel">Your signal</div>
+  </div>
+
+  <!-- Closing text -->
+  <div class="closing-text" id="closingText">
+    <div class="tagline">Where noise is reduced<br>to portable signal.</div>
+    <div class="position">HealthCalculators.xyz</div>
+  </div>
+
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ==================== TIMING ENGINE ====================
+  // ~60 seconds total
+  const TIMELINE = {
+    // Phase 0: Entrance
+    containerFadeIn: 500,
+    dividerFadeIn: 1200,
+    labelsFadeIn: 2000,
+
+    // Phase 1: Google vs Calculator (simultaneous)
+    scene1Start: 2800,
+    typingDuration: 1800,
+    resultsStagger: 300,
+    calcFormReveal: 3200,
+    drinkCardSelect: 5500,
+
+    // Phase 2: Reddit vs Result
+    scene2Start: 8000,
+    resultCountUp: 9000,
+    coachCardReveal: 10200,
+
+    // Phase 3: Instagram vs Pulse notification
+    scene3Start: 14000,
+
+    // Phase 4: Chaos vs Week Later
+    scene4Start: 20000,
+    chaosBuildup: 20500,
+    sleepCountUp: 22000,
+    chartGrow: 22500,
+
+    // Center labels flash
+    centerLabelsShow: 27000,
+    centerLabelsHide: 31000,
+
+    // Phase 5: Left fades, right centers
+    leftFadeStart: 34000,
+    rightCenterStart: 37000,
+
+    // Phase 6: Closing
+    closingReveal: 42000,
+    warmGlowPeak: 44000,
+
+    // Loop
+    totalDuration: 55000,
+    resetStart: 52000,
+  };
+
+  // ==================== EASING FUNCTIONS ====================
+  // Noise side: mechanical ease-in-out (stiff, robotic)
+  // Signal side: spring (alive, bouncy)
+
+  function noiseEase(t) {
+    // Stiff ease-in-out — no bounce, mechanical feel
+    return t < 0.5
+      ? 2 * t * t
+      : 1 - Math.pow(-2 * t + 2, 2) / 2;
+  }
+
+  function springEase(t) {
+    // Damped spring — alive, bouncy
+    const c4 = (2 * Math.PI) / 3;
+    return t === 0 ? 0 : t === 1 ? 1
+      : Math.pow(2, -10 * t) * Math.sin((t * 10 - 0.75) * c4) + 1;
+  }
+
+  // ==================== ANIMATION HELPERS ====================
+  function fadeIn(el, duration, easeType) {
+    if (!el) return;
+    const ease = easeType === 'noise' ? noiseEase : springEase;
+    el.style.opacity = '0';
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      el.style.opacity = String(ease(t));
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function fadeOut(el, duration) {
+    if (!el) return;
+    const startOpacity = parseFloat(getComputedStyle(el).opacity) || 1;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      el.style.opacity = String(startOpacity * (1 - t));
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function slideUpIn(el, duration, distance, easeType) {
+    if (!el) return;
+    const ease = easeType === 'noise' ? noiseEase : springEase;
+    el.style.opacity = '0';
+    el.style.transform = `translateY(${distance}px)`;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const e = ease(t);
+      el.style.opacity = String(Math.min(e * 1.5, 1));
+      el.style.transform = `translateY(${distance * (1 - e)}px)`;
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function countUp(el, target, suffix, duration) {
+    if (!el) return;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const val = Math.round(springEase(t) * target);
+      el.textContent = val + (suffix || '');
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  function typeText(el, text, duration) {
+    if (!el) return;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const len = Math.round(t * text.length);
+      el.textContent = text.substring(0, len) + (t < 1 ? '|' : '');
+      if (t < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  // ==================== SCENE TRANSITIONS ====================
+  function showNoiseScene(num) {
+    for (let i = 1; i <= 3; i++) {
+      const s = document.getElementById('noiseScene' + i);
+      if (s) s.style.opacity = (i === num) ? '1' : '0';
+    }
+  }
+
+  function showSignalScene(num) {
+    for (let i = 1; i <= 4; i++) {
+      const s = document.getElementById('signalScene' + i);
+      if (s) s.style.opacity = (i === num) ? '1' : '0';
+    }
+  }
+
+  // ==================== MAIN TIMELINE ====================
+  let timeouts = [];
+
+  function schedule(fn, delay) {
+    timeouts.push(setTimeout(fn, delay));
+  }
+
+  function clearAll() {
+    timeouts.forEach(clearTimeout);
+    timeouts = [];
+  }
+
+  function resetAll() {
+    const container = document.getElementById('splitContainer');
+    const divider = document.getElementById('divider');
+    const leftLabel = document.getElementById('leftLabel');
+    const rightLabel = document.getElementById('rightLabel');
+    const leftPhone = document.getElementById('leftPhone');
+    const rightPhone = document.getElementById('rightPhone');
+    const closingText = document.getElementById('closingText');
+    const warmBg = document.getElementById('warmBg');
+    const chaosOverlay = document.getElementById('chaosOverlay');
+    const centerLabels = document.getElementById('centerLabels');
+
+    container.style.opacity = '0';
+    container.style.transform = '';
+    divider.style.opacity = '0';
+    leftLabel.style.opacity = '0';
+    rightLabel.style.opacity = '0';
+    closingText.style.opacity = '0';
+    warmBg.style.opacity = '0';
+    chaosOverlay.style.opacity = '0';
+    centerLabels.style.display = 'none';
+
+    leftPhone.style.opacity = '1';
+    leftPhone.style.transform = '';
+    rightPhone.style.transform = '';
+
+    // Reset noise scenes
+    for (let i = 1; i <= 3; i++) {
+      const s = document.getElementById('noiseScene' + i);
+      if (s) s.style.opacity = '0';
+    }
+
+    // Reset signal scenes
+    for (let i = 1; i <= 4; i++) {
+      const s = document.getElementById('signalScene' + i);
+      if (s) s.style.opacity = '0';
+    }
+
+    // Reset individual elements
+    for (let i = 1; i <= 5; i++) {
+      const r = document.getElementById('noiseResult' + i);
+      if (r) r.style.opacity = '0';
+    }
+
+    const drinkCB = document.getElementById('drinkColdBrew');
+    if (drinkCB) drinkCB.classList.remove('selected');
+
+    document.getElementById('noiseCenterLabel').style.opacity = '0';
+    document.getElementById('signalCenterLabel').style.opacity = '0';
+
+    // Reset chart bars
+    const bars = document.querySelectorAll('.chart-bar');
+    bars.forEach(b => b.style.height = '0%');
+  }
+
+  function runTimeline() {
+    clearAll();
+    resetAll();
+
+    const container = document.getElementById('splitContainer');
+    const divider = document.getElementById('divider');
+    const leftLabel = document.getElementById('leftLabel');
+    const rightLabel = document.getElementById('rightLabel');
+    const closingText = document.getElementById('closingText');
+    const warmBg = document.getElementById('warmBg');
+    const chaosOverlay = document.getElementById('chaosOverlay');
+    const centerLabels = document.getElementById('centerLabels');
+    const leftPhone = document.getElementById('leftPhone');
+    const rightPhone = document.getElementById('rightPhone');
+
+    // ---- Phase 0: Entrance ----
+    schedule(() => {
+      container.style.opacity = '1';
+      container.style.transition = 'opacity 0.8s ease-out';
+    }, TIMELINE.containerFadeIn);
+
+    schedule(() => {
+      divider.style.opacity = '1';
+      divider.style.transition = 'opacity 0.6s ease-out';
+    }, TIMELINE.dividerFadeIn);
+
+    schedule(() => {
+      fadeIn(leftLabel, 500, 'noise');
+      fadeIn(rightLabel, 500, 'signal');
+    }, TIMELINE.labelsFadeIn);
+
+    // ---- Phase 1: Google Search vs Calculator ----
+    schedule(() => {
+      showNoiseScene(1);
+      document.getElementById('noiseScene1').style.opacity = '1';
+      typeText(document.getElementById('googleTyping'), 'how long does caffeine last', TIMELINE.typingDuration);
+    }, TIMELINE.scene1Start);
+
+    // Stagger search results (noise side: mechanical timing)
+    for (let i = 1; i <= 5; i++) {
+      schedule(() => {
+        const r = document.getElementById('noiseResult' + i);
+        slideUpIn(r, 350, 15, 'noise');
+      }, TIMELINE.scene1Start + TIMELINE.typingDuration + (i * TIMELINE.resultsStagger));
+    }
+
+    // Signal: calculator form appears
+    schedule(() => {
+      showSignalScene(1);
+      slideUpIn(document.getElementById('signalScene1'), 500, 20, 'signal');
+    }, TIMELINE.calcFormReveal);
+
+    // Signal: cold brew card selected (spring bounce)
+    schedule(() => {
+      const card = document.getElementById('drinkColdBrew');
+      card.classList.add('selected');
+      card.style.transform = 'scale(1.08)';
+      setTimeout(() => { card.style.transform = 'scale(1)'; card.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)'; }, 150);
+    }, TIMELINE.drinkCardSelect);
+
+    // ---- Phase 2: Reddit vs Result + Coach Card ----
+    schedule(() => {
+      showNoiseScene(2);
+      fadeIn(document.getElementById('noiseScene2'), 400, 'noise');
+    }, TIMELINE.scene2Start);
+
+    schedule(() => {
+      showSignalScene(2);
+      slideUpIn(document.getElementById('signalScene2'), 600, 25, 'signal');
+    }, TIMELINE.scene2Start + 400);
+
+    // Count up the result number
+    schedule(() => {
+      countUp(document.getElementById('resultNum'), 29, '', 1200);
+    }, TIMELINE.resultCountUp);
+
+    // Coach card emphasis glow
+    schedule(() => {
+      const cc = document.querySelector('.coach-card');
+      if (cc) {
+        cc.style.boxShadow = '0 0 20px rgba(45, 212, 191, 0.2)';
+        setTimeout(() => { cc.style.boxShadow = 'none'; cc.style.transition = 'box-shadow 1s ease-out'; }, 1500);
+      }
+    }, TIMELINE.coachCardReveal);
+
+    // Warm background starts glowing subtly
+    schedule(() => {
+      warmBg.style.opacity = '0.5';
+      warmBg.style.transition = 'opacity 3s ease-out';
+    }, TIMELINE.scene2Start + 1000);
+
+    // ---- Phase 3: Instagram vs Pulse Notification ----
+    schedule(() => {
+      showNoiseScene(3);
+      fadeIn(document.getElementById('noiseScene3'), 400, 'noise');
+    }, TIMELINE.scene3Start);
+
+    schedule(() => {
+      showSignalScene(3);
+      slideUpIn(document.getElementById('signalScene3'), 600, 25, 'signal');
+    }, TIMELINE.scene3Start + 600);
+
+    // ---- Phase 4: Chaos vs Week Later ----
+    schedule(() => {
+      // Chaos overlay builds on left
+      const chaos = document.getElementById('chaosOverlay');
+      chaos.style.opacity = '1';
+      chaos.style.transition = 'opacity 0.8s ease-in';
+
+      // Fade all noise scenes to create overlay effect
+      for (let i = 1; i <= 3; i++) {
+        const s = document.getElementById('noiseScene' + i);
+        if (s) { s.style.opacity = '0.15'; s.style.transition = 'opacity 0.8s'; }
+      }
+
+      // Stagger chaos elements
+      const tabs = chaos.querySelectorAll('.chaos-tab, .chaos-notif');
+      tabs.forEach((tab, idx) => {
+        tab.style.opacity = '0';
+        setTimeout(() => {
+          slideUpIn(tab, 300, 10, 'noise');
+        }, idx * 180);
+      });
+    }, TIMELINE.chaosBuildup);
+
+    // Signal: week later
+    schedule(() => {
+      showSignalScene(4);
+      slideUpIn(document.getElementById('signalScene4'), 700, 30, 'signal');
+    }, TIMELINE.scene4Start + 800);
+
+    // Count up sleep improvement
+    schedule(() => {
+      countUp(document.getElementById('sleepStat'), 31, '%', 1500);
+    }, TIMELINE.sleepCountUp);
+
+    // Grow chart bars with spring
+    schedule(() => {
+      const targetHeights = [18, 30, 38, 55, 68, 82, 95];
+      const bars = document.querySelectorAll('.chart-bar');
+      bars.forEach((bar, i) => {
+        setTimeout(() => {
+          bar.style.transition = 'height 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)';
+          bar.style.height = targetHeights[i] + '%';
+        }, i * 100);
+      });
+    }, TIMELINE.chartGrow);
+
+    // Warm glow intensifies
+    schedule(() => {
+      warmBg.style.opacity = '0.8';
+      warmBg.style.transition = 'opacity 2s ease-out';
+    }, TIMELINE.scene4Start + 2000);
+
+    // ---- Center labels flash ----
+    schedule(() => {
+      centerLabels.style.display = 'flex';
+      fadeIn(document.getElementById('noiseCenterLabel'), 600, 'noise');
+      fadeIn(document.getElementById('signalCenterLabel'), 600, 'signal');
+    }, TIMELINE.centerLabelsShow);
+
+    schedule(() => {
+      fadeOut(document.getElementById('noiseCenterLabel'), 800);
+      fadeOut(document.getElementById('signalCenterLabel'), 800);
+    }, TIMELINE.centerLabelsHide);
+
+    // ---- Phase 5: Left fades, right centers ----
+    schedule(() => {
+      // Left phone fades out
+      leftPhone.style.transition = 'opacity 1.5s ease-in, transform 1.5s ease-in';
+      leftPhone.style.opacity = '0';
+      leftPhone.style.transform = 'scale(0.95) translateX(-20px)';
+
+      // Left label fades
+      fadeOut(leftLabel, 1000);
+
+      // Divider fades
+      fadeOut(divider, 1200);
+
+      // Noise desaturates further on left side
+    }, TIMELINE.leftFadeStart);
+
+    schedule(() => {
+      // Right phone moves to center with spring
+      const rightSide = document.querySelector('.right-side');
+      rightSide.style.transition = 'transform 1.8s cubic-bezier(0.34, 1.56, 0.64, 1)';
+      rightSide.style.transform = 'translateX(-160px) scale(1.05)';
+
+      // Right label fades to make room for closing
+      fadeOut(rightLabel, 800);
+
+      // Keep showing signal scene 4
+    }, TIMELINE.rightCenterStart);
+
+    // ---- Phase 6: Closing text ----
+    schedule(() => {
+      closingText.style.opacity = '1';
+      closingText.style.transition = 'opacity 1.2s ease-out';
+
+      // Warm glow at peak
+      warmBg.style.opacity = '1';
+      warmBg.style.transition = 'opacity 1.5s ease-out';
+      warmBg.style.transform = 'translate(0%, -50%) scale(1.5)';
+      warmBg.style.background = 'radial-gradient(circle, rgba(45, 212, 191, 0.1) 0%, transparent 70%)';
+    }, TIMELINE.closingReveal);
+
+    // ---- Reset and loop ----
+    schedule(() => {
+      // Fade everything out
+      container.style.opacity = '0';
+      container.style.transition = 'opacity 1.5s ease-in';
+      closingText.style.opacity = '0';
+      closingText.style.transition = 'opacity 1.5s ease-in';
+      warmBg.style.opacity = '0';
+      warmBg.style.transition = 'opacity 1.5s ease-in';
+    }, TIMELINE.resetStart);
+
+    schedule(() => {
+      // Reset right side position
+      const rightSide = document.querySelector('.right-side');
+      rightSide.style.transition = 'none';
+      rightSide.style.transform = '';
+      warmBg.style.transform = '';
+      warmBg.style.background = '';
+      runTimeline();
+    }, TIMELINE.totalDuration);
+  }
+
+  // ==================== START ====================
+  // Small delay to let fonts load
+  setTimeout(runTimeline, 300);
+
+})();
+</script>
+</body>
+</html>

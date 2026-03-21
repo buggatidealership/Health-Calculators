@@ -5787,6 +5787,10 @@ def mockup_brand_v9():
 def mockup_brand_v10():
     return render_template('mockup-brand-v10.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-brand-v11')
+def mockup_brand_v11():
+    return render_template('mockup-brand-v11.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-brand-v12')
 def mockup_brand_v12():
     return render_template('mockup-brand-v12.html', is_homepage=True, robots_meta='noindex, nofollow')
