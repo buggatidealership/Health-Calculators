@@ -6040,6 +6040,10 @@ def mockup_landing_v11():
 def mockup_landing_v12():
     return render_template('mockup-landing-v12.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-landing-redesign')
+def mockup_landing_redesign():
+    return render_template('mockup-landing-redesign.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-pulse-story')
 def mockup_pulse_story():
     return render_template(

@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>HealthCalculators — Where noise is reduced to portable signal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           RESET & BASE
+           ============================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+            background: #0a0f1a;
+            color: #e8e4df;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ============================================
+           FILM GRAIN OVERLAY — 3-4% opacity, full page
+           SVG feTurbulence, static (pre-rendered feel)
+           ============================================ */
+        .grain-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.035;
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)'/%3E%3C/svg%3E");
+        }
+
+        /* ============================================
+           SECTION 1: THE ATMOSPHERE
+           Full viewport. The nucleation seed.
+           ============================================ */
+        .atmosphere {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 0 24px;
+            overflow: hidden;
+        }
+
+        /* Ambient particles — floating dust motes */
+        .atmosphere::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(1px 1px at 15% 25%, rgba(255,255,255,0.08) 0%, transparent 100%),
+                radial-gradient(1px 1px at 72% 60%, rgba(255,255,255,0.06) 0%, transparent 100%),
+                radial-gradient(1px 1px at 40% 80%, rgba(255,255,255,0.05) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 85% 15%, rgba(255,255,255,0.04) 0%, transparent 100%),
+                radial-gradient(1px 1px at 55% 42%, rgba(255,255,255,0.07) 0%, transparent 100%),
+                radial-gradient(1px 1px at 28% 68%, rgba(255,255,255,0.05) 0%, transparent 100%),
+                radial-gradient(1.5px 1.5px at 90% 85%, rgba(255,255,255,0.04) 0%, transparent 100%),
+                radial-gradient(1px 1px at 8% 50%, rgba(255,255,255,0.06) 0%, transparent 100%);
+            animation: drift-particles 25s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+
+        @keyframes drift-particles {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(8px, -5px) scale(1.02); }
+            66% { transform: translate(-5px, 8px) scale(0.98); }
+            100% { transform: translate(3px, -3px) scale(1.01); }
+        }
+
+        /* The statement — atmospheric scale */
+        .atmosphere-statement {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+        }
+
+        .atmosphere-statement h1 {
+            font-family: 'DM Serif Display', serif;
+            font-weight: 400;
+            font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+            line-height: 1.15;
+            color: #F5F0EA;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: statement-enter 1.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s forwards;
+        }
+
+        @keyframes statement-enter {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* The pulsing green dot — brand heartbeat */
+        .pulse-dot-container {
+            position: relative;
+            z-index: 2;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: fade-in 0.8s ease-out 1.2s forwards;
+        }
+
+        @keyframes fade-in {
+            to { opacity: 1; }
+        }
+
+        .pulse-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #0e7a7e;
+            position: relative;
+        }
+
+        .pulse-dot::before,
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            border: 1px solid rgba(14, 122, 126, 0.3);
+        }
+
+        /* Ring 1 — 10% offset from core */
+        .pulse-dot::before {
+            width: 24px;
+            height: 24px;
+            animation: breathe 4s ease-in-out infinite 0.4s;
+        }
+
+        /* Ring 2 — 20% offset from core */
+        .pulse-dot::after {
+            width: 40px;
+            height: 40px;
+            border-color: rgba(14, 122, 126, 0.15);
+            animation: breathe 4s ease-in-out infinite 0.8s;
+        }
+
+        .pulse-dot-core {
+            animation: breathe-core 4s ease-in-out infinite;
+        }
+
+        @keyframes breathe-core {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            /* Inhale 60%, exhale 40% — asymmetric for biological feel */
+            60% { transform: scale(1.3); opacity: 0.85; }
+        }
+
+        @keyframes breathe {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+            60% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.3; }
+        }
+
+        /* Scroll indicator — a gentle breathing line */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fade-in 0.6s ease-out 2s forwards;
+        }
+
+        .scroll-line {
+            width: 1px;
+            height: 32px;
+            background: linear-gradient(to bottom, transparent, rgba(245, 240, 234, 0.25), transparent);
+            animation: scroll-breathe 3s ease-in-out infinite;
+        }
+
+        @keyframes scroll-breathe {
+            0%, 100% { transform: scaleY(1); opacity: 0.3; }
+            50% { transform: scaleY(1.4); opacity: 0.6; }
+        }
+
+        /* ============================================
+           SECTION 2: THE PROOF — Signal cards
+           Continuous color arc from atmosphere
+           ============================================ */
+        .proof {
+            position: relative;
+            padding: 120px 24px 100px;
+            /* Continuous color arc — warms as you enter */
+            background: linear-gradient(
+                to bottom,
+                #0a0f1a 0%,
+                #0c111e 30%,
+                #0e1422 60%,
+                #101725 100%
+            );
+        }
+
+        .proof-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Signal cards grid */
+        .signal-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        @media (min-width: 720px) {
+            .signal-cards {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 28px;
+            }
+        }
+
+        .signal-card {
+            position: relative;
+            padding: 32px 28px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            /* Three-layer ambient occlusion shadow */
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.15),
+                0 12px 24px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            /* Scroll-triggered entrance — starts hidden */
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .signal-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Motivated lighting — card IS the light source */
+        .signal-card::before {
+            content: '';
+            position: absolute;
+            top: -60%;
+            left: -20%;
+            width: 140%;
+            height: 100%;
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        .signal-card.visible::before {
+            opacity: 1;
+        }
+
+        /* Per-card accent glow */
+        .signal-card--caffeine::before {
+            background: radial-gradient(ellipse at center, rgba(14, 122, 126, 0.08) 0%, transparent 70%);
+        }
+        .signal-card--tdee::before {
+            background: radial-gradient(ellipse at center, rgba(217, 164, 65, 0.08) 0%, transparent 70%);
+        }
+        .signal-card--bmi::before {
+            background: radial-gradient(ellipse at center, rgba(232, 120, 94, 0.08) 0%, transparent 70%);
+        }
+
+        /* Card border top accent — light edge */
+        .signal-card--caffeine {
+            border-top: 1px solid rgba(14, 122, 126, 0.2);
+        }
+        .signal-card--tdee {
+            border-top: 1px solid rgba(217, 164, 65, 0.2);
+        }
+        .signal-card--bmi {
+            border-top: 1px solid rgba(232, 120, 94, 0.2);
+        }
+
+        .card-label {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .signal-card--caffeine .card-label { color: #0e7a7e; }
+        .signal-card--tdee .card-label { color: #d9a441; }
+        .signal-card--bmi .card-label { color: #e8785e; }
+
+        .card-signal {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.5rem;
+            line-height: 1.3;
+            color: #F5F0EA;
+            margin-bottom: 12px;
+        }
+
+        .card-context {
+            font-size: 0.9rem;
+            color: rgba(245, 240, 234, 0.5);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: gap 0.25s ease-out, opacity 0.25s ease-out;
+            opacity: 0.7;
+        }
+
+        .card-link:hover {
+            opacity: 1;
+            gap: 10px;
+        }
+
+        .signal-card--caffeine .card-link { color: #0e7a7e; }
+        .signal-card--tdee .card-link { color: #d9a441; }
+        .signal-card--bmi .card-link { color: #e8785e; }
+
+        .card-link-arrow {
+            transition: transform 0.25s ease-out;
+        }
+
+        .card-link:hover .card-link-arrow {
+            transform: translateX(2px);
+        }
+
+        /* Summary line below cards */
+        .proof-summary {
+            text-align: center;
+            margin-top: 64px;
+            font-size: 0.9rem;
+            color: rgba(245, 240, 234, 0.35);
+            letter-spacing: 0.02em;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .proof-summary.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ============================================
+           SECTION 3: THE COMPANION — Pulse
+           Intimacy gradient: warmest, closest
+           ============================================ */
+        .companion {
+            position: relative;
+            padding: 100px 24px 120px;
+            background: linear-gradient(
+                to bottom,
+                #101725 0%,
+                #1a1d28 20%,
+                #1e2130 50%,
+                #22252f 100%
+            );
+        }
+
+        .companion-inner {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .companion-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .companion-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #0e7a7e;
+            margin-bottom: 16px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+
+        .companion-label.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .companion-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            color: #F5F0EA;
+            line-height: 1.25;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s,
+                        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+        }
+
+        .companion-title.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Chat recreation — stylized, not a screenshot */
+        .chat-container {
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 28px 24px;
+            box-shadow:
+                0 1px 2px rgba(0, 0, 0, 0.3),
+                0 4px 8px rgba(0, 0, 0, 0.15),
+                0 16px 32px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.7s ease-out 0.2s, transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s;
+        }
+
+        .chat-container.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .chat-bubble {
+            padding: 14px 18px;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            line-height: 1.55;
+            max-width: 85%;
+            margin-bottom: 12px;
+            opacity: 0;
+            transform: translateY(8px);
+        }
+
+        .chat-bubble.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.4s ease-out, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .chat-bubble--user {
+            background: rgba(14, 122, 126, 0.12);
+            border: 1px solid rgba(14, 122, 126, 0.15);
+            margin-left: auto;
+            border-bottom-right-radius: 4px;
+            color: #c8d8d8;
+        }
+
+        .chat-bubble--pulse {
+            background: rgba(245, 240, 234, 0.05);
+            border: 1px solid rgba(245, 240, 234, 0.08);
+            border-bottom-left-radius: 4px;
+            color: #d8d4cf;
+        }
+
+        .chat-bubble--pulse .reframe {
+            display: block;
+            margin-top: 8px;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.05rem;
+            color: #F5F0EA;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 14px 18px;
+            max-width: 70px;
+            margin-bottom: 12px;
+            opacity: 0;
+        }
+
+        .typing-indicator.visible {
+            opacity: 1;
+            transition: opacity 0.3s ease-out;
+        }
+
+        .typing-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: rgba(14, 122, 126, 0.5);
+            animation: typing-bounce 1.4s ease-in-out infinite;
+        }
+
+        .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+        .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes typing-bounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-4px); opacity: 0.8; }
+        }
+
+        /* CTA — earned by this point */
+        .companion-cta-wrapper {
+            text-align: center;
+            margin-top: 40px;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 0.5s ease-out 0.3s, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s;
+        }
+
+        .companion-cta-wrapper.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 32px;
+            background: #0e7a7e;
+            color: #F5F0EA;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.25s ease-out, transform 0.15s ease-out, box-shadow 0.25s ease-out;
+            box-shadow:
+                0 2px 4px rgba(14, 122, 126, 0.2),
+                0 8px 16px rgba(14, 122, 126, 0.1);
+        }
+
+        .cta-primary:hover {
+            background: #0c8d91;
+            transform: translateY(-1px);
+            box-shadow:
+                0 4px 8px rgba(14, 122, 126, 0.25),
+                0 12px 24px rgba(14, 122, 126, 0.15);
+        }
+
+        .cta-primary:active {
+            transform: scale(0.97);
+            transition: transform 0.08s ease-out;
+        }
+
+        .cta-secondary {
+            display: block;
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: rgba(245, 240, 234, 0.35);
+            letter-spacing: 0.02em;
+        }
+
+        .cta-secondary a {
+            color: rgba(14, 122, 126, 0.6);
+            text-decoration: none;
+            transition: color 0.2s ease-out;
+        }
+
+        .cta-secondary a:hover {
+            color: #0e7a7e;
+        }
+
+        /* ============================================
+           SECTION 4: FOOTER — instrumental
+           Visually quiet. Positional power only.
+           ============================================ */
+        .footer {
+            padding: 48px 24px;
+            background: #080c16;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .footer-inner {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #0e7a7e;
+            animation: breathe-core 4s ease-in-out infinite;
+        }
+
+        .footer-name {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: rgba(245, 240, 234, 0.4);
+            letter-spacing: 0.03em;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-links a {
+            font-size: 0.78rem;
+            color: rgba(245, 240, 234, 0.25);
+            text-decoration: none;
+            transition: color 0.2s ease-out;
+        }
+
+        .footer-links a:hover {
+            color: rgba(245, 240, 234, 0.5);
+        }
+
+        .footer-legal {
+            font-size: 0.7rem;
+            color: rgba(245, 240, 234, 0.15);
+        }
+
+        /* ============================================
+           RESPONSIVE — mobile-first adjustments
+           ============================================ */
+        @media (max-width: 480px) {
+            .atmosphere-statement h1 {
+                font-size: 2rem;
+            }
+
+            .signal-card {
+                padding: 24px 20px;
+            }
+
+            .card-signal {
+                font-size: 1.3rem;
+            }
+
+            .chat-container {
+                padding: 20px 16px;
+            }
+
+            .chat-bubble {
+                max-width: 90%;
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .atmosphere-statement h1 {
+                font-size: 4.2rem;
+            }
+
+            .signal-cards {
+                gap: 32px;
+            }
+        }
+
+        /* ============================================
+           REDUCED MOTION — respect user preference
+           ============================================ */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .atmosphere-statement h1,
+            .pulse-dot-container,
+            .scroll-indicator,
+            .signal-card,
+            .proof-summary,
+            .companion-label,
+            .companion-title,
+            .chat-container,
+            .chat-bubble,
+            .typing-indicator,
+            .companion-cta-wrapper {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Film grain overlay -->
+<div class="grain-overlay" aria-hidden="true"></div>
+
+<!-- ============================
+     SECTION 1: THE ATMOSPHERE
+     ============================ -->
+<section class="atmosphere">
+    <div class="atmosphere-statement">
+        <h1>Where noise is reduced to portable signal.</h1>
+    </div>
+
+    <div class="pulse-dot-container">
+        <div class="pulse-dot">
+            <div class="pulse-dot-core"></div>
+        </div>
+    </div>
+
+    <div class="scroll-indicator" aria-hidden="true">
+        <div class="scroll-line"></div>
+    </div>
+</section>
+
+<!-- ============================
+     SECTION 2: THE PROOF
+     ============================ -->
+<section class="proof">
+    <div class="proof-inner">
+        <div class="signal-cards">
+
+            <!-- Caffeine — teal -->
+            <div class="signal-card signal-card--caffeine" data-delay="0">
+                <div class="card-label">Caffeine Half-Life</div>
+                <div class="card-signal">Every 5 hours, half.</div>
+                <div class="card-context">Your 3pm coffee is still 25% active at midnight. One rule changes how you think about sleep.</div>
+                <a href="/caffeine-half-life-calculator" class="card-link">
+                    Try it <span class="card-link-arrow">&rarr;</span>
+                </a>
+            </div>
+
+            <!-- TDEE — amber -->
+            <div class="signal-card signal-card--tdee" data-delay="120">
+                <div class="card-label">TDEE</div>
+                <div class="card-signal">BMR is rent. TDEE is rent&nbsp;+&nbsp;utilities.</div>
+                <div class="card-context">Your body burns energy just existing. Activity adds the rest. Know both numbers.</div>
+                <a href="/tdee-calculator" class="card-link">
+                    Try it <span class="card-link-arrow">&rarr;</span>
+                </a>
+            </div>
+
+            <!-- BMI — warm coral -->
+            <div class="signal-card signal-card--bmi" data-delay="240">
+                <div class="card-label">BMI</div>
+                <div class="card-signal">Above healthy range, not&nbsp;obese.</div>
+                <div class="card-context">Language shapes how you see yourself. We chose ours carefully.</div>
+                <a href="/bmi-calculator" class="card-link">
+                    Try it <span class="card-link-arrow">&rarr;</span>
+                </a>
+            </div>
+
+        </div>
+
+        <p class="proof-summary">82 signals. Each one yours to carry.</p>
+    </div>
+</section>
+
+<!-- ============================
+     SECTION 3: THE COMPANION
+     ============================ -->
+<section class="companion">
+    <div class="companion-inner">
+        <div class="companion-header">
+            <div class="companion-label">Pulse</div>
+            <h2 class="companion-title">You always had a pulse.<br>We help you find it.</h2>
+        </div>
+
+        <div class="chat-container">
+            <!-- User message -->
+            <div class="chat-bubble chat-bubble--user" data-chat-delay="0">
+                Is 180 mg of caffeine a lot?
+            </div>
+
+            <!-- Typing indicator -->
+            <div class="typing-indicator" data-chat-delay="600">
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+                <span class="typing-dot"></span>
+            </div>
+
+            <!-- Pulse response with reframe -->
+            <div class="chat-bubble chat-bubble--pulse" data-chat-delay="1800">
+                It depends on when.
+                <span class="reframe">At 8am, it's gone by bedtime. At 3pm, half is still in you at 8pm.</span>
+            </div>
+
+            <!-- Follow-up -->
+            <div class="chat-bubble chat-bubble--pulse" data-chat-delay="2600">
+                The question isn't how much. It's when.
+            </div>
+        </div>
+
+        <div class="companion-cta-wrapper">
+            <a href="https://t.me/GetHealthCbot" class="cta-primary" target="_blank" rel="noopener">
+                Ask Pulse anything
+            </a>
+            <div class="cta-secondary">
+                Live on Telegram &mdash; <a href="/calculators">or explore 82 calculators</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================
+     SECTION 4: FOOTER
+     ============================ -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div class="footer-brand">
+            <div class="footer-dot" aria-hidden="true"></div>
+            <span class="footer-name">HealthCalculators</span>
+        </div>
+        <nav class="footer-links">
+            <a href="/calculators">Calculators</a>
+            <a href="/resources">Resources</a>
+            <a href="/about">About</a>
+            <a href="/privacy-policy">Privacy</a>
+            <a href="/terms-of-service">Terms</a>
+        </nav>
+        <div class="footer-legal">&copy; 2026 HealthCalculators.xyz</div>
+    </div>
+</footer>
+
+<script>
+    /* ============================================
+       Intersection Observer — scroll-triggered entrances
+       Spring easing via CSS transition (set in stylesheet)
+       Stagger offset via data-delay attribute
+       ============================================ */
+    (function() {
+        'use strict';
+
+        // Signal cards — staggered entrance (120ms offset)
+        const cardObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    const delay = parseInt(entry.target.dataset.delay) || 0;
+                    setTimeout(function() {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    cardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.signal-card').forEach(function(card) {
+            cardObserver.observe(card);
+        });
+
+        // Generic reveal observer for single elements
+        const revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.proof-summary, .companion-label, .companion-title').forEach(function(el) {
+            revealObserver.observe(el);
+        });
+
+        // Chat container — reveal, then sequence the bubbles
+        var chatTriggered = false;
+        var chatObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !chatTriggered) {
+                    chatTriggered = true;
+                    entry.target.classList.add('visible');
+
+                    // Sequence chat bubbles and typing indicator
+                    var chatElements = entry.target.querySelectorAll('[data-chat-delay]');
+                    chatElements.forEach(function(el) {
+                        var delay = parseInt(el.dataset.chatDelay) || 0;
+                        setTimeout(function() {
+                            el.classList.add('visible');
+                            // Hide typing indicator when Pulse response arrives
+                            if (el.classList.contains('chat-bubble--pulse')) {
+                                var indicator = entry.target.querySelector('.typing-indicator');
+                                if (indicator) {
+                                    indicator.style.display = 'none';
+                                }
+                            }
+                        }, delay);
+                    });
+
+                    chatObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.chat-container').forEach(function(el) {
+            chatObserver.observe(el);
+        });
+
+        // CTA wrapper
+        var ctaObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    ctaObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        document.querySelectorAll('.companion-cta-wrapper').forEach(function(el) {
+            ctaObserver.observe(el);
+        });
+    })();
+</script>
+
+</body>
+</html>
