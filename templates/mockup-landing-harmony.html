@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>HealthCalculators — Harmony</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           RESET & BASE
+           ======================================== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --base: #0a0f1a;
+            --base-warm: #0d1220;
+            --surface: #111827;
+            --text-primary: #f0f0f0;
+            --text-secondary: rgba(240, 240, 240, 0.5);
+            --text-tertiary: rgba(240, 240, 240, 0.3);
+            --teal: #14b8a6;
+            --teal-glow: rgba(20, 184, 166, 0.15);
+            --teal-subtle: rgba(20, 184, 166, 0.06);
+            --amber: #f59e0b;
+            --amber-glow: rgba(245, 158, 11, 0.15);
+            --amber-subtle: rgba(245, 158, 11, 0.06);
+            --coral: #f87171;
+            --coral-glow: rgba(248, 113, 113, 0.15);
+            --coral-subtle: rgba(248, 113, 113, 0.06);
+            --serif: 'DM Serif Display', serif;
+            --sans: 'DM Sans', sans-serif;
+            --grain-opacity: 0.045;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            background: var(--base);
+            color: var(--text-primary);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* ========================================
+           FILM GRAIN — SVG noise overlay
+           Animated with discrete steps for film feel.
+           Covers entire page. pointer-events: none.
+           ======================================== */
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: var(--grain-opacity);
+            mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 180px 180px;
+            animation: grain-shift 0.7s steps(1) infinite;
+        }
+
+        @keyframes grain-shift {
+            0%   { transform: translate(0, 0); }
+            14%  { transform: translate(-3%, -2%); }
+            28%  { transform: translate(2%, 3%); }
+            42%  { transform: translate(-1%, 4%); }
+            57%  { transform: translate(4%, -1%); }
+            71%  { transform: translate(-2%, 3%); }
+            85%  { transform: translate(3%, -3%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* ========================================
+           AMBIENT PARTICLES — floating motes in hero
+           ======================================== */
+        .particles-container {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            background: rgba(20, 184, 166, 0.25);
+            animation: particle-drift linear infinite;
+        }
+
+        @keyframes particle-drift {
+            0%   { transform: translateY(0) translateX(0); opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: 1; }
+            100% { transform: translateY(-100vh) translateX(30px); opacity: 0; }
+        }
+
+        /* ========================================
+           SECTION 1 — ATMOSPHERE (full viewport)
+           The silence before the chord.
+           ======================================== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            /* Radial spotlight from above — motivated by "skylight" */
+            background:
+                radial-gradient(
+                    ellipse 70% 50% at 50% -5%,
+                    rgba(20, 184, 166, 0.04) 0%,
+                    transparent 65%
+                ),
+                var(--base);
+        }
+
+        .hero-statement {
+            font-family: var(--serif);
+            font-size: clamp(1.6rem, 4.5vw, 3.2rem);
+            color: var(--text-primary);
+            max-width: 680px;
+            line-height: 1.35;
+            letter-spacing: -0.02em;
+            opacity: 0;
+            transform: translateY(18px);
+            animation: hero-arrive 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.3s forwards;
+        }
+
+        @keyframes hero-arrive {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Pulsing dot — the breath pattern.
+           Core + ring1 + ring2 at cascading offsets.
+           Asymmetric timing: inhale 60%, exhale 40%. */
+        .pulse-dot-group {
+            margin-top: 3rem;
+            position: relative;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            animation: hero-arrive 0.8s cubic-bezier(0.22, 1, 0.36, 1) 1.0s forwards;
+        }
+
+        .pulse-core {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 12px rgba(20, 184, 166, 0.6);
+            animation: breathe-core 4s ease-in-out infinite;
+        }
+
+        .pulse-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .pulse-ring-1 {
+            width: 24px;
+            height: 24px;
+            animation: breathe-ring 4s ease-in-out infinite 0.4s;
+        }
+
+        .pulse-ring-2 {
+            width: 40px;
+            height: 40px;
+            border-color: rgba(20, 184, 166, 0.1);
+            animation: breathe-ring 4s ease-in-out infinite 0.9s;
+        }
+
+        @keyframes breathe-core {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 12px rgba(20, 184, 166, 0.5); }
+            60%      { transform: scale(1.15); box-shadow: 0 0 20px rgba(20, 184, 166, 0.7); }
+        }
+
+        @keyframes breathe-ring {
+            0%, 100% { transform: scale(1); opacity: 0.6; }
+            60%      { transform: scale(1.12); opacity: 1; }
+        }
+
+        /* Scroll indicator */
+        .scroll-hint {
+            position: absolute;
+            bottom: 2.5rem;
+            font-family: var(--sans);
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-tertiary);
+            opacity: 0;
+            animation: hero-arrive 0.6s ease 2.0s forwards;
+        }
+
+        .scroll-hint::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 28px;
+            background: linear-gradient(to bottom, rgba(20, 184, 166, 0.3), transparent);
+            margin: 0.6rem auto 0;
+            animation: scroll-line 2s ease-in-out infinite;
+        }
+
+        @keyframes scroll-line {
+            0%, 100% { transform: scaleY(1); opacity: 0.4; }
+            50%      { transform: scaleY(1.4); opacity: 0.8; }
+        }
+
+        /* ========================================
+           BACKGROUND WARMTH TRANSITION
+           A radial gradient that shifts from cool
+           to warmer as user scrolls into Section 2.
+           Controlled by JS Intersection Observer.
+           This is the "key being established."
+           ======================================== */
+        .warmth-layer {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            background: radial-gradient(
+                ellipse 80% 60% at 50% 45%,
+                rgba(20, 184, 166, 0.035) 0%,
+                rgba(14, 165, 148, 0.015) 40%,
+                transparent 75%
+            );
+        }
+
+        .warmth-layer.active {
+            opacity: 1;
+        }
+
+        /* ========================================
+           SECTION 2 — THE CHORD
+           Signal cards. The convergence moment.
+           ======================================== */
+        .chord-section {
+            position: relative;
+            z-index: 1;
+            padding: 6rem 1.5rem 5rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .signal-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            max-width: 520px;
+            width: 100%;
+        }
+
+        /* ---- SIGNAL CARD ---- */
+        .signal-card {
+            position: relative;
+            padding: 2rem 2.2rem;
+            border-radius: 16px;
+            /* Start state: invisible, slightly below, scaled down */
+            opacity: 0;
+            transform: translateY(32px) scale(0.97);
+            /* Will be animated by JS */
+        }
+
+        /* Entrance animation — spring easing via cubic-bezier */
+        .signal-card.entered {
+            animation: card-spring 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        @keyframes card-spring {
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Card backgrounds — motivated glow: each card IS the light source */
+        .signal-card--teal {
+            background: linear-gradient(135deg, rgba(20, 184, 166, 0.07), rgba(20, 184, 166, 0.03));
+            border: 1px solid rgba(20, 184, 166, 0.18);
+        }
+        .signal-card--teal.entered {
+            box-shadow:
+                0 0 60px rgba(20, 184, 166, 0.10),
+                0 0 120px rgba(20, 184, 166, 0.04),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .signal-card--amber {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.07), rgba(245, 158, 11, 0.03));
+            border: 1px solid rgba(245, 158, 11, 0.18);
+        }
+        .signal-card--amber.entered {
+            box-shadow:
+                0 0 60px rgba(245, 158, 11, 0.10),
+                0 0 120px rgba(245, 158, 11, 0.04),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .signal-card--coral {
+            background: linear-gradient(135deg, rgba(248, 113, 113, 0.07), rgba(248, 113, 113, 0.03));
+            border: 1px solid rgba(248, 113, 113, 0.18);
+        }
+        .signal-card--coral.entered {
+            box-shadow:
+                0 0 60px rgba(248, 113, 113, 0.10),
+                0 0 120px rgba(248, 113, 113, 0.04),
+                0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Card icon */
+        .signal-card__icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        /* The "rule" — the mental model. DM Serif. Sharpest element.
+           Rack focus effect: this text is full contrast,
+           everything else is slightly lower. */
+        .signal-card__rule {
+            font-family: var(--serif);
+            font-size: clamp(1.15rem, 2.5vw, 1.45rem);
+            color: #ffffff;
+            line-height: 1.4;
+            margin-bottom: 0.8rem;
+            /* Rack focus: maximum sharpness */
+            text-shadow: 0 0 0 transparent;
+        }
+
+        /* Supporting text — slightly defocused (lower contrast = depth) */
+        .signal-card__context {
+            font-family: var(--sans);
+            font-size: 0.88rem;
+            color: rgba(240, 240, 240, 0.55);
+            line-height: 1.55;
+        }
+
+        /* Card link */
+        .signal-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            font-weight: 500;
+            text-decoration: none;
+            letter-spacing: 0.04em;
+            transition: gap 0.3s ease, opacity 0.3s ease;
+        }
+
+        .signal-card--teal .signal-card__link { color: var(--teal); }
+        .signal-card--amber .signal-card__link { color: var(--amber); }
+        .signal-card--coral .signal-card__link { color: var(--coral); }
+
+        .signal-card__link:hover {
+            gap: 0.7rem;
+            opacity: 0.85;
+        }
+
+        .signal-card__link svg {
+            width: 14px;
+            height: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .signal-card__link:hover svg {
+            transform: translateX(2px);
+        }
+
+        /* ---- Grain visibility on card ----
+           The film grain is MOST visible on the card surface.
+           Achieved by a local grain layer with higher opacity. */
+        .signal-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 16px;
+            opacity: 0.07;
+            mix-blend-mode: overlay;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 150px 150px;
+        }
+
+        /* Count line below cards */
+        .signal-count {
+            margin-top: 3.5rem;
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        .signal-count.entered {
+            animation: card-spring 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .signal-count strong {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ========================================
+           SECTION 3 — PULSE (warm, enclosed)
+           Higher enclosure = higher commitment.
+           ======================================== */
+        .pulse-section {
+            position: relative;
+            z-index: 1;
+            padding: 5rem 1.5rem 5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .pulse-container {
+            max-width: 480px;
+            width: 100%;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            background: linear-gradient(160deg, rgba(20, 184, 166, 0.06), rgba(20, 184, 166, 0.02));
+            border: 1px solid rgba(20, 184, 166, 0.12);
+            box-shadow: 0 0 80px rgba(20, 184, 166, 0.06);
+            opacity: 0;
+            transform: translateY(24px);
+        }
+
+        .pulse-container.entered {
+            animation: card-spring 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .pulse-label {
+            font-family: var(--sans);
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--teal);
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pulse-label__dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--teal);
+            box-shadow: 0 0 8px rgba(20, 184, 166, 0.6);
+            animation: breathe-core 4s ease-in-out infinite;
+        }
+
+        /* Chat snippet — stylized conversation */
+        .chat-snippet {
+            display: flex;
+            flex-direction: column;
+            gap: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .chat-msg {
+            max-width: 85%;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            font-size: 0.88rem;
+            line-height: 1.5;
+        }
+
+        .chat-msg--user {
+            align-self: flex-end;
+            background: rgba(240, 240, 240, 0.08);
+            border: 1px solid rgba(240, 240, 240, 0.06);
+            color: var(--text-primary);
+            border-bottom-right-radius: 4px;
+        }
+
+        .chat-msg--pulse {
+            align-self: flex-start;
+            background: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.12);
+            color: rgba(240, 240, 240, 0.85);
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-msg--pulse strong {
+            color: var(--teal);
+            font-weight: 500;
+        }
+
+        /* CTA */
+        .pulse-cta {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.85rem 1.8rem;
+            background: var(--teal);
+            color: #0a0f1a;
+            font-family: var(--sans);
+            font-size: 0.88rem;
+            font-weight: 500;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.15s ease;
+            width: 100%;
+        }
+
+        .pulse-cta:hover {
+            background: #0fa89a;
+            box-shadow: 0 0 32px rgba(20, 184, 166, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .pulse-cta:active {
+            transform: translateY(0);
+        }
+
+        .pulse-cta svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* ========================================
+           SECTION 4 — FOOTER (quiet, instrumental)
+           ======================================== */
+        .footer {
+            position: relative;
+            z-index: 1;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+            border-top: 1px solid rgba(240, 240, 240, 0.04);
+        }
+
+        .footer-brand {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 0.8rem;
+        }
+
+        .footer-links a {
+            font-size: 0.78rem;
+            color: var(--text-tertiary);
+            text-decoration: none;
+            transition: color 0.25s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        .footer-copy {
+            margin-top: 1.5rem;
+            font-size: 0.7rem;
+            color: rgba(240, 240, 240, 0.18);
+        }
+
+        /* ========================================
+           RESPONSIVE
+           ======================================== */
+        @media (min-width: 768px) {
+            .signal-cards {
+                max-width: 560px;
+            }
+
+            .signal-card {
+                padding: 2.2rem 2.6rem;
+            }
+
+            .pulse-container {
+                padding: 3rem 2.5rem;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .chord-section {
+                padding: 8rem 2rem 6rem;
+            }
+
+            .signal-cards {
+                max-width: 600px;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .grain-overlay,
+            .particle,
+            .pulse-core,
+            .pulse-ring-1,
+            .pulse-ring-2,
+            .pulse-label__dot {
+                animation: none !important;
+            }
+
+            .hero-statement,
+            .pulse-dot-group,
+            .scroll-hint {
+                opacity: 1 !important;
+                transform: none !important;
+                animation: none !important;
+            }
+
+            .signal-card {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .signal-card.entered {
+                animation: none !important;
+            }
+
+            .pulse-container {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+
+            .signal-count {
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Film grain — global overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Background warmth layer — activated before cards enter -->
+    <div class="warmth-layer" id="warmthLayer" aria-hidden="true"></div>
+
+    <!-- ============================================
+         SECTION 1 — ATMOSPHERE
+         Full viewport. Silence before the chord.
+         ============================================ -->
+    <section class="hero">
+        <!-- Ambient particles -->
+        <div class="particles-container" id="particles" aria-hidden="true"></div>
+
+        <h1 class="hero-statement">
+            Where noise is reduced<br>to portable signal.
+        </h1>
+
+        <div class="pulse-dot-group" aria-hidden="true">
+            <div class="pulse-ring pulse-ring-2"></div>
+            <div class="pulse-ring pulse-ring-1"></div>
+            <div class="pulse-core"></div>
+        </div>
+
+        <div class="scroll-hint" aria-hidden="true">Scroll</div>
+    </section>
+
+    <!-- ============================================
+         SECTION 2 — THE CHORD
+         Three signal cards. First = convergence moment.
+         ============================================ -->
+    <section class="chord-section">
+        <div class="signal-cards">
+
+            <!-- CARD 1: THE CONVERGENCE CARD (teal / caffeine) -->
+            <article class="signal-card signal-card--teal" data-card="convergence" data-delay="0">
+                <span class="signal-card__icon" aria-hidden="true">&#9749;</span>
+                <div class="signal-card__rule">Every 5 hours, half.</div>
+                <p class="signal-card__context">
+                    Caffeine doesn't vanish. It halves. Your 3pm coffee is still 25% active at midnight.
+                    The mental model changes behavior; the calculator proves it.
+                </p>
+                <a href="/caffeine-half-life-calculator" class="signal-card__link">
+                    See your timeline
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </article>
+
+            <!-- CARD 2: ECHO 1 (amber / TDEE) -->
+            <article class="signal-card signal-card--amber" data-card="echo" data-delay="120">
+                <span class="signal-card__icon" aria-hidden="true">&#127947;</span>
+                <div class="signal-card__rule">BMR is rent. TDEE is rent + utilities.</div>
+                <p class="signal-card__context">
+                    Your body burns energy just existing. That's BMR. Add movement,
+                    digestion, thinking — that's your TDEE. One number frames everything.
+                </p>
+                <a href="/tdee-calculator" class="signal-card__link">
+                    Find your number
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </article>
+
+            <!-- CARD 3: ECHO 2 (coral / BMI) -->
+            <article class="signal-card signal-card--coral" data-card="echo" data-delay="200">
+                <span class="signal-card__icon" aria-hidden="true">&#128202;</span>
+                <div class="signal-card__rule">Above healthy range, not obese.</div>
+                <p class="signal-card__context">
+                    Language shapes how you think about your body.
+                    A number without a framework is noise. A number inside the right words is a signal.
+                </p>
+                <a href="/bmi-calculator" class="signal-card__link">
+                    Check your range
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+            </article>
+
+        </div>
+
+        <p class="signal-count" data-animate="count">
+            <strong>82 signals.</strong> Each one yours to carry.
+        </p>
+    </section>
+
+    <!-- ============================================
+         SECTION 3 — PULSE
+         Warm, enclosed. Chat snippet + CTA.
+         ============================================ -->
+    <section class="pulse-section">
+        <div class="pulse-container" data-animate="pulse">
+            <div class="pulse-label">
+                <span class="pulse-label__dot"></span>
+                Pulse
+            </div>
+            <div class="chat-snippet">
+                <div class="chat-msg chat-msg--user">
+                    I had a large coffee at 4pm. Will it affect my sleep?
+                </div>
+                <div class="chat-msg chat-msg--pulse">
+                    At <strong>10pm</strong>, roughly <strong>50%</strong> of that caffeine is still active.
+                    By midnight, about <strong>35%</strong>. If you're sensitive,
+                    that's enough to delay sleep onset by 20-40 minutes.
+                </div>
+                <div class="chat-msg chat-msg--user">
+                    What's my cutoff time?
+                </div>
+                <div class="chat-msg chat-msg--pulse">
+                    For your body weight and sensitivity, <strong>2pm</strong> is your last safe coffee
+                    if you want less than 15% active at bedtime.
+                </div>
+            </div>
+            <a href="https://t.me/GetHealthCbot" class="pulse-cta" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4z"/><path d="M22 2 11 13"/></svg>
+                Talk to Pulse
+            </a>
+        </div>
+    </section>
+
+    <!-- ============================================
+         SECTION 4 — FOOTER
+         ============================================ -->
+    <footer class="footer">
+        <div class="footer-brand">HealthCalculators</div>
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="/calculators">All Calculators</a>
+            <a href="/resources">Resources</a>
+            <a href="/about">About</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 HealthCalculators.xyz</p>
+    </footer>
+
+    <!-- ============================================
+         JAVASCRIPT — The Convergence Engine
+         ============================================ -->
+    <script>
+    (function() {
+        'use strict';
+
+        // -------------------------------------------
+        // 1. AMBIENT PARTICLES (hero only)
+        // Very low opacity. Suggest atmosphere.
+        // -------------------------------------------
+        const particlesEl = document.getElementById('particles');
+        const particleCount = 12;
+        for (let i = 0; i < particleCount; i++) {
+            const p = document.createElement('div');
+            p.className = 'particle';
+            p.style.left = Math.random() * 100 + '%';
+            p.style.top = (60 + Math.random() * 40) + '%';
+            p.style.animationDuration = (12 + Math.random() * 20) + 's';
+            p.style.animationDelay = (Math.random() * 15) + 's';
+            p.style.width = p.style.height = (1.5 + Math.random() * 1.5) + 'px';
+            p.style.opacity = (0.15 + Math.random() * 0.2).toString();
+            particlesEl.appendChild(p);
+        }
+
+        // -------------------------------------------
+        // 2. THE CONVERGENCE — Intersection Observer
+        //
+        // The design goal: when the first signal card
+        // crosses the viewport threshold, ALL dimensions
+        // fire within a ~100ms window with micro-stagger:
+        //
+        //   t-20ms:  background warmth begins (bass grounds)
+        //   t+0ms:   card enters with spring easing
+        //   t+50ms:  glow activates (via .entered class)
+        //   t+80ms:  text at full contrast (already set in CSS,
+        //            perceived as "sharpening" against the
+        //            warming background)
+        //
+        // The subsequent cards (echoes) enter faster,
+        // proving the system without competing.
+        // -------------------------------------------
+
+        const warmthLayer = document.getElementById('warmthLayer');
+        let convergenceHasFired = false;
+
+        // Warmth sentinel — an invisible element placed
+        // ABOVE the first card. When it enters the viewport,
+        // the background warmth begins 20ms before the card.
+        const warmthSentinel = document.createElement('div');
+        warmthSentinel.style.cssText = 'position:absolute;top:0;left:0;width:1px;height:1px;pointer-events:none;';
+
+        // We position it via JS after DOM ready
+        const chordSection = document.querySelector('.chord-section');
+        chordSection.style.position = 'relative';
+        chordSection.prepend(warmthSentinel);
+
+        // Observer for warmth — fires 20ms before cards would
+        // be visible (rootMargin extends trigger zone down)
+        const warmthObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !convergenceHasFired) {
+                    // Bass note: warmth leads by existing before the card.
+                    // The transition CSS is 0.8s, so it's already shifting
+                    // by the time the card appears.
+                    warmthLayer.classList.add('active');
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -15% 0px',
+            threshold: 0
+        });
+        warmthObserver.observe(warmthSentinel);
+
+        // Observer for signal cards
+        const cards = document.querySelectorAll('.signal-card');
+        const cardObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !entry.target.classList.contains('entered')) {
+                    const card = entry.target;
+                    const delay = parseInt(card.getAttribute('data-delay') || '0', 10);
+
+                    if (card.getAttribute('data-card') === 'convergence') {
+                        convergenceHasFired = true;
+                        // Convergence card: warmth is already shifting (started 20ms ago from sentinel).
+                        // Card enters at t+0.
+                        // Glow activates with .entered class (box-shadow transition in CSS).
+                        setTimeout(function() {
+                            card.classList.add('entered');
+                        }, 0);
+                    } else {
+                        // Echo cards: enter faster, with stagger
+                        setTimeout(function() {
+                            card.classList.add('entered');
+                        }, delay);
+                    }
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -8% 0px',
+            threshold: 0.1
+        });
+
+        cards.forEach(function(card) {
+            cardObserver.observe(card);
+        });
+
+        // Observer for signal count
+        const countEl = document.querySelector('.signal-count');
+        const countObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !entry.target.classList.contains('entered')) {
+                    entry.target.classList.add('entered');
+                }
+            });
+        }, { threshold: 0.3 });
+        countObserver.observe(countEl);
+
+        // Observer for Pulse section
+        const pulseEl = document.querySelector('.pulse-container');
+        const pulseObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting && !entry.target.classList.contains('entered')) {
+                    entry.target.classList.add('entered');
+                }
+            });
+        }, { threshold: 0.15 });
+        pulseObserver.observe(pulseEl);
+
+        // -------------------------------------------
+        // 3. PULSE DOT RHYTHM ALIGNMENT
+        //
+        // The pulsing dot's breath cycle aligns with
+        // the convergence moment. When the first card
+        // enters, restart the dot animation so the
+        // pulse "inhale" coincides with the card entrance.
+        // This is the "same beat" principle.
+        // -------------------------------------------
+        const pulseCore = document.querySelector('.pulse-core');
+        const pulseRings = document.querySelectorAll('.pulse-ring');
+
+        // Watch for convergence to restart pulse rhythm
+        const originalCardObserverCallback = cardObserver;
+        // We already handle this in the card observer above.
+        // The pulse restart happens when convergence fires:
+        const convergenceCard = document.querySelector('[data-card="convergence"]');
+        const pulseAlignObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    // Restart breath animations to align with this moment
+                    pulseCore.style.animation = 'none';
+                    pulseRings.forEach(function(r) { r.style.animation = 'none'; });
+
+                    // Force reflow
+                    void pulseCore.offsetWidth;
+
+                    // Restart with aligned timing
+                    pulseCore.style.animation = '';
+                    pulseRings.forEach(function(r) { r.style.animation = ''; });
+
+                    pulseAlignObserver.disconnect();
+                }
+            });
+        }, { threshold: 0.1 });
+        pulseAlignObserver.observe(convergenceCard);
+
+        // -------------------------------------------
+        // 4. SCROLL-BASED HERO FADE
+        // As user scrolls past hero, the hero content
+        // fades slightly — creating the "silence
+        // dissolving" as the chord approaches.
+        // -------------------------------------------
+        const heroStatement = document.querySelector('.hero-statement');
+        const heroDotGroup = document.querySelector('.pulse-dot-group');
+        const scrollHint = document.querySelector('.scroll-hint');
+
+        let ticking = false;
+        window.addEventListener('scroll', function() {
+            if (!ticking) {
+                requestAnimationFrame(function() {
+                    const scrollY = window.scrollY;
+                    const heroH = window.innerHeight;
+                    const progress = Math.min(scrollY / (heroH * 0.7), 1);
+
+                    // Fade hero elements as user scrolls
+                    const fade = 1 - progress * 0.6;
+                    const drift = progress * -20;
+
+                    heroStatement.style.opacity = Math.max(fade, 0).toString();
+                    heroStatement.style.transform = 'translateY(' + drift + 'px)';
+
+                    heroDotGroup.style.opacity = Math.max(fade, 0).toString();
+
+                    // Scroll hint disappears faster
+                    scrollHint.style.opacity = Math.max(1 - progress * 3, 0).toString();
+
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        });
+
+    })();
+    </script>
+
+</body>
+</html>
