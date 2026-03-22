@@ -1,0 +1,1563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Abodient — Watch Alfred Handle a 2am Emergency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #F5F0EA;
+            --cream-dark: #EDE6DC;
+            --text-primary: #1A1A1A;
+            --text-secondary: #5A5549;
+            --text-muted: #8A8278;
+            --coral: #E8704A;
+            --coral-light: #F09070;
+            --coral-dark: #D55A34;
+            --green-wa: #25D366;
+            --green-wa-light: #DCF8C6;
+            --green-wa-dark: #128C7E;
+            --blue-link: #4A9FD9;
+            --white: #FFFFFF;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --shadow-xl: 0 16px 48px rgba(0,0,0,0.16);
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-pill: 100px;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--cream);
+            color: var(--text-primary);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Film grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        /* ===== SCENE CONTAINER ===== */
+        .scene-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 40px 20px 80px;
+            position: relative;
+        }
+
+        /* ===== HERO / OPENER ===== */
+        .hero {
+            text-align: center;
+            padding: 60px 0 40px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-time {
+            font-family: 'DM Sans', monospace;
+            font-size: 64px;
+            font-weight: 700;
+            letter-spacing: -2px;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .hero-time span {
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-muted);
+            letter-spacing: 0;
+        }
+
+        .hero-subtitle {
+            font-size: 17px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            margin-bottom: 4px;
+        }
+
+        .hero-subtext {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* ===== CHAT CONTAINER ===== */
+        .chat-container {
+            background: #ECE5DD;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .chat-header {
+            background: var(--green-wa-dark);
+            color: white;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-header-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2C3E50, #4A6741);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .chat-header-info {
+            flex: 1;
+        }
+
+        .chat-header-name {
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .chat-header-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .chat-body {
+            padding: 16px;
+            min-height: 200px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        /* Chat bubbles */
+        .bubble {
+            max-width: 82%;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            line-height: 1.45;
+            position: relative;
+            opacity: 0;
+            transform: translateY(12px) scale(0.97);
+            word-wrap: break-word;
+        }
+
+        .bubble-tenant {
+            background: var(--white);
+            align-self: flex-start;
+            border-top-left-radius: 2px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+        }
+
+        .bubble-alfred {
+            background: var(--green-wa-light);
+            align-self: flex-end;
+            border-top-right-radius: 2px;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.06);
+        }
+
+        .bubble-time {
+            font-size: 11px;
+            color: #8696A0;
+            float: right;
+            margin-left: 12px;
+            margin-top: 4px;
+        }
+
+        .bubble-time .tick {
+            color: #53BDEB;
+            margin-left: 2px;
+        }
+
+        .bubble-sender {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--green-wa-dark);
+            margin-bottom: 2px;
+        }
+
+        /* Typing indicator */
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 12px 16px;
+            opacity: 0;
+        }
+
+        .typing-indicator span {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #8696A0;
+            display: block;
+        }
+
+        .typing-indicator.active {
+            opacity: 1;
+        }
+
+        .typing-indicator.active span {
+            animation: typingBounce 1.2s infinite;
+        }
+
+        .typing-indicator.active span:nth-child(2) { animation-delay: 0.15s; }
+        .typing-indicator.active span:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes typingBounce {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-4px); opacity: 1; }
+        }
+
+        /* ===== NOTIFICATION CARD ===== */
+        .notification-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-xl);
+            padding: 20px;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--coral);
+            opacity: 0;
+            transform: translateY(40px) scale(0.95);
+        }
+
+        .notification-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .notification-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, var(--coral), var(--coral-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        .notification-meta {
+            flex: 1;
+        }
+
+        .notification-app {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .notification-timestamp {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .notification-body {
+            font-size: 15px;
+            line-height: 1.5;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .notification-body strong {
+            color: var(--coral-dark);
+        }
+
+        .notification-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-approve {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            background: var(--coral);
+            color: white;
+            transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .btn-approve:hover { background: var(--coral-dark); transform: scale(1.02); }
+
+        .btn-review {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--cream-dark);
+            border-radius: var(--radius-sm);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            background: transparent;
+            color: var(--text-secondary);
+            transition: border-color 0.15s ease;
+        }
+
+        .btn-review:hover { border-color: var(--coral); color: var(--coral); }
+
+        /* ===== CONTRACTOR SEARCH ===== */
+        .search-section {
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .search-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-label .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--coral);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.3); }
+        }
+
+        .thinking-steps {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            line-height: 1.8;
+        }
+
+        .thinking-step {
+            opacity: 0;
+            transform: translateX(-8px);
+        }
+
+        .thinking-step.visible {
+            opacity: 1;
+            transform: translateX(0);
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .thinking-step::before {
+            content: '>';
+            color: var(--coral);
+            margin-right: 8px;
+            font-weight: 600;
+        }
+
+        .contractor-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contractor-card {
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            box-shadow: var(--shadow-sm);
+            border: 1px solid rgba(0,0,0,0.04);
+            opacity: 0;
+            transform: translateX(-20px);
+        }
+
+        .contractor-card.selected {
+            border: 2px solid var(--coral);
+            box-shadow: var(--shadow-md);
+        }
+
+        .contractor-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .contractor-info { flex: 1; }
+
+        .contractor-name {
+            font-weight: 600;
+            font-size: 15px;
+            margin-bottom: 2px;
+        }
+
+        .contractor-detail {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .contractor-rating {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .contractor-stars {
+            font-size: 13px;
+            color: #F5A623;
+            margin-bottom: 2px;
+        }
+
+        .contractor-reviews {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .contractor-badge {
+            display: inline-block;
+            background: #E8F5E9;
+            color: #2E7D32;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+            margin-top: 4px;
+        }
+
+        /* ===== SCHEDULING SECTION ===== */
+        .scheduling-section {
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .booking-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+            border: 1px solid rgba(0,0,0,0.04);
+        }
+
+        .booking-confirmed {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .booking-check {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: #4CAF50;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .booking-title {
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .booking-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .booking-detail-item {
+            padding: 10px 12px;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+        }
+
+        .booking-detail-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+
+        .booking-detail-value {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        /* Dual confirmation bubbles */
+        .dual-confirmation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 16px;
+        }
+
+        .mini-bubble {
+            background: #ECE5DD;
+            border-radius: var(--radius-sm);
+            padding: 10px 12px;
+            font-size: 12px;
+            line-height: 1.4;
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        .mini-bubble-label {
+            font-size: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .mini-bubble .green {
+            background: var(--green-wa-light);
+            border-radius: 6px;
+            padding: 6px 8px;
+            font-size: 12px;
+        }
+
+        /* ===== RESOLUTION TIMELINE ===== */
+        .resolution-section {
+            margin-bottom: 24px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .timeline {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            font-size: 16px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeline-title span {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .timeline-items {
+            position: relative;
+        }
+
+        .timeline-items::before {
+            content: '';
+            position: absolute;
+            left: 11px;
+            top: 4px;
+            bottom: 4px;
+            width: 2px;
+            background: var(--cream-dark);
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 8px 0;
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+
+        .timeline-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: var(--cream);
+            border: 2px solid var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            flex-shrink: 0;
+            z-index: 1;
+        }
+
+        .timeline-dot.complete {
+            background: #4CAF50;
+            border-color: #4CAF50;
+            color: white;
+        }
+
+        .timeline-content {
+            flex: 1;
+            padding-top: 2px;
+        }
+
+        .timeline-event {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 2px;
+        }
+
+        .timeline-time {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ===== THE REVEAL ===== */
+        .reveal-section {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .reveal-phone {
+            background: #1A1A1A;
+            border-radius: 36px;
+            padding: 12px;
+            max-width: 340px;
+            margin: 0 auto;
+            box-shadow: var(--shadow-xl), 0 0 0 2px rgba(0,0,0,0.1);
+        }
+
+        .reveal-screen {
+            background: var(--cream);
+            border-radius: 28px;
+            overflow: hidden;
+        }
+
+        .reveal-statusbar {
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .reveal-notification {
+            padding: 16px 20px;
+        }
+
+        .reveal-notif-card {
+            background: var(--white);
+            border-radius: var(--radius-md);
+            padding: 16px;
+            box-shadow: var(--shadow-sm);
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .reveal-notif-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .reveal-notif-icon {
+            width: 28px;
+            height: 28px;
+            border-radius: 7px;
+            background: linear-gradient(135deg, var(--coral), var(--coral-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .reveal-notif-app {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--coral);
+            flex: 1;
+        }
+
+        .reveal-notif-time {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        .reveal-notif-body {
+            font-size: 14px;
+            line-height: 1.5;
+            color: var(--text-primary);
+        }
+
+        .reveal-notif-body .checkmark {
+            color: #4CAF50;
+        }
+
+        .reveal-notif-body .amount {
+            font-weight: 600;
+            color: var(--coral-dark);
+        }
+
+        .reveal-home {
+            padding: 40px 20px 20px;
+            text-align: center;
+        }
+
+        .reveal-home-indicator {
+            width: 120px;
+            height: 4px;
+            border-radius: 2px;
+            background: #ccc;
+            margin: 0 auto;
+        }
+
+        /* ===== CLOSE / CTA ===== */
+        .close-section {
+            text-align: center;
+            padding: 40px 0 60px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .close-tagline {
+            font-family: 'DM Serif Display', serif;
+            font-size: 32px;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+            line-height: 1.2;
+        }
+
+        .close-slept {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        .close-brand {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--coral);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+        }
+
+        .close-brand-tagline {
+            font-family: 'DM Serif Display', serif;
+            font-size: 22px;
+            color: var(--text-primary);
+            margin-bottom: 24px;
+        }
+
+        .close-butler {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #2C3E50, #4A6741);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            margin: 0 auto 16px;
+            box-shadow: var(--shadow-md);
+        }
+
+        .close-cta {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--coral);
+            color: white;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.15s ease;
+            box-shadow: var(--shadow-md);
+        }
+
+        .close-cta:hover {
+            background: var(--coral-dark);
+            transform: scale(1.04);
+        }
+
+        /* ===== STEP LABELS ===== */
+        .step-label {
+            font-size: 11px;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .step-number {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--coral);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        /* ===== PROGRESS BAR ===== */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--coral);
+            z-index: 100;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        /* ===== REPLAY BUTTON ===== */
+        .replay-btn {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: var(--white);
+            border: 2px solid var(--cream-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: var(--shadow-md);
+            opacity: 0;
+            transition: opacity 0.5s ease, transform 0.2s ease;
+            z-index: 50;
+        }
+
+        .replay-btn:hover {
+            transform: scale(1.1);
+            border-color: var(--coral);
+        }
+
+        .replay-btn.visible { opacity: 1; }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 480px) {
+            .scene-container { padding: 24px 16px 60px; }
+            .hero-time { font-size: 48px; }
+            .hero-time span { font-size: 22px; }
+            .close-tagline { font-size: 26px; }
+            .booking-details { grid-template-columns: 1fr; }
+            .dual-confirmation { grid-template-columns: 1fr; }
+            .reveal-phone { max-width: 300px; }
+        }
+
+        /* ===== ANIMATION UTILITIES ===== */
+        .animate-in {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) translateX(0) !important;
+            transition: opacity 0.6s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .animate-in-fast {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) translateX(0) !important;
+            transition: opacity 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                        transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .animate-in-slow {
+            opacity: 1 !important;
+            transform: translateY(0) scale(1) translateX(0) !important;
+            transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        /* Approved button state */
+        .btn-approve.approved {
+            background: #4CAF50;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<div class="scene-container">
+
+    <!-- HERO: The Time -->
+    <div class="hero" id="hero">
+        <div class="hero-time">2:14 <span>AM</span></div>
+        <div class="hero-subtitle">Tuesday, 14 January</div>
+        <div class="hero-subtext">The landlord is asleep.</div>
+    </div>
+
+    <!-- STEP 1: Tenant Message -->
+    <div id="step1">
+        <div class="step-label">
+            <span class="step-number">1</span>
+            Tenant message arrives
+        </div>
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-avatar">🏠</div>
+                <div class="chat-header-info">
+                    <div class="chat-header-name">Alfred — 42 Maple Road</div>
+                    <div class="chat-header-status">AI Property Assistant</div>
+                </div>
+            </div>
+            <div class="chat-body" id="chatBody">
+                <div class="bubble bubble-tenant" id="tenantMsg1">
+                    Hi, there's water leaking from under the boiler. It's getting worse.
+                    <div class="bubble-time">2:14 AM</div>
+                </div>
+
+                <!-- STEP 2: Alfred Diagnoses -->
+                <div class="typing-indicator" id="typingIndicator">
+                    <span></span><span></span><span></span>
+                </div>
+
+                <div class="bubble bubble-alfred" id="alfredMsg1">
+                    <div class="bubble-sender">Alfred</div>
+                    I can see this could be a pressurisation issue or a leak in the heat exchanger. Can you send a photo of where exactly the water is coming from? Also, is the boiler still running or have you turned it off?
+                    <div class="bubble-time">2:14 AM <span class="tick">✓✓</span></div>
+                </div>
+
+                <div class="bubble bubble-tenant" id="tenantMsg2">
+                    I've turned it off. Water is coming from the bottom left, near the pipe connection. Here's a photo 📷
+                    <div class="bubble-time">2:16 AM</div>
+                </div>
+
+                <div class="bubble bubble-alfred" id="alfredMsg2">
+                    <div class="bubble-sender">Alfred</div>
+                    Thank you for turning it off — that was the right call. Based on the location, this looks like a valve seal failure. I'm contacting an emergency plumber now and notifying your landlord.
+                    <div class="bubble-time">2:17 AM <span class="tick">✓✓</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 3: Landlord Notification -->
+    <div id="step3">
+        <div class="step-label" style="opacity:0" id="step3Label">
+            <span class="step-number">3</span>
+            Landlord notified
+        </div>
+        <div class="notification-card" id="notificationCard">
+            <div class="notification-header">
+                <div class="notification-icon">🏡</div>
+                <div class="notification-meta">
+                    <div class="notification-app">Abodient</div>
+                    <div class="notification-timestamp">2:18 AM · 42 Maple Road</div>
+                </div>
+            </div>
+            <div class="notification-body">
+                🔔 <strong>Urgent maintenance — boiler leak</strong><br>
+                Tenant reported water leak from boiler valve. Boiler turned off. Emergency plumber recommended.<br><br>
+                Estimated cost: <strong>£150–£220</strong>
+            </div>
+            <div class="notification-actions">
+                <button class="btn-approve" id="btnApprove">Approve</button>
+                <button class="btn-review">Review Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 4: Contractor Search -->
+    <div id="step4">
+        <div class="search-section" id="searchSection">
+            <div class="step-label" style="opacity:0" id="step4Label">
+                <span class="step-number">4</span>
+                Alfred searches contractors
+            </div>
+
+            <div class="search-label">
+                <span class="dot"></span>
+                Alfred is working
+            </div>
+
+            <div class="thinking-steps" id="thinkingSteps">
+                <div class="thinking-step" id="think1">Reading lease agreement for 42 Maple Road...</div>
+                <div class="thinking-step" id="think2">Checking approved contractor list...</div>
+                <div class="thinking-step" id="think3">Searching Checkatrade for emergency plumbers in SE15...</div>
+                <div class="thinking-step" id="think4">Matching availability for today...</div>
+            </div>
+
+            <div class="contractor-cards" id="contractorCards">
+                <div class="contractor-card" id="contractor1">
+                    <div class="contractor-avatar" style="background: linear-gradient(135deg, #3498DB, #2980B9);">MP</div>
+                    <div class="contractor-info">
+                        <div class="contractor-name">Mike's Plumbing</div>
+                        <div class="contractor-detail">Emergency callout · Available 8:30am</div>
+                        <span class="contractor-badge">Best match</span>
+                    </div>
+                    <div class="contractor-rating">
+                        <div class="contractor-stars">★★★★★</div>
+                        <div class="contractor-reviews">142 reviews</div>
+                    </div>
+                </div>
+                <div class="contractor-card" id="contractor2">
+                    <div class="contractor-avatar" style="background: linear-gradient(135deg, #E67E22, #D35400);">HS</div>
+                    <div class="contractor-info">
+                        <div class="contractor-name">HomeSure Plumbing</div>
+                        <div class="contractor-detail">24hr service · Available 9:00am</div>
+                    </div>
+                    <div class="contractor-rating">
+                        <div class="contractor-stars">★★★★☆</div>
+                        <div class="contractor-reviews">89 reviews</div>
+                    </div>
+                </div>
+                <div class="contractor-card" id="contractor3">
+                    <div class="contractor-avatar" style="background: linear-gradient(135deg, #27AE60, #229954);">JR</div>
+                    <div class="contractor-info">
+                        <div class="contractor-name">J. Reeves & Sons</div>
+                        <div class="contractor-detail">Emergency plumber · Available 10:15am</div>
+                    </div>
+                    <div class="contractor-rating">
+                        <div class="contractor-stars">★★★★★</div>
+                        <div class="contractor-reviews">203 reviews</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 5: Auto-scheduling -->
+    <div id="step5">
+        <div class="scheduling-section" id="schedulingSection">
+            <div class="step-label" style="opacity:0" id="step5Label">
+                <span class="step-number">5</span>
+                Booking confirmed
+            </div>
+            <div class="booking-card">
+                <div class="booking-confirmed">
+                    <div class="booking-check">✓</div>
+                    <div class="booking-title">Mike's Plumbing — Booked</div>
+                </div>
+                <div class="booking-details">
+                    <div class="booking-detail-item">
+                        <div class="booking-detail-label">Arrival</div>
+                        <div class="booking-detail-value">8:30 AM today</div>
+                    </div>
+                    <div class="booking-detail-item">
+                        <div class="booking-detail-label">Estimated Cost</div>
+                        <div class="booking-detail-value">£180</div>
+                    </div>
+                    <div class="booking-detail-item">
+                        <div class="booking-detail-label">Property</div>
+                        <div class="booking-detail-value">42 Maple Road</div>
+                    </div>
+                    <div class="booking-detail-item">
+                        <div class="booking-detail-label">Issue</div>
+                        <div class="booking-detail-value">Boiler valve leak</div>
+                    </div>
+                </div>
+                <div class="dual-confirmation">
+                    <div class="mini-bubble" id="confirmTenant">
+                        <div class="mini-bubble-label">→ Sent to tenant</div>
+                        <div class="green">"Mike from Mike's Plumbing will arrive at 8:30am. He'll call you 15 min before."</div>
+                    </div>
+                    <div class="mini-bubble" id="confirmContractor">
+                        <div class="mini-bubble-label">→ Sent to contractor</div>
+                        <div class="green">"Booking confirmed: 42 Maple Road, SE15. Boiler valve leak, ground floor. Tenant: Sarah M."</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 6: Resolution Logged -->
+    <div id="step6">
+        <div class="resolution-section" id="resolutionSection">
+            <div class="step-label" style="opacity:0" id="step6Label">
+                <span class="step-number">6</span>
+                Resolution logged
+            </div>
+            <div class="timeline">
+                <div class="timeline-title">
+                    Maintenance #1847 <span>· 42 Maple Road</span>
+                </div>
+                <div class="timeline-items">
+                    <div class="timeline-item" id="tl1">
+                        <div class="timeline-dot complete">✓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Issue reported by tenant</div>
+                            <div class="timeline-time">2:14 AM</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="tl2">
+                        <div class="timeline-dot complete">✓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Alfred diagnosed: valve seal failure</div>
+                            <div class="timeline-time">2:17 AM</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="tl3">
+                        <div class="timeline-dot complete">✓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Landlord notified & approved</div>
+                            <div class="timeline-time">7:15 AM</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="tl4">
+                        <div class="timeline-dot complete">✓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Mike's Plumbing booked</div>
+                            <div class="timeline-time">2:19 AM (auto)</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="tl5">
+                        <div class="timeline-dot complete">✓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Plumber arrived, valve replaced</div>
+                            <div class="timeline-time">8:42 AM</div>
+                        </div>
+                    </div>
+                    <div class="timeline-item" id="tl6">
+                        <div class="timeline-dot complete">✓</div>
+                        <div class="timeline-content">
+                            <div class="timeline-event">Tenant confirmed resolved</div>
+                            <div class="timeline-time">9:15 AM</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STEP 7: The Reveal -->
+    <div id="step7">
+        <div class="reveal-section" id="revealSection">
+            <div class="step-label" style="opacity:0" id="step7Label">
+                <span class="step-number">7</span>
+                The landlord wakes up
+            </div>
+            <div class="reveal-phone">
+                <div class="reveal-screen">
+                    <div class="reveal-statusbar">
+                        <span>7:15 AM</span>
+                        <span>Tue 14 Jan</span>
+                    </div>
+                    <div class="reveal-notification">
+                        <div class="reveal-notif-card" id="revealNotif">
+                            <div class="reveal-notif-header">
+                                <div class="reveal-notif-icon">🏡</div>
+                                <div class="reveal-notif-app">Abodient</div>
+                                <div class="reveal-notif-time">now</div>
+                            </div>
+                            <div class="reveal-notif-body">
+                                <span class="checkmark">✅</span> Boiler leak at 42 Maple Road — <strong>resolved</strong>.<br>
+                                Emergency plumber booked for 8:30am.<br>
+                                Approved spend: <span class="amount">£180</span>.<br><br>
+                                <em style="color: var(--text-muted); font-size: 13px;">You slept through the entire thing.</em>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reveal-home">
+                        <div class="reveal-home-indicator"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CLOSE -->
+    <div class="close-section" id="closeSection">
+        <div class="close-butler">🎩</div>
+        <div class="close-tagline">Alfred handled it.</div>
+        <div class="close-slept">You slept.</div>
+        <div class="close-brand">Abodient</div>
+        <div class="close-brand-tagline">Your 24/7 AI Property Manager</div>
+        <a href="https://abodient.ai" class="close-cta" target="_blank" rel="noopener">Meet Alfred</a>
+    </div>
+
+</div>
+
+<button class="replay-btn" id="replayBtn" title="Replay animation">↻</button>
+
+<script>
+(function() {
+    'use strict';
+
+    // ===== ANIMATION TIMELINE ENGINE =====
+    // Duration-scaled: fast for urgent items, slow for significant moments
+    const SPRING = 'animate-in';
+    const FAST = 'animate-in-fast';
+    const SLOW = 'animate-in-slow';
+
+    let timeouts = [];
+    let isPlaying = false;
+
+    function schedule(fn, delay) {
+        const t = setTimeout(fn, delay);
+        timeouts.push(t);
+        return t;
+    }
+
+    function clearAll() {
+        timeouts.forEach(t => clearTimeout(t));
+        timeouts = [];
+    }
+
+    function updateProgress(pct) {
+        document.getElementById('progressBar').style.width = pct + '%';
+    }
+
+    function animateIn(el, cls) {
+        if (typeof el === 'string') el = document.getElementById(el);
+        if (el) el.classList.add(cls || SPRING);
+    }
+
+    function showStepLabel(id) {
+        const el = document.getElementById(id);
+        if (el) {
+            el.style.opacity = '1';
+            el.style.transition = 'opacity 0.4s ease';
+        }
+    }
+
+    function resetAll() {
+        clearAll();
+        // Reset all animated elements
+        document.querySelectorAll('.animate-in, .animate-in-fast, .animate-in-slow').forEach(el => {
+            el.classList.remove('animate-in', 'animate-in-fast', 'animate-in-slow');
+        });
+
+        // Reset specific states
+        const typing = document.getElementById('typingIndicator');
+        if (typing) typing.classList.remove('active');
+
+        const btn = document.getElementById('btnApprove');
+        if (btn) {
+            btn.classList.remove('approved');
+            btn.textContent = 'Approve';
+        }
+
+        const c1 = document.getElementById('contractor1');
+        if (c1) c1.classList.remove('selected');
+
+        // Reset step labels
+        ['step3Label','step4Label','step5Label','step6Label','step7Label'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.style.opacity = '0';
+        });
+
+        // Reset thinking steps
+        ['think1','think2','think3','think4'].forEach(id => {
+            const el = document.getElementById(id);
+            if (el) el.classList.remove('visible');
+        });
+
+        document.getElementById('replayBtn').classList.remove('visible');
+        updateProgress(0);
+    }
+
+    // ===== THE CHAIN =====
+    function playChain() {
+        if (isPlaying) return;
+        isPlaying = true;
+        resetAll();
+
+        // Scroll to top
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        let t = 0;
+
+        // HERO (0–2s): The time hook
+        t += 300;
+        schedule(() => {
+            animateIn('hero', SLOW);
+            updateProgress(3);
+        }, t);
+
+        // STEP 1 (2–4s): Tenant message — FAST, urgent
+        t += 2000;
+        schedule(() => {
+            animateIn('chatContainer', SPRING);
+            updateProgress(8);
+        }, t);
+
+        t += 400;
+        schedule(() => {
+            animateIn('tenantMsg1', FAST);
+            updateProgress(12);
+        }, t);
+
+        // STEP 2 (4–9s): Alfred diagnoses — significant, shows competence
+        t += 1800;
+        schedule(() => {
+            const typing = document.getElementById('typingIndicator');
+            typing.classList.add('active');
+            typing.style.opacity = '1';
+            updateProgress(18);
+        }, t);
+
+        t += 1500;
+        schedule(() => {
+            document.getElementById('typingIndicator').classList.remove('active');
+            document.getElementById('typingIndicator').style.opacity = '0';
+            animateIn('alfredMsg1', SPRING);
+            updateProgress(25);
+        }, t);
+
+        // Tenant reply
+        t += 2000;
+        schedule(() => {
+            animateIn('tenantMsg2', FAST);
+            updateProgress(28);
+        }, t);
+
+        // Alfred's follow-up
+        t += 1200;
+        schedule(() => {
+            animateIn('alfredMsg2', SPRING);
+            updateProgress(32);
+        }, t);
+
+        // Smooth scroll to keep up
+        t += 800;
+        schedule(() => {
+            document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, t);
+
+        // STEP 3 (9–13s): Landlord notification — ceremonial, 1200ms entrance
+        t += 600;
+        schedule(() => {
+            showStepLabel('step3Label');
+            updateProgress(36);
+        }, t);
+
+        t += 400;
+        schedule(() => {
+            animateIn('notificationCard', SLOW);
+            updateProgress(42);
+        }, t);
+
+        // Auto-approve after a beat
+        t += 2500;
+        schedule(() => {
+            const btn = document.getElementById('btnApprove');
+            btn.classList.add('approved');
+            btn.textContent = '✓ Approved';
+            updateProgress(48);
+        }, t);
+
+        // Scroll
+        t += 600;
+        schedule(() => {
+            document.getElementById('step4').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, t);
+
+        // STEP 4 (13–18s): Contractor search
+        t += 600;
+        schedule(() => {
+            showStepLabel('step4Label');
+            animateIn('searchSection', SPRING);
+            updateProgress(52);
+        }, t);
+
+        // Thinking steps — staggered
+        t += 500;
+        schedule(() => { document.getElementById('think1').classList.add('visible'); }, t);
+        t += 600;
+        schedule(() => { document.getElementById('think2').classList.add('visible'); }, t);
+        t += 600;
+        schedule(() => { document.getElementById('think3').classList.add('visible'); }, t);
+        t += 600;
+        schedule(() => {
+            document.getElementById('think4').classList.add('visible');
+            updateProgress(58);
+        }, t);
+
+        // Contractor cards — staggered
+        t += 800;
+        schedule(() => {
+            animateIn('contractor1', SPRING);
+            updateProgress(62);
+        }, t);
+        t += 300;
+        schedule(() => { animateIn('contractor2', SPRING); }, t);
+        t += 300;
+        schedule(() => {
+            animateIn('contractor3', SPRING);
+            updateProgress(65);
+        }, t);
+
+        // Highlight best match
+        t += 600;
+        schedule(() => {
+            document.getElementById('contractor1').classList.add('selected');
+        }, t);
+
+        // Scroll
+        t += 400;
+        schedule(() => {
+            document.getElementById('step5').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, t);
+
+        // STEP 5 (18–23s): Auto-scheduling
+        t += 600;
+        schedule(() => {
+            showStepLabel('step5Label');
+            animateIn('schedulingSection', SPRING);
+            updateProgress(72);
+        }, t);
+
+        // Dual confirmation bubbles
+        t += 1000;
+        schedule(() => {
+            animateIn('confirmTenant', SPRING);
+            updateProgress(75);
+        }, t);
+        t += 400;
+        schedule(() => {
+            animateIn('confirmContractor', SPRING);
+            updateProgress(78);
+        }, t);
+
+        // Scroll
+        t += 800;
+        schedule(() => {
+            document.getElementById('step6').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, t);
+
+        // STEP 6 (23–28s): Resolution timeline
+        t += 600;
+        schedule(() => {
+            showStepLabel('step6Label');
+            animateIn('resolutionSection', SPRING);
+            updateProgress(82);
+        }, t);
+
+        // Timeline items — rapid stagger
+        t += 500;
+        const tlItems = ['tl1','tl2','tl3','tl4','tl5','tl6'];
+        tlItems.forEach((id, i) => {
+            schedule(() => {
+                animateIn(id, SPRING);
+                updateProgress(82 + (i + 1) * 2);
+            }, t + i * 250);
+        });
+        t += tlItems.length * 250;
+
+        // Scroll
+        t += 800;
+        schedule(() => {
+            document.getElementById('step7').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, t);
+
+        // STEP 7 (28–35s): The reveal
+        t += 600;
+        schedule(() => {
+            showStepLabel('step7Label');
+            animateIn('revealSection', SLOW);
+            updateProgress(92);
+        }, t);
+
+        t += 1200;
+        schedule(() => {
+            animateIn('revealNotif', SPRING);
+            updateProgress(95);
+        }, t);
+
+        // Scroll to close
+        t += 2500;
+        schedule(() => {
+            document.getElementById('closeSection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, t);
+
+        // CLOSE (35–45s): Ritardando
+        t += 600;
+        schedule(() => {
+            animateIn('closeSection', SLOW);
+            updateProgress(100);
+        }, t);
+
+        // Show replay button
+        t += 2000;
+        schedule(() => {
+            document.getElementById('replayBtn').classList.add('visible');
+            isPlaying = false;
+        }, t);
+    }
+
+    // ===== REPLAY =====
+    document.getElementById('replayBtn').addEventListener('click', function() {
+        isPlaying = false;
+        playChain();
+    });
+
+    // ===== AUTO-APPROVE INTERACTION =====
+    document.getElementById('btnApprove').addEventListener('click', function() {
+        this.classList.add('approved');
+        this.textContent = '✓ Approved';
+    });
+
+    // ===== START ON LOAD =====
+    if (document.readyState === 'complete') {
+        setTimeout(playChain, 500);
+    } else {
+        window.addEventListener('load', function() {
+            setTimeout(playChain, 500);
+        });
+    }
+
+})();
+</script>
+
+</body>
+</html>
