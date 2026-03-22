@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Abodient — You Slept Through It</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-night: #0a0a0f;
+            --bg-dawn: #1a1510;
+            --bg-morning: #f5efe6;
+            --text-primary: #ffffff;
+            --text-muted: #5a5a6e;
+            --text-timestamp: #3a3a4e;
+            --accent-coral: #e8734a;
+            --accent-warm: #d4956a;
+            --flash-white: rgba(255, 255, 255, 0.15);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-night);
+            color: var(--text-primary);
+            overflow: hidden;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Film grain overlay */
+        .grain {
+            position: fixed;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            pointer-events: none;
+            z-index: 1000;
+            opacity: 0.035;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            animation: grain-shift 0.3s steps(3) infinite;
+        }
+        @keyframes grain-shift {
+            0% { transform: translate(0, 0); }
+            33% { transform: translate(-2px, 1px); }
+            66% { transform: translate(1px, -1px); }
+            100% { transform: translate(-1px, 2px); }
+        }
+
+        /* Background color transition layer */
+        .bg-transition {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 0;
+            transition: background 3s ease;
+            background: var(--bg-night);
+        }
+        .bg-transition.dawn {
+            background: var(--bg-dawn);
+        }
+        .bg-transition.morning {
+            background: var(--bg-morning);
+        }
+
+        /* Flash overlay */
+        .flash-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 500;
+            background: white;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .flash-overlay.fire {
+            animation: flash-burst 0.6s ease-out forwards;
+        }
+        @keyframes flash-burst {
+            0% { opacity: 0.35; }
+            100% { opacity: 0; }
+        }
+
+        /* Stage container */
+        .stage {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 800px;
+            padding: 0 32px;
+            text-align: center;
+        }
+
+        /* ACT 1: Chain steps */
+        .chain-step {
+            opacity: 0;
+            transform: translateY(20px);
+            margin-bottom: 6px;
+            will-change: transform, opacity;
+        }
+        .chain-step.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .chain-step.slam-in {
+            animation: slam 0.18s cubic-bezier(0.2, 0, 0.1, 1) forwards;
+        }
+        .chain-step.fade-out {
+            animation: step-fade 0.4s ease forwards;
+        }
+        @keyframes slam {
+            0% {
+                opacity: 0;
+                transform: translateY(24px) scale(1.02);
+            }
+            60% {
+                opacity: 1;
+                transform: translateY(-2px) scale(0.99);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        @keyframes step-fade {
+            to {
+                opacity: 0;
+                transform: translateY(-8px);
+            }
+        }
+
+        .chain-step .timestamp {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 13px;
+            font-weight: 400;
+            color: var(--text-timestamp);
+            letter-spacing: 0.05em;
+            margin-bottom: 2px;
+        }
+        .chain-step .action {
+            font-size: 18px;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.88);
+            line-height: 1.5;
+            letter-spacing: -0.01em;
+        }
+        .chain-step .action .highlight {
+            color: var(--accent-coral);
+            font-weight: 500;
+        }
+
+        /* ACT 2: Release lines */
+        .release-line {
+            opacity: 0;
+            transform: translateY(12px);
+            will-change: transform, opacity;
+        }
+        .release-line.visible {
+            animation: spring-in 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes spring-in {
+            0% {
+                opacity: 0;
+                transform: translateY(16px) scale(0.96);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .release-line .time-big {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 42px;
+            font-weight: 300;
+            color: var(--accent-warm);
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+        }
+        .release-line .phrase {
+            font-size: 28px;
+            font-weight: 300;
+            line-height: 1.6;
+            letter-spacing: -0.01em;
+        }
+        .release-line .phrase.small {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .release-line .resolved {
+            font-size: 36px;
+            font-weight: 500;
+            color: var(--accent-coral);
+            letter-spacing: -0.02em;
+        }
+
+        /* Morning mode text colors */
+        .morning-text .phrase {
+            color: #1a1510 !important;
+        }
+        .morning-text .phrase.small {
+            color: rgba(26, 21, 16, 0.6) !important;
+        }
+
+        /* ACT 3: Close */
+        .close-line {
+            opacity: 0;
+            transform: translateY(10px);
+            will-change: transform, opacity;
+        }
+        .close-line.visible {
+            animation: spring-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        .close-line .tagline {
+            font-size: 22px;
+            font-weight: 300;
+            color: rgba(26, 21, 16, 0.75);
+            line-height: 1.7;
+            margin-bottom: 8px;
+        }
+        .close-line .brand {
+            font-size: 15px;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: rgba(26, 21, 16, 0.45);
+            margin-top: 32px;
+        }
+        .close-line .brand-name {
+            font-size: 28px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            text-transform: none;
+            color: #1a1510;
+            margin-bottom: 4px;
+        }
+        .close-line .brand-sub {
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.08em;
+            color: rgba(26, 21, 16, 0.5);
+        }
+
+        /* Replay button */
+        .replay-btn {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            z-index: 100;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: rgba(255, 255, 255, 0.5);
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 400;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.5s ease, border-color 0.2s ease, color 0.2s ease;
+            letter-spacing: 0.03em;
+        }
+        .replay-btn.visible {
+            opacity: 1;
+        }
+        .replay-btn.morning-btn {
+            border-color: rgba(26, 21, 16, 0.15);
+            color: rgba(26, 21, 16, 0.4);
+        }
+        .replay-btn:hover {
+            border-color: var(--accent-coral);
+            color: var(--accent-coral);
+        }
+
+        /* Progress bar */
+        .progress-bar {
+            position: fixed;
+            bottom: 0; left: 0;
+            height: 2px;
+            background: var(--accent-coral);
+            z-index: 100;
+            width: 0%;
+            opacity: 0.5;
+            transition: width 0.1s linear;
+        }
+
+        @media (max-width: 600px) {
+            .chain-step .action { font-size: 15px; }
+            .chain-step .timestamp { font-size: 11px; }
+            .release-line .time-big { font-size: 32px; }
+            .release-line .phrase { font-size: 22px; }
+            .release-line .resolved { font-size: 28px; }
+            .close-line .tagline { font-size: 18px; }
+            .close-line .brand-name { font-size: 24px; }
+            .stage { padding: 0 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="bg-transition" id="bg"></div>
+<div class="flash-overlay" id="flash"></div>
+<div class="progress-bar" id="progress"></div>
+
+<div class="stage" id="stage"></div>
+
+<button class="replay-btn" id="replay">Replay</button>
+
+<script>
+(function() {
+    'use strict';
+
+    const TOTAL_DURATION = 35000; // 35 seconds
+    const stage = document.getElementById('stage');
+    const bg = document.getElementById('bg');
+    const flash = document.getElementById('flash');
+    const progress = document.getElementById('progress');
+    const replayBtn = document.getElementById('replay');
+
+    // Timeline data
+    const chainSteps = [
+        { time: '2:14 AM', action: 'Tenant reports boiler leak', hold: 1500 },
+        { time: '2:15 AM', action: 'Alfred asks diagnostic questions', hold: 1200 },
+        { time: '2:18 AM', action: 'Photo received. <span class="highlight">Heat exchanger</span> identified.', hold: 1000 },
+        { time: '2:19 AM', action: 'Emergency plumber search initiated', hold: 800 },
+        { time: '2:22 AM', action: '3 contractors found, <span class="highlight">best match selected</span>', hold: 600 },
+        { time: '2:25 AM', action: 'Availability coordinated with tenant', hold: 500 },
+        { time: '2:28 AM', action: 'Booking confirmed. <span class="highlight">Mike\'s Plumbing, 8:30am.</span>', hold: 400 },
+    ];
+
+    const releaseLines = [
+        { type: 'time', content: '7:15 AM', hold: 2500 },
+        { type: 'phrase', content: 'You woke up.', hold: 2500 },
+        { type: 'phrase-small', content: 'One notification.', hold: 2000 },
+        { type: 'resolved', content: '\u2705 Resolved.', hold: 2000, flash: true },
+    ];
+
+    const closeLines = [
+        { type: 'tagline', content: 'Alfred handled it.', hold: 2000 },
+        { type: 'tagline', content: 'You slept.', hold: 1500 },
+        { type: 'brand', hold: 2500 },
+    ];
+
+    let animTimer = null;
+    let progressTimer = null;
+    let startTime = 0;
+
+    function clearStage() {
+        stage.innerHTML = '';
+        bg.className = 'bg-transition';
+        flash.classList.remove('fire');
+        replayBtn.classList.remove('visible', 'morning-btn');
+        progress.style.width = '0%';
+        if (animTimer) clearTimeout(animTimer);
+        if (progressTimer) clearInterval(progressTimer);
+    }
+
+    function sleep(ms) {
+        return new Promise(resolve => {
+            animTimer = setTimeout(resolve, ms);
+        });
+    }
+
+    function createChainStep(step) {
+        const el = document.createElement('div');
+        el.className = 'chain-step';
+        el.innerHTML = `
+            <div class="timestamp">${step.time}</div>
+            <div class="action">${step.action}</div>
+        `;
+        return el;
+    }
+
+    function createReleaseLine(line) {
+        const el = document.createElement('div');
+        el.className = 'release-line';
+        if (line.type === 'time') {
+            el.innerHTML = `<div class="time-big">${line.content}</div>`;
+        } else if (line.type === 'phrase') {
+            el.innerHTML = `<div class="phrase">${line.content}</div>`;
+        } else if (line.type === 'phrase-small') {
+            el.innerHTML = `<div class="phrase small">${line.content}</div>`;
+        } else if (line.type === 'resolved') {
+            el.innerHTML = `<div class="resolved">${line.content}</div>`;
+        }
+        return el;
+    }
+
+    function createCloseLine(line) {
+        const el = document.createElement('div');
+        el.className = 'close-line';
+        if (line.type === 'tagline') {
+            el.innerHTML = `<div class="tagline">${line.content}</div>`;
+        } else if (line.type === 'brand') {
+            el.innerHTML = `
+                <div style="margin-top: 40px;">
+                    <div class="brand-name">Abodient</div>
+                    <div class="brand-sub">Your 24/7 AI Property Manager</div>
+                </div>
+            `;
+        }
+        return el;
+    }
+
+    function fireFlash() {
+        flash.classList.remove('fire');
+        void flash.offsetWidth; // force reflow
+        flash.classList.add('fire');
+    }
+
+    async function runAnimation() {
+        clearStage();
+        startTime = Date.now();
+
+        // Start progress bar
+        progressTimer = setInterval(() => {
+            const elapsed = Date.now() - startTime;
+            const pct = Math.min((elapsed / TOTAL_DURATION) * 100, 100);
+            progress.style.width = pct + '%';
+        }, 50);
+
+        // === ACT 1: THE LOADING (0-18s) ===
+        // Initial pause — darkness, anticipation
+        await sleep(800);
+
+        const stepEls = [];
+        for (let i = 0; i < chainSteps.length; i++) {
+            const step = chainSteps[i];
+            const el = createChainStep(step);
+            stage.appendChild(el);
+            stepEls.push(el);
+
+            // Brief delay then slam in
+            await sleep(80);
+            el.classList.add('slam-in');
+
+            // Hold for the decreasing duration
+            await sleep(step.hold);
+
+            // After the 4th step, start transitioning background toward dawn
+            if (i === 3) {
+                bg.classList.add('dawn');
+            }
+        }
+
+        // Brief hold with all steps visible
+        await sleep(600);
+
+        // Fade out all chain steps
+        stepEls.forEach((el, i) => {
+            setTimeout(() => el.classList.add('fade-out'), i * 60);
+        });
+        await sleep(800);
+
+        // Clear stage for Act 2
+        stage.innerHTML = '';
+
+        // === ACT 2: THE RELEASE (18-28s) ===
+        // The fermata — long pause in darkness/dawn
+        await sleep(1800);
+
+        // Transition to morning
+        bg.classList.remove('dawn');
+        bg.classList.add('morning');
+
+        await sleep(1000);
+
+        // Release lines come in slowly with spring easing
+        for (let i = 0; i < releaseLines.length; i++) {
+            const line = releaseLines[i];
+            const el = createReleaseLine(line);
+            el.classList.add('morning-text');
+            stage.appendChild(el);
+
+            await sleep(200);
+            el.classList.add('visible');
+
+            if (line.flash) {
+                await sleep(300);
+                fireFlash();
+            }
+
+            await sleep(line.hold);
+        }
+
+        // Hold on the resolved state
+        await sleep(500);
+
+        // Fade out release lines
+        const releaseEls = stage.querySelectorAll('.release-line');
+        releaseEls.forEach((el, i) => {
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            setTimeout(() => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(-6px)';
+            }, i * 80);
+        });
+        await sleep(800);
+        stage.innerHTML = '';
+
+        // === ACT 3: CLOSE (28-35s) ===
+        await sleep(600);
+
+        for (let i = 0; i < closeLines.length; i++) {
+            const line = closeLines[i];
+            const el = createCloseLine(line);
+            stage.appendChild(el);
+
+            await sleep(150);
+            el.classList.add('visible');
+
+            await sleep(line.hold);
+        }
+
+        // Show replay button
+        clearInterval(progressTimer);
+        progress.style.width = '100%';
+
+        await sleep(500);
+        replayBtn.classList.add('visible', 'morning-btn');
+    }
+
+    // Start on load
+    window.addEventListener('load', () => {
+        setTimeout(runAnimation, 300);
+    });
+
+    // Replay
+    replayBtn.addEventListener('click', () => {
+        runAnimation();
+    });
+})();
+</script>
+
+</body>
+</html>

@@ -6515,5 +6515,10 @@ def mockup_product_v8():
     return render_template('mockup-product-v8.html')
 
 
+@app.route('/mockup-abodient-brand')
+def mockup_abodient_brand():
+    return render_template('mockup-abodient-brand.html')
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
