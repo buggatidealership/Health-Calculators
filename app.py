@@ -6544,6 +6544,10 @@ def mockup_abodient_brand():
 def mockup_abodient_product():
     return render_template('mockup-abodient-product.html')
 
+@app.route('/mockup-calculators-redesign')
+def mockup_calculators_redesign():
+    return render_template('mockup-calculators-redesign.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
