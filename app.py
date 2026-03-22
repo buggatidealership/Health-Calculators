@@ -6052,6 +6052,10 @@ def mockup_landing_v12():
 def mockup_landing_harmony():
     return render_template('mockup-landing-harmony.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-landing-final')
+def mockup_landing_final():
+    return render_template('mockup-landing-final.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-landing-redesign')
 def mockup_landing_redesign():
     return render_template('mockup-landing-redesign.html', is_homepage=True, robots_meta='noindex, nofollow')
