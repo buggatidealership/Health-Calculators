@@ -5863,6 +5863,10 @@ def mockup_brand_v28():
 def mockup_brand_v26():
     return render_template('mockup-brand-v26.html', is_homepage=True, robots_meta='noindex, nofollow')
 
+@app.route('/mockup-twitter-reply-caffeine')
+def mockup_twitter_reply_caffeine():
+    return render_template('mockup-twitter-reply-caffeine.html', is_homepage=True, robots_meta='noindex, nofollow')
+
 @app.route('/mockup-calc-v1')
 def mockup_calc_v1():
     return render_template('mockup-calc-v1.html')

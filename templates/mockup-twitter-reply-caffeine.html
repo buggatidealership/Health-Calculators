@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>How Long Does Caffeine Last?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html,body{background:#0a0f1a;color:#e2e8f0;font-family:'DM Sans',sans-serif;overflow:hidden;width:100vw;height:100vh}
+
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+
+/* Flash overlay */
+.flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:80;transition:opacity 0.05s}
+.flash.hit{opacity:0.07}
+
+/* Scenes */
+.scene{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.25s ease-out;padding:2rem;text-align:center;gap:12px}
+.scene.on{opacity:1}
+
+/* S1: The Question */
+.question{font-family:'DM Sans',sans-serif;font-size:clamp(1rem,2.5vw,1.3rem);color:#64748b;
+  opacity:0;transform:translateY(8px);transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1)}
+.question.in{opacity:1;transform:translateY(0)}
+.question-icon{font-size:1.4rem;margin-bottom:4px;opacity:0;transition:opacity 0.3s ease}
+.question-icon.in{opacity:1}
+
+/* S2: The common answer (wrong — mechanical) */
+.wrong{font-family:'DM Sans',sans-serif;font-size:clamp(1.1rem,2.8vw,1.5rem);color:#475569;
+  opacity:0;transition:opacity 0.3s ease-in-out}
+.wrong.in{opacity:1}
+.wrong-strike{text-decoration:line-through;text-decoration-color:#ef4444;text-decoration-thickness:2px}
+
+/* S3: The cascade — THE EXPERIENCE */
+.cascade-wrap{display:flex;flex-direction:column;align-items:center;gap:clamp(8px,2vh,16px)}
+.c-step{display:flex;align-items:center;gap:clamp(10px,2vw,20px);
+  opacity:0;transform:translateX(-12px);transition:all 0.35s cubic-bezier(0.34,1.56,0.64,1)}
+.c-step.in{opacity:1;transform:translateX(0)}
+.c-mg{font-family:'DM Sans',sans-serif;font-size:clamp(1.8rem,5vw,2.8rem);font-weight:800;
+  min-width:clamp(70px,12vw,120px);text-align:right;transition:color 0.3s ease}
+.c-time{font-size:clamp(0.7rem,1.5vw,0.9rem);color:#64748b}
+.c-arrow{font-size:clamp(0.55rem,1.2vw,0.7rem);color:#334155;padding-left:clamp(70px,12vw,120px);
+  opacity:0;transition:opacity 0.2s ease}
+.c-arrow.in{opacity:1}
+
+/* S4: The rule — HERO MOMENT */
+.rule{font-family:'DM Serif Display',serif;font-size:clamp(1.6rem,4.5vw,2.6rem);color:#14b8a6;
+  text-shadow:0 0 30px rgba(20,184,166,0.25);
+  opacity:0;transform:scale(0.92);transition:all 0.6s cubic-bezier(0.34,1.56,0.64,1)}
+.rule.in{opacity:1;transform:scale(1)}
+.rule-sub{font-size:clamp(0.75rem,1.6vw,0.9rem);color:#475569;margin-top:8px;
+  opacity:0;transition:opacity 0.5s ease}
+.rule-sub.in{opacity:1}
+
+/* S5: Brand close */
+.brand{font-family:'DM Sans',sans-serif;font-size:clamp(0.8rem,1.8vw,1rem);color:#94a3b8;
+  letter-spacing:3px;opacity:0;transition:opacity 0.6s ease}
+.brand.in{opacity:1}
+.brand-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#22c55e;
+  margin-right:8px;vertical-align:middle;animation:pdot 2.5s ease-in-out infinite}
+@keyframes pdot{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+/* Replay */
+.replay{position:fixed;bottom:16px;right:16px;background:rgba(14,122,126,0.1);border:1px solid rgba(14,122,126,0.2);
+  color:#0e7a7e;font-family:'DM Sans';font-size:0.65rem;padding:6px 14px;border-radius:16px;
+  cursor:pointer;opacity:0;transition:opacity 0.4s;z-index:90;letter-spacing:0.5px;font-weight:600}
+.replay.show{opacity:1}
+
+.spark{position:fixed;pointer-events:none;z-index:60;border-radius:50%}
+@keyframes spk{0%{opacity:0.9;transform:translate(0,0) scale(1)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(0)}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="flash" id="flash"></div>
+
+<!-- S1: The question everyone googles -->
+<div class="scene" id="s1">
+  <div class="question-icon" id="qi">🔍</div>
+  <div class="question" id="q1">"How long does caffeine last?"</div>
+</div>
+
+<!-- S2: The common wrong answer -->
+<div class="scene" id="s2">
+  <div class="wrong" id="w1">The internet says</div>
+  <div class="wrong" id="w2" style="font-size:clamp(1.6rem,4vw,2.2rem);color:#64748b;font-weight:700;margin-top:8px">3–5 hours.</div>
+  <div class="wrong wrong-strike" id="w3" style="margin-top:16px;font-size:clamp(0.8rem,1.6vw,0.95rem);color:#475569">That's incomplete.</div>
+</div>
+
+<!-- S3: The cascade — viewer WATCHES caffeine decay -->
+<div class="scene" id="s3">
+  <div class="cascade-wrap" id="cascade"></div>
+</div>
+
+<!-- S4: The rule — hero moment, deceleration, hold -->
+<div class="scene" id="s4">
+  <div class="rule" id="rule">Every 5 hours, half.</div>
+  <div class="rule-sub" id="rsub">One rule. You'll never need to google this again.</div>
+</div>
+
+<!-- S5: Brand -->
+<div class="scene" id="s5">
+  <div class="brand" id="brand"><span class="brand-dot"></span>healthcalculators.xyz</div>
+</div>
+
+<button class="replay" id="replay" onclick="location.reload()">↻ Replay</button>
+
+<script>
+var $=function(s){return document.querySelector(s)};
+var COLS=['#0e7a7e','#14b8a6','#5eead4','#a78bfa','#f59e0b','#22c55e'];
+function sparks(x,y,n){for(var i=0;i<n;i++){var s=document.createElement('div');s.className='spark';
+  var sz=3+Math.random()*4,a=Math.random()*Math.PI*2,d=18+Math.random()*35;
+  s.style.cssText='width:'+sz+'px;height:'+sz+'px;left:'+x+'px;top:'+y+'px;background:'+COLS[Math.floor(Math.random()*COLS.length)]+';--dx:'+(Math.cos(a)*d)+'px;--dy:'+(Math.sin(a)*d-12)+'px;animation:spk '+(0.35+Math.random()*0.25)+'s ease-out forwards;animation-delay:'+(i*0.015)+'s';
+  document.body.appendChild(s);setTimeout(function(el){el.remove()},900,s);}}
+function flash(){$('#flash').classList.add('hit');setTimeout(function(){$('#flash').classList.remove('hit')},55)}
+
+var TL=[],ti=0;
+function at(t,fn){TL.push({t:t,fn:fn})}
+
+// === EMOTIONAL ARC ===
+// 0-2.5s: Recognition ("I've googled this") — SLOW, quiet
+// 2.5-5s: Common answer → disruption — MEDIUM, mechanical
+// 5-10s: The cascade — FAST then DECELERATING (the experience)
+// 10-13s: The rule — VERY SLOW, fermata, the hero moment
+// 13-15s: Brand — settling, ground state
+
+// S1: Recognition (0-2.5s) — slow, quiet entry
+at(200,function(){$('#s1').classList.add('on')});
+at(400,function(){$('#qi').classList.add('in')});
+at(700,function(){$('#q1').classList.add('in')});
+// Reading: 6 words = 2.4s + 0.5s processing = 2.9s. Hold until ~3s. ✓
+
+// S2: Common answer (3-5.5s) — mechanical easing, muted
+at(3000,function(){$('#s1').classList.remove('on');$('#s2').classList.add('on')});
+at(3200,function(){$('#w1').classList.add('in')});
+at(3600,function(){$('#w2').classList.add('in')});
+// "The internet says 3-5 hours" = 6 words = 2.4s. Hold.
+at(5200,function(){$('#w3').classList.add('in')});
+// "That's incomplete" = 2 words = 0.8s + 0.5s. Total ~1.3s before next scene.
+
+// S3: The cascade (6.5-10s) — THIS IS THE EXPERIENCE
+// Frame before content: show the cascade building, not the rule yet
+at(6500,function(){$('#s2').classList.remove('on');$('#s3').classList.add('on')});
+
+var steps=[
+  {mg:'200mg',time:'8:00 AM',color:'#14b8a6'},   // teal — safe, full
+  {mg:'100mg',time:'1:00 PM',color:'#22c55e'},    // green — declining
+  {mg:'50mg', time:'6:00 PM',color:'#eab308'},    // amber — caution
+  {mg:'25mg', time:'11:00 PM',color:'#f59e0b'}    // deep amber — this is why you can't sleep
+];
+
+// Variable stagger: 500, 650, 550, 700ms (pink noise micro-jitter)
+var staggers=[500,650,550,700];
+var cumulative=0;
+steps.forEach(function(step,i){
+  // Arrow before each step (except first)
+  if(i>0){
+    at(6800+cumulative,function(){
+      var a=document.createElement('div');a.className='c-arrow';a.textContent='↓ half';
+      $('#cascade').appendChild(a);
+      requestAnimationFrame(function(){requestAnimationFrame(function(){a.classList.add('in')})});
+    });
+    cumulative+=200;
+  }
+  at(6800+cumulative,function(){
+    var el=document.createElement('div');el.className='c-step';
+    el.innerHTML='<div class="c-mg" style="color:'+step.color+'">'+step.mg+'</div><div class="c-time">'+step.time+'</div>';
+    $('#cascade').appendChild(el);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('in')})});
+  });
+  cumulative+=staggers[i];
+});
+
+// After cascade complete (~9.2s), brief hold before rule
+
+// S4: The rule (10-13s) — DECELERATION, hero moment, fermata
+// "Every 5 hours, half" arrives with slow resolve (the deceleration carries more info than acceleration)
+at(10000,function(){$('#s3').classList.remove('on');$('#s4').classList.add('on')});
+at(10300,function(){$('#rule').classList.add('in');flash()});
+// FERMATA: 400ms of perfect stillness after the rule appears
+at(10900,function(){var r=$('#rule').getBoundingClientRect();sparks(r.left+r.width/2,r.top+r.height/2,12)});
+// Sub-text after the hold — ritardando pacing
+at(11500,function(){$('#rsub').classList.add('in')});
+// "One rule. You'll never need to google this again." = 9 words = 3.6s + 0.5s = 4.1s hold. Through to 15s. ✓
+
+// S5: Brand (13.5-15s) — settling down, ground state
+at(13500,function(){$('#s4').classList.remove('on');$('#s5').classList.add('on')});
+at(13800,function(){$('#brand').classList.add('in')});
+
+at(15000,function(){$('#replay').classList.add('show')});
+
+TL.sort(function(a,b){return a.t-b.t});
+var startT=null;
+function tick(ts){
+  if(!startT)startT=ts;var e=ts-startT;
+  while(ti<TL.length&&TL[ti].t<=e){TL[ti].fn();ti++}
+  if(e<16000)requestAnimationFrame(tick);
+}
+setTimeout(function(){requestAnimationFrame(tick)},300);
+</script>
+</body>
+</html>
