@@ -5967,6 +5967,10 @@ def mockup_calc_v24():
 def mockup_calc_v25():
     return render_template('mockup-calc-v25.html')
 
+@app.route('/mockup-calc-redesign')
+def mockup_calc_redesign():
+    return render_template('mockup-calc-redesign.html')
+
 @app.route('/mockup-product-v5')
 def mockup_product_v5():
     return render_template('mockup-product-v5.html')
