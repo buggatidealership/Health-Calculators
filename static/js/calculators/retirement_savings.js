@@ -3,10 +3,10 @@
     var fmt = function(n) { return n.toLocaleString('en-US', {maximumFractionDigits: 0}); };
 
     document.getElementById('calcBtn').addEventListener('click', function() {
-        var age = parseInt(document.getElementById('input-age').value);
-        var ra = parseInt(document.getElementById('input-retireAge').value);
-        var sav = parseFloat(document.getElementById('input-savings').value);
-        var mo = parseFloat(document.getElementById('input-monthly').value);
+        var age = parseInt(document.getElementById('age').value);
+        var ra = parseInt(document.getElementById('retireAge').value);
+        var sav = parseFloat(document.getElementById('savings').value);
+        var mo = parseFloat(document.getElementById('monthly').value);
         if (!age || !ra || ra <= age || isNaN(sav) || isNaN(mo)) return;
 
         var r = 0.07, inf = 0.03, wr = 0.04, yrs = ra - age;

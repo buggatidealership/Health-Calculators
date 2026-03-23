@@ -1472,15 +1472,16 @@ def calories_burned_calculator():
         robots_meta='index, follow'
     )
 
-@app.route('/bmi-calculator')
-def bmi_calculator():
-    return render_template(
-        'bmi_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        breadcrumb_title='BMI Calculator',
-        robots_meta='index, follow'
-    )
+# /bmi-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/bmi-calculator')
+# def bmi_calculator():
+#     return render_template(
+#         'bmi_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+#         breadcrumb_title='BMI Calculator',
+#         robots_meta='index, follow'
+#     )
 
 @app.route('/body-roundness-index-calculator')
 def body_roundness_index_calculator():
@@ -1534,20 +1535,21 @@ def caloric_macronutrient_calculator():
         schema_type='WebPage'
     )
 
-@app.route('/botox-dosage-calculator')
-def botox_calculator():
-    schema_name = "Botox Dosage Calculator"
-    schema_description = "Determine the appropriate Botox units for different treatment areas with our free calculator. Get personalized dosage estimates based on treatment intensity."
-    schema_url = "/botox-dosage-calculator"
-    return render_template(
-        'botox_v25.html', 
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-20'
-    )
+# /botox-dosage-calculator: migrated to config-driven (configs/cosmetic.py)
+# @app.route('/botox-dosage-calculator')
+# def botox_calculator():
+#     schema_name = "Botox Dosage Calculator"
+#     schema_description = "Determine the appropriate Botox units for different treatment areas with our free calculator. Get personalized dosage estimates based on treatment intensity."
+#     schema_url = "/botox-dosage-calculator"
+#     return render_template(
+#         'botox_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
+#         date_modified='2026-03-20'
+#     )
 
 @app.route('/lifespan-longevity-calculator')
 def lifespan_calculator():
@@ -1637,15 +1639,16 @@ def vitamin_d_intake_calculator():
         robots_meta='index, follow'
     )
 
-@app.route('/vitamin-d-conversion-calculator')
-def vitamin_d_conversion_calculator():
-    return render_template(
-        'vitamin_d_conversion_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        breadcrumb_title='Vitamin D Conversion Calculator',
-        robots_meta='index, follow'
-    )
+# /vitamin-d-conversion-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/vitamin-d-conversion-calculator')
+# def vitamin_d_conversion_calculator():
+#     return render_template(
+#         'vitamin_d_conversion_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         breadcrumb_title='Vitamin D Conversion Calculator',
+#         robots_meta='index, follow'
+#     )
 
 @app.route('/a1c-calculator')
 @app.route('/a1c-blood-sugar-calculator')
@@ -1724,21 +1727,22 @@ def ideal_body_weight_calculator():
         date_modified='2026-03-20'
     )
 
-@app.route('/fasting-weight-loss-calculator')
-def fasting_weight_loss_calculator():
-    schema_name = "Fasting Weight Loss Calculator"
-    schema_description = "Calculate potential weight loss from intermittent fasting protocols with a personalized week-by-week timeline."
-    schema_url = "/fasting-weight-loss-calculator"
-    return render_template(
-        'fasting_weight_loss_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='MedicalWebPage'
-    )
+# /fasting-weight-loss-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/fasting-weight-loss-calculator')
+# def fasting_weight_loss_calculator():
+#     schema_name = "Fasting Weight Loss Calculator"
+#     schema_description = "Calculate potential weight loss from intermittent fasting protocols with a personalized week-by-week timeline."
+#     schema_url = "/fasting-weight-loss-calculator"
+#     return render_template(
+#         'fasting_weight_loss_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         date_modified='2026-03-20',
+#         schema_type='MedicalWebPage'
+#     )
 
 
 @app.route('/intermittent-fasting-calculator')
@@ -1750,21 +1754,22 @@ def intermittent_fasting_calculator():
         breadcrumb_title='Intermittent Fasting Calculator',
         robots_meta='index, follow'
     )
-@app.route('/ozempic-pen-click-calculator')
-def ozempic_pen_click_calculator():
-    schema_name = "Ozempic Pen Click Calculator"
-    schema_description = "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool."
-    schema_url = "/ozempic-pen-click-calculator"
-    return render_template(
-        'ozempic_pen_click_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        robots_meta='index, follow',
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20'
-    )
+# /ozempic-pen-click-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/ozempic-pen-click-calculator')
+# def ozempic_pen_click_calculator():
+#     schema_name = "Ozempic Pen Click Calculator"
+#     schema_description = "Calculate accurate Ozempic (semaglutide) dosing, check safety alerts, and track injection schedules with our comprehensive tool."
+#     schema_url = "/ozempic-pen-click-calculator"
+#     return render_template(
+#         'ozempic_pen_click_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         robots_meta='index, follow',
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20'
+#     )
 
 # === V2 TEMPLATE MOCKUP (noindex, for evaluation) ===
 @app.route('/mockup-ozempic-pen-v2')
@@ -2712,19 +2717,20 @@ def lip_filler_cost_calculator():
         date_modified='2026-03-20'
     )
 
-@app.route('/adult-height-predictor-calculator')
-def adult_height_predictor_calculator():
-    schema_name = "Adult Height Predictor Calculator"
-    schema_description = "Predict a child's future adult height based on their age, current height, gender, and parental height using validated models like mid-parental height and Khamis-Roche."
-    schema_url = "/adult-height-predictor-calculator"
-    return render_template(
-        'adult_height_predictor_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20'
-    )
+# /adult-height-predictor-calculator: migrated to config-driven (configs/fertility.py)
+# @app.route('/adult-height-predictor-calculator')
+# def adult_height_predictor_calculator():
+#     schema_name = "Adult Height Predictor Calculator"
+#     schema_description = "Predict a child's future adult height based on their age, current height, gender, and parental height using validated models like mid-parental height and Khamis-Roche."
+#     schema_url = "/adult-height-predictor-calculator"
+#     return render_template(
+#         'adult_height_predictor_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20'
+#     )
 
 @app.route('/cc-to-bra-size-calculator')
 def cc_to_bra_size_calculator():
@@ -3289,21 +3295,22 @@ def body_fat_percentage_chart():
         date_modified='2026-03-20'
     )
 
-@app.route('/plasma-donation-earnings-calculator')
-def plasma_donation_earnings_calculator():
-    schema_name = "Plasma Donation Earnings Calculator"
-    schema_description = "Calculate your potential plasma donation earnings based on weight, frequency, location, and donor status. Includes new donor bonuses and effective hourly rate."
-    schema_url = "/plasma-donation-earnings-calculator"
-    return render_template(
-        'plasma_donation_earnings_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Financial & Earnings', 'url': '/financial-earnings-calculators'},
-        date_modified='2026-03-20'
-    )
+# /plasma-donation-earnings-calculator: migrated to config-driven (configs/financial.py)
+# @app.route('/plasma-donation-earnings-calculator')
+# def plasma_donation_earnings_calculator():
+#     schema_name = "Plasma Donation Earnings Calculator"
+#     schema_description = "Calculate your potential plasma donation earnings based on weight, frequency, location, and donor status. Includes new donor bonuses and effective hourly rate."
+#     schema_url = "/plasma-donation-earnings-calculator"
+#     return render_template(
+#         'plasma_donation_earnings_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='WebPage',
+#         breadcrumb_category={'name': 'Financial & Earnings', 'url': '/financial-earnings-calculators'},
+#         date_modified='2026-03-20'
+#     )
 
 @app.route('/lipid-panel-goals-calculator')
 def lipid_panel_goals_calculator():
@@ -3342,15 +3349,16 @@ def semaglutide_reconstitution_calculator():
     )
 
 
-@app.route('/caffeine-half-life-calculator')
-def caffeine_half_life_calculator():
-    return render_template(
-        'caffeine_half_life_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        breadcrumb_title='Caffeine Half Life Calculator',
-        robots_meta='index, follow'
-    )
+# /caffeine-half-life-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/caffeine-half-life-calculator')
+# def caffeine_half_life_calculator():
+#     return render_template(
+#         'caffeine_half_life_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         breadcrumb_title='Caffeine Half Life Calculator',
+#         robots_meta='index, follow'
+#     )
 
 
 @app.route('/mockup-caffeine-v3')

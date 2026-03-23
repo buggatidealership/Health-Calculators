@@ -9,11 +9,10 @@ def register(slug, config):
     CALCULATOR_REGISTRY[slug] = config
 
 # Import category modules to trigger registration
-# Uncomment as configs are created:
 from configs import financial
-# from configs import fitness
-# from configs import nutrition
-# from configs import cosmetic
-# from configs import health
-# from configs import fertility
-# from configs import medications
+from configs import fitness
+from configs import nutrition
+from configs import cosmetic
+from configs import health
+from configs import fertility
+from configs import medications

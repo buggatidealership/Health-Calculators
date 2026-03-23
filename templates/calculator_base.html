@@ -92,7 +92,7 @@
             {% if field.type == 'number' %}
             <div class="form-group">
                 <label>{{ field.label }}</label>
-                <input type="number" id="input-{{ field.id }}"
+                <input type="number" id="{{ field.id }}"
                        min="{{ field.get('min', 0) }}" max="{{ field.get('max', 99999) }}"
                        value="{{ field.get('default', '') }}" step="{{ field.get('step', 1) }}"
                        inputmode="numeric" placeholder="{{ field.get('placeholder', '') }}">
@@ -102,7 +102,7 @@
             {% elif field.type == 'select' %}
             <div class="form-group">
                 <label>{{ field.label }}</label>
-                <select id="input-{{ field.id }}">
+                <select id="{{ field.id }}">
                     {% for opt in field.options %}
                     <option value="{{ opt.value }}"{{ ' selected' if opt.get('selected') }}>{{ opt.label }}</option>
                     {% endfor %}
@@ -138,14 +138,14 @@
                 <div class="form-group">
                     <label>{{ sub.label }}</label>
                     {% if sub.type == 'number' %}
-                    <input type="number" id="input-{{ sub.id }}"
+                    <input type="number" id="{{ sub.id }}"
                            min="{{ sub.get('min', 0) }}" max="{{ sub.get('max', 99999) }}"
                            value="{{ sub.get('default', '') }}" step="{{ sub.get('step', 1) }}"
                            inputmode="numeric" placeholder="{{ sub.get('placeholder', '') }}">
                     {% elif sub.type == 'time' %}
-                    <input type="time" id="input-{{ sub.id }}" value="{{ sub.get('default', '') }}">
+                    <input type="time" id="{{ sub.id }}" value="{{ sub.get('default', '') }}">
                     {% elif sub.type == 'select' %}
-                    <select id="input-{{ sub.id }}">
+                    <select id="{{ sub.id }}">
                         {% for opt in sub.options %}
                         <option value="{{ opt.value }}"{{ ' selected' if opt.get('selected') }}>{{ opt.label }}</option>
                         {% endfor %}
