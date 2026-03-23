@@ -176,7 +176,8 @@
 .factory-breakdown .detail-card.revealed { opacity: 1; transform: translateY(0); }
 .factory-breakdown .d-val {
     font-family: var(--font-display, 'DM Serif Display', serif);
-    font-size: 1.8rem; color: var(--accent); line-height: 1.2;
+    font-size: clamp(1.2rem, 4vw, 1.8rem); color: var(--accent); line-height: 1.2;
+    word-break: break-word; overflow-wrap: break-word;
 }
 .factory-breakdown .d-lbl {
     font-size: 0.78rem; color: var(--text-dim, #94a3b8); margin-top: 0.3rem;

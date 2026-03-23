@@ -123,15 +123,18 @@
         var shareText = 'My vitamin D level: ' + formatNum(ng) + ' ng/mL (' + formatNum(nmol) + ' nmol/L) \u2014 ' + tier.name + '.\n\nThe rule: multiply ng/mL by 2.5 to get nmol/L.\n\nCheck yours: healthcalculators.xyz/vitamin-d-conversion-calculator';
         updateShareButtons(shareText);
 
-        // Show sections
-        document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
-
-        // Scroll to result on first calculation
-        if (!window._hasScrolledToResult) {
-            window._hasScrolledToResult = true;
-            setTimeout(function() {
-                document.getElementById('result-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 200);
+        // Reveal results
+        if (typeof factoryReveal === 'function') {
+            if (!window._hasScrolledToResult) {
+                window._hasScrolledToResult = true;
+                factoryReveal();
+            } else {
+                // Already revealed, just update classes
+                document.querySelectorAll('.factory-result .result-number, .factory-result .result-unit, .factory-result .result-verdict').forEach(function(el) { el.classList.add('revealed'); });
+                document.querySelectorAll('.factory-breakdown .detail-card').forEach(function(el) { el.classList.add('revealed'); });
+            }
+        } else {
+            document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
         }
 
         // Track calculator completion
