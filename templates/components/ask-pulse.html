@@ -1,0 +1,14 @@
+{# Ask Pulse section — question input with suggestion pills #}
+<h2 class="ask-title">{{ cfg.ask_title|default('What else do you want to know?') }}</h2>
+<p class="ask-sub">{{ cfg.ask_subtitle|default('Ask Pulse anything.') }}</p>
+<div class="ask-input-wrap">
+    <input type="text" id="askInput" placeholder="{{ cfg.ask_placeholder|default('e.g. Ask a follow-up question...') }}">
+    <button id="askBtn">Ask</button>
+</div>
+{% if cfg.ask_pills %}
+<div class="ask-pills">
+    {% for pill in cfg.ask_pills %}
+    <span class="ask-pill">{{ pill }}</span>
+    {% endfor %}
+</div>
+{% endif %}

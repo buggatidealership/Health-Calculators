@@ -1,0 +1,357 @@
+{#
+  Calculator Base — Config-Driven Factory Template
+  =================================================
+  ONE template. Config-driven everything. V25 dark mode design.
+
+  Adding a new calculator = adding one config dict in configs/.
+  Fixing a design/SEO issue = editing this file. All calculators updated.
+
+  Config dict (cfg) provides:
+    SEO: seo.page_title, seo.meta_description, seo.og_title, seo.schema_type, etc.
+    Visual: accent, accent_rgb, hero.headline, hero.subtitle
+    Content: faq[], sources[], methodology, llm_capsule, ask_pills[]
+    Form: form.fields[] (each has id, type, label, options/default)
+    Results: results.primary{}, results.breakdown[]
+    Coach: coach.title, coach.container_id
+    JS: js_file (path to per-calculator JS)
+    Navigation: breadcrumb_category{name, url}
+
+  Complex calculators extend this template and override blocks:
+    {% block form_content %} — custom form HTML
+    {% block result_content %} — custom result display
+    {% block coach_content %} — custom coach narrative
+    {% block calc_script %} — custom calculation JS
+    {% block extra_head %} — additional head content
+#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% with
+    page_title=cfg.seo.page_title,
+    meta_description=cfg.seo.meta_description,
+    og_title=cfg.seo.get('og_title', cfg.seo.page_title),
+    og_description=cfg.seo.get('og_description', cfg.seo.meta_description),
+    og_url=cfg.route,
+    canonical_url=cfg.route,
+    schema_type=cfg.seo.get('schema_type', 'MedicalWebPage'),
+    schema_name=cfg.seo.get('schema_name', cfg.hero.headline|striptags),
+    schema_description=cfg.seo.get('schema_description', cfg.seo.meta_description),
+    schema_url=cfg.route,
+    schema_about=cfg.seo.get('schema_about', cfg.hero.headline|striptags),
+    date_published=cfg.seo.get('date_published', '2025-06-01'),
+    date_modified=cfg.seo.get('date_modified', '2026-03-20'),
+    og_image=cfg.seo.get('og_image', 'default-calculator-og.jpg'),
+    robots_meta=cfg.seo.get('robots', 'index, follow'),
+    breadcrumb_category=cfg.get('breadcrumb_category'),
+    skip_global_css=True
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+
+{# FAQPage schema (server-side JSON-LD) #}
+{% if cfg.faq and cfg.faq|length >= 2 %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for item in cfg.faq %}
+    {
+      "@type": "Question",
+      "name": {{ item.question|tojson }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ item.answer|tojson }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endif %}
+
+<link rel="stylesheet" href="/static/css/v25-dark.css">
+<style>:root { --accent: {{ cfg.accent }}; --accent-rgb: {{ cfg.accent_rgb }}; }</style>
+{% block extra_head %}{% endblock %}
+</head>
+<body>
+{% include 'header.html' %}
+
+{# === HERO SECTION === #}
+<section class="section bg-1 fade-in" id="hero-section">
+    <div class="section-content" style="text-align:center;">
+        <span class="pulse-dot"></span>
+        <h1 class="hero-title">{{ cfg.hero.headline|safe }}</h1>
+        <p class="hero-sub">{{ cfg.hero.subtitle }}</p>
+
+        {# === FORM === #}
+        {% block form_content %}
+        <div class="form-card">
+            {% for field in cfg.form.fields %}
+
+            {% if field.type == 'number' %}
+            <div class="form-group">
+                <label>{{ field.label }}</label>
+                <input type="number" id="input-{{ field.id }}"
+                       min="{{ field.get('min', 0) }}" max="{{ field.get('max', 99999) }}"
+                       value="{{ field.get('default', '') }}" step="{{ field.get('step', 1) }}"
+                       inputmode="numeric" placeholder="{{ field.get('placeholder', '') }}">
+                {% if field.get('hint') %}<small>{{ field.hint }}</small>{% endif %}
+            </div>
+
+            {% elif field.type == 'select' %}
+            <div class="form-group">
+                <label>{{ field.label }}</label>
+                <select id="input-{{ field.id }}">
+                    {% for opt in field.options %}
+                    <option value="{{ opt.value }}"{{ ' selected' if opt.get('selected') }}>{{ opt.label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            {% elif field.type == 'checkbox_grid' %}
+            <div class="form-group">
+                <label>{{ field.label }}</label>
+                <div class="check-grid">
+                    {% for opt in field.options %}
+                    <label class="check-item">
+                        <input type="checkbox" value="{{ opt.value }}" id="check-{{ opt.value }}">
+                        <span>{{ opt.label }}</span>
+                    </label>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% elif field.type == 'radio_row' %}
+            <div class="form-group">
+                <label>{{ field.label }}</label>
+                <div class="unit-row" data-group="{{ field.id }}">
+                    {% for opt in field.options %}
+                    <button class="unit-btn{{ ' active' if opt.get('selected') }}" data-value="{{ opt.value }}">{{ opt.label }}</button>
+                    {% endfor %}
+                </div>
+            </div>
+
+            {% elif field.type == 'row' %}
+            <div class="form-row">
+                {% for sub in field.fields %}
+                <div class="form-group">
+                    <label>{{ sub.label }}</label>
+                    {% if sub.type == 'number' %}
+                    <input type="number" id="input-{{ sub.id }}"
+                           min="{{ sub.get('min', 0) }}" max="{{ sub.get('max', 99999) }}"
+                           value="{{ sub.get('default', '') }}" step="{{ sub.get('step', 1) }}"
+                           inputmode="numeric" placeholder="{{ sub.get('placeholder', '') }}">
+                    {% elif sub.type == 'time' %}
+                    <input type="time" id="input-{{ sub.id }}" value="{{ sub.get('default', '') }}">
+                    {% elif sub.type == 'select' %}
+                    <select id="input-{{ sub.id }}">
+                        {% for opt in sub.options %}
+                        <option value="{{ opt.value }}"{{ ' selected' if opt.get('selected') }}>{{ opt.label }}</option>
+                        {% endfor %}
+                    </select>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            {% endfor %}
+
+            {% if cfg.form.get('submit_label') %}
+            <button class="calc-btn" id="calcBtn">{{ cfg.form.submit_label }}</button>
+            {% endif %}
+        </div>
+        {% endblock %}
+
+        {# Static example for SEO (visible before JS runs) #}
+        {% if cfg.get('example_result') %}
+        <p class="hero-sub" id="seo-example" style="margin-top:2rem;font-size:0.9rem;max-width:560px;">{{ cfg.example_result }}</p>
+        {% endif %}
+    </div>
+</section>
+
+{# === RESULTS SECTION === #}
+<section class="section bg-2 hidden-section fade-in" id="result-section">
+    <div class="section-content" style="text-align:center;">
+    {% block result_content %}
+        {% if cfg.results %}
+        <div class="result-number" id="{{ cfg.results.primary.id }}">--</div>
+        <div class="result-unit">{{ cfg.results.primary.unit }}</div>
+        {% if cfg.results.get('verdict_id') %}
+        <div class="result-verdict" id="{{ cfg.results.verdict_id }}"></div>
+        {% endif %}
+
+        {% if cfg.results.get('breakdown') %}
+        <div class="detail-grid" style="margin-top:2rem;">
+            {% for card in cfg.results.breakdown %}
+            <div class="detail-card">
+                <div class="d-val" id="{{ card.id }}">--</div>
+                <div class="d-lbl">{{ card.label }}</div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endif %}
+    {% endblock %}
+    </div>
+</section>
+
+{# === COACH SECTION === #}
+{% if cfg.get('coach') %}
+<section class="section bg-3 hidden-section fade-in" id="coach-section">
+    <div class="section-content" style="text-align:center;">
+    {% block coach_content %}
+        <div class="coach-container">
+            <h2 class="coach-title">{{ cfg.coach.title }}</h2>
+            <div class="coach-card" id="{{ cfg.coach.get('container_id', 'coachCard') }}"></div>
+
+            {% include 'components/share-buttons.html' %}
+
+            <div class="coach-cta">
+                <p class="coach-cta-text">{{ cfg.coach.get('cta_text', 'Want more insights?') }}</p>
+                <a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a>
+            </div>
+        </div>
+    {% endblock %}
+    </div>
+</section>
+{% endif %}
+
+{# === MEDICAL DISCLAIMER === #}
+<div class="seo-section bg-4 fade-in">
+    <div class="seo-inner">
+        {% include 'components/medical-disclaimer.html' %}
+    </div>
+</div>
+
+{# === FAQ === #}
+{% if cfg.faq %}
+<div class="seo-section bg-1 fade-in" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <div class="faq-list">
+            {% for item in cfg.faq %}
+            <div class="faq-item">
+                <button class="faq-question">
+                    {{ item.question }}
+                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer">
+                    <p>{{ item.answer }}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{# === SOURCES === #}
+{% if cfg.sources %}
+<div class="seo-section bg-2 fade-in">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            {% for src in cfg.sources %}
+            <li>{{ src.text }}{% if src.url %} <a href="{{ src.url }}" target="_blank" rel="noopener noreferrer">Link</a>{% endif %}</li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endif %}
+
+{# === METHODOLOGY === #}
+{% if cfg.methodology %}
+<div class="seo-section bg-3 fade-in">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text">{{ cfg.methodology|safe }}</div>
+    </div>
+</div>
+{% endif %}
+
+{# === LLM CAPSULE (data-nosnippet for Google, visible to LLM crawlers) === #}
+{% if cfg.llm_capsule %}
+<div class="seo-section bg-5 fade-in">
+    <div class="seo-inner">
+        <div class="llm-capsule"><p>{{ cfg.llm_capsule }}</p></div>
+    </div>
+</div>
+{% endif %}
+
+{# === ASK PULSE === #}
+<section class="section bg-6 fade-in" id="ask-section">
+    <div class="section-content" style="text-align:center;">
+        {% include 'components/ask-pulse.html' %}
+    </div>
+</section>
+
+{# === RELATED CALCULATORS === #}
+{% if cross_link_calculators %}
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Related Calculators</h2>
+        <div class="detail-grid">
+            {% for link in cross_link_calculators %}
+            <a href="{{ link }}" class="detail-card" style="text-decoration:none;cursor:pointer;">
+                <div class="d-lbl">{{ link|replace('/','') | replace('-',' ') | title }}</div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endif %}
+
+{% include 'footer.html' %}
+
+{# === SHARED JS === #}
+<script src="/static/js/v25-shared.js"></script>
+
+{# === SHARE BUTTON JS === #}
+<script>
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+}
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function(){});
+    });
+}
+</script>
+
+{# === RADIO/TOGGLE BEHAVIOR === #}
+<script>
+document.querySelectorAll('.unit-row').forEach(function(row) {
+    row.querySelectorAll('.unit-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            row.querySelectorAll('.unit-btn').forEach(function(b) { b.classList.remove('active'); });
+            btn.classList.add('active');
+            btn.dispatchEvent(new Event('toggle-selected', {bubbles: true}));
+        });
+    });
+});
+</script>
+
+{# === PER-CALCULATOR JS === #}
+{% block calc_script %}
+{% if cfg.js_file %}
+<script src="/static/{{ cfg.js_file }}"></script>
+{% elif cfg.get('js_inline') %}
+<script>{{ cfg.js_inline|safe }}</script>
+{% endif %}
+{% endblock %}
+
+</body>
+</html>

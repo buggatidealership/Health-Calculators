@@ -1707,20 +1707,7 @@ def keto_calculator():
         robots_meta='index, follow'
     )
 
-@app.route('/retirement-savings-calculator')
-def retirement_savings_calculator():
-    schema_name = "Retirement Savings Calculator"
-    schema_description = "Estimate how much you'll need to retire comfortably. Calculate your target retirement savings based on age, income, expected expenses, and investment growth."
-    schema_url = "/retirement-savings-calculator"
-    return render_template(
-        'retirement_savings_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        date_modified='2026-03-20'
-    )
+# retirement-savings-calculator: migrated to config-driven (configs/financial.py)
 
 @app.route('/ideal-body-weight-calculator')
 def ideal_body_weight_calculator():
@@ -6547,6 +6534,47 @@ def mockup_abodient_product():
 @app.route('/mockup-calculators-redesign')
 def mockup_calculators_redesign():
     return render_template('mockup-calculators-redesign.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-32co-website')
+def mockup_32co_website():
+    return render_template('mockup-32co-website.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-32co-app')
+def mockup_32co_app():
+    return render_template('mockup-32co-app.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+@app.route('/mockup-32co-patient')
+def mockup_32co_patient():
+    return render_template('mockup-32co-patient.html', is_homepage=True, robots_meta='noindex, nofollow')
+
+
+# === CONFIG-DRIVEN CALCULATOR ROUTES ===
+from configs import CALCULATOR_REGISTRY
+
+def register_calculator_routes(flask_app):
+    """Auto-register routes from CALCULATOR_REGISTRY configs."""
+    for slug, cfg in CALCULATOR_REGISTRY.items():
+        route_path = cfg["route"]
+        links = cross_links.get(route_path, {"calculators": [], "guides": []})
+
+        def make_view(c, l):
+            def view():
+                template = "calculator_base.html"
+                if c.get("override_template"):
+                    template = c["override_template"]
+                return render_template(
+                    template,
+                    cfg=c,
+                    cross_link_calculators=l.get("calculators", []),
+                    cross_link_guides=l.get("guides", []),
+                    is_homepage=False,
+                )
+            view.__name__ = slug
+            return view
+
+        flask_app.route(route_path)(make_view(cfg, links))
+
+register_calculator_routes(app)
 
 
 if __name__ == '__main__':
