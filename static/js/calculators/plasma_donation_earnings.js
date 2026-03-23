@@ -83,7 +83,7 @@
         el = document.getElementById('weekly'); if (el) el.textContent = '$' + weeklyMin + '-$' + weeklyMax;
         el = document.getElementById('weeklyNote'); if (el) el.textContent = weeklyDonations + 'x per week';
 
-        el = document.getElementById('yearly'); if (el) el.textContent = '$' + yearlyMin.toLocaleString() + '-$' + yearlyMax.toLocaleString();
+        el = document.getElementById('yearly'); if (el) el.innerHTML = '$' + yearlyMin.toLocaleString() + '<br><span style="font-size:0.5em;opacity:0.5">to</span><br>$' + yearlyMax.toLocaleString();
         el = document.getElementById('yearlyNote'); if (el) el.textContent = Math.round(yearlyDonations) + ' donations';
 
         el = document.getElementById('hourlyRate'); if (el) el.textContent = '$' + hourlyRate + '/hr';

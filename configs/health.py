@@ -36,15 +36,14 @@ VITAMIN_D_CONVERSION = {
                 {"value": "nmol", "label": "nmol/L"},
             ]},
         ],
-        "submit_label": "",
+        "submit_label": "Convert",
     },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "nmol/L"},
         "verdict_id": "resultVerdict",
         "breakdown": [
-            {"id": "resultEquals", "label": "Equivalent"},
-            {"id": "resultPlain", "label": "Interpretation"},
+            {"id": "resultPlain", "label": "What this means"},
         ],
     },
 

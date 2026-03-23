@@ -51,8 +51,11 @@
         });
     }
 
-    // Auto-calculate on input
-    document.getElementById('vitdInput').addEventListener('input', runCalculation);
+    // Calculate on button click
+    var calcBtn = document.getElementById('calcBtn');
+    if (calcBtn) {
+        calcBtn.addEventListener('click', runCalculation);
+    }
 
     function runCalculation() {
         var rawValue = parseFloat(document.getElementById('vitdInput').value);

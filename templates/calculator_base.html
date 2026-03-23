@@ -550,9 +550,9 @@ function updateShareButtons(shareText) {
     var row = document.getElementById('shareRow');
     if (row) row.style.display = 'flex';
     var wa = document.getElementById('shareWhatsApp');
-    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    if (wa) wa.dataset.url = 'https://wa.me/?text=' + encodeURIComponent(shareText);
     var tw = document.getElementById('shareTwitter');
-    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    if (tw) tw.dataset.url = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
 }
 
 /* Copy button */
