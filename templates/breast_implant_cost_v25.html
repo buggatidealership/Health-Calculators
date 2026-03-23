@@ -16,7 +16,8 @@
         date_published="2025-06-01",
         date_modified="2026-03-20",
         og_image="default-calculator-og.jpg",
-        robots_meta="index, follow"
+        robots_meta="index, follow",
+        skip_global_css=True
     %}
     {% include 'head_seo.html' %}
     {% endwith %}
@@ -30,18 +31,7 @@
     {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
-    <style>:root { --accent: #f472b6; --accent-rgb: 244,114,182; }
-
-    
-        /* Force dark inputs — override global styles.css */
-        input, select, input[type="number"], input[type="text"], input[type="date"], input[type="time"], textarea {
-            background: rgba(255,255,255,0.05) !important;
-            color: #e2e8f0 !important;
-            border-color: rgba(20,184,166,0.12) !important;
-        }
-        input:focus, select:focus, textarea:focus { border-color: #14b8a6 !important; }
-        select option { background: #0d1420 !important; color: #e2e8f0 !important; }
-        </style>
+    <style>:root { --accent: #f472b6; --accent-rgb: 244,114,182; }</style>
 </head>
 <body>
 {% include 'header.html' %}

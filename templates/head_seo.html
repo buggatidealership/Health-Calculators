@@ -161,7 +161,12 @@
 
 <title>{{ page_title }}</title>
 <link rel="canonical" href="https://healthcalculators.xyz{{ canonical_url }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+{% if not skip_global_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/theme-light.css') }}">
+{% else %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/theme-dark.css') }}">
+{% endif %}
 <script>
 document.addEventListener('DOMContentLoaded',function(){
   // Smooth scroll for anchor links

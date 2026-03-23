@@ -40,7 +40,8 @@
     schema_about=cfg.schema_about|default(cfg.h1|default(cfg.headline)),
     date_published=cfg.date_published|default('2025-06-01'),
     date_modified=cfg.date_modified|default('2026-03-19'),
-    breadcrumb_category=cfg.breadcrumb_category
+    breadcrumb_category=cfg.breadcrumb_category,
+    skip_global_css=cfg.skip_global_css|default(True)
 %}
 {% include 'head_seo.html' %}
 {% endwith %}
