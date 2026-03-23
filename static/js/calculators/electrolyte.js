@@ -200,8 +200,23 @@ calculateBtn.addEventListener('click', function() {
   if (typeof showNextSteps === 'function') {
     showNextSteps('electrolyte', { age: age, gender: sex });
   }
-});
+// Coach card
+var coachCard = document.getElementById('coachCard');
+if (coachCard) {
+  var actText = document.getElementById('activity') ? document.getElementById('activity').options[document.getElementById('activity').selectedIndex].text : '';
+  coachCard.innerHTML = '<div class="coach-text">' +
+    'Based on your profile (' + actText + ', ' + (document.getElementById('climate') ? document.getElementById('climate').value : '') + ' climate):<br><br>' +
+    '<span class="hl">Sodium:</span> ' + total.sodium.toLocaleString() + ' mg/day<br>' +
+    '<span class="hl">Potassium:</span> ' + total.potassium.toLocaleString() + ' mg/day<br>' +
+    '<span class="hl">Magnesium:</span> ' + total.magnesium.toLocaleString() + ' mg/day<br>' +
+    '<span class="hl">Calcium:</span> ' + total.calcium.toLocaleString() + ' mg/day' +
+    '<div class="coach-rule">Na:K ratio = ' + ratio + '</div>' +
+    '<div class="coach-advice">Most people get enough sodium from food but fall short on potassium and magnesium. ' +
+    (total.magnesium > 400 ? '<em>Consider a magnesium supplement (glycinate or citrate).</em>' : '') +
+    '</div></div>';
+}
 
 // Reveal results
 if (typeof factoryReveal === 'function') { factoryReveal(); }
+});
 })();

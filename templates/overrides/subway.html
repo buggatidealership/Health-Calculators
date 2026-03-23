@@ -104,6 +104,11 @@
     <div class="ing-grid" id="extra-options"></div>
 </div>
 
+<!-- Calculate button -->
+<div style="text-align:center;margin-top:1.5rem;">
+    <button class="calc-btn" id="calcBtn" onclick="if(window._subwayTotals && window._subwayTotals.calories > 0) { if(typeof factoryReveal==='function') factoryReveal(); this.closest('.factory-form, [class*=form]').scrollIntoView({behavior:'smooth'}); }">See My Nutrition</button>
+</div>
+
 <!-- Static example for SEO -->
 <div class="static-example" id="staticExample">
     <p>A <span class="hl">6-inch Oven Roasted Turkey</span> on 9-Grain Wheat with veggies and mustard is about <span class="hl">275 calories</span> with <span class="hl">17g protein</span>. Add mayo (+110 cal) or cheese (+50 cal) to see the real impact.</p>
@@ -242,14 +247,12 @@ function updateTotals() {
     el = document.getElementById('total-fiber'); if (el) el.textContent = Math.round(t.fiber) + 'g';
     el = document.getElementById('total-sodium'); if (el) el.textContent = Math.round(t.sodium) + 'mg';
 
-    if (state.bread || state.protein) {
-        var staticEx = document.getElementById('staticExample');
-        if (staticEx) staticEx.style.display = 'none';
+    // Store totals for calculate button
+    window._subwayTotals = t;
 
+    if (state.bread || state.protein) {
         var resultNum = document.getElementById('resultNumber');
         if (resultNum) resultNum.textContent = Math.round(t.calories);
-
-        if (typeof factoryReveal === 'function') factoryReveal();
 
         // Coach card
         var parts = [];

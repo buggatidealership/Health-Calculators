@@ -60,6 +60,10 @@
     <h3>Extras</h3>
     <div id="extras" class="ingredient-grid"></div>
 </div>
+
+<div style="text-align:center;margin-top:1.5rem;">
+    <button class="calc-btn" id="calcBtn" onclick="if(window._chipotleTotals && window._chipotleTotals.calories > 0) { if(typeof factoryReveal==='function') factoryReveal(); }">See My Nutrition</button>
+</div>
 {% endblock %}
 
 {% block result_content %}
@@ -205,7 +209,7 @@ function calculateNutrition() {
         var verdict = document.getElementById('resultVerdict');
         if (verdict) verdict.textContent = totals.protein + 'g protein | ' + totals.carbs + 'g carbs | ' + totals.fat + 'g fat';
 
-        if (typeof factoryReveal === 'function') factoryReveal();
+        window._chipotleTotals = totals;
 
         // Coach
         var coachCard = document.getElementById('coachCard');
