@@ -243,11 +243,13 @@ document.addEventListener('DOMContentLoaded',function(){
       }
     }
   })();
-  // FAQ: start expanded on all devices (required for FAQPage schema compliance)
-  // On mobile, allow collapsing on tap after initial render
-  document.querySelectorAll('.faq-item').forEach(function(item){
-    item.classList.add('faq-open');
-  });
+  // FAQ: start expanded on non-factory pages (required for FAQPage schema compliance)
+  // Factory pages handle their own FAQ state via template classes
+  if (!document.querySelector('.factory-seo')) {
+    document.querySelectorAll('.faq-item').forEach(function(item){
+      item.classList.add('faq-open');
+    });
+  }
   if(window.innerWidth<=600){
     document.querySelectorAll('.faq-item h4, .faq-item h3').forEach(function(h){
       h.addEventListener('click',function(){
