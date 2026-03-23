@@ -1463,42 +1463,44 @@ def tdee_calculator():
 #         robots_meta='index, follow'
 #     )
 
-@app.route('/calories-burned-calculator')
-def calories_burned_calculator():
-    return render_template(
-        'calories_burned_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        breadcrumb_title='Calories Burned Calculator',
-        robots_meta='index, follow'
-    )
-
-# /bmi-calculator: migrated to config-driven (configs/fitness.py)
-# @app.route('/bmi-calculator')
-# def bmi_calculator():
+# /calories-burned-calculator: migrated to config-driven (configs/)
+# @app.route('/calories-burned-calculator')
+# def calories_burned_calculator():
 #     return render_template(
-#         'bmi_calculator_v3.html',
+#         'calories_burned_calculator_v3.html',
 #         is_homepage=False,
 #         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-#         breadcrumb_title='BMI Calculator',
+#         breadcrumb_title='Calories Burned Calculator',
 #         robots_meta='index, follow'
 #     )
-
-# /body-roundness-index-calculator: migrated to config-driven (configs/health.py)
-# @app.route('/body-roundness-index-calculator')
-# def body_roundness_index_calculator():
-#     return render_template('bri_calculator_v3.html', ...)
-
-@app.route('/protein-intake-calculator')
-def protein_intake_calculator():
-    return render_template(
-        'protein_intake_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        breadcrumb_title='Protein Intake Calculator',
-        robots_meta='index, follow'
-    )
-
+# 
+# # /bmi-calculator: migrated to config-driven (configs/fitness.py)
+# # @app.route('/bmi-calculator')
+# # def bmi_calculator():
+# #     return render_template(
+# #         'bmi_calculator_v3.html',
+# #         is_homepage=False,
+# #         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+# #         breadcrumb_title='BMI Calculator',
+# #         robots_meta='index, follow'
+# #     )
+# 
+# # /body-roundness-index-calculator: migrated to config-driven (configs/health.py)
+# # @app.route('/body-roundness-index-calculator')
+# # def body_roundness_index_calculator():
+# #     return render_template('bri_calculator_v3.html', ...)
+# 
+# /protein-intake-calculator: migrated to config-driven (configs/)
+# @app.route('/protein-intake-calculator')
+# def protein_intake_calculator():
+#     return render_template(
+#         'protein_intake_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         breadcrumb_title='Protein Intake Calculator',
+#         robots_meta='index, follow'
+#     )
+# 
 @app.route('/water-intake-calculator')
 def water_intake_calculator():
     return render_template(
@@ -1651,21 +1653,22 @@ def vitamin_d_intake_calculator():
 def a1c_blood_sugar_redirect():
     return redirect('/a1c-calculator', code=301)
 
-@app.route('/diabetes-risk-calculator')
-def diabetes_risk_calculator():
-    schema_name = "Diabetes Risk Calculator"
-    schema_description = "Assess your risk of developing type 2 diabetes based on age, BMI, family history, activity level, and other clinical risk factors. Adapted from the ADA risk test and Finnish Diabetes Risk Score (FINDRISC)."
-    schema_url = "/diabetes-risk-calculator"
-    return render_template(
-        'diabetes_risk_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
-
+# /diabetes-risk-calculator: migrated to config-driven (configs/)
+# @app.route('/diabetes-risk-calculator')
+# def diabetes_risk_calculator():
+#     schema_name = "Diabetes Risk Calculator"
+#     schema_description = "Assess your risk of developing type 2 diabetes based on age, BMI, family history, activity level, and other clinical risk factors. Adapted from the ADA risk test and Finnish Diabetes Risk Score (FINDRISC)."
+#     schema_url = "/diabetes-risk-calculator"
+#     return render_template(
+#         'diabetes_risk_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
+# 
 @app.route('/ivf-due-date-calculator')
 def ivf_due_date_calculator():
     return render_template(
@@ -2159,22 +2162,23 @@ def glp1_comparison_calculator():
         robots_meta='noindex, nofollow'
     )
 
-@app.route('/metabolic-age-calculator')
-def metabolic_age_calculator():
-    schema_name = "Metabolic Age Calculator"
-    schema_description = "Calculate your metabolic age by comparing your BMR to population averages. Find out if your metabolism is younger or older than your actual age using Mifflin-St Jeor and Katch-McArdle formulas."
-    schema_url = "/metabolic-age-calculator"
-    return render_template(
-        'metabolic_age_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='WebPage'
-    )
-
+# /metabolic-age-calculator: migrated to config-driven (configs/)
+# @app.route('/metabolic-age-calculator')
+# def metabolic_age_calculator():
+#     schema_name = "Metabolic Age Calculator"
+#     schema_description = "Calculate your metabolic age by comparing your BMR to population averages. Find out if your metabolism is younger or older than your actual age using Mifflin-St Jeor and Katch-McArdle formulas."
+#     schema_url = "/metabolic-age-calculator"
+#     return render_template(
+#         'metabolic_age_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+#         date_modified='2026-03-20',
+#         schema_type='WebPage'
+#     )
+# 
 @app.route('/ozempic-face-calculator')
 def ozempic_face_calculator():
     schema_name = "Ozempic Face Risk Calculator"
@@ -2732,16 +2736,17 @@ def newborn_weight_loss_calculator():
         robots_meta='noindex, nofollow'
     )
 
-@app.route('/baldness-risk-calculator')
-def baldness_risk_calculator():
-    return render_template(
-        'baldness_risk_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        breadcrumb_title='Baldness Risk Calculator',
-        robots_meta='index, follow'
-    )
-
+# /baldness-risk-calculator: migrated to config-driven (configs/)
+# @app.route('/baldness-risk-calculator')
+# def baldness_risk_calculator():
+#     return render_template(
+#         'baldness_risk_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         breadcrumb_title='Baldness Risk Calculator',
+#         robots_meta='index, follow'
+#     )
+# 
 @app.route('/resources/how-to-prevent-hair-loss')
 def how_to_prevent_hair_loss():
     return render_template(
@@ -2755,22 +2760,23 @@ def how_to_prevent_hair_loss():
         date_modified='2026-03-20'
     )
 
-@app.route('/bac-calculator')
-def bac_calculator():
-    schema_name = "BAC Calculator"
-    schema_description = "Use this BAC calculator to estimate your blood alcohol content based on number of drinks, body weight, gender, and time."
-    schema_url = "/bac-calculator"
-    return render_template(
-        'bac_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        schema_type='WebPage',
-        robots_meta='noindex, nofollow'
-    )
-
+# /bac-calculator: migrated to config-driven (configs/)
+# @app.route('/bac-calculator')
+# def bac_calculator():
+#     schema_name = "BAC Calculator"
+#     schema_description = "Use this BAC calculator to estimate your blood alcohol content based on number of drinks, body weight, gender, and time."
+#     schema_url = "/bac-calculator"
+#     return render_template(
+#         'bac_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         schema_type='WebPage',
+#         robots_meta='noindex, nofollow'
+#     )
+# 
 @app.route('/chipotle-nutrition-calculator')
 def chipotle_nutrition_calculator():
     schema_name = "Chipotle Nutrition Calculator"
@@ -2850,31 +2856,33 @@ def army_body_fat_calculator():
         schema_type='WebPage'
     )
 
-@app.route('/body-fat-calculator')
-def body_fat_calculator():
-    return render_template(
-        'body_fat_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        breadcrumb_title='Body Fat Calculator',
-        robots_meta='index, follow'
-    )
-
-@app.route('/alcohol-impact-calculator')
-def alcohol_impact_calculator():
-    schema_name = "Alcohol Impact Calculator"
-    schema_description = "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration. Based on current research."
-    schema_url = "/alcohol-impact-calculator"
-    return render_template(
-        'alcohol_impact_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        schema_type='WebPage'
-    )
-
+# /body-fat-calculator: migrated to config-driven (configs/)
+# @app.route('/body-fat-calculator')
+# def body_fat_calculator():
+#     return render_template(
+#         'body_fat_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+#         breadcrumb_title='Body Fat Calculator',
+#         robots_meta='index, follow'
+#     )
+# 
+# /alcohol-impact-calculator: migrated to config-driven (configs/)
+# @app.route('/alcohol-impact-calculator')
+# def alcohol_impact_calculator():
+#     schema_name = "Alcohol Impact Calculator"
+#     schema_description = "Estimate how alcohol affects your sleep quality, next-day productivity, liver health, and hydration. Based on current research."
+#     schema_url = "/alcohol-impact-calculator"
+#     return render_template(
+#         'alcohol_impact_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         schema_type='WebPage'
+#     )
+# 
 @app.route('/ads.txt')
 def ads_txt():
     return send_from_directory('static/public', 'ads.txt')
@@ -3271,23 +3279,24 @@ def body_fat_percentage_chart():
 #         date_modified='2026-03-20'
 #     )
 
-@app.route('/lipid-panel-goals-calculator')
-def lipid_panel_goals_calculator():
-    schema_name = "Lipid Panel Goals Calculator"
-    schema_description = "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol."
-    schema_url = "/lipid-panel-goals-calculator"
-    return render_template(
-        'lipid_panel_goals_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        date_modified='2026-03-20'
-    )
-
-
+# /lipid-panel-goals-calculator: migrated to config-driven (configs/)
+# @app.route('/lipid-panel-goals-calculator')
+# def lipid_panel_goals_calculator():
+#     schema_name = "Lipid Panel Goals Calculator"
+#     schema_description = "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol."
+#     schema_url = "/lipid-panel-goals-calculator"
+#     return render_template(
+#         'lipid_panel_goals_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='MedicalWebPage',
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         date_modified='2026-03-20'
+#     )
+# 
+# 
 @app.route('/semaglutide-reconstitution-calculator')
 @app.route('/peptide-reconstitution-calculator')
 def semaglutide_reconstitution_calculator():
@@ -3821,24 +3830,25 @@ def gestational_age_calculator():
 #     return render_template('creatine_dosage_calculator_v3.html', ...)
 
 
-@app.route('/cholesterol-ratio-calculator')
-def cholesterol_ratio_calculator():
-    schema_name = "Cholesterol Ratio Calculator"
-    schema_description = "Calculate Total/HDL ratio, LDL/HDL ratio, Triglyceride/HDL ratio, and Non-HDL cholesterol from your lipid panel results. Risk categories based on AHA and ATP III guidelines."
-    schema_url = "/cholesterol-ratio-calculator"
-    return render_template(
-        'cholesterol_ratio_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
-
-
+# /cholesterol-ratio-calculator: migrated to config-driven (configs/)
+# @app.route('/cholesterol-ratio-calculator')
+# def cholesterol_ratio_calculator():
+#     schema_name = "Cholesterol Ratio Calculator"
+#     schema_description = "Calculate Total/HDL ratio, LDL/HDL ratio, Triglyceride/HDL ratio, and Non-HDL cholesterol from your lipid panel results. Risk categories based on AHA and ATP III guidelines."
+#     schema_url = "/cholesterol-ratio-calculator"
+#     return render_template(
+#         'cholesterol_ratio_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='MedicalWebPage',
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
+# 
+# 
 @app.route('/pregnancy-weight-gain-calculator')
 def pregnancy_weight_gain_calculator():
     schema_name = "Pregnancy Weight Gain Calculator"
@@ -6160,23 +6170,24 @@ def formula_feeding_calculator():
     )
 
 
-@app.route('/bulking-calorie-calculator')
-def bulking_calorie_calculator():
-    return render_template(
-        'bulking_calorie_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        breadcrumb_title='Bulking Calorie Calculator',
-        robots_meta='index, follow'
-    )
-
-
-# /ffmi-calculator: migrated to config-driven (configs/fitness.py)
-# @app.route('/ffmi-calculator')
-# def ffmi_calculator():
-#     return render_template('ffmi_calculator_v3.html', ...)
-
-
+# /bulking-calorie-calculator: migrated to config-driven (configs/)
+# @app.route('/bulking-calorie-calculator')
+# def bulking_calorie_calculator():
+#     return render_template(
+#         'bulking_calorie_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         breadcrumb_title='Bulking Calorie Calculator',
+#         robots_meta='index, follow'
+#     )
+# 
+# 
+# # /ffmi-calculator: migrated to config-driven (configs/fitness.py)
+# # @app.route('/ffmi-calculator')
+# # def ffmi_calculator():
+# #     return render_template('ffmi_calculator_v3.html', ...)
+# 
+# 
 @app.route('/hcg-injection-dosage-calculator')
 def hcg_injection_dosage_calculator():
     schema_name = "HCG Injection Dosage Calculator"
@@ -6263,20 +6274,21 @@ def zone2_training_guide():
         date_modified='2026-03-20'
     )
 
-@app.route('/running-calorie-calculator')
-def running_calorie_calculator():
-    schema_name = "Running Calorie Calculator"
-    schema_description = "Calculate calories burned running by distance, time, and pace. Uses MET values from the Ainsworth et al. Compendium of Physical Activities. Supports 5K, 10K, half marathon, marathon, and custom distances with terrain adjustments."
-    schema_url = "/running-calorie-calculator"
-    return render_template(
-        'running_calorie_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        breadcrumb_title='Running Calorie Calculator',
-        robots_meta='index, follow'
-    )
-
-
+# /running-calorie-calculator: migrated to config-driven (configs/)
+# @app.route('/running-calorie-calculator')
+# def running_calorie_calculator():
+#     schema_name = "Running Calorie Calculator"
+#     schema_description = "Calculate calories burned running by distance, time, and pace. Uses MET values from the Ainsworth et al. Compendium of Physical Activities. Supports 5K, 10K, half marathon, marathon, and custom distances with terrain adjustments."
+#     schema_url = "/running-calorie-calculator"
+#     return render_template(
+#         'running_calorie_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+#         breadcrumb_title='Running Calorie Calculator',
+#         robots_meta='index, follow'
+#     )
+# 
+# 
 @app.route('/resources/running-calorie-guide')
 def running_calorie_guide():
     return render_template(
@@ -6341,24 +6353,25 @@ def running_pace_guide():
     )
 
 
-@app.route('/steps-to-calories-calculator')
-def steps_to_calories_calculator():
-    schema_name = "Steps to Calories Calculator"
-    schema_description = "Calculate calories burned from step count using your body weight, stride length, and walking pace. Based on MET values from the Ainsworth Compendium of Physical Activities."
-    schema_url = "/steps-to-calories-calculator"
-    return render_template(
-        'steps_to_calories_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        canonical_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-14'
-    )
-
-
+# /steps-to-calories-calculator: migrated to config-driven (configs/)
+# @app.route('/steps-to-calories-calculator')
+# def steps_to_calories_calculator():
+#     schema_name = "Steps to Calories Calculator"
+#     schema_description = "Calculate calories burned from step count using your body weight, stride length, and walking pace. Based on MET values from the Ainsworth Compendium of Physical Activities."
+#     schema_url = "/steps-to-calories-calculator"
+#     return render_template(
+#         'steps_to_calories_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         canonical_url=schema_url,
+#         schema_type='WebPage',
+#         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+#         date_modified='2026-03-14'
+#     )
+# 
+# 
 @app.route('/resources/steps-calories-guide')
 def steps_calories_guide():
     return render_template(
@@ -6373,24 +6386,25 @@ def steps_calories_guide():
     )
 
 
-@app.route('/treadmill-calorie-calculator')
-def treadmill_calorie_calculator():
-    schema_name = "Treadmill Calorie Calculator"
-    schema_description = "Calculate calories burned on a treadmill by speed, incline, duration, and body weight. Uses the ACSM metabolic equation — the gold standard for treadmill calorie estimation. Includes incline comparison table."
-    schema_url = "/treadmill-calorie-calculator"
-    return render_template(
-        'treadmill_calorie_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        canonical_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-14'
-    )
-
-
+# /treadmill-calorie-calculator: migrated to config-driven (configs/)
+# @app.route('/treadmill-calorie-calculator')
+# def treadmill_calorie_calculator():
+#     schema_name = "Treadmill Calorie Calculator"
+#     schema_description = "Calculate calories burned on a treadmill by speed, incline, duration, and body weight. Uses the ACSM metabolic equation — the gold standard for treadmill calorie estimation. Includes incline comparison table."
+#     schema_url = "/treadmill-calorie-calculator"
+#     return render_template(
+#         'treadmill_calorie_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         canonical_url=schema_url,
+#         schema_type='WebPage',
+#         breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
+#         date_modified='2026-03-14'
+#     )
+# 
+# 
 @app.route('/resources/treadmill-calorie-guide')
 def treadmill_calorie_guide():
     return render_template(
@@ -6405,17 +6419,18 @@ def treadmill_calorie_guide():
     )
 
 
-@app.route('/cycling-calorie-calculator')
-def cycling_calorie_calculator():
-    return render_template(
-        'cycling_calorie_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
-        breadcrumb_title='Cycling Calorie Calculator',
-        robots_meta='index, follow'
-    )
-
-
+# /cycling-calorie-calculator: migrated to config-driven (configs/)
+# @app.route('/cycling-calorie-calculator')
+# def cycling_calorie_calculator():
+#     return render_template(
+#         'cycling_calorie_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+#         breadcrumb_title='Cycling Calorie Calculator',
+#         robots_meta='index, follow'
+#     )
+# 
+# 
 @app.route('/resources/cycling-calorie-guide')
 def cycling_calorie_guide():
     return render_template(

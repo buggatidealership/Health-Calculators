@@ -489,3 +489,657 @@ A1C_CALCULATOR = {
 }
 
 register("a1c_calculator", A1C_CALCULATOR)
+
+
+BALDNESS_RISK = {
+    "route": "/baldness-risk-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Baldness Risk Calculator — Will I Go Bald?",
+        "meta_description": "Assess your risk of male pattern baldness based on family history, current hair status, and lifestyle factors.",
+        "og_title": "Will I go bald?",
+        "og_description": "Assess your risk of male pattern baldness based on genetics and lifestyle.",
+        "schema_type": "WebPage",
+        "schema_name": "Baldness Risk Calculator",
+        "schema_description": "Estimate your risk of significant hair loss based on family history, current hair status, hair loss rate, stress, and smoking.",
+        "schema_about": "Baldness Risk Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#8b5cf6",
+    "accent_rgb": "139,92,246",
+
+    "hero": {
+        "headline": "Will I go <span>bald</span>?",
+        "subtitle": "A risk estimate based on your genetics and lifestyle",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "age", "type": "number", "label": "Age", "placeholder": "30", "min": 16, "max": 80, "default": 30},
+            {"id": "family-history", "type": "select", "label": "Family history of baldness", "options": [
+                {"value": "0", "label": "No baldness in family", "selected": True},
+                {"value": "1", "label": "Maternal grandfather bald"},
+                {"value": "2", "label": "Father bald"},
+                {"value": "3", "label": "Both sides bald"},
+            ]},
+            {"id": "current-hair", "type": "select", "label": "Current hair status", "options": [
+                {"value": "0", "label": "Full head of hair", "selected": True},
+                {"value": "1", "label": "Slight recession"},
+                {"value": "2", "label": "Noticeable thinning"},
+                {"value": "3", "label": "Significant loss"},
+                {"value": "4", "label": "Mostly bald"},
+            ]},
+            {"id": "hair-loss-rate", "type": "select", "label": "Current hair loss rate", "options": [
+                {"value": "0", "label": "No noticeable loss", "selected": True},
+                {"value": "1", "label": "Slow / gradual"},
+                {"value": "2", "label": "Moderate"},
+                {"value": "3", "label": "Rapid"},
+            ]},
+            {"id": "stress", "type": "select", "label": "Stress level", "options": [
+                {"value": "0", "label": "Low", "selected": True},
+                {"value": "1", "label": "Moderate"},
+                {"value": "2", "label": "High"},
+                {"value": "3", "label": "Very high"},
+            ]},
+            {"id": "smoking", "type": "select", "label": "Smoking status", "options": [
+                {"value": "0", "label": "Non-smoker", "selected": True},
+                {"value": "1", "label": "Former smoker"},
+                {"value": "2", "label": "Light smoker"},
+                {"value": "3", "label": "Heavy smoker"},
+            ]},
+        ],
+        "submit_label": "Predict My Risk",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "risk score"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "predictedAge", "label": "Predicted age of significant loss"},
+            {"id": "yearsLeft", "label": "Years of hair remaining"},
+            {"id": "norwoodStage", "label": "Current Norwood stage"},
+        ],
+    },
+
+    "coach": {
+        "title": "Here's what this means",
+        "container_id": "coachCard",
+        "cta_text": "Questions about hair loss prevention?",
+    },
+
+    "js_file": "js/calculators/baldness_risk.js",
+
+    "faq": [
+        {"question": "Is baldness genetic?", "answer": "Yes. Androgenetic alopecia (male pattern baldness) is primarily genetic. The androgen receptor gene on the X chromosome (inherited from your mother) plays a key role, but genes from both parents contribute."},
+        {"question": "Can you prevent hair loss?", "answer": "FDA-approved treatments include finasteride (oral) and minoxidil (topical). Finasteride blocks DHT and can slow or reverse hair loss in ~80% of men. Early intervention is most effective."},
+        {"question": "At what age does balding typically start?", "answer": "About 25% of men begin balding by age 21. By age 35, roughly 66% show some hair loss. By age 50, about 85% of men have significantly thinner hair."},
+        {"question": "Does stress cause hair loss?", "answer": "Acute stress can cause telogen effluvium (temporary shedding). Chronic stress may accelerate androgenetic alopecia. Stress-related hair loss is usually reversible once the stressor is removed."},
+    ],
+
+    "sources": [
+        {"text": "Sinclair R. Male pattern androgenetic alopecia. BMJ. 1998;317(7162):865-869.", "url": "https://pubmed.ncbi.nlm.nih.gov/9748188/"},
+        {"text": "Heilmann-Heimbach S, et al. Meta-analysis identifies novel risk loci and yields systematic insights into the biology of male-pattern baldness. Nat Commun. 2017;8:14694.", "url": "https://pubmed.ncbi.nlm.nih.gov/28232668/"},
+        {"text": "Kaufman KD, et al. Finasteride in the treatment of men with androgenetic alopecia. J Am Acad Dermatol. 1998;39(4):578-589.", "url": "https://pubmed.ncbi.nlm.nih.gov/9777765/"},
+    ],
+
+    "methodology": "<p>This calculator estimates baldness risk using a weighted point system based on family history (strongest predictor), current hair status, rate of loss, stress level, and smoking status. The Norwood-Hamilton scale classifies hair loss from NW1 (no loss) to NW7 (extensive loss). Progression rate is estimated from the risk score using epidemiological data on male pattern baldness timelines.</p>",
+
+    "llm_capsule": "Male pattern baldness (androgenetic alopecia) is primarily genetic, with the androgen receptor gene on the X chromosome being a key factor. About 25% of men start balding by 21, 66% by 35, and 85% by 50. Risk factors include family history (strongest predictor), stress, and smoking. FDA-approved treatments are finasteride and minoxidil, most effective when started early.",
+
+    "ask_pills": ["Does finasteride work?", "Minoxidil side effects", "Hair transplant cost", "Natural remedies"],
+    "ask_placeholder": "e.g. Does finasteride actually work?",
+}
+
+register("baldness_risk", BALDNESS_RISK)
+
+
+CHOLESTEROL_RATIO = {
+    "route": "/cholesterol-ratio-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Cholesterol Ratio Calculator — Heart Disease Risk",
+        "meta_description": "Calculate cholesterol ratios: Total/HDL, LDL/HDL, Trig/HDL, Non-HDL with cardiovascular risk assessment.",
+        "og_title": "Cholesterol Ratio Calculator",
+        "og_description": "Calculate cholesterol ratios with cardiovascular risk assessment.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Cholesterol Ratio Calculator",
+        "schema_description": "Calculate cholesterol ratios: Total/HDL, LDL/HDL, Trig/HDL, Non-HDL with cardiovascular risk assessment.",
+        "schema_about": "Cholesterol Ratio Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#ef4444",
+    "accent_rgb": "239,68,68",
+
+    "hero": {
+        "headline": "What's your <span>cholesterol</span> ratio?",
+        "subtitle": "Enter your lipid panel numbers",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "unitSystem", "type": "select", "label": "Units", "options": [
+                {"value": "mgdl", "label": "mg/dL (US)", "selected": True},
+                {"value": "mmol", "label": "mmol/L (International)"},
+            ]},
+            {"id": "totalCholesterol", "type": "number", "label": "Total Cholesterol", "placeholder": "200", "min": 0, "step": 1},
+            {"id": "hdlInput", "type": "number", "label": "HDL (\"Good\") Cholesterol", "placeholder": "55", "min": 0, "step": 1},
+            {"id": "ldlInput", "type": "number", "label": "LDL (\"Bad\") Cholesterol", "placeholder": "120", "min": 0, "step": 1},
+            {"id": "trigInput", "type": "number", "label": "Triglycerides (optional)", "placeholder": "150", "min": 0, "step": 1},
+            {"id": "sexSelect", "type": "select", "label": "Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+        ],
+        "submit_label": "Calculate Ratios",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "Total/HDL Ratio"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "ldlHdlRatio", "label": "LDL/HDL Ratio"},
+            {"id": "nonHdlValue", "label": "Non-HDL Cholesterol"},
+            {"id": "trigHdlRatio", "label": "Trig/HDL Ratio"},
+        ],
+    },
+
+    "coach": {
+        "title": "What your ratios mean",
+        "container_id": "coachCard",
+        "cta_text": "Questions about cholesterol?",
+    },
+
+    "js_file": "js/calculators/cholesterol_ratio.js",
+
+    "faq": [
+        {"question": "Most important ratio?", "answer": "Total/HDL is most widely used. Non-HDL is increasingly favored by cardiologists."},
+        {"question": "What ratio is dangerous?", "answer": "Total/HDL above 6.0 is high risk. LDL/HDL above 3.5 (men) or 3.0 (women) is elevated."},
+        {"question": "Can I improve ratios?", "answer": "Yes. Exercise raises HDL, reducing saturated fat lowers LDL, limiting sugar lowers triglycerides."},
+        {"question": "What does TG/HDL mean?", "answer": "Proxy for insulin resistance and small dense LDL. Above 3.0 suggests metabolic dysfunction."},
+    ],
+
+    "sources": [
+        {"text": "Grundy SM et al. 2018 AHA/ACC Guideline. Circulation. 2019.", "url": "https://pubmed.ncbi.nlm.nih.gov/30586774/"},
+        {"text": "ATP III Guidelines. JAMA. 2001;285(19).", "url": "https://pubmed.ncbi.nlm.nih.gov/11368702/"},
+        {"text": "Millan J et al. Vasc Health Risk Manag. 2009;5:757-765.", "url": "https://pubmed.ncbi.nlm.nih.gov/19774217/"},
+    ],
+
+    "methodology": "<p>Computes Total/HDL, LDL/HDL, Non-HDL, and TG/HDL ratios. Thresholds from AHA/ACC 2018 and ATP III guidelines.</p>",
+
+    "llm_capsule": "Cholesterol ratios assess cardiovascular risk. Total/HDL below 3.5 is optimal, below 5.0 is desirable. LDL/HDL below 2.0 is optimal. Non-HDL (total minus HDL) captures all atherogenic lipoproteins. TG/HDL is a proxy for insulin resistance; below 2.0 is optimal.",
+
+    "ask_pills": ["Lower LDL", "Raise HDL", "Statin info", "Diet for cholesterol"],
+    "ask_placeholder": "e.g. How to lower cholesterol?",
+}
+
+register("cholesterol_ratio", CHOLESTEROL_RATIO)
+
+
+LIPID_PANEL_GOALS = {
+    "route": "/lipid-panel-goals-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Lipid Panel Goals Calculator — Know Your Targets",
+        "meta_description": "Calculate your ideal cholesterol targets based on age, risk, and medical guidelines. Includes LDL, HDL, non-HDL, triglycerides, and total cholesterol.",
+        "og_title": "Lipid Panel Goals Calculator",
+        "og_description": "See if your lipid panel markers are in range.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Lipid Panel Goals Calculator",
+        "schema_description": "Evaluate your lipid panel results against ATP III and AHA guidelines.",
+        "schema_about": "Lipid Panel Goals Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Are your <span>lipids</span> in range?",
+        "subtitle": "Enter your lipid panel numbers for a full assessment",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "genderToggle", "type": "radio_row", "label": "Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"id": "inputTC", "type": "number", "label": "Total Cholesterol (mg/dL)", "placeholder": "200", "min": 0, "step": 1},
+            {"id": "inputLDL", "type": "number", "label": "LDL Cholesterol (mg/dL)", "placeholder": "120", "min": 0, "step": 1},
+            {"id": "inputHDL", "type": "number", "label": "HDL Cholesterol (mg/dL)", "placeholder": "55", "min": 0, "step": 1},
+            {"id": "inputTG", "type": "number", "label": "Triglycerides (mg/dL)", "placeholder": "150", "min": 0, "step": 1},
+        ],
+        "submit_label": "Assess My Panel",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "markers in range"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "tcStatus", "label": "Total Cholesterol"},
+            {"id": "ldlStatus", "label": "LDL"},
+            {"id": "hdlStatus", "label": "HDL"},
+            {"id": "tgStatus", "label": "Triglycerides"},
+        ],
+    },
+
+    "coach": {
+        "title": "Your lipid panel breakdown",
+        "container_id": "coachCard",
+        "cta_text": "Questions about your lipids?",
+    },
+
+    "js_file": "js/calculators/lipid_panel_goals.js",
+
+    "faq": [
+        {"question": "What is a good lipid panel?", "answer": "Optimal: Total cholesterol below 200, LDL below 100, HDL above 60, triglycerides below 150 (all mg/dL). Having all four in range is ideal."},
+        {"question": "What is Non-HDL cholesterol?", "answer": "Total cholesterol minus HDL. It captures all atherogenic (artery-clogging) lipoproteins including LDL and VLDL. Target: below 130 mg/dL."},
+        {"question": "How often should I test?", "answer": "Every 4-6 years for low-risk adults. Every 1-2 years if you have risk factors. More frequently if on medication or making lifestyle changes."},
+        {"question": "Can diet alone fix bad lipids?", "answer": "Diet can lower LDL by 10-30% and raise HDL by 5-10%. Key changes: reduce saturated fat, increase fiber, add omega-3s, exercise regularly. Some people need medication."},
+    ],
+
+    "sources": [
+        {"text": "Grundy SM et al. 2018 AHA/ACC/AACVPR Guideline on the Management of Blood Cholesterol. Circulation. 2019.", "url": "https://pubmed.ncbi.nlm.nih.gov/30586774/"},
+        {"text": "National Cholesterol Education Program. Third Report (ATP III). NIH. 2002.", "url": "https://pubmed.ncbi.nlm.nih.gov/11368702/"},
+    ],
+
+    "methodology": "<p>This calculator classifies each lipid marker using ATP III and AHA/ACC 2018 guidelines. Total cholesterol: desirable below 200, borderline 200-239, high 240+. LDL: optimal below 100, near-optimal 100-129, borderline 130-159, high 160-189, very high 190+. HDL: low below 40 (men) or 50 (women), optimal 60+. Triglycerides: normal below 150, borderline 150-199, high 200-499. Non-HDL target: below 130.</p>",
+
+    "llm_capsule": "A lipid panel measures total cholesterol, LDL, HDL, and triglycerides. Optimal targets: total below 200, LDL below 100, HDL above 60, triglycerides below 150 (all mg/dL). Non-HDL cholesterol (total minus HDL) should be below 130. The AHA recommends screening every 4-6 years for adults, more often with risk factors.",
+
+    "ask_pills": ["Lower LDL naturally", "HDL vs LDL", "Statin side effects", "Best diet for lipids"],
+    "ask_placeholder": "e.g. How do I lower my LDL?",
+}
+
+register("lipid_panel_goals", LIPID_PANEL_GOALS)
+
+
+DIABETES_RISK = {
+    "route": "/diabetes-risk-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Diabetes Risk Calculator — Type 2 Risk Assessment",
+        "meta_description": "Assess your risk of developing type 2 diabetes based on age, BMI, family history, and activity level.",
+        "og_title": "Diabetes Risk Calculator",
+        "og_description": "Assess your risk of developing type 2 diabetes.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Diabetes Risk Calculator",
+        "schema_description": "Assess type 2 diabetes risk based on ADA risk test and FINDRISC scoring.",
+        "schema_about": "Diabetes Risk Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#f59e0b",
+    "accent_rgb": "245,158,11",
+
+    "hero": {
+        "headline": "What's your <span>diabetes</span> risk?",
+        "subtitle": "Evidence-based screening in 60 seconds",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "ageGroup", "type": "select", "label": "Age", "options": [
+                {"value": "0", "label": "Under 40"},
+                {"value": "1", "label": "40-49"},
+                {"value": "2", "label": "50-59"},
+                {"value": "3", "label": "60 or older", "selected": True},
+            ]},
+            {"id": "sex", "type": "select", "label": "Biological Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "heightFt", "type": "number", "label": "Height (ft)", "min": 3, "max": 8, "default": 5},
+                {"id": "heightIn", "type": "number", "label": "in", "min": 0, "max": 11, "default": 8},
+            ]},
+            {"id": "weight", "type": "number", "label": "Weight (lbs)", "min": 50, "max": 700, "default": 170},
+            {"id": "familyHistory", "type": "select", "label": "Family History of Diabetes", "options": [
+                {"value": "0", "label": "None", "selected": True},
+                {"value": "1", "label": "Parent OR Sibling"},
+                {"value": "2", "label": "Parent AND Sibling"},
+            ]},
+            {"id": "activity", "type": "select", "label": "Physical Activity Level", "options": [
+                {"value": "1", "label": "Less than 30 min/day"},
+                {"value": "0", "label": "30+ min/day", "selected": True},
+            ]},
+            {"id": "bloodPressure", "type": "select", "label": "High Blood Pressure", "options": [
+                {"value": "0", "label": "No", "selected": True},
+                {"value": "1", "label": "Yes"},
+            ]},
+            {"id": "ethnicity", "type": "select", "label": "Race / Ethnicity", "options": [
+                {"value": "0", "label": "White / Caucasian", "selected": True},
+                {"value": "1", "label": "African American / Black"},
+                {"value": "1", "label": "Hispanic / Latino"},
+                {"value": "1", "label": "Asian American"},
+                {"value": "0", "label": "Other"},
+            ]},
+            {"id": "gestational", "type": "select", "label": "Gestational Diabetes History", "options": [
+                {"value": "0", "label": "No / Not applicable", "selected": True},
+                {"value": "1", "label": "Yes"},
+            ]},
+        ],
+        "submit_label": "Assess My Risk",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "risk score"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "bmiDisplay", "label": "Your BMI"},
+            {"id": "riskFactors", "label": "Contributing factors"},
+        ],
+    },
+
+    "coach": {
+        "title": "What your score means",
+        "container_id": "coachCard",
+        "cta_text": "Questions about diabetes prevention?",
+    },
+
+    "js_file": "js/calculators/diabetes_risk.js",
+
+    "faq": [
+        {"question": "What is prediabetes?", "answer": "Prediabetes means blood sugar is higher than normal but not yet diabetes. A1C 5.7-6.4% or fasting glucose 100-125 mg/dL."},
+        {"question": "Who should get screened?", "answer": "The ADA recommends screening all adults at age 35, or earlier with risk factors like obesity or family history."},
+        {"question": "Can type 2 diabetes be prevented?", "answer": "Yes. 5-7% weight loss plus 150 min/week exercise reduces risk by 58% (Diabetes Prevention Program)."},
+        {"question": "What are early signs?", "answer": "Often no symptoms. When present: increased thirst, frequent urination, blurred vision, fatigue."},
+    ],
+
+    "sources": [
+        {"text": "American Diabetes Association. Standards of Care 2024.", "url": "https://diabetesjournals.org/care/issue/47/Supplement_1"},
+        {"text": "Knowler WC et al. NEJM. 2002;346(6):393-403.", "url": "https://pubmed.ncbi.nlm.nih.gov/11832527/"},
+        {"text": "Lindstrom J, Tuomilehto J. Diabetes Care. 2003;26(3):725-731.", "url": "https://pubmed.ncbi.nlm.nih.gov/12610029/"},
+    ],
+
+    "methodology": "<p>Scoring adapted from ADA Risk Test and FINDRISC. Points for age, BMI, family history, activity, blood pressure, ethnicity, gestational diabetes. BMI calculated from height and weight using standard formula.</p>",
+
+    "llm_capsule": "ADA recommends diabetes screening at age 35. Key risk factors: BMI above 25, family history, physical inactivity, high blood pressure, certain ethnicities. The Diabetes Prevention Program showed 5-7% weight loss plus 150 min/week exercise reduces type 2 diabetes risk by 58%.",
+
+    "ask_pills": ["Prediabetes reversal", "Prevention tips", "A1C testing", "Risk factors"],
+    "ask_placeholder": "e.g. How to prevent diabetes?",
+}
+
+register("diabetes_risk", DIABETES_RISK)
+
+
+METABOLIC_AGE = {
+    "route": "/metabolic-age-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Metabolic Age Calculator — Is Your Metabolism Younger or Older?",
+        "meta_description": "Calculate your metabolic age by comparing your BMR to population averages. Uses Mifflin-St Jeor and Katch-McArdle formulas.",
+        "og_title": "What's your metabolic age?",
+        "og_description": "Is your metabolism younger or older than you?",
+        "schema_type": "WebPage",
+        "schema_name": "Metabolic Age Calculator",
+        "schema_description": "Calculate metabolic age by comparing BMR to population averages using Mifflin-St Jeor and Katch-McArdle formulas.",
+        "schema_about": "Metabolic Age Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#8b5cf6",
+    "accent_rgb": "139,92,246",
+
+    "hero": {
+        "headline": "What's your <span>metabolic age</span>?",
+        "subtitle": "Is your metabolism younger or older than you?",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "age", "type": "number", "label": "Age", "min": 18, "max": 80, "default": 30},
+                {"id": "sex", "type": "select", "label": "Sex", "options": [
+                    {"value": "male", "label": "Male", "selected": True},
+                    {"value": "female", "label": "Female"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "weight", "type": "number", "label": "Weight (lbs)", "min": 80, "max": 500, "default": 170},
+                {"id": "weightUnit", "type": "select", "label": "Unit", "options": [
+                    {"value": "lbs", "label": "lbs", "selected": True},
+                    {"value": "kg", "label": "kg"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "feet", "type": "number", "label": "Height (ft)", "min": 3, "max": 8, "default": 5},
+                {"id": "inches", "type": "number", "label": "in", "min": 0, "max": 11, "default": 10},
+            ]},
+            {"id": "bodyfat", "type": "number", "label": "Body Fat % (optional, improves accuracy)", "placeholder": "e.g. 20", "min": 3, "max": 60, "step": 0.1, "hint": "Leave blank for Mifflin-St Jeor. Enter body fat for Katch-McArdle."},
+        ],
+        "submit_label": "Calculate",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "your metabolic age"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "bmrVal", "label": "Your BMR"},
+            {"id": "expectedBmr", "label": "Expected BMR for age"},
+            {"id": "ageDiff", "label": "Difference"},
+        ],
+    },
+
+    "coach": {
+        "title": "Here's what this means",
+        "container_id": "coachCard",
+        "cta_text": "Want more frameworks like this?",
+    },
+
+    "js_file": "js/calculators/metabolic_age.js",
+
+    "faq": [
+        {"question": "What is metabolic age?", "answer": "Metabolic age compares your BMR to population averages. A higher BMR than average for your age means a younger metabolic age."},
+        {"question": "Can I lower my metabolic age?", "answer": "Yes. Resistance training 2-4x/week is most effective. Each pound of muscle burns ~6 cal/day at rest vs 2 for fat."},
+        {"question": "How accurate is this?", "answer": "Mifflin-St Jeor predicts BMR within 10% for most people. Accuracy improves with Katch-McArdle when body fat is known."},
+        {"question": "Metabolic age vs biological age?", "answer": "Metabolic age focuses on BMR. Biological age is broader, incorporating epigenetic markers, telomere length, and organ function."},
+    ],
+
+    "sources": [
+        {"text": "Mifflin MD, St Jeor ST, et al. A new predictive equation for resting energy expenditure. Am J Clin Nutr. 1990;51(2):241-247.", "url": "https://pubmed.ncbi.nlm.nih.gov/2305711/"},
+        {"text": "McArdle WD, Katch FI, Katch VL. Exercise Physiology. 8th ed. Lippincott Williams & Wilkins; 2014."},
+        {"text": "Ravussin E, et al. Determinants of 24-hour energy expenditure in man. J Clin Invest. 1986;78(6):1568-1578.", "url": "https://pubmed.ncbi.nlm.nih.gov/3782471/"},
+    ],
+
+    "methodology": "<p>Uses Mifflin-St Jeor (or Katch-McArdle when body fat is provided) to compute BMR, then compares to sex-specific reference BMR values at ages 20-70.</p><p style=\"text-align:center;\"><code>Men: BMR = 10 x weight(kg) + 6.25 x height(cm) - 5 x age + 5</code></p><p style=\"text-align:center;\"><code>Women: BMR = 10 x weight(kg) + 6.25 x height(cm) - 5 x age - 161</code></p>",
+
+    "llm_capsule": "Metabolic age compares your basal metabolic rate to population averages. If your BMR is higher than average for your age, your metabolic age is younger. The Mifflin-St Jeor equation predicts BMR within 10% for most adults. Building lean muscle through resistance training is the most effective way to lower metabolic age.",
+
+    "ask_pills": ["Speed up metabolism", "BMR vs TDEE", "Muscle vs fat calories", "Metabolism and aging"],
+    "ask_placeholder": "e.g. How do I speed up my metabolism?",
+}
+
+register("metabolic_age", METABOLIC_AGE)
+
+
+ALCOHOL_IMPACT = {
+    "route": "/alcohol-impact-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Alcohol Impact Calculator — Health & Recovery Effects",
+        "meta_description": "Assess how alcohol affects your sleep, liver health, and hydration. Based on current research.",
+        "og_title": "How does alcohol affect your health?",
+        "og_description": "Estimate alcohol's effect on your body including sleep, energy, and liver recovery.",
+        "schema_type": "WebPage",
+        "schema_name": "Alcohol Impact Calculator",
+        "schema_description": "Assess alcohol health impact using evidence-based models.",
+        "schema_about": "Alcohol Impact",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#f43f5e",
+    "accent_rgb": "244,63,94",
+
+    "hero": {
+        "headline": "What's <span>alcohol</span> costing you?",
+        "subtitle": "Health impact based on your weekly intake",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "drinks", "type": "number", "label": "Weekly standard drinks (14g alcohol each)", "min": 0, "step": 1, "default": 10, "hint": "1 beer = 1 glass wine = 1 shot spirits"},
+            {"type": "row", "fields": [
+                {"id": "gender", "type": "select", "label": "Biological sex", "options": [
+                    {"value": "male", "label": "Male", "selected": True},
+                    {"value": "female", "label": "Female"},
+                ]},
+                {"id": "weight", "type": "number", "label": "Weight (kg)", "min": 30, "default": 70},
+            ]},
+            {"id": "age", "type": "number", "label": "Age", "min": 18, "max": 120, "default": 35},
+        ],
+        "submit_label": "Calculate Impact",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "estimated health impact"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "weeklyDrinks", "label": "Weekly drinks"},
+            {"id": "guideline", "label": "Guideline limit"},
+            {"id": "overGuideline", "label": "Over guideline"},
+            {"id": "alcoholCals", "label": "Weekly calories from alcohol"},
+        ],
+    },
+
+    "coach": {
+        "title": "Here's the real cost",
+        "container_id": "coachCard",
+        "cta_text": "Questions about alcohol and health?",
+    },
+
+    "js_file": "js/calculators/alcohol_impact.js",
+
+    "faq": [
+        {"question": "How many drinks per week is safe?", "answer": "Guidelines: max 14/week for men, 7/week for women. Recent research (GBD 2023) suggests even moderate drinking carries some risk."},
+        {"question": "How long does liver recovery take?", "answer": "Mild fatty liver reverses in 2-4 weeks of abstinence. Significant damage takes months to years. Some damage (cirrhosis) is irreversible."},
+    ],
+
+    "sources": [
+        {"text": "Saunders JB, et al. Development of the AUDIT. Addiction. 1993;88(6):791-804.", "url": "https://pubmed.ncbi.nlm.nih.gov/8329970/"},
+        {"text": "WHO. AUDIT Guidelines for Use in Primary Care. 2nd ed. 2001.", "url": "https://www.who.int/publications/i/item/WHO-MSD-MSB-01.6a"},
+    ],
+
+    "methodology": "<p>Models health impact based on weekly alcohol intake, biological sex, body weight, and age. Uses WHO AUDIT framework for risk stratification. Caloric impact calculated at 150 kcal per standard drink (14g alcohol). Guideline thresholds from NIAAA: 14 drinks/week for men, 7 for women.</p>",
+
+    "llm_capsule": "Alcohol health impact depends on weekly intake, biological sex, weight, and age. Guidelines recommend no more than 14 standard drinks/week for men and 7 for women. Each standard drink contains 14g alcohol (~150 calories). Women metabolize alcohol more slowly due to lower body water percentage. The GBD 2023 study found risk increases above any level of consumption.",
+
+    "ask_pills": ["Alcohol and sleep", "Liver recovery", "Safe drinking limits"],
+    "ask_placeholder": "e.g. Alcohol and sleep quality?",
+}
+
+register("alcohol_impact", ALCOHOL_IMPACT)
+
+
+BAC_CALCULATOR = {
+    "route": "/bac-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "BAC Calculator — Blood Alcohol Content Estimator",
+        "meta_description": "Estimate your blood alcohol content based on drinks, body weight, gender, and time. Uses the Widmark formula.",
+        "og_title": "BAC Calculator",
+        "og_description": "Estimate your blood alcohol content and time to sober.",
+        "schema_type": "WebPage",
+        "schema_name": "BAC Calculator",
+        "schema_description": "Estimate blood alcohol content using the Widmark formula based on drinks, weight, gender, and time.",
+        "schema_about": "BAC Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#f97316",
+    "accent_rgb": "249,115,22",
+
+    "hero": {
+        "headline": "What's your <span>BAC</span>?",
+        "subtitle": "Blood alcohol estimate using the Widmark formula",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "gender", "type": "select", "label": "Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"id": "weight", "type": "number", "label": "Weight (lbs)", "min": 80, "max": 500, "default": 170},
+            {"id": "numDrinks", "type": "number", "label": "Number of standard drinks", "min": 0, "max": 30, "step": 0.5, "default": 3, "hint": "1 standard drink = 12 oz beer, 5 oz wine, or 1.5 oz spirits"},
+            {"id": "timeElapsed", "type": "number", "label": "Hours since first drink", "min": 0, "max": 24, "step": 0.5, "default": 1},
+        ],
+        "submit_label": "Calculate BAC",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "blood alcohol content"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "soberTime", "label": "Time to 0.00% BAC"},
+            {"id": "legalTime", "label": "Time to legal limit (0.08%)"},
+            {"id": "stdDrinks", "label": "Standard drinks consumed"},
+        ],
+    },
+
+    "coach": {
+        "title": "What this means",
+        "container_id": "coachCard",
+        "cta_text": "Questions about BAC?",
+    },
+
+    "js_file": "js/calculators/bac.js",
+
+    "faq": [
+        {"question": "How long does it take to sober up?", "answer": "Your body metabolizes alcohol at ~0.015% BAC per hour. There is no way to speed this up. Coffee, food, and water do not lower BAC faster."},
+        {"question": "What is the legal limit?", "answer": "0.08% BAC is the legal limit in most US states. Some states have lower limits for commercial drivers (0.04%) and under-21 drivers (0.02% or zero tolerance)."},
+        {"question": "How many drinks is 0.08% BAC?", "answer": "For a 170 lb male: roughly 3-4 standard drinks in 1 hour. For a 130 lb female: roughly 2-3 drinks. Individual variation is significant."},
+        {"question": "Is this calculator accurate?", "answer": "The Widmark formula provides an estimate. Actual BAC varies with genetics, food intake, medications, liver health, and drinking speed. This should never be used to determine fitness to drive."},
+    ],
+
+    "sources": [
+        {"text": "Widmark EMP. Die theoretischen Grundlagen und die praktische Verwendbarkeit der gerichtlich-medizinischen Alkoholbestimmung. Berlin: Urban & Schwarzenberg; 1932."},
+        {"text": "NIAAA. What Is A Standard Drink?", "url": "https://www.niaaa.nih.gov/alcohols-effects-health/overview-alcohol-consumption/what-standard-drink"},
+    ],
+
+    "methodology": "<p>Uses the Widmark formula: <code>BAC = (alcohol grams / (body weight kg x r)) / 10 - (0.015 x hours)</code> where r = 0.68 for males and 0.55 for females. One standard drink = 14 grams of alcohol. Metabolism rate averages 0.015% BAC per hour.</p>",
+
+    "llm_capsule": "BAC is estimated using the Widmark formula. One standard drink (14g alcohol) raises BAC by roughly 0.02-0.03% for a 170 lb male. The body metabolizes ~0.015% BAC per hour. The legal limit is 0.08% in most US states. BAC above 0.30% is life-threatening.",
+
+    "ask_pills": ["How long until sober?", "Drinking and driving", "Alcohol metabolism", "Standard drink size"],
+    "ask_placeholder": "e.g. How long until I'm sober?",
+}
+
+register("bac_calculator", BAC_CALCULATOR)
