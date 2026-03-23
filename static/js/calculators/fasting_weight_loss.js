@@ -18,7 +18,7 @@
         if (factoryForm) {
             var gridWrap = document.createElement('div');
             gridWrap.id = 'fastingGrid';
-            gridWrap.className = 'fasting-grid fade-in';
+            gridWrap.className = 'fasting-grid';
             gridWrap.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;max-width:520px;width:100%;margin-bottom:2rem;';
             factoryForm.parentNode.insertBefore(gridWrap, factoryForm);
             buildFastingGrid();
