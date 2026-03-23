@@ -38,8 +38,12 @@
             ' years at 7%\n\nTry it: healthcalculators.xyz/retirement-savings-calculator';
         updateShareButtons(shareText);
 
-        // Reveal hidden sections
-        document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
-        document.getElementById('result-section').scrollIntoView({behavior: 'smooth'});
+        // Reveal results with staggered animation
+        if (typeof factoryReveal === 'function') {
+            factoryReveal();
+        } else {
+            document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+            document.getElementById('result-section').scrollIntoView({behavior: 'smooth'});
+        }
     });
 })();

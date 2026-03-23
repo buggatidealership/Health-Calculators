@@ -71,27 +71,253 @@
 {% endif %}
 
 <link rel="stylesheet" href="/static/css/v25-dark.css">
-<style>:root { --accent: {{ cfg.accent }}; --accent-rgb: {{ cfg.accent_rgb }}; }</style>
+<style>
+:root { --accent: {{ cfg.accent }}; --accent-rgb: {{ cfg.accent_rgb }}; }
+
+/* === FACTORY TEMPLATE DESIGN === */
+
+/* Hero breathing */
+.factory-hero {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 6rem 1.5rem 4rem;
+    min-height: 0;
+}
+.factory-hero .pulse-dot { margin-bottom: 2rem; }
+.factory-hero .hero-title { margin-bottom: 0.6rem; }
+.factory-hero .hero-sub { margin-bottom: 3rem; max-width: 520px; }
+
+/* Form card — the lowest energy point */
+.factory-form {
+    max-width: 520px; width: 100%;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.factory-form:focus-within {
+    border-color: rgba(var(--accent-rgb), 0.25);
+}
+.factory-form .form-group { margin-bottom: 1.4rem; }
+.factory-form .form-group:last-child { margin-bottom: 0; }
+.factory-form label {
+    display: block; color: var(--text-dim, #94a3b8); font-size: 0.85rem;
+    font-weight: 600; margin-bottom: 0.5rem; letter-spacing: 0.01em;
+}
+.factory-form input, .factory-form select {
+    width: 100%; background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(var(--accent-rgb), 0.12);
+    border-radius: 12px; color: var(--text, #e2e8f0);
+    font-size: 1rem; padding: 0.75rem 1rem;
+    font-family: var(--font-body, 'DM Sans', sans-serif);
+    outline: none; transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.factory-form input:focus, .factory-form select:focus {
+    border-color: var(--accent); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.1);
+}
+.factory-form select option { background: #0d1420; color: var(--text, #e2e8f0); }
+.factory-form small { display: block; color: var(--text-muted, #64748b); font-size: 0.78rem; margin-top: 0.35rem; }
+.factory-form .form-row { display: flex; gap: 1rem; }
+.factory-form .form-row .form-group { flex: 1; }
+
+/* Calculate button — earned action */
+.factory-form .calc-btn {
+    background: var(--accent); color: #0a0f1a; border: none; border-radius: 12px;
+    padding: 0.85rem 2.4rem; font-size: 1.05rem; font-weight: 700;
+    cursor: pointer; font-family: var(--font-body, 'DM Sans', sans-serif);
+    transition: box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    width: auto; box-shadow: none; position: relative; overflow: hidden;
+}
+.factory-form .calc-btn::after { display: none; }
+.factory-form .calc-btn:hover {
+    box-shadow: 0 6px 24px rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-1px);
+}
+.factory-form .calc-btn:active { transform: translateY(0); }
+.factory-form .calc-btn.computing {
+    pointer-events: none; opacity: 0.85;
+}
+
+/* Result section — atmospheric scale */
+.factory-result {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 5rem 1.5rem;
+}
+.factory-result .result-number {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: clamp(3.5rem, 12vw, 7rem); line-height: 1;
+    color: var(--accent); text-shadow: 0 0 60px rgba(var(--accent-rgb), 0.25);
+    opacity: 0; transform: scale(0.9); transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.factory-result .result-number.revealed { opacity: 1; transform: scale(1); }
+.factory-result .result-unit {
+    font-size: 1.05rem; color: var(--text-dim, #94a3b8); margin-top: 0.6rem;
+    opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.15s;
+}
+.factory-result .result-unit.revealed { opacity: 1; }
+.factory-result .result-verdict {
+    font-size: 1.15rem; font-weight: 600; margin-top: 1rem;
+    color: var(--accent); opacity: 0; transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s;
+}
+.factory-result .result-verdict.revealed { opacity: 1; }
+
+/* Breakdown cards — staggered reveal */
+.factory-breakdown {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 0.8rem; max-width: 600px; width: 100%; margin-top: 2.5rem;
+}
+.factory-breakdown .detail-card {
+    background: rgba(var(--accent-rgb), 0.05);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 16px; padding: 1.3rem; text-align: center;
+    opacity: 0; transform: translateY(16px);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.factory-breakdown .detail-card.revealed { opacity: 1; transform: translateY(0); }
+.factory-breakdown .d-val {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: 1.8rem; color: var(--accent); line-height: 1.2;
+}
+.factory-breakdown .d-lbl {
+    font-size: 0.78rem; color: var(--text-dim, #94a3b8); margin-top: 0.3rem;
+    letter-spacing: 0.02em;
+}
+
+/* Coach section */
+.factory-coach {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 4rem 1.5rem;
+}
+.factory-coach .coach-container { max-width: 560px; width: 100%; }
+
+/* SEO sections — tighter, more polished */
+.factory-seo {
+    padding: 3.5rem 1.5rem;
+    display: flex; flex-direction: column; align-items: center;
+}
+.factory-seo .seo-inner { max-width: 640px; width: 100%; }
+.factory-seo .seo-heading {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem); color: #fff;
+    margin-bottom: 1.8rem; text-align: center;
+}
+
+/* FAQ — refined */
+.factory-seo .faq-item {
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px; margin-bottom: 0.6rem;
+    background: rgba(var(--accent-rgb), 0.03);
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.factory-seo .faq-item:hover { border-color: rgba(var(--accent-rgb), 0.2); }
+.factory-seo .faq-question {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 1.3rem; cursor: pointer; font-weight: 600; font-size: 0.92rem;
+    color: var(--text, #e2e8f0); background: none; border: none; width: 100%;
+    text-align: left; font-family: var(--font-body, 'DM Sans', sans-serif);
+    transition: color 0.15s;
+}
+.factory-seo .faq-question:hover { color: var(--accent); }
+.factory-seo .faq-answer {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1), padding 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0 1.3rem;
+}
+.factory-seo .faq-item.faq-open .faq-answer { max-height: 500px; padding: 0 1.3rem 1.1rem; }
+.factory-seo .faq-answer p { color: var(--text-dim, #94a3b8); font-size: 0.9rem; line-height: 1.7; }
+
+/* Sources — clean */
+.factory-seo .sources-list { list-style: none; counter-reset: source; padding: 0; }
+.factory-seo .sources-list li {
+    counter-increment: source; padding: 0.7rem 0;
+    border-bottom: 1px solid rgba(var(--accent-rgb), 0.06);
+    font-size: 0.85rem; color: var(--text-dim, #94a3b8); line-height: 1.6;
+}
+.factory-seo .sources-list li:last-child { border-bottom: none; }
+.factory-seo .sources-list li::before {
+    content: counter(source) "."; color: var(--accent); font-weight: 700; margin-right: 0.5rem;
+}
+.factory-seo .sources-list a { color: var(--accent); text-decoration: none; }
+.factory-seo .sources-list a:hover { text-decoration: underline; }
+
+/* Methodology */
+.factory-seo .methodology-text { color: var(--text-dim, #94a3b8); font-size: 0.9rem; line-height: 1.8; }
+.factory-seo .methodology-text code {
+    background: rgba(var(--accent-rgb), 0.1); padding: 0.15rem 0.5rem;
+    border-radius: 6px; font-size: 0.85rem; color: var(--accent);
+}
+
+/* LLM capsule */
+.factory-seo .llm-capsule {
+    background: rgba(var(--accent-rgb), 0.03);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 16px; padding: 1.8rem;
+}
+.factory-seo .llm-capsule p { color: var(--text-dim, #94a3b8); font-size: 0.9rem; line-height: 1.8; }
+
+/* Medical disclaimer */
+.factory-disclaimer {
+    max-width: 640px; margin: 0 auto; padding: 0 1.5rem;
+}
+
+/* Ask Pulse section */
+.factory-ask {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    padding: 5rem 1.5rem;
+}
+
+/* Related calculators */
+.factory-related {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0.8rem; margin-top: 1.5rem;
+}
+.factory-related a {
+    display: block; text-decoration: none; padding: 1.2rem;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px; color: var(--text-dim, #94a3b8); font-size: 0.88rem;
+    font-weight: 500; text-align: center;
+    transition: border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.factory-related a:hover { border-color: var(--accent); color: var(--accent); }
+
+/* Section separator — subtle gradient line */
+.section-sep {
+    width: 100%; max-width: 120px; height: 1px; margin: 0 auto;
+    background: linear-gradient(90deg, transparent, rgba(var(--accent-rgb), 0.2), transparent);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .factory-hero { padding: 4rem 1.2rem 3rem; }
+    .factory-form { padding: 1.8rem 1.2rem; }
+    .factory-form .form-row { flex-direction: column; gap: 0; }
+    .factory-result { padding: 3.5rem 1.2rem; }
+    .factory-coach { padding: 3rem 1.2rem; }
+    .factory-seo { padding: 2.5rem 1.2rem; }
+    .factory-ask { padding: 3.5rem 1.2rem; }
+    .factory-breakdown { grid-template-columns: 1fr; }
+}
+</style>
 {% block extra_head %}{% endblock %}
 </head>
 <body>
 {% include 'header.html' %}
 
-{# === HERO SECTION === #}
-<section class="section bg-1 fade-in" id="hero-section">
-    <div class="section-content" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
-        <span class="pulse-dot" style="margin-bottom:1.5rem;"></span>
+{# === HERO + FORM === #}
+<section class="bg-1" id="hero-section">
+    <div class="factory-hero fade-in">
+        <span class="pulse-dot"></span>
         <h1 class="hero-title">{{ cfg.hero.headline|safe }}</h1>
         <p class="hero-sub">{{ cfg.hero.subtitle }}</p>
 
-        {# === FORM === #}
         {% block form_content %}
-        <div class="form-card">
+        <div class="factory-form">
             {% for field in cfg.form.fields %}
 
             {% if field.type == 'number' %}
             <div class="form-group">
-                <label>{{ field.label }}</label>
+                <label for="{{ field.id }}">{{ field.label }}</label>
                 <input type="number" id="{{ field.id }}"
                        min="{{ field.get('min', 0) }}" max="{{ field.get('max', 99999) }}"
                        value="{{ field.get('default', '') }}" step="{{ field.get('step', 1) }}"
@@ -101,7 +327,7 @@
 
             {% elif field.type == 'select' %}
             <div class="form-group">
-                <label>{{ field.label }}</label>
+                <label for="{{ field.id }}">{{ field.label }}</label>
                 <select id="{{ field.id }}">
                     {% for opt in field.options %}
                     <option value="{{ opt.value }}"{{ ' selected' if opt.get('selected') }}>{{ opt.label }}</option>
@@ -136,7 +362,7 @@
             <div class="form-row">
                 {% for sub in field.fields %}
                 <div class="form-group">
-                    <label>{{ sub.label }}</label>
+                    <label for="{{ sub.id }}">{{ sub.label }}</label>
                     {% if sub.type == 'number' %}
                     <input type="number" id="{{ sub.id }}"
                            min="{{ sub.get('min', 0) }}" max="{{ sub.get('max', 99999) }}"
@@ -159,23 +385,22 @@
             {% endfor %}
 
             {% if cfg.form.get('submit_label') %}
-            <div style="text-align:center;margin-top:1rem;">
+            <div style="text-align:center;margin-top:1.2rem;">
                 <button class="calc-btn" id="calcBtn">{{ cfg.form.submit_label }}</button>
             </div>
             {% endif %}
         </div>
         {% endblock %}
 
-        {# Static example for SEO (visible before JS runs) #}
         {% if cfg.get('example_result') %}
-        <p class="hero-sub" id="seo-example" style="margin-top:2rem;font-size:0.9rem;max-width:560px;">{{ cfg.example_result }}</p>
+        <p class="hero-sub" id="seo-example" style="margin-top:2rem;font-size:0.88rem;max-width:520px;opacity:0.6;">{{ cfg.example_result }}</p>
         {% endif %}
     </div>
 </section>
 
-{# === RESULTS SECTION === #}
-<section class="section bg-2 hidden-section fade-in" id="result-section">
-    <div class="section-content" style="text-align:center;">
+{# === RESULTS === #}
+<section class="bg-2 hidden-section" id="result-section">
+    <div class="factory-result">
     {% block result_content %}
         {% if cfg.results %}
         <div class="result-number" id="{{ cfg.results.primary.id }}">--</div>
@@ -185,9 +410,9 @@
         {% endif %}
 
         {% if cfg.results.get('breakdown') %}
-        <div class="detail-grid" style="margin-top:2rem;">
+        <div class="factory-breakdown">
             {% for card in cfg.results.breakdown %}
-            <div class="detail-card">
+            <div class="detail-card" style="transition-delay: {{ loop.index0 * 0.08 }}s;">
                 <div class="d-val" id="{{ card.id }}">--</div>
                 <div class="d-lbl">{{ card.label }}</div>
             </div>
@@ -199,10 +424,10 @@
     </div>
 </section>
 
-{# === COACH SECTION === #}
+{# === COACH === #}
 {% if cfg.get('coach') %}
-<section class="section bg-3 hidden-section fade-in" id="coach-section">
-    <div class="section-content" style="text-align:center;">
+<section class="bg-3 hidden-section" id="coach-section">
+    <div class="factory-coach fade-in">
     {% block coach_content %}
         <div class="coach-container">
             <h2 class="coach-title">{{ cfg.coach.title }}</h2>
@@ -220,16 +445,18 @@
 </section>
 {% endif %}
 
+<div class="section-sep"></div>
+
 {# === MEDICAL DISCLAIMER === #}
-<div class="seo-section bg-4 fade-in">
-    <div class="seo-inner">
+<div class="factory-seo bg-4">
+    <div class="factory-disclaimer">
         {% include 'components/medical-disclaimer.html' %}
     </div>
 </div>
 
 {# === FAQ === #}
 {% if cfg.faq %}
-<div class="seo-section bg-1 fade-in" id="faq-section">
+<div class="factory-seo bg-1 fade-in" id="faq-section">
     <div class="seo-inner">
         <h2 class="seo-heading">Frequently Asked Questions</h2>
         <div class="faq-list">
@@ -237,7 +464,7 @@
             <div class="faq-item">
                 <button class="faq-question">
                     {{ item.question }}
-                    <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                 </button>
                 <div class="faq-answer">
                     <p>{{ item.answer }}</p>
@@ -251,7 +478,7 @@
 
 {# === SOURCES === #}
 {% if cfg.sources %}
-<div class="seo-section bg-2 fade-in">
+<div class="factory-seo bg-2 fade-in">
     <div class="seo-inner">
         <h2 class="seo-heading">Sources</h2>
         <ol class="sources-list">
@@ -265,7 +492,7 @@
 
 {# === METHODOLOGY === #}
 {% if cfg.methodology %}
-<div class="seo-section bg-3 fade-in">
+<div class="factory-seo bg-3 fade-in">
     <div class="seo-inner">
         <h2 class="seo-heading">Methodology</h2>
         <div class="methodology-text">{{ cfg.methodology|safe }}</div>
@@ -273,32 +500,33 @@
 </div>
 {% endif %}
 
-{# === LLM CAPSULE (data-nosnippet for Google, visible to LLM crawlers) === #}
+{# === LLM CAPSULE === #}
 {% if cfg.llm_capsule %}
-<div class="seo-section bg-5 fade-in">
+<div class="factory-seo bg-5 fade-in">
     <div class="seo-inner">
         <div class="llm-capsule"><p>{{ cfg.llm_capsule }}</p></div>
     </div>
 </div>
 {% endif %}
 
+<div class="section-sep"></div>
+
 {# === ASK PULSE === #}
-<section class="section bg-6 fade-in" id="ask-section">
-    <div class="section-content" style="text-align:center;">
+<section class="bg-6" id="ask-section">
+    <div class="factory-ask fade-in">
+        <span class="pulse-dot" style="margin-bottom:1.5rem;"></span>
         {% include 'components/ask-pulse.html' %}
     </div>
 </section>
 
 {# === RELATED CALCULATORS === #}
 {% if cross_link_calculators %}
-<div class="seo-section bg-1">
+<div class="factory-seo bg-1">
     <div class="seo-inner">
         <h2 class="seo-heading">Related Calculators</h2>
-        <div class="detail-grid">
+        <div class="factory-related">
             {% for link in cross_link_calculators %}
-            <a href="{{ link }}" class="detail-card" style="text-decoration:none;cursor:pointer;">
-                <div class="d-lbl">{{ link|replace('/','') | replace('-',' ') | title }}</div>
-            </a>
+            <a href="{{ link }}">{{ link|replace('/','') | replace('-',' ') | title }}</a>
             {% endfor %}
         </div>
     </div>
@@ -310,8 +538,9 @@
 {# === SHARED JS === #}
 <script src="/static/js/v25-shared.js"></script>
 
-{# === SHARE BUTTON JS === #}
+{# === SHARE BUTTONS + RESULT REVEAL === #}
 <script>
+/* Share button population */
 function updateShareButtons(shareText) {
     window._shareText = shareText;
     var row = document.getElementById('shareRow');
@@ -321,6 +550,8 @@ function updateShareButtons(shareText) {
     var tw = document.getElementById('shareTwitter');
     if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
 }
+
+/* Copy button */
 var copyBtn = document.getElementById('copyBtn');
 if (copyBtn) {
     copyBtn.addEventListener('click', function() {
@@ -330,6 +561,43 @@ if (copyBtn) {
             setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
         }).catch(function(){});
     });
+}
+
+/* Staggered result reveal — the convergence moment */
+function factoryReveal() {
+    /* Show hidden sections */
+    document.querySelectorAll('.hidden-section').forEach(function(el) {
+        el.classList.remove('hidden-section');
+    });
+
+    /* Stagger the result elements */
+    var num = document.querySelector('.factory-result .result-number');
+    var unit = document.querySelector('.factory-result .result-unit');
+    var verdict = document.querySelector('.factory-result .result-verdict');
+    var cards = document.querySelectorAll('.factory-breakdown .detail-card');
+
+    if (num) setTimeout(function() { num.classList.add('revealed'); }, 50);
+    if (unit) setTimeout(function() { unit.classList.add('revealed'); }, 200);
+    if (verdict) setTimeout(function() { verdict.classList.add('revealed'); }, 350);
+    cards.forEach(function(card, i) {
+        setTimeout(function() { card.classList.add('revealed'); }, 450 + (i * 80));
+    });
+
+    /* Scroll to result */
+    var rs = document.getElementById('result-section');
+    if (rs) setTimeout(function() {
+        rs.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 100);
+
+    /* Re-observe fade-in elements */
+    document.querySelectorAll('.fade-in:not(.visible)').forEach(function(el) {
+        if (typeof observer !== 'undefined') observer.observe(el);
+    });
+}
+
+/* Override v25Reveal for factory pages */
+if (typeof v25Reveal === 'undefined') {
+    window.v25Reveal = factoryReveal;
 }
 </script>
 
