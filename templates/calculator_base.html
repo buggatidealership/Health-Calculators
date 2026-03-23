@@ -621,7 +621,7 @@ document.querySelectorAll('.unit-row').forEach(function(row) {
 {# === PER-CALCULATOR JS === #}
 {% block calc_script %}
 {% if cfg.js_file %}
-<script src="/static/{{ cfg.js_file }}"></script>
+<script src="/static/{{ cfg.js_file }}?v=2"></script>
 {% elif cfg.get('js_inline') %}
 <script>{{ cfg.js_inline|safe }}</script>
 {% endif %}
