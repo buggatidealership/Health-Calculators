@@ -73,7 +73,7 @@
             var card = document.createElement('div');
             card.className = 'fasting-card';
             card.style.cssText = 'background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.1);border-radius:14px;padding:1rem 0.6rem;text-align:center;cursor:pointer;transition:all 0.2s;';
-            card.innerHTML = '<span style="font-size:1.5rem;display:block;margin-bottom:0.3rem;">' + f.emoji + '</span><span style="font-size:0.78rem;font-weight:600;display:block;">' + f.name + '</span><span style="font-size:0.65rem;color:var(--text-dim);margin-top:2px;display:block;">' + f.detail + '</span>';
+            card.innerHTML = '<span style="font-size:1.5rem;display:block;margin-bottom:0.3rem;">' + f.emoji + '</span><span style="font-size:0.85rem;font-weight:600;display:block;color:#e2e8f0;">' + f.name + '</span><span style="font-size:0.7rem;color:#94a3b8;margin-top:4px;display:block;">' + f.detail + '</span>';
             card.onclick = function() {
                 document.querySelectorAll('.fasting-card').forEach(function(c) { c.classList.remove('selected'); c.style.borderColor = 'rgba(20,184,166,0.1)'; c.style.background = 'rgba(20,184,166,0.05)'; });
                 card.classList.add('selected');

@@ -126,7 +126,6 @@ CAFFEINE_HALF_LIFE = {
         "verdict_id": "resultVerdict",
         "breakdown": [
             {"id": "cutoffTime", "label": "Last safe cup"},
-            {"id": "cutoffNote", "label": "Why this time"},
         ],
     },
 

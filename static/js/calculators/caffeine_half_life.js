@@ -142,7 +142,7 @@
                 decayToggle = document.createElement('button');
                 decayToggle.id = 'decayToggle';
                 decayToggle.textContent = 'Show hour-by-hour breakdown';
-                decayToggle.style.cssText = 'background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.15);color:var(--text);padding:0.6rem 1.4rem;border-radius:10px;cursor:pointer;font-size:0.85rem;margin-top:1.5rem;';
+                decayToggle.style.cssText = 'background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.15);color:var(--text);padding:0.6rem 1.4rem;border-radius:10px;cursor:pointer;font-size:0.85rem;margin-top:1.5rem;max-width:600px;width:auto;box-shadow:none;';
                 factoryResult.appendChild(decayToggle);
 
                 decayDiv = document.createElement('div');
