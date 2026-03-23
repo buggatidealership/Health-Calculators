@@ -161,11 +161,11 @@
 
 <title>{{ page_title }}</title>
 <link rel="canonical" href="https://healthcalculators.xyz{{ canonical_url }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}?v=2">
 {% if not skip_global_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/theme-light.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/theme-light.css') }}?v=2">
 {% else %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/theme-dark.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/theme-dark.css') }}?v=2">
 {% endif %}
 <script>
 document.addEventListener('DOMContentLoaded',function(){
