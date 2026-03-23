@@ -74,7 +74,7 @@ register("ozempic_pen_click", OZEMPIC_PEN_CLICK)
 
 CAGRISEMA_WEIGHT_LOSS = {
     "route": "/cagrisema-weight-loss-calculator",
-    "override_template": None,
+    "override_template": "cagrisema_weight_loss_calculator.html",
 
     "seo": {
         "page_title": "CagriSema Weight Loss Calculator — Predict Your Results",
@@ -132,7 +132,7 @@ register("cagrisema_weight_loss", CAGRISEMA_WEIGHT_LOSS)
 
 GLP1_COMPARISON = {
     "route": "/glp1-comparison-calculator",
-    "override_template": None,
+    "override_template": "glp1_comparison_calculator.html",
 
     "seo": {
         "page_title": "Ozempic vs Mounjaro Calculator — Compare GLP-1 Weight Loss",
@@ -190,7 +190,7 @@ register("glp1_comparison", GLP1_COMPARISON)
 
 GLP1_COST = {
     "route": "/glp1-cost-calculator",
-    "override_template": None,
+    "override_template": "glp1_cost_calculator.html",
 
     "seo": {
         "page_title": "GLP-1 Medication Cost Calculator — Compare Treatment Costs",

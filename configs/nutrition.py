@@ -113,7 +113,7 @@ register("fasting_weight_loss", FASTING_WEIGHT_LOSS)
 
 BREASTFEEDING_CALORIE = {
     "route": "/breastfeeding-calorie-calculator",
-    "override_template": None,
+    "override_template": "breastfeeding_calorie_calculator_v3.html",
 
     "seo": {
         "page_title": "Breastfeeding Calorie Calculator — How Much to Eat Nursing",
@@ -179,7 +179,7 @@ register("breastfeeding_calorie", BREASTFEEDING_CALORIE)
 
 CALORIC_MACRO = {
     "route": "/caloric-intake-macronutrient-calculator",
-    "override_template": None,
+    "override_template": "caloric_macronutrient_calculator.html",
 
     "seo": {
         "page_title": "Macro Calculator — Free Calorie & Macronutrient Tool",
@@ -249,7 +249,7 @@ register("caloric_macro", CALORIC_MACRO)
 
 CARB_CYCLING = {
     "route": "/carb-cycling-calculator",
-    "override_template": None,
+    "override_template": "carb_cycling_calculator_v3.html",
 
     "seo": {
         "page_title": "Carb Cycling Calculator — Customize High and Low Carb Days",
@@ -317,7 +317,7 @@ register("carb_cycling", CARB_CYCLING)
 
 CHIPOTLE_NUTRITION = {
     "route": "/chipotle-nutrition-calculator",
-    "override_template": None,
+    "override_template": "chipotle_nutrition_calculator.html",
 
     "seo": {
         "page_title": "Chipotle Nutrition Calculator — Calories & Macros",
@@ -410,7 +410,40 @@ ELECTROLYTE = {
 
     "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "age", "type": "number", "label": "Age", "default": 30, "min": 9, "max": 120, "step": 1, "placeholder": "e.g. 30"},
+            {"id": "sex", "type": "select", "label": "Biological Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"id": "activity", "type": "select", "label": "Activity Level", "options": [
+                {"value": "sedentary", "label": "Sedentary (little or no exercise)"},
+                {"value": "light", "label": "Light (1-3 days/week)"},
+                {"value": "moderate", "label": "Moderate (3-5 days/week)", "selected": True},
+                {"value": "intense", "label": "Intense (6-7 days/week)"},
+                {"value": "endurance", "label": "Endurance athlete"},
+            ]},
+            {"id": "exercise-minutes", "type": "number", "label": "Exercise Minutes per Day", "default": 45, "min": 0, "max": 480, "step": 5, "placeholder": "e.g. 45"},
+            {"id": "climate", "type": "select", "label": "Climate", "options": [
+                {"value": "temperate", "label": "Temperate", "selected": True},
+                {"value": "warm", "label": "Warm"},
+                {"value": "hot", "label": "Hot / Humid"},
+            ]},
+            {"id": "diet", "type": "select", "label": "Diet", "options": [
+                {"value": "standard", "label": "Standard", "selected": True},
+                {"value": "keto", "label": "Keto / Low-Carb"},
+                {"value": "fasting", "label": "Intermittent Fasting"},
+                {"value": "vegan", "label": "Vegan / Plant-Based"},
+            ]},
+            {"id": "condition", "type": "select", "label": "Special Condition", "options": [
+                {"value": "none", "label": "None", "selected": True},
+                {"value": "pregnant", "label": "Pregnant"},
+                {"value": "lactating", "label": "Lactating"},
+            ]},
+        ],
+        "submit_label": "Calculate",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": ""},
@@ -453,7 +486,7 @@ register("electrolyte", ELECTROLYTE)
 
 FIBER_INTAKE = {
     "route": "/fiber-intake-calculator",
-    "override_template": None,
+    "override_template": "fiber_intake_calculator_v3.html",
 
     "seo": {
         "page_title": "Daily Fiber Intake Calculator — How Much Fiber Do You Need?",
@@ -822,7 +855,7 @@ register("starbucks_nutrition", STARBUCKS_NUTRITION)
 
 SUBWAY_CALORIE = {
     "route": "/subway-calorie-calculator",
-    "override_template": "subway_nutrition_v25.html",
+    "override_template": "subway_nutrition_calculator.html",
 
     "seo": {
         "page_title": "Subway Calorie Calculator — Nutrition Facts for Every Sandwich",

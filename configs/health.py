@@ -1148,7 +1148,7 @@ register("bac_calculator", BAC_CALCULATOR)
 
 ANTIDEPRESSANT_WEIGHT_GAIN = {
     "route": "/antidepressant-weight-gain-calculator",
-    "override_template": None,
+    "override_template": "antidepressant_weight_gain_calculator_v3.html",
 
     "seo": {
         "page_title": "Antidepressant Weight Gain Calculator — By Medication",
@@ -1215,7 +1215,7 @@ register("antidepressant_weight_gain", ANTIDEPRESSANT_WEIGHT_GAIN)
 
 CHILD_GROWTH = {
     "route": "/child-growth-calculator",
-    "override_template": None,
+    "override_template": "child_growth_calculator_v3.html",
 
     "seo": {
         "page_title": "Child Growth Calculator — Is My Child Growing Normally?",

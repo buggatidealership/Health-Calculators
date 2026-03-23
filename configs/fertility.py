@@ -82,7 +82,7 @@ register("adult_height_predictor", ADULT_HEIGHT_PREDICTOR)
 
 DOG_PREGNANCY = {
     "route": "/dog-pregnancy-due-date-calculator",
-    "override_template": None,
+    "override_template": "dog_pregnancy_due_date_calculator_v3.html",
 
     "seo": {
         "page_title": "Dog Pregnancy Due-Date Calculator — Estimate Whelping Date",
@@ -147,7 +147,7 @@ register("dog_pregnancy", DOG_PREGNANCY)
 
 FEMALE_FERTILITY = {
     "route": "/female-fertility-calculator",
-    "override_template": None,
+    "override_template": "female_fertility_calculator_v3.html",
 
     "seo": {
         "page_title": "Female Fertility Calculator — Fertile Window",
@@ -213,7 +213,7 @@ register("female_fertility", FEMALE_FERTILITY)
 
 FORMULA_FEEDING = {
     "route": "/formula-feeding-calculator",
-    "override_template": None,
+    "override_template": "formula_feeding_calculator_v3.html",
 
     "seo": {
         "page_title": "Formula Feeding Calculator — How Much Formula Baby Needs",
@@ -279,7 +279,7 @@ register("formula_feeding", FORMULA_FEEDING)
 
 GESTATIONAL_AGE = {
     "route": "/gestational-age-calculator",
-    "override_template": None,
+    "override_template": "gestational_age_calculator_v3.html",
 
     "seo": {
         "page_title": "Gestational Age Calculator — Weeks and Days Pregnant",

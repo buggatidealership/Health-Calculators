@@ -923,7 +923,7 @@ register("bulking_calorie", BULKING_CALORIE)
 
 ARMY_BODY_FAT = {
     "route": "/army-body-fat-calculator",
-    "override_template": None,
+    "override_template": "army_body_fat_calculator.html",
 
     "seo": {
         "page_title": "Army Body Fat Calculator — Tape Test % Estimator",
@@ -990,7 +990,7 @@ register("army_body_fat", ARMY_BODY_FAT)
 
 CREATINE_WATER = {
     "route": "/creatine-water-calculator",
-    "override_template": None,
+    "override_template": "creatine_water_calculator_v3.html",
 
     "seo": {
         "page_title": "Creatine Water Calculator — Optimal Hydration",
