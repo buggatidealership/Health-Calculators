@@ -1452,15 +1452,16 @@ def tdee_calculator():
         robots_meta='index, follow'
     )
 
-@app.route('/sleep-calculator')
-def sleep_calculator():
-    return render_template(
-        'sleep_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        breadcrumb_title='Sleep Calculator',
-        robots_meta='index, follow'
-    )
+# /sleep-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/sleep-calculator')
+# def sleep_calculator():
+#     return render_template(
+#         'sleep_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         breadcrumb_title='Sleep Calculator',
+#         robots_meta='index, follow'
+#     )
 
 @app.route('/calories-burned-calculator')
 def calories_burned_calculator():
@@ -1483,21 +1484,10 @@ def calories_burned_calculator():
 #         robots_meta='index, follow'
 #     )
 
-@app.route('/body-roundness-index-calculator')
-def body_roundness_index_calculator():
-    schema_name = "Body Roundness Index (BRI) Calculator"
-    schema_description = "Calculate your Body Roundness Index using waist circumference and height. BRI measures central adiposity and predicts health risk more accurately than BMI alone."
-    schema_url = "/body-roundness-index-calculator"
-    return render_template(
-        'bri_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20',
-        schema_type='WebPage'
-    )
+# /body-roundness-index-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/body-roundness-index-calculator')
+# def body_roundness_index_calculator():
+#     return render_template('bri_calculator_v3.html', ...)
 
 @app.route('/protein-intake-calculator')
 def protein_intake_calculator():
@@ -1650,22 +1640,16 @@ def vitamin_d_intake_calculator():
 #         robots_meta='index, follow'
 #     )
 
-@app.route('/a1c-calculator')
+# /a1c-calculator: migrated to config-driven (configs/health.py)
+# /a1c-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/a1c-calculator')
+# @app.route('/a1c-blood-sugar-calculator')
+# def a1c_calculator():
+#     return render_template('a1c_calculator_v3.html', ...)
+
 @app.route('/a1c-blood-sugar-calculator')
-def a1c_calculator():
-    schema_name = "A1C / Blood Sugar Converter Calculator"
-    schema_description = "Convert between A1C percentage and estimated average glucose (eAG) in mg/dL or mmol/L. Uses the ADA-standard DCCT formula with diabetes risk categorization."
-    schema_url = "/a1c-calculator"
-    return render_template(
-        'a1c_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        canonical_url=schema_url,
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+def a1c_blood_sugar_redirect():
+    return redirect('/a1c-calculator', code=301)
 
 @app.route('/diabetes-risk-calculator')
 def diabetes_risk_calculator():
@@ -1712,20 +1696,10 @@ def keto_calculator():
 
 # retirement-savings-calculator: migrated to config-driven (configs/financial.py)
 
-@app.route('/ideal-body-weight-calculator')
-def ideal_body_weight_calculator():
-    schema_name = "Ideal Body Weight Calculator"
-    schema_description = "Calculate your ideal body weight range using four medical formulas (Devine, Robinson, Miller, Hamwi) with frame size adjustment."
-    schema_url = "/ideal-body-weight-calculator"
-    return render_template(
-        'ideal_body_weight_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20'
-    )
+# /ideal-body-weight-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/ideal-body-weight-calculator')
+# def ideal_body_weight_calculator():
+#     return render_template('ideal_body_weight_calculator_v3.html', ...)
 
 # /fasting-weight-loss-calculator: migrated to config-driven (configs/nutrition.py)
 # @app.route('/fasting-weight-loss-calculator')
@@ -2702,20 +2676,10 @@ def liposuction_weight_loss_calculator():
         date_modified='2026-03-20'
     )
 
-@app.route('/lip-filler-cost-calculator')
-def lip_filler_cost_calculator():
-    schema_name = "Lip Filler Cost Calculator"
-    schema_description = "Estimate the total cost of lip filler injections based on volume, provider, location, and brand using ASPS pricing data."
-    schema_url = "/lip-filler-cost-calculator"
-    return render_template(
-        'lip_filler_cost_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Cosmetic & Aesthetic', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-20'
-    )
+# /lip-filler-cost-calculator: migrated to config-driven (configs/cosmetic.py)
+# @app.route('/lip-filler-cost-calculator')
+# def lip_filler_cost_calculator():
+#     return render_template('lip_filler_cost_calculator_v3.html', ...)
 
 # /adult-height-predictor-calculator: migrated to config-driven (configs/fertility.py)
 # @app.route('/adult-height-predictor-calculator')
@@ -2732,15 +2696,10 @@ def lip_filler_cost_calculator():
 #         date_modified='2026-03-20'
 #     )
 
-@app.route('/cc-to-bra-size-calculator')
-def cc_to_bra_size_calculator():
-    return render_template(
-        'cc_to_bra_size_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Cosmetic & Aesthetic', 'url': '/cosmetic-procedure-calculators'},
-        breadcrumb_title='CC to Bra Size Calculator',
-        robots_meta='index, follow'
-    )
+# /cc-to-bra-size-calculator: migrated to config-driven (configs/cosmetic.py)
+# @app.route('/cc-to-bra-size-calculator')
+# def cc_to_bra_size_calculator():
+#     return render_template('cc_to_bra_size_v3.html', ...)
 
 @app.route('/dog-pregnancy-due-date-calculator')
 def dog_pregnancy_due_date_calculator():
@@ -3850,33 +3809,16 @@ def gestational_age_calculator():
     )
 
 
-@app.route('/waist-to-hip-ratio-calculator')
-def waist_to_hip_ratio_calculator():
-    schema_name = "Waist to Hip Ratio Calculator"
-    schema_description = "Calculate your waist-to-hip ratio (WHR) and health risk category. WHO-based thresholds for men and women with body shape classification and waist circumference risk assessment."
-    schema_url = "/waist-to-hip-ratio-calculator"
-    return render_template(
-        'waist_to_hip_ratio_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /waist-to-hip-ratio-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/waist-to-hip-ratio-calculator')
+# def waist_to_hip_ratio_calculator():
+#     return render_template('waist_to_hip_ratio_calculator_v3.html', ...)
 
 
-@app.route('/creatine-dosage-calculator')
-def creatine_dosage_calculator():
-    return render_template(
-        'creatine_dosage_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        breadcrumb_title='Creatine Dosage Calculator',
-        robots_meta='index, follow'
-    )
+# /creatine-dosage-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/creatine-dosage-calculator')
+# def creatine_dosage_calculator():
+#     return render_template('creatine_dosage_calculator_v3.html', ...)
 
 
 @app.route('/cholesterol-ratio-calculator')
@@ -5540,15 +5482,10 @@ def vo2_max_calculator():
     )
 
 
-@app.route('/one-rep-max-calculator')
-def one_rep_max_calculator():
-    return render_template(
-        'one_rep_max_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        breadcrumb_title='One Rep Max Calculator',
-        robots_meta='index, follow'
-    )
+# /one-rep-max-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/one-rep-max-calculator')
+# def one_rep_max_calculator():
+#     return render_template('one_rep_max_calculator_v3.html', ...)
 
 
 @app.route('/twitter-assets')
@@ -6234,21 +6171,10 @@ def bulking_calorie_calculator():
     )
 
 
-@app.route('/ffmi-calculator')
-def ffmi_calculator():
-    schema_name = "FFMI Calculator"
-    schema_description = "Calculate your Fat-Free Mass Index (FFMI) and normalized FFMI. See how your lean muscle mass compares to natural limits based on the Kouri et al. study. Classification for men and women."
-    schema_url = "/ffmi-calculator"
-    return render_template(
-        'ffmi_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Fitness & Body Composition', 'url': '/fitness-body-composition-calculators'},
-        date_modified='2026-03-20'
-    )
+# /ffmi-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/ffmi-calculator')
+# def ffmi_calculator():
+#     return render_template('ffmi_calculator_v3.html', ...)
 
 
 @app.route('/hcg-injection-dosage-calculator')

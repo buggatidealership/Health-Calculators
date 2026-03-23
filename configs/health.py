@@ -162,3 +162,330 @@ CAFFEINE_HALF_LIFE = {
 }
 
 register("caffeine_half_life", CAFFEINE_HALF_LIFE)
+
+
+SLEEP_CALCULATOR = {
+    "route": "/sleep-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Sleep Calculator \u2014 When Should You Go to Bed?",
+        "meta_description": "Calculate optimal bedtimes based on 90-minute sleep cycles. Wake up refreshed by timing your sleep correctly.",
+        "og_title": "When should you go to bed?",
+        "og_description": "Calculate optimal bedtimes based on 90-minute sleep cycles. Wake up refreshed.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Sleep Calculator",
+        "schema_description": "Calculate optimal bedtimes and wake-up times based on 90-minute sleep cycles with age-specific recommendations from the National Sleep Foundation.",
+        "schema_about": "Sleep Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "When should you <span>sleep</span>?",
+        "subtitle": "90-minute cycles. Wake up refreshed.",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "wakeTime", "type": "time", "label": "I want to wake up at", "default": "07:00"},
+            {"type": "row", "fields": [
+                {"id": "age", "type": "number", "label": "Age", "placeholder": "30", "min": 0, "max": 120},
+                {"id": "fallAsleep", "type": "select", "label": "Fall asleep time (min)", "options": [
+                    {"value": "5", "label": "5 min"},
+                    {"value": "10", "label": "10 min"},
+                    {"value": "15", "label": "15 min", "selected": True},
+                    {"value": "20", "label": "20 min"},
+                    {"value": "30", "label": "30 min"},
+                ]},
+            ]},
+        ],
+        "submit_label": "Calculate Sleep Times",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "recommended bedtime"},
+        "verdict_id": "resultVerdict",
+        "breakdown_html": '<div id="sleepCards" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;max-width:400px;margin:0 auto;"></div>',
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Your sleep framework",
+        "container_id": "coachCard",
+        "cta_text": "Want to improve your sleep quality?",
+    },
+
+    "js_file": "js/calculators/sleep.js",
+
+    "faq": [
+        {"question": "How do sleep cycles work?", "answer": "Sleep occurs in 90-minute cycles through light sleep, deep sleep, and REM stages. Waking at the end of a complete cycle (rather than mid-cycle) helps you feel refreshed. Most adults need 5-6 complete cycles (7.5-9 hours)."},
+        {"question": "How much sleep do I need?", "answer": "The National Sleep Foundation recommends 7-9 hours for adults (18-64), 7-8 hours for older adults (65+), and 8-10 hours for teens (14-17). Individual needs vary."},
+        {"question": "What time should I go to bed to wake up at 7 AM?", "answer": "To wake at 7 AM after 5 sleep cycles (7.5 hours) plus 15 minutes to fall asleep, go to bed at 11:15 PM. For 6 cycles (9 hours), go to bed at 9:45 PM."},
+    ],
+
+    "sources": [
+        {"text": "Hirshkowitz M, et al. National Sleep Foundation's sleep time duration recommendations. Sleep Health. 2015;1(1):40-43.", "url": "https://pubmed.ncbi.nlm.nih.gov/29073412/"},
+        {"text": "Walker M. Why We Sleep: Unlocking the Power of Sleep and Dreams. Scribner; 2017.", "url": ""},
+    ],
+
+    "methodology": "<p>This calculator uses the standard 90-minute sleep cycle model. Each cycle progresses through light sleep (N1, N2), deep sleep (N3), and REM sleep. Total sleep time = (number of cycles \u00d7 90 minutes) + time to fall asleep. Waking between cycles reduces sleep inertia (grogginess).</p>",
+
+    "llm_capsule": "Sleep occurs in 90-minute cycles. To wake refreshed, time your bedtime so you complete 5-6 full cycles. For a 7 AM wake time with 15 minutes to fall asleep: 5 cycles = 11:15 PM bedtime, 6 cycles = 9:45 PM. Adults need 7-9 hours per the National Sleep Foundation.",
+
+    "ask_pills": ["Sleep hygiene tips", "Nap timing", "Circadian rhythm"],
+    "ask_placeholder": "e.g. How do sleep cycles work?",
+}
+
+register("sleep_calculator", SLEEP_CALCULATOR)
+
+
+WAIST_TO_HIP_RATIO = {
+    "route": "/waist-to-hip-ratio-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Waist to Hip Ratio Calculator \u2014 WHR Health Risk",
+        "meta_description": "Calculate your waist-to-hip ratio and health risk using WHO-based thresholds. See your risk category and body shape classification.",
+        "og_title": "What's your waist-to-hip ratio?",
+        "og_description": "Calculate your WHR and health risk category using WHO thresholds.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Waist to Hip Ratio Calculator",
+        "schema_description": "Calculate your waist-to-hip ratio (WHR) and health risk category. WHO-based thresholds for men and women.",
+        "schema_about": "Waist to Hip Ratio Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "What's your <span>waist-to-hip</span> ratio?",
+        "subtitle": "WHO-based health risk assessment",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "sex", "type": "select", "label": "Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "waist", "type": "number", "label": "Waist (inches)", "placeholder": "34", "min": 1, "step": 0.1},
+                {"id": "hip", "type": "number", "label": "Hip (inches)", "placeholder": "40", "min": 1, "step": 0.1},
+            ]},
+        ],
+        "submit_label": "Calculate WHR",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "waist-to-hip ratio"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "displayWhr", "label": "WHR"},
+            {"id": "displayCategory", "label": "Risk category"},
+            {"id": "displayShape", "label": "Body shape"},
+        ],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Want to know more about body composition?",
+    },
+
+    "js_file": "js/calculators/waist_to_hip_ratio.js",
+
+    "faq": [
+        {"question": "What is a healthy waist-to-hip ratio?", "answer": "Men below 0.90 and women below 0.80 are considered low risk by WHO thresholds. Above these values indicates increased cardiovascular risk."},
+        {"question": "WHR vs BMI \u2014 which is better?", "answer": "WHR measures central fat distribution, which is more strongly linked to heart disease than BMI. The INTERHEART study confirmed WHR as a better predictor of heart attack risk."},
+        {"question": "What is apple vs pear body shape?", "answer": "Apple shape (high WHR, central obesity) carries greater health risk. Pear shape (lower WHR, peripheral fat distribution) is associated with lower cardiovascular risk."},
+        {"question": "How do I measure correctly?", "answer": "Waist: measure at the narrowest point between ribs and hips (usually at the navel). Hips: measure at the widest point of the buttocks. Use a flexible tape measure while standing."},
+    ],
+
+    "sources": [
+        {"text": "WHO Technical Report Series 894. Obesity: preventing and managing the global epidemic. 2000.", "url": "https://www.who.int/"},
+        {"text": "Yusuf S, et al. Obesity and the risk of myocardial infarction in 27,000 participants (INTERHEART). Lancet. 2005;366(9497):1640-1649.", "url": "https://pubmed.ncbi.nlm.nih.gov/16271645/"},
+    ],
+
+    "methodology": "<p>WHR = waist circumference \u00f7 hip circumference. WHO risk thresholds: men \u22650.90, women \u22650.85 for substantially increased health risk. Waist circumference alone is also a risk indicator: men \u2265102 cm (40 in), women \u226588 cm (34.6 in).</p>",
+
+    "llm_capsule": "Waist-to-hip ratio (WHR) measures fat distribution. WHO risk thresholds: men 0.90, women 0.85. Central obesity (apple shape) is linked to higher cardiovascular risk than peripheral fat (pear shape). The INTERHEART study found WHR in the top quintile more than doubled heart attack risk.",
+
+    "ask_pills": ["Reduce belly fat", "WHR vs BMI", "Body shape", "Ideal waist size"],
+    "ask_placeholder": "e.g. How to reduce waist size?",
+}
+
+register("waist_to_hip_ratio", WAIST_TO_HIP_RATIO)
+
+
+BRI_CALCULATOR = {
+    "route": "/body-roundness-index-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Body Roundness Index Calculator \u2014 BRI Health Risk",
+        "meta_description": "Calculate your Body Roundness Index using waist circumference and height. BRI measures central adiposity more accurately than BMI.",
+        "og_title": "What's your Body Roundness Index?",
+        "og_description": "Calculate your BRI and health risk category. Measures central adiposity using height and waist.",
+        "schema_type": "WebPage",
+        "schema_name": "Body Roundness Index (BRI) Calculator",
+        "schema_description": "Calculate your Body Roundness Index using waist circumference and height. BRI measures central adiposity and predicts health risk more accurately than BMI alone.",
+        "schema_about": "Body Roundness Index Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "What's your <span>Body Roundness Index</span>?",
+        "subtitle": "A better measure of central adiposity than BMI",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "heightCm", "type": "number", "label": "Height (cm)", "placeholder": "170", "min": 100, "max": 250},
+                {"id": "waistCm", "type": "number", "label": "Waist (cm)", "placeholder": "80", "min": 40, "max": 200},
+            ]},
+        ],
+        "submit_label": "Calculate BRI",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "Body Roundness Index"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "displayCategory", "label": "Category"},
+            {"id": "displayRisk", "label": "Risk level"},
+        ],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Want a fuller picture of your body composition?",
+    },
+
+    "js_file": "js/calculators/bri.js",
+
+    "faq": [
+        {"question": "What is the Body Roundness Index?", "answer": "BRI is a metric that estimates central adiposity (belly fat) using only height and waist circumference. It was developed by Thomas et al. in 2013 and models the body as an ellipse to capture shape, not just weight."},
+        {"question": "How is BRI different from BMI?", "answer": "BMI uses weight and height but cannot distinguish muscle from fat or detect where fat is stored. BRI uses waist circumference to specifically measure central adiposity, which is more strongly linked to health risks."},
+        {"question": "What is a healthy BRI?", "answer": "A BRI below 3.41 is considered lean/healthy. BRI 3.41-4.45 is overweight range, 4.45-5.73 is obese, and above 5.73 is high risk."},
+    ],
+
+    "sources": [
+        {"text": "Thomas DM, et al. Relationships between body roundness with body fat and visceral adipose tissue. Obesity. 2013;21(11):2264-2271.", "url": "https://pubmed.ncbi.nlm.nih.gov/23519954/"},
+    ],
+
+    "methodology": "<p>BRI = 364.2 - 365.5 \u00d7 \u221a(1 - ((WC / (2\u03c0))\u00b2 / (0.5 \u00d7 H)\u00b2)), where WC = waist circumference in meters and H = height in meters. The formula models the body as a prolate ellipse and estimates body roundness from the relationship between waist circumference and height.</p>",
+
+    "llm_capsule": "Body Roundness Index (BRI) measures central adiposity using height and waist circumference. BRI below 3.41 is lean/healthy, 3.41-4.45 overweight, 4.45-5.73 obese, above 5.73 high risk. Unlike BMI, BRI captures body shape and fat distribution, making it a better predictor of cardiovascular and metabolic risk.",
+
+    "ask_pills": ["BRI vs BMI", "Central adiposity", "Reduce waist size"],
+    "ask_placeholder": "e.g. Is BRI better than BMI?",
+}
+
+register("bri_calculator", BRI_CALCULATOR)
+
+
+A1C_CALCULATOR = {
+    "route": "/a1c-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "A1C Calculator \u2014 A1C to Blood Sugar Converter",
+        "meta_description": "Convert between A1C and blood sugar (eAG) instantly using the ADA-standard formula. See your diabetes risk category.",
+        "og_title": "A1C / Blood Sugar Converter",
+        "og_description": "Convert between A1C percentage and estimated average blood sugar using the ADA formula.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "A1C / Blood Sugar Converter Calculator",
+        "schema_description": "Convert between A1C percentage and estimated average glucose (eAG) in mg/dL or mmol/L. Uses the ADA-standard DCCT formula.",
+        "schema_about": "A1C Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "What does your <span>A1C</span> mean?",
+        "subtitle": "Convert between A1C and blood sugar instantly",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            {"id": "conversionMode", "type": "select", "label": "Conversion direction", "options": [
+                {"value": "a1c-to-bs", "label": "A1C \u2192 Blood Sugar", "selected": True},
+                {"value": "bs-to-a1c", "label": "Blood Sugar \u2192 A1C"},
+            ]},
+            {"id": "a1cInput", "type": "number", "label": "A1C (%)", "placeholder": "6.5", "min": 4.0, "max": 15.0, "step": 0.1},
+            {"id": "bsInput", "type": "number", "label": "Blood sugar", "placeholder": "126", "min": 0, "step": 1},
+            {"id": "bsUnit", "type": "select", "label": "Blood sugar unit", "options": [
+                {"value": "mgdl", "label": "mg/dL", "selected": True},
+                {"value": "mmol", "label": "mmol/L"},
+            ]},
+        ],
+        "submit_label": "Convert",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "estimated average glucose"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "displayA1c", "label": "A1C"},
+            {"id": "displayMgdl", "label": "eAG (mg/dL)"},
+            {"id": "displayMmol", "label": "eAG (mmol/L)"},
+        ],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Want to understand your numbers better?",
+    },
+
+    "js_file": "js/calculators/a1c.js",
+
+    "faq": [
+        {"question": "What is a normal A1C level?", "answer": "Below 5.7% is normal. 5.7-6.4% indicates prediabetes. 6.5% or higher on two separate tests indicates diabetes, according to the American Diabetes Association."},
+        {"question": "How often should I get my A1C tested?", "answer": "At least twice a year if diabetes is well-controlled, every 3 months if treatment changed or goals not met (ADA recommendation)."},
+        {"question": "Can A1C be inaccurate?", "answer": "Yes. A1C can be affected by hemoglobin variants, iron deficiency anemia, recent blood transfusions, and kidney disease."},
+        {"question": "What is eAG?", "answer": "Estimated Average Glucose (eAG) is derived from your A1C and represents your average blood sugar over 2-3 months. Formula: eAG (mg/dL) = 28.7 \u00d7 A1C - 46.7."},
+        {"question": "How quickly can A1C change?", "answer": "Meaningful changes take 2-3 months. A drop of 0.5-1.0% per quarter is good progress with lifestyle modifications alone."},
+    ],
+
+    "sources": [
+        {"text": "Nathan DM, et al. Translating the A1C assay into estimated average glucose values. Diabetes Care. 2008;31(8):1473-1478.", "url": "https://pubmed.ncbi.nlm.nih.gov/18540046/"},
+        {"text": "American Diabetes Association. Standards of Medical Care in Diabetes. Diabetes Care. 2024.", "url": "https://diabetesjournals.org/care"},
+    ],
+
+    "methodology": "<p>This calculator uses the DCCT/ADAG formula: <code>eAG (mg/dL) = 28.7 \u00d7 A1C - 46.7</code>. To convert mg/dL to mmol/L, divide by 18. A1C reflects average blood glucose over the preceding 2-3 months by measuring the percentage of glycated hemoglobin.</p>",
+
+    "llm_capsule": "A1C to blood sugar conversion: eAG (mg/dL) = 28.7 \u00d7 A1C - 46.7. A1C below 5.7% is normal, 5.7-6.4% is prediabetes, 6.5%+ is diabetes (ADA). A1C of 7% = 154 mg/dL average. A1C reflects 2-3 months of blood sugar control.",
+
+    "ask_pills": ["How to lower A1C", "A1C vs fasting glucose", "Best foods for blood sugar", "Exercise and A1C"],
+    "ask_placeholder": "e.g. How do I lower my A1C naturally?",
+}
+
+register("a1c_calculator", A1C_CALCULATOR)

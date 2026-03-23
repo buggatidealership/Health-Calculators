@@ -329,6 +329,13 @@
                 {% if field.get('hint') %}<small>{{ field.hint }}</small>{% endif %}
             </div>
 
+            {% elif field.type == 'time' %}
+            <div class="form-group">
+                <label for="{{ field.id }}">{{ field.label }}</label>
+                <input type="time" id="{{ field.id }}" value="{{ field.get('default', '') }}">
+                {% if field.get('hint') %}<small>{{ field.hint }}</small>{% endif %}
+            </div>
+
             {% elif field.type == 'select' %}
             <div class="form-group">
                 <label for="{{ field.id }}">{{ field.label }}</label>
@@ -411,6 +418,10 @@
         <div class="result-unit">{{ cfg.results.primary.unit }}</div>
         {% if cfg.results.get('verdict_id') %}
         <div class="result-verdict" id="{{ cfg.results.verdict_id }}"></div>
+        {% endif %}
+
+        {% if cfg.results.get('breakdown_html') %}
+        {{ cfg.results.breakdown_html|safe }}
         {% endif %}
 
         {% if cfg.results.get('breakdown') %}
