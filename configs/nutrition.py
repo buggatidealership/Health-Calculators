@@ -249,7 +249,7 @@ register("caloric_macro", CALORIC_MACRO)
 
 CARB_CYCLING = {
     "route": "/carb-cycling-calculator",
-    "override_template": "carb_cycling_calculator_v3.html",
+    "override_template": "overrides/carb_cycling.html",
 
     "seo": {
         "page_title": "Carb Cycling Calculator — Customize High and Low Carb Days",
@@ -317,7 +317,7 @@ register("carb_cycling", CARB_CYCLING)
 
 CHIPOTLE_NUTRITION = {
     "route": "/chipotle-nutrition-calculator",
-    "override_template": "chipotle_nutrition_calculator.html",
+    "override_template": "overrides/chipotle.html",
 
     "seo": {
         "page_title": "Chipotle Nutrition Calculator — Calories & Macros",
@@ -384,7 +384,7 @@ register("chipotle_nutrition", CHIPOTLE_NUTRITION)
 
 ELECTROLYTE = {
     "route": "/electrolyte-calculator",
-    "override_template": None,
+    "override_template": "overrides/electrolyte.html",
 
     "seo": {
         "page_title": "Electrolyte Calculator — Daily Sodium, Potassium & Magnesium",
@@ -855,7 +855,7 @@ register("starbucks_nutrition", STARBUCKS_NUTRITION)
 
 SUBWAY_CALORIE = {
     "route": "/subway-calorie-calculator",
-    "override_template": "subway_nutrition_calculator.html",
+    "override_template": "overrides/subway.html",
 
     "seo": {
         "page_title": "Subway Calorie Calculator — Nutrition Facts for Every Sandwich",

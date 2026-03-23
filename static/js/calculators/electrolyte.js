@@ -66,7 +66,7 @@ calculateBtn.addEventListener('click', function() {
   var diet = dietSelect.value;
   var condition = conditionSelect.value;
 
-  if (isNaN(age) || age < 9 || age > 120) { /* validation error */.'); return; }
+  if (isNaN(age) || age < 9 || age > 120) { return; }
 
   var baseline = getBaseline(age, sex, condition);
 

@@ -1,0 +1,288 @@
+{% extends 'calculator_base.html' %}
+
+{% block extra_head %}
+<style>
+.totals-bar { max-width:500px; width:100%; margin:0 auto 1.5rem; }
+.totals-grid {
+    display:grid; grid-template-columns:repeat(6,1fr); gap:0.5rem;
+    background:rgba(var(--accent-rgb),0.04); border:1px solid rgba(var(--accent-rgb),0.08);
+    border-radius:14px; padding:1rem;
+}
+.total-item { text-align:center; }
+.total-val { font-family:var(--font-display,'DM Serif Display',serif); font-size:1rem; color:var(--accent); }
+.total-lbl { font-size:0.7rem; color:var(--text-dim,#94a3b8); text-transform:uppercase; margin-top:0.2rem; }
+
+.size-row { display:flex; gap:0.8rem; justify-content:center; margin-bottom:1.5rem; max-width:500px; width:100%; }
+.size-card {
+    flex:1; text-align:center; padding:1rem; border-radius:14px; cursor:pointer;
+    background:rgba(var(--accent-rgb),0.03); border:1px solid rgba(var(--accent-rgb),0.08);
+    color:var(--text,#e2e8f0); font-weight:600; font-size:0.95rem;
+    transition:border-color 0.2s, background 0.2s;
+}
+.size-card .sub { font-size:0.75rem; color:var(--text-dim,#94a3b8); font-weight:400; margin-top:0.2rem; }
+.size-card.selected { background:rgba(var(--accent-rgb),0.1); border-color:var(--accent); }
+.size-card:hover { border-color:rgba(var(--accent-rgb),0.3); }
+
+.ing-section { max-width:500px; width:100%; margin-bottom:1.2rem; }
+.ing-section h3 { font-size:0.9rem; font-weight:600; color:var(--text,#e2e8f0); margin-bottom:0.6rem; }
+.ing-grid { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.ing-btn {
+    padding:0.5rem 0.9rem; border-radius:10px; border:1px solid rgba(var(--accent-rgb),0.1);
+    background:rgba(var(--accent-rgb),0.03); color:var(--text,#e2e8f0); cursor:pointer;
+    font-size:0.82rem; font-weight:500; font-family:var(--font-body,'DM Sans',sans-serif);
+    transition:all 0.15s; display:inline-flex; gap:0.4rem; align-items:center;
+}
+.ing-btn:hover { border-color:rgba(var(--accent-rgb),0.3); }
+.ing-btn.selected { background:var(--accent); color:#0a0f1a; border-color:var(--accent); }
+.ing-btn .cal { font-size:0.72rem; opacity:0.7; }
+
+.static-example {
+    max-width:500px; width:100%; margin-top:1.5rem; padding:1rem 1.2rem;
+    background:rgba(var(--accent-rgb),0.03); border:1px solid rgba(var(--accent-rgb),0.08);
+    border-radius:12px; font-size:0.88rem; color:var(--text-dim,#94a3b8); line-height:1.6;
+}
+.static-example .hl { color:var(--accent); font-weight:600; }
+
+@media (max-width:600px) {
+    .totals-grid { grid-template-columns:repeat(3,1fr); }
+}
+</style>
+{% endblock %}
+
+{% block form_content %}
+<!-- Live Totals -->
+<div class="totals-bar">
+    <div class="totals-grid">
+        <div class="total-item"><div class="total-val" id="total-calories">0</div><div class="total-lbl">Calories</div></div>
+        <div class="total-item"><div class="total-val" id="total-protein">0g</div><div class="total-lbl">Protein</div></div>
+        <div class="total-item"><div class="total-val" id="total-carbs">0g</div><div class="total-lbl">Carbs</div></div>
+        <div class="total-item"><div class="total-val" id="total-fat">0g</div><div class="total-lbl">Fat</div></div>
+        <div class="total-item"><div class="total-val" id="total-fiber">0g</div><div class="total-lbl">Fiber</div></div>
+        <div class="total-item"><div class="total-val" id="total-sodium">0mg</div><div class="total-lbl">Sodium</div></div>
+    </div>
+</div>
+
+<!-- Size -->
+<div class="size-row">
+    <div class="size-card selected" data-mult="1" onclick="selectSize(this, 1)">6-inch<div class="sub">Standard</div></div>
+    <div class="size-card" data-mult="2" onclick="selectSize(this, 2)">Footlong<div class="sub">12-inch</div></div>
+</div>
+
+<!-- Bread -->
+<div class="ing-section">
+    <h3>Choose Your Bread</h3>
+    <div class="ing-grid" id="bread-options"></div>
+</div>
+
+<!-- Protein -->
+<div class="ing-section">
+    <h3>Choose Your Protein</h3>
+    <div class="ing-grid" id="protein-options"></div>
+</div>
+
+<!-- Cheese -->
+<div class="ing-section">
+    <h3>Add Cheese</h3>
+    <div class="ing-grid" id="cheese-options"></div>
+</div>
+
+<!-- Veggies -->
+<div class="ing-section">
+    <h3>Add Veggies</h3>
+    <div class="ing-grid" id="veggie-options"></div>
+</div>
+
+<!-- Sauces -->
+<div class="ing-section">
+    <h3>Add Sauces</h3>
+    <div class="ing-grid" id="sauce-options"></div>
+</div>
+
+<!-- Extras -->
+<div class="ing-section">
+    <h3>Extras</h3>
+    <div class="ing-grid" id="extra-options"></div>
+</div>
+
+<!-- Static example for SEO -->
+<div class="static-example" id="staticExample">
+    <p>A <span class="hl">6-inch Oven Roasted Turkey</span> on 9-Grain Wheat with veggies and mustard is about <span class="hl">275 calories</span> with <span class="hl">17g protein</span>. Add mayo (+110 cal) or cheese (+50 cal) to see the real impact.</p>
+</div>
+{% endblock %}
+
+{% block result_content %}
+<div class="result-number" id="resultNumber">0</div>
+<div class="result-unit">total calories in your order</div>
+{% endblock %}
+
+{% block calc_script %}
+<script>
+(function() {
+var subwayData = {
+    breads: [
+        { name: '9-Grain Wheat', calories: 210, protein: 7, carbs: 39, fat: 3, fiber: 3, sodium: 350 },
+        { name: 'Italian White', calories: 200, protein: 7, carbs: 38, fat: 2.5, fiber: 1, sodium: 300 },
+        { name: 'Italian Herbs & Cheese', calories: 250, protein: 9, carbs: 39, fat: 6, fiber: 2, sodium: 490 },
+        { name: 'Hearty Multigrain', calories: 210, protein: 8, carbs: 40, fat: 3, fiber: 4, sodium: 330 },
+        { name: 'Flatbread', calories: 220, protein: 7, carbs: 38, fat: 5, fiber: 2, sodium: 400 },
+        { name: 'Wrap', calories: 300, protein: 9, carbs: 51, fat: 8, fiber: 3, sodium: 570 }
+    ],
+    proteins: [
+        { name: 'Oven Roasted Turkey', calories: 60, protein: 10, carbs: 2, fat: 1, fiber: 0, sodium: 420 },
+        { name: 'Black Forest Ham', calories: 60, protein: 9, carbs: 3, fat: 1.5, fiber: 0, sodium: 480 },
+        { name: 'Rotisserie Chicken', calories: 100, protein: 17, carbs: 3, fat: 2, fiber: 0, sodium: 380 },
+        { name: 'Chicken Teriyaki', calories: 110, protein: 18, carbs: 9, fat: 2, fiber: 0, sodium: 610 },
+        { name: 'Steak', calories: 130, protein: 19, carbs: 4, fat: 4, fiber: 0, sodium: 430 },
+        { name: 'Subway Club', calories: 100, protein: 13, carbs: 3, fat: 2, fiber: 0, sodium: 500 },
+        { name: 'Tuna (with mayo)', calories: 200, protein: 9, carbs: 1, fat: 17, fiber: 0, sodium: 310 },
+        { name: 'Cold Cut Combo', calories: 100, protein: 9, carbs: 2, fat: 5, fiber: 0, sodium: 600 },
+        { name: 'Italian B.M.T.', calories: 150, protein: 10, carbs: 3, fat: 11, fiber: 0, sodium: 680 },
+        { name: 'Spicy Italian', calories: 190, protein: 11, carbs: 2, fat: 16, fiber: 0, sodium: 760 },
+        { name: 'Meatball Marinara', calories: 240, protein: 13, carbs: 26, fat: 10, fiber: 2, sodium: 640 },
+        { name: 'Veggie Delite', calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 0 }
+    ],
+    cheeses: [
+        { name: 'None', calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 0 },
+        { name: 'American', calories: 40, protein: 2, carbs: 1, fat: 3, fiber: 0, sodium: 200 },
+        { name: 'Provolone', calories: 50, protein: 4, carbs: 0, fat: 4, fiber: 0, sodium: 115 },
+        { name: 'Pepper Jack', calories: 50, protein: 3, carbs: 0, fat: 4, fiber: 0, sodium: 135 },
+        { name: 'Swiss', calories: 50, protein: 4, carbs: 0, fat: 4, fiber: 0, sodium: 30 },
+        { name: 'Cheddar', calories: 50, protein: 3, carbs: 0, fat: 4, fiber: 0, sodium: 90 },
+        { name: 'Shredded Mozzarella', calories: 45, protein: 4, carbs: 0, fat: 3.5, fiber: 0, sodium: 85 }
+    ],
+    veggies: [
+        { name: 'Lettuce', calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 0, sodium: 0 },
+        { name: 'Tomato', calories: 10, protein: 0, carbs: 2, fat: 0, fiber: 0, sodium: 5 },
+        { name: 'Cucumber', calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 0, sodium: 0 },
+        { name: 'Green Pepper', calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 0, sodium: 0 },
+        { name: 'Red Onion', calories: 10, protein: 0, carbs: 2, fat: 0, fiber: 0, sodium: 0 },
+        { name: 'Spinach', calories: 5, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 5 },
+        { name: 'Pickles', calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 0, sodium: 115 },
+        { name: 'Jalapenos', calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 0, sodium: 200 },
+        { name: 'Black Olives', calories: 15, protein: 0, carbs: 1, fat: 1.5, fiber: 0, sodium: 115 },
+        { name: 'Banana Peppers', calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 0, sodium: 180 },
+        { name: 'Avocado', calories: 60, protein: 1, carbs: 3, fat: 5, fiber: 0, sodium: 70 }
+    ],
+    sauces: [
+        { name: 'Mayonnaise', calories: 110, protein: 0, carbs: 0, fat: 12, fiber: 0, sodium: 80 },
+        { name: 'Light Mayo', calories: 50, protein: 0, carbs: 1, fat: 5, fiber: 0, sodium: 100 },
+        { name: 'Ranch', calories: 110, protein: 0, carbs: 2, fat: 11, fiber: 0, sodium: 200 },
+        { name: 'Chipotle SW', calories: 100, protein: 0, carbs: 3, fat: 10, fiber: 0, sodium: 210 },
+        { name: 'Sweet Onion', calories: 40, protein: 0, carbs: 9, fat: 0, fiber: 0, sodium: 65 },
+        { name: 'Honey Mustard', calories: 30, protein: 0, carbs: 7, fat: 0, fiber: 0, sodium: 125 },
+        { name: 'Yellow Mustard', calories: 5, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 55 },
+        { name: 'Olive Oil', calories: 45, protein: 0, carbs: 0, fat: 5, fiber: 0, sodium: 0 },
+        { name: 'Red Wine Vinegar', calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 0 },
+        { name: 'Sriracha', calories: 15, protein: 0, carbs: 3, fat: 0, fiber: 0, sodium: 200 }
+    ],
+    extras: [
+        { name: 'Bacon (2 strips)', calories: 45, protein: 3, carbs: 0, fat: 3.5, fiber: 0, sodium: 190 },
+        { name: 'Extra Cheese', calories: 50, protein: 3, carbs: 0, fat: 4, fiber: 0, sodium: 120 }
+    ]
+};
+
+var state = { size: 1, bread: null, protein: null, cheese: null, veggies: [], sauces: [], extras: [] };
+
+window.selectSize = function(el, mult) {
+    document.querySelectorAll('.size-card').forEach(function(c) { c.classList.remove('selected'); });
+    el.classList.add('selected');
+    state.size = mult;
+    updateTotals();
+};
+
+function buildSingle(containerId, items, stateKey) {
+    var c = document.getElementById(containerId);
+    if (!c) return;
+    items.forEach(function(item) {
+        var btn = document.createElement('button');
+        btn.className = 'ing-btn';
+        btn.innerHTML = item.name + ' <span class="cal">' + item.calories + 'cal</span>';
+        btn.onclick = function() {
+            c.querySelectorAll('.ing-btn').forEach(function(b) { b.classList.remove('selected'); });
+            btn.classList.add('selected');
+            state[stateKey] = item;
+            updateTotals();
+        };
+        c.appendChild(btn);
+    });
+}
+
+function buildMulti(containerId, items, stateKey) {
+    var c = document.getElementById(containerId);
+    if (!c) return;
+    items.forEach(function(item) {
+        var btn = document.createElement('button');
+        btn.className = 'ing-btn';
+        btn.innerHTML = item.name + ' <span class="cal">' + item.calories + 'cal</span>';
+        btn.onclick = function() {
+            btn.classList.toggle('selected');
+            var arr = state[stateKey];
+            var idx = arr.indexOf(item);
+            if (idx === -1) arr.push(item); else arr.splice(idx, 1);
+            updateTotals();
+        };
+        c.appendChild(btn);
+    });
+}
+
+function updateTotals() {
+    var m = state.size;
+    var t = { calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, sodium: 0 };
+    var addS = function(i) { if(!i) return; t.calories+=i.calories*m; t.protein+=i.protein*m; t.carbs+=i.carbs*m; t.fat+=i.fat*m; t.fiber+=(i.fiber||0)*m; t.sodium+=(i.sodium||0)*m; };
+    var addF = function(i) { if(!i) return; t.calories+=i.calories; t.protein+=i.protein; t.carbs+=i.carbs; t.fat+=i.fat; t.fiber+=(i.fiber||0); t.sodium+=(i.sodium||0); };
+    addS(state.bread); addS(state.protein);
+    addF(state.cheese);
+    state.veggies.forEach(addF); state.sauces.forEach(addF); state.extras.forEach(addF);
+
+    var el;
+    el = document.getElementById('total-calories'); if (el) el.textContent = Math.round(t.calories);
+    el = document.getElementById('total-protein'); if (el) el.textContent = Math.round(t.protein) + 'g';
+    el = document.getElementById('total-carbs'); if (el) el.textContent = Math.round(t.carbs) + 'g';
+    el = document.getElementById('total-fat'); if (el) el.textContent = Math.round(t.fat) + 'g';
+    el = document.getElementById('total-fiber'); if (el) el.textContent = Math.round(t.fiber) + 'g';
+    el = document.getElementById('total-sodium'); if (el) el.textContent = Math.round(t.sodium) + 'mg';
+
+    if (state.bread || state.protein) {
+        var staticEx = document.getElementById('staticExample');
+        if (staticEx) staticEx.style.display = 'none';
+
+        var resultNum = document.getElementById('resultNumber');
+        if (resultNum) resultNum.textContent = Math.round(t.calories);
+
+        if (typeof factoryReveal === 'function') factoryReveal();
+
+        // Coach card
+        var parts = [];
+        if (state.bread) parts.push(state.bread.name);
+        if (state.protein) parts.push(state.protein.name);
+        var sauceNames = state.sauces.map(function(s) { return s.name; }).join(', ');
+        var sizeLabel = state.size === 2 ? 'Footlong' : '6-inch';
+
+        var coachCard = document.getElementById('coachCard');
+        if (coachCard) {
+            coachCard.innerHTML = '<div class="coach-text">' +
+                'Your <span class="hl">' + sizeLabel + '</span> with <span class="hl">' + parts.join(' + ') + '</span>' + (sauceNames ? ' and <span class="hl">' + sauceNames + '</span>' : '') + ':<br><br>' +
+                '<span class="hl">' + Math.round(t.calories) + '</span> calories &middot; <span class="hl">' + Math.round(t.protein) + 'g</span> protein &middot; <span class="hl">' + Math.round(t.sodium) + 'mg</span> sodium' +
+                '<div class="coach-rule">' + Math.round(t.calories) + ' cal = ' + Math.round(t.calories/2000*100) + '% of a 2,000 cal day</div>' +
+                '<div class="coach-advice">' +
+                    (t.fat > 20 ? '<em>Tip:</em> Swap mayo for mustard to save 100+ calories.<br>' : '') +
+                    (t.sodium > 1200 ? '<em>Watch:</em> This order has over half your daily sodium limit.<br>' : '') +
+                    (t.protein > 25 ? '<em>Nice:</em> Strong protein content for a sandwich meal.' : '') +
+                '</div></div>';
+        }
+
+        // Share
+        var shareText = 'My Subway order: ' + sizeLabel + ' ' + parts.join(' + ') + (sauceNames ? ' w/ ' + sauceNames : '') + '\n\n' + Math.round(t.calories) + ' cal | ' + Math.round(t.protein) + 'g protein | ' + Math.round(t.fat) + 'g fat | ' + Math.round(t.sodium) + 'mg sodium\n\nBuild yours: healthcalculators.xyz/subway-calorie-calculator';
+        if (typeof updateShareButtons === 'function') updateShareButtons(shareText);
+    }
+}
+
+buildSingle('bread-options', subwayData.breads, 'bread');
+buildSingle('protein-options', subwayData.proteins, 'protein');
+buildSingle('cheese-options', subwayData.cheeses, 'cheese');
+buildMulti('veggie-options', subwayData.veggies, 'veggies');
+buildMulti('sauce-options', subwayData.sauces, 'sauces');
+buildMulti('extra-options', subwayData.extras, 'extras');
+})();
+</script>
+{% endblock %}

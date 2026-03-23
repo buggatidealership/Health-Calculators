@@ -1117,7 +1117,7 @@ register("vo2_max", VO2_MAX)
 
 TRAINING_VOLUME = {
     "route": "/training-volume-calculator",
-    "override_template": "training_volume_calculator_v3.html",
+    "override_template": "overrides/training_volume.html",
 
     "seo": {
         "page_title": "Training Volume Calculator — How Many Sets Per Muscle Group",

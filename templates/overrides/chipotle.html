@@ -1,0 +1,235 @@
+{% extends 'calculator_base.html' %}
+
+{% block extra_head %}
+<style>
+.ingredient-section { margin-bottom:1.2rem; max-width:500px; width:100%; }
+.ingredient-section h3 { font-size:0.9rem; font-weight:600; color:var(--text,#e2e8f0); margin-bottom:0.6rem; }
+.ingredient-grid { display:flex; flex-wrap:wrap; gap:0.4rem; }
+.ingredient-button {
+    padding:0.5rem 0.9rem; border-radius:10px; border:1px solid rgba(var(--accent-rgb),0.1);
+    background:rgba(var(--accent-rgb),0.03); color:var(--text,#e2e8f0); cursor:pointer;
+    font-size:0.82rem; font-weight:500; font-family:var(--font-body,'DM Sans',sans-serif);
+    transition:all 0.15s; display:inline-flex; gap:0.5rem; align-items:center;
+}
+.ingredient-button:hover { border-color:rgba(var(--accent-rgb),0.3); }
+.ingredient-button.active { background:var(--accent); color:#0a0f1a; border-color:var(--accent); }
+.ingredient-calories { font-size:0.72rem; opacity:0.7; }
+
+.nutrition-summary {
+    max-width:500px; width:100%; margin-bottom:1.5rem;
+    background:rgba(var(--accent-rgb),0.04); border:1px solid rgba(var(--accent-rgb),0.08);
+    border-radius:14px; padding:1.2rem;
+}
+.nutrition-summary h3 { font-size:0.9rem; font-weight:600; color:var(--accent); margin-bottom:0.8rem; text-align:center; }
+.nutrition-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:0.5rem; }
+.nutrition-item { text-align:center; }
+.nutrition-value { font-family:var(--font-display,'DM Serif Display',serif); font-size:1rem; color:var(--accent); }
+.nutrition-label { font-size:0.7rem; color:var(--text-dim,#94a3b8); text-transform:uppercase; margin-top:0.2rem; }
+
+@media (max-width:600px) {
+    .nutrition-grid { grid-template-columns:repeat(3,1fr); }
+}
+</style>
+{% endblock %}
+
+{% block form_content %}
+<div class="nutrition-summary">
+    <h3>Nutrition Summary</h3>
+    <div class="nutrition-grid">
+        <div class="nutrition-item"><div id="total-calories" class="nutrition-value">0</div><div class="nutrition-label">Calories</div></div>
+        <div class="nutrition-item"><div id="total-protein" class="nutrition-value">0g</div><div class="nutrition-label">Protein</div></div>
+        <div class="nutrition-item"><div id="total-carbs" class="nutrition-value">0g</div><div class="nutrition-label">Carbs</div></div>
+        <div class="nutrition-item"><div id="total-fat" class="nutrition-value">0g</div><div class="nutrition-label">Fat</div></div>
+        <div class="nutrition-item"><div id="total-fiber" class="nutrition-value">0g</div><div class="nutrition-label">Fiber</div></div>
+    </div>
+</div>
+
+<div class="ingredient-section">
+    <h3>Choose Your Base</h3>
+    <div id="bases" class="ingredient-grid"></div>
+</div>
+<div class="ingredient-section">
+    <h3>Choose Your Protein</h3>
+    <div id="proteins" class="ingredient-grid"></div>
+</div>
+<div class="ingredient-section">
+    <h3>Choose Your Toppings</h3>
+    <div id="toppings" class="ingredient-grid"></div>
+</div>
+<div class="ingredient-section">
+    <h3>Extras</h3>
+    <div id="extras" class="ingredient-grid"></div>
+</div>
+{% endblock %}
+
+{% block result_content %}
+<div class="result-number" id="resultNumber">0</div>
+<div class="result-unit">total calories in your bowl</div>
+<div class="result-verdict" id="resultVerdict"></div>
+{% endblock %}
+
+{% block calc_script %}
+<script>
+(function() {
+var nutritionData = {
+    bases: [
+        { name: "White Rice", calories: 210, protein: 4, carbs: 40, fat: 4, fiber: 1 },
+        { name: "Brown Rice", calories: 210, protein: 4, carbs: 39, fat: 6, fiber: 2 },
+        { name: "Cauliflower Rice", calories: 40, protein: 3, carbs: 7, fat: 1, fiber: 3 },
+        { name: "Black Beans", calories: 130, protein: 8, carbs: 22, fat: 1, fiber: 7 },
+        { name: "Pinto Beans", calories: 130, protein: 8, carbs: 21, fat: 1.5, fiber: 8 },
+        { name: "Lettuce", calories: 5, protein: 0, carbs: 1, fat: 0, fiber: 1 }
+    ],
+    proteins: [
+        { name: "Chicken", calories: 180, protein: 32, carbs: 0, fat: 7, fiber: 0 },
+        { name: "Steak", calories: 150, protein: 21, carbs: 1, fat: 6, fiber: 0 },
+        { name: "Barbacoa", calories: 170, protein: 24, carbs: 2, fat: 7, fiber: 1 },
+        { name: "Carnitas", calories: 210, protein: 23, carbs: 0, fat: 12, fiber: 0 },
+        { name: "Sofritas", calories: 150, protein: 8, carbs: 9, fat: 10, fiber: 3 },
+        { name: "None", calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0 }
+    ],
+    toppings: [
+        { name: "Fajita Veggies", calories: 20, protein: 1, carbs: 5, fat: 0, fiber: 1 },
+        { name: "Queso Blanco", calories: 120, protein: 5, carbs: 2, fat: 9, fiber: 0 },
+        { name: "Fresh Tomato Salsa", calories: 25, protein: 0, carbs: 4, fat: 0, fiber: 1 },
+        { name: "Roasted Chili-Corn Salsa", calories: 80, protein: 3, carbs: 16, fat: 1.5, fiber: 3 },
+        { name: "Tomatillo Green-Chili Salsa", calories: 15, protein: 0, carbs: 4, fat: 0, fiber: 1 },
+        { name: "Tomatillo Red-Chili Salsa", calories: 30, protein: 0, carbs: 4, fat: 1, fiber: 1 },
+        { name: "Sour Cream", calories: 110, protein: 2, carbs: 2, fat: 9, fiber: 0 },
+        { name: "Cheese", calories: 110, protein: 6, carbs: 1, fat: 9, fiber: 0 },
+        { name: "Guacamole", calories: 230, protein: 2, carbs: 8, fat: 22, fiber: 6 }
+    ],
+    extras: [
+        { name: "Tortilla (Burrito)", calories: 320, protein: 8, carbs: 50, fat: 10, fiber: 3 },
+        { name: "Tortilla (Taco)", calories: 90, protein: 2, carbs: 13, fat: 3, fiber: 1 },
+        { name: "Chips", calories: 540, protein: 8, carbs: 73, fat: 25, fiber: 8 },
+        { name: "Chips & Guacamole", calories: 770, protein: 10, carbs: 81, fat: 47, fiber: 14 },
+        { name: "Chips & Queso", calories: 660, protein: 13, carbs: 75, fat: 34, fiber: 8 }
+    ]
+};
+
+var state = {
+    selectedBases: [],
+    selectedProtein: "None",
+    selectedToppings: [],
+    selectedExtras: [],
+    totalNutrition: { calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0 }
+};
+
+var totalElements = {
+    calories: document.getElementById('total-calories'),
+    protein: document.getElementById('total-protein'),
+    carbs: document.getElementById('total-carbs'),
+    fat: document.getElementById('total-fat'),
+    fiber: document.getElementById('total-fiber')
+};
+
+function renderIngredients(categoryId, ingredients, clickHandler) {
+    var container = document.getElementById(categoryId);
+    if (!container) return;
+    ingredients.forEach(function(ingredient) {
+        var button = document.createElement('button');
+        button.className = 'ingredient-button';
+        button.setAttribute('data-name', ingredient.name);
+        var nameSpan = document.createElement('span');
+        nameSpan.textContent = ingredient.name;
+        var caloriesSpan = document.createElement('span');
+        caloriesSpan.className = 'ingredient-calories';
+        caloriesSpan.textContent = ingredient.calories + ' cal';
+        button.appendChild(nameSpan);
+        button.appendChild(caloriesSpan);
+        button.addEventListener('click', function() { clickHandler(ingredient.name, button); });
+        container.appendChild(button);
+    });
+}
+
+function toggleBase(name, button) {
+    var index = state.selectedBases.indexOf(name);
+    if (index === -1) { state.selectedBases.push(name); button.classList.add('active'); }
+    else { state.selectedBases.splice(index, 1); button.classList.remove('active'); }
+    calculateNutrition();
+}
+
+function selectProtein(name, button) {
+    if (state.selectedProtein !== "None") {
+        var prevButton = document.querySelector('#proteins button[data-name="' + state.selectedProtein + '"]');
+        if (prevButton) prevButton.classList.remove('active');
+    }
+    state.selectedProtein = name;
+    button.classList.add('active');
+    calculateNutrition();
+}
+
+function toggleTopping(name, button) {
+    var index = state.selectedToppings.indexOf(name);
+    if (index === -1) { state.selectedToppings.push(name); button.classList.add('active'); }
+    else { state.selectedToppings.splice(index, 1); button.classList.remove('active'); }
+    calculateNutrition();
+}
+
+function toggleExtra(name, button) {
+    var index = state.selectedExtras.indexOf(name);
+    if (index === -1) { state.selectedExtras.push(name); button.classList.add('active'); }
+    else { state.selectedExtras.splice(index, 1); button.classList.remove('active'); }
+    calculateNutrition();
+}
+
+function calculateNutrition() {
+    var totals = { calories: 0, protein: 0, carbs: 0, fat: 0, fiber: 0 };
+    state.selectedBases.forEach(function(base) {
+        var d = nutritionData.bases.find(function(i) { return i.name === base; });
+        if (d) { totals.calories += d.calories; totals.protein += d.protein; totals.carbs += d.carbs; totals.fat += d.fat; totals.fiber += d.fiber; }
+    });
+    var pd = nutritionData.proteins.find(function(i) { return i.name === state.selectedProtein; });
+    if (pd) { totals.calories += pd.calories; totals.protein += pd.protein; totals.carbs += pd.carbs; totals.fat += pd.fat; totals.fiber += pd.fiber; }
+    state.selectedToppings.forEach(function(t) {
+        var d = nutritionData.toppings.find(function(i) { return i.name === t; });
+        if (d) { totals.calories += d.calories; totals.protein += d.protein; totals.carbs += d.carbs; totals.fat += d.fat; totals.fiber += d.fiber; }
+    });
+    state.selectedExtras.forEach(function(e) {
+        var d = nutritionData.extras.find(function(i) { return i.name === e; });
+        if (d) { totals.calories += d.calories; totals.protein += d.protein; totals.carbs += d.carbs; totals.fat += d.fat; totals.fiber += d.fiber; }
+    });
+    state.totalNutrition = totals;
+
+    if (totalElements.calories) totalElements.calories.textContent = totals.calories;
+    if (totalElements.protein) totalElements.protein.textContent = totals.protein + 'g';
+    if (totalElements.carbs) totalElements.carbs.textContent = totals.carbs + 'g';
+    if (totalElements.fat) totalElements.fat.textContent = totals.fat + 'g';
+    if (totalElements.fiber) totalElements.fiber.textContent = totals.fiber + 'g';
+
+    // Update factory result
+    if (totals.calories > 0) {
+        var resultNum = document.getElementById('resultNumber');
+        if (resultNum) resultNum.textContent = totals.calories;
+        var verdict = document.getElementById('resultVerdict');
+        if (verdict) verdict.textContent = totals.protein + 'g protein | ' + totals.carbs + 'g carbs | ' + totals.fat + 'g fat';
+
+        if (typeof factoryReveal === 'function') factoryReveal();
+
+        // Coach
+        var coachCard = document.getElementById('coachCard');
+        if (coachCard) {
+            var items = state.selectedBases.concat(state.selectedProtein !== 'None' ? [state.selectedProtein] : []);
+            coachCard.innerHTML = '<div class="coach-text">' +
+                'Your bowl with <span class="hl">' + items.join(', ') + '</span>:<br><br>' +
+                '<span class="hl">' + totals.calories + '</span> calories &middot; <span class="hl">' + totals.protein + 'g</span> protein &middot; <span class="hl">' + totals.fat + 'g</span> fat' +
+                '<div class="coach-rule">' + totals.calories + ' cal = ' + Math.round(totals.calories/2000*100) + '% of a 2,000 cal day</div>' +
+                '<div class="coach-advice">' +
+                    (totals.calories > 800 ? '<em>Tip:</em> Skip the tortilla to save 320 calories.<br>' : '') +
+                    (totals.protein > 30 ? '<em>Nice:</em> Great protein content for a single meal.' : '') +
+                '</div></div>';
+        }
+
+        var shareText = 'My Chipotle order: ' + items.join(' + ') + '\n\n' + totals.calories + ' cal | ' + totals.protein + 'g protein | ' + totals.fat + 'g fat\n\nBuild yours: healthcalculators.xyz/chipotle-nutrition-calculator';
+        if (typeof updateShareButtons === 'function') updateShareButtons(shareText);
+    }
+}
+
+renderIngredients('bases', nutritionData.bases, toggleBase);
+renderIngredients('proteins', nutritionData.proteins, selectProtein);
+renderIngredients('toppings', nutritionData.toppings, toggleTopping);
+renderIngredients('extras', nutritionData.extras, toggleExtra);
+})();
+</script>
+{% endblock %}
