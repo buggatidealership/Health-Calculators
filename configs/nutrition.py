@@ -519,3 +519,424 @@ FIBER_INTAKE = {
 }
 
 register("fiber_intake", FIBER_INTAKE)
+
+TDEE = {
+    "route": "/tdee-calculator",
+    "override_template": "tdee_calculator_v3.html",
+
+    "seo": {
+        "page_title": "TDEE Calculator — Total Daily Energy Expenditure",
+        "meta_description": "Calculate your Total Daily Energy Expenditure. See exactly how many calories you burn per day based on your age, weight, height, and activity level.",
+        "og_title": "How many calories do you burn per day?",
+        "og_description": "Calculate your Total Daily Energy Expenditure. See exactly how many calories you burn per day based on your age, weight, height, and activity level.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "TDEE Calculator",
+        "schema_description": "Calculate your Total Daily Energy Expenditure using the Mifflin-St Jeor equation. Personalized calorie estimates for weight loss, maintenance, or muscle gain.",
+        "schema_about": "TDEE Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How many <span>calories</span> do you burn?",
+        "subtitle": "Your Total Daily Energy Expenditure, calculated in seconds.",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What is TDEE?", "answer": "TDEE stands for Total Daily Energy Expenditure — the total number of calories your body burns per day. It includes your Basal Metabolic Rate (BMR) plus calories burned through physical activity, digestion, and daily movement."},
+        {"question": "How accurate is the TDEE calculator?", "answer": "The Mifflin-St Jeor equation predicts BMR within 10% for approximately 82% of individuals. It is the most accurate predictive formula recommended by the American Dietetic Association. Your actual TDEE may vary based on muscle mass, genetics, and metabolic conditions."},
+        {"question": "What is the difference between BMR and TDEE?", "answer": "BMR (Basal Metabolic Rate) is the calories your body burns at complete rest — breathing, circulation, cell repair. TDEE adds everything else: exercise, walking, fidgeting, digesting food. For most people, BMR is 60-75% of TDEE."},
+        {"question": "How do I use TDEE for weight loss?", "answer": "Eat fewer calories than your TDEE. A deficit of 500 calories per day leads to about 1 lb (0.45 kg) of weight loss per week. Don't go below 1,200 calories (women) or 1,500 calories (men) without medical supervision."},
+        {"question": "Should I eat back exercise calories?", "answer": "If your activity level already includes exercise, your TDEE accounts for those calories — don't add them again. If you chose Sedentary and track exercise separately, add back about 50-75% of burned calories, as trackers tend to overestimate."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("tdee", TDEE)
+
+WATER_INTAKE = {
+    "route": "/water-intake-calculator",
+    "override_template": "water_intake_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Water Intake Calculator — Daily Hydration by Weight",
+        "meta_description": "Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations.",
+        "og_title": "Water Intake Calculator",
+        "og_description": "Calculate your optimal daily water intake based on weight, activity level, climate, and lifestyle factors. Personalized hydration recommendations.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Water Intake Calculator",
+        "schema_description": "Calculate optimal daily water intake based on weight, activity, climate using IOM guidelines.",
+        "schema_about": "Water Intake Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How much <span>water</span> do you need?",
+        "subtitle": "Personalized by weight, activity, and climate",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How much water should I drink per day?", "answer": "The IOM recommends about 3.7L for men and 2.7L for women from all sources including food."},
+        {"question": "Does coffee count toward water intake?", "answer": "Yes. Coffee provides net positive hydration despite caffeine mild diuretic effect."},
+        {"question": "Can you drink too much water?", "answer": "Yes. Excessive water can cause hyponatremia. Spread intake throughout the day."},
+        {"question": "How does climate affect water needs?", "answer": "Hot climates increase water needs by 20-30% due to increased sweating."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("water_intake", WATER_INTAKE)
+
+KETO = {
+    "route": "/keto-calculator",
+    "override_template": "keto_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Keto Macro Calculator — Personalized Ketogenic Diet Macros",
+        "meta_description": "Calculate your ideal keto macros for fat, protein, and carbs. Personalized using Mifflin-St Jeor equation for standard, modified, or high-protein keto.",
+        "og_title": "Keto Macro Calculator",
+        "og_description": "Calculate your ideal keto macros for fat, protein, and carbs. Personalized using Mifflin-St Jeor equation for standard, modified, or high-protein keto.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Keto Macro Calculator",
+        "schema_description": "Calculate personalized ketogenic diet macros for fat, protein, and carbs.",
+        "schema_about": "Keto Macro Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "What are your <span>keto macros</span>?",
+        "subtitle": "Mifflin-St Jeor formula. 3 keto approaches.",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How many carbs can I eat on keto?", "answer": "Most keto diets limit net carbs to 20-50 grams per day to maintain ketosis."},
+        {"question": "How long does it take to enter ketosis?", "answer": "Most people enter ketosis in 2-4 days. Full fat adaptation takes 2-6 weeks."},
+        {"question": "What is the keto flu?", "answer": "Headache, fatigue, nausea during first weeks. Caused by electrolyte imbalances. Increase sodium and magnesium."},
+        {"question": "Can I build muscle on keto?", "answer": "Yes, with adequate protein and caloric surplus. High-protein keto is recommended."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("keto", KETO)
+
+INTERMITTENT_FASTING = {
+    "route": "/intermittent-fasting-calculator",
+    "override_template": "intermittent_fasting_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Intermittent Fasting Calculator — Plan Your Eating Window",
+        "meta_description": "Plan your personalized intermittent fasting schedule. Get a visual daily timeline showing exactly when to eat and fast with 16:8, 18:6, 20:4 or OMAD protocols.",
+        "og_title": "Intermittent Fasting Schedule Calculator",
+        "og_description": "Plan your personalized intermittent fasting schedule. Get a visual daily timeline showing exactly when to eat and fast with 16:8, 18:6, 20:4 or OMAD protoc",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Intermittent Fasting Calculator",
+        "schema_description": "Plan your personalized intermittent fasting schedule based on wake time and preferred protocol.",
+        "schema_about": "Intermittent Fasting Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "When should you <span>eat</span>?",
+        "subtitle": "Build your fasting window around your life",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What is the best IF schedule for beginners?", "answer": "16:8 is recommended for beginners. Simply skip breakfast and eat between noon and 8 PM."},
+        {"question": "Can I drink coffee during fasting?", "answer": "Yes, black coffee without sugar or cream is acceptable during fasting."},
+        {"question": "Does meal timing affect weight loss?", "answer": "Earlier eating windows may have slight metabolic benefits, but consistency matters most."},
+        {"question": "How do I choose between 16:8 and 18:6?", "answer": "Start with 16:8 for 2-3 weeks, then try 18:6 if comfortable."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("intermittent_fasting", INTERMITTENT_FASTING)
+
+STARBUCKS_NUTRITION = {
+    "route": "/starbucks-nutrition-calculator",
+    "override_template": "starbucks_nutrition_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Starbucks Nutrition Calculator — Calories, Sugar & Caffeine",
+        "meta_description": "Calculate the exact nutrition in your Starbucks drink. Customize milk, syrup, size, and toppings to see calories, sugar, fat, protein, and caffeine.",
+        "og_title": "What's in your Starbucks order?",
+        "og_description": "Build your custom Starbucks drink and see exact calories, sugar, fat, protein, and caffeine.",
+        "schema_type": "WebPage",
+        "schema_name": "Starbucks Nutrition Calculator",
+        "schema_description": "Calculate nutrition for any Starbucks drink with custom milk, syrups, and toppings.",
+        "schema_about": "Starbucks Nutrition Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "What's in your <span>Starbucks</span>?",
+        "subtitle": "Build your drink. See the real numbers.",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How many calories are in a Starbucks latte?", "answer": "A Grande Caffe Latte with 2% milk has approximately 190 calories, 18g sugar, 7g fat, and 13g protein."},
+        {"question": "Which Starbucks drink has the most caffeine?", "answer": "A Grande Americano has the most caffeine at 225mg, followed by Cold Brew (205mg) and Iced Coffee (165mg)."},
+        {"question": "How much sugar is in a Frappuccino?", "answer": "A Grande Coffee Frappuccino has about 54g of sugar (nearly 14 teaspoons). That's more than a can of Coca-Cola."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("starbucks_nutrition", STARBUCKS_NUTRITION)
+
+SUBWAY_CALORIE = {
+    "route": "/subway-calorie-calculator",
+    "override_template": "subway_nutrition_v25.html",
+
+    "seo": {
+        "page_title": "Subway Calorie Calculator — Nutrition Facts for Every Sandwich",
+        "meta_description": "Build your Subway sandwich and see real-time calories, protein, carbs, fat, fiber, and sodium. Covers all breads, proteins, cheeses, veggies, and sauces.",
+        "og_title": "Subway Calorie Calculator",
+        "og_description": "Customize any Subway sandwich and instantly see the nutrition breakdown. Choose your bread, protein, cheese, veggies, and sauces.",
+        "schema_type": "WebPage",
+        "schema_name": "Subway Calorie Calculator",
+        "schema_description": "Build your Subway sandwich and see real-time calories, protein, carbs, fat, fiber, and sodium for 6-inch and footlong orders.",
+        "schema_about": "Subway Calorie Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Build your <span>Subway</span> order",
+        "subtitle": "Tap ingredients to see real-time nutrition",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How many calories are in a Subway footlong?", "answer": "A Subway footlong ranges from roughly 440 to 1,200+ calories depending on bread, protein, cheese, and sauce choices."},
+        {"question": "What is the lowest-calorie Subway sandwich?", "answer": "The 6-inch Veggie Delite (~210 cal) is the lowest, followed by Oven Roasted Turkey and Black Forest Ham (~270 cal each)."},
+        {"question": "Which Subway sauce has the most calories?", "answer": "Mayonnaise and Ranch at 110 calories per serving. Chipotle Southwest is close at 100 cal. Yellow Mustard is only 5 cal."},
+        {"question": "Does a footlong have exactly double the calories of a 6-inch?", "answer": "Almost. Bread and protein double, but condiments (cheese, sauces) stay the same, so the total is slightly less than 2x."},
+        {"question": "How much sodium is in a Subway sandwich?", "answer": "A 6-inch sandwich typically has 700-1,200 mg sodium. Footlongs can exceed 2,000 mg, approaching the FDA daily limit of 2,300 mg."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("subway_calorie", SUBWAY_CALORIE)
+
+GLYCEMIC_INDEX = {
+    "route": "/glycemic-index-calculator",
+    "override_template": "glycemic_index_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Glycemic Index Calculator — GI Lookup and Glycemic Load",
+        "meta_description": "Look up glycemic index and calculate glycemic load of 100+ foods.",
+        "og_title": "Glycemic Index Calculator",
+        "og_description": "Look up glycemic index and calculate glycemic load of 100+ foods.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Glycemic Index Calculator",
+        "schema_description": "Look up glycemic index and calculate glycemic load of 100+ foods.",
+        "schema_about": "Glycemic Index Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "What's the <span>glycemic</span> impact?",
+        "subtitle": "Look up glycemic index and calculate glycemic load of 100+ foods.",
+    },
+
+    "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What is glycemic index?", "answer": "GI ranks foods 0-100 by blood sugar impact. Low (<55): slow rise. High (>70): rapid spike."},
+        {"question": "What is glycemic load?", "answer": "GL = (GI x carbs per serving) / 100. Accounts for both quality and quantity. Low GL: <10."},
+        {"question": "Does cooking affect GI?", "answer": "Yes. Cooking increases GI. Al dente pasta has lower GI. Cooling creates resistant starch."},
+        {"question": "Are all low-GI foods healthy?", "answer": "Not necessarily. Ice cream has moderate GI due to fat. Consider overall nutritional quality."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("glycemic_index", GLYCEMIC_INDEX)

@@ -1053,3 +1053,247 @@ CREATINE_WATER = {
 }
 
 register("creatine_water", CREATINE_WATER)
+
+VO2_MAX = {
+    "route": "/vo2-max-calculator",
+    "override_template": "vo2_max_calculator_v3.html",
+
+    "seo": {
+        "page_title": "VO2 Max Calculator — Estimate Your Cardio Fitness",
+        "meta_description": "Calculate your VO2 max with 6 validated methods: Cooper run, 1.5-mile run, Rockport walk, step test, heart rate ratio, or no-exercise estimate.",
+        "og_title": "What's your VO2 max?",
+        "og_description": "Calculate your VO2 max with 6 validated methods: Cooper run, 1.5-mile run, Rockport walk, step test, heart rate ratio, or no-exercise estimate.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "VO2 Max Calculator",
+        "schema_description": "Calculate your VO2 max with 6 validated methods: Cooper run, 1.5-mile run, Rockport walk, step test, heart rate ratio, or no-exercise estimate.",
+        "schema_about": "VO2 Max Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "VO2 Max Calculator",
+        "subtitle": "Calculate your VO2 max with 6 validated methods: Cooper run, 1.5-mile run, Rockp",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What is a good VO2 max?", "answer": "For men aged 26-35, Average is 40-42 ml/kg/min and Good is 49-56. For women, Average is 35-38 and Good is 45-52. Elite athletes reach 70-85+."},
+        {"question": "Which VO2 max test is most accurate?", "answer": "The Cooper 12-minute run test has the highest correlation with lab testing (r = 0.90). The non-exercise estimate is least precise but requires no physical test."},
+        {"question": "Does VO2 max decline with age?", "answer": "Yes. VO2 max declines ~7-10% per decade after age 30, but regular exercise slows this significantly."},
+        {"question": "What is a MET?", "answer": "One MET equals 3.5 ml O2/kg/min. If your VO2 max is 42, your MET capacity is 12. Each additional MET reduces mortality risk by 13-15%."},
+        {"question": "Can I test VO2 max with a smartwatch?", "answer": "Consumer wearables estimate VO2 max with r = 0.6-0.8 correlation to lab values. Useful for trends, less precise than field tests."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("vo2_max", VO2_MAX)
+
+TRAINING_VOLUME = {
+    "route": "/training-volume-calculator",
+    "override_template": "training_volume_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Training Volume Calculator — How Many Sets Per Muscle Group",
+        "meta_description": "Get personalized weekly set recommendations per muscle group based on your experience, goals, recovery, and schedule. Backed by Schoenfeld and Israetel research.",
+        "og_title": "How many sets per muscle group do you need?",
+        "og_description": "Get personalized weekly set recommendations per muscle group based on your experience, goals, recovery, and schedule. Backed by Schoenfeld and Israetel research.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Training Volume Calculator",
+        "schema_description": "Get personalized weekly set recommendations per muscle group based on your experience, goals, recovery, and schedule. Backed by Schoenfeld and Israetel research.",
+        "schema_about": "Training Volume Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Training Volume Calculator",
+        "subtitle": "Get personalized weekly set recommendations per muscle group based on your exper",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How many sets per muscle group per week should I do?", "answer": "10-20 hard sets per week is optimal for most people. Beginners grow with 8-12, advanced may need 16-22 sets."},
+        {"question": "Does training frequency matter?", "answer": "Frequency is primarily a tool for distributing volume. Training a muscle 2x vs 3x per week shows no significant difference when total weekly sets are equal."},
+        {"question": "What counts as a hard set?", "answer": "A working set at RPE 7+ (1-3 reps in reserve). Warm-ups and sets well short of failure don't count."},
+        {"question": "Should I train differently as I age?", "answer": "Recovery capacity declines with age. Reduce volume by 10-30% compared to younger lifters while maintaining intensity."},
+        {"question": "How does sleep affect training volume?", "answer": "Sleep deprivation reduces muscle protein synthesis by ~18%. Reduce volume by 15-30% during periods of poor sleep."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("training_volume", TRAINING_VOLUME)
+
+ZONE2_HEART_RATE = {
+    "route": "/zone2-heart-rate-calculator",
+    "override_template": "zone2_heart_rate_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Zone 2 Heart Rate Calculator — Aerobic Base Training",
+        "meta_description": "Calculate your Zone 2 heart rate range for optimal fat burning and aerobic base building. Uses Tanaka max HR formula, Karvonen, or Maffetone MAF method.",
+        "og_title": "Find your Zone 2 heart rate",
+        "og_description": "Calculate your Zone 2 heart rate range for optimal fat burning and aerobic base building. Uses Tanaka max HR formula, Karvonen, or Maffetone MAF method.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Zone 2 Heart Rate Calculator",
+        "schema_description": "Calculate your Zone 2 heart rate range for optimal fat burning and aerobic base building. Uses Tanaka max HR formula, Karvonen, or Maffetone MAF method.",
+        "schema_about": "Zone 2 Heart Rate Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Zone 2 Heart Rate Calculator",
+        "subtitle": "Calculate your Zone 2 heart rate range for optimal fat burning and aerobic base ",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What exactly is Zone 2 heart rate?", "answer": "Zone 2 is 60-70% of max heart rate -- the intensity where your body uses primarily fat for fuel and stimulates mitochondrial biogenesis."},
+        {"question": "Why does Zone 2 training build mitochondria?", "answer": "Zone 2 activates PGC-1alpha, the master regulator of mitochondrial biogenesis, in slow-twitch muscle fibers over weeks of consistent training."},
+        {"question": "How accurate is the 220 minus age formula?", "answer": "The 220-age formula has a standard deviation of +/-12 bpm. The Tanaka formula (208 - 0.7 x age) used here is more accurate, especially for adults over 40."},
+        {"question": "How much Zone 2 training should I do per week?", "answer": "Research suggests 3-4 hours per week in sessions of 45-90 minutes for meaningful mitochondrial adaptation."},
+        {"question": "Why does Zone 2 sometimes feel too easy?", "answer": "Most recreational exercisers train too hard chronically. Zone 2 pace is intentionally slow. Over 3-6 months, your pace at the same HR will increase."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("zone2_heart_rate", ZONE2_HEART_RATE)
+
+RUNNING_PACE = {
+    "route": "/running-pace-calculator",
+    "override_template": "running_pace_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Running Pace Calculator — Pace, Time & Splits",
+        "meta_description": "Free running pace calculator. Enter distance and time to get pace per mile/km. Includes splits table and race time equivalents for 5K, 10K, half marathon, marathon.",
+        "og_title": "Calculate your running pace",
+        "og_description": "Free running pace calculator. Enter distance and time to get pace per mile/km. Includes splits table and race time equivalents for 5K, 10K, half marathon, marathon.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Running Pace Calculator",
+        "schema_description": "Free running pace calculator. Enter distance and time to get pace per mile/km. Includes splits table and race time equivalents for 5K, 10K, half marathon, marathon.",
+        "schema_about": "Running Pace Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Running Pace Calculator",
+        "subtitle": "Free running pace calculator. Enter distance and time to get pace per mile/km. I",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What is a good running pace for beginners?", "answer": "12-15 min/mile. At this pace you should be able to hold a conversation. Most beginners finish a 5K in 35-45 minutes."},
+        {"question": "How do I convert min/mile to min/km?", "answer": "Divide by 1.60934. A 9:00/mile pace equals 5:35/km."},
+        {"question": "What pace for a sub-4 marathon?", "answer": "9:09 per mile (5:41/km). Target 9:00-9:05 for the first half to allow for natural slowdown."},
+        {"question": "What is a good 5K pace?", "answer": "Average: 28-35 min (men), 32-40 min (women). Under 25 min is competitive for recreational runners."},
+        {"question": "How accurate are pace calculators?", "answer": "Highly accurate for even-split predictions on flat courses. Account for 2-5% buffer for hills, weather, and fatigue in real races."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("running_pace", RUNNING_PACE)

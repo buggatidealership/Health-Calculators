@@ -1442,15 +1442,16 @@ def comparison_ozempic_vs_mounjaro():
         breadcrumb_title="Ozempic vs Mounjaro"
     )
 
-@app.route('/tdee-calculator')
-def tdee_calculator():
-    return render_template(
-        'tdee_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        breadcrumb_title='TDEE Calculator',
-        robots_meta='index, follow'
-    )
+# /tdee-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/tdee-calculator')
+# def tdee_calculator():
+#     return render_template(
+#         'tdee_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         breadcrumb_title='TDEE Calculator',
+#         robots_meta='index, follow'
+#     )
 
 # /sleep-calculator: migrated to config-driven (configs/health.py)
 # @app.route('/sleep-calculator')
@@ -1501,15 +1502,16 @@ def tdee_calculator():
 #         robots_meta='index, follow'
 #     )
 # 
-@app.route('/water-intake-calculator')
-def water_intake_calculator():
-    return render_template(
-        'water_intake_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        breadcrumb_title='Water Intake Calculator',
-        robots_meta='index, follow'
-    )
+# /water-intake-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/water-intake-calculator')
+# def water_intake_calculator():
+#     return render_template(
+#         'water_intake_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         breadcrumb_title='Water Intake Calculator',
+#         robots_meta='index, follow'
+#     )
 
 # /caloric-intake-macronutrient-calculator: migrated to config-driven (configs/nutrition.py)
 # @app.route('/caloric-intake-macronutrient-calculator')
@@ -1544,21 +1546,22 @@ def water_intake_calculator():
 #         date_modified='2026-03-20'
 #     )
 
-@app.route('/lifespan-longevity-calculator')
-def lifespan_calculator():
-    schema_name = "Lifespan Calculator"
-    schema_description = "Estimate your life expectancy based on health and lifestyle factors with our evidence-based longevity calculator. Get personalized insights into how your habits affect your lifespan."
-    schema_url = "/lifespan-longevity-calculator"
-    return render_template(
-        'lifespan_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        schema_type='WebPage',
-        robots_meta='noindex, nofollow'
-    )
+# /lifespan-longevity-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/lifespan-longevity-calculator')
+# def lifespan_calculator():
+#     schema_name = "Lifespan Calculator"
+#     schema_description = "Estimate your life expectancy based on health and lifestyle factors with our evidence-based longevity calculator. Get personalized insights into how your habits affect your lifespan."
+#     schema_url = "/lifespan-longevity-calculator"
+#     return render_template(
+#         'lifespan_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         schema_type='WebPage',
+#         robots_meta='noindex, nofollow'
+#     )
 
 # /creatine-water-calculator: migrated to config-driven (configs/fitness.py)
 # @app.route('/creatine-water-calculator')
@@ -1626,15 +1629,16 @@ def lifespan_calculator():
 #     schema_type='WebPage'
 #     )
 #
-@app.route('/vitamin-d-intake-calculator')
-def vitamin_d_intake_calculator():
-    return render_template(
-        'vitamin_d_intake_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
-        breadcrumb_title='Vitamin D Intake Calculator',
-        robots_meta='index, follow'
-    )
+# /vitamin-d-intake-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/vitamin-d-intake-calculator')
+# def vitamin_d_intake_calculator():
+#     return render_template(
+#         'vitamin_d_intake_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Health & Longevity', 'url': '/health-longevity-calculators'},
+#         breadcrumb_title='Vitamin D Intake Calculator',
+#         robots_meta='index, follow'
+#     )
 
 # /vitamin-d-conversion-calculator: migrated to config-driven (configs/health.py)
 # @app.route('/vitamin-d-conversion-calculator')
@@ -1674,13 +1678,14 @@ def a1c_blood_sugar_redirect():
 #         robots_meta='noindex, nofollow'
 #     )
 # 
-@app.route('/ivf-due-date-calculator')
-def ivf_due_date_calculator():
-    return render_template(
-        'ivf_due_date_v3.html',
-        is_homepage=False,
-        date_modified='2026-03-20'
-    )
+# /ivf-due-date-calculator: migrated to config-driven (configs/fertility.py)
+# @app.route('/ivf-due-date-calculator')
+# def ivf_due_date_calculator():
+#     return render_template(
+#         'ivf_due_date_v3.html',
+#         is_homepage=False,
+#         date_modified='2026-03-20'
+#     )
 
 # /carb-cycling-calculator: migrated to config-driven (configs/nutrition.py)
 # @app.route('/carb-cycling-calculator')
@@ -1693,15 +1698,16 @@ def ivf_due_date_calculator():
 #     robots_meta='index, follow'
 #     )
 #
-@app.route('/keto-calculator')
-def keto_calculator():
-    return render_template(
-        'keto_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        breadcrumb_title='Keto Macro Calculator',
-        robots_meta='index, follow'
-    )
+# /keto-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/keto-calculator')
+# def keto_calculator():
+#     return render_template(
+#         'keto_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         breadcrumb_title='Keto Macro Calculator',
+#         robots_meta='index, follow'
+#     )
 
 # retirement-savings-calculator: migrated to config-driven (configs/financial.py)
 
@@ -1728,15 +1734,16 @@ def keto_calculator():
 #     )
 
 
-@app.route('/intermittent-fasting-calculator')
-def intermittent_fasting_calculator():
-    return render_template(
-        'intermittent_fasting_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        breadcrumb_title='Intermittent Fasting Calculator',
-        robots_meta='index, follow'
-    )
+# /intermittent-fasting-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/intermittent-fasting-calculator')
+# def intermittent_fasting_calculator():
+#     return render_template(
+#         'intermittent_fasting_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         breadcrumb_title='Intermittent Fasting Calculator',
+#         robots_meta='index, follow'
+#     )
 # /ozempic-pen-click-calculator: migrated to config-driven (configs/medications.py)
 # @app.route('/ozempic-pen-click-calculator')
 # def ozempic_pen_click_calculator():
@@ -2040,69 +2047,73 @@ def share_ozempic_page():
         dose=dose, clicks=clicks, pen=pen
     )
 
-@app.route('/ozempic-weight-loss-calculator')
-def ozempic_weight_loss_calculator():
-    schema_name = "Ozempic Weight Loss Calculator"
-    schema_description = "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy). Get personalized projections based on clinical data and your individual profile."
-    schema_url = "/ozempic-weight-loss-calculator"
-    return render_template(
-        'ozempic_weight_loss_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /ozempic-weight-loss-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/ozempic-weight-loss-calculator')
+# def ozempic_weight_loss_calculator():
+#     schema_name = "Ozempic Weight Loss Calculator"
+#     schema_description = "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy). Get personalized projections based on clinical data and your individual profile."
+#     schema_url = "/ozempic-weight-loss-calculator"
+#     return render_template(
+#         'ozempic_weight_loss_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
-@app.route('/wegovy-weight-loss-calculator')
-def wegovy_weight_loss_calculator():
-    schema_name = "Wegovy Weight Loss Calculator"
-    schema_description = "Project your expected weight loss on Wegovy (semaglutide 2.4mg) based on STEP clinical trial data. Personalized by starting weight, form (injectable or oral), and treatment duration."
-    schema_url = "/wegovy-weight-loss-calculator"
-    return render_template(
-        'wegovy_weight_loss_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /wegovy-weight-loss-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/wegovy-weight-loss-calculator')
+# def wegovy_weight_loss_calculator():
+#     schema_name = "Wegovy Weight Loss Calculator"
+#     schema_description = "Project your expected weight loss on Wegovy (semaglutide 2.4mg) based on STEP clinical trial data. Personalized by starting weight, form (injectable or oral), and treatment duration."
+#     schema_url = "/wegovy-weight-loss-calculator"
+#     return render_template(
+#         'wegovy_weight_loss_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
-@app.route('/oral-wegovy-weight-loss-calculator')
-def oral_wegovy_weight_loss_calculator():
-    schema_name = "Oral Wegovy Weight Loss Calculator"
-    schema_description = "Project your expected weight loss on oral Wegovy (semaglutide 25mg pill) based on OASIS 1 clinical trial data. Personalized by starting weight, height, and treatment duration."
-    schema_url = "/oral-wegovy-weight-loss-calculator"
-    return render_template(
-        'oral_wegovy_weight_loss_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /oral-wegovy-weight-loss-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/oral-wegovy-weight-loss-calculator')
+# def oral_wegovy_weight_loss_calculator():
+#     schema_name = "Oral Wegovy Weight Loss Calculator"
+#     schema_description = "Project your expected weight loss on oral Wegovy (semaglutide 25mg pill) based on OASIS 1 clinical trial data. Personalized by starting weight, height, and treatment duration."
+#     schema_url = "/oral-wegovy-weight-loss-calculator"
+#     return render_template(
+#         'oral_wegovy_weight_loss_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
-@app.route('/mounjaro-weight-loss-calculator')
-def mounjaro_weight_loss_calculator():
-    schema_name = "Mounjaro Weight Loss Calculator"
-    schema_description = "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data."
-    schema_url = "/mounjaro-weight-loss-calculator"
-    return render_template(
-        'mounjaro_weight_loss_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /mounjaro-weight-loss-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/mounjaro-weight-loss-calculator')
+# def mounjaro_weight_loss_calculator():
+#     schema_name = "Mounjaro Weight Loss Calculator"
+#     schema_description = "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data."
+#     schema_url = "/mounjaro-weight-loss-calculator"
+#     return render_template(
+#         'mounjaro_weight_loss_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 # /cagrisema-weight-loss-calculator: migrated to config-driven (configs/medications.py)
 # @app.route('/cagrisema-weight-loss-calculator')
@@ -2121,21 +2132,22 @@ def mounjaro_weight_loss_calculator():
 #     robots_meta='noindex, nofollow'
 #     )
 #
-@app.route('/zepbound-weight-loss-calculator')
-def zepbound_weight_loss_calculator():
-    schema_name = "Zepbound Weight Loss Calculator"
-    schema_description = "Project your expected weight loss on Zepbound (tirzepatide) based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration."
-    schema_url = "/zepbound-weight-loss-calculator"
-    return render_template(
-        'zepbound_weight_loss_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /zepbound-weight-loss-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/zepbound-weight-loss-calculator')
+# def zepbound_weight_loss_calculator():
+#     schema_name = "Zepbound Weight Loss Calculator"
+#     schema_description = "Project your expected weight loss on Zepbound (tirzepatide) based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration."
+#     schema_url = "/zepbound-weight-loss-calculator"
+#     return render_template(
+#         'zepbound_weight_loss_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 # /glp1-cost-calculator: migrated to config-driven (configs/medications.py)
 # @app.route('/glp1-cost-calculator')
@@ -2188,21 +2200,22 @@ def zepbound_weight_loss_calculator():
 #         schema_type='WebPage'
 #     )
 # 
-@app.route('/ozempic-face-calculator')
-def ozempic_face_calculator():
-    schema_name = "Ozempic Face Risk Calculator"
-    schema_description = "Estimate your risk of facial volume loss from GLP-1 weight loss medications like Ozempic and Wegovy. Based on clinical data on age, BMI, and rate of weight loss."
-    schema_url = "/ozempic-face-calculator"
-    return render_template(
-        'ozempic_face_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /ozempic-face-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/ozempic-face-calculator')
+# def ozempic_face_calculator():
+#     schema_name = "Ozempic Face Risk Calculator"
+#     schema_description = "Estimate your risk of facial volume loss from GLP-1 weight loss medications like Ozempic and Wegovy. Based on clinical data on age, BMI, and rate of weight loss."
+#     schema_url = "/ozempic-face-calculator"
+#     return render_template(
+#         'ozempic_face_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 articles = [
     {
@@ -2645,20 +2658,21 @@ def botox_dosage_guide():
 #     robots_meta='noindex, nofollow'
 #     )
 #
-@app.route('/menopause-calculator')
-def menopause_calculator():
-    schema_name = "Menopause Age Calculator"
-    schema_description = "Predict when you may enter perimenopause and menopause based on family history, lifestyle factors, and medical research. Evidence-based tool."
-    schema_url = "/menopause-calculator"
-    return render_template(
-        'menopause_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /menopause-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/menopause-calculator')
+# def menopause_calculator():
+#     schema_name = "Menopause Age Calculator"
+#     schema_description = "Predict when you may enter perimenopause and menopause based on family history, lifestyle factors, and medical research. Evidence-based tool."
+#     schema_url = "/menopause-calculator"
+#     return render_template(
+#         'menopause_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 # /child-growth-calculator: migrated to config-driven (configs/health.py)
 # @app.route('/child-growth-calculator')
@@ -2676,20 +2690,21 @@ def menopause_calculator():
 #     date_modified='2026-03-20'
 #     )
 #
-@app.route('/liposuction-weight-loss-calculator')
-def liposuction_weight_loss_calculator():
-    schema_name = "Liposuction Weight Loss Calculator"
-    schema_description = "Calculate how much fat and weight you might lose with liposuction, and what it may cost based on body areas and region."
-    schema_url = "/liposuction-weight-loss-calculator"
-    return render_template(
-        'liposuction_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
-        date_modified='2026-03-20'
-    )
+# /liposuction-weight-loss-calculator: migrated to config-driven (configs/cosmetic.py)
+# @app.route('/liposuction-weight-loss-calculator')
+# def liposuction_weight_loss_calculator():
+#     schema_name = "Liposuction Weight Loss Calculator"
+#     schema_description = "Calculate how much fat and weight you might lose with liposuction, and what it may cost based on body areas and region."
+#     schema_url = "/liposuction-weight-loss-calculator"
+#     return render_template(
+#         'liposuction_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Cosmetic Procedures', 'url': '/cosmetic-procedure-calculators'},
+#         date_modified='2026-03-20'
+#     )
 
 # /lip-filler-cost-calculator: migrated to config-driven (configs/cosmetic.py)
 # @app.route('/lip-filler-cost-calculator')
@@ -2732,21 +2747,22 @@ def liposuction_weight_loss_calculator():
 #     date_modified='2026-03-20'
 #     )
 #
-@app.route('/newborn-weight-loss-calculator')
-def newborn_weight_loss_calculator():
-    schema_name = "Newborn Weight Loss Calculator"
-    schema_description = "Check if your newborn's weight loss is normal based on AAP guidelines. Enter birth weight and current weight for immediate assessment."
-    schema_url = "/newborn-weight-loss-calculator"
-    return render_template(
-        'newborn_weight_loss_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /newborn-weight-loss-calculator: migrated to config-driven (configs/fertility.py)
+# @app.route('/newborn-weight-loss-calculator')
+# def newborn_weight_loss_calculator():
+#     schema_name = "Newborn Weight Loss Calculator"
+#     schema_description = "Check if your newborn's weight loss is normal based on AAP guidelines. Enter birth weight and current weight for immediate assessment."
+#     schema_url = "/newborn-weight-loss-calculator"
+#     return render_template(
+#         'newborn_weight_loss_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 # /baldness-risk-calculator: migrated to config-driven (configs/)
 # @app.route('/baldness-risk-calculator')
@@ -2806,37 +2822,39 @@ def how_to_prevent_hair_loss():
 #     date_modified='2026-03-20'
 #     )
 #
-@app.route('/starbucks-nutrition-calculator')
-def starbucks_nutrition_calculator():
-    schema_name = "Starbucks Nutrition Calculator"
-    schema_description = "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and seasonal items."
-    schema_url = "/starbucks-nutrition-calculator"
-    return render_template(
-        'starbucks_nutrition_calculator_v3.html', 
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20'
-    )
+# /starbucks-nutrition-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/starbucks-nutrition-calculator')
+# def starbucks_nutrition_calculator():
+#     schema_name = "Starbucks Nutrition Calculator"
+#     schema_description = "Customize any Starbucks drink and instantly see calories, protein, carbs, fat, and sugar. Includes milk swaps, size changes, syrups, and seasonal items."
+#     schema_url = "/starbucks-nutrition-calculator"
+#     return render_template(
+#         'starbucks_nutrition_calculator_v3.html', 
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='WebPage',
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         date_modified='2026-03-20'
+#     )
 
-@app.route('/subway-calorie-calculator')
-def subway_calorie_calculator():
-    schema_name = "Subway Calorie Calculator"
-    schema_description = "Build your Subway sandwich and see real-time calories, protein, carbs, fat, fiber, and sodium. Covers all breads, proteins, cheeses, veggies, and sauces for 6-inch and footlong orders."
-    schema_url = "/subway-calorie-calculator"
-    return render_template(
-        'subway_nutrition_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='WebPage',
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20'
-    )
+# /subway-calorie-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/subway-calorie-calculator')
+# def subway_calorie_calculator():
+#     schema_name = "Subway Calorie Calculator"
+#     schema_description = "Build your Subway sandwich and see real-time calories, protein, carbs, fat, fiber, and sodium. Covers all breads, proteins, cheeses, veggies, and sauces for 6-inch and footlong orders."
+#     schema_url = "/subway-calorie-calculator"
+#     return render_template(
+#         'subway_nutrition_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='WebPage',
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         date_modified='2026-03-20'
+#     )
 
 # /antidepressant-weight-gain-calculator: migrated to config-driven (configs/health.py)
 # @app.route('/antidepressant-weight-gain-calculator')
@@ -3312,24 +3330,25 @@ def body_fat_percentage_chart():
 #     )
 # 
 # 
-@app.route('/semaglutide-reconstitution-calculator')
-@app.route('/peptide-reconstitution-calculator')
-def semaglutide_reconstitution_calculator():
-    schema_name = "Semaglutide Reconstitution Calculator"
-    schema_description = "Calculate injection volume in insulin syringe units from reconstituted semaglutide or tirzepatide vials. Enter peptide amount, bacteriostatic water volume, and desired dose."
-    schema_url = "/semaglutide-reconstitution-calculator"
-    return render_template(
-        'semaglutide_reconstitution_calculator_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        canonical_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /semaglutide-reconstitution-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/semaglutide-reconstitution-calculator')
+# @app.route('/peptide-reconstitution-calculator')
+# def semaglutide_reconstitution_calculator():
+#     schema_name = "Semaglutide Reconstitution Calculator"
+#     schema_description = "Calculate injection volume in insulin syringe units from reconstituted semaglutide or tirzepatide vials. Enter peptide amount, bacteriostatic water volume, and desired dose."
+#     schema_url = "/semaglutide-reconstitution-calculator"
+#     return render_template(
+#         'semaglutide_reconstitution_calculator_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         canonical_url=schema_url,
+#         schema_type='MedicalWebPage',
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 
 # /caffeine-half-life-calculator: migrated to config-driven (configs/health.py)
@@ -3795,24 +3814,25 @@ def mockup_caffeine_v2():
         robots_meta='noindex, nofollow'
     )
 
-@app.route('/hcg-doubling-time-calculator')
-@app.route('/hcg-calculator')
-def hcg_calculator():
-    schema_name = "hCG Doubling Time Calculator"
-    schema_description = "Calculate hCG doubling time from two beta-hCG blood draws. Shows whether levels are rising at a normal rate for early pregnancy based on established clinical reference ranges."
-    schema_url = "/hcg-doubling-time-calculator"
-    return render_template(
-        'hcg_doubling_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        canonical_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /hcg-doubling-time-calculator: migrated to config-driven (configs/fertility.py)
+# @app.route('/hcg-doubling-time-calculator')
+# @app.route('/hcg-calculator')
+# def hcg_calculator():
+#     schema_name = "hCG Doubling Time Calculator"
+#     schema_description = "Calculate hCG doubling time from two beta-hCG blood draws. Shows whether levels are rising at a normal rate for early pregnancy based on established clinical reference ranges."
+#     schema_url = "/hcg-doubling-time-calculator"
+#     return render_template(
+#         'hcg_doubling_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         canonical_url=schema_url,
+#         schema_type='MedicalWebPage',
+#         breadcrumb_category={'name': 'Pregnancy & Fertility', 'url': '/pregnancy-fertility-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 
 # /gestational-age-calculator: migrated to config-driven (configs/fertility.py)
@@ -3865,20 +3885,21 @@ def hcg_calculator():
 #     )
 # 
 # 
-@app.route('/pregnancy-weight-gain-calculator')
-def pregnancy_weight_gain_calculator():
-    schema_name = "Pregnancy Weight Gain Calculator"
-    schema_description = "Calculate your recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines. Week-by-week tracker for single and twin pregnancies."
-    schema_url = "/pregnancy-weight-gain-calculator"
-    return render_template(
-        'pregnancy_weight_gain_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /pregnancy-weight-gain-calculator: migrated to config-driven (configs/fertility.py)
+# @app.route('/pregnancy-weight-gain-calculator')
+# def pregnancy_weight_gain_calculator():
+#     schema_name = "Pregnancy Weight Gain Calculator"
+#     schema_description = "Calculate your recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines. Week-by-week tracker for single and twin pregnancies."
+#     schema_url = "/pregnancy-weight-gain-calculator"
+#     return render_template(
+#         'pregnancy_weight_gain_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 @app.route('/about')
 def about():
@@ -5482,30 +5503,32 @@ def chart_reference():
     )
 
 
-@app.route('/heart-age-calculator')
-def heart_age_calculator():
-    schema_name = "Heart Age Calculator"
-    schema_description = "Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study. Find out if your heart is older or younger than you and get actionable tips to lower your heart age."
-    schema_url = "/heart-age-calculator"
-    return render_template(
-        'heart_age_v25.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /heart-age-calculator: migrated to config-driven (configs/health.py)
+# @app.route('/heart-age-calculator')
+# def heart_age_calculator():
+#     schema_name = "Heart Age Calculator"
+#     schema_description = "Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study. Find out if your heart is older or younger than you and get actionable tips to lower your heart age."
+#     schema_url = "/heart-age-calculator"
+#     return render_template(
+#         'heart_age_v25.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
-@app.route('/vo2-max-calculator')
-def vo2_max_calculator():
-    return render_template(
-        'vo2_max_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
-        breadcrumb_title='VO2 Max Calculator',
-        robots_meta='index, follow'
-    )
+# /vo2-max-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/vo2-max-calculator')
+# def vo2_max_calculator():
+#     return render_template(
+#         'vo2_max_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+#         breadcrumb_title='VO2 Max Calculator',
+#         robots_meta='index, follow'
+#     )
 
 
 # /one-rep-max-calculator: migrated to config-driven (configs/fitness.py)
@@ -6139,33 +6162,35 @@ def mockup_tdee():
     )
 
 
-@app.route('/training-volume-calculator')
-def training_volume_calculator():
-    return render_template(
-        'training_volume_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
-        breadcrumb_title='Training Volume Calculator',
-        robots_meta='index, follow'
-    )
+# /training-volume-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/training-volume-calculator')
+# def training_volume_calculator():
+#     return render_template(
+#         'training_volume_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+#         breadcrumb_title='Training Volume Calculator',
+#         robots_meta='index, follow'
+#     )
 
 
-@app.route('/glycemic-index-calculator')
-def glycemic_index_calculator():
-    schema_name = "Glycemic Index Calculator"
-    schema_description = "Look up the glycemic index and calculate glycemic load of over 100 common foods. Includes a meal builder for total glycemic load. Data from University of Sydney GI database."
-    schema_url = "/glycemic-index-calculator"
-    return render_template(
-        'glycemic_index_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /glycemic-index-calculator: migrated to config-driven (configs/nutrition.py)
+# @app.route('/glycemic-index-calculator')
+# def glycemic_index_calculator():
+#     schema_name = "Glycemic Index Calculator"
+#     schema_description = "Look up the glycemic index and calculate glycemic load of over 100 common foods. Includes a meal builder for total glycemic load. Data from University of Sydney GI database."
+#     schema_url = "/glycemic-index-calculator"
+#     return render_template(
+#         'glycemic_index_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='MedicalWebPage',
+#         breadcrumb_category={'name': 'Nutrition', 'url': '/nutrition-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 
 # /formula-feeding-calculator: migrated to config-driven (configs/fertility.py)
@@ -6205,22 +6230,23 @@ def glycemic_index_calculator():
 # #     return render_template('ffmi_calculator_v3.html', ...)
 # 
 # 
-@app.route('/hcg-injection-dosage-calculator')
-def hcg_injection_dosage_calculator():
-    schema_name = "HCG Injection Dosage Calculator"
-    schema_description = "Calculate HCG injection volume from vial strength and bacteriostatic water volume. Shows mL, insulin syringe units, concentration, and doses per vial."
-    schema_url = "/hcg-injection-dosage-calculator"
-    return render_template(
-        'hcg_injection_calculator_v3.html',
-        is_homepage=False,
-        schema_name=schema_name,
-        schema_description=schema_description,
-        schema_url=schema_url,
-        schema_type='MedicalWebPage',
-        breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
-        date_modified='2026-03-20',
-        robots_meta='noindex, nofollow'
-    )
+# /hcg-injection-dosage-calculator: migrated to config-driven (configs/medications.py)
+# @app.route('/hcg-injection-dosage-calculator')
+# def hcg_injection_dosage_calculator():
+#     schema_name = "HCG Injection Dosage Calculator"
+#     schema_description = "Calculate HCG injection volume from vial strength and bacteriostatic water volume. Shows mL, insulin syringe units, concentration, and doses per vial."
+#     schema_url = "/hcg-injection-dosage-calculator"
+#     return render_template(
+#         'hcg_injection_calculator_v3.html',
+#         is_homepage=False,
+#         schema_name=schema_name,
+#         schema_description=schema_description,
+#         schema_url=schema_url,
+#         schema_type='MedicalWebPage',
+#         breadcrumb_category={'name': 'Weight Loss Medications', 'url': '/weight-loss-medication-calculators'},
+#         date_modified='2026-03-20',
+#         robots_meta='noindex, nofollow'
+#     )
 
 
 # /electrolyte-calculator: migrated to config-driven (configs/nutrition.py)
@@ -6269,15 +6295,16 @@ def breastfeeding_nutrition_guide():
 #     )
 #
 #
-@app.route('/zone2-heart-rate-calculator')
-def zone2_heart_rate_calculator():
-    return render_template(
-        'zone2_heart_rate_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
-        breadcrumb_title='Zone 2 Heart Rate Calculator',
-        robots_meta='index, follow'
-    )
+# /zone2-heart-rate-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/zone2-heart-rate-calculator')
+# def zone2_heart_rate_calculator():
+#     return render_template(
+#         'zone2_heart_rate_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+#         breadcrumb_title='Zone 2 Heart Rate Calculator',
+#         robots_meta='index, follow'
+#     )
 
 
 @app.route('/resources/zone2-training-guide')
@@ -6348,15 +6375,16 @@ def daily_fiber_intake_guide():
     )
 
 
-@app.route('/running-pace-calculator')
-def running_pace_calculator():
-    return render_template(
-        'running_pace_calculator_v3.html',
-        is_homepage=False,
-        breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
-        breadcrumb_title='Running Pace Calculator',
-        robots_meta='index, follow'
-    )
+# /running-pace-calculator: migrated to config-driven (configs/fitness.py)
+# @app.route('/running-pace-calculator')
+# def running_pace_calculator():
+#     return render_template(
+#         'running_pace_calculator_v3.html',
+#         is_homepage=False,
+#         breadcrumb_category={'name': 'Fitness & Body', 'url': '/fitness-body-calculators'},
+#         breadcrumb_title='Running Pace Calculator',
+#         robots_meta='index, follow'
+#     )
 
 
 @app.route('/resources/running-pace-guide')

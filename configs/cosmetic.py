@@ -470,3 +470,64 @@ BREAST_IMPLANT_SIZE = {
 }
 
 register("breast_implant_size", BREAST_IMPLANT_SIZE)
+
+LIPOSUCTION = {
+    "route": "/liposuction-weight-loss-calculator",
+    "override_template": "liposuction_v25.html",
+
+    "seo": {
+        "page_title": "Liposuction Calculator — Weight Loss & Cost Estimate",
+        "meta_description": "Calculate how much fat and weight you might lose with liposuction, and what it may cost based on body areas and region.",
+        "og_title": "Liposuction Fat Removal & Cost Calculator",
+        "og_description": "Estimate fat removed, new body weight, and liposuction cost.",
+        "schema_type": "WebPage",
+        "schema_name": "Liposuction Weight Loss Calculator",
+        "schema_description": "Estimate fat removal, weight change, and procedure cost for liposuction.",
+        "schema_about": "Liposuction Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How much fat can <span>lipo</span> remove?",
+        "subtitle": "Enter your details for a personalized estimate",
+    },
+
+    "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How much fat can liposuction remove?", "answer": "Most outpatient procedures safely remove 2-5 liters (4.4-11 lbs) of fat. The maximum safe amount is 5 liters per the ASPS guidelines."},
+        {"question": "Will my weight drop after liposuction?", "answer": "Modestly -- typically 5-10 lbs. Liposuction is body contouring, not a weight loss solution. Expect bigger changes in measurements and clothing fit."},
+        {"question": "Is the fat removal permanent?", "answer": "Fat cells removed do not regenerate. However, remaining cells can still expand with weight gain, potentially creating new proportional changes."},
+        {"question": "What BMI is recommended for liposuction?", "answer": "Most surgeons recommend BMI under 35. Ideal candidates are within 30% of their ideal body weight."},
+        {"question": "How is cost calculated?", "answer": "By region, number of areas, gender (males pay slightly more), and facility type. Multi-area procedures may get discounts."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("liposuction", LIPOSUCTION)

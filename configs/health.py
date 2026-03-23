@@ -1279,3 +1279,245 @@ CHILD_GROWTH = {
 }
 
 register("child_growth", CHILD_GROWTH)
+
+LIFESPAN = {
+    "route": "/lifespan-longevity-calculator",
+    "override_template": "lifespan_v25.html",
+
+    "seo": {
+        "page_title": "Lifespan Calculator — Estimate Longevity by Lifestyle",
+        "meta_description": "Predict your potential lifespan based on health, habits, diet, and lifestyle factors.",
+        "og_title": "Lifespan & Longevity Calculator",
+        "og_description": "Estimate how long you might live based on your health and lifestyle.",
+        "schema_type": "WebPage",
+        "schema_name": "Lifespan Calculator",
+        "schema_description": "Estimate life expectancy based on health and lifestyle factors.",
+        "schema_about": "Lifespan Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How long will you <span>live</span>?",
+        "subtitle": "Based on research from the Framingham Heart Study and WHO data",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How accurate is this lifespan calculator?", "answer": "This provides statistical estimates based on population-level research, not individual predictions. Consider results as general guidelines."},
+        {"question": "Can I really add years by changing habits?", "answer": "Yes. The big four behaviors -- not smoking, healthy weight, exercise, and good diet -- are associated with 11-14 years of increased life expectancy."},
+        {"question": "Why does social connection affect lifespan?", "answer": "Meta-analyses show social isolation has mortality risk comparable to smoking 15 cigarettes daily, exceeding risks of obesity and inactivity."},
+        {"question": "How much can genetics determine lifespan?", "answer": "Twin studies suggest 20-30% of lifespan variation is genetic. Lifestyle remains more influential for most people."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("lifespan", LIFESPAN)
+
+VITAMIN_D_INTAKE = {
+    "route": "/vitamin-d-intake-calculator",
+    "override_template": "vitamin_d_intake_v3.html",
+
+    "seo": {
+        "page_title": "Vitamin D Intake Calculator — How Much Do You Need?",
+        "meta_description": "Calculate your ideal daily vitamin D dose based on age, weight, blood level, and sun exposure. Evidence-based recommendations from NIH and Endocrine Society.",
+        "og_title": "How much vitamin D should you take?",
+        "og_description": "Calculate your ideal daily vitamin D dose based on age, weight, blood level, and sun exposure. Evidence-based recommendations from NIH and Endocrine Society.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Vitamin D Intake Calculator",
+        "schema_description": "Calculate your personalized daily vitamin D intake based on age, weight, blood level, sun exposure, and risk factors.",
+        "schema_about": "Vitamin D Intake Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How much <span>vitamin D</span> do you need?",
+        "subtitle": "Personalized daily dose based on your profile",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How much vitamin D should I take daily?", "answer": "Most adults need 600-2000 IU of vitamin D daily. The NIH recommends 600 IU for ages 1-70 and 800 IU for 71+. Many clinicians recommend 1000-2000 IU for general supplementation, especially for those with limited sun exposure."},
+        {"question": "What is a good vitamin D blood level?", "answer": "A blood level of 30-50 ng/mL (75-125 nmol/L) is considered sufficient by most medical organizations. Below 20 ng/mL is deficient, 20-29 is insufficient. Some health optimization experts target 40-60 ng/mL."},
+        {"question": "Can you take too much vitamin D?", "answer": "Yes. The safe upper limit is 4,000 IU per day for adults according to the Institute of Medicine. Toxicity can occur above 10,000 IU daily over extended periods, causing high blood calcium, nausea, and kidney problems."},
+        {"question": "Should I take vitamin D2 or D3?", "answer": "Vitamin D3 (cholecalciferol) is generally preferred. Research shows D3 is 2-3 times more effective than D2 at raising blood levels. D3 is the same form your skin produces naturally."},
+        {"question": "Does skin color affect vitamin D needs?", "answer": "Yes. Melanin in darker skin acts as a natural sunscreen, reducing vitamin D production from sunlight. People with darker skin may need 3-5 times more sun exposure to produce the same amount of vitamin D."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("vitamin_d_intake", VITAMIN_D_INTAKE)
+
+MENOPAUSE = {
+    "route": "/menopause-calculator",
+    "override_template": "menopause_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Menopause Calculator — Predict When It May Start",
+        "meta_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
+        "og_title": "Menopause Age Calculator",
+        "og_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Menopause Age Calculator",
+        "schema_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
+        "schema_about": "Menopause Age Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "When will <span>menopause</span> start?",
+        "subtitle": "Predict perimenopause and menopause age based on family history and lifestyle fa",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "Average menopause age?", "answer": "US average: 51 years. Normal range: 45-55. Before 40 is premature ovarian insufficiency."},
+        {"question": "What is perimenopause?", "answer": "The transition period lasting 4-8 years before menopause. Symptoms: irregular periods, hot flashes, sleep issues."},
+        {"question": "Family history predict it?", "answer": "Yes. Mother/sister menopause age is the strongest predictor (correlation ~0.5)."},
+        {"question": "Does smoking affect timing?", "answer": "Current smokers reach menopause 1-2 years earlier. Former smokers: about 0.5-1 year earlier."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("menopause", MENOPAUSE)
+
+HEART_AGE = {
+    "route": "/heart-age-calculator",
+    "override_template": "heart_age_v25.html",
+
+    "seo": {
+        "page_title": "Heart Age Calculator — Cardiovascular Age Estimator",
+        "meta_description": "Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study.",
+        "og_title": "Heart Age Calculator -- Is Your Heart Older Than You?",
+        "og_description": "Find your heart true age based on blood pressure, cholesterol, BMI, and lifestyle.",
+        "schema_type": "WebPage",
+        "schema_name": "Heart Age Calculator",
+        "schema_description": "Calculate heart age based on Framingham Heart Study risk factors.",
+        "schema_about": "Heart Age Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Is your heart <span>older</span> than you?",
+        "subtitle": "Based on the Framingham Heart Study risk model",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "What is heart age?", "answer": "Heart age expresses cardiovascular risk as an equivalent age. If your heart age is 55 but you are 45, your risk factors match a healthy 55-year-old."},
+        {"question": "How accurate is this calculator?", "answer": "This is a simplified estimate based on major Framingham risk factors. Clinical tools include additional variables. Consider results approximate guidance."},
+        {"question": "Can I lower my heart age?", "answer": "Yes. Quitting smoking can reduce heart age by up to 8 years. Lowering blood pressure, improving cholesterol, and exercising each reduce it by several years."},
+        {"question": "Why is HDL measured separately?", "answer": "HDL (\"good\") cholesterol protects against heart disease. High total cholesterol with very high HDL may be lower risk than lower total with very low HDL."},
+        {"question": "What is 10-year CVD risk?", "answer": "The probability of having a cardiovascular event (heart attack, stroke) in the next 10 years, based on your risk factor profile."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("heart_age", HEART_AGE)

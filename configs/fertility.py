@@ -342,3 +342,305 @@ GESTATIONAL_AGE = {
 }
 
 register("gestational_age", GESTATIONAL_AGE)
+
+IVF_DUE_DATE = {
+    "route": "/ivf-due-date-calculator",
+    "override_template": "ivf_due_date_v3.html",
+
+    "seo": {
+        "page_title": "IVF Due Date Calculator — FET & Transfer Timeline",
+        "meta_description": "Calculate your IVF due date by transfer type. Enter your transfer date for Day 3, Day 5, or FET to see due date, gestational age, trimester dates, and milestones.",
+        "og_title": "When is your IVF baby due?",
+        "og_description": "Calculate your IVF due date by transfer type. Enter your transfer date for due date, gestational age, and key milestones.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "IVF Due Date Calculator",
+        "schema_description": "Calculate your estimated due date after IVF embryo transfer. Supports Day 3, Day 5, Day 6, fresh and frozen (FET) transfers.",
+        "schema_about": "IVF Due Date Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "When is your <span>IVF baby</span> due?",
+        "subtitle": "Select your transfer type",
+    },
+
+    "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How is an IVF due date calculated?", "answer": "An IVF due date is calculated from the embryo transfer date rather than the last menstrual period. For a Day 5 blastocyst transfer, add 261 days to the transfer date. For a Day 3 embryo transfer, add 263 days. This follows ACOG Committee Opinion No. 700."},
+        {"question": "Is an IVF due date more accurate than a natural conception due date?", "answer": "Yes. IVF due dates are among the most accurate because the exact date of fertilization or transfer is known, eliminating uncertainty from irregular cycles or ovulation timing. Studies show IVF dating matches ultrasound dating within 1-3 days."},
+        {"question": "Does frozen vs fresh transfer change the due date?", "answer": "No. Whether the embryo was frozen (FET) or fresh does not change the due date calculation. The formula depends on the embryo's age at transfer (Day 3, Day 5, or Day 6), not whether it was previously frozen."},
+        {"question": "When is the first ultrasound after IVF transfer?", "answer": "The first ultrasound after IVF is typically scheduled at 6-8 weeks gestational age. For a Day 5 transfer, this is approximately 3-5 weeks after transfer day."},
+        {"question": "How do I calculate gestational age after IVF?", "answer": "Gestational age after IVF is calculated by adding the embryo's age at transfer plus 14 days (to convert to LMP-equivalent dating) to the number of days since transfer. For example, 10 days after a Day 5 transfer: 10 + 5 + 14 = 29 days = 4 weeks 1 day gestational age."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("ivf_due_date", IVF_DUE_DATE)
+
+NEWBORN_WEIGHT_LOSS = {
+    "route": "/newborn-weight-loss-calculator",
+    "override_template": "newborn_weight_loss_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Newborn Weight Loss Calculator — Is My Baby Losing Too Much?",
+        "meta_description": "Check if your newborn's weight loss is normal. Enter birth weight and current weight to see if it's within the safe range. Based on AAP guidelines.",
+        "og_title": "Is my baby losing too much weight?",
+        "og_description": "Check if your newborn's weight loss is normal based on AAP guidelines. Immediate, clear results with next steps.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Newborn Weight Loss Calculator",
+        "schema_description": "Assess newborn weight loss as a percentage of birth weight and compare against AAP clinical thresholds.",
+        "schema_about": "Newborn Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Is your baby's <span>weight loss</span> normal?",
+        "subtitle": "All newborns lose weight in the first days. Let's check if yours is within the safe range.",
+    },
+
+    "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How much weight loss is normal for a newborn?", "answer": "Most newborns lose 5-7% of birth weight in the first 3 days. Breastfed babies may lose up to 10%. This is normal and caused by fluid shifts and limited initial feeding. Birth weight is typically regained by days 10-14."},
+        {"question": "When should I worry about my newborn's weight loss?", "answer": "Contact your pediatrician if: weight loss exceeds 10% of birth weight, baby hasn't started gaining by day 5, or birth weight isn't regained by day 14. Also watch for fewer than 6 wet diapers per day after day 4."},
+        {"question": "When do newborns regain their birth weight?", "answer": "Most newborns regain birth weight by 10-14 days of age. Weight loss typically stops and reversal begins by day 3-5. Formula-fed babies tend to regain slightly faster than exclusively breastfed babies."},
+        {"question": "What causes newborn weight loss?", "answer": "Normal causes include: fluid shifts (babies are born with extra fluid), limited colostrum volume before mature milk comes in (day 2-5), and meconium passage. C-section babies may lose more due to extra IV fluids during delivery."},
+        {"question": "Is weight loss different for breastfed vs formula-fed babies?", "answer": "Yes. Breastfed babies typically lose slightly more weight (7-10%) because mature milk takes 2-5 days to come in. Formula-fed babies usually lose 5-7%. Both patterns are normal. The NEWT tool provides feeding-specific reference curves."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("newborn_weight_loss", NEWBORN_WEIGHT_LOSS)
+
+HCG_DOUBLING = {
+    "route": "/hcg-doubling-time-calculator",
+    "override_template": "hcg_doubling_calculator_v3.html",
+
+    "seo": {
+        "page_title": "hCG Doubling Time Calculator — Are Your Levels Normal?",
+        "meta_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
+        "og_title": "hCG Doubling Time Calculator",
+        "og_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "hCG Doubling Time Calculator",
+        "schema_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
+        "schema_about": "hCG Doubling Time Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Is your <span>hCG</span> rising normally?",
+        "subtitle": "Calculate hCG doubling time from two blood tests. See if levels are rising norma",
+    },
+
+    "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How fast should hCG double?", "answer": "Below 1,200: every 48-72 hours. 1,200-6,000: every 72-96 hours. Above 6,000: rate naturally slows."},
+        {"question": "Normal hCG at 4 weeks?", "answer": "Typically 5-426 mIU/mL. Wide range due to variable implantation timing."},
+        {"question": "Can hCG predict twins?", "answer": "Twins may have 30-50% higher hCG by week 6, but ultrasound is definitive."},
+        {"question": "What does declining hCG mean?", "answer": "In early pregnancy: usually miscarriage or ectopic. After week 11: normal decline from peak."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("hcg_doubling", HCG_DOUBLING)
+
+HCG_CALCULATOR = {
+    "route": "/hcg-calculator",
+    "override_template": "hcg_doubling_calculator_v3.html",
+
+    "seo": {
+        "page_title": "hCG Doubling Time Calculator — Are Your Levels Normal?",
+        "meta_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
+        "og_title": "hCG Doubling Time Calculator",
+        "og_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "hCG Doubling Time Calculator",
+        "schema_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
+        "schema_about": "hCG Doubling Time Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Is your <span>hCG</span> rising normally?",
+        "subtitle": "Calculate hCG doubling time from two blood tests. See if levels are rising norma",
+    },
+
+    "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How fast should hCG double?", "answer": "Below 1,200: every 48-72 hours. 1,200-6,000: every 72-96 hours. Above 6,000: rate naturally slows."},
+        {"question": "Normal hCG at 4 weeks?", "answer": "Typically 5-426 mIU/mL. Wide range due to variable implantation timing."},
+        {"question": "Can hCG predict twins?", "answer": "Twins may have 30-50% higher hCG by week 6, but ultrasound is definitive."},
+        {"question": "What does declining hCG mean?", "answer": "In early pregnancy: usually miscarriage or ectopic. After week 11: normal decline from peak."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("hcg_calculator", HCG_CALCULATOR)
+
+PREGNANCY_WEIGHT_GAIN = {
+    "route": "/pregnancy-weight-gain-calculator",
+    "override_template": "pregnancy_weight_gain_calculator_v3.html",
+
+    "seo": {
+        "page_title": "Pregnancy Weight Gain Calculator — IOM Guidelines",
+        "meta_description": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines.",
+        "og_title": "Pregnancy Weight Gain Calculator",
+        "og_description": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Pregnancy Weight Gain Calculator",
+        "schema_description": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines.",
+        "schema_about": "Pregnancy Weight Gain Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How much weight to <span>gain</span>?",
+        "subtitle": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI using IOM",
+    },
+
+    "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How much weight gain?", "answer": "IOM 2009: Underweight 28-40 lbs, Normal 25-35 lbs, Overweight 15-25 lbs, Obese 11-20 lbs."},
+        {"question": "When does most gain occur?", "answer": "Most in 2nd and 3rd trimesters. First trimester: 1-4.5 lbs total."},
+        {"question": "Is excess gain dangerous?", "answer": "Increases risk of gestational diabetes, preeclampsia, cesarean delivery, and postpartum weight retention."},
+        {"question": "Twin pregnancy weight gain?", "answer": "Normal weight: 37-54 lbs. Overweight: 31-50 lbs. Obese: 25-42 lbs."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("pregnancy_weight_gain", PREGNANCY_WEIGHT_GAIN)

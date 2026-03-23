@@ -245,3 +245,509 @@ GLP1_COST = {
 }
 
 register("glp1_cost", GLP1_COST)
+
+OZEMPIC_WEIGHT_LOSS = {
+    "route": "/ozempic-weight-loss-calculator",
+    "override_template": "ozempic_weight_loss_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Ozempic Weight Loss Calculator — Predict Your Results",
+        "meta_description": "Calculate your expected weight loss on Ozempic (semaglutide) based on STEP and SUSTAIN clinical trial data. Personalized projections by dose, duration, and BMI.",
+        "og_title": "How much weight will I lose on Ozempic?",
+        "og_description": "Calculate your expected weight loss on Ozempic (semaglutide). Personalized projections based on clinical trial data.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Ozempic Weight Loss Calculator",
+        "schema_description": "Estimate your fat loss and BMI reduction while taking semaglutide (Ozempic/Wegovy). Get personalized projections based on clinical data and your individual profile.",
+        "schema_about": "Ozempic Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How much weight will I lose on <span>Ozempic</span>?",
+        "subtitle": "Clinical trial projections, personalized to you",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How much weight can I lose on Ozempic?", "answer": "In the STEP 1 clinical trial (N=1,961), participants taking semaglutide 2.4 mg weekly lost an average of 14.9% of their body weight over 68 weeks, compared to 2.4% with placebo. At the standard Ozempic doses (0.5 mg and 1.0 mg), the SUSTAIN trials showed weight loss typically ranges from 5% to 10% of body weight over 6-12 months."},
+        {"question": "When will I start seeing results on Ozempic?", "answer": "Most people start noticing weight loss within 4-6 weeks of starting treatment. The rate of loss is typically fastest between weeks 12 and 28 during dose escalation."},
+        {"question": "Will I regain weight after stopping Ozempic?", "answer": "The STEP 4 trial showed participants who switched from semaglutide 2.4 mg to placebo regained approximately two-thirds of the weight they had lost over the following 48 weeks."},
+        {"question": "Should I diet while taking Ozempic?", "answer": "Yes. All STEP clinical trials combined semaglutide with a reduced-calorie diet (500 kcal/day deficit) and increased physical activity (150 minutes/week). Dietary changes amplify results substantially."},
+        {"question": "Is this calculator based on real clinical trials?", "answer": "Yes. The projections are derived from the STEP and SUSTAIN clinical trial programs published in the New England Journal of Medicine and The Lancet."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("ozempic_weight_loss", OZEMPIC_WEIGHT_LOSS)
+
+WEGOVY_WEIGHT_LOSS = {
+    "route": "/wegovy-weight-loss-calculator",
+    "override_template": "wegovy_weight_loss_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Wegovy Weight Loss Calculator — Results Estimator",
+        "meta_description": "Free Wegovy weight loss calculator projects your expected weight loss based on STEP clinical trial data. Personalized by starting weight, dose, and treatment duration.",
+        "og_title": "Wegovy Weight Loss Calculator – Semaglutide 2.4mg Projection Tool",
+        "og_description": "Calculate your expected weight loss with Wegovy (semaglutide 2.4mg). Personalized results based on STEP trial data, dose, and treatment duration.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Wegovy Weight Loss Calculator",
+        "schema_description": "Free Wegovy weight loss calculator projects your expected weight loss based on STEP clinical trial data. Personalized by starting weight, dose, and treatment duration.",
+        "schema_about": "Wegovy Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Wegovy Weight Loss Calculator",
+        "subtitle": "Free Wegovy weight loss calculator projects your expected weight loss based on S",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("wegovy_weight_loss", WEGOVY_WEIGHT_LOSS)
+
+ORAL_WEGOVY_WEIGHT_LOSS = {
+    "route": "/oral-wegovy-weight-loss-calculator",
+    "override_template": "oral_wegovy_weight_loss_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Oral Wegovy Weight Loss Calculator — Semaglutide 25mg",
+        "meta_description": "Free Oral Wegovy (oral semaglutide 25mg) weight loss calculator. Project your expected weight loss based on OASIS 1 clinical trial data. Personalized by starting weight, height, and treatment duration.",
+        "og_title": "Oral Wegovy Weight Loss Calculator – Oral Semaglutide 25mg Projection Tool",
+        "og_description": "Calculate your expected weight loss with oral Wegovy (semaglutide 25mg pill). Personalized results based on OASIS 1 trial data, dosing schedule, and treatment duration.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Oral Wegovy Weight Loss Calculator",
+        "schema_description": "Free Oral Wegovy (oral semaglutide 25mg) weight loss calculator. Project your expected weight loss based on OASIS 1 clinical trial data. Personalized by starting weight, height, and treatment duration.",
+        "schema_about": "Oral Wegovy Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Oral Wegovy Weight Loss Calculator",
+        "subtitle": "Free Oral Wegovy (oral semaglutide 25mg) weight loss calculator. Project your ex",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("oral_wegovy_weight_loss", ORAL_WEGOVY_WEIGHT_LOSS)
+
+MOUNJARO_WEIGHT_LOSS = {
+    "route": "/mounjaro-weight-loss-calculator",
+    "override_template": "mounjaro_weight_loss_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Mounjaro Weight Loss Calculator — Results Estimator",
+        "meta_description": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data.",
+        "og_title": "Mounjaro Weight Loss Calculator – Tirzepatide Results Estimator",
+        "og_description": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Mounjaro Weight Loss Calculator",
+        "schema_description": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data.",
+        "schema_about": "Mounjaro Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Mounjaro Weight Loss Calculator",
+        "subtitle": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, dur",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("mounjaro_weight_loss", MOUNJARO_WEIGHT_LOSS)
+
+ZEPBOUND_WEIGHT_LOSS = {
+    "route": "/zepbound-weight-loss-calculator",
+    "override_template": "zepbound_weight_loss_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Zepbound Weight Loss Calculator — Tirzepatide Projection Tool",
+        "meta_description": "Free Zepbound weight loss calculator projects your expected weight loss based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration.",
+        "og_title": "Zepbound Weight Loss Calculator – Tirzepatide Projection Tool",
+        "og_description": "Free Zepbound weight loss calculator projects your expected weight loss based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Zepbound Weight Loss Calculator",
+        "schema_description": "Free Zepbound weight loss calculator projects your expected weight loss based on SURMOUNT clinical trial data. Personalized timeline by dose, starting weight, and treatment duration.",
+        "schema_about": "Zepbound Weight Loss Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Zepbound Weight Loss Calculator",
+        "subtitle": "Free Zepbound weight loss calculator projects your expected weight loss based on",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("zepbound_weight_loss", ZEPBOUND_WEIGHT_LOSS)
+
+OZEMPIC_FACE = {
+    "route": "/ozempic-face-calculator",
+    "override_template": "ozempic_face_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Ozempic Face Risk Calculator — Predict Facial Volume Loss",
+        "meta_description": "Free Ozempic face calculator estimates your risk of facial volume loss from GLP-1 weight loss medications. Based on clinical data on age, BMI, and rate of weight loss.",
+        "og_title": "Ozempic Face Risk Calculator – Predict Facial Volume Loss",
+        "og_description": "Free Ozempic face calculator estimates your risk of facial volume loss from GLP-1 weight loss medications. Based on clinical data on age, BMI, and rate of weight loss.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Ozempic Face Calculator",
+        "schema_description": "Free Ozempic face calculator estimates your risk of facial volume loss from GLP-1 weight loss medications. Based on clinical data on age, BMI, and rate of weight loss.",
+        "schema_about": "Ozempic Face Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Ozempic Face Risk Calculator",
+        "subtitle": "Free Ozempic face calculator estimates your risk of facial volume loss from GLP-",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("ozempic_face", OZEMPIC_FACE)
+
+SEMAGLUTIDE_RECONSTITUTION = {
+    "route": "/semaglutide-reconstitution-calculator",
+    "override_template": "semaglutide_reconstitution_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Semaglutide Reconstitution Calculator — Mixing & Dosing",
+        "meta_description": "Calculate exactly how many units to inject from your reconstituted semaglutide vial. Enter peptide amount, water volume, and desired dose to get precise syringe measurements.",
+        "og_title": "Semaglutide Reconstitution Calculator — Mixing & Dosing Guide",
+        "og_description": "Calculate the exact injection volume for your reconstituted semaglutide. Enter vial size, water volume, and dose to get units on your insulin syringe.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Semaglutide Reconstitution Calculator",
+        "schema_description": "Calculate injection volume in insulin syringe units from reconstituted semaglutide or tirzepatide vials. Enter peptide amount, bacteriostatic water volume, and desired dose.",
+        "schema_about": "Semaglutide Reconstitution Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Semaglutide Reconstitution Calculator",
+        "subtitle": "Calculate exactly how many units to inject from your reconstituted semaglutide v",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("semaglutide_reconstitution", SEMAGLUTIDE_RECONSTITUTION)
+
+PEPTIDE_RECONSTITUTION = {
+    "route": "/peptide-reconstitution-calculator",
+    "override_template": "semaglutide_reconstitution_calculator_v25.html",
+
+    "seo": {
+        "page_title": "Semaglutide Reconstitution Calculator — Mixing & Dosing",
+        "meta_description": "Calculate exactly how many units to inject from your reconstituted semaglutide vial. Enter peptide amount, water volume, and desired dose to get precise syringe measurements.",
+        "og_title": "Semaglutide Reconstitution Calculator — Mixing & Dosing Guide",
+        "og_description": "Calculate the exact injection volume for your reconstituted semaglutide. Enter vial size, water volume, and dose to get units on your insulin syringe.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Semaglutide Reconstitution Calculator",
+        "schema_description": "Calculate injection volume in insulin syringe units from reconstituted semaglutide or tirzepatide vials. Enter peptide amount, bacteriostatic water volume, and desired dose.",
+        "schema_about": "Semaglutide Reconstitution Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Semaglutide Reconstitution Calculator",
+        "subtitle": "Calculate exactly how many units to inject from your reconstituted semaglutide v",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("peptide_reconstitution", PEPTIDE_RECONSTITUTION)
+
+HCG_INJECTION = {
+    "route": "/hcg-injection-dosage-calculator",
+    "override_template": "hcg_injection_calculator_v3.html",
+
+    "seo": {
+        "page_title": "HCG Injection Dosage Calculator",
+        "meta_description": "Calculate HCG injection volume from vial strength and bacteriostatic water volume.",
+        "og_title": "HCG Injection Dosage Calculator",
+        "og_description": "Calculate HCG injection volume from vial strength and bacteriostatic water volume.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "HCG Injection Dosage Calculator",
+        "schema_description": "Calculate HCG injection volume from vial strength and bacteriostatic water volume.",
+        "schema_about": "HCG Injection Dosage Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-20",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "How much <span>HCG</span> to inject?",
+        "subtitle": "Calculate HCG injection volume from vial strength and bacteriostatic water volum",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": None,
+
+    "faq": [
+        {"question": "How to calculate dose?", "answer": "Concentration = vial IU / water mL. Injection volume = prescribed dose / concentration."},
+        {"question": "What syringe to use?", "answer": "Most HCG injections use U-100 insulin syringes. 1 mL = 100 units."},
+        {"question": "How long does mixed HCG last?", "answer": "Refrigerated with bacteriostatic water: typically 30 days. Check product labeling."},
+        {"question": "Bacteriostatic vs sterile water?", "answer": "Bacteriostatic water for multi-dose vials (has preservative). Sterile water for single-dose only."},
+    ],
+
+    "sources": [],
+    "methodology": "",
+    "llm_capsule": "",
+    "ask_pills": [],
+    "ask_placeholder": "",
+}
+
+register("hcg_injection", HCG_INJECTION)
