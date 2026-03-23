@@ -461,7 +461,7 @@
         <h2 class="seo-heading">Frequently Asked Questions</h2>
         <div class="faq-list">
             {% for item in cfg.faq %}
-            <div class="faq-item">
+            <div class="faq-item{{ ' faq-open' if loop.first else '' }}">
                 <button class="faq-question">
                     {{ item.question }}
                     <svg class="faq-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
