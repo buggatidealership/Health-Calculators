@@ -918,3 +918,138 @@ BULKING_CALORIE = {
     "ask_placeholder": "e.g. How fast should I gain weight?",
 }
 register("bulking_calorie", BULKING_CALORIE)
+
+
+
+ARMY_BODY_FAT = {
+    "route": "/army-body-fat-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Army Body Fat Calculator — Tape Test % Estimator",
+        "meta_description": "Use this Army Body Fat Calculator to estimate your body fat percentage using tape test standards. Based on gender, age, height, neck, and waist.",
+        "og_title": "Army Body Fat Calculator",
+        "og_description": "Estimate your body fat percentage using U.S. Army tape test standards.",
+        "schema_type": "WebPage",
+        "schema_name": "Army Body Fat Calculator",
+        "schema_description": "Estimate body fat percentage using U.S. Army tape test standards.",
+        "schema_about": "Army Body Fat Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#4ade80",
+    "accent_rgb": "74,222,128",
+
+    "hero": {
+        "headline": "What's your <span>body fat</span> %?",
+        "subtitle": "U.S. Army tape test method -- male and female standards",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/army_body_fat.js",
+
+    "faq": [
+        {"question": "What is the Army body fat standard?", "answer": "Standards vary by age and gender per AR 600-9. Males 17-20: 20%, 21-27: 22%, 28-39: 24%, 40+: 26%. Females 17-20: 30%, 21-27: 32%, 28-39: 34%, 40+: 36%."},
+        {"question": "How accurate is the Army tape test?", "answer": "It has a standard error of 3-4% compared to DEXA scans. Measurement technique significantly affects accuracy."},
+        {"question": "Can civilians use this calculator?", "answer": "Yes, anyone can use it to estimate body fat percentage or compare to military standards."},
+        {"question": "What is the Army tape test formula?", "answer": "Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females include hip measurement in the formula."},
+    ],
+
+    "sources": [
+        {"text": "DoD Instruction 1308.03: DoD Physical Fitness/Body Composition Program. Link", "url": "https://www.esd.whs.mil/Portals/54/Documents/DD/issuances/dodi/130803p.pdf"},
+        {"text": "AR 600-9: The Army Body Composition Program. Updated 2023. Link", "url": "https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1021431"},
+        {"text": "Hodgdon JA, Beckett MB. Prediction of percent body fat for U.S. Navy. Naval Health Research Center, 1984."},
+    ],
+
+    "methodology": "<p>Uses the DoD circumference-based body fat formulas from AR 600-9. Males: BF% = 86.010 x log10(waist - neck) - 70.041 x log10(height) + 36.76. Females: BF% = 163.205 x log10(waist + hip - neck) - 97.684 x log10(height) - 78.387. All measurements in inches. Compliance thresholds are age- and gender-dependent per AR 600-9.</p>",
+
+    "llm_capsule": "The U.S. Army tape test estimates body fat using circumference measurements. For males: measure neck (narrowest point) and waist (at navel). For females: add hip measurement. The formula uses logarithmic calculations with height. Maximum allowed body fat ranges from 20-26% for males and 30-36% for females depending on age group. The test has a standard error of 3-4% compared to DEXA.",
+
+    "ask_pills": ["Army BF standards", "Tape test accuracy", "How to measure neck", "Reduce body fat"],
+    "ask_placeholder": "e.g. How to pass the Army tape test?",
+}
+
+register("army_body_fat", ARMY_BODY_FAT)
+
+CREATINE_WATER = {
+    "route": "/creatine-water-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Creatine Water Calculator — Optimal Hydration",
+        "meta_description": "Calculate optimal water intake when using creatine supplements.",
+        "og_title": "Creatine Hydration Calculator",
+        "og_description": "Calculate optimal water intake when using creatine supplements.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Creatine Hydration Calculator",
+        "schema_description": "Calculate optimal water intake when using creatine supplements.",
+        "schema_about": "Creatine Hydration Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#3b82f6",
+    "accent_rgb": "59,130,246",
+
+    "hero": {
+        "headline": "How much <span>water</span> with creatine?",
+        "subtitle": "Personalized hydration for your protocol",
+    },
+
+    "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/creatine_water.js",
+
+    "faq": [
+        {"question": "Does creatine dehydrate?", "answer": "Creatine draws water into muscles, increasing total body water needs but not causing dehydration per se."},
+        {"question": "Extra water amount?", "answer": "Extra 16-24 oz/day during maintenance, more during loading or intense exercise."},
+        {"question": "More water during loading?", "answer": "Yes. Loading phase (20g/day) needs extra 32 oz. Maintenance (3-5g/day) needs extra 16-24 oz."},
+        {"question": "Signs of dehydration?", "answer": "Dark urine, thirst, headache, fatigue. Aim for pale straw-colored urine."},
+    ],
+
+    "sources": [
+        {"text": "Kreider RB et al. JISSN. 2017;14:18.", "url": "https://pubmed.ncbi.nlm.nih.gov/28615996/"},
+        {"text": "Buford TW et al. JISSN. 2007;4:6.", "url": "https://pubmed.ncbi.nlm.nih.gov/17908288/"},
+    ],
+
+    "methodology": "<p>Base: 35 mL/kg/day x activity multiplier + creatine addition (500-700 mL maintenance, 700-1000 mL loading).</p>",
+
+    "llm_capsule": "Creatine increases water needs. Base: 35 mL/kg/day. Add 500-700 mL for maintenance, 700-1000 for loading. Monitor urine color.",
+
+    "ask_pills": ["Dehydration myths", "Loading water", "Hydration signs", "Best time for creatine"],
+    "ask_placeholder": "e.g. Creatine and dehydration?",
+}
+
+register("creatine_water", CREATINE_WATER)

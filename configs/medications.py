@@ -69,3 +69,179 @@ OZEMPIC_PEN_CLICK = {
 }
 
 register("ozempic_pen_click", OZEMPIC_PEN_CLICK)
+
+
+
+CAGRISEMA_WEIGHT_LOSS = {
+    "route": "/cagrisema-weight-loss-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "CagriSema Weight Loss Calculator — Predict Your Results",
+        "meta_description": "Use the CagriSema Weight Loss Calculator to estimate your potential weight loss based on REDEFINE 1 clinical trial data. CagriSema (cagrilintide + semaglutide) showed 20.4% mean weight loss at 68 weeks.",
+        "og_title": "CagriSema Weight Loss Calculator – Estimate Your Weight Loss",
+        "og_description": "Calculate your expected weight loss with CagriSema (cagrilintide + semaglutide). Personalized results based on REDEFINE 1 clinical trial data.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "",
+        "schema_description": "",
+        "schema_about": "",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#f59e0b",
+    "accent_rgb": "245,158,11",
+
+    "hero": {
+        "headline": "CagriSema Weight Loss Calculator",
+        "subtitle": "",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/cagrisema_weight_loss.js",
+
+    "faq": [],
+
+    "sources": [],
+
+    "methodology": "",
+
+    "llm_capsule": "",
+
+    "ask_pills": ["CagriSema vs Mounjaro", "When available?", "How does amylin work?", "Side effects"],
+    "ask_placeholder": "Type your question...",
+}
+
+register("cagrisema_weight_loss", CAGRISEMA_WEIGHT_LOSS)
+
+GLP1_COMPARISON = {
+    "route": "/glp1-comparison-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Ozempic vs Mounjaro Calculator — Compare GLP-1 Weight Loss",
+        "meta_description": "Free GLP-1 comparison calculator shows projected weight loss on Ozempic, Mounjaro, and Zepbound side by side. Based on STEP and SURMOUNT clinical trial data.",
+        "og_title": "Ozempic vs Mounjaro vs Zepbound Calculator - Compare GLP-1 Weight Loss",
+        "og_description": "Free GLP-1 comparison calculator shows projected weight loss on Ozempic, Mounjaro, and Zepbound side by side. Based on STEP and SURMOUNT clinical trial data.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "",
+        "schema_description": "",
+        "schema_about": "",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#14b8a6",
+    "accent_rgb": "20,184,166",
+
+    "hero": {
+        "headline": "Ozempic vs Mounjaro vs Zepbound Calculator",
+        "subtitle": "Compare projected weight loss across all three GLP-1 medications side by side. Enter your details once and see how Ozempic, Mounjaro, and Zepbound stack up based on clinical trial data.",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/glp1_comparison.js",
+
+    "faq": [],
+
+    "sources": [],
+
+    "methodology": "",
+
+    "llm_capsule": "",
+
+    "ask_pills": ["Which is most effective?", "Cost comparison", "Side effects comparison", "Which for diabetes?"],
+    "ask_placeholder": "Type your question...",
+}
+
+register("glp1_comparison", GLP1_COMPARISON)
+
+GLP1_COST = {
+    "route": "/glp1-cost-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "GLP-1 Medication Cost Calculator — Compare Treatment Costs",
+        "meta_description": "Estimate and compare costs of GLP-1 receptor agonist medications. Calculate your monthly and annual treatment expenses with insurance, manufacturer discounts, and savings options.",
+        "og_title": "GLP-1 Medication Cost Comparison Calculator",
+        "og_description": "Compare costs of GLP-1 medications and estimate your treatment expenses with insurance and savings options.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "",
+        "schema_description": "",
+        "schema_about": "",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#22c55e",
+    "accent_rgb": "34,197,94",
+
+    "hero": {
+        "headline": "GLP-1 Medication Cost Calculator",
+        "subtitle": "Compare treatment costs and estimate your monthly and annual expenses for GLP-1 medications.",
+    },
+
+    "breadcrumb_category": {"name": "Weight Loss Medications", "url": "/weight-loss-medication-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/glp1_cost.js",
+
+    "faq": [],
+
+    "sources": [],
+
+    "methodology": "",
+
+    "llm_capsule": "",
+
+    "ask_pills": ["Insurance coverage", "Manufacturer savings", "Compounded vs brand", "Will prices drop?"],
+    "ask_placeholder": "Type your question...",
+}
+
+register("glp1_cost", GLP1_COST)

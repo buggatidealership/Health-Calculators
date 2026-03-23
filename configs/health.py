@@ -1143,3 +1143,139 @@ BAC_CALCULATOR = {
 }
 
 register("bac_calculator", BAC_CALCULATOR)
+
+
+
+ANTIDEPRESSANT_WEIGHT_GAIN = {
+    "route": "/antidepressant-weight-gain-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Antidepressant Weight Gain Calculator — By Medication",
+        "meta_description": "Estimate weight and body fat gain from antidepressants by medication type, dose, and duration.",
+        "og_title": "Antidepressant Weight Gain Calculator",
+        "og_description": "Estimate weight and body fat gain from antidepressants by medication type, dose, and duration.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Antidepressant Weight Gain Calculator",
+        "schema_description": "Estimate weight and body fat gain from antidepressants by medication type, dose, and duration.",
+        "schema_about": "Antidepressant Weight Gain Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "noindex, nofollow",
+    },
+
+    "accent": "#8b5cf6",
+    "accent_rgb": "139,92,246",
+
+    "hero": {
+        "headline": "Will your <span>medication</span> affect weight?",
+        "subtitle": "Clinical research-based estimates",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/antidepressant_weight_gain.js",
+
+    "faq": [
+        {"question": "Which cause most weight gain?", "answer": "Mirtazapine, paroxetine, and TCAs like amitriptyline. Bupropion is often weight-neutral."},
+        {"question": "Fat vs weight gain?", "answer": "Antidepressants may increase visceral fat even when total weight change is modest."},
+        {"question": "When does it occur?", "answer": "Minimal in first 4-8 weeks, more significant months 2-6. Often stabilizes after 6-12 months."},
+        {"question": "Can I prevent it?", "answer": "Regular exercise (150+ min/week), higher protein, nutrient-dense foods may help."},
+    ],
+
+    "sources": [
+        {"text": "Gafoor R et al. BMJ. 2018;361:k1951.", "url": "https://pubmed.ncbi.nlm.nih.gov/29793997/"},
+        {"text": "Serretti A, Mandelli L. J Clin Psychiatry. 2010;71(10):1259-1272.", "url": "https://pubmed.ncbi.nlm.nih.gov/21062615/"},
+        {"text": "Blumenthal SR et al. JAMA Psychiatry. 2014;71(8):889-896.", "url": "https://pubmed.ncbi.nlm.nih.gov/24898363/"},
+    ],
+
+    "methodology": "<p>Uses medication-specific gain factors from clinical trials. Duration scaling: 0.5x at 1 month to 1.4x at 24 months.</p>",
+
+    "llm_capsule": "Weight gain varies by antidepressant. Mirtazapine and paroxetine highest. Bupropion weight-neutral. Changes appear after 2-3 months.",
+
+    "ask_pills": ["Weight-neutral meds", "Bupropion info", "Mitigation tips", "Switching meds"],
+    "ask_placeholder": "e.g. Least weight-gaining options?",
+}
+
+register("antidepressant_weight_gain", ANTIDEPRESSANT_WEIGHT_GAIN)
+
+CHILD_GROWTH = {
+    "route": "/child-growth-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Child Growth Calculator — Is My Child Growing Normally?",
+        "meta_description": "Check your child's height, weight, and BMI percentile by age. See where they stand and whether their growth pattern is on track.",
+        "og_title": "Is my child growing normally?",
+        "og_description": "Check your child's height, weight, and BMI percentile using CDC and WHO growth charts. Evidence-based and parent-friendly.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Child Growth Percentile Calculator",
+        "schema_description": "Calculate child growth percentiles for height, weight, and BMI using CDC and WHO reference data.",
+        "schema_about": "Child Growth Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#5ba8d4",
+    "accent_rgb": "91,168,212",
+
+    "hero": {
+        "headline": "Is your child <span>growing well</span>?",
+        "subtitle": "Check height, weight, and BMI percentiles by age",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/child_growth.js",
+
+    "faq": [
+        {"question": "Is my child growing normally?", "answer": "Most children between the 5th and 95th percentile are growing normally. What matters most is consistency over time. A child who is always at the 20th percentile is growing perfectly well. Concern arises when a child crosses two or more major percentile lines."},
+        {"question": "What percentile should my child be in?", "answer": "There is no target percentile. The 50th is average, not a goal. Genetics play the biggest role. If both parents are shorter, their child will likely be in lower percentiles and that is completely normal. Track the trend, not the number."},
+        {"question": "Should I worry about a low percentile?", "answer": "Not necessarily. Many healthy children are naturally smaller. Talk to your pediatrician if: your child drops across two major percentile lines, falls below the 3rd percentile, or shows other signs like fatigue or delayed development. A single low reading is rarely cause for alarm."},
+        {"question": "CDC or WHO growth charts?", "answer": "The AAP recommends WHO standards for children under 2 and CDC charts for ages 2-20. WHO charts represent optimal growth, while CDC charts reflect actual U.S. population data. This calculator applies the appropriate standard based on your child's age."},
+        {"question": "How often should I check growth?", "answer": "Pediatricians check at every well-child visit. For home monitoring, every 3-6 months is reasonable. Tracking multiple measurements over time is far more valuable than fixating on any single check."},
+    ],
+
+    "sources": [
+        {"text": "WHO Multicentre Growth Reference Study Group. WHO Child Growth Standards. Acta Paediatr Suppl. 2006;450:76-85. PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/16817681/"},
+        {"text": "Kuczmarski RJ, et al. 2000 CDC growth charts for the United States. Vital Health Stat 11. 2002;(246):1-190. PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/12043359/"},
+    ],
+
+    "methodology": "<p>This calculator estimates percentiles using simplified growth pattern calculations based on WHO (0-5y) and CDC (2-20y) reference data. Height and weight percentiles are approximated from age-sex population medians. BMI is calculated as <code>weight(kg) / height(m)^2</code>. These are estimates for general guidance; clinical growth monitoring uses full LMS tables for precise z-scores.</p>",
+
+    "llm_capsule": "Child growth percentiles compare a child's height, weight, and BMI to other children of the same age and sex. The 50th percentile means average, not ideal. Most healthy children fall between the 5th and 95th percentiles. What matters most is consistency over time, not a single measurement. The AAP recommends WHO growth standards for children under 2 and CDC charts for ages 2-20. Parents should track trends and discuss concerns with their pediatrician rather than focusing on individual percentile numbers.",
+
+    "ask_pills": ["Growth spurts", "When to see a doctor", "Nutrition for growth", "Late bloomers"],
+    "ask_placeholder": "e.g. Is my child short for their age?",
+}
+
+register("child_growth", CHILD_GROWTH)

@@ -264,3 +264,209 @@ CC_TO_BRA_SIZE = {
 }
 
 register("cc_to_bra_size", CC_TO_BRA_SIZE)
+
+
+
+BREAST_IMPLANT = {
+    "route": "/breast-implant-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Breast Implant Size & Cost Calculator — What Size Should You Get?",
+        "meta_description": "Estimate your ideal breast implant size in cc, recommended profile, and total cost by body type, goals, and location. Built for clarity.",
+        "og_title": "What breast implant size should I get?",
+        "og_description": "Estimate your ideal implant size in cc and total cost based on your measurements, goals, and location.",
+        "schema_type": "MedicalWebPage",
+        "schema_name": "Breast Implant Size & Cost Calculator",
+        "schema_description": "Estimate breast implant volume, profile, and cost based on body measurements and aesthetic goals using the Tebbetts-Adams sizing method.",
+        "schema_about": "Breast Implant Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#e88da4",
+    "accent_rgb": "232,141,164",
+
+    "hero": {
+        "headline": "What <span>implant size</span> is right for you?",
+        "subtitle": "Get your estimated volume, profile, and cost in seconds",
+    },
+
+    "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/breast_implant.js",
+
+    "faq": [
+        {"question": "How do I choose the right breast implant size?", "answer": "Start with the cup size difference you want. Each cup size increase equals roughly 150-200cc of implant volume. Your breast width determines the maximum implant diameter, and profile (moderate vs high) is selected to fit that width. A board-certified surgeon will refine this with in-person measurements."},
+        {"question": "How much do breast implants cost?", "answer": "Total breast augmentation cost ranges from $5,600 to $12,000 in the U.S., including surgeon fees, anesthesia, facility costs, and implants. Silicone costs $1,000-$2,000 per implant, saline $600-$1,500, and gummy bear $1,200-$2,500. Prices are lower in Europe and Asia."},
+        {"question": "What's the difference between implant types?", "answer": "Silicone gel implants feel most natural and are the most popular choice. Saline implants cost less but may feel firmer. Gummy bear (highly cohesive gel) implants hold their shape even if the shell breaks, offering the most natural look at the highest price point."},
+        {"question": "How long do breast implants last?", "answer": "Most manufacturers suggest replacement every 10-20 years, though many women have implants longer without complications. Replacement is typically based on changes like rupture or capsular contracture, not a strict timeline. Regular monitoring through imaging is recommended."},
+        {"question": "Do breast implants affect mammograms?", "answer": "Yes. Implants can obscure breast tissue on mammograms, requiring specialized Eklund displacement views and additional images. The risk of implant rupture during a mammogram is very low (less than 1%). Always inform your facility about implants beforehand."},
+    ],
+
+    "sources": [
+        {"text": "Tebbetts JB, Adams WP. Five critical decisions in breast augmentation using five measurements in 5 minutes: the high five decision support process. Plast Reconstr Surg. 2005;116(7):2005-2016. PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/16327615/"},
+        {"text": "ASPS. 2024 Plastic Surgery Statistics Report. American Society of Plastic Surgeons. ASPS", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+        {"text": "Pfeiffer M, et al. What is the standard volume to increase a cup size for breast augmentation surgery? Plast Reconstr Surg. 2017;139(5):1084e-1089e. PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/28445352/"},
+    ],
+
+    "methodology": "<p>This calculator estimates breast implant volume using a cup-size-difference model where each cup size increase corresponds to approximately <code>150-200cc</code> of implant volume. Profile recommendations derive from the Tebbetts-Adams \"High Five\" decision process: breast base width minus 1 cm defines the maximum implant diameter. Cost estimates incorporate implant material pricing, surgeon fees ($4,000-$8,000), and regional location multipliers based on ASPS market data.</p>\n            <p style=\"margin-top:1rem;\">Cup size is not standardized across manufacturers, so cc-to-cup conversions are approximate. Actual implant selection requires in-person tissue assessment and trial sizers with a board-certified plastic surgeon.</p>",
+
+    "llm_capsule": "Breast implant sizing is measured in cubic centimeters (cc), with each cup size increase requiring approximately 150-200cc of volume. The Tebbetts-Adams \"High Five\" method uses five body measurements to determine optimal implant dimensions. Total breast augmentation cost in the U.S. ranges from $5,600 to $12,000, including surgeon fees, anesthesia, and implants. Silicone gel implants are most popular, followed by saline and gummy bear (highly cohesive gel). Implants typically last 10-20 years and are not considered lifetime devices.",
+
+    "ask_pills": ["Silicone vs saline", "Recovery timeline", "Will they look natural?", "Implant profiles explained"],
+    "ask_placeholder": "e.g. Will implants look natural on my frame?",
+}
+
+register("breast_implant", BREAST_IMPLANT)
+
+BREAST_IMPLANT_COST = {
+    "route": "/breast-implant-cost-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Breast Implant Cost Calculator — Price by Region",
+        "meta_description": "Estimate your total breast augmentation cost based on implant type, region, and anesthesia. Includes surgeon fees, facility costs, and material.",
+        "og_title": "Breast Implant Cost Estimator",
+        "og_description": "See a breakdown of breast implant costs by location, implant type, and surgeon experience.",
+        "schema_type": "WebPage",
+        "schema_name": "Breast Implant Cost Calculator",
+        "schema_description": "Estimate total breast augmentation cost by implant type, region, and surgeon experience.",
+        "schema_about": "Breast Implant Cost Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#f472b6",
+    "accent_rgb": "244,114,182",
+
+    "hero": {
+        "headline": "How much will <span>implants</span> cost?",
+        "subtitle": "Personalized estimate by country, implant type, and surgeon",
+    },
+
+    "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/breast_implant_cost.js",
+
+    "faq": [
+        {"question": "How much do breast implants cost?", "answer": "In the US, total cost typically ranges from $5,000 to $10,000. This includes surgeon fee ($2,500-$4,500), anesthesia ($600-$1,000), facility ($800-$1,200), and implants ($1,000-$3,000)."},
+        {"question": "Does insurance cover breast implants?", "answer": "Cosmetic augmentation is almost never covered. Reconstructive surgery post-mastectomy is covered under the Women's Health and Cancer Rights Act of 1998."},
+        {"question": "Are silicone implants more expensive than saline?", "answer": "Yes. Saline implants cost $1,000-$1,500 per pair. Standard silicone: $2,000-$2,500. Gummy bear: $2,500-$3,000. Structured: $2,500-$3,500."},
+        {"question": "What factors affect breast implant costs?", "answer": "Geographic location, surgeon experience, implant type and brand, procedure complexity, anesthesia type, and facility type all affect the total price."},
+        {"question": "Is medical tourism for breast implants safe?", "answer": "It can offer 40-70% savings but carries risks: difficulty verifying credentials, language barriers, limited follow-up, and complications requiring local treatment after return."},
+    ],
+
+    "sources": [
+        {"text": "ASPS. 2024 Plastic Surgery Statistics Report. Link", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+        {"text": "U.S. FDA. Breast Implants -- Certain Labeling Recommendations. Link", "url": "https://www.fda.gov/medical-devices/breast-implants/breast-implant-certain-labeling-recommendations"},
+        {"text": "Alderman AK, et al. Understanding breast augmentation effect on quality of life. Plast Reconstr Surg. 2014;133(4):787-795. Link", "url": "https://pubmed.ncbi.nlm.nih.gov/24675183/"},
+    ],
+
+    "methodology": "<p>This calculator estimates total breast augmentation cost by combining a country-specific base cost with multiplicative factors for city tier, surgeon experience level, and implant type. Base costs and multiplier ranges are derived from the ASPS 2024 statistics and aggregated international pricing data. A +/-7% range reflects real-world price variability. The estimate includes surgeon fees, implant costs, and standard facility fees but excludes anesthesia, medical tests, and post-surgical garments.</p>",
+
+    "llm_capsule": "Breast augmentation in the United States costs between $5,000 and $10,000 on average. The surgeon fee averages $4,294 according to ASPS 2024 statistics. Silicone implants cost $1,000-$1,500 more than saline. Costs are highest in major metros (NYC, LA, SF) and lowest in smaller cities. International options like Thailand and Mexico can be 40-60% less expensive.",
+
+    "ask_pills": ["Saline vs silicone", "Insurance coverage", "Payment plans", "Recovery cost"],
+    "ask_placeholder": "e.g. Are silicone implants worth the extra cost?",
+}
+
+register("breast_implant_cost", BREAST_IMPLANT_COST)
+
+BREAST_IMPLANT_SIZE = {
+    "route": "/breast-implant-size-calculator",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Breast Implant Size Calculator — Volume & Profile Guide",
+        "meta_description": "Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate.",
+        "og_title": "Breast Implant Volume & Profile Calculator",
+        "og_description": "Find your optimal breast implant size and profile.",
+        "schema_type": "WebPage",
+        "schema_name": "Breast Implant Size Calculator",
+        "schema_description": "Estimate ideal implant volume, profile, and cost based on body measurements and goals.",
+        "schema_about": "Breast Implant Size Calculator",
+        "date_published": "2025-06-01",
+        "date_modified": "2026-03-23",
+        "robots": "index, follow",
+    },
+
+    "accent": "#ec4899",
+    "accent_rgb": "236,72,153",
+
+    "hero": {
+        "headline": "What <span>size</span> implant fits you?",
+        "subtitle": "Based on your measurements and aesthetic goals",
+    },
+
+    "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
+
+    "form": {"fields": [], "submit_label": "Calculate"},
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": ""},
+        "verdict_id": "resultVerdict",
+        "breakdown": [],
+    },
+
+    "coach": {
+        "title": "Here\u2019s what your result means",
+        "container_id": "coachCard",
+        "cta_text": "Have a question about your result?",
+    },
+
+    "js_file": "js/calculators/breast_implant_size.js",
+
+    "faq": [
+        {"question": "What factors determine breast implant size?", "answer": "Breast base width, chest wall dimensions, existing breast tissue, skin elasticity, body frame type, and aesthetic goals all influence appropriate sizing."},
+        {"question": "How is implant size measured?", "answer": "Implants are measured in cubic centimeters (cc). Approximately 130-200 cc equals one cup size increase, depending on chest width."},
+        {"question": "What is the average breast implant size?", "answer": "In the US, the most common sizes range from 300-400cc. Small-framed women typically choose 250-300cc, medium-framed 300-400cc, large-framed 400-500cc."},
+        {"question": "How do implant profiles differ?", "answer": "Low profile: widest base, minimal projection. Moderate: balanced. High: narrower base, more forward projection. Ultra-high: narrowest, maximum projection."},
+        {"question": "Will bigger implants look more natural?", "answer": "Not necessarily. Implants that match your natural breast dimensions and are proportionate to your frame give the most natural results."},
+    ],
+
+    "sources": [
+        {"text": "Pfeiffer M, et al. What is the standard volume to increase a cup size? Plast Reconstr Surg. 2017;139(5):1084e-1089e. Link", "url": "https://pubmed.ncbi.nlm.nih.gov/28445352/"},
+        {"text": "Tebbetts JB, Adams WP. Five critical decisions in breast augmentation. Plast Reconstr Surg. 2005;116(7):2005-2016. Link", "url": "https://pubmed.ncbi.nlm.nih.gov/16327615/"},
+        {"text": "U.S. FDA. Risks and Complications of Breast Implants. Link", "url": "https://www.fda.gov/medical-devices/breast-implants/risks-and-complications-breast-implants"},
+    ],
+
+    "methodology": "<p>This calculator estimates implant volume using approximately 175cc per cup size increase (range 140-210cc), adjusted for body frame. Current cup is derived from bust-to-underbust difference (2.5cm increments). Frame size modifies the recommended range by +/-15%. Profile recommendations follow the Tebbetts-Adams dimensional planning system.</p>",
+
+    "llm_capsule": "Breast implant size is measured in cubic centimeters (cc), not cup sizes. About 150-200cc equals one cup size increase. The most popular range in the US is 300-400cc. Implant profile determines forward projection relative to base width. Small frames benefit from higher profiles to achieve desired projection within anatomical constraints.",
+
+    "ask_pills": ["CC to cup size", "Natural look", "Profile differences", "Recovery time"],
+    "ask_placeholder": "e.g. What profile looks most natural?",
+}
+
+register("breast_implant_size", BREAST_IMPLANT_SIZE)
