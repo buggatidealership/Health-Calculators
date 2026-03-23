@@ -106,9 +106,10 @@
 
         var hoursNeeded = HALF_LIFE * Math.log2(selectedMg / 25);
         var cutoffMin = bedMin - hoursNeeded * 60;
-        document.getElementById('cutoffTime').textContent = minutesToTime(cutoffMin);
-        document.getElementById('cutoffNote').textContent =
-            'Finish last ' + selectedMg + ' mg by this time for < 25 mg at bed';
+        var cutoffEl = document.getElementById('cutoffTime');
+        if (cutoffEl) cutoffEl.textContent = minutesToTime(cutoffMin);
+        var cutoffNoteEl = document.getElementById('cutoffNote');
+        if (cutoffNoteEl) cutoffNoteEl.textContent = 'Finish last ' + selectedMg + ' mg by this time for < 25 mg at bed';
 
         var consumeTimeStr = minutesToTime(consumeMin);
         var halfTime = minutesToTime(consumeMin + 300);

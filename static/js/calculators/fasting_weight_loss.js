@@ -12,7 +12,7 @@
     var selectedFasting = null;
     var selectedSex = 'male';
 
-    document.addEventListener('DOMContentLoaded', function() {
+    function init() {
         // Build fasting grid before the factory form
         var factoryForm = document.querySelector('.factory-form');
         if (factoryForm) {
@@ -64,7 +64,14 @@
 
         // Calculate
         document.getElementById('calcBtn').addEventListener('click', calculate);
-    });
+    }
+
+    // Run immediately — script loads after DOM is ready (bottom of page)
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
 
     function buildFastingGrid() {
         var grid = document.getElementById('fastingGrid');
