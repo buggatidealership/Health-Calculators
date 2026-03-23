@@ -2,7 +2,7 @@ from configs import register
 
 ADULT_HEIGHT_PREDICTOR = {
     "route": "/adult-height-predictor-calculator",
-    "override_template": "adult_height_predictor_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Adult Height Predictor Calculator \u2014 Estimate Future Height",
@@ -28,12 +28,28 @@ ADULT_HEIGHT_PREDICTOR = {
 
     "breadcrumb_category": {"name": "Fertility & Pregnancy", "url": "/fertility-pregnancy-calculators"},
 
-    "form": {"fields": [], "submit_label": "Predict Height"},
+    "form": {
+        "fields": [
+            {"id": "childGender", "type": "select", "label": "Gender", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"id": "childAge", "type": "number", "label": "Age (years)", "default": 10, "min": 1, "max": 17, "step": 0.5},
+            {"id": "childHeight", "type": "number", "label": "Child's Current Height (cm)", "min": 30, "max": 220, "step": 0.1, "placeholder": "e.g. 140"},
+            {"id": "motherHeight", "type": "number", "label": "Mother's Height (cm)", "min": 100, "max": 220, "step": 0.1, "placeholder": "e.g. 165"},
+            {"id": "fatherHeight", "type": "number", "label": "Father's Height (cm)", "min": 100, "max": 220, "step": 0.1, "placeholder": "e.g. 178"},
+        ],
+        "submit_label": "Predict Height",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "predicted adult height"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "heightRange", "label": "Range"},
+            {"id": "midParental", "label": "Mid-parental height"},
+            {"id": "growthRemaining", "label": "Growth remaining"},
+        ],
     },
 
     "coach": {

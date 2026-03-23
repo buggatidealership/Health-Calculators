@@ -55,7 +55,11 @@
         var shareText = 'Predicted adult height: ' + cmToFt(predicted) + ' (' + Math.round(predicted) + ' cm)\nRange: ' + cmToFt(low) + ' - ' + cmToFt(high) + '\nAge ' + a + ', currently ' + ch + ' cm\n\nTry it: healthcalculators.xyz/adult-height-predictor-calculator';
         updateShareButtons(shareText);
 
-        document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+        if (typeof factoryReveal === 'function') {
+            factoryReveal();
+        } else {
+            document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+        }
         document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
     });
 })();

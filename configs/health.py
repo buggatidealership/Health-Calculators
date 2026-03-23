@@ -84,7 +84,7 @@ register("vitamin_d_conversion", VITAMIN_D_CONVERSION)
 
 CAFFEINE_HALF_LIFE = {
     "route": "/caffeine-half-life-calculator",
-    "override_template": "caffeine_half_life_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Caffeine Half Life Calculator \u2014 When Does It Wear Off?",
@@ -110,12 +110,24 @@ CAFFEINE_HALF_LIFE = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": ""},
+    "form": {
+        "fields": [
+            {"id": "customMg", "type": "number", "label": "Caffeine amount (mg)", "placeholder": "100", "min": 1, "max": 1000},
+            {"type": "row", "fields": [
+                {"id": "consumeTime", "type": "time", "label": "Time consumed"},
+                {"id": "bedTime", "type": "time", "label": "Bedtime", "default": "22:00"},
+            ]},
+        ],
+        "submit_label": "Calculate",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "mg at bedtime"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "cutoffTime", "label": "Last safe cup"},
+            {"id": "cutoffNote", "label": "Why this time"},
+        ],
     },
 
     "coach": {

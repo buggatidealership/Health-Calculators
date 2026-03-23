@@ -2,7 +2,7 @@ from configs import register
 
 FASTING_WEIGHT_LOSS = {
     "route": "/fasting-weight-loss-calculator",
-    "override_template": "fasting_weight_loss_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Fasting Weight Loss Calculator \u2014 How Much Will You Lose?",
@@ -28,12 +28,51 @@ FASTING_WEIGHT_LOSS = {
 
     "breadcrumb_category": {"name": "Nutrition", "url": "/nutrition-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "units", "type": "radio_row", "label": "Units", "options": [
+                {"value": "imperial", "label": "Imperial (lb)", "selected": True},
+                {"value": "metric", "label": "Metric (kg)"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "weightLb", "type": "number", "label": "Current weight (lb)", "min": 66, "max": 660, "step": 0.1, "placeholder": "170"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "heightFt", "type": "number", "label": "Height (ft)", "min": 3, "max": 8, "placeholder": "5"},
+                {"id": "heightIn", "type": "number", "label": "Height (in)", "min": 0, "max": 11, "placeholder": "8"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "weightKg", "type": "number", "label": "Current weight (kg)", "min": 30, "max": 300, "step": 0.1, "placeholder": "77"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "heightCm", "type": "number", "label": "Height (cm)", "min": 100, "max": 250, "placeholder": "173"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "age", "type": "number", "label": "Age", "min": 16, "max": 100, "placeholder": "30"},
+                {"id": "activity", "type": "select", "label": "Activity level", "options": [
+                    {"value": "1.2", "label": "Sedentary (desk job)"},
+                    {"value": "1.375", "label": "Light (walks 1-3x/week)"},
+                    {"value": "1.55", "label": "Moderate (exercise 3-5x/week)", "selected": True},
+                    {"value": "1.725", "label": "Active (hard exercise 6-7x/week)"},
+                    {"value": "1.9", "label": "Very active (physical job + training)"},
+                ]},
+            ]},
+            {"id": "sex", "type": "radio_row", "label": "Sex", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+        ],
+        "submit_label": "Calculate my weight loss",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "total weight loss in 4 weeks"},
         "verdict_id": None,
-        "breakdown": [],
+        "breakdown": [
+            {"id": "fatLossVal", "label": "Fat loss"},
+            {"id": "waterLossVal", "label": "Water weight"},
+            {"id": "deficitVal", "label": "Daily deficit (cal)"},
+        ],
     },
 
     "coach": {

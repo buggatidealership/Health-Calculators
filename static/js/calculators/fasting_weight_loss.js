@@ -13,30 +13,54 @@
     var selectedSex = 'male';
 
     document.addEventListener('DOMContentLoaded', function() {
-        buildFastingGrid();
+        // Build fasting grid before the factory form
+        var factoryForm = document.querySelector('.factory-form');
+        if (factoryForm) {
+            var gridWrap = document.createElement('div');
+            gridWrap.id = 'fastingGrid';
+            gridWrap.className = 'fasting-grid fade-in';
+            gridWrap.style.cssText = 'display:grid;grid-template-columns:repeat(3,1fr);gap:0.6rem;max-width:520px;width:100%;margin-bottom:2rem;';
+            factoryForm.parentNode.insertBefore(gridWrap, factoryForm);
+            buildFastingGrid();
 
-        // Sex cards
-        document.querySelectorAll('.sex-card').forEach(function(card) {
-            card.addEventListener('click', function() {
-                document.querySelectorAll('.sex-card').forEach(function(c) { c.classList.remove('selected'); });
-                this.classList.add('selected');
-                selectedSex = this.dataset.sex;
+            // Hide metric inputs initially
+            var weightKg = document.getElementById('weightKg');
+            var heightCm = document.getElementById('heightCm');
+            if (weightKg) weightKg.closest('.form-row').style.display = 'none';
+            if (heightCm) heightCm.closest('.form-row').style.display = 'none';
+        }
+
+        // Unit toggle via factory radio_row
+        var unitRow = document.querySelector('[data-group="units"]');
+        if (unitRow) {
+            unitRow.querySelectorAll('.unit-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    unitRow.querySelectorAll('.unit-btn').forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    var isImperial = this.dataset.value === 'imperial';
+                    var weightLb = document.getElementById('weightLb');
+                    var heightFt = document.getElementById('heightFt');
+                    var weightKg = document.getElementById('weightKg');
+                    var heightCm = document.getElementById('heightCm');
+                    if (weightLb) weightLb.closest('.form-row').style.display = isImperial ? '' : 'none';
+                    if (heightFt) heightFt.closest('.form-row').style.display = isImperial ? '' : 'none';
+                    if (weightKg) weightKg.closest('.form-row').style.display = isImperial ? 'none' : '';
+                    if (heightCm) heightCm.closest('.form-row').style.display = isImperial ? 'none' : '';
+                });
             });
-        });
+        }
 
-        // Unit toggle
-        document.getElementById('imperialBtn').addEventListener('click', function() {
-            this.classList.add('active');
-            document.getElementById('metricBtn').classList.remove('active');
-            document.getElementById('imperialInputs').style.display = 'block';
-            document.getElementById('metricInputs').style.display = 'none';
-        });
-        document.getElementById('metricBtn').addEventListener('click', function() {
-            this.classList.add('active');
-            document.getElementById('imperialBtn').classList.remove('active');
-            document.getElementById('metricInputs').style.display = 'block';
-            document.getElementById('imperialInputs').style.display = 'none';
-        });
+        // Sex toggle via factory radio_row
+        var sexRow = document.querySelector('[data-group="sex"]');
+        if (sexRow) {
+            sexRow.querySelectorAll('.unit-btn').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    sexRow.querySelectorAll('.unit-btn').forEach(function(b) { b.classList.remove('active'); });
+                    this.classList.add('active');
+                    selectedSex = this.dataset.value;
+                });
+            });
+        }
 
         // Calculate
         document.getElementById('calcBtn').addEventListener('click', calculate);
@@ -44,20 +68,32 @@
 
     function buildFastingGrid() {
         var grid = document.getElementById('fastingGrid');
+        if (!grid) return;
         FASTING_TYPES.forEach(function(f) {
             var card = document.createElement('div');
             card.className = 'fasting-card';
-            card.innerHTML = '<span class="emoji">' + f.emoji + '</span><span class="name">' + f.name + '</span><span class="detail">' + f.detail + '</span>';
+            card.style.cssText = 'background:rgba(20,184,166,0.05);border:1px solid rgba(20,184,166,0.1);border-radius:14px;padding:1rem 0.6rem;text-align:center;cursor:pointer;transition:all 0.2s;';
+            card.innerHTML = '<span style="font-size:1.5rem;display:block;margin-bottom:0.3rem;">' + f.emoji + '</span><span style="font-size:0.78rem;font-weight:600;display:block;">' + f.name + '</span><span style="font-size:0.65rem;color:var(--text-dim);margin-top:2px;display:block;">' + f.detail + '</span>';
             card.onclick = function() {
-                document.querySelectorAll('.fasting-card').forEach(function(c) { c.classList.remove('selected'); });
+                document.querySelectorAll('.fasting-card').forEach(function(c) { c.classList.remove('selected'); c.style.borderColor = 'rgba(20,184,166,0.1)'; c.style.background = 'rgba(20,184,166,0.05)'; });
                 card.classList.add('selected');
+                card.style.borderColor = 'var(--accent)';
+                card.style.background = 'rgba(20,184,166,0.12)';
                 selectedFasting = f;
-                setTimeout(function() {
-                    document.getElementById('inputs-section').scrollIntoView({ behavior: 'smooth' });
-                }, 350);
+                var form = document.querySelector('.factory-form');
+                if (form) {
+                    setTimeout(function() { form.scrollIntoView({ behavior: 'smooth' }); }, 350);
+                }
             };
             grid.appendChild(card);
         });
+    }
+
+    function getSelectedUnit() {
+        var unitRow = document.querySelector('[data-group="units"]');
+        if (!unitRow) return 'imperial';
+        var active = unitRow.querySelector('.unit-btn.active');
+        return active ? active.dataset.value : 'imperial';
     }
 
     function calculate() {
@@ -66,7 +102,7 @@
             return;
         }
 
-        var isImperial = document.getElementById('imperialBtn').classList.contains('active');
+        var isImperial = getSelectedUnit() === 'imperial';
         var weight, height;
 
         if (isImperial) {
@@ -137,44 +173,54 @@
         var fourWeekFatKg = weeklyFatLossKg[3];
         var fourWeekTotalKg = fourWeekFatKg + waterKg;
 
-        // Hide static example
-        var staticEx = document.getElementById('staticExample');
-        if (staticEx) staticEx.style.display = 'none';
-
         // Display results
         var unit = isImperial ? 'lbs' : 'kg';
         var toDisplay = isImperial ? function(v) { return (v / 0.453592).toFixed(1); } : function(v) { return v.toFixed(1); };
 
         document.getElementById('resultNumber').textContent = toDisplay(fourWeekTotalKg);
-        document.getElementById('resultUnit').textContent = unit + ' total weight loss in 4 weeks';
-        document.getElementById('resultContext').textContent =
-            'With ' + selectedFasting.name.toLowerCase() + ' (' + selectedFasting.detail + '), based on your BMR of ' + Math.round(bmr) + ' cal/day';
+
+        // Update the result unit text
+        var resultUnitEl = document.querySelector('.factory-result .result-unit');
+        if (resultUnitEl) resultUnitEl.textContent = unit + ' total weight loss in 4 weeks';
 
         document.getElementById('fatLossVal').textContent = toDisplay(fourWeekFatKg) + ' ' + unit;
         document.getElementById('waterLossVal').textContent = toDisplay(waterKg) + ' ' + unit;
         document.getElementById('deficitVal').textContent = Math.round(dailyDeficit);
 
-        // Build timeline
+        // Build timeline (insert after breakdown)
+        var breakdown = document.querySelector('.factory-breakdown');
         var timelineWrap = document.getElementById('timelineWrap');
-        timelineWrap.innerHTML = '';
-        var maxLoss = weeklyFatLossKg[weeks - 1] + waterKg;
-
-        for (var w = 0; w < weeks; w++) {
-            var totalAtWeek = weeklyFatLossKg[w] + waterKg;
-            var pct = (totalAtWeek / maxLoss) * 100;
-            var row = document.createElement('div');
-            row.className = 'timeline-row';
-            row.innerHTML = '<span class="timeline-week">Week ' + (w + 1) + '</span>' +
-                '<div class="timeline-bar-track"><div class="timeline-bar-fill" style="width:0%;"></div></div>' +
-                '<span class="timeline-val">' + toDisplay(totalAtWeek) + ' ' + unit + '</span>';
-            timelineWrap.appendChild(row);
-            (function(row, pct, delay) {
-                setTimeout(function() { row.querySelector('.timeline-bar-fill').style.width = pct + '%'; }, delay);
-            })(row, pct, 100 + w * 80);
+        if (!timelineWrap && breakdown) {
+            timelineWrap = document.createElement('div');
+            timelineWrap.id = 'timelineWrap';
+            timelineWrap.style.cssText = 'max-width:600px;width:100%;margin-top:2rem;';
+            breakdown.parentNode.insertBefore(timelineWrap, breakdown.nextSibling);
+            var timelineNote = document.createElement('p');
+            timelineNote.id = 'timelineNote';
+            timelineNote.style.cssText = 'font-size:0.75rem;color:var(--text-muted);text-align:center;margin-top:0.8rem;max-width:600px;';
+            timelineWrap.parentNode.insertBefore(timelineNote, timelineWrap.nextSibling);
         }
-
-        document.getElementById('timelineNote').textContent =
-            'Projection assumes consistent ' + selectedFasting.detail + ' with ' + (activity === 1.2 ? 'sedentary' : activity <= 1.375 ? 'light' : activity <= 1.55 ? 'moderate' : 'high') + ' activity. Includes metabolic adaptation.';
+        if (timelineWrap) {
+            timelineWrap.innerHTML = '';
+            var maxLoss = weeklyFatLossKg[weeks - 1] + waterKg;
+            for (var w = 0; w < weeks; w++) {
+                var totalAtWeek = weeklyFatLossKg[w] + waterKg;
+                var pct = (totalAtWeek / maxLoss) * 100;
+                var row = document.createElement('div');
+                row.style.cssText = 'display:flex;align-items:center;gap:0.6rem;margin-bottom:0.4rem;';
+                row.innerHTML = '<span style="min-width:3.5rem;font-size:0.78rem;color:var(--text-dim);">Week ' + (w + 1) + '</span>' +
+                    '<div style="flex:1;height:6px;background:rgba(20,184,166,0.1);border-radius:3px;overflow:hidden;"><div style="height:100%;background:var(--accent);border-radius:3px;width:0%;transition:width 0.6s cubic-bezier(0.4,0,0.2,1);"></div></div>' +
+                    '<span style="min-width:4rem;text-align:right;font-size:0.78rem;font-weight:600;">' + toDisplay(totalAtWeek) + ' ' + unit + '</span>';
+                timelineWrap.appendChild(row);
+                (function(row, pct, delay) {
+                    setTimeout(function() { row.querySelector('div div').style.width = pct + '%'; }, delay);
+                })(row, pct, 100 + w * 80);
+            }
+        }
+        var timelineNoteEl = document.getElementById('timelineNote');
+        if (timelineNoteEl) {
+            timelineNoteEl.textContent = 'Projection assumes consistent ' + selectedFasting.detail + ' with ' + (activity === 1.2 ? 'sedentary' : activity <= 1.375 ? 'light' : activity <= 1.55 ? 'moderate' : 'high') + ' activity. Includes metabolic adaptation.';
+        }
 
         // Coach card
         var weeklyFatUnit = toDisplay(weeklyFatLossKg[0]);
@@ -197,7 +243,11 @@
         updateShareButtons(shareText);
 
         // Show sections
-        document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+        if (typeof factoryReveal === 'function') {
+            factoryReveal();
+        } else {
+            document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+        }
         document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
 
         if (typeof hcTrackEvent === 'function') {
