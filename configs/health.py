@@ -2,7 +2,7 @@ from configs import register
 
 VITAMIN_D_CONVERSION = {
     "route": "/vitamin-d-conversion-calculator",
-    "override_template": "vitamin_d_conversion_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Vitamin D Conversion Calculator \u2014 ng/mL to nmol/L Converter",
@@ -28,12 +28,24 @@ VITAMIN_D_CONVERSION = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": ""},
+    "form": {
+        "fields": [
+            {"id": "vitdInput", "type": "number", "label": "Your vitamin D level", "placeholder": "30", "min": 0, "step": 0.1},
+            {"id": "unitToggle", "type": "radio_row", "label": "Unit", "options": [
+                {"value": "ng", "label": "ng/mL", "selected": True},
+                {"value": "nmol", "label": "nmol/L"},
+            ]},
+        ],
+        "submit_label": "",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "nmol/L"},
-        "verdict_id": None,
-        "breakdown": [],
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "resultEquals", "label": "Equivalent"},
+            {"id": "resultPlain", "label": "Interpretation"},
+        ],
     },
 
     "coach": {

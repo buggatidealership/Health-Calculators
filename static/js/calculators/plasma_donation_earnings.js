@@ -10,20 +10,16 @@
 
     var selections = { donor: null, frequency: '2', weight: null };
 
-    // Card selection logic
-    document.querySelectorAll('.tap-card[data-group]').forEach(function(card) {
-        card.addEventListener('click', function() {
-            var group = this.dataset.group;
-            var value = this.dataset.value;
-            document.querySelectorAll('.tap-card[data-group="' + group + '"]').forEach(function(c) { c.classList.remove('selected'); });
-            this.classList.add('selected');
-            selections[group] = value;
-
-            if (group === 'donor') {
-                setTimeout(function() {
-                    document.getElementById('details-section').scrollIntoView({ behavior: 'smooth' });
-                }, 350);
-            }
+    // Card/button selection logic (factory radio_row: unit-row[data-group] > unit-btn[data-value])
+    document.querySelectorAll('[data-group]').forEach(function(row) {
+        var group = row.dataset.group;
+        row.querySelectorAll('.unit-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var value = this.dataset.value;
+                row.querySelectorAll('.unit-btn').forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                selections[group] = value;
+            });
         });
     });
 
@@ -39,8 +35,8 @@
         var travelCost = parseFloat(document.getElementById('travelCost').value) || 0;
 
         if (!donor || !weight || !region) {
-            if (!donor) document.querySelectorAll('.tap-card[data-group="donor"]').forEach(function(c) { c.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(function() { c.style.borderColor = ''; }, 1500); });
-            if (!weight) document.querySelectorAll('.tap-card[data-group="weight"]').forEach(function(c) { c.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(function() { c.style.borderColor = ''; }, 1500); });
+            if (!donor) { var dr = document.querySelector('[data-group="donor"]'); if (dr) dr.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(function() { if (dr) dr.style.borderColor = ''; }, 1500); }
+            if (!weight) { var wr = document.querySelector('[data-group="weight"]'); if (wr) wr.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(function() { if (wr) wr.style.borderColor = ''; }, 1500); }
             if (!region) { var s = document.getElementById('stateSelect'); s.style.borderColor = 'rgba(239,68,68,0.5)'; setTimeout(function() { s.style.borderColor = ''; }, 1500); }
             return;
         }
@@ -77,19 +73,21 @@
         var hourlyRate = Math.round((netPerVisit / visitTime) * 60);
 
         document.getElementById('resultNumber').textContent = '$' + monthlyMin + '-$' + monthlyMax;
-        document.getElementById('resultLabel').textContent = travelCost > 0 ? 'After travel costs' : 'Before travel costs';
+        var resultLabel = document.getElementById('resultLabel') || document.getElementById('resultVerdict');
+        if (resultLabel) resultLabel.textContent = travelCost > 0 ? 'After travel costs' : 'Before travel costs';
 
-        document.getElementById('perVisit').textContent = '$' + minPerVisit + '-$' + maxPerVisit;
-        document.getElementById('perVisitNote').textContent = travelCost > 0 ? 'Net: $' + (minPerVisit - travelCost) + '-$' + (maxPerVisit - travelCost) : '';
+        var el;
+        el = document.getElementById('perVisit'); if (el) el.textContent = '$' + minPerVisit + '-$' + maxPerVisit;
+        el = document.getElementById('perVisitNote'); if (el) el.textContent = travelCost > 0 ? 'Net: $' + (minPerVisit - travelCost) + '-$' + (maxPerVisit - travelCost) : '';
 
-        document.getElementById('weekly').textContent = '$' + weeklyMin + '-$' + weeklyMax;
-        document.getElementById('weeklyNote').textContent = weeklyDonations + 'x per week';
+        el = document.getElementById('weekly'); if (el) el.textContent = '$' + weeklyMin + '-$' + weeklyMax;
+        el = document.getElementById('weeklyNote'); if (el) el.textContent = weeklyDonations + 'x per week';
 
-        document.getElementById('yearly').textContent = '$' + yearlyMin.toLocaleString() + '-$' + yearlyMax.toLocaleString();
-        document.getElementById('yearlyNote').textContent = Math.round(yearlyDonations) + ' donations';
+        el = document.getElementById('yearly'); if (el) el.textContent = '$' + yearlyMin.toLocaleString() + '-$' + yearlyMax.toLocaleString();
+        el = document.getElementById('yearlyNote'); if (el) el.textContent = Math.round(yearlyDonations) + ' donations';
 
-        document.getElementById('hourlyRate').textContent = '$' + hourlyRate + '/hr';
-        document.getElementById('hourlyNote').textContent = isNew
+        el = document.getElementById('hourlyRate'); if (el) el.textContent = '$' + hourlyRate + '/hr';
+        el = document.getElementById('hourlyNote'); if (el) el.textContent = isNew
             ? 'Based on ~2.5 hour first visit. Return visits average ~75 min, increasing your effective rate.'
             : 'Based on average 75-minute return visit including check-in and recovery.';
 
@@ -98,7 +96,7 @@
         var monthLabel = monthlyAvg >= 600 ? "That's solid side income" : monthlyAvg >= 350 ? "That covers a car payment or groceries" : "Every bit adds up";
 
         var coachCard = document.getElementById('coachCard');
-        coachCard.innerHTML =
+        if (coachCard) coachCard.innerHTML =
             '<div class="coach-text">' +
             'Donating <span class="teal">' + freqLabel + '</span> as a <span class="teal">' + (isNew ? 'new' : 'returning') + ' donor</span>,<br>' +
             'you\'re looking at <span class="hl">$' + monthlyMin + '-$' + monthlyMax + '/month</span>.' +
@@ -115,30 +113,13 @@
         var shareText = 'I calculated my plasma donation earnings:\n\n' + freqLabel + ': $' + monthlyMin + '-$' + monthlyMax + '/month\nEffective rate: $' + hourlyRate + '/hr\n\nTry it: healthcalculators.xyz/plasma-donation-earnings-calculator';
         updateShareButtons(shareText);
 
-        // Breakdown detail
-        var bd = document.getElementById('breakdownDetail');
-        bd.innerHTML =
-            '<div class="breakdown-row"><span class="label">Base rate per visit</span><span class="value">$' + base.min + '-$' + base.max + '</span></div>' +
-            (wBonus > 0 ? '<div class="breakdown-row"><span class="label">Weight bonus (175+ lbs)</span><span class="value bonus">+$' + wBonus + '</span></div>' : '') +
-            (nBonus > 0 ? '<div class="breakdown-row"><span class="label">New donor bonus</span><span class="value bonus">+$' + nBonus + '</span></div>' : '') +
-            '<div class="breakdown-row"><span class="label">Region modifier</span><span class="value">' + regionMod + 'x</span></div>' +
-            (travelCost > 0 ? '<div class="breakdown-row"><span class="label">Travel cost per visit</span><span class="value" style="color:var(--bad)">-$' + travelCost + '</span></div>' : '') +
-            '<div class="breakdown-row"><span class="label">Adjusted per visit</span><span class="value">$' + minPerVisit + '-$' + maxPerVisit + '</span></div>' +
-            '<div class="breakdown-row"><span class="label">Donations per week</span><span class="value">' + weeklyDonations + '</span></div>' +
-            '<div class="breakdown-row"><span class="label">Avg visit time</span><span class="value">' + visitTime + ' min</span></div>';
-
         // Show sections
         document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
-        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+        if (typeof factoryReveal === 'function') factoryReveal();
+        else document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
 
         if (typeof hcTrackEvent === 'function') {
             hcTrackEvent('calculator_complete', { calculator_name: 'Plasma Donation Earnings Calculator', page_path: '/plasma-donation-earnings-calculator' });
         }
     }
-
-    document.getElementById('breakdownToggle').addEventListener('click', function() {
-        var detail = document.getElementById('breakdownDetail');
-        detail.classList.toggle('show');
-        this.textContent = detail.classList.contains('show') ? 'Hide earnings breakdown' : 'Show earnings breakdown';
-    });
 })();

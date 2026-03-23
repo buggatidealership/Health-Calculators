@@ -38,19 +38,18 @@
         return n < 10 ? n.toFixed(1) : Math.round(n);
     }
 
-    // Unit toggle
-    document.getElementById('unitNg').addEventListener('click', function() {
-        currentUnit = 'ng';
-        this.classList.add('active');
-        document.getElementById('unitNmol').classList.remove('active');
-        runCalculation();
-    });
-    document.getElementById('unitNmol').addEventListener('click', function() {
-        currentUnit = 'nmol';
-        this.classList.add('active');
-        document.getElementById('unitNg').classList.remove('active');
-        runCalculation();
-    });
+    // Unit toggle (factory radio_row: data-group="unitToggle", data-value="ng"/"nmol")
+    var unitRow = document.querySelector('[data-group="unitToggle"]');
+    if (unitRow) {
+        unitRow.querySelectorAll('.unit-btn').forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                currentUnit = this.dataset.value;
+                unitRow.querySelectorAll('.unit-btn').forEach(function(b) { b.classList.remove('active'); });
+                this.classList.add('active');
+                runCalculation();
+            });
+        });
+    }
 
     // Auto-calculate on input
     document.getElementById('vitdInput').addEventListener('input', runCalculation);
@@ -81,15 +80,25 @@
         // Result section
         document.getElementById('resultNumber').textContent = formatNum(bigValue);
         document.getElementById('resultNumber').className = 'result-number ' + tier.cls;
-        document.getElementById('resultUnit').textContent = bigUnit;
-        document.getElementById('resultEquals').innerHTML =
+        var unitEl = document.querySelector('.factory-result .result-unit') || document.getElementById('resultUnit');
+        if (unitEl) unitEl.textContent = bigUnit;
+        var equalsEl = document.getElementById('resultEquals');
+        if (equalsEl) equalsEl.innerHTML =
             '<span class="val">' + formatNum(ng) + ' ng/mL</span> = <span class="val">' + formatNum(nmol) + ' nmol/L</span>';
 
         var tierEl = document.getElementById('resultTier');
-        tierEl.textContent = tier.name;
-        tierEl.className = 'result-tier ' + tier.tierCls;
+        if (tierEl) {
+            tierEl.textContent = tier.name;
+            tierEl.className = 'result-tier ' + tier.tierCls;
+        }
+        var verdictEl = document.getElementById('resultVerdict');
+        if (verdictEl) {
+            verdictEl.textContent = tier.name;
+            verdictEl.className = 'result-verdict ' + tier.tierCls;
+        }
 
-        document.getElementById('resultPlain').textContent = tier.plain;
+        var plainEl = document.getElementById('resultPlain');
+        if (plainEl) plainEl.textContent = tier.plain;
 
         // Highlight active tier in reference table
         document.querySelectorAll('#refTable tbody tr').forEach(function(row) {
@@ -101,8 +110,14 @@
         });
 
         // Coach interpretation
-        document.getElementById('coachInterpretation').innerHTML =
-            '<p>Your level of <em>' + formatNum(ng) + ' ng/mL</em> (' + formatNum(nmol) + ' nmol/L) puts you in the <em>' + tier.name.toLowerCase() + '</em> range. ' + tier.interpretation + '</p>';
+        var coachInterp = document.getElementById('coachInterpretation');
+        var coachCard = document.getElementById('coachCard');
+        var interpHtml = '<p>Your level of <em>' + formatNum(ng) + ' ng/mL</em> (' + formatNum(nmol) + ' nmol/L) puts you in the <em>' + tier.name.toLowerCase() + '</em> range. ' + tier.interpretation + '</p>';
+        if (coachInterp) {
+            coachInterp.innerHTML = interpHtml;
+        } else if (coachCard) {
+            coachCard.innerHTML = interpHtml;
+        }
 
         // Share text
         var shareText = 'My vitamin D level: ' + formatNum(ng) + ' ng/mL (' + formatNum(nmol) + ' nmol/L) \u2014 ' + tier.name + '.\n\nThe rule: multiply ng/mL by 2.5 to get nmol/L.\n\nCheck yours: healthcalculators.xyz/vitamin-d-conversion-calculator';

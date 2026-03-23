@@ -83,7 +83,7 @@ register("retirement_savings", RETIREMENT_SAVINGS)
 
 PLASMA_DONATION_EARNINGS = {
     "route": "/plasma-donation-earnings-calculator",
-    "override_template": "plasma_donation_earnings_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Plasma Donation Earnings Calculator \u2014 How Much Can You Make?",
@@ -109,12 +109,44 @@ PLASMA_DONATION_EARNINGS = {
 
     "breadcrumb_category": {"name": "Financial & Earnings", "url": "/financial-earnings-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate my earnings"},
+    "form": {
+        "fields": [
+            {"id": "donor", "type": "radio_row", "label": "Have you donated before?", "options": [
+                {"value": "new", "label": "First time"},
+                {"value": "returning", "label": "Returning donor"},
+            ]},
+            {"id": "frequency", "type": "radio_row", "label": "How often will you donate?", "options": [
+                {"value": "1", "label": "Once a week"},
+                {"value": "2", "label": "Twice a week", "selected": True},
+                {"value": "0.375", "label": "1-2x per month"},
+            ]},
+            {"id": "weight", "type": "radio_row", "label": "Your weight range", "options": [
+                {"value": "light", "label": "110-149 lbs"},
+                {"value": "medium", "label": "150-174 lbs"},
+                {"value": "heavy", "label": "175+ lbs"},
+            ]},
+            {"id": "stateSelect", "type": "select", "label": "Your state", "options": [
+                {"value": "", "label": "Select state..."},
+                {"value": "high", "label": "CA, NY, NJ, MA, WA, CT"},
+                {"value": "mid-high", "label": "TX, FL, IL, PA, CO, AZ, VA"},
+                {"value": "mid", "label": "OH, GA, NC, MI, TN, MO, IN, MN, WI, OR"},
+                {"value": "mid-low", "label": "AL, AR, IA, KS, KY, LA, MS, NE, NM, OK, SC, UT"},
+                {"value": "low", "label": "AK, HI, ID, ME, MT, ND, SD, VT, WV, WY"},
+            ]},
+            {"id": "travelCost", "type": "number", "label": "Round-trip travel cost (optional)", "placeholder": "e.g. 5", "min": 0, "max": 100, "step": 1},
+        ],
+        "submit_label": "Calculate my earnings",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "estimated per month"},
-        "verdict_id": None,
-        "breakdown": [],
+        "verdict_id": "resultLabel",
+        "breakdown": [
+            {"id": "perVisit", "label": "Per visit"},
+            {"id": "weekly", "label": "Weekly"},
+            {"id": "yearly", "label": "Yearly"},
+            {"id": "hourlyRate", "label": "Effective hourly rate"},
+        ],
     },
 
     "coach": {
