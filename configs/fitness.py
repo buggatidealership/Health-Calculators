@@ -923,7 +923,7 @@ register("bulking_calorie", BULKING_CALORIE)
 
 ARMY_BODY_FAT = {
     "route": "/army-body-fat-calculator",
-    "override_template": "army_body_fat_calculator.html",
+    "override_template": "overrides/army_body_fat_v25.html",
 
     "seo": {
         "page_title": "Army Body Fat Calculator — Tape Test % Estimator",

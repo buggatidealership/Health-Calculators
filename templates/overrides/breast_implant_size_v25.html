@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Breast Implant Size Calculator — Volume & Profile Guide",
+        meta_description="Estimate ideal implant volume based on your band size, goal cup size, and breast width. Includes implant profile and cost estimate.",
+        og_title="Breast Implant Volume & Profile Calculator",
+        og_description="Find your optimal breast implant size and profile.",
+        og_url="/breast-implant-size-calculator",
+        canonical_url="/breast-implant-size-calculator",
+        schema_type="WebPage",
+        schema_name="Breast Implant Size Calculator",
+        schema_description="Estimate ideal implant volume, profile, and cost based on body measurements and goals.",
+        schema_url="/breast-implant-size-calculator",
+        schema_about="Breast Implant Size Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-24",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow",
+        skip_global_css=True
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <script type="application/ld+json">{% raw %}
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"What factors determine breast implant size?","acceptedAnswer":{"@type":"Answer","text":"Breast base width, chest wall dimensions, existing breast tissue, skin elasticity, body frame type, and aesthetic goals all influence appropriate sizing."}},{"@type":"Question","name":"How is breast implant size measured?","acceptedAnswer":{"@type":"Answer","text":"Breast implants are measured in cubic centimeters (cc). Approximately 130-200 cc equals one cup size increase, depending on chest width and existing breast tissue."}},{"@type":"Question","name":"What is the average breast implant size?","acceptedAnswer":{"@type":"Answer","text":"In the United States, the most common implant sizes range from 300cc to 400cc. Small-framed women typically choose 250-300cc, medium-framed 300-400cc, and larger-framed 400-500cc."}},{"@type":"Question","name":"How do I choose between implant profiles?","acceptedAnswer":{"@type":"Answer","text":"Implant profile refers to how far the implant projects from the chest wall relative to its base width. Low profile has the widest base with minimal projection, moderate is balanced, high has a narrower base with more forward projection, and ultra-high has the narrowest base with maximum projection."}},{"@type":"Question","name":"Will bigger implants look more natural?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Implants that match your natural breast dimensions and are proportionate to your frame give the most natural results. Many surgeons recommend staying within your natural breast dimensions."}}]
+    }
+    {% endraw %}</script>
+
+    <link rel="stylesheet" href="/static/css/v25-dark.css">
+    <style>:root { --accent: #ec4899; --accent-rgb: 236,72,153; }</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<!-- HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">What <span>size</span> implant fits you?</h1>
+        <p class="hero-sub">Based on your measurements and aesthetic goals</p>
+    </div>
+    <div class="form-card fade-in" style="transition-delay:0.15s;">
+
+        <div class="form-group"><label>Measurement Units</label>
+            <div class="unit-toggle">
+                <button type="button" class="unit-btn active" id="metric-btn" onclick="setUnit('metric')">Metric (kg/cm)</button>
+                <button type="button" class="unit-btn" id="imperial-btn" onclick="setUnit('imperial')">Imperial (lb/in)</button>
+            </div>
+        </div>
+        <div class="form-group"><label for="chest-measurement">Chest Measurement (under breast) <span class="unit-label" id="chest-unit-label">cm</span></label><input type="number" id="chest-measurement" step="0.1" placeholder="e.g. 76"></div>
+        <div class="form-group"><label for="bust-measurement">Current Bust Measurement <span class="unit-label" id="bust-unit-label">cm</span></label><input type="number" id="bust-measurement" step="0.1" placeholder="e.g. 86"></div>
+        <div class="form-row">
+            <div class="form-group"><label for="height">Height <span class="unit-label" id="height-unit-label">cm</span></label><input type="number" id="height" step="0.1" placeholder="e.g. 165"></div>
+            <div class="form-group"><label for="weight">Weight <span class="unit-label" id="weight-unit-label">kg</span></label><input type="number" id="weight" step="0.1" placeholder="e.g. 60"></div>
+        </div>
+        <div class="form-row">
+            <div class="form-group"><label for="frame-size">Frame Size</label><select id="frame-size"><option value="">Select</option><option value="small">Small</option><option value="medium">Medium</option><option value="large">Large</option></select></div>
+            <div class="form-group"><label for="desired-cup">Desired Cup Size Increase</label><select id="desired-cup"><option value="">Select</option><option value="1">1 Cup Size</option><option value="2">2 Cup Sizes</option><option value="3">3 Cup Sizes</option><option value="4">4 Cup Sizes</option></select></div>
+        </div>
+        <div class="form-group"><label for="implant-type">Preferred Implant Type</label><select id="implant-type"><option value="">Select</option><option value="round">Round</option><option value="anatomical">Anatomical (Teardrop)</option></select></div>
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate Recommended Size</button>
+    </div>
+</section>
+
+<!-- RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">--</div>
+        <div class="result-unit" id="resultUnit">recommended implant volume</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+        <div class="detail-grid" id="detailGrid">
+            <div class="detail-card"><div class="d-val" id="dCurrentCup">--</div><div class="d-lbl">Current Cup Size</div></div>
+            <div class="detail-card"><div class="d-val" id="dProfile">--</div><div class="d-lbl">Ideal Profile</div></div>
+            <div class="detail-card"><div class="d-val" id="dProjectedCup">--</div><div class="d-lbl">Projected Cup Size</div></div>
+            <div class="detail-card"><div class="d-val" id="dCost">--</div><div class="d-lbl">Estimated Cost Range</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Your implant recommendation</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</a>
+            <button class="share-btn copy" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+        </div>
+
+        <div class="coach-cta"><p class="coach-cta-text">Want more insights?</p><a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a></div>
+    </div>
+</section>
+
+<!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<!-- FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What factors determine breast implant size?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Several factors influence appropriate implant sizing: breast base width, chest wall dimensions, amount of existing breast tissue, skin elasticity, body frame type, and your aesthetic goals. Plastic surgeons measure these factors during consultation to recommend an appropriately sized implant range.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How is breast implant size measured?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Breast implants are measured in cubic centimeters (cc), not cup sizes. Approximately 130-200 cc of implant volume corresponds to one cup size increase, depending on chest width and existing breast tissue. A 300cc implant will look different on varying body types, and cup sizes are not standardized across brands.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What is the average breast implant size?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>In the United States, the most common implant sizes range from 300cc to 400cc. Small-framed women typically select 250-300cc, medium-framed women often choose 300-400cc, and larger-framed women may select 400-500cc. The ideal size varies based on individual body proportions and desired outcome.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How do I choose between implant profiles?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Implant profile refers to how far the implant projects from the chest wall relative to its base width. Low profile has the widest base with minimal projection. Moderate profile offers a balanced width-to-projection ratio. High profile has a narrower base with more forward projection. Ultra-high profile has the narrowest base with maximum projection. Your natural chest width, desired projection, and lifestyle should guide this decision.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Will bigger implants look more natural?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Not necessarily. Larger implants that exceed your natural breast dimensions may appear less natural and potentially cause complications over time. The most natural results typically come from implants that match your breast base width, are proportionate to your body frame, consider your tissue characteristics, and allow for adequate tissue coverage.</p></div></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Pfeiffer M, et al. What is the standard volume to increase a cup size for breast augmentation surgery? A novel three-dimensional computed tomographic approach. Plast Reconstr Surg. 2017;139(5):1084e-1089e. <a href="https://pubmed.ncbi.nlm.nih.gov/28445352/" target="_blank" rel="noopener">Link</a></li>
+            <li>Tebbetts JB, Adams WP. Five critical decisions in breast augmentation using five measurements in 5 minutes. Plast Reconstr Surg. 2005;116(7):2005-2016. <a href="https://pubmed.ncbi.nlm.nih.gov/16327615/" target="_blank" rel="noopener">Link</a></li>
+            <li>Adams WP Jr. The process of breast augmentation: four sequential steps for optimizing outcomes for patients. Plast Reconstr Surg. 2008;122(6):1892-1900. <a href="https://pubmed.ncbi.nlm.nih.gov/19050543/" target="_blank" rel="noopener">Link</a></li>
+            <li>Pusic AL, et al. Development of a new patient-reported outcome measure for breast surgery: the BREAST-Q. Plast Reconstr Surg. 2009;124(2):345-353. <a href="https://pubmed.ncbi.nlm.nih.gov/19644246/" target="_blank" rel="noopener">Link</a></li>
+            <li>U.S. Food and Drug Administration. Risks and Complications of Breast Implants. <a href="https://www.fda.gov/medical-devices/breast-implants/risks-and-complications-breast-implants" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>This calculator estimates implant volume using a per-cup-size increment of approximately 175 cc (range 140-210 cc), adjusted for body frame size. The base conversion is informed by 3D CT volumetric data from Pfeiffer et al. (2017), which measured actual breast volume changes per cup size across diverse body types. Current cup size is derived from the bust-to-underbust difference in centimeters (2.5 cm increments per cup), and frame size modifies the recommended volume range by +/-15%. Profile recommendations (low, moderate, high, ultra-high) follow the Tebbetts-Adams dimensional planning system, where narrower chest widths indicate higher-profile implants to achieve the desired projection within anatomical constraints.</p><p>These estimates are approximations based on population-level data. Individual factors such as skin elasticity, breast tissue density, chest wall shape, and implant placement (subglandular vs. submuscular) significantly affect outcomes. Final sizing should be determined with a board-certified plastic surgeon using dimensional planning and trial sizers.</p></div>
+    </div>
+</div>
+
+<!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>Breast implant sizing uses ~175cc per cup size increase, adjusted for body frame. Small frames need ~15% less volume. Profile selection (low to ultra-high) depends on chest width relative to desired projection. Most common sizes: 300-400cc. Cost ranges $4,000-$8,000 in the US.</p></div></div>
+</div>
+
+<!-- Ask Pulse -->
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap"><input type="text" id="askInput" placeholder="e.g. What profile looks most natural?"><button id="askBtn">Ask</button></div>
+        <div class="ask-pills"><span class="ask-pill">Profile differences</span><span class="ask-pill">CC to cup size</span><span class="ask-pill">Natural look tips</span><span class="ask-pill">Recovery timeline</span></div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script src="/static/js/v25-shared.js" defer></script>
+<script>
+
+// Current unit system
+var isMetric = true;
+
+function setUnit(unit) {
+    if (unit === 'metric' && !isMetric) {
+        isMetric = true;
+        document.getElementById('metric-btn').classList.add('active');
+        document.getElementById('imperial-btn').classList.remove('active');
+        updateUnitLabels();
+    } else if (unit === 'imperial' && isMetric) {
+        isMetric = false;
+        document.getElementById('imperial-btn').classList.add('active');
+        document.getElementById('metric-btn').classList.remove('active');
+        updateUnitLabels();
+    }
+}
+
+function updateUnitLabels() {
+    if (isMetric) {
+        document.getElementById('chest-unit-label').textContent = 'cm';
+        document.getElementById('bust-unit-label').textContent = 'cm';
+        document.getElementById('height-unit-label').textContent = 'cm';
+        document.getElementById('weight-unit-label').textContent = 'kg';
+    } else {
+        document.getElementById('chest-unit-label').textContent = 'in';
+        document.getElementById('bust-unit-label').textContent = 'in';
+        document.getElementById('height-unit-label').textContent = 'in';
+        document.getElementById('weight-unit-label').textContent = 'lbs';
+    }
+}
+
+function calculate() {
+    // Get input values
+    var chestMeasurement = parseFloat(document.getElementById('chest-measurement').value);
+    var bustMeasurement = parseFloat(document.getElementById('bust-measurement').value);
+    var height = parseFloat(document.getElementById('height').value);
+    var weight = parseFloat(document.getElementById('weight').value);
+    var frameSize = document.getElementById('frame-size').value;
+    var desiredCup = parseInt(document.getElementById('desired-cup').value);
+    var implantType = document.getElementById('implant-type').value;
+
+    // Validate inputs
+    if (!chestMeasurement || !bustMeasurement || !height || !weight || !frameSize || isNaN(desiredCup) || !implantType) {
+        alert('Please fill in all fields to calculate.');
+        return;
+    }
+
+    // Convert imperial to metric if needed
+    var chestMetric = chestMeasurement;
+    var bustMetric = bustMeasurement;
+    var heightMetric = height;
+    var weightMetric = weight;
+
+    if (!isMetric) {
+        chestMetric = chestMeasurement * 2.54;
+        bustMetric = bustMeasurement * 2.54;
+        heightMetric = height * 2.54;
+        weightMetric = weight * 0.453592;
+    }
+
+    // Calculate current cup size (simplified)
+    var difference = bustMetric - chestMetric;
+    var currentCupSize = 'AA';
+
+    if (difference < 2.5) {
+        currentCupSize = 'AA';
+    } else if (difference < 5) {
+        currentCupSize = 'A';
+    } else if (difference < 7.5) {
+        currentCupSize = 'B';
+    } else if (difference < 10) {
+        currentCupSize = 'C';
+    } else if (difference < 12.5) {
+        currentCupSize = 'D';
+    } else if (difference < 15) {
+        currentCupSize = 'DD/E';
+    } else if (difference < 17.5) {
+        currentCupSize = 'F';
+    } else {
+        currentCupSize = 'G+';
+    }
+
+    // Estimate current breast volume (simplified)
+    var currentVolume = Math.round((difference * chestMetric * 0.9) / 2) * 10;
+
+    // Calculate implant size range based on desired cup increase
+    var ccPerCup = 175;
+    var minImplantSize = Math.max(175, Math.round((ccPerCup * desiredCup * 0.8) / 25) * 25);
+    var maxImplantSize = Math.round((ccPerCup * desiredCup * 1.2) / 25) * 25;
+
+    // Adjust for frame size
+    var frameFactor = 1.0;
+    if (frameSize === 'small') {
+        frameFactor = 0.85;
+    } else if (frameSize === 'large') {
+        frameFactor = 1.15;
+    }
+
+    var adjustedMinSize = Math.round(minImplantSize * frameFactor / 25) * 25;
+    var adjustedMaxSize = Math.round(maxImplantSize * frameFactor / 25) * 25;
+
+    // Determine ideal profile
+    var idealProfile = 'Moderate';
+    if (frameSize === 'small' && desiredCup >= 3) {
+        idealProfile = 'High';
+    } else if (frameSize === 'large' && desiredCup <= 2) {
+        idealProfile = 'Low to Moderate';
+    } else if (desiredCup >= 4) {
+        idealProfile = 'High';
+    }
+
+    // Calculate projected cup size
+    var cupSizes = ['A', 'B', 'C', 'D', 'DD/E', 'F', 'G', 'H', 'I'];
+    var currentCupIndex = cupSizes.indexOf(currentCupSize);
+    if (currentCupIndex === -1) currentCupIndex = 0;
+
+    var projectedCupIndex = Math.min(currentCupIndex + desiredCup, cupSizes.length - 1);
+    var projectedCupSize = cupSizes[projectedCupIndex];
+
+    // Calculate projected breast volume
+    var projectedVolume = currentVolume + ((adjustedMinSize + adjustedMaxSize) / 2);
+
+    // Estimate cost range
+    var costMin = 4000;
+    var costMax = 8000;
+
+    // Display results
+    var rangeText = adjustedMinSize + '-' + adjustedMaxSize + 'cc';
+    document.getElementById('resultNumber').textContent = rangeText;
+    document.getElementById('dCurrentCup').textContent = currentCupSize;
+    document.getElementById('dProfile').textContent = idealProfile;
+    document.getElementById('dProjectedCup').textContent = projectedCupSize;
+    document.getElementById('dCost').textContent = '$' + costMin.toLocaleString() + '-$' + costMax.toLocaleString();
+
+    // Coach narrative
+    var typeLabel = implantType === 'round' ? 'round' : 'anatomical (teardrop)';
+    document.getElementById('coachCard').innerHTML = '<div class="coach-text">Your current estimated cup size is <span class="hl">' + currentCupSize + '</span> (approx. ' + currentVolume + 'cc).<br><br>For a ' + desiredCup + '-cup increase on a ' + frameSize + ' frame, we recommend <span class="hl">' + rangeText + '</span> of ' + typeLabel + ' implant volume with a <span class="hl">' + idealProfile + '</span> profile.<br><br>Projected result: <span class="hl">' + projectedCupSize + ' cup</span> (approx. ' + Math.round(projectedVolume) + 'cc total volume).<div class="coach-rule">Estimated cost: $' + costMin.toLocaleString() + ' - $' + costMax.toLocaleString() + '</div><div class="coach-advice"><em>Note:</em> These are estimates based on population-level data. Final sizing should be determined with a board-certified plastic surgeon using dimensional planning and trial sizers.</div></div>';
+
+    v25Share('My implant estimate: ' + rangeText + ' (' + idealProfile + ' profile) for a ' + desiredCup + '-cup increase\nProjected: ' + projectedCupSize + ' cup\n\nCalculate yours: healthcalculators.xyz/breast-implant-size-calculator');
+    v25Reveal();
+    if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Breast Implant Size Calculator', page_path: '/breast-implant-size-calculator'});
+}
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
+</script>
+</body>
+</html>

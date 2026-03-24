@@ -179,7 +179,7 @@ register("breastfeeding_calorie", BREASTFEEDING_CALORIE)
 
 CALORIC_MACRO = {
     "route": "/caloric-intake-macronutrient-calculator",
-    "override_template": "caloric_macronutrient_calculator.html",
+    "override_template": "overrides/caloric_macro_v25.html",
 
     "seo": {
         "page_title": "Macro Calculator — Free Calorie & Macronutrient Tool",

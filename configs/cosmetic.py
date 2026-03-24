@@ -337,7 +337,7 @@ register("breast_implant", BREAST_IMPLANT)
 
 BREAST_IMPLANT_COST = {
     "route": "/breast-implant-cost-calculator",
-    "override_template": "breast_implant_cost_calculator.html",
+    "override_template": "overrides/breast_implant_cost_v25.html",
 
     "seo": {
         "page_title": "Breast Implant Cost Calculator — Price by Region",
@@ -405,7 +405,7 @@ register("breast_implant_cost", BREAST_IMPLANT_COST)
 
 BREAST_IMPLANT_SIZE = {
     "route": "/breast-implant-size-calculator",
-    "override_template": "breast_implant_size_calculator.html",
+    "override_template": "overrides/breast_implant_size_v25.html",
 
     "seo": {
         "page_title": "Breast Implant Size Calculator — Volume & Profile Guide",

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% with
+        page_title="Macro Calculator — Free Calorie & Macronutrient Tool",
+        meta_description="Calculate daily calorie needs and macro breakdown using the Mifflin-St Jeor equation. Personalized protein, carb, and fat targets.",
+        og_title="Caloric Intake & Macronutrient Calculator",
+        og_description="Calculate your daily caloric needs and macronutrient breakdown.",
+        og_url="/caloric-intake-macronutrient-calculator",
+        canonical_url="/caloric-intake-macronutrient-calculator",
+        schema_type="WebPage",
+        schema_name="Caloric Intake & Macronutrient Calculator",
+        schema_description="Calculate daily calorie needs and macro breakdown using the Mifflin-St Jeor equation.",
+        schema_url="/caloric-intake-macronutrient-calculator",
+        schema_about="Caloric Intake & Macronutrient Calculator",
+        date_published="2025-06-01",
+        date_modified="2026-03-24",
+        og_image="default-calculator-og.jpg",
+        robots_meta="index, follow",
+        skip_global_css=True
+    %}
+    {% include 'head_seo.html' %}
+    {% endwith %}
+
+    <script type="application/ld+json">{% raw %}
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{"@type":"Question","name":"How accurate is this calorie and macro calculator?","acceptedAnswer":{"@type":"Answer","text":"This calculator uses the Mifflin-St Jeor equation, which predicts BMR within 10% for 82% of individuals according to the American Dietetic Association. It is the most validated equation for estimating resting metabolic rate."}},{"@type":"Question","name":"What are macronutrients and why do they matter?","acceptedAnswer":{"@type":"Answer","text":"Macronutrients are the three main nutrients your body needs in large amounts: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Each serves distinct functions — protein builds and repairs tissue, carbs fuel activity, and fats support hormones and cell function."}},{"@type":"Question","name":"Should I adjust my macros on rest days?","acceptedAnswer":{"@type":"Answer","text":"Some people benefit from reducing carbs 10-20% on rest days while keeping protein consistent. For most recreational exercisers, keeping macros consistent daily is simpler and equally effective."}},{"@type":"Question","name":"How often should I recalculate my calorie and macro needs?","acceptedAnswer":{"@type":"Answer","text":"Recalculate after any 5+ pound weight change, a significant change in activity level, or every 4-6 weeks during active dieting phases."}},{"@type":"Question","name":"What is the best macro split for weight loss?","acceptedAnswer":{"@type":"Answer","text":"Higher protein (25-35% of calories, or 1.6-2.2 g/kg body weight) helps preserve muscle during a deficit. A 30% protein / 40% carbs / 30% fat split works well for most people losing weight."}},{"@type":"Question","name":"How much protein do I need per day?","acceptedAnswer":{"@type":"Answer","text":"The ISSN recommends 1.4-2.0 g/kg for active individuals. During a calorie deficit, aim for 1.6-2.2 g/kg to preserve lean muscle mass."}}]
+    }
+    {% endraw %}</script>
+
+    <link rel="stylesheet" href="/static/css/v25-dark.css">
+    <style>:root { --accent: #38bdf8; --accent-rgb: 56,189,248; }</style>
+</head>
+<body>
+{% include 'header.html' %}
+
+<!-- HERO -->
+<section class="section bg-1" id="hero-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h1 class="hero-title">What should you <span>eat</span>?</h1>
+        <p class="hero-sub">Science-based calorie and macro targets for your goal</p>
+    </div>
+    <div class="form-card fade-in" style="transition-delay:0.15s;">
+
+        <!-- Unit Toggle -->
+        <div class="form-group"><label>Units</label>
+            <div class="toggle-row">
+                <button type="button" class="toggle-btn active" id="metric-btn" onclick="toggleUnits('metric')">Metric</button>
+                <button type="button" class="toggle-btn" id="imperial-btn" onclick="toggleUnits('imperial')">Imperial</button>
+            </div>
+        </div>
+
+        <!-- Sex -->
+        <div class="form-group"><label for="gender">Sex</label>
+            <select id="gender"><option value="male">Male</option><option value="female">Female</option></select>
+        </div>
+
+        <!-- Age -->
+        <div class="form-group"><label for="age">Age</label>
+            <input type="number" id="age" min="18" max="100" value="30" placeholder="30">
+        </div>
+
+        <!-- Weight: Metric -->
+        <div class="form-group" id="metric-weight"><label for="weight-kg">Weight (kg)</label>
+            <input type="number" id="weight-kg" min="40" max="200" value="70" placeholder="70">
+        </div>
+        <!-- Weight: Imperial -->
+        <div class="form-group" id="imperial-weight" style="display:none;"><label for="weight-lbs">Weight (lbs)</label>
+            <input type="number" id="weight-lbs" min="90" max="440" value="154" placeholder="154">
+        </div>
+
+        <!-- Height: Metric -->
+        <div class="form-group" id="metric-height"><label for="height-cm">Height (cm)</label>
+            <input type="number" id="height-cm" min="140" max="220" value="170" placeholder="170">
+        </div>
+        <!-- Height: Imperial -->
+        <div class="form-row" id="imperial-height" style="display:none;">
+            <div class="form-group"><label for="height-ft">Height (ft)</label>
+                <input type="number" id="height-ft" min="4" max="7" value="5" placeholder="5">
+            </div>
+            <div class="form-group"><label for="height-in">Height (in)</label>
+                <input type="number" id="height-in" min="0" max="11" value="7" placeholder="7">
+            </div>
+        </div>
+
+        <!-- Activity Level -->
+        <div class="form-group"><label for="activity">Activity Level</label>
+            <select id="activity">
+                <option value="1.2">Sedentary (desk job, little exercise)</option>
+                <option value="1.375">Lightly active (light exercise 1-3 days/week)</option>
+                <option value="1.55" selected>Moderately active (exercise 3-5 days/week)</option>
+                <option value="1.725">Very active (hard exercise 6-7 days/week)</option>
+                <option value="1.9">Extra active (physical job + training)</option>
+            </select>
+        </div>
+
+        <!-- Goal -->
+        <div class="form-group"><label for="goal">Goal</label>
+            <select id="goal">
+                <option value="-500">Weight loss — aggressive (-500 cal)</option>
+                <option value="-250">Weight loss — moderate (-250 cal)</option>
+                <option value="0" selected>Maintenance</option>
+                <option value="250">Muscle gain — moderate (+250 cal)</option>
+                <option value="500">Muscle gain — aggressive (+500 cal)</option>
+            </select>
+        </div>
+
+        <!-- Diet Preference -->
+        <div class="form-group"><label for="diet-type">Diet Preference</label>
+            <select id="diet-type">
+                <option value="balanced" selected>Balanced</option>
+                <option value="low-carb">Low Carb</option>
+                <option value="high-carb">High Carb</option>
+                <option value="keto">Keto</option>
+            </select>
+        </div>
+
+        <button class="calc-btn" id="calcBtn" onclick="calculate()">Calculate</button>
+    </div>
+</section>
+
+<!-- RESULT -->
+<section class="section bg-2 hidden-section" id="result-section">
+    <div class="fade-in">
+        <div style="text-align:center; margin-bottom:0.8rem;"><span class="pulse-dot"></span></div>
+        <div class="result-number" id="resultNumber">--</div>
+        <div class="result-unit">calories per day</div>
+        <div class="result-verdict" id="resultVerdict"></div>
+        <div class="detail-grid" id="detailGrid">
+            <div class="detail-card" style="border-color:var(--accent);"><div class="d-val" id="proteinGrams">--</div><div class="d-lbl">Protein</div><div class="d-sub" id="proteinPercent">--</div></div>
+            <div class="detail-card"><div class="d-val" id="carbsGrams">--</div><div class="d-lbl">Carbs</div><div class="d-sub" id="carbsPercent">--</div></div>
+            <div class="detail-card"><div class="d-val" id="fatGrams">--</div><div class="d-lbl">Fat</div><div class="d-sub" id="fatPercent">--</div></div>
+        </div>
+    </div>
+</section>
+
+<!-- COACH -->
+<section class="section bg-3 hidden-section" id="coach-section">
+    <div class="coach-container fade-in">
+        <h2 class="coach-title">Your nutrition breakdown</h2>
+        <div class="coach-card" id="coachCard"></div>
+
+        <div class="share-row" id="shareRow" style="display:none;">
+            <a class="share-btn whatsapp" id="shareWhatsApp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp</a>
+            <a class="share-btn twitter" id="shareTwitter" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Share on X</a>
+            <button class="share-btn copy" id="copyBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+        </div>
+
+        <div class="coach-cta"><p class="coach-cta-text">Want more insights?</p><a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a></div>
+    </div>
+</section>
+
+<!-- Medical Disclaimer -->
+<div class="seo-section bg-5"><div class="seo-inner">{% include 'components/medical-disclaimer.html' %}</div></div>
+
+<!-- FAQ -->
+<div class="seo-section bg-1" id="faq-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Frequently Asked Questions</h2>
+        <ul class="faq-list">
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How accurate is this calorie and macro calculator?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>This calculator uses the Mifflin-St Jeor equation, which predicts BMR within 10% for 82% of individuals according to the American Dietetic Association. It is the most validated equation for estimating resting metabolic rate.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What are macronutrients and why do they matter?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Macronutrients are the three main nutrients your body needs in large amounts: protein (4 cal/g), carbohydrates (4 cal/g), and fat (9 cal/g). Each serves distinct functions -- protein builds and repairs tissue, carbs fuel activity, and fats support hormones and cell function.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">Should I adjust my macros on rest days?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Some people benefit from reducing carbs 10-20% on rest days while keeping protein consistent. For most recreational exercisers, keeping macros consistent daily is simpler and equally effective.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How often should I recalculate my calorie and macro needs?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Recalculate after any 5+ pound weight change, a significant change in activity level, or every 4-6 weeks during active dieting phases.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">What is the best macro split for weight loss?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>Higher protein (25-35% of calories, or 1.6-2.2 g/kg body weight) helps preserve muscle during a deficit. A 30% protein / 40% carbs / 30% fat split works well for most people losing weight.</p></div></li>
+            <li class="faq-item faq-open"><button class="faq-question" aria-expanded="true">How much protein do I need per day?<svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></button><div class="faq-answer"><p>The ISSN recommends 1.4-2.0 g/kg for active individuals. During a calorie deficit, aim for 1.6-2.2 g/kg to preserve lean muscle mass.</p></div></li>
+        </ul>
+    </div>
+</div>
+
+<!-- Sources -->
+<div class="seo-section bg-5" id="sources-section">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Sources</h2>
+        <ol class="sources-list">
+            <li>Mifflin MD, St Jeor ST, et al. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241-247. <a href="https://pubmed.ncbi.nlm.nih.gov/2305711/" target="_blank" rel="noopener">Link</a></li>
+            <li>J&auml;ger R, et al. International Society of Sports Nutrition Position Stand: Protein and Exercise. J Int Soc Sports Nutr. 2017;14:20. <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" target="_blank" rel="noopener">Link</a></li>
+            <li>Dietary Guidelines for Americans 2020-2025. U.S. Department of Agriculture. <a href="https://www.dietaryguidelines.gov/" target="_blank" rel="noopener">Link</a></li>
+            <li>Thomas DT, et al. Position of the Academy of Nutrition and Dietetics: Nutrition and Athletic Performance. J Acad Nutr Diet. 2016;116(3):501-528. <a href="https://pubmed.ncbi.nlm.nih.gov/26920240/" target="_blank" rel="noopener">Link</a></li>
+        </ol>
+    </div>
+</div>
+
+<!-- Methodology -->
+<div class="seo-section bg-1">
+    <div class="seo-inner">
+        <h2 class="seo-heading">Methodology</h2>
+        <div class="methodology-text"><p>Uses the Mifflin-St Jeor equation (1990). Males: BMR = (10 &times; weight kg) + (6.25 &times; height cm) - (5 &times; age) + 5. Females: same formula minus 161 instead of plus 5. TDEE = BMR &times; activity factor (1.2-1.9). Goal adjustments range from -500 to +500 kcal/day. Macronutrient distribution follows ISSN and Academy of Nutrition and Dietetics guidelines.</p></div>
+    </div>
+</div>
+
+<!-- LLM Capsule -->
+<div class="seo-section bg-5" data-nosnippet>
+    <div class="seo-inner"><div class="llm-capsule"><p>The Mifflin-St Jeor equation estimates BMR: Males = (10&times;weight kg) + (6.25&times;height cm) - (5&times;age) + 5. TDEE = BMR &times; activity factor (1.2-1.9). Macro splits: Balanced 30/40/30 P/C/F, Low-Carb 30/25/45, High-Carb 25/55/20, Keto 20/5/75. Protein and carbs provide 4 cal/g, fat provides 9 cal/g.</p></div></div>
+</div>
+
+<!-- Ask Pulse -->
+<section class="section bg-6" id="ask-section">
+    <div class="fade-in" style="display:flex;flex-direction:column;align-items:center;">
+        <div style="margin-bottom:1.2rem;"><span class="pulse-dot"></span></div>
+        <h2 class="ask-title">What else do you want to know?</h2>
+        <p class="ask-sub">Ask Pulse anything.</p>
+        <div class="ask-input-wrap"><input type="text" id="askInput" placeholder="e.g. Should I adjust macros on rest days?"><button id="askBtn">Ask</button></div>
+        <div class="ask-pills"><span class="ask-pill">Best split for weight loss</span><span class="ask-pill">How much protein</span><span class="ask-pill">Keto vs balanced</span><span class="ask-pill">Meal timing</span></div>
+        <div id="askThanks" style="display:none; margin-top:1.5rem; color:var(--accent); font-weight:500;">Got it. Pulse is on it.</div>
+    </div>
+</section>
+
+{% include 'footer.html' %}
+
+<script src="/static/js/v25-shared.js" defer></script>
+<script>
+
+function toggleUnits(unitSystem) {
+    var metricBtn = document.getElementById('metric-btn');
+    var imperialBtn = document.getElementById('imperial-btn');
+
+    if (unitSystem === 'metric') {
+        metricBtn.classList.add('active');
+        imperialBtn.classList.remove('active');
+        document.getElementById('metric-weight').style.display = '';
+        document.getElementById('imperial-weight').style.display = 'none';
+        document.getElementById('metric-height').style.display = '';
+        document.getElementById('imperial-height').style.display = 'none';
+    } else {
+        metricBtn.classList.remove('active');
+        imperialBtn.classList.add('active');
+        document.getElementById('metric-weight').style.display = 'none';
+        document.getElementById('imperial-weight').style.display = '';
+        document.getElementById('metric-height').style.display = 'none';
+        document.getElementById('imperial-height').style.display = '';
+    }
+}
+
+function calculate() {
+    var gender = document.getElementById('gender').value;
+    var age = parseFloat(document.getElementById('age').value);
+    var activity = parseFloat(document.getElementById('activity').value);
+    var goal = parseFloat(document.getElementById('goal').value);
+    var dietType = document.getElementById('diet-type').value;
+
+    if (isNaN(age) || age < 18 || age > 100) {
+        alert('Please enter a valid age between 18 and 100');
+        return;
+    }
+
+    var weight, height;
+    if (document.getElementById('metric-btn').classList.contains('active')) {
+        weight = parseFloat(document.getElementById('weight-kg').value);
+        height = parseFloat(document.getElementById('height-cm').value);
+
+        if (isNaN(weight) || weight < 40 || weight > 200) {
+            alert('Please enter a valid weight between 40 and 200 kg');
+            return;
+        }
+        if (isNaN(height) || height < 140 || height > 220) {
+            alert('Please enter a valid height between 140 and 220 cm');
+            return;
+        }
+    } else {
+        var weightLbs = parseFloat(document.getElementById('weight-lbs').value);
+        var feet = parseFloat(document.getElementById('height-ft').value);
+        var inches = parseFloat(document.getElementById('height-in').value);
+
+        if (isNaN(weightLbs) || weightLbs < 90 || weightLbs > 440) {
+            alert('Please enter a valid weight between 90 and 440 lbs');
+            return;
+        }
+        if (isNaN(feet) || feet < 4 || feet > 7) {
+            alert('Please enter a valid height (feet) between 4 and 7');
+            return;
+        }
+        if (isNaN(inches) || inches < 0 || inches > 11) {
+            alert('Please enter a valid height (inches) between 0 and 11');
+            return;
+        }
+
+        weight = weightLbs / 2.20462;
+        height = (feet * 12 + inches) * 2.54;
+    }
+
+    // Mifflin-St Jeor BMR
+    var bmr;
+    if (gender === 'male') {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) + 5;
+    } else {
+        bmr = (10 * weight) + (6.25 * height) - (5 * age) - 161;
+    }
+
+    var tdee = bmr * activity;
+    var calories = Math.round(tdee + goal);
+
+    // Macro ratios by diet type
+    var proteinRatio, carbRatio, fatRatio;
+    switch (dietType) {
+        case 'low-carb':
+            proteinRatio = 0.30; carbRatio = 0.25; fatRatio = 0.45; break;
+        case 'high-carb':
+            proteinRatio = 0.25; carbRatio = 0.55; fatRatio = 0.20; break;
+        case 'keto':
+            proteinRatio = 0.20; carbRatio = 0.05; fatRatio = 0.75; break;
+        default:
+            proteinRatio = 0.30; carbRatio = 0.40; fatRatio = 0.30;
+    }
+
+    var proteinGrams = Math.round((calories * proteinRatio) / 4);
+    var carbGrams = Math.round((calories * carbRatio) / 4);
+    var fatGrams = Math.round((calories * fatRatio) / 9);
+
+    var proteinCalories = proteinGrams * 4;
+    var carbCalories = carbGrams * 4;
+    var fatCalories = fatGrams * 9;
+
+    var proteinPercent = Math.round((proteinCalories / calories) * 100);
+    var carbPercent = Math.round((carbCalories / calories) * 100);
+    var fatPercent = Math.round((fatCalories / calories) * 100);
+
+    // Update DOM
+    document.getElementById('resultNumber').textContent = calories.toLocaleString();
+    document.getElementById('proteinGrams').textContent = proteinGrams + 'g';
+    document.getElementById('carbsGrams').textContent = carbGrams + 'g';
+    document.getElementById('fatGrams').textContent = fatGrams + 'g';
+    document.getElementById('proteinPercent').textContent = proteinPercent + '% of calories';
+    document.getElementById('carbsPercent').textContent = carbPercent + '% of calories';
+    document.getElementById('fatPercent').textContent = fatPercent + '% of calories';
+
+    // Goal-based verdict
+    var goalVal = parseFloat(goal);
+    var verdict = '';
+    if (goalVal < 0) {
+        verdict = 'A ' + Math.abs(goalVal) + '-calorie deficit for steady, sustainable weight loss.';
+    } else if (goalVal > 0) {
+        verdict = 'A ' + goalVal + '-calorie surplus to support muscle growth.';
+    } else {
+        verdict = 'Maintenance calories to sustain your current weight and activity.';
+    }
+    document.getElementById('resultVerdict').textContent = verdict;
+
+    // Coach narrative
+    var bmrRound = Math.round(bmr);
+    var tdeeRound = Math.round(tdee);
+    var dietLabel = dietType === 'low-carb' ? 'Low Carb' : dietType === 'high-carb' ? 'High Carb' : dietType === 'keto' ? 'Keto' : 'Balanced';
+
+    var coachHTML = '<div class="coach-text">';
+    coachHTML += '<p>Your estimated BMR is <span class="hl">' + bmrRound.toLocaleString() + ' cal</span>, and with your activity level, your TDEE is <span class="hl">' + tdeeRound.toLocaleString() + ' cal</span>.';
+    if (goalVal !== 0) {
+        coachHTML += ' After a ' + (goalVal > 0 ? '+' : '') + goalVal + ' cal adjustment, your daily target is <span class="hl">' + calories.toLocaleString() + ' cal</span>.';
+    }
+    coachHTML += '</p>';
+    coachHTML += '<p>Using the <strong>' + dietLabel + '</strong> split, your macros break down to:</p>';
+    coachHTML += '<ul style="margin:0.8rem 0;padding-left:1.2rem;">';
+    coachHTML += '<li><strong>Protein:</strong> ' + proteinGrams + 'g (' + proteinPercent + '%) — ' + proteinCalories + ' cal</li>';
+    coachHTML += '<li><strong>Carbs:</strong> ' + carbGrams + 'g (' + carbPercent + '%) — ' + carbCalories + ' cal</li>';
+    coachHTML += '<li><strong>Fat:</strong> ' + fatGrams + 'g (' + fatPercent + '%) — ' + fatCalories + ' cal</li>';
+    coachHTML += '</ul>';
+    coachHTML += '</div>';
+
+    // Macro split comparison table
+    coachHTML += '<div class="coach-rule">Macro split comparison</div>';
+    coachHTML += '<table style="width:100%;border-collapse:collapse;margin:0.8rem 0;font-size:0.92rem;">';
+    coachHTML += '<thead><tr style="border-bottom:1px solid rgba(255,255,255,0.15);text-align:left;"><th style="padding:0.5rem 0.4rem;">Diet</th><th style="padding:0.5rem 0.4rem;">P / C / F</th><th style="padding:0.5rem 0.4rem;">Best For</th></tr></thead>';
+    coachHTML += '<tbody>';
+    coachHTML += '<tr' + (dietType==='balanced'?' style="color:var(--accent);"':'') + '><td style="padding:0.4rem;">Balanced</td><td style="padding:0.4rem;">30 / 40 / 30</td><td style="padding:0.4rem;">General fitness</td></tr>';
+    coachHTML += '<tr' + (dietType==='low-carb'?' style="color:var(--accent);"':'') + '><td style="padding:0.4rem;">Low Carb</td><td style="padding:0.4rem;">30 / 25 / 45</td><td style="padding:0.4rem;">Fat loss, insulin sensitivity</td></tr>';
+    coachHTML += '<tr' + (dietType==='high-carb'?' style="color:var(--accent);"':'') + '><td style="padding:0.4rem;">High Carb</td><td style="padding:0.4rem;">25 / 55 / 20</td><td style="padding:0.4rem;">Endurance athletes</td></tr>';
+    coachHTML += '<tr' + (dietType==='keto'?' style="color:var(--accent);"':'') + '><td style="padding:0.4rem;">Keto</td><td style="padding:0.4rem;">20 / 5 / 75</td><td style="padding:0.4rem;">Ketosis, appetite control</td></tr>';
+    coachHTML += '</tbody></table>';
+
+    document.getElementById('coachCard').innerHTML = coachHTML;
+
+    // Share
+    v25Share('My daily target: ' + calories.toLocaleString() + ' cal (' + dietLabel + ': ' + proteinGrams + 'g protein, ' + carbGrams + 'g carbs, ' + fatGrams + 'g fat)\n\nCalculate yours: healthcalculators.xyz/caloric-intake-macronutrient-calculator');
+    v25Reveal();
+    if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Caloric Intake & Macronutrient Calculator', page_path: '/caloric-intake-macronutrient-calculator'});
+}
+
+// Share buttons
+function updateShareButtons(shareText) {
+    window._shareText = shareText;
+    var row = document.getElementById('shareRow');
+    if (row) row.style.display = 'flex';
+    var wa = document.getElementById('shareWhatsApp');
+    if (wa) wa.href = 'https://wa.me/?text=' + encodeURIComponent(shareText);
+    var tw = document.getElementById('shareTwitter');
+    if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(shareText);
+    var tg = document.getElementById('shareTelegram');
+    if (tg) tg.href = 'https://t.me/share/url?url=' + encodeURIComponent('https://healthcalculators.xyz') + '&text=' + encodeURIComponent(shareText);
+}
+
+// Copy button
+var copyBtn = document.getElementById('copyBtn');
+if (copyBtn) {
+    copyBtn.addEventListener('click', function() {
+        if (!window._shareText) return;
+        navigator.clipboard.writeText(window._shareText).then(function() {
+            copyBtn.textContent = 'Copied!';
+            setTimeout(function() { copyBtn.textContent = 'Copy'; }, 2000);
+        }).catch(function() {});
+    });
+}
+
+// Enter key support
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('#hero-section input, #hero-section select').forEach(function(el) {
+        el.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') calculate();
+        });
+    });
+});
+
+</script>
+</body>
+</html>
