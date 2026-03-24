@@ -70,10 +70,12 @@ function v25Share(text, url) {
     if (tw) tw.href = 'https://x.com/intent/tweet?text=' + encodeURIComponent(text);
 }
 
-// Helper to show hidden sections and re-observe
+// Helper to show hidden sections, re-observe, and scroll to results
 function v25Reveal() {
     document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
     setTimeout(function() {
         document.querySelectorAll('.fade-in').forEach(function(el) { v25Observer.observe(el); });
+        var resultSection = document.getElementById('result-section');
+        if (resultSection) resultSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }, 100);
 }

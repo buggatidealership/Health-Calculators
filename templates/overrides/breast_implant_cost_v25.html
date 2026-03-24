@@ -534,9 +534,9 @@ function calculate() {
 
     // Detail cards
     var locationLabel = cityTierMapping[cityTier] ? (cityTierMapping[cityTier][country] || cityTier) : cityTier;
-    document.getElementById('dOptions').innerHTML = country + '<br>' + implantType + '<br>' + implantSize + '<br>' + surgeonTier;
-    document.getElementById('dIncluded').innerHTML = "Surgeon's Fee<br>Implant Cost<br>Operating Room<br>Pre-Op Consult<br>Basic Follow-Up";
-    document.getElementById('dAdditional').innerHTML = "Anesthesia +10-15%<br>Medical tests<br>Post-op garments<br>Medications";
+    document.getElementById('dOptions').textContent = country + ' · ' + surgeonTier;
+    document.getElementById('dIncluded').textContent = 'Surgeon + Implants + Facility';
+    document.getElementById('dAdditional').textContent = '+10-15% for anesthesia';
 
     // Coach narrative
     var typeDesc = implantTypeData[implantType] ? implantTypeData[implantType].description : '';

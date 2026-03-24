@@ -31,7 +31,12 @@
     {% endraw %}</script>
 
     <link rel="stylesheet" href="/static/css/v25-dark.css">
-    <style>:root { --accent: #ec4899; --accent-rgb: 236,72,153; }</style>
+    <style>:root { --accent: #ec4899; --accent-rgb: 236,72,153; }
+.unit-btn{background:transparent;border:1px solid rgba(255,255,255,.12);color:var(--t2);padding:.55rem 1.2rem;border-radius:8px;cursor:pointer;font-size:.95rem;font-weight:500;transition:all .2s}
+.unit-btn.active{background:var(--accent);color:#0a0a0a;border-color:var(--accent)}
+.unit-toggle{display:flex;gap:8px}
+.unit-label{opacity:.5;font-size:.85rem}
+.d-val{font-size:clamp(1rem,3vw,1.4rem) !important;word-break:break-word}</style>
 </head>
 <body>
 {% include 'header.html' %}
@@ -291,7 +296,7 @@ function calculate() {
     document.getElementById('dCurrentCup').textContent = currentCupSize;
     document.getElementById('dProfile').textContent = idealProfile;
     document.getElementById('dProjectedCup').textContent = projectedCupSize;
-    document.getElementById('dCost').textContent = '$' + costMin.toLocaleString() + '-$' + costMax.toLocaleString();
+    document.getElementById('dCost').textContent = '$' + (costMin/1000) + 'K-$' + (costMax/1000) + 'K';
 
     // Coach narrative
     var typeLabel = implantType === 'round' ? 'round' : 'anatomical (teardrop)';
