@@ -1213,6 +1213,7 @@ PEPTIDE_RECONSTITUTION = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Peptide Reconstitution Calculator \u2014 Mixing & Dosing",
         "meta_description": "Calculate exactly how many units to inject from your reconstituted peptide vial. Enter peptide amount, water volume, and desired dose to get precise syringe measurements.",
         "og_title": "Peptide Reconstitution Calculator \u2014 Mixing & Dosing Guide",

@@ -792,6 +792,7 @@ HCG_CALCULATOR = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "hCG Doubling Time Calculator — Are Your Levels Normal?",
         "meta_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
         "og_title": "hCG Doubling Time Calculator",
