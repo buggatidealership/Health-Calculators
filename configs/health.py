@@ -251,6 +251,7 @@ WAIST_TO_HIP_RATIO = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Waist to Hip Ratio Calculator \u2014 WHR Health Risk",
         "meta_description": "Calculate your waist-to-hip ratio and health risk using WHO-based thresholds. See your risk category and body shape classification.",
         "og_title": "What's your waist-to-hip ratio?",
@@ -261,7 +262,6 @@ WAIST_TO_HIP_RATIO = {
         "schema_about": "Waist to Hip Ratio Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -410,6 +410,7 @@ A1C_CALCULATOR = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "A1C Calculator \u2014 A1C to Blood Sugar Converter",
         "meta_description": "Convert between A1C and blood sugar (eAG) instantly using the ADA-standard formula. See your diabetes risk category.",
         "og_title": "A1C / Blood Sugar Converter",
@@ -420,7 +421,6 @@ A1C_CALCULATOR = {
         "schema_about": "A1C Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -604,6 +604,7 @@ CHOLESTEROL_RATIO = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Cholesterol Ratio Calculator — Heart Disease Risk",
         "meta_description": "Calculate cholesterol ratios: Total/HDL, LDL/HDL, Trig/HDL, Non-HDL with cardiovascular risk assessment.",
         "og_title": "Cholesterol Ratio Calculator",
@@ -614,7 +615,6 @@ CHOLESTEROL_RATIO = {
         "schema_about": "Cholesterol Ratio Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ef4444",
@@ -776,6 +776,7 @@ DIABETES_RISK = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Diabetes Risk Calculator — Type 2 Risk Assessment",
         "meta_description": "Assess your risk of developing type 2 diabetes based on age, BMI, family history, and activity level.",
         "og_title": "Diabetes Risk Calculator",
@@ -786,7 +787,6 @@ DIABETES_RISK = {
         "schema_about": "Diabetes Risk Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#f59e0b",
@@ -1068,6 +1068,7 @@ BAC_CALCULATOR = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "BAC Calculator — Blood Alcohol Content Estimator",
         "meta_description": "Estimate your blood alcohol content based on drinks, body weight, gender, and time. Uses the Widmark formula.",
         "og_title": "BAC Calculator",
@@ -1078,7 +1079,6 @@ BAC_CALCULATOR = {
         "schema_about": "BAC Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#f97316",
@@ -1151,6 +1151,7 @@ ANTIDEPRESSANT_WEIGHT_GAIN = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Antidepressant Weight Gain Calculator — By Medication",
         "meta_description": "Estimate weight and body fat gain from antidepressants by medication type, dose, and duration.",
         "og_title": "Antidepressant Weight Gain Calculator",
@@ -1161,7 +1162,6 @@ ANTIDEPRESSANT_WEIGHT_GAIN = {
         "schema_about": "Antidepressant Weight Gain Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#8b5cf6",
@@ -1359,6 +1359,7 @@ LIFESPAN = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Lifespan Calculator — Estimate Longevity by Lifestyle",
         "meta_description": "Predict your potential lifespan based on health, habits, diet, and lifestyle factors.",
         "og_title": "Lifespan & Longevity Calculator",
@@ -1369,7 +1370,6 @@ LIFESPAN = {
         "schema_about": "Lifespan Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#22d3ee",
@@ -1548,6 +1548,7 @@ MENOPAUSE = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Menopause Calculator \u2014 Predict When It May Start",
         "meta_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
         "og_title": "Menopause Age Calculator",
@@ -1558,7 +1559,6 @@ MENOPAUSE = {
         "schema_about": "Menopause Age Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#a855f7",
@@ -1680,6 +1680,7 @@ HEART_AGE = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Heart Age Calculator — Cardiovascular Age Estimator",
         "meta_description": "Calculate your heart age based on cardiovascular risk factors from the Framingham Heart Study.",
         "og_title": "Heart Age Calculator -- Is Your Heart Older Than You?",
@@ -1690,7 +1691,6 @@ HEART_AGE = {
         "schema_about": "Heart Age Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ef4444",

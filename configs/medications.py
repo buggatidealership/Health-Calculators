@@ -77,6 +77,7 @@ CAGRISEMA_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "CagriSema Weight Loss Calculator — Predict Your Results",
         "meta_description": "Use the CagriSema Weight Loss Calculator to estimate your potential weight loss based on REDEFINE 1 clinical trial data. CagriSema (cagrilintide + semaglutide) showed 20.4% mean weight loss at 68 weeks.",
         "og_title": "CagriSema Weight Loss Calculator – Estimate Your Weight Loss",
@@ -87,7 +88,6 @@ CAGRISEMA_WEIGHT_LOSS = {
         "schema_about": "CagriSema Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#f59e0b",
@@ -187,6 +187,7 @@ GLP1_COMPARISON = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Ozempic vs Mounjaro Calculator — Compare GLP-1 Weight Loss",
         "meta_description": "Free GLP-1 comparison calculator shows projected weight loss on Ozempic, Mounjaro, and Zepbound side by side. Based on STEP and SURMOUNT clinical trial data.",
         "og_title": "Ozempic vs Mounjaro vs Zepbound Calculator - Compare GLP-1 Weight Loss",
@@ -197,7 +198,6 @@ GLP1_COMPARISON = {
         "schema_about": "GLP-1 Comparison Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -311,6 +311,7 @@ GLP1_COST = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "GLP-1 Medication Cost Calculator — Compare Treatment Costs",
         "meta_description": "Estimate and compare costs of GLP-1 receptor agonist medications. Calculate your monthly and annual treatment expenses with insurance, manufacturer discounts, and savings options.",
         "og_title": "GLP-1 Medication Cost Comparison Calculator",
@@ -321,7 +322,6 @@ GLP1_COST = {
         "schema_about": "GLP-1 Medication Cost Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#22c55e",
@@ -444,6 +444,7 @@ OZEMPIC_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Ozempic Weight Loss Calculator — Predict Your Results",
         "meta_description": "Calculate your expected weight loss on Ozempic (semaglutide) based on STEP and SUSTAIN clinical trial data. Personalized projections by dose, duration, and BMI.",
         "og_title": "How much weight will I lose on Ozempic?",
@@ -454,7 +455,6 @@ OZEMPIC_WEIGHT_LOSS = {
         "schema_about": "Ozempic Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#8b5cf6",
@@ -556,6 +556,7 @@ WEGOVY_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Wegovy Weight Loss Calculator — Results Estimator",
         "meta_description": "Free Wegovy weight loss calculator projects your expected weight loss based on STEP clinical trial data. Personalized by starting weight, dose, and treatment duration.",
         "og_title": "Wegovy Weight Loss Calculator – Semaglutide 2.4mg Projection Tool",
@@ -566,7 +567,6 @@ WEGOVY_WEIGHT_LOSS = {
         "schema_about": "Wegovy Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#0ea5e9",
@@ -676,6 +676,7 @@ ORAL_WEGOVY_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Oral Wegovy Weight Loss Calculator — Semaglutide 25mg",
         "meta_description": "Free Oral Wegovy (oral semaglutide 25mg) weight loss calculator. Project your expected weight loss based on OASIS 1 clinical trial data.",
         "og_title": "Oral Wegovy Weight Loss Calculator – Oral Semaglutide 25mg Projection Tool",
@@ -686,7 +687,6 @@ ORAL_WEGOVY_WEIGHT_LOSS = {
         "schema_about": "Oral Wegovy Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#06b6d4",
@@ -768,6 +768,7 @@ MOUNJARO_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Mounjaro Weight Loss Calculator \u2014 Results Estimator",
         "meta_description": "Estimate your potential weight loss on Mounjaro (tirzepatide) based on dose, duration, and lifestyle factors. Projections based on SURMOUNT clinical trial data.",
         "og_title": "Mounjaro Weight Loss Calculator \u2013 Tirzepatide Results Estimator",
@@ -778,7 +779,6 @@ MOUNJARO_WEIGHT_LOSS = {
         "schema_about": "Mounjaro Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#7c3aed",
@@ -884,6 +884,7 @@ ZEPBOUND_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Zepbound Weight Loss Calculator \u2014 Tirzepatide Projection Tool",
         "meta_description": "Free Zepbound weight loss calculator projects your expected weight loss based on SURMOUNT clinical trial data.",
         "og_title": "Zepbound Weight Loss Calculator \u2013 Tirzepatide Projection Tool",
@@ -894,7 +895,6 @@ ZEPBOUND_WEIGHT_LOSS = {
         "schema_about": "Zepbound Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#0ea5e9",
@@ -993,6 +993,7 @@ OZEMPIC_FACE = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Ozempic Face Risk Calculator \u2014 Predict Facial Volume Loss",
         "meta_description": "Free Ozempic face calculator estimates your risk of facial volume loss from GLP-1 weight loss medications. Based on clinical data on age, BMI, and rate of weight loss.",
         "og_title": "Ozempic Face Risk Calculator \u2013 Predict Facial Volume Loss",
@@ -1003,7 +1004,6 @@ OZEMPIC_FACE = {
         "schema_about": "Ozempic Face Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#f43f5e",
@@ -1111,6 +1111,7 @@ SEMAGLUTIDE_RECONSTITUTION = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Semaglutide Reconstitution Calculator \u2014 Mixing & Dosing",
         "meta_description": "Calculate exactly how many units to inject from your reconstituted semaglutide vial. Enter peptide amount, water volume, and desired dose to get precise syringe measurements.",
         "og_title": "Semaglutide Reconstitution Calculator \u2014 Mixing & Dosing Guide",
@@ -1121,7 +1122,6 @@ SEMAGLUTIDE_RECONSTITUTION = {
         "schema_about": "Semaglutide Reconstitution Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -1223,7 +1223,6 @@ PEPTIDE_RECONSTITUTION = {
         "schema_about": "Peptide Reconstitution Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -1313,6 +1312,7 @@ HCG_INJECTION = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "HCG Injection Dosage Calculator",
         "meta_description": "Calculate HCG injection volume from vial strength and bacteriostatic water volume.",
         "og_title": "HCG Injection Dosage Calculator",
@@ -1323,7 +1323,6 @@ HCG_INJECTION = {
         "schema_about": "HCG Injection Dosage Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#06b6d4",

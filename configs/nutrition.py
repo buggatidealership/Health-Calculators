@@ -116,6 +116,7 @@ BREASTFEEDING_CALORIE = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Breastfeeding Calorie Calculator \u2014 How Much to Eat Nursing",
         "meta_description": "Calculate calorie needs while breastfeeding with safe weight loss guidance.",
         "og_title": "Breastfeeding Calorie Calculator",
@@ -126,7 +127,6 @@ BREASTFEEDING_CALORIE = {
         "schema_about": "Breastfeeding Calorie Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ec4899",
@@ -1227,6 +1227,7 @@ GLYCEMIC_INDEX = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Glycemic Index Calculator \u2014 GI Lookup and Glycemic Load",
         "meta_description": "Look up glycemic index and calculate glycemic load of 100+ foods.",
         "og_title": "Glycemic Index Calculator",
@@ -1237,7 +1238,6 @@ GLYCEMIC_INDEX = {
         "schema_about": "Glycemic Index Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#22c55e",

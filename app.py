@@ -3980,49 +3980,8 @@ def sitemap_xml():
     - Only include canonical URLs intended for search results
     """
 
-    # Noindexed pages — exclude from sitemap
-    noindex_urls = {
-        '/cholesterol-ratio-calculator',
-        '/antidepressant-weight-gain-calculator',
-        '/bac-calculator',
-        '/hcg-doubling-time-calculator',
-        '/gestational-age-calculator',
-        '/hcg-injection-dosage-calculator',
-        '/glycemic-index-calculator',
-        '/formula-feeding-calculator',
-        '/breastfeeding-calorie-calculator',
-        '/waist-to-hip-ratio-calculator',
-        '/newborn-weight-loss-calculator',
-        '/female-fertility-calculator',
-        '/menopause-calculator',
-        '/pregnancy-weight-gain-calculator',
-        '/semaglutide-reconstitution-calculator',
-        '/ozempic-weight-loss-calculator',
-        '/wegovy-weight-loss-calculator',
-        '/oral-wegovy-weight-loss-calculator',
-        '/mounjaro-weight-loss-calculator',
-        '/zepbound-weight-loss-calculator',
-        '/cagrisema-weight-loss-calculator',
-        '/glp1-comparison-calculator',
-        '/glp1-cost-calculator',
-        '/ozempic-face-calculator',
-        '/lifespan-longevity-calculator',
-        '/heart-age-calculator',
-        '/a1c-calculator',
-        '/diabetes-risk-calculator',
-        '/resources/breastfeeding-nutrition-guide',
-        '/resources/antidepressants-and-body-fat',
-        '/resources/who-should-not-get-breast-implants',
-        '/resources/how-alcohol-affects-your-bac',
-        '/resources/ivf-due-date-calculator-guide',
-        '/resources/fertility-after-35',
-        '/resources/semaglutide-vs-ozempic-guide',
-        '/resources/glp1-side-effects-comparison',
-        '/resources/ozempic-weight-loss-calculator-guide',
-        '/resources/botox-dosage-guide',
-        '/resources/glp1-weight-loss-comparison',
-        '/resources/vitamin-d-levels-chart',
-    }
+    # All production pages are indexed — no exclusions
+    noindex_urls = set()
 
     # Collect all public page URLs
     urls = []
@@ -6580,6 +6539,9 @@ def register_calculator_routes(flask_app):
 
 register_calculator_routes(app)
 
+@app.route('/mockup-cortisol-animation')
+def mockup_cortisol_animation():
+    return render_template('mockup-cortisol-animation.html', robots_meta='noindex, nofollow')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)

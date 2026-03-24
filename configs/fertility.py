@@ -165,6 +165,7 @@ FEMALE_FERTILITY = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Female Fertility Calculator — Fertile Window",
         "meta_description": "Estimate your fertile window and ovulation date based on menstrual cycle length.",
         "og_title": "Fertility Calculator",
@@ -175,7 +176,6 @@ FEMALE_FERTILITY = {
         "schema_about": "Fertility Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ec4899",
@@ -242,6 +242,7 @@ FORMULA_FEEDING = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Formula Feeding Calculator — How Much Formula Baby Needs",
         "meta_description": "Calculate formula amount per feeding and per day based on baby age and weight.",
         "og_title": "Formula Feeding Calculator",
@@ -252,7 +253,6 @@ FORMULA_FEEDING = {
         "schema_about": "Formula Feeding Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#06b6d4",
@@ -379,6 +379,7 @@ GESTATIONAL_AGE = {
     "route": "/gestational-age-calculator",
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Gestational Age Calculator — Weeks and Days Pregnant",
         "meta_description": "Calculate gestational age from LMP, ultrasound, or IVF date. Shows weeks pregnant, due date, trimester.",
         "og_title": "Gestational Age Calculator",
@@ -389,7 +390,6 @@ GESTATIONAL_AGE = {
         "schema_about": "Gestational Age Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-24",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ec4899",
@@ -594,6 +594,7 @@ NEWBORN_WEIGHT_LOSS = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Newborn Weight Loss Calculator — Is My Baby Losing Too Much?",
         "meta_description": "Check if your newborn's weight loss is normal. Enter birth weight and current weight to see if it's within the safe range. Based on AAP guidelines.",
         "og_title": "Is my baby losing too much weight?",
@@ -604,7 +605,6 @@ NEWBORN_WEIGHT_LOSS = {
         "schema_about": "Newborn Weight Loss Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#9b8ec4",
@@ -717,6 +717,7 @@ HCG_DOUBLING = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "hCG Doubling Time Calculator — Are Your Levels Normal?",
         "meta_description": "Calculate hCG doubling time from two blood tests. See if levels are rising normally for early pregnancy.",
         "og_title": "hCG Doubling Time Calculator",
@@ -727,7 +728,6 @@ HCG_DOUBLING = {
         "schema_about": "hCG Doubling Time Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ec4899",
@@ -802,7 +802,6 @@ HCG_CALCULATOR = {
         "schema_about": "hCG Doubling Time Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ec4899",
@@ -867,6 +866,7 @@ PREGNANCY_WEIGHT_GAIN = {
     "override_template": None,
 
     "seo": {
+        "robots": "noindex, nofollow",
         "page_title": "Pregnancy Weight Gain Calculator — IOM Guidelines",
         "meta_description": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI using IOM 2009 guidelines.",
         "og_title": "Pregnancy Weight Gain Calculator",
@@ -877,7 +877,6 @@ PREGNANCY_WEIGHT_GAIN = {
         "schema_about": "Pregnancy Weight Gain Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "noindex, nofollow",
     },
 
     "accent": "#ec4899",
