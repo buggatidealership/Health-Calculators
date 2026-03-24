@@ -261,7 +261,7 @@ WAIST_TO_HIP_RATIO = {
         "schema_about": "Waist to Hip Ratio Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "index, follow",
+        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -420,7 +420,7 @@ A1C_CALCULATOR = {
         "schema_about": "A1C Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-20",
-        "robots": "index, follow",
+        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -1078,7 +1078,7 @@ BAC_CALCULATOR = {
         "schema_about": "BAC Calculator",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "index, follow",
+        "robots": "noindex, nofollow",
     },
 
     "accent": "#f97316",

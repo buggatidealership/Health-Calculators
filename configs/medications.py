@@ -87,7 +87,7 @@ CAGRISEMA_WEIGHT_LOSS = {
         "schema_about": "",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "index, follow",
+        "robots": "noindex, nofollow",
     },
 
     "accent": "#f59e0b",
@@ -145,7 +145,7 @@ GLP1_COMPARISON = {
         "schema_about": "",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "index, follow",
+        "robots": "noindex, nofollow",
     },
 
     "accent": "#14b8a6",
@@ -203,7 +203,7 @@ GLP1_COST = {
         "schema_about": "",
         "date_published": "2025-06-01",
         "date_modified": "2026-03-23",
-        "robots": "index, follow",
+        "robots": "noindex, nofollow",
     },
 
     "accent": "#22c55e",
