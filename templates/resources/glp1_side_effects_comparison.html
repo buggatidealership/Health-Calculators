@@ -16,6 +16,7 @@
     date_published="2026-03-09",
     date_modified="2026-03-11"
 %}
+{% set skip_global_css = True %}
 {% include 'head_seo.html' %}
 {% endwith %}
 <link rel="stylesheet" href="/static/css/v25-dark.css">
@@ -52,7 +53,7 @@ body { background: #0a0f1a !important; color: #e2e8f0 !important; }
 
 /* CTA boxes and buttons */
 .cta-box, div.cta-box { background-color: rgba(20,184,166,0.06) !important; border-left-color: var(--accent) !important; }
-.calculator-container a[style*="background-color"], .article-container a[style*="background-color"] { background-color: var(--accent) !important; color: #fff !important; }
+.calculator-container a[style*="background-color"], .article-container a[style*="background-color"], .calculator-container div[style] a[style*="background-color"], .article-container div[style] a[style*="background-color"] { background-color: var(--accent) !important; color: #fff !important; }
 
 /* Tables */
 table { border-collapse: collapse; }

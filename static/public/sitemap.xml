@@ -133,6 +133,12 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
+    <loc>https://healthcalculators.xyz/cortisol-stress-assessment</loc>
+    <lastmod>2026-03-24</lastmod>
+    <priority>0.8</priority>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
     <loc>https://healthcalculators.xyz/caloric-intake-macronutrient-calculator</loc>
     <lastmod>2026-03-24</lastmod>
     <priority>0.8</priority>
@@ -547,12 +553,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://healthcalculators.xyz/resources/chipotle-nutrition-guide</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://healthcalculators.xyz/resources/cycling-calorie-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
@@ -698,12 +698,6 @@
   </url>
   <url>
     <loc>https://healthcalculators.xyz/resources/who-should-not-get-breast-implants</loc>
-    <lastmod>2026-03-24</lastmod>
-    <priority>0.7</priority>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://healthcalculators.xyz/resources/zone2-training-guide</loc>
     <lastmod>2026-03-24</lastmod>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>

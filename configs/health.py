@@ -1784,3 +1784,178 @@ HEART_AGE = {
 }
 
 register("heart_age", HEART_AGE)
+
+
+CORTISOL_STRESS_ASSESSMENT = {
+    "route": "/cortisol-stress-assessment",
+    "override_template": None,
+
+    "seo": {
+        "page_title": "Cortisol & Stress Assessment Calculator — What's Your Stress Score?",
+        "meta_description": "Assess your cortisol stress levels with our evidence-based calculator. Combines validated stress assessment with sleep, caffeine, exercise, and lifestyle factors.",
+        "og_title": "What's your cortisol stress score?",
+        "og_description": "Assess your cortisol stress levels with our evidence-based calculator. Combines validated stress assessment with sleep, caffeine, exercise, and lifestyle factors.",
+        "schema_type": "WebPage",
+        "schema_name": "Cortisol & Stress Assessment Calculator",
+        "schema_description": "Evidence-based cortisol and stress assessment combining PSS-10 stress perception, lifestyle risk factors, and symptom screening to identify chronic stress patterns.",
+        "schema_about": "Cortisol Stress Assessment",
+        "date_published": "2026-03-24",
+        "date_modified": "2026-03-24",
+        "robots": "index, follow",
+    },
+
+    "accent": "#e89b3e",
+    "accent_rgb": "232,155,62",
+
+    "hero": {
+        "headline": "Is your <span>stress alarm</span> stuck on?",
+        "subtitle": "Evidence-based cortisol risk assessment across perception, lifestyle, and symptoms",
+    },
+
+    "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
+
+    "form": {
+        "fields": [
+            # --- Section 1: Stress Perception (PSS-10 adapted) ---
+            {"id": "pss1", "type": "select", "label": "How often do you feel unable to control important things in your life?", "options": [
+                {"value": "0", "label": "Never"},
+                {"value": "1", "label": "Rarely"},
+                {"value": "2", "label": "Sometimes", "selected": True},
+                {"value": "3", "label": "Often"},
+                {"value": "4", "label": "Very Often"},
+            ]},
+            {"id": "pss2", "type": "select", "label": "How often do you feel nervous or stressed?", "options": [
+                {"value": "0", "label": "Never"},
+                {"value": "1", "label": "Rarely"},
+                {"value": "2", "label": "Sometimes", "selected": True},
+                {"value": "3", "label": "Often"},
+                {"value": "4", "label": "Very Often"},
+            ]},
+            {"id": "pss3", "type": "select", "label": "How often do you feel difficulties are piling up so high you cannot overcome them?", "options": [
+                {"value": "0", "label": "Never"},
+                {"value": "1", "label": "Rarely"},
+                {"value": "2", "label": "Sometimes", "selected": True},
+                {"value": "3", "label": "Often"},
+                {"value": "4", "label": "Very Often"},
+            ]},
+            {"id": "pss4", "type": "select", "label": "How often do you feel confident about handling personal problems?", "options": [
+                {"value": "0", "label": "Never"},
+                {"value": "1", "label": "Rarely"},
+                {"value": "2", "label": "Sometimes", "selected": True},
+                {"value": "3", "label": "Often"},
+                {"value": "4", "label": "Very Often"},
+            ]},
+            {"id": "pss5", "type": "select", "label": "How often do you feel things are going your way?", "options": [
+                {"value": "0", "label": "Never"},
+                {"value": "1", "label": "Rarely"},
+                {"value": "2", "label": "Sometimes", "selected": True},
+                {"value": "3", "label": "Often"},
+                {"value": "4", "label": "Very Often"},
+            ]},
+
+            # --- Section 2: Lifestyle Factors ---
+            {"type": "row", "fields": [
+                {"id": "sleepHours", "type": "number", "label": "Sleep hours per night", "placeholder": "7", "min": 1, "max": 14, "step": 0.5},
+                {"id": "sleepQuality", "type": "select", "label": "Sleep quality", "options": [
+                    {"value": "4", "label": "Poor"},
+                    {"value": "3", "label": "Fair"},
+                    {"value": "2", "label": "Good", "selected": True},
+                    {"value": "1", "label": "Very Good"},
+                    {"value": "0", "label": "Excellent"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "caffeineMg", "type": "number", "label": "Daily caffeine (mg)", "placeholder": "200", "min": 0, "max": 1000},
+                {"id": "caffeineCutoff", "type": "select", "label": "Last caffeinated drink", "options": [
+                    {"value": "0", "label": "Before noon"},
+                    {"value": "1", "label": "Before 2pm"},
+                    {"value": "2", "label": "Before 4pm", "selected": True},
+                    {"value": "3", "label": "Before 6pm"},
+                    {"value": "4", "label": "After 6pm"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "exerciseHours", "type": "number", "label": "Weekly exercise hours", "placeholder": "3", "min": 0, "max": 30},
+                {"id": "exerciseIntensity", "type": "select", "label": "Exercise intensity", "options": [
+                    {"value": "0", "label": "Light"},
+                    {"value": "1", "label": "Moderate", "selected": True},
+                    {"value": "2", "label": "Intense"},
+                    {"value": "3", "label": "Very Intense"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "alcoholDrinks", "type": "number", "label": "Alcohol (drinks/week)", "placeholder": "2", "min": 0, "max": 50},
+                {"id": "mealRegularity", "type": "select", "label": "How often do you skip meals?", "options": [
+                    {"value": "0", "label": "Never"},
+                    {"value": "1", "label": "Rarely"},
+                    {"value": "2", "label": "Sometimes", "selected": True},
+                    {"value": "3", "label": "Often"},
+                    {"value": "4", "label": "Very Often"},
+                ]},
+            ]},
+
+            # --- Section 3: Symptom Check ---
+            {"id": "symptoms", "type": "checkbox_grid", "label": "Symptoms you experience regularly (check all that apply)", "options": [
+                {"value": "midsection-weight", "label": "Weight gain around midsection"},
+                {"value": "brain-fog", "label": "Difficulty concentrating or brain fog"},
+                {"value": "afternoon-crash", "label": "Afternoon energy crashes"},
+                {"value": "sugar-cravings", "label": "Sugar or carb cravings"},
+                {"value": "frequent-illness", "label": "Frequently getting sick"},
+                {"value": "sleep-difficulty", "label": "Difficulty falling or staying asleep"},
+                {"value": "wired-tired", "label": "Feeling wired but tired"},
+                {"value": "irritability", "label": "Irritability or mood swings"},
+                {"value": "low-libido", "label": "Decreased libido"},
+                {"value": "slow-healing", "label": "Slow wound healing"},
+            ]},
+        ],
+        "submit_label": "Assess My Stress",
+    },
+
+    "results": {
+        "primary": {"id": "resultNumber", "unit": "cortisol stress score"},
+        "verdict_id": "resultVerdict",
+        "breakdown": [
+            {"id": "stressPerceptionScore", "label": "Stress Perception"},
+            {"id": "lifestyleLoadScore", "label": "Lifestyle Load"},
+            {"id": "symptomSignalScore", "label": "Symptom Signals"},
+        ],
+        "breakdown_html": '<div id="cortisolDrivers" style="display:none;max-width:540px;width:100%;margin-top:2rem;text-align:left;background:rgba(232,155,62,0.04);border:1px solid rgba(232,155,62,0.1);border-radius:14px;padding:1.4rem 1.6rem;"></div><div id="cortisolCoachExtra" style="display:none;max-width:540px;width:100%;margin-top:1rem;text-align:left;background:rgba(232,155,62,0.04);border:1px solid rgba(232,155,62,0.1);border-radius:14px;padding:1.4rem 1.6rem;"></div>',
+    },
+
+    "coach": {
+        "title": "What this means for you",
+        "container_id": "coachCard",
+        "cta_text": "Want personalized stress management strategies?",
+    },
+
+    "js_file": "js/calculators/cortisol_stress_assessment.js",
+
+    "example_result": "1 coffee \u2248 95mg caffeine, 1 energy drink \u2248 150mg",
+
+    "faq": [
+        {"question": "What is cortisol and why does it matter?", "answer": "Cortisol is your body's primary stress hormone, produced by the adrenal glands. It follows a diurnal rhythm \u2014 highest in the morning to help you wake up, declining through the day. Cortisol regulates metabolism, immune response, and blood pressure. When chronically elevated due to ongoing stress, it disrupts sleep, promotes abdominal fat storage, impairs immunity, and contributes to anxiety, brain fog, and fatigue."},
+        {"question": "How accurate is this assessment?", "answer": "The stress perception section is adapted from the PSS-10 (Perceived Stress Scale), a validated instrument with Cronbach's alpha of 0.89. The lifestyle and symptom sections are based on evidence-based risk factors from published research on cortisol dysregulation. This assessment identifies risk patterns \u2014 it does not measure actual cortisol levels and is not a clinical diagnosis."},
+        {"question": "What's a normal cortisol level?", "answer": "Morning serum cortisol typically ranges from 10-20 mcg/dL (275-555 nmol/L), declining to 3-10 mcg/dL by evening. A healthy cortisol curve peaks shortly after waking (the cortisol awakening response) and drops steadily. A flattened curve \u2014 where morning and evening levels are similar \u2014 indicates chronic stress and is associated with fatigue, weight gain, and immune suppression."},
+        {"question": "How can I lower my cortisol naturally?", "answer": "Evidence-based strategies include: sleep hygiene (consistent schedule, 7-9 hours), caffeine timing (stop 8-10 hours before bed), exercise modulation (moderate is better than extreme), stress management (meditation, deep breathing, time in nature), social connection, and regular meal timing. Even 10 minutes of daily meditation has been shown to reduce salivary cortisol."},
+        {"question": "When should I get my cortisol tested?", "answer": "Consider salivary cortisol testing if your score exceeds 60, especially if you have multiple symptoms. A four-point salivary cortisol test (morning, noon, evening, bedtime) maps your diurnal curve and is more informative than a single blood draw. Your doctor may also test DHEA-S, which declines relative to cortisol under chronic stress."},
+    ],
+
+    "sources": [
+        {"text": "Cohen S, Kamarck T, Mermelstein R. A global measure of perceived stress. J Health Soc Behav. 1983;24(4):385-396.", "url": "https://pubmed.ncbi.nlm.nih.gov/6668417/"},
+        {"text": "Hirotsu C, Tufik S, Andersen ML. Interactions between sleep, stress, and metabolism: from physiological to pathological conditions. Sleep Sci. 2015;8(3):143-152.", "url": "https://pubmed.ncbi.nlm.nih.gov/26779321/"},
+        {"text": "Lovallo WR, et al. Cortisol responses to mental stress, exercise, and meals following caffeine intake in men and women. Pharmacol Biochem Behav. 2006;83(3):441-447.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC2257922/"},
+        {"text": "Hill EE, et al. Exercise and circulating cortisol levels: the intensity threshold effect. J Endocrinol Invest. 2008;31(7):587-591.", "url": "https://pubmed.ncbi.nlm.nih.gov/18787373/"},
+        {"text": "Rachdaoui N, Bhavna S. Effects of alcohol on the endocrine system. Endocrinol Metab Clin North Am. 2013;42(3):593-615.", "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6760387/"},
+    ],
+
+    "methodology": "<p>This assessment combines three validated domains:</p><p><strong>Stress Perception (0-35 points):</strong> Adapted from the PSS-10 (Cohen, 1983). Five items on a 0-4 scale; items 4-5 are reverse-scored. Raw sum (0-20) is normalized to 0-35 points.</p><p><strong>Lifestyle Load (0-40 points):</strong> Sleep duration and quality, caffeine intake and timing, exercise volume and intensity, alcohol consumption, and meal regularity. Each factor scored using evidence-based thresholds from published dose-response research.</p><p><strong>Symptom Signals (0-25 points):</strong> Ten symptoms associated with chronic cortisol elevation, each contributing 2.5 points when present.</p><p>Composite score (0-100) = Stress Perception + Lifestyle Load + Symptom Signals. Classifications: 0-25 Resilient, 26-45 Balanced with Risk Factors, 46-65 Elevated Cortisol Risk, 66-85 High Cortisol Risk, 86-100 Burnout Risk.</p>",
+
+    "llm_capsule": "Cortisol stress assessment combining PSS-10 stress perception (5 items, 0-35 pts), lifestyle risk factors including sleep, caffeine, exercise, alcohol, and meal regularity (0-40 pts), and 10 cortisol-related symptom checks (0-25 pts). Composite score 0-100. Classifications: 0-25 Resilient, 26-45 Balanced with Risk Factors, 46-65 Elevated Cortisol Risk, 66-85 High Cortisol Risk, 86-100 Burnout Risk. Based on PSS-10 (Cohen 1983), caffeine-cortisol research (Lovallo, PMC2257922), and exercise intensity threshold (Hill 2008).",
+
+    "ask_pills": ["Lower cortisol naturally", "Caffeine and cortisol", "Best time to exercise", "Cortisol testing"],
+    "ask_placeholder": "e.g. How do I lower my cortisol?",
+
+    "medical_disclaimer_override": "This is a stress assessment tool, not a medical diagnosis. It does not measure actual cortisol levels. Consult a healthcare provider for clinical evaluation.",
+}
+
+register("cortisol_stress_assessment", CORTISOL_STRESS_ASSESSMENT)

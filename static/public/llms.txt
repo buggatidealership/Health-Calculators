@@ -20,7 +20,6 @@
 - [Breast Implant Cost Calculator](https://healthcalculators.xyz/breast-implant-cost-calculator): Estimate total breast augmentation cost based on implant type, region, and surgeon experience
 
 ## Resource Guides
-- [Zone 2 Training Guide](https://healthcalculators.xyz/resources/zone2-training-guide): The science of aerobic base building — mitochondrial biogenesis, fat oxidation, and weekly volume recommendations
 - [Running Calorie Burn Guide](https://healthcalculators.xyz/resources/running-calorie-guide): Calories per mile by weight, how pace and terrain affect burn rate, and weight loss math
 - [Daily Fiber Intake Guide](https://healthcalculators.xyz/resources/daily-fiber-intake-guide): IOM recommendations by age, soluble vs. insoluble fiber, and the top 20 high-fiber foods
 - [How to Start Carb Cycling](https://healthcalculators.xyz/resources/how-to-start-carb-cycling): Carb cycling for weight loss and performance with sample plans and macro breakdowns

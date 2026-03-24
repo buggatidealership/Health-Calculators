@@ -82,7 +82,7 @@ cross_links = {
     },
     "/chipotle-nutrition-calculator": {
         "calculators": ["/starbucks-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
-        "guides": ["/resources/chipotle-nutrition-guide"]
+        "guides": []
     },
     "/starbucks-nutrition-calculator": {
         "calculators": ["/chipotle-nutrition-calculator", "/caloric-intake-macronutrient-calculator", "/tdee-calculator"],
@@ -239,7 +239,7 @@ cross_links = {
     },
     "/zone2-heart-rate-calculator": {
         "calculators": ["/vo2-max-calculator", "/calories-burned-calculator", "/tdee-calculator"],
-        "guides": ["/resources/zone2-training-guide"]
+        "guides": []
     },
     # Demographic variant pages — link back to parent + siblings
     "/tdee-calculator-for-women": {
@@ -2237,15 +2237,6 @@ articles = [
         "category": "fitness"
     },
     {
-        "title": "Zone 2 Training Guide: The Science of Aerobic Base Building",
-        "url": "/resources/zone2-training-guide",
-        "summary": "A complete, evidence-based guide to Zone 2 heart rate training — mitochondrial biogenesis, fat oxidation, weekly volume recommendations, and how to calculate your zone.",
-        "icon": "❤️",
-        "cta": "Read Guide",
-        "color": "red",
-        "category": "fitness"
-    },
-    {
         "title": "Running Pace Guide: How to Calculate & Improve Your Running Pace",
         "url": "/resources/running-pace-guide",
         "summary": "A comprehensive guide to running pace — how to calculate pace per mile and per km, race pacing strategy, training zones, typical pace benchmarks for 5K through marathon, and evidence-based tips for running faster.",
@@ -2388,15 +2379,6 @@ articles = [
         "cta": "Read Guide",
         "color": "pink",
         "category": "fertility"
-    },
-    {
-        "title": "How to Use the Chipotle Nutrition Calculator (Macros, Calories & Meal Hacks)",
-        "url": "/resources/chipotle-nutrition-guide",
-        "summary": "Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
-        "icon": "🌯",
-        "cta": "Read Guide",
-        "color": "green",
-        "category": "nutrition"
     },
     {
         "title": "How to Customize Your Starbucks Drink (Macros, Calories & Sugar Explained)",
@@ -3092,19 +3074,6 @@ def subway_nutrition_guide():
         schema_type='Article',
         breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
         date_modified='2026-03-12'
-    )
-
-@app.route('/resources/chipotle-nutrition-guide')
-def chipotle_nutrition_guide():
-    return render_template(
-        'resources/chipotle_nutrition_guide.html',
-        is_homepage=False,
-        schema_name="Chipotle Nutrition Calculator Guide | Calories, Macros & Meal Hacks",
-        schema_description="Track your Chipotle meal macros. Learn how to reduce calories, sugar, and carbs with our calculator-based guide.",
-        schema_url="/resources/chipotle-nutrition-guide",
-        schema_type='Article',
-        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-20'
     )
 
 @app.route('/resources/antidepressants-and-body-fat')
@@ -6343,18 +6312,6 @@ def breastfeeding_nutrition_guide():
 #     )
 
 
-@app.route('/resources/zone2-training-guide')
-def zone2_training_guide():
-    return render_template(
-        'resources/zone2_training_guide.html',
-        is_homepage=False,
-        schema_name="Zone 2 Training Guide: The Science of Aerobic Base Building",
-        schema_description="A comprehensive, evidence-based guide to Zone 2 heart rate training covering aerobic base building, mitochondrial biogenesis, fat oxidation, weekly training volume, and how to calculate your Zone 2 range.",
-        schema_url="/resources/zone2-training-guide",
-        schema_type='Article',
-        breadcrumb_category={'name': 'Resource Guides', 'url': '/resources'},
-        date_modified='2026-03-20'
-    )
 
 # /running-calorie-calculator: migrated to config-driven (configs/)
 # @app.route('/running-calorie-calculator')

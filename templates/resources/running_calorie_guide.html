@@ -14,6 +14,7 @@
     schema_description="A comprehensive, evidence-based guide to how many calories running burns — covering body weight, pace, terrain, race distances, and how to apply running calorie data to weight loss goals.",
     schema_url="/resources/running-calorie-guide"
 %}
+{% set skip_global_css = True %}
 {% include 'head_seo.html' %}
 {% endwith %}
 <link rel="stylesheet" href="/static/css/v25-dark.css">
@@ -50,7 +51,7 @@ body { background: #0a0f1a !important; color: #e2e8f0 !important; }
 
 /* CTA boxes and buttons */
 .cta-box, div.cta-box { background-color: rgba(20,184,166,0.06) !important; border-left-color: var(--accent) !important; }
-.calculator-container a[style*="background-color"], .article-container a[style*="background-color"] { background-color: var(--accent) !important; color: #fff !important; }
+.calculator-container a[style*="background-color"], .article-container a[style*="background-color"], .calculator-container div[style] a[style*="background-color"], .article-container div[style] a[style*="background-color"] { background-color: var(--accent) !important; color: #fff !important; }
 
 /* Tables */
 table { border-collapse: collapse; }
