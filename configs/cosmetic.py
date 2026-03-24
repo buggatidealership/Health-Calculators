@@ -2,7 +2,7 @@ from configs import register
 
 BOTOX = {
     "route": "/botox-dosage-calculator",
-    "override_template": "botox_v25.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Botox Calculator \u2014 Dosage & Cost by Treatment Area",
@@ -28,7 +28,37 @@ BOTOX = {
 
     "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate Dosage"},
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "gender", "type": "select", "label": "Gender", "options": [
+                    {"value": "female", "label": "Female", "selected": True},
+                    {"value": "male", "label": "Male"},
+                ]},
+                {"id": "intensity", "type": "select", "label": "Intensity", "options": [
+                    {"value": "light", "label": "Light (Natural)"},
+                    {"value": "standard", "label": "Standard (Balanced)", "selected": True},
+                    {"value": "advanced", "label": "Advanced (Full)"},
+                ]},
+            ]},
+            {"id": "areas", "type": "checkbox_grid", "label": "Treatment Areas", "options": [
+                {"value": "glabella", "label": "Glabella (11s)"},
+                {"value": "forehead", "label": "Forehead"},
+                {"value": "crowfeet", "label": "Crow's Feet"},
+                {"value": "bunny", "label": "Bunny Lines"},
+                {"value": "lipflip", "label": "Lip Flip"},
+                {"value": "chin", "label": "Dimpled Chin"},
+                {"value": "jaw", "label": "Jaw Reduction"},
+                {"value": "neck", "label": "Neck Bands"},
+            ]},
+            {"id": "provider", "type": "select", "label": "Provider Type", "options": [
+                {"value": "derm", "label": "Dermatologist / Plastic Surgeon", "selected": True},
+                {"value": "medspa", "label": "Medical Spa"},
+                {"value": "nurse", "label": "Nurse Practitioner"},
+            ]},
+        ],
+        "submit_label": "Calculate Dosage",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "total units recommended"},
@@ -269,7 +299,7 @@ register("cc_to_bra_size", CC_TO_BRA_SIZE)
 
 BREAST_IMPLANT = {
     "route": "/breast-implant-calculator",
-    "override_template": "breast_implant_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Breast Implant Size & Cost Calculator — What Size Should You Get?",
@@ -295,18 +325,69 @@ BREAST_IMPLANT = {
 
     "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "band", "type": "select", "label": "Current Band Size", "options": [
+                    {"value": "28", "label": "28"},
+                    {"value": "30", "label": "30"},
+                    {"value": "32", "label": "32"},
+                    {"value": "34", "label": "34", "selected": True},
+                    {"value": "36", "label": "36"},
+                    {"value": "38", "label": "38"},
+                    {"value": "40", "label": "40"},
+                    {"value": "42", "label": "42"},
+                    {"value": "44", "label": "44"},
+                ]},
+                {"id": "currentCup", "type": "select", "label": "Current Cup", "options": [
+                    {"value": "AA", "label": "AA"},
+                    {"value": "A", "label": "A"},
+                    {"value": "B", "label": "B", "selected": True},
+                    {"value": "C", "label": "C"},
+                    {"value": "D", "label": "D"},
+                    {"value": "DD/E", "label": "DD/E"},
+                ]},
+            ]},
+            {"id": "breastWidth", "type": "number", "label": "Breast Width (cm)", "min": 10, "max": 20, "step": 0.5, "default": 12, "hint": "Measure across the base of your breast"},
+            {"id": "goalCup", "type": "select", "label": "Desired Cup Size", "options": [
+                {"value": "B", "label": "B"},
+                {"value": "C", "label": "C"},
+                {"value": "D", "label": "D", "selected": True},
+                {"value": "DD/E", "label": "DD/E"},
+                {"value": "DDD/F", "label": "DDD/F"},
+                {"value": "G", "label": "G"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "implantType", "type": "select", "label": "Implant Type", "options": [
+                    {"value": "silicone", "label": "Silicone"},
+                    {"value": "saline", "label": "Saline"},
+                    {"value": "gummy", "label": "Gummy Bear"},
+                ]},
+                {"id": "location", "type": "select", "label": "Location", "options": [
+                    {"value": "usa", "label": "USA"},
+                    {"value": "europe", "label": "Europe/UK"},
+                    {"value": "asia", "label": "Asia"},
+                ]},
+            ]},
+        ],
+        "submit_label": "Calculate My Implant Size & Cost",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultVolume", "unit": "cc recommended volume"},
+        "subtitle_id": "resultProfile",
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "rType", "label": "Implant Type", "note_id": "rTypeNote"},
+            {"id": "rCost", "label": "Total Cost", "note_id": "rCostNote"},
+            {"id": "rProfile", "label": "Profile", "note_id": "rProfileNote"},
+        ],
     },
 
     "coach": {
-        "title": "Here\u2019s what your result means",
+        "title": "Here\u2019s your rule of thumb",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have questions about your consultation?",
     },
 
     "js_file": "js/calculators/breast_implant.js",
@@ -473,7 +554,7 @@ register("breast_implant_size", BREAST_IMPLANT_SIZE)
 
 LIPOSUCTION = {
     "route": "/liposuction-weight-loss-calculator",
-    "override_template": "liposuction_v25.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Liposuction Calculator — Weight Loss & Cost Estimate",
@@ -485,12 +566,12 @@ LIPOSUCTION = {
         "schema_description": "Estimate fat removal, weight change, and procedure cost for liposuction.",
         "schema_about": "Liposuction Weight Loss Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-20",
+        "date_modified": "2026-03-24",
         "robots": "index, follow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#f97316",
+    "accent_rgb": "249,115,22",
 
     "hero": {
         "headline": "How much fat can <span>lipo</span> remove?",
@@ -499,21 +580,53 @@ LIPOSUCTION = {
 
     "breadcrumb_category": {"name": "Cosmetic Procedures", "url": "/cosmetic-procedure-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "weight", "type": "number", "label": "Weight (lbs)", "min": 80, "max": 400, "placeholder": "e.g. 180"},
+                {"id": "height", "type": "number", "label": "Height (inches)", "min": 48, "max": 84, "placeholder": "e.g. 67"},
+            ]},
+            {"id": "gender", "type": "select", "label": "Gender", "options": [
+                {"value": "female", "label": "Female", "selected": True},
+                {"value": "male", "label": "Male"},
+            ]},
+            {"id": "areas", "type": "checkbox_grid", "label": "Treatment Areas", "options": [
+                {"value": "abdomen", "label": "Abdomen"},
+                {"value": "flanks", "label": "Flanks / Love Handles"},
+                {"value": "thighs", "label": "Thighs"},
+                {"value": "arms", "label": "Arms"},
+                {"value": "back", "label": "Back"},
+                {"value": "chin", "label": "Chin / Neck"},
+                {"value": "chest", "label": "Chest"},
+                {"value": "buttocks", "label": "Buttocks"},
+            ]},
+            {"id": "location", "type": "select", "label": "Region", "options": [
+                {"value": "us", "label": "United States", "selected": True},
+                {"value": "uk", "label": "United Kingdom"},
+                {"value": "eu", "label": "Europe"},
+                {"value": "asia", "label": "Asia"},
+            ]},
+        ],
+        "submit_label": "Calculate",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "liters of fat (estimated safe removal)"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "dBmi", "label": "Your BMI"},
+            {"id": "dWeight", "label": "New Weight"},
+            {"id": "dCost", "label": "Est. Cost"},
+        ],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "Your lipo estimate",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Want more insights?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/liposuction.js",
 
     "faq": [
         {"question": "How much fat can liposuction remove?", "answer": "Most outpatient procedures safely remove 2-5 liters (4.4-11 lbs) of fat. The maximum safe amount is 5 liters per the ASPS guidelines."},
@@ -523,11 +636,18 @@ LIPOSUCTION = {
         {"question": "How is cost calculated?", "answer": "By region, number of areas, gender (males pay slightly more), and facility type. Multi-area procedures may get discounts."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        {"text": "Rohrich RJ, et al. Ultrasound-Assisted Liposuction. Quality Medical Publishing, 1998.", "url": "https://pubmed.ncbi.nlm.nih.gov/16327615/"},
+        {"text": "ASPS Practice Advisory on Liposuction.", "url": "https://www.plasticsurgery.org/news/plastic-surgery-statistics"},
+        {"text": "Nordstrom H, Stange K. Plasma lidocaine levels after liposuction. Acta Anaesthesiol Scand. 2005;49(10):1487-1490.", "url": "https://pubmed.ncbi.nlm.nih.gov/16223395/"},
+    ],
+
+    "methodology": "<p>This calculator estimates fat removal volume using BMI-stratified ranges and number of treatment areas. Normal BMI patients: 1-3L, overweight: 2-4L, obese: 3-5L, with a 5L safety cap per ASPS guidelines. Fat weight uses adipose density of 0.9 kg/L. Cost is per-area with regional base prices ($1,500-$2,500) and a 10% male surcharge.</p>",
+
+    "llm_capsule": "Liposuction safely removes 2-5 liters of fat per outpatient procedure. This equals roughly 4-11 pounds of fat tissue. The ASPS safety limit is 5 liters. Cost ranges from $2,000-$3,500 per area in the US. Liposuction is body contouring, not weight loss -- expect 5-10 pounds of actual weight change but significant improvements in body contour and measurements.",
+
+    "ask_pills": ["Recovery time", "BMI requirements", "Cost by area", "Lipo vs tummy tuck"],
+    "ask_placeholder": "e.g. Is liposuction permanent?",
 }
 
 register("liposuction", LIPOSUCTION)

@@ -1148,7 +1148,7 @@ register("bac_calculator", BAC_CALCULATOR)
 
 ANTIDEPRESSANT_WEIGHT_GAIN = {
     "route": "/antidepressant-weight-gain-calculator",
-    "override_template": "antidepressant_weight_gain_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Antidepressant Weight Gain Calculator — By Medication",
@@ -1174,12 +1174,36 @@ ANTIDEPRESSANT_WEIGHT_GAIN = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "weight", "type": "number", "label": "Current weight", "placeholder": "70", "min": 20, "max": 500, "step": 0.1},
+                {"id": "weightUnit", "type": "select", "label": "Unit", "options": [
+                    {"value": "kg", "label": "kg", "selected": True},
+                    {"value": "lbs", "label": "lbs"},
+                ]},
+            ]},
+            {"id": "medication", "type": "select", "label": "Select antidepressant", "options": []},
+            {"id": "duration", "type": "select", "label": "Treatment duration", "options": [
+                {"value": "", "label": "Select duration..."},
+                {"value": "1", "label": "1 month"},
+                {"value": "3", "label": "3 months"},
+                {"value": "6", "label": "6 months"},
+                {"value": "12", "label": "12 months (1 year)"},
+                {"value": "24", "label": "24 months (2 years)"},
+            ]},
+        ],
+        "submit_label": "Calculate Estimate",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "estimated weight change"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "weightGain", "label": "Weight gain"},
+            {"id": "bodyFatGain", "label": "Body fat increase"},
+            {"id": "riskLevel", "label": "Risk level"},
+        ],
     },
 
     "coach": {
@@ -1215,7 +1239,7 @@ register("antidepressant_weight_gain", ANTIDEPRESSANT_WEIGHT_GAIN)
 
 CHILD_GROWTH = {
     "route": "/child-growth-calculator",
-    "override_template": "child_growth_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Child Growth Calculator — Is My Child Growing Normally?",
@@ -1227,7 +1251,7 @@ CHILD_GROWTH = {
         "schema_description": "Calculate child growth percentiles for height, weight, and BMI using CDC and WHO reference data.",
         "schema_about": "Child Growth Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-23",
+        "date_modified": "2026-03-24",
         "robots": "index, follow",
     },
 
@@ -1241,18 +1265,68 @@ CHILD_GROWTH = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "example_result": "A child at the 25th percentile for height is perfectly healthy. What matters is that they stay on their curve over time, not the number itself.",
+
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "gender", "type": "select", "label": "Gender", "options": [
+                    {"value": "male", "label": "Boy", "selected": True},
+                    {"value": "female", "label": "Girl"},
+                ]},
+                {"id": "ageYears", "type": "number", "label": "Age (years)", "min": 0, "max": 18, "placeholder": "Years"},
+                {"id": "ageMonths", "type": "number", "label": "Months", "min": 0, "max": 11, "placeholder": "Months"},
+            ]},
+            {"id": "unitToggle", "type": "radio_row", "label": "Unit", "options": [
+                {"value": "metric", "label": "cm / kg", "selected": True},
+                {"value": "imperial", "label": "ft-in / lbs"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "heightCm", "type": "number", "label": "Height (cm)", "placeholder": "e.g. 110", "min": 30, "max": 220},
+                {"id": "weightKg", "type": "number", "label": "Weight (kg)", "placeholder": "e.g. 20", "min": 1, "max": 200, "step": 0.1},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "heightFt", "type": "number", "label": "Height (ft)", "placeholder": "ft", "min": 0, "max": 8},
+                {"id": "heightIn", "type": "number", "label": "Height (in)", "placeholder": "in", "min": 0, "max": 11},
+                {"id": "weightLbs", "type": "number", "label": "Weight (lbs)", "placeholder": "e.g. 44", "min": 1, "max": 500, "step": 0.1},
+            ]},
+        ],
+        "submit_label": "Check Growth Percentiles",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "height percentile"},
         "verdict_id": "resultVerdict",
+        "breakdown_html": '<div class="factory-breakdown" style="grid-template-columns:repeat(3,1fr);margin-top:2rem;">'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Height-for-Age</div>'
+                '<div id="rHeight" style="font-family:var(--font-display);font-size:2.2rem;color:var(--accent);">--</div>'
+                '<div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;margin:0.8rem 0 0.5rem;overflow:hidden;"><div id="heightBar" style="height:100%;width:50%;border-radius:3px;background:var(--accent);transition:width 0.8s ease-out;"></div></div>'
+                '<div id="heightNote" style="font-size:0.75rem;color:var(--text-dim);"></div>'
+            '</div>'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Weight-for-Age</div>'
+                '<div id="rWeight" style="font-family:var(--font-display);font-size:2.2rem;color:var(--accent);">--</div>'
+                '<div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;margin:0.8rem 0 0.5rem;overflow:hidden;"><div id="weightBar" style="height:100%;width:50%;border-radius:3px;background:var(--accent);transition:width 0.8s ease-out;"></div></div>'
+                '<div id="weightNote" style="font-size:0.75rem;color:var(--text-dim);"></div>'
+            '</div>'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">BMI-for-Age</div>'
+                '<div id="rBmi" style="font-family:var(--font-display);font-size:2.2rem;color:var(--accent);">--</div>'
+                '<div style="height:6px;background:rgba(255,255,255,0.06);border-radius:3px;margin:0.8rem 0 0.5rem;overflow:hidden;"><div id="bmiBar" style="height:100%;width:50%;border-radius:3px;background:var(--accent);transition:width 0.8s ease-out;"></div></div>'
+                '<div id="bmiNote" style="font-size:0.75rem;color:var(--text-dim);"></div>'
+            '</div>'
+        '</div>'
+        '<div id="statusCard" class="status-card good" style="max-width:600px;width:100%;margin-top:1.5rem;padding:1.5rem 2rem;border-radius:16px;text-align:center;display:none;">'
+            '<p id="statusText" style="font-size:0.95rem;line-height:1.7;"></p>'
+        '</div>',
         "breakdown": [],
     },
 
     "coach": {
-        "title": "Here\u2019s what your result means",
+        "title": "What this means for your child",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have a question about your child's growth?",
     },
 
     "js_file": "js/calculators/child_growth.js",
@@ -1282,7 +1356,7 @@ register("child_growth", CHILD_GROWTH)
 
 LIFESPAN = {
     "route": "/lifespan-longevity-calculator",
-    "override_template": "lifespan_v25.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Lifespan Calculator — Estimate Longevity by Lifestyle",
@@ -1298,8 +1372,8 @@ LIFESPAN = {
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#22d3ee",
+    "accent_rgb": "34,211,238",
 
     "hero": {
         "headline": "How long will you <span>live</span>?",
@@ -1308,21 +1382,76 @@ LIFESPAN = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "age", "type": "number", "label": "Current Age", "min": 18, "max": 100, "default": 30},
+                {"id": "gender", "type": "select", "label": "Gender", "options": [
+                    {"value": "female", "label": "Female"},
+                    {"value": "male", "label": "Male"},
+                ]},
+            ]},
+            {"id": "bmi", "type": "number", "label": "BMI", "min": 15, "max": 45, "step": 0.1, "placeholder": "e.g. 22", "hint": "Healthy: 18.5-24.9"},
+            {"id": "exercise", "type": "number", "label": "Weekly Exercise (minutes)", "min": 0, "max": 600, "default": 150, "hint": "Recommended: 150+ minutes"},
+            {"id": "smoking", "type": "select", "label": "Smoking", "options": [
+                {"value": "0", "label": "Never smoked", "selected": True},
+                {"value": "-3", "label": "Quit within 5 years"},
+                {"value": "-5", "label": "Light smoker"},
+                {"value": "-7", "label": "Moderate smoker"},
+                {"value": "-10", "label": "Heavy smoker (1+ packs/day)"},
+            ]},
+            {"id": "diet", "type": "select", "label": "Diet Quality", "options": [
+                {"value": "-5", "label": "Poor"},
+                {"value": "-2", "label": "Average"},
+                {"value": "0", "label": "Good", "selected": True},
+                {"value": "3", "label": "Very Good"},
+                {"value": "5", "label": "Excellent"},
+            ]},
+            {"id": "sleep", "type": "number", "label": "Sleep (hours/night)", "min": 4, "max": 12, "step": 0.5, "default": 7, "hint": "Optimal: 7-9 hours"},
+            {"id": "stress", "type": "select", "label": "Stress Level", "options": [
+                {"value": "-5", "label": "High, poor coping"},
+                {"value": "-2", "label": "Moderate"},
+                {"value": "0", "label": "Average", "selected": True},
+                {"value": "2", "label": "Good management"},
+                {"value": "5", "label": "Excellent"},
+            ]},
+            {"id": "social", "type": "select", "label": "Social Connections", "options": [
+                {"value": "-3", "label": "Isolated"},
+                {"value": "0", "label": "Average", "selected": True},
+                {"value": "2", "label": "Strong network"},
+                {"value": "4", "label": "Very strong community"},
+            ]},
+        ],
+        "submit_label": "Calculate Lifespan",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "years estimated lifespan"},
         "verdict_id": "resultVerdict",
+        "breakdown_html": '<div class="factory-breakdown" style="grid-template-columns:repeat(3,1fr);margin-top:2rem;">'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">vs Average</div>'
+                '<div id="dDiff" style="font-family:var(--font-display);font-size:2.2rem;color:var(--accent);">--</div>'
+            '</div>'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Years Remaining</div>'
+                '<div id="dRemain" style="font-family:var(--font-display);font-size:2.2rem;color:var(--accent);">--</div>'
+            '</div>'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Health Score</div>'
+                '<div id="dScore" style="font-family:var(--font-display);font-size:2.2rem;color:var(--accent);">--</div>'
+            '</div>'
+        '</div>',
         "breakdown": [],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "Your longevity profile",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Want more insights?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/lifespan.js",
 
     "faq": [
         {"question": "How accurate is this lifespan calculator?", "answer": "This provides statistical estimates based on population-level research, not individual predictions. Consider results as general guidelines."},
@@ -1331,18 +1460,22 @@ LIFESPAN = {
         {"question": "How much can genetics determine lifespan?", "answer": "Twin studies suggest 20-30% of lifespan variation is genetic. Lifestyle remains more influential for most people."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        {"text": "Social Security Administration. Actuarial Life Table.", "url": "https://www.ssa.gov/oact/STATS/table4c6.html"},
+        {"text": "CDC/NCHS. National Vital Statistics Reports.", "url": "https://www.cdc.gov/nchs/products/life_tables.htm"},
+        {"text": "Li K, et al. Lifestyle risk factors and residual life expectancy. BMC Med. 2014;12:59.", "url": "https://pubmed.ncbi.nlm.nih.gov/24708705/"},
+    ],
+    "methodology": "<p>Starts with WHO baseline life expectancy (74 for females, 70 for males) and applies additive adjustments from epidemiological research. BMI follows a J-shaped mortality curve. Exercise contributes up to +5 years. Smoking applies up to -10 years. Sleep follows a U-shaped curve. Results are bounded to 50-120 years.</p>",
+    "llm_capsule": "Average life expectancy is about 79 years for women and 74 for men in the US. The biggest modifiable factors are smoking (-10 years for heavy smokers), exercise (+5 years for regular activity), diet quality (+5 years), and social connections (+4 years). Even adopting healthy behaviors in middle age shows measurable benefits.",
+    "ask_pills": ["Exercise impact", "Sleep and longevity", "Diet quality", "Social connections"],
+    "ask_placeholder": "e.g. Can I add years by changing habits?",
 }
 
 register("lifespan", LIFESPAN)
 
 VITAMIN_D_INTAKE = {
     "route": "/vitamin-d-intake-calculator",
-    "override_template": "vitamin_d_intake_v3.html",
+    "override_template": "overrides/vitamin_d_intake.html",
 
     "seo": {
         "page_title": "Vitamin D Intake Calculator — How Much Do You Need?",
@@ -1368,21 +1501,21 @@ VITAMIN_D_INTAKE = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {"fields": [], "submit_label": "Calculate My Dose"},
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "IU per day"},
         "verdict_id": "resultVerdict",
         "breakdown": [],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "Here's your rule of thumb",
         "container_id": "coachCard",
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/vitamin_d_intake.js",
 
     "faq": [
         {"question": "How much vitamin D should I take daily?", "answer": "Most adults need 600-2000 IU of vitamin D daily. The NIH recommends 600 IU for ages 1-70 and 800 IU for 71+. Many clinicians recommend 1000-2000 IU for general supplementation, especially for those with limited sun exposure."},
@@ -1392,21 +1525,30 @@ VITAMIN_D_INTAKE = {
         {"question": "Does skin color affect vitamin D needs?", "answer": "Yes. Melanin in darker skin acts as a natural sunscreen, reducing vitamin D production from sunlight. People with darker skin may need 3-5 times more sun exposure to produce the same amount of vitamin D."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        {"text": "Demay MB, Pittas AG, Bikle DD, et al. Vitamin D for the prevention of disease: an Endocrine Society clinical practice guideline. J Clin Endocrinol Metab. 2024;109(8):1907-1947.", "url": "https://pubmed.ncbi.nlm.nih.gov/38828931/"},
+        {"text": "Holick MF, Binkley NC, Bischoff-Ferrari HA, et al. Evaluation, treatment, and prevention of vitamin D deficiency: an Endocrine Society clinical practice guideline. J Clin Endocrinol Metab. 2011;96(7):1911-1930.", "url": "https://pubmed.ncbi.nlm.nih.gov/21646368/"},
+        {"text": "Institute of Medicine. Dietary Reference Intakes for Calcium and Vitamin D. Washington, DC: National Academies Press; 2011.", "url": "https://pubmed.ncbi.nlm.nih.gov/21796828/"},
+        {"text": "NIH Office of Dietary Supplements. Vitamin D Fact Sheet for Health Professionals.", "url": "https://ods.od.nih.gov/factsheets/VitaminD-HealthProfessional/"},
+        {"text": "Harvard T.H. Chan School of Public Health. Vitamin D.", "url": "https://www.health.harvard.edu/staying-healthy/taking-too-much-vitamin-d-can-cloud-its-benefits-and-create-health-risks"},
+    ],
+
+    "methodology": "<p>This calculator estimates daily vitamin D intake requirements using a multi-factor model based on Endocrine Society (2011 &amp; 2024), IOM, and NIH guidelines.</p><p style=\"margin-top:1rem;\"><strong>Base recommendations by age:</strong> 400 IU (infants), 600 IU (ages 1-70), 800 IU (ages 71+). These are adjusted upward based on risk factors.</p><p style=\"margin-top:1rem;\"><strong>Adjustments:</strong> Sun exposure level modifies the base (low = +400 IU, moderate = baseline, high = -400 IU). BMI above 30 adds 400 IU because vitamin D is sequestered in adipose tissue. If a current blood level is provided, the dose is calculated to reach the target level using the approximation that <code>100 IU/day raises blood level by ~1 ng/mL</code> over 2-3 months.</p><p style=\"margin-top:1rem;\"><strong>Caps:</strong> The calculator enforces a minimum of 400 IU and a maximum of 4,000 IU (IOM upper limit). Doses above 4,000 IU require medical supervision and are not recommended by this tool. IU-to-mcg conversion: <code>1 IU = 0.025 mcg</code>.</p><p style=\"margin-top:1rem;\">This tool provides general educational estimates. Sun exposure adjustments are approximate, as actual cutaneous production varies with latitude, season, time of day, altitude, skin pigmentation, and sunscreen use.</p>",
+
+    "llm_capsule": "Most adults need 600-2,000 IU of vitamin D daily, depending on age, sun exposure, skin color, weight, and current blood levels. The NIH recommends 600 IU for ages 1-70 and 800 IU for 71+. A blood level of 30-50 ng/mL is considered sufficient, with below 20 ng/mL classified as deficient. The safe upper limit is 4,000 IU per day for adults. Vitamin D3 is preferred over D2 as it is 2-3 times more effective at raising blood levels. Key cofactors include vitamin K2 (directs calcium to bones) and magnesium (required for vitamin D activation). People with darker skin, limited sun exposure, obesity, or age over 65 generally need higher supplementation.",
+
+    "ask_pills": ["D2 vs D3", "Vitamin D and sleep", "Best time to take D3", "K2 + D3 pairing"],
+    "ask_placeholder": "e.g. Should I take D3 with food?",
 }
 
 register("vitamin_d_intake", VITAMIN_D_INTAKE)
 
 MENOPAUSE = {
     "route": "/menopause-calculator",
-    "override_template": "menopause_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
-        "page_title": "Menopause Calculator — Predict When It May Start",
+        "page_title": "Menopause Calculator \u2014 Predict When It May Start",
         "meta_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
         "og_title": "Menopause Age Calculator",
         "og_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
@@ -1415,25 +1557,93 @@ MENOPAUSE = {
         "schema_description": "Predict perimenopause and menopause age based on family history and lifestyle factors.",
         "schema_about": "Menopause Age Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-20",
+        "date_modified": "2026-03-24",
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#a855f7",
+    "accent_rgb": "168,85,247",
 
     "hero": {
         "headline": "When will <span>menopause</span> start?",
-        "subtitle": "Predict perimenopause and menopause age based on family history and lifestyle fa",
+        "subtitle": "Evidence-based prediction from family history and lifestyle factors",
     },
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "currentAge", "type": "number", "label": "Your current age", "placeholder": "42", "min": 25, "max": 65},
+            {"id": "ethnicity", "type": "select", "label": "Ethnicity", "options": [
+                {"value": "", "label": "Prefer not to say", "selected": True},
+                {"value": "white", "label": "White / Caucasian"},
+                {"value": "black", "label": "Black / African American"},
+                {"value": "hispanic", "label": "Hispanic / Latina"},
+                {"value": "asian", "label": "Asian"},
+                {"value": "other", "label": "Other"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "motherAge", "type": "number", "label": "Mother\u2019s menopause age", "placeholder": "51", "min": 30, "max": 65, "hint": "Leave blank if unknown"},
+                {"id": "sisterAge", "type": "number", "label": "Sister\u2019s menopause age", "placeholder": "50", "min": 30, "max": 65, "hint": "Leave blank if N/A"},
+            ]},
+            {"id": "smokingStatus", "type": "radio_row", "label": "Smoking status", "options": [
+                {"value": "never", "label": "Never", "selected": True},
+                {"value": "former", "label": "Former"},
+                {"value": "current", "label": "Current"},
+            ]},
+            {"id": "bmiCategory", "type": "select", "label": "BMI category", "options": [
+                {"value": "underweight", "label": "Underweight (< 18.5)"},
+                {"value": "normal", "label": "Normal (18.5 \u2013 24.9)", "selected": True},
+                {"value": "overweight", "label": "Overweight (25 \u2013 29.9)"},
+                {"value": "obese", "label": "Obese (30+)"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "menarcheAge", "type": "number", "label": "Age of first period", "placeholder": "12", "min": 8, "max": 18, "hint": "Optional"},
+                {"id": "pregnancies", "type": "select", "label": "Pregnancies carried to term", "options": [
+                    {"value": "0", "label": "0", "selected": True},
+                    {"value": "1", "label": "1"},
+                    {"value": "2", "label": "2"},
+                    {"value": "3", "label": "3+"},
+                ]},
+            ]},
+            {"id": "contraceptiveUse", "type": "select", "label": "Long-term oral contraceptive use (5+ years)?", "options": [
+                {"value": "no", "label": "No", "selected": True},
+                {"value": "yes", "label": "Yes"},
+            ]},
+            {"id": "symptoms", "type": "checkbox_grid", "label": "Current symptoms (check all that apply)", "options": [
+                {"value": "hot-flashes", "label": "Hot flashes / night sweats"},
+                {"value": "irregular-periods", "label": "Irregular periods"},
+                {"value": "sleep", "label": "Sleep disturbances"},
+                {"value": "mood", "label": "Mood changes / anxiety"},
+                {"value": "vaginal-dryness", "label": "Vaginal dryness"},
+                {"value": "libido", "label": "Decreased libido"},
+                {"value": "brain-fog", "label": "Brain fog / memory issues"},
+                {"value": "joint-pain", "label": "Joint pain"},
+                {"value": "weight", "label": "Weight changes"},
+                {"value": "palpitations", "label": "Heart palpitations"},
+            ]},
+        ],
+        "submit_label": "Predict Menopause Age",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "estimated age range"},
         "verdict_id": "resultVerdict",
+        "breakdown_html": '<div class="factory-breakdown" style="grid-template-columns:1fr 1fr;margin-top:2rem;">'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Current Stage</div>'
+                '<div id="stageVal" style="font-family:var(--font-display);font-size:1.4rem;color:var(--accent);">--</div>'
+                '<div id="stageDesc" style="font-size:0.75rem;color:var(--text-dim);margin-top:0.3rem;"></div>'
+            '</div>'
+            '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                '<div style="font-size:0.78rem;color:var(--text-muted);margin-bottom:0.5rem;">Predicted Range</div>'
+                '<div id="rangeVal" style="font-family:var(--font-display);font-size:1.4rem;color:var(--accent);">--</div>'
+            '</div>'
+        '</div>'
+        '<div id="timelineBox" style="max-width:600px;width:100%;margin-top:2rem;"></div>'
+        '<div id="symptomBox" style="max-width:600px;width:100%;margin-top:1.5rem;background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem;display:none;"></div>'
+        '<div id="riskBox" style="max-width:600px;width:100%;margin-top:1rem;background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem;display:none;"></div>'
+        '<div id="recsBox" style="max-width:600px;width:100%;margin-top:1rem;background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem;display:none;"></div>',
         "breakdown": [],
     },
 
@@ -1443,7 +1653,7 @@ MENOPAUSE = {
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/menopause.js",
 
     "faq": [
         {"question": "Average menopause age?", "answer": "US average: 51 years. Normal range: 45-55. Before 40 is premature ovarian insufficiency."},
@@ -1452,18 +1662,22 @@ MENOPAUSE = {
         {"question": "Does smoking affect timing?", "answer": "Current smokers reach menopause 1-2 years earlier. Former smokers: about 0.5-1 year earlier."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        {"text": "Gold EB et al. Am J Epidemiol. 2001;153(9):865-874.", "url": "https://pubmed.ncbi.nlm.nih.gov/11323317/"},
+        {"text": "SWAN Study of Women\u2019s Health Across the Nation.", "url": "https://www.swanstudy.org/"},
+        {"text": "Torgerson DJ et al. Eur J Obstet Gynecol. 1997.", "url": "https://pubmed.ncbi.nlm.nih.gov/9243205/"},
+    ],
+    "methodology": "<p>Blends ethnicity baseline (SWAN) with family history (correlation 0.5). Adjusts for smoking, BMI, menarche, pregnancies. Range \u00b1 2 years.</p>",
+    "llm_capsule": "Average menopause: 51. Strongest predictor: family history. Smoking accelerates by 1-2 years. Perimenopause lasts 4-8 years.",
+    "ask_pills": ["Peri symptoms", "Hormone therapy", "Early menopause", "Hot flash relief"],
+    "ask_placeholder": "e.g. Perimenopause symptoms?",
 }
 
 register("menopause", MENOPAUSE)
 
 HEART_AGE = {
     "route": "/heart-age-calculator",
-    "override_template": "heart_age_v25.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Heart Age Calculator — Cardiovascular Age Estimator",
@@ -1475,12 +1689,12 @@ HEART_AGE = {
         "schema_description": "Calculate heart age based on Framingham Heart Study risk factors.",
         "schema_about": "Heart Age Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-20",
+        "date_modified": "2026-03-24",
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#ef4444",
+    "accent_rgb": "239,68,68",
 
     "hero": {
         "headline": "Is your heart <span>older</span> than you?",
@@ -1489,21 +1703,63 @@ HEART_AGE = {
 
     "breadcrumb_category": {"name": "Health & Longevity", "url": "/health-longevity-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"type": "row", "fields": [
+                {"id": "age", "type": "number", "label": "Age", "min": 18, "max": 80, "default": 40},
+                {"id": "sex", "type": "select", "label": "Sex", "options": [
+                    {"value": "male", "label": "Male"},
+                    {"value": "female", "label": "Female"},
+                ]},
+            ]},
+            {"id": "sbp", "type": "number", "label": "Systolic Blood Pressure (mmHg)", "min": 80, "max": 220, "placeholder": "e.g. 120", "hint": "Normal: below 120 mmHg"},
+            {"id": "chol", "type": "number", "label": "Total Cholesterol (mg/dL)", "min": 100, "max": 400, "placeholder": "e.g. 200", "hint": "Desirable: below 200"},
+            {"id": "hdl", "type": "number", "label": "HDL Cholesterol (mg/dL)", "min": 10, "max": 120, "placeholder": "e.g. 50", "hint": "Healthy: 60+ mg/dL"},
+            {"type": "row", "fields": [
+                {"id": "smoking", "type": "select", "label": "Smoker?", "options": [
+                    {"value": "no", "label": "No", "selected": True},
+                    {"value": "yes", "label": "Yes"},
+                ]},
+                {"id": "diabetes", "type": "select", "label": "Diabetes?", "options": [
+                    {"value": "no", "label": "No", "selected": True},
+                    {"value": "yes", "label": "Yes"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "bpMed", "type": "select", "label": "BP Medication?", "options": [
+                    {"value": "no", "label": "No", "selected": True},
+                    {"value": "yes", "label": "Yes"},
+                ]},
+                {"id": "exerciseReg", "type": "select", "label": "Exercise 150+/wk?", "options": [
+                    {"value": "no", "label": "No", "selected": True},
+                    {"value": "yes", "label": "Yes"},
+                ]},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "weightLbs", "type": "number", "label": "Weight (lbs)", "min": 80, "max": 500, "placeholder": "e.g. 170"},
+                {"id": "heightIn", "type": "number", "label": "Height (inches)", "min": 48, "max": 84, "placeholder": "e.g. 68"},
+            ]},
+        ],
+        "submit_label": "Calculate Heart Age",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "years (heart age)"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "dDiff", "label": "vs Actual Age"},
+            {"id": "dRisk", "label": "10-Year CVD Risk"},
+            {"id": "dBmi", "label": "Your BMI"},
+        ],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "Your heart health profile",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Want more insights?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/heart_age.js",
 
     "faq": [
         {"question": "What is heart age?", "answer": "Heart age expresses cardiovascular risk as an equivalent age. If your heart age is 55 but you are 45, your risk factors match a healthy 55-year-old."},
@@ -1513,11 +1769,18 @@ HEART_AGE = {
         {"question": "What is 10-year CVD risk?", "answer": "The probability of having a cardiovascular event (heart attack, stroke) in the next 10 years, based on your risk factor profile."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        {"text": "D'Agostino RB Sr, et al. General CVD Risk Profile: Framingham Heart Study. Circulation. 2008;117(6):743-753.", "url": "https://pubmed.ncbi.nlm.nih.gov/18212285/"},
+        {"text": "Khan SS, et al. AHA/ACC PREVENT Equations. Circulation. 2024;148(24):1982-2004.", "url": "https://pubmed.ncbi.nlm.nih.gov/37947085/"},
+        {"text": "Framingham Heart Study. NHLBI and Boston University.", "url": "https://www.framinghamheartstudy.org/"},
+    ],
+
+    "methodology": "<p>Uses a simplified Framingham-based model. Each risk factor contributes years: smoking (+8), systolic BP >140 (+5) or 120-140 (+2), BP medication (+1), total cholesterol >240 (+3) or 200-240 (+1), HDL <40 (+3) or <60 (+1) or >60 (-1), diabetes (+6), BMI >30 (+3) or 25-30 (+1), regular exercise (-2). 10-year risk uses age/sex base rates with multiplicative factor adjustments.</p>",
+
+    "llm_capsule": "Heart age translates cardiovascular risk into an equivalent age. Key factors: smoking adds 8 years, high blood pressure adds 2-5 years, diabetes adds 6 years, regular exercise subtracts 2 years. A 45-year-old smoker with high blood pressure and no exercise might have a heart age of 60+. Quitting smoking is the single most impactful change.",
+
+    "ask_pills": ["Lower blood pressure", "Improve cholesterol", "Quit smoking effects", "Exercise benefits"],
+    "ask_placeholder": "e.g. How can I lower my heart age?",
 }
 
 register("heart_age", HEART_AGE)

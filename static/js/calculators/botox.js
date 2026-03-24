@@ -12,10 +12,16 @@
     };
     var pricing = {derm: 15, medspa: 12, nurse: 13};
 
-    window.calcBotox = function() {
-        var gender = document.getElementById('gender').value;
-        var intensity = document.getElementById('intensity').value;
-        var provider = document.getElementById('provider').value;
+    var btn = document.getElementById('calcBtn');
+    if (btn) btn.addEventListener('click', function() {
+        var genderEl = document.getElementById('gender');
+        var intensityEl = document.getElementById('intensity');
+        var providerEl = document.getElementById('provider');
+        if (!genderEl || !intensityEl || !providerEl) return;
+
+        var gender = genderEl.value;
+        var intensity = intensityEl.value;
+        var provider = providerEl.value;
         var areas = [];
         document.querySelectorAll('.check-grid input:checked').forEach(function(cb) { areas.push(cb.value); });
         if (!areas.length) { alert('Select at least one treatment area.'); return; }
@@ -36,18 +42,24 @@
         var costPerUnit = pricing[provider] || 13;
         var totalCost = totalUnits * costPerUnit;
 
-        document.getElementById('resultNumber').textContent = totalUnits;
-        document.getElementById('dUnits').textContent = totalUnits;
-        document.getElementById('dCost').textContent = '$' + totalCost;
+        var resultNum = document.getElementById('resultNumber');
+        var dUnits = document.getElementById('dUnits');
+        var dCost = document.getElementById('dCost');
+        var coachCard = document.getElementById('coachCard');
+        var resultVerdict = document.getElementById('resultVerdict');
 
-        document.getElementById('coachCard').innerHTML = '<div class="coach-text"><span class="hl">' + totalUnits + ' units</span> across ' + areas.length + ' area' + (areas.length > 1 ? 's' : '') + ':<br><br>' + breakdown.join('<br>') + '<div class="coach-rule">$' + totalCost + ' estimated total</div><div class="coach-advice"><em>Duration:</em> Results typically last 3-4 months.<br><em>Cost per unit:</em> $' + costPerUnit + ' (' + provider + ')</div></div>';
+        if (resultNum) resultNum.textContent = totalUnits;
+        if (dUnits) dUnits.textContent = totalUnits;
+        if (dCost) dCost.textContent = '$' + totalCost;
+        if (resultVerdict) resultVerdict.textContent = areas.length + ' area' + (areas.length > 1 ? 's' : '') + ' selected';
+
+        if (coachCard) coachCard.innerHTML = '<div class="coach-text"><span class="hl">' + totalUnits + ' units</span> across ' + areas.length + ' area' + (areas.length > 1 ? 's' : '') + ':<br><br>' + breakdown.join('<br>') + '<div class="coach-rule">$' + totalCost + ' estimated total</div><div class="coach-advice"><em>Duration:</em> Results typically last 3-4 months.<br><em>Cost per unit:</em> $' + costPerUnit + ' (' + provider + ')</div></div>';
 
         var shareText = 'My Botox estimate: ' + totalUnits + ' units ($' + totalCost + ') for ' + areas.join(', ') + '\n\nCalculate yours: healthcalculators.xyz/botox-dosage-calculator';
-        updateShareButtons(shareText);
+        if (typeof updateShareButtons === 'function') updateShareButtons(shareText);
 
-        document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
-        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+        if (typeof factoryReveal === 'function') factoryReveal();
 
         if (typeof hcTrackEvent === 'function') hcTrackEvent('calculator_complete', {calculator_name: 'Botox Dosage Calculator', page_path: '/botox-dosage-calculator'});
-    };
+    });
 })();

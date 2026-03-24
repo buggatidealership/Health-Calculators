@@ -2,7 +2,7 @@ from configs import register
 
 BMI = {
     "route": "/bmi-calculator",
-    "override_template": "bmi_calculator_v3.html",
+    "override_template": "overrides/bmi.html",
 
     "seo": {
         "page_title": "BMI Calculator \u2014 Is Your Weight in a Healthy Range?",
@@ -14,7 +14,7 @@ BMI = {
         "schema_description": "Calculate your Body Mass Index using height and weight. Get a human-language interpretation of your BMI with healthy weight range and context on BMI limitations.",
         "schema_about": "BMI Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-20",
+        "date_modified": "2026-03-24",
         "robots": "index, follow",
     },
 
@@ -28,12 +28,11 @@ BMI = {
 
     "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {"fields": [], "submit_label": "Calculate BMI"},
 
     "results": {
         "primary": {"id": "resultNumber", "unit": "BMI"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
     },
 
     "coach": {
@@ -990,10 +989,10 @@ register("army_body_fat", ARMY_BODY_FAT)
 
 CREATINE_WATER = {
     "route": "/creatine-water-calculator",
-    "override_template": "creatine_water_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
-        "page_title": "Creatine Water Calculator — Optimal Hydration",
+        "page_title": "Creatine Water Calculator \u2014 Optimal Hydration",
         "meta_description": "Calculate optimal water intake when using creatine supplements.",
         "og_title": "Creatine Hydration Calculator",
         "og_description": "Calculate optimal water intake when using creatine supplements.",
@@ -1002,7 +1001,7 @@ CREATINE_WATER = {
         "schema_description": "Calculate optimal water intake when using creatine supplements.",
         "schema_about": "Creatine Hydration Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-23",
+        "date_modified": "2026-03-24",
         "robots": "index, follow",
     },
 
@@ -1016,18 +1015,53 @@ CREATINE_WATER = {
 
     "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "gender", "type": "select", "label": "Gender", "options": [
+                {"value": "male", "label": "Male", "selected": True},
+                {"value": "female", "label": "Female"},
+            ]},
+            {"type": "row", "fields": [
+                {"id": "weight", "type": "number", "label": "Body weight", "placeholder": "70", "min": 30, "max": 300},
+                {"id": "weightUnit", "type": "select", "label": "Unit", "options": [
+                    {"value": "kg", "label": "kg", "selected": True},
+                    {"value": "lbs", "label": "lbs"},
+                ]},
+            ]},
+            {"id": "intensity", "type": "select", "label": "Workout intensity", "options": [
+                {"value": "low", "label": "Low (1\u20132 workouts/week)"},
+                {"value": "moderate", "label": "Moderate (3\u20135 workouts/week)", "selected": True},
+                {"value": "high", "label": "High (daily intense workouts)"},
+                {"value": "extreme", "label": "Extreme (2+ workouts/day or hot climate)"},
+            ]},
+            {"id": "dosage", "type": "select", "label": "Daily creatine dosage", "options": [
+                {"value": "3", "label": "3g (Minimum effective dose)"},
+                {"value": "5", "label": "5g (Standard maintenance dose)", "selected": True},
+                {"value": "10", "label": "10g (Loading dose)"},
+                {"value": "20", "label": "20g (Maximum loading dose)"},
+            ]},
+            {"id": "phase", "type": "select", "label": "Creatine phase", "options": [
+                {"value": "loading", "label": "Loading Phase (first 5\u20137 days)"},
+                {"value": "maintenance", "label": "Maintenance Phase", "selected": True},
+            ]},
+        ],
+        "submit_label": "Calculate Water Requirements",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "recommended daily water"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "displayBaseWater", "label": "Base water need"},
+            {"id": "displayCreatineExtra", "label": "Creatine addition"},
+            {"id": "displayOunces", "label": "Total (oz)"},
+        ],
     },
 
     "coach": {
-        "title": "Here\u2019s what your result means",
+        "title": "Your hydration plan",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have a question about creatine hydration?",
     },
 
     "js_file": "js/calculators/creatine_water.js",
@@ -1056,7 +1090,7 @@ register("creatine_water", CREATINE_WATER)
 
 VO2_MAX = {
     "route": "/vo2-max-calculator",
-    "override_template": "vo2_max_calculator_v3.html",
+    "override_template": "overrides/vo2_max.html",
 
     "seo": {
         "page_title": "VO2 Max Calculator — Estimate Your Cardio Fitness",
@@ -1096,7 +1130,7 @@ VO2_MAX = {
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/vo2_max.js",
 
     "faq": [
         {"question": "What is a good VO2 max?", "answer": "For men aged 26-35, Average is 40-42 ml/kg/min and Good is 49-56. For women, Average is 35-38 and Good is 45-52. Elite athletes reach 70-85+."},
@@ -1178,7 +1212,7 @@ register("training_volume", TRAINING_VOLUME)
 
 ZONE2_HEART_RATE = {
     "route": "/zone2-heart-rate-calculator",
-    "override_template": "zone2_heart_rate_calculator_v3.html",
+    "override_template": "overrides/zone2_heart_rate.html",
 
     "seo": {
         "page_title": "Zone 2 Heart Rate Calculator — Aerobic Base Training",
@@ -1218,7 +1252,7 @@ ZONE2_HEART_RATE = {
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/zone2_heart_rate.js",
 
     "faq": [
         {"question": "What exactly is Zone 2 heart rate?", "answer": "Zone 2 is 60-70% of max heart rate -- the intensity where your body uses primarily fat for fuel and stimulates mitochondrial biogenesis."},
@@ -1239,7 +1273,7 @@ register("zone2_heart_rate", ZONE2_HEART_RATE)
 
 RUNNING_PACE = {
     "route": "/running-pace-calculator",
-    "override_template": "running_pace_calculator_v3.html",
+    "override_template": "overrides/running_pace.html",
 
     "seo": {
         "page_title": "Running Pace Calculator — Pace, Time & Splits",
@@ -1279,7 +1313,7 @@ RUNNING_PACE = {
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/running_pace.js",
 
     "faq": [
         {"question": "What is a good running pace for beginners?", "answer": "12-15 min/mile. At this pace you should be able to hold a conversation. Most beginners finish a 5K in 35-45 minutes."},

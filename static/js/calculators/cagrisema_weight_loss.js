@@ -1,155 +1,180 @@
 // CagriSema Weight Loss Calculator — factory-compatible
 (function() {
-// Unit toggle functionality
-const metricBtn = document.getElementById('metricBtn');
-const imperialBtn = document.getElementById('imperialBtn');
-const weightMetric = document.getElementById('weight-metric');
-const weightImperial = document.getElementById('weight-imperial');
-const heightMetric = document.getElementById('height-metric');
-const heightImperial = document.getElementById('height-imperial');
+var currentUnits = 'metric';
 
-let currentUnits = 'metric';
+// Unit toggle via factory radio_row
+var unitRow = document.querySelector('[data-group="units"]');
+if (unitRow) {
+    unitRow.querySelectorAll('.unit-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            unitRow.querySelectorAll('.unit-btn').forEach(function(b) { b.classList.remove('active'); });
+            this.classList.add('active');
+            currentUnits = this.dataset.value;
+            toggleUnitFields();
+            calculateBMI();
+        });
+    });
+}
 
-document.getElementById("metricBtn").addEventListener("click", () => {
-    currentUnits = 'metric';
-    document.getElementById("metricBtn").classList.add("active");
-    document.getElementById("imperialBtn").classList.remove("active");
-    weightMetric.classList.remove('hidden');
-    weightImperial.classList.add('hidden');
-    heightMetric.classList.remove('hidden');
-    heightImperial.classList.add('hidden');
-    calculateBMI();
-});
-
-document.getElementById("imperialBtn").addEventListener("click", () => {
-    currentUnits = 'imperial';
-    document.getElementById("imperialBtn").classList.add("active");
-    document.getElementById("metricBtn").classList.remove("active");
-    weightImperial.classList.remove('hidden');
-    weightMetric.classList.add('hidden');
-    heightImperial.classList.remove('hidden');
-    heightMetric.classList.add('hidden');
-    calculateBMI();
-});
-
-// Calculate BMI when weight or height changes
-document.getElementById('weight-kg').addEventListener('input', calculateBMI);
-document.getElementById('weight-lb').addEventListener('input', calculateBMI);
-document.getElementById('height-cm').addEventListener('input', calculateBMI);
-document.getElementById('height-ft').addEventListener('input', calculateBMI);
-document.getElementById('height-in').addEventListener('input', calculateBMI);
-
-function calculateBMI() {
-    let weightKg, heightM;
+function toggleUnitFields() {
+    var weightKgEl = document.getElementById('weight-kg');
+    var weightLbEl = document.getElementById('weight-lb');
+    var heightCmEl = document.getElementById('height-cm');
+    var heightFtEl = document.getElementById('height-ft');
 
     if (currentUnits === 'metric') {
-        weightKg = parseFloat(document.getElementById('weight-kg').value);
-        const heightCm = parseFloat(document.getElementById('height-cm').value);
+        if (weightKgEl) weightKgEl.closest('.form-group').style.display = '';
+        if (weightLbEl) weightLbEl.closest('.form-group').style.display = 'none';
+        if (heightCmEl) heightCmEl.closest('.form-group').style.display = '';
+        if (heightFtEl) heightFtEl.closest('.form-row').style.display = 'none';
+    } else {
+        if (weightKgEl) weightKgEl.closest('.form-group').style.display = 'none';
+        if (weightLbEl) weightLbEl.closest('.form-group').style.display = '';
+        if (heightCmEl) heightCmEl.closest('.form-group').style.display = 'none';
+        if (heightFtEl) heightFtEl.closest('.form-row').style.display = '';
+    }
+}
+
+// Hide imperial fields on init
+toggleUnitFields();
+
+// Make BMI field readonly
+var bmiField = document.getElementById('bmi');
+if (bmiField) bmiField.readOnly = true;
+
+// Calculate BMI on input
+var weightKgInput = document.getElementById('weight-kg');
+var weightLbInput = document.getElementById('weight-lb');
+var heightCmInput = document.getElementById('height-cm');
+var heightFtInput = document.getElementById('height-ft');
+var heightInInput = document.getElementById('height-in');
+
+if (weightKgInput) weightKgInput.addEventListener('input', calculateBMI);
+if (weightLbInput) weightLbInput.addEventListener('input', calculateBMI);
+if (heightCmInput) heightCmInput.addEventListener('input', calculateBMI);
+if (heightFtInput) heightFtInput.addEventListener('input', calculateBMI);
+if (heightInInput) heightInInput.addEventListener('input', calculateBMI);
+
+function calculateBMI() {
+    var weightKg, heightM;
+
+    if (currentUnits === 'metric') {
+        weightKg = parseFloat((document.getElementById('weight-kg') || {}).value);
+        var heightCm = parseFloat((document.getElementById('height-cm') || {}).value);
         heightM = heightCm / 100;
     } else {
-        const weightLb = parseFloat(document.getElementById('weight-lb').value);
+        var weightLb = parseFloat((document.getElementById('weight-lb') || {}).value);
         weightKg = weightLb / 2.20462;
-
-        const heightFt = parseFloat(document.getElementById('height-ft').value);
-        const heightIn = parseFloat(document.getElementById('height-in').value);
+        var heightFt = parseFloat((document.getElementById('height-ft') || {}).value);
+        var heightIn = parseFloat((document.getElementById('height-in') || {}).value);
         heightM = (heightFt * 12 + heightIn) * 0.0254;
     }
 
     if (weightKg && heightM) {
-        const bmi = (weightKg / (heightM * heightM)).toFixed(1);
-        document.getElementById('bmi').value = bmi;
+        var bmi = (weightKg / (heightM * heightM)).toFixed(1);
+        var bmiEl = document.getElementById('bmi');
+        if (bmiEl) bmiEl.value = bmi;
     }
 }
 
-// Calculate button functionality
-document.getElementById('calcBtn').addEventListener('click', calculate);
+// Calculate button
+var calcBtn = document.getElementById('calcBtn');
+if (calcBtn) calcBtn.addEventListener('click', calculate);
 
 function calculate() {
-    let weightKg, heightM;
+    var weightKg, heightM;
 
-    // Get weight in kg regardless of input units
     if (currentUnits === 'metric') {
-        weightKg = parseFloat(document.getElementById('weight-kg').value);
-        const heightCm = parseFloat(document.getElementById('height-cm').value);
+        weightKg = parseFloat((document.getElementById('weight-kg') || {}).value);
+        var heightCm = parseFloat((document.getElementById('height-cm') || {}).value);
         heightM = heightCm / 100;
     } else {
-        const weightLb = parseFloat(document.getElementById('weight-lb').value);
+        var weightLb = parseFloat((document.getElementById('weight-lb') || {}).value);
         weightKg = weightLb / 2.20462;
-
-        const heightFt = parseFloat(document.getElementById('height-ft').value);
-        const heightIn = parseFloat(document.getElementById('height-in').value);
+        var heightFt = parseFloat((document.getElementById('height-ft') || {}).value);
+        var heightIn = parseFloat((document.getElementById('height-in') || {}).value);
         heightM = (heightFt * 12 + heightIn) * 0.0254;
     }
 
-    const duration = parseInt(document.getElementById('duration').value);
+    var durationEl = document.getElementById('duration');
+    var duration = durationEl ? parseInt(durationEl.value) : 68;
 
     if (!weightKg || !heightM) {
         return;
     }
 
-    // Calculate BMI
-    const bmi = (weightKg / (heightM * heightM)).toFixed(1);
+    var bmi = (weightKg / (heightM * heightM)).toFixed(1);
 
     // CagriSema weight loss percentages from REDEFINE 1 trial
-    // 68 weeks: 20.4%, interpolated trajectory for shorter durations
-    const milestones = {
-        16: 0.08,   // ~8% at 16 weeks (dose escalation phase)
-        32: 0.14,   // ~14% at 32 weeks
-        48: 0.18,   // ~18% at 48 weeks
-        68: 0.204   // 20.4% at 68 weeks (REDEFINE 1 primary endpoint)
+    var milestones = {
+        16: 0.08,
+        32: 0.14,
+        48: 0.18,
+        68: 0.204
     };
 
-    let weightLossPercent = milestones[duration] || 0.204;
+    var weightLossPercent = milestones[duration] || 0.204;
 
-    const weightLossKg = (weightKg * weightLossPercent).toFixed(1);
-    const finalWeightKg = (weightKg - weightLossKg).toFixed(1);
-    const finalBMI = (finalWeightKg / (heightM * heightM)).toFixed(1);
+    var weightLossKg = (weightKg * weightLossPercent).toFixed(1);
+    var finalWeightKg = (weightKg - weightLossKg).toFixed(1);
+    var finalBMI = (finalWeightKg / (heightM * heightM)).toFixed(1);
 
-    // Display results in the appropriate units
+    // Display results
+    var resultNumberEl = document.getElementById('resultNumber');
+    var startWeightEl = document.getElementById('startWeight');
+    var finalWeightEl = document.getElementById('finalWeight');
+    var startBMIEl = document.getElementById('startBMI');
+    var finalBMIEl = document.getElementById('finalBMI');
+    var lossPctEl = document.getElementById('loss-pct-label');
+    var compareCagrisemaEl = document.getElementById('compare-cagrisema');
+
     if (currentUnits === 'metric') {
-        document.getElementById('startWeight').textContent = weightKg + ' kg';
-        document.getElementById('weightLoss').textContent = weightLossKg + ' kg';
-        document.getElementById('finalWeight').textContent = finalWeightKg + ' kg';
+        if (resultNumberEl) resultNumberEl.textContent = weightLossKg + ' kg';
+        if (startWeightEl) startWeightEl.textContent = weightKg + ' kg';
+        if (finalWeightEl) finalWeightEl.textContent = finalWeightKg + ' kg';
     } else {
-        const weightLb = (weightKg * 2.20462).toFixed(1);
-        const weightLossLb = (weightLossKg * 2.20462).toFixed(1);
-        const finalWeightLb = (finalWeightKg * 2.20462).toFixed(1);
-
-        document.getElementById('startWeight').textContent = weightLb + ' lbs';
-        document.getElementById('weightLoss').textContent = weightLossLb + ' lbs';
-        document.getElementById('finalWeight').textContent = finalWeightLb + ' lbs';
+        var weightLb2 = (weightKg * 2.20462).toFixed(1);
+        var weightLossLb = (weightLossKg * 2.20462).toFixed(1);
+        var finalWeightLb = (finalWeightKg * 2.20462).toFixed(1);
+        if (resultNumberEl) resultNumberEl.textContent = weightLossLb + ' lbs';
+        if (startWeightEl) startWeightEl.textContent = weightLb2 + ' lbs';
+        if (finalWeightEl) finalWeightEl.textContent = finalWeightLb + ' lbs';
     }
 
-    document.getElementById('startBMI').textContent = bmi;
-    document.getElementById('finalBMI').textContent = finalBMI;
+    if (startBMIEl) startBMIEl.textContent = bmi;
+    if (finalBMIEl) finalBMIEl.textContent = finalBMI;
+    if (lossPctEl) lossPctEl.textContent = (weightLossPercent * 100).toFixed(1) + '%';
+    if (compareCagrisemaEl) compareCagrisemaEl.textContent = '~' + (weightLossPercent * 100).toFixed(1) + '%';
 
-    // Populate new result elements
-    document.getElementById('loss-pct-label').textContent = (weightLossPercent * 100).toFixed(1) + '% of starting body weight';
+    // Reveal results via factory
+    if (typeof factoryReveal === 'function') { factoryReveal(); }
 
-    const durationSelect = document.getElementById('duration');
-    document.getElementById('duration-display').textContent = durationSelect.options[durationSelect.selectedIndex].text;
+    if (typeof showNextSteps === 'function' && typeof collectUserData === 'function') {
+        showNextSteps('cagrisema', collectUserData());
+    }
 
-    // Update the comparison highlight for user's selected duration
-    document.getElementById('compare-cagrisema').textContent = '~' + (weightLossPercent * 100).toFixed(1) + '%';
+    // Create chart (load Chart.js if needed)
+    ensureChartJs(function() { createChart(weightKg, duration, currentUnits); });
+}
 
-    // Show result div
-    if (typeof factoryReveal === 'function') { factoryReveal(); };
-    showNextSteps('cagrisema', collectUserData());
-
-    // Create chart with timeline milestones
-    createChart(weightKg, duration, currentUnits);
+function ensureChartJs(cb) {
+    if (typeof Chart !== 'undefined') return cb();
+    var s = document.createElement('script');
+    s.src = 'https://cdn.jsdelivr.net/npm/chart.js';
+    s.onload = cb;
+    document.head.appendChild(s);
 }
 
 function createChart(startWeightKg, duration, units) {
-    const ctx = document.getElementById('chart').getContext('2d');
+    var canvas = document.getElementById('chart');
+    if (!canvas) return;
+    var ctx = canvas.getContext('2d');
 
-    // Clear previous chart if it exists
     if (window.weightChart) {
         window.weightChart.destroy();
     }
 
-    // CagriSema trajectory milestones from REDEFINE 1
-    const allMilestones = [
+    var allMilestones = [
         { week: 0, pct: 0 },
         { week: 4, pct: 0.02 },
         { week: 8, pct: 0.045 },
@@ -162,12 +187,11 @@ function createChart(startWeightKg, duration, units) {
         { week: 68, pct: 0.204 }
     ];
 
-    // Filter milestones up to the selected duration
-    const milestones = allMilestones.filter(m => m.week <= duration);
+    var milestones = allMilestones.filter(function(m) { return m.week <= duration; });
 
-    const labels = milestones.map(m => m.week + ' weeks');
-    const data = milestones.map(m => {
-        const currentWeightKg = startWeightKg * (1 - m.pct);
+    var labels = milestones.map(function(m) { return m.week + ' weeks'; });
+    var data = milestones.map(function(m) {
+        var currentWeightKg = startWeightKg * (1 - m.pct);
         if (units === 'imperial') {
             return (currentWeightKg * 2.20462).toFixed(1);
         }
@@ -181,8 +205,8 @@ function createChart(startWeightKg, duration, units) {
             datasets: [{
                 label: 'Projected Weight (' + (units === 'metric' ? 'kg' : 'lbs') + ')',
                 data: data,
-                borderColor: 'var(--color-accent)',
-                backgroundColor: 'rgba(214, 51, 132, 0.1)',
+                borderColor: 'var(--accent)',
+                backgroundColor: 'rgba(var(--accent-rgb), 0.1)',
                 fill: true,
                 tension: 0.4
             }]
@@ -192,7 +216,7 @@ function createChart(startWeightKg, duration, units) {
             scales: {
                 y: {
                     beginAtZero: false,
-                    min: Math.floor((units === 'metric' ? startWeightKg * 0.75 : startWeightKg * 0.75 * 2.20462))
+                    min: Math.floor(units === 'metric' ? startWeightKg * 0.75 : startWeightKg * 0.75 * 2.20462)
                 }
             }
         }

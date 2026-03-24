@@ -1,9 +1,6 @@
 // Gestational Age Calculator — factory-compatible
 (function() {
 var methodSelect = document.getElementById('method');
-var lmpGroup = document.getElementById('lmp-group');
-var ultrasoundGroup = document.getElementById('ultrasound-group');
-var ivfGroup = document.getElementById('ivf-group');
 var lmpInput = document.getElementById('lmp-date');
 var usDateInput = document.getElementById('us-date');
 var usWeeksInput = document.getElementById('us-weeks');
@@ -11,177 +8,206 @@ var usDaysInput = document.getElementById('us-days');
 var ivfDateInput = document.getElementById('ivf-date');
 var ivfTypeSelect = document.getElementById('ivf-type');
 var calculateBtn = document.getElementById('calcBtn');
-var resultsSection = document.getElementById('results-section');
 
-// Set default LMP date to ~8 weeks ago
+if (!methodSelect || !calculateBtn) return;
+
+// --- Form group visibility ---
+// Each field is wrapped in .form-group or .form-row by the factory.
+// We find the closest wrapper for each field and hide/show it.
+function getFieldGroup(el) {
+  if (!el) return null;
+  return el.closest('.form-row') || el.closest('.form-group');
+}
+
+var lmpGroup = getFieldGroup(lmpInput);
+var usDateGroup = getFieldGroup(usDateInput);
+// us-weeks and us-days are inside a .form-row together
+var usRowGroup = getFieldGroup(usWeeksInput);
+var ivfDateGroup = getFieldGroup(ivfDateInput);
+var ivfTypeGroup = getFieldGroup(ivfTypeSelect);
+
+function showGroup(g) { if (g) g.style.display = ''; }
+function hideGroup(g) { if (g) g.style.display = 'none'; }
+
+function updateVisibility() {
+  var val = methodSelect.value;
+  // Hide all conditional groups
+  hideGroup(lmpGroup);
+  hideGroup(usDateGroup);
+  hideGroup(usRowGroup);
+  hideGroup(ivfDateGroup);
+  hideGroup(ivfTypeGroup);
+  // Show relevant group
+  if (val === 'lmp') {
+    showGroup(lmpGroup);
+  } else if (val === 'ultrasound') {
+    showGroup(usDateGroup);
+    showGroup(usRowGroup);
+  } else if (val === 'ivf') {
+    showGroup(ivfDateGroup);
+    showGroup(ivfTypeGroup);
+  }
+}
+
+// Initial visibility
+updateVisibility();
+
+// Set default dates
 var defaultLmp = new Date();
 defaultLmp.setDate(defaultLmp.getDate() - 56);
-lmpInput.value = formatDateInput(defaultLmp);
-
-// Set default ultrasound date to today
-usDateInput.value = formatDateInput(new Date());
-
-// Set default IVF date to ~5 weeks ago
+if (lmpInput) lmpInput.value = formatDateInput(defaultLmp);
+if (usDateInput) usDateInput.value = formatDateInput(new Date());
 var defaultIvf = new Date();
 defaultIvf.setDate(defaultIvf.getDate() - 35);
-ivfDateInput.value = formatDateInput(defaultIvf);
+if (ivfDateInput) ivfDateInput.value = formatDateInput(defaultIvf);
 
-methodSelect.addEventListener('change', function() {
-  lmpGroup.classList.add('hidden');
-  ultrasoundGroup.classList.add('hidden');
-  ivfGroup.classList.add('hidden');
-  if (methodSelect.value === 'lmp') lmpGroup.classList.remove('hidden');
-  else if (methodSelect.value === 'ultrasound') ultrasoundGroup.classList.remove('hidden');
-  else if (methodSelect.value === 'ivf') ivfGroup.classList.remove('hidden');
-});
+methodSelect.addEventListener('change', updateVisibility);
 
 calculateBtn.addEventListener('click', function() {
   var today = new Date();
   today.setHours(0, 0, 0, 0);
-  var gestStartDate; // The "LMP equivalent" date
+  var gestStartDate;
 
   if (methodSelect.value === 'lmp') {
-    if (!lmpInput.value) {
-      return;
-    }
+    if (!lmpInput || !lmpInput.value) return;
     gestStartDate = parseLocalDate(lmpInput.value);
   } else if (methodSelect.value === 'ultrasound') {
-    if (!usDateInput.value) {
-      return;
-    }
-    var usWeeks = parseInt(usWeeksInput.value) || 0;
-    var usDays = parseInt(usDaysInput.value) || 0;
-    if (usWeeks === 0 && usDays === 0) {
-      return;
-    }
+    if (!usDateInput || !usDateInput.value) return;
+    var usWeeks = parseInt(usWeeksInput ? usWeeksInput.value : '0') || 0;
+    var usDays = parseInt(usDaysInput ? usDaysInput.value : '0') || 0;
+    if (usWeeks === 0 && usDays === 0) return;
     var usDate = parseLocalDate(usDateInput.value);
     var totalDaysAtUs = usWeeks * 7 + usDays;
     gestStartDate = new Date(usDate);
     gestStartDate.setDate(gestStartDate.getDate() - totalDaysAtUs);
   } else if (methodSelect.value === 'ivf') {
-    if (!ivfDateInput.value) {
-      return;
-    }
+    if (!ivfDateInput || !ivfDateInput.value) return;
     var ivfDate = parseLocalDate(ivfDateInput.value);
-    var ivfType = parseInt(ivfTypeSelect.value); // 3 or 5
-    // IVF: gestational age = transfer date + (14 - embryo age) days before = LMP equivalent
-    // Day 3 embryo: LMP equivalent = transfer date - 17 days (14 + 3)
-    // Day 5 embryo: LMP equivalent = transfer date - 19 days (14 + 5)
+    var ivfType = parseInt(ivfTypeSelect ? ivfTypeSelect.value : '5');
     var daysToSubtract = 14 + ivfType;
     gestStartDate = new Date(ivfDate);
     gestStartDate.setDate(gestStartDate.getDate() - daysToSubtract);
   }
 
-  // Calculate gestational age
+  if (!gestStartDate) return;
+
   var diffMs = today.getTime() - gestStartDate.getTime();
   var totalDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
 
-  if (totalDays < 0) {
-    return;
-  }
-  if (totalDays > 301) { // ~43 weeks
-    return;
-  }
+  if (totalDays < 0 || totalDays > 301) return;
 
   var weeks = Math.floor(totalDays / 7);
   var days = totalDays % 7;
 
-  // Due date (EDD): LMP + 280 days (Naegele's rule)
+  // Due date (Naegele's rule)
   var edd = new Date(gestStartDate);
   edd.setDate(edd.getDate() + 280);
   var daysRemaining = Math.floor((edd.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 
-  // Fetal age (conceptional age) = gestational age - 14 days
+  // Fetal age
   var fetalDays = Math.max(0, totalDays - 14);
   var fetalWeeks = Math.floor(fetalDays / 7);
   var fetalDaysRem = fetalDays % 7;
 
   // Trimester
-  var trimester, trimesterLabel;
+  var trimesterLabel;
   if (weeks < 13) {
-    trimester = 1;
-    trimesterLabel = 'First Trimester (weeks 1-12)';
+    trimesterLabel = 'First Trimester';
   } else if (weeks < 27) {
-    trimester = 2;
-    trimesterLabel = 'Second Trimester (weeks 13-26)';
+    trimesterLabel = 'Second Trimester';
   } else {
-    trimester = 3;
-    trimesterLabel = 'Third Trimester (weeks 27-40)';
+    trimesterLabel = 'Third Trimester';
   }
 
-  // ACOG term classification (2013)
+  // ACOG term classification
   var termClass;
   if (weeks < 37) termClass = 'Preterm';
-  else if (weeks < 39) termClass = 'Early Term (37w0d-38w6d)';
-  else if (weeks < 41) termClass = 'Full Term (39w0d-40w6d)';
-  else if (weeks < 42) termClass = 'Late Term (41w0d-41w6d)';
-  else termClass = 'Post Term (≥42w0d)';
+  else if (weeks < 39) termClass = 'Early Term';
+  else if (weeks < 41) termClass = 'Full Term';
+  else if (weeks < 42) termClass = 'Late Term';
+  else termClass = 'Post Term';
 
-  // Progress percentage
   var progressPct = Math.min((totalDays / 280) * 100, 100);
-
-  // Current milestone
   var milestone = getMilestone(weeks);
 
-  // Show results
-  resultsSection.classList.remove('hidden');
+  // --- Populate factory primary result ---
+  var resultNumber = document.getElementById('resultNumber');
+  if (resultNumber) resultNumber.textContent = weeks + 'w ' + days + 'd';
 
-  var heroEl = document.getElementById('ga-result');
-  var labelEl = document.getElementById('ga-label');
-  heroEl.textContent = weeks + 'w ' + days + 'd';
-  labelEl.textContent = trimesterLabel;
-
-  if (typeof animateCountUp === 'function') {
-    animateCountUp(heroEl, 0, weeks, 0, 'w ' + days + 'd');
+  var resultVerdict = document.getElementById('resultVerdict');
+  if (resultVerdict) {
+    if (daysRemaining > 0) {
+      resultVerdict.textContent = trimesterLabel + ' — Due ' + formatDateDisplay(edd);
+    } else {
+      resultVerdict.textContent = 'Past due by ' + Math.abs(daysRemaining) + ' days';
+    }
   }
 
-  // Status
+  // --- Status box ---
   var statusEl = document.getElementById('ga-status');
   var iconEl = document.getElementById('ga-icon');
   var descEl = document.getElementById('ga-description');
-
-  if (daysRemaining > 0) {
-    statusEl.className = 'result-status status-good';
-    iconEl.textContent = '✓';
-    descEl.textContent = 'You are ' + weeks + ' weeks and ' + days + ' days pregnant. Your estimated due date is ' + formatDateDisplay(edd) + ' (' + daysRemaining + ' days from now). ' + milestone;
-  } else {
-    statusEl.className = 'result-status status-warning';
-    iconEl.textContent = '⚠';
-    descEl.textContent = 'You are ' + weeks + ' weeks and ' + days + ' days, which is ' + Math.abs(daysRemaining) + ' days past your estimated due date of ' + formatDateDisplay(edd) + '. Discuss delivery timing with your provider.';
+  if (statusEl) statusEl.style.display = '';
+  if (iconEl && descEl) {
+    if (daysRemaining > 0) {
+      iconEl.textContent = '\u2713 ';
+      descEl.textContent = 'You are ' + weeks + ' weeks and ' + days + ' days pregnant. Your estimated due date is ' + formatDateDisplay(edd) + ' (' + daysRemaining + ' days from now). ' + milestone;
+    } else {
+      iconEl.textContent = '\u26A0 ';
+      descEl.textContent = 'You are ' + weeks + ' weeks and ' + days + ' days, which is ' + Math.abs(daysRemaining) + ' days past your estimated due date of ' + formatDateDisplay(edd) + '. Discuss delivery timing with your provider.';
+    }
   }
 
-  // Progress gauge
-  document.getElementById('gauge-marker').style.left = progressPct + '%';
-  document.getElementById('progress-pct').textContent = Math.round(progressPct) + '%';
+  // --- Progress gauge ---
+  var progressSection = document.getElementById('ga-progress');
+  if (progressSection) progressSection.style.display = '';
+  var gaugeMarker = document.getElementById('gauge-marker');
+  if (gaugeMarker) gaugeMarker.style.left = progressPct + '%';
+  var progressPctEl = document.getElementById('progress-pct');
+  if (progressPctEl) progressPctEl.textContent = Math.round(progressPct) + '%';
 
-  // Breakdown
-  document.getElementById('display-ga').textContent = weeks + ' weeks, ' + days + ' days (' + totalDays + ' days total)';
-  document.getElementById('display-fetal-age').textContent = fetalWeeks + ' weeks, ' + fetalDaysRem + ' days';
-  document.getElementById('display-edd').textContent = formatDateDisplay(edd);
-  document.getElementById('display-remaining').textContent = daysRemaining > 0 ? daysRemaining + ' days (' + Math.round(daysRemaining / 7 * 10) / 10 + ' weeks)' : 'Past due by ' + Math.abs(daysRemaining) + ' days';
-  document.getElementById('display-trimester').textContent = trimesterLabel;
-  document.getElementById('display-term-class').textContent = termClass;
-  document.getElementById('display-progress').textContent = Math.round(progressPct) + '% complete';
+  // --- Breakdown detail cards ---
+  var gaEl = document.getElementById('display-ga');
+  if (gaEl) gaEl.textContent = weeks + 'w ' + days + 'd';
+  var fetalEl = document.getElementById('display-fetal-age');
+  if (fetalEl) fetalEl.textContent = fetalWeeks + 'w ' + fetalDaysRem + 'd';
+  var eddEl = document.getElementById('display-edd');
+  if (eddEl) eddEl.textContent = formatDateShort(edd);
+  var remainEl = document.getElementById('display-remaining');
+  if (remainEl) remainEl.textContent = daysRemaining > 0 ? daysRemaining + 'd' : 'Past due';
+  var trimEl = document.getElementById('display-trimester');
+  if (trimEl) trimEl.textContent = trimesterLabel;
+  var termEl = document.getElementById('display-term-class');
+  if (termEl) termEl.textContent = termClass;
 
-  // Comparison boxes
-  document.getElementById('comp-ga').textContent = weeks + 'w ' + days + 'd';
-  document.getElementById('comp-edd').textContent = formatDateShort(edd);
-  document.getElementById('comp-trimester').textContent = 'Trimester ' + trimester;
-
-  // Milestone timeline
+  // --- Milestone timeline ---
+  var milestoneSection = document.getElementById('milestone-section');
+  if (milestoneSection) milestoneSection.style.display = '';
   buildTimeline(weeks);
 
-  resultsSection.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-
-  if (typeof celebratePulse === 'function') {
-    celebratePulse(document.getElementById('result-hero'));
+  // --- Coach card ---
+  var coachCard = document.getElementById('coachCard');
+  if (coachCard) {
+    coachCard.innerHTML =
+      '<p>At <span class="hl">' + weeks + ' weeks and ' + days + ' days</span>, you are in your <span class="hl">' + trimesterLabel.toLowerCase() + '</span>.</p>' +
+      '<p class="coach-rule">' + milestone + '</p>' +
+      '<div class="coach-advice">' +
+        '<p>Your estimated due date is <em>' + formatDateDisplay(edd) + '</em>' +
+        (daysRemaining > 0 ? ' (' + daysRemaining + ' days from now).' : '.') +
+        ' ACOG classifies this as <em>' + termClass + '</em>.</p>' +
+      '</div>';
   }
 
-  if (typeof showNextSteps === 'function') {
-    showNextSteps('gestational-age', { age: 0, gender: 'female' });
+  // --- Share text ---
+  if (typeof updateShareButtons === 'function') {
+    updateShareButtons('I\'m ' + weeks + 'w ' + days + 'd pregnant! Due ' + formatDateShort(edd) + '. Calculated at healthcalculators.xyz/gestational-age-calculator');
   }
+
+  // Factory reveal
+  if (typeof factoryReveal === 'function') { factoryReveal(); }
 });
 
+// --- Helpers ---
 function parseLocalDate(str) {
   var parts = str.split('-');
   return new Date(parseInt(parts[0]), parseInt(parts[1]) - 1, parseInt(parts[2]));
@@ -226,6 +252,7 @@ function getMilestone(weeks) {
 
 function buildTimeline(currentWeek) {
   var tbody = document.getElementById('milestone-tbody');
+  if (!tbody) return;
   tbody.innerHTML = '';
 
   var milestones = [
@@ -250,22 +277,19 @@ function buildTimeline(currentWeek) {
     var isCurrent = currentWeek >= m.week && (i === milestones.length - 1 || currentWeek < milestones[i + 1].week);
 
     if (isCurrent) {
-      tr.style.background = '#f0f9ff';
+      tr.style.background = 'rgba(236,72,153,0.1)';
       tr.style.fontWeight = '600';
     }
 
-    var statusIcon = isPast ? '✓' : '○';
-    var statusColor = isPast ? '#1a8a4a' : '#999';
+    var statusIcon = isPast ? '\u2713' : '\u25CB';
+    var statusColor = isPast ? 'var(--accent,#ec4899)' : 'var(--text-muted,#64748b)';
 
     tr.innerHTML =
-      '<td style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; color: ' + statusColor + ';">' + statusIcon + '</td>' +
-      '<td style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0; font-weight: 600;">Week ' + m.week + '</td>' +
-      '<td style="padding: 6px 10px; border-bottom: 1px solid #f0f0f0;">' + m.label + '</td>';
+      '<td style="padding:6px 10px;border-bottom:1px solid rgba(236,72,153,0.08);color:' + statusColor + ';">' + statusIcon + '</td>' +
+      '<td style="padding:6px 10px;border-bottom:1px solid rgba(236,72,153,0.08);font-weight:600;color:var(--text,#e2e8f0);">Week ' + m.week + '</td>' +
+      '<td style="padding:6px 10px;border-bottom:1px solid rgba(236,72,153,0.08);color:var(--text-dim,#94a3b8);">' + m.label + '</td>';
 
     tbody.appendChild(tr);
   }
 }
-
-// Reveal results
-if (typeof factoryReveal === 'function') { factoryReveal(); }
 })();

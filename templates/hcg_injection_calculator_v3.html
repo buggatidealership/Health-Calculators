@@ -353,24 +353,38 @@
 
 {% include 'footer.html' %}
 
-<script defer src="/static/js/hcg_injection_calculator.js"></script>
+{% if cfg and cfg.js_file %}
+<script src="/static/{{ cfg.js_file }}?v=2"></script>
+{% else %}
+<script src="/static/js/calculators/hcg_injection.js?v=2"></script>
+{% endif %}
 <script>
-document.querySelectorAll('.faq-question').forEach(btn => {
+document.querySelectorAll('.faq-question').forEach(function(btn) {
     btn.addEventListener('click', function() {
-        const item = this.closest('.faq-item');
-        item.classList.toggle('faq-open');
-        this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+        var item = this.closest('.faq-item');
+        if (item) {
+            item.classList.toggle('faq-open');
+            this.setAttribute('aria-expanded', item.classList.contains('faq-open'));
+        }
     });
 });
-document.getElementById('askBtn')?.addEventListener('click', function() {
-    const q = document.getElementById('askInput').value.trim();
+var askBtnEl = document.getElementById('askBtn');
+if (askBtnEl) askBtnEl.addEventListener('click', function() {
+    var askInput = document.getElementById('askInput');
+    var q = askInput ? askInput.value.trim() : '';
     if (!q) return;
-    document.querySelector('.ask-input-wrap').style.display = 'none';
-    document.querySelector('.ask-pills').style.display = 'none';
-    document.getElementById('askThanks').style.display = 'block';
+    var wrap = document.querySelector('.ask-input-wrap');
+    var pills = document.querySelector('.ask-pills');
+    var thanks = document.getElementById('askThanks');
+    if (wrap) wrap.style.display = 'none';
+    if (pills) pills.style.display = 'none';
+    if (thanks) thanks.style.display = 'block';
 });
-document.querySelectorAll('.ask-pill').forEach(pill => {
-    pill.addEventListener('click', function() { document.getElementById('askInput').value = this.textContent; });
+document.querySelectorAll('.ask-pill').forEach(function(pill) {
+    pill.addEventListener('click', function() {
+        var askInput = document.getElementById('askInput');
+        if (askInput) askInput.value = this.textContent;
+    });
 });
 </script>
 </body>

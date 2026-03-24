@@ -82,7 +82,7 @@ register("adult_height_predictor", ADULT_HEIGHT_PREDICTOR)
 
 DOG_PREGNANCY = {
     "route": "/dog-pregnancy-due-date-calculator",
-    "override_template": "dog_pregnancy_due_date_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Dog Pregnancy Due-Date Calculator — Estimate Whelping Date",
@@ -108,18 +108,33 @@ DOG_PREGNANCY = {
 
     "breadcrumb_category": {"name": "Fertility & Pregnancy", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "matingDate", "type": "date", "label": "First mating date"},
+            {"id": "breedSize", "type": "select", "label": "Breed size", "options": [
+                {"value": "small", "label": "Small (under 20 lbs)"},
+                {"value": "medium", "label": "Medium (20-50 lbs)", "selected": True},
+                {"value": "large", "label": "Large (50-90 lbs)"},
+                {"value": "giant", "label": "Giant (over 90 lbs)"},
+            ]},
+        ],
+        "submit_label": "Calculate Due Date",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "expected due date"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "dateRange", "label": "Due date range"},
+            {"id": "currentDay", "label": "Current gestation day"},
+            {"id": "daysRemaining", "label": "Days remaining"},
+        ],
     },
 
     "coach": {
-        "title": "Here\u2019s what your result means",
+        "title": "Your pregnancy timeline",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have questions?",
     },
 
     "js_file": "js/calculators/dog_pregnancy.js",
@@ -147,7 +162,7 @@ register("dog_pregnancy", DOG_PREGNANCY)
 
 FEMALE_FERTILITY = {
     "route": "/female-fertility-calculator",
-    "override_template": "female_fertility_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Female Fertility Calculator — Fertile Window",
@@ -159,7 +174,7 @@ FEMALE_FERTILITY = {
         "schema_description": "Estimate your fertile window and ovulation date based on menstrual cycle length.",
         "schema_about": "Fertility Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-23",
+        "date_modified": "2026-03-24",
         "robots": "noindex, nofollow",
     },
 
@@ -173,12 +188,23 @@ FEMALE_FERTILITY = {
 
     "breadcrumb_category": {"name": "Fertility & Pregnancy", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "lastPeriod", "type": "date", "label": "First day of last period"},
+            {"id": "cycleLength", "type": "number", "label": "Cycle length (days)", "default": 28, "min": 20, "max": 45, "step": 1, "hint": "Average is 28 days"},
+            {"id": "lutealPhase", "type": "number", "label": "Luteal phase (days)", "default": 14, "min": 10, "max": 16, "step": 1, "hint": "Default 14 — most women don't need to change this"},
+        ],
+        "submit_label": "Calculate",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "estimated ovulation date"},
         "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "breakdown": [
+            {"id": "fertileDays", "label": "Fertile window"},
+            {"id": "peakDays", "label": "Peak fertility"},
+            {"id": "ovulationDay", "label": "Ovulation day"},
+        ],
     },
 
     "coach": {
@@ -213,7 +239,7 @@ register("female_fertility", FEMALE_FERTILITY)
 
 FORMULA_FEEDING = {
     "route": "/formula-feeding-calculator",
-    "override_template": "formula_feeding_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Formula Feeding Calculator — How Much Formula Baby Needs",
@@ -225,7 +251,7 @@ FORMULA_FEEDING = {
         "schema_description": "Calculate formula amount per feeding and per day based on baby age and weight.",
         "schema_about": "Formula Feeding Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-23",
+        "date_modified": "2026-03-24",
         "robots": "noindex, nofollow",
     },
 
@@ -239,11 +265,83 @@ FORMULA_FEEDING = {
 
     "breadcrumb_category": {"name": "Fertility & Pregnancy", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "age-value", "type": "number", "label": "Baby's Age", "min": 0, "step": 1, "placeholder": "e.g. 3"},
+                    {"id": "age-unit", "type": "select", "label": "Age Unit", "options": [
+                        {"value": "days", "label": "Days"},
+                        {"value": "weeks", "label": "Weeks", "selected": True},
+                        {"value": "months", "label": "Months"},
+                    ]},
+                ],
+            },
+            {"id": "weight-system", "type": "select", "label": "Weight System", "options": [
+                {"value": "imperial", "label": "Imperial (lbs/oz)", "selected": True},
+                {"value": "metric", "label": "Metric (kg/g)"},
+            ]},
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "weight-lbs", "type": "number", "label": "Weight — Pounds", "min": 0, "max": 40, "step": 1, "placeholder": "e.g. 10"},
+                    {"id": "weight-oz", "type": "number", "label": "Ounces", "min": 0, "max": 15, "step": 1, "placeholder": "e.g. 8"},
+                ],
+            },
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "weight-kg", "type": "number", "label": "Weight — Kilograms", "min": 0, "max": 20, "step": 0.1, "placeholder": "e.g. 4"},
+                    {"id": "weight-g", "type": "number", "label": "Grams", "min": 0, "max": 999, "step": 1, "placeholder": "e.g. 800"},
+                ],
+            },
+        ],
+        "submit_label": "Calculate Formula Amount",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "per day"},
         "verdict_id": "resultVerdict",
+        "breakdown_html":
+            '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.7rem;max-width:600px;width:100%;margin-top:2rem;">'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="comp-daily">--</div>'
+                    '<div class="d-lbl">Daily Total</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="comp-feeding">--</div>'
+                    '<div class="d-lbl">Per Feeding</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="comp-feedings">--</div>'
+                    '<div class="d-lbl">Feedings/Day</div>'
+                '</div>'
+            '</div>'
+            '<div style="max-width:600px;width:100%;margin-top:1.5rem;background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.5rem;">'
+                '<div style="font-weight:600;margin-bottom:0.8rem;color:#fff;">Details</div>'
+                '<div id="breakdown-rows"></div>'
+            '</div>'
+            '<div id="solids-note" style="display:none;max-width:600px;width:100%;margin-top:1rem;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.15);border-radius:14px;padding:1.5rem;">'
+                '<div style="font-weight:600;color:#ef4444;margin-bottom:0.5rem;">Solid Foods Note</div>'
+                '<p style="color:var(--text-dim);font-size:0.9rem;line-height:1.7;margin:0;">At this age, your baby may be starting solid foods. Formula amounts typically decrease as solid food intake increases. The AAP recommends introducing solids around 6 months while continuing formula until 12 months.</p>'
+            '</div>'
+            '<div style="max-width:600px;width:100%;margin-top:1.5rem;">'
+                '<div style="font-weight:600;margin-bottom:0.8rem;color:#fff;font-size:1rem;">Formula Feeding Schedule by Age</div>'
+                '<div style="overflow-x:auto;">'
+                    '<table style="width:100%;border-collapse:collapse;font-size:0.88rem;">'
+                        '<thead><tr style="border-bottom:2px solid rgba(var(--accent-rgb),0.15);">'
+                            '<th style="padding:8px 10px;text-align:left;color:var(--text);font-weight:600;">Age</th>'
+                            '<th style="padding:8px 10px;text-align:left;color:var(--text);font-weight:600;">Per Feeding</th>'
+                            '<th style="padding:8px 10px;text-align:left;color:var(--text);font-weight:600;">Feedings/Day</th>'
+                            '<th style="padding:8px 10px;text-align:left;color:var(--text);font-weight:600;">Daily Total</th>'
+                            '<th style="padding:8px 10px;text-align:left;color:var(--text);font-weight:600;">Interval</th>'
+                        '</tr></thead>'
+                        '<tbody id="schedule-tbody"></tbody>'
+                    '</table>'
+                '</div>'
+                '<p style="font-size:0.78rem;color:var(--text-muted);margin-top:0.5rem;">Source: AAP (HealthyChildren.org), CDC Infant Nutrition Guidelines. Ranges are approximate.</p>'
+            '</div>',
         "breakdown": [],
     },
 
@@ -279,7 +377,6 @@ register("formula_feeding", FORMULA_FEEDING)
 
 GESTATIONAL_AGE = {
     "route": "/gestational-age-calculator",
-    "override_template": "gestational_age_calculator_v3.html",
 
     "seo": {
         "page_title": "Gestational Age Calculator — Weeks and Days Pregnant",
@@ -291,7 +388,7 @@ GESTATIONAL_AGE = {
         "schema_description": "Calculate gestational age from LMP, ultrasound, or IVF date. Shows weeks pregnant, due date, trimester.",
         "schema_about": "Gestational Age Calculator",
         "date_published": "2025-06-01",
-        "date_modified": "2026-03-23",
+        "date_modified": "2026-03-24",
         "robots": "noindex, nofollow",
     },
 
@@ -305,11 +402,92 @@ GESTATIONAL_AGE = {
 
     "breadcrumb_category": {"name": "Fertility & Pregnancy", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {
+                "type": "select", "id": "method", "label": "Dating Method",
+                "options": [
+                    {"value": "lmp", "label": "Last Menstrual Period (LMP)", "selected": True},
+                    {"value": "ultrasound", "label": "Ultrasound Dating"},
+                    {"value": "ivf", "label": "IVF Transfer Date"},
+                ],
+            },
+            # LMP field — visible by default, JS manages visibility
+            {"type": "date", "id": "lmp-date", "label": "First Day of Last Menstrual Period", "hint": "The first day of bleeding, not the last"},
+            # Ultrasound fields — hidden by default, JS manages visibility
+            {"type": "date", "id": "us-date", "label": "Ultrasound Date"},
+            {
+                "type": "row",
+                "fields": [
+                    {"type": "number", "id": "us-weeks", "label": "Weeks at Ultrasound", "min": 0, "max": 42, "step": 1, "default": "8", "placeholder": "e.g. 8"},
+                    {"type": "number", "id": "us-days", "label": "Days", "min": 0, "max": 6, "step": 1, "default": "0", "placeholder": "e.g. 3", "hint": "From report (e.g., 8w3d)"},
+                ],
+            },
+            # IVF fields — hidden by default, JS manages visibility
+            {"type": "date", "id": "ivf-date", "label": "Embryo Transfer Date"},
+            {
+                "type": "select", "id": "ivf-type", "label": "Embryo Type",
+                "options": [
+                    {"value": "5", "label": "Day 5 (blastocyst)", "selected": True},
+                    {"value": "3", "label": "Day 3 (cleavage stage)"},
+                ],
+            },
+        ],
+        "submit_label": "Calculate Gestational Age",
+    },
 
     "results": {
         "primary": {"id": "resultNumber", "unit": ""},
         "verdict_id": "resultVerdict",
+        "breakdown_html":
+            '<div id="ga-status" style="display:none;margin-top:1.2rem;padding:1rem 1.4rem;border-radius:12px;max-width:600px;width:100%;text-align:left;font-size:0.92rem;line-height:1.6;background:rgba(236,72,153,0.06);border:1px solid rgba(236,72,153,0.15);">'
+                '<span id="ga-icon"></span>'
+                '<span id="ga-description" style="color:var(--text-dim,#94a3b8);"></span>'
+            '</div>'
+            '<div id="ga-progress" style="display:none;margin-top:1.5rem;max-width:600px;width:100%;text-align:left;">'
+                '<div style="font-size:0.85rem;font-weight:600;margin-bottom:6px;color:var(--text,#e2e8f0);">Pregnancy Progress: <span id="progress-pct">0%</span></div>'
+                '<div style="position:relative;height:12px;border-radius:6px;background:linear-gradient(to right,rgba(236,72,153,0.15) 0%,rgba(236,72,153,0.4) 33%,rgba(236,72,153,0.6) 66%,rgba(245,158,11,0.6) 90%,rgba(239,68,68,0.6) 100%);">'
+                    '<div id="gauge-marker" style="position:absolute;width:3px;height:18px;background:var(--text,#e2e8f0);border-radius:2px;top:-3px;left:0;transition:left 0.4s ease;"></div>'
+                '</div>'
+                '<div style="display:flex;justify-content:space-between;font-size:0.72rem;color:var(--text-muted,#64748b);margin-top:4px;">'
+                    '<span>Week 0</span><span>Week 13</span><span>Week 27</span><span>Week 40</span>'
+                '</div>'
+            '</div>'
+            '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.7rem;max-width:600px;width:100%;margin-top:1.5rem;">'
+                '<div class="detail-card revealed" style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="display-ga">--</div><div class="d-lbl">Gestational Age</div>'
+                '</div>'
+                '<div class="detail-card revealed" style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="display-fetal-age">--</div><div class="d-lbl">Fetal Age</div>'
+                '</div>'
+                '<div class="detail-card revealed" style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="display-edd">--</div><div class="d-lbl">Due Date</div>'
+                '</div>'
+                '<div class="detail-card revealed" style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="display-remaining">--</div><div class="d-lbl">Days Remaining</div>'
+                '</div>'
+                '<div class="detail-card revealed" style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="display-trimester">--</div><div class="d-lbl">Trimester</div>'
+                '</div>'
+                '<div class="detail-card revealed" style="background:rgba(236,72,153,0.04);border:1px solid rgba(236,72,153,0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div class="d-val" id="display-term-class">--</div><div class="d-lbl">ACOG Classification</div>'
+                '</div>'
+            '</div>'
+            '<div id="milestone-section" style="display:none;margin-top:1.5rem;max-width:600px;width:100%;text-align:left;">'
+                '<div style="font-size:0.9rem;font-weight:600;margin-bottom:8px;color:var(--text,#e2e8f0);">Pregnancy Milestone Timeline</div>'
+                '<div style="overflow-x:auto;">'
+                    '<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">'
+                        '<thead>'
+                            '<tr style="background:rgba(255,255,255,0.05);">'
+                                '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(236,72,153,0.15);width:30px;color:var(--text,#e2e8f0);"></th>'
+                                '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(236,72,153,0.15);color:var(--text,#e2e8f0);">Week</th>'
+                                '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(236,72,153,0.15);color:var(--text,#e2e8f0);">Milestone</th>'
+                            '</tr>'
+                        '</thead>'
+                        '<tbody id="milestone-tbody"></tbody>'
+                    '</table>'
+                '</div>'
+            '</div>',
         "breakdown": [],
     },
 
@@ -345,7 +523,7 @@ register("gestational_age", GESTATIONAL_AGE)
 
 IVF_DUE_DATE = {
     "route": "/ivf-due-date-calculator",
-    "override_template": "ivf_due_date_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "IVF Due Date Calculator — FET & Transfer Timeline",
@@ -361,8 +539,8 @@ IVF_DUE_DATE = {
         "robots": "index, follow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#a78bfa",
+    "accent_rgb": "167,139,250",
 
     "hero": {
         "headline": "When is your <span>IVF baby</span> due?",
@@ -371,21 +549,28 @@ IVF_DUE_DATE = {
 
     "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "transferDate", "type": "date", "label": "Transfer Date"},
+        ],
+        "submit_label": "Calculate Due Date",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
-        "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "primary": {"id": "resultDueDate", "unit": "Estimated Due Date"},
+        "verdict_id": "resultTrimester",
+        "breakdown": [
+            {"id": "resultGA", "label": "Gestational Age"},
+        ],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "Here's what this means",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have questions about your IVF timeline?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/ivf_due_date.js",
 
     "faq": [
         {"question": "How is an IVF due date calculated?", "answer": "An IVF due date is calculated from the embryo transfer date rather than the last menstrual period. For a Day 5 blastocyst transfer, add 261 days to the transfer date. For a Day 3 embryo transfer, add 263 days. This follows ACOG Committee Opinion No. 700."},
@@ -406,7 +591,7 @@ register("ivf_due_date", IVF_DUE_DATE)
 
 NEWBORN_WEIGHT_LOSS = {
     "route": "/newborn-weight-loss-calculator",
-    "override_template": "newborn_weight_loss_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Newborn Weight Loss Calculator — Is My Baby Losing Too Much?",
@@ -422,8 +607,8 @@ NEWBORN_WEIGHT_LOSS = {
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#9b8ec4",
+    "accent_rgb": "155,142,196",
 
     "hero": {
         "headline": "Is your baby's <span>weight loss</span> normal?",
@@ -432,21 +617,80 @@ NEWBORN_WEIGHT_LOSS = {
 
     "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "birthWeight", "type": "number", "label": "Birth Weight", "placeholder": "Weight", "min": 0, "step": 0.01},
+                    {"id": "birthUnit", "type": "select", "label": "Unit", "options": [
+                        {"value": "kg", "label": "kg", "selected": True},
+                        {"value": "lb", "label": "lb"},
+                    ]},
+                ],
+            },
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "currentWeight", "type": "number", "label": "Current Weight", "placeholder": "Weight", "min": 0, "step": 0.01},
+                    {"id": "currentUnit", "type": "select", "label": "Unit", "options": [
+                        {"value": "kg", "label": "kg", "selected": True},
+                        {"value": "lb", "label": "lb"},
+                    ]},
+                ],
+            },
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "age", "type": "number", "label": "Baby's Age (days)", "min": 0, "max": 14, "placeholder": "0-14"},
+                    {"id": "feedingMethod", "type": "select", "label": "Feeding Method", "options": [
+                        {"value": "breast", "label": "Exclusively Breastfed", "selected": True},
+                        {"value": "formula", "label": "Formula Fed"},
+                        {"value": "mixed", "label": "Mixed Feeding"},
+                    ]},
+                ],
+            },
+        ],
+        "submit_label": "Check Weight Loss",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "weight change"},
         "verdict_id": "resultVerdict",
+        "breakdown_html":
+            '<div id="statusBanner" style="display:none;max-width:600px;width:100%;margin-top:1.5rem;padding:1.2rem 1.5rem;border-radius:14px;text-align:center;font-size:1.05rem;font-weight:600;"></div>'
+            '<div style="margin-top:1.5rem;max-width:500px;width:100%;">'
+                '<div style="font-size:0.85rem;color:var(--text-dim,#94a3b8);margin-bottom:0.5rem;text-align:center;">Weight Loss Severity</div>'
+                '<div style="height:12px;background:rgba(255,255,255,0.04);border-radius:6px;overflow:hidden;">'
+                    '<div id="gaugeFill" style="height:100%;border-radius:6px;width:0%;transition:width 0.8s ease-out;"></div>'
+                '</div>'
+                '<div style="display:flex;justify-content:space-between;margin-top:0.3rem;font-size:0.7rem;color:var(--text-muted,#64748b);"><span>0%</span><span>5%</span><span>7%</span><span>10%</span></div>'
+            '</div>'
+            '<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:600px;width:100%;margin-top:1.5rem;">'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 0.8rem;text-align:center;">'
+                    '<div style="font-size:0.72rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Birth Weight</div>'
+                    '<div id="rBirth" style="font-family:var(--font-display);font-size:1.3rem;color:var(--text,#e2e8f0);">--</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 0.8rem;text-align:center;">'
+                    '<div style="font-size:0.72rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Current Weight</div>'
+                    '<div id="rCurrent" style="font-family:var(--font-display);font-size:1.3rem;color:var(--text,#e2e8f0);">--</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 0.8rem;text-align:center;">'
+                    '<div style="font-size:0.72rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Age</div>'
+                    '<div id="rAge" style="font-family:var(--font-display);font-size:1.3rem;color:var(--text,#e2e8f0);">--</div>'
+                    '<div id="rAgeNote" style="font-size:0.68rem;color:var(--text-muted,#64748b);margin-top:0.3rem;"></div>'
+                '</div>'
+            '</div>',
         "breakdown": [],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "What you need to know right now",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have questions about feeding or weight gain?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/newborn_weight_loss.js",
 
     "faq": [
         {"question": "How much weight loss is normal for a newborn?", "answer": "Most newborns lose 5-7% of birth weight in the first 3 days. Breastfed babies may lose up to 10%. This is normal and caused by fluid shifts and limited initial feeding. Birth weight is typically regained by days 10-14."},
@@ -456,18 +700,21 @@ NEWBORN_WEIGHT_LOSS = {
         {"question": "Is weight loss different for breastfed vs formula-fed babies?", "answer": "Yes. Breastfed babies typically lose slightly more weight (7-10%) because mature milk takes 2-5 days to come in. Formula-fed babies usually lose 5-7%. Both patterns are normal. The NEWT tool provides feeding-specific reference curves."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        "Flaherman VJ, et al. Early weight loss nomograms for exclusively breastfed newborns. Pediatrics. 2015;135(1):e16-e23.",
+        "AAP Section on Breastfeeding. Breastfeeding and the use of human milk. Pediatrics. 2012;129(3):e827-e841.",
+    ],
+    "methodology": "This calculator computes weight loss as a percentage of birth weight: (birth - current) / birth * 100. Results are compared against AAP thresholds: up to 7% is normal for vaginal delivery, up to 10% for breastfed/C-section babies.",
+    "llm_capsule": "Newborn weight loss of 5-7% is normal in the first 3-4 days of life. Breastfed babies may lose up to 10%. Most babies regain birth weight by days 10-14. Weight loss exceeding 10% requires medical evaluation.",
+    "ask_pills": ["Signs of good feeding", "When to supplement", "Diaper counts", "Lactation help"],
+    "ask_placeholder": "e.g. When will my milk come in?",
 }
 
 register("newborn_weight_loss", NEWBORN_WEIGHT_LOSS)
 
 HCG_DOUBLING = {
     "route": "/hcg-doubling-time-calculator",
-    "override_template": "hcg_doubling_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "hCG Doubling Time Calculator — Are Your Levels Normal?",
@@ -483,22 +730,37 @@ HCG_DOUBLING = {
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#ec4899",
+    "accent_rgb": "236,72,153",
 
     "hero": {
         "headline": "Is your <span>hCG</span> rising normally?",
-        "subtitle": "Calculate hCG doubling time from two blood tests. See if levels are rising norma",
+        "subtitle": "Enter two blood test results",
     },
 
     "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "hcg1", "type": "number", "label": "First hCG Level (mIU/mL)", "placeholder": "e.g. 120", "min": 0, "step": 1, "hint": "From your first beta-hCG blood test"},
+            {"id": "date1", "type": "date", "label": "First Draw Date"},
+            {"id": "time1", "type": "time", "label": "First Draw Time (optional)", "default": "08:00"},
+            {"id": "hcg2", "type": "number", "label": "Second hCG Level (mIU/mL)", "placeholder": "e.g. 280", "min": 0, "step": 1, "hint": "From your second (later) blood test"},
+            {"id": "date2", "type": "date", "label": "Second Draw Date"},
+            {"id": "time2", "type": "time", "label": "Second Draw Time (optional)", "default": "08:00"},
+        ],
+        "submit_label": "Calculate Doubling Time",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
-        "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "primary": {"id": "doubling-time-result", "unit": "hCG Doubling Time"},
+        "verdict_id": "hcg-description",
+        "breakdown": [
+            {"id": "display-hcg1", "label": "First hCG"},
+            {"id": "display-hcg2", "label": "Second hCG"},
+            {"id": "display-change", "label": "Change"},
+            {"id": "display-hours", "label": "Time Between Tests"},
+        ],
     },
 
     "coach": {
@@ -507,7 +769,7 @@ HCG_DOUBLING = {
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/hcg_doubling.js",
 
     "faq": [
         {"question": "How fast should hCG double?", "answer": "Below 1,200: every 48-72 hours. 1,200-6,000: every 72-96 hours. Above 6,000: rate naturally slows."},
@@ -527,7 +789,7 @@ register("hcg_doubling", HCG_DOUBLING)
 
 HCG_CALCULATOR = {
     "route": "/hcg-calculator",
-    "override_template": "hcg_doubling_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "hCG Doubling Time Calculator — Are Your Levels Normal?",
@@ -543,22 +805,37 @@ HCG_CALCULATOR = {
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#ec4899",
+    "accent_rgb": "236,72,153",
 
     "hero": {
         "headline": "Is your <span>hCG</span> rising normally?",
-        "subtitle": "Calculate hCG doubling time from two blood tests. See if levels are rising norma",
+        "subtitle": "Enter two blood test results",
     },
 
     "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "hcg1", "type": "number", "label": "First hCG Level (mIU/mL)", "placeholder": "e.g. 120", "min": 0, "step": 1, "hint": "From your first beta-hCG blood test"},
+            {"id": "date1", "type": "date", "label": "First Draw Date"},
+            {"id": "time1", "type": "time", "label": "First Draw Time (optional)", "default": "08:00"},
+            {"id": "hcg2", "type": "number", "label": "Second hCG Level (mIU/mL)", "placeholder": "e.g. 280", "min": 0, "step": 1, "hint": "From your second (later) blood test"},
+            {"id": "date2", "type": "date", "label": "Second Draw Date"},
+            {"id": "time2", "type": "time", "label": "Second Draw Time (optional)", "default": "08:00"},
+        ],
+        "submit_label": "Calculate Doubling Time",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
-        "verdict_id": "resultVerdict",
-        "breakdown": [],
+        "primary": {"id": "doubling-time-result", "unit": "hCG Doubling Time"},
+        "verdict_id": "hcg-description",
+        "breakdown": [
+            {"id": "display-hcg1", "label": "First hCG"},
+            {"id": "display-hcg2", "label": "Second hCG"},
+            {"id": "display-change", "label": "Change"},
+            {"id": "display-hours", "label": "Time Between Tests"},
+        ],
     },
 
     "coach": {
@@ -567,7 +844,7 @@ HCG_CALCULATOR = {
         "cta_text": "Have a question about your result?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/hcg_calculator.js",
 
     "faq": [
         {"question": "How fast should hCG double?", "answer": "Below 1,200: every 48-72 hours. 1,200-6,000: every 72-96 hours. Above 6,000: rate naturally slows."},
@@ -587,7 +864,7 @@ register("hcg_calculator", HCG_CALCULATOR)
 
 PREGNANCY_WEIGHT_GAIN = {
     "route": "/pregnancy-weight-gain-calculator",
-    "override_template": "pregnancy_weight_gain_calculator_v3.html",
+    "override_template": None,
 
     "seo": {
         "page_title": "Pregnancy Weight Gain Calculator — IOM Guidelines",
@@ -603,31 +880,106 @@ PREGNANCY_WEIGHT_GAIN = {
         "robots": "noindex, nofollow",
     },
 
-    "accent": "#14b8a6",
-    "accent_rgb": "20,184,166",
+    "accent": "#ec4899",
+    "accent_rgb": "236,72,153",
 
     "hero": {
         "headline": "How much weight to <span>gain</span>?",
-        "subtitle": "Calculate recommended pregnancy weight gain based on pre-pregnancy BMI using IOM",
+        "subtitle": "Based on IOM guidelines for your BMI",
     },
 
     "breadcrumb_category": {"name": "Pregnancy & Fertility", "url": "/pregnancy-fertility-calculators"},
 
-    "form": {"fields": [], "submit_label": "Calculate"},
+    "form": {
+        "fields": [
+            {"id": "unitToggle", "type": "radio_row", "label": "Measurement Units", "options": [
+                {"value": "imperial", "label": "Imperial (lbs, ft/in)", "selected": True},
+                {"value": "metric", "label": "Metric (kg, cm)"},
+            ]},
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "weightLbs", "type": "number", "label": "Pre-Pregnancy Weight (lbs)", "placeholder": "e.g. 140", "min": 70, "max": 500, "step": 0.1},
+                    {"id": "heightFt", "type": "number", "label": "Height (ft)", "placeholder": "Feet", "min": 3, "max": 7},
+                    {"id": "heightIn", "type": "number", "label": "Height (in)", "placeholder": "Inches", "min": 0, "max": 11, "step": 0.1},
+                ],
+            },
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "weightKg", "type": "number", "label": "Pre-Pregnancy Weight (kg)", "placeholder": "e.g. 63.5", "min": 30, "max": 230, "step": 0.1},
+                    {"id": "heightCm", "type": "number", "label": "Height (cm)", "placeholder": "e.g. 165", "min": 100, "max": 220, "step": 0.1},
+                ],
+            },
+            {
+                "type": "row",
+                "fields": [
+                    {"id": "gestWeek", "type": "select", "label": "Current Gestational Week", "options": [
+                        {"value": "", "label": "Select week (1-42)"},
+                    ]},
+                    {"id": "numBabies", "type": "select", "label": "Number of Babies", "options": [
+                        {"value": "1", "label": "Single", "selected": True},
+                        {"value": "2", "label": "Twins"},
+                    ]},
+                ],
+            },
+            {"id": "currentWeightLbs", "type": "number", "label": "Current Weight in lbs (optional, for tracking)", "placeholder": "Current weight in lbs", "min": 70, "max": 500, "step": 0.1},
+            {"id": "currentWeightKg", "type": "number", "label": "Current Weight in kg (optional, for tracking)", "placeholder": "Current weight in kg", "min": 30, "max": 230, "step": 0.1},
+        ],
+        "submit_label": "Calculate Recommended Weight Gain",
+    },
 
     "results": {
-        "primary": {"id": "resultNumber", "unit": ""},
+        "primary": {"id": "resultNumber", "unit": "recommended total weight gain"},
         "verdict_id": "resultVerdict",
+        "breakdown_html":
+            '<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1rem;max-width:600px;width:100%;margin-top:1.5rem;">'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div style="font-size:0.78rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Pre-Pregnancy BMI</div>'
+                    '<div id="bmiValue" style="font-family:var(--font-display);font-size:2rem;color:var(--accent);">--</div>'
+                    '<div id="bmiCategory" style="font-size:0.75rem;color:var(--text-dim,#94a3b8);margin-top:0.3rem;">--</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div style="font-size:0.78rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Expected Gain at Week <span id="currentWeekLabel">--</span></div>'
+                    '<div id="expectedGain" style="font-family:var(--font-display);font-size:2rem;color:var(--accent);">--</div>'
+                    '<div id="expectedGainDetail" style="font-size:0.75rem;color:var(--text-dim,#94a3b8);margin-top:0.3rem;">--</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div style="font-size:0.78rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Remaining Expected Gain</div>'
+                    '<div id="remainingGain" style="font-family:var(--font-display);font-size:2rem;color:var(--accent);">--</div>'
+                    '<div id="remainingGainDetail" style="font-size:0.75rem;color:var(--text-dim,#94a3b8);margin-top:0.3rem;">--</div>'
+                '</div>'
+                '<div class="detail-card" style="background:rgba(var(--accent-rgb),0.04);border:1px solid rgba(var(--accent-rgb),0.08);border-radius:14px;padding:1.2rem 1rem;text-align:center;">'
+                    '<div style="font-size:0.78rem;color:var(--text-muted,#64748b);margin-bottom:0.4rem;">Your Status</div>'
+                    '<div id="statusValue" style="font-family:var(--font-display);font-size:2rem;color:var(--accent);">--</div>'
+                    '<div id="statusDetail" style="font-size:0.75rem;color:var(--text-dim,#94a3b8);margin-top:0.3rem;">--</div>'
+                '</div>'
+            '</div>'
+            '<div style="margin-top:1.5rem;max-width:600px;width:100%;">'
+                '<h3 style="font-size:0.95rem;margin-bottom:0.8rem;color:var(--text,#e2e8f0);">Week-by-Week Weight Gain Guide</h3>'
+                '<div style="overflow-x:auto;">'
+                    '<table style="width:100%;border-collapse:collapse;font-size:0.85rem;">'
+                        '<thead><tr style="background:rgba(255,255,255,0.05);">'
+                            '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(var(--accent-rgb),0.15);color:var(--text,#e2e8f0);">Week</th>'
+                            '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(var(--accent-rgb),0.15);color:var(--text,#e2e8f0);">Expected Low</th>'
+                            '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(var(--accent-rgb),0.15);color:var(--text,#e2e8f0);">Expected High</th>'
+                            '<th style="padding:8px 10px;text-align:left;border-bottom:2px solid rgba(var(--accent-rgb),0.15);color:var(--text,#e2e8f0);">Your Gain</th>'
+                        '</tr></thead>'
+                        '<tbody id="timelineBody"></tbody>'
+                    '</table>'
+                '</div>'
+            '</div>'
+            '<div style="margin-top:1rem;max-width:600px;"><p style="font-size:0.8rem;color:var(--text-muted,#64748b);">Note: This calculator provides estimates based on IOM 2009 guidelines. Every pregnancy is unique. Consult your healthcare provider for personalized guidance.</p></div>',
         "breakdown": [],
     },
 
     "coach": {
-        "title": "What this means for you",
+        "title": "Your pregnancy weight plan",
         "container_id": "coachCard",
-        "cta_text": "Have a question about your result?",
+        "cta_text": "Have a question about pregnancy weight gain?",
     },
 
-    "js_file": None,
+    "js_file": "js/calculators/pregnancy_weight_gain.js",
 
     "faq": [
         {"question": "How much weight gain?", "answer": "IOM 2009: Underweight 28-40 lbs, Normal 25-35 lbs, Overweight 15-25 lbs, Obese 11-20 lbs."},
@@ -636,11 +988,14 @@ PREGNANCY_WEIGHT_GAIN = {
         {"question": "Twin pregnancy weight gain?", "answer": "Normal weight: 37-54 lbs. Overweight: 31-50 lbs. Obese: 25-42 lbs."},
     ],
 
-    "sources": [],
-    "methodology": "",
-    "llm_capsule": "",
-    "ask_pills": [],
-    "ask_placeholder": "",
+    "sources": [
+        "IOM Weight Gain During Pregnancy. National Academies Press. 2009.",
+        "ACOG Committee Opinion No. 548. 2013.",
+    ],
+    "methodology": "IOM 2009 guidelines by pre-pregnancy BMI category. Weekly rates: underweight 0.51 kg/wk, normal 0.42, overweight 0.28, obese 0.22.",
+    "llm_capsule": "IOM guidelines: underweight 28-40 lbs, normal 25-35 lbs, overweight 15-25 lbs, obese 11-20 lbs. Most gain in 2nd/3rd trimester.",
+    "ask_pills": ["Trimester weight", "Twin pregnancy", "Exercise while pregnant", "Postpartum loss"],
+    "ask_placeholder": "e.g. Weight gain per trimester?",
 }
 
 register("pregnancy_weight_gain", PREGNANCY_WEIGHT_GAIN)

@@ -1,0 +1,262 @@
+{% extends 'calculator_base.html' %}
+
+{% block extra_head %}
+<style>
+/* Pen selection grid */
+.pen-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.8rem;
+    max-width: 560px;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+.pen-card {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px;
+    padding: 1.4rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.pen-card:hover {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.1);
+}
+.pen-card.selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3), 0 0 0 1px var(--accent);
+    transform: scale(1.03);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+.pen-card .emoji { font-size: 1.8rem; display: block; margin-bottom: 0.5rem; }
+.pen-card .name { font-size: 0.9rem; font-weight: 600; display: block; color: var(--text, #e2e8f0); }
+.pen-card .dose-range { font-size: 0.75rem; color: var(--text-dim, #94a3b8); margin-top: 4px; display: block; }
+
+/* Dose section */
+.dose-section {
+    max-width: 500px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+.dose-title {
+    font-family: var(--font-display, 'DM Serif Display', serif);
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+.dose-grid {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+.dose-card {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 12px;
+    padding: 0.8rem 1.4rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text, #e2e8f0);
+}
+.dose-card:hover {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-2px);
+}
+.dose-card.selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3), 0 0 0 1px var(--accent);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+/* Safety alert */
+.safety-alert {
+    max-width: 520px;
+    width: 100%;
+    margin-top: 2rem;
+    background: rgba(239,68,68,0.06);
+    border: 1px solid rgba(239,68,68,0.2);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    display: none;
+}
+.safety-alert.visible { display: block; }
+.safety-alert h3 {
+    color: var(--bad, #ef4444);
+    font-size: 0.95rem;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+.safety-alert ul { list-style: none; padding: 0; }
+.safety-alert li {
+    color: var(--text-dim, #94a3b8);
+    font-size: 0.85rem;
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+}
+.safety-alert li::before {
+    content: "\26A0";
+    position: absolute;
+    left: 0;
+    font-size: 0.75rem;
+}
+
+/* Coach rule block */
+.coach-rule-block {
+    background: rgba(var(--accent-rgb),0.04);
+    border: 1px solid rgba(var(--accent-rgb),0.1);
+    border-radius: 12px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+}
+.coach-rule-block p {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: var(--text-dim, #94a3b8);
+    margin: 0;
+}
+.coach-rule-block .hl { color: var(--accent); font-weight: 600; }
+
+/* Static example */
+.static-example {
+    max-width: 560px;
+    margin: 1.5rem auto 0;
+    padding: 1.2rem 1.5rem;
+    background: rgba(var(--accent-rgb),0.04);
+    border: 1px solid rgba(var(--accent-rgb),0.08);
+    border-radius: 16px;
+    text-align: center;
+}
+.static-example p {
+    color: var(--text-dim, #94a3b8);
+    font-size: 0.88rem;
+    line-height: 1.7;
+}
+.static-example .hl { color: var(--accent); font-weight: 600; }
+
+@media (max-width: 600px) {
+    .pen-grid { gap: 0.5rem; }
+    .pen-card { padding: 1rem 0.6rem; }
+    .pen-card .emoji { font-size: 1.4rem; }
+    .pen-card .name { font-size: 0.78rem; }
+}
+</style>
+{% endblock %}
+
+{% block form_content %}
+<div class="pen-grid" id="penGrid">
+    <div class="pen-card" data-pen="0.25-0.5" onclick="window._ozPen.selectPen(this, '0.25-0.5')">
+        <span class="emoji">&#x1F499;</span>
+        <span class="name">Blue Pen</span>
+        <span class="dose-range">0.25 &ndash; 0.5 mg</span>
+        <span class="dose-range">Starting doses</span>
+    </div>
+    <div class="pen-card" data-pen="1-2" onclick="window._ozPen.selectPen(this, '1-2')">
+        <span class="emoji">&#x1FA76;</span>
+        <span class="name">Gray Pen</span>
+        <span class="dose-range">1 &ndash; 2 mg</span>
+        <span class="dose-range">Mid-range doses</span>
+    </div>
+    <div class="pen-card" data-pen="2-4" onclick="window._ozPen.selectPen(this, '2-4')">
+        <span class="emoji">&#x1F49A;</span>
+        <span class="name">Green Pen</span>
+        <span class="dose-range">2 &ndash; 4 mg</span>
+        <span class="dose-range">Higher doses</span>
+    </div>
+</div>
+
+<div class="dose-section" id="dose-section" style="display:none;">
+    <h2 class="dose-title">What dose are you on?</h2>
+    <div class="dose-grid" id="doseGrid"></div>
+    <div class="factory-form" style="max-width:400px;margin:0 auto;">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="weeksInput">Weeks at current dose</label>
+                <input type="number" id="weeksInput" min="0" value="4">
+            </div>
+            <div class="form-group">
+                <label for="lastInjDate">Last injection date</label>
+                <input type="date" id="lastInjDate">
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:1.2rem;">
+            <button class="calc-btn" id="calcBtn">Calculate</button>
+        </div>
+    </div>
+</div>
+
+<div class="static-example" id="staticExample">
+    <p>For a prescribed dose of <span class="hl">1 mg on the Gray pen</span>: you need <span class="hl">2 clicks</span>. Each Gray pen click delivers 0.5 mg. Your pen holds <span class="hl">4 doses</span> at this amount &mdash; roughly one month of weekly injections.</p>
+</div>
+{% endblock %}
+
+{% block result_content %}
+<div class="result-number" id="resultNumber">--</div>
+<div class="result-unit">clicks for your dose</div>
+<div class="result-verdict" id="resultVerdict"></div>
+
+<div class="safety-alert" id="safetyAlert">
+    <h3><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg> Safety Alerts</h3>
+    <ul id="safetyWarnings"></ul>
+</div>
+
+<div class="factory-breakdown" style="grid-template-columns:repeat(2,1fr);">
+    <div class="detail-card" style="transition-delay:0s;">
+        <div class="d-val" id="nextInjDate">&mdash;</div>
+        <div class="d-lbl">Next Injection</div>
+    </div>
+    <div class="detail-card" style="transition-delay:0.08s;">
+        <div class="d-val" id="daysSince">&mdash;</div>
+        <div class="d-lbl">Days Since Last</div>
+    </div>
+    <div class="detail-card" style="transition-delay:0.16s;">
+        <div class="d-val" id="remainingDoses">&mdash;</div>
+        <div class="d-lbl">Remaining Doses</div>
+    </div>
+    <div class="detail-card" style="transition-delay:0.24s;">
+        <div class="d-val" id="refillDate">&mdash;</div>
+        <div class="d-lbl">Estimated Refill</div>
+    </div>
+</div>
+{% endblock %}
+
+{% block coach_content %}
+<div class="coach-container">
+    <h2 class="coach-title">{{ cfg.coach.title }}</h2>
+
+    <div class="coach-card">
+        <div class="coach-rule">The bigger the pen, the fewer clicks for the same dose.</div>
+        <div class="coach-advice" style="border-top:none;padding-top:0;margin-top:1rem;">
+            <p style="margin-bottom:1rem;color:var(--text-dim);">That's why the same dose needs different click counts on different pens:</p>
+            <div class="coach-rule-block">
+                <p><span class="hl">Blue pen</span> (smallest) &mdash; 1 click = 0.25 mg</p>
+                <p><span class="hl">Gray pen</span> (mid) &mdash; 1 click = 0.5 mg</p>
+                <p><span class="hl">Green pen</span> (largest) &mdash; 1 click = 1 mg</p>
+            </div>
+        </div>
+        <div style="margin-top:1.5rem;padding-top:1.2rem;border-top:1px solid rgba(var(--accent-rgb),0.1);font-size:0.9rem;color:var(--text-muted);line-height:1.6;">
+            First time? Prime your pen first &mdash; the flow check uses a few clicks before your actual dose.
+        </div>
+    </div>
+
+    <div class="coach-card" id="coachCard"></div>
+
+    {% include 'components/share-buttons.html' %}
+
+    <div class="coach-cta">
+        <p class="coach-cta-text">{{ cfg.coach.get('cta_text', 'Have more dosing questions?') }}</p>
+        <a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a>
+    </div>
+</div>
+{% endblock %}

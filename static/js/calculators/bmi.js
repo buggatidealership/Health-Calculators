@@ -1,40 +1,54 @@
-// BMI Calculator — calculation logic
+// BMI Calculator — factory-compatible calculation logic
+// No DOMContentLoaded (factory loads at page bottom, event already fired)
+// Uses factoryReveal() for result animation
+// Null-safe on all getElementById calls
 (function() {
     var isMetric = false;
 
-    document.addEventListener('DOMContentLoaded', function() {
-        // Unit toggle
-        document.getElementById('imperialBtn').addEventListener('click', function() {
-            isMetric = false;
-            document.getElementById('imperialBtn').classList.add('active');
-            document.getElementById('metricBtn').classList.remove('active');
-            document.getElementById('imperialInputs').classList.remove('hidden');
-            document.getElementById('metricInputs').classList.add('hidden');
-        });
-        document.getElementById('metricBtn').addEventListener('click', function() {
-            isMetric = true;
-            document.getElementById('metricBtn').classList.add('active');
-            document.getElementById('imperialBtn').classList.remove('active');
-            document.getElementById('metricInputs').classList.remove('hidden');
-            document.getElementById('imperialInputs').classList.add('hidden');
-        });
+    // Unit toggle
+    var imperialBtn = document.getElementById('imperialBtn');
+    var metricBtn = document.getElementById('metricBtn');
+    var imperialInputs = document.getElementById('imperialInputs');
+    var metricInputs = document.getElementById('metricInputs');
 
-        // Calculate button
-        document.getElementById('calcBtn').addEventListener('click', calculate);
+    if (imperialBtn) imperialBtn.addEventListener('click', function() {
+        isMetric = false;
+        if (imperialBtn) imperialBtn.classList.add('active');
+        if (metricBtn) metricBtn.classList.remove('active');
+        if (imperialInputs) imperialInputs.classList.remove('hidden');
+        if (metricInputs) metricInputs.classList.add('hidden');
     });
+    if (metricBtn) metricBtn.addEventListener('click', function() {
+        isMetric = true;
+        if (metricBtn) metricBtn.classList.add('active');
+        if (imperialBtn) imperialBtn.classList.remove('active');
+        if (metricInputs) metricInputs.classList.remove('hidden');
+        if (imperialInputs) imperialInputs.classList.add('hidden');
+    });
+
+    // Calculate button
+    var calcBtn = document.getElementById('calcBtn');
+    if (calcBtn) calcBtn.addEventListener('click', calculate);
 
     function calculate() {
         var weightKg, heightM;
 
         if (isMetric) {
-            weightKg = parseFloat(document.getElementById('weightKg').value);
-            var heightCm = parseFloat(document.getElementById('heightCm').value);
+            var weightKgEl = document.getElementById('weightKg');
+            var heightCmEl = document.getElementById('heightCm');
+            if (!weightKgEl || !heightCmEl) return;
+            weightKg = parseFloat(weightKgEl.value);
+            var heightCm = parseFloat(heightCmEl.value);
             if (!weightKg || !heightCm || isNaN(weightKg) || isNaN(heightCm)) return;
             heightM = heightCm / 100;
         } else {
-            var weightLb = parseFloat(document.getElementById('weightLb').value);
-            var feet = parseFloat(document.getElementById('heightFt').value);
-            var inches = parseFloat(document.getElementById('heightIn').value) || 0;
+            var weightLbEl = document.getElementById('weightLb');
+            var heightFtEl = document.getElementById('heightFt');
+            var heightInEl = document.getElementById('heightIn');
+            if (!weightLbEl || !heightFtEl) return;
+            var weightLb = parseFloat(weightLbEl.value);
+            var feet = parseFloat(heightFtEl.value);
+            var inches = heightInEl ? (parseFloat(heightInEl.value) || 0) : 0;
             if (!weightLb || !feet || isNaN(weightLb) || isNaN(feet)) return;
             weightKg = weightLb * 0.453592;
             heightM = (feet * 12 + inches) * 0.0254;
@@ -42,46 +56,55 @@
 
         if (heightM <= 0) return;
 
+        // Hide static example
         var staticEx = document.getElementById('staticExample');
         if (staticEx) staticEx.style.display = 'none';
 
         var bmi = weightKg / (heightM * heightM);
         var bmiRounded = Math.round(bmi * 10) / 10;
 
+        // Category + color + verdict
         var category, color, glowClass, verdict;
         if (bmi < 18.5) {
-            category = 'Underweight'; color = 'var(--blue)'; glowClass = 'glow-blue';
+            category = 'Underweight'; color = 'var(--blue,#60a5fa)'; glowClass = 'glow-blue';
             verdict = 'Your BMI is ' + bmiRounded + ' \u2014 below the healthy range. This may indicate you\'re not getting enough nutrition. A conversation with your doctor can help determine if anything needs attention.';
         } else if (bmi < 25) {
-            category = 'Healthy weight'; color = 'var(--good)'; glowClass = 'glow-good';
+            category = 'Healthy weight'; color = 'var(--accent)'; glowClass = 'glow-good';
             if (bmi < 20) verdict = 'Your BMI is ' + bmiRounded + ' \u2014 in the healthy range, on the lighter end. You\'re doing fine.';
             else if (bmi < 23) verdict = 'Your BMI is ' + bmiRounded + ' \u2014 right in the sweet spot of the healthy range. This is associated with the lowest health risk.';
             else verdict = 'Your BMI is ' + bmiRounded + ' \u2014 in the healthy range. You\'re in good shape by this measure.';
         } else if (bmi < 30) {
-            category = 'Overweight'; color = 'var(--caution)'; glowClass = 'glow-caution';
+            category = 'Overweight'; color = 'var(--caution,#f59e0b)'; glowClass = 'glow-caution';
             if (bmi < 27) verdict = 'Your BMI is ' + bmiRounded + ' \u2014 slightly above the healthy range. For many people, especially those who exercise regularly, this is nothing to worry about. BMI can\'t tell the difference between muscle and fat.';
             else verdict = 'Your BMI is ' + bmiRounded + ' \u2014 above the healthy range. This is one data point, not a diagnosis. If you\'re concerned, waist circumference and body fat percentage give a fuller picture.';
         } else {
-            category = 'Above healthy range'; color = 'var(--warn)'; glowClass = 'glow-warn';
+            category = 'Above healthy range'; color = 'var(--warn,#f97316)'; glowClass = 'glow-warn';
             verdict = 'Your BMI is ' + bmiRounded + ' \u2014 above the healthy range. BMI is a screening tool, not the full picture. It doesn\'t account for muscle, bone density, or body composition. Consider talking with a healthcare provider about what\'s right for you.';
         }
 
+        // Display result
         var resultNum = document.getElementById('resultNumber');
-        resultNum.textContent = bmiRounded;
-        resultNum.className = 'result-number ' + glowClass;
-        resultNum.style.color = color;
+        if (resultNum) {
+            resultNum.textContent = bmiRounded;
+            resultNum.className = 'result-number ' + glowClass;
+            resultNum.style.color = color;
+        }
 
         var verdictEl = document.getElementById('resultVerdict');
-        verdictEl.textContent = verdict;
-        verdictEl.style.color = 'var(--text-dim)';
+        if (verdictEl) {
+            verdictEl.textContent = verdict;
+            verdictEl.style.color = 'var(--text-dim,#94a3b8)';
+        }
 
-        // Gauge marker
+        // Gauge marker position (15-40 range)
         var gaugeMin = 15, gaugeMax = 40;
         var clamped = Math.max(gaugeMin, Math.min(gaugeMax, bmi));
         var pct = ((clamped - gaugeMin) / (gaugeMax - gaugeMin)) * 100;
         var marker = document.getElementById('gaugeMarker');
-        marker.style.left = pct + '%';
-        marker.style.color = color;
+        if (marker) {
+            marker.style.left = pct + '%';
+            marker.style.color = color;
+        }
 
         // Healthy weight range
         var healthyMinKg = 18.5 * heightM * heightM;
@@ -104,12 +127,18 @@
             noteText = 'You\u2019re within this range. Nice.';
         }
 
-        document.getElementById('rangeValue').textContent = rangeText;
-        document.getElementById('rangeNote').textContent = noteText;
+        var rangeValue = document.getElementById('rangeValue');
+        if (rangeValue) rangeValue.textContent = rangeText;
+        var rangeNote = document.getElementById('rangeNote');
+        if (rangeNote) rangeNote.textContent = noteText;
 
         // Coach card
-        var age = parseInt(document.getElementById('age').value) || 30;
-        var sex = document.getElementById('sex').value;
+        var age = 30;
+        var ageEl = document.getElementById('age');
+        if (ageEl) age = parseInt(ageEl.value) || 30;
+        var sex = 'male';
+        var sexEl = document.getElementById('sex');
+        if (sexEl) sex = sexEl.value;
 
         var coachHTML = '<div class="coach-text">';
 
@@ -128,7 +157,8 @@
         }
 
         coachHTML += '</div>';
-        document.getElementById('coachCard').innerHTML = coachHTML;
+        var coachCard = document.getElementById('coachCard');
+        if (coachCard) coachCard.innerHTML = coachHTML;
 
         // Share text (privacy-conscious for high BMI)
         var shareText;
@@ -137,12 +167,18 @@
         } else {
             shareText = 'My BMI is ' + bmiRounded + ' \u2014 ' + category.toLowerCase() + '.\n\nHealthy weight range for my height: ' + rangeText + '\n\nWhat\'s yours? healthcalculators.xyz/bmi-calculator';
         }
-        updateShareButtons(shareText);
+        if (typeof updateShareButtons === 'function') updateShareButtons(shareText);
 
-        // Show sections
-        document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
-        document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+        // Use factoryReveal for staggered animation
+        if (typeof factoryReveal === 'function') {
+            factoryReveal();
+        } else {
+            document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+            var rs = document.getElementById('result-section');
+            if (rs) rs.scrollIntoView({ behavior: 'smooth' });
+        }
 
+        // Track calculator completion
         if (typeof hcTrackEvent === 'function') {
             hcTrackEvent('calculator_complete', { calculator_name: 'BMI Calculator', page_path: '/bmi-calculator' });
         }

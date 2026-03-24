@@ -1,0 +1,266 @@
+{% extends 'calculator_base.html' %}
+
+{% block extra_head %}
+<style>
+/* BMI-specific form styles */
+.bmi-form { max-width:500px; width:100%; }
+.bmi-form .form-group { margin-bottom:1.2rem; }
+.bmi-form label {
+    display:block; color:var(--text-dim,#94a3b8); font-size:0.85rem;
+    font-weight:600; margin-bottom:0.5rem; letter-spacing:0.01em;
+}
+.bmi-form input, .bmi-form select {
+    width:100%; background:rgba(255,255,255,0.05);
+    border:1px solid rgba(var(--accent-rgb),0.12);
+    border-radius:12px; color:var(--text,#e2e8f0);
+    font-size:1rem; padding:0.75rem 1rem;
+    font-family:var(--font-body,'DM Sans',sans-serif);
+    outline:none; transition:border-color 0.2s, box-shadow 0.2s;
+}
+.bmi-form input:focus, .bmi-form select:focus {
+    border-color:var(--accent); box-shadow:0 0 0 3px rgba(var(--accent-rgb),0.1);
+}
+.bmi-form select option { background:#0d1420; color:var(--text,#e2e8f0); }
+.bmi-form .form-row { display:flex; gap:1rem; }
+.bmi-form .form-row .form-group { flex:1; }
+.bmi-form .height-imperial { display:grid; grid-template-columns:1fr 1fr; gap:0.6rem; }
+.bmi-form .hidden { display:none; }
+
+/* Unit toggle */
+.bmi-form .unit-toggle {
+    display:flex; background:rgba(255,255,255,0.05);
+    border:1px solid rgba(var(--accent-rgb),0.12);
+    border-radius:12px; padding:4px; margin-bottom:1.5rem;
+}
+.bmi-form .unit-btn {
+    flex:1; padding:0.6rem 1rem; border:none; border-radius:9px;
+    background:transparent; color:var(--text-dim,#94a3b8);
+    font-size:0.88rem; font-weight:500; cursor:pointer;
+    transition:all 0.2s; font-family:var(--font-body,'DM Sans',sans-serif);
+    width:auto; box-shadow:none;
+}
+.bmi-form .unit-btn::after { display:none; }
+.bmi-form .unit-btn:hover { color:var(--text,#e2e8f0); transform:none; filter:none; }
+.bmi-form .unit-btn.active {
+    background:rgba(var(--accent-rgb),0.15);
+    color:var(--accent); font-weight:600;
+}
+
+/* Glow classes for result number */
+.glow-good { color:var(--accent); text-shadow:0 0 40px rgba(var(--accent-rgb),0.3); }
+.glow-caution { color:#f59e0b; text-shadow:0 0 40px rgba(245,158,11,0.25); }
+.glow-warn { color:#f97316; text-shadow:0 0 40px rgba(249,115,22,0.2); }
+.glow-blue { color:#60a5fa; text-shadow:0 0 40px rgba(96,165,250,0.25); }
+
+/* BMI gauge */
+.bmi-gauge { max-width:440px; width:100%; margin:2.5rem auto 0; }
+.gauge-bar {
+    display:flex; border-radius:10px; overflow:hidden; height:16px; position:relative;
+}
+.gauge-seg-blue { flex:18.5; background:rgba(96,165,250,0.5); }
+.gauge-seg-teal { flex:6.4; background:rgba(var(--accent-rgb),0.5); }
+.gauge-seg-amber { flex:5; background:rgba(245,158,11,0.4); }
+.gauge-seg-coral { flex:10.1; background:rgba(249,115,22,0.3); }
+.gauge-marker-wrap { position:relative; height:22px; margin-top:4px; }
+.gauge-marker {
+    position:absolute; transform:translateX(-50%);
+    font-size:1rem; top:-2px; transition:left 0.5s ease-out;
+}
+.gauge-labels {
+    display:flex; justify-content:space-between;
+    font-size:0.72rem; color:var(--text-muted,#64748b); margin-top:4px;
+}
+.gauge-cats {
+    display:flex; justify-content:space-between;
+    font-size:0.68rem; color:var(--text-muted,#64748b);
+    margin-top:2px; text-align:center;
+}
+.gauge-cats span:nth-child(1) { flex:18.5; }
+.gauge-cats span:nth-child(2) { flex:6.4; }
+.gauge-cats span:nth-child(3) { flex:5; }
+.gauge-cats span:nth-child(4) { flex:10.1; }
+
+/* Healthy range inline */
+.range-inline {
+    margin-top:2.5rem; padding-top:2rem;
+    border-top:1px solid rgba(var(--accent-rgb),0.1);
+    text-align:center;
+}
+.range-label { font-size:0.95rem; color:var(--text-dim,#94a3b8); margin-bottom:0.3rem; }
+.range-value {
+    font-family:var(--font-display,'DM Serif Display',serif);
+    font-size:clamp(1.8rem,5vw,2.8rem); color:var(--accent);
+    text-shadow:0 0 30px rgba(var(--accent-rgb),0.3);
+}
+.range-note {
+    color:var(--text-muted,#64748b); font-size:0.85rem;
+    margin-top:0.5rem; max-width:380px; margin-left:auto; margin-right:auto;
+}
+
+/* Limitations card */
+.limitations-card {
+    background:rgba(249,115,22,0.04);
+    border:1px solid rgba(249,115,22,0.12);
+    border-radius:16px; padding:1.8rem 1.6rem; margin-top:1.5rem;
+}
+.limitations-title {
+    font-weight:700; font-size:0.92rem;
+    color:#f97316; margin-bottom:0.8rem;
+}
+.limitations-list { list-style:none; padding:0; }
+.limitations-list li {
+    color:var(--text-dim,#94a3b8); font-size:0.88rem;
+    line-height:1.7; padding:0.3rem 0; padding-left:1.2rem; position:relative;
+}
+.limitations-list li::before {
+    content:'~'; position:absolute; left:0;
+    color:#f97316; font-weight:700;
+}
+
+/* Static example for SEO */
+.static-example {
+    max-width:480px; margin:2rem auto 0;
+    padding:1.5rem 2rem;
+    background:rgba(var(--accent-rgb),0.04);
+    border:1px solid rgba(var(--accent-rgb),0.1);
+    border-radius:16px; text-align:center;
+}
+.static-example p {
+    color:var(--text-dim,#94a3b8); font-size:0.92rem; line-height:1.7;
+}
+.static-example .hl { color:var(--accent); font-weight:600; }
+
+@media (max-width:600px) {
+    .bmi-form .form-row { flex-direction:column; gap:0; }
+}
+</style>
+{% endblock %}
+
+{% block form_content %}
+<div class="factory-form bmi-form">
+    {# Unit toggle #}
+    <div class="unit-toggle">
+        <button type="button" class="unit-btn active" id="imperialBtn">Imperial (lbs / ft)</button>
+        <button type="button" class="unit-btn" id="metricBtn">Metric (kg / cm)</button>
+    </div>
+
+    {# Imperial inputs (visible by default) #}
+    <div id="imperialInputs">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="weightLb">Weight (lbs)</label>
+                <input type="number" id="weightLb" min="44" max="1100" step="0.1" placeholder="160" inputmode="numeric">
+            </div>
+            <div class="form-group">
+                <label>Height</label>
+                <div class="height-imperial">
+                    <input type="number" id="heightFt" min="2" max="8" placeholder="5'" style="text-align:center;" inputmode="numeric">
+                    <input type="number" id="heightIn" min="0" max="11" placeholder='8"' style="text-align:center;" inputmode="numeric">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {# Metric inputs (hidden by default) #}
+    <div id="metricInputs" class="hidden">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="weightKg">Weight (kg)</label>
+                <input type="number" id="weightKg" min="20" max="500" step="0.1" placeholder="70" inputmode="numeric">
+            </div>
+            <div class="form-group">
+                <label for="heightCm">Height (cm)</label>
+                <input type="number" id="heightCm" min="50" max="275" step="0.1" placeholder="175" inputmode="numeric">
+            </div>
+        </div>
+    </div>
+
+    {# Age + Sex #}
+    <div class="form-row">
+        <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" min="18" max="120" placeholder="30" inputmode="numeric">
+        </div>
+        <div class="form-group">
+            <label for="sex">Sex</label>
+            <select id="sex">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.2rem;">
+        <button class="calc-btn" id="calcBtn">Calculate BMI</button>
+    </div>
+</div>
+
+{# Static example for SEO #}
+<div class="static-example" id="staticExample">
+    <p>Example: A <span class="hl">5'8"</span> person weighing <span class="hl">160 lbs</span> has a BMI of <span class="hl">24.3</span> &mdash; right in the healthy range. The healthy weight range for that height is <span class="hl">126&ndash;163 lbs</span>.</p>
+</div>
+{% endblock %}
+
+{% block result_content %}
+<div class="result-number" id="resultNumber">--</div>
+<div class="result-unit">BMI</div>
+<div class="result-verdict" id="resultVerdict"></div>
+
+{# BMI Gauge #}
+<div class="bmi-gauge">
+    <div class="gauge-bar">
+        <div class="gauge-seg-blue" title="Underweight"></div>
+        <div class="gauge-seg-teal" title="Healthy"></div>
+        <div class="gauge-seg-amber" title="Overweight"></div>
+        <div class="gauge-seg-coral" title="Above healthy range"></div>
+    </div>
+    <div class="gauge-marker-wrap">
+        <div class="gauge-marker" id="gaugeMarker">&#9650;</div>
+    </div>
+    <div class="gauge-labels">
+        <span>15</span>
+        <span>18.5</span>
+        <span>25</span>
+        <span>30</span>
+        <span>40</span>
+    </div>
+    <div class="gauge-cats">
+        <span>Underweight</span>
+        <span>Healthy</span>
+        <span>Overweight</span>
+        <span>Above healthy range</span>
+    </div>
+</div>
+
+{# Healthy weight range #}
+<div class="range-inline">
+    <div class="range-label">Healthy weight range for your height</div>
+    <div class="range-value" id="rangeValue">&mdash;</div>
+    <p class="range-note" id="rangeNote"></p>
+</div>
+{% endblock %}
+
+{% block coach_content %}
+<div class="coach-container">
+    <h2 class="coach-title">{{ cfg.coach.title }}</h2>
+    <div class="coach-card" id="{{ cfg.coach.get('container_id', 'coachCard') }}"></div>
+
+    {# Limitations callout #}
+    <div class="limitations-card">
+        <div class="limitations-title">What BMI doesn't tell you</div>
+        <ul class="limitations-list">
+            <li>Muscle mass &mdash; athletes often score "overweight" despite low body fat</li>
+            <li>Body fat distribution &mdash; where you carry weight matters more than how much</li>
+            <li>Bone density, age, sex, and ethnicity all affect what's healthy for you</li>
+            <li>Over 54 million Americans classified "overweight" by BMI are metabolically healthy</li>
+        </ul>
+    </div>
+
+    {% include 'components/share-buttons.html' %}
+
+    <div class="coach-cta">
+        <p class="coach-cta-text">{{ cfg.coach.get('cta_text', 'Want more insights?') }}</p>
+        <a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a>
+    </div>
+</div>
+{% endblock %}

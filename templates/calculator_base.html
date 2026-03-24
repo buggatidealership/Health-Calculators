@@ -376,6 +376,21 @@
                 {% if field.get('hint') %}<small>{{ field.hint }}</small>{% endif %}
             </div>
 
+            {% elif field.type == 'date' %}
+            <div class="form-group">
+                <label for="{{ field.id }}">{{ field.label }}</label>
+                <input type="date" id="{{ field.id }}" value="{{ field.get('default', '') }}">
+                {% if field.get('hint') %}<small>{{ field.hint }}</small>{% endif %}
+            </div>
+
+            {% elif field.type == 'text' %}
+            <div class="form-group">
+                <label for="{{ field.id }}">{{ field.label }}</label>
+                <input type="text" id="{{ field.id }}" value="{{ field.get('default', '') }}"
+                       placeholder="{{ field.get('placeholder', '') }}">
+                {% if field.get('hint') %}<small>{{ field.hint }}</small>{% endif %}
+            </div>
+
             {% elif field.type == 'select' %}
             <div class="form-group">
                 <label for="{{ field.id }}">{{ field.label }}</label>
@@ -421,6 +436,11 @@
                            inputmode="numeric" placeholder="{{ sub.get('placeholder', '') }}">
                     {% elif sub.type == 'time' %}
                     <input type="time" id="{{ sub.id }}" value="{{ sub.get('default', '') }}">
+                    {% elif sub.type == 'date' %}
+                    <input type="date" id="{{ sub.id }}" value="{{ sub.get('default', '') }}">
+                    {% elif sub.type == 'text' %}
+                    <input type="text" id="{{ sub.id }}" value="{{ sub.get('default', '') }}"
+                           placeholder="{{ sub.get('placeholder', '') }}">
                     {% elif sub.type == 'select' %}
                     <select id="{{ sub.id }}">
                         {% for opt in sub.options %}

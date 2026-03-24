@@ -1,141 +1,89 @@
 // Creatine Water Calculator — factory-compatible
 (function() {
-// Global variables to track units
-        let currentUnit = 'kg';
-        
-        // Toggle between kg and lbs
-        function toggleUnits(unit) {
-            if (unit === currentUnit) return;
-            
-            const weightInput = document.getElementById('weight');
-            const kgToggle = document.getElementById('kg-toggle');
-            const lbsToggle = document.getElementById('lbs-toggle');
-            
-            // Convert the weight value
-            if (unit === 'kg' && currentUnit === 'lbs') {
-                // Convert lbs to kg
-                weightInput.value = Math.round((parseFloat(weightInput.value) / 2.20462) * 10) / 10;
-            } else if (unit === 'lbs' && currentUnit === 'kg') {
-                // Convert kg to lbs
-                weightInput.value = Math.round((parseFloat(weightInput.value) * 2.20462) * 10) / 10;
-            }
-            
-            // Update active button styling
-            if (unit === 'kg') {
-                kgToggle.className = 'unit-btn unit-active';
-                lbsToggle.className = 'unit-btn';
-            } else {
-                kgToggle.className = 'unit-btn';
-                lbsToggle.className = 'unit-btn unit-active';
-            }
-            
-            // Update current unit
-            currentUnit = unit;
-        }
-        
-        // Calculate button click handler
-        document.getElementById('calcBtn').addEventListener('click', calculateWaterNeeds);
-        
-        function calculateWaterNeeds() {
-            // Get input values
-            const gender = document.getElementById('gender').value;
-            let weight = parseFloat(document.getElementById('weight').value);
-            const intensity = document.getElementById('intensity').value;
-            const dosage = parseInt(document.getElementById('dosage').value);
-            const phase = document.getElementById('phase').value;
-            
-            // Convert lbs to kg if needed
-            if (currentUnit === 'lbs') {
-                weight = weight / 2.20462;
-            }
-            
-            // Validate weight
-            if (isNaN(weight) || weight < 30 || weight > 200) {
-                /* validation error */');
-                return;
-            }
-            
-            // Calculate base water needs (30-35 mL per kg of body weight)
-            // Use 30 for females, 35 for males
-            const mlPerKg = gender === 'male' ? 35 : 30;
-            let baseWater = weight * mlPerKg;
-            
-            // Adjust for activity level
-            let activityMultiplier = 1;
-            if (intensity === 'moderate') {
-                activityMultiplier = 1.1;
-            } else if (intensity === 'high') {
-                activityMultiplier = 1.2;
-            } else if (intensity === 'extreme') {
-                activityMultiplier = 1.4;
-            }
-            
-            // Calculate base water needs adjusted for activity
-            let adjustedBaseWater = baseWater * activityMultiplier;
-            
-            // Add creatine adjustment based on dosage and phase
-            let creatineAdjustment = 0;
-            
-            if (phase === 'loading') {
-                // In loading phase, add more water based on dosage
-                creatineAdjustment = dosage * 50; // 50ml per gram of creatine
-            } else {
-                // In maintenance phase, add a standard amount
-                creatineAdjustment = dosage * 30; // 30ml per gram of creatine
-            }
-            
-            // Calculate total water needs
-            let totalWater = adjustedBaseWater + creatineAdjustment;
-            
-            // Convert to liters and ounces
-            const totalWaterLiters = Math.round(totalWater / 100) / 10;
-            const totalWaterOunces = Math.round(totalWaterLiters * 33.814);
-            const baseWaterLiters = Math.round(adjustedBaseWater / 100) / 10;
-            
-            // Display results
-            document.getElementById('waterResult').innerHTML = `<strong>${totalWaterLiters} liters per day</strong> (${totalWaterOunces} oz)`;
-            
-            // Generate comparison text
-            const difference = Math.round((totalWaterLiters - baseWaterLiters) * 10) / 10;
-            document.getElementById('comparisonResult').textContent = `${difference} liters more`;
-            
-            // Update creatine dose recommendation
-            if (phase === 'loading') {
-                document.getElementById('creatineDose').innerHTML = `During the loading phase (first 5-7 days), take ${dosage}g of creatine monohydrate daily (consider dividing into 2-4 doses throughout the day).`;
-            } else {
-                document.getElementById('creatineDose').innerHTML = `During the maintenance phase, take ${dosage}g of creatine monohydrate daily.`;
-            }
-            
-            // Generate hydration tips
-            let hydrationTips = [
-                'Spread your water intake evenly throughout the day',
-                'Monitor urine color - aim for pale yellow',
-                `Take your creatine dose with at least 8 oz (240ml) of water`,
-                'Maintain consistent hydration to maximize muscle gains',
-            ];
-            
-            // Add specific tips based on inputs
-            if (intensity === 'high' || intensity === 'extreme') {
-                hydrationTips.push('Drink an additional 16-20 oz (500-600ml) of water during each hour of intense exercise');
-            }
-            
-            if (dosage >= 10) {
-                hydrationTips.push('With higher creatine doses, consider drinking water consistently throughout the day rather than all at once');
-            }
-            
-            if (phase === 'loading') {
-                hydrationTips.push('During loading phase, timing isn\'t critical, but taking with meals may improve absorption');
-            }
-            
-            // Display tips
-            const tipsHTML = hydrationTips.map(tip => `<li>${tip}</li>`).join('');
-            document.getElementById('hydrationTips').innerHTML = tipsHTML;
-            
-            // Show results
-            document.getElementById('result').style.display = 'block';
-    if (typeof showNextSteps === 'function') showNextSteps('creatine', collectUserData());
+    var btn = document.getElementById('calcBtn');
+    if (btn) btn.addEventListener('click', function() {
+        var genderEl = document.getElementById('gender');
+        var weightEl = document.getElementById('weight');
+        var weightUnitEl = document.getElementById('weightUnit');
+        var intensityEl = document.getElementById('intensity');
+        var dosageEl = document.getElementById('dosage');
+        var phaseEl = document.getElementById('phase');
+        if (!weightEl || !genderEl || !intensityEl || !dosageEl || !phaseEl) return;
+
+        var weight = parseFloat(weightEl.value);
+        if (isNaN(weight) || weight <= 0) return;
+
+        var weightKg = (weightUnitEl && weightUnitEl.value === 'lbs') ? weight / 2.20462 : weight;
+        if (weightKg < 30 || weightKg > 200) return;
+
+        var gender = genderEl.value;
+        var intensity = intensityEl.value;
+        var dosage = parseInt(dosageEl.value);
+        var phase = phaseEl.value;
+
+        // Base water: 35 mL/kg for male, 30 mL/kg for female
+        var mlPerKg = gender === 'male' ? 35 : 30;
+        var baseWater = weightKg * mlPerKg;
+
+        // Activity multiplier
+        var activityMultiplier = 1;
+        if (intensity === 'moderate') activityMultiplier = 1.1;
+        else if (intensity === 'high') activityMultiplier = 1.2;
+        else if (intensity === 'extreme') activityMultiplier = 1.4;
+
+        var adjustedBaseWater = baseWater * activityMultiplier;
+
+        // Creatine adjustment
+        var creatineAdjustment = phase === 'loading' ? dosage * 50 : dosage * 30;
+
+        var totalWater = adjustedBaseWater + creatineAdjustment;
+        var totalWaterLiters = Math.round(totalWater / 100) / 10;
+        var totalWaterOunces = Math.round(totalWaterLiters * 33.814);
+        var baseWaterLiters = Math.round(adjustedBaseWater / 100) / 10;
+        var difference = Math.round((totalWaterLiters - baseWaterLiters) * 10) / 10;
+
+        // Primary result
+        var rn = document.getElementById('resultNumber');
+        if (rn) rn.textContent = totalWaterLiters + ' L/day';
+
+        var rv = document.getElementById('resultVerdict');
+        if (rv) rv.textContent = totalWaterOunces + ' oz — ' + difference + ' L more than without creatine';
+
+        // Breakdown
+        var dBase = document.getElementById('displayBaseWater');
+        if (dBase) dBase.textContent = baseWaterLiters + ' L';
+
+        var dCreatine = document.getElementById('displayCreatineExtra');
+        if (dCreatine) dCreatine.textContent = '+' + (creatineAdjustment / 1000).toFixed(1) + ' L';
+
+        var dOunces = document.getElementById('displayOunces');
+        if (dOunces) dOunces.textContent = totalWaterOunces + ' oz';
+
+        // Coach card
+        var coach = document.getElementById('coachCard');
+        if (coach) {
+            var doseAdvice = phase === 'loading'
+                ? 'During loading (first 5\u20137 days), take ' + dosage + 'g/day split into 2\u20134 doses.'
+                : 'During maintenance, take ' + dosage + 'g/day of creatine monohydrate.';
+            var tips = '<div class="coach-text">' +
+                'Drink <span class="hl">' + totalWaterLiters + ' L per day</span> (' + totalWaterOunces + ' oz).' +
+                '<div class="coach-rule">' + doseAdvice + '</div>' +
+                '<div class="coach-advice">' +
+                'Spread intake throughout the day. Take creatine with at least 240 mL (8 oz) of water. Monitor urine color \u2014 aim for pale yellow.' +
+                '</div></div>';
+            coach.innerHTML = tips;
         }
 
-// Reveal results
-if (typeof factoryReveal === 'function') { factoryReveal(); }
+        // Share
+        var shareText = 'Creatine hydration: ' + totalWaterLiters + ' L/day (' + totalWaterOunces + ' oz)\n' + difference + ' L extra for creatine\n\nTry it: healthcalculators.xyz/creatine-water-calculator';
+        if (typeof updateShareButtons === 'function') updateShareButtons(shareText);
+
+        if (typeof factoryReveal === 'function') {
+            factoryReveal();
+        } else {
+            document.querySelectorAll('.hidden-section').forEach(function(el) { el.classList.remove('hidden-section'); });
+            var rs = document.getElementById('result-section');
+            if (rs) rs.scrollIntoView({ behavior: 'smooth' });
+        }
+    });
 })();

@@ -1,0 +1,293 @@
+{% extends 'calculator_base.html' %}
+
+{% block extra_head %}
+<style>
+/* Sun exposure tappable cards */
+.sun-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+}
+.sun-card {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px;
+    padding: 1rem 0.6rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sun-card:hover {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(var(--accent-rgb), 0.1);
+}
+.sun-card.selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3), 0 0 0 1px var(--accent);
+    transform: scale(1.03);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+.sun-card .emoji { font-size: 1.6rem; display: block; margin-bottom: 0.35rem; }
+.sun-card .name { font-size: 0.8rem; font-weight: 600; color: var(--text, #e2e8f0); }
+.sun-card .desc { font-size: 0.68rem; color: var(--text-dim, #94a3b8); margin-top: 2px; }
+
+/* Target level cards */
+.target-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.6rem;
+}
+.target-card {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px;
+    padding: 1rem 0.6rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.target-card:hover {
+    border-color: rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-2px);
+}
+.target-card.selected {
+    border-color: var(--accent);
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3), 0 0 0 1px var(--accent);
+    transform: scale(1.03);
+    background: rgba(var(--accent-rgb), 0.1);
+}
+.target-card .name { font-size: 0.82rem; font-weight: 600; color: var(--text, #e2e8f0); }
+.target-card .range { font-size: 0.72rem; color: var(--text-dim, #94a3b8); margin-top: 2px; }
+
+/* Level bar visualization */
+.level-bar-container {
+    margin-top: 2rem;
+    max-width: 400px;
+    width: 100%;
+}
+.level-bar-label { font-size: 0.82rem; color: var(--text-dim, #94a3b8); margin-bottom: 0.5rem; text-align: center; }
+.level-bar-track {
+    height: 28px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+}
+.level-zone {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.62rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.5);
+}
+.level-zone.deficient { background: rgba(239,68,68,0.25); flex: 20; }
+.level-zone.insufficient { background: rgba(245,158,11,0.2); flex: 10; }
+.level-zone.sufficient { background: rgba(var(--accent-rgb),0.2); flex: 20; }
+.level-zone.high { background: rgba(245,158,11,0.15); flex: 50; }
+.level-marker {
+    position: absolute;
+    top: -6px;
+    width: 3px;
+    height: 40px;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+    transition: left 0.6s ease-out;
+}
+.level-labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.3rem;
+    font-size: 0.65rem;
+    color: var(--text-muted, #64748b);
+}
+
+/* Cofactor cards */
+.cofactor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+.cofactor-card {
+    background: rgba(var(--accent-rgb),0.04);
+    border: 1px solid rgba(var(--accent-rgb),0.1);
+    border-radius: 14px;
+    padding: 1.2rem;
+}
+.cofactor-card .cofactor-name {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--text, #e2e8f0);
+    margin-bottom: 0.3rem;
+}
+.cofactor-card .cofactor-why {
+    font-size: 0.78rem;
+    color: var(--text-dim, #94a3b8);
+    line-height: 1.5;
+}
+
+/* Optional badge */
+.optional-badge {
+    font-size: 0.72rem;
+    color: var(--accent);
+    font-weight: 400;
+    margin-left: 0.3rem;
+}
+
+.input-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted, #64748b);
+    margin-top: 0.3rem;
+}
+
+@media (max-width: 600px) {
+    .sun-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .target-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .cofactor-grid { grid-template-columns: 1fr; }
+    .factory-form .form-row { flex-direction: column; gap: 0; }
+}
+</style>
+{% endblock %}
+
+{% block form_content %}
+<div class="factory-form">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="inputAge">Age</label>
+            <input type="number" id="inputAge" min="0" max="120" value="30" inputmode="numeric">
+        </div>
+        <div class="form-group">
+            <label for="inputWeight">Weight</label>
+            <div style="display:flex;gap:0.5rem;">
+                <input type="number" id="inputWeight" min="20" max="400" value="154" inputmode="numeric" style="flex:1;">
+                <select id="weightUnit" style="width:70px;flex:none;padding:0.75rem 0.4rem;font-size:0.9rem;">
+                    <option value="lbs">lbs</option>
+                    <option value="kg">kg</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLevel">Current vitamin D level <span class="optional-badge">optional</span></label>
+        <input type="number" id="inputLevel" placeholder="e.g. 25" min="0" max="200" inputmode="decimal">
+        <div class="input-hint">From your blood test, in ng/mL. Leave blank if unknown.</div>
+    </div>
+
+    <div class="form-group">
+        <label>Target level</label>
+        <div class="target-grid" id="targetGrid">
+            <div class="target-card" data-target="30" onclick="window._vitD.selectTarget(this)">
+                <div class="name">Sufficient</div>
+                <div class="range">30 ng/mL</div>
+            </div>
+            <div class="target-card selected" data-target="40" onclick="window._vitD.selectTarget(this)">
+                <div class="name">Optimal</div>
+                <div class="range">40 ng/mL</div>
+            </div>
+            <div class="target-card" data-target="50" onclick="window._vitD.selectTarget(this)">
+                <div class="name">High-optimal</div>
+                <div class="range">50 ng/mL</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label>Sun exposure (weekly, without sunscreen)</label>
+        <div class="sun-grid" id="sunGrid">
+            <div class="sun-card" data-sun="low" onclick="window._vitD.selectSun(this)">
+                <span class="emoji">&#127751;</span>
+                <span class="name">Minimal</span>
+                <span class="desc">&lt;30 min</span>
+            </div>
+            <div class="sun-card selected" data-sun="moderate" onclick="window._vitD.selectSun(this)">
+                <span class="emoji">&#9925;</span>
+                <span class="name">Some</span>
+                <span class="desc">30 min - 2 hrs</span>
+            </div>
+            <div class="sun-card" data-sun="high" onclick="window._vitD.selectSun(this)">
+                <span class="emoji">&#9728;&#65039;</span>
+                <span class="name">Plenty</span>
+                <span class="desc">2+ hours</span>
+            </div>
+        </div>
+    </div>
+
+    <div style="text-align:center;margin-top:1.2rem;">
+        <button class="calc-btn" id="calcBtn">Calculate My Dose</button>
+    </div>
+</div>
+{% endblock %}
+
+{% block result_content %}
+<div class="result-number" id="resultNumber">--</div>
+<div class="result-unit">IU per day</div>
+<div class="result-verdict" id="resultVerdict"></div>
+
+<div class="factory-breakdown" style="grid-template-columns:repeat(2,1fr);">
+    <div class="detail-card" style="transition-delay:0s;">
+        <div class="d-val" id="detailMcg">--</div>
+        <div class="d-lbl">In Micrograms</div>
+    </div>
+    <div class="detail-card" style="transition-delay:0.08s;">
+        <div class="d-val" id="detailUpperLimit">4,000 IU</div>
+        <div class="d-lbl">Upper Safe Limit</div>
+    </div>
+    <div class="detail-card" style="transition-delay:0.16s;">
+        <div class="d-val" id="detailCurrentLevel">Unknown</div>
+        <div class="d-lbl">Current Level</div>
+    </div>
+    <div class="detail-card" style="transition-delay:0.24s;">
+        <div class="d-val" id="detailRetest">--</div>
+        <div class="d-lbl">Retest In</div>
+    </div>
+</div>
+
+<div class="level-bar-container" id="levelBarContainer" style="display:none;margin-top:2rem;">
+    <div class="level-bar-label">Where your current level falls</div>
+    <div class="level-bar-track">
+        <div class="level-zone deficient">Deficient</div>
+        <div class="level-zone insufficient">Low</div>
+        <div class="level-zone sufficient">Good</div>
+        <div class="level-zone high">High</div>
+        <div class="level-marker" id="levelMarker" style="left:0%;"></div>
+    </div>
+    <div class="level-labels">
+        <span>0</span>
+        <span>20</span>
+        <span>30</span>
+        <span>50</span>
+        <span>100+</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block coach_content %}
+<div class="coach-container">
+    <h2 class="coach-title">{{ cfg.coach.title }}</h2>
+    <div class="coach-card" id="coachCard"></div>
+
+    <div class="cofactor-grid" id="cofactorGrid">
+        <div class="cofactor-card">
+            <div class="cofactor-name">Vitamin K2</div>
+            <div class="cofactor-why">Directs calcium to bones, not arteries. Take with D3.</div>
+        </div>
+        <div class="cofactor-card">
+            <div class="cofactor-name">Magnesium</div>
+            <div class="cofactor-why">Required for vitamin D activation. Many adults are low.</div>
+        </div>
+    </div>
+
+    {% include 'components/share-buttons.html' %}
+
+    <div class="coach-cta">
+        <p class="coach-cta-text">{{ cfg.coach.get('cta_text', 'Want more insights?') }}</p>
+        <a class="coach-cta-link" href="#ask-section"><span class="pulse-dot"></span> Ask Pulse</a>
+    </div>
+</div>
+{% endblock %}
