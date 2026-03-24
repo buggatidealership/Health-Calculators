@@ -491,8 +491,8 @@ CALORIES_BURNED = {
     "breadcrumb_category": {"name": "Fitness & Body Composition", "url": "/fitness-body-composition-calculators"},
     "form": {
         "fields": [
-            {"id": "weight", "type": "number", "label": "Weight (lbs)", "placeholder": "170", "step": 0.1, "min": 50, "max": 500},
-            {"id": "duration", "type": "number", "label": "Duration (minutes)", "placeholder": "30", "min": 1, "max": 600},
+            {"id": "weight", "type": "number", "label": "Weight (lbs)", "placeholder": "170", "step": 0.1, "min": 50, "max": 500, "default": 170},
+            {"id": "duration", "type": "number", "label": "Duration (minutes)", "placeholder": "30", "min": 1, "max": 600, "default": 30},
             {"id": "activity", "type": "select", "label": "Activity", "options": [
                 {"value": "walking_casual", "label": "Walking (casual)"}, {"value": "walking_brisk", "label": "Walking (brisk)"},
                 {"value": "jogging", "label": "Jogging"}, {"value": "running_6mph", "label": "Running (6 mph)"},

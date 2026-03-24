@@ -45,12 +45,14 @@
         var resultNum = document.getElementById('resultNumber');
         var dUnits = document.getElementById('dUnits');
         var dCost = document.getElementById('dCost');
+        var dDuration = document.getElementById('dDuration');
         var coachCard = document.getElementById('coachCard');
         var resultVerdict = document.getElementById('resultVerdict');
 
         if (resultNum) resultNum.textContent = totalUnits;
         if (dUnits) dUnits.textContent = totalUnits;
         if (dCost) dCost.textContent = '$' + totalCost;
+        if (dDuration) dDuration.textContent = '3-4 months';
         if (resultVerdict) resultVerdict.textContent = areas.length + ' area' + (areas.length > 1 ? 's' : '') + ' selected';
 
         if (coachCard) coachCard.innerHTML = '<div class="coach-text"><span class="hl">' + totalUnits + ' units</span> across ' + areas.length + ' area' + (areas.length > 1 ? 's' : '') + ':<br><br>' + breakdown.join('<br>') + '<div class="coach-rule">$' + totalCost + ' estimated total</div><div class="coach-advice"><em>Duration:</em> Results typically last 3-4 months.<br><em>Cost per unit:</em> $' + costPerUnit + ' (' + provider + ')</div></div>';

@@ -17,7 +17,76 @@
 {% include 'head_seo.html' %}
 {% endwith %}
 <link rel="stylesheet" href="/static/css/v25-dark.css">
-<style>:root { --accent: #14b8a6; --accent-rgb: 20,184,166; } body { background: #0a0f1a; color: #e2e8f0; } h1,h2,h3,h4 { color: #fff; } .article-container, .resource-content, .guide-content, .content-wrapper, main { background: transparent; color: #e2e8f0; } p, li, td, dd { color: #94a3b8; } a { color: #14b8a6; } strong { color: #e2e8f0; } table th { background: rgba(20,184,166,0.08); color: #e2e8f0; border-bottom: 1px solid rgba(20,184,166,0.12); } table td { color: #94a3b8; border-bottom: 1px solid rgba(20,184,166,0.06); } blockquote { border-left: 3px solid #14b8a6; background: rgba(20,184,166,0.04); } code { background: rgba(20,184,166,0.1); color: #14b8a6; } .faq-item, .faq-question, .faq-answer p { color: #94a3b8; } .calculator-container, .page-wrapper { background: transparent; } img { border-radius: 12px; }</style>
+<style>
+/* Dark mode overrides for guide pages — uses !important to beat inline styles */
+:root { --accent: #14b8a6; --accent-rgb: 20,184,166; }
+body { background: #0a0f1a !important; color: #e2e8f0 !important; }
+.calculator-container h1, .calculator-container h2, .calculator-container h3, .calculator-container h4 { color: #fff !important; }
+
+/* Article container: constrain width + dark bg */
+.calculator-container, .article-container { max-width: 720px !important; margin: 0 auto !important; padding: 0 20px !important; background: transparent !important; color: #e2e8f0 !important; }
+
+/* All wrapper/content elements transparent */
+.resource-content, .guide-content, .content-wrapper, main, .page-wrapper { background: transparent !important; color: #e2e8f0 !important; }
+
+/* Text colors */
+.calculator-container p, .calculator-container li, .calculator-container td, .calculator-container dd, .calculator-container span { color: #94a3b8 !important; }
+.calculator-container a { color: #14b8a6 !important; }
+.calculator-container strong, .calculator-container b { color: #e2e8f0 !important; }
+.subtitle { color: #94a3b8 !important; }
+
+/* Override ALL divs with inline light backgrounds inside calculator-container */
+.calculator-container div[style], .article-container div[style] { background-color: rgba(20,184,166,0.04) !important; border-color: rgba(20,184,166,0.12) !important; }
+.calculator-container div[style] h3, .article-container div[style] h3, .calculator-container div[style] h4, .article-container div[style] h4 { color: #fff !important; }
+.calculator-container div[style] p, .article-container div[style] p { color: #94a3b8 !important; }
+.calculator-container div[style] a, .article-container div[style] a { color: #14b8a6 !important; }
+
+/* Table of contents */
+.table-of-contents, div.table-of-contents { background-color: rgba(20,184,166,0.04) !important; box-shadow: none !important; border: 1px solid rgba(20,184,166,0.12) !important; }
+.table-of-contents h3 { color: #fff !important; }
+.table-of-contents a { color: #14b8a6 !important; }
+.table-of-contents li { color: #94a3b8 !important; }
+.table-of-contents svg { color: var(--accent) !important; }
+
+/* CTA boxes and buttons */
+.cta-box, div.cta-box { background-color: rgba(20,184,166,0.06) !important; border-left-color: var(--accent) !important; }
+.calculator-container a[style*="background-color"], .article-container a[style*="background-color"] { background-color: var(--accent) !important; color: #fff !important; }
+
+/* Tables */
+table { border-collapse: collapse; }
+table th { background: rgba(20,184,166,0.08) !important; color: #e2e8f0 !important; border-bottom: 1px solid rgba(20,184,166,0.12) !important; }
+table td { color: #94a3b8 !important; border-bottom: 1px solid rgba(20,184,166,0.06) !important; background-color: transparent !important; }
+table tr[style] { background-color: transparent !important; }
+table tr:nth-child(even) { background: rgba(20,184,166,0.02); }
+thead, thead tr, thead th { background: rgba(20,184,166,0.08) !important; }
+
+/* Blockquotes & code */
+blockquote { border-left: 3px solid #14b8a6 !important; background: rgba(20,184,166,0.04) !important; }
+code { background: rgba(20,184,166,0.1) !important; color: #14b8a6 !important; }
+
+/* FAQ */
+.faq-item, .faq-question, .faq-answer p { color: #94a3b8 !important; }
+
+/* Info boxes, myth boxes, important boxes, answer capsules */
+.info-box, .myth-box, .important-box, .answer-capsule, .key-insight { background: rgba(20,184,166,0.04) !important; border-color: rgba(20,184,166,0.15) !important; color: #94a3b8 !important; }
+
+/* Related tool cards */
+.related-tool-card { background: rgba(20,184,166,0.04) !important; border: 1px solid rgba(20,184,166,0.12) !important; }
+.related-tool-card h4 { color: #fff !important; }
+.related-tool-card p { color: #94a3b8 !important; }
+
+/* Section backgrounds */
+section, .info { background: transparent !important; }
+
+/* Images */
+img { border-radius: 12px; }
+
+/* Grid containers with styled children */
+.calculator-container div[style*="display: grid"] > div[style], .calculator-container div[style*="display:grid"] > div[style] { background-color: rgba(20,184,166,0.04) !important; }
+
+/* SVG icons in dark mode */
+svg { color: var(--accent); }
+</style>
     
 <!-- NOTE: SVGs are deprecated for article content. Export all visuals to .webp with width+height explicitly defined. -->
 <style>

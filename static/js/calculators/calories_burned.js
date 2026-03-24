@@ -20,10 +20,10 @@
         var activityEl = document.getElementById('activity');
         if (!weightEl || !durationEl || !activityEl) return;
 
-        var weightLbs = parseFloat(weightEl.value);
-        var duration = parseFloat(durationEl.value);
+        var weightLbs = parseFloat(weightEl.value) || parseFloat(weightEl.placeholder) || 170;
+        var duration = parseFloat(durationEl.value) || parseFloat(durationEl.placeholder) || 30;
         var activity = activityEl.value;
-        if (isNaN(weightLbs) || weightLbs <= 0 || isNaN(duration) || duration <= 0) return;
+        if (weightLbs <= 0 || duration <= 0) return;
 
         var met = MET_VALUES[activity] || 5.0;
         var weightKg = weightLbs * 0.453592;
