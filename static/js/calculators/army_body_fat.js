@@ -3,15 +3,10 @@
 // Global variables
 let unitSystem = 'imperial';
 
-// Initialize event listeners
-// DOMContentLoaded removed
-{
-    // Set default unit system
-    setUnit('imperial');
-    
-    // Set up calculation button handler
-    document.getElementById('calcBtn').addEventListener('click', calculate);
-});
+// Initialize
+setUnit('imperial');
+var calcBtn = document.getElementById('calcBtn');
+if (calcBtn) calcBtn.addEventListener('click', calculate);
 
 // Toggle between metric and imperial units
 function setUnit(unit) {

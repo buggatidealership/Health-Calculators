@@ -288,11 +288,8 @@ function updateResultsSection() {
 }
 
 // Initialize the calculator on page load
-// DOMContentLoaded removed
-{
-    initializeUI();
-    calculateNutrition();
-});
+initializeUI();
+calculateNutrition();
 
 // Bind calcBtn to show results
 var calcBtn = document.getElementById('calcBtn');
