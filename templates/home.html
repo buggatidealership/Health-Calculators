@@ -1,467 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% with
-    meta_description=schema_description|default("Explore evidence-based calculators to optimize your health, nutrition, and longevity. From lifespan prediction to creatine hydration, we've got your body's numbers."),
-    meta_keywords="health calculators, lifespan calculator, nutrition calculator, wellness tools, tdee calculator",
-    og_title=schema_name|default("HealthCalculators.xyz – Smart Health Starts Here"),
-    og_description=schema_description|default("Discover personalized calculators for lifespan, nutrition, hydration, and more. Built for accuracy and optimized for action."),
-    og_url=canonical_url|default("/calculators"),
-    og_image="default-calculator-og.jpg",
-    page_title=schema_name|default("HealthCalculators.xyz — Science-Backed Health Tools & Calculators"),
-    canonical_url=canonical_url|default("/calculators")
-%}
-{% include 'head_seo.html' %}
-{% endwith %}
+{# /calculators catalog page — V25 dark mode #}
+{% extends 'v25-page-base.html' %}
 
+{% block page_css %}
+<style>
+/* Catalog-specific overrides */
+.hp-section[data-section]:not([data-section="popular"]) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
+}
+</style>
+{% endblock %}
 
-
-
-    <style>
-        /* Hero */
-        .hp-hero {
-            text-align: center;
-            padding: 48px 20px 40px;
-            background: linear-gradient(135deg, #f8fafc 0%, #fff 50%, #f0f9ff 100%);
-            border-radius: 16px;
-            margin-bottom: 32px;
-            position: relative;
-            overflow: hidden;
-        }
-        .hp-hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' fill='none'%3E%3Cpath d='M0 6 L40 6 L48 2 L54 10 L60 4 L66 6 L120 6' stroke='%230e7a7e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat center;
-            opacity: 0.5;
-        }
-        .hp-hero h1 {
-            font-family: var(--font-display);
-            font-size: 2.4rem;
-            font-weight: 400;
-            color: #1a1a2e;
-            margin: 0 0 8px;
-            line-height: 1.15;
-        }
-        .hp-hero .hp-subtitle {
-            font-size: 1.1rem;
-            color: #555;
-            max-width: 520px;
-            margin: 0 auto 28px;
-            line-height: 1.5;
-        }
-        /* Sample result card in hero */
-        .hp-sample-result {
-            display: inline-flex;
-            align-items: center;
-            gap: 20px;
-            background: #fff;
-            border: 2px solid var(--color-border);
-            border-radius: 14px;
-            padding: 18px 28px;
-            margin-bottom: 28px;
-            text-decoration: none;
-            color: inherit;
-        }
-        .hp-sample-result:hover {
-            border-color: var(--color-accent);
-            box-shadow: 0 4px 16px rgba(14, 122, 126, 0.1);
-            transform: translateY(-2px);
-            transition: all 0.2s;
-        }
-        .hp-sample-num {
-            font-family: var(--font-display);
-            font-size: 2.8rem;
-            font-weight: 400;
-            color: var(--color-accent);
-            line-height: 1;
-        }
-        .hp-sample-detail {
-            text-align: left;
-        }
-        .hp-sample-label {
-            font-size: 0.82rem;
-            color: #999;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-            margin-bottom: 2px;
-        }
-        .hp-sample-desc {
-            font-size: 0.95rem;
-            color: #333;
-            font-weight: 600;
-        }
-        .hp-sample-cta {
-            font-size: 0.82rem;
-            color: var(--color-accent);
-            font-weight: 600;
-        }
-        /* Trust bar */
-        .hp-trust {
-            display: flex;
-            justify-content: center;
-            gap: 28px;
-            flex-wrap: wrap;
-        }
-        .hp-trust-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.82rem;
-            color: #777;
-        }
-        .hp-trust-item strong {
-            color: #444;
-            font-weight: 600;
-        }
-
-        /* Search */
-        .hp-search {
-            max-width: 560px;
-            margin: 0 auto 36px;
-            position: relative;
-        }
-        .hp-search input {
-            width: 100%;
-            padding: 14px 18px 14px 44px;
-            border: 2px solid #e9ecef;
-            border-radius: 10px;
-            font-size: 1rem;
-            background: #fff;
-            transition: border-color 0.2s;
-            box-sizing: border-box;
-        }
-        .hp-search input:focus {
-            outline: none;
-            border-color: var(--color-accent);
-        }
-        .hp-search-icon {
-            position: absolute;
-            left: 14px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #aaa;
-            pointer-events: none;
-        }
-
-        /* Section headers */
-        .hp-section {
-            margin-bottom: 40px;
-        }
-        .hp-section-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 16px;
-            padding-bottom: 10px;
-            border-bottom: 2px solid #f0f0f0;
-        }
-        .hp-section-title {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #1a1a2e;
-            margin: 0;
-        }
-        .hp-section-count {
-            font-size: 0.8rem;
-            color: #999;
-            background: #f0f0f0;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-
-        /* Popular grid — featured row */
-        .hp-popular-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 16px;
-            margin-bottom: 16px;
-        }
-        .hp-popular-card {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 16px 18px;
-            background: #fff;
-            border: 2px solid var(--color-border);
-            border-radius: 12px;
-            text-decoration: none;
-            color: inherit;
-        }
-        .hp-popular-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            transition: transform 0.15s, box-shadow 0.15s;
-        }
-        .hp-popular-icon {
-            font-size: 1.6rem;
-            flex-shrink: 0;
-            width: 44px;
-            height: 44px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-muted);
-            border-radius: 10px;
-        }
-        .hp-popular-text h3 {
-            font-size: 0.95rem;
-            font-weight: 700;
-            margin: 0 0 3px;
-            color: #1a1a2e;
-        }
-        .hp-popular-text p {
-            font-size: 0.82rem;
-            color: #777;
-            margin: 0;
-            line-height: 1.35;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        /* Category grid */
-        .hp-cat-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 14px;
-        }
-        .hp-cat-card {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 16px;
-            background: #fff;
-            border: 1px solid #e9ecef;
-            border-radius: 10px;
-            text-decoration: none;
-            color: inherit;
-        }
-        .hp-cat-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--card-color, var(--color-accent));
-            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
-        }
-        .hp-cat-icon {
-            font-size: 1.4rem;
-            flex-shrink: 0;
-            width: 40px;
-            text-align: center;
-        }
-        .hp-cat-text h3 {
-            font-size: 0.92rem;
-            font-weight: 600;
-            margin: 0 0 2px;
-            color: #333;
-        }
-        .hp-cat-text p {
-            font-size: 0.8rem;
-            color: #888;
-            margin: 0;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .hp-cat-arrow {
-            margin-left: auto;
-            color: #ccc;
-            font-size: 1.1rem;
-            flex-shrink: 0;
-        }
-        .hp-cat-card:hover .hp-cat-arrow {
-            color: var(--card-color, var(--color-accent));
-            transform: translateX(3px);
-        }
-
-        /* Skip layout for off-screen category sections */
-        .hp-section[data-section]:not([data-section="popular"]) {
-            content-visibility: auto;
-            contain-intrinsic-size: auto 400px;
-        }
-
-        /* Category nav pills */
-        .hp-cat-nav {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 28px;
-            justify-content: center;
-        }
-        .hp-cat-pill {
-            padding: 7px 16px;
-            border: 1px solid #e0e0e0;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: #555;
-            text-decoration: none;
-            background: #fff;
-            cursor: pointer;
-        }
-        .hp-cat-pill:hover, .hp-cat-pill.active {
-            background: var(--color-accent);
-            color: #fff;
-            border-color: var(--color-accent);
-        }
-
-        /* Heartbeat divider */
-        .hp-divider {
-            text-align: center;
-            margin: 36px 0;
-        }
-        .hp-divider svg {
-            width: 120px;
-            height: 16px;
-        }
-
-        /* Resources callout */
-        .hp-resources {
-            background: var(--color-muted);
-            padding: 28px 24px;
-            border-radius: 12px;
-            border: 1px solid var(--color-border);
-            margin: 12px 0 40px;
-        }
-        .hp-resources h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            margin: 0 0 6px;
-            color: #1a1a2e;
-        }
-        .hp-resources p {
-            font-size: 0.92rem;
-            color: #666;
-            margin: 0 0 10px;
-        }
-        .hp-resources a {
-            color: var(--color-accent);
-            font-weight: 600;
-            text-decoration: none;
-        }
-        .hp-resources a:hover {
-            text-decoration: underline;
-        }
-
-        /* No results */
-        .hp-no-results {
-            text-align: center;
-            padding: 40px 20px;
-            color: #999;
-            display: none;
-        }
-
-        @media (max-width: 600px) {
-            .hp-hero { padding: 32px 16px 28px; }
-            .hp-hero h1 { font-size: 1.7rem; }
-            .hp-hero .hp-subtitle { font-size: 0.95rem; }
-            .hp-sample-result { padding: 14px 20px; gap: 14px; }
-            .hp-sample-num { font-size: 2.2rem; }
-            .hp-trust { gap: 14px; }
-            .hp-trust-item { font-size: 0.75rem; }
-            .hp-popular-grid { grid-template-columns: 1fr; }
-            .hp-cat-grid { grid-template-columns: 1fr; }
-            .hp-resources { text-align: center; }
-        }
-    </style>
-</head>
-<body>
-    {% include 'header.html' %}
-
-    <div class="calculator-container">
+{% block content %}
+<div class="page-container">
 
     {% if not is_catalog|default(false) %}
-    <!-- Hero -->
-    <div class="hp-hero">
-        <h1>Know Your Numbers. Own Your Health.</h1>
-        <p class="hp-subtitle">90+ free calculators built on peer-reviewed research. Get a clear answer in under 60 seconds.</p>
-        <a href="/tdee-calculator" class="hp-sample-result">
-            <div class="hp-sample-num">2,340</div>
-            <div class="hp-sample-detail">
-                <div class="hp-sample-label">Daily Calories</div>
-                <div class="hp-sample-desc">Your TDEE, personalized</div>
-                <div class="hp-sample-cta">Calculate yours &rarr;</div>
-            </div>
-        </a>
-        <div class="hp-trust">
-            <div class="hp-trust-item"><strong>220+</strong> Peer-Reviewed Citations</div>
-            <div class="hp-trust-item"><strong>90+</strong> Free Tools</div>
-            <div class="hp-trust-item"><strong>28</strong> Evidence-Based Guides</div>
-        </div>
+    {# Hero for homepage-style view (unused currently — /calculators always sends is_catalog=True) #}
+    <div class="page-hero">
+        <span class="pulse-dot"></span>
+        <h1>Know Your <span>Numbers</span>. Own Your Health.</h1>
+        <p>90+ free calculators built on peer-reviewed research. Get a clear answer in under 60 seconds.</p>
     </div>
     {% else %}
-    <!-- Catalog heading -->
-    <h1 style="font-family: var(--font-display); font-size: 2rem; font-weight: 400; color: var(--color-text); text-align: center; margin: 24px 0 8px;">{{ page_heading|default('Browse All Health Calculators') }}</h1>
-    <p style="text-align: center; color: var(--color-text-secondary); font-size: 0.95rem; margin: 0 0 24px;">Search or filter by category to find the right tool.</p>
+    {# Catalog heading #}
+    <div class="page-hero">
+        <span class="pulse-dot"></span>
+        <h1>{{ page_heading|default('Browse All Health Calculators') }}</h1>
+        <p>Search or filter by category to find the right tool.</p>
+    </div>
     {% endif %}
 
-    <!-- Search -->
-    <div class="hp-search">
-        <svg class="hp-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    {# Search #}
+    <div class="page-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <input type="text" placeholder="Search calculators..." aria-label="Search calculators" id="calc-search" autocomplete="off">
     </div>
 
-    <!-- Category pills -->
-    <div class="hp-cat-nav">
-        <span class="hp-cat-pill active" data-cat="all">All</span>
+    {# Category pills #}
+    <div class="page-pills">
+        <span class="page-pill active" data-cat="all">All</span>
         {% for cat in categories %}
-        <span class="hp-cat-pill" data-cat="{{ cat.id }}">{{ cat.icon }} {{ cat.label }}</span>
+        <span class="page-pill" data-cat="{{ cat.id }}">{{ cat.icon }} {{ cat.label }}</span>
         {% endfor %}
     </div>
 
-    <!-- No results message -->
-    <div class="hp-no-results" id="no-results">
-        No calculators match your search.
-    </div>
+    {# No results #}
+    <div class="no-results" id="no-results">No calculators match your search.</div>
 
-    <!-- Popular Section -->
+    {# Popular section #}
     <div class="hp-section" id="section-popular" data-section="popular">
-        <div class="hp-section-header">
-            <h2 class="hp-section-title">Most Popular</h2>
-            <span class="hp-section-count">{{ popular_cards|length }} tools</span>
+        <div class="section-header">
+            <h2 class="section-title">Most Popular</h2>
+            <span class="section-count">{{ popular_cards|length }} tools</span>
         </div>
-        <div class="hp-popular-grid">
+        <div class="card-grid">
             {% for card in popular_cards %}
-            <a href="{{ card.url }}" class="hp-popular-card searchable-card" data-cat="{{ card.category }}">
-                <div class="hp-popular-icon">{{ card.icon }}</div>
-                <div class="hp-popular-text">
+            <a href="{{ card.url }}" class="card-link searchable-card" data-cat="{{ card.category }}">
+                <span class="card-icon">{{ card.icon }}</span>
+                <div class="card-text">
                     <h3>{{ card.title }}</h3>
                     <p>{{ card.summary }}</p>
                 </div>
+                <span class="card-arrow">&rsaquo;</span>
             </a>
             {% endfor %}
         </div>
     </div>
 
-    <!-- Ad (after popular section, before categories) -->
     {% with ad_position="middle" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
 
-    <!-- Category Sections -->
+    {# Category sections #}
     {% for cat in categories %}
     <div class="hp-section" id="section-{{ cat.id }}" data-section="{{ cat.id }}">
-        <div class="hp-section-header">
-            <h2 class="hp-section-title">{{ cat.label }}</h2>
-            <span class="hp-section-count">{{ cards|selectattr('category', 'equalto', cat.id)|list|length }} tools</span>
+        <div class="section-header">
+            <h2 class="section-title">{{ cat.label }}</h2>
+            <span class="section-count">{{ cards|selectattr('category', 'equalto', cat.id)|list|length }} tools</span>
         </div>
-        <div class="hp-cat-grid">
+        <div class="card-grid">
             {% for card in cards if card.category == cat.id %}
-            <a href="{{ card.url }}" class="hp-cat-card searchable-card card-color-{{ card.color }}" data-cat="{{ card.category }}">
-                <div class="hp-cat-icon">{{ card.icon }}</div>
-                <div class="hp-cat-text">
+            <a href="{{ card.url }}" class="card-link searchable-card" data-cat="{{ card.category }}">
+                <span class="card-icon">{{ card.icon }}</span>
+                <div class="card-text">
                     <h3>{{ card.title }}</h3>
                     <p>{{ card.summary }}</p>
                 </div>
-                <span class="hp-cat-arrow">&rsaquo;</span>
+                <span class="card-arrow">&rsaquo;</span>
             </a>
             {% endfor %}
         </div>
@@ -472,100 +97,75 @@
     {% include 'components/ad-unit.html' %}
     {% endwith %}
 
-    <!-- Heartbeat divider -->
-    <div class="hp-divider" aria-hidden="true">
-        <svg viewBox="0 0 200 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 8 L70 8 L80 3 L88 13 L96 5 L102 8 L200 8" stroke="var(--color-accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.3"/>
-        </svg>
+    <div class="page-sep"></div>
+
+    {# Resources CTA #}
+    <div class="page-cta">
+        <h3>Understand What Your Numbers Mean</h3>
+        <p>28 evidence-based guides that explain your results, what to do next, and when to talk to a doctor.</p>
+        <a href="/resources">Browse All Guides &rarr;</a>
     </div>
 
-    <!-- Resources -->
-    <div class="hp-resources">
-        <div>
-            <h3>Understand What Your Numbers Mean</h3>
-            <p>28 evidence-based guides that explain your results, what to do next, and when to talk to a doctor.</p>
-            <a href="/resources">Browse All Guides &rarr;</a>
-        </div>
-    </div>
-
-    <!-- Bottom Ad -->
     {% with ad_position="bottom" %}
     {% include 'components/ad-unit.html' %}
     {% endwith %}
 
-    </div>
+</div>
+{% endblock %}
 
-    {% include 'footer.html' %}
+{% block scripts %}
+<script>
+(function() {
+    var searchInput = document.getElementById('calc-search');
+    var pills = document.querySelectorAll('.page-pill');
+    var sections = document.querySelectorAll('.hp-section');
+    var noResults = document.getElementById('no-results');
+    var activeCat = 'all';
 
-    <script>
-    (function() {
-        var searchInput = document.getElementById('calc-search');
-        var pills = document.querySelectorAll('.hp-cat-pill');
-        var sections = document.querySelectorAll('.hp-section');
-        var allCards = document.querySelectorAll('.searchable-card');
-        var noResults = document.getElementById('no-results');
-        var activeCat = 'all';
-
-        // Category filter
-        pills.forEach(function(pill) {
-            pill.addEventListener('click', function() {
-                pills.forEach(function(p) { p.classList.remove('active'); });
-                pill.classList.add('active');
-                activeCat = pill.getAttribute('data-cat');
-                searchInput.value = '';
-                applyFilters();
-            });
-        });
-
-        // Search filter
-        searchInput.addEventListener('input', function() {
-            // Reset to "All" when searching
-            if (searchInput.value.length > 0) {
-                pills.forEach(function(p) { p.classList.remove('active'); });
-                document.querySelector('[data-cat="all"]').classList.add('active');
-                activeCat = 'all';
-            }
+    pills.forEach(function(pill) {
+        pill.addEventListener('click', function() {
+            pills.forEach(function(p) { p.classList.remove('active'); });
+            pill.classList.add('active');
+            activeCat = pill.getAttribute('data-cat');
+            searchInput.value = '';
             applyFilters();
         });
+    });
 
-        function applyFilters() {
-            var query = searchInput.value.toLowerCase().trim();
-            var visibleCount = 0;
-
-            sections.forEach(function(section) {
-                var sectionId = section.getAttribute('data-section');
-                var cards = section.querySelectorAll('.searchable-card');
-                var sectionVisible = 0;
-
-                cards.forEach(function(card) {
-                    var cardCat = card.getAttribute('data-cat');
-                    var text = card.textContent.toLowerCase();
-                    var matchesCat = activeCat === 'all' || cardCat === activeCat;
-                    var matchesSearch = !query || text.indexOf(query) !== -1;
-
-                    if (matchesCat && matchesSearch) {
-                        card.style.display = '';
-                        sectionVisible++;
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-
-                // Hide section if no cards visible, or if filtering by category and section doesn't match
-                if (activeCat !== 'all' && sectionId === 'popular') {
-                    // Show popular section only if it has visible cards
-                    section.style.display = sectionVisible > 0 ? '' : 'none';
-                } else if (activeCat !== 'all' && sectionId !== activeCat && sectionId !== 'popular') {
-                    section.style.display = 'none';
-                } else {
-                    section.style.display = sectionVisible > 0 ? '' : 'none';
-                }
-            });
-
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    searchInput.addEventListener('input', function() {
+        if (searchInput.value.length > 0) {
+            pills.forEach(function(p) { p.classList.remove('active'); });
+            document.querySelector('[data-cat="all"]').classList.add('active');
+            activeCat = 'all';
         }
-    })();
-    </script>
-</body>
-</html>
+        applyFilters();
+    });
+
+    function applyFilters() {
+        var query = searchInput.value.toLowerCase().trim();
+        var visibleCount = 0;
+        sections.forEach(function(section) {
+            var sectionId = section.getAttribute('data-section');
+            var cards = section.querySelectorAll('.searchable-card');
+            var sectionVisible = 0;
+            cards.forEach(function(card) {
+                var cardCat = card.getAttribute('data-cat');
+                var text = card.textContent.toLowerCase();
+                var matchesCat = activeCat === 'all' || cardCat === activeCat;
+                var matchesSearch = !query || text.indexOf(query) !== -1;
+                if (matchesCat && matchesSearch) { card.style.display = ''; sectionVisible++; visibleCount++; }
+                else { card.style.display = 'none'; }
+            });
+            if (activeCat !== 'all' && sectionId === 'popular') {
+                section.style.display = sectionVisible > 0 ? '' : 'none';
+            } else if (activeCat !== 'all' && sectionId !== activeCat && sectionId !== 'popular') {
+                section.style.display = 'none';
+            } else {
+                section.style.display = sectionVisible > 0 ? '' : 'none';
+            }
+        });
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+})();
+</script>
+{% endblock %}

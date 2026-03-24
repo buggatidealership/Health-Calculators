@@ -1,114 +1,203 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% with
-    meta_description=demo.meta_description,
-    meta_keywords=demo.meta_keywords,
-    og_title=demo.og_title,
-    og_description=demo.meta_description,
-    og_url=demo.url,
-    page_title=demo.page_title,
-    canonical_url=demo.url
-%}
-{% include 'head_seo.html' %}
-{% endwith %}
+{#
+  Demographic Calculator — extends V25 dark page base
+  ====================================================
+  Serves 14 demographic variant pages (e.g. /tdee-calculator-for-women,
+  /bmi-calculator-for-teens). All content driven by the `demo` dict.
+#}
+{% extends 'v25-page-base.html' %}
 
-</head>
-<body>
-{% set breadcrumb_items = demo.breadcrumbs %}
-{% include 'header.html' %}
+{% block page_css %}
+<style>
+/* Article meta line */
+.article-meta {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
 
-    <section class="calculator-section">
-        <div class="calculator-container">
-            <div class="article-meta">
-                <span class="article-meta-item">Updated March 2026</span>
-                <span class="article-meta-item">{{ demo.read_time }} min read</span>
-            </div>
+/* TOC */
+.toc-nav {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0 2rem;
+}
+.toc-title {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.9rem;
+    margin-bottom: 0.6rem;
+}
+.toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.toc-list li { margin-bottom: 0.35rem; }
+.toc-list a {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.88rem;
+}
+.toc-list a:hover { color: var(--accent); }
 
-            <h1>{{ demo.h1 }}</h1>
+/* Calculator CTA box */
+.calculator-cta-box {
+    text-align: center;
+    padding: 2.5rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 18px;
+}
+.calculator-cta-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+.calculator-cta-box h2 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.calculator-cta-box p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    margin-bottom: 1.2rem;
+}
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #0a0f1a;
+    border-radius: 12px;
+    padding: 0.75rem 1.8rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.15s;
+}
+.cta-button:hover {
+    box-shadow: 0 6px 24px rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-1px);
+}
+.calculator-cta-note {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 0.8rem;
+}
 
-            <!-- Table of Contents -->
-            <nav class="toc-nav" aria-label="Table of Contents">
-                <p class="toc-title">Contents</p>
-                <ul class="toc-list">
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#calculator">Use the Calculator</a></li>
-                    <li><a href="#reference-data">Reference Data</a></li>
-                    <li><a href="#key-considerations">Key Considerations</a></li>
-                    <li><a href="#faq">Frequently Asked Questions</a></li>
-                    <li><a href="#sources">Sources</a></li>
-                </ul>
-            </nav>
+/* Source note */
+.source-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-top: 0.5rem;
+}
 
-            {% include 'components/ad-unit.html' %}
+/* Disclaimer */
+.disclaimer-text {
+    font-size: 0.82rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+</style>
+{% endblock %}
 
-            <!-- Overview -->
-            <section id="overview">
-                {{ demo.overview|safe }}
-            </section>
-
-            <!-- Calculator CTA -->
-            <section id="calculator" class="calculator-cta-box">
-                <div class="calculator-cta-icon">{{ demo.icon }}</div>
-                <h2>{{ demo.cta_title }}</h2>
-                <p>{{ demo.cta_description }}</p>
-                <a href="{{ demo.calculator_url }}{{ demo.prefill_params }}" class="cta-button">{{ demo.cta_button_text }}</a>
-                {% if demo.cta_note %}
-                <p class="calculator-cta-note">{{ demo.cta_note }}</p>
-                {% endif %}
-            </section>
-
-            <!-- Reference Data Table -->
-            <section id="reference-data">
-                <h2>{{ demo.table_title }}</h2>
-                {{ demo.table_html|safe }}
-                {% if demo.table_source %}
-                <p class="source-note">{{ demo.table_source }}</p>
-                {% endif %}
-            </section>
-
-            {% include 'components/ad-unit.html' %}
-
-            <!-- Key Considerations -->
-            <section id="key-considerations">
-                <h2>Key Considerations for {{ demo.demographic }}</h2>
-                {{ demo.considerations|safe }}
-            </section>
-
-            <!-- FAQ -->
-            <section id="faq">
-                <h2>Frequently Asked Questions</h2>
-                {% for faq in demo.faqs %}
-                <div class="faq-item">
-                    <h3>{{ faq.q }}</h3>
-                    <p>{{ faq.a }}</p>
-                </div>
-                {% endfor %}
-            </section>
-
-            <!-- Sources -->
-            <section id="sources">
-                <h2>Sources &amp; References</h2>
-                <ol class="sources-list">
-                    {% for source in demo.sources %}
-                    <li>{{ source }}</li>
-                    {% endfor %}
-                </ol>
-            </section>
-
-            <p class="disclaimer-text" style="margin-top: 16px;">
-                This content is for informational purposes only and does not constitute medical advice. Consult a healthcare provider for personalized recommendations.
-            </p>
-
-            {% include 'components/share-card.html' %}
+{% block content %}
+<div class="page-container">
+    <div class="article-content">
+        <div class="article-meta">
+            <span>Updated March 2026</span>
+            <span>{{ demo.read_time }} min read</span>
         </div>
-    </section>
 
-{% include 'components/related-links.html' %}
-{% include 'footer.html' %}
+        <h1>{{ demo.h1 }}</h1>
 
+        <!-- Table of Contents -->
+        <nav class="toc-nav" aria-label="Table of Contents">
+            <p class="toc-title">Contents</p>
+            <ul class="toc-list">
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#calculator">Use the Calculator</a></li>
+                <li><a href="#reference-data">Reference Data</a></li>
+                <li><a href="#key-considerations">Key Considerations</a></li>
+                <li><a href="#faq">Frequently Asked Questions</a></li>
+                <li><a href="#sources">Sources</a></li>
+            </ul>
+        </nav>
+
+        {% include 'components/ad-unit.html' %}
+
+        <!-- Overview -->
+        <section id="overview">
+            {{ demo.overview|safe }}
+        </section>
+
+        <!-- Calculator CTA -->
+        <section id="calculator" class="calculator-cta-box">
+            <div class="calculator-cta-icon">{{ demo.icon }}</div>
+            <h2>{{ demo.cta_title }}</h2>
+            <p>{{ demo.cta_description }}</p>
+            <a href="{{ demo.calculator_url }}{{ demo.prefill_params }}" class="cta-button">{{ demo.cta_button_text }}</a>
+            {% if demo.cta_note %}
+            <p class="calculator-cta-note">{{ demo.cta_note }}</p>
+            {% endif %}
+        </section>
+
+        <!-- Reference Data Table -->
+        <section id="reference-data">
+            <h2>{{ demo.table_title }}</h2>
+            <div class="dark-table">
+                {{ demo.table_html|safe }}
+            </div>
+            {% if demo.table_source %}
+            <p class="source-note">{{ demo.table_source }}</p>
+            {% endif %}
+        </section>
+
+        {% include 'components/ad-unit.html' %}
+
+        <!-- Key Considerations -->
+        <section id="key-considerations">
+            <h2>Key Considerations for {{ demo.demographic }}</h2>
+            {{ demo.considerations|safe }}
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            {% for faq in demo.faqs %}
+            <div class="faq-item">
+                <h3>{{ faq.q }}</h3>
+                <p>{{ faq.a }}</p>
+            </div>
+            {% endfor %}
+        </section>
+
+        <!-- Sources -->
+        <section id="sources">
+            <h2>Sources &amp; References</h2>
+            <ol class="sources-list">
+                {% for source in demo.sources %}
+                <li>{{ source }}</li>
+                {% endfor %}
+            </ol>
+        </section>
+
+        <p class="disclaimer-text" style="margin-top: 16px;">
+            This content is for informational purposes only and does not constitute medical advice. Consult a healthcare provider for personalized recommendations.
+        </p>
+
+        {% include 'components/share-card.html' %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
 <script defer src="/static/js/result-animations.js"></script>
 <script src="/static/js/content-loops.js" defer></script>
 <script defer src="/static/js/sidebar-toc.js"></script>
-</body>
-</html>
+{% endblock %}

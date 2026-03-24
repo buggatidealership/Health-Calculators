@@ -1,85 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% with
-    meta_description="Privacy Policy for HealthCalculators.xyz — how we collect, use, and protect your data when you use our health calculators.",
-    meta_keywords="privacy policy, healthcalculators privacy, data collection policy",
-    og_title="Privacy Policy – HealthCalculators.xyz",
-    og_description="Read our privacy policy to understand how HealthCalculators.xyz handles your data.",
-    og_url="/privacy",
-    page_title="Privacy Policy — HealthCalculators.xyz",
-    canonical_url="/privacy"
-%}
-{% include 'head_seo.html' %}
-{% endwith %}
-</head>
-<body>
-{% include 'header.html' %}
+{% extends 'v25-page-base.html' %}
 
-<div class="calculator-container">
+{% block content %}
+<div class="page-container">
+    <div class="page-hero">
+        <h1><span>Privacy</span> Policy</h1>
+        <p>Last updated: March 2026</p>
+    </div>
 
-<h1>Privacy Policy</h1>
-<p class="subtitle">Last updated: March 2026</p>
+    <div class="article-content">
+        <h2>Overview</h2>
+        <p>HealthCalculators.xyz ("we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, and protect information when you visit our website at <strong>https://healthcalculators.xyz</strong>.</p>
 
-<h2>Overview</h2>
-<p>HealthCalculators.xyz ("we," "us," or "our") respects your privacy. This Privacy Policy explains how we collect, use, and protect information when you visit our website at <strong>https://healthcalculators.xyz</strong>.</p>
+        <h2>Information We Collect</h2>
 
-<h2>Information We Collect</h2>
+        <h3>Calculator Inputs</h3>
+        <p>When you use our calculators, you may enter personal health information such as weight, height, age, and other measurements. <strong>This data is processed entirely in your browser.</strong> We do not transmit, store, or have access to the values you enter into any calculator on this site.</p>
 
-<h3>Calculator Inputs</h3>
-<p>When you use our calculators, you may enter personal health information such as weight, height, age, and other measurements. <strong>This data is processed entirely in your browser.</strong> We do not transmit, store, or have access to the values you enter into any calculator on this site.</p>
+        <h3>Analytics Data</h3>
+        <p>We use Google Analytics 4 (GA4) to understand how visitors use our site. GA4 may collect:</p>
+        <ul>
+            <li>Pages visited and time spent on each page</li>
+            <li>Device type, browser, and operating system</li>
+            <li>Approximate geographic location (country/region level)</li>
+            <li>Referral source (how you found our site)</li>
+        </ul>
+        <p>Google Analytics uses cookies and similar technologies. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</p>
 
-<h3>Analytics Data</h3>
-<p>We use Google Analytics 4 (GA4) to understand how visitors use our site. GA4 may collect:</p>
-<ul>
-    <li>Pages visited and time spent on each page</li>
-    <li>Device type, browser, and operating system</li>
-    <li>Approximate geographic location (country/region level)</li>
-    <li>Referral source (how you found our site)</li>
-</ul>
-<p>Google Analytics uses cookies and similar technologies. You can opt out of Google Analytics by installing the <a href="https://tools.google.com/dlpage/gaoptout" rel="noopener noreferrer" target="_blank">Google Analytics Opt-out Browser Add-on</a>.</p>
+        <h3>Advertising Data</h3>
+        <p>We display advertisements through Google AdSense. Google and its advertising partners may use cookies to serve ads based on your prior visits to this site or other websites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener noreferrer" target="_blank">Google Ads Settings</a>.</p>
 
-<h3>Advertising Data</h3>
-<p>We display advertisements through Google AdSense. Google and its advertising partners may use cookies to serve ads based on your prior visits to this site or other websites. You can opt out of personalized advertising by visiting <a href="https://www.google.com/settings/ads" rel="noopener noreferrer" target="_blank">Google Ads Settings</a>.</p>
+        <h2>Cookies</h2>
+        <p>Our site uses cookies for:</p>
+        <ul>
+            <li><strong>Analytics:</strong> Google Analytics cookies to measure site usage</li>
+            <li><strong>Advertising:</strong> Google AdSense cookies to serve and measure ads</li>
+        </ul>
+        <p>We do not use cookies for login, session tracking, or personal data storage, as our site does not require user accounts.</p>
 
-<h2>Cookies</h2>
-<p>Our site uses cookies for:</p>
-<ul>
-    <li><strong>Analytics:</strong> Google Analytics cookies to measure site usage</li>
-    <li><strong>Advertising:</strong> Google AdSense cookies to serve and measure ads</li>
-</ul>
-<p>We do not use cookies for login, session tracking, or personal data storage, as our site does not require user accounts.</p>
+        <h2>Third-Party Services</h2>
+        <p>We use the following third-party services:</p>
+        <ul>
+            <li><strong>Google Analytics (GA4):</strong> Website analytics. <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a></li>
+            <li><strong>Google AdSense:</strong> Display advertising. <a href="https://policies.google.com/technologies/ads" rel="noopener noreferrer" target="_blank">Google Ad Technology Policy</a></li>
+        </ul>
 
-<h2>Third-Party Services</h2>
-<p>We use the following third-party services:</p>
-<ul>
-    <li><strong>Google Analytics (GA4):</strong> Website analytics. <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google Privacy Policy</a></li>
-    <li><strong>Google AdSense:</strong> Display advertising. <a href="https://policies.google.com/technologies/ads" rel="noopener noreferrer" target="_blank">Google Ad Technology Policy</a></li>
-</ul>
+        <h2>Data Retention</h2>
+        <p>We do not store any personal health data. Analytics data is retained according to Google Analytics' default retention settings (14 months).</p>
 
-<h2>Data Retention</h2>
-<p>We do not store any personal health data. Analytics data is retained according to Google Analytics' default retention settings (14 months).</p>
+        <h2>Children's Privacy</h2>
+        <p>Our site is not directed to children under 13. We do not knowingly collect personal information from children.</p>
 
-<h2>Children's Privacy</h2>
-<p>Our site is not directed to children under 13. We do not knowingly collect personal information from children.</p>
+        <h2>Your Rights</h2>
+        <p>Depending on your location, you may have the right to:</p>
+        <ul>
+            <li>Access, correct, or delete your personal data</li>
+            <li>Opt out of personalized advertising</li>
+            <li>Request information about what data we hold about you</li>
+        </ul>
+        <p>Since we do not store personal calculator data and rely on Google for analytics/advertising, most data requests should be directed to <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google's privacy tools</a>.</p>
 
-<h2>Your Rights</h2>
-<p>Depending on your location, you may have the right to:</p>
-<ul>
-    <li>Access, correct, or delete your personal data</li>
-    <li>Opt out of personalized advertising</li>
-    <li>Request information about what data we hold about you</li>
-</ul>
-<p>Since we do not store personal calculator data and rely on Google for analytics/advertising, most data requests should be directed to <a href="https://policies.google.com/privacy" rel="noopener noreferrer" target="_blank">Google's privacy tools</a>.</p>
+        <h2>Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
 
-<h2>Changes to This Policy</h2>
-<p>We may update this Privacy Policy from time to time. Changes will be posted on this page with an updated "Last updated" date.</p>
-
-<h2>Contact</h2>
-<p>For privacy-related questions, contact us at <strong>contact@healthcalculators.xyz</strong>.</p>
-
+        <h2>Contact</h2>
+        <p>For privacy-related questions, contact us at <strong>contact@healthcalculators.xyz</strong>.</p>
+    </div>
 </div>
-
-{% include 'footer.html' %}
-</body>
-</html>
+{% endblock %}

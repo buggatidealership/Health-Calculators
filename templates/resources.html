@@ -1,219 +1,66 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% with
-    meta_description="Evidence-based health guides, articles and charts covering nutrition, medications, cosmetic procedures, fertility, and fitness. Expert resources backed by clinical research.",
-    meta_keywords="health guides, wellness articles, nutrition science, medication guides, fitness resources, evidence-based health",
-    og_title="Health & Wellness Guides – HealthCalculators.xyz",
-    og_description="35+ evidence-based articles and guides to help you understand your health numbers and take action. Covering medications, nutrition, fitness, and more.",
-    og_url="/resources",
-    og_image="default-calculator-og.jpg",
-    page_title="Evidence-Based Health Guides — HealthCalculators.xyz",
-    canonical_url="/resources"
-%}
-{% include 'head_seo.html' %}
-{% endwith %}
+{# /resources catalog page — V25 dark mode #}
+{% extends 'v25-page-base.html' %}
 
-    <style>
-        /* Catalog heading — matches /calculators pattern */
-        .res-heading {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            font-weight: 400;
-            color: var(--color-text);
-            text-align: center;
-            margin: 24px 0 8px;
-        }
-        .res-subtitle {
-            text-align: center;
-            color: var(--color-text-secondary);
-            font-size: 0.95rem;
-            margin: 0 0 24px;
-        }
-        .res-search {
-            max-width: 500px;
-            margin: 0 auto 24px;
-            position: relative;
-        }
-        .res-search input {
-            width: 100%;
-            padding: 12px 16px 12px 40px;
-            border: 2px solid var(--color-border);
-            border-radius: 10px;
-            font-size: 0.95rem;
-            font-family: var(--font-body);
-            background: var(--color-surface);
-            transition: border-color 0.2s;
-            box-sizing: border-box;
-        }
-        .res-search input:focus { outline: none; border-color: var(--color-accent); }
-        .res-search-icon {
-            position: absolute;
-            left: 12px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--color-text-tertiary);
-            pointer-events: none;
-        }
-        .res-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 28px;
-            justify-content: center;
-        }
-        .res-pill {
-            padding: 7px 16px;
-            border: 1px solid var(--color-border);
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--color-text-secondary);
-            background: var(--color-surface);
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-        .res-pill:hover, .res-pill.active {
-            background: var(--color-accent);
-            color: #fff;
-            border-color: var(--color-accent);
-        }
-        .res-section {
-            margin-bottom: 36px;
-        }
-        .res-section-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 14px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid var(--color-border-light);
-        }
-        .res-section-icon { font-size: 1.2rem; }
-        .res-section-title {
-            font-size: 1.15rem;
-            font-weight: 700;
-            color: var(--color-text);
-            margin: 0;
-        }
-        .res-section-count {
-            font-size: 0.78rem;
-            color: var(--color-text-tertiary);
-            background: var(--color-muted);
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: auto;
-        }
-        .res-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 14px;
-        }
-        .res-card {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            padding: 14px 16px;
-            background: var(--color-surface);
-            border: 1px solid var(--color-border);
-            border-radius: 10px;
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.15s, border-color 0.15s, box-shadow 0.15s;
-        }
-        .res-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--color-accent);
-            box-shadow: var(--shadow-md);
-        }
-        .res-card-icon {
-            font-size: 1.3rem;
-            flex-shrink: 0;
-            width: 36px;
-            text-align: center;
-        }
-        .res-card-text h3 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin: 0 0 2px;
-            color: var(--color-text);
-        }
-        .res-card-text p {
-            font-size: 0.78rem;
-            color: var(--color-text-tertiary);
-            margin: 0;
-            line-height: 1.3;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-        .res-card-arrow {
-            margin-left: auto;
-            color: var(--color-border);
-            font-size: 1.1rem;
-            flex-shrink: 0;
-            transition: color 0.15s, transform 0.15s;
-        }
-        .res-card:hover .res-card-arrow {
-            color: var(--color-accent);
-            transform: translateX(3px);
-        }
-        .res-no-results {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--color-text-tertiary);
-            display: none;
-        }
-        .res-cta-block {
-            background: var(--color-accent-bg);
-            border: 1px solid var(--color-accent-border);
-            border-radius: 12px;
-            padding: 28px 24px;
-            margin: 36px 0;
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .res-cta-block-icon { font-size: 2rem; flex-shrink: 0; }
-        .res-cta-block h3 { font-size: 1.05rem; font-weight: 700; margin: 0 0 6px; color: var(--color-text); }
-        .res-cta-block p { font-size: 0.9rem; color: var(--color-text-secondary); margin: 0 0 10px; }
-        .res-cta-block a { color: var(--color-accent); font-weight: 600; text-decoration: none; }
-        .res-cta-block a:hover { text-decoration: underline; }
-        @media (max-width: 600px) {
-            .res-heading { font-size: 1.6rem; }
-            .res-grid { grid-template-columns: 1fr; }
-            .res-cta-block { flex-direction: column; text-align: center; }
-        }
-    </style>
-</head>
-<body>
-    {% include 'header.html' %}
+{% block page_css %}
+<style>
+/* Resources-specific overrides */
+.res-section { margin-bottom: 0.5rem; }
+.res-cta-block {
+    text-align: center;
+    padding: 3rem 1.5rem;
+    margin: 2rem 0;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 18px;
+}
+.res-cta-block h3 {
+    font-family: var(--font-display);
+    font-size: 1.3rem;
+    color: #fff;
+    margin-bottom: 0.5rem;
+}
+.res-cta-block p {
+    color: var(--text-dim);
+    font-size: 0.92rem;
+    margin-bottom: 1.2rem;
+}
+.res-cta-block a {
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+.res-cta-block a:hover { text-decoration: underline; }
+</style>
+{% endblock %}
 
-    <div class="calculator-container">
+{% block content %}
+<div class="page-container">
 
-    <!-- Heading — matches /calculators pattern -->
-    <h1 class="res-heading">Evidence-Based Health Guides</h1>
-    <p class="res-subtitle">Search or filter by category to find the right guide.</p>
+    <!-- Hero -->
+    <div class="page-hero">
+        <h1>Evidence-Based Health <span>Guides</span></h1>
+        <p>Search or filter by category to find the right guide.</p>
+    </div>
 
     <!-- Search -->
-    <div class="res-search">
-        <svg class="res-search-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <div class="page-search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
         <input type="text" placeholder="Search guides..." aria-label="Search guides" id="res-search" autocomplete="off">
     </div>
 
     <!-- Category pills -->
-    <div class="res-pills">
-        <span class="res-pill active" data-cat="all">All</span>
-        <span class="res-pill" data-cat="medications">💊 Medications</span>
-        <span class="res-pill" data-cat="nutrition">🍽️ Nutrition</span>
-        <span class="res-pill" data-cat="cosmetic">✨ Cosmetic</span>
-        <span class="res-pill" data-cat="fertility">👶 Fertility</span>
-        <span class="res-pill" data-cat="health">❤️ Health</span>
-        <span class="res-pill" data-cat="fitness">💪 Fitness</span>
+    <div class="page-pills">
+        <span class="page-pill active" data-cat="all">All</span>
+        <span class="page-pill" data-cat="medications">💊 Medications</span>
+        <span class="page-pill" data-cat="nutrition">🍽️ Nutrition</span>
+        <span class="page-pill" data-cat="cosmetic">✨ Cosmetic</span>
+        <span class="page-pill" data-cat="fertility">👶 Fertility</span>
+        <span class="page-pill" data-cat="health">❤️ Health</span>
+        <span class="page-pill" data-cat="fitness">💪 Fitness</span>
     </div>
 
-    <div class="res-no-results" id="res-no-results">No guides match your search.</div>
+    <div class="no-results" id="res-no-results">No guides match your search.</div>
 
     {% set cat_config = [
         ('medications', '💊', 'Weight Loss Medications'),
@@ -228,20 +75,19 @@
     {% set cat_articles = articles|selectattr('category', 'equalto', cat_id)|list %}
     {% if cat_articles|length > 0 %}
     <div class="res-section" data-section="{{ cat_id }}">
-        <div class="res-section-header">
-            <span class="res-section-icon">{{ cat_icon }}</span>
-            <h2 class="res-section-title">{{ cat_label }}</h2>
-            <span class="res-section-count">{{ cat_articles|length }} guides</span>
+        <div class="section-header">
+            <span class="section-title">{{ cat_icon }} {{ cat_label }}</span>
+            <span class="section-count">{{ cat_articles|length }} guides</span>
         </div>
-        <div class="res-grid">
+        <div class="card-grid">
             {% for article in cat_articles %}
-            <a href="{{ article.url }}" class="res-card searchable-res" data-cat="{{ cat_id }}">
-                <div class="res-card-icon">{{ article.icon }}</div>
-                <div class="res-card-text">
+            <a href="{{ article.url }}" class="card-link searchable-res" data-cat="{{ cat_id }}">
+                <span class="card-icon">{{ article.icon }}</span>
+                <div class="card-text">
                     <h3>{{ article.title }}</h3>
                     <p>{{ article.summary }}</p>
                 </div>
-                <span class="res-card-arrow">&rsaquo;</span>
+                <span class="card-arrow">&rsaquo;</span>
             </a>
             {% endfor %}
         </div>
@@ -258,80 +104,76 @@
 
     <!-- Calculator CTA -->
     <div class="res-cta-block">
-        <div class="res-cta-block-icon">🧮</div>
-        <div>
-            <h3>Try Our Free Health Calculators</h3>
-            <p>Put these guides into practice with {{ cards|length }}+ science-backed calculators for nutrition, fitness, and wellness.</p>
-            <a href="/calculators">Browse All Calculators &rarr;</a>
-        </div>
+        <h3>🧮 Try Our Free Health Calculators</h3>
+        <p>Put these guides into practice with {{ cards|length }}+ science-backed calculators for nutrition, fitness, and wellness.</p>
+        <a href="/calculators">Browse All Calculators &rarr;</a>
     </div>
 
-    </div>
+</div>
+{% endblock %}
 
-    {% include 'footer.html' %}
+{% block scripts %}
+<script>
+(function() {
+    var searchInput = document.getElementById('res-search');
+    var pills = document.querySelectorAll('.page-pill');
+    var sections = document.querySelectorAll('.res-section');
+    var allCards = document.querySelectorAll('.searchable-res');
+    var noResults = document.getElementById('res-no-results');
+    var activeCat = 'all';
 
-    <script>
-    (function() {
-        var searchInput = document.getElementById('res-search');
-        var pills = document.querySelectorAll('.res-pill');
-        var sections = document.querySelectorAll('.res-section');
-        var allCards = document.querySelectorAll('.searchable-res');
-        var noResults = document.getElementById('res-no-results');
-        var activeCat = 'all';
-
-        pills.forEach(function(pill) {
-            pill.addEventListener('click', function() {
-                pills.forEach(function(p) { p.classList.remove('active'); });
-                pill.classList.add('active');
-                activeCat = pill.getAttribute('data-cat');
-                searchInput.value = '';
-                applyFilters();
-            });
-        });
-
-        searchInput.addEventListener('input', function() {
-            if (searchInput.value.length > 0) {
-                pills.forEach(function(p) { p.classList.remove('active'); });
-                document.querySelector('.res-pill[data-cat="all"]').classList.add('active');
-                activeCat = 'all';
-            }
+    pills.forEach(function(pill) {
+        pill.addEventListener('click', function() {
+            pills.forEach(function(p) { p.classList.remove('active'); });
+            pill.classList.add('active');
+            activeCat = pill.getAttribute('data-cat');
+            searchInput.value = '';
             applyFilters();
         });
+    });
 
-        function applyFilters() {
-            var query = searchInput.value.toLowerCase().trim();
-            var visibleCount = 0;
+    searchInput.addEventListener('input', function() {
+        if (searchInput.value.length > 0) {
+            pills.forEach(function(p) { p.classList.remove('active'); });
+            document.querySelector('.page-pill[data-cat="all"]').classList.add('active');
+            activeCat = 'all';
+        }
+        applyFilters();
+    });
 
-            sections.forEach(function(section) {
-                var sectionId = section.getAttribute('data-section');
-                var cards = section.querySelectorAll('.searchable-res');
-                var sectionVisible = 0;
+    function applyFilters() {
+        var query = searchInput.value.toLowerCase().trim();
+        var visibleCount = 0;
 
-                cards.forEach(function(card) {
-                    var cardCat = card.getAttribute('data-cat');
-                    var text = card.textContent.toLowerCase();
-                    var matchesCat = activeCat === 'all' || cardCat === activeCat;
-                    var matchesSearch = !query || text.indexOf(query) !== -1;
+        sections.forEach(function(section) {
+            var sectionId = section.getAttribute('data-section');
+            var cards = section.querySelectorAll('.searchable-res');
+            var sectionVisible = 0;
 
-                    if (matchesCat && matchesSearch) {
-                        card.style.display = '';
-                        sectionVisible++;
-                        visibleCount++;
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
+            cards.forEach(function(card) {
+                var cardCat = card.getAttribute('data-cat');
+                var text = card.textContent.toLowerCase();
+                var matchesCat = activeCat === 'all' || cardCat === activeCat;
+                var matchesSearch = !query || text.indexOf(query) !== -1;
 
-                if (activeCat !== 'all' && sectionId !== activeCat) {
-                    section.style.display = 'none';
+                if (matchesCat && matchesSearch) {
+                    card.style.display = '';
+                    sectionVisible++;
+                    visibleCount++;
                 } else {
-                    section.style.display = sectionVisible > 0 ? '' : 'none';
+                    card.style.display = 'none';
                 }
             });
 
-            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-        }
-    })();
-    </script>
-</body>
-</html>
+            if (activeCat !== 'all' && sectionId !== activeCat) {
+                section.style.display = 'none';
+            } else {
+                section.style.display = sectionVisible > 0 ? '' : 'none';
+            }
+        });
+
+        noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+})();
+</script>
+{% endblock %}

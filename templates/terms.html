@@ -1,70 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% with
-    meta_description="Terms of Service for HealthCalculators.xyz — the rules and conditions for using our free health calculators and resources.",
-    meta_keywords="terms of service, healthcalculators terms, calculator terms of use",
-    og_title="Terms of Service – HealthCalculators.xyz",
-    og_description="Read the terms and conditions for using HealthCalculators.xyz.",
-    og_url="/terms",
-    page_title="Terms of Service — HealthCalculators.xyz",
-    canonical_url="/terms"
-%}
-{% include 'head_seo.html' %}
-{% endwith %}
-</head>
-<body>
-{% include 'header.html' %}
+{% extends 'v25-page-base.html' %}
 
-<div class="calculator-container">
+{% block content %}
+<div class="page-container">
+    <div class="page-hero">
+        <h1><span>Terms</span> of Service</h1>
+        <p>Last updated: March 2026</p>
+    </div>
 
-<h1>Terms of Service</h1>
-<p class="subtitle">Last updated: March 2026</p>
+    <div class="article-content">
+        <h2>Acceptance of Terms</h2>
+        <p>By accessing and using HealthCalculators.xyz ("the Site"), you agree to these Terms of Service. If you do not agree, please do not use the Site.</p>
 
-<h2>Acceptance of Terms</h2>
-<p>By accessing and using HealthCalculators.xyz ("the Site"), you agree to these Terms of Service. If you do not agree, please do not use the Site.</p>
+        <h2>Nature of the Service</h2>
+        <p>HealthCalculators.xyz provides free, web-based health and wellness calculators and educational content. All tools and articles are provided for <strong>informational and educational purposes only</strong>.</p>
 
-<h2>Nature of the Service</h2>
-<p>HealthCalculators.xyz provides free, web-based health and wellness calculators and educational content. All tools and articles are provided for <strong>informational and educational purposes only</strong>.</p>
+        <h2>Not Medical Advice</h2>
+        <p>The calculators, articles, and resources on this Site are <strong>not medical advice</strong>. They are based on population-level data, general formulas, and published research. They do not account for your individual medical history, medications, genetic factors, or other personal health circumstances.</p>
+        <p><strong>Always consult a qualified healthcare professional</strong> before making health decisions based on information from this Site. Do not use calculator results to self-diagnose, self-treat, or delay seeking medical care.</p>
 
-<h2>Not Medical Advice</h2>
-<p>The calculators, articles, and resources on this Site are <strong>not medical advice</strong>. They are based on population-level data, general formulas, and published research. They do not account for your individual medical history, medications, genetic factors, or other personal health circumstances.</p>
-<p><strong>Always consult a qualified healthcare professional</strong> before making health decisions based on information from this Site. Do not use calculator results to self-diagnose, self-treat, or delay seeking medical care.</p>
+        <h2>Accuracy and Limitations</h2>
+        <p>We strive to base our calculators on peer-reviewed research and established clinical guidelines. However:</p>
+        <ul>
+            <li>Results are <strong>estimates</strong>, not diagnoses or prescriptions</li>
+            <li>Formulas may not account for all individual variables</li>
+            <li>Medical knowledge evolves — calculators reflect the research available at the time they were built</li>
+            <li>We make no warranty that results are accurate, complete, or current for any specific individual</li>
+        </ul>
 
-<h2>Accuracy and Limitations</h2>
-<p>We strive to base our calculators on peer-reviewed research and established clinical guidelines. However:</p>
-<ul>
-    <li>Results are <strong>estimates</strong>, not diagnoses or prescriptions</li>
-    <li>Formulas may not account for all individual variables</li>
-    <li>Medical knowledge evolves — calculators reflect the research available at the time they were built</li>
-    <li>We make no warranty that results are accurate, complete, or current for any specific individual</li>
-</ul>
+        <h2>Your Use of the Site</h2>
+        <p>You agree to:</p>
+        <ul>
+            <li>Use the Site for lawful, personal, non-commercial purposes</li>
+            <li>Not scrape, copy, or reproduce Site content without permission</li>
+            <li>Not attempt to interfere with the Site's functionality</li>
+        </ul>
 
-<h2>Your Use of the Site</h2>
-<p>You agree to:</p>
-<ul>
-    <li>Use the Site for lawful, personal, non-commercial purposes</li>
-    <li>Not scrape, copy, or reproduce Site content without permission</li>
-    <li>Not attempt to interfere with the Site's functionality</li>
-</ul>
+        <h2>Intellectual Property</h2>
+        <p>All content on this Site — including calculator designs, educational articles, graphics, and code — is the property of HealthCalculators.xyz unless otherwise noted. You may not reproduce, distribute, or create derivative works from our content without written permission.</p>
 
-<h2>Intellectual Property</h2>
-<p>All content on this Site — including calculator designs, educational articles, graphics, and code — is the property of HealthCalculators.xyz unless otherwise noted. You may not reproduce, distribute, or create derivative works from our content without written permission.</p>
+        <h2>Third-Party Links</h2>
+        <p>Our Site may contain links to third-party websites or resources. We are not responsible for the content, accuracy, or practices of any third-party sites.</p>
 
-<h2>Third-Party Links</h2>
-<p>Our Site may contain links to third-party websites or resources. We are not responsible for the content, accuracy, or practices of any third-party sites.</p>
+        <h2>Limitation of Liability</h2>
+        <p>To the fullest extent permitted by law, HealthCalculators.xyz and its operators shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Site or reliance on calculator results.</p>
 
-<h2>Limitation of Liability</h2>
-<p>To the fullest extent permitted by law, HealthCalculators.xyz and its operators shall not be liable for any direct, indirect, incidental, or consequential damages arising from your use of the Site or reliance on calculator results.</p>
+        <h2>Changes to Terms</h2>
+        <p>We may update these Terms from time to time. Continued use of the Site after changes constitutes acceptance of the updated Terms.</p>
 
-<h2>Changes to Terms</h2>
-<p>We may update these Terms from time to time. Continued use of the Site after changes constitutes acceptance of the updated Terms.</p>
-
-<h2>Contact</h2>
-<p>For questions about these Terms, contact us at <strong>contact@healthcalculators.xyz</strong>.</p>
-
+        <h2>Contact</h2>
+        <p>For questions about these Terms, contact us at <strong>contact@healthcalculators.xyz</strong>.</p>
+    </div>
 </div>
-
-{% include 'footer.html' %}
-</body>
-</html>
+{% endblock %}

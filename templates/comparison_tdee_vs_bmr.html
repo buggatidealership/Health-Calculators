@@ -1,21 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% include 'head_seo.html' %}
-</head>
-<body>
-{% include 'header.html' %}
+{% extends 'v25-page-base.html' %}
 
-<div class="calculator-container" style="padding-top: 20px; padding-bottom: 60px;">
+{% block page_css %}
+<style>
+.toc {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px;
+}
+.toc h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0 0 0.6rem;
+}
+.toc ul { margin: 0; padding-left: 1.2rem; }
+.toc li { margin-bottom: 0.35rem; }
+.toc a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.toc a:hover { text-decoration: underline; }
+.answer-capsule {
+    background: rgba(var(--accent-rgb), 0.06);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem;
+    border-radius: 0 12px 12px 0;
+    margin: 1rem 0 1.5rem;
+    color: var(--text);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+.highlight-box {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+}
+.highlight-box p { margin: 0 0 0.5rem; }
+.highlight-box p:last-child { margin: 0; }
+.dark-table .td-bold { color: var(--text); font-weight: 600; }
+.dark-table .td-good { color: #34d399; }
+.dark-table .td-danger { color: #f87171; }
+.dark-table .td-warning { color: #fbbf24; }
+.dark-table .td-accent { color: var(--accent); font-weight: 600; }
+.dark-table caption {
+    caption-side: bottom;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    text-align: left;
+}
+.page-cta .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #0a0f1a;
+    border-radius: 12px;
+    padding: 0.75rem 1.8rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.15s;
+    margin: 0.3rem;
+}
+.page-cta .cta-link:hover {
+    box-shadow: 0 6px 24px rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-1px);
+}
+.page-cta .cta-link.green { background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%); color: #fff; }
+.faq-item { margin-bottom: 1rem; }
+.faq-question, .faq-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.4rem;
+}
+.faq-body, .faq-item .faq-body {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+.faq-body p { margin: 0; }
+.sources-section { margin-top: 2rem; }
+.sources-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+}
+.sources-list {
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+.sources-list li { margin-bottom: 0.4rem; }
+.sources-list em { color: var(--text-dim); }
+</style>
+{% endblock %}
 
-    <h1>TDEE vs BMR: What's the Difference and Which Do You Need?</h1>
-    <p class="subtitle">Both measure how many calories your body burns — but they answer different questions. Understanding the distinction is essential for setting accurate calorie targets.</p>
-
+{% block content %}
+<div class="page-container">
+    <div class="page-hero">
+        <h1>TDEE vs BMR: <span>What's the Difference?</span></h1>
+        <p>Both measure how many calories your body burns — but they answer different questions. Understanding the distinction is essential for setting accurate calorie targets.</p>
+    </div>
 
     {% set ad_position = "top" %}
     {% include 'components/ad-unit.html' with context %}
 
-    <div class="table-of-contents">
+    <div class="toc">
         <h3>Contents</h3>
         <ul>
             <li><a href="#comparison">TDEE vs BMR Comparison</a></li>
@@ -29,15 +125,14 @@
         </ul>
     </div>
 
-    <!-- Core Comparison -->
-    <section id="comparison" style="margin-top: 48px;">
-        <div class="info">
+    <div class="article-content">
+        <section id="comparison">
             <h2>TDEE vs BMR: Side-by-Side</h2>
             <div class="answer-capsule">
                 <strong>BMR</strong> (Basal Metabolic Rate) is the calories your body burns at complete rest — just to keep you alive. <strong>TDEE</strong> (Total Daily Energy Expenditure) is your BMR plus all the calories burned through movement, exercise, and digestion. TDEE is always higher than BMR.
             </div>
 
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Key differences between TDEE and BMR</caption>
                 <thead>
                     <tr>
@@ -58,15 +153,12 @@
                     <tr><td class="td-bold">% of TDEE it represents</td><td>60–75%</td><td>100%</td></tr>
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
 
-    {% set ad_position = "in-article" %}
-    {% include 'components/ad-unit.html' with context %}
+        {% set ad_position = "in-article" %}
+        {% include 'components/ad-unit.html' with context %}
 
-    <!-- What Is BMR -->
-    <section id="what-is-bmr" style="margin-top: 48px;">
-        <div class="info">
+        <section id="what-is-bmr">
             <h2>What Is BMR (Basal Metabolic Rate)?</h2>
             <p>BMR is the energy your body needs to perform basic life functions: breathing, circulating blood, cell production, nutrient processing, and maintaining body temperature. It's measured under strict resting conditions — lying still, in a temperature-controlled room, after 12 hours of fasting.</p>
             <div class="highlight-box">
@@ -75,19 +167,16 @@
                 <p>Women: BMR = (10 × weight in kg) + (6.25 × height in cm) − (5 × age) − 161</p>
             </div>
             <p>BMR accounts for 60–75% of your total daily calorie burn. The biggest factor affecting BMR is lean body mass — muscle tissue burns roughly 6 calories per pound per day at rest, while fat tissue burns about 2 calories per pound.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- What Is TDEE -->
-    <section id="what-is-tdee" style="margin-top: 48px;">
-        <div class="info">
+        <section id="what-is-tdee">
             <h2>What Is TDEE (Total Daily Energy Expenditure)?</h2>
             <p>TDEE is the total number of calories you burn in a full day. It's calculated by multiplying your BMR by an activity factor:</p>
             <div class="highlight-box">
                 <p><strong>TDEE = BMR × Activity Factor</strong></p>
             </div>
             <p>TDEE has four components:</p>
-            <table class="data-table">
+            <table class="dark-table">
                 <thead>
                     <tr><th>Component</th><th>% of TDEE</th><th>What It Is</th></tr>
                 </thead>
@@ -99,15 +188,12 @@
                 </tbody>
             </table>
             <p>NEAT is the most variable component and the biggest differentiator between people with the same BMR. Some people burn 300+ extra calories per day through unconscious movement.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Sample Values -->
-    <section id="sample-values" style="margin-top: 48px;">
-        <div class="info">
+        <section id="sample-values">
             <h2>Sample BMR and TDEE Values</h2>
             <div class="answer-capsule">These examples show how BMR and TDEE differ for the same person at different activity levels. Notice how TDEE can be 40–90% higher than BMR depending on activity.</div>
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>BMR vs TDEE for a 30-year-old, 5'9", 170 lb male</caption>
                 <thead>
                     <tr><th>Activity Level</th><th>BMR</th><th>Activity Factor</th><th>TDEE</th><th>Difference</th></tr>
@@ -120,7 +206,7 @@
                     <tr><td class="td-bold">Extra Active</td><td>1,746</td><td>1.9</td><td class="td-accent">3,317</td><td>+1,571 cal</td></tr>
                 </tbody>
             </table>
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>BMR vs TDEE for a 30-year-old, 5'4", 140 lb female</caption>
                 <thead>
                     <tr><th>Activity Level</th><th>BMR</th><th>Activity Factor</th><th>TDEE</th><th>Difference</th></tr>
@@ -132,12 +218,9 @@
                     <tr><td class="td-bold">Very Active</td><td>1,399</td><td>1.725</td><td class="td-accent">2,413</td><td>+1,014 cal</td></tr>
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
 
-    <!-- Which to Use -->
-    <section id="which-to-use" style="margin-top: 48px;">
-        <div class="info">
+        <section id="which-to-use">
             <h2>Which Should You Use for Dieting?</h2>
             <p><strong>Always base your calorie targets on TDEE, not BMR.</strong></p>
             <p>A common mistake is eating at BMR level thinking it's your maintenance intake. In reality, eating at BMR would create a large calorie deficit because BMR doesn't account for any movement — you'd be chronically undereating.</p>
@@ -149,45 +232,38 @@
                 <p>4. <strong>Never eat below your BMR</strong> — this risks muscle loss, metabolic adaptation, and nutrient deficiencies</p>
             </div>
             <p>For most people, a 500-calorie deficit below TDEE results in approximately 1 lb of fat loss per week. Larger deficits speed up weight loss but increase the risk of muscle loss and are harder to sustain.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Calculator CTA -->
-    <section id="calculators" style="margin-top: 48px;">
-        <div class="info" style="text-align: center;">
-            <h2>Calculate Your TDEE and BMR</h2>
-            <p>Our TDEE calculator shows both your BMR and TDEE, plus macronutrient targets for your goal.</p>
-            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-                <a href="/tdee-calculator" class="cta-button" style="text-decoration:none;">Calculate Your TDEE</a>
-                <a href="/caloric-intake-macronutrient-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%);">Macro Calculator</a>
+        <section id="calculators">
+            <div class="page-cta">
+                <h3>Calculate Your TDEE and BMR</h3>
+                <p>Our TDEE calculator shows both your BMR and TDEE, plus macronutrient targets for your goal.</p>
+                <a href="/tdee-calculator" class="cta-link">Calculate Your TDEE</a>
+                <a href="/caloric-intake-macronutrient-calculator" class="cta-link green">Macro Calculator</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="faq-section" style="margin-top: 48px;">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h4>Is BMR the same as resting metabolic rate (RMR)?</h4>
-            <div class="faq-body"><p>Nearly, but not exactly. BMR requires strict clinical conditions (12-hour fast, complete rest, thermoneutral environment). RMR is measured under slightly less restrictive conditions and is typically 3-10% higher than BMR. For practical purposes, the difference is negligible and both can be estimated with the same equations.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Can you increase your BMR?</h4>
-            <div class="faq-body"><p>Yes. The most effective way is building muscle mass through resistance training — every pound of muscle burns approximately 6 calories per day at rest versus 2 for fat. Over time, adding 10 lbs of muscle increases BMR by roughly 40-60 calories per day. Other factors like adequate sleep, thyroid function, and avoiding chronic calorie restriction also help maintain a healthy BMR.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Why does TDEE decrease with age?</h4>
-            <div class="faq-body"><p>TDEE drops roughly 50-100 calories per decade after age 30, primarily due to age-related muscle loss (sarcopenia) which lowers BMR. Adults lose 3-5% of muscle mass per decade after 30 if they don't resistance train. Additionally, activity levels tend to decrease with age. Both factors compound to lower TDEE.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Should I eat below my BMR to lose weight faster?</h4>
-            <div class="faq-body"><p>No. Eating below BMR for extended periods triggers metabolic adaptation — your body lowers its metabolic rate to conserve energy, making weight loss harder over time. It also increases cortisol, promotes muscle loss, and can cause hormonal disruption. A moderate deficit of 300-500 calories below TDEE (but above BMR) is more sustainable and preserves muscle mass.</p></div>
-        </div>
-    </section>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4 class="faq-question">Is BMR the same as resting metabolic rate (RMR)?</h4>
+                <div class="faq-body"><p>Nearly, but not exactly. BMR requires strict clinical conditions (12-hour fast, complete rest, thermoneutral environment). RMR is measured under slightly less restrictive conditions and is typically 3-10% higher than BMR. For practical purposes, the difference is negligible and both can be estimated with the same equations.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Can you increase your BMR?</h4>
+                <div class="faq-body"><p>Yes. The most effective way is building muscle mass through resistance training — every pound of muscle burns approximately 6 calories per day at rest versus 2 for fat. Over time, adding 10 lbs of muscle increases BMR by roughly 40-60 calories per day. Other factors like adequate sleep, thyroid function, and avoiding chronic calorie restriction also help maintain a healthy BMR.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Why does TDEE decrease with age?</h4>
+                <div class="faq-body"><p>TDEE drops roughly 50-100 calories per decade after age 30, primarily due to age-related muscle loss (sarcopenia) which lowers BMR. Adults lose 3-5% of muscle mass per decade after 30 if they don't resistance train. Additionally, activity levels tend to decrease with age. Both factors compound to lower TDEE.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Should I eat below my BMR to lose weight faster?</h4>
+                <div class="faq-body"><p>No. Eating below BMR for extended periods triggers metabolic adaptation — your body lowers its metabolic rate to conserve energy, making weight loss harder over time. It also increases cortisol, promotes muscle loss, and can cause hormonal disruption. A moderate deficit of 300-500 calories below TDEE (but above BMR) is more sustainable and preserves muscle mass.</p></div>
+            </div>
+        </section>
 
-    <!-- Sources -->
-    <section id="sources" style="margin-top: 40px;">
-        <div class="sources-section">
+        <section id="sources" class="sources-section">
             <h3>Sources & References</h3>
             <ol class="sources-list">
                 <li>Mifflin MD, et al. "A new predictive equation for resting energy expenditure in healthy individuals." <em>Am J Clin Nutr</em>. 1990;51(2):241-247.</li>
@@ -195,15 +271,15 @@
                 <li>Levine JA. "Non-exercise activity thermogenesis (NEAT)." <em>Best Pract Res Clin Endocrinol Metab</em>. 2002;16(4):679-702.</li>
                 <li>Westerterp KR. "Physical activity and physical activity induced energy expenditure in humans." <em>Proc Nutr Soc</em>. 2003;62(3):645-650.</li>
             </ol>
-        </div>
-    </section>
-
+        </section>
+    </div>
 </div>
 
 {% include 'components/related-links.html' %}
+{% endblock %}
+
+{% block scripts %}
 <script defer src="/static/js/result-animations.js"></script>
 <script src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
 <script defer src="/static/js/sidebar-toc.js"></script>
-{% include 'footer.html' %}
-</body>
-</html>
+{% endblock %}

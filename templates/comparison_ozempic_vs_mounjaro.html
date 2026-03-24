@@ -1,21 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% include 'head_seo.html' %}
-</head>
-<body>
-{% include 'header.html' %}
+{% extends 'v25-page-base.html' %}
 
-<div class="calculator-container" style="padding-top: 20px; padding-bottom: 60px;">
+{% block page_css %}
+<style>
+.toc {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px;
+}
+.toc h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0 0 0.6rem;
+}
+.toc ul { margin: 0; padding-left: 1.2rem; }
+.toc li { margin-bottom: 0.35rem; }
+.toc a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.toc a:hover { text-decoration: underline; }
+.answer-capsule {
+    background: rgba(var(--accent-rgb), 0.06);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem;
+    border-radius: 0 12px 12px 0;
+    margin: 1rem 0 1.5rem;
+    color: var(--text);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+.highlight-box {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+}
+.highlight-box p { margin: 0 0 0.5rem; }
+.highlight-box p:last-child { margin: 0; }
+.dark-table .td-bold { color: var(--text); font-weight: 600; }
+.dark-table .td-good { color: #34d399; }
+.dark-table .td-danger { color: #f87171; }
+.dark-table .td-warning { color: #fbbf24; }
+.dark-table .td-accent { color: var(--accent); font-weight: 600; }
+.dark-table caption {
+    caption-side: bottom;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    text-align: left;
+}
+.page-cta .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #0a0f1a;
+    border-radius: 12px;
+    padding: 0.75rem 1.8rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.15s;
+    margin: 0.3rem;
+}
+.page-cta .cta-link:hover {
+    box-shadow: 0 6px 24px rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-1px);
+}
+.page-cta .cta-link.purple { background: linear-gradient(135deg, #6b30c0 0%, #8848d0 100%); color: #fff; }
+.page-cta .cta-link.green { background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%); color: #fff; }
+.faq-item { margin-bottom: 1rem; }
+.faq-question, .faq-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.4rem;
+}
+.faq-body, .faq-item .faq-body {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+.faq-body p { margin: 0; }
+.sources-section { margin-top: 2rem; }
+.sources-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+}
+.sources-list {
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+.sources-list li { margin-bottom: 0.4rem; }
+.sources-list em { color: var(--text-dim); }
+</style>
+{% endblock %}
 
-    <h1>Ozempic vs Mounjaro: Comparing Weight Loss, Cost, and Side Effects</h1>
-    <p class="subtitle">A data-driven comparison of the two most popular GLP-1 weight loss medications. Both work — but they differ significantly in mechanism, efficacy, dosing, and cost.</p>
-
+{% block content %}
+<div class="page-container">
+    <div class="page-hero">
+        <h1>Ozempic vs Mounjaro: <span>Weight Loss, Cost & Side Effects</span></h1>
+        <p>A data-driven comparison of the two most popular GLP-1 weight loss medications. Both work — but they differ significantly in mechanism, efficacy, dosing, and cost.</p>
+    </div>
 
     {% set ad_position = "top" %}
     {% include 'components/ad-unit.html' with context %}
 
-    <div class="table-of-contents">
+    <div class="toc">
         <h3>Contents</h3>
         <ul>
             <li><a href="#comparison">Head-to-Head Comparison</a></li>
@@ -31,15 +128,14 @@
         </ul>
     </div>
 
-    <!-- Core Comparison -->
-    <section id="comparison" style="margin-top: 48px;">
-        <div class="info">
+    <div class="article-content">
+        <section id="comparison">
             <h2>Ozempic vs Mounjaro: Quick Comparison</h2>
             <div class="answer-capsule">
                 Ozempic (semaglutide) targets GLP-1 receptors only. Mounjaro (tirzepatide) targets both GLP-1 and GIP receptors. This dual mechanism gives Mounjaro a significant weight loss advantage in clinical trials — 22.5% vs 14.9% average body weight loss at the highest doses.
             </div>
 
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Ozempic vs Mounjaro — comprehensive comparison based on published clinical data</caption>
                 <thead>
                     <tr>
@@ -63,18 +159,15 @@
                     <tr><td class="td-bold">Available since</td><td>2017 (diabetes), 2021 (obesity)</td><td>2022 (diabetes), 2023 (obesity)</td></tr>
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
 
-    {% set ad_position = "in-article" %}
-    {% include 'components/ad-unit.html' with context %}
+        {% set ad_position = "in-article" %}
+        {% include 'components/ad-unit.html' with context %}
 
-    <!-- Weight Loss Data -->
-    <section id="weight-loss" style="margin-top: 48px;">
-        <div class="info">
+        <section id="weight-loss">
             <h2>Weight Loss: Clinical Trial Results</h2>
             <p>The most reliable comparison comes from the SURMOUNT-2 trial, which directly compared tirzepatide against semaglutide. But we can also compare across the STEP and SURMOUNT programs.</p>
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Weight loss outcomes by medication and dose — Sources: STEP 1, SURMOUNT-1, SURMOUNT-2</caption>
                 <thead>
                     <tr>
@@ -95,15 +188,12 @@
                     <tr><td>Placebo</td><td>—</td><td>~2.4–3.1%</td><td>~10%</td><td>~2%</td><td>68-72 wks</td></tr>
                 </tbody>
             </table>
-            <div class="highlight-box" style="margin-top: 16px;">
+            <div class="highlight-box">
                 <p><strong>Key finding:</strong> Mounjaro's lowest dose (5 mg) produces roughly the same weight loss as Wegovy's maximum dose (2.4 mg). At higher doses, Mounjaro's weight loss advantage widens to 5-8 percentage points.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Mechanism -->
-    <section id="mechanism" style="margin-top: 48px;">
-        <div class="info">
+        <section id="mechanism">
             <h2>How They Work Differently</h2>
             <p><strong>Ozempic (semaglutide)</strong> mimics a single gut hormone — GLP-1 — which slows gastric emptying, reduces appetite, and increases insulin secretion. It's a targeted, single-pathway approach.</p>
             <p><strong>Mounjaro (tirzepatide)</strong> mimics two gut hormones simultaneously — GLP-1 and GIP. The addition of GIP receptor activation provides additional metabolic benefits:</p>
@@ -114,14 +204,11 @@
                 <li>Additive appetite suppression from two independent signaling pathways</li>
             </ul>
             <p>This dual mechanism is the primary reason Mounjaro produces greater weight loss in clinical trials. It's not simply a higher dose of the same approach — it's a fundamentally broader mechanism.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Dosing -->
-    <section id="dosing" style="margin-top: 48px;">
-        <div class="info">
+        <section id="dosing">
             <h2>Dosing Schedule Comparison</h2>
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Side-by-side dose escalation — both are once-weekly subcutaneous injections</caption>
                 <thead>
                     <tr>
@@ -140,15 +227,12 @@
                 </tbody>
             </table>
             <p>Mounjaro takes slightly longer to reach maximum dose (20-28 weeks vs 16-20 weeks) because it has more dose steps. Both medications require gradual escalation to minimize nausea and other GI side effects.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Side Effects -->
-    <section id="side-effects" style="margin-top: 48px;">
-        <div class="info">
+        <section id="side-effects">
             <h2>Side Effects: How They Compare</h2>
             <div class="answer-capsule">Both medications share similar GI side effects because they both activate GLP-1 receptors. However, the rates and severity differ slightly between trials.</div>
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Most common side effects reported in pivotal trials (% of participants)</caption>
                 <thead>
                     <tr>
@@ -168,14 +252,11 @@
                 </tbody>
             </table>
             <p>Mounjaro appears to have lower rates of nausea and vomiting in trials, though direct comparison is limited because the trials used different populations. Both medications' GI side effects are most pronounced during dose escalation and typically improve after 4-6 weeks at a stable dose.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Cost -->
-    <section id="cost" style="margin-top: 48px;">
-        <div class="info">
+        <section id="cost">
             <h2>Cost Comparison (2026)</h2>
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Approximate monthly costs — actual costs vary by insurance, pharmacy, and availability</caption>
                 <thead>
                     <tr>
@@ -195,12 +276,9 @@
                 </tbody>
             </table>
             <p>Actual out-of-pocket cost depends heavily on your insurance plan. Both manufacturers offer savings cards that can reduce copays to $0-$25/month for commercially insured patients. Without insurance, compounded versions may be available at lower cost but quality and regulation vary.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Which Is Right -->
-    <section id="which" style="margin-top: 48px;">
-        <div class="info">
+        <section id="which">
             <h2>Which Medication Is Right for You?</h2>
             <div class="highlight-box">
                 <p><strong>This is a medical decision that should be made with your prescribing physician.</strong> The comparison below highlights general factors, not personalized medical advice.</p>
@@ -218,46 +296,39 @@
                 <li>Cardiovascular risk reduction is important (Wegovy has CV outcome data; Mounjaro's is pending)</li>
                 <li>Your insurance covers one but not the other</li>
             </ul>
-        </div>
-    </section>
+        </section>
 
-    <!-- Calculator CTAs -->
-    <section id="calculators" style="margin-top: 48px;">
-        <div class="info" style="text-align: center;">
-            <h2>Project Your Weight Loss on Each Medication</h2>
-            <p>Use our calculators to see personalized projections based on your starting weight, dose, and treatment duration.</p>
-            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-                <a href="/ozempic-weight-loss-calculator" class="cta-button" style="text-decoration:none;">Ozempic Calculator</a>
-                <a href="/mounjaro-weight-loss-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #6b30c0 0%, #8848d0 100%);">Mounjaro Calculator</a>
-                <a href="/glp1-comparison-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%);">Compare All 3</a>
+        <section id="calculators">
+            <div class="page-cta">
+                <h3>Project Your Weight Loss on Each Medication</h3>
+                <p>Use our calculators to see personalized projections based on your starting weight, dose, and treatment duration.</p>
+                <a href="/ozempic-weight-loss-calculator" class="cta-link">Ozempic Calculator</a>
+                <a href="/mounjaro-weight-loss-calculator" class="cta-link purple">Mounjaro Calculator</a>
+                <a href="/glp1-comparison-calculator" class="cta-link green">Compare All 3</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="faq-section" style="margin-top: 48px;">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h4>Can you switch from Ozempic to Mounjaro?</h4>
-            <div class="faq-body"><p>Yes, with your doctor's guidance. The typical approach is to stop Ozempic and start Mounjaro at the lowest dose (2.5 mg) regardless of your previous Ozempic dose, then escalate normally. Some doctors may start at a slightly higher Mounjaro dose if you've been on high-dose semaglutide, but this is an individual clinical decision.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Is Mounjaro always better than Ozempic for weight loss?</h4>
-            <div class="faq-body"><p>On average, yes — Mounjaro produces greater weight loss at comparable treatment durations. However, individual responses vary significantly. Some people respond exceptionally well to semaglutide and may not need tirzepatide. The "best" medication is the one that produces good results with tolerable side effects for you specifically.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Do you regain weight after stopping either medication?</h4>
-            <div class="faq-body"><p>Studies show significant weight regain after discontinuation of both medications. The STEP 1 extension trial found participants regained approximately two-thirds of lost weight within one year of stopping semaglutide. Long-term data for tirzepatide discontinuation is still being collected, but the pattern is expected to be similar. This is why many physicians recommend ongoing treatment.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Can you take Ozempic and Mounjaro together?</h4>
-            <div class="faq-body"><p>No. Both medications activate GLP-1 receptors, so combining them would increase the risk of severe side effects (particularly GI effects) without a proportional increase in benefit. They should not be used simultaneously.</p></div>
-        </div>
-    </section>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4 class="faq-question">Can you switch from Ozempic to Mounjaro?</h4>
+                <div class="faq-body"><p>Yes, with your doctor's guidance. The typical approach is to stop Ozempic and start Mounjaro at the lowest dose (2.5 mg) regardless of your previous Ozempic dose, then escalate normally. Some doctors may start at a slightly higher Mounjaro dose if you've been on high-dose semaglutide, but this is an individual clinical decision.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Is Mounjaro always better than Ozempic for weight loss?</h4>
+                <div class="faq-body"><p>On average, yes — Mounjaro produces greater weight loss at comparable treatment durations. However, individual responses vary significantly. Some people respond exceptionally well to semaglutide and may not need tirzepatide. The "best" medication is the one that produces good results with tolerable side effects for you specifically.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Do you regain weight after stopping either medication?</h4>
+                <div class="faq-body"><p>Studies show significant weight regain after discontinuation of both medications. The STEP 1 extension trial found participants regained approximately two-thirds of lost weight within one year of stopping semaglutide. Long-term data for tirzepatide discontinuation is still being collected, but the pattern is expected to be similar. This is why many physicians recommend ongoing treatment.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Can you take Ozempic and Mounjaro together?</h4>
+                <div class="faq-body"><p>No. Both medications activate GLP-1 receptors, so combining them would increase the risk of severe side effects (particularly GI effects) without a proportional increase in benefit. They should not be used simultaneously.</p></div>
+            </div>
+        </section>
 
-    <!-- Sources -->
-    <section id="sources" style="margin-top: 40px;">
-        <div class="sources-section">
+        <section id="sources" class="sources-section">
             <h3>Sources & References</h3>
             <ol class="sources-list">
                 <li>Wilding JPH, et al. "Once-weekly semaglutide in adults with overweight or obesity." <em>N Engl J Med</em>. 2021;384(11):989-1002. (STEP 1)</li>
@@ -267,15 +338,15 @@
                 <li>Novo Nordisk. "Ozempic (semaglutide) prescribing information." FDA, 2024.</li>
                 <li>Eli Lilly. "Mounjaro (tirzepatide) prescribing information." FDA, 2024.</li>
             </ol>
-        </div>
-    </section>
-
+        </section>
+    </div>
 </div>
 
 {% include 'components/related-links.html' %}
+{% endblock %}
+
+{% block scripts %}
 <script defer src="/static/js/result-animations.js"></script>
 <script src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
 <script defer src="/static/js/sidebar-toc.js"></script>
-{% include 'footer.html' %}
-</body>
-</html>
+{% endblock %}

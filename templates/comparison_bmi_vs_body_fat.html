@@ -1,21 +1,117 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-{% include 'head_seo.html' %}
-</head>
-<body>
-{% include 'header.html' %}
+{% extends 'v25-page-base.html' %}
 
-<div class="calculator-container" style="padding-top: 20px; padding-bottom: 60px;">
+{% block page_css %}
+<style>
+.toc {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    padding: 1.2rem 1.5rem;
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.08);
+    border-radius: 14px;
+}
+.toc h3 {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    color: var(--text);
+    margin: 0 0 0.6rem;
+}
+.toc ul { margin: 0; padding-left: 1.2rem; }
+.toc li { margin-bottom: 0.35rem; }
+.toc a { color: var(--accent); text-decoration: none; font-size: 0.9rem; }
+.toc a:hover { text-decoration: underline; }
+.answer-capsule {
+    background: rgba(var(--accent-rgb), 0.06);
+    border-left: 3px solid var(--accent);
+    padding: 1rem 1.2rem;
+    border-radius: 0 12px 12px 0;
+    margin: 1rem 0 1.5rem;
+    color: var(--text);
+    font-size: 0.93rem;
+    line-height: 1.7;
+}
+.highlight-box {
+    background: rgba(var(--accent-rgb), 0.04);
+    border: 1px solid rgba(var(--accent-rgb), 0.1);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+}
+.highlight-box p { margin: 0 0 0.5rem; }
+.highlight-box p:last-child { margin: 0; }
+.dark-table .td-bold { color: var(--text); font-weight: 600; }
+.dark-table .td-good { color: #34d399; }
+.dark-table .td-danger { color: #f87171; }
+.dark-table .td-warning { color: #fbbf24; }
+.dark-table .td-accent { color: var(--accent); font-weight: 600; }
+.dark-table caption {
+    caption-side: bottom;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding-top: 0.5rem;
+    text-align: left;
+}
+.page-cta .cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent);
+    color: #0a0f1a;
+    border-radius: 12px;
+    padding: 0.75rem 1.8rem;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: box-shadow 0.2s, transform 0.15s;
+    margin: 0.3rem;
+}
+.page-cta .cta-link:hover {
+    box-shadow: 0 6px 24px rgba(var(--accent-rgb), 0.3);
+    transform: translateY(-1px);
+}
+.page-cta .cta-link.green { background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%); color: #fff; }
+.faq-item { margin-bottom: 1rem; }
+.faq-question, .faq-item h4 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text);
+    margin: 0 0 0.4rem;
+}
+.faq-body, .faq-item .faq-body {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+    line-height: 1.7;
+}
+.faq-body p { margin: 0; }
+.sources-section { margin-top: 2rem; }
+.sources-section h3 {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--text);
+    margin-bottom: 0.8rem;
+}
+.sources-list {
+    padding-left: 1.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+.sources-list li { margin-bottom: 0.4rem; }
+.sources-list em { color: var(--text-dim); }
+</style>
+{% endblock %}
 
-    <h1>BMI vs Body Fat Percentage: Which Metric Should You Use?</h1>
-    <p class="subtitle">Two of the most common body composition metrics serve different purposes. Here's when to use each — and why using both gives you the clearest picture of your health.</p>
-
+{% block content %}
+<div class="page-container">
+    <div class="page-hero">
+        <h1>BMI vs Body Fat Percentage: <span>Which Metric Should You Use?</span></h1>
+        <p>Two of the most common body composition metrics serve different purposes. Here's when to use each — and why using both gives you the clearest picture of your health.</p>
+    </div>
 
     {% set ad_position = "top" %}
     {% include 'components/ad-unit.html' with context %}
 
-    <div class="table-of-contents">
+    <div class="toc">
         <h3>Contents</h3>
         <ul>
             <li><a href="#comparison">Side-by-Side Comparison</a></li>
@@ -29,15 +125,14 @@
         </ul>
     </div>
 
-    <!-- Core Comparison -->
-    <section id="comparison" style="margin-top: 48px;">
-        <div class="info">
+    <div class="article-content">
+        <section id="comparison">
             <h2>BMI vs Body Fat: Key Differences</h2>
             <div class="answer-capsule">
                 BMI measures weight relative to height. Body fat percentage measures how much of your total weight is fat tissue. BMI is faster and easier to calculate but cannot distinguish between muscle and fat. Body fat percentage is more accurate for assessing health risk but requires measurements or specialized equipment.
             </div>
 
-            <table class="data-table">
+            <table class="dark-table">
                 <caption>Head-to-head comparison of BMI and Body Fat Percentage</caption>
                 <thead>
                     <tr>
@@ -58,15 +153,12 @@
                     <tr><td class="td-bold">Best for</td><td>Population screening</td><td>Individual health assessment</td></tr>
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
 
-    {% set ad_position = "in-article" %}
-    {% include 'components/ad-unit.html' with context %}
+        {% set ad_position = "in-article" %}
+        {% include 'components/ad-unit.html' with context %}
 
-    <!-- When BMI Is Better -->
-    <section id="when-bmi" style="margin-top: 48px;">
-        <div class="info">
+        <section id="when-bmi">
             <h2>When BMI Is the Better Choice</h2>
             <p>BMI works well as a <strong>quick screening tool</strong> for the general population. If you're not an athlete, not elderly, and don't have an unusually muscular build, your BMI correlates closely with your actual body fat level.</p>
             <p>BMI is preferred when:</p>
@@ -77,12 +169,9 @@
                 <li>Clinical settings where population-level data is needed</li>
             </ul>
             <p>A 2012 meta-analysis in the <em>International Journal of Obesity</em> found that BMI correctly classified 83% of men and 72% of women into the correct body fat category, making it a reliable first-pass metric for non-athletes.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- When Body Fat Is Better -->
-    <section id="when-bf" style="margin-top: 48px;">
-        <div class="info">
+        <section id="when-bf">
             <h2>When Body Fat Percentage Is More Useful</h2>
             <p>Body fat percentage becomes the superior metric whenever BMI's blind spots apply:</p>
             <ul>
@@ -92,15 +181,12 @@
                 <li><strong>Body recomposition tracking:</strong> When you're simultaneously losing fat and gaining muscle, weight (and BMI) may not change while body fat drops significantly</li>
             </ul>
             <p>The U.S. Navy circumference method used in our calculator has been validated against DEXA scanning with a standard error of ~3-4% body fat — accurate enough for tracking trends over time.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Healthy Ranges -->
-    <section id="ranges" style="margin-top: 48px;">
-        <div class="info">
+        <section id="ranges">
             <h2>Healthy Ranges: BMI vs Body Fat Percentage</h2>
-            <h4>BMI Categories (WHO)</h4>
-            <table class="data-table">
+            <h3>BMI Categories (WHO)</h3>
+            <table class="dark-table">
                 <thead>
                     <tr><th>Category</th><th>BMI Range</th><th>Health Risk</th></tr>
                 </thead>
@@ -111,8 +197,9 @@
                     <tr><td class="td-bold">Obese</td><td>&ge; 30.0</td><td class="td-danger">High</td></tr>
                 </tbody>
             </table>
-            <h4>Body Fat Percentage Ranges (ACE Guidelines)</h4>
-            <table class="data-table">
+
+            <h3>Body Fat Percentage Ranges (ACE Guidelines)</h3>
+            <table class="dark-table">
                 <thead>
                     <tr><th>Category</th><th>Women</th><th>Men</th></tr>
                 </thead>
@@ -124,57 +211,47 @@
                     <tr><td class="td-bold">Obese</td><td class="td-danger">&gt; 32%</td><td class="td-danger">&gt; 25%</td></tr>
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
 
-    <!-- Limitations -->
-    <section id="limitations" style="margin-top: 48px;">
-        <div class="info">
+        <section id="limitations">
             <h2>Limitations of Each Metric</h2>
             <div class="highlight-box">
                 <p><strong>Neither metric is perfect alone.</strong> The most reliable approach is using both: BMI for a quick classification, then body fat percentage if your BMI puts you in a borderline or surprising category. If both metrics agree, you can be more confident in the assessment.</p>
             </div>
             <p><strong>BMI limitations:</strong> Cannot account for muscle mass, bone density, age, sex, or ethnicity differences in body composition. The same BMI can represent very different health profiles.</p>
             <p><strong>Body fat % limitations:</strong> The circumference method has a ±3-4% margin of error. Results vary with hydration, time of day, and measurement technique. DEXA scans are more accurate but cost $75-150 per scan.</p>
-        </div>
-    </section>
+        </section>
 
-    <!-- Calculator CTAs -->
-    <section id="calculators" style="margin-top: 48px;">
-        <div class="info" style="text-align: center;">
-            <h2>Calculate Both Metrics</h2>
-            <p>Use both calculators below to get a complete picture of your body composition.</p>
-            <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 20px;">
-                <a href="/bmi-calculator" class="cta-button" style="text-decoration:none;">Calculate Your BMI</a>
-                <a href="/body-fat-calculator" class="cta-button" style="text-decoration:none; background: linear-gradient(135deg, #1a8a4a 0%, #18a060 100%);">Calculate Body Fat %</a>
+        <section id="calculators">
+            <div class="page-cta">
+                <h3>Calculate Both Metrics</h3>
+                <p>Use both calculators below to get a complete picture of your body composition.</p>
+                <a href="/bmi-calculator" class="cta-link">Calculate Your BMI</a>
+                <a href="/body-fat-calculator" class="cta-link green">Calculate Body Fat %</a>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ -->
-    <section id="faq" class="faq-section" style="margin-top: 48px;">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <h4>Can you have a normal BMI but high body fat?</h4>
-            <div class="faq-body"><p>Yes. This is called "normal weight obesity" or "skinny fat." A sedentary person can have a BMI of 22 (normal) but body fat above 30% due to low muscle mass. Studies suggest 20-30% of normal-BMI adults have excess body fat, placing them at higher metabolic risk than their BMI suggests.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Can you have a high BMI but low body fat?</h4>
-            <div class="faq-body"><p>Yes. This is common in athletes and people who lift weights. An NFL running back at 5'10" and 215 lbs has a BMI of 30.9 ("obese") despite having 8-12% body fat. BMI cannot distinguish 215 lbs of muscle from 215 lbs of fat.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>Which metric better predicts heart disease?</h4>
-            <div class="faq-body"><p>Body fat percentage — particularly visceral fat — is a stronger predictor of cardiovascular disease than BMI alone. However, waist circumference may be an even better single predictor than either metric. The Body Roundness Index (BRI) captures this by measuring central adiposity specifically.</p></div>
-        </div>
-        <div class="faq-item">
-            <h4>How often should I measure?</h4>
-            <div class="faq-body"><p>BMI changes with any weight change, so tracking weekly during active weight management is reasonable. Body fat percentage should be measured every 2-4 weeks under consistent conditions (same time of day, same hydration level) because the measurement error is larger and small changes aren't reliable.</p></div>
-        </div>
-    </section>
+        <section id="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <h4 class="faq-question">Can you have a normal BMI but high body fat?</h4>
+                <div class="faq-body"><p>Yes. This is called "normal weight obesity" or "skinny fat." A sedentary person can have a BMI of 22 (normal) but body fat above 30% due to low muscle mass. Studies suggest 20-30% of normal-BMI adults have excess body fat, placing them at higher metabolic risk than their BMI suggests.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Can you have a high BMI but low body fat?</h4>
+                <div class="faq-body"><p>Yes. This is common in athletes and people who lift weights. An NFL running back at 5'10" and 215 lbs has a BMI of 30.9 ("obese") despite having 8-12% body fat. BMI cannot distinguish 215 lbs of muscle from 215 lbs of fat.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">Which metric better predicts heart disease?</h4>
+                <div class="faq-body"><p>Body fat percentage — particularly visceral fat — is a stronger predictor of cardiovascular disease than BMI alone. However, waist circumference may be an even better single predictor than either metric. The Body Roundness Index (BRI) captures this by measuring central adiposity specifically.</p></div>
+            </div>
+            <div class="faq-item">
+                <h4 class="faq-question">How often should I measure?</h4>
+                <div class="faq-body"><p>BMI changes with any weight change, so tracking weekly during active weight management is reasonable. Body fat percentage should be measured every 2-4 weeks under consistent conditions (same time of day, same hydration level) because the measurement error is larger and small changes aren't reliable.</p></div>
+            </div>
+        </section>
 
-    <!-- Sources -->
-    <section id="sources" style="margin-top: 40px;">
-        <div class="sources-section">
+        <section id="sources" class="sources-section">
             <h3>Sources & References</h3>
             <ol class="sources-list">
                 <li>Romero-Corral A, et al. "Accuracy of body mass index in diagnosing obesity in the adult general population." <em>Int J Obes</em>. 2008;32(6):959-966.</li>
@@ -183,15 +260,15 @@
                 <li>World Health Organization. "BMI Classification." Global Database on Body Mass Index, 2024.</li>
                 <li>Oliveros E, et al. "The concept of normal weight obesity." <em>Prog Cardiovasc Dis</em>. 2014;56(4):426-433.</li>
             </ol>
-        </div>
-    </section>
-
+        </section>
+    </div>
 </div>
 
 {% include 'components/related-links.html' %}
+{% endblock %}
+
+{% block scripts %}
 <script defer src="/static/js/result-animations.js"></script>
 <script src="{{ url_for('static', filename='js/content-loops.js') }}"></script>
 <script defer src="/static/js/sidebar-toc.js"></script>
-{% include 'footer.html' %}
-</body>
-</html>
+{% endblock %}
