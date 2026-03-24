@@ -105,7 +105,11 @@ cross_links = {
         "guides": []
     },
     "/caffeine-half-life-calculator": {
-        "calculators": ["/sleep-calculator", "/tdee-calculator"],
+        "calculators": ["/sleep-calculator", "/tdee-calculator", "/cortisol-stress-assessment"],
+        "guides": []
+    },
+    "/cortisol-stress-assessment": {
+        "calculators": ["/caffeine-half-life-calculator", "/sleep-calculator", "/tdee-calculator"],
         "guides": []
     },
     "/retirement-savings-calculator": {
@@ -476,6 +480,16 @@ cards = [
         "summary": "Find out how long caffeine stays in your system. See a personalized decay timeline and how much caffeine is left at bedtime.",
         "icon": "☕",
         "cta": "Calculate Caffeine Decay",
+        "color": "orange",
+        "category": "health",
+        "popular": False
+    },
+    {
+        "title": "Cortisol & Stress Assessment",
+        "url": "/cortisol-stress-assessment",
+        "summary": "Assess your cortisol risk from stress, sleep, caffeine, exercise, and lifestyle patterns. Evidence-based scoring with personalized recommendations.",
+        "icon": "🧠",
+        "cta": "Assess Your Stress",
         "color": "orange",
         "category": "health",
         "popular": False
