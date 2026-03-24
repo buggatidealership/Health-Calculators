@@ -2580,13 +2580,21 @@ def resources():
     schema_description = "Evidence-based articles, guides and tools to help you take action on your health goals. Access our collection of free resources on nutrition, fitness, and longevity."
     schema_url = "/resources"
     return render_template(
-        'resources.html', 
-        is_homepage=False, 
+        'resources.html',
+        is_homepage=False,
         articles=articles,
         schema_name=schema_name,
         schema_description=schema_description,
         schema_url=schema_url,
-        schema_type='WebPage'
+        schema_type='WebPage',
+        meta_description="Evidence-based health guides, articles and charts covering nutrition, medications, cosmetic procedures, fertility, and fitness. Expert resources backed by clinical research.",
+        meta_keywords="health guides, wellness articles, nutrition science, medication guides, fitness resources, evidence-based health",
+        og_title="Health & Wellness Guides – HealthCalculators.xyz",
+        og_description="35+ evidence-based articles and guides to help you understand your health numbers and take action. Covering medications, nutrition, fitness, and more.",
+        og_url="/resources",
+        og_image="default-calculator-og.jpg",
+        page_title="Evidence-Based Health Guides — HealthCalculators.xyz",
+        canonical_url="/resources"
     )
 
 @app.route('/resources/fasting-weight-loss-chart')
@@ -3906,8 +3914,15 @@ def about():
     return render_template(
         'about.html',
         is_homepage=False,
+        page_title="About Us — HealthCalculators.xyz",
+        meta_description="About HealthCalculators.xyz — free, evidence-based health calculators built on peer-reviewed research and clinical guidelines. 50+ tools across nutrition, fitness, medications, and wellness.",
+        meta_keywords="about healthcalculators, health calculator methodology, evidence-based calculators, free health tools",
+        og_title="About HealthCalculators.xyz – Evidence-Based Health Tools",
+        og_description="Learn about our mission, methodology, and the evidence-based approach behind every health calculator on our site.",
+        og_url="/about",
+        canonical_url="/about",
         schema_name="About HealthCalculators.xyz",
-        schema_description="Learn about HealthCalculators.xyz — our mission, methodology, and the evidence-based approach behind every health calculator.",
+        schema_description="About HealthCalculators.xyz — free, evidence-based health calculators built on peer-reviewed research and clinical guidelines.",
         schema_url="/about",
         schema_type='WebPage',
         date_modified='2026-03-20'
@@ -3918,6 +3933,13 @@ def privacy():
     return render_template(
         'privacy.html',
         is_homepage=False,
+        page_title="Privacy Policy — HealthCalculators.xyz",
+        meta_description="Privacy Policy for HealthCalculators.xyz — how we collect, use, and protect your data when you use our health calculators.",
+        meta_keywords="privacy policy, healthcalculators privacy, data collection policy",
+        og_title="Privacy Policy – HealthCalculators.xyz",
+        og_description="Read our privacy policy to understand how HealthCalculators.xyz handles your data.",
+        og_url="/privacy",
+        canonical_url="/privacy",
         schema_name="Privacy Policy",
         schema_description="How HealthCalculators.xyz collects, uses, and protects your data.",
         schema_url="/privacy",
@@ -3930,6 +3952,13 @@ def terms():
     return render_template(
         'terms.html',
         is_homepage=False,
+        page_title="Terms of Service — HealthCalculators.xyz",
+        meta_description="Terms of Service for HealthCalculators.xyz — the rules and conditions for using our free health calculators and resources.",
+        meta_keywords="terms of service, healthcalculators terms, calculator terms of use",
+        og_title="Terms of Service – HealthCalculators.xyz",
+        og_description="Read the terms and conditions for using HealthCalculators.xyz.",
+        og_url="/terms",
+        canonical_url="/terms",
         schema_name="Terms of Service",
         schema_description="Terms and conditions for using HealthCalculators.xyz.",
         schema_url="/terms",
@@ -3942,6 +3971,13 @@ def editorial_policy():
     return render_template(
         'editorial_policy.html',
         is_homepage=False,
+        page_title="Editorial Policy — HealthCalculators.xyz",
+        meta_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy.",
+        meta_keywords="editorial policy, health calculator standards, evidence-based calculators, source requirements, review process",
+        og_title="Editorial Policy – HealthCalculators.xyz",
+        og_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy.",
+        og_url="/editorial-policy",
+        canonical_url="/editorial-policy",
         breadcrumb_title='Editorial Policy',
         schema_name="Editorial Policy – HealthCalculators.xyz",
         schema_description="Editorial policy for HealthCalculators.xyz — our standards for evidence-based health calculators, source requirements, review process, and corrections policy.",
