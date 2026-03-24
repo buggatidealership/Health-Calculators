@@ -787,21 +787,23 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
               >
                 {bar.value}
               </div>
-              {/* Example symptoms */}
+              {/* Example symptoms — stacked, larger for Twitter readability */}
               <div
                 style={{
                   fontFamily: FONTS.sans,
-                  fontSize: 22,
-                  color: `${bar.color}99`,
-                  fontWeight: 400,
+                  fontSize: 28,
+                  color: `${bar.color}bb`,
+                  fontWeight: 500,
                   textAlign: "center",
-                  lineHeight: 1.5,
-                  marginTop: 4,
+                  lineHeight: 1.7,
+                  marginTop: 8,
                   opacity: inExit ? (barExit?.opacity ?? 0) : exampleOpacity,
                   transform: inExit ? barExit?.transform : `translateY(${exampleY}px)`,
                 }}
               >
-                {bar.examples}
+                {bar.examples.split(" · ").map((ex: string, j: number) => (
+                  <div key={j}>{ex}</div>
+                ))}
               </div>
             </div>
           );
