@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Cortisol Animation — Twitter Distribution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #0a0f1a;
+    --text: #E0E0E0;
+    --text-secondary: #8a919e;
+    --accent: #e89b3e;
+    --accent-rgb: 232, 155, 62;
+    --teal: #0e7a7e;
+    --red: #e8785e;
+    --green: #6ec89b;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+
+    /* Motion system */
+    --enter: cubic-bezier(0.16, 1, 0.3, 1);
+    --exit: cubic-bezier(0.5, 0, 0.75, 0);
+    --reveal: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --settle: cubic-bezier(0.25, 0, 0.3, 1);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    overflow: hidden;
+    width: 1080px;
+    height: 1080px;
+    position: relative;
+  }
+
+  /* Film grain overlay */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.5;
+  }
+
+  /* Subtle vignette */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%);
+    pointer-events: none;
+    z-index: 999;
+  }
+
+  .scene {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    padding: 80px;
+  }
+
+  .scene.active {
+    opacity: 1;
+  }
+
+  /* ===== SCENE 1: HOOK ===== */
+  #scene1 .hook-text {
+    font-family: var(--serif);
+    font-size: 72px;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  #scene1 .hook-sub {
+    font-family: var(--sans);
+    font-size: 24px;
+    color: var(--text-secondary);
+    margin-top: 24px;
+    opacity: 0;
+    transform: translateY(16px);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Pulsing dot — stress alarm metaphor */
+  #scene1 .alarm-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--accent);
+    margin-bottom: 40px;
+    opacity: 0;
+    position: relative;
+  }
+
+  #scene1 .alarm-dot::after {
+    content: '';
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    opacity: 0;
+    animation: alarm-pulse 1.2s var(--enter) infinite;
+    animation-play-state: paused;
+  }
+
+  #scene1 .alarm-dot.pulsing::after {
+    animation-play-state: running;
+  }
+
+  @keyframes alarm-pulse {
+    0% { transform: scale(1); opacity: 0.6; }
+    100% { transform: scale(3); opacity: 0; }
+  }
+
+  /* ===== SCENE 2: THE FLIP ===== */
+  #scene2 .flip-line {
+    font-family: var(--serif);
+    font-size: 64px;
+    text-align: center;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  #scene2 .flip-line .highlight {
+    color: var(--accent);
+  }
+
+  #scene2 .flip-sub {
+    font-family: var(--sans);
+    font-size: 28px;
+    color: var(--text-secondary);
+    margin-top: 32px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(16px);
+    line-height: 1.5;
+  }
+
+  /* ===== SCENE 3: THE CURVE ===== */
+  #scene3 {
+    padding: 60px 80px;
+  }
+
+  #scene3 .curve-title {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 16px;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  #scene3 .curve-label {
+    font-family: var(--serif);
+    font-size: 42px;
+    color: var(--text);
+    margin-bottom: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+    text-align: center;
+  }
+
+  .curve-container {
+    width: 100%;
+    max-width: 860px;
+    height: 380px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .curve-container svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .curve-container .time-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 40px 0;
+    font-size: 16px;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  /* SVG curve styles */
+  .healthy-curve {
+    fill: none;
+    stroke: var(--green);
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0.9;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+  }
+
+  .broken-curve {
+    fill: none;
+    stroke: var(--red);
+    stroke-width: 3;
+    stroke-linecap: round;
+    opacity: 0;
+    stroke-dasharray: 800;
+    stroke-dashoffset: 800;
+  }
+
+  .curve-area-healthy {
+    fill: url(#greenGradient);
+    opacity: 0;
+  }
+
+  .curve-area-broken {
+    fill: url(#redGradient);
+    opacity: 0;
+  }
+
+  .curve-legend {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  /* ===== SCENE 4: THE SCORE ===== */
+  #scene4 .score-label {
+    font-family: var(--sans);
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  #scene4 .score-number {
+    font-family: var(--serif);
+    font-size: 160px;
+    color: var(--accent);
+    line-height: 1;
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  #scene4 .score-unit {
+    font-family: var(--sans);
+    font-size: 24px;
+    color: var(--text-secondary);
+    margin-top: 8px;
+    opacity: 0;
+    transform: translateY(12px);
+    font-weight: 500;
+  }
+
+  #scene4 .score-bars {
+    display: flex;
+    gap: 16px;
+    margin-top: 48px;
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  .score-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 200px;
+  }
+
+  .score-bar-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .score-bar-track {
+    width: 100%;
+    height: 8px;
+    background: rgba(255,255,255,0.08);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .score-bar-fill {
+    height: 100%;
+    border-radius: 4px;
+    width: 0%;
+    transition: width 1.2s var(--enter);
+  }
+
+  .score-bar-value {
+    font-family: var(--sans);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  /* ===== SCENE 5: CTA ===== */
+  #scene5 .cta-question {
+    font-family: var(--serif);
+    font-size: 64px;
+    color: var(--text);
+    text-align: center;
+    line-height: 1.2;
+    opacity: 0;
+    transform: translateY(20px);
+    margin-bottom: 48px;
+  }
+
+  #scene5 .cta-url {
+    font-family: var(--sans);
+    font-size: 22px;
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    opacity: 0;
+    transform: translateY(12px);
+    padding: 16px 40px;
+    border: 2px solid rgba(var(--accent-rgb), 0.3);
+    border-radius: 12px;
+    background: rgba(var(--accent-rgb), 0.06);
+  }
+
+  #scene5 .cta-tagline {
+    font-family: var(--sans);
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-top: 24px;
+    opacity: 0;
+    transform: translateY(10px);
+    letter-spacing: 0.04em;
+  }
+
+  /* ===== UTILITY ===== */
+  .fade-up {
+    animation: fadeUp 400ms var(--enter) forwards;
+  }
+
+  .fade-out {
+    animation: fadeOut 250ms var(--exit) forwards;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-12px); }
+  }
+
+  .reveal-number {
+    animation: revealNumber 500ms var(--reveal) forwards;
+  }
+
+  @keyframes revealNumber {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  /* Watermark */
+  .watermark {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: var(--sans);
+    font-size: 14px;
+    color: rgba(255,255,255,0.15);
+    letter-spacing: 0.06em;
+    font-weight: 500;
+    z-index: 998;
+  }
+</style>
+</head>
+<body>
+
+<div class="watermark">healthcalculators.xyz</div>
+
+<!-- SCENE 1: HOOK — Recognition -->
+<div class="scene" id="scene1">
+  <div class="alarm-dot"></div>
+  <div class="hook-text">Wired but tired.</div>
+  <div class="hook-sub">That's not a mystery. It's a pattern.</div>
+</div>
+
+<!-- SCENE 2: THE FLIP — Curiosity -->
+<div class="scene" id="scene2">
+  <div class="flip-line">It's not <span class="highlight">how much</span> cortisol.</div>
+  <div class="flip-sub">It's <em>when</em>.</div>
+</div>
+
+<!-- SCENE 3: THE CURVE — The Convergence Moment -->
+<div class="scene" id="scene3">
+  <div class="curve-title">Your cortisol rhythm</div>
+  <div class="curve-label">Every morning, cortisol spikes 38–75%.<br>That's healthy.</div>
+  <div class="curve-container">
+    <svg viewBox="0 0 860 340" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="greenGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#6ec89b" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#6ec89b" stop-opacity="0"/>
+        </linearGradient>
+        <linearGradient id="redGradient" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#e8785e" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#e8785e" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <!-- Grid lines -->
+      <line x1="40" y1="300" x2="820" y2="300" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+      <line x1="40" y1="220" x2="820" y2="220" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,8"/>
+      <line x1="40" y1="140" x2="820" y2="140" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,8"/>
+      <line x1="40" y1="60" x2="820" y2="60" stroke="rgba(255,255,255,0.04)" stroke-width="1" stroke-dasharray="4,8"/>
+      <!-- Y axis labels -->
+      <text x="30" y="305" fill="rgba(255,255,255,0.2)" font-size="12" font-family="Inter, sans-serif" text-anchor="end">Low</text>
+      <text x="30" y="65" fill="rgba(255,255,255,0.2)" font-size="12" font-family="Inter, sans-serif" text-anchor="end">High</text>
+      <!-- Healthy cortisol curve: morning spike, afternoon decline, evening low -->
+      <path class="curve-area-healthy" d="M40,280 C80,280 120,60 200,50 C280,40 340,180 430,200 C520,220 620,260 720,270 C760,275 800,278 820,280 L820,300 L40,300 Z"/>
+      <path class="healthy-curve" d="M40,280 C80,280 120,60 200,50 C280,40 340,180 430,200 C520,220 620,260 720,270 C760,275 800,278 820,280"/>
+      <!-- Broken curve: elevated baseline, no morning spike, stays high at night -->
+      <path class="curve-area-broken" d="M40,160 C80,155 120,140 200,150 C280,160 340,145 430,140 C520,135 620,130 720,120 C760,115 800,110 820,108 L820,300 L40,300 Z"/>
+      <path class="broken-curve" d="M40,160 C80,155 120,140 200,150 C280,160 340,145 430,140 C520,135 620,130 720,120 C760,115 800,110 820,108"/>
+      <!-- Morning spike annotation -->
+      <text class="spike-label" x="200" y="35" fill="#6ec89b" font-size="14" font-family="Inter, sans-serif" font-weight="600" text-anchor="middle" opacity="0">↑ Morning spike</text>
+      <!-- Night high annotation -->
+      <text class="night-label" x="720" y="105" fill="#e8785e" font-size="14" font-family="Inter, sans-serif" font-weight="600" text-anchor="middle" opacity="0">Still elevated ↗</text>
+    </svg>
+    <div class="time-labels">
+      <span>6 AM</span>
+      <span>12 PM</span>
+      <span>6 PM</span>
+      <span>12 AM</span>
+    </div>
+    <div class="curve-legend">
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #6ec89b;"></div>
+      <span style="color: #6ec89b;">Healthy rhythm</span>
+    </div>
+    <div class="legend-item">
+      <div class="legend-dot" style="background: #e8785e;"></div>
+      <span style="color: #e8785e;">Broken rhythm</span>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- SCENE 4: THE SCORE — Agency -->
+<div class="scene" id="scene4">
+  <div class="score-label">Your cortisol stress score</div>
+  <div class="score-number">67</div>
+  <div class="score-unit">out of 100 — High Cortisol Risk</div>
+  <div class="score-bars">
+    <div class="score-bar">
+      <div class="score-bar-label">Perception</div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="background: var(--accent);" data-width="71"></div></div>
+      <div class="score-bar-value">25 / 35</div>
+    </div>
+    <div class="score-bar">
+      <div class="score-bar-label">Lifestyle</div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="background: var(--teal);" data-width="55"></div></div>
+      <div class="score-bar-value">22 / 40</div>
+    </div>
+    <div class="score-bar">
+      <div class="score-bar-label">Symptoms</div>
+      <div class="score-bar-track"><div class="score-bar-fill" style="background: var(--red);" data-width="80"></div></div>
+      <div class="score-bar-value">20 / 25</div>
+    </div>
+  </div>
+</div>
+
+<!-- SCENE 5: CTA — Action -->
+<div class="scene" id="scene5">
+  <div class="cta-question">Is your alarm<br>stuck on?</div>
+  <div class="cta-url">healthcalculators.xyz/cortisol-stress-assessment</div>
+  <div class="cta-tagline">Free. Evidence-based. 2 minutes.</div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  const ENTER = 'cubic-bezier(0.16, 1, 0.3, 1)';
+  const EXIT = 'cubic-bezier(0.5, 0, 0.75, 0)';
+  const REVEAL = 'cubic-bezier(0.34, 1.56, 0.64, 1)';
+
+  // Timing sheet (in ms)
+  // Scene 1: 0 → 4000ms (hook — recognition, SLOW)
+  // Scene 2: 4000 → 8000ms (flip — curiosity, DRAMATIC)
+  // Scene 3: 8000 → 16000ms (curve — the convergence moment, SLOW BUILD)
+  // Scene 4: 16000 → 20000ms (score — agency, MEDIUM)
+  // Scene 5: 20000 → 24000ms (CTA — action, FAST EXIT)
+
+  function animate(el, props, duration, easing, delay) {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        el.style.transition = `all ${duration}ms ${easing}`;
+        Object.entries(props).forEach(([k, v]) => { el.style[k] = v; });
+        setTimeout(resolve, duration);
+      }, delay || 0);
+    });
+  }
+
+  function fadeIn(el, duration = 400, delay = 0) {
+    return animate(el, { opacity: '1', transform: 'translateY(0)' }, duration, ENTER, delay);
+  }
+
+  function fadeOut(el, duration = 250) {
+    return animate(el, { opacity: '0', transform: 'translateY(-12px)' }, duration, EXIT);
+  }
+
+  function showScene(id) {
+    document.querySelectorAll('.scene').forEach(s => {
+      s.style.opacity = '0';
+      s.style.pointerEvents = 'none';
+    });
+    const scene = document.getElementById(id);
+    scene.style.opacity = '1';
+    scene.style.pointerEvents = 'auto';
+  }
+
+  async function runScene1() {
+    showScene('scene1');
+    const dot = document.querySelector('#scene1 .alarm-dot');
+    const text = document.querySelector('#scene1 .hook-text');
+    const sub = document.querySelector('#scene1 .hook-sub');
+
+    // Dot appears first — the alarm
+    await animate(dot, { opacity: '1' }, 300, ENTER, 200);
+    dot.classList.add('pulsing');
+
+    // "Wired but tired." — sits for a beat
+    await fadeIn(text, 500, 400);
+
+    // Subline after recognition has landed
+    await fadeIn(sub, 400, 1200);
+
+    // Hold for recognition
+    await new Promise(r => setTimeout(r, 1400));
+
+    // Exit
+    await Promise.all([
+      fadeOut(text),
+      fadeOut(sub, 200),
+      animate(dot, { opacity: '0' }, 200, EXIT, 100)
+    ]);
+  }
+
+  async function runScene2() {
+    showScene('scene2');
+    const line = document.querySelector('#scene2 .flip-line');
+    const sub = document.querySelector('#scene2 .flip-sub');
+
+    // The reframe — dramatic entrance
+    await fadeIn(line, 500, 300);
+
+    // "It's when." — the beat drop
+    await new Promise(r => setTimeout(r, 800));
+    sub.style.fontSize = '72px';
+    sub.style.fontFamily = "'DM Serif Display', Georgia, serif";
+    sub.style.color = 'var(--accent)';
+    sub.style.fontStyle = 'normal';
+    await animate(sub, { opacity: '1', transform: 'translateY(0) scale(1)' }, 500, REVEAL, 0);
+
+    // Hold — let the flip land
+    await new Promise(r => setTimeout(r, 1800));
+
+    // Exit
+    await Promise.all([
+      fadeOut(line),
+      fadeOut(sub, 200)
+    ]);
+  }
+
+  async function runScene3() {
+    showScene('scene3');
+    const title = document.querySelector('#scene3 .curve-title');
+    const label = document.querySelector('#scene3 .curve-label');
+    const container = document.querySelector('#scene3 .curve-container');
+    const healthyCurve = document.querySelector('.healthy-curve');
+    const healthyArea = document.querySelector('.curve-area-healthy');
+    const brokenCurve = document.querySelector('.broken-curve');
+    const brokenArea = document.querySelector('.curve-area-broken');
+    const spikeLabel = document.querySelector('.spike-label');
+    const nightLabel = document.querySelector('.night-label');
+    const legend = document.querySelector('.curve-legend');
+
+    // Title
+    await fadeIn(title, 300, 200);
+
+    // Label
+    await fadeIn(label, 400, 200);
+
+    // Container
+    await animate(container, { opacity: '1', transform: 'translateY(0)' }, 400, ENTER, 300);
+
+    // Draw healthy curve — the rhythm
+    await new Promise(r => setTimeout(r, 300));
+    healthyCurve.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1)';
+    healthyCurve.style.strokeDashoffset = '0';
+
+    // Area fill fades in
+    await new Promise(r => setTimeout(r, 600));
+    healthyArea.style.transition = 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1)';
+    healthyArea.style.opacity = '0.8';
+
+    // Morning spike annotation
+    await new Promise(r => setTimeout(r, 400));
+    spikeLabel.style.transition = 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+    spikeLabel.style.opacity = '1';
+
+    // Hold — let them read the healthy curve
+    await new Promise(r => setTimeout(r, 1200));
+
+    // Now draw the broken curve — contrast
+    brokenCurve.style.transition = 'stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 400ms ease';
+    brokenCurve.style.opacity = '0.9';
+    brokenCurve.style.strokeDashoffset = '0';
+
+    await new Promise(r => setTimeout(r, 600));
+    brokenArea.style.transition = 'opacity 800ms cubic-bezier(0.16, 1, 0.3, 1)';
+    brokenArea.style.opacity = '0.6';
+
+    // Night high annotation
+    await new Promise(r => setTimeout(r, 400));
+    nightLabel.style.transition = 'opacity 400ms cubic-bezier(0.16, 1, 0.3, 1)';
+    nightLabel.style.opacity = '1';
+
+    // Legend
+    await animate(legend, { opacity: '1', transform: 'translateY(0)' }, 300, ENTER, 400);
+
+    // Hold — the convergence moment. This is the poster frame.
+    await new Promise(r => setTimeout(r, 1800));
+
+    // Exit all
+    const allEls = [title, label, container, legend];
+    await Promise.all(allEls.map((el, i) =>
+      animate(el, { opacity: '0', transform: 'translateY(-8px)' }, 200, EXIT, i * 40)
+    ));
+  }
+
+  async function runScene4() {
+    showScene('scene4');
+    const label = document.querySelector('#scene4 .score-label');
+    const number = document.querySelector('#scene4 .score-number');
+    const unit = document.querySelector('#scene4 .score-unit');
+    const bars = document.querySelector('#scene4 .score-bars');
+
+    // Label
+    await fadeIn(label, 300, 200);
+
+    // Score number — count up from 0 to 67
+    number.style.opacity = '1';
+    number.style.transform = 'scale(1)';
+    number.style.transition = 'transform 500ms ' + REVEAL + ', opacity 300ms ' + ENTER;
+
+    let current = 0;
+    const target = 67;
+    const countDuration = 1200;
+    const startTime = performance.now();
+
+    await new Promise(resolve => {
+      function count(now) {
+        const elapsed = now - startTime;
+        const progress = Math.min(elapsed / countDuration, 1);
+        // Ease out the counting
+        const eased = 1 - Math.pow(1 - progress, 3);
+        current = Math.round(eased * target);
+        number.textContent = current;
+
+        // Color shifts as number climbs
+        if (current < 25) number.style.color = '#6ec89b';
+        else if (current < 45) number.style.color = '#e89b3e';
+        else if (current < 65) number.style.color = '#e8785e';
+        else number.style.color = '#e8785e';
+
+        if (progress < 1) requestAnimationFrame(count);
+        else resolve();
+      }
+      requestAnimationFrame(count);
+    });
+
+    // Unit text
+    await fadeIn(unit, 300, 200);
+
+    // Score bars with stagger
+    await animate(bars, { opacity: '1', transform: 'translateY(0)' }, 300, ENTER, 300);
+
+    // Animate bar fills
+    const fills = document.querySelectorAll('.score-bar-fill');
+    fills.forEach((fill, i) => {
+      setTimeout(() => {
+        fill.style.width = fill.dataset.width + '%';
+      }, i * 120 + 200);
+    });
+
+    // Hold
+    await new Promise(r => setTimeout(r, 2400));
+
+    // Exit
+    await Promise.all([
+      fadeOut(label),
+      animate(number, { opacity: '0', transform: 'scale(0.95)' }, 200, EXIT, 40),
+      fadeOut(unit, 200),
+      animate(bars, { opacity: '0' }, 200, EXIT, 80)
+    ]);
+  }
+
+  async function runScene5() {
+    showScene('scene5');
+    const question = document.querySelector('#scene5 .cta-question');
+    const url = document.querySelector('#scene5 .cta-url');
+    const tagline = document.querySelector('#scene5 .cta-tagline');
+
+    await fadeIn(question, 500, 300);
+    await fadeIn(url, 400, 600);
+    await fadeIn(tagline, 300, 400);
+
+    // Hold — CTA stays visible
+    await new Promise(r => setTimeout(r, 4000));
+  }
+
+  // Pulse class handled via CSS (#scene1 .alarm-dot.pulsing::after)
+
+  // Run the full sequence
+  async function run() {
+    await new Promise(r => setTimeout(r, 500)); // Initial pause
+    await runScene1();
+    await new Promise(r => setTimeout(r, 200));
+    await runScene2();
+    await new Promise(r => setTimeout(r, 200));
+    await runScene3();
+    await new Promise(r => setTimeout(r, 200));
+    await runScene4();
+    await new Promise(r => setTimeout(r, 200));
+    await runScene5();
+  }
+
+  let running = false;
+
+  // Add restart on click for iteration
+  document.addEventListener('click', () => {
+    if (running) return;
+    running = true;
+
+    // Reset all scenes
+    document.querySelectorAll('.scene').forEach(s => {
+      s.style.opacity = '0';
+      s.style.pointerEvents = 'none';
+    });
+
+    // Reset scene 1
+    const dot = document.querySelector('#scene1 .alarm-dot');
+    const hookText = document.querySelector('#scene1 .hook-text');
+    const hookSub = document.querySelector('#scene1 .hook-sub');
+    [dot, hookText, hookSub].forEach(el => {
+      el.style.cssText = '';
+      el.classList.remove('pulsing');
+    });
+
+    // Reset scene 2
+    const flipLine = document.querySelector('#scene2 .flip-line');
+    const flipSub = document.querySelector('#scene2 .flip-sub');
+    [flipLine, flipSub].forEach(el => { el.style.cssText = ''; });
+
+    // Reset scene 3
+    ['#scene3 .curve-title', '#scene3 .curve-label', '.curve-container', '.curve-legend'].forEach(sel => {
+      document.querySelector(sel).style.cssText = '';
+    });
+    document.querySelector('.healthy-curve').style.cssText = '';
+    document.querySelector('.healthy-curve').removeAttribute('style');
+    document.querySelector('.broken-curve').style.cssText = '';
+    document.querySelector('.broken-curve').removeAttribute('style');
+    document.querySelector('.curve-area-healthy').style.cssText = '';
+    document.querySelector('.curve-area-broken').style.cssText = '';
+    document.querySelector('.spike-label').removeAttribute('style');
+    document.querySelector('.night-label').removeAttribute('style');
+
+    // Reset scene 4
+    ['#scene4 .score-label', '#scene4 .score-unit', '#scene4 .score-bars'].forEach(sel => {
+      document.querySelector(sel).style.cssText = '';
+    });
+    const scoreNum = document.querySelector('#scene4 .score-number');
+    scoreNum.style.cssText = '';
+    scoreNum.textContent = '67';
+    document.querySelectorAll('.score-bar-fill').forEach(f => { f.style.width = '0%'; });
+
+    // Reset scene 5
+    ['#scene5 .cta-question', '#scene5 .cta-url', '#scene5 .cta-tagline'].forEach(sel => {
+      document.querySelector(sel).style.cssText = '';
+    });
+
+    setTimeout(() => { run().then(() => { running = false; }); }, 300);
+  });
+
+  running = true;
+  run().then(() => { running = false; });
+})();
+</script>
+</body>
+</html>
