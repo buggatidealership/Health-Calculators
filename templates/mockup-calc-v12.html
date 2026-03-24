@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Caffeine Half-Life Calculator — V12 The Refined</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #0a0f1a;
+            --bg-raised: #0e1424;
+            --bg-card: rgba(14, 122, 126, 0.06);
+            --border: rgba(20, 184, 166, 0.12);
+            --teal: #14b8a6;
+            --teal-glow: rgba(20, 184, 166, 0.3);
+            --text: #e2e8f0;
+            --text-dim: #94a3b8;
+            --good: #14b8a6;
+            --caution: #f59e0b;
+            --bad: #ef4444;
+            --font-body: 'DM Sans', sans-serif;
+            --font-display: 'DM Serif Display', serif;
+        }
+
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--font-body); background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+        .section {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .section-spacer { height: 4rem; }
+
+        /* Pulsing dot */
+        .pulse-dot {
+            width: 10px; height: 10px;
+            background: #22c55e;
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+            vertical-align: middle;
+            margin-right: 8px;
+        }
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6); }
+            50% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+        }
+
+        /* Divider */
+        .divider {
+            width: 40px;
+            height: 1px;
+            background: var(--border);
+            margin: 3rem auto;
+        }
+
+        /* ── HERO ── */
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.8rem, 4.5vw, 3rem);
+            text-align: center;
+            margin-bottom: 0.4rem;
+        }
+        .hero-title span { color: var(--teal); }
+        .hero-sub {
+            color: var(--text-dim);
+            font-size: 1rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+
+        .source-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+            gap: 0.6rem;
+            max-width: 680px;
+            width: 100%;
+        }
+        .source-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.85rem 0.6rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .source-card:hover, .source-card.selected {
+            border-color: var(--teal);
+            box-shadow: 0 0 12px var(--teal-glow);
+        }
+        .source-card .emoji { font-size: 1.5rem; display: block; margin-bottom: 0.3rem; }
+        .source-card .name { font-size: 0.78rem; font-weight: 500; }
+        .source-card .mg { font-size: 0.7rem; color: var(--text-dim); margin-top: 2px; }
+
+        .custom-input-wrap { display: none; margin-top: 1rem; text-align: center; }
+        .custom-input-wrap.show { display: block; }
+        .custom-input-wrap input {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px;
+            color: var(--text); font-size: 1.1rem; padding: 0.5rem 0.8rem; width: 120px; text-align: center; outline: none;
+        }
+        .custom-input-wrap input:focus { border-color: var(--teal); }
+        .custom-input-wrap label { color: var(--text-dim); font-size: 0.82rem; display: block; margin-bottom: 0.3rem; }
+
+        /* ── TIME ── */
+        .time-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.3rem, 3vw, 2rem);
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .time-inputs { display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center; }
+        .time-group label { display: block; color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.4rem; text-align: center; }
+        .time-group input[type="time"] {
+            background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px;
+            color: var(--text); font-size: 1.2rem; padding: 0.7rem 1rem; font-family: var(--font-body); outline: none;
+        }
+        .time-group input[type="time"]:focus { border-color: var(--teal); }
+        .calc-btn {
+            background: var(--teal); color: #0a0f1a; border: none; border-radius: 8px;
+            padding: 0.7rem 2rem; font-size: 1rem; font-weight: 700; cursor: pointer;
+            margin-top: 1.5rem; font-family: var(--font-body); transition: all 0.2s;
+        }
+        .calc-btn:hover { box-shadow: 0 4px 16px var(--teal-glow); }
+
+        /* ── RESULT ── */
+        .result-wrap { display: none; width: 100%; }
+        .result-number {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 6rem);
+            line-height: 1;
+            text-align: center;
+        }
+        .result-unit { font-size: 1.1rem; color: var(--text-dim); text-align: center; margin-top: 0.3rem; }
+        .result-verdict { font-size: 1rem; text-align: center; margin-top: 0.75rem; font-weight: 500; }
+        .glow-good { color: var(--good); text-shadow: 0 0 24px var(--teal-glow); }
+        .glow-caution { color: var(--caution); text-shadow: 0 0 24px rgba(245, 158, 11, 0.3); }
+        .glow-bad { color: var(--bad); text-shadow: 0 0 24px rgba(239, 68, 68, 0.3); }
+
+        /* ── DECAY ── */
+        .decay-wrap { display: none; width: 100%; }
+        .decay-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            width: 100%;
+        }
+        @media (max-width: 700px) { .decay-layout { grid-template-columns: 1fr; } }
+
+        .panel {
+            background: var(--bg-raised);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+        }
+        .panel h3 {
+            font-family: var(--font-display); font-size: 1.05rem; margin-bottom: 1rem; color: var(--teal);
+        }
+        .bar-row { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.35rem; font-size: 0.75rem; }
+        .bar-time { width: 50px; text-align: right; color: var(--text-dim); flex-shrink: 0; }
+        .bar-track { flex: 1; height: 16px; background: rgba(255,255,255,0.03); border-radius: 3px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 3px; transition: width 0.5s ease-out; }
+        .bar-val { width: 44px; font-size: 0.72rem; color: var(--text-dim); flex-shrink: 0; }
+
+        .mental-model p { color: var(--text-dim); line-height: 1.7; font-size: 0.9rem; }
+        .mental-model .highlight { color: var(--text); font-weight: 500; }
+        .mm-step { display: flex; align-items: baseline; gap: 0.6rem; margin: 0.5rem 0; }
+        .mm-step .mm-time { color: var(--teal); font-weight: 700; font-size: 0.82rem; min-width: 56px; }
+        .mm-step .mm-val { color: var(--text-dim); font-size: 0.85rem; }
+
+        /* ── CUTOFF ── */
+        .cutoff-wrap { display: none; text-align: center; width: 100%; }
+        .cutoff-label { font-size: 1.1rem; color: var(--text-dim); margin-bottom: 0.3rem; }
+        .cutoff-time {
+            font-family: var(--font-display); font-size: clamp(2.5rem, 8vw, 5rem);
+            color: var(--teal); text-shadow: 0 0 30px var(--teal-glow);
+        }
+        .cutoff-note { color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem; max-width: 400px; margin-inline: auto; }
+
+        /* ── ASK ── */
+        .ask-wrap { display: none; width: 100%; text-align: center; }
+        .ask-title { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 2rem); margin-bottom: 0.4rem; }
+        .ask-sub { color: var(--text-dim); margin-bottom: 1.5rem; font-size: 0.95rem; }
+        .ask-input-wrap { display: flex; gap: 0.6rem; max-width: 460px; margin: 0 auto; }
+        .ask-input-wrap input {
+            flex: 1; background: rgba(255,255,255,0.05); border: 1px solid var(--border); border-radius: 8px;
+            color: var(--text); padding: 0.7rem 1rem; font-size: 0.95rem; font-family: var(--font-body); outline: none;
+        }
+        .ask-input-wrap input:focus { border-color: var(--teal); }
+        .ask-input-wrap button {
+            background: var(--teal); color: #0a0f1a; border: none; border-radius: 8px;
+            padding: 0 1.2rem; font-weight: 700; cursor: pointer; font-family: var(--font-body);
+        }
+        .ask-suggestions { display: flex; gap: 0.4rem; flex-wrap: wrap; justify-content: center; margin-top: 1.2rem; }
+        .ask-pill {
+            background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 18px;
+            padding: 0.35rem 0.85rem; font-size: 0.78rem; color: var(--text-dim); cursor: pointer; transition: all 0.2s;
+        }
+        .ask-pill:hover { border-color: var(--teal); color: var(--text); }
+    </style>
+</head>
+<body>
+
+<section class="section" id="hero-section">
+    <h1 class="hero-title">How long does <span>caffeine</span> last?</h1>
+    <p class="hero-sub">Select your caffeine source</p>
+    <div class="source-grid" id="sourceGrid"></div>
+    <div class="custom-input-wrap" id="customWrap">
+        <label>Enter caffeine amount (mg)</label>
+        <input type="number" id="customMg" placeholder="mg" min="1" max="1000">
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<section class="section" id="time-section">
+    <h2 class="time-title">When did you have it?</h2>
+    <div class="time-inputs">
+        <div class="time-group">
+            <label>Time consumed</label>
+            <input type="time" id="consumeTime" value="08:00">
+        </div>
+        <div class="time-group">
+            <label>Bedtime</label>
+            <input type="time" id="bedTime" value="22:00">
+        </div>
+    </div>
+    <button class="calc-btn" onclick="calculate()">Calculate</button>
+</section>
+
+<div class="divider result-wrap" id="divider-result"></div>
+
+<section class="section result-wrap" id="result-section">
+    <div class="result-number" id="resultNumber">0</div>
+    <div class="result-unit">mg remaining at bedtime</div>
+    <div class="result-verdict" id="resultVerdict"></div>
+</section>
+
+<section class="section decay-wrap" id="decay-section" style="min-height:auto; padding-top:0;">
+    <div class="decay-layout">
+        <div class="panel">
+            <h3>Hour-by-hour decay</h3>
+            <div id="barChart"></div>
+        </div>
+        <div class="panel mental-model">
+            <h3>The mental model</h3>
+            <p id="mentalModelText"></p>
+            <div id="mentalModelSteps" style="margin-top:0.8rem;"></div>
+        </div>
+    </div>
+</section>
+
+<div class="divider cutoff-wrap" id="divider-cutoff"></div>
+
+<section class="section cutoff-wrap" id="cutoff-section" style="min-height:50vh;">
+    <div class="cutoff-label">Your last safe cup is at</div>
+    <div class="cutoff-time" id="cutoffTime">--:--</div>
+    <p class="cutoff-note" id="cutoffNote"></p>
+</section>
+
+<section class="section ask-wrap" id="ask-section" style="min-height:50vh; padding-bottom:6rem;">
+    <div><span class="pulse-dot"></span></div>
+    <h2 class="ask-title" style="margin-top:0.8rem;">What else do you want to know?</h2>
+    <p class="ask-sub">Ask Pulse anything about caffeine, sleep, or health.</p>
+    <div class="ask-input-wrap">
+        <input type="text" placeholder="e.g. Does caffeine affect my workout?">
+        <button>Ask</button>
+    </div>
+    <div class="ask-suggestions">
+        <span class="ask-pill">Does caffeine dehydrate you?</span>
+        <span class="ask-pill">Caffeine and anxiety</span>
+        <span class="ask-pill">Best time for coffee</span>
+    </div>
+</section>
+
+<script>
+const SOURCES = [
+    { emoji: '☕', name: 'Coffee', mg: 95 },
+    { emoji: '☕', name: 'Tall coffee', mg: 142 },
+    { emoji: '☕', name: 'Espresso', mg: 63 },
+    { emoji: '🧊', name: 'Cold brew', mg: 200 },
+    { emoji: '⚡', name: 'Energy drink', mg: 160 },
+    { emoji: '⚡', name: 'Bang/Reign', mg: 300 },
+    { emoji: '🍵', name: 'Black tea', mg: 47 },
+    { emoji: '🍵', name: 'Green tea', mg: 28 },
+    { emoji: '💊', name: 'Caffeine pill', mg: 200 },
+    { emoji: '🥤', name: 'Cola', mg: 34 },
+    { emoji: '🏋️', name: 'Pre-workout', mg: 200 },
+    { emoji: '✏️', name: 'Custom', mg: 0 }
+];
+let selectedMg = 0;
+
+function buildSourceGrid() {
+    const grid = document.getElementById('sourceGrid');
+    SOURCES.forEach((s, i) => {
+        const card = document.createElement('div');
+        card.className = 'source-card';
+        card.innerHTML = `<span class="emoji">${s.emoji}</span><span class="name">${s.name}</span>${s.mg ? `<span class="mg">${s.mg} mg</span>` : ''}`;
+        card.onclick = () => { document.querySelectorAll('.source-card').forEach(c => c.classList.remove('selected')); card.classList.add('selected'); const cw = document.getElementById('customWrap'); if (s.name === 'Custom') { cw.classList.add('show'); selectedMg = 0; } else { cw.classList.remove('show'); selectedMg = s.mg; } };
+        grid.appendChild(card);
+    });
+}
+
+function timeToMinutes(t) { const [h, m] = t.split(':').map(Number); return h * 60 + m; }
+function minutesToTime(m) { while (m < 0) m += 1440; m = m % 1440; const h = Math.floor(m / 60); const mm = m % 60; return `${h % 12 || 12}:${String(mm).padStart(2, '0')} ${h >= 12 ? 'PM' : 'AM'}`; }
+function caffeineAt(initial, hours) { return initial * Math.pow(0.5, hours / 5); }
+function getColor(mg) {
+    if (mg < 25) return { color: 'var(--good)', cls: 'glow-good', label: 'good' };
+    if (mg <= 50) return { color: 'var(--caution)', cls: 'glow-caution', label: 'caution' };
+    return { color: 'var(--bad)', cls: 'glow-bad', label: 'bad' };
+}
+
+function calculate() {
+    if (document.getElementById('customWrap').classList.contains('show')) selectedMg = parseInt(document.getElementById('customMg').value) || 0;
+    if (!selectedMg) return alert('Select a caffeine source first.');
+
+    const consumeMin = timeToMinutes(document.getElementById('consumeTime').value);
+    let bedMin = timeToMinutes(document.getElementById('bedTime').value);
+    if (bedMin <= consumeMin) bedMin += 1440;
+    const hoursTobed = (bedMin - consumeMin) / 60;
+    const remaining = caffeineAt(selectedMg, hoursTobed);
+    const info = getColor(remaining);
+
+    const rn = document.getElementById('resultNumber');
+    rn.textContent = Math.round(remaining);
+    rn.className = 'result-number ' + info.cls;
+    const verdict = document.getElementById('resultVerdict');
+    if (info.label === 'good') verdict.innerHTML = 'You\'re in the clear for sleep';
+    else if (info.label === 'caution') verdict.innerHTML = 'Borderline — may affect light sleepers';
+    else verdict.innerHTML = 'This will likely disrupt your sleep';
+    verdict.style.color = info.color;
+
+    const chartDiv = document.getElementById('barChart');
+    chartDiv.innerHTML = '';
+    for (let h = 0; h <= Math.min(hoursTobed, 24); h++) {
+        const mg = caffeineAt(selectedMg, h);
+        const pct = (mg / selectedMg) * 100;
+        const c = getColor(mg);
+        chartDiv.innerHTML += `<div class="bar-row"><span class="bar-time">${minutesToTime(consumeMin + h * 60)}</span><div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${c.color};"></div></div><span class="bar-val">${Math.round(mg)} mg</span></div>`;
+    }
+
+    document.getElementById('mentalModelText').innerHTML = `Think of it this way: <span class="highlight">for every 5 hours, your caffeine drops by half.</span>`;
+    const mmSteps = document.getElementById('mentalModelSteps');
+    mmSteps.innerHTML = '';
+    let stepMg = selectedMg, stepMin = consumeMin;
+    while (stepMg >= 10 && stepMin < consumeMin + 1440) {
+        mmSteps.innerHTML += `<div class="mm-step"><span class="mm-time">${minutesToTime(stepMin)}</span><span class="mm-val">${Math.round(stepMg)} mg</span></div>`;
+        stepMg /= 2; stepMin += 300;
+    }
+    if (stepMg < 10) mmSteps.innerHTML += `<div class="mm-step"><span class="mm-time">${minutesToTime(stepMin)}</span><span class="mm-val">${Math.round(stepMg)} mg — in the clear</span></div>`;
+
+    const hoursNeeded = 5 * Math.log2(selectedMg / 25);
+    const cutoffMin = bedMin - hoursNeeded * 60;
+    document.getElementById('cutoffTime').textContent = minutesToTime(cutoffMin);
+    document.getElementById('cutoffNote').textContent = `To have less than 25 mg at bedtime, don't consume ${selectedMg} mg of caffeine after this time.`;
+
+    document.querySelectorAll('.result-wrap, .decay-wrap, .cutoff-wrap, .ask-wrap').forEach(el => el.style.display = el.classList.contains('section') || el.tagName === 'SECTION' ? 'flex' : 'block');
+    document.getElementById('result-section').scrollIntoView({ behavior: 'smooth' });
+}
+
+buildSourceGrid();
+</script>
+</body>
+</html>
