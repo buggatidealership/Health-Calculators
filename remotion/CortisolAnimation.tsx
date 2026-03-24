@@ -25,7 +25,7 @@ const FONTS = {
 };
 
 // --- Timing (in frames at 30fps) ---
-// Total: 30s = 900 frames
+// Total: 34s = 1020 frames
 const T = {
   scene1Start: 0,
   scene1End: 165,    // 5.5s — recognition needs time to land
@@ -34,9 +34,9 @@ const T = {
   scene3Start: 318,
   scene3End: 600,    // 20s — core teaching moment, slowed down
   scene4Start: 608,
-  scene4End: 780,    // 26s — score reveal with staggered bars
-  scene5Start: 788,
-  scene5End: 900,    // 30s — CTA hold
+  scene4End: 888,    // ~29.6s — score + staggered bars + example reveals
+  scene5Start: 896,
+  scene5End: 1020,   // 34s — CTA with brand dot
 };
 
 // --- Helpers ---
@@ -616,13 +616,25 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
 
   // Staggered bar reveals — each bar waits for the previous
   const bars = [
-    { label: "STRESS PERCEPTION", color: COLORS.accent, width: 71, value: "25 / 35", delay: 78 },
-    { label: "LIFESTYLE FACTORS", color: COLORS.teal, width: 55, value: "22 / 40", delay: 96 },
-    { label: "PHYSICAL SYMPTOMS", color: COLORS.red, width: 80, value: "20 / 25", delay: 114 },
+    {
+      label: "STRESS PERCEPTION", color: COLORS.accent, width: 71, value: "25 / 35", delay: 78,
+      examples: "Racing thoughts · Feeling overwhelmed",
+    },
+    {
+      label: "LIFESTYLE FACTORS", color: COLORS.teal, width: 55, value: "22 / 40", delay: 96,
+      examples: "Poor sleep · High caffeine · No exercise",
+    },
+    {
+      label: "PHYSICAL SYMPTOMS", color: COLORS.red, width: 80, value: "20 / 25", delay: 114,
+      examples: "Jaw clenching · Weight gain · Fatigue",
+    },
   ];
 
-  // Exit
-  const exitStart = 144;
+  // Examples appear after all bars are in
+  const examplesDelay = 138; // ~4.6s into scene
+
+  // Exit — pushed later to accommodate examples
+  const exitStart = 252;
   const inExit = local >= exitStart;
   const labelExit = fadeOut(local, exitStart, 10);
   const numExit = fadeOut(local, exitStart + 3, 10);
@@ -704,6 +716,20 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
           const barValueAnim = fadeUp(local, bar.delay + 24, 10);
           const barExit = inExit ? fadeOut(local, exitStart + 6 + i * 3, 8) : null;
 
+          // Example text fades in after all bars are shown
+          const exampleOpacity = interpolate(
+            local,
+            [examplesDelay + i * 18, examplesDelay + i * 18 + 14],
+            [0, 1],
+            { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+          );
+          const exampleY = interpolate(
+            local,
+            [examplesDelay + i * 18, examplesDelay + i * 18 + 14],
+            [12, 0],
+            { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) }
+          );
+
           return (
             <div
               key={bar.label}
@@ -761,6 +787,22 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
               >
                 {bar.value}
               </div>
+              {/* Example symptoms */}
+              <div
+                style={{
+                  fontFamily: FONTS.sans,
+                  fontSize: 22,
+                  color: `${bar.color}99`,
+                  fontWeight: 400,
+                  textAlign: "center",
+                  lineHeight: 1.5,
+                  marginTop: 4,
+                  opacity: inExit ? (barExit?.opacity ?? 0) : exampleOpacity,
+                  transform: inExit ? barExit?.transform : `translateY(${exampleY}px)`,
+                }}
+              >
+                {bar.examples}
+              </div>
             </div>
           );
         })}
@@ -769,12 +811,23 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Scene 5: CTA — "What's your score?" ---
+// --- Scene 5: CTA — "What's your score?" with brand dot ---
 const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene5Start;
-  const questionAnim = fadeUp(local, 10, 18);
-  const urlAnim = fadeUp(local, 36, 14);
-  const taglineAnim = fadeUp(local, 54, 12);
+  const dotAnim = fadeUp(local, 6, 12);
+  const questionAnim = fadeUp(local, 14, 18);
+  const urlAnim = fadeUp(local, 40, 14);
+  const taglineAnim = fadeUp(local, 58, 12);
+
+  // Brand pulse — same rhythm as Scene 1
+  const pulsePhase = (local * 1.0) % 42;
+  const pulseScale = interpolate(pulsePhase, [0, 42], [1, 3.5], {
+    extrapolateRight: "clamp",
+  });
+  const pulseOpacity = interpolate(pulsePhase, [0, 42], [0.5, 0], {
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
+  });
 
   return (
     <div
@@ -788,6 +841,39 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
         opacity: sceneOpacity(frame, T.scene5Start, T.scene5End),
       }}
     >
+      {/* Brand dot — callbacks to Scene 1 */}
+      <div
+        style={{
+          position: "relative",
+          width: 20,
+          height: 20,
+          marginBottom: 60,
+          ...dotAnim,
+        }}
+      >
+        <div
+          style={{
+            width: 20,
+            height: 20,
+            borderRadius: "50%",
+            background: COLORS.accent,
+            boxShadow: `0 0 16px rgba(232, 155, 62, 0.3)`,
+          }}
+        />
+        {local > 6 && (
+          <div
+            style={{
+              position: "absolute",
+              inset: -12,
+              borderRadius: "50%",
+              border: `3px solid ${COLORS.accent}`,
+              opacity: pulseOpacity,
+              transform: `scale(${pulseScale})`,
+            }}
+          />
+        )}
+      </div>
+
       <div
         style={{
           fontFamily: FONTS.serif,
