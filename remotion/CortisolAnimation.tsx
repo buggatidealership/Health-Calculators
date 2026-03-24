@@ -25,30 +25,31 @@ const FONTS = {
 };
 
 // --- Timing (in frames at 30fps) ---
+// Total: 30s = 900 frames
 const T = {
   scene1Start: 0,
-  scene1End: 150, // 5s
-  scene2Start: 155,
-  scene2End: 270, // 9s
-  scene3Start: 275,
-  scene3End: 510, // 17s
-  scene4Start: 515,
-  scene4End: 660, // 22s
-  scene5Start: 665,
-  scene5End: 750, // 25s
+  scene1End: 165,    // 5.5s — recognition needs time to land
+  scene2Start: 172,
+  scene2End: 310,    // ~10.3s — dramatic pause before "when"
+  scene3Start: 318,
+  scene3End: 600,    // 20s — core teaching moment, slowed down
+  scene4Start: 608,
+  scene4End: 780,    // 26s — score reveal with staggered bars
+  scene5Start: 788,
+  scene5End: 900,    // 30s — CTA hold
 };
 
 // --- Helpers ---
 function fadeUp(
   frame: number,
   start: number,
-  duration: number = 12
+  duration: number = 14
 ): { opacity: number; transform: string } {
   const opacity = interpolate(frame, [start, start + duration], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const y = interpolate(frame, [start, start + duration], [48, 0], {
+  const y = interpolate(frame, [start, start + duration], [40, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
@@ -59,13 +60,13 @@ function fadeUp(
 function fadeOut(
   frame: number,
   start: number,
-  duration: number = 8
+  duration: number = 10
 ): { opacity: number; transform: string } {
   const opacity = interpolate(frame, [start, start + duration], [1, 0], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const y = interpolate(frame, [start, start + duration], [0, -24], {
+  const y = interpolate(frame, [start, start + duration], [0, -20], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.in(Easing.cubic),
@@ -74,9 +75,9 @@ function fadeOut(
 }
 
 function sceneOpacity(frame: number, start: number, end: number): number {
-  if (frame < start || frame > end + 10) return 0;
-  const fadeInEnd = start + 6;
-  const fadeOutStart = end - 6;
+  if (frame < start || frame > end + 12) return 0;
+  const fadeInEnd = start + 8;
+  const fadeOutStart = end - 8;
   if (frame < fadeInEnd)
     return interpolate(frame, [start, fadeInEnd], [0, 1], {
       extrapolateLeft: "clamp",
@@ -90,32 +91,64 @@ function sceneOpacity(frame: number, start: number, end: number): number {
   return 1;
 }
 
-// --- Scene 1: Hook ---
+// Thin horizontal rule — visual breathing room between sections
+const Divider: React.FC<{ opacity: number; width?: number }> = ({
+  opacity,
+  width = 120,
+}) => (
+  <div
+    style={{
+      width,
+      height: 2,
+      background: `rgba(255,255,255,${0.08 * opacity})`,
+      borderRadius: 1,
+      margin: "40px 0",
+      opacity,
+    }}
+  />
+);
+
+// --- Scene 1: Hook — "Wired but tired" ---
+// Slower pulse, more breathing room. Recognition before explanation.
 const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene1Start;
-  const dotAnim = fadeUp(local, 6, 10);
-  const textAnim = fadeUp(local, 18, 15);
-  const subAnim = fadeUp(local, 54, 12);
-  const exitStart = 120;
-  const dotExit = fadeOut(local, exitStart, 8);
-  const textExit = fadeOut(local, exitStart + 2, 8);
-  const subExit = fadeOut(local, exitStart + 4, 8);
 
+  // Dot fades in early, text waits
+  const dotAnim = fadeUp(local, 8, 12);
+  const textAnim = fadeUp(local, 24, 18); // slower entrance
+  const subAnim = fadeUp(local, 66, 14);  // longer pause before subline
+
+  const exitStart = 132;
+  const dotExit = fadeOut(local, exitStart, 10);
+  const textExit = fadeOut(local, exitStart + 3, 10);
+  const subExit = fadeOut(local, exitStart + 6, 10);
   const inExit = local >= exitStart;
 
-  // Pulsing dot
-  const pulseScale = interpolate(
-    (local * 1.5) % 36,
-    [0, 36],
-    [1, 3],
-    { extrapolateRight: "clamp" }
-  );
-  const pulseOpacity = interpolate(
-    (local * 1.5) % 36,
-    [0, 36],
-    [0.6, 0],
-    { extrapolateRight: "clamp" }
-  );
+  // Heartbeat-like pulse: slower, organic
+  const pulsePhase = (local * 1.0) % 42; // slower cycle
+  const pulseScale = interpolate(pulsePhase, [0, 42], [1, 3.5], {
+    extrapolateRight: "clamp",
+  });
+  const pulseOpacity = interpolate(pulsePhase, [0, 42], [0.5, 0], {
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
+  });
+
+  // Second ring (offset) for depth
+  const pulse2Phase = ((local - 12) * 1.0) % 42;
+  const pulse2Scale =
+    local > 20
+      ? interpolate(pulse2Phase, [0, 42], [1, 3.5], {
+          extrapolateRight: "clamp",
+        })
+      : 1;
+  const pulse2Opacity =
+    local > 20
+      ? interpolate(pulse2Phase, [0, 42], [0.3, 0], {
+          extrapolateRight: "clamp",
+          easing: Easing.out(Easing.quad),
+        })
+      : 0;
 
   return (
     <div
@@ -129,7 +162,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
         opacity: sceneOpacity(frame, T.scene1Start, T.scene1End),
       }}
     >
-      {/* Alarm dot */}
+      {/* Alarm dot with double pulse ring */}
       <div
         style={{
           position: "relative",
@@ -145,23 +178,35 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
             height: 24,
             borderRadius: "50%",
             background: COLORS.accent,
+            boxShadow: `0 0 20px rgba(232, 155, 62, 0.3)`,
           }}
         />
-        {local > 6 && (
-          <div
-            style={{
-              position: "absolute",
-              inset: -16,
-              borderRadius: "50%",
-              border: `4px solid ${COLORS.accent}`,
-              opacity: pulseOpacity,
-              transform: `scale(${pulseScale})`,
-            }}
-          />
+        {local > 8 && (
+          <>
+            <div
+              style={{
+                position: "absolute",
+                inset: -16,
+                borderRadius: "50%",
+                border: `3px solid ${COLORS.accent}`,
+                opacity: pulseOpacity,
+                transform: `scale(${pulseScale})`,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: -16,
+                borderRadius: "50%",
+                border: `2px solid ${COLORS.accent}`,
+                opacity: pulse2Opacity,
+                transform: `scale(${pulse2Scale})`,
+              }}
+            />
+          </>
         )}
       </div>
 
-      {/* Hook text */}
       <div
         style={{
           fontFamily: FONTS.serif,
@@ -176,15 +221,18 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
         Wired but tired.
       </div>
 
-      {/* Subline */}
+      <Divider
+        opacity={inExit ? subExit.opacity : subAnim.opacity}
+        width={80}
+      />
+
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 48,
+          fontSize: 44,
           color: COLORS.textSecondary,
-          marginTop: 48,
           fontWeight: 400,
-          letterSpacing: "0.02em",
+          letterSpacing: "0.03em",
           ...(inExit ? subExit : subAnim),
         }}
       >
@@ -195,21 +243,42 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
 };
 
 // --- Scene 2: The Flip ---
+// Dramatic pause before "when." — the beat drop.
 const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene2Start;
-  const lineAnim = fadeUp(local, 9, 15);
-  const subDelay = 33; // ~1.1s after line appears
-  const subAnim = fadeUp(local, subDelay, 15);
-  const subScale = interpolate(
-    local,
-    [subDelay, subDelay + 15],
-    [0.85, 1],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.5)) }
-  );
+  const lineAnim = fadeUp(local, 10, 16);
 
-  const exitStart = 90;
-  const lineExit = fadeOut(local, exitStart, 8);
-  const subExit = fadeOut(local, exitStart + 3, 8);
+  // "It's when." appears after a real pause — 1.8s after first line
+  const whenDelay = 54;
+  const whenOpacity = interpolate(local, [whenDelay, whenDelay + 12], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const whenScale = interpolate(
+    local,
+    [whenDelay, whenDelay + 18],
+    [0.88, 1],
+    {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: Easing.out(Easing.back(1.4)),
+    }
+  );
+  const whenY = interpolate(local, [whenDelay, whenDelay + 16], [24, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+
+  // Subtle line that separates the two ideas
+  const lineOpacity = interpolate(local, [whenDelay - 6, whenDelay + 6], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  const exitStart = 108;
+  const lineExit = fadeOut(local, exitStart, 10);
+  const whenExit = fadeOut(local, exitStart + 4, 10);
   const inExit = local >= exitStart;
 
   return (
@@ -227,7 +296,7 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 128,
+          fontSize: 120,
           textAlign: "center",
           lineHeight: 1.2,
           ...(inExit ? lineExit : lineAnim),
@@ -236,24 +305,19 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
         It's not <span style={{ color: COLORS.accent }}>how much</span>{" "}
         cortisol.
       </div>
+
+      <Divider opacity={inExit ? whenExit.opacity : lineOpacity} width={60} />
+
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 144,
+          fontSize: 152,
           color: COLORS.accent,
-          marginTop: 64,
           textAlign: "center",
-          ...(inExit
-            ? subExit
-            : {
-                ...subAnim,
-                transform: `translateY(${
-                  interpolate(local, [subDelay, subDelay + 15], [32, 0], {
-                    extrapolateLeft: "clamp",
-                    extrapolateRight: "clamp",
-                  })
-                }px) scale(${subScale})`,
-              }),
+          opacity: inExit ? whenExit.opacity : whenOpacity,
+          transform: inExit
+            ? whenExit.transform
+            : `translateY(${whenY}px) scale(${whenScale})`,
         }}
       >
         It's <em>when</em>.
@@ -262,54 +326,76 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Scene 3: The Curve ---
+// --- Scene 3: The Curve — Core teaching moment ---
+// Two-act structure: "What should happen" → "What burnout looks like"
 const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene3Start;
-  const titleAnim = fadeUp(local, 6, 10);
-  const labelAnim = fadeUp(local, 12, 12);
-  const containerAnim = fadeUp(local, 21, 12);
 
-  // Healthy curve draw progress
-  const healthyProgress = interpolate(local, [30, 75], [0, 1], {
+  // Act 1: "What should happen"
+  const titleAnim = fadeUp(local, 6, 12);
+  const act1LabelAnim = fadeUp(local, 15, 14);
+  const containerAnim = fadeUp(local, 27, 14);
+
+  // Healthy curve draw — slower for comprehension
+  const healthyProgress = interpolate(local, [36, 90], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
   });
-  const healthyAreaOpacity = interpolate(local, [48, 72], [0, 0.8], {
+  const healthyAreaOpacity = interpolate(local, [54, 84], [0, 0.8], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const spikeLabelOpacity = interpolate(local, [60, 72], [0, 1], {
+  const spikeLabelOpacity = interpolate(local, [72, 84], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  // "This is normal" annotation
+  const normalLabelOpacity = interpolate(local, [90, 102], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  // Broken curve (appears after healthy)
-  const brokenProgress = interpolate(local, [96, 141], [0, 1], {
+  // Pause to absorb healthy curve — 102-120 is breathing room
+
+  // Act 2: "What burnout looks like" — label change
+  const act2LabelOpacity = interpolate(local, [126, 138], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const act1LabelFade = interpolate(local, [120, 132], [1, 0.3], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  // Broken curve draws
+  const brokenProgress = interpolate(local, [138, 192], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
   });
-  const brokenOpacity = interpolate(local, [96, 108], [0, 0.9], {
+  const brokenOpacity = interpolate(local, [138, 150], [0, 0.9], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const brokenAreaOpacity = interpolate(local, [114, 138], [0, 0.6], {
+  const brokenAreaOpacity = interpolate(local, [162, 186], [0, 0.6], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const nightLabelOpacity = interpolate(local, [126, 138], [0, 1], {
+  const nightLabelOpacity = interpolate(local, [180, 192], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  const legendAnim = fadeUp(local, 150, 10);
+  // Legend
+  const legendAnim = fadeUp(local, 198, 12);
+
+  // Hold — the "poster frame" (198-252)
 
   // Exit
-  const exitStart = 205;
-  const titleExit = fadeOut(local, exitStart, 7);
-  const labelExit = fadeOut(local, exitStart + 2, 7);
-  const containerExit = fadeOut(local, exitStart + 4, 7);
+  const exitStart = 252;
+  const titleExit = fadeOut(local, exitStart, 8);
+  const containerExit = fadeOut(local, exitStart + 3, 8);
   const inExit = local >= exitStart;
 
   const healthyPath =
@@ -330,40 +416,61 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "120px 160px",
+        padding: "100px 160px",
         opacity: sceneOpacity(frame, T.scene3Start, T.scene3End),
       }}
     >
+      {/* Section header */}
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 40,
+          fontSize: 36,
           fontWeight: 600,
           color: COLORS.textSecondary,
           textTransform: "uppercase" as const,
-          letterSpacing: "0.12em",
-          marginBottom: 32,
+          letterSpacing: "0.14em",
+          marginBottom: 24,
           ...(inExit ? titleExit : titleAnim),
         }}
       >
         Your cortisol rhythm
       </div>
 
+      {/* Two-line teaching text that evolves */}
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 84,
+          fontSize: 76,
           color: COLORS.text,
-          marginBottom: 96,
+          marginBottom: 72,
           textAlign: "center",
-          ...(inExit ? labelExit : labelAnim),
+          lineHeight: 1.25,
+          ...(inExit ? titleExit : act1LabelAnim),
         }}
       >
-        Every morning, cortisol spikes 38–75%.
-        <br />
-        That's healthy.
+        <span style={{ opacity: act1LabelFade }}>
+          Every morning, cortisol spikes 38–75%.
+          <br />
+          That's healthy.
+        </span>
+        {local >= 126 && (
+          <div
+            style={{
+              fontSize: 42,
+              fontFamily: FONTS.sans,
+              fontWeight: 500,
+              color: COLORS.red,
+              marginTop: 20,
+              opacity: act2LabelOpacity,
+              letterSpacing: "0.02em",
+            }}
+          >
+            Unless the rhythm never comes down.
+          </div>
+        )}
       </div>
 
+      {/* Chart */}
       <div
         style={{
           width: "100%",
@@ -407,6 +514,10 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
           <text x="200" y="35" fill={COLORS.green} fontSize="14" fontFamily={FONTS.sans} fontWeight="600" textAnchor="middle" opacity={spikeLabelOpacity}>
             ↑ Morning spike
           </text>
+          {/* "This is normal" label — appears after healthy curve completes */}
+          <text x="430" y="240" fill="rgba(110,200,155,0.5)" fontSize="13" fontFamily={FONTS.sans} fontWeight="500" textAnchor="middle" opacity={normalLabelOpacity}>
+            Cortisol Awakening Response
+          </text>
 
           {/* Broken area */}
           <path d={brokenAreaPath} fill="url(#redG)" opacity={brokenAreaOpacity} />
@@ -422,7 +533,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
             strokeDashoffset={800 * (1 - brokenProgress)}
           />
           {/* Night label */}
-          <text x="720" y="105" fill={COLORS.red} fontSize="14" fontFamily={FONTS.sans} fontWeight="600" textAnchor="middle" opacity={nightLabelOpacity}>
+          <text x="720" y="100" fill={COLORS.red} fontSize="14" fontFamily={FONTS.sans} fontWeight="600" textAnchor="middle" opacity={nightLabelOpacity}>
             Still elevated ↗
           </text>
         </svg>
@@ -432,8 +543,8 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
           style={{
             display: "flex",
             justifyContent: "space-between",
-            padding: "24px 80px 0",
-            fontSize: 32,
+            padding: "20px 80px 0",
+            fontSize: 30,
             color: COLORS.textSecondary,
             fontFamily: FONTS.sans,
             fontWeight: 500,
@@ -451,20 +562,20 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
             display: "flex",
             gap: 64,
             justifyContent: "center",
-            marginTop: 80,
-            fontSize: 36,
+            marginTop: 56,
+            fontSize: 34,
             fontFamily: FONTS.sans,
             fontWeight: 500,
             ...(inExit ? containerExit : legendAnim),
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <div style={{ width: 20, height: 20, borderRadius: "50%", background: COLORS.green }} />
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <div style={{ width: 18, height: 18, borderRadius: "50%", background: COLORS.green }} />
             <span style={{ color: COLORS.green }}>Healthy rhythm</span>
           </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-            <div style={{ width: 20, height: 20, borderRadius: "50%", background: COLORS.red }} />
-            <span style={{ color: COLORS.red }}>Broken rhythm</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+            <div style={{ width: 18, height: 18, borderRadius: "50%", background: COLORS.red }} />
+            <span style={{ color: COLORS.red }}>Disrupted rhythm</span>
           </div>
         </div>
       </div>
@@ -473,26 +584,27 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
 };
 
 // --- Scene 4: The Score ---
+// Slower count-up, staggered bar reveals, breathing room.
 const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene4Start;
-  const labelAnim = fadeUp(local, 6, 10);
+  const labelAnim = fadeUp(local, 8, 12);
 
-  // Count up
+  // Count up — slower for drama
   const target = 67;
-  const countProgress = interpolate(local, [12, 48], [0, 1], {
+  const countProgress = interpolate(local, [15, 60], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
     easing: Easing.out(Easing.cubic),
   });
   const currentNum = Math.round(countProgress * target);
-  const numOpacity = interpolate(local, [12, 21], [0, 1], {
+  const numOpacity = interpolate(local, [15, 24], [0, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
-  const numScale = interpolate(local, [12, 27], [0.8, 1], {
+  const numScale = interpolate(local, [15, 30], [0.82, 1], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
-    easing: Easing.out(Easing.back(1.5)),
+    easing: Easing.out(Easing.back(1.3)),
   });
 
   // Color shift
@@ -500,29 +612,21 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
   if (currentNum >= 25) numColor = COLORS.accent;
   if (currentNum >= 45) numColor = COLORS.red;
 
-  const unitAnim = fadeUp(local, 48, 10);
-  const barsAnim = fadeUp(local, 57, 10);
+  const unitAnim = fadeUp(local, 60, 12);
 
-  // Bar fills
-  const barProgress = interpolate(local, [63, 99], [0, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.out(Easing.cubic),
-  });
-
+  // Staggered bar reveals — each bar waits for the previous
   const bars = [
-    { label: "PERCEPTION", color: COLORS.accent, width: 71, value: "25 / 35" },
-    { label: "LIFESTYLE", color: COLORS.teal, width: 55, value: "22 / 40" },
-    { label: "SYMPTOMS", color: COLORS.red, width: 80, value: "20 / 25" },
+    { label: "STRESS PERCEPTION", color: COLORS.accent, width: 71, value: "25 / 35", delay: 78 },
+    { label: "LIFESTYLE FACTORS", color: COLORS.teal, width: 55, value: "22 / 40", delay: 96 },
+    { label: "PHYSICAL SYMPTOMS", color: COLORS.red, width: 80, value: "20 / 25", delay: 114 },
   ];
 
   // Exit
-  const exitStart = 120;
+  const exitStart = 144;
   const inExit = local >= exitStart;
-  const labelExit = fadeOut(local, exitStart, 7);
-  const numExit = fadeOut(local, exitStart + 2, 7);
-  const unitExit = fadeOut(local, exitStart + 3, 7);
-  const barsExit = fadeOut(local, exitStart + 4, 7);
+  const labelExit = fadeOut(local, exitStart, 10);
+  const numExit = fadeOut(local, exitStart + 3, 10);
+  const unitExit = fadeOut(local, exitStart + 5, 10);
 
   return (
     <div
@@ -539,12 +643,12 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 40,
+          fontSize: 38,
           fontWeight: 600,
           color: COLORS.textSecondary,
           textTransform: "uppercase" as const,
           letterSpacing: "0.12em",
-          marginBottom: 40,
+          marginBottom: 36,
           ...(inExit ? labelExit : labelAnim),
         }}
       >
@@ -554,12 +658,11 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 320,
+          fontSize: 300,
           color: numColor,
           lineHeight: 1,
-          opacity: numOpacity,
-          transform: `scale(${inExit ? numExit.opacity : numScale})`,
-          ...(inExit ? { opacity: numExit.opacity } : {}),
+          opacity: inExit ? numExit.opacity : numOpacity,
+          transform: `scale(${inExit ? Math.max(0, numExit.opacity) : numScale})`,
         }}
       >
         {currentNum}
@@ -568,88 +671,110 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 48,
+          fontSize: 44,
           color: COLORS.textSecondary,
-          marginTop: 16,
+          marginTop: 12,
           fontWeight: 500,
           ...(inExit ? unitExit : unitAnim),
         }}
       >
-        out of 100 — High Cortisol Risk
+        out of 100 — Elevated Cortisol Risk
       </div>
 
+      {/* Staggered bars */}
       <div
         style={{
           display: "flex",
-          gap: 32,
-          marginTop: 96,
-          ...(inExit ? barsExit : barsAnim),
+          gap: 40,
+          marginTop: 88,
         }}
       >
-        {bars.map((bar, i) => (
-          <div
-            key={bar.label}
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              gap: 20,
-              width: 400,
-            }}
-          >
+        {bars.map((bar, i) => {
+          const barLabelAnim = fadeUp(local, bar.delay, 10);
+          const barFillProgress = interpolate(
+            local,
+            [bar.delay + 6, bar.delay + 36],
+            [0, 1],
+            {
+              extrapolateLeft: "clamp",
+              extrapolateRight: "clamp",
+              easing: Easing.out(Easing.cubic),
+            }
+          );
+          const barValueAnim = fadeUp(local, bar.delay + 24, 10);
+          const barExit = inExit ? fadeOut(local, exitStart + 6 + i * 3, 8) : null;
+
+          return (
             <div
+              key={bar.label}
               style={{
-                fontSize: 28,
-                color: COLORS.textSecondary,
-                fontFamily: FONTS.sans,
-                fontWeight: 600,
-                textTransform: "uppercase" as const,
-                letterSpacing: "0.08em",
-              }}
-            >
-              {bar.label}
-            </div>
-            <div
-              style={{
-                width: "100%",
-                height: 16,
-                background: "rgba(255,255,255,0.08)",
-                borderRadius: 8,
-                overflow: "hidden",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                gap: 18,
+                width: 380,
+                ...(barExit || barLabelAnim),
               }}
             >
               <div
                 style={{
-                  height: "100%",
-                  borderRadius: 8,
-                  background: bar.color,
-                  width: `${bar.width * barProgress}%`,
+                  fontSize: 24,
+                  color: COLORS.textSecondary,
+                  fontFamily: FONTS.sans,
+                  fontWeight: 600,
+                  textTransform: "uppercase" as const,
+                  letterSpacing: "0.08em",
                 }}
-              />
+              >
+                {bar.label}
+              </div>
+              <div
+                style={{
+                  width: "100%",
+                  height: 14,
+                  background: "rgba(255,255,255,0.06)",
+                  borderRadius: 7,
+                  overflow: "hidden",
+                }}
+              >
+                <div
+                  style={{
+                    height: "100%",
+                    borderRadius: 7,
+                    background: bar.color,
+                    width: `${bar.width * barFillProgress}%`,
+                    boxShadow:
+                      barFillProgress > 0.5
+                        ? `0 0 12px ${bar.color}40`
+                        : "none",
+                  }}
+                />
+              </div>
+              <div
+                style={{
+                  fontFamily: FONTS.sans,
+                  fontSize: 34,
+                  fontWeight: 700,
+                  color: COLORS.text,
+                  ...(barExit || barValueAnim),
+                }}
+              >
+                {bar.value}
+              </div>
             </div>
-            <div
-              style={{
-                fontFamily: FONTS.sans,
-                fontSize: 36,
-                fontWeight: 700,
-                color: COLORS.text,
-              }}
-            >
-              {bar.value}
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
 };
 
-// --- Scene 5: CTA ---
+// --- Scene 5: CTA — "What's your score?" ---
 const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene5Start;
-  const questionAnim = fadeUp(local, 9, 15);
-  const urlAnim = fadeUp(local, 27, 12);
-  const taglineAnim = fadeUp(local, 39, 10);
+  const questionAnim = fadeUp(local, 10, 18);
+  const urlAnim = fadeUp(local, 36, 14);
+  const taglineAnim = fadeUp(local, 54, 12);
 
   return (
     <div
@@ -666,30 +791,28 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 128,
+          fontSize: 136,
           color: COLORS.text,
           textAlign: "center",
-          lineHeight: 1.2,
-          marginBottom: 96,
+          lineHeight: 1.15,
+          marginBottom: 80,
           ...questionAnim,
         }}
       >
-        Is your alarm
-        <br />
-        stuck on?
+        What's <span style={{ color: COLORS.accent }}>your</span> score?
       </div>
 
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 44,
+          fontSize: 40,
           color: COLORS.accent,
           fontWeight: 600,
           letterSpacing: "0.02em",
-          padding: "32px 80px",
-          border: `4px solid rgba(232, 155, 62, 0.3)`,
-          borderRadius: 24,
-          background: "rgba(232, 155, 62, 0.06)",
+          padding: "28px 72px",
+          border: `3px solid rgba(232, 155, 62, 0.25)`,
+          borderRadius: 20,
+          background: "rgba(232, 155, 62, 0.04)",
           ...urlAnim,
         }}
       >
@@ -699,9 +822,9 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 32,
+          fontSize: 30,
           color: COLORS.textSecondary,
-          marginTop: 48,
+          marginTop: 44,
           letterSpacing: "0.04em",
           ...taglineAnim,
         }}
@@ -762,12 +885,12 @@ export const CortisolAnimation: React.FC = () => {
       <div
         style={{
           position: "absolute",
-          bottom: 64,
+          bottom: 56,
           left: "50%",
           transform: "translateX(-50%)",
           fontFamily: FONTS.sans,
-          fontSize: 28,
-          color: "rgba(255,255,255,0.15)",
+          fontSize: 26,
+          color: "rgba(255,255,255,0.12)",
           letterSpacing: "0.06em",
           fontWeight: 500,
           zIndex: 998,

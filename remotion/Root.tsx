@@ -6,7 +6,7 @@ export const RemotionRoot: React.FC = () => {
     <Composition
       id="cortisol-animation"
       component={CortisolAnimation}
-      durationInFrames={30 * 25}
+      durationInFrames={900}
       fps={30}
       width={2160}
       height={2160}
