@@ -1,6 +1,22 @@
 {# /calculators catalog page — V25 dark mode #}
 {% extends 'v25-page-base.html' %}
 
+{% block seo_head %}
+{% with
+    meta_description=schema_description|default("Explore evidence-based calculators to optimize your health, nutrition, and longevity."),
+    meta_keywords="health calculators, lifespan calculator, nutrition calculator, wellness tools, tdee calculator",
+    og_title=schema_name|default("HealthCalculators.xyz – Smart Health Starts Here"),
+    og_description=schema_description|default("Discover personalized calculators for lifespan, nutrition, hydration, and more."),
+    og_url=canonical_url|default("/calculators"),
+    og_image="default-calculator-og.jpg",
+    page_title=schema_name|default("HealthCalculators.xyz — Science-Backed Health Tools & Calculators"),
+    canonical_url=canonical_url|default("/calculators"),
+    skip_global_css=True
+%}
+{% include 'head_seo.html' %}
+{% endwith %}
+{% endblock %}
+
 {% block page_css %}
 <style>
 /* Catalog-specific overrides */

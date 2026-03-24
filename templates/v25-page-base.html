@@ -13,9 +13,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+{% block seo_head %}
 {% with skip_global_css=True %}
 {% include 'head_seo.html' %}
 {% endwith %}
+{% endblock %}
 
 <link rel="stylesheet" href="/static/css/v25-dark.css">
 <style>
