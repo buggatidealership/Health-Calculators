@@ -403,11 +403,11 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 96,
+            fontSize: 108,
             color: COLORS.text,
             textAlign: "center",
             lineHeight: 1.2,
-            marginBottom: 16,
+            marginBottom: 20,
             ...(inExit ? containerExit : realAnim),
           }}
         >
@@ -420,10 +420,10 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         <div
           style={{
             fontFamily: FONTS.sans,
-            fontSize: 50,
+            fontSize: 56,
             color: COLORS.textSecondary,
             textAlign: "center",
-            marginBottom: 16,
+            marginBottom: 20,
             ...(inExit ? containerExit : youAnim),
           }}
         >
@@ -436,10 +436,10 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 64,
+            fontSize: 76,
             color: COLORS.text,
             textAlign: "center",
-            marginTop: 32,
+            marginTop: 28,
             lineHeight: 1.35,
             ...(inExit ? containerExit : insightAnim),
           }}
