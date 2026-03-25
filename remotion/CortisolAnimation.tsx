@@ -168,7 +168,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
           position: "relative",
           width: 24,
           height: 24,
-          marginBottom: 80,
+          marginBottom: 60,
           ...(inExit ? dotExit : dotAnim),
         }}
       >
@@ -210,7 +210,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 144,
+          fontSize: 164,
           color: COLORS.text,
           letterSpacing: "-0.02em",
           lineHeight: 1.15,
@@ -229,7 +229,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 44,
+          fontSize: 52,
           color: COLORS.textSecondary,
           fontWeight: 400,
           letterSpacing: "0.03em",
@@ -296,7 +296,7 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 120,
+          fontSize: 136,
           textAlign: "center",
           lineHeight: 1.2,
           ...(inExit ? lineExit : lineAnim),
@@ -311,7 +311,7 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 152,
+          fontSize: 172,
           color: COLORS.accent,
           textAlign: "center",
           opacity: inExit ? whenExit.opacity : whenOpacity,
@@ -416,7 +416,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        padding: "100px 160px",
+        padding: "60px 90px",
         opacity: sceneOpacity(frame, T.scene3Start, T.scene3End),
       }}
     >
@@ -424,12 +424,12 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 36,
+          fontSize: 42,
           fontWeight: 600,
           color: COLORS.textSecondary,
           textTransform: "uppercase" as const,
           letterSpacing: "0.14em",
-          marginBottom: 24,
+          marginBottom: 20,
           ...(inExit ? titleExit : titleAnim),
         }}
       >
@@ -440,9 +440,9 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 76,
+          fontSize: 88,
           color: COLORS.text,
-          marginBottom: 72,
+          marginBottom: 52,
           textAlign: "center",
           lineHeight: 1.25,
           ...(inExit ? titleExit : act1LabelAnim),
@@ -456,11 +456,11 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         {local >= 126 && (
           <div
             style={{
-              fontSize: 42,
+              fontSize: 48,
               fontFamily: FONTS.sans,
               fontWeight: 500,
               color: COLORS.red,
-              marginTop: 20,
+              marginTop: 16,
               opacity: act2LabelOpacity,
               letterSpacing: "0.02em",
             }}
@@ -544,7 +544,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
             display: "flex",
             justifyContent: "space-between",
             padding: "20px 80px 0",
-            fontSize: 30,
+            fontSize: 36,
             color: COLORS.textSecondary,
             fontFamily: FONTS.sans,
             fontWeight: 500,
@@ -562,8 +562,8 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
             display: "flex",
             gap: 64,
             justifyContent: "center",
-            marginTop: 56,
-            fontSize: 34,
+            marginTop: 44,
+            fontSize: 40,
             fontFamily: FONTS.sans,
             fontWeight: 500,
             ...(inExit ? containerExit : legendAnim),
@@ -655,12 +655,12 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 38,
+          fontSize: 44,
           fontWeight: 600,
           color: COLORS.textSecondary,
           textTransform: "uppercase" as const,
           letterSpacing: "0.12em",
-          marginBottom: 36,
+          marginBottom: 28,
           ...(inExit ? labelExit : labelAnim),
         }}
       >
@@ -670,7 +670,7 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 300,
+          fontSize: 340,
           color: numColor,
           lineHeight: 1,
           opacity: inExit ? numExit.opacity : numOpacity,
@@ -683,9 +683,9 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 44,
+          fontSize: 50,
           color: COLORS.textSecondary,
-          marginTop: 12,
+          marginTop: 10,
           fontWeight: 500,
           ...(inExit ? unitExit : unitAnim),
         }}
@@ -698,7 +698,7 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
         style={{
           display: "flex",
           gap: 40,
-          marginTop: 88,
+          marginTop: 64,
         }}
       >
         {bars.map((bar, i) => {
@@ -744,7 +744,7 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
             >
               <div
                 style={{
-                  fontSize: 24,
+                  fontSize: 30,
                   color: COLORS.textSecondary,
                   fontFamily: FONTS.sans,
                   fontWeight: 600,
@@ -779,7 +779,7 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
               <div
                 style={{
                   fontFamily: FONTS.sans,
-                  fontSize: 34,
+                  fontSize: 40,
                   fontWeight: 700,
                   color: COLORS.text,
                   ...(barExit || barValueAnim),
@@ -791,7 +791,7 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
               <div
                 style={{
                   fontFamily: FONTS.sans,
-                  fontSize: 28,
+                  fontSize: 34,
                   color: `${bar.color}bb`,
                   fontWeight: 500,
                   textAlign: "center",
@@ -849,14 +849,14 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
           position: "relative",
           width: 20,
           height: 20,
-          marginBottom: 60,
+          marginBottom: 48,
           ...dotAnim,
         }}
       >
         <div
           style={{
-            width: 20,
-            height: 20,
+            width: 22,
+            height: 22,
             borderRadius: "50%",
             background: COLORS.accent,
             boxShadow: `0 0 16px rgba(232, 155, 62, 0.3)`,
@@ -879,11 +879,11 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 136,
+          fontSize: 156,
           color: COLORS.text,
           textAlign: "center",
           lineHeight: 1.15,
-          marginBottom: 80,
+          marginBottom: 64,
           ...questionAnim,
         }}
       >
@@ -893,11 +893,11 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 40,
+          fontSize: 46,
           color: COLORS.accent,
           fontWeight: 600,
           letterSpacing: "0.02em",
-          padding: "28px 72px",
+          padding: "28px 64px",
           border: `3px solid rgba(232, 155, 62, 0.25)`,
           borderRadius: 20,
           background: "rgba(232, 155, 62, 0.04)",
@@ -910,9 +910,9 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 30,
+          fontSize: 36,
           color: COLORS.textSecondary,
-          marginTop: 44,
+          marginTop: 36,
           letterSpacing: "0.04em",
           ...taglineAnim,
         }}
