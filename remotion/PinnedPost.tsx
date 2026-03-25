@@ -327,7 +327,7 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
           ...(inExit ? tagExit : tagAnim),
         }}
       >
-        Your numbers.
+        They give you numbers.
         <br />
         <span style={{ color: C.green }}>We give you the context.</span>
       </div>
@@ -475,17 +475,24 @@ const CalcCard: React.FC<CalcCardProps> = ({
   );
 };
 
-// --- Scene 8: The Frame ---
+// --- Scene 8: The Frame — with brand dot ---
 const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.frameStart;
-  const line1 = fadeUp(local, 8, 14);
-  const line2 = fadeUp(local, 30, 14);
-  const countAnim = fadeUp(local, 52, 12);
+  const dotAnim = fadeUp(local, 4, 10);
+  const line1 = fadeUp(local, 12, 14);
+  const line2 = fadeUp(local, 34, 14);
+  const countAnim = fadeUp(local, 56, 12);
+
+  // Green dot pulse
+  const pulsePhase = (local * 0.9) % 48;
+  const pulseScale = interpolate(pulsePhase, [0, 48], [1, 3.5], { extrapolateRight: "clamp" });
+  const pulseOpacity = interpolate(pulsePhase, [0, 48], [0.5, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
 
   const exitStart = 90;
   const inExit = local >= exitStart;
   const exit1 = fadeOut(local, exitStart, 10);
   const exit2 = fadeOut(local, exitStart + 3, 10);
+  const dotExit = fadeOut(local, exitStart, 10);
 
   return (
     <div
@@ -499,6 +506,14 @@ const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
         opacity: sceneOp(frame, T.frameStart, T.frameEnd),
       }}
     >
+      {/* Green brand dot */}
+      <div style={{ position: "relative", width: 22, height: 22, marginBottom: 48, ...(inExit ? dotExit : dotAnim) }}>
+        <div style={{ width: 22, height: 22, borderRadius: "50%", background: C.green, boxShadow: `0 0 18px rgba(110,200,155,0.35)` }} />
+        {local > 4 && (
+          <div style={{ position: "absolute", inset: -12, borderRadius: "50%", border: `3px solid ${C.green}`, opacity: pulseOpacity, transform: `scale(${pulseScale})` }} />
+        )}
+      </div>
+
       <div style={{ fontFamily: F.serif, fontSize: 108, color: C.text, textAlign: "center", lineHeight: 1.25, ...(inExit ? exit1 : line1) }}>
         Not just a number.
       </div>
