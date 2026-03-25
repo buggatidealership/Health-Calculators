@@ -85,3 +85,45 @@ for row in resp.rows:
     sessions = row.metric_values[0].value
     events = row.metric_values[1].value
     print(f"  {sessions:>4} sessions  {events:>4} events  {path}")
+
+# 6. Calculator completion RATE — visits vs completions
+print("\n--- CALCULATOR COMPLETION RATE ---\n")
+print("  (visits → completions → rate)\n")
+
+# Get all calculator page visits
+resp_visits = run(["pagePath"], ["sessions"], limit=100)
+visit_map = {}
+for row in resp_visits.rows:
+    path = row.dimension_values[0].value
+    if path.endswith("-calculator") or "calculator" in path:
+        visit_map[path] = int(row.metric_values[0].value)
+
+# Get completions per page
+resp_comp = run(["pagePath"], ["eventCount"], "eventName", "calculator_complete", limit=100)
+comp_map = {}
+for row in resp_comp.rows:
+    comp_map[row.dimension_values[0].value] = int(row.metric_values[0].value)
+
+# Merge and calculate rate
+calc_data = []
+for path, visits in visit_map.items():
+    completions = comp_map.get(path, 0)
+    rate = (completions / visits * 100) if visits > 0 else 0
+    calc_data.append((path, visits, completions, rate))
+
+# Sort by visits (most trafficked first)
+calc_data.sort(key=lambda x: x[1], reverse=True)
+for path, visits, completions, rate in calc_data[:15]:
+    bar = "█" * int(rate / 5) if rate > 0 else "·"
+    flag = " ← LOW" if visits >= 3 and rate < 10 else ""
+    print(f"  {visits:>3} visits  {completions:>2} complete  {rate:>5.1f}%  {bar}  {path}{flag}")
+
+# Promoted calculators specifically
+print("\n--- PROMOTED CALCULATOR PERFORMANCE ---\n")
+promoted = ["/cortisol-stress-assessment", "/caffeine-half-life-calculator", "/protein-intake-calculator"]
+for path in promoted:
+    visits = visit_map.get(path, 0)
+    completions = comp_map.get(path, 0)
+    rate = (completions / visits * 100) if visits > 0 else 0
+    status = "NO TRAFFIC" if visits == 0 else f"{visits} visits → {completions} completions ({rate:.0f}%)"
+    print(f"  {path}: {status}")
