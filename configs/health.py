@@ -1795,6 +1795,7 @@ CORTISOL_STRESS_ASSESSMENT = {
         "meta_description": "Assess your cortisol stress levels with our evidence-based calculator. Combines validated stress assessment with sleep, caffeine, exercise, and lifestyle factors.",
         "og_title": "What's your cortisol stress score?",
         "og_description": "Assess your cortisol stress levels with our evidence-based calculator. Combines validated stress assessment with sleep, caffeine, exercise, and lifestyle factors.",
+        "og_image": "cortisol-stress-assessment-og.png",
         "schema_type": "WebPage",
         "schema_name": "Cortisol & Stress Assessment Calculator",
         "schema_description": "Evidence-based cortisol and stress assessment combining PSS-10 stress perception, lifestyle risk factors, and symptom screening to identify chronic stress patterns.",
