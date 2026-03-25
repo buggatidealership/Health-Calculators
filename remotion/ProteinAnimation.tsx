@@ -318,37 +318,33 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Scene 3: The Reframe — Words first, numbers supporting ---
+// --- Scene 3: The Problem — You're chasing the wrong number ---
 const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene3Start;
 
   // Step 1: "PROTEIN" label
   const labelAnim = fadeUp(local, 6, 12);
 
-  // Step 2: "The 1g per pound rule?" — pause
-  const ruleDelay = 42;
-  const ruleAnim = fadeUp(local, ruleDelay, 14);
+  // Step 2: "The internet says 175g." — what they've been told
+  const toldDelay = 36;
+  const toldAnim = fadeUp(local, toldDelay, 14);
 
-  // Step 3: "That's a supplement industry number." — 1.5s pause
-  const mythDelay = ruleDelay + 45;
-  const mythAnim = fadeUp(local, mythDelay, 14);
+  // Step 3: "The research says ~100g." — the correction (pause for realization)
+  const realDelay = toldDelay + 48;
+  const realAnim = fadeUp(local, realDelay, 14);
 
-  // Dim the rule text when myth appears
-  const ruleDim = interpolate(local, [mythDelay, mythDelay + 14], [1, 0.35], {
+  // Dim the first line
+  const toldDim = interpolate(local, [realDelay, realDelay + 14], [1, 0.35], {
     extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
   });
 
-  // Step 4: The real answer — in words, not math
-  const answerDelay = mythDelay + 48;
-  const answerAnim = fadeUp(local, answerDelay, 16);
+  // Step 4: "You're probably eating 70g already." — where they actually are
+  const youDelay = realDelay + 48;
+  const youAnim = fadeUp(local, youDelay, 14);
 
-  // Step 5: Supporting number — smaller, confirming
-  const numDelay = answerDelay + 42;
-  const numAnim = fadeUp(local, numDelay, 12);
-
-  // Step 6: Framework insight — the takeaway
-  const insightDelay = numDelay + 36;
+  // Step 5: Framework insight — the gap reframe
+  const insightDelay = youDelay + 48;
   const insightAnim = fadeUp(local, insightDelay, 16);
 
   // Exit
@@ -386,96 +382,76 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         Protein
       </div>
 
-      {/* "The 1g per pound rule?" */}
+      {/* "The internet says 175g." */}
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 112,
+          fontSize: 96,
           color: COLORS.text,
           textAlign: "center",
           lineHeight: 1.2,
-          marginBottom: 20,
-          opacity: inExit ? labelExit.opacity : ruleAnim.opacity * ruleDim,
-          transform: inExit ? labelExit.transform : ruleAnim.transform,
+          marginBottom: 16,
+          opacity: inExit ? labelExit.opacity : toldAnim.opacity * toldDim,
+          transform: inExit ? labelExit.transform : toldAnim.transform,
         }}
       >
-        The 1g per pound rule?
+        The internet says <span style={{ color: COLORS.accent }}>175g</span>.
       </div>
 
-      {/* "That's a supplement industry number." */}
-      {local >= mythDelay && (
-        <div
-          style={{
-            fontFamily: FONTS.sans,
-            fontSize: 56,
-            color: COLORS.accent,
-            fontWeight: 500,
-            textAlign: "center",
-            letterSpacing: "0.02em",
-            marginBottom: 48,
-            ...(inExit ? containerExit : mythAnim),
-          }}
-        >
-          That's a supplement industry number.
-        </div>
-      )}
-
-      {/* The real answer — words first */}
-      {local >= answerDelay && (
+      {/* "The research says ~100g." */}
+      {local >= realDelay && (
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 88,
+            fontSize: 96,
             color: COLORS.text,
             textAlign: "center",
-            lineHeight: 1.3,
-            marginBottom: 32,
-            ...(inExit ? containerExit : answerAnim),
+            lineHeight: 1.2,
+            marginBottom: 16,
+            ...(inExit ? containerExit : realAnim),
           }}
         >
-          The real target is about{" "}
-          <span style={{ color: COLORS.green }}>half</span> of that.
+          The research says <span style={{ color: COLORS.green }}>~100g</span>.
         </div>
       )}
 
-      {/* Supporting number — smaller, confirming */}
-      {local >= numDelay && (
+      {/* "You're probably eating 70g already." */}
+      {local >= youDelay && (
         <div
           style={{
             fontFamily: FONTS.sans,
-            fontSize: 42,
+            fontSize: 50,
             color: COLORS.textSecondary,
             textAlign: "center",
-            ...(inExit ? containerExit : numAnim),
+            marginBottom: 16,
+            ...(inExit ? containerExit : youAnim),
           }}
         >
-          For a 175 lb person: <span style={{ color: COLORS.green, fontWeight: 700 }}>~98g</span> per day, not 175g
+          You're probably eating 70g already.
         </div>
       )}
 
-      {/* Framework insight — the takeaway */}
+      {/* Framework insight — the gap */}
       {local >= insightDelay && (
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 56,
+            fontSize: 64,
             color: COLORS.text,
             textAlign: "center",
-            marginTop: 40,
+            marginTop: 32,
             lineHeight: 1.35,
             ...(inExit ? containerExit : insightAnim),
           }}
         >
-          You might already be eating enough.
+          That's <span style={{ color: COLORS.green }}>one protein shake</span> away.
         </div>
       )}
-
-      {/* Old insight removed — new Scene 3 has its own */}
     </div>
   );
 };
 
-// --- Scene 4: The Comparison — Visual bar chart ---
+// --- Scene 4: The Permission — You might already be close ---
 const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene4Start;
 
@@ -486,13 +462,13 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
     {
       label: "What the internet says",
       value: "175g",
-      width: 92,    // percentage of max width
+      width: 92,
       color: COLORS.accent,
       delay: 30,
     },
     {
       label: "What the research says",
-      value: "98g",
+      value: "~100g",
       width: 56,
       color: COLORS.green,
       delay: 66,
@@ -655,7 +631,7 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
             ...(inExit ? containerExit : insightAnim),
           }}
         >
-          The gap is smaller than you think.
+          You're closer than you think.
         </div>
       )}
     </div>
