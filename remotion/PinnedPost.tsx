@@ -21,7 +21,7 @@ const F = {
   sans: "'Inter', -apple-system, sans-serif",
 };
 
-// --- Timing: ~42s = 1260 frames at 30fps ---
+// --- Timing: ~44s = 1320 frames at 30fps ---
 // Scene 1: The Noise (0-6.5s) — slow start, accelerating chaos
 // Scene 2: The Cut (7-11s) — "Opinions everywhere. Numbers everywhere. Answers nowhere."
 // Scene 3: The Pulse (11-16s) — green dot + tagline bridge (EXTENDED for breathing room)
@@ -37,17 +37,17 @@ const T = {
   pulseStart: 336,
   pulseEnd: 480,        // 16s — extended +1.5s for breathing
   calc1Start: 488,
-  calc1End: 625,        // ~20.8s — 4.6s each for progressive rollout
-  calc2Start: 633,
-  calc2End: 770,        // ~25.7s
-  calc3Start: 778,
-  calc3End: 915,        // ~30.5s
-  calc4Start: 923,
-  calc4End: 1050,       // 35s
-  frameStart: 1058,
-  frameEnd: 1170,       // 39s
-  ctaStart: 1178,
-  ctaEnd: 1260,         // 42s
+  calc1End: 640,        // ~21.3s — 5s each, more hold after insight
+  calc2Start: 648,
+  calc2End: 800,        // ~26.7s
+  calc3Start: 808,
+  calc3End: 960,        // 32s
+  calc4Start: 968,
+  calc4End: 1110,       // 37s
+  frameStart: 1118,
+  frameEnd: 1230,       // 41s
+  ctaStart: 1238,
+  ctaEnd: 1320,         // 44s
 };
 
 // --- Helpers ---
@@ -367,13 +367,14 @@ const CalcCard: React.FC<CalcCardProps> = ({
   // PAUSE — let the job land (~1s)
   const questionAnim = fadeUp(local, 42, 14);     // Question after the beat
   // PAUSE — question sinks in
-  const resultLabelAnim = fadeUp(local, 62, 10);  // Result label
-  const resultAnim = fadeUp(local, 68, 14);       // Number scales in
-  const ctxAnim = fadeUp(local, 82, 10);          // Context detail
+  const resultLabelAnim = fadeUp(local, 60, 10);  // Result label
+  const resultAnim = fadeUp(local, 66, 14);       // Number scales in
+  const ctxAnim = fadeUp(local, 78, 10);          // Context detail
   // PAUSE — absorb the number
-  const insightAnim = fadeUp(local, 98, 12);      // Framework insight last
+  const insightAnim = fadeUp(local, 96, 14);      // Framework insight — the learning
 
-  const exitStart = end - start - 18;
+  // HOLD — let everything breathe before exit (extended)
+  const exitStart = end - start - 14;
   const inExit = local >= exitStart;
   const catExit = fadeOut(local, exitStart, 8);
   const jobExit = fadeOut(local, exitStart + 1, 8);
@@ -426,37 +427,37 @@ const CalcCard: React.FC<CalcCardProps> = ({
         {questionLine}
       </div>
 
-      {/* Result block */}
+      {/* Result block — number is supporting, not hero */}
       <div style={{
-        display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
+        display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
       }}>
         <div style={{
-          fontFamily: F.sans, fontSize: 26, color: C.dim, fontWeight: 500,
+          fontFamily: F.sans, fontSize: 24, color: C.dim, fontWeight: 500,
           textTransform: "uppercase" as const, letterSpacing: "0.1em",
           ...(inExit ? resultExit : resultLabelAnim),
         }}>
           {resultLabel}
         </div>
         <div style={{
-          fontFamily: F.serif, fontSize: 168, color: resultColor, lineHeight: 1,
+          fontFamily: F.serif, fontSize: 120, color: resultColor, lineHeight: 1,
           transform: `scale(${inExit ? 1 : resultScale})`,
           ...(inExit ? { opacity: resultExit.opacity } : { opacity: resultAnim.opacity }),
         }}>
           {resultValue}
         </div>
         <div style={{
-          fontFamily: F.sans, fontSize: 32, color: C.dim, fontWeight: 400,
+          fontFamily: F.sans, fontSize: 28, color: C.dim, fontWeight: 400,
           textAlign: "center", ...(inExit ? ctxExit : ctxAnim),
         }}>
           {context}
         </div>
       </div>
 
-      {/* Framework insight — the "so what" */}
+      {/* Framework insight — the LEARNING, visually prominent */}
       <div style={{
-        fontFamily: F.sans, fontSize: 30, color: `${resultColor}bb`,
-        fontWeight: 500, textAlign: "center", marginTop: 40,
-        maxWidth: 1400, lineHeight: 1.5,
+        fontFamily: F.serif, fontSize: 48, color: C.text,
+        fontWeight: 400, textAlign: "center", marginTop: 48,
+        maxWidth: 1500, lineHeight: 1.4, letterSpacing: "-0.01em",
         ...(inExit ? insightExit : insightAnim),
       }}>
         {insight}
@@ -496,7 +497,7 @@ const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
         A way to think about it.
       </div>
       <div style={{ fontFamily: F.sans, fontSize: 38, color: C.dim, marginTop: 52, fontWeight: 500, letterSpacing: "0.04em", ...(inExit ? exit2 : countAnim) }}>
-        Nutrition · Fitness · Medications · Lifestyle · Longevity
+        Nutrition · Fitness · Health · Lifestyle · Longevity
       </div>
     </div>
   );
@@ -604,27 +605,27 @@ export const PinnedPost: React.FC = () => {
         start={T.calc3Start}
         end={T.calc3End}
         category="Fitness"
-        jobLine="BMI says you're overweight."
-        questionLine="But what does your body actually say?"
-        resultLabel="Body fat"
-        resultValue="22%"
+        jobLine="Not seeing gym results?"
+        questionLine="You're probably eating half the protein you need."
+        resultLabel="Your daily target"
+        resultValue="132g"
         resultColor={C.accent}
-        context="Navy method · athletic range"
-        insight="Same person. Different metric. Different answer."
+        context="0.82g per lb · 161 lb · strength training"
+        insight="The difference between progress and spinning your wheels is 60 grams of protein."
       />
 
       <CalcCard
         frame={frame}
         start={T.calc4Start}
         end={T.calc4End}
-        category="Medications"
-        jobLine="Starting semaglutide?"
-        questionLine="Here's what 3,731 patients saw at 6 months."
-        resultLabel="Projected loss"
-        resultValue="-32 lb"
+        category="Health"
+        jobLine="Always tired?"
+        questionLine="Your vitamin D level might explain it."
+        resultLabel="Your level"
+        resultValue="18 ng"
         resultColor={C.red}
-        context="STEP 1 trial · semaglutide 2.4 mg"
-        insight="Not a promise. A projection you can plan around."
+        context="Deficient · optimal range is 30-50 ng/mL"
+        insight="42% of Americans are deficient. Most don't know."
       />
 
       <SceneFrame frame={frame} />
