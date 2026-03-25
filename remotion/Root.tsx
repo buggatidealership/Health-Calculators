@@ -34,7 +34,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="caffeine-animation"
         component={CaffeineAnimation}
-        durationInFrames={900}
+        durationInFrames={960}
         fps={30}
         width={2160}
         height={2160}

@@ -22,7 +22,7 @@ const FONTS = {
 };
 
 // --- Timing (in frames at 30fps) ---
-// Total: 30s = 900 frames
+// Total: 32s = 960 frames
 const T = {
   scene1Start: 0,
   scene1End: 155,     // ~5.2s — recognition hook
@@ -31,9 +31,9 @@ const T = {
   scene3Start: 318,
   scene3End: 600,     // 20s — the decay curve (core teaching)
   scene4Start: 608,
-  scene4End: 760,     // ~25.3s — the rule / timeline
-  scene5Start: 768,
-  scene5End: 900,     // 30s — CTA
+  scene4End: 820,     // ~27.3s — the rule / timeline (extended for reading)
+  scene5Start: 828,
+  scene5End: 960,     // 32s — CTA
 };
 
 // --- Helpers (same patterns as cortisol) ---
@@ -255,7 +255,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
           ...(inExit ? textExit : textAnim),
         }}
       >
-        Your brain won't shut off at midnight?
+        Can't sleep?
       </div>
 
       <Divider
@@ -279,7 +279,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Scene 2: The Reframe — "It's not the coffee. It's the half-life." ---
+// --- Scene 2: The Reframe — "It's not the coffee. It's when you drank it." ---
 const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene2Start;
   const lineAnim = fadeUp(local, 10, 16);
@@ -355,7 +355,7 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
             : `translateY(${flipY}px) scale(${flipScale})`,
         }}
       >
-        It's the <em>half-life</em>.
+        It's <em>when</em> you drank it.
       </div>
     </div>
   );
@@ -589,7 +589,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
                 fontWeight="500"
                 opacity={ann1Opacity * 0.8}
               >
-                still 50% (47mg)
+                Half your coffee is still active
               </text>
             </>
           )}
@@ -636,7 +636,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
                 opacity={ann2Opacity * 0.8}
                 textAnchor="end"
               >
-                still 25% (24mg)
+                A quarter still blocking sleep
               </text>
             </>
           )}
@@ -675,7 +675,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
           ...(inExit ? containerExit : insightAnim),
         }}
       >
-        Half-life: 5.7 hours. Your body is not a thermos.
+"I sleep fine after coffee" is a feeling. This is the math.
       </div>
     </div>
   );
@@ -709,7 +709,8 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
   const example2Delay = 96;
   const example2Anim = fadeUp(local, example2Delay, 14);
 
-  const exitStart = 122;
+  // Extended exit — give examples time to be read
+  const exitStart = 180;
   const labelExit = fadeOut(local, exitStart, 10);
   const ruleExit = fadeOut(local, exitStart + 3, 10);
   const inExit = local >= exitStart;
