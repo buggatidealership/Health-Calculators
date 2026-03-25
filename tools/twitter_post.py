@@ -98,8 +98,22 @@ def upload_video(file_path):
     return media_id
 
 
+def tag_urls(text, campaign="organic", medium="social", content=None):
+    """Auto-append UTM params to any healthcalculators.xyz URL in the text."""
+    import re
+    def add_utms(match):
+        url = match.group(0)
+        sep = "&" if "?" in url else "?"
+        utms = f"{sep}utm_source=twitter&utm_medium={medium}&utm_campaign={campaign}"
+        if content:
+            utms += f"&utm_content={content}"
+        return url + utms
+    return re.sub(r'healthcalculators\.xyz/[^\s]+', add_utms, text)
+
+
 def post_tweet(text, media_id=None, reply_to=None):
-    """Post a tweet via v2 API."""
+    """Post a tweet via v2 API. Auto-tags healthcalculators.xyz URLs with UTMs."""
+    text = tag_urls(text)
     payload = {"text": text}
     if media_id:
         payload["media"] = {"media_ids": [media_id]}
