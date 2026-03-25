@@ -21,13 +21,13 @@ const F = {
   sans: "'Inter', -apple-system, sans-serif",
 };
 
-// --- Timing: ~36s = 1080 frames at 30fps ---
+// --- Timing: ~42s = 1260 frames at 30fps ---
 // Scene 1: The Noise (0-6.5s) — slow start, accelerating chaos
 // Scene 2: The Cut (7-11s) — "Opinions everywhere. Numbers everywhere. Answers nowhere."
-// Scene 3: The Pulse (11-14.5s) — green dot + tagline bridge
-// Scene 4-7: Calculator showcase (15-29s) — 4 calculators, ~3.5s each
-// Scene 8: The Frame (29-33s) — positioning
-// Scene 9: CTA (33-36s) — brand dot + URL + Pulse tease
+// Scene 3: The Pulse (11-16s) — green dot + tagline bridge (EXTENDED for breathing room)
+// Scene 4-7: Calculator showcase (16.5-35s) — 4 calculators, ~4.6s each (progressive rollout)
+// Scene 8: The Frame (35.5-39s) — positioning
+// Scene 9: CTA (39-42s) — brand dot + URL + Pulse tease
 
 const T = {
   noiseStart: 0,
@@ -35,19 +35,19 @@ const T = {
   cutStart: 204,
   cutEnd: 330,          // 11s
   pulseStart: 336,
-  pulseEnd: 435,        // 14.5s
-  calc1Start: 441,
-  calc1End: 546,        // 18.2s
-  calc2Start: 552,
-  calc2End: 657,        // 21.9s
-  calc3Start: 663,
-  calc3End: 768,        // 25.6s
-  calc4Start: 774,
-  calc4End: 870,        // 29s
-  frameStart: 876,
-  frameEnd: 990,        // 33s
-  ctaStart: 996,
-  ctaEnd: 1080,         // 36s
+  pulseEnd: 480,        // 16s — extended +1.5s for breathing
+  calc1Start: 488,
+  calc1End: 625,        // ~20.8s — 4.6s each for progressive rollout
+  calc2Start: 633,
+  calc2End: 770,        // ~25.7s
+  calc3Start: 778,
+  calc3End: 915,        // ~30.5s
+  calc4Start: 923,
+  calc4End: 1050,       // 35s
+  frameStart: 1058,
+  frameEnd: 1170,       // 39s
+  ctaStart: 1178,
+  ctaEnd: 1260,         // 42s
 };
 
 // --- Helpers ---
@@ -264,7 +264,7 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
   const tagAnim = fadeUp(local, 20, 16);
   const subAnim = fadeUp(local, 42, 14);
 
-  const exitStart = 72;
+  const exitStart = 114; // extended hold
   const inExit = local >= exitStart;
   const dotExit = fadeOut(local, exitStart, 10);
   const tagExit = fadeOut(local, exitStart + 3, 10);
@@ -341,13 +341,14 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Calculator Card ---
+// --- Calculator Card — progressive rollout like cortisol animation ---
 interface CalcCardProps {
   frame: number;
   start: number;
   end: number;
   category: string;
-  question: string;
+  jobLine: string;         // JTBD hook — the job they're trying to get done
+  questionLine: string;    // The specific question
   resultLabel: string;
   resultValue: string;
   resultColor: string;
@@ -356,23 +357,32 @@ interface CalcCardProps {
 }
 
 const CalcCard: React.FC<CalcCardProps> = ({
-  frame, start, end, category, question, resultLabel, resultValue, resultColor, context, insight,
+  frame, start, end, category, jobLine, questionLine, resultLabel, resultValue, resultColor, context, insight,
 }) => {
   const local = frame - start;
+
+  // Progressive rollout — each element gets its own beat
   const catAnim = fadeUp(local, 6, 10);
-  const qAnim = fadeUp(local, 14, 14);
-  const resultAnim = fadeUp(local, 30, 12);
-  const ctxAnim = fadeUp(local, 42, 10);
-  const insightAnim = fadeUp(local, 54, 10);
+  const jobAnim = fadeUp(local, 14, 14);         // Job line appears first
+  // PAUSE — let the job land (~1s)
+  const questionAnim = fadeUp(local, 42, 14);     // Question after the beat
+  // PAUSE — question sinks in
+  const resultLabelAnim = fadeUp(local, 62, 10);  // Result label
+  const resultAnim = fadeUp(local, 68, 14);       // Number scales in
+  const ctxAnim = fadeUp(local, 82, 10);          // Context detail
+  // PAUSE — absorb the number
+  const insightAnim = fadeUp(local, 98, 12);      // Framework insight last
 
   const exitStart = end - start - 18;
   const inExit = local >= exitStart;
   const catExit = fadeOut(local, exitStart, 8);
+  const jobExit = fadeOut(local, exitStart + 1, 8);
   const qExit = fadeOut(local, exitStart + 2, 8);
   const resultExit = fadeOut(local, exitStart + 3, 8);
   const ctxExit = fadeOut(local, exitStart + 4, 8);
+  const insightExit = fadeOut(local, exitStart + 5, 8);
 
-  const resultScale = interpolate(local, [30, 42], [0.85, 1], {
+  const resultScale = interpolate(local, [68, 82], [0.85, 1], {
     extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.3)),
   });
 
@@ -386,42 +396,69 @@ const CalcCard: React.FC<CalcCardProps> = ({
         alignItems: "center",
         justifyContent: "center",
         opacity: sceneOp(frame, start, end),
-        padding: "160px",
+        padding: "140px 160px",
       }}
     >
-      <div style={{ fontFamily: F.sans, fontSize: 30, fontWeight: 600, color: C.dim, textTransform: "uppercase" as const, letterSpacing: "0.14em", marginBottom: 24, ...(inExit ? catExit : catAnim) }}>
+      {/* Category — bigger for range signal */}
+      <div style={{
+        fontFamily: F.sans, fontSize: 38, fontWeight: 700, color: resultColor,
+        textTransform: "uppercase" as const, letterSpacing: "0.16em",
+        marginBottom: 32, ...(inExit ? catExit : catAnim),
+      }}>
         {category}
       </div>
 
-      <div style={{ fontFamily: F.serif, fontSize: 76, color: C.text, textAlign: "center", lineHeight: 1.2, marginBottom: 56, ...(inExit ? qExit : qAnim) }}>
-        {question}
+      {/* JTBD hook — the job they're trying to get done */}
+      <div style={{
+        fontFamily: F.serif, fontSize: 84, color: C.text,
+        textAlign: "center", lineHeight: 1.2,
+        marginBottom: 12, ...(inExit ? jobExit : jobAnim),
+      }}>
+        {jobLine}
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, ...(inExit ? resultExit : resultAnim) }}>
-        <div style={{ fontFamily: F.sans, fontSize: 26, color: C.dim, fontWeight: 500, textTransform: "uppercase" as const, letterSpacing: "0.1em" }}>
+      {/* Specific question — appears after a beat */}
+      <div style={{
+        fontFamily: F.sans, fontSize: 40, color: C.dim,
+        fontWeight: 400, textAlign: "center", lineHeight: 1.4,
+        marginBottom: 48, ...(inExit ? qExit : questionAnim),
+      }}>
+        {questionLine}
+      </div>
+
+      {/* Result block */}
+      <div style={{
+        display: "flex", flexDirection: "column", alignItems: "center", gap: 10,
+      }}>
+        <div style={{
+          fontFamily: F.sans, fontSize: 26, color: C.dim, fontWeight: 500,
+          textTransform: "uppercase" as const, letterSpacing: "0.1em",
+          ...(inExit ? resultExit : resultLabelAnim),
+        }}>
           {resultLabel}
         </div>
-        <div style={{ fontFamily: F.serif, fontSize: 172, color: resultColor, lineHeight: 1, transform: `scale(${inExit ? 1 : resultScale})` }}>
+        <div style={{
+          fontFamily: F.serif, fontSize: 168, color: resultColor, lineHeight: 1,
+          transform: `scale(${inExit ? 1 : resultScale})`,
+          ...(inExit ? { opacity: resultExit.opacity } : { opacity: resultAnim.opacity }),
+        }}>
           {resultValue}
         </div>
-        <div style={{ fontFamily: F.sans, fontSize: 34, color: C.dim, fontWeight: 400, textAlign: "center", ...(inExit ? ctxExit : ctxAnim) }}>
+        <div style={{
+          fontFamily: F.sans, fontSize: 32, color: C.dim, fontWeight: 400,
+          textAlign: "center", ...(inExit ? ctxExit : ctxAnim),
+        }}>
           {context}
         </div>
       </div>
 
-      <div
-        style={{
-          fontFamily: F.sans,
-          fontSize: 32,
-          color: `${resultColor}bb`,
-          fontWeight: 500,
-          textAlign: "center",
-          marginTop: 44,
-          maxWidth: 1400,
-          lineHeight: 1.5,
-          ...(inExit ? ctxExit : insightAnim),
-        }}
-      >
+      {/* Framework insight — the "so what" */}
+      <div style={{
+        fontFamily: F.sans, fontSize: 30, color: `${resultColor}bb`,
+        fontWeight: 500, textAlign: "center", marginTop: 40,
+        maxWidth: 1400, lineHeight: 1.5,
+        ...(inExit ? insightExit : insightAnim),
+      }}>
         {insight}
       </div>
     </div>
@@ -539,12 +576,13 @@ export const PinnedPost: React.FC = () => {
         start={T.calc1Start}
         end={T.calc1End}
         category="Nutrition"
-        question="You're eating 1,800 calories. But how many are you burning?"
+        jobLine="Trying to lose weight?"
+        questionLine="The gap between what you eat and what you burn is your answer."
         resultLabel="Your daily burn"
         resultValue="2,340"
         resultColor={C.green}
         context="Mifflin-St Jeor · moderately active · 5'10, 172 lb"
-        insight="That 540-calorie gap? That's 1 lb per week. No guessing."
+        insight="540-calorie deficit = 1 lb per week. No guessing."
       />
 
       <CalcCard
@@ -552,11 +590,12 @@ export const PinnedPost: React.FC = () => {
         start={T.calc2Start}
         end={T.calc2End}
         category="Lifestyle"
-        question="When should your last coffee be?"
+        jobLine="Can't fall asleep?"
+        questionLine="Your 2 PM coffee is still half-active at 8 PM."
         resultLabel="Caffeine half-life"
         resultValue="5.7h"
         resultColor={C.teal}
-        context="Last cup at 2 PM → 50% still active at 7:42 PM"
+        context="Last cup at 2:00 PM → 50% remaining at 7:42 PM"
         insight={'"I sleep fine after coffee" is a feeling. This is the math.'}
       />
 
@@ -565,12 +604,13 @@ export const PinnedPost: React.FC = () => {
         start={T.calc3Start}
         end={T.calc3End}
         category="Fitness"
-        question="BMI says overweight. But what does your body actually say?"
+        jobLine="BMI says you're overweight."
+        questionLine="But what does your body actually say?"
         resultLabel="Body fat"
         resultValue="22%"
         resultColor={C.accent}
         context="Navy method · athletic range"
-        insight="Same person. Different frame. Different answer."
+        insight="Same person. Different metric. Different answer."
       />
 
       <CalcCard
@@ -578,11 +618,12 @@ export const PinnedPost: React.FC = () => {
         start={T.calc4Start}
         end={T.calc4End}
         category="Medications"
-        question="On semaglutide. What can you realistically expect?"
-        resultLabel="Projected at 6 months"
+        jobLine="Starting semaglutide?"
+        questionLine="Here's what 3,731 patients saw at 6 months."
+        resultLabel="Projected loss"
         resultValue="-32 lb"
         resultColor={C.red}
-        context="Based on 3,731 patients · STEP 1 trial data"
+        context="STEP 1 trial · semaglutide 2.4 mg"
         insight="Not a promise. A projection you can plan around."
       />
 
