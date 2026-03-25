@@ -329,7 +329,7 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
       >
         Your numbers.
         <br />
-        <span style={{ color: C.green }}>What they actually mean in context.</span>
+        <span style={{ color: C.green }}>We give you the context.</span>
       </div>
 
       <div
@@ -406,7 +406,7 @@ const CalcCard: React.FC<CalcCardProps> = ({
         alignItems: "center",
         justifyContent: "center",
         opacity: sceneOp(frame, start, end),
-        padding: "80px 100px",
+        padding: "80px 100px 120px",
       }}
     >
       {/* Category — bigger for range signal */}
