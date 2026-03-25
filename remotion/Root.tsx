@@ -4,6 +4,8 @@ import { PinnedPost } from "./PinnedPost";
 import { CortisolOG } from "./CortisolOG";
 import { CaffeineAnimation } from "./CaffeineAnimation";
 import { ProteinAnimation } from "./ProteinAnimation";
+import { VitaminDA } from "./VitaminDA";
+import { VitaminDB } from "./VitaminDB";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -44,6 +46,22 @@ export const RemotionRoot: React.FC = () => {
         id="protein-animation"
         component={ProteinAnimation}
         durationInFrames={1000}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="vitamin-d-A"
+        component={VitaminDA}
+        durationInFrames={900}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="vitamin-d-B"
+        component={VitaminDB}
+        durationInFrames={960}
         fps={30}
         width={2160}
         height={2160}
