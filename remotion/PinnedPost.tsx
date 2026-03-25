@@ -21,13 +21,13 @@ const F = {
   sans: "'Inter', -apple-system, sans-serif",
 };
 
-// --- Timing: ~44s = 1320 frames at 30fps ---
+// --- Timing: ~40s = 1200 frames at 30fps ---
 // Scene 1: The Noise (0-6.5s) — slow start, accelerating chaos
 // Scene 2: The Cut (7-11s) — "Opinions everywhere. Numbers everywhere. Answers nowhere."
-// Scene 3: The Pulse (11-16s) — green dot + tagline bridge (EXTENDED for breathing room)
-// Scene 4-7: Calculator showcase (16.5-35s) — 4 calculators, ~4.6s each (progressive rollout)
-// Scene 8: The Frame (35.5-39s) — positioning
-// Scene 9: CTA (39-42s) — brand dot + URL + Pulse tease
+// Scene 3: The Pulse (11-16s) — green dot + tagline bridge
+// Scene 4-6: Calculator showcase (16.5-34.5s) — 3 calculators, 6s each (more breathing)
+// Scene 7: The Frame (35-38.5s) — positioning
+// Scene 8: CTA (39-40s) — brand dot + URL + Pulse tease
 
 const T = {
   noiseStart: 0,
@@ -35,19 +35,17 @@ const T = {
   cutStart: 204,
   cutEnd: 330,          // 11s
   pulseStart: 336,
-  pulseEnd: 480,        // 16s — extended +1.5s for breathing
+  pulseEnd: 480,        // 16s
   calc1Start: 488,
-  calc1End: 640,        // ~21.3s — 5s each, more hold after insight
-  calc2Start: 648,
-  calc2End: 800,        // ~26.7s
-  calc3Start: 808,
-  calc3End: 960,        // 32s
-  calc4Start: 968,
-  calc4End: 1110,       // 37s
-  frameStart: 1118,
-  frameEnd: 1230,       // 41s
-  ctaStart: 1238,
-  ctaEnd: 1320,         // 44s
+  calc1End: 668,        // ~22.3s — 6s per card, room to breathe
+  calc2Start: 676,
+  calc2End: 856,        // ~28.5s
+  calc3Start: 864,
+  calc3End: 1035,       // ~34.5s
+  frameStart: 1042,
+  frameEnd: 1140,       // 38s
+  ctaStart: 1148,
+  ctaEnd: 1200,         // 40s
 };
 
 // --- Helpers ---
@@ -576,20 +574,6 @@ export const PinnedPost: React.FC = () => {
         frame={frame}
         start={T.calc1Start}
         end={T.calc1End}
-        category="Nutrition"
-        jobLine="Trying to lose weight?"
-        questionLine="The gap between what you eat and what you burn is your answer."
-        resultLabel="Your daily burn"
-        resultValue="2,340"
-        resultColor={C.green}
-        context="Mifflin-St Jeor · moderately active · 5'10, 172 lb"
-        insight="540-calorie deficit = 1 lb per week. No guessing."
-      />
-
-      <CalcCard
-        frame={frame}
-        start={T.calc2Start}
-        end={T.calc2End}
         category="Lifestyle"
         jobLine="Can't fall asleep?"
         questionLine="Your 2 PM coffee is still half-active at 8 PM."
@@ -602,8 +586,8 @@ export const PinnedPost: React.FC = () => {
 
       <CalcCard
         frame={frame}
-        start={T.calc3Start}
-        end={T.calc3End}
+        start={T.calc2Start}
+        end={T.calc2End}
         category="Fitness"
         jobLine="Not seeing gym results?"
         questionLine="You're probably eating half the protein you need."
@@ -611,20 +595,20 @@ export const PinnedPost: React.FC = () => {
         resultValue="132g"
         resultColor={C.accent}
         context="0.82g per lb · 161 lb · strength training"
-        insight="The difference between progress and spinning your wheels is 60 grams of protein."
+        insight="You're not under-training. You're under-eating."
       />
 
       <CalcCard
         frame={frame}
-        start={T.calc4Start}
-        end={T.calc4End}
+        start={T.calc3Start}
+        end={T.calc3End}
         category="Health"
         jobLine="Always tired?"
         questionLine="Your vitamin D level might explain it."
         resultLabel="Your level"
         resultValue="18 ng"
         resultColor={C.red}
-        context="Deficient · optimal range is 30-50 ng/mL"
+        context="Deficient · optimal range is 30–50 ng/mL"
         insight="42% of Americans are deficient. Most don't know."
       />
 

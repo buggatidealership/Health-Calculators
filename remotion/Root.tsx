@@ -16,7 +16,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="pinned-post"
         component={PinnedPost}
-        durationInFrames={1320}
+        durationInFrames={1200}
         fps={30}
         width={2160}
         height={2160}
