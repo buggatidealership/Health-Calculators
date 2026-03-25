@@ -147,7 +147,7 @@ const SceneNoise: React.FC<{ frame: number }> = ({ frame }) => {
               left: p.left,
               transform: `translate(-50%, -50%) translateY(${y}px)`,
               fontFamily: F.sans,
-              fontSize: isEarly ? 48 : 36,
+              fontSize: isEarly ? 58 : 44,
               color: C.dim,
               fontWeight: isEarly ? 400 : 400,
               fontStyle: "italic",
@@ -170,7 +170,7 @@ const SceneNoise: React.FC<{ frame: number }> = ({ frame }) => {
           left: "50%",
           transform: `translate(-50%, -50%) translateY(${familiarY}px)`,
           fontFamily: F.sans,
-          fontSize: 52,
+          fontSize: 64,
           color: C.red,
           fontWeight: 600,
           letterSpacing: "0.02em",
@@ -212,7 +212,7 @@ const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: F.serif,
-          fontSize: 100,
+          fontSize: 116,
           color: C.text,
           textAlign: "center",
           lineHeight: 1.2,
@@ -224,7 +224,7 @@ const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: F.serif,
-          fontSize: 100,
+          fontSize: 116,
           color: C.text,
           textAlign: "center",
           lineHeight: 1.2,
@@ -239,14 +239,14 @@ const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
           width: 60,
           height: 2,
           background: "rgba(255,255,255,0.08)",
-          margin: "32px 0",
+          margin: "28px 0",
           opacity: inExit ? exit3.opacity : line3.opacity,
         }}
       />
       <div
         style={{
           fontFamily: F.serif,
-          fontSize: 112,
+          fontSize: 128,
           color: C.accent,
           textAlign: "center",
           lineHeight: 1.2,
@@ -320,7 +320,7 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: F.serif,
-          fontSize: 104,
+          fontSize: 120,
           color: C.text,
           textAlign: "center",
           lineHeight: 1.25,
@@ -335,9 +335,9 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: F.sans,
-          fontSize: 38,
+          fontSize: 44,
           color: C.dim,
-          marginTop: 40,
+          marginTop: 36,
           fontWeight: 500,
           letterSpacing: "0.04em",
           ...(inExit ? tagExit : subAnim),
@@ -406,32 +406,32 @@ const CalcCard: React.FC<CalcCardProps> = ({
         alignItems: "center",
         justifyContent: "center",
         opacity: sceneOp(frame, start, end),
-        padding: "140px 160px",
+        padding: "80px 100px",
       }}
     >
       {/* Category — bigger for range signal */}
       <div style={{
-        fontFamily: F.sans, fontSize: 38, fontWeight: 700, color: resultColor,
+        fontFamily: F.sans, fontSize: 44, fontWeight: 700, color: resultColor,
         textTransform: "uppercase" as const, letterSpacing: "0.16em",
-        marginBottom: 32, ...(inExit ? catExit : catAnim),
+        marginBottom: 28, ...(inExit ? catExit : catAnim),
       }}>
         {category}
       </div>
 
       {/* JTBD hook — the job they're trying to get done */}
       <div style={{
-        fontFamily: F.serif, fontSize: 84, color: C.text,
+        fontFamily: F.serif, fontSize: 96, color: C.text,
         textAlign: "center", lineHeight: 1.2,
-        marginBottom: 12, ...(inExit ? jobExit : jobAnim),
+        marginBottom: 10, ...(inExit ? jobExit : jobAnim),
       }}>
         {jobLine}
       </div>
 
       {/* Specific question — appears after a beat */}
       <div style={{
-        fontFamily: F.sans, fontSize: 40, color: C.dim,
+        fontFamily: F.sans, fontSize: 46, color: C.dim,
         fontWeight: 400, textAlign: "center", lineHeight: 1.4,
-        marginBottom: 48, ...(inExit ? qExit : questionAnim),
+        marginBottom: 40, ...(inExit ? qExit : questionAnim),
       }}>
         {questionLine}
       </div>
@@ -441,21 +441,21 @@ const CalcCard: React.FC<CalcCardProps> = ({
         display: "flex", flexDirection: "column", alignItems: "center", gap: 8,
       }}>
         <div style={{
-          fontFamily: F.sans, fontSize: 24, color: C.dim, fontWeight: 500,
+          fontFamily: F.sans, fontSize: 30, color: C.dim, fontWeight: 500,
           textTransform: "uppercase" as const, letterSpacing: "0.1em",
           ...(inExit ? resultExit : resultLabelAnim),
         }}>
           {resultLabel}
         </div>
         <div style={{
-          fontFamily: F.serif, fontSize: 120, color: resultColor, lineHeight: 1,
+          fontFamily: F.serif, fontSize: 140, color: resultColor, lineHeight: 1,
           transform: `scale(${inExit ? 1 : resultScale})`,
           ...(inExit ? { opacity: resultExit.opacity } : { opacity: resultAnim.opacity }),
         }}>
           {resultValue}
         </div>
         <div style={{
-          fontFamily: F.sans, fontSize: 28, color: C.dim, fontWeight: 400,
+          fontFamily: F.sans, fontSize: 34, color: C.dim, fontWeight: 400,
           textAlign: "center", ...(inExit ? ctxExit : ctxAnim),
         }}>
           {context}
@@ -464,9 +464,9 @@ const CalcCard: React.FC<CalcCardProps> = ({
 
       {/* Framework insight — the LEARNING, visually prominent */}
       <div style={{
-        fontFamily: F.serif, fontSize: 48, color: C.text,
-        fontWeight: 400, textAlign: "center", marginTop: 48,
-        maxWidth: 1500, lineHeight: 1.4, letterSpacing: "-0.01em",
+        fontFamily: F.serif, fontSize: 56, color: C.text,
+        fontWeight: 400, textAlign: "center", marginTop: 40,
+        maxWidth: 1800, lineHeight: 1.35, letterSpacing: "-0.01em",
         ...(inExit ? insightExit : insightAnim),
       }}>
         {insight}
@@ -499,13 +499,13 @@ const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
         opacity: sceneOp(frame, T.frameStart, T.frameEnd),
       }}
     >
-      <div style={{ fontFamily: F.serif, fontSize: 92, color: C.text, textAlign: "center", lineHeight: 1.25, ...(inExit ? exit1 : line1) }}>
+      <div style={{ fontFamily: F.serif, fontSize: 108, color: C.text, textAlign: "center", lineHeight: 1.25, ...(inExit ? exit1 : line1) }}>
         Not just a number.
       </div>
-      <div style={{ fontFamily: F.serif, fontSize: 92, color: C.green, textAlign: "center", lineHeight: 1.25, marginTop: 20, ...(inExit ? exit2 : line2) }}>
+      <div style={{ fontFamily: F.serif, fontSize: 108, color: C.green, textAlign: "center", lineHeight: 1.25, marginTop: 20, ...(inExit ? exit2 : line2) }}>
         We give you a framework.
       </div>
-      <div style={{ fontFamily: F.sans, fontSize: 38, color: C.dim, marginTop: 52, fontWeight: 500, letterSpacing: "0.04em", ...(inExit ? exit2 : countAnim) }}>
+      <div style={{ fontFamily: F.sans, fontSize: 44, color: C.dim, marginTop: 44, fontWeight: 500, letterSpacing: "0.04em", ...(inExit ? exit2 : countAnim) }}>
         Nutrition · Fitness · Health · Lifestyle · Longevity
       </div>
     </div>
@@ -543,15 +543,15 @@ const SceneCTA: React.FC<{ frame: number }> = ({ frame }) => {
         )}
       </div>
 
-      <div style={{ fontFamily: F.serif, fontSize: 104, color: C.text, textAlign: "center", marginBottom: 56, ...urlAnim }}>
+      <div style={{ fontFamily: F.serif, fontSize: 116, color: C.text, textAlign: "center", marginBottom: 48, ...urlAnim }}>
         healthcalculators.xyz
       </div>
 
-      <div style={{ fontFamily: F.sans, fontSize: 34, color: C.dim, letterSpacing: "0.04em", fontWeight: 500, ...tagAnim }}>
+      <div style={{ fontFamily: F.sans, fontSize: 40, color: C.dim, letterSpacing: "0.04em", fontWeight: 500, ...tagAnim }}>
         Free. Evidence-based. No signup.
       </div>
 
-      <div style={{ fontFamily: F.sans, fontSize: 30, color: `${C.green}88`, letterSpacing: "0.06em", fontWeight: 500, marginTop: 44, ...pulseTeaseAnim }}>
+      <div style={{ fontFamily: F.sans, fontSize: 36, color: `${C.green}88`, letterSpacing: "0.06em", fontWeight: 500, marginTop: 40, ...pulseTeaseAnim }}>
         Pulse — your personal health companion — coming soon
       </div>
     </div>
