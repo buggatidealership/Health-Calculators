@@ -21,31 +21,33 @@ const F = {
   sans: "'Inter', -apple-system, sans-serif",
 };
 
-// --- Timing: ~32s = 960 frames at 30fps ---
-// Structure:
-// Scene 1: The Noise (0-5s) — rapid-fire generic health advice
-// Scene 2: The Cut (5-8s) — sharp positioning line
-// Scene 3-6: Calculator showcase (8-24s) — 4 calculators, 4s each
-// Scene 7: The Frame (24-28s) — "not just numbers" positioning
-// Scene 8: CTA (28-32s) — brand dot + URL + Pulse tease
+// --- Timing: ~36s = 1080 frames at 30fps ---
+// Scene 1: The Noise (0-6.5s) — slow start, accelerating chaos
+// Scene 2: The Cut (7-11s) — "Opinions everywhere. Numbers everywhere. Answers nowhere."
+// Scene 3: The Pulse (11-14.5s) — green dot + tagline bridge
+// Scene 4-7: Calculator showcase (15-29s) — 4 calculators, ~3.5s each
+// Scene 8: The Frame (29-33s) — positioning
+// Scene 9: CTA (33-36s) — brand dot + URL + Pulse tease
 
 const T = {
   noiseStart: 0,
-  noiseEnd: 150,        // 5s
-  cutStart: 156,
-  cutEnd: 252,          // 8.4s
-  calc1Start: 258,      // TDEE
-  calc1End: 378,        // 12.6s
-  calc2Start: 384,      // Caffeine
-  calc2End: 504,        // 16.8s
-  calc3Start: 510,      // Body Fat
-  calc3End: 630,        // 21s
-  calc4Start: 636,      // Ozempic
-  calc4End: 726,        // 24.2s
-  frameStart: 732,
-  frameEnd: 840,        // 28s
-  ctaStart: 846,
-  ctaEnd: 960,          // 32s
+  noiseEnd: 195,        // 6.5s
+  cutStart: 204,
+  cutEnd: 330,          // 11s
+  pulseStart: 336,
+  pulseEnd: 435,        // 14.5s
+  calc1Start: 441,
+  calc1End: 546,        // 18.2s
+  calc2Start: 552,
+  calc2End: 657,        // 21.9s
+  calc3Start: 663,
+  calc3End: 768,        // 25.6s
+  calc4Start: 774,
+  calc4End: 870,        // 29s
+  frameStart: 876,
+  frameEnd: 990,        // 33s
+  ctaStart: 996,
+  ctaEnd: 1080,         // 36s
 };
 
 // --- Helpers ---
@@ -71,117 +73,120 @@ function sceneOp(frame: number, start: number, end: number) {
   return 1;
 }
 
-// --- Scene 1: The Noise ---
-// Rapid-fire useless health advice, each appearing and fading fast
+// --- Scene 1: The Noise — slow start, then acceleration ---
 const NOISE_PHRASES = [
-  '"Consult your doctor"',
-  '"It depends on your body"',
-  '"Everyone is different"',
-  '"Drink more water"',
-  '"Listen to your body"',
-  '"Results may vary"',
-  '"Do your own research"',
-  '"Ask your healthcare provider"',
+  { text: '"Consult your doctor."', top: "32%", left: "50%", anchor: true },
+  { text: '"It depends on your body."', top: "44%", left: "50%", anchor: true },
+  { text: '"Everyone is different."', top: "56%", left: "50%", anchor: true },
+  // These appear faster, scattered
+  { text: '"Drink more water."', top: "24%", left: "28%" },
+  { text: '"Listen to your body."', top: "38%", left: "68%" },
+  { text: '"Results may vary."', top: "64%", left: "30%" },
+  { text: '"Everything in moderation."', top: "52%", left: "65%" },
+  { text: '"Just eat less, move more."', top: "72%", left: "50%", anchor: true },
 ];
 
 const SceneNoise: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.noiseStart;
 
-  // Each phrase appears for ~16 frames (0.53s), staggered by 16
-  const phrases = NOISE_PHRASES.map((text, i) => {
-    const start = 6 + i * 16;
-    const opacity = interpolate(local, [start, start + 6, start + 12, start + 16], [0, 0.7, 0.7, 0.15], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-    });
-    const y = interpolate(local, [start, start + 6], [20, 0], {
-      extrapolateLeft: "clamp",
-      extrapolateRight: "clamp",
-      easing: Easing.out(Easing.cubic),
-    });
-    // Scattered positions — not centered, feels chaotic
-    const positions = [
-      { top: "18%", left: "15%" },
-      { top: "30%", left: "55%" },
-      { top: "44%", left: "22%" },
-      { top: "38%", left: "60%" },
-      { top: "55%", left: "35%" },
-      { top: "62%", left: "58%" },
-      { top: "70%", left: "18%" },
-      { top: "75%", left: "50%" },
-    ];
-    return { text, opacity, y, pos: positions[i] };
+  // First 3 phrases: slow, centered, readable (0.8s apart)
+  // Next 5: fast, scattered, chaotic (0.3s apart)
+  const timings = [
+    { start: 8, hold: 40 },    // "Consult your doctor" — 1.3s visible alone
+    { start: 36, hold: 36 },   // "It depends on your body" — after first has landed
+    { start: 64, hold: 32 },   // "Everyone is different" — pace picking up
+    { start: 86, hold: 20 },   // Scattered — faster
+    { start: 96, hold: 18 },
+    { start: 104, hold: 16 },
+    { start: 110, hold: 14 },
+    { start: 116, hold: 14 },
+  ];
+
+  // "Sound familiar?" appears after the chaos
+  const familiarOpacity = interpolate(local, [140, 155], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+  const familiarY = interpolate(local, [140, 155], [16, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic),
   });
 
-  // Title fades in first
-  const titleAnim = fadeUp(local, 0, 12);
-
-  // All noise dims at exit
-  const exitDim = interpolate(local, [130, 145], [1, 0], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
+  // Everything dims at exit
+  const exitDim = interpolate(local, [172, 190], [1, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
   });
 
   return (
     <div style={{ position: "absolute", inset: 0, opacity: sceneOp(frame, T.noiseStart, T.noiseEnd) }}>
-      {/* Scattered noise phrases */}
-      {phrases.map((p, i) => (
-        <div
-          key={i}
-          style={{
-            position: "absolute",
-            ...p.pos,
-            fontFamily: F.sans,
-            fontSize: 38,
-            color: C.dim,
-            fontWeight: 400,
-            fontStyle: "italic",
-            opacity: p.opacity * exitDim,
-            transform: `translateY(${p.y}px)`,
-            letterSpacing: "0.01em",
-          }}
-        >
-          {p.text}
-        </div>
-      ))}
+      {NOISE_PHRASES.map((p, i) => {
+        const t = timings[i];
+        const isEarly = i < 3;
+        const opacity = interpolate(
+          local,
+          [t.start, t.start + (isEarly ? 12 : 6), t.start + t.hold, t.start + t.hold + 8],
+          [0, isEarly ? 0.85 : 0.5, isEarly ? 0.85 : 0.5, 0.12],
+          { extrapolateLeft: "clamp", extrapolateRight: "clamp" }
+        );
+        const y = interpolate(local, [t.start, t.start + (isEarly ? 12 : 6)], [16, 0], {
+          extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic),
+        });
 
-      {/* Center question */}
+        return (
+          <div
+            key={i}
+            style={{
+              position: "absolute",
+              top: p.top,
+              left: p.left,
+              transform: `translate(-50%, -50%) translateY(${y}px)`,
+              fontFamily: F.sans,
+              fontSize: isEarly ? 48 : 36,
+              color: C.dim,
+              fontWeight: isEarly ? 400 : 400,
+              fontStyle: "italic",
+              opacity: opacity * exitDim,
+              textAlign: "center",
+              letterSpacing: "0.01em",
+              whiteSpace: "nowrap",
+            }}
+          >
+            {p.text}
+          </div>
+        );
+      })}
+
+      {/* "Sound familiar?" */}
       <div
         style={{
           position: "absolute",
-          inset: 0,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
+          top: "50%",
+          left: "50%",
+          transform: `translate(-50%, -50%) translateY(${familiarY}px)`,
+          fontFamily: F.sans,
+          fontSize: 52,
+          color: C.red,
+          fontWeight: 600,
+          letterSpacing: "0.02em",
+          opacity: familiarOpacity * exitDim,
         }}
       >
-        <div
-          style={{
-            fontFamily: F.sans,
-            fontSize: 52,
-            color: C.red,
-            fontWeight: 600,
-            letterSpacing: "0.02em",
-            opacity: interpolate(local, [90, 105], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp" }) * exitDim,
-            transform: `translateY(${interpolate(local, [90, 105], [16, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp" })}px)`,
-          }}
-        >
-          Sound familiar?
-        </div>
+        Sound familiar?
       </div>
     </div>
   );
 };
 
 // --- Scene 2: The Cut ---
+// "Opinions everywhere. Numbers everywhere. Answers nowhere."
 const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.cutStart;
   const line1 = fadeUp(local, 8, 16);
-  const line2 = fadeUp(local, 36, 16);
+  const line2 = fadeUp(local, 32, 16);
+  const line3 = fadeUp(local, 58, 18);
 
-  const exitStart = 72;
+  const exitStart = 100;
   const exit1 = fadeOut(local, exitStart, 10);
   const exit2 = fadeOut(local, exitStart + 3, 10);
+  const exit3 = fadeOut(local, exitStart + 5, 10);
   const inExit = local >= exitStart;
 
   return (
@@ -199,7 +204,7 @@ const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: F.serif,
-          fontSize: 108,
+          fontSize: 100,
           color: C.text,
           textAlign: "center",
           lineHeight: 1.2,
@@ -210,21 +215,34 @@ const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
       </div>
       <div
         style={{
+          fontFamily: F.serif,
+          fontSize: 100,
+          color: C.text,
+          textAlign: "center",
+          lineHeight: 1.2,
+          marginTop: 16,
+          ...(inExit ? exit2 : line2),
+        }}
+      >
+        Numbers everywhere.
+      </div>
+      <div
+        style={{
           width: 60,
           height: 2,
           background: "rgba(255,255,255,0.08)",
-          margin: "36px 0",
-          opacity: inExit ? exit2.opacity : line2.opacity,
+          margin: "32px 0",
+          opacity: inExit ? exit3.opacity : line3.opacity,
         }}
       />
       <div
         style={{
           fontFamily: F.serif,
-          fontSize: 120,
+          fontSize: 112,
           color: C.accent,
           textAlign: "center",
           lineHeight: 1.2,
-          ...(inExit ? exit2 : line2),
+          ...(inExit ? exit3 : line3),
         }}
       >
         Answers nowhere.
@@ -233,42 +251,129 @@ const SceneCut: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Calculator Card Component ---
+// --- Scene 3: The Pulse — green dot + tagline bridge ---
+const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
+  const local = frame - T.pulseStart;
+
+  // Green dot pulse
+  const dotAnim = fadeUp(local, 6, 14);
+  const pulsePhase = (local * 0.9) % 48;
+  const pulseScale = interpolate(pulsePhase, [0, 48], [1, 4], { extrapolateRight: "clamp" });
+  const pulseOpacity = interpolate(pulsePhase, [0, 48], [0.5, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
+
+  const tagAnim = fadeUp(local, 20, 16);
+  const subAnim = fadeUp(local, 42, 14);
+
+  const exitStart = 72;
+  const inExit = local >= exitStart;
+  const dotExit = fadeOut(local, exitStart, 10);
+  const tagExit = fadeOut(local, exitStart + 3, 10);
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        opacity: sceneOp(frame, T.pulseStart, T.pulseEnd),
+      }}
+    >
+      {/* Green pulsing dot */}
+      <div
+        style={{
+          position: "relative",
+          width: 28,
+          height: 28,
+          marginBottom: 64,
+          ...(inExit ? dotExit : dotAnim),
+        }}
+      >
+        <div
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: "50%",
+            background: C.green,
+            boxShadow: `0 0 24px rgba(110,200,155,0.4)`,
+          }}
+        />
+        {local > 6 && (
+          <>
+            <div style={{ position: "absolute", inset: -14, borderRadius: "50%", border: `3px solid ${C.green}`, opacity: pulseOpacity, transform: `scale(${pulseScale})` }} />
+            <div style={{ position: "absolute", inset: -14, borderRadius: "50%", border: `2px solid ${C.green}`, opacity: pulseOpacity * 0.5, transform: `scale(${interpolate((pulsePhase + 18) % 48, [0, 48], [1, 4], { extrapolateRight: "clamp" })})` }} />
+          </>
+        )}
+      </div>
+
+      {/* Tagline */}
+      <div
+        style={{
+          fontFamily: F.serif,
+          fontSize: 104,
+          color: C.text,
+          textAlign: "center",
+          lineHeight: 1.25,
+          ...(inExit ? tagExit : tagAnim),
+        }}
+      >
+        Your numbers.
+        <br />
+        <span style={{ color: C.green }}>What they actually mean.</span>
+      </div>
+
+      <div
+        style={{
+          fontFamily: F.sans,
+          fontSize: 38,
+          color: C.dim,
+          marginTop: 40,
+          fontWeight: 500,
+          letterSpacing: "0.04em",
+          ...(inExit ? tagExit : subAnim),
+        }}
+      >
+        82 evidence-based calculators. Free.
+      </div>
+    </div>
+  );
+};
+
+// --- Calculator Card ---
 interface CalcCardProps {
   frame: number;
   start: number;
   end: number;
   category: string;
-  title: string;
+  question: string;
   resultLabel: string;
   resultValue: string;
   resultColor: string;
-  detail: string;
+  context: string;
   insight: string;
 }
 
 const CalcCard: React.FC<CalcCardProps> = ({
-  frame, start, end, category, title, resultLabel, resultValue, resultColor, detail, insight,
+  frame, start, end, category, question, resultLabel, resultValue, resultColor, context, insight,
 }) => {
   const local = frame - start;
   const catAnim = fadeUp(local, 6, 10);
-  const titleAnim = fadeUp(local, 14, 14);
+  const qAnim = fadeUp(local, 14, 14);
   const resultAnim = fadeUp(local, 30, 12);
-  const detailAnim = fadeUp(local, 42, 10);
-  const insightAnim = fadeUp(local, 56, 10);
+  const ctxAnim = fadeUp(local, 42, 10);
+  const insightAnim = fadeUp(local, 54, 10);
 
   const exitStart = end - start - 18;
   const inExit = local >= exitStart;
   const catExit = fadeOut(local, exitStart, 8);
-  const titleExit = fadeOut(local, exitStart + 2, 8);
+  const qExit = fadeOut(local, exitStart + 2, 8);
   const resultExit = fadeOut(local, exitStart + 3, 8);
-  const detailExit = fadeOut(local, exitStart + 4, 8);
+  const ctxExit = fadeOut(local, exitStart + 4, 8);
 
-  // Result number scale-in
   const resultScale = interpolate(local, [30, 42], [0.85, 1], {
-    extrapolateLeft: "clamp",
-    extrapolateRight: "clamp",
-    easing: Easing.out(Easing.back(1.3)),
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.3)),
   });
 
   return (
@@ -284,95 +389,37 @@ const CalcCard: React.FC<CalcCardProps> = ({
         padding: "160px",
       }}
     >
-      {/* Category pill */}
-      <div
-        style={{
-          fontFamily: F.sans,
-          fontSize: 30,
-          fontWeight: 600,
-          color: C.dim,
-          textTransform: "uppercase" as const,
-          letterSpacing: "0.14em",
-          marginBottom: 24,
-          ...(inExit ? catExit : catAnim),
-        }}
-      >
+      <div style={{ fontFamily: F.sans, fontSize: 30, fontWeight: 600, color: C.dim, textTransform: "uppercase" as const, letterSpacing: "0.14em", marginBottom: 24, ...(inExit ? catExit : catAnim) }}>
         {category}
       </div>
 
-      {/* Calculator title */}
-      <div
-        style={{
-          fontFamily: F.serif,
-          fontSize: 80,
-          color: C.text,
-          textAlign: "center",
-          lineHeight: 1.2,
-          marginBottom: 64,
-          ...(inExit ? titleExit : titleAnim),
-        }}
-      >
-        {title}
+      <div style={{ fontFamily: F.serif, fontSize: 76, color: C.text, textAlign: "center", lineHeight: 1.2, marginBottom: 56, ...(inExit ? qExit : qAnim) }}>
+        {question}
       </div>
 
-      {/* Result */}
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: 16,
-          ...(inExit ? resultExit : resultAnim),
-        }}
-      >
-        <div
-          style={{
-            fontFamily: F.sans,
-            fontSize: 28,
-            color: C.dim,
-            fontWeight: 500,
-            textTransform: "uppercase" as const,
-            letterSpacing: "0.1em",
-          }}
-        >
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 12, ...(inExit ? resultExit : resultAnim) }}>
+        <div style={{ fontFamily: F.sans, fontSize: 26, color: C.dim, fontWeight: 500, textTransform: "uppercase" as const, letterSpacing: "0.1em" }}>
           {resultLabel}
         </div>
-        <div
-          style={{
-            fontFamily: F.serif,
-            fontSize: 180,
-            color: resultColor,
-            lineHeight: 1,
-            transform: `scale(${inExit ? 1 : resultScale})`,
-          }}
-        >
+        <div style={{ fontFamily: F.serif, fontSize: 172, color: resultColor, lineHeight: 1, transform: `scale(${inExit ? 1 : resultScale})` }}>
           {resultValue}
         </div>
-        <div
-          style={{
-            fontFamily: F.sans,
-            fontSize: 36,
-            color: C.dim,
-            fontWeight: 400,
-            ...(inExit ? detailExit : detailAnim),
-          }}
-        >
-          {detail}
+        <div style={{ fontFamily: F.sans, fontSize: 34, color: C.dim, fontWeight: 400, textAlign: "center", ...(inExit ? ctxExit : ctxAnim) }}>
+          {context}
         </div>
       </div>
 
-      {/* Framework insight */}
       <div
         style={{
           fontFamily: F.sans,
-          fontSize: 34,
-          color: `${resultColor}cc`,
+          fontSize: 32,
+          color: `${resultColor}bb`,
           fontWeight: 500,
           textAlign: "center",
-          marginTop: 48,
+          marginTop: 44,
           maxWidth: 1400,
           lineHeight: 1.5,
-          ...(inExit ? detailExit : insightAnim),
+          ...(inExit ? ctxExit : insightAnim),
         }}
       >
         {insight}
@@ -381,14 +428,14 @@ const CalcCard: React.FC<CalcCardProps> = ({
   );
 };
 
-// --- Scene 7: The Frame ---
+// --- Scene 8: The Frame ---
 const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.frameStart;
   const line1 = fadeUp(local, 8, 14);
   const line2 = fadeUp(local, 30, 14);
   const countAnim = fadeUp(local, 52, 12);
 
-  const exitStart = 84;
+  const exitStart = 90;
   const inExit = local >= exitStart;
   const exit1 = fadeOut(local, exitStart, 10);
   const exit2 = fadeOut(local, exitStart + 3, 10);
@@ -405,60 +452,30 @@ const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
         opacity: sceneOp(frame, T.frameStart, T.frameEnd),
       }}
     >
-      <div
-        style={{
-          fontFamily: F.serif,
-          fontSize: 96,
-          color: C.text,
-          textAlign: "center",
-          lineHeight: 1.25,
-          ...(inExit ? exit1 : line1),
-        }}
-      >
+      <div style={{ fontFamily: F.serif, fontSize: 92, color: C.text, textAlign: "center", lineHeight: 1.25, ...(inExit ? exit1 : line1) }}>
         Not just a number.
       </div>
-      <div
-        style={{
-          fontFamily: F.serif,
-          fontSize: 96,
-          color: C.accent,
-          textAlign: "center",
-          lineHeight: 1.25,
-          marginTop: 20,
-          ...(inExit ? exit2 : line2),
-        }}
-      >
-        A framework to think with.
+      <div style={{ fontFamily: F.serif, fontSize: 92, color: C.green, textAlign: "center", lineHeight: 1.25, marginTop: 20, ...(inExit ? exit2 : line2) }}>
+        A way to think about it.
       </div>
-      <div
-        style={{
-          fontFamily: F.sans,
-          fontSize: 40,
-          color: C.dim,
-          marginTop: 56,
-          fontWeight: 500,
-          letterSpacing: "0.04em",
-          ...(inExit ? exit2 : countAnim),
-        }}
-      >
-        82 calculators. Free. Evidence-based.
+      <div style={{ fontFamily: F.sans, fontSize: 38, color: C.dim, marginTop: 52, fontWeight: 500, letterSpacing: "0.04em", ...(inExit ? exit2 : countAnim) }}>
+        Nutrition · Fitness · Medications · Lifestyle · Longevity
       </div>
     </div>
   );
 };
 
-// --- Scene 8: CTA ---
+// --- Scene 9: CTA ---
 const SceneCTA: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.ctaStart;
   const dotAnim = fadeUp(local, 6, 12);
   const urlAnim = fadeUp(local, 14, 16);
-  const tagAnim = fadeUp(local, 36, 12);
-  const pulseAnim = fadeUp(local, 54, 12);
+  const tagAnim = fadeUp(local, 34, 12);
+  const pulseTeaseAnim = fadeUp(local, 50, 12);
 
-  // Brand pulse
-  const pulsePhase = (local * 1.0) % 42;
-  const pulseScale = interpolate(pulsePhase, [0, 42], [1, 3.5], { extrapolateRight: "clamp" });
-  const pulseOpacity = interpolate(pulsePhase, [0, 42], [0.5, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
+  const pulsePhase = (local * 0.9) % 48;
+  const pulseScale = interpolate(pulsePhase, [0, 48], [1, 3.5], { extrapolateRight: "clamp" });
+  const pulseOpacity = interpolate(pulsePhase, [0, 48], [0.5, 0], { extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
 
   return (
     <div
@@ -472,52 +489,23 @@ const SceneCTA: React.FC<{ frame: number }> = ({ frame }) => {
         opacity: sceneOp(frame, T.ctaStart, T.ctaEnd),
       }}
     >
-      {/* Brand dot */}
-      <div style={{ position: "relative", width: 20, height: 20, marginBottom: 56, ...dotAnim }}>
-        <div style={{ width: 20, height: 20, borderRadius: "50%", background: C.accent, boxShadow: `0 0 16px rgba(232,155,62,0.3)` }} />
+      <div style={{ position: "relative", width: 22, height: 22, marginBottom: 52, ...dotAnim }}>
+        <div style={{ width: 22, height: 22, borderRadius: "50%", background: C.green, boxShadow: `0 0 18px rgba(110,200,155,0.35)` }} />
         {local > 6 && (
-          <div style={{ position: "absolute", inset: -12, borderRadius: "50%", border: `3px solid ${C.accent}`, opacity: pulseOpacity, transform: `scale(${pulseScale})` }} />
+          <div style={{ position: "absolute", inset: -12, borderRadius: "50%", border: `3px solid ${C.green}`, opacity: pulseOpacity, transform: `scale(${pulseScale})` }} />
         )}
       </div>
 
-      <div
-        style={{
-          fontFamily: F.serif,
-          fontSize: 108,
-          color: C.text,
-          textAlign: "center",
-          marginBottom: 64,
-          ...urlAnim,
-        }}
-      >
+      <div style={{ fontFamily: F.serif, fontSize: 104, color: C.text, textAlign: "center", marginBottom: 56, ...urlAnim }}>
         healthcalculators.xyz
       </div>
 
-      <div
-        style={{
-          fontFamily: F.sans,
-          fontSize: 36,
-          color: C.dim,
-          letterSpacing: "0.04em",
-          fontWeight: 500,
-          ...tagAnim,
-        }}
-      >
+      <div style={{ fontFamily: F.sans, fontSize: 34, color: C.dim, letterSpacing: "0.04em", fontWeight: 500, ...tagAnim }}>
         Free. Evidence-based. No signup.
       </div>
 
-      <div
-        style={{
-          fontFamily: F.sans,
-          fontSize: 32,
-          color: `${C.accent}99`,
-          letterSpacing: "0.06em",
-          fontWeight: 500,
-          marginTop: 48,
-          ...pulseAnim,
-        }}
-      >
-        Pulse — your personal health companion — coming soon.
+      <div style={{ fontFamily: F.sans, fontSize: 30, color: `${C.green}88`, letterSpacing: "0.06em", fontWeight: 500, marginTop: 44, ...pulseTeaseAnim }}>
+        Pulse — your personal health companion — coming soon
       </div>
     </div>
   );
@@ -539,26 +527,24 @@ export const PinnedPost: React.FC = () => {
         color: C.text,
       }}
     >
-      {/* Film grain */}
       <div style={{ position: "absolute", inset: 0, backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E")`, pointerEvents: "none", zIndex: 1000, opacity: 0.5 }} />
-      {/* Vignette */}
       <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at center, transparent 50%, rgba(0,0,0,0.4) 100%)", pointerEvents: "none", zIndex: 999 }} />
 
       <SceneNoise frame={frame} />
       <SceneCut frame={frame} />
+      <ScenePulse frame={frame} />
 
-      {/* Calculator showcase — 4 cards */}
       <CalcCard
         frame={frame}
         start={T.calc1Start}
         end={T.calc1End}
         category="Nutrition"
-        title="How many calories do you actually burn?"
-        resultLabel="Your TDEE"
+        question="You're eating 1,800 calories. But how many are you burning?"
+        resultLabel="Your daily burn"
         resultValue="2,340"
         resultColor={C.green}
-        detail="calories per day · moderately active"
-        insight="Not a guess. Mifflin-St Jeor equation + your activity level."
+        context="Mifflin-St Jeor · moderately active · 5'10, 172 lb"
+        insight="That 540-calorie gap? That's 1 lb per week. No guessing."
       />
 
       <CalcCard
@@ -566,12 +552,12 @@ export const PinnedPost: React.FC = () => {
         start={T.calc2Start}
         end={T.calc2End}
         category="Lifestyle"
-        title="When does your caffeine actually wear off?"
-        resultLabel="Half-life"
+        question="When should your last coffee be?"
+        resultLabel="Caffeine half-life"
         resultValue="5.7h"
         resultColor={C.teal}
-        detail="Last coffee at 2 PM → 50% still active at 7:42 PM"
-        insight="Your 'I can sleep fine after coffee' is a feeling. This is the math."
+        context="Last cup at 2 PM → 50% still active at 7:42 PM"
+        insight={'"I sleep fine after coffee" is a feeling. This is the math.'}
       />
 
       <CalcCard
@@ -579,12 +565,12 @@ export const PinnedPost: React.FC = () => {
         start={T.calc3Start}
         end={T.calc3End}
         category="Fitness"
-        title="What's your actual body composition?"
+        question="BMI says overweight. But what does your body actually say?"
         resultLabel="Body fat"
-        resultValue="24%"
+        resultValue="22%"
         resultColor={C.accent}
-        detail="Navy method · based on your measurements"
-        insight="BMI says 'overweight.' Body fat says 'athletic.' The frame matters."
+        context="Navy method · athletic range"
+        insight="Same person. Different frame. Different answer."
       />
 
       <CalcCard
@@ -592,18 +578,17 @@ export const PinnedPost: React.FC = () => {
         start={T.calc4Start}
         end={T.calc4End}
         category="Medications"
-        title="What weight loss can you realistically expect?"
+        question="On semaglutide. What can you realistically expect?"
         resultLabel="Projected at 6 months"
         resultValue="-32 lb"
         resultColor={C.red}
-        detail="Based on semaglutide clinical trial data"
-        insight="Not a promise. A projection based on 3,731 patients in STEP 1."
+        context="Based on 3,731 patients · STEP 1 trial data"
+        insight="Not a promise. A projection you can plan around."
       />
 
       <SceneFrame frame={frame} />
       <SceneCTA frame={frame} />
 
-      {/* Watermark */}
       <div style={{ position: "absolute", bottom: 56, left: "50%", transform: "translateX(-50%)", fontFamily: F.sans, fontSize: 26, color: "rgba(255,255,255,0.12)", letterSpacing: "0.06em", fontWeight: 500, zIndex: 998 }}>
         healthcalculators.xyz
       </div>
