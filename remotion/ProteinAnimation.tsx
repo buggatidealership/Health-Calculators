@@ -202,12 +202,12 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 148,
+          fontSize: 184,
           color: COLORS.text,
           letterSpacing: "-0.02em",
           lineHeight: 1.15,
           textAlign: "center",
-          padding: "0 80px",
+          padding: "0 60px",
           ...(inExit ? textExit : textAnim),
         }}
       >
@@ -222,7 +222,7 @@ const Scene1: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.sans,
-          fontSize: 52,
+          fontSize: 60,
           color: COLORS.textSecondary,
           fontWeight: 400,
           letterSpacing: "0.03em",
@@ -287,10 +287,10 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 136,
+          fontSize: 152,
           textAlign: "center",
           lineHeight: 1.2,
-          padding: "0 80px",
+          padding: "0 60px",
           ...(inExit ? lineExit : lineAnim),
         }}
       >
@@ -303,7 +303,7 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 164,
+          fontSize: 184,
           color: COLORS.accent,
           textAlign: "center",
           opacity: inExit ? flipExit.opacity : flipOpacity,
@@ -386,11 +386,11 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 96,
+          fontSize: 116,
           color: COLORS.text,
           textAlign: "center",
           lineHeight: 1.2,
-          marginBottom: 16,
+          marginBottom: 24,
           opacity: inExit ? labelExit.opacity : toldAnim.opacity * toldDim,
           transform: inExit ? labelExit.transform : toldAnim.transform,
         }}
@@ -403,11 +403,11 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 108,
+            fontSize: 128,
             color: COLORS.text,
             textAlign: "center",
             lineHeight: 1.2,
-            marginBottom: 20,
+            marginBottom: 28,
             ...(inExit ? containerExit : realAnim),
           }}
         >
@@ -420,10 +420,10 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         <div
           style={{
             fontFamily: FONTS.sans,
-            fontSize: 56,
+            fontSize: 64,
             color: COLORS.textSecondary,
             textAlign: "center",
-            marginBottom: 20,
+            marginBottom: 28,
             ...(inExit ? containerExit : youAnim),
           }}
         >
@@ -436,10 +436,10 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 76,
+            fontSize: 96,
             color: COLORS.text,
             textAlign: "center",
-            marginTop: 28,
+            marginTop: 32,
             lineHeight: 1.35,
             ...(inExit ? containerExit : insightAnim),
           }}
@@ -704,7 +704,7 @@ const Scene5: React.FC<{ frame: number }> = ({ frame }) => {
       <div
         style={{
           fontFamily: FONTS.serif,
-          fontSize: 156,
+          fontSize: 176,
           color: COLORS.text,
           textAlign: "center",
           lineHeight: 1.15,
