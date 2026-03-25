@@ -21,13 +21,13 @@ const F = {
   sans: "'Inter', -apple-system, sans-serif",
 };
 
-// --- Timing: ~40s = 1200 frames at 30fps ---
-// Scene 1: The Noise (0-6.5s) — slow start, accelerating chaos
+// --- Timing: ~46s = 1380 frames at 30fps ---
+// Scene 1: The Noise (0-6.5s) — slow start, fills screen, accelerating
 // Scene 2: The Cut (7-11s) — "Opinions everywhere. Numbers everywhere. Answers nowhere."
-// Scene 3: The Pulse (11-16s) — green dot + tagline bridge
-// Scene 4-6: Calculator showcase (16.5-34.5s) — 3 calculators, 6s each (more breathing)
-// Scene 7: The Frame (35-38.5s) — positioning
-// Scene 8: CTA (39-40s) — brand dot + URL + Pulse tease
+// Scene 3: The Pulse (11-16s) — green dot + "Your numbers. What they actually mean in context."
+// Scene 4-6: Calculator showcase (16.5-39s) — 3 calculators, 7.5s each (full pauses)
+// Scene 7: The Frame (39-43s) — "Not just a number. We give you a framework."
+// Scene 8: CTA (43-46s) — brand dot + URL + Pulse tease
 
 const T = {
   noiseStart: 0,
@@ -37,15 +37,15 @@ const T = {
   pulseStart: 336,
   pulseEnd: 480,        // 16s
   calc1Start: 488,
-  calc1End: 668,        // ~22.3s — 6s per card, room to breathe
-  calc2Start: 676,
-  calc2End: 856,        // ~28.5s
-  calc3Start: 864,
-  calc3End: 1035,       // ~34.5s
-  frameStart: 1042,
-  frameEnd: 1140,       // 38s
-  ctaStart: 1148,
-  ctaEnd: 1200,         // 40s
+  calc1End: 713,        // ~23.8s — 7.5s per card with full pauses
+  calc2Start: 721,
+  calc2End: 946,        // ~31.5s
+  calc3Start: 954,
+  calc3End: 1170,       // 39s
+  frameStart: 1178,
+  frameEnd: 1290,       // 43s
+  ctaStart: 1298,
+  ctaEnd: 1380,         // 46s
 };
 
 // --- Helpers ---
@@ -71,33 +71,43 @@ function sceneOp(frame: number, start: number, end: number) {
   return 1;
 }
 
-// --- Scene 1: The Noise — slow start, then acceleration ---
+// --- Scene 1: The Noise — slow start, then acceleration, fills the screen ---
 const NOISE_PHRASES = [
-  { text: '"Consult your doctor."', top: "32%", left: "50%", anchor: true },
-  { text: '"It depends on your body."', top: "44%", left: "50%", anchor: true },
-  { text: '"Everyone is different."', top: "56%", left: "50%", anchor: true },
-  // These appear faster, scattered
-  { text: '"Drink more water."', top: "24%", left: "28%" },
-  { text: '"Listen to your body."', top: "38%", left: "68%" },
-  { text: '"Results may vary."', top: "64%", left: "30%" },
-  { text: '"Everything in moderation."', top: "52%", left: "65%" },
-  { text: '"Just eat less, move more."', top: "72%", left: "50%", anchor: true },
+  // First 3: slow, centered, readable
+  { text: '"Consult your doctor."', top: "35%", left: "50%", anchor: true },
+  { text: '"It depends on your body."', top: "47%", left: "50%", anchor: true },
+  { text: '"Everyone is different."', top: "59%", left: "50%", anchor: true },
+  // Next wave: faster, scattered, filling the screen
+  { text: '"Drink more water."', top: "20%", left: "25%" },
+  { text: '"Listen to your body."', top: "28%", left: "68%" },
+  { text: '"Results may vary."', top: "68%", left: "28%" },
+  { text: '"Everything in moderation."', top: "42%", left: "72%" },
+  { text: '"Just eat less, move more."', top: "75%", left: "55%" },
+  // Final burst: rapid, dense
+  { text: '"Get more sleep."', top: "16%", left: "48%" },
+  { text: '"Reduce stress."', top: "52%", left: "22%" },
+  { text: '"Ask your healthcare provider."', top: "82%", left: "38%" },
+  { text: '"It\'s all about balance."', top: "24%", left: "42%" },
 ];
 
 const SceneNoise: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.noiseStart;
 
-  // First 3 phrases: slow, centered, readable (0.8s apart)
-  // Next 5: fast, scattered, chaotic (0.3s apart)
+  // First 3: slow, centered, readable. Next 5: medium. Last 4: rapid burst.
   const timings = [
-    { start: 8, hold: 40 },    // "Consult your doctor" — 1.3s visible alone
-    { start: 36, hold: 36 },   // "It depends on your body" — after first has landed
-    { start: 64, hold: 32 },   // "Everyone is different" — pace picking up
-    { start: 86, hold: 20 },   // Scattered — faster
-    { start: 96, hold: 18 },
-    { start: 104, hold: 16 },
-    { start: 110, hold: 14 },
-    { start: 116, hold: 14 },
+    { start: 8, hold: 42 },    // "Consult your doctor" — 1.4s visible alone
+    { start: 38, hold: 38 },   // "It depends on your body"
+    { start: 66, hold: 34 },   // "Everyone is different" — pace picking up
+    { start: 88, hold: 22 },   // Scattered wave
+    { start: 98, hold: 20 },
+    { start: 106, hold: 18 },
+    { start: 112, hold: 16 },
+    { start: 118, hold: 16 },
+    // Rapid burst — fills the screen
+    { start: 122, hold: 14 },
+    { start: 126, hold: 14 },
+    { start: 129, hold: 14 },
+    { start: 132, hold: 14 },
   ];
 
   // "Sound familiar?" appears after the chaos
@@ -319,7 +329,7 @@ const ScenePulse: React.FC<{ frame: number }> = ({ frame }) => {
       >
         Your numbers.
         <br />
-        <span style={{ color: C.green }}>What they actually mean.</span>
+        <span style={{ color: C.green }}>What they actually mean in context.</span>
       </div>
 
       <div
@@ -359,20 +369,21 @@ const CalcCard: React.FC<CalcCardProps> = ({
 }) => {
   const local = frame - start;
 
-  // Progressive rollout — each element gets its own beat
+  // Progressive rollout — deliberate pauses between each element
   const catAnim = fadeUp(local, 6, 10);
-  const jobAnim = fadeUp(local, 14, 14);         // Job line appears first
-  // PAUSE — let the job land (~1s)
-  const questionAnim = fadeUp(local, 42, 14);     // Question after the beat
-  // PAUSE — question sinks in
-  const resultLabelAnim = fadeUp(local, 60, 10);  // Result label
-  const resultAnim = fadeUp(local, 66, 14);       // Number scales in
-  const ctxAnim = fadeUp(local, 78, 10);          // Context detail
-  // PAUSE — absorb the number
-  const insightAnim = fadeUp(local, 96, 14);      // Framework insight — the learning
+  const jobAnim = fadeUp(local, 16, 14);          // JTBD hook
+  // ~~~ 1.3s PAUSE — the "huh" realization ~~~
+  const questionAnim = fadeUp(local, 54, 14);     // Question/context line
+  // ~~~ 1s PAUSE — let them read ~~~
+  const resultLabelAnim = fadeUp(local, 84, 10);  // Result label
+  const resultAnim = fadeUp(local, 90, 14);       // Number scales in
+  const ctxAnim = fadeUp(local, 104, 10);         // Supporting detail
+  // ~~~ 1s PAUSE — absorb the number ~~~
+  const insightAnim = fadeUp(local, 134, 16);     // Framework insight — the learning
+  // ~~~ 1.5s+ HOLD — people read the insight, absorb the stat ~~~
 
-  // HOLD — let everything breathe before exit (extended)
-  const exitStart = end - start - 14;
+  // Exit — generous hold after insight
+  const exitStart = end - start - 12;
   const inExit = local >= exitStart;
   const catExit = fadeOut(local, exitStart, 8);
   const jobExit = fadeOut(local, exitStart + 1, 8);
@@ -381,7 +392,7 @@ const CalcCard: React.FC<CalcCardProps> = ({
   const ctxExit = fadeOut(local, exitStart + 4, 8);
   const insightExit = fadeOut(local, exitStart + 5, 8);
 
-  const resultScale = interpolate(local, [68, 82], [0.85, 1], {
+  const resultScale = interpolate(local, [90, 104], [0.85, 1], {
     extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.back(1.3)),
   });
 
@@ -492,7 +503,7 @@ const SceneFrame: React.FC<{ frame: number }> = ({ frame }) => {
         Not just a number.
       </div>
       <div style={{ fontFamily: F.serif, fontSize: 92, color: C.green, textAlign: "center", lineHeight: 1.25, marginTop: 20, ...(inExit ? exit2 : line2) }}>
-        A way to think about it.
+        We give you a framework.
       </div>
       <div style={{ fontFamily: F.sans, fontSize: 38, color: C.dim, marginTop: 52, fontWeight: 500, letterSpacing: "0.04em", ...(inExit ? exit2 : countAnim) }}>
         Nutrition · Fitness · Health · Lifestyle · Longevity
