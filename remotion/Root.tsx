@@ -3,6 +3,7 @@ import { CortisolAnimation } from "./CortisolAnimation";
 import { PinnedPost } from "./PinnedPost";
 import { CortisolOG } from "./CortisolOG";
 import { CaffeineAnimation } from "./CaffeineAnimation";
+import { ProteinAnimation } from "./ProteinAnimation";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -34,6 +35,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="caffeine-animation"
         component={CaffeineAnimation}
+        durationInFrames={960}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="protein-animation"
+        component={ProteinAnimation}
         durationInFrames={960}
         fps={30}
         width={2160}
