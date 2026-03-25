@@ -43,7 +43,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="protein-animation"
         component={ProteinAnimation}
-        durationInFrames={960}
+        durationInFrames={1000}
         fps={30}
         width={2160}
         height={2160}

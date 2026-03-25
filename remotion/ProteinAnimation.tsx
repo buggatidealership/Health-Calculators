@@ -30,9 +30,9 @@ const T = {
   scene3Start: 318,
   scene3End: 620,     // ~20.7s — the math (progressive reveal)
   scene4Start: 628,
-  scene4End: 830,     // ~27.7s — bar comparison (poster frame)
-  scene5Start: 838,
-  scene5End: 960,     // 32s — CTA
+  scene4End: 870,     // ~29s — bar comparison (extended hold)
+  scene5Start: 878,
+  scene5End: 1000,    // ~33.3s — CTA
 };
 
 // --- Helpers ---
@@ -318,14 +318,14 @@ const Scene2: React.FC<{ frame: number }> = ({ frame }) => {
   );
 };
 
-// --- Scene 3: The Math — Progressive reveal ---
+// --- Scene 3: The Reframe — Words first, numbers supporting ---
 const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
   const local = frame - T.scene3Start;
 
   // Step 1: "PROTEIN" label
   const labelAnim = fadeUp(local, 6, 12);
 
-  // Step 2: "The 1g per pound rule?" — pause 1.2s after label
+  // Step 2: "The 1g per pound rule?" — pause
   const ruleDelay = 42;
   const ruleAnim = fadeUp(local, ruleDelay, 14);
 
@@ -339,18 +339,17 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
     extrapolateRight: "clamp",
   });
 
-  // Step 4: The actual calculation — 1.5s pause after myth
-  const calcDelay = mythDelay + 45;
-  // Progressive parts of the calc
-  const calc1Anim = fadeUp(local, calcDelay, 12);       // "175 lb"
-  const calc2Anim = fadeUp(local, calcDelay + 24, 12);   // "× 20% body fat = 140 lb lean mass"
-  const calc3Anim = fadeUp(local, calcDelay + 48, 12);   // "× 0.7g = 98g"
+  // Step 4: The real answer — in words, not math
+  const answerDelay = mythDelay + 48;
+  const answerAnim = fadeUp(local, answerDelay, 16);
 
-  // Step 5: Framework insight — 1.2s after final calc
-  const insightDelay = calcDelay + 84;
-  const insightAnim = fadeUp(local, insightDelay, 14);
+  // Step 5: Supporting number — smaller, confirming
+  const numDelay = answerDelay + 42;
+  const numAnim = fadeUp(local, numDelay, 12);
 
-  // Hold for reading — insightDelay+14 to exit
+  // Step 6: Framework insight — the takeaway
+  const insightDelay = numDelay + 36;
+  const insightAnim = fadeUp(local, insightDelay, 16);
 
   // Exit
   const exitStart = 272;
@@ -413,7 +412,7 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
             fontWeight: 500,
             textAlign: "center",
             letterSpacing: "0.02em",
-            marginBottom: 60,
+            marginBottom: 48,
             ...(inExit ? containerExit : mythAnim),
           }}
         >
@@ -421,83 +420,57 @@ const Scene3: React.FC<{ frame: number }> = ({ frame }) => {
         </div>
       )}
 
-      {/* The actual calculation */}
-      {local >= calcDelay && (
+      {/* The real answer — words first */}
+      {local >= answerDelay && (
         <div
           style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            gap: 24,
-            marginBottom: 56,
-            ...(inExit ? containerExit : {}),
+            fontFamily: FONTS.serif,
+            fontSize: 88,
+            color: COLORS.text,
+            textAlign: "center",
+            lineHeight: 1.3,
+            marginBottom: 32,
+            ...(inExit ? containerExit : answerAnim),
           }}
         >
-          {/* Line 1: 175 lb */}
-          <div
-            style={{
-              fontFamily: FONTS.sans,
-              fontSize: 72,
-              fontWeight: 700,
-              color: COLORS.text,
-              letterSpacing: "-0.01em",
-              ...calc1Anim,
-            }}
-          >
-            <span style={{ color: COLORS.accent }}>175</span> lb
-          </div>
-
-          {/* Line 2: × 20% body fat = 140 lb lean mass */}
-          <div
-            style={{
-              fontFamily: FONTS.sans,
-              fontSize: 56,
-              fontWeight: 500,
-              color: COLORS.textSecondary,
-              ...calc2Anim,
-            }}
-          >
-            <span style={{ color: COLORS.dim }}>× 20% body fat</span>
-            <span style={{ color: COLORS.text, fontWeight: 700 }}> = 140 lb</span>
-            <span style={{ color: COLORS.dim }}> lean mass</span>
-          </div>
-
-          {/* Line 3: × 0.7g = 98g */}
-          <div
-            style={{
-              fontFamily: FONTS.sans,
-              fontSize: 56,
-              fontWeight: 500,
-              color: COLORS.textSecondary,
-              ...calc3Anim,
-            }}
-          >
-            <span style={{ color: COLORS.dim }}>× 0.7g</span>
-            <span style={{ color: COLORS.green, fontWeight: 700, fontSize: 72 }}> = 98g</span>
-          </div>
+          The real target is about{" "}
+          <span style={{ color: COLORS.green }}>half</span> of that.
         </div>
       )}
 
-      {/* Framework insight */}
+      {/* Supporting number — smaller, confirming */}
+      {local >= numDelay && (
+        <div
+          style={{
+            fontFamily: FONTS.sans,
+            fontSize: 42,
+            color: COLORS.textSecondary,
+            textAlign: "center",
+            ...(inExit ? containerExit : numAnim),
+          }}
+        >
+          For a 175 lb person: <span style={{ color: COLORS.green, fontWeight: 700 }}>~98g</span> per day, not 175g
+        </div>
+      )}
+
+      {/* Framework insight — the takeaway */}
       {local >= insightDelay && (
         <div
           style={{
             fontFamily: FONTS.serif,
-            fontSize: 54,
-            color: COLORS.textSecondary,
+            fontSize: 56,
+            color: COLORS.text,
             textAlign: "center",
-            lineHeight: 1.5,
-            maxWidth: 1600,
+            marginTop: 40,
+            lineHeight: 1.35,
             ...(inExit ? containerExit : insightAnim),
           }}
         >
-          You need <span style={{ color: COLORS.green, fontWeight: 700 }}>98g</span>.
-          Not 175g.{" "}
-          <span style={{ color: COLORS.text }}>
-            You might already be eating enough.
-          </span>
+          You might already be eating enough.
         </div>
       )}
+
+      {/* Old insight removed — new Scene 3 has its own */}
     </div>
   );
 };
@@ -537,10 +510,10 @@ const Scene4: React.FC<{ frame: number }> = ({ frame }) => {
   const insightDelay = 138;
   const insightAnim = fadeUp(local, insightDelay, 14);
 
-  // Hold for poster frame — this is the key visual (138 to exitStart)
+  // Hold for poster frame — extended for reading (138 to exitStart = 2.5s hold)
 
-  // Exit
-  const exitStart = 174;
+  // Exit — give insight time to sink in
+  const exitStart = 210;
   const titleExit = fadeOut(local, exitStart, 8);
   const containerExit = fadeOut(local, exitStart + 3, 8);
   const inExit = local >= exitStart;
