@@ -21,6 +21,8 @@ import { GlucoseSpike } from "./GlucoseSpike";
 import { GABAPathway } from "./GABAPathway";
 import { DentalReel1 } from "./DentalReel1";
 import { DentalReel2 } from "./DentalReel2";
+import { DentalGenZ } from "./DentalGenZ";
+import { DentalKids } from "./DentalKids";
 import { MetabolismFluid } from "./MetabolismFluid";
 
 export const RemotionRoot: React.FC = () => {
@@ -97,6 +99,22 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={2160}
         height={2160}
+      />
+      <Composition
+        id="dental-genz"
+        component={DentalGenZ}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="dental-kids"
+        component={DentalKids}
+        durationInFrames={540}
+        fps={30}
+        width={1080}
+        height={1920}
       />
       <Composition
         id="dental-reel-2"
