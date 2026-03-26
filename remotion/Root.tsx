@@ -22,6 +22,8 @@ import { GABAPathway } from "./GABAPathway";
 import { DentalReel1 } from "./DentalReel1";
 import { DentalReel2 } from "./DentalReel2";
 import { DentalGenZ } from "./DentalGenZ";
+import { DentalContrarian } from "./DentalContrarian";
+import { DentalQuestion } from "./DentalQuestion";
 import { DentalKids } from "./DentalKids";
 import { MetabolismFluid } from "./MetabolismFluid";
 
@@ -99,6 +101,22 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={2160}
         height={2160}
+      />
+      <Composition
+        id="dental-contrarian"
+        component={DentalContrarian}
+        durationInFrames={450}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="dental-question"
+        component={DentalQuestion}
+        durationInFrames={540}
+        fps={30}
+        width={1080}
+        height={1920}
       />
       <Composition
         id="dental-genz"
