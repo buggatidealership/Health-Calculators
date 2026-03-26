@@ -219,10 +219,10 @@ export const DentalQuestion: React.FC = () => {
         opacity: sceneVis(frame, 435, 540),
         padding: "0 60px", gap: 24,
       }}>
-        <Img src={staticFile("characters/dental-smile.png")} style={{
+        <Img src={staticFile("characters/harmonia-logo.png")} style={{
           ...fadeIn(frame, 438, 14),
-          width: 450, height: 450, objectFit: "contain",
-          filter: "drop-shadow(0 0 30px rgba(251,191,36,0.15))",
+          width: 700, height: 170, objectFit: "contain",
+          filter: "drop-shadow(0 0 20px rgba(251,191,36,0.15))",
         }} />
         <div style={{
           ...fadeIn(frame, 455, 12),

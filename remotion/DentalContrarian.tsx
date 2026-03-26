@@ -211,9 +211,10 @@ export const DentalContrarian: React.FC = () => {
         opacity: sceneVis(frame, 370, 450),
         padding: "0 50px", gap: 20,
       }}>
-        <Img src={staticFile("characters/dental-smile.png")} style={{
+        <Img src={staticFile("characters/harmonia-logo.png")} style={{
           ...pop(frame, 372, 12),
-          width: 400, height: 400, objectFit: "contain",
+          width: 700, height: 170, objectFit: "contain",
+          filter: "drop-shadow(0 0 20px rgba(240,192,64,0.15))",
         }} />
         <div style={{
           ...pop(frame, 385, 10),
