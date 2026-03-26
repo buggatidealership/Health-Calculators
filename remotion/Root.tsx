@@ -19,6 +19,7 @@ import { CaffeineV2 } from "./CaffeineV2";
 import { CaffeineV3 } from "./CaffeineV3";
 import { GlucoseSpike } from "./GlucoseSpike";
 import { GABAPathway } from "./GABAPathway";
+import { DentalReel1 } from "./DentalReel1";
 import { MetabolismFluid } from "./MetabolismFluid";
 
 export const RemotionRoot: React.FC = () => {
@@ -95,6 +96,14 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={2160}
         height={2160}
+      />
+      <Composition
+        id="dental-reel-1"
+        component={DentalReel1}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
       />
       <Composition
         id="gaba-pathway"
