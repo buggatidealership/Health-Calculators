@@ -12,6 +12,9 @@ import { GlucoseAnimation } from "./GlucoseAnimation";
 import { InsulinRatioAnimation } from "./InsulinRatioAnimation";
 import { TestosteroneAnimation } from "./TestosteroneAnimation";
 import { TestosteroneFluid } from "./TestosteroneFluid";
+import { CaffeineFluid } from "./CaffeineFluid";
+import { BodyCompFluid } from "./BodyCompFluid";
+import { CortisolFluid } from "./CortisolFluid";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -75,6 +78,30 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="insulin-animation"
         component={InsulinAnimation}
+        durationInFrames={900}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="caffeine-fluid"
+        component={CaffeineFluid}
+        durationInFrames={900}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="bodycomp-fluid"
+        component={BodyCompFluid}
+        durationInFrames={840}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="cortisol-fluid"
+        component={CortisolFluid}
         durationInFrames={900}
         fps={30}
         width={2160}
