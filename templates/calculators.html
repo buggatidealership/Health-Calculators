@@ -1,0 +1,188 @@
+{% set skip_global_css = True %}
+{% set page_title = schema_name %}
+{% set meta_description = schema_description %}
+{% set og_description = schema_description %}
+{% set robots_meta = "index, follow" %}
+{% set canonical_url = "https://healthcalculators.xyz/calculators" %}
+{% include 'head_seo.html' %}
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#0a0f1a;--bg-card:#111827;--bg-card-hover:#1a2332;
+  --teal:#0e7a7e;--teal-glow:rgba(14,122,126,0.15);
+  --text:#e0e0e0;--text-secondary:#94a3b8;--text-muted:#64748b;
+  --border:#1e293b;--border-hover:#334155;--coral:#e8785e;--cream:#F5F0EA;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',system-ui,sans-serif;font-size:18px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.grain{position:fixed;inset:0;pointer-events:none;z-index:100;opacity:0.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:128px 128px}
+.page-wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.site-header{position:sticky;top:0;z-index:50;background:rgba(10,15,26,0.85);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:14px 24px}
+.header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--text);font-family:'DM Sans';font-weight:700;font-size:1rem}
+.logo-dot{color:var(--teal)}
+.logo-pulse{width:8px;height:8px;border-radius:50%;background:var(--teal);animation:pulse-dot 2.5s ease-in-out infinite}
+@keyframes pulse-dot{0%,100%{box-shadow:0 0 0 0 rgba(14,122,126,0.4)}50%{box-shadow:0 0 0 6px rgba(14,122,126,0)}}
+.nav-links{display:flex;gap:24px;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color 0.2s ease-out}
+.nav-links a:hover,.nav-links a.active{color:var(--text)}
+.hero{padding:clamp(60px,12vh,120px) 0 clamp(40px,8vh,80px);text-align:center}
+.hero-label{font-size:0.8rem;text-transform:uppercase;letter-spacing:3px;color:var(--teal);font-weight:600;margin-bottom:16px}
+.hero h1{font-family:'DM Serif Display',Georgia,serif;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:400;color:var(--text);margin-bottom:16px;letter-spacing:-0.5px}
+.hero-sub{font-size:1.05rem;color:var(--text-secondary);max-width:540px;margin:0 auto 20px;line-height:1.6}
+.hero-count{font-size:0.85rem;color:var(--text-muted)}
+.hero-count strong{color:var(--teal)}
+.search-wrap{position:relative;max-width:560px;margin:0 auto 28px}
+.search-icon{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--text-muted);pointer-events:none}
+.search-input{width:100%;padding:14px 44px 14px 48px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:0.95rem;font-family:inherit;outline:none;transition:border-color 0.2s ease-out,box-shadow 0.2s ease-out}
+.search-input:focus{border-color:var(--teal);box-shadow:0 0 0 3px var(--teal-glow)}
+.search-input::placeholder{color:var(--text-muted)}
+.search-clear{position:absolute;right:14px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);font-size:1.2rem;cursor:pointer;padding:4px 8px;opacity:0;transition:opacity 0.15s ease-out}
+.search-clear.show{opacity:1}
+.cat-nav{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:48px}
+.cat-pill{padding:8px 18px;border-radius:100px;border:1px solid var(--border);background:transparent;color:var(--text-secondary);font-size:0.82rem;font-weight:500;cursor:pointer;transition:all 0.2s ease-out;font-family:inherit;white-space:nowrap}
+.cat-pill:hover{border-color:var(--border-hover);color:var(--text)}
+.cat-pill.active{background:var(--teal);border-color:var(--teal);color:#fff;font-weight:600}
+.pill-count{margin-left:4px;opacity:0.6;font-weight:400}
+.cat-section{margin-bottom:56px}
+.cat-section-header{display:flex;align-items:center;gap:12px;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border)}
+.cat-section-icon{font-size:1.3rem}
+.cat-section-title{font-family:'DM Serif Display',Georgia,serif;font-size:1.35rem;font-weight:400;color:var(--text)}
+.cat-section-count{font-size:0.78rem;color:var(--text-muted);margin-left:auto}
+.calc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.calc-card{display:flex;align-items:center;gap:14px;padding:16px 20px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+.calc-card:hover{background:var(--bg-card-hover);border-color:var(--border-hover);transform:translateY(-2px)}
+.calc-card.dimmed{opacity:0.2;pointer-events:none}
+.calc-card-icon{font-size:1.4rem;flex-shrink:0;width:36px;text-align:center}
+.calc-card-body{flex:1;min-width:0}
+.calc-card-title{font-size:0.92rem;font-weight:600;color:var(--text);margin-bottom:3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.calc-card-desc{font-size:0.78rem;color:var(--text-secondary);line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.calc-card-arrow{color:var(--text-muted);font-size:1.3rem;transition:transform 0.2s ease-out,color 0.2s ease-out;flex-shrink:0}
+.calc-card:hover .calc-card-arrow{transform:translateX(3px);color:var(--teal)}
+.cat-nutrition .calc-card:hover{border-color:rgba(34,197,94,0.3)}
+.cat-medications .calc-card:hover{border-color:rgba(99,102,241,0.3)}
+.cat-fitness .calc-card:hover{border-color:rgba(14,122,126,0.3)}
+.cat-cosmetic .calc-card:hover{border-color:rgba(232,120,94,0.3)}
+.cat-fertility .calc-card:hover{border-color:rgba(236,72,153,0.3)}
+.cat-health .calc-card:hover{border-color:rgba(239,68,68,0.3)}
+.cat-financial .calc-card:hover{border-color:rgba(234,179,8,0.3)}
+.no-results{display:none;text-align:center;padding:60px 20px;color:var(--text-muted)}
+.no-results.show{display:block}
+.no-results-icon{font-size:2.5rem;margin-bottom:12px;opacity:0.5}
+.no-results-text{font-size:1rem}
+.site-footer{margin-top:80px;padding:40px 24px;border-top:1px solid var(--border);text-align:center}
+.footer-brand{font-size:0.82rem;color:var(--text-muted);margin-bottom:8px}
+.footer-brand a{color:var(--teal);text-decoration:none}
+.footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap}
+.footer-links a{font-size:0.75rem;color:var(--text-muted);text-decoration:none;transition:color 0.2s ease-out}
+.footer-links a:hover{color:var(--text)}
+.reveal{opacity:0;transform:translateY(16px);transition:opacity 0.45s ease-out,transform 0.45s cubic-bezier(0.34,1.56,0.64,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@media(max-width:640px){
+  body{font-size:16px}
+  .hero{padding:40px 0 32px}
+  .calc-grid{grid-template-columns:1fr}
+  .cat-nav{gap:6px}
+  .cat-pill{padding:7px 14px;font-size:0.78rem}
+  .site-header{padding:12px 16px}
+  .page-wrap{padding:0 16px}
+}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <div class="logo-pulse"></div>
+      <span>HealthCalculators<span class="logo-dot">.xyz</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="/calculators" class="active">Calculators</a>
+      <a href="/resources">Guides</a>
+    </nav>
+  </div>
+</header>
+
+<div class="page-wrap">
+
+<section class="hero">
+  <div class="hero-label">Browse All Tools</div>
+  <h1>Health Calculators</h1>
+  <p class="hero-sub">Each calculator teaches one rule you'll remember. Find the question you're trying to answer.</p>
+  <div class="hero-count"><strong>{{ cards|length }}+</strong> free, science-backed tools</div>
+</section>
+
+<div class="search-wrap">
+  <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+  <input type="text" class="search-input" id="search" placeholder="Search calculators..." autocomplete="off">
+  <button class="search-clear" id="search-clear" aria-label="Clear search">&times;</button>
+</div>
+
+<div class="cat-nav" id="cat-nav">
+  <button class="cat-pill active" data-cat="all">All</button>
+  {% for cat in categories %}
+  <button class="cat-pill" data-cat="{{ cat.id }}">{{ cat.label }}<span class="pill-count">({{ cards|selectattr('category','equalto',cat.id)|list|length }})</span></button>
+  {% endfor %}
+</div>
+
+{% for cat in categories %}
+{% set cat_cards = cards|selectattr('category','equalto',cat.id)|list %}
+{% if cat_cards %}
+<section class="cat-section cat-{{ cat.id }} reveal" data-cat="{{ cat.id }}" id="sec-{{ cat.id }}">
+  <div class="cat-section-header">
+    <div class="cat-section-icon">{{ cat.icon }}</div>
+    <h2 class="cat-section-title">{{ cat.label }}</h2>
+    <span class="cat-section-count">{{ cat_cards|length }} tools</span>
+  </div>
+  <div class="calc-grid">
+    {% for card in cat_cards %}
+    <a href="{{ card.url }}" class="calc-card" data-search="{{ card.title|lower }} {{ card.summary|lower }}">
+      <div class="calc-card-icon">{{ card.icon }}</div>
+      <div class="calc-card-body">
+        <div class="calc-card-title">{{ card.title }}</div>
+        <div class="calc-card-desc">{{ card.summary }}</div>
+      </div>
+      <span class="calc-card-arrow">&rsaquo;</span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+
+<div class="no-results" id="no-results">
+  <div class="no-results-icon">&#x1F50D;</div>
+  <div class="no-results-text">No calculators match your search.</div>
+</div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <a href="/">HealthCalculators.xyz</a> &mdash; They give you numbers. We give you the context.
+  </div>
+  <div class="footer-links">
+    <a href="/calculators">All Calculators</a>
+    <a href="/resources">Guides</a>
+    <a href="/about">About</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+</footer>
+
+<script>
+var search=document.getElementById('search'),clearBtn=document.getElementById('search-clear'),
+pills=document.querySelectorAll('.cat-pill'),sections=document.querySelectorAll('.cat-section'),
+cards=document.querySelectorAll('.calc-card'),noResults=document.getElementById('no-results'),activeCat='all';
+search.addEventListener('input',function(){var q=this.value.toLowerCase().trim();clearBtn.classList.toggle('show',q.length>0);filterCards(q,activeCat)});
+clearBtn.addEventListener('click',function(){search.value='';clearBtn.classList.remove('show');filterCards('',activeCat);search.focus()});
+pills.forEach(function(pill){pill.addEventListener('click',function(){pills.forEach(function(p){p.classList.remove('active')});pill.classList.add('active');activeCat=pill.dataset.cat;filterCards(search.value.toLowerCase().trim(),activeCat)})});
+function filterCards(q,cat){var anyVisible=false;sections.forEach(function(sec){var secCat=sec.dataset.cat,catMatch=(cat==='all'||secCat===cat),sectionHasVisible=false;sec.querySelectorAll('.calc-card').forEach(function(card){var searchData=(card.dataset.search||'')+' '+card.textContent.toLowerCase();var searchMatch=!q||searchData.indexOf(q)!==-1;var show=catMatch&&searchMatch;if(show){card.classList.remove('dimmed');card.style.display='';sectionHasVisible=true;anyVisible=true}else if(q&&catMatch){card.classList.add('dimmed');card.style.display='';sectionHasVisible=true;anyVisible=true}else{card.classList.remove('dimmed');card.style.display='none'}});sec.style.display=(catMatch&&sectionHasVisible)?'':'none'});noResults.classList.toggle('show',!anyVisible)}
+var reveals=document.querySelectorAll('.reveal'),observer=new IntersectionObserver(function(entries){entries.forEach(function(entry){if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});reveals.forEach(function(el){observer.observe(el)});
+</script>
+</body>
+</html>
