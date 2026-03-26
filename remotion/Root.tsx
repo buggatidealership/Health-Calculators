@@ -6,6 +6,7 @@ import { CaffeineAnimation } from "./CaffeineAnimation";
 import { ProteinAnimation } from "./ProteinAnimation";
 import { VitaminDA } from "./VitaminDA";
 import { VitaminDB } from "./VitaminDB";
+import { NormalAnimation } from "./NormalAnimation";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -62,6 +63,14 @@ export const RemotionRoot: React.FC = () => {
         id="vitamin-d-B"
         component={VitaminDB}
         durationInFrames={960}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="normal-animation"
+        component={NormalAnimation}
+        durationInFrames={750}
         fps={30}
         width={2160}
         height={2160}
