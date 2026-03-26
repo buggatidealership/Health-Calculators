@@ -8,6 +8,7 @@ import { VitaminDA } from "./VitaminDA";
 import { VitaminDB } from "./VitaminDB";
 import { NormalAnimation } from "./NormalAnimation";
 import { InsulinAnimation } from "./InsulinAnimation";
+import { GlucoseAnimation } from "./GlucoseAnimation";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -71,6 +72,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="insulin-animation"
         component={InsulinAnimation}
+        durationInFrames={900}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="glucose-animation"
+        component={GlucoseAnimation}
         durationInFrames={900}
         fps={30}
         width={2160}
