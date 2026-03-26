@@ -16,6 +16,7 @@ import { CaffeineFluid } from "./CaffeineFluid";
 import { BodyCompFluid } from "./BodyCompFluid";
 import { CortisolFluid } from "./CortisolFluid";
 import { CaffeineV2 } from "./CaffeineV2";
+import { CaffeineV3 } from "./CaffeineV3";
 import { MetabolismFluid } from "./MetabolismFluid";
 
 export const RemotionRoot: React.FC = () => {
@@ -88,6 +89,14 @@ export const RemotionRoot: React.FC = () => {
       <Composition
         id="metabolism-fluid"
         component={MetabolismFluid}
+        durationInFrames={1020}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="caffeine-v3"
+        component={CaffeineV3}
         durationInFrames={900}
         fps={30}
         width={2160}
