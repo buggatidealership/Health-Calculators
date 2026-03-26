@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Clinical Archive - The Aha Moment</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,700;1,6..72,400&amp;family=Space+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface": "#0e131e",
+                        "on-background": "#dee2f2",
+                        "on-surface-variant": "#bdc9c9",
+                        "on-primary": "#003739",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1b1f2b",
+                        "surface-dim": "#0e131e",
+                        "on-secondary-fixed": "#2c1700",
+                        "secondary-fixed-dim": "#ffb869",
+                        "secondary-container": "#a46300",
+                        "surface-container-highest": "#303541",
+                        "surface-variant": "#303541",
+                        "inverse-surface": "#dee2f2",
+                        "error-container": "#93000a",
+                        "surface-tint": "#7dd4d8",
+                        "inverse-primary": "#00696d",
+                        "surface-container-low": "#171b27",
+                        "outline-variant": "#3e4949",
+                        "primary-container": "#0e7a7e",
+                        "secondary": "#ffb869",
+                        "on-primary-container": "#c0fcff",
+                        "on-secondary": "#482900",
+                        "on-tertiary": "#003823",
+                        "background": "#0e131e",
+                        "secondary-fixed": "#ffdcbb",
+                        "primary": "#7dd4d8",
+                        "tertiary-container": "#1a7d56",
+                        "on-secondary-fixed-variant": "#683d00",
+                        "on-error": "#690005",
+                        "on-tertiary-fixed": "#002113",
+                        "on-surface": "#dee2f2",
+                        "surface-container-lowest": "#090e19",
+                        "tertiary": "#7ed8aa",
+                        "on-tertiary-container": "#c4ffdd",
+                        "primary-fixed-dim": "#7dd4d8",
+                        "on-primary-fixed-variant": "#004f52",
+                        "primary-fixed": "#99f1f5",
+                        "tertiary-fixed-dim": "#7ed8aa",
+                        "surface-bright": "#343946",
+                        "on-primary-fixed": "#002021",
+                        "on-error-container": "#ffdad6",
+                        "inverse-on-surface": "#2b303c",
+                        "on-secondary-container": "#fff7f2",
+                        "tertiary-fixed": "#9af5c5",
+                        "outline": "#889393",
+                        "surface-container-high": "#252a36",
+                        "on-tertiary-fixed-variant": "#005235"
+                    },
+                    fontFamily: {
+                        "headline": ["Newsreader"],
+                        "body": ["Space Grotesk"],
+                        "label": ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0px",
+                        "lg": "0px",
+                        "xl": "0px",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .strikethrough-red {
+            position: relative;
+            display: inline-block;
+        }
+        .strikethrough-red::after {
+            content: "";
+            position: absolute;
+            left: -5%;
+            top: 50%;
+            width: 110%;
+            height: 4px;
+            background-color: #ff4b4b;
+            transform: rotate(-4deg);
+        }
+        .strikethrough-small {
+            position: relative;
+            display: inline-block;
+        }
+        .strikethrough-small::after {
+            content: "";
+            position: absolute;
+            left: -2px;
+            top: 50%;
+            width: calc(100% + 4px);
+            height: 1.5px;
+            background-color: #ff4b4b;
+        }
+        .card-shadow {
+            box-shadow: 0 24px 48px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0a0f1a] flex items-center justify-center min-h-screen font-body text-on-surface">
+<!-- 1080x1080 Social Media Container -->
+<div class="w-[1080px] h-[1080px] bg-[#0a0f1a] relative flex flex-col items-center justify-center p-20 overflow-hidden">
+<!-- Brand Header Anchor -->
+<header class="absolute top-16 w-full px-20 flex justify-between items-center">
+<div class="flex flex-col">
+<span class="text-primary font-headline text-2xl uppercase tracking-[0.2em]">CLINICAL ARCHIVE</span>
+<span class="text-on-surface-variant font-label text-[10px] uppercase tracking-widest mt-1">Diagnostic Recontextualization // v.04</span>
+</div>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-primary opacity-40">clinical_notes</span>
+</div>
+</header>
+<!-- Vertical Stack of Recontextualization Cards -->
+<div class="w-full max-w-3xl flex flex-col gap-[40px] z-10">
+<!-- Card 1: Vitamin D -->
+<div class="relative bg-white/[0.03] border-l-[6px] border-[#0e7a7e] p-10 rounded-[8px] card-shadow flex flex-col justify-between h-[220px]">
+<div class="flex justify-between items-start">
+<span class="text-[#666666] font-label text-sm uppercase tracking-widest font-medium">Vitamin D</span>
+<span class="text-[#ff4b4b] font-label text-xs uppercase tracking-tighter strikethrough-small">Normal</span>
+</div>
+<div class="flex items-baseline gap-6">
+<span class="text-[#bdc9c9] font-label text-4xl strikethrough-red">22 ng/mL</span>
+<span class="material-symbols-outlined text-[#6ec89b] scale-150">arrow_forward</span>
+<span class="text-[#6ec89b] font-label text-6xl font-bold">50-80</span>
+</div>
+<div class="mt-4">
+<span class="text-[#e89b3e] font-headline italic text-2xl tracking-tight">"Where fatigue resolves"</span>
+</div>
+</div>
+<!-- Card 2: Testosterone -->
+<div class="relative bg-white/[0.03] border-l-[6px] border-[#0e7a7e] p-10 rounded-[8px] card-shadow flex flex-col justify-between h-[220px]">
+<div class="flex justify-between items-start">
+<span class="text-[#666666] font-label text-sm uppercase tracking-widest font-medium">Testosterone</span>
+<span class="text-[#ff4b4b] font-label text-xs uppercase tracking-tighter strikethrough-small">Normal</span>
+</div>
+<div class="flex items-baseline gap-6">
+<span class="text-[#bdc9c9] font-label text-4xl strikethrough-red">320 ng/dL</span>
+<span class="material-symbols-outlined text-[#6ec89b] scale-150">arrow_forward</span>
+<span class="text-[#6ec89b] font-label text-5xl font-bold tracking-tighter">vs. your age</span>
+</div>
+<div class="mt-4">
+<span class="text-[#e89b3e] font-headline italic text-2xl tracking-tight">"Normal for 80. Not for 35."</span>
+</div>
+</div>
+<!-- Card 3: Fasting Glucose -->
+<div class="relative bg-white/[0.03] border-l-[6px] border-[#0e7a7e] p-10 rounded-[8px] card-shadow flex flex-col justify-between h-[220px]">
+<div class="flex justify-between items-start">
+<span class="text-[#666666] font-label text-sm uppercase tracking-widest font-medium">Fasting Glucose</span>
+<span class="text-[#ff4b4b] font-label text-xs uppercase tracking-tighter strikethrough-small">Normal</span>
+</div>
+<div class="flex items-baseline gap-6">
+<span class="text-[#bdc9c9] font-label text-4xl strikethrough-red">98 mg/dL</span>
+<span class="material-symbols-outlined text-[#6ec89b] scale-150">arrow_forward</span>
+<span class="text-[#6ec89b] font-label text-6xl font-bold tracking-tighter">&lt; 85</span>
+</div>
+<div class="mt-4">
+<span class="text-[#e89b3e] font-headline italic text-2xl tracking-tight">"Where insulin resistance starts"</span>
+</div>
+</div>
+</div>
+<!-- Footer / Technical Data Gutter -->
+<footer class="absolute bottom-16 w-full px-20 flex justify-between items-end">
+<div class="text-[10px] font-label text-[#3e4949] leading-tight uppercase tracking-widest">
+                Data point: optimal_ranges_v2<br/>
+                source: functional_medicine_archive
+            </div>
+<div class="text-[#7dd4d8] font-headline italic text-xl">
+                The New Standard.
+            </div>
+</footer>
+<!-- Decorative Elements -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-b from-primary/40 to-transparent"></div>
+<div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[1px] h-32 bg-gradient-to-t from-primary/40 to-transparent"></div>
+<!-- Subtle noise/grain texture simulation using a subtle radial gradient overlay -->
+<div class="absolute inset-0 pointer-events-none opacity-20 bg-[radial-gradient(circle_at_50%_50%,_rgba(125,212,216,0.05)_0%,_transparent_100%)]"></div>
+</div>
+</body></html>

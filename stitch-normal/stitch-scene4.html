@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Newsreader:ital,wght@0,300;0,400;0,500;0,600;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline-variant": "#3f4942",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdad8",
+              "surface-container-lowest": "#090e19",
+              "background": "#0e131e",
+              "surface": "#0e131e",
+              "tertiary": "#ffc4c2",
+              "tertiary-fixed-dim": "#ffb3b1",
+              "surface-variant": "#303541",
+              "primary-fixed": "#9af5c5",
+              "secondary-container": "#404754",
+              "secondary": "#c0c7d6",
+              "on-tertiary": "#5b191c",
+              "inverse-on-surface": "#2b303c",
+              "error-container": "#93000a",
+              "on-error": "#690005",
+              "secondary-fixed": "#dce2f3",
+              "surface-container-high": "#252a36",
+              "on-surface": "#dee2f2",
+              "primary-container": "#6ec89b",
+              "on-tertiary-fixed-variant": "#782f31",
+              "inverse-surface": "#dee2f2",
+              "primary": "#8ae4b5",
+              "inverse-primary": "#006c48",
+              "surface-container-low": "#171b27",
+              "on-primary-fixed": "#002113",
+              "on-secondary-fixed-variant": "#404754",
+              "on-surface-variant": "#bec9c0",
+              "on-secondary-fixed": "#151c27",
+              "surface-dim": "#0e131e",
+              "on-tertiary-container": "#793032",
+              "surface-tint": "#7ed8aa",
+              "on-secondary": "#2a313d",
+              "on-primary-fixed-variant": "#005235",
+              "on-secondary-container": "#aeb5c5",
+              "surface-container": "#1b1f2b",
+              "tertiary-container": "#ff9b9a",
+              "error": "#ffb4ab",
+              "primary-fixed-dim": "#7ed8aa",
+              "surface-bright": "#343946",
+              "on-primary-container": "#005336",
+              "outline": "#88938b",
+              "on-background": "#dee2f2",
+              "secondary-fixed-dim": "#c0c7d6",
+              "on-primary": "#003823",
+              "on-tertiary-fixed": "#3e0409",
+              "surface-container-highest": "#303541"
+            },
+            fontFamily: {
+              "headline": ["Newsreader", "serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .glow-dot {
+            box-shadow: 0 0 15px 2px rgba(110, 200, 155, 0.6);
+        }
+        .text-glow {
+            text-shadow: 0 0 30px rgba(110, 200, 155, 0.2);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#0a0f1a] text-on-surface font-body overflow-hidden flex items-center justify-center min-h-screen">
+<!-- 1080x1080 Social Media Square Canvas -->
+<main class="relative aspect-square w-full max-w-[1080px] h-full flex flex-col items-center justify-center px-12 text-center bg-[#0a0f1a]">
+<!-- Background Subtle Gradient Ray (Clinical Glow) -->
+<div class="absolute inset-0 pointer-events-none opacity-20" style="background: radial-gradient(circle at 50% 50%, #6ec89b 0%, transparent 60%);">
+</div>
+<!-- Typography Stack -->
+<div class="relative z-10 flex flex-col items-center space-y-2">
+<!-- Contextual Lead-in -->
+<p class="font-body text-xl md:text-2xl tracking-[0.15em] text-[#6b7280] mb-8">
+                The number was never wrong.
+            </p>
+<!-- Headline Group -->
+<div class="flex flex-col items-center leading-none">
+<span class="font-headline font-light italic text-4xl md:text-6xl text-on-background mb-1">
+                    The
+                </span>
+<h1 class="font-headline font-bold text-primary-container text-[120px] md:text-[180px] tracking-tight text-glow mb-2">
+                    context
+                </h1>
+<span class="font-headline font-light italic text-4xl md:text-6xl text-on-background">
+                    was missing.
+                </span>
+</div>
+<!-- Signature Illumination Signature -->
+<div class="mt-20 flex flex-col items-center">
+<!-- The Illumination Dot -->
+<div class="w-[14px] h-[14px] bg-primary-container rounded-full glow-dot mb-4"></div>
+<!-- Clinical Gradient Divider -->
+<div class="w-[60px] h-[1.5px] bg-gradient-to-r from-transparent via-primary-container to-transparent opacity-80"></div>
+</div>
+</div>
+<!-- Aesthetic Branding Overlay (Optional - High End Editorial feel) -->
+<div class="absolute bottom-12 right-12 opacity-30">
+<p class="font-label text-[10px] uppercase tracking-[0.5em] text-secondary">
+                Clinical Precision — Emotional Insight
+            </p>
+</div>
+</main>
+<!-- Invisible Metadata for Content Generation -->
+<div class="hidden">
+<div data-alt="minimalist cinematic studio shot with deep navy background and soft teal atmospheric lighting reflecting clinical precision and medical tech elegance"></div>
+</div>
+</body></html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Vulnerable Monolith | Patient Voice</title>
+<!-- Google Fonts: Newsreader for the Editorial Serif feel, Inter for the minimal UI (though suppressed here) -->
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,200;0,300;0,400;1,300;1,400&amp;family=Inter:wght@300;400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "outline": "#a48b86",
+              "on-background": "#dee2f2",
+              "secondary-fixed-dim": "#c6c6c6",
+              "on-tertiary-fixed": "#00201b",
+              "on-primary": "#601303",
+              "surface-container-highest": "#303541",
+              "on-primary-fixed-variant": "#7f2a16",
+              "on-secondary-container": "#b5b5b5",
+              "surface-container": "#1b1f2b",
+              "tertiary-container": "#00ab95",
+              "error": "#ffb4ab",
+              "primary-fixed-dim": "#ffb4a3",
+              "surface-bright": "#343946",
+              "on-primary-container": "#601303",
+              "on-tertiary-container": "#00372f",
+              "surface-tint": "#ffb4a3",
+              "on-secondary": "#2f3131",
+              "surface-container-low": "#171b27",
+              "on-secondary-fixed-variant": "#454747",
+              "on-primary-fixed": "#3d0600",
+              "on-secondary-fixed": "#1a1c1c",
+              "on-surface-variant": "#ddc0ba",
+              "surface-dim": "#0e131e",
+              "surface-container-high": "#252a36",
+              "secondary-fixed": "#e2e2e2",
+              "on-surface": "#dee2f2",
+              "primary-container": "#e8785e",
+              "on-tertiary-fixed-variant": "#005045",
+              "inverse-primary": "#9f412b",
+              "primary": "#ffb4a3",
+              "inverse-surface": "#dee2f2",
+              "inverse-on-surface": "#2b303c",
+              "on-tertiary": "#00382f",
+              "on-error": "#690005",
+              "error-container": "#93000a",
+              "tertiary": "#57dbc3",
+              "tertiary-fixed-dim": "#57dbc3",
+              "surface-variant": "#303541",
+              "primary-fixed": "#ffdad2",
+              "secondary-container": "#454747",
+              "secondary": "#c6c6c6",
+              "outline-variant": "#56423e",
+              "on-error-container": "#ffdad6",
+              "tertiary-fixed": "#77f8df",
+              "surface-container-lowest": "#090e19",
+              "background": "#0e131e",
+              "surface": "#0e131e"
+            },
+            fontFamily: {
+              "headline": ["Newsreader"],
+              "body": ["Newsreader"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0px", "lg": "0px", "xl": "0px", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #0e131e;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: 100vw;
+        }
+
+        .canvas-frame {
+            width: 1080px;
+            height: 1080px;
+            background-color: #090e19;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            /* Subtlest vignette as per Design System "Glass & Gradient" rule */
+            background: radial-gradient(circle at center, #171b27 0%, #090e19 100%);
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased">
+<!-- 1080x1080 Branding Frame -->
+<main class="canvas-frame">
+<!-- Section: The Vulnerable Monolith Narrative -->
+<div class="flex flex-col items-center text-center space-y-2">
+<!-- Line 1: Emotional Hook -->
+<h1 class="font-headline font-light tracking-tight text-secondary-fixed text-[4.5rem] leading-none opacity-90">
+                But you don't
+            </h1>
+<!-- Line 2: The Heartbeat / Focal Point -->
+<h2 class="font-headline italic font-normal text-primary-container text-[7.5rem] leading-[0.9] tracking-tighter">
+                feel normal.
+            </h2>
+</div>
+<!-- Hidden Branding Anchor (TopAppBar) Suppression 
+             As per Semantic Shell Mandate: Suppress navigation for focused journeys / brand animations.
+        -->
+</main>
+<!-- Visual Polish: Subtle grain texture overlay for cinematic feel -->
+<div class="fixed inset-0 pointer-events-none opacity-[0.03]" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD7vRTqCEBYKMuAxpRY_UAHdsjxuOBbHptSOh7MAHSnnAYooe83Y3UBISTKVACy9JUQlbHmRruDqytG6NtOkNOYV2VbRPkCEkD4gs-0DxeNLb0iix-wBQT43LcKGAFsB75cea14WnlaaiKrsoXzluFufvtOgIg_PFhFXB8LdatuLS1gy6lOSnwsJJ5kCYMigpUrz6uZ9Ts21jcVuY3pEjwmGcKB1tMFZZrTVvOITtMt2EC6FwUDfQnlz5A-u1A2DOoy1MrG3s62kK24');"></div>
+</body></html>
