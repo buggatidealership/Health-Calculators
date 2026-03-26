@@ -221,7 +221,7 @@ export const CaffeineV3: React.FC = () => {
         position: "absolute", inset: 0,
         display: "flex", flexDirection: "column", alignItems: "center",
         justifyContent: "center",
-        opacity: sceneVis(frame, 685, 790),
+        opacity: sceneVis(frame, 685, 805),
         padding: "100px 60px",
       }}>
         <div style={{
