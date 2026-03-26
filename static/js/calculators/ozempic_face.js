@@ -81,10 +81,25 @@
         var smoking = smokingEl.value;
         var weightFlux = weightFluxEl.value;
 
-        // Validation
-        if (!age || age < 18 || age > 100) { alert('Please enter a valid age (18-100).'); return; }
-        if (!weightKg || weightKg < 30) { alert('Please enter a valid weight.'); return; }
-        if (!heightM || heightM < 1.0) { alert('Please enter a valid height.'); return; }
+        // Validation — inline errors instead of alert()
+        var validationErrors = [];
+        if (!age || age < 18 || age > 100) validationErrors.push('Enter a valid age (18-100).');
+        if (!weightKg || weightKg < 30) validationErrors.push('Enter a valid weight.');
+        if (!heightM || heightM < 1.0) validationErrors.push('Enter a valid height.');
+        if (validationErrors.length > 0) {
+            var errEl = document.getElementById('formError');
+            if (!errEl) {
+                errEl = document.createElement('div');
+                errEl.id = 'formError';
+                errEl.style.cssText = 'color:#e8785e;font-size:0.9rem;padding:12px 16px;background:rgba(232,120,94,0.1);border:1px solid rgba(232,120,94,0.3);border-radius:8px;margin-bottom:16px;text-align:center;';
+                var calcBtn = document.getElementById('calcBtn');
+                if (calcBtn) calcBtn.parentNode.insertBefore(errEl, calcBtn);
+            }
+            errEl.textContent = validationErrors.join(' ');
+            errEl.style.display = 'block';
+            return;
+        }
+        var fErr = document.getElementById('formError'); if (fErr) fErr.style.display = 'none';
 
         var bmi = weightKg / (heightM * heightM);
 

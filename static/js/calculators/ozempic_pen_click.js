@@ -82,9 +82,29 @@
     var calcBtn = document.getElementById('calcBtn');
     if (calcBtn) calcBtn.addEventListener('click', calculate);
 
+    function showInlineError(msg) {
+        var errEl = document.getElementById('formError');
+        if (!errEl) {
+            errEl = document.createElement('div');
+            errEl.id = 'formError';
+            errEl.style.cssText = 'color:#e8785e;font-size:0.9rem;padding:12px 16px;background:rgba(232,120,94,0.1);border:1px solid rgba(232,120,94,0.3);border-radius:8px;margin-bottom:16px;text-align:center;';
+            var calcBtn = document.getElementById('calcBtn');
+            if (calcBtn) calcBtn.parentNode.insertBefore(errEl, calcBtn);
+        }
+        errEl.textContent = msg;
+        errEl.style.display = 'block';
+    }
+
+    function hideInlineError() {
+        var errEl = document.getElementById('formError');
+        if (errEl) errEl.style.display = 'none';
+    }
+
     function calculate() {
+        hideInlineError();
+
         if (!selectedPen || !selectedDose) {
-            alert('Please select a pen color and dose first.');
+            showInlineError('Select a pen color and dose above to calculate.');
             return;
         }
 
@@ -93,9 +113,10 @@
         var weeksAtDose = weeksEl ? (parseInt(weeksEl.value) || 0) : 0;
         var lastInjDate = lastInjDateEl ? lastInjDateEl.value : '';
 
+        // Default to today if no date entered (reduce friction)
         if (!lastInjDate) {
-            alert('Please enter your last injection date.');
-            return;
+            lastInjDate = new Date().toISOString().split('T')[0];
+            if (lastInjDateEl) lastInjDateEl.value = lastInjDate;
         }
 
         var spec = penSpecs[selectedPen];
