@@ -10,6 +10,7 @@ import { NormalAnimation } from "./NormalAnimation";
 import { InsulinAnimation } from "./InsulinAnimation";
 import { GlucoseAnimation } from "./GlucoseAnimation";
 import { InsulinRatioAnimation } from "./InsulinRatioAnimation";
+import { TestosteroneAnimation } from "./TestosteroneAnimation";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -74,6 +75,14 @@ export const RemotionRoot: React.FC = () => {
         id="insulin-animation"
         component={InsulinAnimation}
         durationInFrames={900}
+        fps={30}
+        width={2160}
+        height={2160}
+      />
+      <Composition
+        id="testosterone-animation"
+        component={TestosteroneAnimation}
+        durationInFrames={960}
         fps={30}
         width={2160}
         height={2160}
