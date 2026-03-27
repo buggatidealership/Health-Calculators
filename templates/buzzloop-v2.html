@@ -3,269 +3,148 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buzzloop — Reviews → Reels → Customers. On loop.</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<title>Buzzloop — Reviews → Reels → Customers</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --bg: #0a0a0a;
-    --surface: rgba(255,255,255,0.03);
-    --border: rgba(255,255,255,0.06);
-    --text: #ededed;
-    --text2: rgba(255,255,255,0.55);
-    --text3: rgba(255,255,255,0.25);
-    --accent: #f97316;
-    --accent-glow: rgba(249,115,22,0.15);
-    --green: #22c55e;
-    --radius: 20px;
-    --ease: cubic-bezier(0.16,1,0.3,1);
-  }
-  * { margin:0; padding:0; box-sizing:border-box; }
-  html { scroll-behavior:smooth; }
-  body { font-family:'Space Grotesk','Inter',system-ui,sans-serif; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+:root{--bg:#09090b;--s:rgba(255,255,255,.03);--b:rgba(255,255,255,.06);--t:#ededed;--t2:rgba(255,255,255,.5);--t3:rgba(255,255,255,.22);--a:#f97316;--ag:rgba(249,115,22,.12);--g:#22c55e;--r:20px;--e:cubic-bezier(.16,1,.3,1)}
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}
+body{font-family:'Space Grotesk',system-ui,sans-serif;background:var(--bg);color:var(--t);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px);background-size:32px 32px}
+.c{max-width:1080px;margin:0 auto;padding:0 32px;position:relative;z-index:1}
 
-  /* Dot grid background */
-  body::before {
-    content:''; position:fixed; inset:0; z-index:0; pointer-events:none;
-    background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(9,9,11,.8);backdrop-filter:blur(16px);border-bottom:1px solid var(--b)}
+.nav-i{max-width:1080px;margin:0 auto;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
+.bolt{width:22px;height:22px;background:var(--a);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.nav-cta{padding:8px 20px;background:var(--a);color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s var(--e)}
 
-  .container { max-width:1100px; margin:0 auto; padding:0 32px; position:relative; z-index:1; }
+/* Hero: full-screen, immersive */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:120px 0 80px;position:relative}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:400px;background:radial-gradient(circle,var(--ag),transparent 70%);filter:blur(80px);pointer-events:none}
+.hero h1{font-size:clamp(42px,7vw,76px);font-weight:700;letter-spacing:-.045em;line-height:1.0;margin-bottom:20px}
+.hero h1 .a{color:var(--a)}
+.hero-sub{font-size:18px;color:var(--t2);max-width:440px;line-height:1.65;margin-bottom:36px}
+.btn-p{padding:14px 30px;background:var(--a);color:#fff;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;transition:all .25s var(--e);display:inline-block}
+.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px var(--ag)}
+.hero-note{margin-top:16px;font-size:12px;color:var(--t3)}
 
-  /* Nav */
-  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(10,10,10,0.8); backdrop-filter:blur(16px); border-bottom:1px solid var(--border); }
-  .nav-inner { max-width:1100px; margin:0 auto; padding:0 32px; height:60px; display:flex; align-items:center; justify-content:space-between; }
-  .nav-logo { font-size:18px; font-weight:700; letter-spacing:-0.02em; display:flex; align-items:center; gap:8px; }
-  .nav-logo .bolt { width:24px; height:24px; background:var(--accent); border-radius:6px; display:flex; align-items:center; justify-content:center; font-size:14px; }
-  .nav-links { display:flex; align-items:center; gap:24px; }
-  .nav-links a { font-size:14px; color:var(--text2); text-decoration:none; transition:color 0.2s; }
-  .nav-links a:hover { color:var(--text); }
-  .nav-cta { padding:9px 22px; background:var(--accent); color:#fff; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; transition:all 0.2s var(--ease); }
-  .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 16px var(--accent-glow); }
+/* Deck sections — each Reel = full viewport height */
+.deck-section{min-height:100vh;display:flex;align-items:center;padding:80px 0;border-top:1px solid var(--b)}
+.deck-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;width:100%}
+.deck-inner.flip .deck-text{order:2}
+.deck-inner.flip .deck-phone{order:1}
 
-  /* Hero — heroic typography */
-  .hero { padding:160px 0 100px; position:relative; }
-  .hero-glow { position:absolute; top:80px; left:50%; transform:translateX(-50%); width:600px; height:600px; background:radial-gradient(circle, var(--accent-glow), transparent 70%); pointer-events:none; filter:blur(60px); }
-  .hero h1 { font-size:clamp(44px,7vw,80px); font-weight:700; letter-spacing:-0.045em; line-height:1.0; margin-bottom:24px; position:relative; }
-  .hero h1 .accent { color:var(--accent); }
-  .hero-sub { font-size:18px; color:var(--text2); max-width:480px; line-height:1.7; margin-bottom:40px; }
-  .hero-actions { display:flex; gap:16px; align-items:center; }
-  .btn-primary { padding:14px 32px; background:var(--accent); color:#fff; border-radius:12px; font-size:16px; font-weight:600; text-decoration:none; transition:all 0.25s var(--ease); display:inline-flex; align-items:center; gap:8px; }
-  .btn-primary:hover { transform:translateY(-2px); box-shadow:0 8px 24px var(--accent-glow); }
-  .btn-secondary { padding:14px 32px; background:var(--surface); border:1px solid var(--border); color:var(--text); border-radius:12px; font-size:16px; font-weight:500; text-decoration:none; transition:all 0.2s var(--ease); }
-  .btn-secondary:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); }
-  .hero-note { margin-top:20px; font-size:13px; color:var(--text3); }
+.deck-cat{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--a);margin-bottom:12px}
+.deck-title{font-size:clamp(26px,3vw,36px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:12px}
+.deck-desc{font-size:15px;color:var(--t2);line-height:1.65;margin-bottom:20px}
+.deck-meta{display:flex;gap:10px;flex-wrap:wrap}
+.pm{padding:5px 12px;border-radius:100px;font-size:11px;font-weight:600}
+.pm-r{background:rgba(239,68,68,.08);color:#f87171;border:1px solid rgba(239,68,68,.1)}
+.pm-g{background:rgba(34,197,94,.08);color:#4ade80;border:1px solid rgba(34,197,94,.1)}
 
-  /* Stats ribbon */
-  .stats { padding:40px 0 60px; }
-  .stats-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border-radius:var(--radius); overflow:hidden; }
-  .stat { background:var(--bg); padding:32px 24px; text-align:center; }
-  .stat-num { font-size:32px; font-weight:700; letter-spacing:-0.03em; }
-  .stat-label { font-size:13px; color:var(--text3); margin-top:6px; }
+/* Phone */
+.deck-phone{display:flex;justify-content:center}
+.phone{width:280px;background:#111;border-radius:36px;border:2px solid rgba(255,255,255,.06);box-shadow:0 32px 80px rgba(0,0,0,.5);overflow:hidden}
+.phone-notch{width:80px;height:18px;background:#111;border-radius:0 0 10px 10px;margin:0 auto}
+.phone-screen{background:#080808;margin:0 5px 5px;border-radius:0 0 32px 32px;height:497px;overflow:hidden}
+.phone-screen video{width:100%;height:100%;object-fit:cover}
 
-  /* Bento grid */
-  .bento { padding:60px 0 80px; }
-  .bento h2 { font-size:clamp(28px,4vw,44px); font-weight:700; letter-spacing:-0.035em; margin-bottom:12px; }
-  .bento .subtitle { font-size:17px; color:var(--text2); max-width:460px; line-height:1.6; margin-bottom:40px; }
-  .bento-grid { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; gap:16px; }
-  .bento-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:32px; transition:all 0.3s var(--ease); overflow:hidden; }
-  .bento-card:hover { border-color:rgba(255,255,255,0.1); }
-  .bento-card.large { grid-column:1 / -1; display:flex; align-items:center; gap:40px; padding:40px; }
-  .bento-card-icon { width:48px; height:48px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; margin-bottom:16px; flex-shrink:0; }
-  .bento-card-title { font-size:18px; font-weight:600; margin-bottom:8px; }
-  .bento-card-desc { font-size:14px; color:var(--text2); line-height:1.6; }
+/* CTA */
+.final{padding:120px 0 80px;text-align:center;position:relative}
+.final-glow{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:400px;height:250px;background:radial-gradient(circle,var(--ag),transparent 70%);filter:blur(80px);pointer-events:none}
+.final h2{font-size:clamp(30px,5vw,52px);font-weight:700;letter-spacing:-.04em;margin-bottom:14px;position:relative}
+.final p{font-size:16px;color:var(--t2);margin-bottom:32px;position:relative}
 
-  /* Live demo section */
-  .demo { padding:80px 0; }
-  .demo h2 { font-size:clamp(28px,4vw,44px); font-weight:700; letter-spacing:-0.035em; margin-bottom:12px; text-align:center; }
-  .demo .subtitle { font-size:17px; color:var(--text2); max-width:480px; margin:0 auto 48px; line-height:1.6; text-align:center; }
-  .demo-flow { display:flex; align-items:center; justify-content:center; gap:24px; flex-wrap:wrap; }
-  .demo-step { width:240px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; text-align:center; }
-  .demo-step-num { width:36px; height:36px; border-radius:50%; background:var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-size:14px; font-weight:700; margin:0 auto 14px; }
-  .demo-step-title { font-size:16px; font-weight:600; margin-bottom:6px; }
-  .demo-step-desc { font-size:13px; color:var(--text2); line-height:1.5; }
-  .demo-arrow { font-size:24px; color:var(--text3); }
+footer{padding:32px 0;border-top:1px solid var(--b);display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--t3)}
 
-  /* Industries */
-  .industries { padding:60px 0 80px; }
-  .industries h2 { font-size:clamp(24px,3vw,36px); font-weight:700; letter-spacing:-0.03em; text-align:center; margin-bottom:40px; }
-  .industry-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
-  .industry-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; text-align:center; transition:all 0.3s var(--ease); }
-  .industry-card:hover { border-color:rgba(255,255,255,0.1); transform:translateY(-2px); }
-  .industry-emoji { font-size:40px; margin-bottom:12px; display:block; }
-  .industry-name { font-size:15px; font-weight:600; margin-bottom:4px; }
-  .industry-example { font-size:12px; color:var(--text3); font-style:italic; }
-
-  /* CTA */
-  .final-cta { padding:100px 0 80px; text-align:center; position:relative; }
-  .final-cta-glow { position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:500px; height:300px; background:radial-gradient(circle, var(--accent-glow), transparent 70%); pointer-events:none; filter:blur(80px); }
-  .final-cta h2 { font-size:clamp(32px,5vw,52px); font-weight:700; letter-spacing:-0.04em; margin-bottom:16px; position:relative; }
-  .final-cta p { font-size:17px; color:var(--text2); margin-bottom:36px; position:relative; }
-
-  /* Footer */
-  footer { padding:40px 0; border-top:1px solid var(--border); position:relative; z-index:1; }
-  .footer-inner { display:flex; justify-content:space-between; align-items:center; }
-  .footer-logo { font-size:15px; font-weight:600; color:var(--text3); }
-  .footer-copy { font-size:13px; color:var(--text3); }
-
-  @media(max-width:768px) {
-    .stats-grid, .industry-grid { grid-template-columns:repeat(2,1fr); }
-    .bento-grid { grid-template-columns:1fr; }
-    .bento-card.large { flex-direction:column; }
-    .demo-flow { flex-direction:column; }
-    .demo-arrow { transform:rotate(90deg); }
-    .hero-actions { flex-direction:column; align-items:flex-start; }
-  }
-  @media(max-width:480px) {
-    .stats-grid, .industry-grid { grid-template-columns:1fr; }
-  }
+@media(max-width:768px){
+  .deck-inner{grid-template-columns:1fr;gap:32px}
+  .deck-inner.flip .deck-text{order:1}.deck-inner.flip .deck-phone{order:2}
+  .phone{width:240px}.phone-screen{height:426px}
+}
 </style>
 </head>
 <body>
+<nav><div class="nav-i"><div class="nav-logo"><div class="bolt">⚡</div>Buzzloop</div><a href="#" class="nav-cta">Start free →</a></div></nav>
 
-<nav>
-  <div class="nav-inner">
-    <div class="nav-logo"><div class="bolt">⚡</div> Buzzloop</div>
-    <div class="nav-links">
-      <a href="#">Log in</a>
-      <a href="#" class="nav-cta">Start free →</a>
+<div class="c">
+<section class="hero">
+  <div class="hero-glow"></div>
+  <h1>Reviews in.<br><span class="a">Reels out.</span><br>Customers back.</h1>
+  <p class="hero-sub">One QR code turns every happy customer into a Google review and a cinematic Instagram Reel — automatically.</p>
+  <a href="#" class="btn-p">Start for free →</a>
+  <div class="hero-note">Free forever for first 50 reviews · No credit card</div>
+</section>
+
+<!-- Deck: each Reel = full section -->
+<section class="deck-section">
+  <div class="deck-inner">
+    <div class="deck-text">
+      <div class="deck-cat">Dental · Myth Slayer</div>
+      <div class="deck-title">Viral myth meets clinical truth</div>
+      <div class="deck-desc">An influencer claim gets millions of views. Your Reel corrects it — with evidence, authority, and a format designed for DM shares. People send corrections to friends who believe the myth.</div>
+      <div class="deck-meta"><span class="pm pm-r">Breaks: Fact cards</span><span class="pm pm-g">Algorithm: DM shares</span></div>
     </div>
+    <div class="deck-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-dental-myth.mp4" autoplay muted loop playsinline></video></div></div></div>
   </div>
-</nav>
+</section>
 
-<div class="container">
-
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-glow"></div>
-    <h1>Reviews in.<br><span class="accent">Reels out.</span><br>Customers back.</h1>
-    <p class="hero-sub">One QR code turns every happy customer into a Google review and a cinematic Instagram Reel — automatically.</p>
-    <div class="hero-actions">
-      <a href="#" class="btn-primary">Start for free →</a>
-      <a href="#" class="btn-secondary">See how it works</a>
+<section class="deck-section">
+  <div class="deck-inner flip">
+    <div class="deck-text">
+      <div class="deck-cat">Restaurant · The Ritual</div>
+      <div class="deck-title">Sensory ASMR of the craft</div>
+      <div class="deck-desc">No voice. No text until the last second. Just the pour, the flame, the foam rising. Viewers stay for the satisfaction — then DM it with "Friday night?"</div>
+      <div class="deck-meta"><span class="pm pm-r">Breaks: Food money shot</span><span class="pm pm-g">Algorithm: Completion</span></div>
     </div>
-    <div class="hero-note">Free forever for your first 50 reviews. No credit card.</div>
-  </section>
+    <div class="deck-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-bar-ritual.mp4" autoplay muted loop playsinline></video></div></div></div>
+  </div>
+</section>
 
-  <!-- Stats -->
-  <section class="stats">
-    <div class="stats-grid">
-      <div class="stat">
-        <div class="stat-num" style="color:var(--accent);">&lt;10s</div>
-        <div class="stat-label">to leave a review</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="color:#eab308;">4.8★</div>
-        <div class="stat-label">avg customer rating</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="color:var(--green);">3×</div>
-        <div class="stat-label">more reviews / month</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num" style="color:#a78bfa;">$0</div>
-        <div class="stat-label">to get started</div>
-      </div>
+<section class="deck-section">
+  <div class="deck-inner">
+    <div class="deck-text">
+      <div class="deck-cat">Dental · The DM</div>
+      <div class="deck-title">WhatsApp from your dentist</div>
+      <div class="deck-desc">Chat bubbles. Typing dots. A warm correction from a friend who happens to be a dentist. The format looks like a DM — so people share it as one.</div>
+      <div class="deck-meta"><span class="pm pm-r">Breaks: Clinical tone</span><span class="pm pm-g">Algorithm: Replies + shares</span></div>
     </div>
-  </section>
+    <div class="deck-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-dental-dm.mp4" autoplay muted loop playsinline></video></div></div></div>
+  </div>
+</section>
 
-  <!-- Bento -->
-  <section class="bento">
-    <h2>Everything you need.<br>Nothing you don't.</h2>
-    <p class="subtitle">QR review collection + AI Reel generation in one tool. No integrations. No complexity.</p>
-
-    <div class="bento-grid">
-      <div class="bento-card large">
-        <div>
-          <div class="bento-card-icon" style="background:var(--accent-glow);">⭐</div>
-          <div class="bento-card-title">Branded QR code</div>
-          <div class="bento-card-desc">Your colors, your logo. Print it or display it. Customers scan and leave a Google review in under 10 seconds — no app required. Works on any phone.</div>
-        </div>
-        <div style="flex-shrink:0; width:280px; height:180px; background:rgba(255,255,255,0.02); border:1px solid var(--border); border-radius:16px; display:flex; align-items:center; justify-content:center;">
-          <div style="width:120px; height:120px; border:2px solid rgba(255,255,255,0.08); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:48px;">📱</div>
-        </div>
-      </div>
-      <div class="bento-card">
-        <div class="bento-card-icon" style="background:rgba(34,197,94,0.1);">🎬</div>
-        <div class="bento-card-title">AI-generated Reels</div>
-        <div class="bento-card-desc">Our AI reads your reviews, finds patterns customers love, and builds cinematic 9:16 Reels. Branded. Ready to post. In seconds.</div>
-      </div>
-      <div class="bento-card">
-        <div class="bento-card-icon" style="background:rgba(99,102,241,0.1);">📊</div>
-        <div class="bento-card-title">Review analytics</div>
-        <div class="bento-card-desc">See what customers mention most, track rating trends, and know exactly where your reputation stands — in real time.</div>
-      </div>
+<section class="deck-section">
+  <div class="deck-inner flip">
+    <div class="deck-text">
+      <div class="deck-cat">Restaurant · Menu Myth</div>
+      <div class="deck-title">"You've been ordering wrong"</div>
+      <div class="deck-desc">Bold type. Fast cuts. A common belief corrected with evidence. Educational Reels get 2.3× more saves. People forward useful knowledge.</div>
+      <div class="deck-meta"><span class="pm pm-r">Breaks: Menu reveals</span><span class="pm pm-g">Algorithm: Saves</span></div>
     </div>
-  </section>
+    <div class="deck-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-bar-myth.mp4" autoplay muted loop playsinline></video></div></div></div>
+  </div>
+</section>
 
-  <!-- How it works -->
-  <section class="demo">
-    <h2>Live in 5 minutes</h2>
-    <p class="subtitle">Three steps. No technical setup. No calls with sales.</p>
-    <div class="demo-flow">
-      <div class="demo-step">
-        <div class="demo-step-num">1</div>
-        <div class="demo-step-title">Get your QR code</div>
-        <div class="demo-step-desc">We generate it in your brand colors. Print and display anywhere.</div>
-      </div>
-      <div class="demo-arrow">→</div>
-      <div class="demo-step">
-        <div class="demo-step-num">2</div>
-        <div class="demo-step-title">Reviews come in</div>
-        <div class="demo-step-desc">Customers scan, tap, review. Under 10 seconds. No friction.</div>
-      </div>
-      <div class="demo-arrow">→</div>
-      <div class="demo-step">
-        <div class="demo-step-num">3</div>
-        <div class="demo-step-title">Reels go out</div>
-        <div class="demo-step-desc">AI builds cinematic content from your best reviews. Post or schedule.</div>
-      </div>
+<section class="deck-section">
+  <div class="deck-inner">
+    <div class="deck-text">
+      <div class="deck-cat">Restaurant · After Hours</div>
+      <div class="deck-title">Documentary cinema at closing</div>
+      <div class="deck-desc">11:47 PM. Last orders gone. Film grain. Ambient sound. The beauty of a space after everyone leaves. Nothing in hospitality looks like this.</div>
+      <div class="deck-meta"><span class="pm pm-r">Breaks: BTS montage</span><span class="pm pm-g">Algorithm: Emotional shares</span></div>
     </div>
-  </section>
+    <div class="deck-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-bar-afterhours.mp4" autoplay muted loop playsinline></video></div></div></div>
+  </div>
+</section>
 
-  <!-- Industries -->
-  <section class="industries">
-    <h2>Built for businesses people visit</h2>
-    <div class="industry-grid">
-      <div class="industry-card">
-        <span class="industry-emoji">🍽️</span>
-        <div class="industry-name">Restaurants</div>
-        <div class="industry-example">"On the table tent"</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-emoji">🦷</span>
-        <div class="industry-name">Dental Clinics</div>
-        <div class="industry-example">"On the ceiling above the chair"</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-emoji">🏋️</span>
-        <div class="industry-name">Gyms</div>
-        <div class="industry-example">"By the water fountain"</div>
-      </div>
-      <div class="industry-card">
-        <span class="industry-emoji">💇</span>
-        <div class="industry-name">Salons</div>
-        <div class="industry-example">"Taped to the mirror"</div>
-      </div>
-    </div>
-  </section>
+<section class="final">
+  <div class="final-glow"></div>
+  <h2>Reviews in. <span style="color:var(--a)">Reels out.</span></h2>
+  <p>Built automatically from your customer reviews. Free to start.</p>
+  <a href="#" class="btn-p">Get started for free →</a>
+</section>
 
-  <!-- Final CTA -->
-  <section class="final-cta">
-    <div class="final-cta-glow"></div>
-    <h2>Reviews in.<br><span style="color:var(--accent);">Reels out.</span></h2>
-    <p>Free to start. No credit card required. Set up in 5 minutes.</p>
-    <a href="#" class="btn-primary">Get started for free →</a>
-  </section>
-
-  <footer>
-    <div class="footer-inner">
-      <div class="footer-logo">⚡ Buzzloop</div>
-      <div class="footer-copy">© 2026 Buzzloop. All rights reserved.</div>
-    </div>
-  </footer>
-
+<footer><div>⚡ Buzzloop</div><div>© 2026 Buzzloop</div></footer>
 </div>
-
 </body>
 </html>

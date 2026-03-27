@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzzloop — Scroll the Reels</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:auto}
+body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;background:#0a0a0a;color:#eee}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,10,.85);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.06)}
+.nav-i{max-width:1200px;margin:0 auto;padding:0 32px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
+.bolt{width:22px;height:22px;background:#f97316;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:12px}
+.nav-cta{padding:8px 20px;background:#f97316;color:#fff;border-radius:8px;font-size:13px;font-weight:600;text-decoration:none}
+
+/* Horizontal scroll container */
+.hscroll{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.hscroll::-webkit-scrollbar{display:none}
+
+/* Each panel = full viewport */
+.panel{min-width:100vw;height:100vh;scroll-snap-align:start;position:relative;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* Intro panel */
+.panel-intro{flex-direction:column;text-align:center;padding:0 32px}
+.panel-intro h1{font-size:clamp(36px,6vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin-bottom:16px}
+.panel-intro h1 em{font-style:normal;color:#f97316}
+.panel-intro p{font-size:17px;color:rgba(255,255,255,.5);max-width:440px;line-height:1.6;margin-bottom:28px}
+.btn{padding:14px 30px;background:#f97316;color:#fff;border-radius:12px;font-size:15px;font-weight:600;text-decoration:none;display:inline-block}
+.scroll-hint{position:absolute;bottom:40px;font-size:13px;color:rgba(255,255,255,.2);display:flex;align-items:center;gap:8px}
+
+/* Reel panels */
+.panel-reel{padding:0 80px;gap:64px}
+
+.pr-phone{flex:0 0 320px}
+.phone{width:300px;background:#111;border-radius:40px;border:2px solid rgba(255,255,255,.06);box-shadow:0 32px 80px rgba(0,0,0,.5);overflow:hidden}
+.phone-notch{width:90px;height:20px;background:#111;border-radius:0 0 12px 12px;margin:0 auto}
+.phone-screen{background:#080808;margin:0 5px 5px;border-radius:0 0 36px 36px;height:533px;overflow:hidden}
+.phone-screen video{width:100%;height:100%;object-fit:cover}
+
+.pr-text{flex:1;max-width:480px}
+.pr-cat{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#f97316;margin-bottom:12px}
+.pr-title{font-size:clamp(28px,3.5vw,40px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-bottom:14px}
+.pr-desc{font-size:15px;color:rgba(255,255,255,.5);line-height:1.65;margin-bottom:20px}
+.pr-meta{display:flex;flex-direction:column;gap:12px}
+.pr-meta-row{display:flex;align-items:flex-start;gap:10px}
+.pr-meta-icon{width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.pr-meta-label{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.25)}
+.pr-meta-value{font-size:13px;color:rgba(255,255,255,.55);margin-top:2px}
+
+/* Panel backgrounds vary */
+.panel:nth-child(2){background:linear-gradient(135deg,#0f0a14,#0a0a0a)}
+.panel:nth-child(3){background:linear-gradient(135deg,#0a0f05,#0a0a0a)}
+.panel:nth-child(4){background:linear-gradient(135deg,#0f0a0a,#0a0a0a)}
+.panel:nth-child(5){background:linear-gradient(135deg,#0a0a14,#0a0a0a)}
+.panel:nth-child(6){background:linear-gradient(135deg,#140f0a,#0a0a0a)}
+
+/* Final panel */
+.panel-final{flex-direction:column;text-align:center}
+.panel-final h2{font-size:clamp(28px,4vw,48px);font-weight:700;letter-spacing:-.04em;margin-bottom:12px}
+.panel-final p{font-size:16px;color:rgba(255,255,255,.45);margin-bottom:28px}
+
+@media(max-width:768px){
+  .hscroll{flex-direction:column;overflow-x:visible;scroll-snap-type:y mandatory;overflow-y:auto}
+  .panel{min-width:100%;min-height:100vh;scroll-snap-align:start}
+  .panel-reel{flex-direction:column;padding:80px 32px;gap:32px}
+  .pr-phone{flex:none}
+  .phone{width:240px}.phone-screen{height:426px}
+  .scroll-hint span{display:none}
+  .scroll-hint::after{content:'Scroll down →'}
+}
+</style>
+</head>
+<body>
+<nav><div class="nav-i"><div class="nav-logo"><div class="bolt">⚡</div>Buzzloop</div><a href="#" class="nav-cta">Start free →</a></div></nav>
+
+<div class="hscroll">
+  <!-- Intro -->
+  <div class="panel panel-intro">
+    <h1>Reviews in.<br><em>Reels out.</em></h1>
+    <p>Scroll to see the Reel categories we build automatically from your customer reviews.</p>
+    <a href="#" class="btn">Start for free →</a>
+    <div class="scroll-hint"><span>Scroll right →</span></div>
+  </div>
+
+  <!-- Reel 1 -->
+  <div class="panel panel-reel">
+    <div class="pr-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-dental-myth.mp4" autoplay muted loop playsinline></video></div></div></div>
+    <div class="pr-text">
+      <div class="pr-cat">Dental · 01</div>
+      <div class="pr-title">Myth Slayer</div>
+      <div class="pr-desc">Viral influencer myth → glitch cut → clinical correction with evidence. The adversarial format triggers DM shares — people send corrections to friends who believe the myth.</div>
+      <div class="pr-meta">
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(239,68,68,.1)">🔴</div><div><div class="pr-meta-label">Breaks</div><div class="pr-meta-value">"Did you know?" fact cards</div></div></div>
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(34,197,94,.1)">🟢</div><div><div class="pr-meta-label">Algorithm signal</div><div class="pr-meta-value">DM shares (sends per reach)</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 2 -->
+  <div class="panel panel-reel">
+    <div class="pr-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-bar-ritual.mp4" autoplay muted loop playsinline></video></div></div></div>
+    <div class="pr-text">
+      <div class="pr-cat">Restaurant · 02</div>
+      <div class="pr-title">The Ritual</div>
+      <div class="pr-desc">Extreme ASMR close-up of preparation. No voice, no text until the final frame. Just the pour, the flame, the foam. Viewers stay for the satisfaction — then DM it with "Friday night?"</div>
+      <div class="pr-meta">
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(239,68,68,.1)">🔴</div><div><div class="pr-meta-label">Breaks</div><div class="pr-meta-value">Slow-motion food money shot</div></div></div>
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(34,197,94,.1)">🟢</div><div><div class="pr-meta-label">Algorithm signal</div><div class="pr-meta-value">Completion rate + saves</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 3 -->
+  <div class="panel panel-reel">
+    <div class="pr-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-dental-dm.mp4" autoplay muted loop playsinline></video></div></div></div>
+    <div class="pr-text">
+      <div class="pr-cat">Dental · 03</div>
+      <div class="pr-title">The DM</div>
+      <div class="pr-desc">WhatsApp chat UI. Typing dots. A personal correction from a friend who happens to be a dentist. The content looks like a DM — so people share it as one.</div>
+      <div class="pr-meta">
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(239,68,68,.1)">🔴</div><div><div class="pr-meta-label">Breaks</div><div class="pr-meta-value">Clinical distance & tone</div></div></div>
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(34,197,94,.1)">🟢</div><div><div class="pr-meta-label">Algorithm signal</div><div class="pr-meta-value">Replies + DM shares</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 4 -->
+  <div class="panel panel-reel">
+    <div class="pr-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-bar-myth.mp4" autoplay muted loop playsinline></video></div></div></div>
+    <div class="pr-text">
+      <div class="pr-cat">Restaurant · 04</div>
+      <div class="pr-title">Menu Myth</div>
+      <div class="pr-desc">"Well-done isn't safer — it's just drier." Bold typography. Fast cuts. A common belief corrected with evidence. Educational Reels get 2.3× more saves.</div>
+      <div class="pr-meta">
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(239,68,68,.1)">🔴</div><div><div class="pr-meta-label">Breaks</div><div class="pr-meta-value">Menu item reveals</div></div></div>
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(34,197,94,.1)">🟢</div><div><div class="pr-meta-label">Algorithm signal</div><div class="pr-meta-value">Saves (2.3× educational)</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Reel 5 -->
+  <div class="panel panel-reel">
+    <div class="pr-phone"><div class="phone"><div class="phone-notch"></div><div class="phone-screen"><video src="/static/videos/cat-bar-afterhours.mp4" autoplay muted loop playsinline></video></div></div></div>
+    <div class="pr-text">
+      <div class="pr-cat">Restaurant · 05</div>
+      <div class="pr-title">After Hours</div>
+      <div class="pr-desc">11:47 PM. Last orders gone. Film grain. Ambient sound. The melancholy beauty of a space after everyone leaves. Nothing in hospitality Reels looks or feels like this.</div>
+      <div class="pr-meta">
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(239,68,68,.1)">🔴</div><div><div class="pr-meta-label">Breaks</div><div class="pr-meta-value">BTS prep montage</div></div></div>
+        <div class="pr-meta-row"><div class="pr-meta-icon" style="background:rgba(34,197,94,.1)">🟢</div><div><div class="pr-meta-label">Algorithm signal</div><div class="pr-meta-value">Emotional shares</div></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final -->
+  <div class="panel panel-final">
+    <h2>Built automatically<br>from <span style="color:#f97316">your reviews</span></h2>
+    <p>Free to start. No credit card. Live in 5 minutes.</p>
+    <a href="#" class="btn">Get started for free →</a>
+  </div>
+</div>
+</body>
+</html>

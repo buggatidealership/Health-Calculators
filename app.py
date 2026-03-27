@@ -5573,6 +5573,18 @@ def buzzloop_v1():
 def buzzloop_v2():
     return render_template('buzzloop-v2.html')
 
+@app.route('/buzzloop-v3')
+def buzzloop_v3():
+    return render_template('buzzloop-v3.html')
+
+@app.route('/buzzloop-v4')
+def buzzloop_v4():
+    return render_template('buzzloop-v4.html')
+
+@app.route('/buzzloop-v5')
+def buzzloop_v5():
+    return render_template('buzzloop-v5.html')
+
 @app.route('/mockup-homepage-v2')
 def mockup_homepage_v2():
     return redirect('/', code=301)
