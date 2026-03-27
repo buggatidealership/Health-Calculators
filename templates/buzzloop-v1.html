@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buzzloop — More reviews. More customers. Automatically.</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #faf9f6;
+    --surface: #ffffff;
+    --ink: #1a1814;
+    --ink2: #4a4740;
+    --ink3: #8a8680;
+    --ink4: #b8b4ae;
+    --accent: #e8470a;
+    --accent-light: #fff4f0;
+    --green: #16a34a;
+    --green-light: #f0fdf4;
+    --border: rgba(0,0,0,0.06);
+    --radius: 16px;
+    --ease: cubic-bezier(0.16,1,0.3,1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Inter',system-ui,sans-serif; background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+
+  .container { max-width:1120px; margin:0 auto; padding:0 32px; }
+
+  /* Nav */
+  nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(250,249,246,0.85); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); }
+  .nav-inner { max-width:1120px; margin:0 auto; padding:0 32px; height:64px; display:flex; align-items:center; justify-content:space-between; }
+  .nav-logo { font-size:20px; font-weight:800; letter-spacing:-0.03em; display:flex; align-items:center; gap:8px; }
+  .nav-logo span { color:var(--accent); }
+  .nav-cta { padding:10px 24px; background:var(--ink); color:#fff; border-radius:10px; font-size:14px; font-weight:600; text-decoration:none; transition:all 0.2s var(--ease); }
+  .nav-cta:hover { transform:translateY(-1px); opacity:0.9; }
+
+  /* Hero — problem-first */
+  .hero { padding:140px 0 80px; text-align:center; }
+  .hero-problem { display:inline-block; padding:8px 20px; background:var(--accent-light); border-radius:100px; font-size:14px; font-weight:600; color:var(--accent); margin-bottom:28px; }
+  .hero h1 { font-size:clamp(36px,5.5vw,60px); font-weight:900; letter-spacing:-0.04em; line-height:1.08; margin-bottom:20px; }
+  .hero h1 em { font-style:normal; color:var(--accent); }
+  .hero-sub { font-size:19px; color:var(--ink2); max-width:540px; margin:0 auto 36px; line-height:1.65; }
+  .hero-cta { display:inline-flex; align-items:center; gap:8px; padding:16px 36px; background:var(--accent); color:#fff; border-radius:14px; font-size:17px; font-weight:700; text-decoration:none; box-shadow:0 4px 20px rgba(232,71,10,0.25); transition:all 0.25s var(--ease); }
+  .hero-cta:hover { transform:translateY(-2px); box-shadow:0 8px 30px rgba(232,71,10,0.3); }
+  .hero-note { margin-top:16px; font-size:13px; color:var(--ink3); }
+
+  /* Loop visual */
+  .loop-section { padding:60px 0 80px; }
+  .loop-visual { display:flex; align-items:center; justify-content:center; gap:0; flex-wrap:wrap; padding:40px 0; }
+  .loop-step { display:flex; flex-direction:column; align-items:center; text-align:center; width:200px; }
+  .loop-icon { width:72px; height:72px; border-radius:20px; display:flex; align-items:center; justify-content:center; font-size:32px; margin-bottom:14px; }
+  .loop-label { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px; }
+  .loop-desc { font-size:13px; color:var(--ink3); line-height:1.5; }
+  .loop-arrow { font-size:28px; color:var(--ink4); margin:0 8px; padding-top:0; }
+  .loop-return { text-align:center; margin-top:20px; }
+  .loop-return-text { display:inline-block; padding:10px 24px; background:var(--green-light); border-radius:100px; font-size:14px; font-weight:600; color:var(--green); }
+
+  /* Social proof */
+  .proof { padding:60px 0; }
+  .proof-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .proof-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); padding:28px; text-align:center; }
+  .proof-num { font-size:36px; font-weight:900; letter-spacing:-0.03em; font-family:'DM Serif Display',Georgia,serif; }
+  .proof-label { font-size:14px; color:var(--ink3); margin-top:6px; line-height:1.4; }
+
+  /* QR Section */
+  .qr-section { padding:80px 0; }
+  .qr-section h2 { font-size:clamp(28px,3.5vw,42px); font-weight:800; letter-spacing:-0.03em; text-align:center; margin-bottom:12px; }
+  .qr-section .subtitle { text-align:center; font-size:17px; color:var(--ink2); max-width:520px; margin:0 auto 48px; line-height:1.6; }
+  .qr-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
+  .qr-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius); overflow:hidden; transition:all 0.3s var(--ease); }
+  .qr-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(0,0,0,0.08); }
+  .qr-card-img { height:180px; background:linear-gradient(135deg,#f0ece6,#e8e4de); display:flex; align-items:center; justify-content:center; }
+  .qr-card-emoji { font-size:56px; }
+  .qr-card-body { padding:20px; }
+  .qr-card-type { font-size:12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+  .qr-card-text { font-size:15px; color:var(--ink2); line-height:1.5; }
+  .qr-card-place { font-size:13px; color:var(--ink4); margin-top:8px; font-style:italic; }
+
+  /* Reels section */
+  .reels { padding:80px 0; background:var(--ink); color:#fff; margin:0 -9999px; padding-left:9999px; padding-right:9999px; }
+  .reels-inner { max-width:1120px; margin:0 auto; }
+  .reels h2 { font-size:clamp(28px,3.5vw,42px); font-weight:800; letter-spacing:-0.03em; margin-bottom:12px; }
+  .reels .subtitle { font-size:17px; color:rgba(255,255,255,0.55); max-width:520px; line-height:1.6; margin-bottom:48px; }
+  .reels-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .reel-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.06); border-radius:var(--radius); padding:24px; transition:all 0.3s var(--ease); }
+  .reel-card:hover { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.1); }
+  .reel-card-num { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:10px; }
+  .reel-card-title { font-size:20px; font-weight:700; margin-bottom:8px; }
+  .reel-card-desc { font-size:14px; color:rgba(255,255,255,0.5); line-height:1.6; }
+
+  /* CTA */
+  .final-cta { padding:100px 0; text-align:center; }
+  .final-cta h2 { font-size:clamp(28px,4vw,44px); font-weight:900; letter-spacing:-0.03em; margin-bottom:16px; }
+  .final-cta p { font-size:17px; color:var(--ink2); margin-bottom:36px; }
+
+  /* Footer */
+  footer { padding:40px 0; border-top:1px solid var(--border); }
+  .footer-inner { display:flex; justify-content:space-between; align-items:center; }
+  .footer-logo { font-size:16px; font-weight:700; color:var(--ink3); }
+  .footer-copy { font-size:13px; color:var(--ink4); }
+
+  @media(max-width:768px) {
+    .proof-grid, .qr-grid { grid-template-columns:repeat(2,1fr); }
+    .reels-grid { grid-template-columns:1fr; }
+    .loop-visual { flex-direction:column; gap:16px; }
+    .loop-arrow { transform:rotate(90deg); }
+  }
+  @media(max-width:480px) {
+    .proof-grid, .qr-grid { grid-template-columns:1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo"><span>⚡</span> Buzzloop</div>
+    <a href="#" class="nav-cta">Start free →</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-problem">Your customers love you — they just never say it online</div>
+    <h1>Turn happy customers<br>into <em>Google reviews</em><br>and <em>Instagram Reels</em></h1>
+    <p class="hero-sub">A QR code your customers scan in 10 seconds. An AI that turns their words into cinematic content. A loop that grows itself.</p>
+    <a href="#" class="hero-cta">Start for free →</a>
+    <div class="hero-note">No credit card. No setup cost. Live in 5 minutes.</div>
+  </section>
+
+  <!-- The Loop -->
+  <section class="loop-section">
+    <div class="loop-visual">
+      <div class="loop-step">
+        <div class="loop-icon" style="background:var(--accent-light);">📱</div>
+        <div class="loop-label">Customer scans</div>
+        <div class="loop-desc">QR code at your location</div>
+      </div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step">
+        <div class="loop-icon" style="background:#fef3c7;">⭐</div>
+        <div class="loop-label">Review posted</div>
+        <div class="loop-desc">On Google in 10 seconds</div>
+      </div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step">
+        <div class="loop-icon" style="background:#ede9fe;">🎬</div>
+        <div class="loop-label">AI builds Reels</div>
+        <div class="loop-desc">Cinematic, branded, ready</div>
+      </div>
+      <div class="loop-arrow">→</div>
+      <div class="loop-step">
+        <div class="loop-icon" style="background:var(--green-light);">📈</div>
+        <div class="loop-label">More customers</div>
+        <div class="loop-desc">Better ranking + content</div>
+      </div>
+    </div>
+    <div class="loop-return">
+      <div class="loop-return-text">↻ And those new customers leave reviews too</div>
+    </div>
+  </section>
+
+  <!-- Proof -->
+  <section class="proof">
+    <div class="proof-grid">
+      <div class="proof-card">
+        <div class="proof-num" style="color:var(--accent);">&lt;10s</div>
+        <div class="proof-label">to leave a review</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num" style="color:#eab308;">4.8★</div>
+        <div class="proof-label">average customer rating</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num" style="color:var(--green);">3×</div>
+        <div class="proof-label">more reviews per month</div>
+      </div>
+      <div class="proof-card">
+        <div class="proof-num" style="color:#6366f1;">$0</div>
+        <div class="proof-label">setup cost</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QR Placement -->
+  <section class="qr-section">
+    <h2>Put your QR code where<br>customers already are</h2>
+    <p class="subtitle">We generate a branded code in your colors. You print it. Customers scan it and leave a Google review — no app, no friction.</p>
+    <div class="qr-grid">
+      <div class="qr-card">
+        <div class="qr-card-img"><div class="qr-card-emoji">🍽️</div></div>
+        <div class="qr-card-body">
+          <div class="qr-card-type">Restaurant</div>
+          <div class="qr-card-text">"Leave us a review while you wait 😄"</div>
+          <div class="qr-card-place">On the table tent</div>
+        </div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-card-img" style="background:linear-gradient(135deg,#e8f0fe,#dbeafe);"><div class="qr-card-emoji">🏋️</div></div>
+        <div class="qr-card-body">
+          <div class="qr-card-type">Gym</div>
+          <div class="qr-card-text">"Just crushed it? Tell us about it ⭐"</div>
+          <div class="qr-card-place">By the water fountain</div>
+        </div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-card-img" style="background:linear-gradient(135deg,#f0fdfa,#ccfbf1);"><div class="qr-card-emoji">🦷</div></div>
+        <div class="qr-card-body">
+          <div class="qr-card-type">Dental Clinic</div>
+          <div class="qr-card-text">"Since you're staring up here anyway… ⭐"</div>
+          <div class="qr-card-place">On the ceiling above the chair</div>
+        </div>
+      </div>
+      <div class="qr-card">
+        <div class="qr-card-img" style="background:linear-gradient(135deg,#fdf4ff,#f5d0fe);"><div class="qr-card-emoji">💇</div></div>
+        <div class="qr-card-body">
+          <div class="qr-card-type">Salon</div>
+          <div class="qr-card-text">"Love your new look? Tell the world 💛"</div>
+          <div class="qr-card-place">Taped to the mirror</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Reels -->
+<section class="reels">
+  <div class="reels-inner">
+    <h2>Your reviews become<br>Instagram Reels</h2>
+    <p class="subtitle">Our AI reads your reviews, finds what customers love, and builds cinematic 9:16 Reels — branded, ready to post, in seconds.</p>
+    <div class="reels-grid">
+      <div class="reel-card">
+        <div class="reel-card-num">Format 01</div>
+        <div class="reel-card-title">The Highlight Reel</div>
+        <div class="reel-card-desc">Best quotes from your reviews, animated with your brand colors. The words your customers chose — turned into content that attracts more of them.</div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-card-num">Format 02</div>
+        <div class="reel-card-title">The Story Arc</div>
+        <div class="reel-card-desc">A single powerful review expanded into a 15-second narrative: the problem, the experience, the result. Cinematic pacing, emotional arc.</div>
+      </div>
+      <div class="reel-card">
+        <div class="reel-card-num">Format 03</div>
+        <div class="reel-card-title">The Proof Stack</div>
+        <div class="reel-card-desc">Multiple 5-star reviews stacked rapidly — social proof compressed into seconds. "If this many people say it, it must be true."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <!-- Final CTA -->
+  <section class="final-cta">
+    <h2>Start turning reviews<br>into customers today</h2>
+    <p>Free to start. No credit card. Set up in 5 minutes.</p>
+    <a href="#" class="hero-cta">Get started for free →</a>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">⚡ Buzzloop</div>
+      <div class="footer-copy">© 2026 Buzzloop. All rights reserved.</div>
+    </div>
+  </footer>
+</div>
+
+</body>
+</html>

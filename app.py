@@ -5565,6 +5565,14 @@ def mockup_homepage():
 def mockup_reels_v1():
     return render_template('mockup-reels-v1.html')
 
+@app.route('/buzzloop-v1')
+def buzzloop_v1():
+    return render_template('buzzloop-v1.html')
+
+@app.route('/buzzloop-v2')
+def buzzloop_v2():
+    return render_template('buzzloop-v2.html')
+
 @app.route('/mockup-homepage-v2')
 def mockup_homepage_v2():
     return redirect('/', code=301)
