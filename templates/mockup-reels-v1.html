@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reel Categories — Instagram Reels as a Service</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #060606;
+    --surface: rgba(255,255,255,0.02);
+    --border: rgba(255,255,255,0.06);
+    --text: #eee;
+    --text-2: rgba(238,238,238,0.55);
+    --text-3: rgba(238,238,238,0.25);
+    --accent-dental: #60a5fa;
+    --accent-bar: #f59e0b;
+    --ease: cubic-bezier(0.16,1,0.3,1);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); overflow-x:hidden; -webkit-font-smoothing:antialiased; }
+
+  /* Hero */
+  .hero { padding: 100px 40px 60px; max-width: 1100px; margin: 0 auto; text-align: center; }
+  .hero-badge { display:inline-block; padding:6px 16px; border:1px solid var(--border); border-radius:100px; font-size:12px; font-weight:600; color:var(--text-3); letter-spacing:0.1em; text-transform:uppercase; margin-bottom:24px; }
+  .hero h1 { font-size: clamp(36px,5vw,56px); font-weight:900; letter-spacing:-0.04em; line-height:1.1; margin-bottom:16px; }
+  .hero h1 .dental { color:var(--accent-dental); }
+  .hero h1 .bar { color:var(--accent-bar); }
+  .hero p { font-size:17px; color:var(--text-2); max-width:560px; margin:0 auto; line-height:1.7; }
+
+  /* Section */
+  .section { max-width:1200px; margin:0 auto; padding:60px 40px 40px; }
+  .section-header { display:flex; align-items:center; gap:16px; margin-bottom:48px; }
+  .section-dot { width:12px; height:12px; border-radius:50%; }
+  .section-title { font-size:14px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; color:var(--text-3); }
+  .section-line { flex:1; height:1px; background:var(--border); }
+
+  /* Card grid */
+  .cards { display:grid; grid-template-columns: repeat(3, 1fr); gap:28px; }
+  @media(max-width:900px) { .cards { grid-template-columns:1fr; max-width:420px; margin:0 auto; } }
+
+  /* Category card */
+  .card { background:var(--surface); border:1px solid var(--border); border-radius:24px; overflow:hidden; transition:all 0.4s var(--ease); }
+  .card:hover { border-color:rgba(255,255,255,0.12); transform:translateY(-4px); box-shadow:0 20px 60px rgba(0,0,0,0.3); }
+
+  /* Phone mockup */
+  .phone-wrap { padding:20px 20px 0; }
+  .phone { background:#111; border-radius:32px; border:2px solid rgba(255,255,255,0.06); overflow:hidden; box-shadow:0 16px 48px rgba(0,0,0,0.4); }
+  .phone-notch { width:80px; height:18px; background:#111; border-radius:0 0 10px 10px; margin:0 auto; }
+  .phone-screen { background:#080808; margin:0 4px 4px; border-radius:0 0 28px 28px; height:380px; overflow:hidden; position:relative; }
+  .phone-screen video { width:100%; height:100%; object-fit:cover; }
+
+  /* Card body */
+  .card-body { padding: 24px; }
+  .card-number { font-size:11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:6px; }
+  .card-title { font-size:22px; font-weight:800; letter-spacing:-0.02em; margin-bottom:4px; }
+  .card-desc { font-size:14px; color:var(--text-2); line-height:1.6; margin-bottom:16px; }
+
+  /* Meta pills */
+  .meta { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px; }
+  .pill { padding:5px 12px; border-radius:100px; font-size:11px; font-weight:600; letter-spacing:0.03em; }
+  .pill-break { background:rgba(239,68,68,0.1); color:#ef4444; border:1px solid rgba(239,68,68,0.15); }
+  .pill-algo { background:rgba(34,197,94,0.1); color:#22c55e; border:1px solid rgba(34,197,94,0.15); }
+  .pill-share { background:rgba(96,165,250,0.1); color:#60a5fa; border:1px solid rgba(96,165,250,0.15); }
+
+  /* Detail sections */
+  .detail { margin-bottom:12px; }
+  .detail-label { font-size:10px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:var(--text-3); margin-bottom:3px; }
+  .detail-text { font-size:13px; color:var(--text-2); line-height:1.5; }
+  .detail-text strong { color:var(--text); font-weight:600; }
+
+  /* Footer */
+  .footer { text-align:center; padding:80px 40px 60px; }
+  .footer p { font-size:14px; color:var(--text-3); }
+
+  /* Divider */
+  .divider { max-width:1200px; margin:40px auto; padding:0 40px; }
+  .divider-line { height:1px; background: linear-gradient(90deg, transparent, var(--border), transparent); }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-badge">Instagram Reels as a Service</div>
+  <h1>Reel Categories for <span class="dental">Dental Clinics</span> & <span class="bar">Restaurants</span></h1>
+  <p>6 research-backed Reel formats — each verified against Instagram's algorithm signals. Each one breaks a saturated pattern your competitors are still copying.</p>
+</div>
+
+<!-- ═══════ DENTAL SECTION ═══════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-dot" style="background:var(--accent-dental)"></div>
+    <div class="section-title" style="color:var(--accent-dental)">Dental Clinics</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="cards">
+    <!-- D1: Myth Slayer -->
+    <div class="card">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video src="https://github.com/buggatidealership/Health-Calculators/raw/main/cat-dental-myth.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-number" style="color:var(--accent-dental)">Category 01</div>
+        <div class="card-title">Myth Slayer</div>
+        <div class="card-desc">Influencer myth → glitch cut → clinical correction with source. Adversarial energy that generates shares.</div>
+        <div class="meta">
+          <span class="pill pill-break">Breaks: "Did you know?" cards</span>
+          <span class="pill pill-algo">Drives: DM shares</span>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Why it works</div>
+          <div class="detail-text">People <strong>DM corrections to friends</strong> who believe the myth. The adversarial format triggers the #1 algorithm signal: sends per reach.</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">DM-share trigger</div>
+          <div class="detail-text">"You need to stop doing this" → viewer sends to friend who uses charcoal whitening</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Example</div>
+          <div class="detail-text"><strong>"Charcoal whitening cleans your teeth"</strong> → it strips enamel permanently</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D2: Silent Precision -->
+    <div class="card">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video src="https://github.com/buggatidealership/Health-Calculators/raw/main/cat-dental-asmr.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-number" style="color:var(--accent-dental)">Category 02</div>
+        <div class="card-title">Silent Precision</div>
+        <div class="card-desc">Cinematic ASMR — extreme close-up of instruments, gloved hands, ambient sound. No voice. One text moment at the end.</div>
+        <div class="meta">
+          <span class="pill pill-break">Breaks: Talking head + staff intro</span>
+          <span class="pill pill-algo">Drives: Completion rate</span>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Why it works</div>
+          <div class="detail-text">Sensory content <strong>bypasses the "is this worth watching?" filter</strong>. Viewers stay for the satisfaction. Saves as "this is my dentist" social proof.</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">DM-share trigger</div>
+          <div class="detail-text">"This is the dentist I was telling you about" → viewer shares as recommendation</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Example</div>
+          <div class="detail-text"><strong>Composite veneer placement</strong> — macro detail, precision handwork</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- D3: The DM -->
+    <div class="card">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video src="https://github.com/buggatidealership/Health-Calculators/raw/main/cat-dental-dm.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-number" style="color:var(--accent-dental)">Category 03</div>
+        <div class="card-title">The DM</div>
+        <div class="card-desc">WhatsApp chat UI — your dentist texting you like a friend. Casual, warm, one correction delivered personally.</div>
+        <div class="meta">
+          <span class="pill pill-break">Breaks: Clinical distance</span>
+          <span class="pill pill-share">Drives: DM shares + replies</span>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Why it works</div>
+          <div class="detail-text">The content <strong>already looks like a DM</strong> — pattern recognition drives sharing behavior. Intimate format collapses professional distance.</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">DM-share trigger</div>
+          <div class="detail-text">"Lol this is literally what my dentist would say" → relatable, personally shareable</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Example</div>
+          <div class="detail-text"><strong>"Be honest — are you brushing before or after coffee?"</strong></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"><div class="divider-line"></div></div>
+
+<!-- ═══════ RESTAURANT/BAR SECTION ═══════ -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-dot" style="background:var(--accent-bar)"></div>
+    <div class="section-title" style="color:var(--accent-bar)">Restaurants & Bars</div>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="cards">
+    <!-- R1: The Ritual -->
+    <div class="card">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video src="https://github.com/buggatidealership/Health-Calculators/raw/main/cat-bar-ritual.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-number" style="color:var(--accent-bar)">Category 01</div>
+        <div class="card-title">The Ritual</div>
+        <div class="card-desc">Extreme close-up ASMR of preparation — cocktail pour, flame, plating. No voice, just sound + one text card at the end.</div>
+        <div class="meta">
+          <span class="pill pill-break">Breaks: Slow-mo food money shot</span>
+          <span class="pill pill-algo">Drives: Completion + saves</span>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Why it works</div>
+          <div class="detail-text"><strong>Sensory completion</strong> — viewers watch to the end for the satisfaction. The ASMR format from food industry has never been applied with cinematic restraint in hospitality.</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">DM-share trigger</div>
+          <div class="detail-text">"Friday night?" → viewer sends to friend to make plans</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Example</div>
+          <div class="detail-text"><strong>Espresso martini build</strong> — surface tension to foam, shot from above</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- R2: Menu Myth -->
+    <div class="card">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video src="https://github.com/buggatidealership/Health-Calculators/raw/main/cat-bar-myth.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-number" style="color:var(--accent-bar)">Category 02</div>
+        <div class="card-title">Menu Myth</div>
+        <div class="card-desc">Bold typography debunk — "You've been ordering wrong." Text-first, fast cuts between common belief and expert correction.</div>
+        <div class="meta">
+          <span class="pill pill-break">Breaks: Menu item reveal</span>
+          <span class="pill pill-algo">Drives: Saves (2.3x)</span>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Why it works</div>
+          <div class="detail-text">Educational content gets <strong>2.3x more saves</strong> than promotional. Myth framing triggers DM shares — people correct friends.</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">DM-share trigger</div>
+          <div class="detail-text">"This is why your steak is always dry" → useful enough to forward</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Example</div>
+          <div class="detail-text"><strong>"Well-done isn't safer — it's just drier."</strong> Surface bacteria die at the same temp for medium.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- R3: After Hours -->
+    <div class="card">
+      <div class="phone-wrap">
+        <div class="phone">
+          <div class="phone-notch"></div>
+          <div class="phone-screen">
+            <video src="https://github.com/buggatidealership/Health-Calculators/raw/main/cat-bar-afterhours.mp4" autoplay muted loop playsinline></video>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="card-number" style="color:var(--accent-bar)">Category 03</div>
+        <div class="card-title">After Hours</div>
+        <div class="card-desc">Documentary cinematic — empty restaurant at closing time. Analog grain, ambient sound, melancholy beauty. No music. Just atmosphere.</div>
+        <div class="meta">
+          <span class="pill pill-break">Breaks: BTS prep montage</span>
+          <span class="pill pill-share">Drives: Emotional shares</span>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Why it works</div>
+          <div class="detail-text">Emotional content drives shares. The <strong>melancholy/beauty contrast</strong> is unprecedented in hospitality Reels — nothing else looks or feels like this.</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">DM-share trigger</div>
+          <div class="detail-text">"This place has a vibe" → sends atmosphere, not menu</div>
+        </div>
+        <div class="detail">
+          <div class="detail-label">Example</div>
+          <div class="detail-text"><strong>11:47 PM. Last orders gone.</strong> Just the room and the light.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Each category is verified against Instagram's 2025-2026 algorithm: sends per reach > saves > likes. Originality score rewards formats nobody else uses.</p>
+</div>
+
+</body>
+</html>

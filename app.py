@@ -5561,6 +5561,10 @@ def mockup_homepage():
         robots_meta='noindex, nofollow'
     )
 
+@app.route('/mockup-reels-v1')
+def mockup_reels_v1():
+    return render_template('mockup-reels-v1.html')
+
 @app.route('/mockup-homepage-v2')
 def mockup_homepage_v2():
     return redirect('/', code=301)
