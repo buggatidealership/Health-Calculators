@@ -24,6 +24,11 @@ import { DentalReel2 } from "./DentalReel2";
 import { DentalGenZ } from "./DentalGenZ";
 import { DentalContrarian } from "./DentalContrarian";
 import { DermaReel1 } from "./DermaReel1";
+import { WS1_ASMR } from "./WS1_ASMR";
+import { WS2_Debunk } from "./WS2_Debunk";
+import { WS3_Intimate } from "./WS3_Intimate";
+import { WS4_OptOut } from "./WS4_OptOut";
+import { WS5_Cinema } from "./WS5_Cinema";
 import { DermaEdu1 } from "./DermaEdu1";
 import { DermaEdu2 } from "./DermaEdu2";
 import { DermaEdu3 } from "./DermaEdu3";
@@ -108,6 +113,11 @@ export const RemotionRoot: React.FC = () => {
         width={2160}
         height={2160}
       />
+      <Composition id="ws-asmr" component={WS1_ASMR} durationInFrames={300} fps={30} width={1080} height={1920} />
+      <Composition id="ws-debunk" component={WS2_Debunk} durationInFrames={330} fps={30} width={1080} height={1920} />
+      <Composition id="ws-intimate" component={WS3_Intimate} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="ws-optout" component={WS4_OptOut} durationInFrames={450} fps={30} width={1080} height={1920} />
+      <Composition id="ws-cinema" component={WS5_Cinema} durationInFrames={450} fps={30} width={1080} height={1920} />
       <Composition
         id="derma-edu-1"
         component={DermaEdu1}
