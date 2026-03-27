@@ -23,6 +23,9 @@ import { DentalReel1 } from "./DentalReel1";
 import { DentalReel2 } from "./DentalReel2";
 import { DentalGenZ } from "./DentalGenZ";
 import { DentalContrarian } from "./DentalContrarian";
+import { DermaReel1 } from "./DermaReel1";
+import { DermaReel2 } from "./DermaReel2";
+import { DermaReel3 } from "./DermaReel3";
 import { DentalQuestion } from "./DentalQuestion";
 import { DentalKids } from "./DentalKids";
 import { MetabolismFluid } from "./MetabolismFluid";
@@ -101,6 +104,30 @@ export const RemotionRoot: React.FC = () => {
         fps={30}
         width={2160}
         height={2160}
+      />
+      <Composition
+        id="derma-reel-1"
+        component={DermaReel1}
+        durationInFrames={300}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="derma-reel-2"
+        component={DermaReel2}
+        durationInFrames={360}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="derma-reel-3"
+        component={DermaReel3}
+        durationInFrames={360}
+        fps={30}
+        width={1080}
+        height={1920}
       />
       <Composition
         id="dental-contrarian"
