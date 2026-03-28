@@ -184,7 +184,7 @@ export const Demo_Dental_ASMR: React.FC = () => {
       {/* ========== PHASE 1-3: Light background content ========== */}
       {frame < 285 && (
         <>
-          {/* Title: PROFESSIONELLE ZAHNREINIGUNG */}
+          {/* Title: PROFESSIONAL DENTAL CLEANING */}
           <div
             style={{
               position: "absolute",
@@ -200,7 +200,7 @@ export const Demo_Dental_ASMR: React.FC = () => {
               fontVariant: "small-caps",
             }}
           >
-            Professionelle Zahnreinigung
+            Professional Dental Cleaning
           </div>
 
           {/* Teeth row */}
@@ -371,7 +371,7 @@ export const Demo_Dental_ASMR: React.FC = () => {
               lineHeight: 1.4,
             }}
           >
-            32 Oberflächen. Jede einzelne.
+            32 surfaces. Every single one.
           </div>
           <div
             style={{
@@ -387,7 +387,7 @@ export const Demo_Dental_ASMR: React.FC = () => {
               letterSpacing: 0.5,
             }}
           >
-            Was Ihre Zahnbürste nicht erreicht.
+            What your toothbrush can't reach.
           </div>
         </>
       )}
@@ -436,10 +436,10 @@ export const Demo_Dental_ASMR: React.FC = () => {
               transform: `translateY(${interpolate(frame, [310, 330], [20, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic) })}px)`,
             }}
           >
-            der Zahnfleischerkrankungen:
+            of gum disease:
             <br />
             <span style={{ fontWeight: 600 }}>
-              vermeidbar durch professionelle Reinigung.
+              preventable with professional cleaning.
             </span>
           </div>
 
@@ -458,7 +458,7 @@ export const Demo_Dental_ASMR: React.FC = () => {
               }),
             }}
           >
-            Deutsche Gesellschaft für Parodontologie
+            American Academy of Periodontology
           </div>
         </div>
       )}
@@ -506,7 +506,7 @@ export const Demo_Dental_ASMR: React.FC = () => {
               textTransform: "uppercase",
             }}
           >
-            Berlin
+            New York
           </div>
         </div>
       )}

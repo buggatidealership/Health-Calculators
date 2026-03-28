@@ -157,7 +157,7 @@ export const Demo_Bar_MythBust: React.FC = () => {
             letterSpacing: -0.5,
           }}
         >
-          Du schüttelst alle Cocktails gleich?
+          You shake every cocktail the same way?
         </div>
 
         {/* Subline */}
@@ -171,7 +171,7 @@ export const Demo_Bar_MythBust: React.FC = () => {
             fontWeight: 400,
           }}
         >
-          Jeder zweite Gast macht das.
+          Half of all guests do.
         </div>
       </div>
 
@@ -210,7 +210,7 @@ export const Demo_Bar_MythBust: React.FC = () => {
             letterSpacing: 2,
           }}
         >
-          Falsch.
+          Wrong.
         </div>
       </div>
 
@@ -259,10 +259,10 @@ export const Demo_Bar_MythBust: React.FC = () => {
                 textTransform: "uppercase",
               }}
             >
-              Schütteln
+              Shake
             </div>
             <div style={{ fontSize: 38, color: COLORS.text, lineHeight: 1.45, fontWeight: 400 }}>
-              Zitrus, Ei, Sahne — alles was sich verbinden muss.
+              Citrus, egg, cream — anything that needs to bind.
             </div>
           </div>
         </div>
@@ -298,10 +298,10 @@ export const Demo_Bar_MythBust: React.FC = () => {
                 textTransform: "uppercase",
               }}
             >
-              Rühren
+              Stir
             </div>
             <div style={{ fontSize: 38, color: COLORS.text, lineHeight: 1.45, fontWeight: 400 }}>
-              Spirituosen pur — Negroni, Manhattan, Old Fashioned.
+              Spirits only — Negroni, Manhattan, Old Fashioned.
             </div>
           </div>
         </div>
@@ -332,11 +332,11 @@ export const Demo_Bar_MythBust: React.FC = () => {
               textTransform: "uppercase",
             }}
           >
-            Warum?
+            Why?
           </div>
           <div style={{ fontSize: 38, color: COLORS.text, lineHeight: 1.45, fontWeight: 400, opacity: 0.85 }}>
-            Schütteln verwässert.{" "}
-            <span style={{ color: COLORS.accent }}>Rühren bewahrt Textur.</span>
+            Shaking dilutes.{" "}
+            <span style={{ color: COLORS.accent }}>Stirring preserves texture.</span>
           </div>
         </div>
       </div>
@@ -367,7 +367,7 @@ export const Demo_Bar_MythBust: React.FC = () => {
             fontWeight: 400,
           }}
         >
-          Die Methode{" "}
+          The method{" "}
           <span
             style={{
               color: COLORS.accent,
@@ -377,9 +377,9 @@ export const Demo_Bar_MythBust: React.FC = () => {
               letterSpacing: 2,
             }}
           >
-            IST
+            IS
           </span>{" "}
-          der Geschmack.
+          the flavor.
         </div>
 
         {/* Underline accent */}
