@@ -85,6 +85,16 @@ import { Demo_Bar_MythBust } from "./Demo_Bar_MythBust";
 import { Demo_Dental_ASMR } from "./Demo_Dental_ASMR";
 import { Demo_Bar_Composite } from "./Demo_Bar_Composite";
 import { Demo_Clinic_Composite } from "./Demo_Clinic_Composite";
+// Batch 1 — DermaMedicum production reels (Mar 2026)
+import { DM_Batch1_AviClear_A } from "./DM_Batch1_AviClear_A";
+import { DM_Batch1_AviClear_B } from "./DM_Batch1_AviClear_B";
+import { DM_Batch1_AviClear_C } from "./DM_Batch1_AviClear_C";
+import { DM_Batch1_Canfield_A } from "./DM_Batch1_Canfield_A";
+import { DM_Batch1_Canfield_B } from "./DM_Batch1_Canfield_B";
+import { DM_Batch1_Canfield_C } from "./DM_Batch1_Canfield_C";
+import { DM_Batch1_Edu_A } from "./DM_Batch1_Edu_A";
+import { DM_Batch1_Edu_B } from "./DM_Batch1_Edu_B";
+import { DM_Batch1_Edu_C } from "./DM_Batch1_Edu_C";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -407,6 +417,16 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="demo-dental-asmr" component={Demo_Dental_ASMR} durationInFrames={420} fps={30} width={1080} height={1920} />
       <Composition id="demo-bar-composite" component={Demo_Bar_Composite} durationInFrames={150} fps={30} width={1080} height={1920} />
       <Composition id="demo-clinic-composite" component={Demo_Clinic_Composite} durationInFrames={150} fps={30} width={1080} height={1920} />
+      {/* Batch 1 — DermaMedicum production reels */}
+      <Composition id="batch1-aviclear-a" component={DM_Batch1_AviClear_A} durationInFrames={300} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-aviclear-b" component={DM_Batch1_AviClear_B} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-aviclear-c" component={DM_Batch1_AviClear_C} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-canfield-a" component={DM_Batch1_Canfield_A} durationInFrames={300} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-canfield-b" component={DM_Batch1_Canfield_B} durationInFrames={330} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-canfield-c" component={DM_Batch1_Canfield_C} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-edu-a" component={DM_Batch1_Edu_A} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-edu-b" component={DM_Batch1_Edu_B} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="batch1-edu-c" component={DM_Batch1_Edu_C} durationInFrames={360} fps={30} width={1080} height={1920} />
     </>
   );
 };
