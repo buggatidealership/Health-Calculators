@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DermaMedicum — Content-Strategie Batch 1</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Georgia&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --cream: #F6F0E4;
+    --navy: #30385F;
+    --sage: #8F9E90;
+    --warm-brown: #7F6954;
+    --teal: #558695;
+    --dark-teal: #1C2D32;
+    --deep-navy: #1A2744;
+    --mid-gray: #9394A2;
+    --light-gray: #C5C2C3;
+    --dark-gray: #626680;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep-navy);
+    color: var(--cream);
+    font-family: 'Inter', -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+
+  /* --- Header --- */
+  .header {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 40px 60px;
+    border-bottom: 1px solid rgba(147, 148, 162, 0.15);
+  }
+
+  .header-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--teal);
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+  }
+
+  .header h1 {
+    font-family: Georgia, serif;
+    font-size: 48px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .header-sub {
+    font-size: 20px;
+    color: var(--mid-gray);
+    margin-bottom: 24px;
+  }
+
+  .tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .tag {
+    padding: 6px 16px;
+    border: 1px solid rgba(147, 148, 162, 0.2);
+    border-radius: 6px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--mid-gray);
+  }
+
+  /* --- Section --- */
+  .section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 40px;
+  }
+
+  .section + .section {
+    border-top: 1px solid rgba(147, 148, 162, 0.1);
+  }
+
+  .section-header {
+    margin-bottom: 48px;
+  }
+
+  .goal-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 12px;
+  }
+
+  .goal-label.teal { color: var(--teal); }
+  .goal-label.sage { color: var(--sage); }
+  .goal-label.brown { color: var(--warm-brown); }
+
+  .section-title {
+    font-family: Georgia, serif;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 16px;
+  }
+
+  .client-quote {
+    font-size: 18px;
+    color: var(--mid-gray);
+    font-style: italic;
+    line-height: 1.6;
+    max-width: 700px;
+    padding-left: 16px;
+  }
+
+  .client-quote.teal { border-left: 3px solid rgba(85, 134, 149, 0.3); }
+  .client-quote.sage { border-left: 3px solid rgba(143, 158, 144, 0.3); }
+  .client-quote.brown { border-left: 3px solid rgba(127, 105, 84, 0.3); }
+
+  /* --- Reel row --- */
+  .reel-row {
+    display: flex;
+    gap: 48px;
+    align-items: flex-start;
+    margin-bottom: 56px;
+  }
+
+  .reel-row:last-child {
+    margin-bottom: 0;
+  }
+
+  /* --- Phone mockup --- */
+  .phone-wrapper {
+    flex-shrink: 0;
+  }
+
+  .phone {
+    width: 280px;
+    height: 497px;
+    border-radius: 36px;
+    border: 3px solid rgba(147, 148, 162, 0.25);
+    background: #000;
+    padding: 8px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(147, 148, 162, 0.1);
+  }
+
+  .phone-notch {
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 22px;
+    border-radius: 0 0 14px 14px;
+    background: #000;
+    z-index: 10;
+  }
+
+  .phone-screen {
+    width: 100%;
+    height: 100%;
+    border-radius: 28px;
+    overflow: hidden;
+    position: relative;
+    background: var(--deep-navy);
+  }
+
+  .phone-screen video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* --- Decomposition text --- */
+  .decomposition {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding-top: 8px;
+  }
+
+  .decomp-block {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .decomp-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  .decomp-label.teal { color: var(--teal); }
+  .decomp-label.sage { color: var(--sage); }
+  .decomp-label.brown { color: var(--warm-brown); }
+
+  .decomp-title {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--cream);
+    line-height: 1.3;
+  }
+
+  .decomp-wow {
+    font-size: 16px;
+    color: var(--cream);
+    line-height: 1.6;
+    padding-left: 16px;
+  }
+
+  .decomp-wow.teal { border-left: 3px solid var(--teal); }
+  .decomp-wow.sage { border-left: 3px solid var(--sage); }
+  .decomp-wow.brown { border-left: 3px solid var(--warm-brown); }
+
+  .decomp-strategy {
+    font-size: 15px;
+    color: var(--mid-gray);
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* --- Outcome box --- */
+  .outcome {
+    margin-top: 8px;
+    padding: 16px 20px;
+    border-radius: 10px;
+    max-width: 420px;
+  }
+
+  .outcome.teal { border: 1px solid rgba(85, 134, 149, 0.25); }
+  .outcome.sage { border: 1px solid rgba(143, 158, 144, 0.25); }
+  .outcome.brown { border: 1px solid rgba(127, 105, 84, 0.25); }
+
+  .outcome-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .outcome-text {
+    font-size: 15px;
+    color: var(--cream);
+    line-height: 1.6;
+  }
+
+  /* --- Footer --- */
+  .footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px;
+    border-top: 1px solid rgba(147, 148, 162, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-compliance {
+    font-size: 14px;
+    color: var(--mid-gray);
+    max-width: 500px;
+  }
+
+  .footer-langs {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .lang-tag {
+    padding: 4px 12px;
+    border: 1px solid rgba(147, 148, 162, 0.2);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--mid-gray);
+  }
+
+  .footer-langs span {
+    font-size: 14px;
+    color: var(--mid-gray);
+    margin-left: 8px;
+  }
+
+  /* --- Separator --- */
+  .reel-separator {
+    width: 100%;
+    height: 1px;
+    background: rgba(147, 148, 162, 0.08);
+    margin: 8px 0 48px;
+  }
+
+  /* --- Responsive --- */
+  @media (max-width: 768px) {
+    .header h1 { font-size: 32px; }
+    .section-title { font-size: 28px; }
+    .reel-row { flex-direction: column; align-items: center; }
+    .decomposition { padding-top: 24px; }
+    .phone { width: 240px; height: 426px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-label">Instagram Reels — Batch 1</div>
+  <h1>DermaMedicum Content-Strategie</h1>
+  <div class="header-sub">9 Reels — 3 Ziele — 1 Positionierung</div>
+  <div class="tags">
+    <span class="tag">HWG-konform</span>
+    <span class="tag">Deutsch</span>
+    <span class="tag">1080x1920</span>
+    <span class="tag">9:16</span>
+    <span class="tag">@dermamedicum</span>
+    <span class="tag">3x / Woche</span>
+  </div>
+</div>
+
+<!-- ═══ ZIEL 01: AVICLEAR ═══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="goal-label teal">Ziel 01 — Premiumpatient</div>
+    <div class="section-title">Patientenbasis verschieben</div>
+    <div class="client-quote teal">
+      "Ich will Patienten anziehen, die bereit sind, mehr für Behandlungen zu zahlen. AviClear — ich bin der Einzige, der diesen Laser in der Region hat."
+    </div>
+  </div>
+
+  <!-- Reel A1: Regional Map -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-aviclear-a.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label teal">Reel</div>
+        <div class="decomp-title">Regionale Exklusivitat</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label teal">Wow-Faktor</div>
+        <div class="decomp-wow teal">
+          Animierte Karte zeigt Bonn, Koln und Dusseldorf als Punkte — ein gluhender Pin markiert Bonn.
+          Sofort klar: nur hier gibt es AviClear. Geographische Exklusivitat als visueller Hook.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label teal">Strategie</div>
+        <div class="decomp-strategy">
+          Monopolstellung als Hook. Patienten, die "AviClear Bonn" oder "AviClear Koln" suchen,
+          finden nur DermaMedicum. Diese Reel positioniert die Praxis als einzige Option in der Region —
+          nicht durch Preiskampf, sondern durch Verfugbarkeit.
+        </div>
+      </div>
+      <div class="outcome teal">
+        <div class="outcome-label teal">Erwartetes Ergebnis</div>
+        <div class="outcome-text">
+          Patienten mit Akne in Bonn/Koln/Dusseldorf erkennen DermaMedicum als einzige AviClear-Praxis.
+          Regionale Suchanfragen konvertieren direkt.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-separator"></div>
+
+  <!-- Reel A2: Skin Science -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-aviclear-b.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label teal">Reel</div>
+        <div class="decomp-title">Hautquerschnitt</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label teal">Wow-Faktor</div>
+        <div class="decomp-wow teal">
+          Animierter Hautquerschnitt: Epidermis, Dermis, Talgdruse als geometrische Schichten.
+          Ein Laserstrahl (1726nm) durchdringt die Haut und trifft die Talgdruse — Wissenschaft wird visuell greifbar.
+          97%-Statistik als Vertrauensanker.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label teal">Strategie</div>
+        <div class="decomp-strategy">
+          Bildung schafft Vertrauen. Wer den Mechanismus versteht — warum Cremes nur die Oberflache behandeln,
+          wahrend der Laser die Ursache angeht — zweifelt weniger am Preis.
+          Die Reel positioniert AviClear als wissenschaftlich fundierte Losung, nicht als kosmetischen Trend.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-separator"></div>
+
+  <!-- Reel A3: Treatment Journey -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-aviclear-c.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label teal">Reel</div>
+        <div class="decomp-title">Behandlungsweg</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label teal">Wow-Faktor</div>
+        <div class="decomp-wow teal">
+          Vertikale Timeline zeichnet sich Schritt fur Schritt. Drei Knoten erscheinen gestaffelt —
+          jede Sitzung mit konkreten Details (30 Min, AviCool-Kuhlung, Talgdrusenreaktion).
+          Transparenz des gesamten Behandlungswegs auf einen Blick.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label teal">Strategie</div>
+        <div class="decomp-strategy">
+          Transparenz senkt die Hemmschwelle. Der Patient weiss genau, was ihn erwartet —
+          drei Termine, keine Medikamente, kein Ratselraten.
+          "3 Sitzungen. Keine Medikamente." ist der einfachste Elevator Pitch fur eine 1.500-Euro-Behandlung.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ZIEL 02: CANFIELD ═══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="goal-label sage">Ziel 02 — Technologie</div>
+    <div class="section-title">Vertrauen durch Prazision</div>
+    <div class="client-quote sage">
+      "Ich will auch Patienten fur Body Mapping und Vectra-Fotos anziehen — IntelliStudio und Vectra von Canfield."
+    </div>
+  </div>
+
+  <!-- Reel C1: Tech Reveal -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-canfield-a.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label sage">Reel</div>
+        <div class="decomp-title">Tech-Reveal</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label sage">Wow-Faktor</div>
+        <div class="decomp-wow sage">
+          Typewriter-Text auf dunklem Hintergrund: "Ihre Haut hat eine Geschichte. Wir lesen sie."
+          Dann fegt eine leuchtende Scan-Linie uber ein Koordinaten-Grid — wie aus einem Sci-Fi-Film.
+          "92 Kameras. 3 Sekunden. Vollstandige Kartierung."
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label sage">Strategie</div>
+        <div class="decomp-strategy">
+          Der Wow-Effekt positioniert Hautkrebsvorsorge als Premium-Erlebnis, nicht als Kassentermin.
+          Patienten, die das sehen, assoziieren DermaMedicum mit Spitzentechnologie —
+          und sind bereit, fur diesen Standard zu zahlen.
+        </div>
+      </div>
+      <div class="outcome sage">
+        <div class="outcome-label sage">Erwartetes Ergebnis</div>
+        <div class="outcome-text">
+          Hautkrebsvorsorge wird als hochmoderne Technologie wahrgenommen — nicht als Routinetermin.
+          Patienten wahlen DermaMedicum spezifisch wegen der Technologie.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-separator"></div>
+
+  <!-- Reel C2: Precision Data -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-canfield-b.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label sage">Reel</div>
+        <div class="decomp-title">Prazisionsdaten</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label sage">Wow-Faktor</div>
+        <div class="decomp-wow sage">
+          Zwei Spalten: "Klassisch" vs. "IntelliStudio". Animierte Balken zeigen den Unterschied —
+          Dauer: 90 Minuten vs. unter 2 Minuten. Reproduzierbarkeit: variabel vs. 100%.
+          Abdeckung: teilweise vs. vollstandig. Der visuelle Kontrast spricht fur sich.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label sage">Strategie</div>
+        <div class="decomp-strategy">
+          Datenvergleich macht den Wechsel zur Technologie rational nachvollziehbar.
+          Patienten, die bereits Hautkrebsvorsorge kennen, sehen sofort den Qualitatssprung.
+          Keine emotionale Uberredung — nur Fakten.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-separator"></div>
+
+  <!-- Reel C3: Digital Twin -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-canfield-c.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label sage">Reel</div>
+        <div class="decomp-title">Digitaler Zwilling</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label sage">Wow-Faktor</div>
+        <div class="decomp-wow sage">
+          Korpersilhouette mit Muttermalen. Eines pulsiert rot — ein Fadenkreuz zoomt heran.
+          "0,3mm Veranderung in 12 Monaten." Die Angst vor dem Unsichtbaren, visuell greifbar gemacht.
+          KI-gestutzte Veranderungserkennung als Unterschriftszeile.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label sage">Strategie</div>
+        <div class="decomp-strategy">
+          Angst ist der starkste Motivator fur Vorsorge. Diese Reel zeigt, was das menschliche Auge
+          nicht sehen kann — und positioniert Vectra WB360 als die Antwort.
+          Wer das sieht, bucht einen Termin.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ZIEL 03: EDUCATIONAL ═══ -->
+<div class="section">
+  <div class="section-header">
+    <div class="goal-label brown">Ziel 03 — Glaubwurdigkeit</div>
+    <div class="section-title">Medizinische Kompetenz zeigen</div>
+    <div class="client-quote brown">
+      "Ich will nicht als rein kosmetische Praxis wahrgenommen werden. Auch medizinische Inhalte uber Akne, Rosacea, Hautkrebs."
+    </div>
+  </div>
+
+  <!-- Reel E1: Acne Myths -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-edu-a.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label brown">Reel</div>
+        <div class="decomp-title">Akne-Mythen</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label brown">Wow-Faktor</div>
+        <div class="decomp-wow brown">
+          Drei Mythen erscheinen nacheinander — jeder wird mit einer animierten Durchstreichung korrigiert.
+          Der Fakt erscheint darunter. Rhythmisch, merkbar, teilbar.
+          "3 Mythen uber Akne, die Ihre Haut verschlechtern" als Hook.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label brown">Strategie</div>
+        <div class="decomp-strategy">
+          Aufklarung baut Autoritat. Die Reel endet mit einer Bridge zu laserbasierter Therapie —
+          kein Markenname, kein Push, reines Teaching. Der Patient lernt etwas und verbindet
+          dieses Wissen mit DermaMedicum. Glaubwurdigkeit vor Conversion.
+        </div>
+      </div>
+      <div class="outcome brown">
+        <div class="outcome-label brown">Erwartetes Ergebnis</div>
+        <div class="outcome-text">
+          Medizinische Autoritat verankert die Praxis als Fachpraxis —
+          asthetische Reels landen auf diesem Fundament. Follower kommen fur das Wissen, bleiben fur die Behandlung.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-separator"></div>
+
+  <!-- Reel E2: Rosacea Triggers -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-edu-b.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label brown">Reel</div>
+        <div class="decomp-title">Rosacea-Ausloser</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label brown">Wow-Faktor</div>
+        <div class="decomp-wow brown">
+          Funf Trigger staffeln sich ein — jeder mit farbigem Bullet und Slide-In-Animation.
+          UV-Strahlung, Alkohol, scharfe Gewurze, Temperaturschwankungen, Stress.
+          Die Farbpalette wechselt von warm zu klinisch kuhl fur den Bridge-Abschnitt.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label brown">Strategie</div>
+        <div class="decomp-strategy">
+          Trigger-Wissen zeigt Empathie — der Patient fuhlt sich verstanden.
+          Die Bridge zu Gefasslaser-Behandlungen zeigt Kompetenz.
+          Kombination aus "wir verstehen Ihr Problem" und "wir haben die Losung".
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="reel-separator"></div>
+
+  <!-- Reel E3: Skin Cancer ABCDE -->
+  <div class="reel-row">
+    <div class="phone-wrapper">
+      <div class="phone">
+        <div class="phone-notch"></div>
+        <div class="phone-screen">
+          <video src="/static/public/dermamedicum-review/batch1-edu-c.mp4" playsinline muted loop></video>
+        </div>
+      </div>
+    </div>
+    <div class="decomposition">
+      <div class="decomp-block">
+        <div class="decomp-label brown">Reel</div>
+        <div class="decomp-title">Hautkrebs ABCDE</div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label brown">Wow-Faktor</div>
+        <div class="decomp-wow brown">
+          Jeder Buchstabe springt gross ein — A, B, C, D, E in einem Teal-Gradient-Spektrum.
+          Medizinisch ernst, visuell stark. Die ABCDE-Regel ist der bekannteste Screening-Merksatz —
+          und DermaMedicum positioniert sich als die Praxis, die daruber hinausgeht.
+        </div>
+      </div>
+      <div class="decomp-block">
+        <div class="decomp-label brown">Strategie</div>
+        <div class="decomp-strategy">
+          Vorsorge-Autoritat als starkste Form der Glaubwurdigkeit.
+          "Ein jahrliches Screening erkennt nicht alles" — dann die Bridge zur digitalen Ganzkorperkartierung.
+          Der Patient versteht: manuelles Screening ist gut, aber Canfield ist besser.
+          Starkster Credibility-zu-Conversion-Pfad im gesamten Batch.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  <div class="footer-compliance">
+    Alle Inhalte HWG-konform — keine Vorher/Nachher-Bilder, keine Rx-Markennamen, keine Preisnennung.
+    Jede Reel durchlauft eine Compliance-Prufung vor Veroffentlichung.
+  </div>
+  <div class="footer-langs">
+    <span class="lang-tag">DE</span>
+    <span class="lang-tag">EN</span>
+    <span class="lang-tag">ES</span>
+    <span class="lang-tag">CA</span>
+    <span>Beratung in 4 Sprachen</span>
+  </div>
+</div>
+
+<script>
+  // Intersection Observer: play videos when they scroll into view
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const video = entry.target;
+      if (entry.isIntersecting) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('video').forEach(v => observer.observe(v));
+</script>
+
+</body>
+</html>
