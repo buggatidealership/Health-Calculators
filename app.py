@@ -1184,6 +1184,10 @@ def mock_portfolio_1():
 def mock_portfolio_2():
     return render_template('mock-portfolio-2.html')
 
+@app.route('/mock-port3')
+def mock_portfolio_3():
+    return render_template('mock-portfolio-3.html')
+
 @app.route('/')
 def home():
     schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"

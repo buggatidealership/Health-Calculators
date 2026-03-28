@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>DermaMedicum — Reel-Produktion: 8 Behandlungen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --cream: #F6F0E4;
+    --sage: #8F9E90;
+    --brown: #7F6954;
+    --deep: #0a0a0f;
+    --text: #E0E0E0;
+    --text-secondary: #A0A0A0;
+    --surface: #111118;
+    --border: rgba(255,255,255,0.06);
+    --green: #4ade80;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--deep);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  .hero-badge {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--cream);
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+  .hero-sub strong { color: var(--text); font-weight: 500; }
+  .hero-stat {
+    margin-top: 48px;
+    display: flex;
+    gap: 48px;
+    flex-wrap: wrap;
+  }
+  .hero-stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .hero-stat-num {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 36px;
+    color: var(--cream);
+  }
+  .hero-stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+  }
+  .scroll-hint .line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--sage), transparent);
+    animation: pulse-line 2s ease-in-out infinite;
+  }
+  @keyframes pulse-line { 0%, 100% { opacity: 0.3; } 50% { opacity: 0.8; } }
+
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .treatment-header {
+    padding: 100px 0 40px;
+    border-top: 1px solid var(--border);
+  }
+  .treatment-number {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .treatment-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.15;
+  }
+  .treatment-meta {
+    margin-top: 8px;
+    font-size: 13px;
+    color: var(--brown);
+    font-weight: 500;
+  }
+  .treatment-desc {
+    margin-top: 16px;
+    font-size: 15px;
+    color: var(--text-secondary);
+    max-width: 540px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .reel-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding-bottom: 80px;
+    margin-top: 40px;
+  }
+  .reel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease-out, transform 0.3s ease-out;
+  }
+  .reel-card:hover {
+    border-color: rgba(143, 158, 144, 0.2);
+    transform: translateY(-4px);
+  }
+  .reel-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #000;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .reel-video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+    transition: opacity 0.25s ease-out;
+    pointer-events: none;
+  }
+  .play-overlay svg { width: 56px; height: 56px; opacity: 0.85; filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4)); }
+  .reel-video-wrap:hover .play-overlay { opacity: 0.7; }
+  .reel-video-wrap.playing .play-overlay { opacity: 0; }
+  .reel-info { padding: 20px 24px 24px; }
+  .reel-style {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .reel-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 20px;
+    color: var(--cream);
+    margin-bottom: 10px;
+  }
+  .reel-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+  .reel-tags { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+  .reel-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(143, 158, 144, 0.1);
+    color: var(--sage);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  .portfolio-footer {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .footer-left { font-size: 13px; color: var(--text-secondary); font-weight: 300; }
+  .footer-right { font-size: 12px; color: var(--text-secondary); opacity: 0.5; font-weight: 300; }
+
+  @media (max-width: 768px) {
+    .hero { padding: 60px 24px; }
+    .section { padding: 0 24px; }
+    .reel-pair { grid-template-columns: 1fr; gap: 24px; }
+    .portfolio-footer { padding: 40px 24px; }
+    .hero-stat { gap: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-badge">Reel-Produktion — Marz 2026</div>
+  <h1>16 Reels fur 8 Behandlungen</h1>
+  <p class="hero-sub">
+    Jede Behandlung erhalt <strong>zwei Reels in unterschiedlichen Stilen</strong> — abgestimmt auf die Starken des jeweiligen Themas. Ziel: Patienten zur Buchung bewegen.
+  </p>
+  <div class="hero-stat">
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">Behandlungen</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">16</div>
+      <div class="hero-stat-label">Reels</div>
+    </div>
+    <div class="hero-stat-item">
+      <div class="hero-stat-num">9</div>
+      <div class="hero-stat-label">Visuelle Stile</div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="line"></div></div>
+</section>
+
+<!-- 1. AVICLEAR -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 1 — Hochste Prioritat</div>
+    <h2 class="treatment-title">AviClear</h2>
+    <div class="treatment-meta">Cutera · FDA-zugelassener Akne-Laser · 1726nm</div>
+    <p class="treatment-desc">Der einzige Laser, der Talgdrusen direkt anspricht. Keine Medikamente, keine systemischen Nebenwirkungen. 92% Wirksamkeit nach 12 Monaten.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-aviclear-datapulse.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Data Pulse</div>
+        <div class="reel-name">Akne-Behandlung im Vergleich</div>
+        <div class="reel-desc">Animierte Balkendiagramme vergleichen vier Behandlungswege: Cremes, Antibiotika, Isotretinoin, AviClear. Die Daten sprechen fur sich — 92% Wirksamkeit ohne Medikamente.</div>
+        <div class="reel-tags"><span class="reel-tag">Vergleich</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-aviclear-splitreveal.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Split Reveal</div>
+        <div class="reel-name">Symptome vs. Ursache</div>
+        <div class="reel-desc">Links: herkommliche Behandlungen, die Symptome unterdrucken. Rechts: AviClear, das die Talgdruse direkt anspricht. Der Split macht den Unterschied sichtbar.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 2. PHILART EYES -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 2</div>
+    <h2 class="treatment-title">PhilArt Eyes</h2>
+    <div class="treatment-meta">Croma · PDRN Polynukleotide · Periokulare Biostimulation</div>
+    <p class="treatment-desc">Polynukleotide aktivieren Fibroblasten in der Augenpartie — dort, wo Augencremes nicht hinkommen. Korpereignene Regeneration statt Auffüllung.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-philarteyes-layerpeel.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Layer Peel</div>
+        <div class="reel-name">Wo Cremes aufhoren, fangt PhilArt an</div>
+        <div class="reel-desc">Hautschichten der Augenpartie werden sichtbar: Epidermis, Dermis, Kollagenfasern, Fibroblasten. Eine Linie zeigt, wo Cremes stoppen — und wo PDRN wirkt.</div>
+        <div class="reel-tags"><span class="reel-tag">Edukativ</span><span class="reel-tag">14 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-philarteyes-eraser.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Eraser</div>
+        <div class="reel-name">Augencreme reicht? Filler ist die einzige Option?</div>
+        <div class="reel-desc">Zwei Mythen werden weggewischt. Darunter: PDRN ist weder Creme noch Filler — es ist ein Biostimulator, der die Haut von innen regeneriert.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 3. PHILART -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 3</div>
+    <h2 class="treatment-title">PhilArt</h2>
+    <div class="treatment-meta">Croma · PDRN 40mg/ml · Ganzgesicht-Biostimulation</div>
+    <p class="treatment-desc">Polynukleotide fur das gesamte Gesicht: Kollagenproduktion, Hautelastizitat, Textur. Ergebnisse bis zu 12 Monate. Ein grundlegend anderer Ansatz als Hyaluron.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-philart-glitch.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Glitch</div>
+        <div class="reel-name">Hyaluron ist das Beste fur Anti-Aging?</div>
+        <div class="reel-desc">Influencer-Claim auf rosa Hintergrund. Digitale Storung. Korrektur: Hyaluron fullt auf, PDRN regeneriert — ein fundamental anderer Mechanismus.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-philart-xray.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: X-Ray</div>
+        <div class="reel-name">Unter die Oberflache gehen</div>
+        <div class="reel-desc">Anti-Aging-Routine auf warmer Oberflache. Scan enthullt: Topische Wirkstoffe erreichen die Epidermis — PhilArt wirkt in der Dermis. 40mg/ml direkt am Kollagen.</div>
+        <div class="reel-tags"><span class="reel-tag">Edukativ</span><span class="reel-tag">13 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 4. PRP -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 4</div>
+    <h2 class="treatment-title">PRP</h2>
+    <div class="treatment-meta">Regen Lab · Eigenblut-Therapie · Wachstumsfaktoren</div>
+    <p class="treatment-desc">Thrombozytenreiches Plasma aus dem eigenen Blut. Uber 80% Thrombozyten-Recovery im geschlossenen Regen-Lab-System. Keine Fremdstoffe.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-prp-layerpeel.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Layer Peel</div>
+        <div class="reel-name">Vom Blut zur Hauterneuerung</div>
+        <div class="reel-desc">Schicht fur Schicht: Blut → Zentrifuge → Plasma → Thrombozyten → Wachstumsfaktoren. Der gesamte PRP-Prozess als visuelles Erlebnis.</div>
+        <div class="reel-tags"><span class="reel-tag">Edukativ</span><span class="reel-tag">14 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-prp-cardstack.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Card Stack</div>
+        <div class="reel-name">3 PRP-Mythen, 3 Korrekturen</div>
+        <div class="reel-desc">Karten fallen, drehen sich. Marketing-Trend? RCT-belegt. Gefahrlich? Geschlossenes System. Sofort sichtbar? Kollagen braucht 4-6 Wochen.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">13 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 5. HARMONYCA -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 5</div>
+    <h2 class="treatment-title">Harmonyca</h2>
+    <div class="treatment-meta">Allergan · Hybrid-Filler · HA + CaHA in einer Spritze</div>
+    <p class="treatment-desc">Sofortiges Volumen durch Hyaluronsaure plus langfristige Kollagenstimulation durch Calciumhydroxylapatit. Eine Sitzung, bis zu 24 Monate Ergebnis.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-harmonyca-scale.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Scale</div>
+        <div class="reel-name">Funf Termine vs. eine Behandlung</div>
+        <div class="reel-desc">Funf Hyaluron-Sitzungen fallen auf die Waage. Dann: eine Harmonyca-Behandlung. Die Waage kippt. Zwei Wirkungen in einer Spritze wiegen schwerer.</div>
+        <div class="reel-tags"><span class="reel-tag">Vergleich</span><span class="reel-tag">13 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-harmonyca-splitreveal.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Split Reveal</div>
+        <div class="reel-name">Klassischer Filler vs. Hybrid</div>
+        <div class="reel-desc">Links: Volumen ja, Kollagen nein, 6-12 Monate. Rechts: Volumen ja, Kollagen ja, 18-24 Monate. Der Split macht die Doppelwirkung sichtbar.</div>
+        <div class="reel-tags"><span class="reel-tag">Vergleich</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6. SKINVIVE -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 6</div>
+    <h2 class="treatment-title">Skinvive</h2>
+    <div class="treatment-meta">Allergan · FDA-zugelassen · HA-Mikrotropfchen fur Hautqualitat</div>
+    <p class="treatment-desc">Das erste FDA-zugelassene Injectable speziell fur Hautqualitat. Kein Volumen, kein Reshaping — nur Textur, Glow und Hydratation. 57,9% messbare Verbesserung.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-skinvive-eraser.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Eraser</div>
+        <div class="reel-name">Cremes reichen? Injectables verandern die Form?</div>
+        <div class="reel-desc">Zwei Mythen weggewischt. Cremes wirken an der Oberflache — Skinvive in der Dermis. Und: Skinvive verandert keine Gesichtsform, sondern Hautqualitat.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-skinvive-redact.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Redact</div>
+        <div class="reel-name">3 Annahmen uber Hautpflege — korrigiert</div>
+        <div class="reel-desc">Klinisches Dokument. Drei Annahmen uber Seren, Hydratation und Injectable-Dauer. Schwarze Balken. Rote Korrekturen mit Studiendaten.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 7. INTELLISTUDIO -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 7</div>
+    <h2 class="treatment-title">IntelliStudio Bodymapping</h2>
+    <div class="treatment-meta">Canfield · Automatisierte Ganzkoper-Bildgebung · DermaGraphix</div>
+    <p class="treatment-desc">Vollstandige Korper-Fotodokumentation in unter 2 Minuten. Standardisierte Aufnahmen, automatische Positionierung, Polarisations-Doppelmodus. 10x schneller als manuelle Dokumentation.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-intellistudio-xray.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: X-Ray</div>
+        <div class="reel-name">Was eine Hautkontrolle ubersieht</div>
+        <div class="reel-desc">Oberflache: 15-Minuten-Standardkontrolle. Scan enthullt: IntelliStudio kartiert den gesamten Korper — jedes Muttermal dokumentiert, jede Veranderung erkannt.</div>
+        <div class="reel-tags"><span class="reel-tag">Edukativ</span><span class="reel-tag">13 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-intellistudio-datapulse.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Data Pulse</div>
+        <div class="reel-name">90 Minuten vs. 2 Minuten</div>
+        <div class="reel-desc">Animierte Balken: manuelle Fotodokumentation gegen IntelliStudio. 10x schneller, 100% reproduzierbar. Die Daten machen den Unterschied sichtbar.</div>
+        <div class="reel-tags"><span class="reel-tag">Vergleich</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 8. VECTRA -->
+<div class="section">
+  <div class="treatment-header">
+    <div class="treatment-number">Behandlung 8</div>
+    <h2 class="treatment-title">Vectra Videoauflichtmikroskopie</h2>
+    <div class="treatment-meta">Canfield · 92 Kameras · 3D-Ganzkoper-Bildgebung · KI-Analyse</div>
+    <p class="treatment-desc">Der gesamte Korper in unter 3 Sekunden. 92 Kameras gleichzeitig. KI-gestutzte Veranderungserkennung. Fruherkennung, die nichts ubersieht.</p>
+  </div>
+  <div class="reel-pair">
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-vectra-xray.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: X-Ray</div>
+        <div class="reel-name">Was Sie nicht sehen konnen</div>
+        <div class="reel-desc">Selbstkontrolle auf warmer Oberflache. Scan enthullt: KI-kartierter Korper mit markierten Lasionen. Rucken, Kopfhaut, schwer zugangliche Bereiche — automatisch uberwacht.</div>
+        <div class="reel-tags"><span class="reel-tag">Edukativ</span><span class="reel-tag">13 Sek.</span></div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-vectra-redact.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-style">Stil: Redact</div>
+        <div class="reel-name">3 Annahmen uber Hautkrebsvorsorge</div>
+        <div class="reel-desc">Selbstkontrolle reicht? Bloßes Auge reicht? Screening dauert lange? Drei Annahmen, drei schwarze Balken, drei Korrekturen mit 92-Kamera-Fakten.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="portfolio-footer">
+  <div class="footer-left">8 Behandlungen. 16 Reels. Bereit zur Produktion.</div>
+  <div class="footer-right">Portfolio generiert Marz 2026</div>
+</footer>
+
+<script>
+function togglePlay(wrap) {
+  const video = wrap.querySelector('video');
+  if (video.paused) {
+    document.querySelectorAll('.reel-video-wrap video').forEach(v => {
+      if (v !== video) { v.pause(); v.parentElement.classList.remove('playing'); }
+    });
+    video.play();
+    wrap.classList.add('playing');
+  } else {
+    video.pause();
+    wrap.classList.remove('playing');
+  }
+}
+</script>
+</body>
+</html>

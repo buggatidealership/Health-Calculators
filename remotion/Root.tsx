@@ -65,6 +65,22 @@ import { DM_XRay } from "./DM_XRay";
 import { DM_Scale } from "./DM_Scale";
 import { DM_Eraser } from "./DM_Eraser";
 import { DM_Glitch } from "./DM_Glitch";
+import { DM_AviClear_DataPulse } from "./DM_AviClear_DataPulse";
+import { DM_AviClear_SplitReveal } from "./DM_AviClear_SplitReveal";
+import { DM_PhilArtEyes_LayerPeel } from "./DM_PhilArtEyes_LayerPeel";
+import { DM_PhilArtEyes_Eraser } from "./DM_PhilArtEyes_Eraser";
+import { DM_PhilArt_Glitch } from "./DM_PhilArt_Glitch";
+import { DM_PhilArt_XRay } from "./DM_PhilArt_XRay";
+import { DM_PRP_LayerPeel } from "./DM_PRP_LayerPeel";
+import { DM_PRP_CardStack } from "./DM_PRP_CardStack";
+import { DM_Harmonyca_Scale } from "./DM_Harmonyca_Scale";
+import { DM_Harmonyca_SplitReveal } from "./DM_Harmonyca_SplitReveal";
+import { DM_Skinvive_Eraser } from "./DM_Skinvive_Eraser";
+import { DM_Skinvive_Redact } from "./DM_Skinvive_Redact";
+import { DM_IntelliStudio_XRay } from "./DM_IntelliStudio_XRay";
+import { DM_IntelliStudio_DataPulse } from "./DM_IntelliStudio_DataPulse";
+import { DM_Vectra_XRay } from "./DM_Vectra_XRay";
+import { DM_Vectra_Redact } from "./DM_Vectra_Redact";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -367,6 +383,22 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-scale" component={DM_Scale} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-eraser" component={DM_Eraser} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="dm-glitch" component={DM_Glitch} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-aviclear-datapulse" component={DM_AviClear_DataPulse} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-aviclear-splitreveal" component={DM_AviClear_SplitReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-philarteyes-layerpeel" component={DM_PhilArtEyes_LayerPeel} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-philarteyes-eraser" component={DM_PhilArtEyes_Eraser} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-philart-glitch" component={DM_PhilArt_Glitch} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-philart-xray" component={DM_PhilArt_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-prp-layerpeel" component={DM_PRP_LayerPeel} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-prp-cardstack" component={DM_PRP_CardStack} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-harmonyca-scale" component={DM_Harmonyca_Scale} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-harmonyca-splitreveal" component={DM_Harmonyca_SplitReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-skinvive-eraser" component={DM_Skinvive_Eraser} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-skinvive-redact" component={DM_Skinvive_Redact} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-intellistudio-xray" component={DM_IntelliStudio_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-intellistudio-datapulse" component={DM_IntelliStudio_DataPulse} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-vectra-xray" component={DM_Vectra_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-vectra-redact" component={DM_Vectra_Redact} durationInFrames={360} fps={30} width={1080} height={1920} />
     </>
   );
 };
