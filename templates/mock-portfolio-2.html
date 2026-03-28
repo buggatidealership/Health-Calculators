@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>DermaMedicum — Reel Portfolio v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F6F0E4;
+    --navy: #30385F;
+    --sage: #8F9E90;
+    --brown: #7F6954;
+    --deep: #0a0a0f;
+    --text: #E0E0E0;
+    --text-secondary: #A0A0A0;
+    --surface: #111118;
+    --surface-hover: #1a1a24;
+    --border: rgba(255,255,255,0.06);
+    --green: #4ade80;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background: var(--deep);
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* --- HERO --- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero-badge {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 32px;
+    font-weight: 500;
+  }
+
+  .hero h1 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(42px, 6vw, 72px);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--cream);
+    max-width: 800px;
+    margin-bottom: 32px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-secondary);
+    max-width: 560px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .hero-sub strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+
+  .scroll-hint .line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, var(--sage), transparent);
+    animation: pulse-line 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-line {
+    0%, 100% { opacity: 0.3; height: 40px; }
+    50% { opacity: 0.8; height: 52px; }
+  }
+
+  /* --- SECTION --- */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section-header {
+    padding: 120px 0 60px;
+    border-top: 1px solid var(--border);
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: clamp(28px, 4vw, 40px);
+    font-weight: 400;
+    color: var(--cream);
+    max-width: 600px;
+    line-height: 1.15;
+  }
+
+  .section-desc {
+    margin-top: 16px;
+    font-size: 16px;
+    color: var(--text-secondary);
+    max-width: 500px;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* --- REEL GRID --- */
+  .reel-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 32px;
+    padding-bottom: 80px;
+  }
+
+  .reel-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease-out, transform 0.3s ease-out;
+    position: relative;
+  }
+
+  .reel-card:hover {
+    border-color: rgba(143, 158, 144, 0.2);
+    transform: translateY(-4px);
+  }
+
+  /* Confirmed badge */
+  .reel-card.confirmed {
+    border-color: rgba(74, 222, 128, 0.15);
+  }
+
+  .confirmed-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(74, 222, 128, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(74, 222, 128, 0.25);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  /* New badge */
+  .new-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 10;
+    background: rgba(232, 155, 62, 0.15);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(232, 155, 62, 0.25);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #e89b3e;
+    font-weight: 600;
+  }
+
+  .reel-video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #000;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .reel-video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.25);
+    transition: opacity 0.25s ease-out;
+    pointer-events: none;
+  }
+
+  .play-overlay svg {
+    width: 56px;
+    height: 56px;
+    opacity: 0.85;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.4));
+  }
+
+  .reel-video-wrap:hover .play-overlay {
+    opacity: 0.7;
+  }
+
+  .reel-video-wrap.playing .play-overlay {
+    opacity: 0;
+  }
+
+  .reel-info {
+    padding: 20px 24px 24px;
+  }
+
+  .reel-number {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: var(--sage);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+
+  .reel-name {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 22px;
+    color: var(--cream);
+    margin-bottom: 6px;
+  }
+
+  .reel-topic {
+    font-size: 14px;
+    color: var(--brown);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+
+  .reel-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  .reel-tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+
+  .reel-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 100px;
+    background: rgba(143, 158, 144, 0.1);
+    color: var(--sage);
+    letter-spacing: 0.5px;
+    font-weight: 500;
+  }
+
+  /* --- PATTERN NOTE --- */
+  .pattern-note {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px 80px;
+  }
+
+  .pattern-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 40px;
+  }
+
+  .pattern-box h3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 24px;
+    color: var(--cream);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .pattern-box p {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-weight: 300;
+    max-width: 640px;
+  }
+
+  .pattern-box p + p {
+    margin-top: 12px;
+  }
+
+  .pattern-box strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* --- METHODOLOGY --- */
+  .method-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 24px;
+    padding-bottom: 120px;
+  }
+
+  .method-card {
+    padding: 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: var(--surface);
+  }
+
+  .method-card h3 {
+    font-family: 'DM Serif Display', Georgia, serif;
+    font-size: 18px;
+    color: var(--cream);
+    margin-bottom: 10px;
+    font-weight: 400;
+  }
+
+  .method-card p {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* --- FOOTER --- */
+  .portfolio-footer {
+    padding: 60px 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-left {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 300;
+  }
+
+  .footer-right {
+    font-size: 12px;
+    color: var(--text-secondary);
+    opacity: 0.5;
+    font-weight: 300;
+  }
+
+  /* --- RESPONSIVE --- */
+  @media (max-width: 768px) {
+    .hero { padding: 60px 24px; }
+    .section { padding: 0 24px; }
+    .reel-grid { grid-template-columns: 1fr; gap: 24px; }
+    .method-grid { grid-template-columns: 1fr; }
+    .portfolio-footer { padding: 40px 24px; }
+    .pattern-note { padding: 0 24px 60px; }
+    .pattern-box { padding: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">Reel Portfolio — Update Marz 2026</div>
+  <h1>Ihre 4 Favoriten + 2 neue Vorschlage</h1>
+  <p class="hero-sub">
+    Basierend auf Ihrer Auswahl: Sie bevorzugen Stile mit <strong>visueller Transformation</strong> und <strong>Mythos-vs-Fakt-Spannung</strong>. Zwei neue Konzepte folgen genau diesem Muster.
+  </p>
+  <div class="scroll-hint">
+    <div class="line"></div>
+  </div>
+</section>
+
+<!-- CONFIRMED SECTION -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Bestatigt — 4 Stile</div>
+    <h2 class="section-title">Ihre Auswahl</h2>
+    <p class="section-desc">Diese vier Stile sind freigegeben. Jeder Stil ist auf jedes Thema aus Ihrem Behandlungsspektrum anwendbar.</p>
+  </div>
+
+  <div class="reel-grid">
+
+    <div class="reel-card confirmed">
+      <div class="confirmed-badge">Bestatigt</div>
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-datapulse.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-number">Stil 01</div>
+        <div class="reel-name">Data Pulse</div>
+        <div class="reel-topic">Akne — AviClear</div>
+        <div class="reel-desc">Animierte Datenvisualisierung. Balkendiagramme vergleichen Behandlungswege — die Bewegung IST das Argument.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">9 Sek.</span></div>
+      </div>
+    </div>
+
+    <div class="reel-card confirmed">
+      <div class="confirmed-badge">Bestatigt</div>
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-layerpeel.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-number">Stil 02</div>
+        <div class="reel-name">Layer Peel</div>
+        <div class="reel-topic">RF-Microneedling — Secret Pro</div>
+        <div class="reel-desc">Anatomischer Querschnitt der Hautschichten. Jede Schicht wird sichtbar — wie ein medizinisches Lehrbuch, das lebendig wird.</div>
+        <div class="reel-tags"><span class="reel-tag">Edukativ</span><span class="reel-tag">14 Sek.</span></div>
+      </div>
+    </div>
+
+    <div class="reel-card confirmed">
+      <div class="confirmed-badge">Bestatigt</div>
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-splitreveal.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-number">Stil 03</div>
+        <div class="reel-name">Split Reveal</div>
+        <div class="reel-topic">Rosacea — Excel V+</div>
+        <div class="reel-desc">Bildschirm teilt sich vertikal. Links: der Mythos (rosa, Influencer-Asthetik). Rechts: die klinische Wahrheit ubernimmt.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">12 Sek.</span></div>
+      </div>
+    </div>
+
+    <div class="reel-card confirmed">
+      <div class="confirmed-badge">Bestatigt</div>
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-cardstack.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-number">Stil 05</div>
+        <div class="reel-name">Card Stack</div>
+        <div class="reel-topic">Botulinumtoxin — Vistabel</div>
+        <div class="reel-desc">Karten fallen von oben. Vorderseite: Mythos. Karte dreht sich. Ruckseite: Fakten. Drei Mythen bauen eine Wand korrigierten Wissens.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">13 Sek.</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- PATTERN NOTE -->
+<div class="pattern-note">
+  <div class="pattern-box">
+    <h3>Was Ihre Favoriten gemeinsam haben</h3>
+    <p>Alle vier Stile teilen ein Muster: <strong>visuelle Transformation</strong> (etwas spaltet sich, schalt sich, dreht sich, pulsiert) kombiniert mit <strong>Mythos-vs-Fakt-Spannung</strong>. Jeder Stil hat einen "Reveal-Moment" — den Augenblick, in dem sich die Perspektive verschiebt.</p>
+    <p>Die zwei neuen Vorschlage unten folgen exakt diesem Muster.</p>
+  </div>
+</div>
+
+<!-- NEW PROPOSALS -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Neu — 2 Vorschlage</div>
+    <h2 class="section-title">Gleiches Muster, neue Mechaniken</h2>
+    <p class="section-desc">Beide folgen Ihrem bevorzugten Prinzip: Branded, Transformation, Spannung. Andere visuelle Umsetzung.</p>
+  </div>
+
+  <div class="reel-grid">
+
+    <div class="reel-card">
+      <div class="new-badge">Neu</div>
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-debunk.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-number">Stil 11</div>
+        <div class="reel-name">Debunk</div>
+        <div class="reel-topic">Vitamin C + Retinol</div>
+        <div class="reel-desc">Rosa Influencer-Asthetik prasentiert den Mythos. Weisser Blitz. Schnitt. Dunkler Hintergrund mit klinischer Korrektur. Konfrontativ, schnell, befriedigend.</div>
+        <div class="reel-tags"><span class="reel-tag">Myth-Busting</span><span class="reel-tag">11 Sek.</span></div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <div class="new-badge">Neu</div>
+      <div class="reel-video-wrap" onclick="togglePlay(this)">
+        <video src="/static/portfolio/dm-bouncebars.mp4" preload="metadata" loop muted playsinline></video>
+        <div class="play-overlay"><svg viewBox="0 0 24 24" fill="white"><polygon points="5,3 19,12 5,21"/></svg></div>
+      </div>
+      <div class="reel-info">
+        <div class="reel-number">Stil 12</div>
+        <div class="reel-name">Bounce Bars</div>
+        <div class="reel-topic">Periorale Dermatitis — Skincare-Philosophie</div>
+        <div class="reel-desc">Zwei Diagramme. Oben: viele Produkte, Ball springt chaotisch. Unten: gezielte Behandlung, Ball findet Ruhe. Bewegung IST das Argument — ohne ein einziges Wort.</div>
+        <div class="reel-tags"><span class="reel-tag">Vergleich</span><span class="reel-tag">14 Sek.</span></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- METHODOLOGY -->
+<div class="section">
+  <div class="section-header">
+    <div class="section-label">Wie wir arbeiten</div>
+    <h2 class="section-title">Nicht menschliche Best Practices kopieren. Uber sie hinausgehen.</h2>
+  </div>
+
+  <div class="method-grid">
+    <div class="method-card">
+      <h3>Recherche als Grundlage</h3>
+      <p>Instagram-Algorithmus, HWG-Compliance, Top-Dermatologie-Accounts — alles verifiziert und dokumentiert, bevor ein einziges Frame entsteht.</p>
+    </div>
+    <div class="method-card">
+      <h3>Cross-Domain-Synthese</h3>
+      <p>Prinzipien aus Kognitionspsychologie, Datenvisualisierung und Filmsprache — Domains, die ein menschlicher Designer nicht gleichzeitig liest.</p>
+    </div>
+    <div class="method-card">
+      <h3>Algo-optimiert</h3>
+      <p>Jedes Reel ist auf DM-Shares und Saves optimiert — die zwei Signale, die Instagram-Reichweite treiben. Nicht Likes. Nicht Views.</p>
+    </div>
+    <div class="method-card">
+      <h3>HWG-konform</h3>
+      <p>Keine Vorher/Nachher-Bilder. Keine Rx-Werbung. Jedes Konzept ist fur den deutschen Rechtsrahmen gebaut — nicht nachtraglich angepasst.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="portfolio-footer">
+  <div class="footer-left">4 Stile bestatigt. 2 neue Vorschlage. Wahlen Sie — wir produzieren.</div>
+  <div class="footer-right">Portfolio aktualisiert Marz 2026</div>
+</footer>
+
+<script>
+function togglePlay(wrap) {
+  const video = wrap.querySelector('video');
+  if (video.paused) {
+    document.querySelectorAll('.reel-video-wrap video').forEach(v => {
+      if (v !== video) { v.pause(); v.parentElement.classList.remove('playing'); }
+    });
+    video.play();
+    wrap.classList.add('playing');
+  } else {
+    video.pause();
+    wrap.classList.remove('playing');
+  }
+}
+</script>
+</body>
+</html>
