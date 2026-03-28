@@ -59,6 +59,7 @@ import { DM_Particle } from "./DM_Particle";
 import { DM_Typewriter } from "./DM_Typewriter";
 import { DM_Glass } from "./DM_Glass";
 import { DM_CinemaWipe } from "./DM_CinemaWipe";
+import { DM_BounceBars } from "./DM_BounceBars";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -355,6 +356,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-typewriter" component={DM_Typewriter} durationInFrames={420} fps={30} width={1080} height={1920} />
       <Composition id="dm-glass" component={DM_Glass} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-cinemawipe" component={DM_CinemaWipe} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-bouncebars" component={DM_BounceBars} durationInFrames={420} fps={30} width={1080} height={1920} />
     </>
   );
 };
