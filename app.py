@@ -1176,6 +1176,10 @@ categories = [
     {"id": "financial", "label": "Financial & Earnings", "icon": "💰"},
 ]
 
+@app.route('/mock-port1')
+def mock_portfolio_1():
+    return render_template('mock-portfolio-1.html')
+
 @app.route('/')
 def home():
     schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"
@@ -5584,6 +5588,18 @@ def buzzloop_v4():
 @app.route('/buzzloop-v5')
 def buzzloop_v5():
     return render_template('buzzloop-v5.html')
+
+@app.route('/buzzloop-v6')
+def buzzloop_v6():
+    return render_template('buzzloop-v6.html')
+
+@app.route('/buzzloop-v7')
+def buzzloop_v7():
+    return render_template('buzzloop-v7.html')
+
+@app.route('/buzzloop-v8')
+def buzzloop_v8():
+    return render_template('buzzloop-v8.html')
 
 @app.route('/mockup-homepage-v2')
 def mockup_homepage_v2():

@@ -119,6 +119,30 @@ def print_report(tweets):
             print()
 
 
+def print_json(tweets):
+    """Machine-readable output for hook consumption."""
+    import sys
+    out = []
+    for t in tweets:
+        out.append({
+            "id": t["id"],
+            "text": t["text"][:200],
+            "type": t["_type"],
+            "likes": t["_likes"],
+            "replies": t["_replies"],
+            "retweets": t["_retweets"],
+            "impressions": t["_impressions"],
+            "bookmarks": t["_bookmarks"],
+            "score": t["_score"],
+            "age_h": round(t["_age_h"], 1),
+        })
+    json.dump(out, sys.stdout, indent=2)
+
+
 if __name__ == "__main__":
+    import sys
     tweets = get_tweets(20)
-    print_report(tweets)
+    if "--json" in sys.argv:
+        print_json(tweets)
+    else:
+        print_report(tweets)

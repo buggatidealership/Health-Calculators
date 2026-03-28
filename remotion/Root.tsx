@@ -37,6 +37,28 @@ import { DermaReel3 } from "./DermaReel3";
 import { DentalQuestion } from "./DentalQuestion";
 import { DentalKids } from "./DentalKids";
 import { MetabolismFluid } from "./MetabolismFluid";
+import { DM_Debunk } from "./DM_Debunk";
+import { DM_ASMR } from "./DM_ASMR";
+import { DM_WhatsApp } from "./DM_WhatsApp";
+import { DM_Terminal } from "./DM_Terminal";
+import { DM_Sketch } from "./DM_Sketch";
+import { Cat_DentalMyth } from "./Cat_DentalMyth";
+import { Cat_DentalASMR } from "./Cat_DentalASMR";
+import { Cat_DentalDM } from "./Cat_DentalDM";
+import { Cat_BarRitual } from "./Cat_BarRitual";
+import { Cat_BarMyth } from "./Cat_BarMyth";
+import { Cat_BarAfterHours } from "./Cat_BarAfterHours";
+// DermaMedicum Portfolio v2 — 10 styles (5 branded + 5 freeform)
+import { DM_DataPulse } from "./DM_DataPulse";
+import { DM_LayerPeel } from "./DM_LayerPeel";
+import { DM_SplitReveal } from "./DM_SplitReveal";
+import { DM_Timeline } from "./DM_Timeline";
+import { DM_CardStack } from "./DM_CardStack";
+import { DM_NeonAnatomy } from "./DM_NeonAnatomy";
+import { DM_Particle } from "./DM_Particle";
+import { DM_Typewriter } from "./DM_Typewriter";
+import { DM_Glass } from "./DM_Glass";
+import { DM_CinemaWipe } from "./DM_CinemaWipe";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -310,6 +332,29 @@ export const RemotionRoot: React.FC = () => {
         width={2160}
         height={2160}
       />
+      <Composition id="dm-debunk" component={DM_Debunk} durationInFrames={330} fps={30} width={1080} height={1920} />
+      <Composition id="dm-asmr" component={DM_ASMR} durationInFrames={450} fps={30} width={1080} height={1920} />
+      <Composition id="dm-whatsapp" component={DM_WhatsApp} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-terminal" component={DM_Terminal} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-sketch" component={DM_Sketch} durationInFrames={450} fps={30} width={1080} height={1920} />
+      <Composition id="cat-dental-myth" component={Cat_DentalMyth} durationInFrames={330} fps={30} width={1080} height={1920} />
+      <Composition id="cat-dental-asmr" component={Cat_DentalASMR} durationInFrames={450} fps={30} width={1080} height={1920} />
+      <Composition id="cat-dental-dm" component={Cat_DentalDM} durationInFrames={330} fps={30} width={1080} height={1920} />
+      <Composition id="cat-bar-ritual" component={Cat_BarRitual} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="cat-bar-myth" component={Cat_BarMyth} durationInFrames={330} fps={30} width={1080} height={1920} />
+      <Composition id="cat-bar-afterhours" component={Cat_BarAfterHours} durationInFrames={450} fps={30} width={1080} height={1920} />
+      {/* DermaMedicum Portfolio v2 — Branded */}
+      <Composition id="dm-datapulse" component={DM_DataPulse} durationInFrames={270} fps={30} width={1080} height={1920} />
+      <Composition id="dm-layerpeel" component={DM_LayerPeel} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-splitreveal" component={DM_SplitReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-timeline" component={DM_Timeline} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-cardstack" component={DM_CardStack} durationInFrames={390} fps={30} width={1080} height={1920} />
+      {/* DermaMedicum Portfolio v2 — Freeform */}
+      <Composition id="dm-neonanatomy" component={DM_NeonAnatomy} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-particle" component={DM_Particle} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-typewriter" component={DM_Typewriter} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-glass" component={DM_Glass} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-cinemawipe" component={DM_CinemaWipe} durationInFrames={390} fps={30} width={1080} height={1920} />
     </>
   );
 };
