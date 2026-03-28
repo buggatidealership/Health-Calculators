@@ -60,6 +60,11 @@ import { DM_Typewriter } from "./DM_Typewriter";
 import { DM_Glass } from "./DM_Glass";
 import { DM_CinemaWipe } from "./DM_CinemaWipe";
 import { DM_BounceBars } from "./DM_BounceBars";
+import { DM_Redact } from "./DM_Redact";
+import { DM_XRay } from "./DM_XRay";
+import { DM_Scale } from "./DM_Scale";
+import { DM_Eraser } from "./DM_Eraser";
+import { DM_Glitch } from "./DM_Glitch";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -357,6 +362,11 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-glass" component={DM_Glass} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-cinemawipe" component={DM_CinemaWipe} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-bouncebars" component={DM_BounceBars} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-redact" component={DM_Redact} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-xray" component={DM_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-scale" component={DM_Scale} durationInFrames={390} fps={30} width={1080} height={1920} />
+      <Composition id="dm-eraser" component={DM_Eraser} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-glitch" component={DM_Glitch} durationInFrames={360} fps={30} width={1080} height={1920} />
     </>
   );
 };
