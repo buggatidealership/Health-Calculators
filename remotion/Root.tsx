@@ -83,6 +83,8 @@ import { DM_Vectra_XRay } from "./DM_Vectra_XRay";
 import { DM_Vectra_Redact } from "./DM_Vectra_Redact";
 import { Demo_Bar_MythBust } from "./Demo_Bar_MythBust";
 import { Demo_Dental_ASMR } from "./Demo_Dental_ASMR";
+import { Demo_Bar_Composite } from "./Demo_Bar_Composite";
+import { Demo_Clinic_Composite } from "./Demo_Clinic_Composite";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -403,6 +405,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-vectra-redact" component={DM_Vectra_Redact} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="demo-bar-mythbust" component={Demo_Bar_MythBust} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="demo-dental-asmr" component={Demo_Dental_ASMR} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="demo-bar-composite" component={Demo_Bar_Composite} durationInFrames={150} fps={30} width={1080} height={1920} />
+      <Composition id="demo-clinic-composite" component={Demo_Clinic_Composite} durationInFrames={150} fps={30} width={1080} height={1920} />
     </>
   );
 };
