@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentFrame, interpolate, Easing } from "remotion";
+import { useCurrentFrame, interpolate, Easing, Img, staticFile } from "remotion";
 
 // ETSY REEL 1: "ASMR Texture" — Sensory Close-Up
 // Luxury ASMR feel: clay → glaze → kiln → finished mug
@@ -241,34 +241,12 @@ function FinishedMug({ frame }: { frame: number }) {
         width: 500, height: 500, borderRadius: "50%",
         background: `radial-gradient(circle, rgba(245,237,224,0.08), transparent 70%)`,
       }} />
-      {/* Abstract mug shape */}
+      {/* Product mug image */}
       <div style={{
         transform: `scale(${mugScale})`, display: "flex", flexDirection: "column", alignItems: "center",
         marginTop: -80,
       }}>
-        {/* Mug body */}
-        <div style={{
-          width: 220, height: 260, borderRadius: "12px 12px 30px 30px",
-          background: `linear-gradient(135deg, ${C.cream} 0%, #DDD5C8 100%)`,
-          boxShadow: `0 20px 60px rgba(0,0,0,0.4), inset 0 -10px 30px rgba(0,0,0,0.05)`,
-          position: "relative",
-        }}>
-          {/* Handle */}
-          <div style={{
-            position: "absolute", right: -55, top: 50,
-            width: 50, height: 120, borderRadius: "0 40px 40px 0",
-            border: `12px solid ${C.cream}`,
-            borderLeft: "none",
-            boxShadow: "4px 4px 20px rgba(0,0,0,0.2)",
-          }} />
-          {/* Glaze drip accent on mug */}
-          <div style={{
-            position: "absolute", top: -2, left: 40, width: 80, height: 60,
-            borderRadius: "0 0 40px 40px",
-            background: `linear-gradient(180deg, ${C.glaze}, ${C.glazeDeep})`,
-            opacity: 0.7,
-          }} />
-        </div>
+        <Img src={staticFile("etsy/mug-hero.png")} style={{ width: 700, height: 700, objectFit: "contain", borderRadius: 20 }} />
       </div>
       {/* Main text */}
       <div style={{ marginTop: 80, textAlign: "center", ...fadeUp(frame, 430, 18) }}>

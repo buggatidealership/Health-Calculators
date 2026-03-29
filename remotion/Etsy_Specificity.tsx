@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, Easing, interpolate } from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, Easing, interpolate, Img, staticFile } from "remotion";
 
 // ── Self-contained helpers ──
 const ease = (t: number) => Easing.out(Easing.cubic)(t);
@@ -478,6 +478,11 @@ export const Etsy_Specificity: React.FC = () => {
           gap: 35,
         }}
       >
+        {/* Product mug image */}
+        <div style={fadeUp(frame, 445, 35, 20)}>
+          <Img src={staticFile("etsy/mug-hero.png")} style={{ width: 600, height: 600, objectFit: "contain", borderRadius: 16 }} />
+        </div>
+
         {/* Brand */}
         <div style={fadeUp(frame, 455, 35, 20)}>
           <div

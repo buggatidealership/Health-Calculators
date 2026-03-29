@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, Easing, interpolate } from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, Easing, interpolate, Img, staticFile } from "remotion";
 
 // ── Self-contained helpers ──
 const ease = (t: number) => Easing.out(Easing.cubic)(t);
@@ -249,75 +249,17 @@ export const Etsy_Editorial: React.FC = () => {
             }}
           />
 
-          {/* Mug — circle body + handle */}
+          {/* Product mug image — morning scene */}
           <div
             style={{
               position: "absolute",
-              top: 660,
+              top: 540,
               left: "50%",
-              marginLeft: -60,
+              transform: "translateX(-50%)",
               ...fadeUp(frame, 175, 40, 30),
             }}
           >
-            {/* Mug body */}
-            <div
-              style={{
-                width: 120,
-                height: 140,
-                borderRadius: "10px 10px 20px 20px",
-                background: `linear-gradient(160deg, ${GOLD}, #c49648)`,
-                position: "relative",
-              }}
-            >
-              {/* Lip — subtle lighter stripe */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  width: "100%",
-                  height: 8,
-                  background: GOLD_PALE,
-                  borderRadius: "10px 10px 0 0",
-                }}
-              />
-              {/* Thumb indent */}
-              <div
-                style={{
-                  position: "absolute",
-                  top: 40,
-                  left: 20,
-                  width: 18,
-                  height: 28,
-                  borderRadius: "50%",
-                  background: "rgba(0,0,0,0.08)",
-                }}
-              />
-            </div>
-            {/* Handle */}
-            <div
-              style={{
-                position: "absolute",
-                right: -28,
-                top: 25,
-                width: 28,
-                height: 70,
-                border: `6px solid ${GOLD}`,
-                borderLeft: "none",
-                borderRadius: "0 20px 20px 0",
-              }}
-            />
-            {/* Steam wisps */}
-            <div style={{ position: "absolute", top: -20, left: 20, width: 80, height: 160 }}>
-              {[0, 1, 2].map((i) => (
-                <SteamWisp
-                  key={i}
-                  frame={frame}
-                  delay={180 + i * 40}
-                  x={15 + i * 25}
-                  drift={i * 2.1}
-                />
-              ))}
-            </div>
+            <Img src={staticFile("etsy/mug-morning.png")} style={{ width: 750, height: 750, objectFit: "contain", borderRadius: 20 }} />
           </div>
 
           {/* Small plate circle — right of mug */}

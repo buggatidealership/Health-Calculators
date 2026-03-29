@@ -1,5 +1,5 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig, Easing, interpolate } from "remotion";
+import { AbsoluteFill, useCurrentFrame, useVideoConfig, Easing, interpolate, Img, staticFile } from "remotion";
 
 // ── Self-contained helpers ──
 const ease = (t: number) => Easing.out(Easing.cubic)(t);
@@ -236,31 +236,14 @@ export const Etsy_Documentary: React.FC = () => {
           justifyContent: "center",
         }}
       >
-        {/* Three glaze swatches — slight variations */}
+        {/* Product collection image */}
         <div
           style={{
-            display: "flex",
-            gap: 30,
-            marginBottom: 60,
+            marginBottom: 40,
             ...fadeUp(frame, 340, 40, 20),
           }}
         >
-          {["#b8884a", "#c49648", "#d4a95a"].map((col, i) => (
-            <div
-              key={i}
-              style={{
-                width: 90,
-                height: 90,
-                borderRadius: "50%",
-                background: `linear-gradient(135deg, ${col}, ${col}dd)`,
-                border: `2px solid ${BG_LIGHT}`,
-                opacity: interpolate(frame, [350 + i * 15, 370 + i * 15], [0, 1], {
-                  extrapolateLeft: "clamp",
-                  extrapolateRight: "clamp",
-                }),
-              }}
-            />
-          ))}
+          <Img src={staticFile("etsy/mug-collection.png")} style={{ width: 800, height: 800, objectFit: "contain", borderRadius: 16 }} />
         </div>
 
         <div style={{ ...quoteStyle, fontSize: 44, ...fadeUp(frame, 360, 40, 25) }}>

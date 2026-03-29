@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentFrame, interpolate, Easing } from "remotion";
+import { useCurrentFrame, interpolate, Easing, Img, staticFile } from "remotion";
 
 // ETSY REEL 3: "Maker's POV" — First Person Craft
 // Immersive, meditative, from the maker's eyes
@@ -68,85 +68,12 @@ function HandsOnClay({ frame }: { frame: number }) {
       position: "absolute", inset: 0, opacity: vis,
       display: "flex", alignItems: "center", justifyContent: "center",
     }}>
-      {/* Looking-down perspective: table surface */}
-      <div style={{
-        position: "absolute", bottom: 0, left: 0, right: 0, height: 1200,
-        background: `linear-gradient(180deg, transparent 0%, rgba(184,151,106,0.06) 100%)`,
+      {/* Process photo — hands on pottery wheel */}
+      <Img src={staticFile("etsy/mug-process.png")} style={{
+        position: "absolute", top: "50%", left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 650, height: 650, objectFit: "contain", borderRadius: 20,
       }} />
-
-      {/* Wheel circle (seen from above) */}
-      <div style={{
-        position: "absolute", top: "42%", left: "50%",
-        transform: `translate(-50%, -50%) rotate(${spin}deg)`,
-        width: 460, height: 460, borderRadius: "50%",
-        background: `radial-gradient(circle, #6B5B4A 0%, #5C4E3E 40%, #4A3F34 100%)`,
-        boxShadow: "0 0 60px rgba(0,0,0,0.1)",
-      }}>
-        {/* Concentric rings on wheel */}
-        {[0.3, 0.5, 0.7, 0.85].map((r, i) => (
-          <div key={i} style={{
-            position: "absolute", top: `${50 - r * 50}%`, left: `${50 - r * 50}%`,
-            width: `${r * 100}%`, height: `${r * 100}%`,
-            borderRadius: "50%", border: "1px solid rgba(255,255,255,0.04)",
-          }} />
-        ))}
-      </div>
-
-      {/* Clay form (top-down, oval) */}
-      <div style={{
-        position: "absolute", top: "42%", left: "50%",
-        transform: `translate(-50%, -50%) rotate(${spin}deg)`,
-        width: clayWidth, height: clayWidth,
-        borderRadius: "50%",
-        background: `radial-gradient(circle, ${C.clayLight} 0%, ${C.clay} 60%, ${C.clayDark} 100%)`,
-        boxShadow: `0 0 40px rgba(139,111,78,0.3), inset 0 0 30px rgba(0,0,0,0.15)`,
-      }}>
-        {/* Center depression */}
-        <div style={{
-          position: "absolute", top: "25%", left: "25%", width: "50%", height: "50%",
-          borderRadius: "50%",
-          background: `radial-gradient(circle, rgba(0,0,0,0.2), transparent)`,
-          opacity: ease(frame, 30, 40, 0, 1),
-        }} />
-      </div>
-
-      {/* Left hand silhouette */}
-      <div style={{
-        position: "absolute", top: "42%", left: `calc(50% - ${130 + handPress}px)`,
-        transform: "translateY(-50%)",
-        width: 100, height: 200,
-        borderRadius: "50px 20px 20px 50px",
-        background: C.hand,
-        opacity: 0.7,
-        boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-      }}>
-        {/* Thumb */}
-        <div style={{
-          position: "absolute", top: -20, right: 10,
-          width: 35, height: 60, borderRadius: "20px 20px 15px 15px",
-          background: C.hand, opacity: 0.9,
-          transform: "rotate(20deg)",
-        }} />
-      </div>
-
-      {/* Right hand silhouette */}
-      <div style={{
-        position: "absolute", top: "42%", right: `calc(50% - ${130 + handPress}px)`,
-        transform: "translateY(-50%)",
-        width: 100, height: 200,
-        borderRadius: "20px 50px 50px 20px",
-        background: C.hand,
-        opacity: 0.7,
-        boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-      }}>
-        {/* Thumb */}
-        <div style={{
-          position: "absolute", top: -20, left: 10,
-          width: 35, height: 60, borderRadius: "20px 20px 15px 15px",
-          background: C.hand, opacity: 0.9,
-          transform: "rotate(-20deg)",
-        }} />
-      </div>
 
       {/* Text appears after 2 seconds (60 frames) */}
       <div style={{
@@ -379,56 +306,13 @@ function LiftedPiece({ frame }: { frame: number }) {
         background: `radial-gradient(circle, rgba(198,123,92,0.06), transparent 70%)`,
       }} />
 
-      {/* Mug lifted up */}
+      {/* Product mug image */}
       <div style={{
         transform: `translateY(${liftY}px) scale(${mugScale})`,
         display: "flex", flexDirection: "column", alignItems: "center",
         marginTop: -80,
       }}>
-        {/* Mug body */}
-        <div style={{
-          width: 210, height: 250,
-          borderRadius: "12px 12px 30px 30px",
-          background: `linear-gradient(135deg, ${C.sageLight} 0%, ${C.sage} 100%)`,
-          boxShadow: "0 20px 60px rgba(0,0,0,0.12)",
-          position: "relative",
-        }}>
-          {/* Handle */}
-          <div style={{
-            position: "absolute", right: -50, top: 48,
-            width: 46, height: 115,
-            borderRadius: "0 38px 38px 0",
-            border: `11px solid ${C.sage}`,
-            borderLeft: "none",
-          }} />
-          {/* Rim highlight */}
-          <div style={{
-            position: "absolute", top: 0, left: 0, right: 0, height: 6,
-            background: `linear-gradient(90deg, ${C.sageLight}, rgba(255,255,255,0.15), ${C.sageLight})`,
-            borderRadius: "12px 12px 0 0",
-          }} />
-          {/* Clay showing at base */}
-          <div style={{
-            position: "absolute", bottom: 0, left: 0, right: 0, height: 20,
-            background: C.clay,
-            borderRadius: "0 0 30px 30px",
-            opacity: 0.4,
-          }} />
-        </div>
-
-        {/* Hands holding from below (stylized) */}
-        <div style={{
-          marginTop: -10, display: "flex", gap: 20, opacity: 0.5,
-        }}>
-          <div style={{
-            width: 60, height: 30, borderRadius: "0 0 30px 30px",
-            background: C.hand,
-          }} />
-          <div style={{
-            width: 60, height: 30, borderRadius: "0 0 30px 30px",
-            background: C.hand,
-          }} />
-        </div>
+        <Img src={staticFile("etsy/mug-hero.png")} style={{ width: 650, height: 650, objectFit: "contain", borderRadius: 20 }} />
       </div>
 
       {/* Main text */}

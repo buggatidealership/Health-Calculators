@@ -1,5 +1,5 @@
 import React from "react";
-import { useCurrentFrame, interpolate, Easing } from "remotion";
+import { useCurrentFrame, interpolate, Easing, Img, staticFile } from "remotion";
 
 // ETSY REEL 2: "Gift Context" — The Perfect Gift
 // Warm, cozy, premium gift catalog feel
@@ -268,30 +268,12 @@ function FinalScene({ frame }: { frame: number }) {
         background: `radial-gradient(circle, rgba(198,123,92,0.08), transparent 70%)`,
       }} />
 
-      {/* Abstract mug */}
+      {/* Product mug image */}
       <div style={{
         transform: `scale(${mugScale})`, marginTop: -60,
         display: "flex", flexDirection: "column", alignItems: "center",
       }}>
-        <div style={{
-          width: 200, height: 240, borderRadius: "10px 10px 28px 28px",
-          background: `linear-gradient(135deg, #E8DDD0, #D4C8BA)`,
-          boxShadow: "0 16px 50px rgba(92,61,46,0.15)",
-          position: "relative",
-        }}>
-          {/* Handle */}
-          <div style={{
-            position: "absolute", right: -48, top: 45,
-            width: 44, height: 110, borderRadius: "0 36px 36px 0",
-            border: `10px solid #D4C8BA`,
-            borderLeft: "none",
-          }} />
-          {/* Glaze accent */}
-          <div style={{
-            position: "absolute", top: 10, left: 30, right: 30, height: 3,
-            background: C.terracotta, borderRadius: 2, opacity: 0.4,
-          }} />
-        </div>
+        <Img src={staticFile("etsy/mug-gift.png")} style={{ width: 750, height: 750, objectFit: "contain", borderRadius: 20 }} />
       </div>
 
       {/* Main text */}
