@@ -97,6 +97,12 @@ import { Ecom_Warning } from "./Ecom_Warning";
 import { Ecom_Teardown } from "./Ecom_Teardown";
 import { Ecom_Reaction } from "./Ecom_Reaction";
 import { Ecom_CaseStudy } from "./Ecom_CaseStudy";
+import { Etsy_Editorial } from "./Etsy_Editorial";
+import { Etsy_Documentary } from "./Etsy_Documentary";
+import { Etsy_Specificity } from "./Etsy_Specificity";
+import { Etsy_ASMR } from "./Etsy_ASMR";
+import { Etsy_Gift } from "./Etsy_Gift";
+import { Etsy_MakerPOV } from "./Etsy_MakerPOV";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -431,6 +437,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="ecom-teardown" component={Ecom_Teardown} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="ecom-reaction" component={Ecom_Reaction} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="ecom-case-study" component={Ecom_CaseStudy} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsy-editorial" component={Etsy_Editorial} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsy-documentary" component={Etsy_Documentary} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsy-specificity" component={Etsy_Specificity} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsy-asmr" component={Etsy_ASMR} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsy-gift" component={Etsy_Gift} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsy-maker-pov" component={Etsy_MakerPOV} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
