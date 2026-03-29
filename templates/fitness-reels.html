@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Reels — Domain #5 Experiment</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #0a0e17;
+      color: #e0e0e0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 60px 24px 100px; }
+    .header { text-align: center; margin-bottom: 60px; }
+    .header .label {
+      font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #558695;
+      letter-spacing: 5px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 42px; font-weight: 400; color: #F5F0EA; margin-bottom: 12px;
+    }
+    .header p { font-size: 18px; color: #8a94a8; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    @media (max-width: 900px) { .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+    .card {
+      background: #111827; border: 1px solid #1f2937; border-radius: 20px;
+      overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover { transform: translateY(-4px); border-color: #55869560; }
+    .phone-frame { position: relative; width: 100%; aspect-ratio: 9/16; background: #000; }
+    .phone-frame video { width: 100%; height: 100%; object-fit: cover; }
+    .card-info { padding: 20px 24px; }
+    .card-info .whitespace {
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #558695;
+      letter-spacing: 3px; text-transform: uppercase; margin-bottom: 6px;
+    }
+    .card-info .name {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 22px; color: #F5F0EA; margin-bottom: 6px;
+    }
+    .card-info .desc { font-size: 14px; color: #8a94a8; line-height: 1.5; }
+    .card-info .convergence {
+      margin-top: 10px; font-size: 13px; color: #3d8b7a; font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="label">Domain #5 · Cold Start Experiment</div>
+      <h1>Fitness Reels</h1>
+      <p>3 reels built from whitespace research. Each uses a format imported from another domain — none of these formats are standard in fitness content.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/fitness-data-reveal.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="whitespace">From: Finance</div>
+          <div class="name">Data Reveal</div>
+          <div class="desc">Number as hook → mechanism → implication. Protein timing shown on a clock face. The viewer sees their own mistake before being told.</div>
+          <div class="convergence">"The moment the meals redistribute on the clock."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/fitness-i-was-wrong.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="whitespace">From: Science Communication</div>
+          <div class="name">I Was Wrong</div>
+          <div class="desc">Self-correction format. Three beliefs get redacted with evidence underneath. Trust through vulnerability — the creator is the myth-holder.</div>
+          <div class="convergence">"The moment the old belief gets crossed out."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/fitness-cohort.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="whitespace">From: Career/Professional</div>
+          <div class="name">Audience Cohort</div>
+          <div class="desc">"If you're over 40 and just started lifting." Training profile as a patient file. Specificity is the hook — the viewer recognizes themselves.</div>
+          <div class="convergence">"The moment 'over 40' appears and they stop scrolling."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

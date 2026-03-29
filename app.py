@@ -1196,6 +1196,10 @@ def dermamedicum_review():
 def review_reels():
     return render_template('review-reels.html')
 
+@app.route('/fitness-reels')
+def fitness_reels():
+    return render_template('fitness-reels.html')
+
 @app.route('/')
 def home():
     schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"

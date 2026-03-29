@@ -88,6 +88,9 @@ import { Demo_Clinic_Composite } from "./Demo_Clinic_Composite";
 import { ReviewGold } from "./ReviewGold";
 import { ReviewBoardingPass } from "./ReviewBoardingPass";
 import { ReviewWhatsApp } from "./ReviewWhatsApp";
+import { Fitness_DataReveal } from "./Fitness_DataReveal";
+import { Fitness_IWasWrong } from "./Fitness_IWasWrong";
+import { Fitness_Cohort } from "./Fitness_Cohort";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -413,6 +416,9 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="review-gold" component={ReviewGold} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="review-boarding-pass" component={ReviewBoardingPass} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="review-whatsapp" component={ReviewWhatsApp} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="fitness-data-reveal" component={Fitness_DataReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="fitness-i-was-wrong" component={Fitness_IWasWrong} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="fitness-cohort" component={Fitness_Cohort} durationInFrames={360} fps={30} width={1080} height={1920} />
     </>
   );
 };
