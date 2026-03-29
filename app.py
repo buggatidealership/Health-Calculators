@@ -1208,6 +1208,10 @@ def ecom_reels():
 def etsy_reels():
     return render_template('etsy-reels.html')
 
+@app.route('/category-reels')
+def category_reels():
+    return render_template('category-reels.html')
+
 @app.route('/')
 def home():
     schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"

@@ -103,6 +103,12 @@ import { Etsy_Specificity } from "./Etsy_Specificity";
 import { Etsy_ASMR } from "./Etsy_ASMR";
 import { Etsy_Gift } from "./Etsy_Gift";
 import { Etsy_MakerPOV } from "./Etsy_MakerPOV";
+import { EtsyCat_WallArt } from "./EtsyCat_WallArt";
+import { EtsyCat_Necklace } from "./EtsyCat_Necklace";
+import { EtsyCat_Digital } from "./EtsyCat_Digital";
+import { AmzCat_Mask } from "./AmzCat_Mask";
+import { AmzCat_Magnesium } from "./AmzCat_Magnesium";
+import { AmzCat_Stanley } from "./AmzCat_Stanley";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -443,6 +449,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="etsy-asmr" component={Etsy_ASMR} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="etsy-gift" component={Etsy_Gift} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="etsy-maker-pov" component={Etsy_MakerPOV} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsycat-wallart" component={EtsyCat_WallArt} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsycat-necklace" component={EtsyCat_Necklace} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="etsycat-digital" component={EtsyCat_Digital} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="amzcat-mask" component={AmzCat_Mask} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="amzcat-magnesium" component={AmzCat_Magnesium} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="amzcat-stanley" component={AmzCat_Stanley} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
