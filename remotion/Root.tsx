@@ -91,6 +91,12 @@ import { ReviewWhatsApp } from "./ReviewWhatsApp";
 import { Fitness_DataReveal } from "./Fitness_DataReveal";
 import { Fitness_IWasWrong } from "./Fitness_IWasWrong";
 import { Fitness_Cohort } from "./Fitness_Cohort";
+import { Ecom_Math } from "./Ecom_Math";
+import { Ecom_Experiment } from "./Ecom_Experiment";
+import { Ecom_Warning } from "./Ecom_Warning";
+import { Ecom_Teardown } from "./Ecom_Teardown";
+import { Ecom_Reaction } from "./Ecom_Reaction";
+import { Ecom_CaseStudy } from "./Ecom_CaseStudy";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -419,6 +425,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="fitness-data-reveal" component={Fitness_DataReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="fitness-i-was-wrong" component={Fitness_IWasWrong} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="fitness-cohort" component={Fitness_Cohort} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="ecom-math" component={Ecom_Math} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="ecom-experiment" component={Ecom_Experiment} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="ecom-warning" component={Ecom_Warning} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="ecom-teardown" component={Ecom_Teardown} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="ecom-reaction" component={Ecom_Reaction} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="ecom-case-study" component={Ecom_CaseStudy} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };

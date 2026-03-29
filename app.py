@@ -1200,6 +1200,10 @@ def review_reels():
 def fitness_reels():
     return render_template('fitness-reels.html')
 
+@app.route('/ecom-reels')
+def ecom_reels():
+    return render_template('ecom-reels.html')
+
 @app.route('/')
 def home():
     schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"

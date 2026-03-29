@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Commerce Reels — Domain #6 Experiment</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: #0a0e17; color: #e0e0e0; font-family: 'Inter', -apple-system, sans-serif; min-height: 100vh; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 60px 24px 100px; }
+    .header { text-align: center; margin-bottom: 60px; }
+    .header .label { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: #558695; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 12px; }
+    .header h1 { font-family: 'DM Serif Display', Georgia, serif; font-size: 42px; font-weight: 400; color: #F5F0EA; margin-bottom: 12px; }
+    .header p { font-size: 18px; color: #8a94a8; line-height: 1.6; max-width: 700px; margin: 0 auto; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+    @media (max-width: 1100px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px) { .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; } }
+    .card { background: #111827; border: 1px solid #1f2937; border-radius: 20px; overflow: hidden; transition: transform 0.3s ease, border-color 0.3s ease; }
+    .card:hover { transform: translateY(-4px); border-color: #55869560; }
+    .phone-frame { position: relative; width: 100%; aspect-ratio: 9/16; background: #000; }
+    .phone-frame video { width: 100%; height: 100%; object-fit: cover; }
+    .card-info { padding: 18px 22px; }
+    .card-info .meta { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
+    .card-info .whitespace { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #558695; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border: 1px solid #55869530; border-radius: 4px; }
+    .card-info .segment { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: #e89b3e; letter-spacing: 2px; text-transform: uppercase; padding: 3px 8px; border: 1px solid #e89b3e30; border-radius: 4px; }
+    .card-info .name { font-family: 'DM Serif Display', Georgia, serif; font-size: 20px; color: #F5F0EA; margin-bottom: 5px; }
+    .card-info .desc { font-size: 13px; color: #8a94a8; line-height: 1.5; }
+    .card-info .convergence { margin-top: 8px; font-size: 12px; color: #3d8b7a; font-style: italic; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="label">Domain #6 · Cold Start · E-Commerce Sellers</div>
+      <h1>6 E-Commerce Reels</h1>
+      <p>Each reel uses a format imported from another domain — finance, science, sports analysis, business school. Three seller segments: Amazon FBA, Etsy, Shopify DTC.</p>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/ecom-math.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="meta">
+            <span class="whitespace">Finance</span>
+            <span class="segment">Amazon FBA</span>
+          </div>
+          <div class="name">Here's The Math</div>
+          <div class="desc">$18K/month revenue stripped to $4,100 kept. Receipt format — fees animate as line items. The gap between revenue and reality.</div>
+          <div class="convergence">"The moment the number shrinks and the viewer checks their own math."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/ecom-experiment.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="meta">
+            <span class="whitespace">Science</span>
+            <span class="segment">Etsy Digital</span>
+          </div>
+          <div class="name">Experiment Log</div>
+          <div class="desc">Same digital planner at 3 prices for 60 days. The twist: $14.99 was most profitable. Lab notebook aesthetic with graph paper grid.</div>
+          <div class="convergence">"When cheap ≠ best and the data proves it."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/ecom-warning.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="meta">
+            <span class="whitespace">Finance/Legal</span>
+            <span class="segment">Amazon FBA</span>
+          </div>
+          <div class="name">Warning Report</div>
+          <div class="desc">Amazon fee change = $3,180/month lost margin. Bloomberg terminal alert aesthetic — dark, red, urgent. The viewer panics productively.</div>
+          <div class="convergence">"The moment they multiply the per-unit increase by their inventory."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/ecom-teardown.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="meta">
+            <span class="whitespace">Tech/Startup</span>
+            <span class="segment">Shopify DTC</span>
+          </div>
+          <div class="name">Side-by-Side Teardown</div>
+          <div class="desc">Email vs Meta for abandoned carts. 4 dimensions, scored like a match. Email wins 74x ROI vs 3.6x. Split-screen scoreboard.</div>
+          <div class="convergence">"When the ROI row lands and 74x sits next to 3.6x."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/ecom-reaction.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="meta">
+            <span class="whitespace">Sports/News</span>
+            <span class="segment">Etsy Handmade</span>
+          </div>
+          <div class="name">Real-Time Reaction</div>
+          <div class="desc">Simulated live reaction to Etsy Star Seller criteria change. Screen recording aesthetic — browser chrome, sticky notes, cursor blink.</div>
+          <div class="convergence">"The 'Wait...' pause before the bad news lands."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="phone-frame">
+          <video src="/static/ecom-case-study.mp4" autoplay loop muted playsinline></video>
+        </div>
+        <div class="card-info">
+          <div class="meta">
+            <span class="whitespace">MBA/Business</span>
+            <span class="segment">Shopify DTC</span>
+          </div>
+          <div class="name">Annotated Case Study</div>
+          <div class="desc">Dog bandana store: $0 → $8,200/month in 90 days. Timeline journal with milestone cards. "I almost quit at day 30."</div>
+          <div class="convergence">"The viewer recognizes their own doubt phase at day 30."</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
