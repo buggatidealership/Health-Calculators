@@ -88,6 +88,15 @@ import { Demo_Clinic_Composite } from "./Demo_Clinic_Composite";
 import { ReviewGold } from "./ReviewGold";
 import { ReviewBoardingPass } from "./ReviewBoardingPass";
 import { ReviewWhatsApp } from "./ReviewWhatsApp";
+import { B1_Edu_A } from "./B1_Edu_A";
+import { B1_Edu_B } from "./B1_Edu_B";
+import { B1_Edu_C } from "./B1_Edu_C";
+import { B1_Canfield_A } from "./B1_Canfield_A";
+import { B1_Canfield_B } from "./B1_Canfield_B";
+import { B1_Canfield_C } from "./B1_Canfield_C";
+import { B1_AviClear_A } from "./B1_AviClear_A";
+import { B1_AviClear_B } from "./B1_AviClear_B";
+import { B1_AviClear_C } from "./B1_AviClear_C";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -413,6 +422,18 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="review-gold" component={ReviewGold} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="review-boarding-pass" component={ReviewBoardingPass} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="review-whatsapp" component={ReviewWhatsApp} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* B1 Educational Content — Ziel 03: Medical Credibility */}
+      <Composition id="b1-edu-a" component={B1_Edu_A} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="b1-edu-b" component={B1_Edu_B} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="b1-edu-c" component={B1_Edu_C} durationInFrames={360} fps={30} width={1080} height={1920} />
+      {/* B1 Canfield Technology — Ziel 02: Technology Trust */}
+      <Composition id="b1-canfield-a" component={B1_Canfield_A} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="b1-canfield-b" component={B1_Canfield_B} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="b1-canfield-c" component={B1_Canfield_C} durationInFrames={360} fps={30} width={1080} height={1920} />
+      {/* B1 AviClear Treatment — Ziel 01: Premium Patient Acquisition */}
+      <Composition id="b1-aviclear-a" component={B1_AviClear_A} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="b1-aviclear-b" component={B1_AviClear_B} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="b1-aviclear-c" component={B1_AviClear_C} durationInFrames={360} fps={30} width={1080} height={1920} />
     </>
   );
 };
