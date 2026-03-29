@@ -1192,6 +1192,10 @@ def mock_portfolio_3():
 def dermamedicum_review():
     return render_template('dermamedicum-review.html')
 
+@app.route('/review-reels')
+def review_reels():
+    return render_template('review-reels.html')
+
 @app.route('/')
 def home():
     schema_name = "HealthCalculators.xyz — The Intelligent Health Calculator"

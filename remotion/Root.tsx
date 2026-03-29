@@ -85,6 +85,9 @@ import { Demo_Bar_MythBust } from "./Demo_Bar_MythBust";
 import { Demo_Dental_ASMR } from "./Demo_Dental_ASMR";
 import { Demo_Bar_Composite } from "./Demo_Bar_Composite";
 import { Demo_Clinic_Composite } from "./Demo_Clinic_Composite";
+import { ReviewGold } from "./ReviewGold";
+import { ReviewBoardingPass } from "./ReviewBoardingPass";
+import { ReviewWhatsApp } from "./ReviewWhatsApp";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -407,6 +410,9 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="demo-dental-asmr" component={Demo_Dental_ASMR} durationInFrames={420} fps={30} width={1080} height={1920} />
       <Composition id="demo-bar-composite" component={Demo_Bar_Composite} durationInFrames={150} fps={30} width={1080} height={1920} />
       <Composition id="demo-clinic-composite" component={Demo_Clinic_Composite} durationInFrames={150} fps={30} width={1080} height={1920} />
+      <Composition id="review-gold" component={ReviewGold} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="review-boarding-pass" component={ReviewBoardingPass} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="review-whatsapp" component={ReviewWhatsApp} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
