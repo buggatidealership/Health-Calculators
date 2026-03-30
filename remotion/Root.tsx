@@ -130,6 +130,9 @@ import { PetGroom_Bond } from "./PetGroom_Bond";
 import { PetGroom_HealthCheck } from "./PetGroom_HealthCheck";
 import { Abodient_Dashboard } from "./Abodient_Dashboard";
 import { Abodient_Reviews } from "./Abodient_Reviews";
+import { RE_JustListed } from "./RE_JustListed";
+import { RE_BuyerTips } from "./RE_BuyerTips";
+import { RE_MarketUpdate } from "./RE_MarketUpdate";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -507,6 +510,10 @@ export const RemotionRoot: React.FC = () => {
       {/* Abodient.ai — Imagen 4 */}
       <Composition id="abodient-dashboard" component={Abodient_Dashboard} durationInFrames={570} fps={30} width={1080} height={1920} />
       <Composition id="abodient-reviews" component={Abodient_Reviews} durationInFrames={570} fps={30} width={1080} height={1920} />
+      {/* Real Estate Agent */}
+      <Composition id="re-just-listed" component={RE_JustListed} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="re-buyer-tips" component={RE_BuyerTips} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="re-market-update" component={RE_MarketUpdate} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
