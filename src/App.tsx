@@ -54,6 +54,7 @@ import HowToCalculateYourTDEE from './pages/resources/how-to-calculate-your-tdee
 import MacronutrientCalculatorGuide from './pages/resources/macronutrient-calculator-guide';
 import IdealBodyWeightGuide from './pages/resources/ideal-body-weight-guide';
 import OzempicWeightLossCalculatorGuide from './pages/resources/ozempic-weight-loss-calculator-guide';
+import FurnitureReelsPage from './pages/FurnitureReelsPage';
 
 function App() {
   useEffect(() => {
@@ -151,6 +152,7 @@ function App() {
         <Route path="/resources/ozempic-weight-loss-calculator-guide" element={<OzempicWeightLossCalculatorGuide />} />
         
         {/* 404 Page */}
+        <Route path="/furniture-reels" element={<FurnitureReelsPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
       <Toaster />
