@@ -136,6 +136,12 @@ import { RE_MarketUpdate } from "./RE_MarketUpdate";
 import { Furniture_BarnDoor } from "./Furniture_BarnDoor";
 import { Furniture_87Hours } from "./Furniture_87Hours";
 import { Furniture_NoTwo } from "./Furniture_NoTwo";
+import { Candle_A1 } from "./Candle_A1";
+import { Candle_A2 } from "./Candle_A2";
+import { Candle_A3 } from "./Candle_A3";
+import { Candle_B1 } from "./Candle_B1";
+import { Candle_B2 } from "./Candle_B2";
+import { Candle_B3 } from "./Candle_B3";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -521,6 +527,13 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="furniture-barn-door" component={Furniture_BarnDoor} durationInFrames={510} fps={30} width={1080} height={1920} />
       <Composition id="furniture-87-hours" component={Furniture_87Hours} durationInFrames={510} fps={30} width={1080} height={1920} />
       <Composition id="furniture-no-two" component={Furniture_NoTwo} durationInFrames={510} fps={30} width={1080} height={1920} />
+      {/* Luxury Candle (VESPER) — Blind A/B */}
+      <Composition id="candle-a1" component={Candle_A1} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="candle-a2" component={Candle_A2} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="candle-a3" component={Candle_A3} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="candle-b1" component={Candle_B1} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="candle-b2" component={Candle_B2} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="candle-b3" component={Candle_B3} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
