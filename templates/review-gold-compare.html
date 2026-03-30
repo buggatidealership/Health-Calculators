@@ -42,9 +42,9 @@
   }
   .compare {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 24px;
-    max-width: 1100px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    max-width: 1300px;
     margin: 0 auto;
   }
   .version {
@@ -66,7 +66,7 @@
   }
   .version video {
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     aspect-ratio: 9/16;
     object-fit: cover;
     border-radius: 12px;
@@ -175,19 +175,24 @@
     <div class="version-sub">Spring physics, letter-by-letter, light rays</div>
     <video src="{{ url_for('static', filename='review-gold-v3.mp4') }}" controls playsinline></video>
   </div>
+  <div class="version">
+    <div class="version-label">V4 — Research + Fix</div>
+    <div class="version-sub">V3 aesthetic + readable text + highlight underlines</div>
+    <video src="{{ url_for('static', filename='review-gold-v4.mp4') }}" controls playsinline></video>
+  </div>
 </div>
 
 <div class="scores">
   <div class="scores-header">Gemini V1 Scores</div>
   <table>
-    <tr><th>Dimension</th><th>V1</th><th>V2</th><th>V3</th></tr>
-    <tr><td>Hook</td><td>3</td><td>7</td><td>?</td></tr>
-    <tr><td>Pacing</td><td>6</td><td>8</td><td>?</td></tr>
-    <tr><td>Visual Motion</td><td>5</td><td>6</td><td>?</td></tr>
-    <tr><td>Typography</td><td>5</td><td>5</td><td>?</td></tr>
-    <tr><td>Production Quality</td><td>8</td><td>8</td><td>?</td></tr>
-    <tr><td>Engagement</td><td>4</td><td>7</td><td>?</td></tr>
-    <tr><td><strong>Overall</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>?</strong></td></tr>
+    <tr><th>Dimension</th><th>V1</th><th>V2</th><th>V3</th><th>V4</th></tr>
+    <tr><td>Hook</td><td>3</td><td>7</td><td>7</td><td>?</td></tr>
+    <tr><td>Pacing</td><td>6</td><td>8</td><td>5</td><td>?</td></tr>
+    <tr><td>Visual Motion</td><td>5</td><td>6</td><td>6</td><td>?</td></tr>
+    <tr><td>Typography</td><td>5</td><td>5</td><td>7</td><td>?</td></tr>
+    <tr><td>Production Quality</td><td>8</td><td>8</td><td>8</td><td>?</td></tr>
+    <tr><td>Engagement</td><td>4</td><td>7</td><td>6</td><td>?</td></tr>
+    <tr><td><strong>Overall</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>6.5</strong></td><td><strong>?</strong></td></tr>
   </table>
 </div>
 
