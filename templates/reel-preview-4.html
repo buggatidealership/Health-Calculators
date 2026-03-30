@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Reel Preview — Pet Grooming + Abodient.ai</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0a0a0f;
+            color: #f5f5f5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .header {
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .header p {
+            font-size: 15px;
+            color: #6b7280;
+        }
+
+        .grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .reel-card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .reel-card .label {
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .reel-card .label .brand {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .reel-card .label .title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #d1d5db;
+        }
+
+        .brand-pet { color: #c67b4e; }
+        .brand-abodient { color: #e8734a; }
+
+        .phone-frame {
+            position: relative;
+            width: 270px;
+            height: 480px;
+            margin: 20px auto;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 2px solid rgba(255,255,255,0.08);
+            background: #000;
+            cursor: pointer;
+        }
+
+        .phone-frame .reel-container {
+            width: 1080px;
+            height: 1920px;
+            transform: scale(0.25);
+            transform-origin: top left;
+            position: relative;
+        }
+
+        .phone-frame .play-overlay {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.3);
+            z-index: 10;
+            transition: opacity 0.3s;
+        }
+
+        .phone-frame .play-overlay svg {
+            width: 48px;
+            height: 48px;
+            fill: rgba(255,255,255,0.8);
+        }
+
+        .phone-frame:hover .play-overlay {
+            opacity: 0.7;
+        }
+
+        .reel-meta {
+            padding: 12px 20px 16px;
+            font-size: 12px;
+            color: #6b7280;
+            display: flex;
+            gap: 16px;
+        }
+
+        .reel-meta span { display: flex; align-items: center; gap: 4px; }
+
+        /* Playback controls */
+        .controls {
+            max-width: 1400px;
+            margin: 30px auto 0;
+            text-align: center;
+        }
+
+        .controls button {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #d1d5db;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 0 6px;
+            transition: background 0.2s;
+        }
+
+        .controls button:hover { background: rgba(255,255,255,0.1); }
+        .controls button.active { background: rgba(255,255,255,0.15); color: #fff; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Reel Preview — 4 Compositions</h1>
+    <p>Pet Grooming Salon (2) + Abodient.ai (2) &middot; 1080&times;1920 &middot; 30fps</p>
+</div>
+
+<div class="controls">
+    <button onclick="toggleAll('play')" class="active">&#9654; Play All</button>
+    <button onclick="toggleAll('pause')">&#9646;&#9646; Pause</button>
+    <button onclick="toggleAll('reset')">&#8634; Reset</button>
+    <button onclick="toggleSpeed()">1&times;</button>
+</div>
+
+<div class="grid">
+    <!-- Pet Grooming 1: Transformation Reveal -->
+    <div class="reel-card">
+        <div class="label">
+            <span class="brand brand-pet">PET GROOMING</span>
+            <span class="title">Transformation Reveal</span>
+        </div>
+        <div class="phone-frame" data-reel="petgroom-transform" data-fps="30" data-duration="510">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="reel-container" id="reel-petgroom-transform"></div>
+        </div>
+        <div class="reel-meta">
+            <span>17s</span>
+            <span>Hook &rarr; Reveal &rarr; CTA</span>
+        </div>
+    </div>
+
+    <!-- Pet Grooming 2: The Routine -->
+    <div class="reel-card">
+        <div class="label">
+            <span class="brand brand-pet">PET GROOMING</span>
+            <span class="title">The Routine</span>
+        </div>
+        <div class="phone-frame" data-reel="petgroom-routine" data-fps="30" data-duration="570">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="reel-container" id="reel-petgroom-routine"></div>
+        </div>
+        <div class="reel-meta">
+            <span>19s</span>
+            <span>Hook &rarr; Steps &rarr; CTA</span>
+        </div>
+    </div>
+
+    <!-- Abodient 1: You Slept Through It -->
+    <div class="reel-card">
+        <div class="label">
+            <span class="brand brand-abodient">ABODIENT.AI</span>
+            <span class="title">You Slept Through It</span>
+        </div>
+        <div class="phone-frame" data-reel="abodient-slept" data-fps="30" data-duration="570">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="reel-container" id="reel-abodient-slept"></div>
+        </div>
+        <div class="reel-meta">
+            <span>19s</span>
+            <span>Hook &rarr; Timeline &rarr; Wake &rarr; CTA</span>
+        </div>
+    </div>
+
+    <!-- Abodient 2: Week in Review -->
+    <div class="reel-card">
+        <div class="label">
+            <span class="brand brand-abodient">ABODIENT.AI</span>
+            <span class="title">Week in Review</span>
+        </div>
+        <div class="phone-frame" data-reel="abodient-week" data-fps="30" data-duration="570">
+            <div class="play-overlay"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div>
+            <div class="reel-container" id="reel-abodient-week"></div>
+        </div>
+        <div class="reel-meta">
+            <span>19s</span>
+            <span>Hook &rarr; Dashboard &rarr; CTA</span>
+        </div>
+    </div>
+</div>
+
+<script>
+// Frame-based animation engine — renders each reel as a CSS-animated playback
+const REELS = {};
+let globalSpeed = 1;
+
+class ReelPlayer {
+    constructor(el) {
+        this.el = el;
+        this.container = el.querySelector('.reel-container');
+        this.fps = parseInt(el.dataset.fps);
+        this.duration = parseInt(el.dataset.duration);
+        this.frame = 0;
+        this.playing = false;
+        this.id = el.dataset.reel;
+        this.overlay = el.querySelector('.play-overlay');
+
+        el.addEventListener('click', () => this.toggle());
+    }
+
+    toggle() {
+        this.playing ? this.pause() : this.play();
+    }
+
+    play() {
+        this.playing = true;
+        this.overlay.style.opacity = '0';
+        this.tick();
+    }
+
+    pause() {
+        this.playing = false;
+        this.overlay.style.opacity = '1';
+        if (this.raf) cancelAnimationFrame(this.raf);
+    }
+
+    reset() {
+        this.frame = 0;
+        this.render();
+    }
+
+    tick() {
+        if (!this.playing) return;
+        this.frame += globalSpeed;
+        if (this.frame >= this.duration) this.frame = 0;
+        this.render();
+        this.raf = requestAnimationFrame(() => {
+            setTimeout(() => this.tick(), 1000 / this.fps / globalSpeed);
+        });
+    }
+
+    render() {
+        const f = Math.floor(this.frame);
+        const renderer = RENDERERS[this.id];
+        if (renderer) {
+            this.container.innerHTML = renderer(f);
+        }
+    }
+}
+
+// Animation helper functions (mirror Remotion's interpolate)
+function interpolate(frame, inputRange, outputRange, opts = {}) {
+    const { extrapolateLeft = 'extend', extrapolateRight = 'extend' } = opts;
+    let t;
+    const [inMin, inMax] = [inputRange[0], inputRange[inputRange.length - 1]];
+
+    if (inputRange.length === 2) {
+        t = (frame - inMin) / (inMax - inMin);
+    } else {
+        // Multi-stop interpolation
+        let segIdx = 0;
+        for (let i = 0; i < inputRange.length - 1; i++) {
+            if (frame <= inputRange[i + 1] || i === inputRange.length - 2) { segIdx = i; break; }
+        }
+        t = (frame - inputRange[segIdx]) / (inputRange[segIdx + 1] - inputRange[segIdx]);
+        const oMin = outputRange[segIdx], oMax = outputRange[segIdx + 1];
+        if (extrapolateLeft === 'clamp' && frame <= inputRange[segIdx]) return oMin;
+        if (extrapolateRight === 'clamp' && frame >= inputRange[segIdx + 1]) return oMax;
+        return oMin + t * (oMax - oMin);
+    }
+
+    if (extrapolateLeft === 'clamp') t = Math.max(0, t);
+    if (extrapolateRight === 'clamp') t = Math.min(1, t);
+
+    return outputRange[0] + t * (outputRange[1] - outputRange[0]);
+}
+
+function clampI(frame, inputRange, outputRange) {
+    return interpolate(frame, inputRange, outputRange, { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+}
+
+function fadeIn(frame, s, d = 12) {
+    const opacity = clampI(frame, [s, s + d], [0, 1]);
+    const y = clampI(frame, [s, s + d], [20, 0]);
+    return `opacity:${opacity};transform:translateY(${y}px);`;
+}
+
+function slam(frame, s, d = 6) {
+    const scale = clampI(frame, [s, s + d], [1.6, 1]);
+    const opacity = clampI(frame, [s, s + 3], [0, 1]);
+    return `opacity:${opacity};transform:scale(${scale});`;
+}
+
+function vis(frame, s, e) {
+    if (frame < s || frame > e + 10) return 0;
+    return Math.min(
+        clampI(frame, [s, s + 8], [0, 1]),
+        clampI(frame, [e, e + 10], [1, 0])
+    );
+}
+
+// ═══ RENDERERS ═══
+
+const RENDERERS = {
+
+// ─── PET GROOMING: TRANSFORMATION ───
+'petgroom-transform': (f) => {
+    const wipeProgress = clampI(f, [140, 165], [0, 100]);
+
+    return `<div style="width:1080px;height:1920px;background:#faf7f2;position:relative;font-family:Inter,sans-serif;overflow:hidden">
+
+    ${/* SCENE 1: HOOK */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,0,133)};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:200px 60px 400px">
+        <div style="${fadeIn(f,5)}font-size:120px;margin-bottom:40px">🐕</div>
+        <div style="${slam(f,15)}font-size:74px;color:#1a1612;font-weight:800;text-align:center">Your dog after</div>
+        <div style="${slam(f,30)}font-size:74px;color:#1a1612;font-weight:800;text-align:center;margin-top:10px">3 weeks without</div>
+        <div style="${slam(f,45)}font-size:74px;color:#c67b4e;font-weight:800;text-align:center;margin-top:10px;font-style:italic">a groom.</div>
+        <div style="margin-top:60px;display:flex;flex-direction:column;gap:18px">
+            ${['Matted fur trapping moisture','Nails curling into paw pads','Skin irritation hidden underneath'].map((t,i) =>
+                `<div style="${fadeIn(f,70+i*15)}font-size:38px;color:#8a7e72;display:flex;align-items:center;gap:16px"><div style="width:8px;height:8px;border-radius:50%;background:#c67b4e;flex-shrink:0"></div>${t}</div>`
+            ).join('')}
+        </div>
+    </div>
+
+    ${/* WIPE */''}
+    <div style="position:absolute;inset:0;z-index:5;background:linear-gradient(to right,#c67b4e,#d4a853);clip-path:inset(0 ${100-wipeProgress}% 0 0);opacity:${clampI(f,[140,150,160,170],[0,1,1,0])}"></div>
+
+    ${/* SCENE 2: REVEAL */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,168,358)};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:200px 60px 400px;background:#f5efe6">
+        <div style="${slam(f,175)}font-size:120px;margin-bottom:30px">&#10024;</div>
+        <div style="${slam(f,180)}font-size:80px;color:#1a1612;font-weight:900;text-align:center">Same dog.</div>
+        <div style="${fadeIn(f,200)}font-size:80px;color:#7a9e7e;font-weight:900;text-align:center;margin-top:10px">New energy.</div>
+        <div style="margin-top:50px;display:flex;flex-direction:column;gap:18px">
+            ${['Coat brushed & de-matted','Nails trimmed to proper length','Ears cleaned, skin checked'].map((t,i) =>
+                `<div style="${fadeIn(f,225+i*18)}font-size:38px;color:#1a1612;display:flex;align-items:center;gap:16px"><div style="width:28px;height:28px;border-radius:50%;background:#7a9e7e;display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px;font-weight:700">&#10003;</div>${t}</div>`
+            ).join('')}
+        </div>
+        <div style="${fadeIn(f,300)}font-size:34px;color:#8a7e72;font-style:italic;text-align:center;margin-top:50px">"She came home and didn't stop wagging for an hour."</div>
+    </div>
+
+    ${/* SCENE 3: CTA */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,363,480)};display:flex;flex-direction:column;align-items:center;justify-content:center;padding:300px 60px 500px;background:#1a1612">
+        <div style="${fadeIn(f,368)}font-size:56px;color:#f5efe6;font-weight:600;text-align:center;letter-spacing:2px">GROOMING ISN'T COSMETIC.</div>
+        <div style="${slam(f,390)}font-size:72px;color:#d4a853;font-weight:800;text-align:center;margin-top:20px;font-style:italic">It's healthcare.</div>
+        <div style="${fadeIn(f,420)}margin-top:50px;padding:22px 60px;background:#c67b4e;border-radius:50px;font-size:36px;font-weight:700;color:#fff">Book a groom today</div>
+        <div style="${fadeIn(f,440)}margin-top:20px;font-size:30px;color:rgba(255,255,255,0.4)">YOUR SALON NAME</div>
+    </div>
+    </div>`;
+},
+
+// ─── PET GROOMING: THE ROUTINE ───
+'petgroom-routine': (f) => {
+    const progressWidth = clampI(f, [80, 390], [0, 100]);
+    const activeStep = Math.floor(clampI(f, [80, 390], [0, 4.99]));
+    const steps = [
+        {icon:'🛁',label:'Warm bath',detail:'Hypoallergenic shampoo, 38°C',color:'#5b9bd5',time:'10 min'},
+        {icon:'✂️',label:'Brush & de-mat',detail:'Gentle, section by section',color:'#c67b4e',time:'15 min'},
+        {icon:'💅',label:'Nail trim',detail:'Quick-safe, no stress',color:'#d4a853',time:'5 min'},
+        {icon:'👂',label:'Ear cleaning',detail:'Check for infection early',color:'#7a9e7e',time:'5 min'},
+        {icon:'🎀',label:'Finish & fluff',detail:'Blow-dry, bandana, done',color:'#d4748a',time:'10 min'},
+    ];
+
+    return `<div style="width:1080px;height:1920px;background:#1a1612;position:relative;font-family:Inter,sans-serif;overflow:hidden">
+
+    ${/* HOOK */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,0,73)};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:200px 60px 400px">
+        <div style="${fadeIn(f,5)}font-size:42px;color:#8a7e72;font-weight:600;letter-spacing:3px">WHAT ACTUALLY HAPPENS</div>
+        <div style="${slam(f,18)}font-size:76px;color:#f5efe6;font-weight:800;text-align:center;margin-top:20px">during a professional</div>
+        <div style="${slam(f,35)}font-size:76px;color:#d4a853;font-weight:800;text-align:center;font-style:italic">grooming session.</div>
+        <div style="${fadeIn(f,55)}font-size:36px;color:#8a7e72;margin-top:30px;text-align:center">5 steps. 60 minutes. A different dog walks out.</div>
+    </div>
+
+    ${/* STEPS */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,78,393)};display:flex;flex-direction:column;padding:160px 60px 300px">
+        <div style="width:100%;height:6px;background:rgba(255,255,255,0.08);border-radius:3px;margin-bottom:50px;overflow:hidden">
+            <div style="width:${progressWidth}%;height:100%;background:linear-gradient(90deg,#c67b4e,#d4a853);border-radius:3px"></div>
+        </div>
+        <div style="font-size:30px;color:#8a7e72;font-weight:600;letter-spacing:3px;margin-bottom:40px">THE GROOM</div>
+        <div style="display:flex;flex-direction:column;gap:28px">
+            ${steps.map((step, i) => {
+                const ss = 85 + i * 62;
+                const isActive = i === activeStep && f >= 80;
+                const isPast = i < activeStep && f >= 80;
+                const isFuture = i > activeStep || f < 80;
+                return `<div style="${fadeIn(f,ss)}display:flex;align-items:center;gap:24px;padding:28px 32px;background:${isActive?'rgba(255,255,255,0.06)':'transparent'};border-radius:20px;border-left:4px solid ${isActive?step.color:'transparent'}">
+                    <div style="width:64px;height:64px;border-radius:50%;background:${isPast?step.color:isActive?step.color+'22':'rgba(255,255,255,0.04)'};display:flex;align-items:center;justify-content:center;font-size:${isPast?28:36}px;flex-shrink:0;color:${isPast?'#fff':'inherit'};font-weight:700">${isPast?'&#10003;':step.icon}</div>
+                    <div style="flex:1">
+                        <div style="font-size:40px;font-weight:700;color:${isFuture?'#8a7e72':'#f5efe6'}">${step.label}</div>
+                        ${isActive?`<div style="${fadeIn(f,ss+8,8)}font-size:30px;color:${step.color};margin-top:6px">${step.detail}</div>`:''}
+                    </div>
+                    ${isActive?`<div style="${fadeIn(f,ss+12,8)}font-size:26px;color:#8a7e72;font-weight:600">${step.time}</div>`:''}
+                </div>`;
+            }).join('')}
+        </div>
+    </div>
+
+    ${/* CTA */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,398,540)};display:flex;flex-direction:column;align-items:center;justify-content:center;padding:300px 60px 500px">
+        <div style="${fadeIn(f,402)}font-size:48px;color:#8a7e72;font-weight:600;letter-spacing:2px">THEY CAN'T TELL YOU</div>
+        <div style="${slam(f,420)}font-size:72px;color:#f5efe6;font-weight:800;text-align:center;margin-top:10px">they need a groom.</div>
+        <div style="${fadeIn(f,445)}font-size:44px;color:#d4a853;font-weight:600;text-align:center;margin-top:20px;font-style:italic">But you can see it.</div>
+        <div style="${fadeIn(f,470)}margin-top:50px;padding:22px 60px;border:2px solid #c67b4e;border-radius:50px;font-size:36px;font-weight:700;color:#f5efe6">Book every 4–6 weeks</div>
+        <div style="${fadeIn(f,490)}margin-top:20px;font-size:30px;color:#8a7e72">YOUR SALON NAME</div>
+    </div>
+    </div>`;
+},
+
+// ─── ABODIENT: YOU SLEPT THROUGH IT ───
+'abodient-slept': (f) => {
+    const timeline = [
+        {time:'2:14 AM',event:'Tenant reports boiler leak',icon:'🚨',color:'#ef4444'},
+        {time:'2:15 AM',event:'Alfred diagnoses: pressure valve failure',icon:'🔍',color:'#e8734a'},
+        {time:'2:18 AM',event:'Emergency plumber found & contacted',icon:'🔧',color:'#3b82f6'},
+        {time:'2:28 AM',event:'Appointment confirmed for 7 AM',icon:'&#10003;',color:'#22c55e'},
+        {time:'2:29 AM',event:'Tenant notified with ETA',icon:'💬',color:'#25D366'},
+    ];
+    const lineH = clampI(f, [100, 300], [0, 100]);
+    const pulse = Math.sin(f * 0.15) * 0.3 + 0.7;
+
+    return `<div style="width:1080px;height:1920px;background:linear-gradient(180deg,#0a0a14 0%,#0d0d1a 100%);position:relative;font-family:Inter,sans-serif;overflow:hidden">
+
+    ${/* HOOK */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,0,88)};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:200px 60px 400px">
+        <div style="${fadeIn(f,5)}font-size:110px;margin-bottom:30px">😴</div>
+        <div style="${slam(f,15)}font-size:72px;color:#F5F0EA;font-weight:800;text-align:center">Last night,</div>
+        <div style="${slam(f,35)}font-size:72px;color:#F5F0EA;font-weight:800;text-align:center;margin-top:10px">your tenant's boiler</div>
+        <div style="${slam(f,50)}font-size:72px;color:#ef4444;font-weight:800;text-align:center;margin-top:10px;font-style:italic">broke.</div>
+        <div style="${fadeIn(f,70)}font-size:40px;color:#6b7280;margin-top:30px;text-align:center">You didn't wake up.</div>
+    </div>
+
+    ${/* TIMELINE */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,93,328)};display:flex;flex-direction:column;padding:180px 60px 300px">
+        <div style="${fadeIn(f,98)}font-size:30px;color:#6b7280;font-weight:600;letter-spacing:3px;margin-bottom:50px">WHILE YOU SLEPT</div>
+        <div style="position:relative;padding-left:40px">
+            <div style="position:absolute;left:14px;top:0;width:3px;height:${lineH}%;background:linear-gradient(180deg,#e8734a,#22c55e)"></div>
+            ${timeline.map((item, i) => {
+                const start = 105 + i * 45;
+                return `<div style="${fadeIn(f,start)}display:flex;align-items:flex-start;gap:24px;margin-bottom:36px;position:relative">
+                    <div style="position:absolute;left:-34px;width:18px;height:18px;border-radius:50%;background:${item.color};box-shadow:0 0 12px ${item.color}60"></div>
+                    <div style="flex:1">
+                        <div style="font-size:28px;color:${item.color};font-weight:700;font-family:JetBrains Mono,monospace">${item.time}</div>
+                        <div style="font-size:40px;color:#F5F0EA;font-weight:600;margin-top:6px;line-height:1.3">${item.event}</div>
+                    </div>
+                    <div style="font-size:40px;flex-shrink:0;margin-top:8px">${item.icon}</div>
+                </div>`;
+            }).join('')}
+        </div>
+    </div>
+
+    ${/* WAKE UP */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,333,428)};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:200px 60px 400px">
+        <div style="${fadeIn(f,338)}font-size:30px;color:#6b7280;font-weight:600;letter-spacing:3px;font-family:JetBrains Mono,monospace">7:15 AM</div>
+        <div style="${fadeIn(f,350)}font-size:100px;margin:20px 0">&#9728;&#65039;</div>
+        <div style="${slam(f,358)}font-size:68px;color:#F5F0EA;font-weight:800;text-align:center">You woke up to</div>
+        <div style="${fadeIn(f,378)}margin-top:40px;padding:28px 40px;background:rgba(255,255,255,0.06);border-radius:20px;border:1px solid rgba(255,255,255,0.1);display:flex;align-items:center;gap:20px;width:85%">
+            <div style="width:52px;height:52px;border-radius:14px;background:#e8734a;display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;font-weight:800">A</div>
+            <div style="flex:1">
+                <div style="font-size:30px;color:#F5F0EA;font-weight:600">Alfred</div>
+                <div style="font-size:26px;color:#6b7280;margin-top:4px">Boiler fixed. Plumber visited at 7 AM. Tenant confirmed. &#10003;</div>
+            </div>
+            <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;opacity:${pulse}"></div>
+        </div>
+        <div style="${fadeIn(f,405)}font-size:38px;color:#22c55e;font-weight:600;margin-top:30px;text-align:center">One notification. Zero stress.</div>
+    </div>
+
+    ${/* CTA */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,433,540)};display:flex;flex-direction:column;align-items:center;justify-content:center;padding:300px 60px 500px;background:#1A1A1A">
+        <div style="${fadeIn(f,438)}width:80px;height:80px;border-radius:20px;background:#e8734a;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;font-weight:900;margin-bottom:30px">A</div>
+        <div style="${slam(f,448)}font-size:56px;color:#F5F0EA;font-weight:700;text-align:center">abodient.ai</div>
+        <div style="${fadeIn(f,465)}font-size:40px;color:#e8734a;font-weight:600;text-align:center;margin-top:15px;font-style:italic">AI that handles everything.</div>
+        <div style="${fadeIn(f,485)}margin-top:40px;padding:22px 60px;background:#e8734a;border-radius:50px;font-size:36px;font-weight:700;color:#fff">Try free for 1 month</div>
+    </div>
+    </div>`;
+},
+
+// ─── ABODIENT: WEEK IN REVIEW ───
+'abodient-week': (f) => {
+    const items = [
+        {cat:'Maintenance',count:12,ex:'Leaking tap — Unit 4B',status:'Plumber booked, fixed same day',icon:'🔧',color:'#3b82f6'},
+        {cat:'Tenant Queries',count:23,ex:'"Can I have a parcel locker key?"',status:'Answered in 45 seconds',icon:'💬',color:'#22c55e'},
+        {cat:'Emergencies',count:2,ex:'Power outage — Block A',status:'Electrician dispatched at 3 AM',icon:'⚡',color:'#ef4444'},
+        {cat:'Inspections',count:4,ex:'Quarterly check — Units 1–4',status:'Scheduled, tenants notified',icon:'📋',color:'#f59e0b'},
+    ];
+    const totalResolved = Math.round(clampI(f, [88, 118], [0, 41]));
+
+    return `<div style="width:1080px;height:1920px;background:#0f0f14;position:relative;font-family:Inter,sans-serif;overflow:hidden">
+
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px);background-size:60px 60px;z-index:1"></div>
+
+    ${/* HOOK */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,0,83)};display:flex;flex-direction:column;justify-content:center;align-items:center;padding:200px 60px 400px;z-index:2">
+        <div style="${fadeIn(f,5)}font-size:30px;color:#6b7280;font-weight:600;letter-spacing:3px">THIS WEEK</div>
+        <div style="${slam(f,18)}font-size:76px;color:#F5F0EA;font-weight:800;text-align:center;margin-top:20px">Your AI handled</div>
+        <div style="${slam(f,38)}font-size:140px;color:#e8734a;font-weight:900;text-align:center;margin-top:10px">41</div>
+        <div style="${fadeIn(f,50)}font-size:50px;color:#F5F0EA;font-weight:600;text-align:center">issues across 8 properties.</div>
+        <div style="${fadeIn(f,65)}font-size:36px;color:#6b7280;margin-top:20px;text-align:center">You handled zero.</div>
+    </div>
+
+    ${/* CARDS */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,88,378)};display:flex;flex-direction:column;padding:140px 50px 300px;z-index:2">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:40px">
+            <div style="${fadeIn(f,92)}font-size:30px;color:#6b7280;font-weight:600;letter-spacing:3px">WEEKLY BREAKDOWN</div>
+            <div style="${fadeIn(f,92)}display:flex;align-items:center;gap:10px;padding:10px 20px;background:rgba(34,197,94,0.1);border-radius:30px;border:1px solid rgba(34,197,94,0.2)">
+                <div style="width:8px;height:8px;border-radius:50%;background:#22c55e"></div>
+                <span style="font-size:24px;color:#22c55e;font-weight:600">${totalResolved} resolved</span>
+            </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:20px">
+            ${items.map((item, i) => {
+                const cs = 100 + i * 70;
+                const countVal = Math.round(clampI(f, [cs+5, cs+20], [0, item.count]));
+                return `<div style="${fadeIn(f,cs)}background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:28px 32px;border-left:4px solid ${item.color}">
+                    <div style="display:flex;justify-content:space-between;align-items:center">
+                        <div style="display:flex;align-items:center;gap:16px">
+                            <span style="font-size:36px">${item.icon}</span>
+                            <span style="font-size:36px;color:#F5F0EA;font-weight:700">${item.cat}</span>
+                        </div>
+                        <div style="font-size:42px;color:${item.color};font-weight:800;font-family:JetBrains Mono,monospace">${countVal}</div>
+                    </div>
+                    <div style="${fadeIn(f,cs+20,10)}margin-top:16px;padding:14px 18px;background:rgba(255,255,255,0.03);border-radius:12px">
+                        <div style="font-size:28px;color:#6b7280">${item.ex}</div>
+                        <div style="font-size:26px;color:#22c55e;margin-top:6px;font-weight:500">&rarr; ${item.status}</div>
+                    </div>
+                </div>`;
+            }).join('')}
+        </div>
+    </div>
+
+    ${/* CTA */''}
+    <div style="position:absolute;inset:0;opacity:${vis(f,383,540)};display:flex;flex-direction:column;align-items:center;justify-content:center;padding:300px 60px 500px;z-index:2">
+        <div style="${fadeIn(f,388)}font-size:44px;color:#6b7280;font-weight:600;text-align:center">Property management</div>
+        <div style="${slam(f,405)}font-size:68px;color:#F5F0EA;font-weight:800;text-align:center;margin-top:10px">without the management.</div>
+        <div style="${fadeIn(f,425)}width:80px;height:80px;border-radius:20px;background:#e8734a;display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;font-weight:900;margin-top:40px">A</div>
+        <div style="${fadeIn(f,435)}font-size:48px;color:#F5F0EA;font-weight:700;margin-top:15px">abodient.ai</div>
+        <div style="${fadeIn(f,455)}margin-top:30px;padding:22px 60px;background:#e8734a;border-radius:50px;font-size:36px;font-weight:700;color:#fff">Start your free month</div>
+        <div style="${fadeIn(f,475)}font-size:30px;color:#6b7280;margin-top:15px">No credit card. Cancel anytime.</div>
+    </div>
+    </div>`;
+},
+
+};
+
+// ─── INIT ───
+function toggleAll(action) {
+    Object.values(REELS).forEach(r => {
+        if (action === 'play') r.play();
+        else if (action === 'pause') r.pause();
+        else if (action === 'reset') { r.pause(); r.reset(); }
+    });
+    document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+    if (action === 'play') document.querySelectorAll('.controls button')[0].classList.add('active');
+    if (action === 'pause') document.querySelectorAll('.controls button')[1].classList.add('active');
+}
+
+function toggleSpeed() {
+    const speeds = [1, 0.5, 2];
+    const btn = document.querySelectorAll('.controls button')[3];
+    const idx = speeds.indexOf(globalSpeed);
+    globalSpeed = speeds[(idx + 1) % speeds.length];
+    btn.textContent = globalSpeed + '×';
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.phone-frame').forEach(el => {
+        const player = new ReelPlayer(el);
+        REELS[el.dataset.reel] = player;
+        player.render(); // render frame 0
+    });
+    // Auto-play all
+    setTimeout(() => toggleAll('play'), 500);
+});
+</script>
+
+</body>
+</html>

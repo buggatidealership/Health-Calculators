@@ -114,6 +114,10 @@ import { Bakery_A } from "./Bakery_A";
 import { Bakery_B } from "./Bakery_B";
 import { Bakery_C } from "./Bakery_C";
 import { Bakery_D } from "./Bakery_D";
+import { PetGroom_Transform } from "./PetGroom_Transform";
+import { PetGroom_Routine } from "./PetGroom_Routine";
+import { Abodient_SleptThrough } from "./Abodient_SleptThrough";
+import { Abodient_WeekInReview } from "./Abodient_WeekInReview";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -467,6 +471,12 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="bakery-b" component={Bakery_B} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="bakery-c" component={Bakery_C} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="bakery-d" component={Bakery_D} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* Pet Grooming Salon */}
+      <Composition id="petgroom-transform" component={PetGroom_Transform} durationInFrames={510} fps={30} width={1080} height={1920} />
+      <Composition id="petgroom-routine" component={PetGroom_Routine} durationInFrames={570} fps={30} width={1080} height={1920} />
+      {/* Abodient.ai */}
+      <Composition id="abodient-slept" component={Abodient_SleptThrough} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="abodient-week" component={Abodient_WeekInReview} durationInFrames={570} fps={30} width={1080} height={1920} />
     </>
   );
 };
