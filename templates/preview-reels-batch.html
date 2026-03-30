@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Reels Preview — Pet Grooming + Abodient.ai</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f5f0ea;
+    letter-spacing: -0.5px;
+  }
+  .header p {
+    font-size: 15px;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  .brand-section {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+  .brand-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+  .brand-label span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .reel-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  .reel-card:hover {
+    border-color: rgba(255,255,255,0.12);
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #111;
+    cursor: pointer;
+  }
+  .video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .play-overlay.hidden { opacity: 0; }
+  .play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .reel-meta {
+    padding: 16px 20px;
+  }
+  .reel-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f5f0ea;
+    margin-bottom: 4px;
+  }
+  .reel-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  .reel-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .tag-hook { background: rgba(232,115,74,0.15); color: #e8734a; }
+  .tag-edu { background: rgba(106,200,155,0.15); color: #6ec89b; }
+  .tag-roi { background: rgba(59,130,246,0.15); color: #3b82f6; }
+  .tag-chat { background: rgba(139,92,246,0.15); color: #8b5cf6; }
+
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    body { padding: 24px 16px 60px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Reels Preview — 4 New Compositions</h1>
+  <p>2 Pet Grooming Salon + 2 Abodient.ai &middot; 19s each &middot; 1080x1920</p>
+</div>
+
+<!-- PET GROOMING -->
+<div class="brand-section">
+  <div class="brand-label"><span style="background:#c67b4e"></span>Pet Grooming Salon</div>
+  <div class="grid">
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/petgroom-redflags.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Red Flags</div>
+        <div class="reel-desc">5 signs your dog needs a groomer NOW. Urgency education — reframes grooming as preventive care.</div>
+        <div class="reel-tags">
+          <span class="tag tag-hook">Hook: urgency</span>
+          <span class="tag tag-edu">Educational</span>
+        </div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/petgroom-pricing.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Price Breakdown</div>
+        <div class="reel-desc">"€45 for a haircut?!" — 7 services, 85 minutes. Receipt-style value reveal.</div>
+        <div class="reel-tags">
+          <span class="tag tag-hook">Hook: objection</span>
+          <span class="tag tag-roi">Value reframe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABODIENT.AI -->
+<div class="brand-section">
+  <div class="brand-label"><span style="background:#e8734a"></span>Abodient.ai</div>
+  <div class="grid">
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/abodient-tenant.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Tenant Text</div>
+        <div class="reel-desc">11:47 PM — tenant reports a leak. Watch Alfred diagnose, book, and advise in real-time chat.</div>
+        <div class="reel-tags">
+          <span class="tag tag-chat">Chat simulation</span>
+          <span class="tag tag-hook">Hook: notification</span>
+        </div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/abodient-math.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">The Math</div>
+        <div class="reel-desc">8 properties = 624 hours/year. Alfred handles 85%. Time-cost calculator that makes the invisible visible.</div>
+        <div class="reel-tags">
+          <span class="tag tag-roi">ROI framing</span>
+          <span class="tag tag-edu">Data-forward</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleVideo(wrap) {
+  const video = wrap.querySelector('video');
+  const overlay = wrap.querySelector('.play-overlay');
+  if (video.paused) {
+    // Pause all other videos first
+    document.querySelectorAll('.video-wrap video').forEach(v => {
+      if (v !== video) { v.pause(); v.parentElement.querySelector('.play-overlay').classList.remove('hidden'); }
+    });
+    video.play();
+    overlay.classList.add('hidden');
+  } else {
+    video.pause();
+    overlay.classList.remove('hidden');
+  }
+}
+</script>
+</body>
+</html>

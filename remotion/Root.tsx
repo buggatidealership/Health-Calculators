@@ -118,6 +118,10 @@ import { PetGroom_Transform } from "./PetGroom_Transform";
 import { PetGroom_Routine } from "./PetGroom_Routine";
 import { Abodient_SleptThrough } from "./Abodient_SleptThrough";
 import { Abodient_WeekInReview } from "./Abodient_WeekInReview";
+import { PetGroom_RedFlags } from "./PetGroom_RedFlags";
+import { PetGroom_Pricing } from "./PetGroom_Pricing";
+import { Abodient_TenantText } from "./Abodient_TenantText";
+import { Abodient_Math } from "./Abodient_Math";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -477,6 +481,12 @@ export const RemotionRoot: React.FC = () => {
       {/* Abodient.ai */}
       <Composition id="abodient-slept" component={Abodient_SleptThrough} durationInFrames={570} fps={30} width={1080} height={1920} />
       <Composition id="abodient-week" component={Abodient_WeekInReview} durationInFrames={570} fps={30} width={1080} height={1920} />
+      {/* Pet Grooming — Batch 2 */}
+      <Composition id="petgroom-redflags" component={PetGroom_RedFlags} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="petgroom-pricing" component={PetGroom_Pricing} durationInFrames={570} fps={30} width={1080} height={1920} />
+      {/* Abodient.ai — Batch 2 */}
+      <Composition id="abodient-tenant" component={Abodient_TenantText} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="abodient-math" component={Abodient_Math} durationInFrames={570} fps={30} width={1080} height={1920} />
     </>
   );
 };
