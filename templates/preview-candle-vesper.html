@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>VESPER Candle — Instagram Reels</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f5f0ea;
+    letter-spacing: -0.5px;
+  }
+  .header p {
+    font-size: 15px;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  .set-section {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+  .set-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .set-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #D4A574;
+  }
+  .set-desc {
+    font-size: 14px;
+    color: #6b7280;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .reel-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  .reel-card:hover {
+    border-color: rgba(255,255,255,0.12);
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #111;
+    cursor: pointer;
+  }
+  .video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .play-overlay.hidden { opacity: 0; }
+  .play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .reel-meta {
+    padding: 16px 20px;
+  }
+  .reel-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f5f0ea;
+    margin-bottom: 4px;
+  }
+  .reel-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(212,165,116,0.3), transparent);
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    body { padding: 24px 16px 60px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>VESPER — Luxury Candle Reels</h1>
+  <p>Hand-poured &middot; Small batch &middot; Essential oils &middot; Two creative directions, pick your favorite set</p>
+</div>
+
+<!-- SET 1 (internally: B — conceptual/content-driven) -->
+<div class="set-section">
+  <div class="set-header">
+    <span class="set-label">Set 1</span>
+    <span class="set-desc">3 reels &middot; 18s each &middot; 1080x1920</span>
+  </div>
+  <div class="grid">
+    <div class="reel-card">
+      <div class="video-wrap" onclick="togglePlay(this)">
+        <video src="{{ url_for('static', filename='videos/candle-b1.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Reel 1</div>
+        <div class="reel-desc">Batch scarcity. The number is the hook.</div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="togglePlay(this)">
+        <video src="{{ url_for('static', filename='videos/candle-b2.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Reel 2</div>
+        <div class="reel-desc">Essential oil vs. synthetic. Chemistry as content.</div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="togglePlay(this)">
+        <video src="{{ url_for('static', filename='videos/candle-b3.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Reel 3</div>
+        <div class="reel-desc">Time as ingredient. Factory speed vs. craft patience.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- SET 2 (internally: A — sensory/warm/process) -->
+<div class="set-section">
+  <div class="set-header">
+    <span class="set-label">Set 2</span>
+    <span class="set-desc">3 reels &middot; 18s each &middot; 1080x1920</span>
+  </div>
+  <div class="grid">
+    <div class="reel-card">
+      <div class="video-wrap" onclick="togglePlay(this)">
+        <video src="{{ url_for('static', filename='videos/candle-a1.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Reel 1</div>
+        <div class="reel-desc">The craft of making. Process as poetry.</div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="togglePlay(this)">
+        <video src="{{ url_for('static', filename='videos/candle-a2.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Reel 2</div>
+        <div class="reel-desc">What goes into a single drop. Botanical depth.</div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="togglePlay(this)">
+        <video src="{{ url_for('static', filename='videos/candle-a3.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Reel 3</div>
+        <div class="reel-desc">The evening ritual. Atmosphere as product.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePlay(wrap) {
+  const v = wrap.querySelector('video');
+  const overlay = wrap.querySelector('.play-overlay');
+  if (v.paused) {
+    document.querySelectorAll('.video-wrap video').forEach(other => {
+      if (other !== v && !other.paused) {
+        other.pause();
+        other.closest('.video-wrap').querySelector('.play-overlay').classList.remove('hidden');
+      }
+    });
+    v.play();
+    overlay.classList.add('hidden');
+  } else {
+    v.pause();
+    overlay.classList.remove('hidden');
+  }
+}
+</script>
+
+</body>
+</html>

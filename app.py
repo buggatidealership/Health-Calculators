@@ -6576,6 +6576,11 @@ def preview_reels_realestate():
     return render_template('preview-reels-realestate.html')
 
 
+@app.route('/preview-candle-vesper')
+def preview_candle_vesper():
+    return render_template('preview-candle-vesper.html')
+
+
 @app.route('/mockup-abodient-brand')
 def mockup_abodient_brand():
     return render_template('mockup-abodient-brand.html')
