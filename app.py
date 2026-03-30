@@ -6586,6 +6586,11 @@ def preview_coffee_alto():
     return render_template('preview-coffee-alto.html')
 
 
+@app.route('/yoga-blind-test')
+def yoga_blind_test():
+    return render_template('yoga-blind-test.html')
+
+
 @app.route('/mockup-abodient-brand')
 def mockup_abodient_brand():
     return render_template('mockup-abodient-brand.html')

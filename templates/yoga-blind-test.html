@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>SORA Yoga — Blind A/B Test</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 48px 20px 80px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #F5F0E8;
+    letter-spacing: 1px;
+  }
+  .header p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .header .brand-line {
+    width: 60px;
+    height: 2px;
+    background: #2D4A3E;
+    margin: 16px auto 0;
+  }
+  .set-section {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+  .set-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #C4B5A0;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(196,181,160,0.15);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .reel-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(196,181,160,0.1);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+  .reel-card:hover {
+    border-color: rgba(196,181,160,0.3);
+  }
+  .reel-card video {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    display: block;
+    background: #111;
+  }
+  .reel-info {
+    padding: 16px;
+  }
+  .reel-info h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #F5F0E8;
+    margin-bottom: 6px;
+  }
+  .reel-info p {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  .divider {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(196,181,160,0.2), transparent);
+  }
+  .vote-section {
+    max-width: 600px;
+    margin: 60px auto 0;
+    text-align: center;
+    padding: 32px;
+    border: 1px solid rgba(196,181,160,0.15);
+    border-radius: 12px;
+    background: rgba(255,255,255,0.015);
+  }
+  .vote-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #F5F0E8;
+    margin-bottom: 8px;
+  }
+  .vote-section p {
+    font-size: 13px;
+    color: #6b7280;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  .vote-options {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+  }
+  .vote-btn {
+    padding: 12px 32px;
+    border: 1px solid rgba(196,181,160,0.3);
+    border-radius: 8px;
+    background: transparent;
+    color: #C4B5A0;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .vote-btn:hover {
+    background: rgba(196,181,160,0.1);
+    border-color: #C4B5A0;
+  }
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    body { padding: 24px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>SORA Yoga</h1>
+  <div class="brand-line"></div>
+  <p>Blind A/B test. Same brand, same research, same enforcement. One variable differs. Watch all 6, then pick a set.</p>
+</div>
+
+<div class="set-section">
+  <div class="set-label">Set 1 — Three Reels</div>
+  <div class="grid">
+    <div class="reel-card">
+      <video src="https://raw.githubusercontent.com/buggatidealership/Health-Calculators/main/yoga-set1-a.mp4" controls playsinline></video>
+      <div class="reel-info">
+        <h3>Reel 1A</h3>
+      </div>
+    </div>
+    <div class="reel-card">
+      <video src="https://raw.githubusercontent.com/buggatidealership/Health-Calculators/main/yoga-set1-b.mp4" controls playsinline></video>
+      <div class="reel-info">
+        <h3>Reel 1B</h3>
+      </div>
+    </div>
+    <div class="reel-card">
+      <video src="https://raw.githubusercontent.com/buggatidealership/Health-Calculators/main/yoga-set1-c.mp4" controls playsinline></video>
+      <div class="reel-info">
+        <h3>Reel 1C</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<div class="set-section">
+  <div class="set-label">Set 2 — Three Reels</div>
+  <div class="grid">
+    <div class="reel-card">
+      <video src="https://raw.githubusercontent.com/buggatidealership/Health-Calculators/main/yoga-set2-a.mp4" controls playsinline></video>
+      <div class="reel-info">
+        <h3>Reel 2A</h3>
+      </div>
+    </div>
+    <div class="reel-card">
+      <video src="https://raw.githubusercontent.com/buggatidealership/Health-Calculators/main/yoga-set2-b.mp4" controls playsinline></video>
+      <div class="reel-info">
+        <h3>Reel 2B</h3>
+      </div>
+    </div>
+    <div class="reel-card">
+      <video src="https://raw.githubusercontent.com/buggatidealership/Health-Calculators/main/yoga-set2-c.mp4" controls playsinline></video>
+      <div class="reel-info">
+        <h3>Reel 2C</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="vote-section">
+  <h2>Which set?</h2>
+  <p>Pick the set you'd ship. Or call it a draw. The key is revealed after.</p>
+  <div class="vote-options">
+    <button class="vote-btn">SET 1</button>
+    <button class="vote-btn">SET 2</button>
+    <button class="vote-btn">DRAW</button>
+  </div>
+</div>
+
+</body>
+</html>
