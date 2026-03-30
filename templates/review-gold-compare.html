@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ReviewGold — Before / After (Gemini Feedback)</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0e17;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 48px 20px 80px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 32px;
+    font-weight: 400;
+    color: #F5F0EA;
+  }
+  .header p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 10px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+  .header .line {
+    width: 60px;
+    height: 2px;
+    background: #d4a853;
+    margin: 16px auto 0;
+  }
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .version {
+    text-align: center;
+  }
+  .version-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #d4a853;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .version-sub {
+    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 16px;
+    line-height: 1.5;
+  }
+  .version video {
+    width: 100%;
+    max-width: 380px;
+    aspect-ratio: 9/16;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid rgba(212,168,83,0.15);
+    background: #111;
+  }
+  .scores {
+    max-width: 900px;
+    margin: 48px auto 0;
+    border: 1px solid rgba(212,168,83,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .scores-header {
+    background: rgba(212,168,83,0.08);
+    padding: 16px 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #d4a853;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .scores table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .scores td, .scores th {
+    padding: 12px 24px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    font-size: 14px;
+  }
+  .scores th {
+    color: #8a94a8;
+    font-weight: 500;
+  }
+  .scores td:nth-child(2) {
+    color: #8a94a8;
+    text-align: center;
+  }
+  .scores td:nth-child(3) {
+    color: #d4a853;
+    text-align: center;
+    font-weight: 600;
+  }
+  .changes {
+    max-width: 900px;
+    margin: 32px auto 0;
+    padding: 24px;
+    border: 1px solid rgba(212,168,83,0.1);
+    border-radius: 12px;
+  }
+  .changes h3 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: #d4a853;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .changes ul {
+    list-style: none;
+    padding: 0;
+  }
+  .changes li {
+    font-size: 13px;
+    color: #8a94a8;
+    padding: 6px 0;
+    padding-left: 16px;
+    position: relative;
+    line-height: 1.5;
+  }
+  .changes li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: #d4a853;
+  }
+  @media (max-width: 768px) {
+    .compare { grid-template-columns: 1fr; max-width: 400px; }
+    body { padding: 24px 16px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ReviewGold — Before / After</h1>
+  <div class="line"></div>
+  <p>Same content. Same brand. V2 applies Gemini's 5 feedback points: faster hook, chunk reveals, continuous motion, kinetic typography, integrated quote.</p>
+</div>
+
+<div class="compare">
+  <div class="version">
+    <div class="version-label">V1 — Original</div>
+    <div class="version-sub">Gemini overall: 5/10</div>
+    <video src="{{ url_for('static', filename='review-gold.mp4') }}" controls playsinline></video>
+  </div>
+  <div class="version">
+    <div class="version-label">V2 — Gemini Feedback Applied</div>
+    <div class="version-sub">Hook, pacing, motion, typography, structure</div>
+    <video src="{{ url_for('static', filename='review-gold-v2.mp4') }}" controls playsinline></video>
+  </div>
+</div>
+
+<div class="scores">
+  <div class="scores-header">Gemini V1 Scores</div>
+  <table>
+    <tr><th>Dimension</th><th>V1</th><th>V2 Target</th></tr>
+    <tr><td>Hook</td><td>3/10</td><td>7+</td></tr>
+    <tr><td>Pacing</td><td>6/10</td><td>8+</td></tr>
+    <tr><td>Visual Motion</td><td>5/10</td><td>8+</td></tr>
+    <tr><td>Typography</td><td>5/10</td><td>7+</td></tr>
+    <tr><td>Production Quality</td><td>8/10</td><td>8+</td></tr>
+    <tr><td>Engagement</td><td>4/10</td><td>7+</td></tr>
+    <tr><td><strong>Overall</strong></td><td><strong>5/10</strong></td><td><strong>7-8</strong></td></tr>
+  </table>
+</div>
+
+<div class="changes">
+  <h3>What Changed</h3>
+  <ul>
+    <li>Hook: bold statement at frame 2 (0.07s) vs flag emoji at frame 5, text at frame 45 (1.5s)</li>
+    <li>Plane flies continuously across screen instead of sitting static</li>
+    <li>Floating particles + drifting glow — frame is never still</li>
+    <li>Camera drift on entire scene (subtle zoom/translate)</li>
+    <li>Review text: line-by-line with keyword scale pops, not word-by-word fade</li>
+    <li>Stars breathe with individual rhythms after popping in</li>
+    <li>"Took so good care of me" now introduces the team (not afterthought)</li>
+    <li>Team cards slide from right instead of generic fadeUp</li>
+    <li>CTA elements pop with overshoot + breathing pulse</li>
+    <li>Gold keyword glow pulses continuously</li>
+  </ul>
+</div>
+
+</body>
+</html>

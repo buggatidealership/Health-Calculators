@@ -6591,6 +6591,11 @@ def yoga_blind_test():
     return render_template('yoga-blind-test.html')
 
 
+@app.route('/review-gold-compare')
+def review_gold_compare():
+    return render_template('review-gold-compare.html')
+
+
 @app.route('/mockup-abodient-brand')
 def mockup_abodient_brand():
     return render_template('mockup-abodient-brand.html')
