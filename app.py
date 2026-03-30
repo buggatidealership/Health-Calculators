@@ -6561,6 +6561,11 @@ def preview_reels_batch():
     return render_template('preview-reels-batch.html')
 
 
+@app.route('/preview-reels-batch3')
+def preview_reels_batch3():
+    return render_template('preview-reels-batch3.html')
+
+
 @app.route('/mockup-abodient-brand')
 def mockup_abodient_brand():
     return render_template('mockup-abodient-brand.html')
