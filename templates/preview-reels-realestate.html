@@ -140,7 +140,7 @@
   <!-- REEL 1: Just Listed -->
   <div class="reel-card">
     <div class="video-wrap" onclick="togglePlay(this)">
-      <video src="/re-just-listed.mp4" loop playsinline preload="metadata"></video>
+      <video src="{{ url_for('static', filename='videos/re-just-listed.mp4') }}" loop muted playsinline preload="metadata"></video>
       <div class="play-overlay">
         <div class="play-btn">
           <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -160,7 +160,7 @@
   <!-- REEL 2: Buyer Tips -->
   <div class="reel-card">
     <div class="video-wrap" onclick="togglePlay(this)">
-      <video src="/re-buyer-tips.mp4" loop playsinline preload="metadata"></video>
+      <video src="{{ url_for('static', filename='videos/re-buyer-tips.mp4') }}" loop muted playsinline preload="metadata"></video>
       <div class="play-overlay">
         <div class="play-btn">
           <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
@@ -180,7 +180,7 @@
   <!-- REEL 3: Market Update -->
   <div class="reel-card">
     <div class="video-wrap" onclick="togglePlay(this)">
-      <video src="/re-market-update.mp4" loop playsinline preload="metadata"></video>
+      <video src="{{ url_for('static', filename='videos/re-market-update.mp4') }}" loop muted playsinline preload="metadata"></video>
       <div class="play-overlay">
         <div class="play-btn">
           <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg>
