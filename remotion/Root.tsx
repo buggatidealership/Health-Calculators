@@ -145,6 +145,12 @@ import { Candle_B3 } from "./Candle_B3";
 import { Coffee_CargoTag } from "./Coffee_CargoTag";
 import { Coffee_RoastCurve } from "./Coffee_RoastCurve";
 import { Coffee_CuppingCard } from "./Coffee_CuppingCard";
+import { Yoga_Set1_A } from "./Yoga_Set1_A";
+import { Yoga_Set1_B } from "./Yoga_Set1_B";
+import { Yoga_Set1_C } from "./Yoga_Set1_C";
+import { Yoga_Set2_A } from "./Yoga_Set2_A";
+import { Yoga_Set2_B } from "./Yoga_Set2_B";
+import { Yoga_Set2_C } from "./Yoga_Set2_C";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -541,6 +547,13 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="coffee-cargo-tag" component={Coffee_CargoTag} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="coffee-roast-curve" component={Coffee_RoastCurve} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="coffee-cupping-card" component={Coffee_CuppingCard} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* SORA Yoga — Blind A/B Set 2 */}
+      <Composition id="yoga-set1-a" component={Yoga_Set1_A} durationInFrames={540} fps={30} width={2160} height={2160} />
+      <Composition id="yoga-set1-b" component={Yoga_Set1_B} durationInFrames={510} fps={30} width={2160} height={2160} />
+      <Composition id="yoga-set1-c" component={Yoga_Set1_C} durationInFrames={540} fps={30} width={2160} height={2160} />
+      <Composition id="yoga-set2-a" component={Yoga_Set2_A} durationInFrames={540} fps={30} width={2160} height={2160} />
+      <Composition id="yoga-set2-b" component={Yoga_Set2_B} durationInFrames={510} fps={30} width={2160} height={2160} />
+      <Composition id="yoga-set2-c" component={Yoga_Set2_C} durationInFrames={540} fps={30} width={2160} height={2160} />
     </>
   );
 };

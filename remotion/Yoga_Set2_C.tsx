@@ -638,7 +638,7 @@ export const Yoga_Set2_C: React.FC = () => {
         <div style={{
           ...fadeUp(frame, 468),
           fontSize: 42, fontFamily: F.sans,
-          color: STONE, letterSpacing: 6,
+          color: BONE, letterSpacing: 6,
           marginTop: 14,
         }}>
           YOGA · PORTLAND
