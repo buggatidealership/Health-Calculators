@@ -42,9 +42,9 @@
   }
   .compare {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 32px;
-    max-width: 900px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    max-width: 1100px;
     margin: 0 auto;
   }
   .version {
@@ -66,7 +66,7 @@
   }
   .version video {
     width: 100%;
-    max-width: 380px;
+    max-width: 320px;
     aspect-ratio: 9/16;
     object-fit: cover;
     border-radius: 12px;
@@ -156,7 +156,7 @@
 <div class="header">
   <h1>ReviewGold — Before / After</h1>
   <div class="line"></div>
-  <p>Same content. Same brand. V2 applies Gemini's 5 feedback points: faster hook, chunk reveals, continuous motion, kinetic typography, integrated quote.</p>
+  <p>Same content. Same brand. Three iterations. V1→V2: Gemini round 1 feedback. V2→V3: Gemini round 2 — spring physics, letter-by-letter kinetic text, light rays, organic motion paths.</p>
 </div>
 
 <div class="compare">
@@ -166,23 +166,28 @@
     <video src="{{ url_for('static', filename='review-gold.mp4') }}" controls playsinline></video>
   </div>
   <div class="version">
-    <div class="version-label">V2 — Gemini Feedback Applied</div>
-    <div class="version-sub">Hook, pacing, motion, typography, structure</div>
+    <div class="version-label">V2 — Gemini Round 1</div>
+    <div class="version-sub">Gemini overall: 7/10</div>
     <video src="{{ url_for('static', filename='review-gold-v2.mp4') }}" controls playsinline></video>
+  </div>
+  <div class="version">
+    <div class="version-label">V3 — Gemini Round 2</div>
+    <div class="version-sub">Spring physics, letter-by-letter, light rays</div>
+    <video src="{{ url_for('static', filename='review-gold-v3.mp4') }}" controls playsinline></video>
   </div>
 </div>
 
 <div class="scores">
   <div class="scores-header">Gemini V1 Scores</div>
   <table>
-    <tr><th>Dimension</th><th>V1</th><th>V2 Target</th></tr>
-    <tr><td>Hook</td><td>3/10</td><td>7+</td></tr>
-    <tr><td>Pacing</td><td>6/10</td><td>8+</td></tr>
-    <tr><td>Visual Motion</td><td>5/10</td><td>8+</td></tr>
-    <tr><td>Typography</td><td>5/10</td><td>7+</td></tr>
-    <tr><td>Production Quality</td><td>8/10</td><td>8+</td></tr>
-    <tr><td>Engagement</td><td>4/10</td><td>7+</td></tr>
-    <tr><td><strong>Overall</strong></td><td><strong>5/10</strong></td><td><strong>7-8</strong></td></tr>
+    <tr><th>Dimension</th><th>V1</th><th>V2</th><th>V3</th></tr>
+    <tr><td>Hook</td><td>3</td><td>7</td><td>?</td></tr>
+    <tr><td>Pacing</td><td>6</td><td>8</td><td>?</td></tr>
+    <tr><td>Visual Motion</td><td>5</td><td>6</td><td>?</td></tr>
+    <tr><td>Typography</td><td>5</td><td>5</td><td>?</td></tr>
+    <tr><td>Production Quality</td><td>8</td><td>8</td><td>?</td></tr>
+    <tr><td>Engagement</td><td>4</td><td>7</td><td>?</td></tr>
+    <tr><td><strong>Overall</strong></td><td><strong>5</strong></td><td><strong>7</strong></td><td><strong>?</strong></td></tr>
   </table>
 </div>
 

@@ -146,6 +146,7 @@ import { Coffee_CargoTag } from "./Coffee_CargoTag";
 import { Coffee_RoastCurve } from "./Coffee_RoastCurve";
 import { Coffee_CuppingCard } from "./Coffee_CuppingCard";
 import { ReviewGold_V2 } from "./ReviewGold_V2";
+import { ReviewGold_V3 } from "./ReviewGold_V3";
 import { Yoga_Set1_A } from "./Yoga_Set1_A";
 import { Yoga_Set1_B } from "./Yoga_Set1_B";
 import { Yoga_Set1_C } from "./Yoga_Set1_C";
@@ -556,6 +557,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="yoga-set2-b" component={Yoga_Set2_B} durationInFrames={510} fps={30} width={2160} height={2160} />
       <Composition id="yoga-set2-c" component={Yoga_Set2_C} durationInFrames={540} fps={30} width={2160} height={2160} />
       <Composition id="review-gold-v2" component={ReviewGold_V2} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="review-gold-v3" component={ReviewGold_V3} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
