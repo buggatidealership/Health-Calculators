@@ -133,6 +133,9 @@ import { Abodient_Reviews } from "./Abodient_Reviews";
 import { RE_JustListed } from "./RE_JustListed";
 import { RE_BuyerTips } from "./RE_BuyerTips";
 import { RE_MarketUpdate } from "./RE_MarketUpdate";
+import { Furniture_BarnDoor } from "./Furniture_BarnDoor";
+import { Furniture_87Hours } from "./Furniture_87Hours";
+import { Furniture_NoTwo } from "./Furniture_NoTwo";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -514,6 +517,10 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="re-just-listed" component={RE_JustListed} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="re-buyer-tips" component={RE_BuyerTips} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="re-market-update" component={RE_MarketUpdate} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* Custom Furniture Maker — Mid-Century Modern */}
+      <Composition id="furniture-barn-door" component={Furniture_BarnDoor} durationInFrames={510} fps={30} width={1080} height={1920} />
+      <Composition id="furniture-87-hours" component={Furniture_87Hours} durationInFrames={510} fps={30} width={1080} height={1920} />
+      <Composition id="furniture-no-two" component={Furniture_NoTwo} durationInFrames={510} fps={30} width={1080} height={1920} />
     </>
   );
 };

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Custom Furniture Maker — Instagram Reels</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=DM+Serif+Display&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #0f0d0a;
+      color: #F5EDE0;
+      font-family: 'Inter', -apple-system, sans-serif;
+      min-height: 100vh;
+    }
+
+    .header {
+      text-align: center;
+      padding: 60px 24px 40px;
+    }
+
+    .header h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(28px, 5vw, 48px);
+      font-weight: 400;
+      color: #F5EDE0;
+      letter-spacing: 0.02em;
+    }
+
+    .header .subtitle {
+      font-size: 16px;
+      color: #D4915E;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-top: 12px;
+      font-weight: 300;
+    }
+
+    .header .divider {
+      width: 80px;
+      height: 1.5px;
+      background: #C9A84C;
+      margin: 28px auto 0;
+      opacity: 0.5;
+    }
+
+    .grid {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      padding: 20px 24px 80px;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .reel-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .reel-card video {
+      width: 300px;
+      height: 533px;
+      object-fit: cover;
+      border-radius: 16px;
+      border: 1px solid #5C3A2130;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+      background: #1A1410;
+    }
+
+    .reel-card .label {
+      text-align: center;
+    }
+
+    .reel-card .label .number {
+      font-size: 13px;
+      color: #C9A84C;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .reel-card .label .title {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: 20px;
+      color: #F5EDE0;
+      margin-top: 6px;
+    }
+
+    .reel-card .label .hook {
+      font-size: 14px;
+      color: #D4915E;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .grid { flex-direction: column; align-items: center; gap: 40px; }
+      .reel-card video { width: 280px; height: 497px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Mid-Century Modern Tables</h1>
+    <div class="subtitle">Instagram Reels — Custom Furniture Maker</div>
+    <div class="divider"></div>
+  </div>
+
+  <div class="grid">
+    <div class="reel-card">
+      <video src="/videos/furniture-barn-door.mp4" autoplay loop muted playsinline></video>
+      <div class="label">
+        <div class="number">Reel 01</div>
+        <div class="title">The Origin Story</div>
+        <div class="hook">"This table was a barn door in 1947"</div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <video src="/videos/furniture-87-hours.mp4" autoplay loop muted playsinline></video>
+      <div class="label">
+        <div class="number">Reel 02</div>
+        <div class="title">The Process</div>
+        <div class="hook">"87 hours. One table."</div>
+      </div>
+    </div>
+
+    <div class="reel-card">
+      <video src="/videos/furniture-no-two.mp4" autoplay loop muted playsinline></video>
+      <div class="label">
+        <div class="number">Reel 03</div>
+        <div class="title">The Fingerprint</div>
+        <div class="hook">"No two tables. Ever."</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
