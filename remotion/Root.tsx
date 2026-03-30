@@ -109,6 +109,7 @@ import { EtsyCat_Digital } from "./EtsyCat_Digital";
 import { AmzCat_Mask } from "./AmzCat_Mask";
 import { AmzCat_Magnesium } from "./AmzCat_Magnesium";
 import { AmzCat_Stanley } from "./AmzCat_Stanley";
+import { Florist_PetalByPetal } from "./Florist_PetalByPetal";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -455,6 +456,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="amzcat-mask" component={AmzCat_Mask} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="amzcat-magnesium" component={AmzCat_Magnesium} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="amzcat-stanley" component={AmzCat_Stanley} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* Florist Shop */}
+      <Composition id="florist-petal-by-petal" component={Florist_PetalByPetal} durationInFrames={300} fps={30} width={1080} height={1920} />
     </>
   );
 };
