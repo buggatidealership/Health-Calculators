@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>ALTO Coffee Roasters — Instagram Reels</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display&family=JetBrains+Mono:wght@400;500&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0f0b08;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 48px 20px 80px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    font-weight: 400;
+    color: #F4EDE4;
+    letter-spacing: 1px;
+  }
+  .header p {
+    font-size: 14px;
+    color: #6b7280;
+    margin-top: 10px;
+    letter-spacing: 0.5px;
+  }
+  .header .brand-line {
+    width: 60px;
+    height: 2px;
+    background: #B87333;
+    margin: 16px auto 0;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .reel-card {
+    background: rgba(255,255,255,0.025);
+    border: 1px solid rgba(184,115,51,0.15);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+  .reel-card:hover {
+    border-color: rgba(184,115,51,0.4);
+    transform: translateY(-2px);
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #1a1410;
+    cursor: pointer;
+  }
+  .video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.35);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .play-overlay.hidden { opacity: 0; }
+  .play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(184,115,51,0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(184,115,51,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #F4EDE4;
+    margin-left: 3px;
+  }
+  .reel-meta {
+    padding: 18px 22px;
+  }
+  .reel-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: #B87333;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .reel-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #F4EDE4;
+    margin-bottom: 6px;
+  }
+  .reel-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 900px) {
+    .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    body { padding: 24px 16px 60px; }
+    .header h1 { font-size: 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>ALTO Coffee Roasters</h1>
+  <p>Single-origin &middot; Direct trade &middot; 3 Instagram Reels &middot; 18s each &middot; 1080&times;1920</p>
+  <div class="brand-line"></div>
+</div>
+
+<div class="grid">
+  <div class="reel-card">
+    <div class="video-wrap" onclick="togglePlay(this)">
+      <video src="{{ url_for('static', filename='videos/coffee-cargo-tag.mp4') }}" loop muted playsinline preload="metadata"></video>
+      <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+    </div>
+    <div class="reel-meta">
+      <div class="reel-num">Reel 01</div>
+      <div class="reel-title">Cargo Tag</div>
+      <div class="reel-desc">Origin passport. A shipping label unfolds with altitude, coordinates, farm name, varietal, and the 8,200 km journey from Huila, Colombia.</div>
+    </div>
+  </div>
+
+  <div class="reel-card">
+    <div class="video-wrap" onclick="togglePlay(this)">
+      <video src="{{ url_for('static', filename='videos/coffee-roast-curve.mp4') }}" loop muted playsinline preload="metadata"></video>
+      <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+    </div>
+    <div class="reel-meta">
+      <div class="reel-num">Reel 02</div>
+      <div class="reel-title">Roast Curve</div>
+      <div class="reel-desc">Live instrument panel. Temperature gauge sweeps to first crack at 196&deg;C, roast profile draws itself through Drying &rarr; Maillard &rarr; Development.</div>
+    </div>
+  </div>
+
+  <div class="reel-card">
+    <div class="video-wrap" onclick="togglePlay(this)">
+      <video src="{{ url_for('static', filename='videos/coffee-cupping-card.mp4') }}" loop muted playsinline preload="metadata"></video>
+      <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"/></svg></div></div>
+    </div>
+    <div class="reel-meta">
+      <div class="reel-num">Reel 03</div>
+      <div class="reel-title">Cupping Card</div>
+      <div class="reel-desc">SCA tasting scorecard writes itself. 87.5/100 fills in digit by digit, flavor wheel lights up (cherry, honey, jasmine, hazelnut), tasting notes appear.</div>
+    </div>
+  </div>
+</div>
+
+<script>
+function togglePlay(wrap) {
+  const video = wrap.querySelector('video');
+  const overlay = wrap.querySelector('.play-overlay');
+  if (video.paused) {
+    video.play();
+    overlay.classList.add('hidden');
+  } else {
+    video.pause();
+    overlay.classList.remove('hidden');
+  }
+}
+</script>
+</body>
+</html>

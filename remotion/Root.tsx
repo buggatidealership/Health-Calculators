@@ -142,6 +142,9 @@ import { Candle_A3 } from "./Candle_A3";
 import { Candle_B1 } from "./Candle_B1";
 import { Candle_B2 } from "./Candle_B2";
 import { Candle_B3 } from "./Candle_B3";
+import { Coffee_CargoTag } from "./Coffee_CargoTag";
+import { Coffee_RoastCurve } from "./Coffee_RoastCurve";
+import { Coffee_CuppingCard } from "./Coffee_CuppingCard";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -534,6 +537,10 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="candle-b1" component={Candle_B1} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="candle-b2" component={Candle_B2} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="candle-b3" component={Candle_B3} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* ALTO Coffee — Cargo Tag Series */}
+      <Composition id="coffee-cargo-tag" component={Coffee_CargoTag} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="coffee-roast-curve" component={Coffee_RoastCurve} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="coffee-cupping-card" component={Coffee_CuppingCard} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };

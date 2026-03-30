@@ -6581,6 +6581,11 @@ def preview_candle_vesper():
     return render_template('preview-candle-vesper.html')
 
 
+@app.route('/preview-coffee-alto')
+def preview_coffee_alto():
+    return render_template('preview-coffee-alto.html')
+
+
 @app.route('/mockup-abodient-brand')
 def mockup_abodient_brand():
     return render_template('mockup-abodient-brand.html')
