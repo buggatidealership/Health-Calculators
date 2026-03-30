@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Reels — Imagen 4 Edition</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #0a0a0f;
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+  }
+  .header {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #f5f0ea;
+    letter-spacing: -0.5px;
+  }
+  .header p {
+    font-size: 15px;
+    color: #6b7280;
+    margin-top: 8px;
+  }
+  .header .badge {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 6px 16px;
+    background: rgba(232,115,74,0.12);
+    color: #e8734a;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .brand-section {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+  }
+  .brand-label {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-bottom: 20px;
+    padding-left: 4px;
+  }
+  .brand-label span {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+  .reel-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: border-color 0.3s ease;
+  }
+  .reel-card:hover {
+    border-color: rgba(255,255,255,0.12);
+  }
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9/16;
+    background: #111;
+    cursor: pointer;
+  }
+  .video-wrap video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .play-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0,0,0,0.3);
+    opacity: 1;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .play-overlay.hidden { opacity: 0; }
+  .play-btn {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .play-btn svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+    margin-left: 3px;
+  }
+  .reel-meta {
+    padding: 16px 20px;
+  }
+  .reel-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #f5f0ea;
+    margin-bottom: 4px;
+  }
+  .reel-desc {
+    font-size: 13px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+  .reel-tags {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-size: 11px;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .tag-imagen { background: rgba(232,115,74,0.15); color: #e8734a; }
+  .tag-emotion { background: rgba(212,168,83,0.15); color: #d4a853; }
+  .tag-edu { background: rgba(106,200,155,0.15); color: #6ec89b; }
+  .tag-product { background: rgba(59,130,246,0.15); color: #3b82f6; }
+  .tag-proof { background: rgba(251,191,36,0.15); color: #fbbf24; }
+
+  @media (max-width: 768px) {
+    .grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+    body { padding: 24px 16px 60px; }
+    .header h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Reels — Imagen 4 Edition</h1>
+  <p>2 Pet Grooming + 2 Abodient.ai &middot; AI-generated hero images &middot; 19s each</p>
+  <div class="badge">IMAGEN 4 COMPOSITED</div>
+</div>
+
+<!-- PET GROOMING -->
+<div class="brand-section">
+  <div class="brand-label"><span style="background:#c67b4e"></span>Pet Grooming Salon</div>
+  <div class="grid">
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/petgroom-bond.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">The Bond</div>
+        <div class="reel-desc">"You hand them your whole world for 2 hours." — Imagen 4 groomer cradling a golden retriever. Emotional trust reveal, not a service pitch.</div>
+        <div class="reel-tags">
+          <span class="tag tag-imagen">Imagen 4</span>
+          <span class="tag tag-emotion">Emotional hook</span>
+        </div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/petgroom-healthcheck.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">Before They Tell You</div>
+        <div class="reel-desc">"Your groomer found it before your vet did." — Imagen 4 clinical ear exam. Reframes grooming as preventive healthcare.</div>
+        <div class="reel-tags">
+          <span class="tag tag-imagen">Imagen 4</span>
+          <span class="tag tag-edu">Health reframe</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABODIENT.AI -->
+<div class="brand-section">
+  <div class="brand-label"><span style="background:#e8734a"></span>Abodient.ai</div>
+  <div class="grid">
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/abodient-dashboard.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">The Dashboard</div>
+        <div class="reel-desc">"This is what 8 properties looks like at 7 AM." — Imagen 4 premium SaaS dashboard. All green. Product-as-hero.</div>
+        <div class="reel-tags">
+          <span class="tag tag-imagen">Imagen 4</span>
+          <span class="tag tag-product">Product visual</span>
+        </div>
+      </div>
+    </div>
+    <div class="reel-card">
+      <div class="video-wrap" onclick="toggleVideo(this)">
+        <video src="{{ url_for('static', filename='videos/abodient-reviews.mp4') }}" loop muted playsinline preload="metadata"></video>
+        <div class="play-overlay"><div class="play-btn"><svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg></div></div>
+      </div>
+      <div class="reel-meta">
+        <div class="reel-title">The Reviews</div>
+        <div class="reel-desc">"4.9 stars. Managed by AI. Rated by humans." — Imagen 4 happy tenant + stacking reviews + aggregate rating proof.</div>
+        <div class="reel-tags">
+          <span class="tag tag-imagen">Imagen 4</span>
+          <span class="tag tag-proof">Social proof</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function toggleVideo(wrap) {
+  const video = wrap.querySelector('video');
+  const overlay = wrap.querySelector('.play-overlay');
+  if (video.paused) {
+    document.querySelectorAll('.video-wrap video').forEach(v => {
+      if (v !== video) { v.pause(); v.parentElement.querySelector('.play-overlay').classList.remove('hidden'); }
+    });
+    video.play();
+    overlay.classList.add('hidden');
+  } else {
+    video.pause();
+    overlay.classList.remove('hidden');
+  }
+}
+</script>
+</body>
+</html>

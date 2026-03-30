@@ -126,6 +126,10 @@ import { PetGroom_SpaDay } from "./PetGroom_SpaDay";
 import { PetGroom_Seasonal } from "./PetGroom_Seasonal";
 import { Abodient_Inbox } from "./Abodient_Inbox";
 import { Abodient_Vacation } from "./Abodient_Vacation";
+import { PetGroom_Bond } from "./PetGroom_Bond";
+import { PetGroom_HealthCheck } from "./PetGroom_HealthCheck";
+import { Abodient_Dashboard } from "./Abodient_Dashboard";
+import { Abodient_Reviews } from "./Abodient_Reviews";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -497,6 +501,12 @@ export const RemotionRoot: React.FC = () => {
       {/* Abodient.ai — Batch 3 */}
       <Composition id="abodient-inbox" component={Abodient_Inbox} durationInFrames={570} fps={30} width={1080} height={1920} />
       <Composition id="abodient-vacation" component={Abodient_Vacation} durationInFrames={570} fps={30} width={1080} height={1920} />
+      {/* Pet Grooming — Imagen 4 */}
+      <Composition id="petgroom-bond" component={PetGroom_Bond} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="petgroom-healthcheck" component={PetGroom_HealthCheck} durationInFrames={570} fps={30} width={1080} height={1920} />
+      {/* Abodient.ai — Imagen 4 */}
+      <Composition id="abodient-dashboard" component={Abodient_Dashboard} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="abodient-reviews" component={Abodient_Reviews} durationInFrames={570} fps={30} width={1080} height={1920} />
     </>
   );
 };
