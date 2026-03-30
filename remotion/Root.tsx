@@ -110,6 +110,8 @@ import { AmzCat_Mask } from "./AmzCat_Mask";
 import { AmzCat_Magnesium } from "./AmzCat_Magnesium";
 import { AmzCat_Stanley } from "./AmzCat_Stanley";
 import { Florist_PetalByPetal } from "./Florist_PetalByPetal";
+import { Bakery_A } from "./Bakery_A";
+import { Bakery_B } from "./Bakery_B";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -458,6 +460,9 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="amzcat-stanley" component={AmzCat_Stanley} durationInFrames={540} fps={30} width={1080} height={1920} />
       {/* Florist Shop */}
       <Composition id="florist-petal-by-petal" component={Florist_PetalByPetal} durationInFrames={300} fps={30} width={1080} height={1920} />
+      {/* Bakery Sourdough — Blind A/B */}
+      <Composition id="bakery-a" component={Bakery_A} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="bakery-b" component={Bakery_B} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
