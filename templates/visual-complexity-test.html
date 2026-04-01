@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Complexity Test — Before vs After</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #0a0a0a; color: #e0e0e0; font-family: 'Inter', -apple-system, sans-serif; }
+.header { text-align: center; padding: 40px 20px 20px; }
+.header h1 { font-size: 24px; font-weight: 600; color: #d4a853; }
+.header p { font-size: 14px; color: #8a94a8; margin-top: 8px; }
+.compare { display: flex; gap: 20px; justify-content: center; padding: 20px; flex-wrap: wrap; }
+.panel { flex: 0 1 400px; text-align: center; }
+.panel h2 { font-size: 16px; color: #8a94a8; margin-bottom: 12px; font-weight: 500; }
+.panel .score { font-size: 13px; color: #d4a853; margin-bottom: 8px; }
+.panel video { width: 100%; max-width: 400px; border-radius: 12px; border: 1px solid #1a2030; }
+.properties { max-width: 840px; margin: 30px auto; padding: 0 20px; }
+.properties h3 { font-size: 16px; color: #d4a853; margin-bottom: 12px; }
+.prop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.prop { display: flex; align-items: center; gap: 8px; font-size: 13px; padding: 8px 12px; background: #141a28; border-radius: 8px; }
+.prop .status { font-size: 16px; }
+.prop .name { color: #e0e0e0; }
+.prop .detail { color: #8a94a8; font-size: 12px; }
+</style>
+</head>
+<body>
+<div class="header">
+    <h1>Visual Complexity Test</h1>
+    <p>Same content. Same story. Same timing. Only visual complexity changed.</p>
+</div>
+<div class="compare">
+    <div class="panel">
+        <h2>BEFORE — ReviewGold V4</h2>
+        <div class="score">Visual Complexity: 4/10</div>
+        <video src="/static/review-gold-v4.mp4" controls playsinline loop muted></video>
+    </div>
+    <div class="panel">
+        <h2>AFTER — Composite Final</h2>
+        <div class="score">Visual Complexity: Pending operator score</div>
+        <video src="/static/composite-final.mp4" controls playsinline loop muted></video>
+    </div>
+</div>
+<div class="properties">
+    <h3>Properties Added</h3>
+    <div class="prop-grid">
+        <div class="prop"><span class="status">+</span><span class="name">Environment background</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Hero asset (Imagen 4)</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Depth layers (3 planes)</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Directional lighting</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Parallax (3-rate drift)</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Glass-morphism cards</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Physics particles</span></div>
+        <div class="prop"><span class="status">+</span><span class="name">Metallic SVG stars</span></div>
+    </div>
+</div>
+</body>
+</html>

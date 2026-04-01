@@ -6596,6 +6596,11 @@ def review_gold_compare():
     return render_template('review-gold-compare.html')
 
 
+@app.route('/visual-complexity-test')
+def visual_complexity_test():
+    return render_template('visual-complexity-test.html')
+
+
 @app.route('/mockup-abodient-brand')
 def mockup_abodient_brand():
     return render_template('mockup-abodient-brand.html')
