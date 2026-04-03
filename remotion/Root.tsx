@@ -73,6 +73,8 @@ import { DM_PhilArt_Glitch } from "./DM_PhilArt_Glitch";
 import { DM_PhilArt_XRay } from "./DM_PhilArt_XRay";
 import { DM_PRP_LayerPeel } from "./DM_PRP_LayerPeel";
 import { DM_PRP_LayerPeel_Audio } from "./DM_PRP_LayerPeel_Audio";
+import { DM_PRP_BlindTest_A } from "./DM_PRP_BlindTest_A";
+import { DM_PRP_BlindTest_B } from "./DM_PRP_BlindTest_B";
 import { DM_PRP_CardStack } from "./DM_PRP_CardStack";
 import { DM_Harmonyca_Scale } from "./DM_Harmonyca_Scale";
 import { DM_Harmonyca_SplitReveal } from "./DM_Harmonyca_SplitReveal";
@@ -474,6 +476,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-philart-xray" component={DM_PhilArt_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-prp-layerpeel" component={DM_PRP_LayerPeel} durationInFrames={420} fps={30} width={1080} height={1920} />
       <Composition id="dm-prp-layerpeel-audio" component={DM_PRP_LayerPeel_Audio} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-prp-blind-a" component={DM_PRP_BlindTest_A} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-prp-blind-b" component={DM_PRP_BlindTest_B} durationInFrames={420} fps={30} width={1080} height={1920} />
       <Composition id="dm-prp-cardstack" component={DM_PRP_CardStack} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-harmonyca-scale" component={DM_Harmonyca_Scale} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-harmonyca-splitreveal" component={DM_Harmonyca_SplitReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
