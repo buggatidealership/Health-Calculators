@@ -72,6 +72,7 @@ import { DM_PhilArtEyes_Eraser } from "./DM_PhilArtEyes_Eraser";
 import { DM_PhilArt_Glitch } from "./DM_PhilArt_Glitch";
 import { DM_PhilArt_XRay } from "./DM_PhilArt_XRay";
 import { DM_PRP_LayerPeel } from "./DM_PRP_LayerPeel";
+import { DM_PRP_LayerPeel_Audio } from "./DM_PRP_LayerPeel_Audio";
 import { DM_PRP_CardStack } from "./DM_PRP_CardStack";
 import { DM_Harmonyca_Scale } from "./DM_Harmonyca_Scale";
 import { DM_Harmonyca_SplitReveal } from "./DM_Harmonyca_SplitReveal";
@@ -148,12 +149,21 @@ import { Coffee_CuppingCard } from "./Coffee_CuppingCard";
 import { ReviewGold_V2 } from "./ReviewGold_V2";
 import { ReviewGold_V3 } from "./ReviewGold_V3";
 import { ReviewGold_V4 } from "./ReviewGold_V4";
+import { Test1_Depth } from "./Test1_Depth";
+import { Test3_Lighting } from "./Test3_Lighting";
+import { Test2_Hero } from "./Test2_Hero";
+import { Test4_Particles } from "./Test4_Particles";
+import { Test5_Parallax } from "./Test5_Parallax";
+import { Test6_Material } from "./Test6_Material";
+import { Test7_Environment } from "./Test7_Environment";
 import { Yoga_Set1_A } from "./Yoga_Set1_A";
 import { Yoga_Set1_B } from "./Yoga_Set1_B";
 import { Yoga_Set1_C } from "./Yoga_Set1_C";
 import { Yoga_Set2_A } from "./Yoga_Set2_A";
 import { Yoga_Set2_B } from "./Yoga_Set2_B";
 import { Yoga_Set2_C } from "./Yoga_Set2_C";
+import { Composite_Final } from "./Composite_Final";
+import { LD_PixelFusion } from "./LD_PixelFusion";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -463,6 +473,7 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-philart-glitch" component={DM_PhilArt_Glitch} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="dm-philart-xray" component={DM_PhilArt_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-prp-layerpeel" component={DM_PRP_LayerPeel} durationInFrames={420} fps={30} width={1080} height={1920} />
+      <Composition id="dm-prp-layerpeel-audio" component={DM_PRP_LayerPeel_Audio} durationInFrames={420} fps={30} width={1080} height={1920} />
       <Composition id="dm-prp-cardstack" component={DM_PRP_CardStack} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-harmonyca-scale" component={DM_Harmonyca_Scale} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-harmonyca-splitreveal" component={DM_Harmonyca_SplitReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
@@ -560,6 +571,16 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="review-gold-v2" component={ReviewGold_V2} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="review-gold-v3" component={ReviewGold_V3} durationInFrames={540} fps={30} width={1080} height={1920} />
       <Composition id="review-gold-v4" component={ReviewGold_V4} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test1-depth" component={Test1_Depth} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test2-hero" component={Test2_Hero} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test4-particles" component={Test4_Particles} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test6-material" component={Test6_Material} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test3-lighting" component={Test3_Lighting} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test5-parallax" component={Test5_Parallax} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="test7-environment" component={Test7_Environment} durationInFrames={540} fps={30} width={1080} height={1920} />
+      <Composition id="composite-final" component={Composite_Final} durationInFrames={540} fps={30} width={1080} height={1920} />
+      {/* Liquid Death — Pixel Art Fusion Segment */}
+      <Composition id="ld-pixel-fusion" component={LD_PixelFusion} durationInFrames={300} fps={30} width={1080} height={1920} />
     </>
   );
 };
