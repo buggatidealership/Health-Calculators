@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abodient — Your AI Property Manager</title>
+<meta name="description" content="Alfred is your 24/7 AI property manager. Handles tenant issues, books tradespeople, keeps you in control. Try free for 30 days.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=JetBrains+Mono:wght@300;400;500&family=Lora:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+/* ========== RESET & BASE ========== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --cream: #F5F0EA;
+  --cream-warm: #F5EFE6;
+  --dark: #1A1A1A;
+  --brown: #5A5549;
+  --muted: #8A8278;
+  --coral: #E8704A;
+  --coral-hover: #D4613E;
+  --night: #0A0A0F;
+  --dawn: #1A1510;
+  --teal: #0e7a7e;
+  --teal-soft: #1a9ea2;
+  --night-text: #E0E0E0;
+  --night-secondary: #9A9A9A;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--dark);
+  background: var(--cream);
+  line-height: 1.5;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ========== FILM GRAIN OVERLAY ========== */
+.grain-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.028;
+}
+
+.grain-overlay svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ========== BACKGROUND TRANSITION LAYER ========== */
+.bg-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  transition: background-color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--cream);
+}
+
+/* ========== NAVIGATION ========== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(245, 240, 234, 0.85);
+  -webkit-backdrop-filter: blur(12px) saturate(1.2);
+  backdrop-filter: blur(12px) saturate(1.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  text-decoration: none;
+  transition: color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-logo span {
+  color: var(--coral);
+}
+
+.nav-cta {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--coral);
+  text-decoration: none;
+  padding: 8px 20px;
+  border: 1.5px solid var(--coral);
+  border-radius: 100px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
+}
+
+.nav-cta:hover {
+  background: var(--coral);
+  color: #fff;
+}
+
+/* Dark mode nav */
+.nav.dark {
+  background: rgba(10, 10, 15, 0.85);
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+}
+.nav.dark .nav-logo { color: var(--night-text); }
+.nav.dark .nav-cta { color: var(--coral); border-color: var(--coral); }
+.nav.dark .nav-cta:hover { background: var(--coral); color: #fff; }
+
+/* ========== SECTIONS ========== */
+.section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 24px;
+  position: relative;
+}
+
+.section-inner {
+  max-width: 680px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* ========== TIMESTAMPS ========== */
+.timestamp {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 300;
+  font-size: clamp(48px, 12vw, 96px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.timestamp-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+
+/* ========== SECTION 1: EVENING ========== */
+.s-evening .timestamp { color: var(--dark); opacity: 0.12; }
+.s-evening .timestamp-label { color: var(--muted); }
+
+.s-evening h1 {
+  font-size: clamp(36px, 7vw, 56px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+  color: var(--dark);
+  margin-bottom: 20px;
+}
+
+.s-evening .subtitle {
+  font-size: clamp(17px, 2.5vw, 20px);
+  color: var(--brown);
+  line-height: 1.55;
+  max-width: 500px;
+  margin-bottom: 40px;
+}
+
+.s-evening .hint {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.hint-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: pulse-dot 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0.4;
+  animation: fade-scroll 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.scroll-indicator span {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.scroll-chevron {
+  width: 20px;
+  height: 20px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+  animation: chevron-bounce 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes chevron-bounce {
+  0%, 100% { transform: rotate(45deg) translateY(0); }
+  50% { transform: rotate(45deg) translateY(4px); }
+}
+
+@keyframes fade-scroll {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+/* ========== SECTION 2: THE ALERT ========== */
+.s-alert {
+  padding-top: 100px;
+  padding-bottom: 60px;
+}
+
+.s-alert .timestamp { color: #fff; opacity: 0.06; }
+.s-alert .timestamp-label { color: var(--night-secondary); }
+
+.chat-container {
+  width: 100%;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 0;
+  margin-bottom: 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.chat-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.chat-avatar.tenant { background: rgba(255,255,255,0.08); color: var(--night-text); }
+.chat-avatar.alfred { background: var(--teal); color: #fff; }
+
+.chat-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--night-text);
+}
+
+.chat-property {
+  font-size: 12px;
+  color: var(--night-secondary);
+}
+
+/* Messages */
+.chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 16px 0;
+}
+
+.msg {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.msg.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.msg.tenant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--night-text);
+  border-bottom-left-radius: 4px;
+}
+
+.msg.alfred {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.msg-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-top: 4px;
+  display: block;
+}
+
+.msg.tenant .msg-time { text-align: left; }
+.msg.alfred .msg-time { text-align: right; }
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  align-self: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.typing-indicator.visible { opacity: 1; }
+
+.typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: typing-pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes typing-pulse {
+  0%, 60%, 100% { opacity: 0.3; transform: scale(0.85); }
+  30% { opacity: 1; transform: scale(1); }
+}
+
+/* ========== SECTION 3: ALFRED WORKS ========== */
+.s-works {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.s-works .timestamp { color: #fff; opacity: 0.06; }
+.s-works .timestamp-label { color: var(--night-secondary); }
+
+.workflow-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.workflow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  opacity: 0;
+  transform: translateX(-16px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.workflow-step.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.step-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex-shrink: 0;
+  background: rgba(14, 122, 126, 0.15);
+  border: 1px solid rgba(14, 122, 126, 0.25);
+}
+
+.step-content h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--night-text);
+  margin-bottom: 3px;
+  letter-spacing: -0.01em;
+}
+
+.step-content p {
+  font-size: 14px;
+  color: var(--night-secondary);
+  line-height: 1.45;
+}
+
+.step-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: rgba(255,255,255,0.25);
+  margin-top: 4px;
+}
+
+/* Approval card */
+.approval-card {
+  margin-top: 36px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 24px;
+  opacity: 0;
+  transform: scale(0.96);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.approval-card.visible {
+  opacity: 1;
+  transform: scale(1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.approval-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.approval-badge {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-soft);
+  background: rgba(14, 122, 126, 0.12);
+  padding: 4px 10px;
+  border-radius: 100px;
+}
+
+.approval-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--night-text);
+  margin-bottom: 14px;
+  letter-spacing: -0.01em;
+}
+
+.approval-detail {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 14px;
+}
+
+.approval-detail:last-of-type { border-bottom: none; }
+
+.approval-detail-label {
+  color: var(--night-secondary);
+}
+
+.approval-detail-value {
+  color: var(--night-text);
+  font-weight: 500;
+  text-align: right;
+}
+
+.approval-detail-value .stars {
+  color: #f0b429;
+}
+
+.approval-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-approve {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  letter-spacing: -0.01em;
+}
+
+.btn-approve.primary {
+  background: var(--teal);
+  color: #fff;
+}
+
+.btn-approve.primary:hover {
+  background: var(--teal-soft);
+  transform: translateY(-1px);
+}
+
+.btn-approve.secondary {
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--night-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ========== SECTION 4: MORNING ========== */
+.s-morning {
+  min-height: 100vh;
+}
+
+.s-morning .timestamp {
+  color: var(--coral);
+  opacity: 0.15;
+}
+
+.s-morning .timestamp-label {
+  color: var(--muted);
+}
+
+.morning-summary {
+  margin-top: 8px;
+}
+
+.morning-summary h2 {
+  font-size: clamp(26px, 5vw, 36px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+
+.morning-lead {
+  font-size: 16px;
+  color: var(--brown);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.summary-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+  margin-bottom: 32px;
+}
+
+.summary-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+
+.summary-items {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.summary-item.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.check-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(14, 122, 126, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.check-circle svg {
+  width: 14px;
+  height: 14px;
+  stroke: var(--teal);
+  stroke-width: 2.5;
+  fill: none;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+  transition: stroke-dashoffset 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.summary-item.visible .check-circle svg {
+  stroke-dashoffset: 0;
+}
+
+.summary-item-text {
+  font-size: 16px;
+  color: var(--dark);
+  font-weight: 500;
+}
+
+.morning-payoff {
+  margin-top: 36px;
+  text-align: center;
+}
+
+.morning-payoff h3 {
+  font-size: clamp(24px, 5vw, 32px);
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.morning-payoff h3 em {
+  font-style: normal;
+  color: var(--coral);
+}
+
+.morning-payoff p {
+  font-size: 17px;
+  color: var(--brown);
+  margin-top: 8px;
+}
+
+/* ========== SECTION 5: FEATURES ========== */
+.s-features {
+  padding: 80px 24px;
+  min-height: auto;
+}
+
+.s-features .section-inner {
+  max-width: 880px;
+}
+
+.features-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.features-header .section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.features-header h2 {
+  font-size: clamp(28px, 5vw, 40px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  line-height: 1.1;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .feature-cards {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 32px 24px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 6px 20px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.feature-card:hover {
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04), 0 12px 32px rgba(0,0,0,0.08);
+}
+
+.feature-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.feature-icon.fc-1 { background: rgba(232, 112, 74, 0.1); }
+.feature-icon.fc-2 { background: rgba(14, 122, 126, 0.1); }
+.feature-icon.fc-3 { background: rgba(110, 200, 155, 0.1); }
+
+.feature-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.feature-card p {
+  font-size: 15px;
+  color: var(--brown);
+  line-height: 1.55;
+}
+
+/* ========== HOW IT WORKS (brief) ========== */
+.s-how {
+  padding: 60px 24px 80px;
+  min-height: auto;
+}
+
+.s-how .section-inner {
+  max-width: 680px;
+}
+
+.how-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.how-header .section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.how-header h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  line-height: 1.15;
+}
+
+.how-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.how-step {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s cubic-bezier(0.4, 0, 0.2, 1), transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.how-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.how-step-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  flex-shrink: 0;
+  background: var(--dark);
+  color: #fff;
+}
+
+.how-step-content h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+
+.how-step-content p {
+  font-size: 15px;
+  color: var(--brown);
+  line-height: 1.5;
+}
+
+/* ========== SECTION 6: SOCIAL PROOF ========== */
+.s-proof {
+  padding: 60px 24px 80px;
+  min-height: auto;
+}
+
+.s-proof .section-inner {
+  max-width: 880px;
+}
+
+.proof-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.proof-header .section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+
+.proof-header h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  line-height: 1.15;
+}
+
+.testimonials {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 640px) {
+  .testimonials {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media (min-width: 880px) {
+  .testimonials {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.testimonial {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03), 0 6px 20px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.testimonial-quote {
+  font-family: 'Lora', 'Georgia', serif;
+  font-style: italic;
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--dark);
+  margin-bottom: 18px;
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.testimonial-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--cream);
+  color: var(--brown);
+}
+
+.testimonial-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.testimonial-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.testimonial-role {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ========== SECTION 7: FINAL CTA ========== */
+.s-cta {
+  padding: 80px 24px 100px;
+  min-height: auto;
+  text-align: center;
+}
+
+.s-cta .section-inner {
+  max-width: 560px;
+}
+
+.s-cta h2 {
+  font-size: clamp(30px, 6vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+
+.s-cta p {
+  font-size: 17px;
+  color: var(--brown);
+  line-height: 1.5;
+  margin-bottom: 32px;
+}
+
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 36px;
+  background: var(--coral);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: -0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-decoration: none;
+}
+
+.cta-btn:hover {
+  background: var(--coral-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(232, 112, 74, 0.3);
+}
+
+.cta-sub {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  padding: 32px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(0,0,0,0.06);
+}
+
+.footer p {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.footer a {
+  color: var(--brown);
+  text-decoration: none;
+}
+
+/* ========== REVEAL ANIMATIONS ========== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ========== MOBILE-FIRST RESPONSIVE ========== */
+@media (min-width: 768px) {
+  .section { padding: 100px 40px; }
+  .nav { padding: 24px 40px; }
+  .s-features, .s-how, .s-proof, .s-cta { padding-left: 40px; padding-right: 40px; }
+}
+
+@media (min-width: 1024px) {
+  .nav { padding: 24px 60px; }
+  .section { padding: 120px 60px; }
+}
+
+/* ========== TRANSITIONS FOR DARK SECTIONS ========== */
+.s-alert, .s-works {
+  color: var(--night-text);
+}
+
+/* Channels strip */
+.channels-strip {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.channel-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--night-secondary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+
+.channel-badge-icon {
+  font-size: 14px;
+}
+
+/* ========== PRICING HINT ========== */
+.pricing-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.pricing-stat {
+  text-align: center;
+}
+
+.pricing-stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--dark);
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.pricing-stat-value span {
+  color: var(--coral);
+}
+
+.pricing-stat-label {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+.pricing-divider {
+  width: 1px;
+  height: 36px;
+  background: rgba(0,0,0,0.1);
+}
+
+/* ========== DARK-MODE OVERRIDES FOR MORNING TRANSITION ========== */
+.s-morning.transitioning {
+  transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ========== A11Y ========== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus styles */
+.cta-btn:focus-visible, .nav-cta:focus-visible, .btn-approve:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 3px;
+}
+</style>
+</head>
+<body>
+
+<!-- Film grain overlay -->
+<div class="grain-overlay" aria-hidden="true">
+<svg>
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <rect width="100%" height="100%" filter="url(#grain)"/>
+</svg>
+</div>
+
+<!-- Background color layer -->
+<div class="bg-layer" id="bgLayer" aria-hidden="true"></div>
+
+<!-- Navigation -->
+<nav class="nav" id="mainNav">
+  <a href="/" class="nav-logo">abodient<span>.</span></a>
+  <a href="#cta" class="nav-cta">Try Alfred Free</a>
+</nav>
+
+<!-- ============================================ -->
+<!-- SECTION 1: 10:00 PM — Evening Wind Down     -->
+<!-- ============================================ -->
+<section class="section s-evening" id="evening" data-bg="cream">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="timestamp">10:00 PM</div>
+      <div class="timestamp-label">Evening</div>
+    </div>
+    <h1 class="reveal reveal-delay-1">Your properties.<br>Managed.</h1>
+    <p class="subtitle reveal reveal-delay-2">You set your phone on the nightstand. Your tenants are settled. Tomorrow can wait. Alfred is watching.</p>
+    <div class="hint reveal reveal-delay-3">
+      <span class="hint-dot"></span>
+      <span>Alfred is online across 3 properties</span>
+    </div>
+  </div>
+  <div class="scroll-indicator" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="scroll-chevron"></div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 2: 2:03 AM — The Alert               -->
+<!-- ============================================ -->
+<section class="section s-alert" id="alert" data-bg="night">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="timestamp">2:03 AM</div>
+      <div class="timestamp-label">The Alert</div>
+    </div>
+
+    <div class="chat-container reveal reveal-delay-1">
+      <div class="chat-header">
+        <div class="chat-avatar tenant">SR</div>
+        <div class="chat-header-info">
+          <span class="chat-name">Sarah Reynolds</span>
+          <span class="chat-property">14 Marlowe Street, Flat B</span>
+        </div>
+      </div>
+      <div class="chat-messages" id="chatMessages">
+        <div class="msg tenant" data-delay="400">
+          Hi, sorry to message so late. There's water coming through the kitchen ceiling
+          <span class="msg-time">02:03</span>
+        </div>
+        <div class="msg tenant" data-delay="1200">
+          It's dripping quite fast, I've put a bucket under it but it's getting worse
+          <span class="msg-time">02:03</span>
+        </div>
+        <div class="typing-indicator" id="typingIndicator" aria-label="Alfred is typing">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+        <div class="msg alfred" data-delay="2600">
+          Hi Sarah. I'm sorry about that — let me help get this sorted right away. A few quick questions so I can assess the situation:
+          <span class="msg-time">02:04</span>
+        </div>
+        <div class="msg alfred" data-delay="3600">
+          1. Is the water clear or discoloured?<br>
+          2. Can you hear water running in the pipes above?<br>
+          3. Is the flat above you occupied?
+          <span class="msg-time">02:04</span>
+        </div>
+        <div class="msg tenant" data-delay="5000">
+          The water is clear. Yes I can hear running, like a constant drip. The flat above is empty, the tenants moved out last week
+          <span class="msg-time">02:06</span>
+        </div>
+        <div class="msg alfred" data-delay="6200">
+          Thank you. Based on what you've described — clear water, audible pipe noise, vacant flat above — this is likely a burst or leaking pipe. I'm treating this as urgent.
+          <span class="msg-time">02:06</span>
+        </div>
+        <div class="msg alfred" data-delay="7400">
+          I'm finding an emergency plumber now. In the meantime, if you can locate the stopcock for your flat, turning it off will slow the flow. It's usually under the kitchen sink.
+          <span class="msg-time">02:07</span>
+        </div>
+      </div>
+      <div class="channels-strip reveal reveal-delay-3">
+        <div class="channel-badge">
+          <span class="channel-badge-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          </span>
+          WhatsApp
+        </div>
+        <div class="channel-badge">
+          <span class="channel-badge-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          </span>
+          Email
+        </div>
+        <div class="channel-badge">
+          <span class="channel-badge-icon" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+          </span>
+          In-app
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 3: 2:15 AM — Alfred Works             -->
+<!-- ============================================ -->
+<section class="section s-works" id="works" data-bg="night-teal">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="timestamp">2:15 AM</div>
+      <div class="timestamp-label">Alfred Works</div>
+    </div>
+
+    <div class="workflow-steps">
+      <div class="workflow-step" data-delay="200">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        </div>
+        <div class="step-content">
+          <h3>Issue identified</h3>
+          <p>Likely burst pipe in vacant Flat A above. Classified as urgent — risk of structural water damage.</p>
+          <div class="step-time">02:08</div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-delay="600">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
+        </div>
+        <div class="step-content">
+          <h3>Emergency plumber found</h3>
+          <p>Searched Checkatrade for 24-hour plumbers within 5 miles. Found 3 available. Top match: Mike's Plumbing.</p>
+          <div class="step-time">02:10</div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-delay="1000">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <div class="step-content">
+          <h3>Appointment booked</h3>
+          <p>Mike's Plumbing confirmed for 7:30 AM. Call-out fee: &pound;95 + VAT. Emergency rate applies.</p>
+          <div class="step-time">02:12</div>
+        </div>
+      </div>
+
+      <div class="workflow-step" data-delay="1400">
+        <div class="step-icon" aria-hidden="true">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+        </div>
+        <div class="step-content">
+          <h3>Tenant updated</h3>
+          <p>Sarah notified: plumber arriving at 7:30 AM, access instructions sent. Stopcock advice confirmed.</p>
+          <div class="step-time">02:14</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Approval card -->
+    <div class="approval-card" id="approvalCard">
+      <div class="approval-card-header">
+        <div class="approval-badge">Awaiting your approval</div>
+      </div>
+      <h3>Emergency plumber booking</h3>
+      <div class="approval-detail">
+        <span class="approval-detail-label">Tradesperson</span>
+        <span class="approval-detail-value">Mike's Plumbing</span>
+      </div>
+      <div class="approval-detail">
+        <span class="approval-detail-label">Rating</span>
+        <span class="approval-detail-value"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.8</span>
+      </div>
+      <div class="approval-detail">
+        <span class="approval-detail-label">Arrival</span>
+        <span class="approval-detail-value">7:30 AM today</span>
+      </div>
+      <div class="approval-detail">
+        <span class="approval-detail-label">Est. cost</span>
+        <span class="approval-detail-value">&pound;95 + VAT call-out</span>
+      </div>
+      <div class="approval-detail">
+        <span class="approval-detail-label">Property</span>
+        <span class="approval-detail-value">14 Marlowe St, Flat A &amp; B</span>
+      </div>
+      <div class="approval-actions">
+        <button class="btn-approve primary" aria-label="Approve booking">Approve</button>
+        <button class="btn-approve secondary" aria-label="Modify booking">Modify</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 4: 7:00 AM — Morning                 -->
+<!-- ============================================ -->
+<section class="section s-morning" id="morning" data-bg="dawn-cream">
+  <div class="section-inner">
+    <div class="reveal">
+      <div class="timestamp">7:00 AM</div>
+      <div class="timestamp-label">Morning</div>
+    </div>
+
+    <div class="morning-summary">
+      <h2 class="reveal reveal-delay-1">While you slept</h2>
+      <p class="morning-lead reveal reveal-delay-2">Alfred handled an emergency at 14 Marlowe Street. Here's what happened:</p>
+
+      <div class="summary-card reveal reveal-delay-2">
+        <div class="summary-label">Overnight summary</div>
+        <div class="summary-items" id="summaryItems">
+          <div class="summary-item" data-delay="200">
+            <div class="check-circle">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="summary-item-text">Tenant issue triaged in under 4 minutes</span>
+          </div>
+          <div class="summary-item" data-delay="400">
+            <div class="check-circle">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="summary-item-text">Emergency plumber found and booked</span>
+          </div>
+          <div class="summary-item" data-delay="600">
+            <div class="check-circle">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="summary-item-text">Tenant updated with arrival time and next steps</span>
+          </div>
+          <div class="summary-item" data-delay="800">
+            <div class="check-circle">
+              <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+            <span class="summary-item-text">Full audit trail logged for your records</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="morning-payoff reveal reveal-delay-3">
+        <h3>You slept. <em>Alfred handled it.</em></h3>
+        <p>Every detail documented. Nothing sent without your say-so.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 5: Features (in context)             -->
+<!-- ============================================ -->
+<section class="section s-features" id="features" data-bg="cream">
+  <div class="section-inner">
+    <div class="features-header reveal">
+      <div class="section-label">What Alfred does</div>
+      <h2>Everything you just saw, every night</h2>
+    </div>
+
+    <div class="feature-cards">
+      <div class="feature-card" data-delay="0">
+        <div class="feature-icon fc-1" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#E8704A" stroke-width="2"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z"></path><path d="M12 6v6l4 2"></path></svg>
+        </div>
+        <h3>24/7 Tenant Support</h3>
+        <p>Alfred responds to tenants in seconds, not hours. Diagnoses issues, asks the right questions, and escalates when needed. Across WhatsApp, email, and in-app.</p>
+      </div>
+
+      <div class="feature-card" data-delay="100">
+        <div class="feature-icon fc-2" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+        </div>
+        <h3>You Stay In Control</h3>
+        <p>Nothing is sent to tenants or tradespeople without your approval. Review everything, modify anything. Complete audit trail, always.</p>
+      </div>
+
+      <div class="feature-card" data-delay="200">
+        <div class="feature-icon fc-3" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#6ec89b" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+        </div>
+        <h3>Learns Your Preferences</h3>
+        <p>Alfred reads your leases, inventories, and certificates. Over time, it learns your preferred tradespeople, your approval patterns, and how you like things done.</p>
+      </div>
+    </div>
+
+    <div class="pricing-hint reveal reveal-delay-3">
+      <div class="pricing-stat">
+        <div class="pricing-stat-value">Up to <span>90%</span></div>
+        <div class="pricing-stat-label">cheaper than letting agents</div>
+      </div>
+      <div class="pricing-divider" aria-hidden="true"></div>
+      <div class="pricing-stat">
+        <div class="pricing-stat-value">30 days</div>
+        <div class="pricing-stat-label">free trial, no card required</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 5b: How it works (brief)             -->
+<!-- ============================================ -->
+<section class="section s-how" id="how" data-bg="cream">
+  <div class="section-inner">
+    <div class="how-header reveal">
+      <div class="section-label">Getting started</div>
+      <h2>Up and running in 15 minutes</h2>
+    </div>
+
+    <div class="how-steps">
+      <div class="how-step" data-delay="0">
+        <div class="how-step-num">1</div>
+        <div class="how-step-content">
+          <h3>Add your properties</h3>
+          <p>Upload leases, inventories, gas certificates, EPC reports. Alfred reads them so you don't have to brief it.</p>
+        </div>
+      </div>
+      <div class="how-step" data-delay="150">
+        <div class="how-step-num">2</div>
+        <div class="how-step-content">
+          <h3>Connect your channels</h3>
+          <p>Link WhatsApp, email, or let tenants use the Abodient app. Alfred monitors all channels, 24/7.</p>
+        </div>
+      </div>
+      <div class="how-step" data-delay="300">
+        <div class="how-step-num">3</div>
+        <div class="how-step-content">
+          <h3>Set your rules</h3>
+          <p>Tell Alfred your preferences: approved tradespeople, spending limits, when to wake you. It adapts to how you work.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 6: Social Proof                       -->
+<!-- ============================================ -->
+<section class="section s-proof" id="proof" data-bg="cream">
+  <div class="section-inner">
+    <div class="proof-header reveal">
+      <div class="section-label">From landlords like you</div>
+      <h2>They sleep better now</h2>
+    </div>
+
+    <div class="testimonials">
+      <div class="testimonial" data-delay="0">
+        <p class="testimonial-quote">"I've got 3 buy-to-lets in Birmingham. Last month Alfred handled a boiler breakdown at 1 AM — I woke up to a summary and a plumber already booked. I approved it over coffee. That used to be a 2-hour ordeal."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">JH</div>
+          <div class="testimonial-info">
+            <span class="testimonial-name">James Hargreaves</span>
+            <span class="testimonial-role">3 properties, Birmingham</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-delay="150">
+        <p class="testimonial-quote">"My letting agent was charging me 12% and still couldn't respond to tenants outside office hours. Alfred costs a fraction and never sleeps. The audit trail alone is worth it for compliance."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">PN</div>
+          <div class="testimonial-info">
+            <span class="testimonial-name">Priya Nair</span>
+            <span class="testimonial-role">4 properties, Leeds</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial" data-delay="300">
+        <p class="testimonial-quote">"I was sceptical about AI handling tenant conversations. But Alfred's tone is better than most agents I've worked with. Professional, empathetic, and it actually reads the lease before responding."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DW</div>
+          <div class="testimonial-info">
+            <span class="testimonial-name">David Walsh</span>
+            <span class="testimonial-role">2 properties, Bristol</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 7: Final CTA                          -->
+<!-- ============================================ -->
+<section class="section s-cta" id="cta" data-bg="cream">
+  <div class="section-inner">
+    <h2 class="reveal">Stop losing sleep over your properties</h2>
+    <p class="reveal reveal-delay-1">Alfred manages your tenants, finds tradespeople, and handles emergencies — while you do literally anything else.</p>
+    <a href="https://abodient.ai" class="cta-btn reveal reveal-delay-2">
+      Try Alfred Free for 30 Days
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+    </a>
+    <p class="cta-sub reveal reveal-delay-3">No credit card. No contract. Cancel anytime.</p>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>&copy; 2026 <a href="https://abodient.ai">Abodient</a>. All rights reserved.</p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // ========== BACKGROUND COLOR ENGINE ==========
+  const bgLayer = document.getElementById('bgLayer');
+  const nav = document.getElementById('mainNav');
+
+  const bgColors = {
+    'cream': '#F5F0EA',
+    'night': '#0A0A0F',
+    'night-teal': '#0B0D12',
+    'dawn-cream': '#F5F0EA'
+  };
+
+  // Track which sections use dark backgrounds
+  const darkSections = new Set(['night', 'night-teal']);
+
+  function updateBackground(sectionId) {
+    const bgKey = sectionId;
+    if (bgColors[bgKey]) {
+      bgLayer.style.backgroundColor = bgColors[bgKey];
+    }
+
+    if (darkSections.has(bgKey)) {
+      nav.classList.add('dark');
+    } else {
+      nav.classList.remove('dark');
+    }
+  }
+
+  // ========== INTERSECTION OBSERVER: SECTIONS ==========
+  const sections = document.querySelectorAll('.section[data-bg]');
+  const sectionObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+        updateBackground(entry.target.dataset.bg);
+      }
+    });
+  }, {
+    threshold: [0.3, 0.5, 0.7],
+    rootMargin: '-10% 0px -10% 0px'
+  });
+
+  sections.forEach(function(section) {
+    sectionObserver.observe(section);
+  });
+
+  // ========== INTERSECTION OBSERVER: REVEAL ANIMATIONS ==========
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  reveals.forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // ========== CHAT MESSAGE ANIMATION ==========
+  const chatMessages = document.getElementById('chatMessages');
+  const typingIndicator = document.getElementById('typingIndicator');
+  var chatAnimated = false;
+
+  function animateChat() {
+    if (chatAnimated) return;
+    chatAnimated = true;
+
+    var messages = chatMessages.querySelectorAll('.msg');
+    var baseDelay = 0;
+
+    messages.forEach(function(msg, index) {
+      var msgDelay = parseInt(msg.dataset.delay) || (index * 800);
+      var isAlfred = msg.classList.contains('alfred');
+      var prevIsAlfred = index > 0 && messages[index - 1].classList.contains('alfred');
+
+      // Show typing indicator before Alfred messages (only for first Alfred msg in a sequence)
+      if (isAlfred && !prevIsAlfred) {
+        setTimeout(function() {
+          typingIndicator.classList.add('visible');
+          // Position typing indicator before this message
+          chatMessages.insertBefore(typingIndicator, msg);
+        }, msgDelay - 600);
+      }
+
+      setTimeout(function() {
+        // Hide typing indicator when Alfred message appears
+        if (isAlfred) {
+          typingIndicator.classList.remove('visible');
+        }
+        msg.classList.add('visible');
+      }, msgDelay);
+    });
+  }
+
+  var chatObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        animateChat();
+        chatObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+
+  if (chatMessages) {
+    chatObserver.observe(chatMessages);
+  }
+
+  // ========== WORKFLOW STEP ANIMATION ==========
+  var workflowSteps = document.querySelectorAll('.workflow-step');
+  var workflowAnimated = false;
+
+  function animateWorkflow() {
+    if (workflowAnimated) return;
+    workflowAnimated = true;
+
+    workflowSteps.forEach(function(step, index) {
+      var delay = parseInt(step.dataset.delay) || (index * 400);
+      setTimeout(function() {
+        step.classList.add('visible');
+      }, delay);
+    });
+
+    // Approval card appears after workflow steps
+    var approvalCard = document.getElementById('approvalCard');
+    if (approvalCard) {
+      setTimeout(function() {
+        approvalCard.classList.add('visible');
+      }, 2000);
+    }
+  }
+
+  var worksSection = document.getElementById('works');
+  if (worksSection) {
+    var worksObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateWorkflow();
+          worksObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    worksObserver.observe(worksSection);
+  }
+
+  // ========== SUMMARY CHECKMARKS ANIMATION ==========
+  var summaryItems = document.querySelectorAll('.summary-item');
+  var summaryAnimated = false;
+
+  function animateSummary() {
+    if (summaryAnimated) return;
+    summaryAnimated = true;
+
+    summaryItems.forEach(function(item, index) {
+      var delay = parseInt(item.dataset.delay) || (index * 200);
+      setTimeout(function() {
+        item.classList.add('visible');
+      }, delay + 300);
+    });
+  }
+
+  var summaryContainer = document.getElementById('summaryItems');
+  if (summaryContainer) {
+    var summaryObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateSummary();
+          summaryObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    summaryObserver.observe(summaryContainer);
+  }
+
+  // ========== FEATURE CARDS ANIMATION ==========
+  var featureCards = document.querySelectorAll('.feature-card');
+  var featureObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var delay = parseInt(entry.target.dataset.delay) || 0;
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, delay);
+        featureObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  featureCards.forEach(function(card) {
+    featureObserver.observe(card);
+  });
+
+  // ========== HOW STEPS ANIMATION ==========
+  var howSteps = document.querySelectorAll('.how-step');
+  var howObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var delay = parseInt(entry.target.dataset.delay) || 0;
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, delay);
+        howObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  howSteps.forEach(function(step) {
+    howObserver.observe(step);
+  });
+
+  // ========== TESTIMONIALS ANIMATION ==========
+  var testimonials = document.querySelectorAll('.testimonial');
+  var testimonialObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var delay = parseInt(entry.target.dataset.delay) || 0;
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, delay);
+        testimonialObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  testimonials.forEach(function(t) {
+    testimonialObserver.observe(t);
+  });
+
+  // ========== SMOOTH SCROLL FOR NAV CTA ==========
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // ========== HIDE SCROLL INDICATOR ON SCROLL ==========
+  var scrollIndicator = document.querySelector('.scroll-indicator');
+  var scrollHidden = false;
+
+  function handleScrollIndicator() {
+    if (!scrollHidden && window.scrollY > 100) {
+      scrollHidden = true;
+      if (scrollIndicator) {
+        scrollIndicator.style.transition = 'opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        scrollIndicator.style.opacity = '0';
+      }
+    }
+  }
+
+  window.addEventListener('scroll', handleScrollIndicator, { passive: true });
+
+})();
+</script>
+</body>
+</html>

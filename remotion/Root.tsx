@@ -170,6 +170,7 @@ import { Composite_Final } from "./Composite_Final";
 import { LD_PixelFusion } from "./LD_PixelFusion";
 import { DM_PRP_LayerPeel_V2 } from "./DM_PRP_LayerPeel_V2";
 import { LuxuryBrandCommercial } from "./LuxuryBrandCommercial";
+import { DM_DeepDive } from "./DM_DeepDive";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -595,6 +596,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-prp-layerpeel-v2" component={DM_PRP_LayerPeel_V2} durationInFrames={480} fps={30} width={1080} height={1920} />
       {/* Luxury Brand Commercial — Portfolio spec piece */}
       <Composition id="luxury-brand-commercial" component={LuxuryBrandCommercial} durationInFrames={450} fps={30} width={1080} height={1920} />
+      {/* DermaMedicum DeepDive — Continuous macro zoom through skin layers (Kollagen) */}
+      <Composition id="dm-deepdive" component={DM_DeepDive} durationInFrames={540} fps={30} width={1080} height={1920} />
     </>
   );
 };
