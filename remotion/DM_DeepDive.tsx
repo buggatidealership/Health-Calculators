@@ -15,6 +15,19 @@ import { BRAND, FONTS, LOGO, SPEC } from "./derma-brand";
 // DM_DeepDive — Continuous macro zoom through skin layers (Kollagen)
 // Science-documentary camera movement. No scene cuts. Voiceover-first.
 // ─────────────────────────────────────────────────────────────────────────────
+//
+// VOICEOVER SCRIPT (German, ~18s, target 120-140 WPM)
+// Voice: DermaMedicum Voice (GOKuAybXPeCM4Mohef91)
+//
+// [0:00-0:04] Kollagen hält deine Haut zusammen.
+// [0:04-0:09] Ein unsichtbares Netzwerk — elastisch, stabil, lebendig.
+// [0:09-0:12] Ab 25 verlierst du jedes Jahr ein Prozent davon.
+// [0:12-0:15] Moderne Treatments aktivieren die Neubildung.
+// [0:15-0:18] Wir zeigen dir, wie. DermaMedicum, Bonn.
+//
+// Total: ~38 words — well under 45-word cap at ~127 WPM.
+// Tone: confident, educational, measured. Not salesy.
+// ─────────────────────────────────────────────────────────────────────────────
 
 const DURATION = 540; // 18 seconds @ 30fps
 
@@ -517,6 +530,88 @@ const SciLabel: React.FC<{
   );
 };
 
+// ─── Content card — text overlay in screen-space (not camera-space) ───────
+// Positioned in the bottom safe zone. Uses spring entrance + easing exit.
+const ContentCard: React.FC<{
+  text: string;
+  frame: number;
+  fps: number;
+  showAt: number;
+  hideAt: number;
+  position?: "top" | "bottom";
+}> = ({ text, frame, fps, showAt, hideAt, position = "bottom" }) => {
+  const FADE_IN_DURATION = 20;
+  const FADE_OUT_DURATION = 20;
+
+  // Spring-based entrance (translateY)
+  const enterProgress = spring({
+    frame: Math.max(0, frame - showAt),
+    fps,
+    config: { damping: 20, stiffness: 100, mass: 0.7 },
+  });
+
+  // Opacity: interpolate fade-in and fade-out independently
+  const fadeIn = interpolate(frame, [showAt, showAt + FADE_IN_DURATION], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const fadeOut = interpolate(frame, [hideAt - FADE_OUT_DURATION, hideAt], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
+  });
+  const opacity = Math.min(fadeIn, fadeOut);
+
+  if (opacity < 0.01) return null;
+
+  // Subtle slide-up entrance (12px)
+  const slideY = (1 - enterProgress) * 12;
+
+  const positionStyle: React.CSSProperties =
+    position === "top"
+      ? { top: 180, left: 0, right: 0 }
+      : { bottom: 540, left: 0, right: 0 };
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        ...positionStyle,
+        display: "flex",
+        justifyContent: "center",
+        pointerEvents: "none",
+        opacity,
+        transform: `translateY(${slideY}px)`,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 800,
+          padding: "14px 28px",
+          borderRadius: 8,
+          background: "rgba(11, 26, 36, 0.55)",
+          backdropFilter: "blur(8px)",
+          WebkitBackdropFilter: "blur(8px)",
+          textAlign: "center",
+        }}
+      >
+        <span
+          style={{
+            fontSize: 30,
+            lineHeight: 1.4,
+            fontFamily: FONTS.body,
+            fontWeight: 400,
+            color: "rgba(255, 255, 255, 0.88)",
+            letterSpacing: 0.3,
+          }}
+        >
+          {text}
+        </span>
+      </div>
+    </div>
+  );
+};
+
 // Film grain overlay
 const FilmGrain: React.FC<{ frame: number }> = ({ frame }) => {
   // Use seeded randoms per frame to create grain pattern
@@ -659,11 +754,9 @@ export const DM_DeepDive: React.FC = () => {
           {/* Light rays through all layers */}
           <LightRays frame={frame} />
 
-          {/* Scientific labels */}
-          <SciLabel text="Hautoberfläche" x={680} y={180} frame={frame} fps={fps} showAt={15} hideAt={100} />
-          <SciLabel text="Epidermis" x={700} y={580} frame={frame} fps={fps} showAt={70} hideAt={170} />
-          <SciLabel text="Kollagennetzwerk" x={660} y={1050} frame={frame} fps={fps} showAt={150} hideAt={280} />
-          <SciLabel text="Stimulation" x={680} y={1100} frame={frame} fps={fps} showAt={400} hideAt={470} />
+          {/* Scientific micro-labels (subtle background context — content delivery via ContentCards) */}
+          <SciLabel text="Hautoberfläche" x={680} y={180} frame={frame} fps={fps} showAt={15} hideAt={90} />
+          <SciLabel text="Kollagennetzwerk" x={660} y={1050} frame={frame} fps={fps} showAt={150} hideAt={260} />
         </svg>
       </div>
 
@@ -731,6 +824,48 @@ export const DM_DeepDive: React.FC = () => {
           background: `radial-gradient(ellipse at 50% 45%, transparent 40%, rgba(8, 14, 24, ${vignetteIntensity}) 100%)`,
           pointerEvents: "none",
         }}
+      />
+
+      {/* ── Content cards (screen-space text overlay) ──── */}
+      <ContentCard
+        text="Kollagen hält deine Haut zusammen."
+        frame={frame}
+        fps={fps}
+        showAt={30}
+        hideAt={140}
+        position="bottom"
+      />
+      <ContentCard
+        text="Ein unsichtbares Netzwerk — elastisch, stabil, lebendig."
+        frame={frame}
+        fps={fps}
+        showAt={150}
+        hideAt={260}
+        position="bottom"
+      />
+      <ContentCard
+        text="Ab 25 verlierst du jedes Jahr 1 % davon."
+        frame={frame}
+        fps={fps}
+        showAt={270}
+        hideAt={360}
+        position="bottom"
+      />
+      <ContentCard
+        text="Moderne Treatments aktivieren die Neubildung."
+        frame={frame}
+        fps={fps}
+        showAt={370}
+        hideAt={460}
+        position="bottom"
+      />
+      <ContentCard
+        text="Wir zeigen dir, wie."
+        frame={frame}
+        fps={fps}
+        showAt={470}
+        hideAt={530}
+        position="bottom"
       />
 
       {/* ── Film grain ────────────────────────────────── */}

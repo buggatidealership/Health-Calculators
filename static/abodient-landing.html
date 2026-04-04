@@ -1153,6 +1153,307 @@ body {
   outline: 2px solid var(--coral);
   outline-offset: 3px;
 }
+
+/* ========== DAYTIME SCENARIOS ========== */
+.s-daytime {
+  padding: 60px 24px 40px;
+  min-height: auto;
+}
+
+.s-daytime .section-inner {
+  max-width: 680px;
+}
+
+.daytime-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.daytime-header .section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.daytime-header p {
+  font-size: 16px;
+  color: var(--brown);
+  line-height: 1.5;
+}
+
+.daytime-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 22px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 6px 20px rgba(0,0,0,0.05);
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.daytime-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.daytime-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--coral);
+  white-space: nowrap;
+  flex-shrink: 0;
+  line-height: 1.55;
+  padding-top: 1px;
+}
+
+.daytime-content {
+  flex: 1;
+}
+
+.daytime-content p {
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.55;
+}
+
+.daytime-content .daytime-resolution {
+  font-size: 14px;
+  color: var(--teal);
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ========== INTERACTIVE DEMO ========== */
+.s-demo {
+  padding: 60px 24px 80px;
+  min-height: auto;
+}
+
+.s-demo .section-inner {
+  max-width: 680px;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+.demo-header .section-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.demo-header h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  line-height: 1.15;
+}
+
+.scenario-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+@media (max-width: 479px) {
+  .scenario-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.scenario-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 20px;
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--dark);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.scenario-card:hover {
+  border-color: var(--coral);
+  box-shadow: 0 2px 8px rgba(232, 112, 74, 0.12);
+}
+
+.scenario-card:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+.scenario-card.active {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(232, 112, 74, 0.25);
+}
+
+.scenario-emoji {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+/* Demo chat area */
+.demo-chat-area {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  margin-top: 0;
+}
+
+.demo-chat-area.open {
+  max-height: 600px;
+  opacity: 1;
+  margin-top: 20px;
+}
+
+.demo-chat-container {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+}
+
+.demo-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.demo-msg {
+  max-width: 82%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  font-size: 15px;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-msg.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-msg.tenant {
+  align-self: flex-start;
+  background: var(--cream-warm);
+  color: var(--dark);
+  border-bottom-left-radius: 4px;
+}
+
+.demo-msg.alfred {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.demo-msg .demo-msg-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-top: 4px;
+  display: block;
+}
+
+.demo-msg.tenant .demo-msg-time { text-align: left; }
+.demo-msg.alfred .demo-msg-time { text-align: right; }
+
+/* Demo typing indicator */
+.demo-typing {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  align-self: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-typing.visible { opacity: 1; }
+
+.demo-typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: typing-pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.demo-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.demo-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+/* Demo footer */
+.demo-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.demo-footer-text {
+  font-size: 13px;
+  color: var(--muted);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.demo-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brown);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-reset-btn:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.demo-reset-btn:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
 </style>
 </head>
 <body>
@@ -1186,8 +1487,8 @@ body {
       <div class="timestamp">10:00 PM</div>
       <div class="timestamp-label">Evening</div>
     </div>
-    <h1 class="reveal reveal-delay-1">Your properties.<br>Managed.</h1>
-    <p class="subtitle reveal reveal-delay-2">You set your phone on the nightstand. Your tenants are settled. Tomorrow can wait. Alfred is watching.</p>
+    <h1 class="reveal reveal-delay-1">The operating system<br>for property management.</h1>
+    <p class="subtitle reveal reveal-delay-2">Alfred is the infrastructure layer between you and your tenants. It reads leases, handles emergencies, books tradespeople, and runs your portfolio — so you don't have to.</p>
     <div class="hint reveal reveal-delay-3">
       <span class="hint-dot"></span>
       <span>Alfred is online across 3 properties</span>
@@ -1198,6 +1499,16 @@ body {
     <div class="scroll-chevron"></div>
   </div>
 </section>
+
+<!-- ============================================ -->
+<!-- TRANSITION: Around the clock framing          -->
+<!-- ============================================ -->
+<div class="section s-clock-framing" data-bg="night" style="min-height:auto;padding:60px 24px 0;text-align:center;">
+  <div class="section-inner reveal" style="max-width:560px;">
+    <p style="font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--night-secondary);margin-bottom:10px;">24 / 7 / 365</p>
+    <p style="font-size:clamp(17px,2.5vw,20px);color:var(--night-text);line-height:1.55;">Alfred works around the clock. Here's what one night looked like.</p>
+  </div>
+</div>
 
 <!-- ============================================ -->
 <!-- SECTION 2: 2:03 AM — The Alert               -->
@@ -1414,7 +1725,84 @@ body {
 
       <div class="morning-payoff reveal reveal-delay-3">
         <h3>You slept. <em>Alfred handled it.</em></h3>
-        <p>Every detail documented. Nothing sent without your say-so.</p>
+        <p>And when you're awake, Alfred's still working. Every detail documented. Nothing sent without your say-so.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 4b: Daytime Scenarios                 -->
+<!-- ============================================ -->
+<section class="section s-daytime" id="daytime" data-bg="cream">
+  <div class="section-inner">
+    <div class="daytime-header reveal">
+      <div class="section-label">Meanwhile, during the day</div>
+      <p>Alfred doesn't clock off at sunrise. It handles the routine so you can focus on what matters.</p>
+    </div>
+
+    <div class="daytime-card" data-delay="100">
+      <div class="daytime-time">11:30 AM</div>
+      <div class="daytime-content">
+        <p>Tenant asks about guest parking rules. Alfred checks the lease and responds in 12 seconds.</p>
+        <div class="daytime-resolution">Resolved autonomously</div>
+      </div>
+    </div>
+
+    <div class="daytime-card" data-delay="300">
+      <div class="daytime-time">3:45 PM</div>
+      <div class="daytime-content">
+        <p>Gas safety certificate expires in 14 days. Alfred flags it, finds a certified engineer, and sends you approval.</p>
+        <div class="daytime-resolution">Awaiting your approval</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- SECTION 4c: Interactive Demo                  -->
+<!-- ============================================ -->
+<section class="section s-demo" id="demo" data-bg="cream">
+  <div class="section-inner">
+    <div class="demo-header reveal">
+      <div class="section-label">Try a scenario</div>
+      <h2>See Alfred in action</h2>
+    </div>
+
+    <div class="scenario-grid reveal reveal-delay-1" id="scenarioGrid">
+      <button class="scenario-card" data-scenario="burst-pipe" type="button" aria-label="Burst pipe scenario">
+        <span class="scenario-emoji" aria-hidden="true">&#x1F527;</span>
+        <span>Burst pipe</span>
+      </button>
+      <button class="scenario-card" data-scenario="heating-broken" type="button" aria-label="Heating broken scenario">
+        <span class="scenario-emoji" aria-hidden="true">&#x1F525;</span>
+        <span>Heating broken</span>
+      </button>
+      <button class="scenario-card" data-scenario="noise-complaint" type="button" aria-label="Noise complaint scenario">
+        <span class="scenario-emoji" aria-hidden="true">&#x1F50A;</span>
+        <span>Noise complaint</span>
+      </button>
+      <button class="scenario-card" data-scenario="lease-question" type="button" aria-label="Lease question scenario">
+        <span class="scenario-emoji" aria-hidden="true">&#x1F4C4;</span>
+        <span>Lease question</span>
+      </button>
+    </div>
+
+    <div class="demo-chat-area" id="demoChatArea">
+      <div class="demo-chat-container">
+        <div class="demo-chat-messages" id="demoChatMessages"></div>
+        <div class="demo-typing" id="demoTyping" aria-label="Alfred is typing">
+          <div class="demo-typing-dot"></div>
+          <div class="demo-typing-dot"></div>
+          <div class="demo-typing-dot"></div>
+        </div>
+      </div>
+      <div class="demo-footer">
+        <span class="demo-footer-text">Every interaction logged. Every action approved by you.</span>
+        <button class="demo-reset-btn" id="demoResetBtn" type="button">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+          Try another
+        </button>
       </div>
     </div>
   </div>
@@ -1427,7 +1815,7 @@ body {
   <div class="section-inner">
     <div class="features-header reveal">
       <div class="section-label">What Alfred does</div>
-      <h2>Everything you just saw, every night</h2>
+      <h2>Everything you just saw, every hour of every day</h2>
     </div>
 
     <div class="feature-cards">
@@ -1834,6 +2222,167 @@ body {
   }
 
   window.addEventListener('scroll', handleScrollIndicator, { passive: true });
+
+  // ========== DAYTIME CARD ANIMATION ==========
+  var daytimeCards = document.querySelectorAll('.daytime-card');
+  var daytimeObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var delay = parseInt(entry.target.dataset.delay) || 0;
+        setTimeout(function() {
+          entry.target.classList.add('visible');
+        }, delay);
+        daytimeObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  daytimeCards.forEach(function(card) {
+    daytimeObserver.observe(card);
+  });
+
+  // ========== INTERACTIVE DEMO ==========
+  var scenarioData = {
+    'burst-pipe': [
+      { role: 'tenant', text: 'Water is pouring from the ceiling in the kitchen!', time: '14:22' },
+      { role: 'alfred', text: 'I understand this is urgent. Can you see where the water is coming from \u2014 above the sink or near the boiler?', time: '14:22' },
+      { role: 'tenant', text: 'Near the boiler I think', time: '14:23' },
+      { role: 'alfred', text: "I've classified this as an emergency. Contacting available plumbers now and notifying your landlord.", time: '14:23' }
+    ],
+    'heating-broken': [
+      { role: 'tenant', text: "The heating hasn't been working since this morning. It's freezing.", time: '09:15' },
+      { role: 'alfred', text: 'Sorry to hear that. Is the boiler showing any error codes or warning lights?', time: '09:15' },
+      { role: 'tenant', text: "There's a red flashing light", time: '09:16' },
+      { role: 'alfred', text: "That's likely a pressure fault. I'm booking a Gas Safe engineer for today. You'll receive a confirmation shortly.", time: '09:16' }
+    ],
+    'noise-complaint': [
+      { role: 'tenant', text: "The neighbours upstairs are having a party again, it's 11pm", time: '23:02' },
+      { role: 'alfred', text: "I'll log this complaint and send a polite reminder to the tenant in Flat 4 about quiet hours per the building rules.", time: '23:02' }
+    ],
+    'lease-question': [
+      { role: 'tenant', text: 'Am I allowed to have a small dog in the flat?', time: '16:40' },
+      { role: 'alfred', text: "I've checked your tenancy agreement. Section 8.2 states pets require written landlord approval. I can send a request to your landlord now if you'd like.", time: '16:41' }
+    ]
+  };
+
+  var scenarioGrid = document.getElementById('scenarioGrid');
+  var demoChatArea = document.getElementById('demoChatArea');
+  var demoChatMessages = document.getElementById('demoChatMessages');
+  var demoTyping = document.getElementById('demoTyping');
+  var demoResetBtn = document.getElementById('demoResetBtn');
+  var demoTimeouts = [];
+  var activeScenario = null;
+
+  function clearDemoTimeouts() {
+    demoTimeouts.forEach(function(t) { clearTimeout(t); });
+    demoTimeouts = [];
+  }
+
+  function resetDemo() {
+    clearDemoTimeouts();
+    activeScenario = null;
+
+    // Remove active state from all cards
+    var cards = scenarioGrid.querySelectorAll('.scenario-card');
+    cards.forEach(function(c) { c.classList.remove('active'); });
+
+    // Close chat area
+    demoChatArea.classList.remove('open');
+    demoTyping.classList.remove('visible');
+
+    // Clear messages after transition
+    var tid = setTimeout(function() {
+      demoChatMessages.innerHTML = '';
+    }, 500);
+    demoTimeouts.push(tid);
+  }
+
+  function playScenario(scenarioKey) {
+    if (activeScenario === scenarioKey) return;
+
+    clearDemoTimeouts();
+    activeScenario = scenarioKey;
+
+    // Update active card
+    var cards = scenarioGrid.querySelectorAll('.scenario-card');
+    cards.forEach(function(c) {
+      if (c.dataset.scenario === scenarioKey) {
+        c.classList.add('active');
+      } else {
+        c.classList.remove('active');
+      }
+    });
+
+    // Clear previous messages
+    demoChatMessages.innerHTML = '';
+    demoTyping.classList.remove('visible');
+
+    // Open chat area
+    demoChatArea.classList.add('open');
+
+    var messages = scenarioData[scenarioKey];
+    if (!messages) return;
+
+    var cumulativeDelay = 300; // initial delay after opening
+
+    messages.forEach(function(msgData, index) {
+      var isAlfred = msgData.role === 'alfred';
+      var prevIsAlfred = index > 0 && messages[index - 1].role === 'alfred';
+
+      // Show typing indicator before Alfred messages (first in sequence)
+      if (isAlfred && !prevIsAlfred) {
+        var typingDelay = cumulativeDelay;
+        var tid1 = setTimeout(function() {
+          demoTyping.classList.add('visible');
+        }, typingDelay);
+        demoTimeouts.push(tid1);
+        cumulativeDelay += 800;
+      } else if (!isAlfred) {
+        cumulativeDelay += 200;
+      }
+
+      var showDelay = cumulativeDelay;
+
+      var tid2 = setTimeout(function() {
+        if (isAlfred) {
+          demoTyping.classList.remove('visible');
+        }
+
+        var msgEl = document.createElement('div');
+        msgEl.className = 'demo-msg ' + msgData.role;
+        msgEl.innerHTML = msgData.text + '<span class="demo-msg-time">' + msgData.time + '</span>';
+        demoChatMessages.appendChild(msgEl);
+
+        // Trigger reflow then animate
+        msgEl.offsetHeight;
+        requestAnimationFrame(function() {
+          msgEl.classList.add('visible');
+        });
+      }, showDelay);
+      demoTimeouts.push(tid2);
+
+      cumulativeDelay += isAlfred ? 600 : 500;
+    });
+  }
+
+  // Event delegation for scenario cards
+  if (scenarioGrid) {
+    scenarioGrid.addEventListener('click', function(e) {
+      var card = e.target.closest('.scenario-card');
+      if (!card) return;
+      var scenario = card.dataset.scenario;
+      if (scenario) {
+        playScenario(scenario);
+      }
+    });
+  }
+
+  // Reset button
+  if (demoResetBtn) {
+    demoResetBtn.addEventListener('click', function() {
+      resetDemo();
+    });
+  }
 
 })();
 </script>
