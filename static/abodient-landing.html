@@ -1151,6 +1151,517 @@ body {
   transition: color 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ========== ALERT INTERACTIVE DEMO (DARK THEME) ========== */
+.alert-simulator {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  margin-top: 0;
+}
+
+.alert-simulator.open {
+  max-height: 3000px;
+  opacity: 1;
+  margin-top: 16px;
+}
+
+.alert-chat-view,
+.alert-dashboard-view {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-chat-view.hidden { display: none; }
+.alert-dashboard-view { display: none; }
+.alert-dashboard-view.visible { display: block; }
+
+/* Alert chat container (dark) */
+.alert-chat-container {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.alert-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.alert-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.alert-chat-avatar.tenant { background: rgba(255,255,255,0.08); color: var(--night-text); }
+.alert-chat-avatar.alfred { background: var(--teal); color: #fff; }
+
+.alert-chat-header-info { display: flex; flex-direction: column; }
+.alert-chat-name { font-size: 13px; font-weight: 600; color: var(--night-text); }
+.alert-chat-status { font-size: 11px; color: var(--teal-soft); font-weight: 500; }
+
+.alert-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 440px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 0;
+}
+
+.alert-chat-messages::-webkit-scrollbar { width: 4px; }
+.alert-chat-messages::-webkit-scrollbar-track { background: transparent; }
+.alert-chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+.alert-chat-messages { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.12) transparent; }
+
+.alert-msg {
+  max-width: 82%;
+  padding: 9px 13px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.4;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.alert-msg.visible { opacity: 1; transform: translateY(0); }
+
+.alert-msg.tenant {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--night-text);
+  border-bottom-left-radius: 4px;
+}
+
+.alert-msg.alfred {
+  align-self: flex-end;
+  background: var(--teal);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+
+.alert-msg .alert-msg-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.5;
+  margin-top: 4px;
+  display: block;
+}
+
+.alert-msg.tenant .alert-msg-time { text-align: left; }
+.alert-msg.alfred .alert-msg-time { text-align: right; }
+
+/* Alert choices (dark themed) */
+.alert-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 4px 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.alert-choices.visible { opacity: 1; transform: translateY(0); }
+
+.alert-choice-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: transparent;
+  border: 1.5px solid var(--coral);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--coral);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.alert-choice-btn:hover {
+  background: var(--coral);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(232, 112, 74, 0.25);
+}
+
+.alert-choice-btn:active { transform: translateY(0); }
+
+/* Alert photo placeholder (dark) */
+.alert-photo-msg {
+  align-self: flex-start;
+  max-width: 200px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-photo-msg.visible { opacity: 1; transform: translateY(0); }
+
+.alert-photo-placeholder {
+  width: 180px;
+  height: 135px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(45,65,85,0.6) 0%, rgba(30,50,70,0.8) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.alert-photo-placeholder .photo-icon { font-size: 28px; opacity: 0.6; }
+
+.alert-photo-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--night-secondary);
+  opacity: 0.7;
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+/* Alert plumber cards (dark themed) */
+.alert-plumber-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 4px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.alert-plumber-cards.visible { opacity: 1; transform: translateY(0); }
+
+.alert-plumber-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 220px;
+}
+
+.alert-plumber-card:hover {
+  border-color: var(--teal-soft);
+  box-shadow: 0 2px 10px rgba(14, 122, 126, 0.2);
+  transform: translateY(-1px);
+}
+
+.alert-plumber-card:active { transform: translateY(0); }
+
+.alert-plumber-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--night-text);
+  margin-bottom: 2px;
+}
+
+.alert-plumber-stars { color: #f0b429; font-size: 12px; margin-left: 4px; }
+.alert-plumber-rating { font-size: 12px; color: var(--night-secondary); font-weight: 500; }
+
+.alert-plumber-details {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--night-secondary);
+}
+
+.alert-plumber-select {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 14px;
+  background: var(--teal);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  pointer-events: none;
+}
+
+/* Alert loading indicator (dark) */
+.alert-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 82%;
+  padding: 9px 13px;
+  background: rgba(14, 122, 126, 0.12);
+  border-radius: 16px;
+  font-size: 13px;
+  color: var(--teal-soft);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.alert-loading.visible { opacity: 1; transform: translateY(0); }
+
+.alert-loading-dots { display: flex; gap: 3px; }
+
+.alert-loading-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--teal-soft);
+  animation: loading-blink 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.alert-loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.alert-loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+/* Alert typing indicator (dark) */
+.alert-typing {
+  display: flex;
+  gap: 4px;
+  padding: 10px 16px;
+  align-self: flex-end;
+  opacity: 0;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.alert-typing.visible { opacity: 1; }
+
+.alert-typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--teal-soft);
+  animation: typing-pulse 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.alert-typing-dot:nth-child(2) { animation-delay: 0.15s; }
+.alert-typing-dot:nth-child(3) { animation-delay: 0.3s; }
+
+/* Alert section intro text */
+.alert-intro {
+  font-size: 15px;
+  color: var(--night-secondary);
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* Alert footer */
+.alert-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.alert-footer-text {
+  font-size: 13px;
+  color: var(--night-secondary);
+  font-weight: 500;
+  font-style: italic;
+}
+
+.alert-reset-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.12);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--night-secondary);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-reset-btn:hover {
+  border-color: var(--coral);
+  color: var(--coral);
+}
+
+.alert-reset-btn:focus-visible {
+  outline: 2px solid var(--coral);
+  outline-offset: 2px;
+}
+
+/* Alert dashboard (dark theme) */
+.alert-dashboard-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 28px 24px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-dashboard-card.visible { opacity: 1; transform: translateY(0); }
+
+.alert-dashboard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal-soft);
+  background: rgba(14, 122, 126, 0.12);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.alert-dashboard-section { margin-bottom: 20px; }
+.alert-dashboard-section:last-child { margin-bottom: 0; }
+
+.alert-dashboard-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--night-secondary);
+  margin-bottom: 8px;
+}
+
+.alert-dashboard-tldr {
+  font-size: 15px;
+  color: var(--night-text);
+  line-height: 1.5;
+}
+
+.alert-dashboard-timeline { display: flex; flex-direction: column; gap: 6px; }
+
+.alert-dashboard-timeline-item {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.alert-dashboard-timeline-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--night-secondary);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.alert-dashboard-timeline-text { color: var(--night-text); }
+
+.alert-dashboard-cost { display: flex; flex-direction: column; gap: 4px; }
+
+.alert-dashboard-cost-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.alert-dashboard-cost-label { color: var(--night-secondary); }
+.alert-dashboard-cost-value { font-weight: 600; color: var(--night-text); }
+
+.alert-dashboard-approval-box {
+  background: rgba(232, 112, 74, 0.06);
+  border: 1.5px solid rgba(232, 112, 74, 0.25);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.alert-dashboard-approval-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--night-text);
+  margin-bottom: 4px;
+}
+
+.alert-dashboard-approval-desc {
+  font-size: 13px;
+  color: var(--night-secondary);
+  margin-bottom: 12px;
+}
+
+.alert-dashboard-approval-actions { display: flex; gap: 8px; }
+
+.alert-dashboard-approval-btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.alert-dashboard-approval-btn.approve { background: var(--teal); color: #fff; }
+.alert-dashboard-approval-btn.approve:hover { background: var(--teal-soft); }
+.alert-dashboard-approval-btn.decline {
+  background: rgba(255,255,255,0.04);
+  color: var(--night-secondary);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.alert-dashboard-approval-btn.clicked { pointer-events: none; }
+
+.alert-dashboard-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 16px 0;
+}
+
+.alert-dashboard-transcript-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal-soft);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: 'DM Sans', sans-serif;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.alert-dashboard-transcript-link:hover { opacity: 0.7; }
+
 /* ========== A11Y ========== */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
@@ -2019,169 +2530,74 @@ body {
 </div>
 
 <!-- ============================================ -->
-<!-- SECTION 2: 2:03 AM — The Alert               -->
+<!-- SECTION 2: 2:03 AM — The Alert (Interactive) -->
 <!-- ============================================ -->
 <section class="section s-alert" id="alert" data-bg="night">
   <div class="section-inner">
     <div class="reveal">
       <div class="timestamp">2:03 AM</div>
-      <div class="timestamp-label">The Alert</div>
+      <div class="timestamp-label">Your tenant needs help</div>
     </div>
 
-    <div class="chat-container reveal reveal-delay-1">
-      <div class="chat-header">
-        <div class="chat-avatar tenant">SR</div>
-        <div class="chat-header-info">
-          <span class="chat-name">Sarah Reynolds</span>
-          <span class="chat-property">14 Marlowe Street, Flat B</span>
-        </div>
-      </div>
-      <div class="chat-messages" id="chatMessages">
-        <div class="msg tenant" data-delay="400">
-          Hi, sorry to message so late. There's water coming through the kitchen ceiling
-          <span class="msg-time">02:03</span>
-        </div>
-        <div class="msg tenant" data-delay="1200">
-          It's dripping quite fast, I've put a bucket under it but it's getting worse
-          <span class="msg-time">02:03</span>
-        </div>
-        <div class="typing-indicator" id="typingIndicator" aria-label="Alfred is typing">
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
-          <div class="typing-dot"></div>
-        </div>
-        <div class="msg alfred" data-delay="2600">
-          Hi Sarah. I'm sorry about that — let me help get this sorted right away. A few quick questions so I can assess the situation:
-          <span class="msg-time">02:04</span>
-        </div>
-        <div class="msg alfred" data-delay="3600">
-          1. Is the water clear or discoloured?<br>
-          2. Can you hear water running in the pipes above?<br>
-          3. Is the flat above you occupied?
-          <span class="msg-time">02:04</span>
-        </div>
-        <div class="msg tenant" data-delay="5000">
-          The water is clear. Yes I can hear running, like a constant drip. The flat above is empty, the tenants moved out last week
-          <span class="msg-time">02:06</span>
-        </div>
-        <div class="msg alfred" data-delay="6200">
-          Thank you. Based on what you've described — clear water, audible pipe noise, vacant flat above — this is likely a burst or leaking pipe. I'm treating this as urgent.
-          <span class="msg-time">02:06</span>
-        </div>
-        <div class="msg alfred" data-delay="7400">
-          I'm finding an emergency plumber now. In the meantime, if you can locate the stopcock for your flat, turning it off will slow the flow. It's usually under the kitchen sink.
-          <span class="msg-time">02:07</span>
-        </div>
-      </div>
-      <div class="channels-strip reveal reveal-delay-3">
-        <div class="channel-badge">
-          <span class="channel-badge-icon" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          </span>
-          WhatsApp
-        </div>
-        <div class="channel-badge">
-          <span class="channel-badge-icon" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-          </span>
-          Email
-        </div>
-        <div class="channel-badge">
-          <span class="channel-badge-icon" aria-hidden="true">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
-          </span>
-          In-app
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+    <p class="alert-intro reveal reveal-delay-1">While you slept, here's what Alfred handled. Click through to see the conversation.</p>
 
-<!-- ============================================ -->
-<!-- SECTION 3: 2:15 AM — Alfred Works             -->
-<!-- ============================================ -->
-<section class="section s-works" id="works" data-bg="night-teal">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="timestamp">2:15 AM</div>
-      <div class="timestamp-label">Alfred Works</div>
-    </div>
-
-    <div class="workflow-steps">
-      <div class="workflow-step" data-delay="200">
-        <div class="step-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <div class="alert-simulator open reveal reveal-delay-2">
+      <!-- Chat View -->
+      <div class="alert-chat-view" id="alertChatView">
+        <div class="alert-chat-container">
+          <div class="alert-chat-header">
+            <div class="alert-chat-avatar tenant">SR</div>
+            <div class="alert-chat-header-info">
+              <span class="alert-chat-name">Sarah Reynolds</span>
+              <span class="alert-chat-status">14 Marlowe Street, Flat B</span>
+            </div>
+          </div>
+          <div class="alert-chat-messages" id="alertChatMessages"></div>
+          <div class="alert-typing" id="alertTyping" aria-label="Alfred is typing">
+            <div class="alert-typing-dot"></div>
+            <div class="alert-typing-dot"></div>
+            <div class="alert-typing-dot"></div>
+          </div>
         </div>
-        <div class="step-content">
-          <h3>Issue identified</h3>
-          <p>Likely burst pipe in vacant Flat A above. Classified as urgent — risk of structural water damage.</p>
-          <div class="step-time">02:08</div>
+        <div class="alert-footer">
+          <span class="alert-footer-text">Click the options to interact</span>
+          <button class="alert-reset-btn" id="alertResetBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            Replay
+          </button>
         </div>
       </div>
 
-      <div class="workflow-step" data-delay="600">
-        <div class="step-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="19" y1="8" x2="19" y2="14"></line><line x1="22" y1="11" x2="16" y2="11"></line></svg>
-        </div>
-        <div class="step-content">
-          <h3>Emergency plumber found</h3>
-          <p>Searched Checkatrade for 24-hour plumbers within 5 miles. Found 3 available. Top match: Mike's Plumbing.</p>
-          <div class="step-time">02:10</div>
-        </div>
-      </div>
-
-      <div class="workflow-step" data-delay="1000">
-        <div class="step-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-        </div>
-        <div class="step-content">
-          <h3>Appointment booked</h3>
-          <p>Mike's Plumbing confirmed for 7:30 AM. Call-out fee: &pound;95 + VAT. Emergency rate applies.</p>
-          <div class="step-time">02:12</div>
-        </div>
-      </div>
-
-      <div class="workflow-step" data-delay="1400">
-        <div class="step-icon" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e7a7e" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-        </div>
-        <div class="step-content">
-          <h3>Tenant updated</h3>
-          <p>Sarah notified: plumber arriving at 7:30 AM, access instructions sent. Stopcock advice confirmed.</p>
-          <div class="step-time">02:14</div>
+      <!-- Dashboard View -->
+      <div class="alert-dashboard-view" id="alertDashboardView">
+        <div class="alert-dashboard-card" id="alertDashboardCard"></div>
+        <div class="alert-footer" style="margin-top:16px;">
+          <button class="alert-reset-btn" id="alertDashboardResetBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            Replay conversation
+          </button>
         </div>
       </div>
     </div>
 
-    <!-- Approval card -->
-    <div class="approval-card" id="approvalCard">
-      <div class="approval-card-header">
-        <div class="approval-badge">Awaiting your approval</div>
+    <div class="channels-strip reveal reveal-delay-3">
+      <div class="channel-badge">
+        <span class="channel-badge-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </span>
+        WhatsApp
       </div>
-      <h3>Emergency plumber booking</h3>
-      <div class="approval-detail">
-        <span class="approval-detail-label">Tradesperson</span>
-        <span class="approval-detail-value">Mike's Plumbing</span>
+      <div class="channel-badge">
+        <span class="channel-badge-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+        </span>
+        Email
       </div>
-      <div class="approval-detail">
-        <span class="approval-detail-label">Rating</span>
-        <span class="approval-detail-value"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.8</span>
-      </div>
-      <div class="approval-detail">
-        <span class="approval-detail-label">Arrival</span>
-        <span class="approval-detail-value">7:30 AM today</span>
-      </div>
-      <div class="approval-detail">
-        <span class="approval-detail-label">Est. cost</span>
-        <span class="approval-detail-value">&pound;95 + VAT call-out</span>
-      </div>
-      <div class="approval-detail">
-        <span class="approval-detail-label">Property</span>
-        <span class="approval-detail-value">14 Marlowe St, Flat A &amp; B</span>
-      </div>
-      <div class="approval-actions">
-        <button class="btn-approve primary" aria-label="Approve booking">Approve</button>
-        <button class="btn-approve secondary" aria-label="Modify booking">Modify</button>
+      <div class="channel-badge">
+        <span class="channel-badge-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+        </span>
+        In-app
       </div>
     </div>
   </div>
@@ -2556,93 +2972,460 @@ body {
     revealObserver.observe(el);
   });
 
-  // ========== CHAT MESSAGE ANIMATION ==========
-  const chatMessages = document.getElementById('chatMessages');
-  const typingIndicator = document.getElementById('typingIndicator');
-  var chatAnimated = false;
-
-  function animateChat() {
-    if (chatAnimated) return;
-    chatAnimated = true;
-
-    var messages = chatMessages.querySelectorAll('.msg');
-    var baseDelay = 0;
-
-    messages.forEach(function(msg, index) {
-      var msgDelay = parseInt(msg.dataset.delay) || (index * 800);
-      var isAlfred = msg.classList.contains('alfred');
-      var prevIsAlfred = index > 0 && messages[index - 1].classList.contains('alfred');
-
-      // Show typing indicator before Alfred messages (only for first Alfred msg in a sequence)
-      if (isAlfred && !prevIsAlfred) {
-        setTimeout(function() {
-          typingIndicator.classList.add('visible');
-          // Position typing indicator before this message
-          chatMessages.insertBefore(typingIndicator, msg);
-          chatMessages.scrollTop = chatMessages.scrollHeight;
-        }, msgDelay - 600);
+  // ========== ALERT INTERACTIVE SIMULATOR ==========
+  var alertSteps = {
+    dashboard: {
+      title: 'Emergency: Burst Pipe',
+      tldr: 'Tenant in Flat B reported water coming through kitchen ceiling at 2:03 AM. Likely burst pipe in vacant Flat A above. Emergency plumber booked.',
+      timeline: [
+        { time: '2:03 AM', text: 'Tenant reported water leak via WhatsApp' },
+        { time: '2:04 AM', text: 'Alfred triaged as emergency (burst pipe)' },
+        { time: '2:05 AM', text: 'Tenant provided photo of ceiling leak' },
+        { time: '2:06 AM', text: 'Stopcock advice given to tenant' },
+        { time: '2:08 AM', text: '3 emergency plumbers found and compared' },
+        { time: '2:10 AM', text: "Mike's Plumbing booked for 3:15 AM" },
+        { time: '2:10 AM', text: 'Tenant confirmed with arrival time' }
+      ],
+      cost: [
+        { label: 'Emergency callout', value: '\u00a395 + VAT' },
+        { label: 'Estimated repair', value: '\u00a3150\u2013\u00a3300' },
+        { label: 'Water damage inspection', value: 'TBD (recommended)' }
+      ],
+      approval: {
+        title: 'Approve emergency plumber callout',
+        desc: "Mike's Plumbing, 4.8 stars, arriving 3:15 AM. \u00a395 + VAT callout."
       }
+    },
+    steps: [
+      { type: 'msg', role: 'tenant', text: 'Water is pouring from the kitchen ceiling!', time: '2:03' },
+      { type: 'msg', role: 'alfred', text: "Hi Sarah. I can see this is urgent \u2014 let me help right away. Can you describe what you're seeing?", time: '2:03' },
+      {
+        type: 'choices',
+        options: [
+          { label: 'Dripping from a crack in the ceiling', next: 'drip' },
+          { label: 'Pouring steadily, getting worse', next: 'drip' },
+          { label: 'Slow but spreading', next: 'drip' }
+        ]
+      },
+      {
+        id: 'drip',
+        type: 'msg', role: 'alfred',
+        text: "That sounds like a pipe failure in the flat above, which is currently vacant. Can you hear water running in the pipes overhead?",
+        time: '2:04'
+      },
+      {
+        type: 'choices',
+        options: [
+          { label: 'Yes, constant dripping sound', next: 'sound' },
+          { label: "Can't tell", next: 'sound' }
+        ]
+      },
+      {
+        id: 'sound',
+        type: 'msg', role: 'alfred',
+        text: "Okay. First \u2014 for safety, turn off the water stopcock under your kitchen sink. This will slow the flow. While you do that, can you take a quick photo of the ceiling?",
+        time: '2:05'
+      },
+      {
+        type: 'choices',
+        options: [
+          { label: '\ud83d\udcf7 Share photo', next: 'photo' },
+          { label: "I'll just describe it", next: 'skip-photo' }
+        ]
+      },
+      {
+        id: 'photo',
+        type: 'photo'
+      },
+      {
+        id: 'skip-photo',
+        type: 'msg', role: 'alfred',
+        text: "Thank you. Based on what you've described \u2014 clear water, pipe noise, vacant flat above \u2014 this is a burst or leaking pipe. I'm treating this as an emergency.",
+        time: '2:06'
+      },
+      {
+        type: 'msg', role: 'alfred',
+        text: "I'm finding an emergency plumber now...",
+        time: '2:07'
+      },
+      {
+        type: 'loading',
+        text: 'Searching 12 plumbers in your area'
+      },
+      {
+        type: 'plumbers',
+        cards: [
+          { name: "Mike's Plumbing", rating: '4.8', stars: 5, eta: '45 min', price: '\u00a395/hr' },
+          { name: 'QuickFix 24hr', rating: '4.5', stars: 4, eta: '1hr 20', price: '\u00a370/hr' },
+          { name: 'Rapid Plumbing', rating: '4.2', stars: 4, eta: '30 min', price: '\u00a3110/hr' }
+        ]
+      },
+      {
+        type: 'msg', role: 'alfred',
+        text: "Booked. Mike's Plumbing arriving at 3:15 AM. I've sent you Mike's direct number and notified your landlord.",
+        time: '2:10'
+      },
+      {
+        type: 'msg', role: 'alfred',
+        text: "I've flagged this property for a water damage inspection and logged a full audit trail. Your landlord will see the summary in the morning.",
+        time: '2:10'
+      },
+      {
+        type: 'dashboard-link'
+      }
+    ]
+  };
 
-      setTimeout(function() {
-        // Hide typing indicator when Alfred message appears
-        if (isAlfred) {
-          typingIndicator.classList.remove('visible');
+  var alertChatMessages = document.getElementById('alertChatMessages');
+  var alertTyping = document.getElementById('alertTyping');
+  var alertChatView = document.getElementById('alertChatView');
+  var alertDashboardView = document.getElementById('alertDashboardView');
+  var alertDashboardCard = document.getElementById('alertDashboardCard');
+  var alertResetBtn = document.getElementById('alertResetBtn');
+  var alertDashboardResetBtn = document.getElementById('alertDashboardResetBtn');
+  var alertTimeouts = [];
+  var alertCurrentStep = 0;
+  var alertStarted = false;
+
+  function clearAlertTimeouts() {
+    alertTimeouts.forEach(function(t) { clearTimeout(t); });
+    alertTimeouts = [];
+  }
+
+  function alertScrollChat() {
+    alertChatMessages.scrollTop = alertChatMessages.scrollHeight;
+  }
+
+  function alertAddElement(el) {
+    alertChatMessages.appendChild(el);
+    el.offsetHeight;
+    requestAnimationFrame(function() {
+      el.classList.add('visible');
+      alertScrollChat();
+    });
+  }
+
+  function alertShowTyping() {
+    alertTyping.classList.add('visible');
+    alertScrollChat();
+  }
+
+  function alertHideTyping() {
+    alertTyping.classList.remove('visible');
+  }
+
+  function alertCreateMsg(role, text, time) {
+    var el = document.createElement('div');
+    el.className = 'alert-msg ' + role;
+    el.innerHTML = text + (time ? '<span class="alert-msg-time">' + time + '</span>' : '');
+    return el;
+  }
+
+  function alertProcessStep(stepIndex) {
+    var steps = alertSteps.steps;
+    if (stepIndex >= steps.length) return;
+    alertCurrentStep = stepIndex;
+    var step = steps[stepIndex];
+
+    if (step.type === 'msg') {
+      var isAlfred = step.role === 'alfred';
+      if (isAlfred) {
+        alertShowTyping();
+        var tid = setTimeout(function() {
+          alertHideTyping();
+          alertAddElement(alertCreateMsg(step.role, step.text, step.time));
+          var tid2 = setTimeout(function() {
+            alertProcessStep(stepIndex + 1);
+          }, 400);
+          alertTimeouts.push(tid2);
+        }, 700);
+        alertTimeouts.push(tid);
+      } else {
+        alertAddElement(alertCreateMsg(step.role, step.text, step.time));
+        var tid3 = setTimeout(function() {
+          alertProcessStep(stepIndex + 1);
+        }, 500);
+        alertTimeouts.push(tid3);
+      }
+    }
+
+    else if (step.type === 'choices') {
+      var wrapper = document.createElement('div');
+      wrapper.className = 'alert-choices';
+
+      step.options.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'alert-choice-btn';
+        btn.textContent = opt.label;
+        btn.type = 'button';
+
+        btn.addEventListener('click', function() {
+          if (wrapper.parentNode) wrapper.parentNode.removeChild(wrapper);
+          alertAddElement(alertCreateMsg('tenant', opt.label, ''));
+
+          var nextIndex = stepIndex + 1;
+          if (opt.next) {
+            for (var i = stepIndex + 1; i < steps.length; i++) {
+              if (steps[i].id === opt.next) {
+                nextIndex = i;
+                break;
+              }
+            }
+          }
+          var tid4 = setTimeout(function() {
+            alertProcessStep(nextIndex);
+          }, 400);
+          alertTimeouts.push(tid4);
+        });
+
+        wrapper.appendChild(btn);
+      });
+
+      alertChatMessages.appendChild(wrapper);
+      wrapper.offsetHeight;
+      requestAnimationFrame(function() {
+        wrapper.classList.add('visible');
+        alertScrollChat();
+      });
+    }
+
+    else if (step.type === 'photo') {
+      var photoEl = document.createElement('div');
+      photoEl.className = 'alert-photo-msg';
+      photoEl.innerHTML =
+        '<div class="alert-photo-placeholder">' +
+          '<span class="photo-icon">\ud83d\udca7</span>' +
+          '<span style="font-size:11px;color:var(--night-secondary);opacity:0.8;">Water damage</span>' +
+        '</div>' +
+        '<span class="alert-photo-caption">\ud83d\udcf7 kitchen-ceiling.jpg</span>';
+      alertAddElement(photoEl);
+
+      var nextIdx = stepIndex + 1;
+      for (var j = stepIndex + 1; j < steps.length; j++) {
+        if (steps[j].id === 'skip-photo') {
+          nextIdx = j;
+          break;
         }
-        msg.classList.add('visible');
-        // Auto-scroll to newest message
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }, msgDelay);
-    });
-  }
-
-  var chatObserver = new IntersectionObserver(function(entries) {
-    entries.forEach(function(entry) {
-      if (entry.isIntersecting) {
-        animateChat();
-        chatObserver.unobserve(entry.target);
       }
-    });
-  }, { threshold: 0.2 });
+      var tid5 = setTimeout(function() {
+        alertProcessStep(nextIdx);
+      }, 600);
+      alertTimeouts.push(tid5);
+    }
 
-  if (chatMessages) {
-    chatObserver.observe(chatMessages);
-  }
+    else if (step.type === 'loading') {
+      var loadEl = document.createElement('div');
+      loadEl.className = 'alert-loading';
+      loadEl.innerHTML =
+        '<span>' + step.text + '</span>' +
+        '<div class="alert-loading-dots"><span></span><span></span><span></span></div>';
+      alertAddElement(loadEl);
 
-  // ========== WORKFLOW STEP ANIMATION ==========
-  var workflowSteps = document.querySelectorAll('.workflow-step');
-  var workflowAnimated = false;
-
-  function animateWorkflow() {
-    if (workflowAnimated) return;
-    workflowAnimated = true;
-
-    workflowSteps.forEach(function(step, index) {
-      var delay = parseInt(step.dataset.delay) || (index * 400);
-      setTimeout(function() {
-        step.classList.add('visible');
-      }, delay);
-    });
-
-    // Approval card appears after workflow steps
-    var approvalCard = document.getElementById('approvalCard');
-    if (approvalCard) {
-      setTimeout(function() {
-        approvalCard.classList.add('visible');
+      var tid6 = setTimeout(function() {
+        if (loadEl.parentNode) {
+          loadEl.style.opacity = '0';
+          setTimeout(function() {
+            if (loadEl.parentNode) loadEl.parentNode.removeChild(loadEl);
+          }, 300);
+        }
+        alertProcessStep(stepIndex + 1);
       }, 2000);
+      alertTimeouts.push(tid6);
+    }
+
+    else if (step.type === 'plumbers') {
+      var cardsWrapper = document.createElement('div');
+      cardsWrapper.className = 'alert-plumber-cards';
+
+      step.cards.forEach(function(plumber) {
+        var starStr = '';
+        for (var s = 0; s < plumber.stars; s++) starStr += '\u2605';
+
+        var card = document.createElement('div');
+        card.className = 'alert-plumber-card';
+        card.innerHTML =
+          '<div class="alert-plumber-name">' + plumber.name +
+            ' <span class="alert-plumber-stars">' + starStr + '</span>' +
+            ' <span class="alert-plumber-rating">' + plumber.rating + '</span>' +
+          '</div>' +
+          '<div class="alert-plumber-details">' +
+            '<span>ETA: ' + plumber.eta + '</span>' +
+            '<span>' + plumber.price + '</span>' +
+          '</div>' +
+          '<span class="alert-plumber-select">Select</span>';
+
+        card.addEventListener('click', function() {
+          if (cardsWrapper.parentNode) cardsWrapper.parentNode.removeChild(cardsWrapper);
+          alertAddElement(alertCreateMsg('tenant', 'Book ' + plumber.name, ''));
+          var tid7 = setTimeout(function() {
+            alertProcessStep(stepIndex + 1);
+          }, 400);
+          alertTimeouts.push(tid7);
+        });
+
+        cardsWrapper.appendChild(card);
+      });
+
+      alertChatMessages.appendChild(cardsWrapper);
+      cardsWrapper.offsetHeight;
+      requestAnimationFrame(function() {
+        cardsWrapper.classList.add('visible');
+        alertScrollChat();
+      });
+    }
+
+    else if (step.type === 'dashboard-link') {
+      var linkWrapper = document.createElement('div');
+      linkWrapper.className = 'alert-choices';
+
+      var linkBtn = document.createElement('button');
+      linkBtn.className = 'alert-choice-btn';
+      linkBtn.innerHTML = 'See what you received \u2192';
+      linkBtn.type = 'button';
+
+      linkBtn.addEventListener('click', function() {
+        alertShowDashboard();
+      });
+
+      linkWrapper.appendChild(linkBtn);
+      alertChatMessages.appendChild(linkWrapper);
+      linkWrapper.offsetHeight;
+      requestAnimationFrame(function() {
+        linkWrapper.classList.add('visible');
+        alertScrollChat();
+      });
     }
   }
 
-  var worksSection = document.getElementById('works');
-  if (worksSection) {
-    var worksObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          animateWorkflow();
-          worksObserver.unobserve(entry.target);
+  function alertShowDashboard() {
+    var d = alertSteps.dashboard;
+    var html = '';
+    html += '<div class="alert-dashboard-badge">\ud83d\udcca Your Dashboard \u2014 7:00 AM</div>';
+
+    html += '<div class="alert-dashboard-section">';
+    html += '<div class="alert-dashboard-section-title">\ud83d\udccb TLDR</div>';
+    html += '<p class="alert-dashboard-tldr">' + d.tldr + '</p>';
+    html += '</div>';
+
+    html += '<div class="alert-dashboard-divider"></div>';
+    html += '<div class="alert-dashboard-section">';
+    html += '<div class="alert-dashboard-section-title">\ud83d\udccd Timeline</div>';
+    html += '<div class="alert-dashboard-timeline">';
+    d.timeline.forEach(function(item) {
+      html += '<div class="alert-dashboard-timeline-item">';
+      html += '<span class="alert-dashboard-timeline-time">' + item.time + '</span>';
+      html += '<span class="alert-dashboard-timeline-text">' + item.text + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+
+    html += '<div class="alert-dashboard-divider"></div>';
+    html += '<div class="alert-dashboard-section">';
+    html += '<div class="alert-dashboard-section-title">\ud83d\udcb7 Cost Estimate</div>';
+    html += '<div class="alert-dashboard-cost">';
+    d.cost.forEach(function(row) {
+      html += '<div class="alert-dashboard-cost-row">';
+      html += '<span class="alert-dashboard-cost-label">' + row.label + '</span>';
+      html += '<span class="alert-dashboard-cost-value">' + row.value + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+
+    html += '<div class="alert-dashboard-divider"></div>';
+    html += '<div class="alert-dashboard-section">';
+    html += '<div class="alert-dashboard-section-title">\u26a1 Needs Your Approval</div>';
+    html += '<div class="alert-dashboard-approval-box">';
+    html += '<div class="alert-dashboard-approval-title">' + d.approval.title + '</div>';
+    html += '<div class="alert-dashboard-approval-desc">' + d.approval.desc + '</div>';
+    html += '<div class="alert-dashboard-approval-actions">';
+    html += '<button class="alert-dashboard-approval-btn approve" type="button" data-action="approve">Approve</button>';
+    html += '<button class="alert-dashboard-approval-btn decline" type="button" data-action="decline">Decline</button>';
+    html += '</div>';
+    html += '</div></div>';
+
+    html += '<div class="alert-dashboard-divider"></div>';
+    html += '<div class="alert-dashboard-section">';
+    html += '<button class="alert-dashboard-transcript-link" type="button" id="alertTranscriptLink">';
+    html += '\ud83d\udcac View full conversation \u2192';
+    html += '</button>';
+    html += '</div>';
+
+    alertDashboardCard.innerHTML = html;
+
+    alertChatView.classList.add('hidden');
+    alertDashboardView.classList.add('visible');
+
+    requestAnimationFrame(function() {
+      alertDashboardCard.classList.add('visible');
+    });
+
+    // Wire approval buttons
+    var approvalBtns = alertDashboardCard.querySelectorAll('.alert-dashboard-approval-btn');
+    approvalBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var action = btn.dataset.action;
+        approvalBtns.forEach(function(b) {
+          b.classList.add('clicked');
+          b.style.opacity = '0.4';
+        });
+        if (action === 'approve') {
+          btn.textContent = 'Approved \u2713';
+          btn.style.opacity = '1';
+          btn.style.background = '#0e7a7e';
+          btn.style.color = '#fff';
+        } else if (action === 'decline') {
+          btn.textContent = 'Declined';
+          btn.style.opacity = '1';
+          btn.style.background = 'rgba(255,255,255,0.06)';
+          btn.style.color = 'var(--night-secondary)';
         }
       });
-    }, { threshold: 0.2 });
-    worksObserver.observe(worksSection);
+    });
+
+    // Wire transcript link
+    var transcriptLink = document.getElementById('alertTranscriptLink');
+    if (transcriptLink) {
+      transcriptLink.addEventListener('click', function() {
+        alertDashboardView.classList.remove('visible');
+        alertChatView.classList.remove('hidden');
+      });
+    }
+  }
+
+  function alertReset() {
+    clearAlertTimeouts();
+    alertCurrentStep = 0;
+    alertStarted = false;
+    alertTyping.classList.remove('visible');
+    alertChatView.classList.remove('hidden');
+    alertDashboardView.classList.remove('visible');
+    alertDashboardCard.classList.remove('visible');
+    alertChatMessages.innerHTML = '';
+    alertDashboardCard.innerHTML = '';
+    // Re-start after a beat
+    var tid = setTimeout(function() {
+      alertStarted = true;
+      alertProcessStep(0);
+    }, 400);
+    alertTimeouts.push(tid);
+  }
+
+  if (alertResetBtn) alertResetBtn.addEventListener('click', alertReset);
+  if (alertDashboardResetBtn) alertDashboardResetBtn.addEventListener('click', alertReset);
+
+  // Start the alert interactive demo when the section scrolls into view
+  var alertSection = document.getElementById('alert');
+  if (alertSection && alertChatMessages) {
+    var alertObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !alertStarted) {
+          alertStarted = true;
+          alertProcessStep(0);
+          alertObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    alertObserver.observe(alertSection);
   }
 
   // ========== SUMMARY CHECKMARKS ANIMATION ==========
