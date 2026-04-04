@@ -1329,37 +1329,98 @@ body {
   line-height: 1;
 }
 
-/* Demo chat area */
-.demo-chat-area {
+/* Demo simulator wrapper */
+.demo-simulator {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), margin 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   margin-top: 0;
+  position: relative;
 }
 
-.demo-chat-area.open {
-  max-height: 640px;
+.demo-simulator.open {
+  max-height: 2000px;
   opacity: 1;
   margin-top: 20px;
 }
 
+/* Chat view and dashboard view */
+.demo-chat-view,
+.demo-dashboard-view {
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-chat-view.hidden {
+  display: none;
+}
+
+.demo-dashboard-view {
+  display: none;
+}
+
+.demo-dashboard-view.visible {
+  display: block;
+}
+
+/* Chat container */
 .demo-chat-container {
   background: #fff;
   border-radius: 16px;
-  padding: 24px;
+  padding: 20px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
   border: 1px solid rgba(0,0,0,0.04);
+}
+
+.demo-chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.demo-chat-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--teal);
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.demo-chat-header-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.demo-chat-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.demo-chat-status {
+  font-size: 11px;
+  color: var(--teal);
+  font-weight: 500;
 }
 
 .demo-chat-messages {
   display: flex;
   flex-direction: column;
   gap: 6px;
-  max-height: 480px;
+  max-height: 420px;
   overflow-y: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
+  padding: 4px 0;
 }
 
 /* Minimal scrollbar for demo chat */
@@ -1411,14 +1472,229 @@ body {
 .demo-msg.tenant .demo-msg-time { text-align: left; }
 .demo-msg.alfred .demo-msg-time { text-align: right; }
 
+/* Choices (clickable pills below Alfred messages) */
+.demo-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 4px 0;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.demo-choices.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-choice-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1.5px solid var(--coral);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--coral);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.demo-choice-btn:hover {
+  background: var(--coral);
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(232, 112, 74, 0.25);
+}
+
+.demo-choice-btn:active {
+  transform: translateY(0);
+}
+
+/* Photo placeholder */
+.demo-photo-msg {
+  align-self: flex-start;
+  max-width: 200px;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.demo-photo-msg.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-photo-placeholder {
+  width: 180px;
+  height: 135px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d4e4ed 0%, #b8ccd9 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid rgba(0,0,0,0.06);
+}
+
+.demo-photo-placeholder .photo-icon {
+  font-size: 28px;
+  opacity: 0.6;
+}
+
+.demo-photo-caption {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--brown);
+  opacity: 0.7;
+  margin-top: 4px;
+  padding-left: 4px;
+}
+
+/* Plumber cards (selectable) */
+.demo-plumber-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 88%;
+  padding: 4px 0;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.demo-plumber-cards.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-plumber-card {
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 12px 14px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 220px;
+}
+
+.demo-plumber-card:hover {
+  border-color: var(--teal);
+  box-shadow: 0 2px 10px rgba(14, 122, 126, 0.15);
+  transform: translateY(-1px);
+}
+
+.demo-plumber-card:active {
+  transform: translateY(0);
+}
+
+.demo-plumber-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 2px;
+}
+
+.demo-plumber-stars {
+  color: #f0b429;
+  font-size: 12px;
+  margin-left: 4px;
+}
+
+.demo-plumber-rating {
+  font-size: 12px;
+  color: var(--brown);
+  font-weight: 500;
+}
+
+.demo-plumber-details {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.demo-plumber-select {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 14px;
+  background: var(--teal);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  border: none;
+  pointer-events: none;
+}
+
+/* Loading indicator */
+.demo-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+  max-width: 82%;
+  padding: 9px 13px;
+  background: rgba(14, 122, 126, 0.08);
+  border-radius: 16px;
+  font-size: 13px;
+  color: var(--teal);
+  font-weight: 500;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+}
+
+.demo-loading.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.demo-loading-dots {
+  display: flex;
+  gap: 3px;
+}
+
+.demo-loading-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--teal);
+  animation: loading-blink 1.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.demo-loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+.demo-loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes loading-blink {
+  0%, 60%, 100% { opacity: 0.25; }
+  30% { opacity: 1; }
+}
+
 /* Demo typing indicator */
 .demo-typing {
   display: flex;
   gap: 4px;
-  padding: 12px 16px;
+  padding: 10px 16px;
   align-self: flex-end;
   opacity: 0;
   transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 }
 
 .demo-typing.visible { opacity: 1; }
@@ -1475,6 +1751,216 @@ body {
 .demo-reset-btn:focus-visible {
   outline: 2px solid var(--coral);
   outline-offset: 2px;
+}
+
+/* ========== LANDLORD DASHBOARD ========== */
+.dashboard-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 24px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 8px 24px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1), transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dashboard-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--teal);
+  background: rgba(14, 122, 126, 0.08);
+  padding: 4px 10px;
+  border-radius: 100px;
+  margin-bottom: 16px;
+}
+
+.dashboard-section {
+  margin-bottom: 20px;
+}
+
+.dashboard-section:last-child {
+  margin-bottom: 0;
+}
+
+.dashboard-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.dashboard-tldr {
+  font-size: 15px;
+  color: var(--dark);
+  line-height: 1.5;
+}
+
+.dashboard-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dashboard-timeline-item {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.dashboard-timeline-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-top: 1px;
+}
+
+.dashboard-timeline-text {
+  color: var(--dark);
+}
+
+.dashboard-cost {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dashboard-cost-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.dashboard-cost-label {
+  color: var(--brown);
+}
+
+.dashboard-cost-value {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.dashboard-approval-box {
+  background: rgba(232, 112, 74, 0.04);
+  border: 1.5px solid rgba(232, 112, 74, 0.2);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.dashboard-approval-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 4px;
+}
+
+.dashboard-approval-desc {
+  font-size: 13px;
+  color: var(--brown);
+  margin-bottom: 12px;
+}
+
+.dashboard-approval-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.dashboard-approval-btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dashboard-approval-btn.approve {
+  background: var(--teal);
+  color: #fff;
+}
+
+.dashboard-approval-btn.approve:hover {
+  background: var(--teal-soft);
+}
+
+.dashboard-approval-btn.decline {
+  background: rgba(0,0,0,0.04);
+  color: var(--brown);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+
+.dashboard-approval-btn.ask {
+  background: transparent;
+  color: var(--teal);
+  border: 1px solid var(--teal);
+}
+
+.dashboard-approval-btn.clicked {
+  pointer-events: none;
+}
+
+.dashboard-transcript-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--teal);
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: 'DM Sans', sans-serif;
+  padding: 0;
+  transition: opacity 0.2s;
+}
+
+.dashboard-transcript-link:hover {
+  opacity: 0.7;
+}
+
+.dashboard-divider {
+  height: 1px;
+  background: rgba(0,0,0,0.06);
+  margin: 16px 0;
+}
+
+.dashboard-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--brown);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-top: 16px;
+}
+
+.dashboard-back-btn:hover {
+  border-color: var(--coral);
+  color: var(--coral);
 }
 </style>
 </head>
@@ -1782,7 +2268,7 @@ body {
 </section>
 
 <!-- ============================================ -->
-<!-- SECTION 4c: Interactive Demo                  -->
+<!-- SECTION 4c: Interactive Demo (Simulator)      -->
 <!-- ============================================ -->
 <section class="section s-demo" id="demo" data-bg="cream">
   <div class="section-inner">
@@ -1810,21 +2296,42 @@ body {
       </button>
     </div>
 
-    <div class="demo-chat-area" id="demoChatArea">
-      <div class="demo-chat-container">
-        <div class="demo-chat-messages" id="demoChatMessages"></div>
-        <div class="demo-typing" id="demoTyping" aria-label="Alfred is typing">
-          <div class="demo-typing-dot"></div>
-          <div class="demo-typing-dot"></div>
-          <div class="demo-typing-dot"></div>
+    <div class="demo-simulator" id="demoSimulator">
+      <!-- Chat View -->
+      <div class="demo-chat-view" id="demoChatView">
+        <div class="demo-chat-container">
+          <div class="demo-chat-header">
+            <div class="demo-chat-avatar">A</div>
+            <div class="demo-chat-header-info">
+              <span class="demo-chat-name">Alfred</span>
+              <span class="demo-chat-status">Online</span>
+            </div>
+          </div>
+          <div class="demo-chat-messages" id="demoChatMessages"></div>
+          <div class="demo-typing" id="demoTyping" aria-label="Alfred is typing">
+            <div class="demo-typing-dot"></div>
+            <div class="demo-typing-dot"></div>
+            <div class="demo-typing-dot"></div>
+          </div>
+        </div>
+        <div class="demo-footer">
+          <span class="demo-footer-text">Click the options to interact</span>
+          <button class="demo-reset-btn" id="demoResetBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            Try another
+          </button>
         </div>
       </div>
-      <div class="demo-footer">
-        <span class="demo-footer-text">Every interaction logged. Every action approved by you.</span>
-        <button class="demo-reset-btn" id="demoResetBtn" type="button">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
-          Try another
-        </button>
+
+      <!-- Dashboard View -->
+      <div class="demo-dashboard-view" id="demoDashboardView">
+        <div class="dashboard-card" id="dashboardCard"></div>
+        <div class="demo-footer" style="margin-top:16px;">
+          <button class="demo-reset-btn" id="dashboardResetBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"></polyline><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"></path></svg>
+            Try another scenario
+          </button>
+        </div>
       </div>
     </div>
   </div>
@@ -2266,146 +2773,672 @@ body {
     daytimeObserver.observe(card);
   });
 
-  // ========== INTERACTIVE DEMO ==========
-  var scenarioData = {
-    'burst-pipe': [
-      { role: 'tenant', text: 'Water is pouring from the ceiling in the kitchen!', time: '14:22' },
-      { role: 'alfred', text: 'That sounds urgent. Can you see where the water is coming from \u2014 directly above the sink, near the boiler, or from a different area?', time: '14:22' },
-      { role: 'tenant', text: "It's near the boiler, coming through fast", time: '14:23' },
-      { role: 'alfred', text: "Understood. For safety, please turn off the water stopcock \u2014 it's usually under the kitchen sink. I'm classifying this as an emergency.", time: '14:23' },
-      { role: 'alfred', text: "I've found 3 available emergency plumbers. Mike's Plumbing has a 4.8 rating and can arrive within 45 minutes. Booking now.", time: '14:24' },
-      { role: 'alfred', text: "Plumber confirmed for 3:15 PM. I've notified your landlord and sent you Mike's direct number in case you need it before he arrives.", time: '14:25' },
-      { role: 'alfred', text: "I've also flagged this property for a follow-up inspection to check for water damage. Your landlord will be asked to approve that separately.", time: '14:25' }
-    ],
-    'heating-broken': [
-      { role: 'tenant', text: "The heating hasn't worked since this morning. It's really cold in here.", time: '09:15' },
-      { role: 'alfred', text: 'Sorry to hear that. Is the boiler showing any error codes or warning lights on the display?', time: '09:15' },
-      { role: 'tenant', text: "There's a red flashing light and it says E119", time: '09:16' },
-      { role: 'alfred', text: "E119 is a low water pressure fault \u2014 common and usually fixable. Have you tried the repressurisation valve? It's the small tap underneath the boiler.", time: '09:16' },
-      { role: 'tenant', text: "I tried but it didn't help", time: '09:18' },
-      { role: 'alfred', text: "No problem. I'm booking a Gas Safe registered engineer. Found: Hartley Heating, 4.9 stars, available this afternoon at 2:30 PM.", time: '09:18' },
-      { role: 'alfred', text: "Appointment confirmed. In the meantime, I'd recommend using a portable heater if you have one. I've let your landlord know and they've approved the repair.", time: '09:19' }
-    ],
-    'noise-complaint': [
-      { role: 'tenant', text: "The neighbours upstairs have been playing loud music since 10pm. It's now midnight and I have work tomorrow.", time: '00:02' },
-      { role: 'alfred', text: "I'm sorry about that. I've logged this as a noise complaint against Flat 4. This is the second complaint this month.", time: '00:02' },
-      { role: 'alfred', text: "I've sent a formal reminder to the tenant in Flat 4 about the building's quiet hours (10 PM \u2013 8 AM), referencing clause 12.3 of their tenancy agreement.", time: '00:03' },
-      { role: 'alfred', text: "Because this is a repeat incident, I've also flagged it for your landlord's review. They may want to issue a formal warning.", time: '00:03' },
-      { role: 'tenant', text: 'Thank you, that was fast', time: '00:04' },
-      { role: 'alfred', text: "You're welcome. I'll follow up tomorrow to check if the situation has improved. If it happens again tonight, message me and I'll escalate immediately.", time: '00:04' }
-    ],
-    'lease-question': [
-      { role: 'tenant', text: 'Am I allowed to have a small dog in the flat? It\u2019s a cockapoo, very well behaved.', time: '16:40' },
-      { role: 'alfred', text: 'Let me check your tenancy agreement. One moment.', time: '16:40' },
-      { role: 'alfred', text: "Section 8.2 of your lease states that pets require written landlord approval before moving in. There's no blanket ban \u2014 it's at the landlord's discretion.", time: '16:41' },
-      { role: 'tenant', text: 'Can you ask them for me?', time: '16:42' },
-      { role: 'alfred', text: "Of course. I'll send a formal pet request to your landlord with the details. Could you confirm the breed, approximate size, and whether the dog is house-trained?", time: '16:42' },
-      { role: 'tenant', text: 'Cockapoo, about 12kg, fully house-trained, 2 years old', time: '16:43' },
-      { role: 'alfred', text: "Request sent to your landlord: \u2018Tenant in Flat 2 requests permission for a cockapoo (12kg, 2 years, house-trained).\u2019 I'll let you know as soon as they respond.", time: '16:43' }
-    ]
+  // ========== INTERACTIVE DEMO (SIMULATOR) ==========
+  // Step types: 'msg' (tenant/alfred message), 'choices' (clickable options),
+  // 'photo' (photo placeholder), 'plumbers' (selectable cards), 'loading' (animated search),
+  // 'dashboard-link' (CTA to switch to dashboard view)
+
+  var scenarioSteps = {
+    'burst-pipe': {
+      dashboard: {
+        title: 'Emergency: Water Leak',
+        tldr: 'Tenant in Flat 3 reported water leak near boiler at 2:03 AM. Emergency plumber booked for 3:15 AM.',
+        timeline: [
+          { time: '2:03 AM', text: 'Tenant reported issue' },
+          { time: '2:04 AM', text: 'Alfred triaged as emergency' },
+          { time: '2:06 AM', text: 'Photo received from tenant' },
+          { time: '2:08 AM', text: '3 plumbers found and compared' },
+          { time: '2:10 AM', text: "Mike's Plumbing booked" },
+          { time: '2:10 AM', text: 'Tenant confirmed' }
+        ],
+        cost: [
+          { label: 'Emergency callout', value: '\u00a385/hr' },
+          { label: 'Estimated total', value: '\u00a3170\u2013\u00a3250' }
+        ],
+        approval: {
+          title: 'Water damage inspection',
+          desc: 'Recommended within 48 hours'
+        }
+      },
+      steps: [
+        { type: 'msg', role: 'tenant', text: 'Water is pouring from the kitchen ceiling!', time: '2:03' },
+        { type: 'msg', role: 'alfred', text: 'That sounds urgent. Where is the water coming from?', time: '2:03' },
+        {
+          type: 'choices',
+          options: [
+            { label: 'Near the boiler', next: 'boiler' },
+            { label: 'Above the sink', next: 'boiler' },
+            { label: 'Not sure', next: 'boiler' }
+          ]
+        },
+        {
+          id: 'boiler',
+          type: 'msg', role: 'alfred',
+          text: "For safety, turn off the water stopcock under the kitchen sink. Can you take a photo of the leak?",
+          time: '2:04'
+        },
+        {
+          type: 'choices',
+          options: [
+            { label: '\ud83d\udcf7 Share photo', next: 'photo' },
+            { label: "I can't right now", next: 'skip-photo' }
+          ]
+        },
+        {
+          id: 'photo',
+          type: 'photo'
+        },
+        {
+          id: 'skip-photo',
+          type: 'msg', role: 'alfred',
+          text: "Thanks. This looks like a pipe joint failure. I'm searching for emergency plumbers near you...",
+          time: '2:06'
+        },
+        {
+          type: 'loading',
+          text: 'Searching 12 plumbers in your area'
+        },
+        {
+          type: 'plumbers',
+          cards: [
+            { name: "Mike's Plumbing", rating: '4.8', stars: 5, eta: '45 min', price: '\u00a385/hr' },
+            { name: 'QuickFix', rating: '4.5', stars: 4, eta: '1hr 20', price: '\u00a370/hr' },
+            { name: '24hr Plumbing', rating: '4.2', stars: 4, eta: '30 min', price: '\u00a395/hr' }
+          ]
+        },
+        {
+          type: 'msg', role: 'alfred',
+          text: "Booked! Mike's Plumbing arriving at 3:15 AM. I've notified your landlord and sent you Mike's direct number.",
+          time: '2:10'
+        },
+        {
+          type: 'msg', role: 'alfred',
+          text: "I've also flagged this property for a water damage inspection.",
+          time: '2:10'
+        },
+        {
+          type: 'dashboard-link'
+        }
+      ]
+    },
+
+    'heating-broken': {
+      dashboard: {
+        title: 'Heating Failure',
+        tldr: 'Tenant reported boiler error E119 at 9:15 AM. Gas Safe engineer booked for 2:30 PM same day.',
+        timeline: [
+          { time: '9:15 AM', text: 'Tenant reported heating failure' },
+          { time: '9:15 AM', text: 'Alfred identified E119 error code' },
+          { time: '9:16 AM', text: 'Guided tenant through self-fix attempt' },
+          { time: '9:18 AM', text: 'Self-fix unsuccessful, escalated' },
+          { time: '9:18 AM', text: 'Hartley Heating booked for 2:30 PM' },
+          { time: '9:19 AM', text: 'Landlord approved repair' }
+        ],
+        cost: [
+          { label: 'Diagnostic fee', value: '\u00a360' },
+          { label: 'Estimated repair', value: '\u00a380\u2013\u00a3150' }
+        ],
+        approval: {
+          title: 'Boiler pressure valve replacement',
+          desc: 'If diagnosed on-site, estimated \u00a3120'
+        }
+      },
+      steps: [
+        { type: 'msg', role: 'tenant', text: "The heating hasn't worked since this morning. It's really cold.", time: '9:15' },
+        { type: 'msg', role: 'alfred', text: 'Sorry to hear that. Is the boiler showing any error codes?', time: '9:15' },
+        {
+          type: 'choices',
+          options: [
+            { label: 'Red light, E119', next: 'e119' },
+            { label: 'No display at all', next: 'e119' },
+            { label: 'Not sure', next: 'e119' }
+          ]
+        },
+        {
+          id: 'e119',
+          type: 'msg', role: 'alfred',
+          text: "E119 is a low water pressure fault. Have you tried the repressurisation valve under the boiler?",
+          time: '9:16'
+        },
+        {
+          type: 'choices',
+          options: [
+            { label: "Tried, didn't help", next: 'no-fix' },
+            { label: "Where is it?", next: 'no-fix' }
+          ]
+        },
+        {
+          id: 'no-fix',
+          type: 'msg', role: 'alfred',
+          text: "No problem. I'm booking a Gas Safe engineer. Hartley Heating, 4.9 stars, available at 2:30 PM today.",
+          time: '9:18'
+        },
+        {
+          type: 'msg', role: 'alfred',
+          text: "Confirmed. Use a portable heater in the meantime. Your landlord's been notified and approved.",
+          time: '9:19'
+        },
+        { type: 'dashboard-link' }
+      ]
+    },
+
+    'noise-complaint': {
+      dashboard: {
+        title: 'Noise Complaint (Repeat)',
+        tldr: 'Tenant reported loud music from Flat 4 at midnight. Second complaint this month \u2014 formal notice sent.',
+        timeline: [
+          { time: '12:02 AM', text: 'Noise complaint received' },
+          { time: '12:02 AM', text: 'Alfred identified as repeat incident' },
+          { time: '12:03 AM', text: 'Formal quiet hours reminder sent to Flat 4' },
+          { time: '12:03 AM', text: 'Flagged for landlord review' },
+          { time: '12:04 AM', text: 'Follow-up scheduled for next day' }
+        ],
+        cost: [
+          { label: 'Direct cost', value: '\u00a30' },
+          { label: 'Potential escalation', value: 'Formal warning letter' }
+        ],
+        approval: {
+          title: 'Issue formal written warning',
+          desc: 'Second noise violation in 30 days'
+        }
+      },
+      steps: [
+        { type: 'msg', role: 'tenant', text: "Loud music from upstairs since 10pm. It's midnight and I have work tomorrow.", time: '0:02' },
+        { type: 'msg', role: 'alfred', text: "Logged. This is the 2nd complaint against Flat 4 this month. How would you like to proceed?", time: '0:02' },
+        {
+          type: 'choices',
+          options: [
+            { label: 'Send them a reminder', next: 'remind' },
+            { label: 'Escalate formally', next: 'remind' }
+          ]
+        },
+        {
+          id: 'remind',
+          type: 'msg', role: 'alfred',
+          text: "Done. Formal reminder sent referencing clause 12.3 (quiet hours 10 PM\u20138 AM).",
+          time: '0:03'
+        },
+        {
+          type: 'msg', role: 'alfred',
+          text: "As it's a repeat, I've flagged it for your landlord. Want me to draft a formal warning?",
+          time: '0:03'
+        },
+        {
+          type: 'choices',
+          options: [
+            { label: 'Yes, draft it', next: 'draft' },
+            { label: 'Not yet', next: 'draft' }
+          ]
+        },
+        {
+          id: 'draft',
+          type: 'msg', role: 'alfred',
+          text: "Noted. I'll follow up tomorrow to check if it's improved. Message me anytime if it happens again.",
+          time: '0:04'
+        },
+        { type: 'dashboard-link' }
+      ]
+    },
+
+    'lease-question': {
+      dashboard: {
+        title: 'Pet Permission Request',
+        tldr: 'Tenant asked about keeping a cockapoo. Lease clause checked, formal request sent to landlord.',
+        timeline: [
+          { time: '4:40 PM', text: 'Tenant asked about pet policy' },
+          { time: '4:40 PM', text: 'Alfred checked tenancy agreement' },
+          { time: '4:41 PM', text: 'Section 8.2 cited \u2014 requires landlord approval' },
+          { time: '4:42 PM', text: 'Tenant provided pet details' },
+          { time: '4:43 PM', text: 'Formal request sent to landlord' }
+        ],
+        cost: [
+          { label: 'Direct cost', value: '\u00a30' },
+          { label: 'If approved', value: 'Pet deposit clause may apply' }
+        ],
+        approval: {
+          title: 'Approve pet request',
+          desc: 'Cockapoo, 12kg, 2 years, house-trained'
+        }
+      },
+      steps: [
+        { type: 'msg', role: 'tenant', text: "Am I allowed to have a small dog? It's a cockapoo.", time: '4:40' },
+        { type: 'msg', role: 'alfred', text: "Let me check your lease. Section 8.2 says pets need landlord approval. No blanket ban.", time: '4:41' },
+        {
+          type: 'choices',
+          options: [
+            { label: 'Can you ask for me?', next: 'ask' },
+            { label: "Okay, I'll ask myself", next: 'ask' }
+          ]
+        },
+        {
+          id: 'ask',
+          type: 'msg', role: 'alfred',
+          text: "Of course. I need a few details: breed, size, and house-trained?",
+          time: '4:42'
+        },
+        {
+          type: 'choices',
+          options: [
+            { label: 'Cockapoo, 12kg, trained', next: 'details' },
+            { label: 'Let me check and come back', next: 'details' }
+          ]
+        },
+        {
+          id: 'details',
+          type: 'msg', role: 'alfred',
+          text: "Request sent to your landlord: 'Cockapoo, 12kg, 2yrs, house-trained.' I'll let you know when they respond.",
+          time: '4:43'
+        },
+        { type: 'dashboard-link' }
+      ]
+    }
   };
 
   var scenarioGrid = document.getElementById('scenarioGrid');
-  var demoChatArea = document.getElementById('demoChatArea');
+  var demoSimulator = document.getElementById('demoSimulator');
+  var demoChatView = document.getElementById('demoChatView');
+  var demoDashboardView = document.getElementById('demoDashboardView');
   var demoChatMessages = document.getElementById('demoChatMessages');
   var demoTyping = document.getElementById('demoTyping');
   var demoResetBtn = document.getElementById('demoResetBtn');
+  var dashboardResetBtn = document.getElementById('dashboardResetBtn');
+  var dashboardCard = document.getElementById('dashboardCard');
   var demoTimeouts = [];
   var activeScenario = null;
+  var currentStepIndex = 0;
+  var waitingForChoice = false;
 
   function clearDemoTimeouts() {
     demoTimeouts.forEach(function(t) { clearTimeout(t); });
     demoTimeouts = [];
   }
 
+  function scrollChat() {
+    demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
+  }
+
+  function addElement(el) {
+    demoChatMessages.appendChild(el);
+    el.offsetHeight; // reflow
+    requestAnimationFrame(function() {
+      el.classList.add('visible');
+      scrollChat();
+    });
+  }
+
+  function showTyping() {
+    demoTyping.classList.add('visible');
+    scrollChat();
+  }
+
+  function hideTyping() {
+    demoTyping.classList.remove('visible');
+  }
+
+  function createMsg(role, text, time) {
+    var el = document.createElement('div');
+    el.className = 'demo-msg ' + role;
+    el.innerHTML = text + (time ? '<span class="demo-msg-time">' + time + '</span>' : '');
+    return el;
+  }
+
+  function processStep(scenarioKey, stepIndex) {
+    var scenario = scenarioSteps[scenarioKey];
+    if (!scenario) return;
+    var steps = scenario.steps;
+    if (stepIndex >= steps.length) return;
+
+    currentStepIndex = stepIndex;
+    var step = steps[stepIndex];
+
+    if (step.type === 'msg') {
+      var isAlfred = step.role === 'alfred';
+      if (isAlfred) {
+        showTyping();
+        var tid = setTimeout(function() {
+          hideTyping();
+          addElement(createMsg(step.role, step.text, step.time));
+          // Auto-advance to next step
+          var tid2 = setTimeout(function() {
+            processStep(scenarioKey, stepIndex + 1);
+          }, 400);
+          demoTimeouts.push(tid2);
+        }, 700);
+        demoTimeouts.push(tid);
+      } else {
+        addElement(createMsg(step.role, step.text, step.time));
+        var tid3 = setTimeout(function() {
+          processStep(scenarioKey, stepIndex + 1);
+        }, 500);
+        demoTimeouts.push(tid3);
+      }
+    }
+
+    else if (step.type === 'choices') {
+      waitingForChoice = true;
+      var wrapper = document.createElement('div');
+      wrapper.className = 'demo-choices';
+
+      step.options.forEach(function(opt) {
+        var btn = document.createElement('button');
+        btn.className = 'demo-choice-btn';
+        btn.textContent = opt.label;
+        btn.type = 'button';
+
+        btn.addEventListener('click', function() {
+          waitingForChoice = false;
+          // Remove the choices
+          if (wrapper.parentNode) {
+            wrapper.parentNode.removeChild(wrapper);
+          }
+          // Add tenant message with the chosen option
+          addElement(createMsg('tenant', opt.label, ''));
+
+          // Find the next step (by id or just next index)
+          var nextIndex = stepIndex + 1;
+          if (opt.next) {
+            for (var i = stepIndex + 1; i < steps.length; i++) {
+              if (steps[i].id === opt.next) {
+                nextIndex = i;
+                break;
+              }
+            }
+          }
+          var tid4 = setTimeout(function() {
+            processStep(scenarioKey, nextIndex);
+          }, 400);
+          demoTimeouts.push(tid4);
+        });
+
+        wrapper.appendChild(btn);
+      });
+
+      demoChatMessages.appendChild(wrapper);
+      wrapper.offsetHeight;
+      requestAnimationFrame(function() {
+        wrapper.classList.add('visible');
+        scrollChat();
+      });
+    }
+
+    else if (step.type === 'photo') {
+      // Show a photo placeholder as a tenant message
+      var photoEl = document.createElement('div');
+      photoEl.className = 'demo-photo-msg';
+      photoEl.innerHTML =
+        '<div class="demo-photo-placeholder">' +
+          '<span class="photo-icon">\ud83d\udca7</span>' +
+          '<span style="font-size:11px;color:var(--brown);opacity:0.7;">Water damage</span>' +
+        '</div>' +
+        '<span class="demo-photo-caption">\ud83d\udcf7 kitchen-leak.jpg</span>';
+      addElement(photoEl);
+
+      // Continue to next step that isn't an id-only skip target
+      var nextIdx = stepIndex + 1;
+      // Skip to step after 'skip-photo' id if it exists (we want to continue from the message after photo)
+      for (var j = stepIndex + 1; j < steps.length; j++) {
+        if (steps[j].id === 'skip-photo') {
+          nextIdx = j;
+          break;
+        }
+      }
+      var tid5 = setTimeout(function() {
+        processStep(scenarioKey, nextIdx);
+      }, 600);
+      demoTimeouts.push(tid5);
+    }
+
+    else if (step.type === 'loading') {
+      var loadEl = document.createElement('div');
+      loadEl.className = 'demo-loading';
+      loadEl.innerHTML =
+        '<span>' + step.text + '</span>' +
+        '<div class="demo-loading-dots"><span></span><span></span><span></span></div>';
+      addElement(loadEl);
+
+      var tid6 = setTimeout(function() {
+        // Remove loading indicator
+        if (loadEl.parentNode) {
+          loadEl.style.opacity = '0';
+          setTimeout(function() {
+            if (loadEl.parentNode) loadEl.parentNode.removeChild(loadEl);
+          }, 300);
+        }
+        processStep(scenarioKey, stepIndex + 1);
+      }, 2000);
+      demoTimeouts.push(tid6);
+    }
+
+    else if (step.type === 'plumbers') {
+      waitingForChoice = true;
+      var cardsWrapper = document.createElement('div');
+      cardsWrapper.className = 'demo-plumber-cards';
+
+      step.cards.forEach(function(plumber) {
+        var starStr = '';
+        for (var s = 0; s < plumber.stars; s++) starStr += '\u2605';
+
+        var card = document.createElement('div');
+        card.className = 'demo-plumber-card';
+        card.innerHTML =
+          '<div class="demo-plumber-name">' + plumber.name +
+            ' <span class="demo-plumber-stars">' + starStr + '</span>' +
+            ' <span class="demo-plumber-rating">' + plumber.rating + '</span>' +
+          '</div>' +
+          '<div class="demo-plumber-details">' +
+            '<span>ETA: ' + plumber.eta + '</span>' +
+            '<span>' + plumber.price + '</span>' +
+          '</div>' +
+          '<span class="demo-plumber-select">Select</span>';
+
+        card.addEventListener('click', function() {
+          waitingForChoice = false;
+          if (cardsWrapper.parentNode) {
+            cardsWrapper.parentNode.removeChild(cardsWrapper);
+          }
+          addElement(createMsg('tenant', 'Book ' + plumber.name, ''));
+          var tid7 = setTimeout(function() {
+            processStep(scenarioKey, stepIndex + 1);
+          }, 400);
+          demoTimeouts.push(tid7);
+        });
+
+        cardsWrapper.appendChild(card);
+      });
+
+      demoChatMessages.appendChild(cardsWrapper);
+      cardsWrapper.offsetHeight;
+      requestAnimationFrame(function() {
+        cardsWrapper.classList.add('visible');
+        scrollChat();
+      });
+    }
+
+    else if (step.type === 'dashboard-link') {
+      var linkWrapper = document.createElement('div');
+      linkWrapper.className = 'demo-choices';
+
+      var linkBtn = document.createElement('button');
+      linkBtn.className = 'demo-choice-btn';
+      linkBtn.innerHTML = 'See what your landlord sees \u2192';
+      linkBtn.type = 'button';
+
+      linkBtn.addEventListener('click', function() {
+        showDashboard(scenarioKey);
+      });
+
+      linkWrapper.appendChild(linkBtn);
+      demoChatMessages.appendChild(linkWrapper);
+      linkWrapper.offsetHeight;
+      requestAnimationFrame(function() {
+        linkWrapper.classList.add('visible');
+        scrollChat();
+      });
+    }
+  }
+
+  function showDashboard(scenarioKey) {
+    var scenario = scenarioSteps[scenarioKey];
+    if (!scenario || !scenario.dashboard) return;
+    var d = scenario.dashboard;
+
+    // Build dashboard HTML
+    var html = '';
+    html += '<div class="dashboard-badge">\ud83d\udcca Landlord Dashboard</div>';
+
+    // TLDR
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section-title">\ud83d\udccb TLDR</div>';
+    html += '<p class="dashboard-tldr">' + d.tldr + '</p>';
+    html += '</div>';
+
+    // Timeline
+    html += '<div class="dashboard-divider"></div>';
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section-title">\ud83d\udccd Timeline</div>';
+    html += '<div class="dashboard-timeline">';
+    d.timeline.forEach(function(item) {
+      html += '<div class="dashboard-timeline-item">';
+      html += '<span class="dashboard-timeline-time">' + item.time + '</span>';
+      html += '<span class="dashboard-timeline-text">' + item.text + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+
+    // Cost
+    html += '<div class="dashboard-divider"></div>';
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section-title">\ud83d\udcb7 Cost Estimate</div>';
+    html += '<div class="dashboard-cost">';
+    d.cost.forEach(function(row) {
+      html += '<div class="dashboard-cost-row">';
+      html += '<span class="dashboard-cost-label">' + row.label + '</span>';
+      html += '<span class="dashboard-cost-value">' + row.value + '</span>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+
+    // Approval
+    html += '<div class="dashboard-divider"></div>';
+    html += '<div class="dashboard-section">';
+    html += '<div class="dashboard-section-title">\u26a1 Needs Your Approval</div>';
+    html += '<div class="dashboard-approval-box">';
+    html += '<div class="dashboard-approval-title">' + d.approval.title + '</div>';
+    html += '<div class="dashboard-approval-desc">' + d.approval.desc + '</div>';
+    html += '<div class="dashboard-approval-actions">';
+    html += '<button class="dashboard-approval-btn approve" type="button" data-action="approve">Approve</button>';
+    html += '<button class="dashboard-approval-btn decline" type="button" data-action="decline">Decline</button>';
+    html += '<button class="dashboard-approval-btn ask" type="button" data-action="ask">Ask Alfred</button>';
+    html += '</div>';
+    html += '</div></div>';
+
+    // Transcript link
+    html += '<div class="dashboard-divider"></div>';
+    html += '<div class="dashboard-section">';
+    html += '<button class="dashboard-transcript-link" type="button" id="dashTranscriptLink">';
+    html += '\ud83d\udcac View full conversation \u2192';
+    html += '</button>';
+    html += '</div>';
+
+    dashboardCard.innerHTML = html;
+
+    // Switch views
+    demoChatView.classList.add('hidden');
+    demoDashboardView.classList.add('visible');
+
+    // Animate in
+    requestAnimationFrame(function() {
+      dashboardCard.classList.add('visible');
+    });
+
+    // Wire up approval buttons
+    var approvalBtns = dashboardCard.querySelectorAll('.dashboard-approval-btn');
+    approvalBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var action = btn.dataset.action;
+        // Disable all buttons
+        approvalBtns.forEach(function(b) {
+          b.classList.add('clicked');
+          b.style.opacity = '0.4';
+        });
+        // Show feedback
+        if (action === 'approve') {
+          btn.textContent = 'Approved \u2713';
+          btn.style.opacity = '1';
+          btn.style.background = '#0e7a7e';
+          btn.style.color = '#fff';
+        } else if (action === 'decline') {
+          btn.textContent = 'Declined';
+          btn.style.opacity = '1';
+          btn.style.background = '#ccc';
+          btn.style.color = '#666';
+        } else if (action === 'ask') {
+          btn.textContent = 'Asked Alfred';
+          btn.style.opacity = '1';
+          btn.style.background = 'var(--teal)';
+          btn.style.color = '#fff';
+        }
+      });
+    });
+
+    // Wire up transcript link to go back to chat
+    var transcriptLink = document.getElementById('dashTranscriptLink');
+    if (transcriptLink) {
+      transcriptLink.addEventListener('click', function() {
+        demoDashboardView.classList.remove('visible');
+        demoChatView.classList.remove('hidden');
+      });
+    }
+  }
+
   function resetDemo() {
     clearDemoTimeouts();
     activeScenario = null;
+    currentStepIndex = 0;
+    waitingForChoice = false;
 
-    // Remove active state from all cards
     var cards = scenarioGrid.querySelectorAll('.scenario-card');
     cards.forEach(function(c) { c.classList.remove('active'); });
 
-    // Close chat area
-    demoChatArea.classList.remove('open');
+    demoSimulator.classList.remove('open');
     demoTyping.classList.remove('visible');
+    demoChatView.classList.remove('hidden');
+    demoDashboardView.classList.remove('visible');
+    dashboardCard.classList.remove('visible');
 
-    // Clear messages after transition
     var tid = setTimeout(function() {
       demoChatMessages.innerHTML = '';
+      dashboardCard.innerHTML = '';
     }, 500);
     demoTimeouts.push(tid);
   }
 
-  function playScenario(scenarioKey) {
+  function startScenario(scenarioKey) {
     if (activeScenario === scenarioKey) return;
 
     clearDemoTimeouts();
     activeScenario = scenarioKey;
+    currentStepIndex = 0;
+    waitingForChoice = false;
 
-    // Update active card
     var cards = scenarioGrid.querySelectorAll('.scenario-card');
     cards.forEach(function(c) {
-      if (c.dataset.scenario === scenarioKey) {
-        c.classList.add('active');
-      } else {
-        c.classList.remove('active');
-      }
+      c.classList.toggle('active', c.dataset.scenario === scenarioKey);
     });
 
-    // Clear previous messages
     demoChatMessages.innerHTML = '';
     demoTyping.classList.remove('visible');
+    demoChatView.classList.remove('hidden');
+    demoDashboardView.classList.remove('visible');
+    dashboardCard.classList.remove('visible');
+    dashboardCard.innerHTML = '';
 
-    // Open chat area
-    demoChatArea.classList.add('open');
+    demoSimulator.classList.add('open');
 
-    var messages = scenarioData[scenarioKey];
-    if (!messages) return;
-
-    var cumulativeDelay = 300; // initial delay after opening
-
-    messages.forEach(function(msgData, index) {
-      var isAlfred = msgData.role === 'alfred';
-      var prevIsAlfred = index > 0 && messages[index - 1].role === 'alfred';
-
-      // Show typing indicator before Alfred messages (first in sequence)
-      if (isAlfred && !prevIsAlfred) {
-        var typingDelay = cumulativeDelay;
-        var tid1 = setTimeout(function() {
-          demoTyping.classList.add('visible');
-          demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
-        }, typingDelay);
-        demoTimeouts.push(tid1);
-        cumulativeDelay += 800;
-      } else if (!isAlfred) {
-        cumulativeDelay += 200;
-      }
-
-      var showDelay = cumulativeDelay;
-
-      var tid2 = setTimeout(function() {
-        if (isAlfred) {
-          demoTyping.classList.remove('visible');
-        }
-
-        var msgEl = document.createElement('div');
-        msgEl.className = 'demo-msg ' + msgData.role;
-        msgEl.innerHTML = msgData.text + '<span class="demo-msg-time">' + msgData.time + '</span>';
-        demoChatMessages.appendChild(msgEl);
-
-        // Trigger reflow then animate
-        msgEl.offsetHeight;
-        requestAnimationFrame(function() {
-          msgEl.classList.add('visible');
-          // Auto-scroll to newest message
-          demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
-        });
-      }, showDelay);
-      demoTimeouts.push(tid2);
-
-      cumulativeDelay += isAlfred ? 600 : 500;
-    });
+    var tid = setTimeout(function() {
+      processStep(scenarioKey, 0);
+    }, 400);
+    demoTimeouts.push(tid);
   }
 
   // Event delegation for scenario cards
@@ -2414,17 +3447,16 @@ body {
       var card = e.target.closest('.scenario-card');
       if (!card) return;
       var scenario = card.dataset.scenario;
-      if (scenario) {
-        playScenario(scenario);
-      }
+      if (scenario) startScenario(scenario);
     });
   }
 
-  // Reset button
+  // Reset buttons
   if (demoResetBtn) {
-    demoResetBtn.addEventListener('click', function() {
-      resetDemo();
-    });
+    demoResetBtn.addEventListener('click', resetDemo);
+  }
+  if (dashboardResetBtn) {
+    dashboardResetBtn.addEventListener('click', resetDemo);
   }
 
 })();

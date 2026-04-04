@@ -2,6 +2,7 @@ import React from "react";
 import {
   AbsoluteFill,
   Audio,
+  Sequence,
   useCurrentFrame,
   useVideoConfig,
   interpolate,
@@ -19,13 +20,15 @@ import { BRAND, FONTS, LOGO, SPEC } from "./derma-brand";
 //
 // VOICEOVER SCRIPT (German, ~18s, target 120-140 WPM)
 // Voice: DermaMedicum Voice (GOKuAybXPeCM4Mohef91)
+// Audio: 5 individual clips in public/audio/dm-deepdive/line-{1..5}.mp3
 //
-// [0:00-0:04] Kollagen hält deine Haut zusammen.
-// [0:04-0:09] Ein unsichtbares Netzwerk — elastisch, stabil, lebendig.
-// [0:09-0:12] Ab 25 verlierst du jedes Jahr ein Prozent davon.
-// [0:12-0:15] Moderne Treatments aktivieren die Neubildung.
-// [0:15-0:18] Wir zeigen dir, wie. DermaMedicum, Bonn.
+// line-1 [f30-90]   (2.0s)  Kollagen hält deine Haut zusammen.
+// line-2 [f105-249] (4.8s)  Ein unsichtbares Netzwerk — elastisch, stabil, lebendig.
+// line-3 [f264-357] (3.1s)  Ab 25 verlierst du jedes Jahr ein Prozent davon.
+// line-4 [f372-450] (2.6s)  Moderne Treatments aktivieren die Neubildung.
+// line-5 [f465-530] (3.6s)  Wir zeigen dir, wie. DermaMedicum, Bonn.
 //
+// ~0.5s (15-frame) breathing gaps between clips.
 // Total: ~38 words — well under 45-word cap at ~127 WPM.
 // Tone: confident, educational, measured. Not salesy.
 // ─────────────────────────────────────────────────────────────────────────────
@@ -764,8 +767,22 @@ export const DM_DeepDive: React.FC = () => {
         overflow: "hidden",
       }}
     >
-      {/* ── Voiceover audio ─────────────────────────────────── */}
-      <Audio src={staticFile("audio/dm-deepdive-vo.mp3")} />
+      {/* ── Voiceover audio (per-line clips synced to cards) ── */}
+      <Sequence from={30} durationInFrames={60}>
+        <Audio src={staticFile("audio/dm-deepdive/line-1.mp3")} />
+      </Sequence>
+      <Sequence from={105} durationInFrames={144}>
+        <Audio src={staticFile("audio/dm-deepdive/line-2.mp3")} />
+      </Sequence>
+      <Sequence from={264} durationInFrames={93}>
+        <Audio src={staticFile("audio/dm-deepdive/line-3.mp3")} />
+      </Sequence>
+      <Sequence from={372} durationInFrames={78}>
+        <Audio src={staticFile("audio/dm-deepdive/line-4.mp3")} />
+      </Sequence>
+      <Sequence from={465} durationInFrames={108}>
+        <Audio src={staticFile("audio/dm-deepdive/line-5.mp3")} />
+      </Sequence>
 
       {/* ── Camera viewport ─────────────────────────────────── */}
       <div
@@ -908,10 +925,10 @@ export const DM_DeepDive: React.FC = () => {
 
       {/* ── Anticipation glows (pulse before each card) ──── */}
       <AnticipationGlow frame={frame} showAt={30} position="bottom" />
-      <AnticipationGlow frame={frame} showAt={150} position="bottom" />
-      <AnticipationGlow frame={frame} showAt={270} position="bottom" />
-      <AnticipationGlow frame={frame} showAt={370} position="bottom" />
-      <AnticipationGlow frame={frame} showAt={470} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={105} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={264} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={372} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={465} position="bottom" />
 
       {/* ── Content cards (screen-space text overlay) ──── */}
       <ContentCard
@@ -919,7 +936,7 @@ export const DM_DeepDive: React.FC = () => {
         frame={frame}
         fps={fps}
         showAt={30}
-        hideAt={140}
+        hideAt={95}
         position="bottom"
       />
       <ContentCard
@@ -928,8 +945,8 @@ export const DM_DeepDive: React.FC = () => {
         line2Stagger={10}
         frame={frame}
         fps={fps}
-        showAt={150}
-        hideAt={260}
+        showAt={105}
+        hideAt={255}
         position="bottom"
       />
       <ContentCard
@@ -938,23 +955,23 @@ export const DM_DeepDive: React.FC = () => {
         line2Stagger={10}
         frame={frame}
         fps={fps}
-        showAt={270}
-        hideAt={360}
+        showAt={264}
+        hideAt={363}
         position="bottom"
       />
       <ContentCard
         text="Moderne Treatments aktivieren die Neubildung."
         frame={frame}
         fps={fps}
-        showAt={370}
-        hideAt={460}
+        showAt={372}
+        hideAt={455}
         position="bottom"
       />
       <ContentCard
         text="Wir zeigen dir, wie."
         frame={frame}
         fps={fps}
-        showAt={470}
+        showAt={465}
         hideAt={530}
         position="bottom"
       />
