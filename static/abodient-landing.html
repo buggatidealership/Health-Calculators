@@ -311,17 +311,28 @@ body {
   flex-direction: column;
   gap: 6px;
   padding: 16px 0;
+  max-height: 520px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Minimal scrollbar for chat */
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-track { background: transparent; }
+.chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 4px; }
+.chat-messages { scrollbar-width: thin; scrollbar-color: rgba(255,255,255,0.12) transparent; }
 
 .msg {
   max-width: 82%;
-  padding: 10px 14px;
+  padding: 9px 13px;
   border-radius: 16px;
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.4;
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 }
 
 .msg.visible {
@@ -1328,7 +1339,7 @@ body {
 }
 
 .demo-chat-area.open {
-  max-height: 600px;
+  max-height: 640px;
   opacity: 1;
   margin-top: 20px;
 }
@@ -1345,17 +1356,28 @@ body {
   display: flex;
   flex-direction: column;
   gap: 6px;
+  max-height: 480px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
 }
+
+/* Minimal scrollbar for demo chat */
+.demo-chat-messages::-webkit-scrollbar { width: 4px; }
+.demo-chat-messages::-webkit-scrollbar-track { background: transparent; }
+.demo-chat-messages::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 4px; }
+.demo-chat-messages { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.1) transparent; }
 
 .demo-msg {
   max-width: 82%;
-  padding: 10px 14px;
+  padding: 9px 13px;
   border-radius: 16px;
-  font-size: 15px;
-  line-height: 1.45;
+  font-size: 14px;
+  line-height: 1.4;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
 }
 
 .demo-msg.visible {
@@ -2050,6 +2072,7 @@ body {
           typingIndicator.classList.add('visible');
           // Position typing indicator before this message
           chatMessages.insertBefore(typingIndicator, msg);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
         }, msgDelay - 600);
       }
 
@@ -2059,6 +2082,8 @@ body {
           typingIndicator.classList.remove('visible');
         }
         msg.classList.add('visible');
+        // Auto-scroll to newest message
+        chatMessages.scrollTop = chatMessages.scrollHeight;
       }, msgDelay);
     });
   }
@@ -2245,23 +2270,38 @@ body {
   var scenarioData = {
     'burst-pipe': [
       { role: 'tenant', text: 'Water is pouring from the ceiling in the kitchen!', time: '14:22' },
-      { role: 'alfred', text: 'I understand this is urgent. Can you see where the water is coming from \u2014 above the sink or near the boiler?', time: '14:22' },
-      { role: 'tenant', text: 'Near the boiler I think', time: '14:23' },
-      { role: 'alfred', text: "I've classified this as an emergency. Contacting available plumbers now and notifying your landlord.", time: '14:23' }
+      { role: 'alfred', text: 'That sounds urgent. Can you see where the water is coming from \u2014 directly above the sink, near the boiler, or from a different area?', time: '14:22' },
+      { role: 'tenant', text: "It's near the boiler, coming through fast", time: '14:23' },
+      { role: 'alfred', text: "Understood. For safety, please turn off the water stopcock \u2014 it's usually under the kitchen sink. I'm classifying this as an emergency.", time: '14:23' },
+      { role: 'alfred', text: "I've found 3 available emergency plumbers. Mike's Plumbing has a 4.8 rating and can arrive within 45 minutes. Booking now.", time: '14:24' },
+      { role: 'alfred', text: "Plumber confirmed for 3:15 PM. I've notified your landlord and sent you Mike's direct number in case you need it before he arrives.", time: '14:25' },
+      { role: 'alfred', text: "I've also flagged this property for a follow-up inspection to check for water damage. Your landlord will be asked to approve that separately.", time: '14:25' }
     ],
     'heating-broken': [
-      { role: 'tenant', text: "The heating hasn't been working since this morning. It's freezing.", time: '09:15' },
-      { role: 'alfred', text: 'Sorry to hear that. Is the boiler showing any error codes or warning lights?', time: '09:15' },
-      { role: 'tenant', text: "There's a red flashing light", time: '09:16' },
-      { role: 'alfred', text: "That's likely a pressure fault. I'm booking a Gas Safe engineer for today. You'll receive a confirmation shortly.", time: '09:16' }
+      { role: 'tenant', text: "The heating hasn't worked since this morning. It's really cold in here.", time: '09:15' },
+      { role: 'alfred', text: 'Sorry to hear that. Is the boiler showing any error codes or warning lights on the display?', time: '09:15' },
+      { role: 'tenant', text: "There's a red flashing light and it says E119", time: '09:16' },
+      { role: 'alfred', text: "E119 is a low water pressure fault \u2014 common and usually fixable. Have you tried the repressurisation valve? It's the small tap underneath the boiler.", time: '09:16' },
+      { role: 'tenant', text: "I tried but it didn't help", time: '09:18' },
+      { role: 'alfred', text: "No problem. I'm booking a Gas Safe registered engineer. Found: Hartley Heating, 4.9 stars, available this afternoon at 2:30 PM.", time: '09:18' },
+      { role: 'alfred', text: "Appointment confirmed. In the meantime, I'd recommend using a portable heater if you have one. I've let your landlord know and they've approved the repair.", time: '09:19' }
     ],
     'noise-complaint': [
-      { role: 'tenant', text: "The neighbours upstairs are having a party again, it's 11pm", time: '23:02' },
-      { role: 'alfred', text: "I'll log this complaint and send a polite reminder to the tenant in Flat 4 about quiet hours per the building rules.", time: '23:02' }
+      { role: 'tenant', text: "The neighbours upstairs have been playing loud music since 10pm. It's now midnight and I have work tomorrow.", time: '00:02' },
+      { role: 'alfred', text: "I'm sorry about that. I've logged this as a noise complaint against Flat 4. This is the second complaint this month.", time: '00:02' },
+      { role: 'alfred', text: "I've sent a formal reminder to the tenant in Flat 4 about the building's quiet hours (10 PM \u2013 8 AM), referencing clause 12.3 of their tenancy agreement.", time: '00:03' },
+      { role: 'alfred', text: "Because this is a repeat incident, I've also flagged it for your landlord's review. They may want to issue a formal warning.", time: '00:03' },
+      { role: 'tenant', text: 'Thank you, that was fast', time: '00:04' },
+      { role: 'alfred', text: "You're welcome. I'll follow up tomorrow to check if the situation has improved. If it happens again tonight, message me and I'll escalate immediately.", time: '00:04' }
     ],
     'lease-question': [
-      { role: 'tenant', text: 'Am I allowed to have a small dog in the flat?', time: '16:40' },
-      { role: 'alfred', text: "I've checked your tenancy agreement. Section 8.2 states pets require written landlord approval. I can send a request to your landlord now if you'd like.", time: '16:41' }
+      { role: 'tenant', text: 'Am I allowed to have a small dog in the flat? It\u2019s a cockapoo, very well behaved.', time: '16:40' },
+      { role: 'alfred', text: 'Let me check your tenancy agreement. One moment.', time: '16:40' },
+      { role: 'alfred', text: "Section 8.2 of your lease states that pets require written landlord approval before moving in. There's no blanket ban \u2014 it's at the landlord's discretion.", time: '16:41' },
+      { role: 'tenant', text: 'Can you ask them for me?', time: '16:42' },
+      { role: 'alfred', text: "Of course. I'll send a formal pet request to your landlord with the details. Could you confirm the breed, approximate size, and whether the dog is house-trained?", time: '16:42' },
+      { role: 'tenant', text: 'Cockapoo, about 12kg, fully house-trained, 2 years old', time: '16:43' },
+      { role: 'alfred', text: "Request sent to your landlord: \u2018Tenant in Flat 2 requests permission for a cockapoo (12kg, 2 years, house-trained).\u2019 I'll let you know as soon as they respond.", time: '16:43' }
     ]
   };
 
@@ -2334,6 +2374,7 @@ body {
         var typingDelay = cumulativeDelay;
         var tid1 = setTimeout(function() {
           demoTyping.classList.add('visible');
+          demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
         }, typingDelay);
         demoTimeouts.push(tid1);
         cumulativeDelay += 800;
@@ -2357,6 +2398,8 @@ body {
         msgEl.offsetHeight;
         requestAnimationFrame(function() {
           msgEl.classList.add('visible');
+          // Auto-scroll to newest message
+          demoChatMessages.scrollTop = demoChatMessages.scrollHeight;
         });
       }, showDelay);
       demoTimeouts.push(tid2);

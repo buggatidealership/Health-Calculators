@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   useCurrentFrame,
   useVideoConfig,
   interpolate,
@@ -530,16 +531,51 @@ const SciLabel: React.FC<{
   );
 };
 
+// ─── Anticipation glow — radial pulse before each content card ───────────
+// Appears 18 frames before card entry, pulses once, fades as card appears.
+const AnticipationGlow: React.FC<{
+  frame: number;
+  showAt: number;
+  position?: "top" | "bottom";
+}> = ({ frame, showAt, position = "bottom" }) => {
+  const LEAD = 18; // frames before card entry
+  const glowStart = showAt - LEAD;
+  const glowEnd = showAt + 8; // lingers slightly into card entrance
+
+  const progress = interpolate(frame, [glowStart, glowStart + LEAD * 0.5, glowEnd], [0, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+
+  if (progress < 0.01) return null;
+
+  const yPos = position === "top" ? "18%" : "67%";
+
+  return (
+    <div
+      style={{
+        position: "absolute",
+        inset: 0,
+        pointerEvents: "none",
+        background: `radial-gradient(ellipse 320px 80px at 50% ${yPos}, rgba(85, 134, 149, ${progress * 0.25}) 0%, transparent 100%)`,
+      }}
+    />
+  );
+};
+
 // ─── Content card — text overlay in screen-space (not camera-space) ───────
 // Positioned in the bottom safe zone. Uses spring entrance + easing exit.
+// Supports two-line stagger: if line2 is provided, it appears with a delay.
 const ContentCard: React.FC<{
   text: string;
+  line2?: string;
+  line2Stagger?: number;
   frame: number;
   fps: number;
   showAt: number;
   hideAt: number;
   position?: "top" | "bottom";
-}> = ({ text, frame, fps, showAt, hideAt, position = "bottom" }) => {
+}> = ({ text, line2, line2Stagger = 10, frame, fps, showAt, hideAt, position = "bottom" }) => {
   const FADE_IN_DURATION = 20;
   const FADE_OUT_DURATION = 20;
 
@@ -564,8 +600,30 @@ const ContentCard: React.FC<{
 
   if (opacity < 0.01) return null;
 
-  // Subtle slide-up entrance (12px)
-  const slideY = (1 - enterProgress) * 12;
+  // Entrance: subtle slide-up (12px)
+  const slideUpEntrance = (1 - enterProgress) * 12;
+  // Exit: subtle slide-down (6px) during fadeout for "settling" effect
+  const exitProgress = interpolate(frame, [hideAt - FADE_OUT_DURATION, hideAt], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const slideDownExit = exitProgress * 6;
+  const slideY = slideUpEntrance + slideDownExit;
+
+  // Line 2 stagger: spring-based reveal offset from showAt
+  const line2Enter = line2
+    ? spring({
+        frame: Math.max(0, frame - (showAt + line2Stagger)),
+        fps,
+        config: { damping: 22, stiffness: 110, mass: 0.6 },
+      })
+    : 0;
+  const line2Opacity = line2
+    ? interpolate(frame, [showAt + line2Stagger, showAt + line2Stagger + 15], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+      })
+    : 0;
 
   const positionStyle: React.CSSProperties =
     position === "top"
@@ -593,6 +651,9 @@ const ContentCard: React.FC<{
           backdropFilter: "blur(8px)",
           WebkitBackdropFilter: "blur(8px)",
           textAlign: "center",
+          display: "flex",
+          flexDirection: "column",
+          gap: line2 ? 6 : 0,
         }}
       >
         <span
@@ -607,6 +668,22 @@ const ContentCard: React.FC<{
         >
           {text}
         </span>
+        {line2 && (
+          <span
+            style={{
+              fontSize: 28,
+              lineHeight: 1.4,
+              fontFamily: FONTS.body,
+              fontWeight: 300,
+              color: "rgba(255, 255, 255, 0.78)",
+              letterSpacing: 0.5,
+              opacity: Math.min(line2Opacity, fadeOut),
+              transform: `translateY(${(1 - line2Enter) * 8}px)`,
+            }}
+          >
+            {line2}
+          </span>
+        )}
       </div>
     </div>
   );
@@ -687,6 +764,9 @@ export const DM_DeepDive: React.FC = () => {
         overflow: "hidden",
       }}
     >
+      {/* ── Voiceover audio ─────────────────────────────────── */}
+      <Audio src={staticFile("audio/dm-deepdive-vo.mp3")} />
+
       {/* ── Camera viewport ─────────────────────────────────── */}
       <div
         style={{
@@ -826,6 +906,13 @@ export const DM_DeepDive: React.FC = () => {
         }}
       />
 
+      {/* ── Anticipation glows (pulse before each card) ──── */}
+      <AnticipationGlow frame={frame} showAt={30} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={150} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={270} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={370} position="bottom" />
+      <AnticipationGlow frame={frame} showAt={470} position="bottom" />
+
       {/* ── Content cards (screen-space text overlay) ──── */}
       <ContentCard
         text="Kollagen hält deine Haut zusammen."
@@ -836,7 +923,9 @@ export const DM_DeepDive: React.FC = () => {
         position="bottom"
       />
       <ContentCard
-        text="Ein unsichtbares Netzwerk — elastisch, stabil, lebendig."
+        text="Ein unsichtbares Netzwerk."
+        line2="Elastisch. Stabil. Lebendig."
+        line2Stagger={10}
         frame={frame}
         fps={fps}
         showAt={150}
@@ -844,7 +933,9 @@ export const DM_DeepDive: React.FC = () => {
         position="bottom"
       />
       <ContentCard
-        text="Ab 25 verlierst du jedes Jahr 1 % davon."
+        text="Ab 25:"
+        line2="Jedes Jahr 1 % weniger Kollagen."
+        line2Stagger={10}
         frame={frame}
         fps={fps}
         showAt={270}
