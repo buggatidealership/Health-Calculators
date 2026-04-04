@@ -80,6 +80,8 @@ import { DM_Harmonyca_Scale } from "./DM_Harmonyca_Scale";
 import { DM_Harmonyca_SplitReveal } from "./DM_Harmonyca_SplitReveal";
 import { DM_Skinvive_Eraser } from "./DM_Skinvive_Eraser";
 import { DM_Skinvive_Redact } from "./DM_Skinvive_Redact";
+import { DM_Skinvive_BlindA } from "./DM_Skinvive_BlindA";
+import { DM_Skinvive_BlindB } from "./DM_Skinvive_BlindB";
 import { DM_IntelliStudio_XRay } from "./DM_IntelliStudio_XRay";
 import { DM_IntelliStudio_DataPulse } from "./DM_IntelliStudio_DataPulse";
 import { DM_Vectra_XRay } from "./DM_Vectra_XRay";
@@ -483,6 +485,8 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="dm-harmonyca-splitreveal" component={DM_Harmonyca_SplitReveal} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="dm-skinvive-eraser" component={DM_Skinvive_Eraser} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="dm-skinvive-redact" component={DM_Skinvive_Redact} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-skinvive-blind-a" component={DM_Skinvive_BlindA} durationInFrames={360} fps={30} width={1080} height={1920} />
+      <Composition id="dm-skinvive-blind-b" component={DM_Skinvive_BlindB} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="dm-intellistudio-xray" component={DM_IntelliStudio_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
       <Composition id="dm-intellistudio-datapulse" component={DM_IntelliStudio_DataPulse} durationInFrames={360} fps={30} width={1080} height={1920} />
       <Composition id="dm-vectra-xray" component={DM_Vectra_XRay} durationInFrames={390} fps={30} width={1080} height={1920} />
