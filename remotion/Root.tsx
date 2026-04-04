@@ -168,6 +168,8 @@ import { Yoga_Set2_B } from "./Yoga_Set2_B";
 import { Yoga_Set2_C } from "./Yoga_Set2_C";
 import { Composite_Final } from "./Composite_Final";
 import { LD_PixelFusion } from "./LD_PixelFusion";
+import { DM_PRP_LayerPeel_V2 } from "./DM_PRP_LayerPeel_V2";
+import { LuxuryBrandCommercial } from "./LuxuryBrandCommercial";
 
 export const RemotionRoot: React.FC = () => {
   return (
@@ -589,6 +591,10 @@ export const RemotionRoot: React.FC = () => {
       <Composition id="composite-final" component={Composite_Final} durationInFrames={540} fps={30} width={1080} height={1920} />
       {/* Liquid Death — Pixel Art Fusion Segment */}
       <Composition id="ld-pixel-fusion" component={LD_PixelFusion} durationInFrames={300} fps={30} width={1080} height={1920} />
+      {/* PRP LayerPeel V2 — Multi-tool (Recraft + ElevenLabs + Ideogram) */}
+      <Composition id="dm-prp-layerpeel-v2" component={DM_PRP_LayerPeel_V2} durationInFrames={480} fps={30} width={1080} height={1920} />
+      {/* Luxury Brand Commercial — Portfolio spec piece */}
+      <Composition id="luxury-brand-commercial" component={LuxuryBrandCommercial} durationInFrames={450} fps={30} width={1080} height={1920} />
     </>
   );
 };
