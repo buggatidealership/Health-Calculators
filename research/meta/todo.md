@@ -22,6 +22,16 @@
 
 ### P1 — High priority
 
+- [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — AVGO (Broadcom) thesis — newly elevated by Anthropic-Broadcom custom Si partnership
+  - Origin: Anthropic WSJ reveal 2026-05-20 (per [Sherwood](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)) confirms second top-3 frontier provider on Broadcom custom Si (Google TPU = first). S2 scenario structurally validated.
+  - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Custom Si TAM model. Compare to NVDA exposure. Why this is the structural S2-hedge.
+  - Linked: `research/companies/AVGO/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-20** [POS, AF] — AMZN (Amazon) thesis — Anthropic primary cloud partner + Trainium consumption ramping
+  - Origin: Anthropic WSJ reveal 2026-05-20. $30B run-rate compute footprint primarily on AWS. Trainium 3 ramp directly tied. Plus Amazon equity stake in Anthropic (per Fortune 2026-04-30).
+  - Scope: Full thesis. Three legs: (a) AWS share gains from Anthropic exclusivity, (b) Trainium economics + custom Si margin, (c) Anthropic stake P&L contribution. Anti-fragility highest in universe per scenarios.md (was already 3.5/5).
+  - Linked: `research/companies/AMZN/thesis.md` (new)
+
 - [ ] **P1 / research / 2026-05-20** [INDP, POS, AF] — Pull Leopold Aschenbrenner's 13F filings; build T1 / BE / TSEM thesis basis
   - Origin: User input 2026-05-20. Leopold focuses on AI infra layer (not memory). Holdings include or have included T1 Energy, Bloom Energy, Tower Semi.
   - Scope: Fetch most recent 13F from SEC EDGAR (Situational Awareness LLC). Extract current holdings. For each held position in our universe, build the bull thesis using his thesis as primary-tier signal, then reconstruct independently.
@@ -68,6 +78,11 @@
   - Origin: User-surfaced via "agnostic to who wins at the top." HBM primer confirms substrate-layer importance.
   - Scope: Build joint or separate theses. Use the wafer-demand vs HBM-demand tension to frame the bull case.
   - Linked: `research/companies/SUMCO/thesis.md`, `research/companies/SHINETSU/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-20** [POS, AF] — GOOG (Alphabet) thesis — expanded Anthropic partnership + TPU scaling + Anthropic stake
+  - Origin: Anthropic WSJ reveal 2026-05-20 (per Sherwood). Expanded Google partnership confirmed alongside Broadcom.
+  - Scope: Full thesis. Three legs: (a) TPU as S2 winner (already AVGO partner), (b) Anthropic exclusivity/preference economics, (c) Gemini standalone trajectory. Anti-fragility 3/5 per scenarios.md.
+  - Linked: `research/companies/GOOG/thesis.md` (new)
 
 - [ ] **P2 / research / 2026-05-20** [BOT, INDP] — Rambus (RMBS) thesis — memory IP licensor, HBM bypass-route candidate
   - Origin: User mentioned 2026-05-20 as example of "give me your thesis on X" interaction pattern. Already surfaced as a memory IP play in `wiki/hbm-primer.md` §7 Tier 3.

@@ -13,10 +13,17 @@ Names that matter to public-market thinking but don't have tickers. Track their 
 - Watch: IPO progression; on-prem deal scale; partner shifts
 
 ### Anthropic
-- Status: Strong #2; seeking sovereign capital mid-2026
-- Public-market relevance: Compute customer (AMZN AWS, GOOG); Anthropic-Amazon partnership deep
-- Latest signals: Forming on-prem enterprise consortium with OpenAI
-- Watch: Sovereign capital deal (likely Gulf state); model release cadence
+- Status: Strong #2 to OpenAI in scale, but passed OpenAI in enterprise share by April 2026
+- Public-market relevance: Compute customer (AMZN AWS, GOOG); Anthropic-Amazon partnership deep; Anthropic-AVGO custom Si partnership announced May 2026
+- Latest signals (2026-05-20, per [WSJ via Investing.com](https://za.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4293058) and [Sherwood News](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)):
+  - Q1 2026 revenue: $4.8B
+  - Q2 2026 forecast revenue: $10.9B (~+127% q/q, ≈ "130% surge" per headline)
+  - Q2 2026 forecast operating profit: **$559M — first ever** (includes training costs, excludes SBC)
+  - Annual run rate: $30B (per Sherwood News)
+  - Prior guidance had been: no profitability until 2028 at earliest
+  - Caveat: may not stay profitable full year due to compute + training capex
+  - Expanded partnerships announced: **Google + Broadcom** (the AVGO custom Si angle is the under-noticed detail)
+- Watch: IPO progression (some sources hint at IPO timing acceleration); sovereign capital deal (likely Gulf state); Broadcom custom Si ramp; AWS Trainium volume consumption
 
 ### xAI
 - Status: Musk-backed; large compute build (Colossus)

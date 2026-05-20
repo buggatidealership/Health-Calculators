@@ -7,6 +7,8 @@
 
 The headline number: **88% of enterprise agentic AI deployments fail to reach production** per a 847-deployment analysis ([Medium](https://medium.com/@snehal_singh/i-analyzed-847-ai-agent-deployments-in-2026-76-failed-heres-why-0b69d962ec8b)). But the 12% that succeed return ~171% ROI globally (192% US) with median 7.3-month payback. The pattern is binary: most pilots stall, a minority become breakthrough deployments. The dividing line is NOT model quality — it's **eval/observability + governance + human-in-the-loop discipline**. The biggest blocker (cited by 64% of failed projects) is evaluation. This is why DDOG-type observability is structurally bid, why governance-platform thesis is real, and why "wrap-an-API" startups are getting commoditized.
 
+**Update 2026-05-20 — Anthropic profitability inflection.** Anthropic's WSJ-reported Q2 2026 forecast of $10.9B revenue + $559M first operating profit (per [WSJ via Investing.com](https://za.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4293058)) is the canonical "frontier model providers CAN make money at scale" data point. Combined with their $30B run-rate (per [Sherwood](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)) and 34.4% enterprise share (per Barclays cited earlier), this triangulates the agentic enterprise revenue thesis from "pilot data + Cursor breakthrough" to "frontier-provider-profitable at scale." See `research/signals/triangulation.md` 2026-05-20 entry.
+
 ---
 
 ## The failure rate headline

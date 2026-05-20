@@ -19,7 +19,32 @@ Falsifier: [what would suggest this convergence is coincidence not pattern]
 
 ## Entries (most recent first)
 
-(empty — first triangulations will be populated as cross-source log accumulates)
+### [2026-05-20] Frontier model providers reaching operating profit at scale → AI capex sustainability bear case (S4) weakens materially
+
+**Convergent read:** Model providers can be profitable at frontier compute spend levels. The "AI is unprofitable / capex sustainability is the bear case" narrative weakens.
+
+**Sources:**
+1. **PRIMARY** — WSJ reporting (via [Investing.com](https://za.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4293058)) 2026-05-20: Anthropic Q2 forecast $10.9B revenue + $559M first operating profit (excludes SBC, includes training costs)
+2. **SECONDARY** — [Sherwood News](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/): Anthropic $30B annual run-rate confirmed; expanded Google + Broadcom partnerships
+3. **TRIANGULATING** — Earlier per Barclays (via [Seeking Alpha](https://seekingalpha.com/news/4505254-openai-dominating-consumer-ai-token-consumption-anthropic-wins-enterprise-barclays)): Anthropic 34.4% enterprise share by April 2026, ahead of OpenAI's 32.3%. The enterprise dominance was already triangulated; profitability is the new leg.
+4. **TRIANGULATING** — [Fortune](https://fortune.com/2026/04/30/google-amazon-ai-profits-anthropic-stake-bubble-earnings-2026/): Anthropic stake materially contributed to Google + Amazon Q1 2026 reported earnings
+
+**Names affected (TRACE elsewhere):**
+- AMZN — primary cloud partner, Trainium consumption ramping
+- AVGO — newly named custom Si partner; previously Google TPU partner — now two of top-3 frontier providers
+- GOOG — expanded partnership, TPU benefit, Anthropic stake P&L
+- NVDA — mixed (Anthropic still buys NVDA at scale, but custom Si scaling = S2 pressure)
+- SK Hynix, MU — every chip Anthropic uses needs HBM
+- DDOG — agentic at $30B run-rate validates observability spend
+- NOW — agentic enterprise integration thesis confirmed at scale
+
+**Falsifier:** Anthropic Q2 2026 actuals materially below the $10.9B forecast (>15% miss) OR Q3 2026 reverts to losses, suggesting the Q2 profit was non-recurring.
+
+### Promotion criteria reminder — single new article CAN trigger a triangulation if it converges with already-triangulated prior signals. This entry triangulates because Anthropic enterprise dominance was already triangulated (Barclays + multi-source) — the WSJ revenue/profit numbers ADD a new leg (profitability + Broadcom partnership) to an existing high-confidence pattern.
+
+---
+
+## Initial candidate triangulations (need 3rd source to confirm)
 
 ## Initial candidate triangulations (need 3rd source to confirm)
 
