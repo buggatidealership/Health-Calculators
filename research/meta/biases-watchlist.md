@@ -56,11 +56,21 @@ Patterns of error I've observed in my own analysis. Read before any prediction o
 **Correction:** Use ranges + probability bands when forecasting >2 hops out. Point estimates only when reasoning is direct + sourced.
 **How to check:** "Am I giving a number when I should be giving a range?"
 
-### B11 — Re-stated numbers without re-citation
-**Origin:** Anti-fabrication hook caught 3 violations in a single response on 2026-05-20: Anthropic 34.4% / OpenAI 32.3% enterprise adoption (cited in wiki but not re-cited in chat) and SK Hynix 12.5% portfolio weight (cited in holdings.md but not re-cited in chat).
-**Pattern:** When re-stating numbers from earlier conversation or from research files I just wrote, the citation feels redundant in the moment so I skip it. But the hook reads only the current message — every numerical claim must be cited or hedged inline, every time.
-**Correction:** Re-cite even "obvious" numbers. Treat each message as if the reader has no prior context. Citation patterns that work: `per [source]`, `per [file path]`, `(estimate)`, `(my inference)`, `~` prefix.
-**How to check:** Before completing any message with ≥2 numerical claims, scan the message for citations near each one. If a number doesn't have a citation/hedge within ~300 chars, add one.
+### B11 — Numerical claims without citation or hedge
+
+This bias has two confirmed subtypes:
+
+**B11.a — Re-stated numbers without re-citation.**
+Origin: Hook catch 2026-05-20 on Anthropic 34.4% / OpenAI 32.3% enterprise adoption (cited in wiki but not re-cited in chat) and SK Hynix 12.5% portfolio weight (cited in holdings.md but not re-cited in chat).
+Pattern: When restating numbers from earlier conversation or from research files I just wrote, the citation feels redundant in the moment so I skip it. But the hook reads only the current message.
+Correction: Re-cite even "obvious" numbers. Treat each message as if the reader has no prior context.
+
+**B11.b — Illustrative/hypothetical scenario inputs without hedge.**
+Origin: Hook catch 2026-05-20 on three hypothetical scenario percentages (~15%, ~30%, ~25%) used as ILLUSTRATIVE inputs to scenario modeling, not factual claims. The hook correctly flagged them because they had no hedge attached.
+Pattern: When sketching scenarios ("what if X took 15% of share, what if Y reduced memory by 30%"), the number is clearly hypothetical IN MY HEAD but I forget the reader/hook doesn't see that frame. The number reads as a claim.
+Correction: Always hedge illustrative or hypothetical inputs explicitly. Recognized hedge patterns now include `(hypothetical)`, `(hypothetical scenario)`, `(illustrative)`, `(scenario)`, `(modeled)`, `(if X)` — the hook was updated 2026-05-20 to accept these.
+
+**How to check (both subtypes):** Before completing any message with ≥2 numerical claims, scan each one for adjacent citation or hedge. Citation patterns that work: `per [source]`, `per [file path]`, `(estimate)`, `(my inference)`, `(hypothetical)`, `(illustrative)`, `~` prefix.
 
 ### B10 — P/E multiple anchoring on emerging-demand stories
 **Origin:** User feedback, 2026-05-20. Bloom Energy was identified correctly as a bypass-route name for the time-to-power constraint. The optical "high P/E" almost talked the user out of the position — and definitely talked them into selling at +30% on the view that "the multiple is rich, take the win."
