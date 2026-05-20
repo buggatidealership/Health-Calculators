@@ -15,6 +15,7 @@ Every claim cited inline. Anti-fabrication hook applies.
 |---|---|---|
 | `token-consumption.md` | Where token volume is growing, why, and the inference cost paradox | Complete (2026-05-20) |
 | `agentic-ai-enterprise.md` | What's working, what's failing in enterprise agentic AI; patterns of 88% failures vs 12% breakthroughs | Complete (2026-05-20) |
+| `hbm-primer.md` | HBM supply-demand-bypass analysis. Three suppliers sold out 2026, demand +77% YoY, bypass routes (CXL/ALAB, MoE, HBM4E) won't materially relieve before 2027 | Complete (2026-05-20) |
 
 ## Planned / candidate entries (in rough priority order)
 
