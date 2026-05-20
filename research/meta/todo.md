@@ -90,6 +90,16 @@
   - Scope: Full thesis. Three legs: (a) TPU as S2 winner (already AVGO partner), (b) Anthropic exclusivity/preference economics, (c) Gemini standalone trajectory. Anti-fragility 3/5 per scenarios.md.
   - Linked: `research/companies/GOOG/thesis.md` (new)
 
+- [ ] **P2 / verification / 2026-05-20** [INDP, CAL] — Source-reliability track-record audit (per user input 2026-05-20)
+  - Origin: User input — "look at their previous track record, how often they write about things that materialized." We've been citing T4 aggregators (Motley Fool, StockTitan, BeyondSPX, IBTimes, Sherwood) without empirical reliability scores.
+  - Scope: For each of the 8 sources in the audit queue in `meta/source-reliability.md`, pick 3–5 past specific claims, check what happened, score materialization, annotate the source ledger with track record. Repeat monthly for sources we rely on heavily.
+  - Linked: `research/meta/source-reliability.md`
+
+- [ ] **P2 / verification / 2026-05-20** [INDP] — Re-verify VICR 2nd gen VPD technical specs at primary source
+  - Origin: VICR thesis cited BeyondSPX (T4) for 5 A/mm² density + 24× current gain — should be verified at Vicor product page or technical paper.
+  - Scope: Find Vicor's own technical disclosure. Confirm the specs. Update `companies/VICR/facts.md` with primary source.
+  - Linked: `companies/VICR/facts.md`, `companies/VICR/thesis.md`
+
 - [ ] **P2 / research / 2026-05-20** [BOT, INDP] — Rambus (RMBS) thesis — memory IP licensor, HBM bypass-route candidate
   - Origin: User mentioned 2026-05-20 as example of "give me your thesis on X" interaction pattern. Already surfaced as a memory IP play in `wiki/hbm-primer.md` §7 Tier 3.
   - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Memory IP licensing model + HBM4/HBM4E royalty stream + AI memory cycle exposure. Compare to ALAB as bypass-route alternative.
