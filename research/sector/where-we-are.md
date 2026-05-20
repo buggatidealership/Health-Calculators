@@ -72,8 +72,12 @@ Anthropic Q2 profit is the high-water mark for current per-token economics. Big 
 ### 4. The capacity-constrained narrative is asymmetric for SUPPLY-SIDE names, not model providers
 Altman's "capacity-constrained for some time" implies pricing power flows to whoever owns the constraint: TSMC, SK Hynix, NBIS, hyperscaler cloud capacity, power producers. Model providers are themselves capacity-buyers — they benefit from selling forward contracts but face their own input cost pressure.
 
-### 5. Inference cloud (NBIS, CoreWeave) is the most-overlooked layer
-Public inference clouds have just had their thesis confirmed by both OpenAI (selling forward capacity) and NBIS itself (printing +684% Q1). Most generalist investors don't yet think of "inference cloud" as a distinct category. NBIS specifically lacks a thesis file in this OS — P1.
+### 5. Inference cloud (NBIS, CoreWeave) is mis-priced as zero-sum competition (CORRECTED 2026-05-20 from user pushback)
+My initial framing said this layer was "overlooked." User pushed back correctly: NBIS rallied massively on its +684% Q1 print per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm), then dropped 7.5% to $184.84 (per [Investing.com](https://www.investing.com/news/stock-market-news/coreweave-nebius-shares-drop-as-blackstone-and-google-launch-5b-ai-cloud-venture-4698388)) on the Google + Blackstone $5B AI cloud venture announcement. Market HAS priced these names AND priced in competition risk.
+
+**The actual non-default read:** market is treating hyperscaler vs neocloud as zero-sum. Structural reality is non-zero-sum — hyperscalers cannot build capacity fast enough, so they BUY from neoclouds while ALSO competing. Evidence: NBIS-Microsoft contract $17.4–19.4B over 5 years (per [TradingView/Zacks](https://www.tradingview.com/news/zacks:349d920dc094b:0-nebius-vs-coreweave-which-ai-cloud-stock-is-the-better-bet/)); NBIS-Meta $3B/5yr; CoreWeave-Meta $21B (per [Brandergroup](https://brandergroup.net/2026/04/coreweaves-21b-meta-deal-ignites-the-ai-battleground/)) + multi-year Anthropic. Hyperscalers are both customers AND competitors. Market is pricing only the competition vector.
+
+**Critical caveat — Token-Volume Filter:** Inference clouds fall in the MIXED bucket (per `meta/methodology.md` §Token-Volume Filter). Volume up = revenue up, but per-token margin may compress as enterprise customers negotiate volume pricing. Contract structure matters. NBIS thesis (P1 todo) must address this directly.
 
 ## What I changed my mind about (and when)
 
@@ -81,6 +85,8 @@ Public inference clouds have just had their thesis confirmed by both OpenAI (sel
 - **2026-05-20:** Vicor reframed from "guaranteed downstream beneficiary" to "binary on next-gen design wins" after bottoms-up customer research surfaced design-out at NVIDIA H100. Captured in B12.
 - **2026-05-20:** Time-to-recognition refined into Recognition Stage 0-5 spectrum after user critique. AXTI verified Stage 4 from user screenshot.
 - **2026-05-20:** Added Execution Quality as 5th component of valuation model after user input. Vicor would have scored 2/5 — methodology now self-consistent.
+- **2026-05-20:** Corrected non-default read #5 (inference cloud) after user pushback. "Overlooked" framing was wrong — NBIS had run and then dropped on competition concerns. Real non-default read: zero-sum vs non-zero-sum dynamic between hyperscalers and neoclouds.
+- **2026-05-20:** Codified Token-Volume Filter as hard portfolio selection rule per user input — names must benefit from volume regardless of per-token cost direction. Model providers fail this filter; memory/foundry/networking/test/power/EDA pass cleanly; inference clouds are MIXED (contract-dependent).
 
 ## What's still ambiguous (intellectual humility)
 

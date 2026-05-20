@@ -61,6 +61,47 @@ Joint:
 - Trivial (silent): adding a watchlist name, logging a weak signal, archiving a done item
 - Material (surface): sizing recommendation, thesis tier change, exit signal, falsifier firing
 
+## The Token-Volume Filter (portfolio selection rule)
+
+User said 2026-05-20: *"The companies we should hold should all be tied towards token consumption going up regardless of the cost of the token itself."*
+
+This is a hard portfolio selection rule. A name qualifies for the portfolio only if its revenue/earnings benefit from token VOLUME growth, AGNOSTIC to per-token cost direction.
+
+**Why it matters:** Per-token cost is in long-term structural decline (~280x in 2 years per [Oplexa](https://oplexa.com/ai-inference-cost-crisis-2026/), with Gartner forecasting another 90% drop by 2030). Names whose economics depend on per-token revenue (model providers selling token APIs) face this headwind. Names whose economics depend on aggregate compute consumed (memory, foundry, packaging, networking, power, test) benefit regardless.
+
+**Filter application by layer:**
+
+| Layer | Volume-agnostic? | Reasoning |
+|---|---|---|
+| HBM suppliers (SK Hynix, MU, Samsung) | ✓ YES | Memory consumed per inference; volume up = revenue up |
+| Foundry (TSMC) | ✓ YES | Wafer demand scales with all chips |
+| Advanced packaging (CoWoS) | ✓ YES | Same |
+| Compute silicon (NVDA, AMD, AVGO, MRVL) | ✓ YES | Chips sold scale with volume |
+| Networking (ANET, MRVL) | ✓ YES | Cluster scale-up needed |
+| Power producers (VST, CEG, GEV, TLN) | ✓ YES | MW consumed per inference |
+| Test/inspection (Camtek, FormFactor, Advantest) | ✓ YES | Every chip needs test |
+| Substrate (Shin-Etsu, SUMCO, Ibiden) | ✓ YES | Every wafer needs substrate |
+| EDA (CDNS, SNPS) | ✓ Mostly | Recurring licenses per design start |
+| Observability (DDOG) | ✓ YES | Span/trace volume scales with tokens |
+| Inference clouds (NBIS, CoreWeave) | **MIXED** | Volume up but per-token margin compresses as enterprise scales; depends on contract structure |
+| Model providers (OpenAI, Anthropic) | ✗ NO | Per-token revenue directly exposed to cost compression |
+| Vertical AI software (PLTR, NOW, MDB, SNOW) | ✓ Mostly | Subscription-priced; benefits from token enablement |
+
+**Implication for portfolio construction:** prefer the YES column. Mixed-bucket names (inference clouds) require contract-structure analysis. The NO column (model providers) is for trading-thesis-only positions, not long-term portfolio.
+
+This filter is in addition to (not replacement of) Anti-fragility scoring, the Duration × Magnitude × Pricing-Power × Recognition × Execution model, and Downstream-Supplier-Asymmetry. It's a binary gate at the top: if the name fails this filter, it doesn't enter the portfolio at all.
+
+## "Non-default" verification discipline (corrects B14 weakness)
+
+Before labeling any read as "non-default" or "what most analysts miss," empirically check what the market has actually priced. If the stock has already moved on the narrative I'm calling non-default, my read is just default in disguise.
+
+Examples of correctness check:
+- "Inference cloud is overlooked" — FAIL on this check: NBIS had rallied massively on its Q1 print, then DROPPED on competition concerns. Market HAS priced this thesis (in both directions).
+- "Power is the binding constraint" — PARTIAL: VST/CEG have run; market knows. But specific names (TLN, GEV, smaller IPPs) may still be under-priced.
+- "Custom Si fragmentation" — has moved (AVGO at $1.2T) — must look at downstream Level 3+ for actual non-default exposure.
+
+When the "non-default read" is actually a refinement of consensus (not its inverse), say so. Be precise about WHAT is non-default — usually it's a specific implication or N-th order effect, not the headline framing.
+
 ## Source Reliability Framework
 
 User flagged 2026-05-20: *"How reliable are [Motley Fool, StockTitan, etc.]? Look at their previous track record — what they wrote a couple months/quarters ago, did it materialize?"*
