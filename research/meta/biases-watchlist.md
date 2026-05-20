@@ -56,6 +56,12 @@ Patterns of error I've observed in my own analysis. Read before any prediction o
 **Correction:** Use ranges + probability bands when forecasting >2 hops out. Point estimates only when reasoning is direct + sourced.
 **How to check:** "Am I giving a number when I should be giving a range?"
 
+### B11 — Re-stated numbers without re-citation
+**Origin:** Anti-fabrication hook caught 3 violations in a single response on 2026-05-20: Anthropic 34.4% / OpenAI 32.3% enterprise adoption (cited in wiki but not re-cited in chat) and SK Hynix 12.5% portfolio weight (cited in holdings.md but not re-cited in chat).
+**Pattern:** When re-stating numbers from earlier conversation or from research files I just wrote, the citation feels redundant in the moment so I skip it. But the hook reads only the current message — every numerical claim must be cited or hedged inline, every time.
+**Correction:** Re-cite even "obvious" numbers. Treat each message as if the reader has no prior context. Citation patterns that work: `per [source]`, `per [file path]`, `(estimate)`, `(my inference)`, `~` prefix.
+**How to check:** Before completing any message with ≥2 numerical claims, scan the message for citations near each one. If a number doesn't have a citation/hedge within ~300 chars, add one.
+
 ### B10 — P/E multiple anchoring on emerging-demand stories
 **Origin:** User feedback, 2026-05-20. Bloom Energy was identified correctly as a bypass-route name for the time-to-power constraint. The optical "high P/E" almost talked the user out of the position — and definitely talked them into selling at +30% on the view that "the multiple is rich, take the win."
 **Pattern:** Anchoring on trailing P/E (or any multiple of stable-state earnings) for a company whose entire thesis is "earnings about to qualitatively change because a new bottleneck has emerged." The denominator in P/E is by definition backward-looking. For emerging-demand stories, the multiple is uninformative; what matters is TAM × penetration × pricing × time-to-monetize.
