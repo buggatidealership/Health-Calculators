@@ -1,0 +1,147 @@
+# To-Do — AI Sector Research OS
+
+**Last updated:** 2026-05-20
+**Optimizes for:** rate at which signals become defensible, falsifiable, investable conviction earlier than consensus (per `meta/methodology.md` §Meta-First-Principle).
+
+**SessionStart hook sort order:** P0 → P1 → P2 → P3, within priority: artifact-producing > process, within ties: tag count desc, then date asc.
+
+**Tags** (from methodology.md): AF anti-fragility | BOT bottleneck-of-tomorrow | POS portfolio coherence | CAL calibration | INDP independence | INFRA harness infrastructure.
+
+**Done item handling:** Items that produced a permanent artifact (thesis file, wiki entry, prediction, hook) get DELETED. Items that are process steps without an artifact get archived in `## Archive` so future Claude doesn't redo them.
+
+---
+
+## Open
+
+### P0 — Blocking / urgent
+
+- [ ] **P0 / prediction / 2026-05-20** [CAL] — GRADE NVDA Q1 FY27 prediction
+  - Origin: scheduled (event resolution today after market close)
+  - Scope: compare prediction to actual print; write lesson if new pattern; trigger SCENARIO-UPDATE workflow
+  - Linked: `research/predictions/2026-05-20-NVDA-Q1FY27.md`, `research/predictions/lessons.md`, `research/sector/scenarios.md`
+
+### P1 — High priority
+
+- [ ] **P1 / research / 2026-05-20** [INDP, POS, AF] — Pull Leopold Aschenbrenner's 13F filings; build T1 / BE / TSEM thesis basis
+  - Origin: User input 2026-05-20. Leopold focuses on AI infra layer (not memory). Holdings include or have included T1 Energy, Bloom Energy, Tower Semi.
+  - Scope: Fetch most recent 13F from SEC EDGAR (Situational Awareness LLC). Extract current holdings. For each held position in our universe, build the bull thesis using his thesis as primary-tier signal, then reconstruct independently.
+  - Linked: `companies/T1/thesis.md`, `companies/TSEM/thesis.md`, `companies/BE/thesis.md` (all new)
+
+- [ ] **P1 / verification / 2026-05-20** [INDP, POS] — Verify SK Hynix technical moat claim independently
+  - Origin: User input 2026-05-20. Prior Claude session asserted SK Hynix has materially larger technical moat than Samsung/Micron. User trusts the claim but admits it was trusted blindly.
+  - Scope: Validate from primary sources (technical conference papers, supplier briefings, patent disclosures, qualification status data). Real technical depth required.
+  - Linked: `research/companies/HYNIX/thesis.md` (new), `research/wiki/hbm-primer.md` (§9.6 update)
+
+- [ ] **P1 / verification / 2026-05-20** [INDP, BOT] — Source-cite Dylan Patel's "2-3x more memory pricing" claim
+  - Origin: User reported hearing Dylan Patel make this claim in a podcast.
+  - Scope: Find the specific SemiAnalysis newsletter / podcast episode where this claim was made. Cite formally. Triangulate with other primary-tier memory-pricing signals.
+  - Linked: `research/wiki/hbm-primer.md` §11
+
+### P2 — Medium priority
+
+- [ ] **P2 / research / 2026-05-20** [POS, CAL] — AXTI earnings-growth vs multiple-expansion decomposition
+  - Origin: Verified user portfolio position; Stage 4 recognition confirmed; today -8.87% pullback per user screenshot.
+  - Scope: Decompose the verified +6,897.96% past-year return into earnings growth vs multiple expansion. If mostly earnings → thesis is delivering, multiple defensible. If mostly multiple → Stage 5 risk material. Determines hold/trim/exit recommendation.
+  - Linked: `research/companies/AXTI/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-20** [POS, AF, BOT] — Bloom Energy thesis reconstruction (user re-evaluation candidate)
+  - Origin: User sold BE at ~+30%, regrets exit, considering re-entry. BE is canonical bypass-route name in `meta/time-to-x-framework.md` (time-to-power).
+  - Scope: Build full thesis with Time-to-X applied to power layer + Duration × Magnitude × Pricing-Power × Recognition Stage model. Specific recommendation: re-enter at current price, wait for pullback, or stay out.
+  - Linked: `research/companies/BE/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-20** [POS] — STM thesis reconstruction OR sell decision
+  - Origin: User portfolio coherence audit flagged as untested (~6.6% per `research/portfolio/holdings.md`). Came from third-party research user no longer remembers the rationale for.
+  - Scope: Research from scratch — STM is broad-line semi (autos, MCU, power, industrial). What is the AI-sector thesis if any? If none defendable, recommend sell.
+  - Linked: `research/companies/STM/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-20** [POS] — Tower Semiconductor thesis reconstruction OR sell decision
+  - Origin: Same as STM. Untested ~5.4% position.
+  - Scope: TSEM is specialty analog/RF/power foundry — assess AI exposure. If none defendable, recommend sell.
+  - Linked: `research/companies/TSEM/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-20** [POS, AF, BOT] — Astera Labs (ALAB) full thesis — bypass-route gap in portfolio
+  - Origin: HBM primer identified ALAB as the most credible near-term CXL bypass play; user has zero exposure.
+  - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Sizing recommendation.
+  - Linked: `research/companies/ALAB/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-20** [AF, BOT] — SUMCO + Shin-Etsu thesis — silicon wafer substrate layer
+  - Origin: User-surfaced via "agnostic to who wins at the top." HBM primer confirms substrate-layer importance.
+  - Scope: Build joint or separate theses. Use the wafer-demand vs HBM-demand tension to frame the bull case.
+  - Linked: `research/companies/SUMCO/thesis.md`, `research/companies/SHINETSU/thesis.md` (new)
+
+### P3 — Wiki entries (lower priority, foundational context)
+
+- [ ] **P3 / wiki / 2026-05-20** [INFRA, BOT] — Power-for-AI primer
+  - Origin: Was in original wiki plan; deferred to focus on HBM first.
+  - Scope: Pure supply-demand-bypass analysis of firm power for AI datacenters. Time-to-power framework formalized. Names: VST, CEG, GEV, ETN, TLN, Bloom Energy, Solaris.
+  - Linked: `research/wiki/power-for-ai-primer.md` (new)
+
+- [ ] **P3 / wiki / 2026-05-20** [INFRA] — Other planned wiki entries
+  - Per `research/wiki/README.md` planned list: chip-stack primer, hyperscaler-capex primer, custom-silicon primer, optical-interconnect primer, model-economics primer, memory-cycle primer, geopolitical-AI primer, networking primer.
+  - Scope: Each is a future work unit. Build as needed when a position decision requires the context.
+
+---
+
+## Archive (completed process items without permanent artifact)
+
+(Items that DID produce a permanent artifact are deleted — the artifact replaces the to-do. The artifact location is noted in case future Claude needs to find it.)
+
+- [x] **2026-05-20** [INFRA] — Build anti-fabrication Stop hook
+  - Completed: 2026-05-20
+  - Artifact: `~/.claude/anti-fabrication-hook.py` + `~/.claude/settings.json` registration
+
+- [x] **2026-05-20** [INFRA] — Build the AI sector research operating system
+  - Completed: 2026-05-20
+  - Artifact: entire `research/` folder with CLAUDE.md harness, sector files, causal maps, predictions, meta files
+
+- [x] **2026-05-20** [INDP] — Migrate NVDA prediction v1 (aggregation) to v2 (bottoms-up)
+  - Completed: 2026-05-20
+  - Artifact: `research/predictions/2026-05-20-NVDA-Q1FY27.md` + lesson L1 in `lessons.md`
+
+- [x] **2026-05-20** [POS] — Pass 1 portfolio coherence audit from user screenshot
+  - Completed: 2026-05-20
+  - Artifact: `research/portfolio/coherence-audit.md` + `holdings.md`
+
+- [x] **2026-05-20** [BOT, INFRA] — Build Time-to-X framework (genericized from time-to-power)
+  - Completed: 2026-05-20
+  - Artifact: `research/meta/time-to-x-framework.md`
+
+- [x] **2026-05-20** [INFRA, BOT] — HBM primer (pure supply-demand-bypass)
+  - Completed: 2026-05-20
+  - Artifact: `research/wiki/hbm-primer.md`
+
+- [x] **2026-05-20** [INFRA] — Token consumption wiki primer
+  - Completed: 2026-05-20
+  - Artifact: `research/wiki/token-consumption.md`
+
+- [x] **2026-05-20** [INFRA, POS] — Agentic AI enterprise wiki primer
+  - Completed: 2026-05-20
+  - Artifact: `research/wiki/agentic-ai-enterprise.md`
+
+- [x] **2026-05-20** [CAL] — Add L3 (don't sell on partial profit) + B10 (P/E anchoring) + B11 (re-stated numbers)
+  - Completed: 2026-05-20
+  - Artifact: `research/predictions/lessons.md` + `research/meta/biases-watchlist.md`
+
+- [x] **2026-05-20** [INFRA] — Recognition stage spectrum (replaces "time-to-recognition")
+  - Completed: 2026-05-20
+  - Artifact: `research/meta/methodology.md` §Recognition Stage
+
+- [x] **2026-05-20** [INFRA] — Capture meta-first-principle + co-adaptation principle in methodology
+  - Completed: 2026-05-20
+  - Artifact: `research/meta/methodology.md` top sections
+
+## How to use this file
+
+**Adding items:**
+- New work that surfaces during conversation → add to appropriate priority bucket
+- Tag with ≥1 optimization tag (AF / BOT / POS / CAL / INDP / INFRA)
+- Specify origin, scope, linked target file(s)
+
+**Completing items:**
+- If the work produced a permanent artifact (file): DELETE the to-do (the file is the record)
+- If the work was a process step without a clear artifact: MOVE to `## Archive` with `[x]` and completion date
+- Update in the same commit that produces the artifact
+
+**Reading items:**
+- SessionStart hook auto-surfaces top 5 + any P0 at every session start
+- User can ask "what's on the to-do list" anytime; I read this file

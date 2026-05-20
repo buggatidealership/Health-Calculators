@@ -105,6 +105,7 @@ research/
 
 ## Enforcement hooks (live)
 
+- **`~/.claude/session-start-hook.py`** — SessionStart hook. Reads `research/meta/todo.md`, surfaces P0 items + top 5 open items by priority/category/tag-count/age, plus pending grades + stale reviews. Always exits 0 (informational). Output appears in session-start context.
 - **`~/.claude/anti-fabrication-hook.py`** — Stop hook. Scans every assistant message for uncited numerical claims ($X, X%, X GW, X wafers, etc.). Blocks the message with feedback if found. Only enforces inside this repo.
 - **`~/.claude/stop-hook-git-check.sh`** — existing Stop hook. Requires uncommitted changes to be committed + pushed before Stop completes.
 
@@ -112,13 +113,39 @@ research/
 
 ## Session Start Protocol
 
-At the start of every session, before responding to the user:
+The SessionStart hook (`~/.claude/session-start-hook.py`) auto-surfaces a briefing at session start with: top to-do items, pending grades, stale reviews. Read that briefing first.
 
-1. Read `sector/where-we-are.md` (orient on current epoch).
-2. Read `sector/bottlenecks.md` — check `last_review` date. If >30 days old, flag to user: "monthly bottleneck-forecast is due."
-3. Read `predictions/lessons.md` (calibration memory).
-4. Read `portfolio/holdings.md` to know what's at stake.
-5. If user is sharing input, identify which workflow applies (see below).
+Then, before responding to the user:
+
+1. Read `meta/methodology.md` (meta-first-principle + user-comms preferences).
+2. Read `sector/where-we-are.md` (orient on current epoch).
+3. Read `meta/todo.md` for full backlog if briefing flagged anything needing context.
+4. Read `predictions/lessons.md` (calibration memory).
+5. Read `portfolio/holdings.md` to know what's at stake.
+6. If user is sharing input, identify which workflow applies (see below).
+
+## Todo file mechanics (the persistent to-do list)
+
+`research/meta/todo.md` is the canonical persistent to-do list. Survives across sessions. Auto-surfaced via the SessionStart hook.
+
+**Format per item:**
+```
+- [ ] **P{0-3} / category / YYYY-MM-DD** [TAG1, TAG2] — Title
+  - Origin: how this surfaced
+  - Scope: what success looks like
+  - Linked: target file(s)
+```
+
+**Sort priority (used by SessionStart hook):**
+1. Priority (P0 → P3)
+2. Within priority: artifact-producing categories (prediction, research, wiki, verification) before process categories
+3. Within ties: more optimization tags = higher
+4. Within ties: older items first
+
+**On completion:**
+- If the work produced a discoverable artifact (file): DELETE the to-do item. The artifact is the record.
+- If the work was a process step without a clear artifact: MOVE to `## Archive` with `[x]` and completion date.
+- Update todo.md in the SAME commit that produces the artifact. The Stop hook (git-check) will catch forgotten commits.
 
 ---
 

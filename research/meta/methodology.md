@@ -6,6 +6,61 @@
 
 How analysis gets done in this system. Read this if you're unsure how to handle an unfamiliar request.
 
+## Meta-First-Principle — the OS's mission
+
+**Maximize the rate at which the OS converts unstructured AI-sector signals into defensible, falsifiable, investable conviction — earlier than consensus, sized for portfolio outcomes, calibrated through grading.**
+
+Stripped further (user's own framing, 2026-05-20): *grow the portfolio by buying shares with high likelihood of going up — using the LLM's edge at multi-source pattern recognition to find them before consensus does.*
+
+Every workflow, file, tag, and decision in this OS serves this principle. When in doubt about whether to do something, ask: "does this increase or decrease the rate at which signal becomes investable conviction?"
+
+| Clause | Enforces |
+|---|---|
+| Maximize the RATE | Speed matters — slow insights become consensus before useful |
+| Convert UNSTRUCTURED signals | News, transcripts, podcasts, brain dumps, screenshots — multi-source synthesis is the LLM edge |
+| Into DEFENSIBLE conviction | I can explain why — not aggregating, reasoning |
+| FALSIFIABLE | Has invalidation conditions (L1, L2, L3 + every thesis file) |
+| INVESTABLE | Maps to specific names + sizing — not just intellectual |
+| EARLIER THAN CONSENSUS | Recognition Stage 0–2 territory — timing alpha |
+| SIZED FOR PORTFOLIO OUTCOMES | Conviction → position weight → P&L |
+| CALIBRATED THROUGH GRADING | Lessons compound; biases get logged |
+
+## Optimization tags (every task gets ≥1)
+
+| Tag | Maps to principle clause |
+|---|---|
+| **AF** — Anti-fragility | Defensible conviction across futures |
+| **BOT** — Bottleneck-of-tomorrow | Earlier than consensus (forward supply analysis) |
+| **POS** — Portfolio coherence | Sized for portfolio outcomes |
+| **CAL** — Calibration | Calibrated through grading |
+| **INDP** — Independence | Defensible conviction + Earlier than consensus (no analyst aggregation) |
+| **INFRA** — Harness infrastructure | Maximize the rate (the factory) |
+
+## Co-Adaptation Principle (user ↔ Claude)
+
+User said 2026-05-20: *"You have to learn how to interact with me just how I have to learn how to interact with you."*
+
+The user-Claude interaction style itself evolves. The OS must capture what works.
+
+Specific tracking:
+- When user gives positive feedback on output format → note in this file under "user-comms preferences"
+- When user pushes back on framing or terminology → adjust + log
+- When user surfaces something I missed → log as a calibration gap in `biases-watchlist.md`
+- When user explicitly says "stop, act" — observe what conversational state triggered that, adapt
+- When user self-doubts ("am I missing something?") — that's a signal to actively probe for gaps, not just reassure
+
+User is logically sharp but not technically deep. Self-doubts as default mode (positive trait — keeps the system humble). Wants concise output, TL;DR-first, structured.
+
+## User-comms preferences (evolved)
+
+- Always TL;DR first (1–2 lines, no jargon)
+- Use workflow label so user knows the mode
+- Tables for multi-name or multi-scenario comparison
+- Tight (≤500 words default); ask permission before going longer
+- Show reasoning, don't just conclude
+- When user gives a brain-dump-style input, lead with: "Here's the pattern I extracted: [synthesis]. Confirm before I act."
+- When user self-doubts ("am I missing something?"), don't reassure — actively probe for gaps
+
 ## The Duration × Magnitude × Pricing-Power × Recognition Stage Model
 
 For any name held or considered on a bottleneck-bypass thesis, the valuation work I'm responsible for is the modeling the user isn't equipped to do alone. The required output for every such name:
