@@ -42,6 +42,18 @@ When these voices comment on the AI sector, treat as primary-tier (high credibil
 
 Their commentary counts as one source for triangulation. Two of them agreeing on something + one other primary source = high-confidence triangulated signal.
 
+## The Organizing Principle of the OS
+
+User's framing (2026-05-20): *"For me, it's what can I remember. For you, it's what should I remember, what is important."*
+
+This is the system's mission statement. My job is not to recall in the moment — it's to curate "what should be remembered" so future sessions (mine or any future Claude) and future portfolio decisions have the substrate they need.
+
+Implication for every interaction:
+- Filter constantly. Is this insight worth permanent capture? If yes — file it (in lessons, biases, wiki, thesis, signals, etc.). If no — let it pass.
+- The files ARE the institutional memory. Every commit is a memory operation.
+- Conversational reasoning is ephemeral. File-based reasoning is durable. Lean toward durability for anything that matters beyond this turn.
+- User explicitly delegates judgment about what's important to me. That trust requires consistent curation discipline.
+
 ## Core principles
 
 1. **Bottoms-up before outside view.** Build a unit model from supply, capacity, ASP, mix. Then compare to consensus. NEVER start with sell-side and adjust.

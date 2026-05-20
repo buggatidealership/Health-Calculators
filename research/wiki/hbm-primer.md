@@ -325,6 +325,40 @@ If Microsoft, Google, Meta, Amazon collectively guide 2027 capex at <20% YoY gro
 
 5. **Silicon wafer supply tightness pass-through to HBM.** Whether Shin-Etsu / SUMCO can keep up with combined HBM + DRAM + foundry wafer demand is genuinely uncertain. The substrate layer beneath HBM may itself become binding before HBM4E ramps.
 
+6. **SK Hynix technical moat claim — needs independent verification.** A prior research session attributed to user concluded that SK Hynix has a meaningfully larger technical moat than Samsung or Micron. This claim has NOT been independently re-verified in this primer. Pass 2 research item: validate the moat claim from primary technical sources (per `research/predictions/lessons.md` L1 — don't aggregate prior conclusions, verify).
+
+## 10. Stated Assumptions and Edge Conditions
+
+Explicit assumptions made in this analysis that future research should re-test if conditions change:
+
+**A1 — Chinese memory producers (CXMT) excluded from market dynamics.** Assumption: US hyperscalers and major AI chip designers will not source HBM from Chinese producers under the current US administration. If this assumption breaks (administration change, export-control relaxation, sovereign-AI carve-outs), CXMT-class capacity becomes relevant and supply-demand balance shifts. **Falsifier:** US-China policy reversal opening HBM trade, OR sovereign-AI deployments using Chinese-sourced memory at scale.
+
+**A2 — Taiwan geopolitical continuity.** All current foundry + advanced packaging analysis assumes TSMC operations remain unaffected. A Taiwan disruption event invalidates the entire supply model. **Falsifier:** any material disruption to TSMC operations.
+
+**A3 — MoE diffusion within modeled range.** Demand-side modeling assumes MoE architecture adoption produces a ~10–25% reduction in per-inference HBM bandwidth (my inference, not a cited claim — see §Bypass 2). **Falsifier:** widespread adoption of architectures that reduce HBM bandwidth per token by >40%.
+
+## 11. High-Confidence Primary-Tier Signals (newly added 2026-05-20)
+
+### Dylan Patel (SemiAnalysis) — 2–3x more memory pricing power from current levels
+
+Per user-reported podcast appearance (Dylan Patel commentary, May 2026 — source citation pending verification by listening to specific episode), Dylan Patel believes memory pricing has 2–3x further room to expand from current levels, contrary to broader analyst consensus which expects pricing to moderate.
+
+Why this signal matters:
+- Per `meta/methodology.md`, Dylan Patel is a primary-tier source for AI supply-chain analysis
+- His position is **specific** (quantified at 2–3x, not a generic "strong pricing" call)
+- His position is **counter-consensus** — most sell-side analysts expect 2026 pricing to be peak or near-peak
+- His position is **consistent with the supply-demand analysis in this primer** — if HBM is sold out through 2027 and demand grows another 68% YoY in 2027 per [TrendForce](https://www.trendforce.com/news/2025/11/13/news-hbm4e-seen-hitting-40-of-2027-market-samsung-sk-hynix-reportedly-aim-for-1h26-completion/), pricing power compounding makes structural sense
+
+If the 2–3x pricing claim holds:
+- SK Hynix Q1 2026 operating margin of 72% (per [BigGo Finance](https://finance.biggo.com/news/KR_000660.KS_2026-04-23)) is not the peak — there's another leg
+- The HBM supplier complex (SK Hynix, Micron, Samsung) all benefit asymmetrically
+- The recognition-stage analysis in `research/portfolio/coherence-audit.md` may understate the remaining bull case
+
+**Verification candidates** (Pass 2 actions):
+- Find the specific SemiAnalysis newsletter / podcast where this claim was made; cite it formally
+- Cross-check against the 2027 HBM pricing-reset framing already cited from SemiAnalysis (the "customers will need to pay significantly higher prices" claim)
+- Triangulate with other primary-tier sources (Leopold Aschenbrenner if he comments on memory)
+
 ---
 
 ## 10. Implications for the Portfolio (Connection Points)
