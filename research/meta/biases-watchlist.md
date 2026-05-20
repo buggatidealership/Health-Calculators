@@ -56,6 +56,18 @@ Patterns of error I've observed in my own analysis. Read before any prediction o
 **Correction:** Use ranges + probability bands when forecasting >2 hops out. Point estimates only when reasoning is direct + sourced.
 **How to check:** "Am I giving a number when I should be giving a range?"
 
+### B13 — Recency-anchored reaction instead of synthesis
+**Origin:** User feedback 2026-05-20 — "Don't always anchor to things too recent. Don't fall back onto the default slow and fast. Lazy reasoning."
+**Pattern:** Each new input triggers INGEST → file updates → response, treating the LATEST signal as the most important. No step back to ask "what's the CURRENT TOTAL view now, and did this event MATERIALLY shift it?" The OS accumulates signals but never produces synthesis — there's no single file that says "this is what we currently believe about everything." Result: behavior becomes reactive instead of cumulatively-correct.
+**Correction:** Read `sector/where-we-are.md` BEFORE responding to new input. Update synthesis only when material view shift. If new event reinforces existing synthesis, log signal + move on without restating the entire thesis. The synthesis file should grow slowly; not every news cycle is a paradigm shift.
+**How to check:** Before responding to new input, ask: "Does this change the synthesis in `where-we-are.md`? If yes, update with explicit 'what changed and why' entry. If no, log the signal in the appropriate file (cross-source-log, triangulation, or company facts) and respond at appropriate scope — don't trigger a full OS-wide reweight for a reinforcing data point."
+
+### B14 — Default-first reading (lazy interpretation)
+**Origin:** User feedback 2026-05-20 — "Don't always fall back onto the default slow and fast." Implicitly: my responses tend to lead with the default analyst-consensus interpretation of a signal, then sometimes layer non-default reads. The default reading is the easy one.
+**Pattern:** When new data arrives, the first read I produce is what most analysts will publish (the obvious "more compute demand → bullish chip stack" type). The non-default reads (function-by-function adoption, unit-of-work collapse, per-token margin compression) require active effort.
+**Correction:** For every material signal, the OS must produce at least ONE non-default read explicitly. Add to `sector/where-we-are.md` §"Non-default reads — what most people are missing right now." Surface the non-default read in the response, not just the default one.
+**How to check:** After drafting an interpretation, ask: "What would a thoughtful analyst miss in this? What's the 2nd/3rd-order read that takes 2-3 quarters to crystallize?" If I don't have one, I haven't synthesized yet.
+
 ### B12 — Catalyst-narrative anchoring before customer-level bottoms-up
 **Origin:** VICR thesis 2026-05-20. After the Anthropic-Broadcom WSJ reveal, I jumped from catalyst ("AVGO benefits from Anthropic-Broadcom partnership") to downstream supplier ("Vicor must benefit") without doing customer-by-customer research. The initial framing labeled VICR a "guaranteed asymmetric downstream beneficiary." Bottoms-up research surfaced that VICR was designed out at NVIDIA H100 by MPS and replaced at one of top-2 hyperscalers on the mainstay 48V-12V DCM part (per [SemiAnalysis newsletter](https://newsletter.semianalysis.com/p/energizing-ai-power-delivery-competition)) — the "guaranteed beat" framing was wrong on the current generation.
 

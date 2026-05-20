@@ -1,69 +1,112 @@
-# Where AI Is Today
+# Where AI Is — Living Synthesis
 
-**Last updated:** 2026-05-20
-**Read this every session before any major analysis.**
+**Last material update:** 2026-05-20 (Google I/O + OpenAI Guaranteed Capacity + Anthropic profit + SemiAnalysis workflow ROI)
+**Purpose:** The single document that holds the CURRENT BEST holistic view. Read this every session before reacting to specific events. If a new event doesn't change the synthesis here, don't restructure the entire OS for it — just log the signal and move on.
 
-## TL;DR
+**Self-evolution rule:** Update this file only when new evidence MATERIALLY shifts the prior view. Most events are reinforcing, not new — note them but don't restate. Track view changes in §"What I changed my mind about" with date + trigger. The file should grow slowly; not every news cycle is a paradigm shift.
 
-We are roughly 6 months into the **Agentic AI epoch** (started Nov 2025). The dominant compute pattern is shifting from one-shot inference to sustained loops with tool calls. This rebalances which companies win. The bottleneck is no longer training compute alone — it's the full stack required to run continuous, tool-using AI: inference silicon + CPUs + networking + memory bandwidth + power.
+---
 
-## Epoch map
+## TL;DR — five things we currently know with high confidence
 
-| Epoch | Started | Dominant pattern | Compute shape | Winners then |
-|---|---|---|---|---|
-| **Pre-LLM** | <2022 | Narrow models, vision, recsys | Training-heavy, sporadic inference | Cloud GPUs as commodity |
-| **ChatGPT moment** | Nov 2022 | Conversational AI | Training-dominant, one-shot inference | NVDA H100, hyperscaler training clusters |
-| **Scaling laws era** | 2023–H1 2025 | Bigger frontier models, RLHF | Training >> inference | NVDA H100/H200, TSMC CoWoS, HBM3 |
-| **Agentic AI** | Nov 2025–now | AI that *does things* | Inference + tool calls + sustained loops | TBD — re-pricing in progress |
-| **(Next) Embodied / sovereign / inference-at-edge** | speculative | TBD | TBD | TBD |
+1. **We are in the Agentic AI epoch** (started Nov 2025). Compute demand pattern has shifted from training-dominant to inference + sustained loops + tool calls. Workload per user has stepped up ~100x for agentic vs chat use cases.
 
-## What changed in Nov 2025 (the agentic transition)
+2. **AI compute demand is structurally outrunning supply through at least 2027.** Three independent T1/T2 confirmations on the same day (2026-05-20): Google's 3.2 quadrillion tokens/month, OpenAI's Guaranteed Capacity multi-year contracts, NBIS +684% Q1 print. Sam Altman direct quote: "world will be capacity-constrained for some time."
 
-The "brain with a body" shift. Before: AI generates content when asked. After: AI executes multi-step workflows, calls APIs, manages state across long horizons.
+3. **Frontier model providers are reaching profitability earlier than guided.** Anthropic Q2 2026 forecast $10.9B revenue + first operating profit (per WSJ, T1 underlying). Profit weakens the S4 (digestion) bear case materially.
 
-Concrete shifts:
-- **Token consumption per task explodes.** A single agent task may make 50–500 tool calls vs. 1 chat completion before.
-- **Sustained workloads replace bursty ones.** Datacenters run hotter and longer for the same headcount-equivalent productivity.
-- **Memory + state becomes a first-class compute primitive.** Long context, persistent files, retrieval are no longer optional.
-- **Reliability matters as much as capability.** A 95% accurate agent that fails 1-in-20 calls is unusable in a 100-call workflow. Inference quality, eval infra, and observability become core spend.
+4. **HBM is THE binding constraint through 2027.** All three suppliers sold out 2026; SK Hynix customer requests exceed 3-year planned capacity. Bypass routes (CXL via ALAB, MoE architectures, HBM4E) won't materially relieve before 2028. See `wiki/hbm-primer.md`.
 
-## Cascading compute implications (the 2nd–4th order to watch)
+5. **Enterprise adoption of agentic AI is EARLY — function-by-function, not all-at-once.** Banks/law/consulting/biotech largely NOT adopted yet. Research/analyst/devtools functions are the leaders (Cursor coding, SemiAnalysis-style workflows, Harvey legal). Customer-facing deployments struggle (Klarna lesson). The big enterprise wave is the next 24 months.
 
-These are the bets:
+---
 
-| Order | Implication | Who benefits | Who hurts |
+## The current epoch
+
+| Era | Started | Compute pattern | Dominant constraint |
 |---|---|---|---|
-| 1st | Inference volume grows much faster than training | Inference-tuned silicon (Blackwell GB300, MI series, custom ASICs), tokens-as-a-service | Pure-training narratives |
-| 2nd | GPU:CPU ratio shifts (training was ~1:8 GPU-heavy, agentic could be 1:4 or 1:2) | x86/ARM CPUs (AMD EPYC, Graviton), CPU-side memory (DRAM) | GPU-only narratives |
-| 3rd | Networking becomes binding (more east-west traffic from tool calls + retrieval) | Networking silicon (ANET, Marvell), optical interconnect, CPO | "GPU = everything" narratives |
-| 4th | Power siting & cooling become 12–24 month bottlenecks | VST, CEG, GEV, ETN, liquid cooling vendors | Locations without firm power |
-| 4th | Inference observability + eval infra becomes mandatory spend | DDOG, custom eval providers, security (CRWD) | Naive "wrap an API" plays |
+| ChatGPT moment | Nov 2022 | Training >> inference, one-shot Q&A | Training cluster scale |
+| Scaling laws era | 2023-mid 2025 | Bigger models, RLHF | Training compute + memory |
+| Reasoning bridge | mid 2025–Nov 2025 | Chain-of-thought; inference compute starts mattering | Memory bandwidth |
+| **Agentic AI (current)** | **Nov 2025–** | **Tool calls, sustained loops, multi-step workflows** | **HBM + CoWoS + power** |
+| Embodied / Tier-1 deployments | speculative (2027+?) | Autonomous execution with real consequences | TBD |
 
-## Where we are in the agentic adoption curve
+## The current binding constraints (in order of urgency / pricing power)
 
-Stage: **early enterprise pilots → first production deployments**
+1. **HBM3E/HBM4 supply** — through 2027 minimum. SK Hynix / Samsung / Micron all sold out 2026. Per `wiki/hbm-primer.md`.
+2. **CoWoS-L advanced packaging** — coupled to HBM; TSMC ramping ~55K → ~130K wpm exit-2026.
+3. **Firm power for AI datacenters** — partially priced. NBIS contracted 3.5GW raising to 4GW — multiply across industry.
+4. **Networking bandwidth at cluster scale** — 12-24 months out; CPO transition (MRVL, ANET, COHR, LITE).
+5. **Compute capacity at hyperscalers** — multi-year contracts now being sold (OpenAI Guaranteed Capacity).
 
-Signals supporting this read:
-- OpenAI / Anthropic deploying on-prem agentic offerings to enterprise (consortium reporting Mar–May 2026)
-- Hyperscaler capex re-rated +77% to $725B in 2026 (signals the spend is anticipatory of agentic, not just training)
-- Agent-related SaaS revenue still small but growing q/q (PLTR, NOW, MDB seeing it in calls)
+## The current narrative consensus (T1/T2 verified)
 
-Signals that would mark the NEXT epoch transition:
-- A major enterprise reports >5% of headcount-equivalent productivity from agents
-- Agentic-revenue line items appear separately in hyperscaler reporting
-- A regulatory event (EU AI Act enforcement, US executive action) reshapes deployment economics
-- The first "model-agnostic agent" platform reaches scale (which would commoditize models, lift infrastructure)
+- **Agentic adoption is real and accelerating.** Multi-confirmed across model providers, hyperscalers, enterprise software, infrastructure cos.
+- **Inference cost per token down ~100x in 12 months** (per [Dylan @demian_ai T3 analysis cross-checked with industry consensus]) but total spend up because demand exploded.
+- **Custom Si is scaling** as second leg of demand: Google TPU + AWS Trainium + Meta MTIA + Microsoft Maia + Anthropic-Broadcom = S2 scenario from `sector/scenarios.md` materializing.
+- **Power is the geographic constraint** that determines where AI gets deployed (sovereign AI in Gulf states, US Sun Belt with firm power).
 
-## What this means for the portfolio (high-level)
+## The current scenario weights (per `sector/scenarios.md`, last reweight 2026-05-20)
 
-1. **Lean toward the broader stack, not just GPUs.** The GPU trade is 2/3 played out as the obvious move; the full-stack trade is where the next 18 months sit.
-2. **Bet on anti-fragile names.** Picks-and-shovels that win whether NVDA / Google TPU / custom ASIC dominates.
-3. **Stalk the next bottleneck.** Power siting and networking are leading candidates for the 2026 H2 — 2027 H1 pinch.
-4. **Watch for the agentic-adoption signal** — when it appears in enterprise software KPIs (PLTR, SNOW, NOW, MDB), the SaaS-via-AI trade gets re-priced.
+| Scenario | Weight | Direction trend |
+|---|---|---|
+| S1 NVDA dominant | 33% | Slightly down (multi-year contracts diversify) |
+| S2 Custom Si fragments | 30% | Up (Anthropic-Broadcom + scaling) |
+| S3 Power binds | 25% | Up (NBIS 3.5GW for ONE cloud) |
+| S4 Digestion | 6% | Down (multi-year contracts + frontier profitability) |
+| S5 Regulatory shock | 6% | Down |
 
-## Sources for the epoch read
+## Non-default reads — what most people are missing right now
 
-- NVIDIA Q4 FY26 CFO commentary (datacenter mix shift signals)
-- Hyperscaler Q1 2026 capex prints (MSFT, GOOG, META, AMZN)
-- Anthropic / OpenAI enterprise consortium reporting
-- AMD Q1 2026 print (CPU strength in datacenter as agent enabler)
+(This section forces me NOT to default to consensus framing. Updated when new evidence surfaces a pattern most analysts haven't priced.)
+
+### 1. Enterprise adoption is function-by-function, not all-at-once
+The agentic AI wave has hit research/analyst/devtools functions (Cursor coding agents, SemiAnalysis-style workflows, Harvey legal). Customer-facing AI has STALLED (Klarna lesson, broader 88% pilot failure rate). The big enterprise wave (banks/law/consulting/biotech) hasn't started. **Implication:** total compute demand has 5-10× left to run as enterprise penetrates, not just the obvious 2-3× from existing customers scaling usage.
+
+### 2. The "unit of work" is changing, not just costs
+Per SemiAnalysis workflow data (10-93x ROI per task), this isn't a productivity boost — it's a category collapse for human-labor-moated businesses. **Implication:** existential repricing for consulting/BPO/staffing-heavy services (long-term short candidates); winner-take-most for AI-augmented vertical software (long candidates).
+
+### 3. Per-token margins for model providers may peak as enterprise scales
+Anthropic Q2 profit is the high-water mark for current per-token economics. Big enterprise customers negotiate volume discounts. Total token volume goes up; revenue per token compresses. **Implication:** model provider equity (OpenAI IPO, Anthropic) may price the inflection vs the durable margin profile.
+
+### 4. The capacity-constrained narrative is asymmetric for SUPPLY-SIDE names, not model providers
+Altman's "capacity-constrained for some time" implies pricing power flows to whoever owns the constraint: TSMC, SK Hynix, NBIS, hyperscaler cloud capacity, power producers. Model providers are themselves capacity-buyers — they benefit from selling forward contracts but face their own input cost pressure.
+
+### 5. Inference cloud (NBIS, CoreWeave) is the most-overlooked layer
+Public inference clouds have just had their thesis confirmed by both OpenAI (selling forward capacity) and NBIS itself (printing +684% Q1). Most generalist investors don't yet think of "inference cloud" as a distinct category. NBIS specifically lacks a thesis file in this OS — P1.
+
+## What I changed my mind about (and when)
+
+- **2026-05-20:** S4 (digestion) probability cut from 15% → 10% → 6% over the day as evidence cascaded. Initially I weighted digestion as a real tail risk; multi-year compute contracts + frontier profitability + capacity-constrained CEO statements collapse the bear case.
+- **2026-05-20:** Vicor reframed from "guaranteed downstream beneficiary" to "binary on next-gen design wins" after bottoms-up customer research surfaced design-out at NVIDIA H100. Captured in B12.
+- **2026-05-20:** Time-to-recognition refined into Recognition Stage 0-5 spectrum after user critique. AXTI verified Stage 4 from user screenshot.
+- **2026-05-20:** Added Execution Quality as 5th component of valuation model after user input. Vicor would have scored 2/5 — methodology now self-consistent.
+
+## What's still ambiguous (intellectual humility)
+
+- **MoE diffusion rate** — could reduce per-inference HBM demand 10-40% over 18 months. Hard to model precisely.
+- **Custom Si actual share trajectory** — S2 directional confirmed; exact share trajectory (15%? 30%? 50%?) determines pricing power for NVDA vs AVGO vs MRVL.
+- **Timing of bank/law/consulting/biotech mass adoption** — could be 12 months or 36 months. Defines the slope of the next demand wave.
+- **Vicor's 2nd gen VPD lead customer identity** — single data point that flips the VICR thesis.
+- **SK Hynix vs Samsung HBM4 share at NVDA** — material for SK Hynix pricing power magnitude.
+- **Power infrastructure deployment pace** — can grid + nuclear restart fast enough to relieve S3, or does power bind harder than modeled?
+
+## Latest material updates
+
+### 2026-05-20 — Google I/O + OpenAI Guaranteed Capacity + Anthropic profit + SemiAnalysis ROI table
+Capacity-constrained narrative triangulated at T1 primary. S4 cut materially. NBIS elevated to P1 thesis. AVGO + AMZN + GOOG queued for theses. SemiAnalysis ROI data reinforces "function-by-function adoption" thesis.
+
+### 2026-05-20 — NVDA Q1 FY27 earnings (pending tonight)
+Will fire GRADE workflow + further SCENARIO-UPDATE on resolution.
+
+---
+
+## How this file is maintained
+
+- **Read at session start** (per Session Start Protocol in `CLAUDE.md`)
+- **Updated when synthesis shifts** — not on every event. If event reinforces existing synthesis, log signal + move on.
+- **Track view changes** in "What I changed my mind about" with date + trigger event
+- **Force the non-default read** — every major event should produce at least one "what most analysts are missing" entry in §Non-default reads
+- **Cross-reference** all assertions to source files (`wiki/`, `sector/`, `signals/`)
+
+The file is the closest thing the OS has to a "memory palace" — themed rooms (constraints, narratives, scenarios, non-default reads, mind-changes, ambiguity) rather than chronology. Future me reads this first.

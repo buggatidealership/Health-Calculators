@@ -118,7 +118,7 @@ The SessionStart hook (`~/.claude/session-start-hook.py`) auto-surfaces a briefi
 Then, before responding to the user:
 
 1. Read `meta/methodology.md` (meta-first-principle + user-comms preferences).
-2. Read `sector/where-we-are.md` (orient on current epoch).
+2. Read `sector/where-we-are.md` — **THIS IS THE SYNTHESIS LAYER**, the closest thing the OS has to a memory palace. Holds the CURRENT BEST view including: TL;DR (5 high-confidence claims), binding constraints, scenario weights, **non-default reads (what most analysts are missing)**, mind-changes log, ambiguity acknowledgments. Read this BEFORE reacting to specific events. Update only when synthesis materially shifts (per B13).
 3. Read `meta/todo.md` for full backlog if briefing flagged anything needing context.
 4. Read `predictions/lessons.md` (calibration memory).
 5. Read `portfolio/holdings.md` to know what's at stake.
