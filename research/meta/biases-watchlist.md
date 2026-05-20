@@ -56,6 +56,12 @@ Patterns of error I've observed in my own analysis. Read before any prediction o
 **Correction:** Use ranges + probability bands when forecasting >2 hops out. Point estimates only when reasoning is direct + sourced.
 **How to check:** "Am I giving a number when I should be giving a range?"
 
+### B10 — P/E multiple anchoring on emerging-demand stories
+**Origin:** User feedback, 2026-05-20. Bloom Energy was identified correctly as a bypass-route name for the time-to-power constraint. The optical "high P/E" almost talked the user out of the position — and definitely talked them into selling at +30% on the view that "the multiple is rich, take the win."
+**Pattern:** Anchoring on trailing P/E (or any multiple of stable-state earnings) for a company whose entire thesis is "earnings about to qualitatively change because a new bottleneck has emerged." The denominator in P/E is by definition backward-looking. For emerging-demand stories, the multiple is uninformative; what matters is TAM × penetration × pricing × time-to-monetize.
+**Correction:** For any name held on a bottleneck-bypass thesis, value the company by (a) duration of constraint × magnitude × pricing power of the bypass layer, NOT (b) multiples of trailing earnings. If the analyst report says "P/E too high to justify" but the thesis is about a constraint not yet in the earnings, the analyst is using the wrong tool.
+**How to check:** When evaluating a bottleneck-name, explicitly write: "Constraint duration: X months. Magnitude: $Y revenue at risk if unsolved. Pricing power of this layer: Z%. Time to consensus recognition: W quarters." THAT is the valuation lens. Multiples come later, after consensus has caught up.
+
 ### B9 — Emotional sell on macro headwind (the Venezuela sell)
 **Origin:** User feedback, 2026-05-20. User held a storage thesis (Sandisk, Kioxia, Seagate) built in Dec 2025/Jan 2026 on inference-demand grounds. Sold during a short-term S&P pullback driven by Venezuela macro headwind. Nothing about the thesis had changed.
 **Pattern:** Selling positions because of short-term tape volatility / macro fear, when the underlying thesis is intact and no falsifier has fired. Emotional risk-management masquerading as discipline.

@@ -6,6 +6,28 @@
 
 How analysis gets done in this system. Read this if you're unsure how to handle an unfamiliar request.
 
+## The Duration × Magnitude × Pricing-Power Model (for every bottleneck name)
+
+For any name held or considered on a bottleneck-bypass thesis, the valuation work I'm responsible for is the modeling the user isn't equipped to do alone. The required output for every such name:
+
+1. **Duration of the constraint** — how many months/quarters/years before the constraint resolves or is bypassed? (Not consensus duration — *my* model of when supply catches up to demand at this layer.)
+2. **Magnitude of the constraint** — what is the addressable revenue this company captures while the constraint is binding? (Quantify: TAM at the bypass-layer × penetration this company can reach × pricing premium they can sustain.)
+3. **Pricing power of the layer** — when the constraint binds, how much pricing flex does this company have? (High pricing power = the bypass route is genuinely scarce. Low = it's just an alternative supplier that has to compete on price.)
+4. **Time to consensus recognition** — how many quarters until the analyst community catches up and the multiple re-rates? (This is the "re-rating runway.")
+
+These four numbers replace trailing P/E as the valuation lens for emerging-demand stories. See B10 in biases-watchlist.md for why P/E is the wrong tool for these names.
+
+When I write or update a `companies/{TICKER}/thesis.md` for any bottleneck-bypass name, these four must be present and modeled, even if the magnitude has wide error bars.
+
+## Trusted primary-tier sources
+
+When these voices comment on the AI sector, treat as primary-tier (high credibility) for triangulation:
+
+- **Leopold Aschenbrenner** — Situational Awareness, AGI/compute scaling, frontier model economics. Track his public commentary.
+- **Dylan Patel (SemiAnalysis)** — supply chain, packaging, networking, chip-level analysis. Source for most specific bottleneck claims.
+
+Their commentary counts as one source for triangulation. Two of them agreeing on something + one other primary source = high-confidence triangulated signal.
+
 ## Core principles
 
 1. **Bottoms-up before outside view.** Build a unit model from supply, capacity, ASP, mix. Then compare to consensus. NEVER start with sell-side and adjust.

@@ -10,6 +10,19 @@ Accumulated calibration memory from graded predictions. Every PREDICT workflow M
 
 ## Lessons (most recent first)
 
+### L3 — Don't take partial profits on an intact bottleneck thesis
+**Origin:** User feedback, 2026-05-20. User identified Bloom Energy (BE) early as a bypass-route name for the power constraint (time-to-power thesis). Bought, took ~+30% profit, exited. Stock then continued running and just reported earnings — user reports it was up double digits two trading days in a row. The thesis (Bloom solves the time-to-power problem for hyperscalers needing power in months not years) was never falsified — they sold on the emotional resolution of position uncertainty, not on analysis. Same root cause as L2 (emotional exit on intact thesis), different trigger (partial profit rather than macro fear).
+
+**Generalizable lesson:** When the thesis is "this company is solving a binding constraint that consensus has not yet recognized," the re-rating runway is the full move from "ignored" to "consensus-priced." Selling at +30% on a name in the first inning of that re-rating is leaving the asymmetric leg on the table. The decision to sell must be falsifier-based, not magnitude-of-gain-based.
+
+**Calibration adjustment:** For any name held on a bypass-route thesis, the rebalance rule is: trim to target sizing if the position drifts >2× target due to appreciation. Do NOT exit because of percentage gain alone. Exit only when (a) a written falsifier fires, OR (b) the bottleneck has clearly resolved and the bypass-route is no longer the edge.
+
+**The harder rule:** Profit isn't the signal. Falsification is the signal. If a name has +30% on you and the thesis is intact, that's evidence the thesis is WORKING, not evidence to leave.
+
+**Linked bias:** B9 (emotional sell) and B10 (P/E anchoring on emerging-demand stories).
+
+---
+
 ### L2 — Operate ONLY on thesis falsification, never on macro noise
 **Origin:** User feedback, 2026-05-20. User held a storage thesis (Sandisk, Kioxia, Seagate) built Dec 2025/Jan 2026 on inference-demand grounds. Sold during a short-term S&P pullback driven by Venezuela macro headwind. Thesis was intact. No falsifier had fired. The sell was emotional risk-management, not analytical discipline.
 
