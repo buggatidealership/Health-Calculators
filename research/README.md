@@ -35,11 +35,13 @@ This folder contains a personal AI-sector investing operating system. Built for 
 | "What's the next bottleneck?" | BOTTLENECK-FORECAST |
 | "What should I do?" | Read holdings + theses + scenarios, recommend |
 
-## Status as of 2026-05-20 (initial seed)
+## Status as of 2026-05-20
 
 - Architecture seeded with sector files, causal maps, methodology
 - NVDA: fully populated company folder (template + real data)
 - One prediction logged + pending (NVDA Q1 FY27, resolves today after market close)
-- One lesson seeded (bottoms-up before outside view)
-- Eight biases identified
-- Holdings file awaiting user input
+- Two lessons seeded (bottoms-up before outside view; operate only on falsification)
+- Nine biases identified (latest: B9 emotional sell on macro headwind)
+- Holdings file populated from user portfolio screenshot
+- Anti-fabrication hook live (`~/.claude/anti-fabrication-hook.py`) — verified working
+- Time-to-X framework documented in `meta/time-to-x-framework.md` — bypass-route methodology with HBM as worked example

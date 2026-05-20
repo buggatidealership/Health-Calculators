@@ -56,6 +56,13 @@ Patterns of error I've observed in my own analysis. Read before any prediction o
 **Correction:** Use ranges + probability bands when forecasting >2 hops out. Point estimates only when reasoning is direct + sourced.
 **How to check:** "Am I giving a number when I should be giving a range?"
 
+### B9 — Emotional sell on macro headwind (the Venezuela sell)
+**Origin:** User feedback, 2026-05-20. User held a storage thesis (Sandisk, Kioxia, Seagate) built in Dec 2025/Jan 2026 on inference-demand grounds. Sold during a short-term S&P pullback driven by Venezuela macro headwind. Nothing about the thesis had changed.
+**Pattern:** Selling positions because of short-term tape volatility / macro fear, when the underlying thesis is intact and no falsifier has fired. Emotional risk-management masquerading as discipline.
+**Correction:** Sell ONLY when a written falsifier from the thesis fires. Macro events are not falsifiers unless they specifically invalidate a thesis condition. Wars, market dumps, geopolitical headlines, recession fears — none of these are sell signals unless the thesis is built on the absence of those events.
+**How to check:** Before recommending or executing any sell: "Which specific falsifier in the thesis has fired? If none, the sell is emotional, not analytical."
+**The harder rule:** If user reports an emotional sell happened, log it as a process error. Don't validate the decision retroactively just because the price moved favorably or unfavorably after.
+
 ## Provisional biases (suspected, not yet confirmed)
 
 ### P1 — Headline-trade tendency

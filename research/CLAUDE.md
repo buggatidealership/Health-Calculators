@@ -94,8 +94,14 @@ research/
     ├── methodology.md                 ← how the analysis is done
     ├── biases-watchlist.md            ← my own known failure modes
     ├── reasoning-templates.md         ← templates for N-order, anti-frag, cascade, triangulation
+    ├── time-to-x-framework.md         ← bypass-route mapping for any binding constraint
     └── private-tracker.md             ← OpenAI, Anthropic, xAI, etc. (no ticker)
 ```
+
+## Enforcement hooks (live)
+
+- **`~/.claude/anti-fabrication-hook.py`** — Stop hook. Scans every assistant message for uncited numerical claims ($X, X%, X GW, X wafers, etc.). Blocks the message with feedback if found. Only enforces inside this repo.
+- **`~/.claude/stop-hook-git-check.sh`** — existing Stop hook. Requires uncommitted changes to be committed + pushed before Stop completes.
 
 ---
 
@@ -303,6 +309,9 @@ Always check against these before completing any analysis:
 4. **ALWAYS run TRACE on any event with cross-domain reach** (not just the obvious affected ticker).
 5. **ALWAYS update `bottlenecks.md` last_review** when running BOTTLENECK-FORECAST.
 6. **NEVER let a single new article override a triangulated signal.** Weight evidence by source quality and convergence.
+7. **NEVER FABRICATE NUMBERS.** Every numerical claim ($X, X%, X GW, X wafers, etc.) MUST be either: (a) cited inline with source (URL, file path, "per [source]"), or (b) computed from a number you cited earlier in the same message, or (c) explicitly flagged with a hedge: `(estimate)`, `(my inference)`, `(unsourced)`, `(approximate)`, `(my model)`, `~`, `roughly`, etc. This is enforced by `~/.claude/anti-fabrication-hook.py` — a Stop hook that scans your output and blocks the message if uncited numerical claims are found. If you re-state a previously-cited number, you MUST re-cite it in the same message (the hook reads only the current message).
+8. **NEVER SELL ON MACRO HEADWIND WITHOUT THESIS FALSIFICATION.** Sell only when a written falsifier in the thesis fires. Macro noise (short-term pullbacks, geopolitical events, market dumps) is NOT a falsifier unless it specifically invalidates a thesis condition. Emotional risk-management masquerading as "prudent" is a documented bias (see B9 in `meta/biases-watchlist.md`).
+9. **ALWAYS APPLY BYPASS-ROUTE THINKING.** For any binding constraint, the consensus answer (who supplies the standard solution) is rarely the investable insight. Always ask: "What do consumers do when the consensus solution fails their actual sensitivity?" The bypass-route names are usually where the edge is. See `meta/methodology.md` for the Time-to-X framework.
 
 ---
 

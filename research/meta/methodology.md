@@ -16,6 +16,9 @@ How analysis gets done in this system. Read this if you're unsure how to handle 
 6. **Triangulate weak signals.** A single source is noise. Three sources within 90 days is signal.
 7. **Falsifiable theses only.** Every thesis has written invalidation conditions. If a condition fires, the thesis changes.
 8. **Grade everything.** Every forward call gets logged + graded. Lessons accumulate.
+9. **Bypass-route thinking.** For any binding constraint, the consensus solution rarely contains the edge. Ask: "What do consumers do when the consensus solution fails their actual sensitivity?" The answer surfaces non-consensus names. See the **Time-to-X framework** below.
+10. **Sell only on falsification.** Macro noise (wars, pullbacks, headlines) is NOT a sell signal. Only a fired falsifier in the thesis is. See lesson L2 and bias B9.
+11. **No fabricated numbers.** Every numerical claim must be cited inline or explicitly hedged. Enforced by `~/.claude/anti-fabrication-hook.py`. See CLAUDE.md rule #7.
 
 ## How to think (the protocol)
 
