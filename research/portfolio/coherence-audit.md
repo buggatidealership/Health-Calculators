@@ -22,7 +22,7 @@
 | 8 | STMicroelectronics (STM) | 6.6% | 3 | ? — AI exposure unclear (autos + industrial + MCU) | **NO — needs reconstruction** | Full thesis from scratch (per user: came from 3rd-party rec) |
 | 9 | Hyperliquid Strategies | 5.7% | 1–2 | Low — single-story (tokenization + AI agents on-chain) | Yes (per user rationale: tokenization legislation, Cerebras price discovery) | Model legislative catalyst, regulatory risk |
 | 10 | Tower Semiconductor (TSEM) | 5.4% | 2–3 | ? — specialty foundry, AI exposure unclear | **NO — needs reconstruction** | Full thesis from scratch (per user: came from 3rd-party rec) |
-| 11 | AXT Inc (AXTI) | 4.8% | 4 (per user: ~+75x in 2025 — needs verification) | Medium — InP/GaAs substrates for optical, RF | Partial (with timing caveat) | Verify price action; assess multiple-compression risk at Stage 4 |
+| 11 | AXT Inc (AXTI) | 4.8% | 4 (CONFIRMED — see below) | Medium — InP/GaAs substrates for optical, RF | Partial (with timing caveat) | Decompose earnings-growth vs multiple-expansion; assess Stage 5 risk |
 
 ## Summary by recognition stage
 
@@ -95,9 +95,39 @@ Combined: option B across all three frees up ~€15.8K to deploy into defensible
 
 Recommendation: don't decide yet. Wait for NVDA outcome tonight. The scenario branch that plays will inform whether those €15.8K are better deployed in S1 winners (existing) or S2 winners (AVGO, AMD).
 
+## AXTI verified data (added 2026-05-20 from user-provided brokerage screenshots)
+
+| Data point | Value | Source |
+|---|---|---|
+| Current price | $102.87 USD on NASDAQ | per user screenshot 2026-05-20 |
+| Today | -$10.01, -8.87% | per user screenshot |
+| 1Y return | +$101.40, +6,897.96% (≈70x) | per user screenshot |
+| YTD return | +$85.67, +498.08% (≈6x) | per user screenshot |
+| Visible headline | "AXTI Surges More Than 650% YTD" dated May 18 2026 | per user screenshot |
+
+**Reads from the verified data:**
+
+1. User's "~75x" claim was directionally correct — actual is ~70x past year per the +6,897.96% figure. Close enough.
+2. Recognition Stage 4 is confirmed. The May 18 headline ("What's Driving the Strong Uptrend") is exactly the mainstream-financial-press marker that signals Stage 3→4 transition. Anyone reading a "what's driving the surge" article is not getting in early; they're getting in at consensus.
+3. Today's -8.87% is the first single-day pullback of material size. Could be (a) noise, (b) Stage 4→5 transition starting, (c) NVDA earnings derisking spilling over to small-cap AI-correlated names.
+4. Position is ~15-20% off recent peak (my read from the YTD chart — approximate, not from a specific data point).
+
+**The critical Pass 2 question (cannot answer without research):**
+
+Of the +6,897.96% past-year move (per screenshot), what fraction is earnings growth vs multiple expansion? Decomposition:
+- If mostly earnings: thesis is materially delivering. Stage 4 carries less risk because the next leg requires only "earnings keep growing." Hold or add on pullback is defensible.
+- If mostly multiple: the re-rating has happened. Stage 5 risk is real. Multiple compression can take 30-50% off the stock even if the thesis is intact. Trim is defensible.
+
+This decomposition requires:
+- Trailing 4-quarter revenue + EPS growth rates
+- P/S or P/E multiple trajectory (trough vs current)
+- Comparison to peer compound semi names (or LITE, COHR, CRDO as adjacent comps)
+
+**Elevated to highest-priority Pass 2 research item** after NVDA prints.
+
 ## What I deliberately did NOT do in Pass 1
 
-- Verify AXTI's ~+75x 2025 claim (need to confirm price action before Stage 4 read is final)
+- Verify AXTI's ~+75x 2025 claim (need to confirm price action before Stage 4 read is final) — ✓ NOW VERIFIED (see above)
 - Verify Bloom Energy's recent earnings + price action
 - Verify Aschenbrenner's T1 Energy purchase (plausible but unconfirmed)
 - Look up Saxo / "Sotrina" Research's STM and Tower Semi reports
