@@ -57,6 +57,24 @@ Per the Downstream-Supplier-Asymmetry Principle in `meta/methodology.md`, these 
 
 - **Onto Innovation (ONTO)** — process control / inspection. Worth investigation.
 
+### Cascade walk — downstream of "tokens explode" (added 2026-05-20)
+
+Surfaced from explicit "what does that mean" cascade analysis per user input 2026-05-20. Each passes the Token-Volume Filter from `meta/methodology.md`. None have thesis files yet — candidates for next pass.
+
+**Power + electrical chain:**
+- **Hubbell (HUBB)** — datacenter electrical switchgear; less covered than GEV/ETN
+- **Powell Industries (POWL)** — switchgear for datacenter electricals; mid-cap
+- **NRG Energy (NRG)** — merchant power producer; less covered than VST/CEG
+
+**Storage + data chain:**
+- **Pure Storage (PSTG)** — all-flash arrays for AI workloads
+- **NetApp (NTAP)** — enterprise storage with AI revenue exposure
+- **Elastic (ESTC)** — search/observability for AI applications
+- **Confluent (CFLT)** — streaming data infrastructure for real-time AI
+
+**Workflow integration chain:**
+- **Atlassian (TEAM)** — agent-augmented workflow tools; less covered as AI play
+
 ### Silicon wafer monopoly (added 2026-05-20)
 The most anti-fragile substrate layer of all: every chip company in the AI universe needs polished silicon wafers. Two Japanese companies dominate the 300mm market. Together they hold a majority share of polished silicon wafer supply (per industry knowledge — needs verification with current numbers).
 - **SUMCO Corp** (Tokyo: 3436.T) — silicon wafer pure-play. Surfaced via user thesis: "agnostic to who wins at the top." Recognition stage: estimated 1–2 in AI-investor context (mostly known as cyclical commodity name, AI demand shift not yet consensus). **High priority for full thesis.**
