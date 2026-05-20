@@ -35,6 +35,11 @@ Status: research / paper position / promote / archive
 - **DDOG (Datadog)** — inference observability mandatory in agentic era.
 - **CRWD (CrowdStrike)** — security spend non-discretionary in AI era.
 
+### Silicon wafer monopoly (added 2026-05-20)
+The most anti-fragile substrate layer of all: every chip company in the AI universe needs polished silicon wafers. Two Japanese companies dominate the 300mm market. Together they hold a majority share of polished silicon wafer supply (per industry knowledge — needs verification with current numbers).
+- **SUMCO Corp** (Tokyo: 3436.T) — silicon wafer pure-play. Surfaced via user thesis: "agnostic to who wins at the top." Recognition stage: estimated 1–2 in AI-investor context (mostly known as cyclical commodity name, AI demand shift not yet consensus). **High priority for full thesis.**
+- **Shin-Etsu Chemical Co Ltd** (Tokyo: 4063.T) — diversified materials co; silicon wafers are one segment (also silicones, semiconductor materials, rare earth magnets). Similar thesis to SUMCO but broader business. **High priority for full thesis.**
+
 ### Custom Silicon and Foundry
 - **AVGO** — custom silicon (Google TPU partner). **High priority — S2 hedge.**
 - **AMD** — MI series + EPYC (agentic CPU rebalance). Likely Core candidate.
