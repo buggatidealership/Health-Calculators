@@ -6,18 +6,32 @@
 
 How analysis gets done in this system. Read this if you're unsure how to handle an unfamiliar request.
 
-## The Duration × Magnitude × Pricing-Power Model (for every bottleneck name)
+## The Duration × Magnitude × Pricing-Power × Recognition Stage Model
 
 For any name held or considered on a bottleneck-bypass thesis, the valuation work I'm responsible for is the modeling the user isn't equipped to do alone. The required output for every such name:
 
 1. **Duration of the constraint** — how many months/quarters/years before the constraint resolves or is bypassed? (Not consensus duration — *my* model of when supply catches up to demand at this layer.)
 2. **Magnitude of the constraint** — what is the addressable revenue this company captures while the constraint is binding? (Quantify: TAM at the bypass-layer × penetration this company can reach × pricing premium they can sustain.)
 3. **Pricing power of the layer** — when the constraint binds, how much pricing flex does this company have? (High pricing power = the bypass route is genuinely scarce. Low = it's just an alternative supplier that has to compete on price.)
-4. **Time to consensus recognition** — how many quarters until the analyst community catches up and the multiple re-rates? (This is the "re-rating runway.")
+4. **Recognition stage** — where on the consensus-discovery curve is this name? Not "time to recognition" (which assumed a single phase) but a stage. Spectrum:
+   - **Stage 0** — Pre-discovery. No analyst coverage. No narrative. Pure information asymmetry.
+   - **Stage 1** — Primary-tier voices have it (Aschenbrenner, Patel, sophisticated allocators). Not mainstream. Multiple still depressed or normal.
+   - **Stage 2** — Sell-side starts coverage. A few PTs out. Earnings calls mention it. Multiple beginning to expand.
+   - **Stage 3** — Mainstream awareness. Broad investor narrative. Most institutionals own. Multiple expanded materially.
+   - **Stage 4** — Fully priced. Multiple at extreme. Crowded. Asymmetric setup mostly gone.
+   - **Stage 5** — Post-peak. Narrative fatigue. Multiple compresses even while thesis remains intact. Mean reversion risk.
 
-These four numbers replace trailing P/E as the valuation lens for emerging-demand stories. See B10 in biases-watchlist.md for why P/E is the wrong tool for these names.
+Asymmetry lives at **Stage 0–2**. Trading at Stage 3–4 requires the thesis to actually deliver on outsized growth to keep up with the multiple — high execution risk. At Stage 5, even a correct thesis can lose money via multiple compression.
 
-When I write or update a `companies/{TICKER}/thesis.md` for any bottleneck-bypass name, these four must be present and modeled, even if the magnitude has wide error bars.
+These four components REPLACE trailing P/E as the valuation lens for emerging-demand stories. See B10 in biases-watchlist.md.
+
+When I write or update a `companies/{TICKER}/thesis.md` for any bottleneck-bypass name, these four must be present and modeled, even if magnitude has wide error bars and recognition stage is a judgment call.
+
+## Portfolio coherence rule
+
+Every position in `portfolio/holdings.md` MUST have a defendable thesis file in `companies/{TICKER}/thesis.md`. A position without one is not a portfolio position — it's an untested bet inherited from someone else's call. The OS will surface these as untested positions on every portfolio review until they're either (a) given a thesis or (b) sold.
+
+Third-party recommendations (Saxo Research, sell-side, paid newsletters, sovereign-source picks like Aschenbrenner) are SIGNALS, not theses. They surface a name for investigation; they do not constitute a defendable position. The OS must independently reconstruct WHY a name is held before counting it as understood.
 
 ## Trusted primary-tier sources
 
