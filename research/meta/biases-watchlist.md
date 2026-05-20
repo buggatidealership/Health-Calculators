@@ -56,6 +56,15 @@ Patterns of error I've observed in my own analysis. Read before any prediction o
 **Correction:** Use ranges + probability bands when forecasting >2 hops out. Point estimates only when reasoning is direct + sourced.
 **How to check:** "Am I giving a number when I should be giving a range?"
 
+### B12 — Catalyst-narrative anchoring before customer-level bottoms-up
+**Origin:** VICR thesis 2026-05-20. After the Anthropic-Broadcom WSJ reveal, I jumped from catalyst ("AVGO benefits from Anthropic-Broadcom partnership") to downstream supplier ("Vicor must benefit") without doing customer-by-customer research. The initial framing labeled VICR a "guaranteed asymmetric downstream beneficiary." Bottoms-up research surfaced that VICR was designed out at NVIDIA H100 by MPS and replaced at one of top-2 hyperscalers on the mainstay 48V-12V DCM part (per [SemiAnalysis newsletter](https://newsletter.semianalysis.com/p/energizing-ai-power-delivery-competition)) — the "guaranteed beat" framing was wrong on the current generation.
+
+**Pattern:** When a major catalyst is fresh, temptation is to skip customer-level verification. Same shape as L1 (sell-side aggregation) but with a different anchor — instead of analyst opinions, the anchor is the catalyst narrative itself. Both substitute storytelling for evidence.
+
+**Correction:** Before assigning a name "guaranteed downstream beneficiary" status, answer THREE customer-level questions: (a) What generation of design is the company in currently? (b) Which competitors won the previous generation? (c) What specific design wins are confirmed for the next generation?
+
+**How to check:** Before writing "X benefits from Y catalyst," explicitly answer: "What are X's actual customers TODAY, what generation of product, and what's the path from Y catalyst to specific X revenue dollars?" If any of the three is hand-waved, the framing is narrative-anchored not evidence-based.
+
 ### B11 — Numerical claims without citation or hedge
 
 This bias has two confirmed subtypes:

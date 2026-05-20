@@ -28,11 +28,6 @@
   - Caveat per user 2026-05-20: AVGO is already ~$1.2T megacap. Asymmetric setup may live downstream not at AVGO directly. See P1 Vicor / Camtek items below.
   - Linked: `research/companies/AVGO/thesis.md` (new)
 
-- [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — Vicor (VICR) thesis — AVGO/Anthropic custom Si downstream beneficiary with extreme operating leverage
-  - Origin: Downstream-supplier-asymmetry analysis 2026-05-20. Vicor Q1 2026 revenue $138.2M (+42% YoY per [IBTimes](https://www.ibtimes.com.au/vicor-vicr-stock-explodes-186-304-massive-ai-data-center-power-demand-1868594)) vs ~$1B/yr fab capacity per [Photoncap](https://photoncap.net/p/the-last-15mm-of-ai-power-three-numbers) — 7–8× revenue scale headroom without new capex. Every custom ASIC rack ships with 48V power delivery.
-  - Scope: Full thesis. Model operating leverage from current run-rate to fab capacity. Identify the demand catalyst that fills the fab (Anthropic AVGO ASICs, NVDA GB300/Rubin racks, hyperscaler custom Si racks). Calibrate beat magnitude expectation.
-  - Linked: `research/companies/VICR/thesis.md` (new)
-
 - [ ] **P1 / research / 2026-05-20** [POS, BOT] — Camtek (CAMT) thesis — advanced packaging inspection direct beneficiary
   - Origin: Q1 2026 OSAT orders >$90M for "CoWoS-like packaging for AI" per [StockTitan](https://www.stocktitan.net/sec-filings/CAMT/6-k-camtek-ltd-current-report-foreign-issuer-e53ec04f8240.html). H2 2026 expected >25% growth vs H1 per [TipRanks](https://www.tipranks.com/news/company-announcements/camtek-posts-q1-2026-results-and-projects-strong-second-half-revenue-surge).
   - Scope: Full thesis. Recognition stage assessment (still Stage 2–3 — partially moved on $31M order). Model demand pull-through from custom Si packaging volume growth.
@@ -160,6 +155,12 @@
 - [x] **2026-05-20** [INFRA] — Capture meta-first-principle + co-adaptation principle in methodology
   - Completed: 2026-05-20
   - Artifact: `research/meta/methodology.md` top sections
+
+- [x] **2026-05-20** [POS] — Vicor (VICR) thesis (full company folder)
+  - Completed: 2026-05-20
+  - Artifact: `research/companies/VICR/` (thesis.md + facts.md + timeline.md + interpretations.md + exposures.md)
+  - Outcome: Recommendation WAIT (do not enter pre-confirmation). Initial "downstream beneficiary" framing was wrong; bottoms-up surfaced design-out at NVIDIA H100 + replacement at top-2 hyperscaler by MPS. Reframed as binary on 2nd gen VPD adoption at next-gen designs. Anti-fragility 2/5. Tier: Active (not Core), wait for catalyst.
+  - Surfaced bias: B12 (catalyst-narrative anchoring before customer-level bottoms-up)
 
 ## How to use this file
 
