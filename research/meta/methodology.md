@@ -121,10 +121,18 @@ User is logically sharp but not technically deep. Self-doubts as default mode (p
 - Tables for multi-name or multi-scenario comparison
 - Tight (≤500 words default); ask permission before going longer
 - Show reasoning, don't just conclude
-- When user gives a brain-dump-style input, lead with: "Here's the pattern I extracted: [synthesis]. Confirm before I act."
+- When user gives a brain-dump-style input, lead with: "Here's the pattern I extracted: [synthesis]." Then act — don't ask permission to confirm patterns (user 2026-05-20: "I'm always gonna give you brain dumps. Never expect something structured.")
+- **Push back when the user's framing is wrong** — they explicitly delegated this. E.g., "exponential workload growth" is technically super-linear, not exponential. Refining the framing strengthens the analysis.
+- **Modify the user's framing without asking** when it makes the analysis more agnostic / more correct. User 2026-05-20: "There's no need for me to tell them, but I'm gonna change this and that because that... in that sense, it makes more sense."
 - When user self-doubts ("am I missing something?"), don't reassure — actively probe for gaps
 
-## Downstream-Supplier-Asymmetry Principle
+## Downstream-Supplier-Asymmetry Principle — Refined: Default Deeper
+
+**Refinement 2026-05-20 (user input):** Do NOT default to Level 2 names just because they're the first surfaced. Default to Level 3+ unless Level 2 has demonstrably better asymmetric setup (which is rare — Level 2 tends to be Stage 3+ already because the obvious-downstream connection is more easily seen).
+
+**The walk should continue until:** the supplier is small enough, under-covered enough, or far enough downstream that consensus has NOT yet modeled the pull-through. The Vicor lesson: Level 2 was the wrong starting point — VICR's customer relationships were already contested. The asymmetric setup was deeper down (or in adjacent layers like substrate, EDA, test, materials).
+
+
 
 User said 2026-05-20: *"What is always downstream… companies control narratives, but ultimately the earnings calls and the beats magnitude, the guidance magnitude, the operating margin increased magnitude, those are the ones that ultimately drive massive pumps and narrative changes."*
 
@@ -154,7 +162,7 @@ The named downstream candidates go into watchlist with explicit operating-levera
 
 **This principle is in addition to (not replacement of) Time-to-X bypass-route thinking** — they're complementary lenses. Time-to-X asks "what's the workaround when the consensus solution fails?" Downstream-supplier-asymmetry asks "who benefits mathematically when the consensus winner wins?"
 
-## The Duration × Magnitude × Pricing-Power × Recognition Stage Model
+## The Duration × Magnitude × Pricing-Power × Recognition Stage × Execution Quality Model
 
 For any name held or considered on a bottleneck-bypass thesis, the valuation work I'm responsible for is the modeling the user isn't equipped to do alone. The required output for every such name:
 
@@ -171,9 +179,22 @@ For any name held or considered on a bottleneck-bypass thesis, the valuation wor
 
 Asymmetry lives at **Stage 0–2**. Trading at Stage 3–4 requires the thesis to actually deliver on outsized growth to keep up with the multiple — high execution risk. At Stage 5, even a correct thesis can lose money via multiple compression.
 
-These four components REPLACE trailing P/E as the valuation lens for emerging-demand stories. See B10 in biases-watchlist.md.
+5. **Execution Quality** (added 2026-05-20 per user input) — qualitative scoring across:
+   - **Moat type and durability** — what specifically defends the business? (network effects, switching costs, scale, IP, brand, regulatory). How deep is it?
+   - **Management track record** — capital allocation discipline, transparency in communication, history of meeting/beating guidance.
+   - **Technical innovation cadence** — does the company ship next-gen on time? Or does it slip while competitors catch up?
+   - **Customer relationships** — design-win rate, customer concentration, recent wins/losses. The Vicor lesson: great tech + lost customer relationship at NVIDIA H100 = thesis broke.
 
-When I write or update a `companies/{TICKER}/thesis.md` for any bottleneck-bypass name, these four must be present and modeled, even if magnitude has wide error bars and recognition stage is a judgment call.
+Score Execution Quality on a 1–5 scale with rationale:
+- 1: Documented execution failures (lost major design wins, missed guidance repeatedly, management turnover)
+- 3: Average — execution adequate but not differentiated
+- 5: Exceptional — repeatedly beats, technical leadership compounds, customer relationships sticky
+
+Execution Quality acts as a **multiplier on confidence** in the other four components. A name with strong D×M×P×R but Execution Quality of 2 deserves heavy discount; same setup with Execution Quality of 5 deserves premium conviction. It's also a **gating filter** — names with Execution Quality ≤ 2 generally should not exit watchlist regardless of other strength.
+
+These five components REPLACE trailing P/E as the valuation lens for emerging-demand stories. See B10 in biases-watchlist.md.
+
+When I write or update a `companies/{TICKER}/thesis.md` for any bottleneck-bypass name, these five must be present and modeled, even if magnitude has wide error bars and qualitative components require judgment calls.
 
 ## Portfolio coherence rule
 
