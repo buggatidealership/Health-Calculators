@@ -22,6 +22,11 @@
 
 ### P1 — High priority
 
+- [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — Nebius (NBIS) thesis — public inference cloud, direct beneficiary of capacity-constrained narrative
+  - Origin: User-surfaced via Dylan @demian_ai tweet 2026-05-20 (verified). NBIS Q1 2026 revenue $399.0M (+684% YoY) per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm). Contracted power 3.5GW, raised target to 4GW by year-end. Missouri gigawatt + 1.2GW Pennsylvania expansion.
+  - Scope: Full thesis with D × M × P × R × E model. Caveat: author of surfacing tweet works at NBIS. But Q1 print is independent confirmation. Compare to CoreWeave (private competitor) economics. Recognition stage assessment (recent listing, +684% probably moved stock but story still under-covered in mainstream).
+  - Linked: `research/companies/NBIS/thesis.md` (new)
+
 - [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — AVGO (Broadcom) thesis — newly elevated by Anthropic-Broadcom custom Si partnership
   - Origin: Anthropic WSJ reveal 2026-05-20 (per [Sherwood](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)) confirms second top-3 frontier provider on Broadcom custom Si (Google TPU = first). S2 scenario structurally validated.
   - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Custom Si TAM model. Compare to NVDA exposure. Why this is the structural S2-hedge.

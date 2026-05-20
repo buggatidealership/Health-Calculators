@@ -19,6 +19,33 @@ Falsifier: [what would suggest this convergence is coincidence not pattern]
 
 ## Entries (most recent first)
 
+### [2026-05-20] AI compute demand outrunning supply — capacity-constrained narrative goes mainstream
+
+**Convergent read:** Two of the largest AI players (Google + OpenAI) explicitly told the market on the same day that compute demand is outrunning supply and capacity constraints will persist. This is the strongest demand-side triangulated signal of 2026. S4 (digestion) bear case materially weakens; S3 (power binds) strengthens further.
+
+**Sources:**
+1. **T1 PRIMARY — Google I/O 2026 keynote (Sundar Pichai)**: 9.7T tokens/month (2024) → 480T (2025) → 3.2 quadrillion today. ~330× in 2 years per Google's [own blog post](https://blog.google/innovation-and-ai/sundar-pichai-io-2026/). Also [Shacknews coverage](https://www.shacknews.com/article/149205/google-3-2-quadrillion-monthly-ai-tokens).
+2. **T1 PRIMARY — Sam Altman X post 2026-05-19**: "customers are increasingly asking us for certainty on capacity. as models get better, we expect that the world will be capacity-constrained for some time. we are offering discounted tokens for 1-3 year commits." ([X primary source](https://x.com/sama/status/2056827105401614656))
+3. **T2 — CNBC reporting** on OpenAI "Guaranteed Capacity" product launch ([CNBC 2026-05-19](https://www.cnbc.com/2026/05/19/openai-announces-new-guaranteed-capacity-offering-for-customers-to-secure-compute.html))
+4. **T1 — NBIS Q1 2026 SEC 6-K filing**: revenue $399.0M (+684% YoY), contracted power >3.5GW raised to 4GW year-end target ([SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm)) — independent confirmation from the supply side that capacity is selling at premium prices
+
+**Cross-references with prior triangulations:**
+- Anthropic Q2 2026 $10.9B revenue + first profit (2026-05-20 entry above) — same demand-side dynamic, frontier provider reaching profit confirms demand pulls through to revenue
+- HBM constraint analysis in `wiki/hbm-primer.md` — the supply side of this story; capacity-constrained narrative validates the binding nature
+
+**Names affected:**
+- NBIS — direct beneficiary; +684% Q1 print confirms; **P1 thesis candidate**
+- NVDA, AMD, AVGO — all sell capacity that is now multi-year-contracted
+- HBM (SK Hynix, Samsung, Micron) — every contracted compute hour needs HBM
+- Power (VST, CEG, GEV, TLN, NBIS direct power purchases) — capacity is what they sell; pricing power confirmed
+- Networking (ANET, MRVL) — cluster scale-up continues
+- Test/inspection downstream (Camtek, FormFactor, Advantest) — more chips = more test
+
+**Falsifier:** OpenAI capacity offering goes unsold (suggesting demand was overstated), OR major hyperscaler reports Q3 2026 capex deceleration to <30% YoY growth, OR token-volume growth visibly slows.
+
+---
+
+
 ### [2026-05-20] Frontier model providers reaching operating profit at scale → AI capex sustainability bear case (S4) weakens materially
 
 **Convergent read:** Model providers can be profitable at frontier compute spend levels. The "AI is unprofitable / capex sustainability is the bear case" narrative weakens.
