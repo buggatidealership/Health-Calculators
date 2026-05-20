@@ -96,6 +96,11 @@ research/
     ├── reasoning-templates.md         ← templates for N-order, anti-frag, cascade, triangulation
     ├── time-to-x-framework.md         ← bypass-route mapping for any binding constraint
     └── private-tracker.md             ← OpenAI, Anthropic, xAI, etc. (no ticker)
+
+└── wiki/                              ← foundational reference primers
+    ├── README.md                      ← wiki index, planned entries, conventions
+    ├── token-consumption.md           ← where tokens are growing, the inference cost paradox
+    └── agentic-ai-enterprise.md       ← 88% pilot failure rate, 12% breakthrough patterns
 ```
 
 ## Enforcement hooks (live)
