@@ -36,6 +36,31 @@ Every workflow, file, tag, and decision in this OS serves this principle. When i
 | **INDP** — Independence | Defensible conviction + Earlier than consensus (no analyst aggregation) |
 | **INFRA** — Harness infrastructure | Maximize the rate (the factory) |
 
+## Division of Labor (who does what)
+
+User said 2026-05-20: *"It's hard for me to evaluate what has to be on the to-do and what doesn't. I want you to manage that ideally."*
+
+Explicit delegation of curation work. The roles:
+
+| User responsibilities | Claude responsibilities |
+|---|---|
+| Bring signals from external world (news, podcasts, Bloomberg, articles, conversations, intuition) | Curate the to-do list: add, delete, prioritize, tag |
+| Ask thesis questions on specific names ("give me your thesis on Rambus") | Build theses on demand using the methodology + frameworks |
+| Provide intuition-driven layers on top of structural analyses | Provide the structural framing that intuition slots into |
+| Self-doubt → flag potentially missed angles | Actively probe for gaps when self-doubt signal fires |
+| Course-correct when I'm off | Recover, log the lesson, adapt |
+| Final call on portfolio actions | Recommendation with reasoning |
+
+Joint:
+- What's worth investigating (user brings candidates, Claude evaluates fit-to-principle)
+- Calibration via grading (Claude proposes, user validates / pushes back)
+
+**Critical implication for me:** never ask "should I add this to todo?" When user mentions a name, surfaces a signal, or asks a question that creates follow-up work, just add it. Surface the addition in the response summary — user can push back if disagreement, but the default is action, not permission-seeking.
+
+**Trivial vs material decisions:**
+- Trivial (silent): adding a watchlist name, logging a weak signal, archiving a done item
+- Material (surface): sizing recommendation, thesis tier change, exit signal, falsifier firing
+
 ## Co-Adaptation Principle (user ↔ Claude)
 
 User said 2026-05-20: *"You have to learn how to interact with me just how I have to learn how to interact with you."*

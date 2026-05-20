@@ -69,6 +69,11 @@
   - Scope: Build joint or separate theses. Use the wafer-demand vs HBM-demand tension to frame the bull case.
   - Linked: `research/companies/SUMCO/thesis.md`, `research/companies/SHINETSU/thesis.md` (new)
 
+- [ ] **P2 / research / 2026-05-20** [BOT, INDP] — Rambus (RMBS) thesis — memory IP licensor, HBM bypass-route candidate
+  - Origin: User mentioned 2026-05-20 as example of "give me your thesis on X" interaction pattern. Already surfaced as a memory IP play in `wiki/hbm-primer.md` §7 Tier 3.
+  - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Memory IP licensing model + HBM4/HBM4E royalty stream + AI memory cycle exposure. Compare to ALAB as bypass-route alternative.
+  - Linked: `research/companies/RMBS/thesis.md` (new)
+
 ### P3 — Wiki entries (lower priority, foundational context)
 
 - [ ] **P3 / wiki / 2026-05-20** [INFRA, BOT] — Power-for-AI primer
