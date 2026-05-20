@@ -35,6 +35,28 @@ Status: research / paper position / promote / archive
 - **DDOG (Datadog)** — inference observability mandatory in agentic era.
 - **CRWD (CrowdStrike)** — security spend non-discretionary in AI era.
 
+### Downstream of AVGO / Anthropic / custom Si supply chain (added 2026-05-20)
+
+Per the Downstream-Supplier-Asymmetry Principle in `meta/methodology.md`, these are the Level 2–3 candidates that benefit when AVGO/Anthropic custom Si scales:
+
+- **Vicor (VICR)** — 48V power delivery for AI racks. Q1 2026 revenue $138.2M (+42% YoY per [IBTimes](https://www.ibtimes.com.au/vicor-vicr-stock-explodes-186-304-massive-ai-data-center-power-demand-1868594)) vs ~$1B fab capacity → 7–8× operating leverage headroom. **P1 thesis candidate.**
+
+- **Camtek (CAMT)** — advanced packaging inspection. Q1 2026 OSAT AI orders >$90M (per StockTitan). H2 2026 +25% growth guide. **P1 thesis candidate.**
+
+- **FormFactor (FORM)** — probe cards. Q1 2026 $226.1M revenue (per Yahoo). Recognition Stage 3+ (already moved +129% YTD per Yahoo). Reduced asymmetry but still operationally sound.
+
+- **Advantest (6857.T)** — Japanese ATE leader, 50%+ share. FY 2026 +26% revenue guide (per Digitimes). Large-cap but real leverage.
+
+- **Ibiden (4062.T)** — ABF substrate. Japanese, sparse US analyst coverage. **Level 3 deepest under-coverage candidate.**
+
+- **PDF Solutions (PDFS)** — yield management software for ASIC tape-outs. Small-cap, direct ASIC complexity leverage. **Level 3.**
+
+- **Aehr Test Systems (AEHR)** — burn-in test. Micro-cap. Volatile. **Level 3.**
+
+- **Entegris (ENTG)** — CMP slurries + specialty chemicals. Less obvious but real leverage.
+
+- **Onto Innovation (ONTO)** — process control / inspection. Worth investigation.
+
 ### Silicon wafer monopoly (added 2026-05-20)
 The most anti-fragile substrate layer of all: every chip company in the AI universe needs polished silicon wafers. Two Japanese companies dominate the 300mm market. Together they hold a majority share of polished silicon wafer supply (per industry knowledge — needs verification with current numbers).
 - **SUMCO Corp** (Tokyo: 3436.T) — silicon wafer pure-play. Surfaced via user thesis: "agnostic to who wins at the top." Recognition stage: estimated 1–2 in AI-investor context (mostly known as cyclical commodity name, AI demand shift not yet consensus). **High priority for full thesis.**

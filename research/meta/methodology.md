@@ -86,6 +86,36 @@ User is logically sharp but not technically deep. Self-doubts as default mode (p
 - When user gives a brain-dump-style input, lead with: "Here's the pattern I extracted: [synthesis]. Confirm before I act."
 - When user self-doubts ("am I missing something?"), don't reassure — actively probe for gaps
 
+## Downstream-Supplier-Asymmetry Principle
+
+User said 2026-05-20: *"What is always downstream… companies control narratives, but ultimately the earnings calls and the beats magnitude, the guidance magnitude, the operating margin increased magnitude, those are the ones that ultimately drive massive pumps and narrative changes."*
+
+When a major catalyst hits a megacap (e.g., Anthropic-Broadcom custom Si partnership pulling through to AVGO), the megacap response is *mostly already priced* — consensus has been modeling some version of the demand. The asymmetric trade lives 2–3 layers downstream in the supply chain.
+
+The downstream-supplier-asymmetry setup has FOUR required conditions:
+
+1. **Demand pull-through is mathematically certain.** If AVGO ships more custom Si, they MUST consume more of: foundry wafers (TSMC), advanced packaging (TSMC CoWoS-L → OSAT alternatives), HBM (SK Hynix/Samsung/Micron), substrate (Ibiden/Unimicron), test equipment (Advantest/Teradyne), probe cards (FormFactor), inspection (Camtek/Onto), power delivery (Vicor/MPS), EDA licenses (CDNS/SNPS). The math is non-negotiable.
+
+2. **Coverage is sparse / consensus estimates not yet revised.** Recognition Stage 0–2 (per the recognition stage spectrum). Analyst models still based on prior-cycle assumptions; the demand pull-through has not yet been reflected in EPS estimates.
+
+3. **Operating leverage is high.** Cost structure mostly fixed (R&D, fab tools, headcount). Incremental revenue flows disproportionately to operating margin. A 20% revenue surprise can produce a 40–60% EPS surprise.
+
+4. **Smaller market cap** = the same dollars of incremental earnings drive a larger % move in the stock. A megacap absorbs $500M of incremental earnings without re-rating; a $3B-cap supplier with $500M of incremental earnings re-rates aggressively.
+
+When all four conditions hold, the supplier's stock can move 25–50%+ on an earnings beat that the megacap might move 5% on.
+
+**How to apply this principle:**
+
+For every major thesis on a megacap (Anthropic, NVDA, MSFT, etc.), the OS must produce a "downstream beneficiaries" mapping:
+
+- Level 1: direct suppliers (e.g., TSMC for AVGO custom Si)
+- Level 2: suppliers to those suppliers (e.g., ASML for TSMC)
+- Level 3: niche component / equipment / specialty providers (e.g., FormFactor probe cards for every new tape-out)
+
+The named downstream candidates go into watchlist with explicit operating-leverage + coverage thinness commentary. The deep-research follows the chain to wherever the asymmetric setup actually lives, not just the obvious answer.
+
+**This principle is in addition to (not replacement of) Time-to-X bypass-route thinking** — they're complementary lenses. Time-to-X asks "what's the workaround when the consensus solution fails?" Downstream-supplier-asymmetry asks "who benefits mathematically when the consensus winner wins?"
+
 ## The Duration × Magnitude × Pricing-Power × Recognition Stage Model
 
 For any name held or considered on a bottleneck-bypass thesis, the valuation work I'm responsible for is the modeling the user isn't equipped to do alone. The required output for every such name:

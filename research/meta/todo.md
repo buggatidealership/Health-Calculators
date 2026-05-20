@@ -25,7 +25,18 @@
 - [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — AVGO (Broadcom) thesis — newly elevated by Anthropic-Broadcom custom Si partnership
   - Origin: Anthropic WSJ reveal 2026-05-20 (per [Sherwood](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)) confirms second top-3 frontier provider on Broadcom custom Si (Google TPU = first). S2 scenario structurally validated.
   - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Custom Si TAM model. Compare to NVDA exposure. Why this is the structural S2-hedge.
+  - Caveat per user 2026-05-20: AVGO is already ~$1.2T megacap. Asymmetric setup may live downstream not at AVGO directly. See P1 Vicor / Camtek items below.
   - Linked: `research/companies/AVGO/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — Vicor (VICR) thesis — AVGO/Anthropic custom Si downstream beneficiary with extreme operating leverage
+  - Origin: Downstream-supplier-asymmetry analysis 2026-05-20. Vicor Q1 2026 revenue $138.2M (+42% YoY per [IBTimes](https://www.ibtimes.com.au/vicor-vicr-stock-explodes-186-304-massive-ai-data-center-power-demand-1868594)) vs ~$1B/yr fab capacity per [Photoncap](https://photoncap.net/p/the-last-15mm-of-ai-power-three-numbers) — 7–8× revenue scale headroom without new capex. Every custom ASIC rack ships with 48V power delivery.
+  - Scope: Full thesis. Model operating leverage from current run-rate to fab capacity. Identify the demand catalyst that fills the fab (Anthropic AVGO ASICs, NVDA GB300/Rubin racks, hyperscaler custom Si racks). Calibrate beat magnitude expectation.
+  - Linked: `research/companies/VICR/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-20** [POS, BOT] — Camtek (CAMT) thesis — advanced packaging inspection direct beneficiary
+  - Origin: Q1 2026 OSAT orders >$90M for "CoWoS-like packaging for AI" per [StockTitan](https://www.stocktitan.net/sec-filings/CAMT/6-k-camtek-ltd-current-report-foreign-issuer-e53ec04f8240.html). H2 2026 expected >25% growth vs H1 per [TipRanks](https://www.tipranks.com/news/company-announcements/camtek-posts-q1-2026-results-and-projects-strong-second-half-revenue-surge).
+  - Scope: Full thesis. Recognition stage assessment (still Stage 2–3 — partially moved on $31M order). Model demand pull-through from custom Si packaging volume growth.
+  - Linked: `research/companies/CAMT/thesis.md` (new)
 
 - [ ] **P1 / research / 2026-05-20** [POS, AF] — AMZN (Amazon) thesis — Anthropic primary cloud partner + Trainium consumption ramping
   - Origin: Anthropic WSJ reveal 2026-05-20. $30B run-rate compute footprint primarily on AWS. Trainium 3 ramp directly tied. Plus Amazon equity stake in Anthropic (per Fortune 2026-04-30).
