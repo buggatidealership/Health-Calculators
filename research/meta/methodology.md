@@ -61,6 +61,44 @@ Joint:
 - Trivial (silent): adding a watchlist name, logging a weak signal, archiving a done item
 - Material (surface): sizing recommendation, thesis tier change, exit signal, falsifier firing
 
+## Source Reliability Framework
+
+User flagged 2026-05-20: *"How reliable are [Motley Fool, StockTitan, etc.]? Look at their previous track record — what they wrote a couple months/quarters ago, did it materialize?"*
+
+Not all citations are equal. Source reliability is a function of two things:
+1. **The primary source itself** — what's the origin? (filing, earnings call, analyst report, social post)
+2. **The transmission channel** — how is it being relayed? (the company, major press, aggregator, anonymous post)
+
+### Reliability tiers
+
+- **T1 Primary** — SEC filings, official company press releases, earnings call audio, regulatory disclosures. Source of truth.
+- **T2 Primary-tier analysts + major financial press** — WSJ, Bloomberg, Reuters, FT, SemiAnalysis (Dylan Patel), Leopold Aschenbrenner. Documented expertise + accountability + editorial standards.
+- **T3 Specialist trade press** — The Information, Stratechery, Digitimes, EE Times, Tom's Hardware. Reliable for technical specs; less for forecasts.
+- **T4 Aggregators / SEO content** — Motley Fool, StockTitan, TipRanks, Simply Wall St, IBTimes, Yahoo Finance, most Seeking Alpha. Variable. Useful as transmission channels for T1 content; commodity for analysis.
+- **T5 Unverified** — Anonymous Substacks, Twitter/X, Reddit, ghost blogs. Use only as signal candidates, never as evidence.
+
+### The citation-chain rule
+
+When citing, distinguish primary from transmission:
+- "$1B 2026 projection per [Motley Fool transcript of VICR Q4 2025 call]" = T1 claim (CEO statement) via T4 channel — reliability is T1
+- "Vicor stock +18.6% per IBTimes" = T4 claim (their reporting of price action; verifiable elsewhere) via T4 channel — reliability T3-T4
+- "Stock price $304 per IBTimes" = T1 underlying (exchange data) via T4 channel; trivially verifiable
+- "Analysis claim from BeyondSPX" = T4 analysis on T1 product data — should be re-verified at T1 if material
+
+### Track-record audit
+
+For any T2–T4 source we rely on repeatedly, build a track record in `research/meta/source-reliability.md`:
+1. Pick 3–5 past specific claims (with dates)
+2. Check what happened
+3. Score materialization
+4. Annotate source with track record + last update date
+
+Over time the ledger calibrates source reliability. A source 8/10 on past Vicor-adjacent claims is more reliable than one at 3/10.
+
+### Anti-pattern to watch
+
+**Citing through an aggregator without checking the primary source.** When the primary source is a filing or earnings call, take 30 seconds to confirm the aggregator quoted it correctly (numbers transcribed right, context preserved). When the primary source is an analyst opinion, the aggregator can't validate it — must trace back to the analyst directly.
+
 ## Co-Adaptation Principle (user ↔ Claude)
 
 User said 2026-05-20: *"You have to learn how to interact with me just how I have to learn how to interact with you."*
