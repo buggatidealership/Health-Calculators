@@ -400,29 +400,46 @@ Implication for every interaction:
 16. **Evaluation matrix v2 — 5-dimension framework (refined per user input 2026-05-21).** User refinement: *"anti-fragility to me means how relevant are they going to be within the AI sector for the foreseeable future... very low chance of being displaced or technical breakthrough displacing them"* + *"competitive landscape — how good are they compared to their competitors, how much market share do they have"* + *"how mismodeled are they compared to what current analysts are saying about the company"* + *"don't just because Patel has it or because Aschenbrenner has it — if you can compute and defend your position based on falsifiable patterns, then it doesn't matter what they say. At the end of the day, your opinion matters more. These are signals we can use, but that's about it."*
 
    **The 5 dimensions** (replaces / refines the prior D×M×P×R×E + anti-fragility-as-M/N approach):
-   
+
    - **D1. Structural relevance & displacement risk** — how embedded in AI value chain for the foreseeable 3-5+ years. What technical breakthrough or substitution would make them irrelevant? Physical-law / architectural barriers that protect them. (Reframes "anti-fragility" — scenarios are still useful but displacement risk is the more concrete test.)
-   
+
    - **D2. Chokepoint severity (if applicable)** — magnitude of constraint they sit on (TAM at risk × penetration × pricing premium); duration of constraint (until supply catches up or bypass emerges); pricing power when constraint binds. If NOT a chokepoint name, this dimension is N/A — evaluate via D3 instead.
-   
+
    - **D3. Competitive position** — elevated as its own dimension (previously buried inside Execution Quality). Market share at relevant sub-segments; moat depth (IP, scale, customer lock-in, switching costs, network effects); named competitors + where each wins/loses; customer relationships (renewal rates, design-win track record, concentration risk).
-   
-   - **D4. Mismodeling vs consensus** — refines Recognition Stage. Recognition Stage (0-5) on consensus-discovery curve; specific beats-vs-consensus magnitude and frequency; forward earnings revision asymmetry; sandbag-vs-actual pattern per L4 lesson. Drives "likelihood of continued beats" framing the user surfaced.
-   
+
+   - **D4. Mismodeling vs consensus + rerating-arc position** — refines Recognition Stage AND adds the cyclical→structural rerating arc. Includes: (a) Recognition Stage (0-5) on consensus-discovery curve; (b) specific beats-vs-consensus magnitude and frequency; (c) forward earnings revision asymmetry; (d) sandbag-vs-actual pattern per L4 lesson; (e) **rerating-arc position** (see below).
+
    - **D5. Independent view** — explicit per user instruction. My own analysis grounded in first principles + BOM-level + bypass-route thinking; cross-source (Patel, Aschenbrenner, sell-side, channel checks) treated as SIGNALS not verdicts; where I agree = confirmation; where I diverge = explicit reasoning grounded in falsifiable patterns I can defend; what I think analysts are missing specifically.
-   
+
+   **Cyclical→Structural rerating arc** (added 2026-05-21 per user input). User framing: *"Every company that is rerating, that is essentially moving from a cyclical company to a structural company, every one of those companies initially only had let's say one customer. One hyperscaler. So who's to say that they're not gonna catch more hyperscaler contracts... how fast has the AI segment grown in percentage of their total revenue. And how much more can it grow, and what is the likelihood that they're gonna catch other hyperscaler clients or just any other AI focused clients."*
+
+   This is a TRAJECTORY framework that catches what static-snapshot evaluation misses. Investors who recognize a company early on the arc capture massive returns; those who wait for "proven structural" miss the run. The pattern has played out at Bloom Energy, Lumentum, Coherent, Vertiv, Murata, AXTI, AppliedDigital/IREN/CORZ.
+
+   **Arc states** (assess every component-driven AI candidate):
+   - **Pre-arc:** pure cyclical, no AI signal yet (e.g., legacy semi, legacy energy). No rerating done.
+   - **Anchor signal:** first major hyperscaler/AI customer announced. Initial 50-100% rerating typically follows. Analysts STILL modeling as cyclical with AI as bonus. (STM post-Feb 2026 AWS deal, currently)
+   - **Mid-arc:** 2-3 hyperscaler customers, AI segment 15-30% of revenue, multiple expanding but analysts still chasing. (Bloom Energy currently per `companies/BE/thesis.md`)
+   - **Late-arc:** 4+ customers, AI segment >30% of revenue, multiple peaked, analysts now front-running fundamentals. (Lumentum/Coherent currently — fully rerated.)
+   - **Post-arc:** structurally rerated, no further arc upside (the cyclical→structural transition complete).
+
+   **Variables to compute per name:**
+   - AI segment growth rate vs total revenue growth rate (gap = structural shift speed)
+   - AI segment as % of total revenue today vs 12mo prior (trajectory slope)
+   - Probability of additional hyperscaler / AI customer wins in next 18-24 months (with reasoning)
+   - Distance from "Anchor signal" to "Late-arc" — typically 24-36 months for pure-play AI; longer for diversified-semi
+
+   **Why this matters:** Static-snapshot evaluation collapses the trajectory into a point estimate. The mismodeling-vs-consensus rerating play lives in the TRAJECTORY, not the snapshot. A company at "Anchor signal" with high probability of additional wins has MORE upside than a static multiple suggests, because the rerating completes through MULTIPLE legs, not just the first 50-100%.
+
    **Binary gate unchanged:** Token-Volume Filter must PASS before scoring.
-   
+
    **Per-name output structure** (under this matrix):
    - TVF gate (pass/fail)
-   - Score across D1-D5 with reasoning
+   - Score across D1-D5 with reasoning, including rerating-arc position in D4
    - Two-handed read (bull + bear, neither suppressed)
    - Falsifiers — firing vs intact
    - Independent view: explicit divergence from consensus where applicable
    - Tier/sizing — left out by default; only added when explicitly requested
-   
-   **Relationship to prior framework:** Recognition Stage + Execution Quality + Duration + Magnitude + Pricing Power are still useful sub-dimensions, but D1-D5 is the operational matrix. The prior "anti-fragility M/N scenarios" scoring remains in thesis files as supplementary; the user-refined "structural relevance & displacement risk" is the new primary framing of that concept.
-   
+
    **Independent-view discipline (D5 elaborated):** Per user 2026-05-21: *"I want you to develop your own that you can borrow if you can verify and validate their own statements... your opinion matters more."* Cross-source voices (Patel = supply-side T2, Aschenbrenner = demand-side T2, sell-side ratings, channel-check from less-famous CEOs) are signal candidates not conclusions. The OS's value comes from synthesizing them into a defensible independent view with falsifiable patterns, not aggregating them into consensus.
 
 ## How to think (the protocol)
