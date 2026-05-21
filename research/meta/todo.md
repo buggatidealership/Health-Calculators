@@ -33,22 +33,6 @@
   - **Elevated relevance (2026-05-21):** MLCC deep-dig surfaced that the same Rubin TDP-doubling mechanism driving MLCC count expansion (per `companies/MURATA/thesis.md` BOM-level section) also cascades to PMIC count expansion. VICR's WAIT-not-enter framing depends on next-gen design wins — primary-source spec verification becomes more material as Rubin spec sheet matures.
   - Linked: `companies/VICR/facts.md`, `companies/VICR/thesis.md`, `companies/MURATA/thesis.md` §BOM-level deep-dig
 
-### P3 — Lower priority (additional thesis candidates)
-
-- [ ] **P3 / research / 2026-05-21** [POS, AF, BOT] — Power equipment thesis files (GEV, ETN, HUBB, POWL, VRT)
-  - Origin: `research/wiki/power-for-ai-primer.md` Tier 2 + Tier 3 names not yet thesis-built
-  - Scope: Compact thesis for each (GE Vernova, Eaton, Hubbell, Powell, Vertiv)
-  - Priority: lower because power consensus names (VST, CEG) already covered
-
-- [ ] **P3 / research / 2026-05-21** [POS] — Storage/data candidates from cascade walk
-  - Origin: `research/watchlist/candidates.md` cascade walk additions
-  - Scope: Compact theses for PSTG, NTAP, ESTC, CFLT, TEAM
-  - Priority: lower because Sandisk (held) already covers core storage angle
-
-- [ ] **P3 / research / 2026-05-21** [POS, AF, BOT] — Smaller Aschenbrenner-surfaced names
-  - Origin: Aschenbrenner Q1 2026 13F includes Bitfarms ($38.8M), HIVE Digital, Bitdeer, Sharon AI Holdings (sizes not disclosed in primary)
-  - Scope: Compact theses if user prioritizes (currently CORZ/IREN/APLD/CRWV cover the larger pivots)
-
 ### P3 — Foundational wiki entries (planned, not yet built)
 
 **Depth standard:** All wiki entries below must meet `meta/methodology.md` core principle #12 (default BELOW revenue mix). Revenue-mix summaries are insufficient — each wiki must include BOM-level unit counts, current-gen → next-gen deltas where applicable, and supplier capacity-response data. See B15 in `biases-watchlist.md`.
@@ -151,6 +135,11 @@
   - Artifact: `research/wiki/memory-cycle-primer.md` — DRAM/HBM/NAND cycle dynamics + per-stack ASP/GB economics + crowding-out math + supplier capacity timeline through 2028
   - Cascade: HYNIX, SNDK, MURATA thesis files updated with cross-references per CLAUDE.md Rule #10 (cascade-enforcement hook verified exit 0)
   - Side-effect: cascade-enforcement hook updated to include `research/wiki/*-primer.md` + `research/wiki/*-scaling.md` patterns
+
+- [x] **2026-05-21** [POS, AF, BOT] — All P3 research thesis files built (14 names across 3 groups)
+  - **Power equipment (5):** `companies/{GEV, ETN, HUBB, POWL, VRT}/thesis.md` — Tier 2+3 power names from `wiki/power-for-ai-primer.md`
+  - **Storage/data candidates (5):** `companies/{PSTG, NTAP, ESTC, CFLT, TEAM}/thesis.md` — cascade-walk additions. CFLT flagged as IBM merger-arb only ($31/share takeout pending mid-2026)
+  - **Smaller Aschenbrenner-surfaced (4):** `companies/{BITF, HIVE, BTDR, SHAZ}/thesis.md` — Bitfarms, HIVE Digital, Bitdeer, SharonAI from Q1 2026 13F. BTDR highest conviction (Tydal 180 MW for Rubin co-lo); SHAZ highest asymmetry (newly public Feb 2026)
 
 ## How to use this file
 
