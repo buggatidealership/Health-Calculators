@@ -87,6 +87,7 @@ My initial framing said this layer was "overlooked." User pushed back correctly:
 - **2026-05-20:** Added Execution Quality as 5th component of valuation model after user input. Vicor would have scored 2/5 — methodology now self-consistent.
 - **2026-05-20:** Corrected non-default read #5 (inference cloud) after user pushback. "Overlooked" framing was wrong — NBIS had run and then dropped on competition concerns. Real non-default read: zero-sum vs non-zero-sum dynamic between hyperscalers and neoclouds.
 - **2026-05-20:** Codified Token-Volume Filter as hard portfolio selection rule per user input — names must benefit from volume regardless of per-token cost direction. Model providers fail this filter; memory/foundry/networking/test/power/EDA pass cleanly; inference clouds are MIXED (contract-dependent).
+- **2026-05-20:** NVDA Q1 FY27 GRADED. Direction RIGHT (beat all four axes). Q2 guide came in at $91.0B vs my $88.5B call. L4 added: in multi-year-contracted-demand environments, historical guide-sandbag heuristics over-discount management confidence — apply ~2% haircut instead of 4-5%. Stock fell despite beat (beat-and-fade); not a thesis falsifier. The capacity-constrained narrative is now triangulated at a third primary source.
 
 ## What's still ambiguous (intellectual humility)
 

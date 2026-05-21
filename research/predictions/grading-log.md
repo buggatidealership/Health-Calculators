@@ -8,13 +8,13 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 
 ## Pending
 
-| Date made | Resolution date | Ticker | Event | File | Direction |
-|---|---|---|---|---|---|
-| 2026-05-20 | 2026-05-20 (today, 5pm ET) | NVDA | Q1 FY27 earnings | `2026-05-20-NVDA-Q1FY27.md` | Beat across the board |
+(none currently)
 
 ## Graded
 
-(none yet)
+| Date made | Resolution | Ticker | Event | Prediction file | Grade file | Outcome |
+|---|---|---|---|---|---|---|
+| 2026-05-20 | 2026-05-20 | NVDA | Q1 FY27 earnings | `2026-05-20-NVDA-Q1FY27.md` | `2026-05-20-NVDA-Q1FY27-GRADE.md` | RIGHT direction (beat all 4); Q2 guide upside underweighted; L4 added |
 
 ## Process
 

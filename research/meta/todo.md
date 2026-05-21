@@ -13,13 +13,6 @@
 
 ## Open
 
-### P0 — Blocking / urgent
-
-- [ ] **P0 / prediction / 2026-05-20** [CAL] — GRADE NVDA Q1 FY27 prediction
-  - Origin: scheduled (event resolution today after market close)
-  - Scope: compare prediction to actual print; write lesson if new pattern; trigger SCENARIO-UPDATE workflow
-  - Linked: `research/predictions/2026-05-20-NVDA-Q1FY27.md`, `research/predictions/lessons.md`, `research/sector/scenarios.md`
-
 ### P1 — High priority
 
 - [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — Nebius (NBIS) thesis — public inference cloud, direct beneficiary of capacity-constrained narrative

@@ -10,6 +10,19 @@ Accumulated calibration memory from graded predictions. Every PREDICT workflow M
 
 ## Lessons (most recent first)
 
+### L4 — In a multi-year-contracted-demand environment, historical guide-sandbag heuristics over-discount
+**Origin:** NVDA Q1 FY27 GRADE 2026-05-20. My prediction called Q2 guide midpoint $88.5B by applying a 4-5% sandbag haircut to an internal-expectation model of $92.7B. Actual guide: $91.0B ± 2% (per [NVIDIA 8-K via StockTitan](https://www.stocktitan.net/sec-filings/NVDA/8-k-nvidia-corp-reports-material-event-56086a88bbb4.html)). My internal-expectation model was nearly right ($92.7B vs $91B = within $1.7B); the sandbag haircut was the error.
+
+**Generalizable lesson:** Management guide-sandbag patterns reflect a particular demand-visibility regime. When the company has FORWARD-CONTRACTED visibility (multi-year customer commits, capacity-constrained backlog like the current OpenAI Guaranteed Capacity + hyperscaler 2026 capex re-rate environment), they guide CLOSER to internal expectation. Historical 4-5% sandbag over-discounts.
+
+**Calibration adjustment:** For predictions on companies in multi-year-contracted-demand environments (currently: NVDA, AVGO, TSM, NBIS, SK Hynix, MU), apply smaller sandbag haircut (~2% instead of 4-5%). For companies in shorter-visibility regimes, original sandbag still applies. Mark this in `meta/methodology.md` when running PREDICT.
+
+**Secondary lesson from same event:** I underweighted Q2 ≥ $90B whisper at 30% probability when it should have been ~50%. The pattern is consistent — my probabilities on upside outcomes were systematically too low because the historical sandbag pattern anchored my model. Calibration adjustment: in capacity-constrained environments, the "whisper exceeded" outcomes are more probable than baseline sell-side cycle would suggest.
+
+**Linked:** L1 (bottoms-up bias still applies — bottoms-up build of $92.7B was correct; the sandbag overlay was the bias).
+
+---
+
 ### L3 — Don't take partial profits on an intact bottleneck thesis
 **Origin:** User feedback, 2026-05-20. User identified Bloom Energy (BE) early as a bypass-route name for the power constraint (time-to-power thesis). Bought, took ~+30% profit, exited. Stock then continued running and just reported earnings — user reports it was up double digits two trading days in a row. The thesis (Bloom solves the time-to-power problem for hyperscalers needing power in months not years) was never falsified — they sold on the emotional resolution of position uncertainty, not on analysis. Same root cause as L2 (emotional exit on intact thesis), different trigger (partial profit rather than macro fear).
 
