@@ -397,6 +397,34 @@ Implication for every interaction:
     - On portfolio decisions, the OS preserves both "stay the course" AND "trim/exit" arguments rather than collapsing to recommendation prematurely
     - User favors one view at any time but the OS should retain both — the held view is logged in `sector/where-we-are.md`, the opposing view stays live in scenarios.md or counter-signal files
 
+16. **Evaluation matrix v2 — 5-dimension framework (refined per user input 2026-05-21).** User refinement: *"anti-fragility to me means how relevant are they going to be within the AI sector for the foreseeable future... very low chance of being displaced or technical breakthrough displacing them"* + *"competitive landscape — how good are they compared to their competitors, how much market share do they have"* + *"how mismodeled are they compared to what current analysts are saying about the company"* + *"don't just because Patel has it or because Aschenbrenner has it — if you can compute and defend your position based on falsifiable patterns, then it doesn't matter what they say. At the end of the day, your opinion matters more. These are signals we can use, but that's about it."*
+
+   **The 5 dimensions** (replaces / refines the prior D×M×P×R×E + anti-fragility-as-M/N approach):
+   
+   - **D1. Structural relevance & displacement risk** — how embedded in AI value chain for the foreseeable 3-5+ years. What technical breakthrough or substitution would make them irrelevant? Physical-law / architectural barriers that protect them. (Reframes "anti-fragility" — scenarios are still useful but displacement risk is the more concrete test.)
+   
+   - **D2. Chokepoint severity (if applicable)** — magnitude of constraint they sit on (TAM at risk × penetration × pricing premium); duration of constraint (until supply catches up or bypass emerges); pricing power when constraint binds. If NOT a chokepoint name, this dimension is N/A — evaluate via D3 instead.
+   
+   - **D3. Competitive position** — elevated as its own dimension (previously buried inside Execution Quality). Market share at relevant sub-segments; moat depth (IP, scale, customer lock-in, switching costs, network effects); named competitors + where each wins/loses; customer relationships (renewal rates, design-win track record, concentration risk).
+   
+   - **D4. Mismodeling vs consensus** — refines Recognition Stage. Recognition Stage (0-5) on consensus-discovery curve; specific beats-vs-consensus magnitude and frequency; forward earnings revision asymmetry; sandbag-vs-actual pattern per L4 lesson. Drives "likelihood of continued beats" framing the user surfaced.
+   
+   - **D5. Independent view** — explicit per user instruction. My own analysis grounded in first principles + BOM-level + bypass-route thinking; cross-source (Patel, Aschenbrenner, sell-side, channel checks) treated as SIGNALS not verdicts; where I agree = confirmation; where I diverge = explicit reasoning grounded in falsifiable patterns I can defend; what I think analysts are missing specifically.
+   
+   **Binary gate unchanged:** Token-Volume Filter must PASS before scoring.
+   
+   **Per-name output structure** (under this matrix):
+   - TVF gate (pass/fail)
+   - Score across D1-D5 with reasoning
+   - Two-handed read (bull + bear, neither suppressed)
+   - Falsifiers — firing vs intact
+   - Independent view: explicit divergence from consensus where applicable
+   - Tier/sizing — left out by default; only added when explicitly requested
+   
+   **Relationship to prior framework:** Recognition Stage + Execution Quality + Duration + Magnitude + Pricing Power are still useful sub-dimensions, but D1-D5 is the operational matrix. The prior "anti-fragility M/N scenarios" scoring remains in thesis files as supplementary; the user-refined "structural relevance & displacement risk" is the new primary framing of that concept.
+   
+   **Independent-view discipline (D5 elaborated):** Per user 2026-05-21: *"I want you to develop your own that you can borrow if you can verify and validate their own statements... your opinion matters more."* Cross-source voices (Patel = supply-side T2, Aschenbrenner = demand-side T2, sell-side ratings, channel-check from less-famous CEOs) are signal candidates not conclusions. The OS's value comes from synthesizing them into a defensible independent view with falsifiable patterns, not aggregating them into consensus.
+
 ## How to think (the protocol)
 
 When asked anything substantive, walk through these in order:
