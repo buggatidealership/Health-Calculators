@@ -18,6 +18,7 @@ Every claim cited inline. Anti-fabrication hook applies.
 | `hbm-primer.md` | HBM supply-demand-bypass analysis. Three suppliers sold out 2026, demand +77% YoY, bypass routes (CXL/ALAB, MoE, HBM4E) won't materially relieve before 2027 | Complete (2026-05-20) |
 | `agentic-workload-scaling.md` | Bottoms-up demand-side anchor: MAU × tasks/user × tokens/task. Central estimate ~210T tokens/month from agentic workloads today, growing ~12× over 12mo and ~70× over 24mo. Identifies gap vs TrendForce HBM consensus | Complete (2026-05-21) |
 | `power-for-ai-primer.md` | Power supply-demand-bypass analysis. Demand 75.8 GW (2026) → 134 GW (2030); supply 2-3 GW/yr vs demand 5-7 GW/yr = structural deficit. Interconnect queues 36-48mo. Transformer + gas turbine backlogs multi-year. Validates Aschenbrenner long-power thesis | Complete (2026-05-21) |
+| `optical-interconnect-primer.md` | Fiber/pluggable → CPO transition (2026-2030). InP substrate supply deficit >70% (600-700K wafers shipped vs 1.5-2M demand). AXTI controls 60-70% global InP. NVDA invested $2B in LITE+COHR. Resolves GLW-Aschenbrenner conflict more deeply (CPO is medium-term risk to fiber TAM) | Complete (2026-05-21) |
 
 ## Planned / candidate entries (in rough priority order)
 

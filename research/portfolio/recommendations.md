@@ -27,9 +27,11 @@
 - New position in a higher-conviction Aschenbrenner-surfaced name (BE, CORZ, CRWV, IREN, APLD)
 - New position in a watchlist name passing the Token-Volume Filter cleanly (AVGO, AMZN, NBIS, ALAB)
 
-**Decision deferred until:** holistic view of all 11 portfolio positions complete.
+**Decision deferred until:** (a) holistic view of all 11 portfolio positions complete, AND (b) Q2 2026 GLW earnings (late July 2026) confirms Optical Communications growth sustainment.
 
-**Linked:** `research/companies/GLW/thesis.md`
+**Refinement 2026-05-21:** Per the new Forward Mix Probabilistic Model in `meta/methodology.md`, the static-mix bear case (37% AI today) materially weakens if OC growth sustains. Forward-mix math implies OC reaches ~60% of revenue by year 5 under base-case growth. This makes the trim recommendation MORE CONDITIONAL on OC growth — wait for Q2 2026 print as the trigger. If OC growth holds >30% YoY in Q2, the trim is smaller (maybe to 8% not 5-7%); if OC growth <25%, trim to 5% or further.
+
+**Linked:** `research/companies/GLW/thesis.md`, `research/companies/GLW/interpretations.md` (2026-05-21 later entry)
 
 ---
 

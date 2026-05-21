@@ -137,6 +137,71 @@ Examples of correctness check:
 
 When the "non-default read" is actually a refinement of consensus (not its inverse), say so. Be precise about WHAT is non-default — usually it's a specific implication or N-th order effect, not the headline framing.
 
+## Forward Mix Probabilistic Model (refinement to Magnitude component)
+
+User flag 2026-05-21: *"It can — what is the potential for that 37 to grow to 50, 60, 70 percent. Find the patterns that allow you to compute a probability for each of those patterns to then model the probabilistic outcome."*
+
+The static-segment-mix analysis in valuation is incomplete. For any multi-segment company where one segment is growing materially faster than others, the FORWARD mix matters more than the current snapshot mix. A company at "37% AI today" can be at "60% AI in 3-5 years" through pure mix-shift mathematics if the growth differential sustains.
+
+### The math
+
+If segment A is X% of revenue today, growing at growth rate g_A, and the rest is (1-X)% growing at g_others:
+
+```
+Segment A share at year t = X(1+g_A)^t / [X(1+g_A)^t + (1-X)(1+g_others)^t]
+```
+
+Example: GLW Optical Communications today is 37% growing at 36% YoY; rest is 63% growing at ~5% blended (per `research/companies/GLW/facts.md`).
+
+| Year | OC growth (g_A) | Others growth (g_o) | OC share |
+|---|---|---|---|
+| 0 (today) | — | — | 37% |
+| 1 | 36% | 5% | 43% |
+| 2 | 32% | 5% | 49% |
+| 3 | 28% | 5% | 54% |
+| 4 | 25% | 5% | 58% |
+| 5 | 22% | 5% | 62% |
+
+By year 5, OC is ~62% of revenue under base-case growth assumptions. The 100x P/E paid today for "37% AI" is increasingly justified as the denominator shifts.
+
+### Probabilistic application
+
+For each variable that drives the mix shift, assign probability bands:
+
+**Example — GLW forward-mix scenarios:**
+
+| Variable | Base case | Bull case | Bear case |
+|---|---|---|---|
+| OC growth rate sustainment | 30% YoY years 1-3, decelerating to 20% by year 5 (40% probability) | 35% sustained (25% probability) | <20% by year 2 (35% probability) |
+| Display segment trajectory | Flat (50%) | +5% (20%) | -5% (30%) — TV cycle reverses |
+| Automotive | Flat (50%) | +5% (25%) | -5% (25%) — EV slowdown |
+| Specialty Materials | +5% (50%) | +10% (30%) — flagship mobile cycle | flat (20%) |
+| Hemlock + Solar | Flat (50%) | +15% (25%) — T1-style IRA tailwind | -10% (25%) — policy reversal |
+
+Combined probability-weighted forward OC share at year 5:
+- Bull scenario (OC sustains 35%+, others flat-to-positive): probability ~15%; OC share ~68%
+- Base scenario (OC 30%, others flat): probability ~50%; OC share ~62%
+- Bear scenario (OC <25% by year 2, others flat-to-negative): probability ~35%; OC share ~52%
+
+Expected forward OC share: 0.15 × 68% + 0.50 × 62% + 0.35 × 52% = ~60% by year 5.
+
+### Implication for valuation
+
+**Pay attention to the COMPOUND mix-shift, not just static snapshot.** A 100x P/E for "37% AI" is structurally different from 100x for "62% AI" — and at sustained growth differential, the company REACHES "62% AI" without further analyst action. This is mix-driven re-validation of multiple, not requiring multiple expansion.
+
+This refines the Aschenbrenner-style "mix dilution" bear case: the bear case is right if OC growth DECELERATES; the bear case becomes wrong if OC sustains current growth even without OC accelerating further. Most likely outcome is between — partial validation, partial concern.
+
+### How to apply this to other multi-segment names
+
+When building a thesis on any company with:
+- Multiple business segments
+- One segment growing materially faster than others
+- Static segment-mix used to attack or defend the valuation
+
+ADD: forward-mix probabilistic model with scenarios over 3-5 years. Identify the 2-4 most important variables. Assign probability bands. Compute expected forward mix.
+
+This is most applicable to: GLW (current), and prospectively any multi-segment industrial / specialty materials / diversified semi name where AI is a growing-but-not-yet-dominant segment.
+
 ## Source Reliability Framework
 
 User flagged 2026-05-20: *"How reliable are [Motley Fool, StockTitan, etc.]? Look at their previous track record — what they wrote a couple months/quarters ago, did it materialize?"*

@@ -75,6 +75,26 @@ If CPO deployment news emerges from a hyperscaler in next 6-12 months, GLW could
 - B10 bias: P/E anchoring on emerging-demand stories. The bear case here ISN'T just "P/E too high" — it's "P/E too high AND mix dilution AND insider selling AND multiple compression risk." The composite is more compelling than P/E alone.
 - B14 bias: default-first reading. The default read is "AI fiber → bullish → hold full position." The non-default read is "fundamentals great, multiple stretched, trim to target." I'm pushing past the default.
 
+## 2026-05-21 (later) — Forward Mix Probabilistic Model applied to GLW
+
+User flag 2026-05-21: my static-segment-mix analysis (37% AI today) underweighted the forward trajectory. Per the new Forward Mix Probabilistic Model in `meta/methodology.md`:
+
+Under base-case growth (OC 30% YoY decelerating to 20% by year 5; other segments flat 5%), OC share reaches ~62% of revenue by year 5. Probability-weighted expected OC share at year 5 across bull/base/bear: ~60%.
+
+**This materially weakens the Aschenbrenner mix-dilution bear case** if OC growth sustains anywhere near current levels. The 100x P/E paid today for "37% AI" company is structurally re-validated as the company becomes "60%+ AI" through pure mix-shift mathematics — no multiple expansion required.
+
+**The new dividing line:** the Aschenbrenner bear case is right if OC growth DECELERATES rapidly (falsifier #1 — Q3 2026 OC growth <25% YoY). It's wrong if OC sustains. Most likely outcome: partial.
+
+**Revised position recommendation for the user:** 
+
+The TRIM-to-5-7% recommendation in `companies/GLW/thesis.md` and `portfolio/recommendations.md` was based on static-mix-multiple-compression logic. Under the forward-mix model:
+
+- If you HIGHLY confident OC sustains 30%+ growth → arguments for trimming weaken; might be only modest trim or hold full position
+- If you're uncertain → original trim-to-5-7% holds (resizes for the bear case while preserving exposure)
+- If you think OC decelerates rapidly → original recommendation reinforced or trim further
+
+The trim recommendation now becomes more conditional on OC growth sustainment. Worth waiting for Q2 2026 print (late July) to see if OC growth holds at >30% before executing the trim. **Updating the recommendations.md entry to reflect this.**
+
 ## Open questions worth asking the user
 
 1. **What was your entry price on GLW?** This frames the trim decision emotionally even though analytically the recommendation is the same.
