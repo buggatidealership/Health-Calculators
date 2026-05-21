@@ -65,22 +65,22 @@ If user wants me to ASK rather than auto-run, add to `meta/methodology.md`:
 
 I check methodology.md at session start per existing protocol.
 
-## External scheduler (Claude Code Triggers — user setup required)
+## How the user actually interacts with this (phone-first reality, 2026-05-21)
 
-The SessionStart hook only fires when a session is started. For TRUE scheduled execution (session fires on its own at, say, 1st of each month), set up a Claude Code Trigger:
+User confirmed 2026-05-21 they primarily interact via Claude Code on phone (web/mobile), not desktop. Design solutions for that context. Do NOT propose flows that require leaving the chat session (clicking around GitHub Actions UI, configuring Claude Code Triggers from desktop settings, etc.) unless the user explicitly asks for them.
 
-1. Go to Claude Code on the web → Settings → Triggers
-2. Create new trigger:
-   - **Schedule:** cron expression (e.g., `0 9 1 * *` = 9am 1st of each month)
-   - **Repository:** buggatidealership/health-calculators
-   - **Branch:** the active dev branch
-   - **Initial prompt:** "Check for OVERDUE recurring items per SessionStart briefing. Complete any autonomous-eligible audits. Append results to `research/meta/recurring-audit-log.md` and push."
-3. Save. The trigger will start a new Claude Code session on schedule.
+**The in-session interaction model:**
 
-When the trigger fires:
-- SessionStart hook surfaces OVERDUE items
-- I see the prompt instructing autonomous completion
-- I run the audit, log to this file, commit, push
-- User checks this file or commit history next time they log in
+1. **Automatic notification:** the GitHub Action at `.github/workflows/recurring-audit-reminder.yml` fires every Monday 9am UTC, creates a GitHub issue when items are DUE/OVERDUE. User gets push notification on phone via GitHub.
 
-Docs: https://code.claude.com/docs/en/claude-code-on-the-web (search "Triggers")
+2. **User starts a Claude Code session in response** (or any other reason — the SessionStart hook also surfaces it). The briefing shows 🚨/⏰/📅 markers at the top.
+
+3. **User says something like "audit it" or "do the recurring stuff"** in chat. I run the audit autonomously within the session, log to this file, commit, push. User sees a summary in chat + can verify via file/commit later.
+
+4. **No external scheduling required** beyond the GitHub Action that's already in place. The audit runs when the user is in a session and gives the OK — not on a true cron schedule. Trade-off: small delay (hours to a day) vs needing zero setup.
+
+**Optional: Claude Code Triggers** (only if user explicitly wants true autonomous-on-schedule execution):
+- Requires UI setup that may not be phone-friendly
+- Adds: session starts automatically on schedule even with no user interaction
+- Trade-off: more autonomous but more setup cost; only worth it if recurring audits happen often enough for the convenience to matter
+- Skip by default unless user asks
