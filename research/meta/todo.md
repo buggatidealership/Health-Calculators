@@ -36,11 +36,6 @@
   - Scope: Full thesis. Three legs: (a) AWS share gains from Anthropic exclusivity, (b) Trainium economics + custom Si margin, (c) Anthropic stake P&L contribution. Anti-fragility highest in universe per scenarios.md (was already 3.5/5).
   - Linked: `research/companies/AMZN/thesis.md` (new)
 
-- [ ] **P1 / research / 2026-05-21** [POS, INDP] — Corning (GLW) deep-dive — DIRECT CONFLICT with Aschenbrenner puts
-  - Origin: Aschenbrenner Q1 2026 13F shows puts on Corning per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. User holds Corning at 10.8% of portfolio per `holdings.md`. Single most important conflict from the 13F.
-  - Scope: Segment-level Corning analysis — what fraction is AI optical fiber vs display vs lifesciences vs automotive? Is the fiber thesis priced in already? What multiple expansion has happened? Apply Token-Volume Filter rigorously.
-  - Linked: `research/companies/GLW/thesis.md` (new)
-
 - [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Core Scientific (CORZ) thesis — Aschenbrenner $389.1M position; cleanest crypto-miner-to-AI-host pivot
   - Origin: Aschenbrenner 13F. CORZ is the public archetype (CoreWeave + Microsoft) for the crypto-miner-pivot thesis.
   - Scope: Full thesis. Execution quality assessment critical. Compare to RIOT/CLSK/Bitfarms (pure-play vs pivot quality). Anti-fragility.
