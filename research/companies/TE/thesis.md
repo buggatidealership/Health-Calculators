@@ -184,3 +184,62 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 - **Patel: NEUTRAL** — solar manufacturing is not a direct subject of his coverage. His bottleneck framework (logic/memory/power) treats power as resolved 2026 ("power is not a constraint... can't get a 3nm fab" per TBPN podcast Feb 2026), which is mildly negative for incremental new power-supply names.
 - **Aschenbrenner: MILD BULLISH** — $43.9M position per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Small for his book ($43.9M vs $878.7M BE) — symbolic, not high-conviction.
 - **Implication:** Modest validation only. Patel's "power is resolved" framing actually argues against adding to TE. The policy-dependence risk (IRA Section 45X PTC) remains the defining variable. HOLD at ~7.1% per `research/portfolio/holdings.md` stands; do not increase based on Aschenbrenner's small position alone. T1 is now LEAST-reinforced of held positions under these two voices.
+
+## Cross-vertical re-evaluation (added 2026-05-21, per methodology principle #17)
+
+10-vector cross-reference surfaced THREE material findings that reshape (but don't reverse) the existing TRIM-on-policy-reversal stance:
+
+### Critical new findings
+
+**1. $160M Section 45X PTC sale completed Dec 30, 2025** at $0.91 per $1 of PTC to "investment-grade U.S. buyer" per [StockTitan SEC filing](https://www.stocktitan.net/sec-filings/TE/10-k-t1-energy-inc-files-annual-report-acbc68c35ee4.html) and [Motley Fool Q1 2026 transcript](https://www.fool.com/earnings/call-transcripts/2026/05/12/t1-energy-te-q1-2026-earnings-transcript/). **Institutional validation that the IRA 45X PTC monetization actually works** — the existential policy risk is partially de-risked. 2026 tax equity arrangements targeted H2 2026 completion.
+
+**2. FEOC (Foreign Entity of Concern) compliance under OBBBA navigated** — T1 completed transactions with Trina Solar and other parties Dec 30, 2025 to preserve Section 45X eligibility under the One Big Beautiful Bill Act (Trump admin's IRA modification) per [StockTitan SEC filing](https://www.stocktitan.net/sec-filings/TE/10-k-t1-energy-inc-files-annual-report-acbc68c35ee4.html). **Political risk demonstrated as manageable, not existential.**
+
+**3. T1 is NOT a direct hyperscaler customer** — search confirms no direct T1 ↔ hyperscaler contract exists. **T1's AI exposure is INDIRECT (component-supplier to solar developers/EPCs who then sell PPA power to hyperscalers).** Same shape as MURATA at AI-component layer, NOT same shape as BE (which has Oracle 2.8 GW direct per `companies/BE/thesis.md`).
+
+### Operational turnaround validated
+
+Q1 2026 was FIRST profitable quarter since pivot:
+- Net income from continuing operations $3.9M per [StockTitan Q1 release](https://www.stocktitan.net/news/TE/t1-energy-reports-first-quarter-2026-xlclg2z7zrtv.html)
+- Adjusted EBITDA $9.1M
+- G1 Dallas produced 683 MW modules
+- Shift to higher-margin fixed-price and cost-plus offtake contracts
+- Stock +55% in 30 days per [Simply Wall St](https://simplywall.st/stocks/us/semiconductors/nyse-te/t1-energy/news/t1-energy-te-is-up-551-after-q1-revenue-jump-and-g2austin-pu)
+
+### Hyperscaler clean-power chain (indirect demand context)
+
+Per [ESG Today](https://www.esgtoday.com/amazon-meta-google-microsoft-account-for-half-of-global-clean-energy-purchase-deals-in-2025-report/): Amazon + Meta + Google + Microsoft = 98.7% of US corporate PPAs. Meta 10.24 GW + Amazon 10.22 GW contracted in 2025. **The clean-power demand chain is real and accelerating, but T1 captures this INDIRECTLY** through solar developer customers.
+
+### D1-D5 summary
+
+- **D1 Structural relevance: MEDIUM** — solar layer durable; T1-specific displacement risk HIGH (one of several US players; competition from nuclear/SMR/BE)
+- **D2 Chokepoint severity: LOW** — solar modules are commodity; no pricing power
+- **D3 Competitive position: MID-TIER US-DOMESTIC PLAYER** — fights FSLR + Hanwha + SunPower
+- **D4 Mismodeling + rerating arc: ANCHOR-TO-MID-ARC** — operational turnaround proven; PTC works; Recognition Stage 2-3
+- **D5 Independent view:** policy risk partially de-risked (PTC + FEOC navigated); AI exposure genuinely indirect; structurally lower-quality than dominant chokepoint names
+
+### Cross-portfolio implications
+
+- **TE has NO overlap with optical-stack** — true diversifier
+- **TE is highest-policy-exposed name in portfolio** — different risk shape
+- **TE vs BE:** BE more direct AI-hyperscaler; TE indirect commodity supplier (per `research/sector/t1-energy-vs-bloom-energy-comparison.md`)
+
+### New falsifiers (from cross-vertical)
+
+- FEOC compliance reverses under future OBBBA modifications
+- 2026 tax equity arrangements NOT completed H2 2026
+- First Solar takes share at US-protected hyperscaler PPAs
+- Polysilicon collapse triggers global oversupply penetrating US-protected market
+- Hyperscalers shift clean-power mix toward nuclear/SMR/fuel cells
+
+### Net read
+
+The existing thesis HOLD-at-7.1% stance is roughly correct but the underlying risk profile is **DIFFERENT** than the existing framing:
+
+- Policy risk partially de-risked (PTC + FEOC working)
+- Operational turnaround real (first profitable quarter)
+- AI exposure genuinely indirect (component-supplier, not direct hyperscaler customer)
+- Competitive position mid-tier vs FSLR + global oversupply
+- Rerating-arc at anchor-to-mid-arc
+
+**Net stance:** HOLD at ~7.1% defensible. Trim trigger (policy reversal) has partial demonstrated insulation. But T1 is NOT a structurally premium position — it's a policy-bet that's working operationally. Per principle #18, formal sizing decision deferred to Phase 4.
