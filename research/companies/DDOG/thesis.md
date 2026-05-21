@@ -22,6 +22,80 @@ Datadog is structurally bid HARDER than software-typical valuation lenses assume
 
 Datadog provides cloud-based monitoring and observability for infrastructure, applications, and (increasingly) AI/ML workloads. Customers: enterprise IT, hyperscale cloud users, AI-native companies. SaaS subscription model with usage-based expansion.
 
+## Cross-vertical re-evaluation (added 2026-05-21, per methodology principle #17)
+
+10-vector cross-reference surfaced direct operational validation of the workload-driven thesis from Q1 2026.
+
+### Critical operational validation
+
+Per [Q1 2026 8-K via StockTitan](https://www.stocktitan.net/sec-filings/DDOG/8-k-datadog-inc-reports-material-event-bf8ad8029b97.html) + [Motley Fool transcript](https://www.fool.com/earnings/call-transcripts/2026/05/07/datadog-ddog-q1-2026-earnings-transcript/):
+
+- **LLM Observability span volume nearly TRIPLED quarter-over-quarter** — workload-amplifier pattern executing in real-time, not projection
+- **SRE agent investigations more than DOUBLED**
+- **MCP server calls QUADRUPLED sequentially**
+- Two global AI research teams signed 7- and 8-figure annualized deals for GPU monitoring on AI training workloads
+- Agent framework adoption DOUBLED YoY
+
+### Multi-provider monetization signal
+
+Per [Motley Fool Q1 2026 transcript](https://www.fool.com/earnings/call-transcripts/2026/05/07/datadog-ddog-q1-2026-earnings-transcript/):
+- **OpenAI 63% provider share** in DDOG's customer base
+- **Google Gemini rose 20 percentage points; Anthropic Claude rose 23 percentage points**
+- **DDOG monetizes the MULTI-PROVIDER shift via unified observability** (any AI provider, all DDOG)
+
+### Product expansion into agentic-AI-native
+
+Q1 2026 GA launches:
+- MCP Server (purpose-built interface giving AI agents secure real-time access to unified observability data)
+- Bits AI Security Agent
+- GPU Monitoring
+- Experiments
+
+This is positioning at the agentic-AI-infrastructure layer specifically — extending the observability moat into AI-native primitives.
+
+### Q1 2026 financials
+
+- Revenue $1.006B (+32% YoY)
+- Non-GAAP operating income $223M (22% margin)
+- Q2 2026 guide $1.07-1.08B (+29-31% YoY)
+- FY26 guide $4.3-4.34B (+25-27% YoY)
+
+### Cross-portfolio positioning
+
+- **DDOG (6.8%) + NOW (12.0%) = 18.8% software/observability layer** — both very high anti-fragility (4/5 each)
+- Adjacent but NOT redundant — DDOG = observability layer, NOW = workflow layer
+- **ESTC candidate decision:** if added, direct overlap with DDOG observability; consider as partial duplicate
+- **No overlap with hardware/component names** in held portfolio
+- **DDOG is the SHORTEST chain to AI workload volume** — per-span billing = direct linear capture of token-volume amplification
+
+### D1-D5 summary
+
+- **D1 Structural relevance: VERY HIGH** — observability mandatory for enterprise agentic deployment (64% of failures cite); cross-cloud unified-observability is the moat
+- **D2 Chokepoint severity: MEDIUM-HIGH** — revenue scales with span/trace volume; workload-tied chokepoint
+- **D3 Competitive position: STRONG SECOND, fastest-growing major** — Splunk-Cisco bundling is competitive threat
+- **D4 Mismodeling + rerating arc: MID-ARC with strong continuation signal** — LLM observability tripling QoQ is the operational confirmation
+- **D5 Independent view:** DDOG is the cleanest workload-volume-amplification monetization in the portfolio; MORE direct than MURATA (BOM-count chain longer)
+
+### New falsifiers (from cross-vertical)
+
+- AI research labs (Anthropic, etc.) shift to in-house observability — customer concentration risk
+- MCP Server / Bits AI Security Agent traction stalls
+- Major AI customer (OpenAI?) builds in-house observability
+- Splunk-Cisco bundle takes share at enterprise tier
+- Net revenue retention deceleration Q2-Q4 2026
+
+### Net read
+
+**Existing ADD-from-6.8%-to-8-10% recommendation STANDS and is REINFORCED** by Q1 2026 operational data. Key reinforcements:
+
+1. LLM observability tripling QoQ proves the workload-amplifier in real-time
+2. Multi-provider shift gives DDOG monetization breadth
+3. Product expansion into agentic-AI-native extends the moat
+4. AI research lab direct deals confirm customer trajectory
+5. Highest anti-fragility + lowest displacement risk alongside NOW
+
+Per principle #18, formal sizing decision deferred to Phase 4. The under-weighted framing remains the strongest case across held positions.
+
 Key product expansion: AI/LLM observability tooling (spans, traces, evals) launched 2024-2025; rapidly adopted.
 
 ## Why observability is structurally bid for agentic AI
