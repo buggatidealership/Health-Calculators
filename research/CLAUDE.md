@@ -149,7 +149,7 @@ Then, before responding to the user:
 
 ---
 
-## Core Workflows (7 named modes)
+## Core Workflows (8 named modes)
 
 Always announce the workflow name in your response so the user knows the mode.
 
@@ -266,6 +266,89 @@ When a major event shifts the probability of scenarios in `scenarios.md`:
 4. For each: estimated lead time, beneficiary names, signals that would confirm
 5. Update `bottlenecks.md` with new `last_review: YYYY-MM-DD`
 6. Surface to user with TL;DR + which positions warrant action
+
+### 8. DEEP-DIG — BOM-level component thesis with cross-stack cascade
+
+**Trigger:** user says "deep dig" (with or without target hint). No parameters required from user — Claude self-selects the component to drill into.
+
+**Why this workflow exists:** Revenue-mix / customer-win / growth-rate analysis is junior-analyst depth. The user explicitly delegated "stop operating at the layer most analysts operate at." DEEP-DIG forces output BELOW revenue mix — to per-board BOM counts, current-gen vs next-gen deltas, supplier capacity reallocation, and a full cross-stack cascade naming every connected ticker / material / substrate / downstream effect. See B15 in `meta/biases-watchlist.md` (revenue-mix-anchoring bias).
+
+**Self-selection algorithm (when user says "deep dig" with no target):**
+
+Read `meta/deep-dig-queue.md`. Pick the highest-ranked un-completed component using these criteria (in order):
+
+1. **Binding-constraint proximity** — is this what's about to bind in 6-18mo per `sector/bottlenecks.md`?
+2. **Thesis depth gap** — does an existing held-name thesis lack BOM-level data (only has revenue mix)?
+3. **Cross-correlation reach** — does drilling into this update ≥3 other theses?
+4. **Source availability** — is there at least ONE published bottoms-up unit-count number (teardown, supplier earnings call, trade press) that can be the seed?
+
+If user gives a target hint ("deep dig: MLCCs", "deep dig: HBM stack height"), use it directly. Otherwise pick from queue.
+
+**Mandatory steps:**
+
+1. State the chosen component + current-gen → next-gen reference points (e.g., "MLCCs / GB200 → Rubin")
+2. Find the bottoms-up BOM count for current gen (cite source)
+3. Find the bottoms-up BOM count for next gen (cite source)
+4. Compute the multiplier (current → next)
+5. Identify the causal mechanism for the delta (TDP doubling, stack height increase, density requirement, etc.)
+6. Triangulate supplier capacity response: who's reallocating from consumer/legacy markets toward AI? (Pull from earnings calls, capex disclosures, trade press)
+7. Map the cross-stack cascade (mandatory table — see Output template)
+8. Name bypass-route LOSERS alongside winners (consumer-market participants who lose pricing power; substitution names)
+9. State the investable conclusion: named ticker(s), direction, falsifier
+10. Update affected `companies/{TICKER}/thesis.md` files with a new "## BOM-level deep-dig" section
+11. If signal converges with ≥2 other independent sources → promote to `signals/triangulation.md`
+12. Update `meta/deep-dig-queue.md` (mark this one done; add any new candidates surfaced during research)
+
+**Output template:**
+
+```
+DEEP-DIG: {component} / {current-gen} → {next-gen}
+
+BOM math:
+  Current ({gen-1}): X units per [board/server/rack/wafer] [cite]
+  Next gen ({gen-2}): Y units per [board/server/rack/wafer] [cite]
+  Multiplier: Y/X = Zx
+  Cross-check vs board-volume forecast: [cite]
+
+Causal mechanism:
+  [Why the delta exists — TDP doubling, stack height, density requirement, etc. With source.]
+
+Supply response (who's reallocating):
+  - Supplier A: [capex disclosure, capacity shift] [cite]
+  - Supplier B: [same]
+  Consumer-market consequence: [pricing/tightness in non-AI markets]
+
+Cross-stack cascade:
+| Implication | Tickers affected | Direction | Order | Magnitude |
+|---|---|---|---|---|
+| BOM expansion | TICKER1 (held), TICKER2 | beneficiary | 1st | high |
+| Capacity reallocation | TICKER3 | beneficiary | 2nd | medium |
+| Consumer-mix supply loss | TICKER4 | casualty | 2nd | medium |
+| Material upstream (silver, copper, etc.) | TICKER5 | beneficiary | 3rd | low |
+| Substitution risk | TICKER6 | casualty | 3rd | low |
+
+Bypass-route losers (named, not just hinted):
+  [Who PAYS for this concentration — consumer electronics OEMs, low-end MLCC buyers, etc.]
+
+Investable conclusion:
+  Primary beneficiary: TICKER, direction, sizing implication
+  Secondary beneficiaries: ...
+  Falsifier: [specific condition that would break this thesis]
+
+Files updated:
+  - companies/{TICKER}/thesis.md (added BOM-level section)
+  - signals/triangulation.md (if ≥3 sources converge)
+  - meta/deep-dig-queue.md (marked done + added surfaced candidates)
+```
+
+**Quality bar (must clear):**
+- ≥2 independent sources for the BOM-count numbers
+- ≥1 supplier capacity-response data point (not just demand forecast)
+- ≥3 tickers named in the cross-stack cascade
+- ≥1 named LOSER (not just winners)
+- Specific falsifier (not "if AI demand slows")
+
+If any of these can't be met from open-web sources, state explicitly: "Source gap on [X] — would need [paid newsletter / earnings call transcript / trade press source]." Don't fabricate to fill gaps.
 
 ---
 
@@ -411,4 +494,5 @@ Reverse-index from sector files to this company:
 | "X just reported — actual was Y" | GRADE |
 | "I bought/sold X" | update `portfolio/changes.md` and `holdings.md` |
 | "What's the next bottleneck?" | BOTTLENECK-FORECAST |
+| "deep dig" / "deep dig: X" | DEEP-DIG (workflow 8 — BOM-level component thesis with cross-stack cascade) |
 | "What should I do?" | (read holdings.md + theses + scenarios, then recommend) |

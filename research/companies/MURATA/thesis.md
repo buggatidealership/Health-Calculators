@@ -179,14 +179,104 @@ Per user instruction 2026-05-21: "Whenever you finish research, think about what
 **Most important blind spot:** Recent stock performance + valuation multiple. The thesis says "structurally sound" but doesn't calibrate whether the current entry price is attractive. Worth a follow-up data pull.
 
 ## Position recommendation
-**HOLD at ~12.4%.** Position appropriately sized given:
+**HOLD at ~12.4% per `research/portfolio/holdings.md`.** Position appropriately sized given:
 - Anti-fragility 4/5 (among portfolio highest)
 - Execution Quality 4.4/5
-- Verified pricing power (April 2026 hike)
+- Verified pricing power (April 2026 hike per [TrendForce](https://www.trendforce.com/news/2026/03/17/news-mlcc-giant-murata-reportedly-confirms-april-1-price-hike-on-key-components/))
 - Token-Volume Filter passes cleanly
 - 5-7 year duration thesis
 
 If anything, the thesis supports SLIGHTLY larger sizing (toward 13-14%) given the structural tailwinds. But: blind spots (current valuation, smartphone segment, capital intensity) argue for staying at current weight pending more verification.
+
+---
+
+## BOM-level deep-dig — MLCCs / GB200 → Rubin (added 2026-05-21)
+
+**Workflow:** DEEP-DIG (CLAUDE.md §8). First worked example of the workflow.
+**Bias addressed:** B15 (revenue-mix-anchoring) in `meta/biases-watchlist.md`.
+**Seed source:** user-shared SemiAnalysis-style image 2026-05-21.
+
+### BOM math
+
+| Generation | MLCC count per board | Source |
+|---|---|---|
+| GB200 (current Blackwell) | ~6,500 MLCCs per board | per the user-shared image 2026-05-21 (triangulated against [WebSearch confirmation](https://www.tradingkey.com/analysis/stocks/us-stocks/261849833-mlcc-hbm-ai-vsh-tradingkey)) |
+| Rubin (next gen) | ~12,000 MLCCs per board | per the user-shared image 2026-05-21 |
+| **Multiplier** | **~1.85x per board** | derived |
+
+For reference per [Trading Key](https://www.tradingkey.com/analysis/stocks/us-stocks/261849833-mlcc-hbm-ai-vsh-tradingkey): a single GB300 SERVER (multi-board configuration) uses ~30,000 MLCCs. The image numbers above are per BOARD, which is the cleaner unit for Rubin generational comparison.
+
+### Causal mechanism for the delta
+
+Per the user-shared image 2026-05-21: "the next-generation Rubin architecture—featuring double the thermal design power (TDP) and significantly more complex power management—will push per-board usage to roughly 12,000 units." The mechanism is:
+
+1. TDP roughly doubles GB200 → Rubin
+2. Higher TDP requires more decoupling capacitors per voltage rail
+3. Higher TDP also requires finer-grained power management ICs (PMICs), each of which requires its own MLCC cluster
+4. Net effect: per-board MLCC count nearly doubles
+
+**Critical implication:** This same TDP-doubling causal mechanism cascades to PMICs too — the same physics that drives MLCCs 6,500 → 12,000 also drives PMIC count expansion (relevant for VICR thesis).
+
+### Supply response (who's reallocating capacity)
+
+| Supplier | Reallocation evidence | Source |
+|---|---|---|
+| **Murata** | High-end production utilization exceeds 80%; ongoing capacity expansion across Japan and Southeast Asia. Inquiries for most advanced MLCCs running at 2x production capacity | per [Digitimes via WebSearch snippet](https://www.digitimes.com/news/a20260225PD215/mlcc-demand-murata-price-capacity.html) |
+| **Samsung Electro-Mechanics** | Expanding AI server MLCC production at Calamba City Philippines plant starting early 2026 | per [Digitimes via WebSearch snippet](https://www.digitimes.com/news/a20251202PD205/semco-mlcc-production-ai-server-2026.html) |
+| **Murata pricing** | 15-35% price hike effective April 1 2026, applied to high-capacity AI server MLCCs | per [TrendForce](https://www.trendforce.com/news/2026/03/17/news-mlcc-giant-murata-reportedly-confirms-april-1-price-hike-on-key-components/) + Digitimes WebSearch |
+| **Samsung EM pricing** | Double-digit price hike planned for April 2026 | per [TrendForce](https://www.trendforce.com/news/2026/02/24/news-samsung-electro-mechanics-reportedly-weighs-double-digit-mlcc-price-hike-in-april-amid-ai-demand/) |
+
+**Consumer-market consequence** (per [TrendForce 2026-05-18](https://www.trendforce.com/presscenter/news/20260518-13046.html) WebSearch summary): consumer-grade MLCC supply flexibility is being constrained quarter-by-quarter as Japanese and Korean suppliers shift production capacity toward AI applications. This is the bypass-route LOSER dynamic.
+
+### Cross-stack cascade
+
+| Implication | Tickers affected | Direction | Order | Magnitude |
+|---|---|---|---|---|
+| BOM count ~1.85x per board (MLCC) | **MURATA (held 12.4%)**, Samsung Electro-Mechanics (009150.KS), TDK (6762.T), Taiyo Yuden (6976.T) | beneficiary | 1st | HIGH |
+| Pricing power expansion (April 2026 hikes) | MURATA, Samsung Electro-Mechanics | beneficiary | 1st | HIGH |
+| Capacity reallocation FROM consumer TO AI | MURATA, Samsung Electro-Mechanics, TDK | beneficiary | 2nd | MEDIUM |
+| Consumer MLCC supply tightness (bypass-route LOSER for buyers) | Apple, Samsung Mobile, Xiaomi, Lenovo (consumer OEMs paying more) | casualty | 2nd | MEDIUM |
+| Lower-end MLCC commodity vendors squeezed up-market | Yageo (2327.TW), Walsin (2492.TW), Chinese commodity MLCC makers | mixed — capture overflow but lack high-end tech | 2nd | LOW-MEDIUM |
+| Same TDP-doubling mechanism → PMIC count expansion | **VICR (held)**, MPS, Renesas, ROHM | beneficiary | 2nd (cross-cascade) | HIGH for VICR if design wins materialize |
+| Other passives (tantalum, polymer caps, inductors) scale similarly | KEMET (owned by Yageo), AVX/Kyocera, Panasonic, Vishay (VSH) | beneficiary | 2nd | MEDIUM |
+| Material upstream (silver — MLCC electrode material) | Silver miners (Pan American Silver PAAS, Hecla HL, Fresnillo FRES) — commodity exposure not portfolio-fit | beneficiary | 3rd | LOW |
+| Liquid cooling demand from Rubin TDP doubling | VRT (watchlist), Modine, Boyd | beneficiary | 3rd (different cascade, same TDP cause) | MEDIUM |
+
+### Bypass-route losers (named, not just hinted)
+
+1. **Consumer electronics OEMs** — Apple, Samsung Mobile, Xiaomi, Lenovo, every smartphone/tablet/laptop maker. They face MLCC supply tightness as premium capacity reallocates. Per WebSearch summary of [TrendForce 2026-05-18](https://www.trendforce.com/presscenter/news/20260518-13046.html), consumer-grade MLCC supply flexibility is being constrained quarter-by-quarter.
+2. **Lower-end MLCC commodity vendors** (Yageo, Walsin, Chinese makers) — they capture overflow consumer demand BUT lack the tech to climb into AI server tier. Squeezed margins, no real upside.
+3. **TV/monitor/appliance OEMs** — using lower-spec MLCCs, exposed to supply tightening as Japanese/Korean shift capacity.
+
+### Investable conclusion
+
+**Primary beneficiary: MURATA (held 12.4% per `research/portfolio/holdings.md`).** The BOM-count multiplier (~1.85x per Rubin board vs GB200) validates the position at current weight and supports the case for SLIGHTLY larger sizing if entry pricing is attractive. Per `research/portfolio/recommendations.md`: don't add for now pending current valuation pull.
+
+**Secondary beneficiaries (not in portfolio, candidates for consideration):**
+- Samsung Electro-Mechanics (009150.KS) — second of the AI server MLCC duopoly per [Trading Key](https://www.tradingkey.com/analysis/stocks/us-stocks/261849833-mlcc-hbm-ai-vsh-tradingkey)
+- TDK (6762.T) — smaller AI server share but participates
+- Vishay Intertechnology (VSH) — broader passives play, US-listed, lower AI concentration
+
+**Cross-cascade beneficiary: VICR (held).** Same Rubin TDP-doubling mechanism drives PMIC count expansion. This reinforces the WAIT-not-enter framing in `research/companies/VICR/thesis.md` — the catalyst exists but VICR-specific design wins must materialize for them to capture it.
+
+### Falsifiers (specific, testable)
+
+1. **Rubin TDP increase is smaller than ~2x** — would suggest MLCC count multiplier is smaller. Test: NVDA Rubin spec disclosure at next GTC or partner channel checks.
+2. **Substitution from MLCC to polymer/film capacitors at Rubin power-delivery densities** — unlikely at AI server power densities but possible. Test: AVX/Kyocera or Panasonic earnings call disclosures on polymer capacitor design wins at hyperscalers.
+3. **Rubin volume ramp delayed materially (>2 quarters)** — pushes the alpha into 2027+. Test: NVDA earnings call commentary, TSMC CoWoS capacity disclosure, supplier order timing.
+4. **Murata-specific share loss to Samsung Electro-Mechanics or new Korean/Chinese entrants** — duopoly tilts. Test: customer disclosure changes, design win announcements.
+
+### Source gaps (transparent disclosure)
+
+- WebFetch returned 403 on [passive-components.eu PDF](https://passive-components.eu/wp-content/uploads/2025/09/AI_3-AI-Hardware-Development-and-Its-Consequences-for-Passive-Electronic-Components.pdf), [IntuitionLabs supply chain article](https://intuitionlabs.ai/articles/nvidia-gb200-supply-chain), and [Digitimes article on Samsung EM Philippine expansion](https://www.digitimes.com/news/a20251202PD205/semco-mlcc-production-ai-server-2026.html) — used only WebSearch snippet content for these.
+- Mirae Asset Securities Research [PDF](https://securities.miraeasset.com/bbs/download/2140402.pdf?attachmentId=2140402) — surfaced in WebSearch but not fetched.
+- Original SemiAnalysis source for the GB200 6,500 / Rubin ~12,000 numbers not pulled directly — the image is the proxy. Triangulation: WebSearch returned the same numbers in independent context, consistent with the image.
+
+### Files updated by this deep-dig
+
+- `companies/MURATA/thesis.md` — this section added
+- `meta/deep-dig-queue.md` — MLCC item marked as worked example; queue items #2-#10 remain
+- Eligible for promotion to `signals/triangulation.md` (≥3 independent sources on the supply tightening + pricing power dynamic)
 
 ## Cross-references
 - `research/wiki/power-for-ai-primer.md` — electrical components context
