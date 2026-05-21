@@ -7,6 +7,13 @@ At session start, surfaces:
 - Always surfaces P0 items even if not in top 5
 - Pending grades (predictions past resolution date)
 - Stale reviews (bottlenecks.md last_review > 30 days)
+- **DUE/OVERDUE recurring items** (added 2026-05-21): items whose title
+  contains "monthly", "weekly", "audit cycle", "recurring" — treat the
+  date field as DUE date and surface prominently with status marker:
+    🚨 OVERDUE — date has passed; needs immediate attention
+    ⏰ DUE TODAY — date == today
+    📅 DUE SOON — within 7 days
+  Non-recurring items use the date as create-date for sort only.
 
 Output goes to stdout, which Claude Code injects into the new session's
 context. Always exits 0 (informational, never blocking).
@@ -81,6 +88,62 @@ def sort_key(item: dict) -> tuple:
     return (p_rank, is_artifact, tag_count_neg, item["date"])
 
 
+# Recurring-item keywords — for these, the date in the header is a DUE date,
+# not a create date. Surface aggressively when due/overdue.
+RECURRING_KEYWORDS = ["monthly", "weekly", "audit cycle", "recurring", "next cycle"]
+
+
+def is_recurring(item: dict) -> bool:
+    title = item["title"].lower()
+    return any(kw in title for kw in RECURRING_KEYWORDS)
+
+
+def due_status(item: dict) -> tuple[str, int]:
+    """Return (status_label, days_until_due) for a recurring item.
+
+    Statuses:
+      OVERDUE   — date < today (days_until_due negative)
+      DUE_TODAY — date == today
+      DUE_SOON  — within 7 days
+      FUTURE    — more than 7 days out
+      UNKNOWN   — date couldn't be parsed
+    """
+    try:
+        due = datetime.strptime(item["date"], "%Y-%m-%d").date()
+    except (ValueError, KeyError):
+        return ("UNKNOWN", 999)
+    days = (due - date.today()).days
+    if days < 0:
+        return ("OVERDUE", days)
+    if days == 0:
+        return ("DUE_TODAY", 0)
+    if days <= 7:
+        return ("DUE_SOON", days)
+    return ("FUTURE", days)
+
+
+STATUS_PREFIX = {
+    "OVERDUE": "🚨 OVERDUE",
+    "DUE_TODAY": "⏰ DUE TODAY",
+    "DUE_SOON": "📅 DUE SOON",
+}
+
+
+def format_recurring_item(item: dict, status: str, days: int) -> str:
+    """Format a recurring item with prominent status marker."""
+    prefix = STATUS_PREFIX.get(status, status)
+    tags = ", ".join(item["tags"]) if item["tags"] else "—"
+    if status == "OVERDUE":
+        suffix = f"by {-days} day(s)"
+    elif status == "DUE_TODAY":
+        suffix = "today"
+    elif status == "DUE_SOON":
+        suffix = f"in {days} day(s)"
+    else:
+        suffix = item["date"]
+    return f"  {prefix} ({suffix}) — {item['priority']} / {item['category']} [{tags}] — {item['title']}"
+
+
 def parse_pending_predictions(text: str) -> list[dict]:
     """
     Pending predictions: items in the `## Pending` section of grading-log.md
@@ -150,8 +213,30 @@ def build_briefing() -> str | None:
             p0_items = [i for i in items if i["priority"] == "P0"]
             top5 = items[:5]
 
+            # Recurring items with due-status checks
+            recurring_due = []  # (item, status, days) for OVERDUE/DUE_TODAY/DUE_SOON
+            for it in items:
+                if is_recurring(it):
+                    status, days = due_status(it)
+                    if status in ("OVERDUE", "DUE_TODAY", "DUE_SOON"):
+                        recurring_due.append((it, status, days))
+            # Sort by status urgency then days
+            status_order = {"OVERDUE": 0, "DUE_TODAY": 1, "DUE_SOON": 2}
+            recurring_due.sort(key=lambda x: (status_order.get(x[1], 99), x[2]))
+
             lines.append(f"TO-DO STATUS: {len(items)} open items")
             lines.append("")
+
+            # Surface due/overdue recurring items FIRST (most urgent)
+            if recurring_due:
+                lines.append("⚠️ RECURRING ITEMS DUE/OVERDUE (auto-detected from title keywords):")
+                for it, status, days in recurring_due:
+                    lines.append(format_recurring_item(it, status, days))
+                lines.append("")
+                lines.append("Action: complete each item OR update the due date in todo.md if intentionally deferring.")
+                lines.append("Autonomous-completion guidance: if user has authorized auto-handling of recurring items,")
+                lines.append("complete the audit + append entry to `research/meta/recurring-audit-log.md` with summary.")
+                lines.append("")
 
             if p0_items:
                 lines.append("P0 ITEMS (always surfaced):")

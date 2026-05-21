@@ -13,7 +13,18 @@
 ## Active hooks (registered in `~/.claude/settings.json`)
 
 ### `session-start-hook.py` — SessionStart
-Auto-surfaces a briefing at session start: top to-do items from `research/meta/todo.md`, pending grades, stale reviews. Output appears in session-start context.
+Auto-surfaces a briefing at session start:
+- Top 5 open to-do items from `research/meta/todo.md`
+- All P0 items
+- Pending prediction grades (past resolution date)
+- Stale bottleneck reviews (>30 days)
+- **(Added 2026-05-21):** Recurring items DUE/OVERDUE — items whose title contains "monthly", "weekly", "audit cycle", "recurring", or "next cycle" are treated as having the date field be a DUE date (not create date) and surfaced prominently with markers:
+  - 🚨 **OVERDUE** — date has passed
+  - ⏰ **DUE TODAY** — date == today
+  - 📅 **DUE SOON** — within 7 days
+  - FUTURE — more than 7 days out (not surfaced as urgent)
+
+This is the time-reminder mechanism. Pairs with `research/meta/recurring-audit-log.md` for autonomous-completion trail.
 
 **Always exits 0** (informational, never blocking).
 
