@@ -82,3 +82,22 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 - **Patel: SHORT-TERM IMPLICIT BULLISH, LONG-TERM BEARISH ON SHARE.** Capacity-constrained for years (his bottleneck-evolution model puts fabs binding 2026+ per [Latent Space Feb 2026](https://www.latent.space/p/dylanpatel-cooking)); Grace Blackwell improvement over Hopper 50x per Patel's estimate vs Jensen's public 35x figure (triangulated across multiple interviews). LONG-TERM: NVDA inference market share 90%+ → 20-30% by 2028 per [Benzinga Aug 2025](https://www.benzinga.com/markets/equities/25/08/47202594/nvidias-reign-at-risk-dylan-patel-says-googles-tpu-amazons-trainium-could-outshine-gpus-if-sold-to-public).
 - **Aschenbrenner: BEARISH** — $1.57B notional NVDA puts (largest single individual short in his book) per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Multiple compression call.
 - **Implication:** **STRONGEST direct disagreement between the two voices in our universe.** Reconciliation: both views can be right on different timelines — fundamentals continue to beat (Patel near-term) AND multiples compress (Aschenbrenner) in classic Stage 4-5 dynamic per `meta/methodology.md` Recognition Stage spectrum. Long-term, custom-Si fragmentation favors AVGO over NVDA. **Position implication:** NVDA is for fundamental-exposure trades, not multiple-expansion. User's lack of NVDA position is defensible given Stage 4 + bidirectional risk surfaced here. Pair-trade construction (long custom-Si beneficiary like AVGO + short NVDA via puts) would mirror Aschenbrenner but require active management; not currently in plan.
+
+## Cross-reference — Q1 FY27 earnings call deep-dive (added 2026-05-21)
+
+Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
+
+The Q1 FY27 print (2026-05-20) surfaced 6 structural reads beyond the headline numbers:
+
+1. **Data Center re-segmented into Hyperscale + ACIE** — split is ~50/50 (Hyperscale $38B / ACIE $37B Q1 FY27). Consensus modeled ~70/30. **Customer concentration is materially LOWER than assumed.**
+2. **Hyperscale grew +115% YoY (not maturing) AND ACIE grew +74% YoY** — both accelerating, contrary to "hyperscaler maturing while sovereign takes over" consensus narrative.
+3. **Networking +199% YoY to $14.8B vs compute +77% YoY** — networking-as-%-of-compute is rising not flat (validates `wiki/networking-primer.md` Extrapolation 8).
+4. **Jensen: "Supply-constrained throughout the entire life of Vera Rubin"** — ~3 years of pricing power locked in.
+5. **Vera CPU $200B TAM unlocked; $20B current-year revenue target** — new product line competing with AMD EPYC + Intel Xeon, not ecosystem margin.
+6. **China-excluded guide** — Q2 $91B assumes ZERO China DC; sovereign AI (+80% YoY, ~$30B FY26 run rate) backstops most of lost China TAM.
+
+**Direct contradiction with Patel** on inference share: Jensen "growing share very quickly" vs Patel "drops to 20-30% by 2028." Two-handed reconciliation in deep-dive §5: could both be partially right if disaggregated (frontier training stays NVDA-locked per Jensen; production inference at hyperscalers fragments to custom Si per Patel).
+
+**Watch items:** Q2 GM (74.9% Q1 vs my call 75.4%; HBM cost pressure possible BUYER-side hit); Vera Rubin "supply-constrained" framing persistence; sovereign AI growth sustainability.
+
+**No change to thesis tier** (Core 8-12% target stands); user's lack-of-NVDA-position stance defensible given Stage 4 + bidirectional risk surfaced by the call (Jensen vs Patel disagreement).

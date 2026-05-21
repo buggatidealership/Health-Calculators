@@ -50,3 +50,9 @@ Together they cover essentially the entire custom Si design house universe. Pair
 ## Cross-reference — Networking primer (added 2026-05-21)
 
 Per `research/wiki/networking-primer.md`: MRVL has dual exposure across 3 sub-layers — (1) switch ASIC race with Teralynx 10 at 51.2T but ~1 generation behind Broadcom's 102.4T Tomahawk 6, (2) DPU/SmartNIC competition via OCTEON (Extrapolation 5: $5-20B/yr TAM that NVIDIA BlueField currently dominates ~70%), (3) custom networking silicon for AWS Trainium clusters. Extrapolation 10 (sovereign AI favoring Ethernet ecosystem) is positive for MRVL alongside AVGO. **The 3-5% Active candidate tier reinforced; MRVL is the broadest play across the networking stack with custom-Si optionality.** The Teralynx generational lag vs AVGO Tomahawk is the watch item.
+
+## Cross-reference — NVDA Q1 FY27 call deep-dive (added 2026-05-21)
+
+Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
+
+NVDA networking +199% YoY validates the networking-layer growth trajectory. MRVL's Teralynx + DPU exposure benefits from the same in-situ data point. AWS Trainium custom-Si design partner role validated by Jensen's "frontier model on Rubin" framing leaving production-inference share fragmentation to custom Si (AWS Trainium runs production inference, not frontier training). **3-5% Active candidate tier stands.**

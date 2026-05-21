@@ -179,3 +179,9 @@ Per `research/wiki/memory-cycle-primer.md`: full cycle dynamics + BOM-level econ
 ## Cross-reference — Networking primer (added 2026-05-21)
 
 Per `research/wiki/networking-primer.md`: HBM bandwidth and network fabric bandwidth scale together — both at ~2x/2yr cadence. Per Extrapolation 8 (network spend rising as % of total AI spend), the compute-memory-network triad scales more tightly than prior modeling assumed. HBM allocation to NVDA Rubin (~70% to Hynix) is tightly coupled to network fabric capacity at the rack level (NVLink 6, Spectrum-X). **No direct change to HYNIX thesis** but confirms the memory-network co-scaling pattern that supports the HBM tightness call (per `wiki/memory-cycle-primer.md`).
+
+## Cross-reference — NVDA Q1 FY27 call deep-dive (added 2026-05-21)
+
+Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
+
+Jensen's "supply-constrained throughout the entire life of Vera Rubin" (~3 years) is the **strongest single-source confirmation** in the OS that HBM4 allocation to NVDA (~70% to SK Hynix per Counterpoint) is sustained through 2027-2028. Combined with NVDA Q1 GM 74.9% vs my pre-print call 75.4% — the 50bp miss is consistent with HBM cost pressure flowing through to NVDA's BUYER side, which is BULLISH for HYNIX as the seller. HYNIX is now triangulated at: Patel (sell-side memory call) + TrendForce (industry forecast) + Jensen (largest customer commitment) — among the most-supported positions in the portfolio by primary-source evidence.

@@ -279,3 +279,9 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 ## Cross-reference — Networking primer (added 2026-05-21)
 
 Per `research/wiki/networking-primer.md` Extrapolation 8: networking-as-%-of-total-AI-spend is RISING not flat. Prior consensus framing was ~$0.15-0.20 of network per $1 of compute; my model (hedged) suggests $0.25-0.35 in next-gen designs because scale-up bandwidth scales worse-than-linearly with cluster size. GLW's specialty fiber sits at the physical-medium layer that gets pulled through every additional km of network buildout. **This is partial counter-evidence to the trim recommendation** — if network spend is structurally rising as % of total, the GLW fiber-km TAM grows faster than the bandwidth-per-port cycle alone implies. Open deep-dig queue item #5 (fiber-km per hyperscaler campus) would quantify this. Until verified, the TRIM-to-5-7% stance stands but with a flag that GLW upside may be greater than current model captures.
+
+## Cross-reference — NVDA Q1 FY27 call deep-dive (added 2026-05-21)
+
+Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
+
+**NVDA networking +199% YoY** (Data Center networking $14.8B Q1 FY27 vs ~$5B Q1 FY26 per my inference from "+199%") is the in-situ empirical validation that networking spend is rising materially. This **strengthens the structural fiber-km argument** counter to the Aschenbrenner-puts thesis. The trim recommendation (from 10.8% to 5-7%) was driven primarily by Stage 4 multiple compression risk, not fiber-demand concern; the multiple-compression risk doesn't change but the underlying GLW TAM growth is now empirically larger than prior models. **Watch item for thesis re-rating up if Q2 FY27 networking continues +100%+ YoY.**

@@ -164,3 +164,13 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 ## Cross-reference — Networking primer (added 2026-05-21)
 
 Per `research/wiki/networking-primer.md`: AVGO is the LEAD in the 102.4T switch ASIC race — Tomahawk 6 / Davisson with 16 optical engines @ 6.4T each is **shipping now** per [Broadcom press release](https://investors.broadcom.com/news-releases/news-release-details/broadcom-ships-tomahawk-6-worlds-first-1024-tbps-switch), ahead of NVIDIA Spectrum-X CPO (H2 2026) and Marvell (~1 gen behind). Combined with Extrapolation 1 (4× compound optical engine BOM growth per switch generation) and Extrapolation 10 (sovereign AI accelerates Ethernet adoption favoring AVGO Tomahawk over NVDA InfiniBand): **AVGO is the most-reinforced networking-layer candidate.** Adds to the existing Patel custom-Si bullish view. 5-8% Active candidate tier reinforced.
+
+## Cross-reference — NVDA Q1 FY27 call deep-dive (added 2026-05-21)
+
+Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
+
+**Networking +199% YoY at NVDA** (vs compute +77% YoY) is the in-situ empirical validation of `wiki/networking-primer.md` Extrapolation 8. AVGO is direct beneficiary at the Ethernet/switch-ASIC layer.
+
+**Partial counter-evidence at custom-Si frontier:** Jensen's "every single frontier model company will jump on Vera Rubin from the get-go" implies AVGO custom-Si design partnerships may NOT capture frontier-model training share. But production inference still fragments per Patel — AVGO retains exposure there.
+
+**Net read:** Networking-layer thesis for AVGO STRONGER; custom-Si-frontier portion partially weakened but still material because (a) Anthropic-Broadcom partnership covered separately, (b) production inference is the larger TAM, (c) hyperscaler internal Si programs (Google TPU, Meta MTIA, MS Maia) still ramping. **5-8% Active candidate tier stands; consider 6-7% within range given the dual-leg reinforcement.**
