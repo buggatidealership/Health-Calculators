@@ -301,3 +301,55 @@ Per `research/wiki/memory-cycle-primer.md`:
 - **DRAM Q1 2026 +90-95% QoQ; NAND Q1 2026 +60% QoQ** per [Tom's Hardware](https://www.tomshardware.com/pc-components/dram/dram-and-nand-contract-prices-to-climb-again-in-q2) — same scale of consumer-market price increase as MLCC duopoly pricing power (Murata April 2026 hike 15-35% per existing thesis above)
 - **Confirms the framework:** memory tightness and MLCC tightness are not isolated phenomena. Both reflect the same AI-demand crowding-out math operating across multiple component layers. Murata thesis (HOLD at ~12.4%) sits within a broader supply-chain tightness pattern rather than a one-off MLCC story.
 - **Implication for position:** the structural framework is validated across components, increasing confidence in the duration-of-pricing-power assumption. Position thesis stands.
+
+## Cross-vertical re-evaluation (added 2026-05-21, per methodology principle #17)
+
+10-vector cross-reference surfaced material nuances that the prior thesis didn't capture.
+
+### Key new findings
+
+**1. Multi-segment dynamic — Murata is NOT monolithic.** Q3 FY2026 (calendar Q3 2025) revealed a **¥43.8B goodwill impairment in the surface acoustic wave (SAW) filter / high-frequency communications business** per [BigGo Q3 FY26 coverage](https://finance.biggo.com/news/JP_6981.T_2026-02-02). The Devices & Modules segment fell into operating loss. The Components segment (where MLCC sits) grew strongly. **Murata is structurally split: MLCC sub-business accelerating, SAW filter / smartphone RF sub-business structurally challenged.** Management targeting return-to-profitability of high-frequency segment by FY2027 per same source.
+
+**2. Silver pricing is the PRIMARY materials driver of the April 1 2026 price hike** per [BigGo](https://finance.biggo.com/news/Vh4P-5wBq7sy_YQMmKWR), not generalized "pricing power." Margin trajectory depends on silver pass-through working. If silver continues rising faster than Murata can pass through, margin pressure follows.
+
+**3. Cautious FY2027 guidance** — "limited single-year growth" due to "dispersion of North American smartphone sales cycles" per [Seeking Alpha Q4 FY26 earnings call presentation](https://seekingalpha.com/article/4896497-murata-manufacturing-co-ltd-2026-q4-results-earnings-call-presentation). Total revenue forecast raised by ¥60B to ¥1.8T but operating profit forecast LOWERED by ¥10B to ¥270B per same. This is consensus pricing in the smartphone-cycle drag.
+
+**4. MLCC density math validated:** smartphone contains ~1,000 MLCCs, AI server board uses 10-20× that amount (10,000-20,000) per [BigGo](https://finance.biggo.com/news/JP_6981.T_2026-02-02). Consistent with existing thesis 30,000 MLCCs per NVDA GB300 server figure.
+
+### Sum-of-the-parts argument (non-consensus pattern)
+
+**The mismodeling I'd surface:** consensus models Murata at total-company level, blending the structurally-accelerating MLCC business with the structurally-challenged SAW filter / smartphone RF business. **Sum-of-the-parts analysis would surface higher fair value:**
+
+- MLCC sub-business: structural AI winner, 30% CAGR per Investing.com, 84% duopoly with Samsung EM, capacity tight (24-week lead times), pricing power (April hike 15-35%). Deserves premium multiple comparable to other Core AI-component-supplier names.
+- SAW filter / smartphone RF sub-business: structurally challenged, impaired ¥43.8B in Q3 FY26, targeting profitability return FY2027. Deserves cyclical/depressed multiple.
+- Murata blended consensus multiple = average of the two. **Bull thesis:** if MLCC sub-business multi-quarters of strong execution force segment-level disclosure, market reprices upward via SOTP recognition.
+
+**Falsifier for SOTP argument:** Murata Q1-Q2 FY27 segment-level disclosure showing MLCC margin/growth NOT separating from total — would suggest the blend is correct and SOTP is theoretical.
+
+### Cross-portfolio diversification value
+
+User holds AXTI (4.8%) + STM (6.6%) + GLW (10.8%) + MURATA (12.4%) = 34.6% AI-component-supplier exposure. **MURATA is structurally DIFFERENT from optical-stack (AXTI+STM+GLW = 22.2%):**
+
+- Different sub-layer: passive components vs InP substrate / silicon photonics / fiber
+- Different physics: ceramic dielectrics vs compound semiconductors
+- Different geography: Japan (less geopolitical exposure than AXTI's China-dependent Tongmei)
+- Different customer base: many board makers vs few hyperscaler-direct relationships
+- Different substitution risk: physics-bound MLCCs vs technology-substitution risk on InP (long-term direct-laser-on-Si)
+
+**Net portfolio effect:** MURATA diversifies the AI-component-supplier exposure away from optical-stack correlation risk. If optical-stack thesis stalls (CPO delay, China export escalation, direct-laser-on-Si maturation), MURATA is significantly less affected. Among the held positions, MURATA has the lowest correlation with the optical-stack triple.
+
+### New falsifiers added
+
+- **SAW filter / Devices & Modules segment doesn't return to profitability by FY2027** as management targets → segment-drag becomes permanent rather than transitory
+- **Silver pricing pass-through fails** → margin compresses despite April 1 hike
+- **NVDA Rubin per-board MLCC optimization** (per `signals/cross-source-log.md` 2026-05-21 entry — T5 rumor, unverified) → would reduce per-server MLCC content, eroding the BOM-level thesis. Monitor for triangulation.
+
+### D1-D5 summary
+
+- **D1 Structural relevance:** HIGH — most durable of held positions; MLCCs are physics-based; displacement risk only 5+ years out
+- **D2 Chokepoint severity:** HIGH at AI server premium tier — 84% duopoly with Samsung EM, capacity tight, pricing power real
+- **D3 Competitive position:** STRONGEST in held portfolio at MLCC segment (top 2 globally, vertically integrated). EXCEPT SAW filter segment has structural challenges.
+- **D4 Mismodeling + rerating arc:** Anchor-to-mid-arc. Consensus models cyclical with AI bonus; SOTP framing surfaces higher fair value.
+- **D5 Independent view:** SOTP argument is the non-consensus pattern. Silver pricing pass-through is the gating margin variable. Cross-portfolio diversification value is real and material.
+
+**Net read:** position thesis stands at HOLD ~12.4%. Cross-vertical revealed (a) segment-specific weakness that needs separate tracking, not company-wide concern; (b) SOTP framing that could drive higher fair value than consensus models; (c) cross-portfolio diversification benefit that's understated.
