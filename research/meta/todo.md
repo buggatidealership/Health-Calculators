@@ -51,6 +51,11 @@
   - Scope: Find the specific SemiAnalysis newsletter / podcast episode where this claim was made. Cite formally. Triangulate with other primary-tier memory-pricing signals.
   - Linked: `research/wiki/hbm-primer.md` §11
 
+- [ ] **P2 / verification / 2026-05-22** [CAL] — Stock-reaction grade for NVDA Q1 FY27 (T+24h follow-up)
+  - Origin: Two-Part GRADE Protocol added 2026-05-21. Same-day stock action (after-hours) is not conclusive. Revisit at T+24h+.
+  - Scope: Run the 5 stock-reaction questions (per `meta/methodology.md` §Two-Part GRADE Protocol) against settled stock action 2026-05-21 cash session and pre-market 2026-05-22. Update `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` with the T+24h section.
+  - Linked: `research/predictions/2026-05-20-NVDA-Q1FY27-GRADE.md`
+
 ### P2 — Medium priority
 
 - [ ] **P2 / research / 2026-05-20** [POS, CAL] — AXTI earnings-growth vs multiple-expansion decomposition

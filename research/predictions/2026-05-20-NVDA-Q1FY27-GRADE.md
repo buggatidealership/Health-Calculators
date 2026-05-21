@@ -63,18 +63,31 @@ This is a precision issue at the segment level, not a directional issue at the t
 
 50bps below my call. Within company guide of 75% ± 50bps. Possible drivers: HBM3E cost pressure from SK Hynix pricing, Rubin sampling cost flow-through, GB300 mix at lower margin than I assumed. Worth tracking forward — if Q2 GM also comes in below 75%, the margin-pressure thesis (Dylan Patel "2-3x more pricing" claim) may need re-examination from the BUYER side.
 
-## Stock reaction analysis (separated from thesis correctness)
+## Stock-reaction grade — DEFERRED to T+24h+
 
-Per the user's explicit point: prediction correctness ≠ stock action.
+Per the Two-Part GRADE Protocol added to `meta/methodology.md` on 2026-05-21 (user flag): same-day stock-action assessment is premature. After-hours and pre-market trading is thin liquidity; the genuine market signal requires at least one full regular-hours session, ideally 2-3 sessions.
 
-**The stock fell** despite the beat. Per [CNBC](https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html): "report is strong but stock slides." Per searches, no Iran-specific catalyst surfaced. Most likely drivers:
+### Preliminary observation (NOT a final grade)
+
+Per [CNBC](https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html): "report strong but stock slides" headline based on after-hours. This is not yet a settled signal.
+
+**Candidate drivers to verify when grading at T+24h+:**
 1. Beat-and-fade pattern (priced for perfection ahead of print)
 2. Profit-taking at high P/E multiple
 3. The $91B Q2 guide vs $90B whisper was only marginally above the most-bullish expectation — not the "blowout" some traders wanted
 4. Options-positioning unwind (12.9% implied move per pre-print analysis)
 5. China DC was explicitly excluded from guide — bulls hoping for that upside disappointed
+6. Intra-day reversal possibility — after-hours selloff often reverses at the open if print was fundamentally strong
 
-**Per L2 (don't sell on macro noise) and L3 (don't sell on partial profit):** the thesis lives until a falsifier fires. Stock-down-despite-beat is NOT a falsifier. The demand-side thesis is intact and arguably STRENGTHENED by the print (Q2 guide reflects capacity-constrained reality).
+### Required at T+24h (revisit 2026-05-22 or later)
+Per the Stock-reaction grade questions in `meta/methodology.md`:
+1. Did the stock move in the direction implied by the fundamental beat?
+2. If yes — was the move larger or smaller than the 12.9% implied move?
+3. If no — what specific narrative caused the disconnect?
+4. Did intra-day reversal happen?
+5. What does the move signal about market positioning entering the print?
+
+**The fundamental thesis (per L2/L3) is intact regardless of T+24h outcome unless a written falsifier from `companies/NVDA/thesis.md` fires.** Stock action is a separate signal capture, not a thesis correctness check.
 
 ## Implications for OS state
 

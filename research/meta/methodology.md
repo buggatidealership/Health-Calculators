@@ -61,6 +61,41 @@ Joint:
 - Trivial (silent): adding a watchlist name, logging a weak signal, archiving a done item
 - Material (surface): sizing recommendation, thesis tier change, exit signal, falsifier firing
 
+## Two-Part GRADE Protocol
+
+User flag 2026-05-21: *"Log the prediction outcome, but wait at least 24 hours to see the price action instead of just relying on post-market or pre-market trading."*
+
+GRADE workflow splits into two parts with different timing:
+
+### Part 1 — Fundamental grade (immediate when print drops)
+- Resolution: as soon as official numbers are released (earnings press release, 8-K filing)
+- Components: revenue / EPS / margins / segment breakdown / guide vs prediction
+- Probability calibration on each component
+- Lessons added to `predictions/lessons.md` if generalizable pattern emerged
+- Outcome captured in `predictions/{date}-{ticker}-{event}-GRADE.md`
+
+### Part 2 — Stock-reaction grade (T+24h minimum, ideally T+48h or weekly close)
+- Resolution: NOT same-day. Wait at least one full regular-hours session post-print, ideally 2-3 sessions to let positioning + macro overlay settle
+- Components: actual stock action vs implied move; whether the move corroborated or contradicted the fundamental grade
+- Critically: SEPARATE noise (macro events, sector rotation, options unwind, profit-taking) from genuine fundamental-driven repricing
+- Avoid using after-hours and pre-market as conclusive signals — thin liquidity, often reversed at the open
+
+### Why the two-part split matters
+- Fundamental grade tests the **analytical model**. Did my supply/demand/margin work map to reality?
+- Stock-reaction grade tests **what the market thought**, which is a different question. A right prediction can be followed by a stock move in either direction depending on positioning, macro, and what was priced in.
+- Conflating the two leads to wrong lessons. Per L2: a "stock fell despite beat" is NOT a thesis falsifier. But it IS information about market positioning that should be separately captured.
+
+### Stock-reaction grade questions to answer at T+24h
+1. Did the stock move in the direction the fundamental grade implied?
+2. If yes — was the move larger or smaller than implied volatility had priced?
+3. If no — what specific narrative caused the disconnect? (options unwind, profit-taking, macro overlay, hidden concern in the call)
+4. Did intra-day reversal happen? (After-hours selloff often reverses at the open if the print was good and the after-hours was thin)
+5. What does the move signal about market positioning entering the print? (heavily long → profit-taking; heavily short → squeeze)
+
+### Update to existing predictions
+
+Any prediction grade made BEFORE this protocol was formalized may have prematurely concluded on stock-reaction. Re-examine at T+24h+ and update the GRADE file with a "Stock-reaction grade (T+24h+)" section.
+
 ## The Token-Volume Filter (portfolio selection rule)
 
 User said 2026-05-20: *"The companies we should hold should all be tied towards token consumption going up regardless of the cost of the token itself."*
