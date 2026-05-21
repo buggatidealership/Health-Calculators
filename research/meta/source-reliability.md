@@ -223,18 +223,18 @@ T1 sources (SEC filings, earnings calls, official press releases) are not tracke
 - **Useful for:** Price action stories, basic news
 - **Signal use:** 🔴 **RED FLAG for analysis**; 🟡 **YELLOW FLAG for price quotes** (exchange data is T1 underlying)
 
-### BeyondSPX / EveryTicker (audited 2026-05-21)
-- **Tier:** T4
+### BeyondSPX / EveryTicker (audited 2026-05-21, re-evaluated post-VICR verify 2026-05-21)
+- **Tier:** T4 → **T4-T5 (downgraded after VICR specs disproven)**
 - **Type:** Stock analysis aggregator (renamed to EveryTicker)
 - **Useful for:** Surfacing thesis points to verify; provides a rating system
 - **Track record sample:**
   - "A+" rated stocks have **0.7% dividend cut rate vs 19.3% for 'C' or below rated** per [Find My Moat review](https://www.findmymoat.com/tools/beyondspx) — internal scoring has some empirical validity
+  - **VICR "5 A/mm² density + 24× current gain" claim: DISPROVEN at primary source 2026-05-21.** Vicor CEO Vinciarelli on Q1 2026 earnings call disclosed 3 A/mm² + 40× current multiplication — NOT 5 A/mm² + 24× current gain as BeyondSPX claimed. See `companies/VICR/facts.md` for primary-source verification.
   - Broader prediction track record NOT independently documented
-  - In our OS: provided VICR "5 A/mm² density + 24× current gain" claim — flagged as T4 needing primary-source re-verification (per `meta/todo.md` P2 item)
-- **Bias direction:** Newer platform; scoring system has internal logic but external verification limited.
-- **Signal use:** 🟡 **YELLOW FLAG.** Rating system has some validity; specific technical claims must re-verify at primary source.
-- **Best use case:** Idea surfacing; broad stock screening
-- **Worst use case:** Specific technical specification claims (re-verify always)
+- **Bias direction:** Confirmed-inaccurate on at least one specific technical claim. Pattern suggests they may conflate or mis-report specific numerical values from earnings transcripts.
+- **Signal use:** 🔴 **RED FLAG for specific numerical/technical claims** — must re-verify at primary source every time. 🟡 YELLOW for directional thesis ideas.
+- **Best use case:** Idea surfacing only; never cite for specific numbers
+- **Worst use case:** Specific technical specification claims (proven wrong on VICR 2nd gen VPD)
 
 ### WCCFTech (audited 2026-05-21)
 - **Tier:** T4-T5

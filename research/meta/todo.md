@@ -27,11 +27,6 @@
   - Scope: Audit the 6 remaining sources from `meta/source-reliability.md` queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge). Apply 5-dimensional framework: tier + track record + bias direction + signal-use classification (🟢/🟡/🔴/🟣) + best/worst use case.
   - Linked: `research/meta/source-reliability.md`
 
-- [ ] **P2 / verification / 2026-05-20** [INDP] — Re-verify VICR 2nd gen VPD technical specs at primary source
-  - Origin: VICR thesis cited BeyondSPX (T4) for 5 A/mm² density + 24× current gain — should be verified at Vicor product page or technical paper.
-  - Scope: Find Vicor's own technical disclosure. Confirm the specs. Update `companies/VICR/facts.md` with primary source.
-  - **Elevated relevance (2026-05-21):** MLCC deep-dig surfaced that the same Rubin TDP-doubling mechanism driving MLCC count expansion (per `companies/MURATA/thesis.md` BOM-level section) also cascades to PMIC count expansion. VICR's WAIT-not-enter framing depends on next-gen design wins — primary-source spec verification becomes more material as Rubin spec sheet matures.
-  - Linked: `companies/VICR/facts.md`, `companies/VICR/thesis.md`, `companies/MURATA/thesis.md` §BOM-level deep-dig
 
 ### P3 — Foundational wiki entries (planned, not yet built)
 
@@ -151,6 +146,17 @@
   - Artifact: `research/meta/source-reliability.md` rewritten with 5-dimensional framework (tier + track record + bias direction + signal-use 🟢/🟡/🔴/🟣 + best/worst use case)
   - Sources audited: SemiAnalysis 🟢, Aschenbrenner 🟢, WSJ/Bloomberg 🟢, Sherwood News 🟢 (with COI flag), TrendForce 🟢 (memory-specific), Digitimes 🟡 (predictive vs factual), Tom's Hardware 🟢/🟡, Benzinga 🟢, TradingKey 🟡, 24/7 Wall St 🟡/🔴, Motley Fool 🟢 (transcripts only), BeyondSPX 🟡, WCCFTech 🔴
   - Monthly cadence item created for remaining 6 sources
+
+- [x] **2026-05-21** [INFRA, INDP] — Date-aware SessionStart hook + recurring-audit-log + GitHub Action reminder
+  - Origin: User request 2026-05-21 — "ensure the source-reliability monthly audit happens; remind me; update me if done while I'm away"
+  - Artifacts: `~/.claude/session-start-hook.py` (date-aware elevation with 🚨/⏰/📅 markers) + `research/meta/recurring-audit-log.md` (autonomous-completion trail) + `.github/workflows/recurring-audit-reminder.yml` + `.github/scripts/check-recurring-todos.py` (weekly cron, creates GitHub issue when items DUE/OVERDUE) + `research/meta/hooks/` mirror
+  - Tested with mocked dates: all three states (DUE_TODAY, OVERDUE, DUE_SOON) elevate correctly
+
+- [x] **2026-05-21** [INDP] — Re-verify VICR 2nd gen VPD specs at primary source
+  - Origin: BeyondSPX (T4) had previously been the only source for "5 A/mm² + 24× current gain" claim
+  - Finding: BeyondSPX numbers DISPROVEN. Vicor CEO Vinciarelli on Q1 2026 earnings call (2026-04-21) disclosed 3 A/mm² + 40× current multiplication (NOT 5 A/mm² + 24× current gain). Triangulated across Investing.com transcript, Insider Monkey transcript, Photoncap synthesis of call.
+  - Artifacts updated: `companies/VICR/facts.md` (primary-source section added), `companies/VICR/thesis.md` (bull case section corrected with verified numbers), `meta/source-reliability.md` (BeyondSPX downgraded to 🔴 RED FLAG for specific technical claims after confirmed inaccuracy)
+  - Lead customer identified as Cerebras (wafer-scale-engine framing from call); narrows hyperscaler/NVDA design-win argument
 
 ## How to use this file
 

@@ -48,15 +48,27 @@
 - **2nd gen Vertical Power Delivery (VPD)** — launched Q1 2026 (lead customer not publicly named per [BeyondSPX](https://beyondspx.com/quote/VICR/analysis/vicor-s-power-revolution-ip-dominance-and-next-gen-vpd-propel-record-outlook-nasdaq-vicr))
 - 1200A ChiP-set "Hydra II" for AI accelerator cards (per Vicor product page)
 
-## 2nd gen VPD technical specs
+## 2nd gen VPD technical specs (verified at primary source 2026-05-21)
 
-Per [BeyondSPX analysis](https://beyondspx.com/quote/VICR/analysis/vicor-s-power-revolution-ip-dominance-and-next-gen-vpd-propel-record-outlook-nasdaq-vicr):
-- Peak current density: up to 5 A/mm²
-- Current gain: up to 24× higher than traditional VRs / IVRs
-- Package thickness: 1.5mm
-- Current multiplication: up to 40×
-- Conventional VRs typically max ~1.5 A/mm²
-- GPU/TPU roadmap requirement: >3 A/mm² (conventional cannot meet)
+**Primary source:** Vicor Q1 2026 earnings call held 2026-04-21 — CEO Patrizio Vinciarelli's direct disclosure. SEC 8-K filed [via SEC EDGAR](https://www.sec.gov/Archives/edgar/data/0000751978/000119312526165105/d139425dex991.htm). Earnings call commentary triangulated across [Investing.com transcript](https://www.investing.com/news/transcripts/earnings-call-transcript-vicors-q1-2026-earnings-beat-drives-stock-surge-93CH-4635846), [Insider Monkey transcript](https://www.insidermonkey.com/blog/vicor-corporation-nasdaqvicr-q1-2026-earnings-call-transcript-1743830/), and [Photoncap synthesis of the call](https://photoncap.net/p/the-last-15mm-of-ai-power-three-numbers).
+
+**Verified specs** (Vinciarelli direct quote on Q1 2026 call):
+- **Current density: 3 A/mm²** (NOT 5 A/mm² as previously cited from BeyondSPX)
+- **Current multiplication: up to 40×** (NOT 24× as previously cited from BeyondSPX)
+- **Package thickness: 1.5mm** ✓ (consistent across sources)
+- Lead customer (unnamed by Vicor): "wafer-scale-engine-based AI accelerator" — almost certainly Cerebras (only public wafer-scale-engine maker)
+- Lead customer Gen4→Gen5 transition: enabled H2 2026; ramp begins before year-end
+
+**Vinciarelli direct quote (per Photoncap synthesis of Q1 2026 call):**
+> "The thinness is combined with a solution that provides 40x current multiplication and does all that with 3 amps per square millimeter current density. To assess the figure of merit of the technology, you need to look at these three elements in combination."
+>
+> "40x multiplication completely changes the arithmetic. 2000A to the processor needs only a 50A feed. This is in contrast to traditional integrated voltage regulators (IVRs), which can be even thinner than 1.5 millimeters, but they do not provide any meaningful current multiplication. They only step up the current by 2x, which is practically useless in terms of efficient power delivery to the point of load."
+
+**BeyondSPX correction (T4 source was inaccurate on these specific specs):**
+The previously-cited BeyondSPX numbers (5 A/mm² + 24× current gain) do not match Vinciarelli's own disclosure. The correct figures are 3 A/mm² + 40× current multiplication. Possible explanations:
+- BeyondSPX may have confused "current gain vs traditional VRs" with "current multiplication factor"
+- BeyondSPX may have used a different operating point (peak vs nominal) for current density
+Either way: the primary-source disclosure is now the authoritative reference. BeyondSPX flagged in `meta/source-reliability.md` for inaccuracy on this specific claim.
 
 ## Historical customer base
 

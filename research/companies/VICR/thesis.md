@@ -1,6 +1,6 @@
 # VICR — Thesis
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-05-21 (primary-source spec verification completed)
 **Tier:** Active — NOT Core (see "Honest reframing" below)
 **Position target:** 2–4% of portfolio IF position taken; recommend wait for design-win confirmation before entering
 **Anti-fragility:** 2/5 — binary on next-gen design wins, not a "guaranteed downstream" name
@@ -45,23 +45,25 @@ Direct competitors and where they win:
 
 Per [SemiAnalysis](https://newsletter.semianalysis.com/p/energizing-ai-power-delivery-competition): "While MPS and Renesas offer lower-cost, silicon-integrated solutions, Vicor wins on power density and efficiency."
 
-The competitive frame: **density vs cost trade-off**. In current-generation deployments, cost has been winning (MPS gaining share). In NEXT-GENERATION deployments where density requirements exceed what conventional VRs can deliver (>3 A/mm²), VICR's differentiation matters more.
+The competitive frame: **density + current-multiplication vs cost trade-off**. In current-generation deployments, cost has been winning (MPS gaining share). In NEXT-GENERATION deployments where current-multiplication and density requirements exceed what conventional IVRs can deliver, VICR's differentiation matters more.
 
-## The 2nd gen VPD opportunity (the bull case)
+## The 2nd gen VPD opportunity (the bull case) — primary-source verified 2026-05-21
 
-Per [BeyondSPX analysis](https://beyondspx.com/quote/VICR/analysis/vicor-s-power-revolution-ip-dominance-and-next-gen-vpd-propel-record-outlook-nasdaq-vicr):
+Per Vicor Q1 2026 earnings call (CEO Patrizio Vinciarelli direct disclosure 2026-04-21; full citations in `companies/VICR/facts.md`):
 
-- 2nd gen VPD launched Q1 2026 for a "lead customer" (not publicly named)
-- Delivers up to **5 A/mm² peak current density**
-- Up to **24× higher current gain** vs traditional VRs and IVRs (typically 1.5 A/mm²)
-- GPU and TPU roadmaps demand current densities above 3 A/mm² — a threshold conventional VRs cannot meet
+- 2nd gen VPD launched Q1 2026 for a "lead customer" — Vicor didn't name but described as **"wafer-scale-engine-based AI accelerator"** = almost certainly **Cerebras** (only public wafer-scale-engine maker)
+- **Current density: 3 A/mm²** (the actual primary-source number; BeyondSPX previously cited 5 A/mm² which was inaccurate)
+- **Current multiplication: up to 40×** (the actual primary-source number; BeyondSPX previously cited 24× current gain which was inaccurate)
+- **Package thickness: 1.5mm** ✓
+- Comparison Vinciarelli drew: traditional IVRs can be thinner than 1.5mm but only step up current 2× — "practically useless" per his framing. So 40× vs 2× = **20× advantage in current multiplication**.
+- Lead customer Gen4→Gen5 transition: enabled H2 2026; ramp begins before year-end
 
-If next-gen designs (NVDA Rubin, AMD MI400, hyperscaler custom Si beyond current iterations) require >3 A/mm² and MPS cannot meet that with current technology, VICR's 5 A/mm² density is structurally required. That's the bull case.
+**Note on the previous bull case:** the prior thesis cited "GPU and TPU roadmaps demand >3 A/mm²" as the bull-case threshold — but with the corrected number, Vicor's 2nd gen VPD is AT 3 A/mm² (not >5 A/mm² as previously framed). So Vicor exactly meets what was framed as the bar; doesn't structurally exceed it. **This narrows the differentiation argument.** The remaining differentiator is the 40× current multiplication (vs traditional 2×), which is genuinely structural.
 
-But this requires:
-1. Next-gen designs actually need >3 A/mm² (highly likely per chip roadmaps but unconfirmed in detail)
-2. MPS / competitors cannot rapidly match (uncertain — MPS has caught up on density-per-footprint before)
-3. The "lead customer" for 2nd gen VPD is a major one (unconfirmed)
+**For this to translate to NVDA Rubin / AMD MI400 wins, requires:**
+1. Next-gen designs actually need 40× current multiplication (the strongest structural argument — confirmed by Vinciarelli's framing)
+2. Traditional IVRs / MPS don't have a comparable current-multiplication architecture (consistent with public information — MPS competes on cost-integrated silicon, not on multi-stage current multiplication)
+3. The "lead customer" relationship with Cerebras translates into design wins at hyperscalers / NVDA (NOT YET confirmed publicly — Cerebras is private and serves a different segment than hyperscaler training/inference)
 
 ## Duration × Magnitude × Pricing-Power × Recognition Stage
 
