@@ -93,11 +93,6 @@
   - Scope: Full thesis. Three legs: (a) TPU as S2 winner (already AVGO partner), (b) Anthropic exclusivity/preference economics, (c) Gemini standalone trajectory. Anti-fragility 3/5 per scenarios.md.
   - Linked: `research/companies/GOOG/thesis.md` (new)
 
-- [ ] **P1 / wiki / 2026-05-20** [INFRA, BOT, AF] — Agentic workload scaling model — quantitative wiki entry
-  - Origin: User input 2026-05-20 — workload grows super-linearly with MAU because tool_calls_per_session and sessions_per_user also compound.
-  - Scope: New `wiki/agentic-workload-scaling.md`. Define agentic MAU precisely. Estimate current numbers across major providers (Cursor, ChatGPT Operator, Claude with computer use, enterprise deployments). Model tool_calls_per_session × sessions_per_user × MAU. Project 12–24mo trajectory. Map to specific compute demand (HBM, inference compute, networking, observability). All numbers cited or hedged.
-  - Linked: `research/wiki/agentic-workload-scaling.md` (new), update `research/wiki/token-consumption.md`
-
 - [ ] **P1 / research / 2026-05-20** [POS, INFRA] — Update existing theses with new 5th component (Execution Quality)
   - Origin: Methodology updated 2026-05-20 to add Execution Quality as 5th component of D×M×P×R model.
   - Scope: Add Execution Quality scoring + rationale to `companies/VICR/thesis.md` and `companies/NVDA/thesis.md` and any future thesis files going forward.
