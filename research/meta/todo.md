@@ -1,6 +1,6 @@
 # To-Do — AI Sector Research OS
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-05-21
 **Optimizes for:** rate at which signals become defensible, falsifiable, investable conviction earlier than consensus (per `meta/methodology.md` §Meta-First-Principle).
 
 **SessionStart hook sort order:** P0 → P1 → P2 → P3, within priority: artifact-producing > process, within ties: tag count desc, then date asc.
@@ -13,149 +13,23 @@
 
 ## Open
 
-### P1 — High priority
-
-- [ ] **P1 / research / 2026-05-21** [POS] — SK Hynix thesis (held position ~12.5%) — biggest position, no thesis file
-  - Origin: User direction 2026-05-21 — build holistic view of every portfolio position before any rotation. SK Hynix already has supporting wiki (`research/wiki/hbm-primer.md`) but no company-folder thesis.
-  - Scope: Full thesis with D × M × P × R × Execution model. Recognition stage assessment (likely Stage 3-4). Verify the "SK Hynix technical moat" claim from prior Claude session (per existing P1 verification item).
-  - Linked: `research/companies/HYNIX/thesis.md` (new); merges with existing SK Hynix moat verification P1
-
-- [ ] **P1 / research / 2026-05-21** [POS] — Murata Manufacturing thesis (held position ~12.4%)
-  - Origin: User direction 2026-05-21 — holistic view. Murata is largest non-US position; MLCC + electronic components.
-  - Scope: Full thesis. Token-Volume Filter assessment. AI-specific MLCC demand math. Compare to other passive component names.
-  - Linked: `research/companies/MURATA/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-21** [POS] — ServiceNow (NOW) thesis (held position ~12.0%)
-  - Origin: User direction 2026-05-21 — holistic view. Agentic workflow software.
-  - Scope: Full thesis. Reference `research/wiki/agentic-ai-enterprise.md` for the workflow-integration thesis. Recognition stage.
-  - Linked: `research/companies/NOW/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-21** [POS] — Sandisk (SNDK) thesis (held position ~10.8%, validated by Aschenbrenner)
-  - Origin: User direction 2026-05-21 — holistic view. Aschenbrenner holds $724.4M Sandisk; validates user's existing position.
-  - Scope: Full thesis. NAND for inference storage thesis. Compare to Aschenbrenner's bull case + the broader memory cycle dynamics.
-  - Linked: `research/companies/SNDK/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-21** [POS] — Datadog (DDOG) thesis (held position ~6.8%)
-  - Origin: User direction 2026-05-21 — holistic view. Workload-scaling wiki implies DDOG is structurally bid more than software-typical valuation lenses assume.
-  - Scope: Full thesis. Observability TAM math from `research/wiki/agentic-workload-scaling.md`. Recognition stage (likely Stage 3). Position-sizing recommendation.
-  - Linked: `research/companies/DDOG/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-21** [POS] — Hyperliquid Strategies thesis (held position ~5.7%) — off-AI-thesis special case
-  - Origin: User direction 2026-05-21 — holistic view. User-explained thesis: tokenization legislation + Cerebras pre-IPO price discovery use case.
-  - Scope: Treat as separate framework (not AI value chain). Crypto-adjacent + AI x finance convergence. Verify the tokenization legislation status and the on-chain price-discovery use case.
-  - Linked: `research/companies/HSI/thesis.md` (new — or whatever the proper Hyperliquid Strategies ticker is)
-
-- [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — Nebius (NBIS) thesis — public inference cloud, direct beneficiary of capacity-constrained narrative
-  - Origin: User-surfaced via Dylan @demian_ai tweet 2026-05-20 (verified). NBIS Q1 2026 revenue $399.0M (+684% YoY) per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm). Contracted power 3.5GW, raised target to 4GW by year-end. Missouri gigawatt + 1.2GW Pennsylvania expansion.
-  - Scope: Full thesis with D × M × P × R × E model. Caveat: author of surfacing tweet works at NBIS. But Q1 print is independent confirmation. Compare to CoreWeave (private competitor) economics. Recognition stage assessment (recent listing, +684% probably moved stock but story still under-covered in mainstream).
-  - Linked: `research/companies/NBIS/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — AVGO (Broadcom) thesis — newly elevated by Anthropic-Broadcom custom Si partnership
-  - Origin: Anthropic WSJ reveal 2026-05-20 (per [Sherwood](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)) confirms second top-3 frontier provider on Broadcom custom Si (Google TPU = first). S2 scenario structurally validated.
-  - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Custom Si TAM model. Compare to NVDA exposure. Why this is the structural S2-hedge.
-  - Caveat per user 2026-05-20: AVGO is already ~$1.2T megacap. Asymmetric setup may live downstream not at AVGO directly. See P1 Vicor / Camtek items below.
-  - Linked: `research/companies/AVGO/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-20** [POS, BOT] — Camtek (CAMT) thesis — advanced packaging inspection direct beneficiary
-  - Origin: Q1 2026 OSAT orders >$90M for "CoWoS-like packaging for AI" per [StockTitan](https://www.stocktitan.net/sec-filings/CAMT/6-k-camtek-ltd-current-report-foreign-issuer-e53ec04f8240.html). H2 2026 expected >25% growth vs H1 per [TipRanks](https://www.tipranks.com/news/company-announcements/camtek-posts-q1-2026-results-and-projects-strong-second-half-revenue-surge).
-  - Scope: Full thesis. Recognition stage assessment (still Stage 2–3 — partially moved on $31M order). Model demand pull-through from custom Si packaging volume growth.
-  - Linked: `research/companies/CAMT/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-20** [POS, AF] — AMZN (Amazon) thesis — Anthropic primary cloud partner + Trainium consumption ramping
-  - Origin: Anthropic WSJ reveal 2026-05-20. $30B run-rate compute footprint primarily on AWS. Trainium 3 ramp directly tied. Plus Amazon equity stake in Anthropic (per Fortune 2026-04-30).
-  - Scope: Full thesis. Three legs: (a) AWS share gains from Anthropic exclusivity, (b) Trainium economics + custom Si margin, (c) Anthropic stake P&L contribution. Anti-fragility highest in universe per scenarios.md (was already 3.5/5).
-  - Linked: `research/companies/AMZN/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Core Scientific (CORZ) thesis — Aschenbrenner $389.1M position; cleanest crypto-miner-to-AI-host pivot
-  - Origin: Aschenbrenner 13F. CORZ is the public archetype (CoreWeave + Microsoft) for the crypto-miner-pivot thesis.
-  - Scope: Full thesis. Execution quality assessment critical. Compare to RIOT/CLSK/Bitfarms (pure-play vs pivot quality). Anti-fragility.
-  - Linked: `research/companies/CORZ/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — IREN Limited thesis — Aschenbrenner $401M position; pure power-asset play
-  - Origin: Aschenbrenner 13F. Crypto miner with GW-scale power infrastructure pivoting to AI hosting.
-  - Scope: Full thesis. Where are their power assets? Grid interconnect status? Hosting contracts?
-  - Linked: `research/companies/IREN/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Applied Digital (APLD) thesis — Aschenbrenner $320M position; HPC datacenter operator
-  - Origin: Aschenbrenner 13F. HPC datacenter operator with multi-year hosting contracts.
-  - Scope: Full thesis. Contract structure, customer concentration, capacity ramp.
-  - Linked: `research/companies/APLD/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — CoreWeave (CRWV) thesis — Aschenbrenner $556.1M position; public neocloud
-  - Origin: Aschenbrenner 13F. The public archetype for the neocloud thesis; pair-trade candidate vs NBIS.
-  - Scope: Full thesis. Compare to NBIS contract structure, customer mix, neocloud-vs-hyperscaler dynamics per `research/sector/where-we-are.md` non-default read #5.
-  - Linked: `research/companies/CRWV/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Bloom Energy (BE) thesis reconstruction — Aschenbrenner $878.7M largest long; user sold too early
-  - Origin: Aschenbrenner's biggest long bull bet. User sold at +30% earlier (L3 lesson). Time-to-power canonical bypass-route name.
-  - Scope: Full thesis. Re-examine entry timing post-Aschenbrenner-validation. Pull-back-and-re-enter framework.
-  - Linked: `research/companies/BE/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-21** [POS] — T1 Energy (TE) thesis reconstruction — Aschenbrenner $43.9M (validates user position)
-  - Origin: Aschenbrenner 13F confirms user's earlier claim that Leopold owns T1. Small position for Leopold but real.
-  - Scope: Reconstruct from scratch (user has 7.1% untested). Solar mfg economics, IRA exposure, T1's transition from FREYR.
-  - Linked: `research/companies/T1/thesis.md` (new)
-
-- [ ] **P1 / verification / 2026-05-20** [INDP, POS] — Verify SK Hynix technical moat claim independently
-  - Origin: User input 2026-05-20. Prior Claude session asserted SK Hynix has materially larger technical moat than Samsung/Micron. User trusts the claim but admits it was trusted blindly.
-  - Scope: Validate from primary sources (technical conference papers, supplier briefings, patent disclosures, qualification status data). Real technical depth required.
-  - Linked: `research/companies/HYNIX/thesis.md` (new), `research/wiki/hbm-primer.md` (§9.6 update)
+### P1 — High priority (genuinely open)
 
 - [ ] **P1 / verification / 2026-05-20** [INDP, BOT] — Source-cite Dylan Patel's "2-3x more memory pricing" claim
   - Origin: User reported hearing Dylan Patel make this claim in a podcast.
   - Scope: Find the specific SemiAnalysis newsletter / podcast episode where this claim was made. Cite formally. Triangulate with other primary-tier memory-pricing signals.
   - Linked: `research/wiki/hbm-primer.md` §11
 
+### P2 — Medium priority
+
 - [ ] **P2 / verification / 2026-05-22** [CAL] — Stock-reaction grade for NVDA Q1 FY27 (T+24h follow-up)
   - Origin: Two-Part GRADE Protocol added 2026-05-21. Same-day stock action (after-hours) is not conclusive. Revisit at T+24h+.
   - Scope: Run the 5 stock-reaction questions (per `meta/methodology.md` §Two-Part GRADE Protocol) against settled stock action 2026-05-21 cash session and pre-market 2026-05-22. Update `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` with the T+24h section.
   - Linked: `research/predictions/2026-05-20-NVDA-Q1FY27-GRADE.md`
 
-### P2 — Medium priority
-
-- [ ] **P2 / research / 2026-05-20** [POS, CAL] — AXTI earnings-growth vs multiple-expansion decomposition
-  - Origin: Verified user portfolio position; Stage 4 recognition confirmed; today -8.87% pullback per user screenshot.
-  - Scope: Decompose the verified +6,897.96% past-year return into earnings growth vs multiple expansion. If mostly earnings → thesis is delivering, multiple defensible. If mostly multiple → Stage 5 risk material. Determines hold/trim/exit recommendation.
-  - Linked: `research/companies/AXTI/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-20** [POS, AF, BOT] — Bloom Energy thesis reconstruction (user re-evaluation candidate)
-  - Origin: User sold BE at ~+30%, regrets exit, considering re-entry. BE is canonical bypass-route name in `meta/time-to-x-framework.md` (time-to-power).
-  - Scope: Build full thesis with Time-to-X applied to power layer + Duration × Magnitude × Pricing-Power × Recognition Stage model. Specific recommendation: re-enter at current price, wait for pullback, or stay out.
-  - Linked: `research/companies/BE/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-20** [POS] — STM thesis reconstruction OR sell decision
-  - Origin: User portfolio coherence audit flagged as untested (~6.6% per `research/portfolio/holdings.md`). Came from third-party research user no longer remembers the rationale for.
-  - Scope: Research from scratch — STM is broad-line semi (autos, MCU, power, industrial). What is the AI-sector thesis if any? If none defendable, recommend sell.
-  - Linked: `research/companies/STM/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-20** [POS] — Tower Semiconductor thesis reconstruction OR sell decision
-  - Origin: Same as STM. Untested ~5.4% position.
-  - Scope: TSEM is specialty analog/RF/power foundry — assess AI exposure. If none defendable, recommend sell.
-  - Linked: `research/companies/TSEM/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-20** [POS, AF, BOT] — Astera Labs (ALAB) full thesis — bypass-route gap in portfolio
-  - Origin: HBM primer identified ALAB as the most credible near-term CXL bypass play; user has zero exposure.
-  - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Sizing recommendation.
-  - Linked: `research/companies/ALAB/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-20** [AF, BOT] — SUMCO + Shin-Etsu thesis — silicon wafer substrate layer
-  - Origin: User-surfaced via "agnostic to who wins at the top." HBM primer confirms substrate-layer importance.
-  - Scope: Build joint or separate theses. Use the wafer-demand vs HBM-demand tension to frame the bull case.
-  - Linked: `research/companies/SUMCO/thesis.md`, `research/companies/SHINETSU/thesis.md` (new)
-
-- [ ] **P2 / research / 2026-05-20** [POS, AF] — GOOG (Alphabet) thesis — expanded Anthropic partnership + TPU scaling + Anthropic stake
-  - Origin: Anthropic WSJ reveal 2026-05-20 (per Sherwood). Expanded Google partnership confirmed alongside Broadcom.
-  - Scope: Full thesis. Three legs: (a) TPU as S2 winner (already AVGO partner), (b) Anthropic exclusivity/preference economics, (c) Gemini standalone trajectory. Anti-fragility 3/5 per scenarios.md.
-  - Linked: `research/companies/GOOG/thesis.md` (new)
-
-- [ ] **P1 / research / 2026-05-20** [POS, INFRA] — Update existing theses with new 5th component (Execution Quality)
-  - Origin: Methodology updated 2026-05-20 to add Execution Quality as 5th component of D×M×P×R model.
-  - Scope: Add Execution Quality scoring + rationale to `companies/VICR/thesis.md` and `companies/NVDA/thesis.md` and any future thesis files going forward.
-  - Linked: All current and future `companies/{TICKER}/thesis.md`
-
-- [ ] **P2 / verification / 2026-05-20** [INDP, CAL] — Source-reliability track-record audit (per user input 2026-05-20)
-  - Origin: User input — "look at their previous track record, how often they write about things that materialized." We've been citing T4 aggregators (Motley Fool, StockTitan, BeyondSPX, IBTimes, Sherwood) without empirical reliability scores.
-  - Scope: For each of the 8 sources in the audit queue in `meta/source-reliability.md`, pick 3–5 past specific claims, check what happened, score materialization, annotate the source ledger with track record. Repeat monthly for sources we rely on heavily.
+- [ ] **P2 / verification / 2026-05-20** [INDP, CAL] — Source-reliability track-record audit
+  - Origin: User input 2026-05-20.
+  - Scope: For each of the 8+ sources in the audit queue in `meta/source-reliability.md`, pick 3–5 past specific claims, check what happened, score materialization, annotate the source ledger with track record. Repeat monthly for sources we rely on heavily.
   - Linked: `research/meta/source-reliability.md`
 
 - [ ] **P2 / verification / 2026-05-20** [INDP] — Re-verify VICR 2nd gen VPD technical specs at primary source
@@ -163,21 +37,38 @@
   - Scope: Find Vicor's own technical disclosure. Confirm the specs. Update `companies/VICR/facts.md` with primary source.
   - Linked: `companies/VICR/facts.md`, `companies/VICR/thesis.md`
 
-- [ ] **P2 / research / 2026-05-20** [BOT, INDP] — Rambus (RMBS) thesis — memory IP licensor, HBM bypass-route candidate
-  - Origin: User mentioned 2026-05-20 as example of "give me your thesis on X" interaction pattern. Already surfaced as a memory IP play in `wiki/hbm-primer.md` §7 Tier 3.
-  - Scope: Full thesis with Duration × Magnitude × Pricing-Power × Recognition Stage. Memory IP licensing model + HBM4/HBM4E royalty stream + AI memory cycle exposure. Compare to ALAB as bypass-route alternative.
-  - Linked: `research/companies/RMBS/thesis.md` (new)
+### P3 — Lower priority (additional thesis candidates)
 
-### P3 — Wiki entries (lower priority, foundational context)
+- [ ] **P3 / research / 2026-05-21** [POS, AF, BOT] — Power equipment thesis files (GEV, ETN, HUBB, POWL, VRT)
+  - Origin: `research/wiki/power-for-ai-primer.md` Tier 2 + Tier 3 names not yet thesis-built
+  - Scope: Compact thesis for each (GE Vernova, Eaton, Hubbell, Powell, Vertiv)
+  - Priority: lower because power consensus names (VST, CEG) already covered
 
-- [ ] **P3 / wiki / 2026-05-20** [INFRA, BOT] — Power-for-AI primer
-  - Origin: Was in original wiki plan; deferred to focus on HBM first.
-  - Scope: Pure supply-demand-bypass analysis of firm power for AI datacenters. Time-to-power framework formalized. Names: VST, CEG, GEV, ETN, TLN, Bloom Energy, Solaris.
-  - Linked: `research/wiki/power-for-ai-primer.md` (new)
+- [ ] **P3 / research / 2026-05-21** [POS] — Storage/data candidates from cascade walk
+  - Origin: `research/watchlist/candidates.md` cascade walk additions
+  - Scope: Compact theses for PSTG, NTAP, ESTC, CFLT, TEAM
+  - Priority: lower because Sandisk (held) already covers core storage angle
 
-- [ ] **P3 / wiki / 2026-05-20** [INFRA] — Other planned wiki entries
-  - Per `research/wiki/README.md` planned list: chip-stack primer, hyperscaler-capex primer, custom-silicon primer, optical-interconnect primer, model-economics primer, memory-cycle primer, geopolitical-AI primer, networking primer.
-  - Scope: Each is a future work unit. Build as needed when a position decision requires the context.
+- [ ] **P3 / research / 2026-05-21** [POS, AF, BOT] — Smaller Aschenbrenner-surfaced names
+  - Origin: Aschenbrenner Q1 2026 13F includes Bitfarms ($38.8M), HIVE Digital, Bitdeer, Sharon AI Holdings (sizes not disclosed in primary)
+  - Scope: Compact theses if user prioritizes (currently CORZ/IREN/APLD/CRWV cover the larger pivots)
+
+### P3 — Foundational wiki entries (planned, not yet built)
+
+- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Hyperscaler capex primer
+  - Scope: How to read MSFT/GOOG/META/AMZN/ORCL capex disclosures; segment definitions; ROIC implications
+
+- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Memory cycle primer
+  - Scope: HBM, DRAM, NAND historical cycles; current state across 2026-2027 trajectory
+
+- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Networking primer
+  - Scope: Ethernet vs InfiniBand vs NVLink vs proprietary fabrics; ANET / MRVL / NVDA Spectrum-X
+
+- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Geopolitical AI primer
+  - Scope: US-China tech war, export controls, allowed/restricted lists, Taiwan dependence
+
+- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Model economics primer
+  - Scope: Training vs inference cost structures, scaling laws state of art, MoE adoption math
 
 ---
 
@@ -205,35 +96,41 @@
   - Completed: 2026-05-20
   - Artifact: `research/meta/time-to-x-framework.md`
 
-- [x] **2026-05-20** [INFRA, BOT] — HBM primer (pure supply-demand-bypass)
-  - Completed: 2026-05-20
+- [x] **2026-05-20** [INFRA, BOT] — HBM primer
   - Artifact: `research/wiki/hbm-primer.md`
 
 - [x] **2026-05-20** [INFRA] — Token consumption wiki primer
-  - Completed: 2026-05-20
   - Artifact: `research/wiki/token-consumption.md`
 
 - [x] **2026-05-20** [INFRA, POS] — Agentic AI enterprise wiki primer
-  - Completed: 2026-05-20
   - Artifact: `research/wiki/agentic-ai-enterprise.md`
 
-- [x] **2026-05-20** [CAL] — Add L3 (don't sell on partial profit) + B10 (P/E anchoring) + B11 (re-stated numbers)
-  - Completed: 2026-05-20
-  - Artifact: `research/predictions/lessons.md` + `research/meta/biases-watchlist.md`
+- [x] **2026-05-21** [INFRA, BOT, AF] — Agentic workload scaling wiki
+  - Artifact: `research/wiki/agentic-workload-scaling.md`
 
-- [x] **2026-05-20** [INFRA] — Recognition stage spectrum (replaces "time-to-recognition")
-  - Completed: 2026-05-20
-  - Artifact: `research/meta/methodology.md` §Recognition Stage
+- [x] **2026-05-21** [INFRA, BOT] — Power-for-AI primer
+  - Artifact: `research/wiki/power-for-ai-primer.md`
 
-- [x] **2026-05-20** [INFRA] — Capture meta-first-principle + co-adaptation principle in methodology
-  - Completed: 2026-05-20
-  - Artifact: `research/meta/methodology.md` top sections
+- [x] **2026-05-21** [INFRA, BOT] — Optical interconnect primer
+  - Artifact: `research/wiki/optical-interconnect-primer.md`
 
-- [x] **2026-05-20** [POS] — Vicor (VICR) thesis (full company folder)
-  - Completed: 2026-05-20
-  - Artifact: `research/companies/VICR/` (thesis.md + facts.md + timeline.md + interpretations.md + exposures.md)
-  - Outcome: Recommendation WAIT (do not enter pre-confirmation). Initial "downstream beneficiary" framing was wrong; bottoms-up surfaced design-out at NVIDIA H100 + replacement at top-2 hyperscaler by MPS. Reframed as binary on 2nd gen VPD adoption at next-gen designs. Anti-fragility 2/5. Tier: Active (not Core), wait for catalyst.
-  - Surfaced bias: B12 (catalyst-narrative anchoring before customer-level bottoms-up)
+- [x] **2026-05-21** [INFRA, BOT] — Custom silicon primer
+  - Artifact: `research/wiki/custom-silicon-primer.md`
+
+- [x] **2026-05-21** [INFRA] — Forward synthesis (where-im-going.md)
+  - Artifact: `research/sector/where-im-going.md`
+
+- [x] **2026-05-21** [POS] — T1 Energy vs Bloom Energy comparison
+  - Artifact: `research/sector/t1-energy-vs-bloom-energy-comparison.md`
+
+- [x] **2026-05-20** [CAL] — NVDA Q1 FY27 fundamental GRADE
+  - Artifact: `research/predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` + L4 in lessons.md
+
+- [x] **2026-05-21** [POS] — All 11 user-held position thesis files built
+  - Artifacts: `companies/{HYNIX, MURATA, NOW, GLW, SNDK, TE, DDOG, STM, PURR, TSEM, AXTI}/thesis.md`
+
+- [x] **2026-05-21** [POS, AF, BOT] — All major watchlist thesis files built
+  - Artifacts: `companies/{AVGO, AMZN, BE, MRVL, NBIS, ALAB, GOOG, CORZ, IREN, APLD, CRWV, VST, CEG, CAMT, RMBS, VICR, NVDA, AIXTRON, RIGAKU, SMTC}/thesis.md`
 
 ## How to use this file
 
