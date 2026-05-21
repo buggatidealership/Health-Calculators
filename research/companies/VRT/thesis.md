@@ -62,3 +62,8 @@ Per `meta/methodology.md`: ✓ PASS. Cooling demand scales directly with compute
 - `research/companies/MURATA/thesis.md` §BOM-level deep-dig — Rubin TDP doubling drives cooling demand
 - `research/companies/ETN/thesis.md`, `research/companies/GEV/thesis.md`, `research/companies/HUBB/thesis.md`, `research/companies/POWL/thesis.md` — peer power-equipment names
 - `research/meta/deep-dig-queue.md` item #7 — Liquid-cooling capacity per Rubin rack (deep-dig candidate)
+- `research/wiki/networking-primer.md` — cross-source synthesis below
+
+## Cross-reference — Networking primer (added 2026-05-21)
+
+Per `research/wiki/networking-primer.md` Extrapolation 3: liquid cooling extends from GPU to SWITCH gear at 1.6T+ port speeds. Switch silicon TDP doubles each generation (Tomahawk 5 ~600W → Tomahawk 6 estimated >1kW per chip, my inference). The cooling TAM expansion isn't limited to GPU racks — it includes the switch racks too. **VRT pure-play exposure captures both.** Per the Patel + Aschenbrenner framework reading, this is a positive incremental signal for VRT. The 2-4% Active candidate tier from prior thesis stands; networking-primer adds a sub-layer (switch cooling) that consensus tends to model as a much later inflection.

@@ -65,3 +65,8 @@ Per `research/meta/methodology.md`: ✓ PASS. Cluster scale grows with workload;
 - `research/wiki/power-for-ai-primer.md` — CopperEdge power savings
 - `research/companies/MRVL/thesis.md` — competitor
 - `research/companies/AIXTRON/thesis.md` — upstream equipment
+- `research/wiki/networking-primer.md` — cross-source synthesis below
+
+## Cross-reference — Networking primer (added 2026-05-21)
+
+Per `research/wiki/networking-primer.md` Extrapolation 6: Active Copper Cables (ACC) adoption is a structural transition as power constraints bind harder. SMTC CopperEdge delivers 90% power savings vs alternatives for short-distance — directly relevant to the per-rack short-haul links inside AI clusters where pluggable optics would be over-engineered. **SMTC is the named small-cap leveraged exposure for this transition.** The 2-3% Active candidate tier from prior thesis stands; networking primer reinforces the structural pull but doesn't quantify adoption pace (still the key uncertainty).

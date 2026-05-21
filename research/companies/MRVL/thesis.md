@@ -45,3 +45,8 @@ Together they cover essentially the entire custom Si design house universe. Pair
 - `research/wiki/optical-interconnect-primer.md` — silicon photonics adjacency
 - `research/wiki/hbm-primer.md` — CXL bypass route
 - `research/companies/AVGO/thesis.md` — pair-trade companion
+- `research/wiki/networking-primer.md` — cross-source synthesis below
+
+## Cross-reference — Networking primer (added 2026-05-21)
+
+Per `research/wiki/networking-primer.md`: MRVL has dual exposure across 3 sub-layers — (1) switch ASIC race with Teralynx 10 at 51.2T but ~1 generation behind Broadcom's 102.4T Tomahawk 6, (2) DPU/SmartNIC competition via OCTEON (Extrapolation 5: $5-20B/yr TAM that NVIDIA BlueField currently dominates ~70%), (3) custom networking silicon for AWS Trainium clusters. Extrapolation 10 (sovereign AI favoring Ethernet ecosystem) is positive for MRVL alongside AVGO. **The 3-5% Active candidate tier reinforced; MRVL is the broadest play across the networking stack with custom-Si optionality.** The Teralynx generational lag vs AVGO Tomahawk is the watch item.

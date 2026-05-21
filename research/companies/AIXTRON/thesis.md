@@ -68,3 +68,8 @@ Per `research/meta/methodology.md`: ✓ PASS. More AI → more optical interconn
 - `research/companies/AXTI/thesis.md` — substrate layer; pair-trade
 - `research/companies/LITE/thesis.md` (not yet built) — laser maker downstream
 - `research/companies/COHR/thesis.md` (not yet built) — laser maker downstream
+- `research/wiki/networking-primer.md` — cross-source synthesis below
+
+## Cross-reference — Networking primer (added 2026-05-21)
+
+Per `research/wiki/networking-primer.md` Extrapolation 1: optical engines per switch ASIC doubling each generation (8 → 16 from Bailly to Davisson per Broadcom). AIXTRON's MOCVD equipment makes the InP epitaxial layers required for those optical engines. **4× compound BOM growth in optical engine count per high-end switch every 2 years.** Combined with AIXTRON's 70-90% MOCVD market share, this reinforces the 2-4% Active candidate framing — equipment-layer beneficiary of the optical buildout independent of bandwidth-per-port cycle.

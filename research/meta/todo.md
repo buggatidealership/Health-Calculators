@@ -35,8 +35,6 @@
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Hyperscaler capex primer
   - Scope: How to read MSFT/GOOG/META/AMZN/ORCL capex disclosures; segment definitions; ROIC implications. **BOM-depth requirement:** include dollars-per-GW deployed at current vs next-gen rack densities, not just headline capex numbers.
 
-- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Networking primer
-  - Scope: Ethernet vs InfiniBand vs NVLink vs proprietary fabrics; ANET / MRVL / NVDA Spectrum-X. **BOM-depth requirement:** optical engines per switch SKU at current vs next-gen Tomahawk / Spectrum tiers; per-port content delta. Aligns with deep-dig queue item #9.
 
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Geopolitical AI primer
   - Scope: US-China tech war, export controls, allowed/restricted lists, Taiwan dependence. **BOM-depth requirement:** wafer-volume by node × geography; specific HSCD-controlled items; substitution paths.
@@ -151,6 +149,12 @@
   - Origin: User request 2026-05-21 — "ensure the source-reliability monthly audit happens; remind me; update me if done while I'm away"
   - Artifacts: `~/.claude/session-start-hook.py` (date-aware elevation with 🚨/⏰/📅 markers) + `research/meta/recurring-audit-log.md` (autonomous-completion trail) + `.github/workflows/recurring-audit-reminder.yml` + `.github/scripts/check-recurring-todos.py` (weekly cron, creates GitHub issue when items DUE/OVERDUE) + `research/meta/hooks/` mirror
   - Tested with mocked dates: all three states (DUE_TODAY, OVERDUE, DUE_SOON) elevate correctly
+
+- [x] **2026-05-21** [INFRA, BOT, INDP] — Networking primer with first-principles + extrapolation framework
+  - Origin: P3 wiki entry + user calibration 2026-05-21 — "everything should start from first principles, build a layered understanding of the most critical components, then use first principles to extrapolate patterns humans haven't found"
+  - Artifact: `research/wiki/networking-primer.md` — 8 sub-layers decomposed, generational deltas (51.2T→102.4T switch + 8→16 optical engines per switch), 10 non-consensus extrapolations including DPU-as-mandatory layer, NVLink scale-up moat structural durability, Ultra Ethernet threat to NVDA InfiniBand revenue, switch liquid cooling cascade, network spend as % of compute rising not flat
+  - Cascade: 8 thesis files updated with back-references (AIXTRON, AVGO, AXTI, GLW, HYNIX, MRVL, SMTC, VRT) per Rule #10; cascade hook verified exit 0
+  - Side-effect: `meta/methodology.md` core principle #13 added — "First-principles + layered + extrapolation discipline on every wiki" with explicit structure requirement (first principles → sub-layer decomposition → generational deltas → ≥5 extrapolations → cross-stack cascade → falsifiers)
 
 - [x] **2026-05-21** [INDP] — Re-verify VICR 2nd gen VPD specs at primary source
   - Origin: BeyondSPX (T4) had previously been the only source for "5 A/mm² + 24× current gain" claim

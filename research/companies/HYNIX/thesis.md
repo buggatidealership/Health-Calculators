@@ -175,3 +175,7 @@ Per `research/wiki/memory-cycle-primer.md`: full cycle dynamics + BOM-level econ
 - **HBM industry capacity end-2026 ~315-345K wpm** (my synthesis from cited sources in memory cycle primer) — roughly 2x late-2025 baseline, but demand growing 77% YoY 2026 + 68% YoY 2027 per `wiki/memory-cycle-primer.md`. Supply ramp does not catch demand ramp.
 - **New fab capacity unlikely in volume before late 2027 / 2028** per [TrendForce 2026-03-31](https://www.trendforce.com/presscenter/news/20260331-12995.html) — confirms Patel's "supply doesn't come till '28" framing
 - **Implication:** position thesis (HOLD at ~12.5%) is further reinforced by BOM-level math. SK Hynix captures ~70% of the largest single AI customer's HBM4 allocation during a period of structural ASP uplift through at least mid-2027. Highest-conviction held position by BOM-level evidence.
+
+## Cross-reference — Networking primer (added 2026-05-21)
+
+Per `research/wiki/networking-primer.md`: HBM bandwidth and network fabric bandwidth scale together — both at ~2x/2yr cadence. Per Extrapolation 8 (network spend rising as % of total AI spend), the compute-memory-network triad scales more tightly than prior modeling assumed. HBM allocation to NVDA Rubin (~70% to Hynix) is tightly coupled to network fabric capacity at the rack level (NVLink 6, Spectrum-X). **No direct change to HYNIX thesis** but confirms the memory-network co-scaling pattern that supports the HBM tightness call (per `wiki/memory-cycle-primer.md`).
