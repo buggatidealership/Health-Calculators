@@ -465,6 +465,42 @@ Implication for every interaction:
 
    **Calibration example (STM, 2026-05-21):** Initial evaluation looked at STM in isolation (AWS deal + multiple + competitors at one layer). Missed: CPO adoption triangulation across Broadcom Tomahawk 6 + NVDA Spectrum-X (drives demand for STM PIC100 even without additional STM customer wins); EUR/USD currency exposure; Sanan SiC JV partner's GaN positioning (could compress STM SiC bet); auto cycle / EV slowdown exposure as a drag; cross-portfolio overlap with held AXTI (InP substrates upstream of STM PIC100). Re-applied cross-references after user correction surfaced material upside (CPO triangulation) and material risk (GaN substitution + auto cycle) that initial isolated analysis missed.
 
+18. **Multi-stage worldview build — the real output, not aggregated consensus.** User framing 2026-05-21: *"You have to infer and find patterns that allow you to compute your own view of how AI is gonna unfold, what that means, and where the puck is gonna go next, which essentially [means] finding the companies that have the highest optimization from a risk to share price increase perspective. Only then can you start valuing your own output and your own reasoning instead of just creating a aggregation of analyst opinions."*
+
+   The OS's actual deliverable is not per-name analysis — it's MY DEFENSIBLE INDEPENDENT WORLDVIEW with companies mapped against it. The portfolio recommendation falls out of the mapping, not out of summing up analyst opinions.
+
+   **The 4-phase build:**
+
+   **Phase 1 — Bottom-up per-company evaluation (current phase, 2026-05-21).** Walk every name in the portfolio + relevant candidates through the full framework: 10-vector cross-reference (principle #17) → D1-D5 scoring (principle #16, including rerating-arc position) → two-handed read → falsifier status → cross-portfolio implications. Each name's evaluation lives in `companies/{TICKER}/thesis.md`. Output: every position has a current, defendable, cross-referenced thesis.
+
+   **Phase 2 — Worldview synthesis.** Aggregate the bottom-up evidence into a computed view of:
+   - **Today's binding constraints** (already partially in `sector/bottlenecks.md`): the longest-lasting + most-severe constraints binding AI deployment right now. Each constraint quantified (severity × duration × what's binding).
+   - **Tomorrow's binding constraints** (forward 12-36 months): which constraint shifts from current to next-binding, with reasoning grounded in physical limits + supply chain math + capacity ramps. This is BOTTLENECK-FORECAST workflow applied at maximum depth.
+   - **The arc of AI unfolding** — sequence of constraints binding and resolving across 18-36 months. Specific dates / quarters where transitions happen.
+   - **Non-consensus patterns** — what most analysts are missing about the constraint sequence, with falsifiable tests.
+   Output lives in `sector/where-we-are.md` (current synthesis) + `sector/where-im-going.md` (forward worldview) + `sector/bottlenecks.md` (constraint inventory).
+
+   **Phase 3 — Map companies against the worldview.** Each company scored against:
+   - Which binding constraint(s) they benefit from (today + tomorrow)
+   - Magnitude of the asymmetric setup (small / medium / large)
+   - Recognition stage on the rerating arc
+   - Cross-vertical positioning per principle #17
+   - Time to thesis playing out
+   Output: ranked list of names by risk-adjusted share-price-increase probability. Lives in `portfolio/recommendations.md` updated with the ranked-mapping.
+
+   **Phase 4 — My-view conclusions + portfolio actions.** Synthesize Phases 1-3 into:
+   - Which positions to hold / add / trim / exit (driven by mapping, not analyst opinion)
+   - Which candidate names to enter (highest-asymmetry from Phase 3)
+   - Sizing rationale derived from mapping conviction × position-cap discipline
+   - Explicit acknowledgment of where my view diverges from consensus, with falsifiable tests
+   Output: updated `portfolio/holdings.md` target weights + `portfolio/recommendations.md` action set.
+
+   **Why this matters:** the framework principles #12-17 are necessary but not sufficient. Per-name analysis without worldview synthesis is sophisticated isolated analysis — still trapped in the traditional-analyst mode the user flagged. The OS's actual edge requires Phases 2-4 to translate per-name work into a defensible independent worldview.
+
+   **Process discipline:** Phase 1 must complete (all positions + key candidates evaluated under new framework) before Phase 2 synthesis begins. Phase 2 must complete (worldview computed) before Phase 3 mapping begins. Phase 3 must complete before Phase 4 portfolio actions. Skipping phases collapses the OS back to traditional-analyst-aggregation mode.
+
+   **Current state 2026-05-21:** Phase 1 in progress — STM evaluated under new framework. Remaining held positions: HYNIX (deferred by user), MURATA, GLW, TE, AXTI, NOW, DDOG, SNDK (deferred by user), PURR, TSEM. Plus candidate names. Estimated completion of Phase 1: 1-3 more sessions depending on depth per name.
+
 ## How to think (the protocol)
 
 When asked anything substantive, walk through these in order:
