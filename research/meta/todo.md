@@ -15,6 +15,36 @@
 
 ### P1 — High priority
 
+- [ ] **P1 / research / 2026-05-21** [POS] — SK Hynix thesis (held position ~12.5%) — biggest position, no thesis file
+  - Origin: User direction 2026-05-21 — build holistic view of every portfolio position before any rotation. SK Hynix already has supporting wiki (`research/wiki/hbm-primer.md`) but no company-folder thesis.
+  - Scope: Full thesis with D × M × P × R × Execution model. Recognition stage assessment (likely Stage 3-4). Verify the "SK Hynix technical moat" claim from prior Claude session (per existing P1 verification item).
+  - Linked: `research/companies/HYNIX/thesis.md` (new); merges with existing SK Hynix moat verification P1
+
+- [ ] **P1 / research / 2026-05-21** [POS] — Murata Manufacturing thesis (held position ~12.4%)
+  - Origin: User direction 2026-05-21 — holistic view. Murata is largest non-US position; MLCC + electronic components.
+  - Scope: Full thesis. Token-Volume Filter assessment. AI-specific MLCC demand math. Compare to other passive component names.
+  - Linked: `research/companies/MURATA/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-21** [POS] — ServiceNow (NOW) thesis (held position ~12.0%)
+  - Origin: User direction 2026-05-21 — holistic view. Agentic workflow software.
+  - Scope: Full thesis. Reference `research/wiki/agentic-ai-enterprise.md` for the workflow-integration thesis. Recognition stage.
+  - Linked: `research/companies/NOW/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-21** [POS] — Sandisk (SNDK) thesis (held position ~10.8%, validated by Aschenbrenner)
+  - Origin: User direction 2026-05-21 — holistic view. Aschenbrenner holds $724.4M Sandisk; validates user's existing position.
+  - Scope: Full thesis. NAND for inference storage thesis. Compare to Aschenbrenner's bull case + the broader memory cycle dynamics.
+  - Linked: `research/companies/SNDK/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-21** [POS] — Datadog (DDOG) thesis (held position ~6.8%)
+  - Origin: User direction 2026-05-21 — holistic view. Workload-scaling wiki implies DDOG is structurally bid more than software-typical valuation lenses assume.
+  - Scope: Full thesis. Observability TAM math from `research/wiki/agentic-workload-scaling.md`. Recognition stage (likely Stage 3). Position-sizing recommendation.
+  - Linked: `research/companies/DDOG/thesis.md` (new)
+
+- [ ] **P1 / research / 2026-05-21** [POS] — Hyperliquid Strategies thesis (held position ~5.7%) — off-AI-thesis special case
+  - Origin: User direction 2026-05-21 — holistic view. User-explained thesis: tokenization legislation + Cerebras pre-IPO price discovery use case.
+  - Scope: Treat as separate framework (not AI value chain). Crypto-adjacent + AI x finance convergence. Verify the tokenization legislation status and the on-chain price-discovery use case.
+  - Linked: `research/companies/HSI/thesis.md` (new — or whatever the proper Hyperliquid Strategies ticker is)
+
 - [ ] **P1 / research / 2026-05-20** [POS, AF, BOT] — Nebius (NBIS) thesis — public inference cloud, direct beneficiary of capacity-constrained narrative
   - Origin: User-surfaced via Dylan @demian_ai tweet 2026-05-20 (verified). NBIS Q1 2026 revenue $399.0M (+684% YoY) per [SEC 6-K](https://www.sec.gov/Archives/edgar/data/0001513845/000110465926059872/tm2614392d1_ex99-2.htm). Contracted power 3.5GW, raised target to 4GW by year-end. Missouri gigawatt + 1.2GW Pennsylvania expansion.
   - Scope: Full thesis with D × M × P × R × E model. Caveat: author of surfacing tweet works at NBIS. But Q1 print is independent confirmation. Compare to CoreWeave (private competitor) economics. Recognition stage assessment (recent listing, +684% probably moved stock but story still under-covered in mainstream).
