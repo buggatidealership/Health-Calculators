@@ -20,6 +20,65 @@ Per [ServiceNow Q1 2026 results via SEC](https://www.sec.gov/cgi-bin/browse-edga
 
 ServiceNow operates a unified workflow platform across IT Service Management (ITSM), Customer Workflows, Employee Workflows, Creator Workflows. Single platform, single data model — the architecture is uniquely suited to layering agentic AI on top of pre-existing customer workflows.
 
+## Cross-vertical re-evaluation (added 2026-05-21, per methodology principle #17)
+
+10-vector cross-reference confirmed the structural thesis AND surfaced TWO material findings beyond existing thesis.
+
+### Critical new findings
+
+**1. Microsoft Copilot is COMPLEMENTARY not DISPLACEMENT in ITSM specifically** per [Workativ comparison](https://workativ.com/ai-agent/blog/microsoft-copilot-review) + [Constellation Research](https://www.constellationr.com/insights/news/servicenow-ends-ai-add-adds-context-engine-aims-scale-now-platform-usage). Copilot does NOT run IT workflows, execute actions, or manage tickets end-to-end. Microsoft's Copilot Agents with Actions CONNECT TO ServiceNow and execute workflows there. **This is the non-consensus pattern bears miss** — the "MS will eat SaaS" narrative doesn't apply at ITSM core.
+
+**2. AI bundling strategy change April 2026** — ServiceNow eliminated AI add-ons (e.g., Pro Plus) and is bundling AI native into every commercial tier per [Constellation Research](https://www.constellationr.com/insights/news/servicenow-ends-ai-add-adds-context-engine-aims-scale-now-platform-usage). Same move as Microsoft did with Copilot. Trade-off: drives total platform adoption but muddies AI-specific revenue attribution for consensus modeling.
+
+### Q1 2026 operational confirmation
+
+Per [Q1 2026 8-K](https://www.sec.gov/Archives/edgar/data/0001373715/000137371526000054/erq1fy26.htm) + [EfficientlyConnected coverage](https://www.efficientlyconnected.com/servicenow-q1-2026-ai-platform-growth/):
+- Subscription revenue $3.671B (+22% YoY)
+- 32% non-GAAP operating margin
+- Current RPO $12.64B (+22.5% YoY) = visible forward revenue
+- 16 transactions >$5M net new ACV (+80% YoY)
+- Now Assist tracking $1B+ in 2026; 130% YoY growth in $1M+ ACV customers
+- 36 deals with 5+ Now Assist products
+- Raised FY26 subscription guide to $15.735-$15.775B (20.5-21% YoY)
+- Customer ROI: 99% faster than humans, 90% Level 1 case resolution by agents
+
+### Cross-portfolio positioning
+
+- **NOW is the "software layer" pure-play** in user's portfolio — different risk shape than hardware/component names
+- No overlap with optical-stack (AXTI + TSEM + STM + GLW), memory cycle (HYNIX, SNDK), MLCC duopoly (MURATA), or solar policy (TE)
+- Adjacency with DDOG (observability) — both AI-amplified
+- **NOW is the LARGEST single AI-software exposure** in the held portfolio
+- **Highest anti-fragility position** (4/5)
+- **Lowest displacement risk** among held positions
+
+### D1-D5 summary
+
+- **D1 Structural relevance: VERY HIGH** — workflow integration moat unassailable; even Copilot integrates not replaces; switching costs extreme
+- **D2 Chokepoint severity: HIGH** at enterprise workflow layer — $12.64B RPO; relationship/integration chokepoint
+- **D3 Competitive position: DOMINANT in ITSM, STRONG in CSM/HR/federal** — competitive landscape is layered not zero-sum
+- **D4 Mismodeling + rerating arc: LATE-ARC / structural** — already rerated; less arc-upside than mid-arc hardware names; mismodeling lower-magnitude than rerating-arc names
+- **D5 Independent view:** MS Copilot complementary-not-displacement at ITSM is the non-consensus pattern; AI bundling evolution introduces attribution complexity; lowest-displacement-risk in entire held portfolio
+
+### Pattern observation — NOW vs hardware names
+
+This is the first software name evaluated. Framework dynamics differ:
+- **Rerating arc:** NOW is LATE-ARC / structural; hardware names (AXTI, TSEM) are MID-ARC
+- **Multiple expansion:** NOW captured most in prior cycles; future returns more dependent on continued growth
+- **Mismodeling:** less surprising-upside potential than rerating-arc names; consensus has caught up
+- **Cross-vertical signals:** competitive analysis matters more than supply-chain analysis for software
+
+### New falsifiers (from cross-vertical)
+
+- Federal IT spending compression under DOGE/Trump admin
+- AI bundling causes consensus ARR/billings models to mismodel direction (bidirectional risk)
+- Net Revenue Retention deceleration Q2-Q4 2026
+- MS Power Platform ITSM revenue trajectory closes the gap with NOW ITSM growth
+- Salesforce Agentforce takes CSM share aggressively (already a competitive front, but worth tracking)
+
+### Net read
+
+**HOLD at ~12.0% stands and REINFORCED.** Structural thesis intact and stronger than existing thesis surfaced. NOW is a STRUCTURAL HOLD — the role in the portfolio is different from rerating-arc bets. Per principle #18, formal sizing decision deferred to Phase 4.
+
 Key segments:
 - IT Workflows (ITSM, ITOM, SecOps) — largest segment
 - Customer Workflows (CSM)
