@@ -29,12 +29,13 @@ T1 sources (SEC filings, official press releases, earnings calls) are not tracke
 - **Status:** High confidence. Counted as one leg in triangulation.
 - **Citation tier baseline:** T2
 
-### Leopold Aschenbrenner (Situational Awareness LLC)
-- **Type:** AI/compute scaling analyst, AGI-pilled investor
-- **Useful for:** AGI scaling laws, infrastructure direction, sovereign AI dynamics
-- **Track record sample:** *(to be populated when 13F is pulled per todo P1 item)*
-- **Status:** Pending track record build
-- **Citation tier baseline:** T2
+### Leopold Aschenbrenner (Situational Awareness LP)
+- **Type:** AI/compute scaling analyst, AGI-pilled investor; runs $5.52B+ equity hedge fund
+- **Useful for:** AGI scaling laws, infrastructure direction, sovereign AI dynamics, infrastructure-arbitrage positioning
+- **Q1 2026 13F filed 2026-05-15:** $5.52B longs (power + crypto-miner-pivot infra) + $8.7B notional puts on AI chip names. Thesis: "infrastructure arbitrage." Full analysis: `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`
+- **Track record sample:** First major 13F disclosure; track record builds from here. The CALL is unambiguous (short chips, long power infra) — graded over coming quarters.
+- **Status:** T2 primary-tier source. The filing itself is T1 (SEC document).
+- **Citation tier baseline:** T2 for his analysis; T1 for the filing
 
 ### WSJ / Bloomberg / Reuters / FT
 - **Type:** Major financial press

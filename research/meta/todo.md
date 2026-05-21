@@ -36,10 +36,40 @@
   - Scope: Full thesis. Three legs: (a) AWS share gains from Anthropic exclusivity, (b) Trainium economics + custom Si margin, (c) Anthropic stake P&L contribution. Anti-fragility highest in universe per scenarios.md (was already 3.5/5).
   - Linked: `research/companies/AMZN/thesis.md` (new)
 
-- [ ] **P1 / research / 2026-05-20** [INDP, POS, AF] — Pull Leopold Aschenbrenner's 13F filings; build T1 / BE / TSEM thesis basis
-  - Origin: User input 2026-05-20. Leopold focuses on AI infra layer (not memory). Holdings include or have included T1 Energy, Bloom Energy, Tower Semi.
-  - Scope: Fetch most recent 13F from SEC EDGAR (Situational Awareness LLC). Extract current holdings. For each held position in our universe, build the bull thesis using his thesis as primary-tier signal, then reconstruct independently.
-  - Linked: `companies/T1/thesis.md`, `companies/TSEM/thesis.md`, `companies/BE/thesis.md` (all new)
+- [ ] **P1 / research / 2026-05-21** [POS, INDP] — Corning (GLW) deep-dive — DIRECT CONFLICT with Aschenbrenner puts
+  - Origin: Aschenbrenner Q1 2026 13F shows puts on Corning per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. User holds Corning at 10.8% of portfolio per `holdings.md`. Single most important conflict from the 13F.
+  - Scope: Segment-level Corning analysis — what fraction is AI optical fiber vs display vs lifesciences vs automotive? Is the fiber thesis priced in already? What multiple expansion has happened? Apply Token-Volume Filter rigorously.
+  - Linked: `research/companies/GLW/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Core Scientific (CORZ) thesis — Aschenbrenner $389.1M position; cleanest crypto-miner-to-AI-host pivot
+  - Origin: Aschenbrenner 13F. CORZ is the public archetype (CoreWeave + Microsoft) for the crypto-miner-pivot thesis.
+  - Scope: Full thesis. Execution quality assessment critical. Compare to RIOT/CLSK/Bitfarms (pure-play vs pivot quality). Anti-fragility.
+  - Linked: `research/companies/CORZ/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — IREN Limited thesis — Aschenbrenner $401M position; pure power-asset play
+  - Origin: Aschenbrenner 13F. Crypto miner with GW-scale power infrastructure pivoting to AI hosting.
+  - Scope: Full thesis. Where are their power assets? Grid interconnect status? Hosting contracts?
+  - Linked: `research/companies/IREN/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Applied Digital (APLD) thesis — Aschenbrenner $320M position; HPC datacenter operator
+  - Origin: Aschenbrenner 13F. HPC datacenter operator with multi-year hosting contracts.
+  - Scope: Full thesis. Contract structure, customer concentration, capacity ramp.
+  - Linked: `research/companies/APLD/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — CoreWeave (CRWV) thesis — Aschenbrenner $556.1M position; public neocloud
+  - Origin: Aschenbrenner 13F. The public archetype for the neocloud thesis; pair-trade candidate vs NBIS.
+  - Scope: Full thesis. Compare to NBIS contract structure, customer mix, neocloud-vs-hyperscaler dynamics per `research/sector/where-we-are.md` non-default read #5.
+  - Linked: `research/companies/CRWV/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-21** [POS, AF, BOT] — Bloom Energy (BE) thesis reconstruction — Aschenbrenner $878.7M largest long; user sold too early
+  - Origin: Aschenbrenner's biggest long bull bet. User sold at +30% earlier (L3 lesson). Time-to-power canonical bypass-route name.
+  - Scope: Full thesis. Re-examine entry timing post-Aschenbrenner-validation. Pull-back-and-re-enter framework.
+  - Linked: `research/companies/BE/thesis.md` (new)
+
+- [ ] **P2 / research / 2026-05-21** [POS] — T1 Energy (TE) thesis reconstruction — Aschenbrenner $43.9M (validates user position)
+  - Origin: Aschenbrenner 13F confirms user's earlier claim that Leopold owns T1. Small position for Leopold but real.
+  - Scope: Reconstruct from scratch (user has 7.1% untested). Solar mfg economics, IRA exposure, T1's transition from FREYR.
+  - Linked: `research/companies/T1/thesis.md` (new)
 
 - [ ] **P1 / verification / 2026-05-20** [INDP, POS] — Verify SK Hynix technical moat claim independently
   - Origin: User input 2026-05-20. Prior Claude session asserted SK Hynix has materially larger technical moat than Samsung/Micron. User trusts the claim but admits it was trusted blindly.

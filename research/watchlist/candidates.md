@@ -57,6 +57,23 @@ Per the Downstream-Supplier-Asymmetry Principle in `meta/methodology.md`, these 
 
 - **Onto Innovation (ONTO)** — process control / inspection. Worth investigation.
 
+### Aschenbrenner Q1 2026 13F surfaces (added 2026-05-21)
+
+From `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Position sizes per his disclosed filing:
+
+- **Core Scientific (CORZ)** — Aschenbrenner $389.1M. Crypto-miner-to-AI-host pivot (CoreWeave + Microsoft archetype). **P2 thesis candidate.**
+- **IREN Limited (IREN)** — Aschenbrenner $401M. Pure power-asset play, GW-scale infrastructure. **P2 thesis candidate.**
+- **Applied Digital (APLD)** — Aschenbrenner $320M. HPC datacenter operator with multi-year hosting contracts. **P2 thesis candidate.**
+- **CoreWeave (CRWV)** — Aschenbrenner $556.1M. Public neocloud, pair-trade vs NBIS. **P2 thesis candidate.**
+- **Bloom Energy (BE)** — Aschenbrenner $878.7M (biggest long). Time-to-power canonical bypass-route. **P2 thesis candidate (was already in todo).**
+- **HIVE Digital Technologies** — Aschenbrenner position size not in primary disclosure. Crypto miner pivoting.
+- **Bitdeer** — Aschenbrenner position size not in primary disclosure. Crypto miner.
+- **SharonAI Holdings** — Aschenbrenner position size not in primary disclosure. AI infra.
+- **Solaris Energy Infrastructure (SEI)** — Aschenbrenner $62.5M. Mobile power gen (already in time-to-x-framework).
+- **Bitfarms** — Aschenbrenner $38.8M. Crypto miner.
+- **Riot Platforms (RIOT)** — Aschenbrenner $142.2M. Crypto miner pivoting.
+- **CleanSpark (CLSK)** — Aschenbrenner $104.5M. Crypto miner pivoting.
+
 ### Cascade walk — downstream of "tokens explode" (added 2026-05-20)
 
 Surfaced from explicit "what does that mean" cascade analysis per user input 2026-05-20. Each passes the Token-Volume Filter from `meta/methodology.md`. None have thesis files yet — candidates for next pass.
