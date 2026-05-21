@@ -172,3 +172,62 @@ Per user instruction 2026-05-21:
 - `research/portfolio/holdings.md` — user holds 5.4%
 - `research/portfolio/coherence-audit.md` — was flagged "untested"; NOW UPGRADED post-reconstruction
 - `research/companies/AXTI/...` — AXTI InP substrate is the upstream layer to Tower's silicon photonics chips
+
+## Cross-vertical re-evaluation (added 2026-05-21, per methodology principle #17)
+
+### Critical new finding
+
+**TSEM is scaling silicon photonics for 1.6T data center optical modules DESIGNED FOR NVIDIA NETWORKING PROTOCOLS** per [Grafa Q1 2026 coverage](https://grafa.com/en/news/united-states/tower-semiconductor-q1-2026-earnings-record-guidance). Materially important for portfolio construction:
+
+- **TSEM = NVDA-aligned silicon photonics foundry**
+- **STM PIC100 = AWS-aligned silicon photonics IC** (per `companies/STM/thesis.md`)
+- TSEM + STM together cover BOTH major hyperscaler protocols at silicon photonics layer — they are NOT redundant in portfolio
+- Prior STM evaluation missed this distinction
+
+### Management forecast is conservative
+
+Per [BigGo Q1 2026 earnings call](https://finance.biggo.com/news/US_TSEM_2026-05-13): management explicit that "the actual 2027 SiPho forecast is substantially higher" than $1.3B already contracted. **Continued mismodeling vs consensus.**
+
+### Cross-portfolio: optical-stack extends to 5 positions
+
+| Layer | Position | Held % | Effective AI-optical |
+|---|---|---|---|
+| MOCVD equipment | AIXTRON (candidate) | 0 | — |
+| InP substrate | AXTI | 4.8% | ~4.8% |
+| **Silicon photonics foundry** | **TSEM** | **5.4%** | **~1.4-1.6%** (SiPho ~25-30% of revenue est.) |
+| Silicon photonics IC | STM | 6.6% | ~1.3% |
+| Fiber + HCF | GLW | 10.8% | ~4.0% (37% AI-optical) |
+
+**Effective AI-optical concentration ≈ 11-12%** — NOT 27.6% nominal sum. Internal diversification of GLW + STM + TSEM dilutes the concentration materially.
+
+### Geopolitical risk shape
+
+- **Israel-based** = different risk shape than AXTI's China-Tongmei exposure
+- Operations diversified Israel + Italy + Japan (post Intel-deal-cancellation)
+- Holding both TSEM + AXTI = two-bucket geopolitical risk (different jurisdictions)
+
+### Same-layer competitive landscape
+
+- **TSEM + GlobalFoundries (GFS) + TSMC** = main silicon photonics foundries
+- TSMC premium pricing, GFS rapidly growing, TSEM established PH18
+- Competitive risk: TSMC/GFS could undercut on price
+
+### D1-D5 summary
+
+- **D1 Structural relevance: HIGH-MEDIUM** — SiPho critical to CPO; PH18 established
+- **D2 Chokepoint severity: HIGH** — $1.3B 2027 contracts + $290M prepayments + premium pricing
+- **D3 Competitive position: STRONG TIER-2 SPECIALTY FOUNDRY** — established PH18; COHR + NVDA-protocol differentiated
+- **D4 Mismodeling + rerating arc: MID-ARC** — "substantially higher" mgmt forecast vs consensus
+- **D5 Independent view:** NVDA-protocol aligned at SiPho foundry (not redundant with STM AWS); Israeli geopolitical risk monitored variable
+
+### New falsifiers
+
+- TSMC or GFS announces aggressive SiPho capacity expansion
+- Israeli regional conflict escalates affecting operations materially
+- NVDA shifts to other SiPho foundry for 1.6T modules
+- 2027 SiPho forecast comes in BELOW management's "substantially higher" framing
+- Coherent partnership terminated or restructured
+
+### Net read
+
+**HOLD at ~5.4% stands and is REINFORCED.** Structural thesis intact and stronger than existing thesis surfaced. Cross-portfolio finding: TSEM + STM are parallel exposures to NVDA vs AWS protocols, not redundant. Effective AI-optical concentration is ~12% not 27.6%.
