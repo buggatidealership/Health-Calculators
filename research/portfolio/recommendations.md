@@ -66,6 +66,21 @@
 
 **Linked:** `research/companies/AVGO/thesis.md`
 
+### [2026-05-21] TRIM AXTI from ~4.8% to 2-3%
+**Status:** PENDING — Pass 2 decomposition complete.
+
+**Rationale:** Per `companies/AXTI/thesis.md` Pass 2 decomposition. Of the verified +6,897.96% past-year stock move (per user screenshot 2026-05-20), my analysis indicates ~10-20% from earnings turnaround, ~80-90% from multiple expansion. Current forward P/E ~340x on FY 2026 implied EPS; ~130x on aspirational FY 2027 EPS. Structural thesis intact (InP 60-70% share + $100M backlog + capacity doubling per Yahoo Finance) but multiple compression risk dominates near-term return profile.
+
+**Magnitude:** Sell ~40-50% of position to bring to 2-3%. Preserves structural exposure, reduces concentration.
+
+**Funding destination candidates:** Per the strategic rotation framework — could fund:
+- AVGO add (S2 hedge gap)
+- AMZN add (hyperscaler gap)
+- NBIS add (capacity-constrained)
+- Cash hold (defensive given Stage 4-5 prevalence across AI complex)
+
+**Linked:** `research/companies/AXTI/thesis.md`
+
 ### [2026-05-21] ADD Nebius (NBIS) — new position 3–5%
 **Status:** PENDING — capacity-constrained pure-play.
 
