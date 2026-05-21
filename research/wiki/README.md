@@ -19,6 +19,7 @@ Every claim cited inline. Anti-fabrication hook applies.
 | `agentic-workload-scaling.md` | Bottoms-up demand-side anchor: MAU × tasks/user × tokens/task. Central estimate ~210T tokens/month from agentic workloads today, growing ~12× over 12mo and ~70× over 24mo. Identifies gap vs TrendForce HBM consensus | Complete (2026-05-21) |
 | `power-for-ai-primer.md` | Power supply-demand-bypass analysis. Demand 75.8 GW (2026) → 134 GW (2030); supply 2-3 GW/yr vs demand 5-7 GW/yr = structural deficit. Interconnect queues 36-48mo. Transformer + gas turbine backlogs multi-year. Validates Aschenbrenner long-power thesis | Complete (2026-05-21) |
 | `optical-interconnect-primer.md` | Fiber/pluggable → CPO transition (2026-2030). InP substrate supply deficit >70% (600-700K wafers shipped vs 1.5-2M demand). AXTI controls 60-70% global InP. NVDA invested $2B in LITE+COHR. Resolves GLW-Aschenbrenner conflict more deeply (CPO is medium-term risk to fiber TAM) | Complete (2026-05-21) |
+| `custom-silicon-primer.md` | TPU + Trainium + Maia + MTIA + OpenAI Titan. $185B 2026 capex absorbed by custom Si (~28% of DC capex). AVGO holds ~60% AI ASIC design partnership share; partners 4 of 5 major hyperscaler/frontier-model programs. NVDA inference share projected to compress 90%+→20-30% by 2028 | Complete (2026-05-21) |
 
 ## Planned / candidate entries (in rough priority order)
 
