@@ -35,6 +35,54 @@
 
 ---
 
+### [2026-05-21] ADD Datadog (DDOG) from ~6.8% to 8–10%
+**Status:** PENDING — awaiting user decision + funding source determination.
+
+**Rationale:** Per `companies/DDOG/thesis.md`. Anti-fragility 4/5 (among portfolio highest). Token-Volume Filter passes cleanest. Per `wiki/agentic-ai-enterprise.md`: 64% of failed agentic deployments cite eval/observability as #1 blocker — observability is the mandatory enterprise spend, not discretionary. Per `wiki/agentic-workload-scaling.md`: span volume scales with token workload (50-80× over 24 months). Generalist analysts apply software-typical 30% CAGR; workload-driven reality is materially higher.
+
+**Magnitude:** Add ~1.2-3.2 pp to position (~1-2.5% of portfolio in dollar terms depending on target).
+
+**Funding source candidates:**
+- From cash (38% per `holdings.md`)
+- From GLW trim (if executed)
+- From a combination
+
+**Decision deferred until:** (a) holistic view complete, (b) GLW Q2 print outcome.
+
+**Linked:** `research/companies/DDOG/thesis.md`
+
+### [2026-05-21] ADD Broadcom (AVGO) — new position 5–8%
+**Status:** PENDING — high-priority new position.
+
+**Rationale:** Per `companies/AVGO/thesis.md`. The structural S2-scenario play. AVGO holds ~60% AI ASIC design partnership share; partners with 4 of 5 frontier model providers. Q1 FY26 AI revenue $8.4B (+106% YoY); 2027 line-of-sight >$100B. Anti-fragility 3.5/5; Execution Quality 4.75/5 (highest in OS universe). User has ZERO custom-Si-S2-hedge exposure currently.
+
+**Magnitude:** 5-8% new position.
+
+**Funding source candidates:**
+- From cash (preferred — clean entry)
+- From GLW trim (paired-trade narrative — exit a Stage 4 multiple-compression risk into a similarly-stage but higher-execution-quality name)
+
+**Decision deferred until:** holistic view complete + user decision on rotation philosophy.
+
+**Linked:** `research/companies/AVGO/thesis.md`
+
+### [2026-05-21] ADD Nebius (NBIS) — new position 3–5%
+**Status:** PENDING — capacity-constrained pure-play.
+
+**Rationale:** Per `companies/NBIS/thesis.md`. Q1 2026 revenue $399M (+684% YoY) per SEC 6-K. Microsoft $17.4-19.4B + Meta combined ~$46B contracts. 3.5GW power → 4GW year-end target. Forward guidance $7-9B ARR by year-end 2026. Pure-play capacity-constrained beneficiary. Recognition Stage 2-3 — asymmetric setup remains.
+
+**Magnitude:** 3-5% new position (smaller than AVGO due to higher execution risk + customer concentration).
+
+**Funding source candidates:**
+- From cash
+- From GLW trim
+
+**Decision deferred until:** holistic view + GLW Q2 print outcome.
+
+**Linked:** `research/companies/NBIS/thesis.md`
+
+---
+
 ## Archive of completed rotations
 
 (none yet)
