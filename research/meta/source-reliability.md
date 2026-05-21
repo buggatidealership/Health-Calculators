@@ -21,12 +21,15 @@ T1 sources (SEC filings, official press releases, earnings calls) are not tracke
 ### SemiAnalysis (Dylan Patel)
 - **Type:** Specialized AI semiconductor analyst, newsletter + paid research
 - **Useful for:** Supply chain analysis, packaging, networking, chip-level economics, design-win commentary
-- **Track record sample:**
-  - "HBM is the bottleneck" — repeatedly correct through 2024–2026
-  - "CoWoS capacity will quadruple by end-2026" — TSMC is tracking this
-  - "Vicor designed out at NVIDIA H100" — confirmed by industry behavior
-  - Memory pricing 2-3x further (per user-reported podcast 2026-05-20) — not yet materialized, pending
-- **Status:** High confidence. Counted as one leg in triangulation.
+- **Track record sample (updated 2026-05-21 after deep-dive verification):**
+  - "HBM is the bottleneck" — repeatedly correct through 2024–2026 ✓
+  - "CoWoS capacity will quadruple by end-2026" — TSMC is tracking this ✓
+  - "Vicor designed out at NVIDIA H100" — confirmed by industry behavior ✓
+  - **"DRAM will double or triple from here" (the user-reported "2-3x more memory pricing" claim) — SOURCED 2026-05-21 to** [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/) **direct Patel quote.** Resolution: IN PROGRESS — Q1 2026 prints show DRAM price acceleration consistent with the call; full validation depends on 2026-2028 supply trajectory ⏳
+  - "Bottleneck evolution: CoWoS (2023) → power (2024-25) → fabs (2026+)" per [Latent Space podcast Feb 2026](https://www.latent.space/p/dylanpatel-cooking) — IN PROGRESS, consistent with current TSMC N3 allocation reporting ⏳
+  - "NVIDIA inference market share 90%+ → 20-30% by 2028" per [Benzinga Aug 2025 cite](https://www.benzinga.com/markets/equities/25/08/47202594/nvidias-reign-at-risk-dylan-patel-says-googles-tpu-amazons-trainium-could-outshine-gpus-if-sold-to-public) — UNGRADABLE YET (multi-year forward)
+  - "Power is not a constraint, can't get a 3nm fab" per [TBPN podcast Feb 2026](https://pod.wave.co/podcast/tbpn/full-interview-dylan-patel-says-were-still-underestimating-ai) — PARTIALLY CONFIRMED (TSMC N3 capacity is tight; Aschenbrenner positions counter, suggests "power resolved" is too strong)
+- **Status:** High confidence. Counted as one leg in triangulation. Verified deep-dive 2026-05-21 — full thesis comparison in `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`
 - **Citation tier baseline:** T2
 
 ### Leopold Aschenbrenner (Situational Awareness LP)

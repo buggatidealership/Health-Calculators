@@ -15,13 +15,6 @@
 
 ## Open
 
-### P1 — High priority (genuinely open)
-
-- [ ] **P1 / verification / 2026-05-20** [INDP, BOT] — Source-cite Dylan Patel's "2-3x more memory pricing" claim
-  - Origin: User reported hearing Dylan Patel make this claim in a podcast.
-  - Scope: Find the specific SemiAnalysis newsletter / podcast episode where this claim was made. Cite formally. Triangulate with other primary-tier memory-pricing signals.
-  - Linked: `research/wiki/hbm-primer.md` §11
-
 ### P2 — Medium priority
 
 - [ ] **P2 / verification / 2026-05-22** [CAL] — Stock-reaction grade for NVDA Q1 FY27 (T+24h follow-up)
@@ -145,6 +138,11 @@
   - Origin: First execution of Workflow 8; seeded by user-shared image with 6,500 → ~12,000 MLCCs per board.
   - Artifact: `research/companies/MURATA/thesis.md` §BOM-level deep-dig — full cross-stack cascade table, supplier capacity-response triangulation (Murata + Samsung EM + price hikes), named bypass-route losers (consumer OEMs Apple/Samsung Mobile/Xiaomi; lower-end MLCC vendors Yageo/Walsin), cross-cascade to VICR via shared Rubin TDP-doubling mechanism, specific falsifiers
   - Queue status: item #1 marked complete in `meta/deep-dig-queue.md`; items #2-#10 remain
+
+- [x] **2026-05-21** [INDP, BOT] — Dylan Patel "2-3x more memory pricing" source-citation + thesis deep dive + Aschenbrenner comparison
+  - Origin: User-reported podcast claim 2026-05-20 (was P1 open item); user requested 2026-05-21 deep dive + Aschenbrenner comparison
+  - Artifact: `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — full thesis comparison + verified Patel claim sourcing (DRAM "double or triple" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/))
+  - Side-effect: `research/meta/source-reliability.md` updated with verified Patel track record including resolved memory-pricing claim and 4 additional triangulated claims
 
 ## How to use this file
 
