@@ -85,6 +85,10 @@ SYNTHESIS_ARTIFACT_PATTERNS = [
     r"^research/signals/events/.*\.md$",
     r"^research/signals/triangulation\.md$",
     r"^research/sector/.*-comparison\.md$",
+    # Wiki primers reference multiple companies and should cascade too
+    # (added 2026-05-21 after memory-cycle-primer.md gap)
+    r"^research/wiki/.*-primer\.md$",
+    r"^research/wiki/.*-scaling\.md$",
 ]
 
 

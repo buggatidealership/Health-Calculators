@@ -82,3 +82,13 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 - **Patel: IMPLICIT BULLISH** — his memory-tightness call ("DRAM double or triple from here, supply doesn't come till '28" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/)) applies to NAND adjacency. Memory is ~30% of hyperscaler capex per SemiAnalysis; NAND benefits as the persistent-storage layer.
 - **Aschenbrenner: STRONG BULLISH** — $724.4M position, #2 long in his book per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`.
 - **Implication:** Both T2 primary-tier sources reinforce. Position at ~10.8% per `research/portfolio/holdings.md` is doubly validated. No action change; HOLD. Among the highest-conviction held names alongside HYNIX.
+
+## Cross-reference — Memory cycle primer (added 2026-05-21)
+
+Per `research/wiki/memory-cycle-primer.md`:
+
+- **NAND Q2 2026 contract prices forecast +70-75% QoQ — outpacing DRAM (+58-63%) for the first time in this cycle** per [Tom's Hardware citing TrendForce](https://www.tomshardware.com/pc-components/dram/dram-and-nand-contract-prices-to-climb-again-in-q2)
+- **Mechanism:** NAND production reallocating from consumer to enterprise SSDs as AI inference state, KV cache, and agentic workload persistent storage absorb capacity (per Tom's Hardware + `wiki/agentic-workload-scaling.md`)
+- **This is a NEW demand vector** that didn't exist in prior memory cycles — adds structural demand on top of historical smartphone + enterprise transactional demand
+- **Supply timing:** new fab capacity not in volume before late 2027 / 2028 per [TrendForce 2026-03-31](https://www.trendforce.com/presscenter/news/20260331-12995.html). SNDK pricing power persists through at least mid-2027.
+- **Implication:** position thesis (HOLD at ~10.8%) reinforced. NAND is now the FASTEST-rising memory layer in the cycle (NAND +70-75% Q2 vs DRAM +58-63% Q2). SNDK is the cleanest US-listed expression. Position alongside HYNIX gives portfolio dual-layer exposure to the memory tightness.

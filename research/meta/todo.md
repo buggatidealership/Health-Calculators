@@ -56,9 +56,6 @@
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Hyperscaler capex primer
   - Scope: How to read MSFT/GOOG/META/AMZN/ORCL capex disclosures; segment definitions; ROIC implications. **BOM-depth requirement:** include dollars-per-GW deployed at current vs next-gen rack densities, not just headline capex numbers.
 
-- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Memory cycle primer
-  - Scope: HBM, DRAM, NAND historical cycles; current state across 2026-2027 trajectory. **BOM-depth requirement:** wafer-counts per HBM stack at each stack-height; bit-density deltas; ASP-per-die trajectory. Aligns with deep-dig queue item #2.
-
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Networking primer
   - Scope: Ethernet vs InfiniBand vs NVLink vs proprietary fabrics; ANET / MRVL / NVDA Spectrum-X. **BOM-depth requirement:** optical engines per switch SKU at current vs next-gen Tomahawk / Spectrum tiers; per-port content delta. Aligns with deep-dig queue item #9.
 
@@ -143,6 +140,17 @@
   - Origin: User-reported podcast claim 2026-05-20 (was P1 open item); user requested 2026-05-21 deep dive + Aschenbrenner comparison
   - Artifact: `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — full thesis comparison + verified Patel claim sourcing (DRAM "double or triple" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/))
   - Side-effect: `research/meta/source-reliability.md` updated with verified Patel track record including resolved memory-pricing claim and 4 additional triangulated claims
+
+- [x] **2026-05-21** [INFRA, BOT, INDP] — Build cascade-enforcement Stop hook (B16 → hook)
+  - Origin: User insight 2026-05-21 — "instructions are choices; hooks are enforced." After B16 (synthesis-without-cascade) was caught, the cascade discipline needed deterministic enforcement.
+  - Artifact: `~/.claude/cascade-enforcement-hook.py` + `~/.claude/settings.json` registration + `research/meta/hooks/` repo mirror + `research/meta/hooks/README.md`
+  - Testing: 5 test cases passed (baseline, deliberate violation, restore, JSON stdin, recursion guard)
+
+- [x] **2026-05-21** [INFRA, BOT] — Memory cycle wiki primer with BOM-level depth
+  - Origin: P3 wiki entry per `meta/methodology.md` core principle #12 (default below revenue mix)
+  - Artifact: `research/wiki/memory-cycle-primer.md` — DRAM/HBM/NAND cycle dynamics + per-stack ASP/GB economics + crowding-out math + supplier capacity timeline through 2028
+  - Cascade: HYNIX, SNDK, MURATA thesis files updated with cross-references per CLAUDE.md Rule #10 (cascade-enforcement hook verified exit 0)
+  - Side-effect: cascade-enforcement hook updated to include `research/wiki/*-primer.md` + `research/wiki/*-scaling.md` patterns
 
 ## How to use this file
 

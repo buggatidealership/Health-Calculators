@@ -292,3 +292,12 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 - **Patel: NEUTRAL on passives directly**, but his structural "supply-chain inelasticity under AI demand" framework — most explicit on memory ("DRAM double or triple from here, supply doesn't come till '28" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/)) — is the structural parallel to the MLCC tightness in this thesis's BOM-level deep-dig (above). Both are "supplier capacity reallocates from consumer to AI; consumer markets pay the bypass-route loser cost."
 - **Aschenbrenner: NEUTRAL** — Murata not in his long book, not in puts per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Reflects his focus on US/Asian-listed direct power-asset names rather than Japanese passives.
 - **Implication:** The BOM-level deep-dig 2026-05-21 (above) is the more material artifact for Murata position decisions than the Patel-Aschenbrenner comparison directly. But Patel's structural framework reinforces the underlying mechanism. Independent thesis stands; HOLD at ~12.4%.
+
+## Cross-reference — Memory cycle primer (added 2026-05-21)
+
+Per `research/wiki/memory-cycle-primer.md`:
+
+- **Structural parallel** — the memory cycle dynamic (AI demand causes wafer reallocation → consumer commodity prices spike) is the SAME mechanism as the MLCC tightness in the BOM-level deep-dig above. Different component, identical structural cause: AI demand reallocates supplier capacity → consumer markets pay the bypass-route loser cost.
+- **DRAM Q1 2026 +90-95% QoQ; NAND Q1 2026 +60% QoQ** per [Tom's Hardware](https://www.tomshardware.com/pc-components/dram/dram-and-nand-contract-prices-to-climb-again-in-q2) — same scale of consumer-market price increase as MLCC duopoly pricing power (Murata April 2026 hike 15-35% per existing thesis above)
+- **Confirms the framework:** memory tightness and MLCC tightness are not isolated phenomena. Both reflect the same AI-demand crowding-out math operating across multiple component layers. Murata thesis (HOLD at ~12.4%) sits within a broader supply-chain tightness pattern rather than a one-off MLCC story.
+- **Implication for position:** the structural framework is validated across components, increasing confidence in the duration-of-pricing-power assumption. Position thesis stands.

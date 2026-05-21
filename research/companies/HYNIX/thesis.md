@@ -164,3 +164,14 @@ Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
 - **Patel: STRONGEST BULL CASE in the OS for memory broadly.** Direct quote: "DRAM will double or triple from here still, supply doesn't come till '28" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/). Memory now ~30% of hyperscaler capex; HBM ~41% of DRAM revenue by 2026 per SemiAnalysis (cited in comparison file).
 - **Aschenbrenner: NEUTRAL** — not in his long book, not in his put list per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`.
 - **Implication:** SK Hynix is the **single most-reinforced name in the portfolio** under these two voices. Patel's call directly validates the HBM thesis at unusual conviction. No action change; HOLD at ~12.5% per `research/portfolio/holdings.md`. Position is among the highest-conviction names we own.
+
+## Cross-reference — Memory cycle primer (added 2026-05-21)
+
+Per `research/wiki/memory-cycle-primer.md`: full cycle dynamics + BOM-level economics:
+
+- **HBM4 ASP per stack ~$500 vs HBM3E ~$300** (per [Silicon Analysts April 2026](https://siliconanalysts.com/data/hbm-pricing)) — ~67% ASP uplift per stack at the next-gen transition
+- **HBM4 ASP per GB ~$10+ vs HBM3E ~$7-8** (same source) — ~30% per-GB uplift
+- **SK Hynix allocated ~70% of NVDA Vera Rubin HBM4 demand** per [SemiCone](https://www.semicone.com/article-385.html) (significantly higher than the ~50% market estimate)
+- **HBM industry capacity end-2026 ~315-345K wpm** (my synthesis from cited sources in memory cycle primer) — roughly 2x late-2025 baseline, but demand growing 77% YoY 2026 + 68% YoY 2027 per `wiki/memory-cycle-primer.md`. Supply ramp does not catch demand ramp.
+- **New fab capacity unlikely in volume before late 2027 / 2028** per [TrendForce 2026-03-31](https://www.trendforce.com/presscenter/news/20260331-12995.html) — confirms Patel's "supply doesn't come till '28" framing
+- **Implication:** position thesis (HOLD at ~12.5%) is further reinforced by BOM-level math. SK Hynix captures ~70% of the largest single AI customer's HBM4 allocation during a period of structural ASP uplift through at least mid-2027. Highest-conviction held position by BOM-level evidence.
