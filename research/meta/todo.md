@@ -22,9 +22,9 @@
   - Scope: Run the 5 stock-reaction questions (per `meta/methodology.md` §Two-Part GRADE Protocol) against settled stock action 2026-05-21 cash session and pre-market 2026-05-22. Update `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` with the T+24h section.
   - Linked: `research/predictions/2026-05-20-NVDA-Q1FY27-GRADE.md`
 
-- [ ] **P2 / verification / 2026-05-20** [INDP, CAL] — Source-reliability track-record audit
-  - Origin: User input 2026-05-20.
-  - Scope: For each of the 8+ sources in the audit queue in `meta/source-reliability.md`, pick 3–5 past specific claims, check what happened, score materialization, annotate the source ledger with track record. Repeat monthly for sources we rely on heavily.
+- [ ] **P3 / verification / 2026-06-21** [INDP, CAL] — Source-reliability monthly audit cycle (next: 6 sources remaining in queue)
+  - Origin: Monthly cadence from initial audit completed 2026-05-21
+  - Scope: Audit the 6 remaining sources from `meta/source-reliability.md` queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge). Apply 5-dimensional framework: tier + track record + bias direction + signal-use classification (🟢/🟡/🔴/🟣) + best/worst use case.
   - Linked: `research/meta/source-reliability.md`
 
 - [ ] **P2 / verification / 2026-05-20** [INDP] — Re-verify VICR 2nd gen VPD technical specs at primary source
@@ -140,6 +140,17 @@
   - **Power equipment (5):** `companies/{GEV, ETN, HUBB, POWL, VRT}/thesis.md` — Tier 2+3 power names from `wiki/power-for-ai-primer.md`
   - **Storage/data candidates (5):** `companies/{PSTG, NTAP, ESTC, CFLT, TEAM}/thesis.md` — cascade-walk additions. CFLT flagged as IBM merger-arb only ($31/share takeout pending mid-2026)
   - **Smaller Aschenbrenner-surfaced (4):** `companies/{BITF, HIVE, BTDR, SHAZ}/thesis.md` — Bitfarms, HIVE Digital, Bitdeer, SharonAI from Q1 2026 13F. BTDR highest conviction (Tydal 180 MW for Rubin co-lo); SHAZ highest asymmetry (newly public Feb 2026)
+
+- [x] **2026-05-21** [INFRA, INDP] — Anti-fabrication hook calibration (repo-grounding check)
+  - Origin: User insight 2026-05-21 — chat summaries of properly-cited file content shouldn't burn turns on hook violations. Files = source of truth.
+  - Artifact: `~/.claude/anti-fabrication-hook.py` updated + `research/meta/hooks/anti-fabrication-hook.py` mirror + CLAUDE.md Critical Rule #7 expanded + biases-watchlist.md B11.a calibration documented
+  - Test cases: 5 passing (grounded numbers pass silently; fabrications still blocked)
+
+- [x] **2026-05-21** [INDP, CAL] — Source-reliability framework expansion + first-pass audit (10 sources)
+  - Origin: User calibration 2026-05-21 — "source reliability has reasoning impact, not just portfolio decision impact. Reliable = green flag amplifier, unreliable = red flag discount or potentially contrarian signal."
+  - Artifact: `research/meta/source-reliability.md` rewritten with 5-dimensional framework (tier + track record + bias direction + signal-use 🟢/🟡/🔴/🟣 + best/worst use case)
+  - Sources audited: SemiAnalysis 🟢, Aschenbrenner 🟢, WSJ/Bloomberg 🟢, Sherwood News 🟢 (with COI flag), TrendForce 🟢 (memory-specific), Digitimes 🟡 (predictive vs factual), Tom's Hardware 🟢/🟡, Benzinga 🟢, TradingKey 🟡, 24/7 Wall St 🟡/🔴, Motley Fool 🟢 (transcripts only), BeyondSPX 🟡, WCCFTech 🔴
+  - Monthly cadence item created for remaining 6 sources
 
 ## How to use this file
 
