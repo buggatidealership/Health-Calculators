@@ -1,6 +1,6 @@
 # To-Do — AI Sector Research OS
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-05-21 (post-DEEP-DIG infrastructure cleanup)
 **Optimizes for:** rate at which signals become defensible, falsifiable, investable conviction earlier than consensus (per `meta/methodology.md` §Meta-First-Principle).
 
 **SessionStart hook sort order:** P0 → P1 → P2 → P3, within priority: artifact-producing > process, within ties: tag count desc, then date asc.
@@ -8,6 +8,8 @@
 **Tags** (from methodology.md): AF anti-fragility | BOT bottleneck-of-tomorrow | POS portfolio coherence | CAL calibration | INDP independence | INFRA harness infrastructure.
 
 **Done item handling:** Items that produced a permanent artifact (thesis file, wiki entry, prediction, hook) get DELETED. Items that are process steps without an artifact get archived in `## Archive` so future Claude doesn't redo them.
+
+**Parallel queue:** `meta/deep-dig-queue.md` tracks BOM-level component drills (Workflow 8 / DEEP-DIG). Not duplicated here — that queue runs on its own ranking criteria.
 
 ---
 
@@ -35,7 +37,8 @@
 - [ ] **P2 / verification / 2026-05-20** [INDP] — Re-verify VICR 2nd gen VPD technical specs at primary source
   - Origin: VICR thesis cited BeyondSPX (T4) for 5 A/mm² density + 24× current gain — should be verified at Vicor product page or technical paper.
   - Scope: Find Vicor's own technical disclosure. Confirm the specs. Update `companies/VICR/facts.md` with primary source.
-  - Linked: `companies/VICR/facts.md`, `companies/VICR/thesis.md`
+  - **Elevated relevance (2026-05-21):** MLCC deep-dig surfaced that the same Rubin TDP-doubling mechanism driving MLCC count expansion (per `companies/MURATA/thesis.md` BOM-level section) also cascades to PMIC count expansion. VICR's WAIT-not-enter framing depends on next-gen design wins — primary-source spec verification becomes more material as Rubin spec sheet matures.
+  - Linked: `companies/VICR/facts.md`, `companies/VICR/thesis.md`, `companies/MURATA/thesis.md` §BOM-level deep-dig
 
 ### P3 — Lower priority (additional thesis candidates)
 
@@ -55,20 +58,22 @@
 
 ### P3 — Foundational wiki entries (planned, not yet built)
 
+**Depth standard:** All wiki entries below must meet `meta/methodology.md` core principle #12 (default BELOW revenue mix). Revenue-mix summaries are insufficient — each wiki must include BOM-level unit counts, current-gen → next-gen deltas where applicable, and supplier capacity-response data. See B15 in `biases-watchlist.md`.
+
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Hyperscaler capex primer
-  - Scope: How to read MSFT/GOOG/META/AMZN/ORCL capex disclosures; segment definitions; ROIC implications
+  - Scope: How to read MSFT/GOOG/META/AMZN/ORCL capex disclosures; segment definitions; ROIC implications. **BOM-depth requirement:** include dollars-per-GW deployed at current vs next-gen rack densities, not just headline capex numbers.
 
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Memory cycle primer
-  - Scope: HBM, DRAM, NAND historical cycles; current state across 2026-2027 trajectory
+  - Scope: HBM, DRAM, NAND historical cycles; current state across 2026-2027 trajectory. **BOM-depth requirement:** wafer-counts per HBM stack at each stack-height; bit-density deltas; ASP-per-die trajectory. Aligns with deep-dig queue item #2.
 
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Networking primer
-  - Scope: Ethernet vs InfiniBand vs NVLink vs proprietary fabrics; ANET / MRVL / NVDA Spectrum-X
+  - Scope: Ethernet vs InfiniBand vs NVLink vs proprietary fabrics; ANET / MRVL / NVDA Spectrum-X. **BOM-depth requirement:** optical engines per switch SKU at current vs next-gen Tomahawk / Spectrum tiers; per-port content delta. Aligns with deep-dig queue item #9.
 
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Geopolitical AI primer
-  - Scope: US-China tech war, export controls, allowed/restricted lists, Taiwan dependence
+  - Scope: US-China tech war, export controls, allowed/restricted lists, Taiwan dependence. **BOM-depth requirement:** wafer-volume by node × geography; specific HSCD-controlled items; substitution paths.
 
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Model economics primer
-  - Scope: Training vs inference cost structures, scaling laws state of art, MoE adoption math
+  - Scope: Training vs inference cost structures, scaling laws state of art, MoE adoption math. **BOM-depth requirement:** GPU-hours per token at current vs next-gen architectures; KV cache memory footprint deltas; inference unit-cost trajectory.
 
 ---
 
@@ -131,6 +136,15 @@
 
 - [x] **2026-05-21** [POS, AF, BOT] — All major watchlist thesis files built
   - Artifacts: `companies/{AVGO, AMZN, BE, MRVL, NBIS, ALAB, GOOG, CORZ, IREN, APLD, CRWV, VST, CEG, CAMT, RMBS, VICR, NVDA, AIXTRON, RIGAKU, SMTC}/thesis.md`
+
+- [x] **2026-05-21** [INFRA, BOT, INDP] — Build DEEP-DIG workflow (default below revenue mix)
+  - Origin: User feedback 2026-05-21 after MLCC SemiAnalysis-style image — "stop focusing on a high level that most analysts do, which is look at the revenue mix. Like, that's quite superficial."
+  - Artifacts: `research/CLAUDE.md` §Workflow 8 (DEEP-DIG); `research/meta/biases-watchlist.md` B15 (revenue-mix-anchoring); `research/meta/methodology.md` core principle #12 (default below revenue mix); `research/meta/deep-dig-queue.md` (NEW — 10-item ranked queue of BOM-level component drills)
+
+- [x] **2026-05-21** [INFRA, BOT] — Run first DEEP-DIG worked example: MLCCs / GB200 → Rubin
+  - Origin: First execution of Workflow 8; seeded by user-shared image with 6,500 → ~12,000 MLCCs per board.
+  - Artifact: `research/companies/MURATA/thesis.md` §BOM-level deep-dig — full cross-stack cascade table, supplier capacity-response triangulation (Murata + Samsung EM + price hikes), named bypass-route losers (consumer OEMs Apple/Samsung Mobile/Xiaomi; lower-end MLCC vendors Yageo/Walsin), cross-cascade to VICR via shared Rubin TDP-doubling mechanism, specific falsifiers
+  - Queue status: item #1 marked complete in `meta/deep-dig-queue.md`; items #2-#10 remain
 
 ## How to use this file
 
