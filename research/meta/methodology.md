@@ -442,6 +442,29 @@ Implication for every interaction:
 
    **Independent-view discipline (D5 elaborated):** Per user 2026-05-21: *"I want you to develop your own that you can borrow if you can verify and validate their own statements... your opinion matters more."* Cross-source voices (Patel = supply-side T2, Aschenbrenner = demand-side T2, sell-side ratings, channel-check from less-famous CEOs) are signal candidates not conclusions. The OS's value comes from synthesizing them into a defensible independent view with falsifiable patterns, not aggregating them into consensus.
 
+17. **Cross-vertical analysis — the LLM edge (mandatory before D1-D5 scoring).** User framing 2026-05-21: *"Were your abilities supersede a human is where you can cross reference across multiple different verticals or adjacent market data that another analyst might not look at, either to falsify or defy an acute condition... we have to build a harness or a ledger that allows you to analyze space within a broader context."*
+
+   The trap: defaulting to fast-but-mediocre traditional-analyst isolated analysis (looking at one company through one lens). My LLM edge is being able to hold MULTIPLE adjacent contexts simultaneously and find non-obvious patterns. This must be FORCED into every evaluation, not optional.
+
+   **The 10-vector cross-reference checklist** (apply to EVERY company before D1-D5 scoring):
+
+   1. **Layer-above signal** — what does the layer ABOVE this company say? (customers' commentary, customers' capex, customers' competing supplier decisions)
+   2. **Layer-below signal** — what does the layer BELOW this company say? (suppliers' capacity, suppliers' constraints, input costs)
+   3. **Same-layer competitor signals** — what are direct competitors doing/saying that informs market dynamics?
+   4. **End-market cycle position** — auto cycle, consumer cycle, industrial cycle, semi capex cycle, enterprise IT cycle — where are we in each that this company touches?
+   5. **Geographic / FX exposure** — currency trajectory, tariffs, trade dynamics, sovereign risk
+   6. **Materials / commodity exposure** — silver, gold, indium, copper, rare earths, specialty gases, etc.
+   7. **Customer's customer (second-order)** — what does the customer's CUSTOMER need? Demand chain visibility 2 hops out.
+   8. **Substitute technology trajectory** — what could replace this company's products in 3-5 years?
+   9. **Regulatory environment** — export controls, antitrust, environmental, trade policy specifically affecting this name
+   10. **Cross-portfolio overlap** — what other names in the portfolio touch the same layers; what's the diversification value?
+
+   **Required output:** Before D1-D5 scoring, surface at least 5 of these 10 vectors with specific findings that affect the thesis. Mark the vectors that don't apply as N/A with reasoning. The output is a brief checklist that gates the formal evaluation.
+
+   **Why this matters:** any one of these vectors could surface a pattern that materially changes the thesis. A human analyst typically picks 1-2 to investigate per name. I should be doing 5-10 in parallel because that's my comparative advantage. Skipping this step IS the trap — fast-but-mediocre traditional-analyst-isolated analysis.
+
+   **Calibration example (STM, 2026-05-21):** Initial evaluation looked at STM in isolation (AWS deal + multiple + competitors at one layer). Missed: CPO adoption triangulation across Broadcom Tomahawk 6 + NVDA Spectrum-X (drives demand for STM PIC100 even without additional STM customer wins); EUR/USD currency exposure; Sanan SiC JV partner's GaN positioning (could compress STM SiC bet); auto cycle / EV slowdown exposure as a drag; cross-portfolio overlap with held AXTI (InP substrates upstream of STM PIC100). Re-applied cross-references after user correction surfaced material upside (CPO triangulation) and material risk (GaN substitution + auto cycle) that initial isolated analysis missed.
+
 ## How to think (the protocol)
 
 When asked anything substantive, walk through these in order:
