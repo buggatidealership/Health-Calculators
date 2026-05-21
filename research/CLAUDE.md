@@ -430,6 +430,10 @@ Always check against these before completing any analysis:
 8. **NEVER SELL ON MACRO HEADWIND WITHOUT THESIS FALSIFICATION.** Sell only when a written falsifier in the thesis fires. Macro noise (short-term pullbacks, geopolitical events, market dumps) is NOT a falsifier unless it specifically invalidates a thesis condition. Emotional risk-management masquerading as "prudent" is a documented bias (see B9 in `meta/biases-watchlist.md`).
 9. **ALWAYS APPLY BYPASS-ROUTE THINKING.** For any binding constraint, the consensus answer (who supplies the standard solution) is rarely the investable insight. Always ask: "What do consumers do when the consensus solution fails their actual sensitivity?" The bypass-route names are usually where the edge is. See `meta/methodology.md` for the Time-to-X framework.
 
+10. **ALWAYS CASCADE CROSS-SOURCE SYNTHESIS.** When any research artifact references multiple held or candidate names (thesis comparison, primary-source 13F analysis, deep-dig with cross-stack cascade, source-reliability update, triangulation promotion), each affected `companies/{TICKER}/thesis.md` MUST be updated within the SAME COMMIT with: (a) a back-reference to the synthesis artifact, (b) a 1-3 sentence implication for that name's thesis, (c) any tier/sizing/falsifier change if material. A synthesis artifact without per-name cascade is incomplete work — the artifact is intellectually interesting but operationally useless because portfolio decisions get made in the per-name thesis files. See B16 in `meta/biases-watchlist.md`.
+
+   **HARD DISCIPLINE (after B16 catch 2026-05-21):** Before completing any synthesis artifact commit, list every named ticker in the artifact. For each, verify the corresponding thesis file has been updated. If any is missing, the cascade is incomplete and the commit is premature. The discipline is symmetric: the artifact references the theses AND each thesis back-references the artifact.
+
 ---
 
 ## File Templates

@@ -151,3 +151,12 @@ AI revenue grows ~70% in FY27 (deceleration from current +106% pace). Multiple f
 - `research/wiki/custom-silicon-primer.md` — substrate analysis
 - `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md` — Aschenbrenner has puts on AVGO (multiple compression call); my thesis disagrees on timing/direction
 - `research/portfolio/recommendations.md` — pending GLW trim could fund AVGO entry
+- `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — cross-source synthesis below
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: BULLISH on custom-silicon trajectory** — projects NVDA inference market share dropping from 90%+ to 20-30% by 2028 per [Benzinga Aug 2025](https://www.benzinga.com/markets/equities/25/08/47202594/nvidias-reign-at-risk-dylan-patel-says-googles-tpu-amazons-trainium-could-outshine-gpus-if-sold-to-public); custom ASIC CAGR ~44.6% per [TokenRing analysis](https://markets.financialcontent.com/wral/article/tokenring-2026-1-1-the-great-decoupling-how-hyperscaler-custom-silicon-is-ending-nvidias-ai-monopoly); custom Si offers 40-65% TCO benefit, 30-40% better price/performance vs merchant GPU per same sources. AVGO is the largest custom-Si design-partnership beneficiary per `research/wiki/custom-silicon-primer.md`. **Direct positive read for AVGO.**
+- **Aschenbrenner: BEARISH** — $1.01B notional puts per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Treats AVGO as part of the chip-stack Stage 4 multiple-compression call rather than picking custom-Si winners.
+- **Implication:** **DIRECT DISAGREEMENT** between the two voices specifically on AVGO. Patel's framework is more useful for AVGO-specific stock-picking; Aschenbrenner's puts are blunt-instrument shorts on the chip stack broadly. **My read:** weight Patel's specificity higher on AVGO entry decision. The 5-8% Active candidate tier from prior thesis stands. The Aschenbrenner put exposure is the explicit Stage 4 multiple-compression risk — already a documented falsifier in the entry decision.

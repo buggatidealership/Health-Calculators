@@ -162,3 +162,12 @@ This name is exposed to:
 - [ADI acquires Empower Semiconductor for $1.5B — IndexBox](https://www.indexbox.io/blog/adi-in-advanced-talks-to-acquire-empower-semiconductor-for-15-billion/)
 - [WallStreetZen VICR analyst forecast](https://www.wallstreetzen.com/stocks/us/nasdaq/vicr/stock-forecast)
 - [Vicor 2nd gen VPD launch — EE Times](https://www.eetimes.com/48-v-power-architecture-supports-next-generation-ai-processors/)
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: SOURCE OF THE BEARISH CURRENT-GEN STORY.** Patel's SemiAnalysis newsletter is the original "VICR designed out at H100, replaced by MPS at one of top-2 hyperscalers" source (per [SemiAnalysis](https://newsletter.semianalysis.com/p/energizing-ai-power-delivery-competition)). The WAIT framing in this thesis flows directly from his bottoms-up customer-level work.
+- **Aschenbrenner: NEUTRAL** — not in long book, not in put list per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`.
+- **Cross-cascade from MURATA deep-dig 2026-05-21:** Same Rubin TDP-doubling mechanism that drives MLCC count expansion (~6,500 → ~12,000 per board per the SemiAnalysis-style image) also drives PMIC count expansion per `research/companies/MURATA/thesis.md` §BOM-level deep-dig. VICR's binary bet on 2nd gen VPD design wins at NVDA Rubin / AMD MI400 is the key catalyst for capturing this expanding TAM.
+- **Implication:** WAIT-not-enter framing stands. Patel reinforces the customer-level reality; the open P2 todo (re-verify VICR 2nd gen VPD specs at primary source per `research/meta/todo.md`) becomes more material as the Rubin spec sheet matures.

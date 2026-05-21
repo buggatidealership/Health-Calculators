@@ -283,3 +283,12 @@ Per the user-shared image 2026-05-21: "the next-generation Rubin architecture—
 - `research/wiki/agentic-workload-scaling.md` — workload-driven demand math
 - `research/wiki/custom-silicon-primer.md` — custom chips also use MLCCs
 - `research/portfolio/holdings.md` — user holds 12.4%
+- `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — cross-source synthesis below
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: NEUTRAL on passives directly**, but his structural "supply-chain inelasticity under AI demand" framework — most explicit on memory ("DRAM double or triple from here, supply doesn't come till '28" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/)) — is the structural parallel to the MLCC tightness in this thesis's BOM-level deep-dig (above). Both are "supplier capacity reallocates from consumer to AI; consumer markets pay the bypass-route loser cost."
+- **Aschenbrenner: NEUTRAL** — Murata not in his long book, not in puts per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Reflects his focus on US/Asian-listed direct power-asset names rather than Japanese passives.
+- **Implication:** The BOM-level deep-dig 2026-05-21 (above) is the more material artifact for Murata position decisions than the Patel-Aschenbrenner comparison directly. But Patel's structural framework reinforces the underlying mechanism. Independent thesis stands; HOLD at ~12.4%.

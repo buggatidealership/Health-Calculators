@@ -227,5 +227,20 @@ The **important divergence**: Aschenbrenner explicitly bets against the chip-sta
 - `research/sector/scenarios.md` — scenario weights, both Patel and Aschenbrenner partially inform
 - `research/portfolio/holdings.md` — user's positions for cross-reference
 - `research/meta/deep-dig-queue.md` — items #2 (HBM stack-height) and forthcoming additions on DRAM/HBM displacement + TSMC N3 allocation derived from Patel claims
-- `research/companies/HYNIX/thesis.md` — directly benefits from Patel's "DRAM double or triple" call
-- `research/companies/MURATA/thesis.md` §BOM-level deep-dig — adjacent (MLCC capacity tightening parallels memory tightening)
+
+## Cascade applied (per CLAUDE.md Critical Rule #10, added 2026-05-21)
+
+The following thesis files were updated within the same commit (2026-05-21) with a "## Cross-source synthesis — Patel + Aschenbrenner" section reflecting each name's specific implication:
+
+| Ticker | Held? | Cross-source signal | Action implication |
+|---|---|---|---|
+| **HYNIX** | ✓ ~12.5% | Patel STRONG BULLISH ("DRAM 2-3x"); Aschenbrenner NEUTRAL | **REINFORCED** — most validated held name under these voices |
+| **SNDK** | ✓ ~10.8% | Patel IMPLICIT BULLISH (memory tightness applies to NAND); Aschenbrenner STRONG BULLISH ($724.4M #2 long) | **DOUBLY REINFORCED** |
+| **GLW** | ✓ ~10.8% | Patel NEUTRAL; Aschenbrenner BEARISH (puts) | **TRIM stance reinforced** — only PUT against a held name |
+| **TE** | ✓ ~7.1% | Patel NEUTRAL (power resolved); Aschenbrenner MILD BULLISH ($43.9M small) | **LEAST-reinforced held position** — hold but don't add |
+| **VICR** | (small) | Patel SPECIFIC BEARISH (designed-out at H100); Aschenbrenner NEUTRAL | **WAIT framing reinforced** |
+| **MURATA** | ✓ ~12.4% | Patel NEUTRAL on passives but structural parallel to memory thesis; Aschenbrenner NEUTRAL | BOM-level deep-dig (same commit) is more material; thesis stands |
+| **AVGO** | (none, candidate) | Patel BULLISH (custom-Si beneficiary); Aschenbrenner BEARISH ($1.01B puts) | **DIRECT DISAGREEMENT** — weight Patel's specificity; 5-8% Active stance stands |
+| **NVDA** | (none) | Patel SHORT-TERM BULLISH + LONG-TERM SHARE-COMPRESSION; Aschenbrenner BEARISH ($1.57B largest single short) | **STRONGEST tension** — no position defensible at Stage 4 |
+
+Discipline note: each thesis file's update back-references this artifact, completing the symmetric cascade per CLAUDE.md Rule #10.

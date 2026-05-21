@@ -155,3 +155,12 @@ No trim recommended. If anything, the verification work supports HOLDING through
 - `research/wiki/custom-silicon-primer.md` — confirms even custom Si needs HBM
 - `research/signals/triangulation.md` — capacity-constrained signal
 - `research/companies/HYNIX/facts.md` — raw financials
+- `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — cross-source synthesis below
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: STRONGEST BULL CASE in the OS for memory broadly.** Direct quote: "DRAM will double or triple from here still, supply doesn't come till '28" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/). Memory now ~30% of hyperscaler capex; HBM ~41% of DRAM revenue by 2026 per SemiAnalysis (cited in comparison file).
+- **Aschenbrenner: NEUTRAL** — not in his long book, not in his put list per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`.
+- **Implication:** SK Hynix is the **single most-reinforced name in the portfolio** under these two voices. Patel's call directly validates the HBM thesis at unusual conviction. No action change; HOLD at ~12.5% per `research/portfolio/holdings.md`. Position is among the highest-conviction names we own.

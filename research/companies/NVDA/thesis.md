@@ -74,3 +74,11 @@ NOT larger (15%+) because:
 See `predictions/2026-05-20-NVDA-Q1FY27.md` for current quarter forecast.
 See `facts.md` for the underlying financials.
 See `interpretations.md` for evolving reads on management commentary.
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: SHORT-TERM IMPLICIT BULLISH, LONG-TERM BEARISH ON SHARE.** Capacity-constrained for years (his bottleneck-evolution model puts fabs binding 2026+ per [Latent Space Feb 2026](https://www.latent.space/p/dylanpatel-cooking)); Grace Blackwell improvement over Hopper 50x per Patel's estimate vs Jensen's public 35x figure (triangulated across multiple interviews). LONG-TERM: NVDA inference market share 90%+ → 20-30% by 2028 per [Benzinga Aug 2025](https://www.benzinga.com/markets/equities/25/08/47202594/nvidias-reign-at-risk-dylan-patel-says-googles-tpu-amazons-trainium-could-outshine-gpus-if-sold-to-public).
+- **Aschenbrenner: BEARISH** — $1.57B notional NVDA puts (largest single individual short in his book) per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Multiple compression call.
+- **Implication:** **STRONGEST direct disagreement between the two voices in our universe.** Reconciliation: both views can be right on different timelines — fundamentals continue to beat (Patel near-term) AND multiples compress (Aschenbrenner) in classic Stage 4-5 dynamic per `meta/methodology.md` Recognition Stage spectrum. Long-term, custom-Si fragmentation favors AVGO over NVDA. **Position implication:** NVDA is for fundamental-exposure trades, not multiple-expansion. User's lack of NVDA position is defensible given Stage 4 + bidirectional risk surfaced here. Pair-trade construction (long custom-Si beneficiary like AVGO + short NVDA via puts) would mirror Aschenbrenner but require active management; not currently in plan.

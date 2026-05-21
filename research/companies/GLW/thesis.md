@@ -266,3 +266,12 @@ This input determines the FRAMING of the trim, not the recommendation itself.
 - [Stock Analysis — GLW overview](https://stockanalysis.com/stocks/glw/)
 - [TheStreet — story complications](https://www.thestreet.com/investing/stocks/corning-stock-falls-as-the-story-gets-more-complicated)
 - [Aschenbrenner Q1 2026 13F analysis](`research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`)
+- `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — cross-source synthesis below
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: NEUTRAL on GLW directly** — his optical interconnect commentary focuses on InP / CPO transition / signal integrity layer, not fiber suppliers. He has not (in our verified citations) singled out GLW as bottleneck or beneficiary. Implicit positive read: AI optical demand is structurally large per his memory + networking analysis — but doesn't differentiate GLW vs alternative fiber sources.
+- **Aschenbrenner: BEARISH** — holds puts on GLW (size undisclosed) per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Most likely a Stage 4 multiple-compression call given GLW's ~100x trailing P/E per [Seeking Alpha](https://seekingalpha.com/article/4890186-corning-looks-overvalued-until-you-drill-down-and-see-all-thats-here-buy) (already cited in TL;DR).
+- **Implication:** **Aschenbrenner is the only direct PUT-position against a held name in the user's portfolio.** The existing TRIM-to-5-7% recommendation in TL;DR is consistent with: (a) Patel's silence (no incremental conviction on the name), (b) Aschenbrenner's positioning (multiple compression risk), and (c) the Forward Mix Probabilistic Model in `meta/methodology.md` showing the AI fiber thesis becomes more valuable over 3-5 years even if multiple compresses near-term. The trim is for Stage 4 risk; the structural thesis remains intact. Open P3 todo: deeper fiber-km per hyperscaler campus BOM math in `meta/deep-dig-queue.md` item #5.

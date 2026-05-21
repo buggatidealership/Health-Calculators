@@ -73,3 +73,12 @@ Per `research/meta/methodology.md`: ✓ PASS. More inference tokens = more state
 - `research/wiki/agentic-workload-scaling.md` — workload-driven demand math
 - `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md` — $724.4M validation
 - `research/portfolio/holdings.md` — user holds 10.8%
+- `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — cross-source synthesis below
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: IMPLICIT BULLISH** — his memory-tightness call ("DRAM double or triple from here, supply doesn't come till '28" per [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2026/04/23/dram-will-double-or-triple-from-here-as-ai-demand-outpaces-supply-chain-capacity/)) applies to NAND adjacency. Memory is ~30% of hyperscaler capex per SemiAnalysis; NAND benefits as the persistent-storage layer.
+- **Aschenbrenner: STRONG BULLISH** — $724.4M position, #2 long in his book per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`.
+- **Implication:** Both T2 primary-tier sources reinforce. Position at ~10.8% per `research/portfolio/holdings.md` is doubly validated. No action change; HOLD. Among the highest-conviction held names alongside HYNIX.

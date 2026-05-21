@@ -175,3 +175,12 @@ Per user instruction 2026-05-21:
 - `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md` — $43.9M position validation
 - `research/portfolio/holdings.md` — user holds 7.1%
 - `research/portfolio/coherence-audit.md` — flagged as untested at Pass 1
+- `research/meta/patel-vs-aschenbrenner-thesis-comparison.md` — cross-source synthesis below
+
+## Cross-source synthesis — Patel + Aschenbrenner (added 2026-05-21)
+
+Per `research/meta/patel-vs-aschenbrenner-thesis-comparison.md`:
+
+- **Patel: NEUTRAL** — solar manufacturing is not a direct subject of his coverage. His bottleneck framework (logic/memory/power) treats power as resolved 2026 ("power is not a constraint... can't get a 3nm fab" per TBPN podcast Feb 2026), which is mildly negative for incremental new power-supply names.
+- **Aschenbrenner: MILD BULLISH** — $43.9M position per `research/signals/events/2026-05-21-aschenbrenner-q1-13f.md`. Small for his book ($43.9M vs $878.7M BE) — symbolic, not high-conviction.
+- **Implication:** Modest validation only. Patel's "power is resolved" framing actually argues against adding to TE. The policy-dependence risk (IRA Section 45X PTC) remains the defining variable. HOLD at ~7.1% per `research/portfolio/holdings.md` stands; do not increase based on Aschenbrenner's small position alone. T1 is now LEAST-reinforced of held positions under these two voices.
