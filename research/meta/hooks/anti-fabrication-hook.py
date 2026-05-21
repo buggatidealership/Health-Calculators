@@ -3,8 +3,16 @@
 Anti-fabrication Stop hook for the AI Sector Research OS.
 
 Scans the most recent assistant message for numerical claims and verifies
-each one has a nearby citation, file reference, or explicit "unsourced"
-flag. Exits 2 with stderr if uncited numerical claims are found, which
+each one is grounded — either:
+  (a) cited inline (URL, file path, "per [source]", etc.), OR
+  (b) explicitly hedged ("(estimate)", "(my inference)", etc.), OR
+  (c) NEW (added 2026-05-21 per user calibration): grounded by exact-string
+      match in any file under research/. Rationale: if I've already written
+      a properly-cited file containing this number, the chat summary
+      re-stating it doesn't need to re-cite — the file IS the source of
+      truth. The hook still catches FABRICATION (number nowhere in repo).
+
+Exits 2 with stderr if uncited+ungrounded numerical claims are found, which
 surfaces the violations back to Claude as feedback for the next turn.
 
 Scope: only enforces when the cwd is the Health-Calculators repo (the
@@ -18,6 +26,13 @@ Citation patterns accepted as valid:
   - Explicit hedges: "(estimate)", "(approximate)", "(unsourced)",
     "(my inference)", "(rough)", "~", "≈", "roughly", "approximately"
 
+Repo grounding (added 2026-05-21):
+  - For each number that fails inline-citation check, exact-string-search
+    the entire research/ folder. If the number string appears in ANY file,
+    it's considered grounded (file = source of truth).
+  - This catches fabrication (number nowhere in repo) while allowing chat
+    summaries of previously-committed properly-cited work.
+
 Hook is intentionally lenient (favor false negatives over false positives)
 since it's a guardrail not an oracle.
 """
@@ -25,11 +40,13 @@ since it's a guardrail not an oracle.
 import json
 import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
 # Only enforce inside the research OS repo. Avoid imposing on unrelated work.
 ENFORCEMENT_PATHS = ["/home/user/Health-Calculators"]
+RESEARCH_DIR = os.path.join(ENFORCEMENT_PATHS[0], "research")
 
 
 def in_scope() -> bool:
@@ -151,6 +168,44 @@ def find_violations(text: str) -> list[tuple[str, str, str]]:
     return violations
 
 
+def is_grounded_in_repo(number_str: str) -> bool:
+    """Check if the exact number string appears in any file under research/.
+
+    Rationale: if a number is already in a properly-cited file, then chat
+    summaries that restate it don't need to re-cite — the file IS the
+    source of truth. This catches fabrication (number nowhere in repo)
+    while eliminating false positives on legitimate restatement.
+
+    Uses grep -F (fixed string) for speed and to avoid regex escaping
+    issues with special characters like $.
+    """
+    if not os.path.isdir(RESEARCH_DIR):
+        return False
+    # Normalize: grep would otherwise need the exact form
+    needle = number_str.strip()
+    if not needle:
+        return False
+    try:
+        # -r recursive, -F fixed string, -q quiet (just exit code), -l list files
+        result = subprocess.run(
+            ["grep", "-r", "-F", "-l", "--include=*.md", needle, RESEARCH_DIR],
+            capture_output=True,
+            text=True,
+            timeout=10,
+        )
+        # grep exits 0 if at least one match found
+        return result.returncode == 0 and bool(result.stdout.strip())
+    except (subprocess.TimeoutExpired, FileNotFoundError, Exception):
+        # If grep not available or times out, fall back to NOT grounding
+        # (conservative — keeps the violation as a violation)
+        return False
+
+
+def filter_grounded_violations(violations: list[tuple[str, str, str]]) -> list[tuple[str, str, str]]:
+    """Remove violations whose number string is grounded by repo existence."""
+    return [v for v in violations if not is_grounded_in_repo(v[0])]
+
+
 def main():
     try:
         input_data = json.load(sys.stdin)
@@ -182,11 +237,18 @@ def main():
     if not violations:
         sys.exit(0)
 
+    # Filter out violations grounded by exact-string existence in research/.
+    # Per user calibration 2026-05-21: chat summaries of properly-cited file
+    # content do not need re-citation; the file IS the source of truth.
+    violations = filter_grounded_violations(violations)
+    if not violations:
+        sys.exit(0)
+
     # Build feedback message — show first 5 violations
     msg_lines = [
-        "ANTI-FABRICATION HOOK: numerical claims found without nearby citation, file reference, or explicit hedge.",
+        "ANTI-FABRICATION HOOK: numerical claims found without nearby citation, file reference, OR repo grounding.",
         "",
-        f"Found {len(violations)} potentially unsourced numerical claim(s). Showing first 5:",
+        f"Found {len(violations)} potentially fabricated numerical claim(s) — number is NOT present in any research/ file. Showing first 5:",
         "",
     ]
     for i, (matched, category, context) in enumerate(violations[:5], 1):
@@ -197,11 +259,13 @@ def main():
     msg_lines += [
         "Required action: in your next message, for each numerical claim either",
         "  (a) cite the source inline (URL, file path, 'per [source]', etc.), OR",
-        "  (b) flag it explicitly as '(estimate)', '(my inference)', '(unsourced)', etc.",
+        "  (b) flag it explicitly as '(estimate)', '(my inference)', '(unsourced)', etc., OR",
+        "  (c) commit the number to a properly-cited research/ file FIRST, then restate.",
         "",
-        "If you re-stated already-cited numbers from earlier in the conversation,",
-        "include the citation again in the same message — the hook reads only the",
-        "current message.",
+        "Repo-grounding is checked via exact-string match in research/*.md files.",
+        "If the number truly exists in a file but the hook missed it, the string",
+        "form may differ ($163B vs '163 billion') — restate using the exact form",
+        "from the file.",
     ]
     print("\n".join(msg_lines), file=sys.stderr)
     sys.exit(2)

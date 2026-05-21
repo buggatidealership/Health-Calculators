@@ -23,11 +23,33 @@ Requires uncommitted changes to be committed + pushed before each turn completes
 **Exits 2** if uncommitted changes exist; **0** otherwise.
 
 ### `anti-fabrication-hook.py` — Stop
-Scans the most recent assistant message for numerical claims ($X, X%, X GW, X wafers, etc.) and verifies each has a nearby citation, file reference, or explicit hedge ((estimate), (approximate), ~, etc.). Forces citation discipline.
+Scans the most recent assistant message for numerical claims ($X, X%, X GW, X wafers, etc.) and verifies each one is grounded — either:
+1. Cited inline (URL, file path, "per [source]", etc.)
+2. Explicitly hedged ((estimate), (my inference), ~, ≈, etc.)
+3. **(Added 2026-05-21 per user calibration):** Grounded by exact-string match in any `research/*.md` file. Rationale: if I've already written a properly-cited file containing this number, the chat summary re-stating it doesn't need to re-cite — the file IS the source of truth.
 
-**Exits 2** with stderr feedback if uncited numerical claims found; **0** otherwise.
+This means: the hook catches **fabrication** (number nowhere in repo) but **passes legitimate restatement** of previously-committed properly-cited work. Eliminates the B11.a recurrence loop where every chat summary triggered hook violations.
 
-**Bias addressed:** B11 in `research/meta/biases-watchlist.md` (numerical claims without citation).
+**Exits 2** with stderr feedback if uncited+ungrounded numerical claims found; **0** otherwise.
+
+**Bias addressed:** B11 in `research/meta/biases-watchlist.md` (numerical claims without citation). The 2026-05-21 calibration explicitly addresses the B11.a sub-pattern (re-stated numbers without re-citation) by checking repo grounding.
+
+**Test the hook manually:**
+```bash
+# Test grounding function directly:
+python3 -c "
+exec(open('/root/.claude/anti-fabrication-hook.py').read().replace('if __name__ == \"__main__\":', 'if False:'))
+print('Grounded \$163B:', is_grounded_in_repo('\$163B'))      # True (in GEV thesis)
+print('Fabricated \$999B:', is_grounded_in_repo('\$999B'))    # False
+"
+
+# Test end-to-end with fake transcript:
+cat > /tmp/test_transcript.jsonl << 'EOF2'
+{"role":"assistant","content":[{"type":"text","text":"GEV backlog \$163B; fabricated \$999B"}]}
+EOF2
+echo '{"transcript_path":"/tmp/test_transcript.jsonl","stop_hook_active":false}' | python3 ~/.claude/anti-fabrication-hook.py
+# Expected: exit 2, only complains about \$999B (not \$163B)
+```
 
 ### `cascade-enforcement-hook.py` — Stop (added 2026-05-21)
 Enforces **CLAUDE.md Critical Rule #10**: cross-source synthesis artifacts must cascade to each named ticker's thesis file.

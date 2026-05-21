@@ -96,14 +96,17 @@ This bias has two confirmed subtypes:
 **B11.a — Re-stated numbers without re-citation.**
 Origin: Hook catch 2026-05-20 on Anthropic 34.4% / OpenAI 32.3% enterprise adoption (cited in wiki but not re-cited in chat) and SK Hynix 12.5% portfolio weight (cited in holdings.md but not re-cited in chat).
 Pattern: When restating numbers from earlier conversation or from research files I just wrote, the citation feels redundant in the moment so I skip it. But the hook reads only the current message.
-Correction: Re-cite even "obvious" numbers. Treat each message as if the reader has no prior context.
+~~Correction (old):~~ Re-cite even "obvious" numbers. Treat each message as if the reader has no prior context.
+**Correction (updated 2026-05-21 per user calibration):** The hook now checks repo grounding via exact-string match. Numbers that exist in any `research/*.md` file are considered grounded — chat restatement does NOT need re-citation. The discipline is now: ensure files have proper citations (file-level rigor), then restate freely in chat. The hook catches genuine fabrication (number nowhere in repo) but doesn't burn turns on legitimate restatement. User framing: *"I trust you, but you have to catch your own failure mode in case you write a file in which you do not do the citation."*
 
 **B11.b — Illustrative/hypothetical scenario inputs without hedge.**
 Origin: Hook catch 2026-05-20 on three hypothetical scenario percentages (~15%, ~30%, ~25%) used as ILLUSTRATIVE inputs to scenario modeling, not factual claims. The hook correctly flagged them because they had no hedge attached.
 Pattern: When sketching scenarios ("what if X took 15% of share, what if Y reduced memory by 30%"), the number is clearly hypothetical IN MY HEAD but I forget the reader/hook doesn't see that frame. The number reads as a claim.
 Correction: Always hedge illustrative or hypothetical inputs explicitly. Recognized hedge patterns now include `(hypothetical)`, `(hypothetical scenario)`, `(illustrative)`, `(scenario)`, `(modeled)`, `(if X)` — the hook was updated 2026-05-20 to accept these.
 
-**How to check (both subtypes):** Before completing any message with ≥2 numerical claims, scan each one for adjacent citation or hedge. Citation patterns that work: `per [source]`, `per [file path]`, `(estimate)`, `(my inference)`, `(hypothetical)`, `(illustrative)`, `~` prefix.
+**How to check (both subtypes):** Before completing any message with ≥2 numerical claims, scan each one. For B11.a: ensure the number is either cited inline OR exists verbatim in a `research/*.md` file (file-level work is properly cited). For B11.b: ensure illustrative/hypothetical numbers carry an explicit hedge.
+
+**Calibration history:** B11.a recurred 4 times in session 2026-05-21 (SNDK $724M, GEV/ETN/VRT summary table, MURATA deep-dig restated numbers, the meta-discussion message itself using $163B). User caught the pattern and proposed the repo-grounding fix. Hook updated; expected to eliminate the recurrence loop while preserving genuine fabrication detection.
 
 ### B10 — P/E multiple anchoring on emerging-demand stories
 **Origin:** User feedback, 2026-05-20. Bloom Energy was identified correctly as a bypass-route name for the time-to-power constraint. The optical "high P/E" almost talked the user out of the position — and definitely talked them into selling at +30% on the view that "the multiple is rich, take the win."
