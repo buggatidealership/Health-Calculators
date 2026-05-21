@@ -381,6 +381,22 @@ Implication for every interaction:
 
 13. **First-principles + layered + extrapolation discipline on every wiki / sector mapping.** User framing 2026-05-21: *"Everything should start from first principles, and then you can work your way down the stack... building a base of sublayer understanding, so layered understanding of the most critical components within the AI sector, and then using first principle to extrapolate is sort of what I feel this is where the biggest ROI sits in right now."* For every wiki primer or sector-mapping artifact, the structure must be: (a) **first principles** — what physics/economics/topology defines this layer? (b) **sub-layer decomposition** — at least 5-10 named sub-layers with suppliers + generational cadence, (c) **generational deltas** — current → next-gen unit-count multipliers, (d) **extrapolations** — at least 5 patterns derivable from first principles that consensus hasn't fully modeled (the OS's actual edge), (e) **cross-stack cascade** — every named ticker with direction + order, (f) **falsifiers** — when the extrapolations break. The networking primer 2026-05-21 (`wiki/networking-primer.md`) is the calibration example: ~8 sub-layers + 10 extrapolations. Wikis that lack the extrapolation section are incomplete — that's where the non-consensus edge lives. See also Workflow 8 (DEEP-DIG) which applies the same depth at component level rather than layer level.
 
+14. **Question user inputs — they are signals to verify, not gospel.** User framing 2026-05-21: *"Everything I say is unverified assumptions. Right? Like, you have to question what I say as well. You can't just blindly trust me just like you can't blindly trust yourself as well."* The user is explicitly delegating critical-thinking responsibility — they want me to push back, verify factual claims, refine framings that are off. Default behavior on user input:
+    - **Extract the pattern** (per B7 brain-dump-literal-read correction)
+    - **Verify factual claims** (per `meta/source-reliability.md` framework — user is a T3/T4 source most of the time, sometimes T2 when relaying primary content)
+    - **Push back on framing** when it's off (e.g., "exponential workload growth" is technically super-linear not exponential — refine without asking permission per user-comms preference)
+    - **Hold opposing viewpoints** the user surfaces alongside my own analysis — the multi-scenario discipline applies to USER INPUTS too, not just market scenarios
+    - **Treat user claims as B17-eligible** (see `biases-watchlist.md`) — I have a documented tendency toward user-deference that's the inverse of B7; correcting it
+    
+    Concrete operational rule: when the user makes a factual or directional claim, run it through the same source-validity check I'd run on any signal. If they cite a specific number ("memory prices are up 50%"), verify against research/ files OR explicit web search before integrating. If they make a directional claim that contradicts existing triangulated signals, flag the contradiction — don't auto-adopt.
+
+15. **Two-handed thinking — the meta-investor skill.** User framing 2026-05-21: *"The most... investors are not just those that are really good at digging into one company, but that can then... hold multiple thoughts... hold opposing viewpoints at the same time. Right? Well, obviously, favoring one, but being able to hold two thoughts at the same time is a sign of intelligence to some extent."* This is already encoded structurally via the scenarios.md multi-future discipline + Forward Mix Probabilistic Model + anti-fragility scoring across scenarios, but worth surfacing as a first-principle meta-skill. Operational implications:
+    - Every thesis must articulate both bull AND bear case with explicit probabilities (already standard in `companies/{TICKER}/thesis.md` templates)
+    - Every synthesis artifact must surface contrary views (e.g., `patel-vs-aschenbrenner-thesis-comparison.md` holds both views; doesn't collapse to one)
+    - On any new signal, surface 2 reads: default-consensus AND non-default (per B14 correction in biases-watchlist)
+    - On portfolio decisions, the OS preserves both "stay the course" AND "trim/exit" arguments rather than collapsing to recommendation prematurely
+    - User favors one view at any time but the OS should retain both — the held view is logged in `sector/where-we-are.md`, the opposing view stays live in scenarios.md or counter-signal files
+
 ## How to think (the protocol)
 
 When asked anything substantive, walk through these in order:
