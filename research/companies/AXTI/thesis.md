@@ -179,6 +179,38 @@ Per user instruction 2026-05-21:
 - `research/portfolio/recommendations.md` — adding AXTI trim recommendation
 - `research/wiki/networking-primer.md` — cross-source synthesis below
 
+## Cross-vertical re-evaluation (added 2026-05-21, per methodology principle #17)
+
+Re-evaluation under the 10-vector cross-reference framework surfaced material findings the prior isolated analysis missed.
+
+### Critical discoveries
+
+**1. Market-share data conflict:** Existing thesis cites 60-70% global InP substrate share (from `research/wiki/optical-interconnect-primer.md`). Per [Mordor Intelligence](https://www.mordorintelligence.com/industry-reports/indium-phosphide-wafer-market): top 5 suppliers (Sumitomo Electric, AXT, Freiberger, JX Nippon Mining, Visual Photonics Epitaxy) collectively hold ~70%. **If Mordor is correct, AXTI specific share is ~20-30%, NOT 60-70%.** This is a material correction. Verification needed at primary source (AXT Q1 2026 earnings call or 10-K).
+
+**2. Capacity targets vs market-size math conflict:** Per [Mordor](https://www.mordorintelligence.com/industry-reports/indium-phosphide-wafer-market): InP wafer market $198M (2025) → $221M (2026). Per [Yahoo Finance Q1 2026 highlights](https://finance.yahoo.com/markets/stocks/articles/axt-inc-axti-q1-2026-071806694.html): AXTI capacity targets ~$35M/quarter end-2026 ($140M annualized) and $65-70M/quarter end-2027/early-2028 ($260-280M annualized). **AXTI's 2027-2028 target exceeds the entire 2026 reported market size.** Either (a) market growing faster than analysts model, (b) targets aspirational, (c) AXTI taking massive share, or (d) Mordor's market estimate is too low. This is a falsifiable thesis condition.
+
+**3. China export controls = elevated/ongoing material risk.** Per [TheValueist on X (Q4 2025 disclosure)](https://x.com/TheValueist/status/2009443250407399732): AXT had Q4 2025 preliminary revenue shortfall attributed primarily to fewer-than-expected export control permits from China's Ministry of Commerce. Management Q1 2026 commentary per [Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/axt-inc-axti-q1-2026-071806694.html): "future upside depends heavily on the timing of export permits." This is a binding constraint NOT just a tail risk.
+
+**4. IQE 150mm (6-inch) InP platform** specifically targeting cloud/AI data centers per [Mordor](https://www.mordorintelligence.com/industry-reports/indium-phosphide-wafer-market) = direct competitor moving up-market.
+
+**5. Tier-1 customer expansion = rerating-arc mid-arc confirmation.** Per [Yahoo Finance Q1 highlights](https://finance.yahoo.com/markets/stocks/articles/axt-inc-axti-q1-2026-071806694.html): "broadening its customer base to include Tier-1 companies to which it has previously had limited exposure." Multi-customer expansion is the rerating-arc-continuation signal per `meta/methodology.md` principle #16.
+
+### Cross-portfolio concentration finding
+
+User holds AXTI (~4.8%) + STM (~6.6%) + GLW (~10.8%) = **~22.2% portfolio in optical/networking layers.** Add MURATA (~12.4%) with CPO-adjacent passive component exposure = up to **~35% loosely-coupled optical exposure.** This is HIGH concentration in a single layered thesis with correlated downside risks (CPO transition stalls; China escalates broad export controls; silicon-photonics direct-laser-on-Si matures faster than expected). AXTI is the most VULNERABLE of the optical-stack names due to specific China exposure.
+
+### New falsifiers added (per cross-vertical analysis)
+
+- **China export permit pace deteriorates further in Q2-Q3 2026** — already partially fired Q4 2025, ACTIVE RISK
+- **InP market growth doesn't materialize at 30-40% pace** — Q3-Q4 2026 market data check; falsifies the capacity-target math
+- **AXTI primary-source share disclosure <30%** — would confirm Mordor's read and invalidate existing thesis's 60-70% framing
+
+### Updated D5 independent view summary
+
+**Net read:** AXTI is at mid-arc rerating with continued customer expansion (bullish), but the market-size-vs-capacity-target math and China export controls are MORE binding than the prior isolated analysis credited. The stock at 340x forward P/E (per existing forward multiple math above) prices the rerating arc completing successfully — but the path has material constraints the existing thesis under-modeled.
+
+**The TRIM recommendation stands**, but the REASONING has changed: previously TRIM was about multiple compression risk in isolation; now it's also about (a) concentration risk in optical-stack thesis, (b) capacity-target plausibility against market size, (c) China export control as ongoing binding constraint. The structural thesis is intact; the path is rougher than initially modeled.
+
 ## Cross-reference — Networking primer (added 2026-05-21)
 
 Per `research/wiki/networking-primer.md` Extrapolation 1: optical engines per switch ASIC are growing 4× per 2-year generation (8 → 16 engines + 3.2T → 6.4T per engine = 4× compound BOM math per high-end switch). Each engine requires InP epitaxial wafers, and AXTI holds 60-70% global InP substrate share per existing thesis. **The compound optical-engine BOM growth is a tailwind that consensus tracks at the bandwidth layer but doesn't decompose to wafer demand.** Partial counter to the TRIM recommendation — if BOM math is stronger than current model, earnings catch up faster. Watch item; doesn't reverse the trim stance yet because multiple compression remains the dominant near-term risk.
