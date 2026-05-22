@@ -405,6 +405,27 @@ Implication for every interaction:
 
    - **D2. Chokepoint severity (if applicable)** — magnitude of constraint they sit on (TAM at risk × penetration × pricing premium); duration of constraint (until supply catches up or bypass emerges); pricing power when constraint binds. If NOT a chokepoint name, this dimension is N/A — evaluate via D3 instead.
 
+   **Sub-component D2.5: Proximity to the binding bottleneck** (added 2026-05-22 per user input from prior non-agentic Claude session April 2026). User framing: *"The closer a company is to the bottleneck, the bigger the pricing power and the better the returns."*
+   
+   Even for non-chokepoint names, proximity to the binding constraint in the value chain matters. A company can be NEAR a bottleneck without BEING the bottleneck — and the closer, the more pricing power flows to them.
+   
+   **Proximity scoring** (count layers of separation from the nearest binding constraint):
+   - **Layer 0 (AT the bottleneck):** the company IS the constraint (HYNIX/Samsung/Micron AT HBM bottleneck; TSMC AT advanced packaging bottleneck)
+   - **Layer 1 (ONE layer from bottleneck):** direct supplier to the constraint OR direct manufacturing partner (TSEM as silicon photonics foundry for optical chips; HBM die testers like Advantest)
+   - **Layer 2 (TWO layers):** sub-supplier or material provider (AXTI as InP substrate for optical chips)
+   - **Layer 3+ (THREE+ layers):** equipment maker or material provider for the sub-supplier (AIXTRON MOCVD equipment for InP wafer fabs)
+   
+   **Trade-off (the two-handed nature):**
+   - **Closer = higher pricing power per unit**, BUT higher concentration risk if the SPECIFIC bottleneck moves
+   - **Further = lower pricing power per unit**, BUT broader optionality across multiple bottlenecks (equipment makers benefit regardless of which downstream bottleneck binds)
+   
+   **Examples (calibration):**
+   - HYNIX = Layer 0 at HBM bottleneck = strongest pricing power on HBM (verified: "DRAM will double or triple" per Patel; HBM4 ASP +67%)
+   - TSEM = Layer 1 at silicon photonics bottleneck = strong pricing power ($1.3B contracts + $290M prepayments)
+   - AXTI = Layer 2 at optical bottleneck = real pricing power but capped at substrate-layer margins (vs the optical chip layer above)
+   - AIXTRON = Layer 3 at MOCVD bottleneck = broader optionality (benefits from optical AND other compound semi cycles) but per-unit pricing power lower
+   - **Important nuance:** a company can be Layer 0 at ONE bottleneck and Layer 2 at another. ALAB is Layer 0 at the interconnect-protocol bottleneck and Layer 1-2 at the broader optical-decoupling-architecture scenario.
+
    - **D3. Competitive position** — elevated as its own dimension (previously buried inside Execution Quality). Market share at relevant sub-segments; moat depth (IP, scale, customer lock-in, switching costs, network effects); named competitors + where each wins/loses; customer relationships (renewal rates, design-win track record, concentration risk).
 
    - **D4. Mismodeling vs consensus + rerating-arc position** — refines Recognition Stage AND adds the cyclical→structural rerating arc. Includes: (a) Recognition Stage (0-5) on consensus-discovery curve; (b) specific beats-vs-consensus magnitude and frequency; (c) forward earnings revision asymmetry; (d) sandbag-vs-actual pattern per L4 lesson; (e) **rerating-arc position** (see below).
