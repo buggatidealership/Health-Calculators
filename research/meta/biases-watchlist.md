@@ -171,6 +171,31 @@ This obscures the SOTP (Sum-of-the-Parts) reality where the AI segment can drive
 
 **The harder case:** when segment-level disclosure is incomplete (company doesn't disclose detailed segment numbers), the discipline still applies — explicitly flag segment-level uncertainty and resist defaulting to blended-total anchoring.
 
+### B19 — Industry-norm-claim anchoring without verification
+**Origin:** User correction 2026-05-22 after Rigaku deep dive — I claimed "qualification cycles typically run 12-24 months" without verifying that figure (training-data generalization). User quote: *"You even said this in your secondary analysis, where you were saying, this is unusual in semi metrology where qualification cycles typically run twelve to twenty four months. And in this instance, it happened way faster. Right? So you know that it is unusual, and you know the cycles typically went twelve to twenty four month. Well, first of all, did you verify that claim, twelve to twenty four month? Was that just, like, free training data knowledge? Right? So you know the one side of how long it takes, but then you did not look at the right place to see if there was a signal with, okay, Jesus, the qualification time is eighty percent faster than most. Like, that is a valid signal."*
+
+**Pattern:** When I cite an industry-norm baseline (e.g., "typically X months," "industry standard is N," "norm is Y"), I anchor on it as if verified — when in reality it's often training-data generalization that I haven't sourced. AND when a company moves materially faster (or slower) than my anchor, I notice it descriptively but don't formally elevate it as a primary signal.
+
+This produces TWO compounding failures:
+1. The "industry norm" anchor itself may be inaccurate
+2. The "this is unusual" signal that emerges from comparing reality to the anchor gets noted in prose but not weighted in framework analysis
+
+**Manifestations this session:**
+- Rigaku 2026-05-22: claimed "12-24 month qualification cycles" (training data, unverified); search 2026-05-22 only found "6 months to over a year" for general productization. The actual norm I anchored on may have been wrong, and the Onto-Rigaku "faster than norm" signal was descriptive prose not formally scored.
+
+**Correction (mandatory per principle #21 — Time-to-X signals as primary analytical dimension):**
+1. When citing industry norms, VERIFY at external source OR flag explicitly as `(my inference from training data — unverified industry estimate)`
+2. Score Time-to-X signals (qualification, deployment, customer expansion, etc.) EXPLICITLY as separate dimensions in evaluation
+3. If company is >30% faster than norm: HIGH-MAGNITUDE signal weight
+4. Recognize when framework signals (Time-to-X, bypass-route, paradigm shift) override numerical signals in lead-time-constrained or new-paradigm environments
+
+**How to check:** Before stating "industry typically X" or "norm is N" in any evaluation:
+- Did I verify this at external source?
+- If not, did I flag as unverified?
+- If a company is materially faster/slower than my anchor, did I formally score Time-to-X as separate signal?
+
+**The BE-vs-gas-turbine analogy (user 2026-05-22):** "Investors that were buying GE Vernova, gas turbines, Siemens Energy but missed Bloom Energy because they thought BE's numbers look bad — they're new entrants — and completely disregarded the time-to-power framework that is now more valid, especially in an environment where the lead times are so long." The structural pattern: in lead-time-constrained markets, framework signals (time-to-X) can dominate numerical signals. Anchoring on industry-norm-numerical claims without verifying + ignoring time-to-X = double miss.
+
 ---
 
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).

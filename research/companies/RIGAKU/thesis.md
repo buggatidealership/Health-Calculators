@@ -184,3 +184,47 @@ Per [Metrology News](https://metrology.news/onto-innovation-and-rigaku-partner-t
 This correction is the worked example of **B18 — operating-decline anchoring (segment-blind bias)** in `meta/biases-watchlist.md` + **principle #20 — segment-decomposition discipline** in `meta/methodology.md`, both added 2026-05-22.
 
 **Discipline going forward:** for any multi-segment company, segment-level analysis FIRST, total-company numbers SECOND. Lead with segment-level findings, especially when AI/agentic-correlated segment is involved. Do NOT anchor on blended decline when segments diverge.
+
+## ADDITIONAL CORRECTION (added 2026-05-22) — Time-to-Qualification signal formally scored
+
+User correction 2026-05-22 surfaced a SECOND structural issue in my prior deep dive: I cited "qualification cycles typically run 12-24 months" as an industry norm WITHOUT VERIFYING the claim, and I noted the Onto-Rigaku "this is unusual" framing descriptively but did NOT formally score it as a primary signal.
+
+### Verification of the industry-norm claim
+
+Search 2026-05-22 for semiconductor metrology equipment qualification cycle times: found "6 months to over a year" for general productization per [chetanpatil.in](https://www.chetanpatil.in/the-productization-cycle-time-in-semiconductor-development/). **Could not verify "12-24 months" specifically for metrology equipment qualification.** My anchor was training-data inference, NOT primary-source verified.
+
+**Honest reframe:** the industry norm I anchored on was unverified. The "Onto-Rigaku is faster than 12-24 months" framing therefore was based on an unverified baseline.
+
+### Formal Time-to-Qualification (TTQ) signal scoring
+
+Per new principle #21 (Time-to-X signals as primary analytical dimension):
+
+**TTQ for Rigaku/Onto CD-SAXS at the two customers:**
+- Industry norm (unverified but directional): metrology qualification typically 6 months to >12 months per the limited primary source
+- Onto-Rigaku actual: customer selection + deployment happening BEFORE alliance close (H2 2026), during the pre-deal collaboration phase
+- Estimated time-to-deployment: <12 months (collaboration phase to deployment), possibly faster
+- **Delta vs norm: faster than the lower bound** — explicit positive signal
+
+**This signal was descriptive prose in my prior deep dive, not formally weighted. Correcting now: TTQ at Rigaku/Onto is a HIGH-MAGNITUDE positive signal that the operating-decline anchoring obscured.**
+
+### Combined with segment-decomposition (principle #20)
+
+Both corrections compound:
+- Segment-level evidence: semi/metrology winning + other segments dragging
+- Time-to-Qualification: Onto-Rigaku CD-SAXS moving faster than industry norm
+- Both signals point bullish on the AI/semi segment specifically
+- The blended total-company numbers obscure BOTH signals
+
+### Final tier and sizing
+
+**Tier 2/3 boundary stands** (revised up from initial Tier 3). The TTQ signal reinforces the segment-decomposition correction.
+
+**1-2% sizing range per existing thesis remains appropriate** — the bull thesis is materializing at the segment level AND moving faster than industry norm.
+
+### Cross-references to new framework additions
+
+- `meta/methodology.md` principle #20 (Segment-decomposition discipline)
+- `meta/methodology.md` principle #21 (Time-to-X signals as primary analytical dimension)
+- `meta/biases-watchlist.md` B18 (Operating-decline anchoring, segment-blind bias)
+- `meta/biases-watchlist.md` B19 (Industry-norm-claim anchoring without verification)
+- `meta/time-to-x-framework.md` (now generalized beyond time-to-power)

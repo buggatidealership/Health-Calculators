@@ -678,3 +678,43 @@ Be CONFIDENT when:
    - See B18 (operating-decline anchoring, segment-blind bias) in `biases-watchlist.md`
 
    **Calibration example (Rigaku, 2026-05-22):** Initial deep dive classified Rigaku as Tier 3 based on Q1 FY26 -13% revenue / -78% OP / -83% net profit. User correction revealed: semiconductor segment "above expectations" + two customers already won + deployment underway = bull thesis partially materializing. Corrected tier: Tier 2/3 boundary. Sizing: 1-2% range (not 1% max as over-corrected framing suggested). The error was anchoring on blended total instead of leading with segment-level evidence.
+
+21. **Time-to-X signals as primary analytical dimension — verified, not anchored on training data.** User correction 2026-05-22: *"You even said this in your secondary analysis, where you were saying, this is unusual in semi metrology where qualification cycles typically run twelve to twenty four months. And in this instance, it happened way faster. Right? So you know that it is unusual, and you know the cycles typically went twelve to twenty four month. Well, first of all, did you verify that claim, twelve to twenty four month? Was that just, like, free training data knowledge? Right? So you know the one side of how long it takes, but then you did not look at the right place to see if there was a signal with, okay, Jesus, the qualification time is eighty percent faster than most. Like, that is a valid signal."*
+
+   **The bias being corrected:** when I cite an industry-norm baseline (e.g., "qualification cycles typically run 12-24 months") I anchor on that number as if it's verified, when in reality it's often training-data generalization. AND when a company moves materially faster than my anchor, I notice it descriptively but don't formally elevate it as a primary signal.
+
+   **The mandatory discipline:**
+
+   A. **Verify industry-norm claims OR flag as unverified.** When I cite "industry typically X" or "norm is N":
+   - Search for primary or T2-T3 source confirming the norm
+   - If unverifiable from external sources, flag as `(my inference from training data — unverified industry estimate)`
+   - Never use unverified industry-norm claims as the ANCHOR for "this is unusual" framing without explicit flag
+
+   B. **Score Time-to-X explicitly as a separate analytical dimension** for every relevant evaluation. The Time-to-X family includes:
+   - **Time-to-Qualification (TTQ):** how fast did the company move from testing/collaboration to customer qualification/production deployment?
+   - **Time-to-Production:** how fast from anchor signal (e.g., AGI CPU launch March 2026) to first revenue?
+   - **Time-to-Deployment:** how fast from product launch to fab/customer deployment at scale?
+   - **Time-to-Power:** how fast can power assets be deployed (per existing `meta/time-to-x-framework.md`)
+   - **Time-to-Customer-Expansion:** how fast does multi-customer adoption happen post-anchor signal?
+   - **Time-to-Revenue-Scale:** how fast does new product reach material revenue contribution?
+
+   **Scoring rule for Time-to-X signals:**
+   - State the verified or hedged industry norm
+   - State the company's actual time
+   - Compute the delta (e.g., "80% faster than norm" or "matches norm" or "20% slower")
+   - **If >30% faster than norm: HIGH-MAGNITUDE signal** that often gets missed in numerical analysis
+   - **If matches or slower than norm:** standard signal, no special weighting
+
+   C. **Recognize when framework signals OVERRIDE numerical signals.** User analogy 2026-05-22 (paraphrased): *"It's similar to the people that were buying GE Vernova, gas turbines, Siemens Energy but missed Bloom Energy because they thought BE's numbers look bad — they're new entrants — and completely disregarded the time-to-power framework that is now more valid, especially in an environment where the lead times are so long."*
+
+   The principle: in lead-time-constrained or paradigm-shift environments, structural framework signals (Time-to-X, bypass-route per `meta/time-to-x-framework.md`, paradigm change) can DOMINATE near-term numerical signals. Investors who anchored only on numerical fundamentals missed BE; investors who applied the time-to-power framework captured the asymmetric upside.
+
+   **Operationally:** when evaluating a name in a lead-time-constrained environment OR a paradigm-shift context, the framework-signals weight HIGHER than the numerical weight. The bias to avoid: treating framework signals as soft and numerical signals as hard, when sometimes the inverse is true.
+
+   **Calibration example (Rigaku, 2026-05-22):**
+   - My initial framing cited "12-24 month qualification cycles" as industry norm — **UNVERIFIED training-data claim** (search 2026-05-22 found "6 months to over a year" for general productization, no specific metrology figure)
+   - The signal I missed: Onto-Rigaku CD-SAXS went from collaboration → two customer wins → deployment, all happening before formal alliance closes — materially faster than even the unverified anchor
+   - **Corrected scoring:** Time-to-Qualification signal at Rigaku/Onto IS a HIGH-MAGNITUDE positive signal that the operating-decline anchoring obscured
+   - **Discipline going forward:** verify industry-norm claims OR flag them; score Time-to-X explicitly; weight framework signals appropriately in narrative-driven markets
+
+   See B19 (industry-norm-claim anchoring without verification) in `biases-watchlist.md` + existing `meta/time-to-x-framework.md` (which now generalizes beyond time-to-power).
