@@ -522,6 +522,44 @@ Implication for every interaction:
 
    **Current state 2026-05-21:** Phase 1 in progress — STM evaluated under new framework. Remaining held positions: HYNIX (deferred by user), MURATA, GLW, TE, AXTI, NOW, DDOG, SNDK (deferred by user), PURR, TSEM. Plus candidate names. Estimated completion of Phase 1: 1-3 more sessions depending on depth per name.
 
+19. **Dual-portfolio construction — Structural Safety core + Asymmetric Upside satellite.** User framing 2026-05-22: *"You want to have one side of your portfolio with structural safety that has the biggest chance of compounding all the time. And then you have, like, another side of your portfolio that could be a... the asymmetric upside. Right? They're not mutually exclusive."*
+
+   Portfolio construction is NOT a single optimization. It's two parallel optimizations with different time horizons + risk profiles + sizing.
+
+   **Portfolio A — Structural Safety core:**
+   - **Time horizon:** 6-18 months (sometimes longer)
+   - **Sizing:** larger positions (8-15% typical)
+   - **Selection criteria:** highest moat-hardness, lowest displacement risk, durable across multiple scenarios, multi-bottleneck positioning OK at Layer 1-2 (broader optionality)
+   - **Goal:** compounding via structural durability; downside-protection priority
+   - **Framework lens:** D1 + D3 weighted heavily; D2 secondary
+   - **Examples in current portfolio:** HYNIX (Layer 0 HBM oligopoly), MURATA (84% MLCC duopoly), NOW (workflow moat unassailable)
+
+   **Portfolio B — Asymmetric Upside satellite:**
+   - **Time horizon:** 6-12 months (sometimes 6-18)
+   - **Sizing:** smaller positions (2-5% typical)
+   - **Selection criteria:** Layer-0 bottleneck-proximity, high-magnitude binding constraint, mid-arc rerating, willing to accept higher concentration risk
+   - **Goal:** asymmetric upside; higher variance acceptable
+   - **Framework lens:** D2 + D2.5 + D4 weighted heavily
+   - **Examples surfaced this session:** AXTI (Layer 2 InP, with trim recommendation due to Stage 4 risk), ALAB candidate (Layer 0 multi-bottleneck with concentration risk), AVGO candidate
+
+   **The two are not mutually exclusive — they coexist in the same portfolio with different sizing discipline.**
+
+   **Risk-profile sizing rule:** bigger positions go to Portfolio A (structural safety); smaller positions go to Portfolio B (asymmetric upside). This is typical risk-profile management.
+
+   **Per-name evaluation produces a CATEGORY ASSIGNMENT** in addition to D1-D5 scoring. Each name gets a primary category (Structural Safety OR Asymmetric Upside) + sometimes a secondary if the name straddles. Example: AVGO is primarily Asymmetric Upside (custom-Si fragmentation play) but has Structural Safety attributes (networking moat).
+
+   **Combination-play preference (user 2026-05-22):** names that combine multiple AI thesis vectors (Sovereign AI × Agentic AI × Token-Volume × Geopolitical Diversifier) are preferred when found. Examples: PLTR (sovereign + agentic + government), NOW (agentic + workflow + sovereign-government FedRAMP), DDOG (agentic + observability + workload-amplifier).
+
+   **CPU exposure preference (user 2026-05-22):** *"CPU is the body of the agent, GPU is the brain. Body does most of the things."* The portfolio currently lacks pure-play CPU exposure. Surface CPU candidates as Phase 3 mapping output. Top candidates: AMD (EPYC), ARM Holdings, NVDA Vera CPU exposure (via NVDA position, currently 0).
+
+   **Geographic diversification framework (user 2026-05-22):**
+   - US carries premium (largest market, strongest engineering ecosystem in software/AI design)
+   - Europe = lower geopolitical risk (ASML, AIXTRON, STM partially)
+   - Japan = engineering excellence, less geo risk (Murata, TDK, Advantest, Tokyo Electron)
+   - Taiwan = best engineering on advanced semi but Taiwan-invasion risk priced "everything tanks anyway" — so don't price separately
+   - Korea = HBM + memory cycle exposure (Hynix, Samsung)
+   - Geographic spread is a FEATURE, not just a risk-mitigation factor
+
 ## How to think (the protocol)
 
 When asked anything substantive, walk through these in order:
