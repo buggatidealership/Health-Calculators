@@ -142,6 +142,37 @@ Correction: Always hedge illustrative or hypothetical inputs explicitly. Recogni
 
 ## How this file is updated
 
+### B18 — Operating-decline anchoring (segment-blind bias)
+**Origin:** User correction 2026-05-22 after Rigaku Tier 3 framing over-weighted total-company operating decline (-13% revenue / -78% OP / -83% net profit Q1 FY26) and under-weighted segment-level evidence of AI/semi segment customer wins + deployment already underway. User quote: *"if a business has multiple different revenue streams. If one is declining but one is growing at an insane pace or at an accelerated pace, as in it doesn't matter how much they're losing on the other side, if the other one is substituting for that, especially if it's AI correlated and especially if it is agentic AI workload related, you need to fix that in your... how you currently conduct research, the weighing on too much operating loss on one side compared to the other one."*
+
+**Pattern:** When total-company operating numbers are in decline (revenue down, OP compressed, net profit collapsed) and one segment is growing fast (especially AI/agentic-correlated), my framing has the tendency to:
+1. Lead with the blended headline decline as primary signal
+2. Treat segment-level wins as secondary evidence
+3. Classify tier (Tier 1 / Tier 2 / Tier 3) based on blended total
+4. Apply too-conservative sizing recommendations driven by total-company numbers
+
+This obscures the SOTP (Sum-of-the-Parts) reality where the AI segment can drive multiple re-rating even without total-company growth acceleration.
+
+**Manifestations this session:**
+- Rigaku: Q1 FY26 -13%/-78%/-83% blended → Tier 3 / 1% MAX framing (CORRECTED to Tier 2/3 / 1-2% after segment-level evidence surfaced)
+- MURATA initially: Q3 FY26 ¥43.8B impairment + cautious FY27 guide could have led to bear framing (RECOVERED via SOTP argument in MURATA cross-vertical)
+- General pattern: total-company-decline-anchoring vs segment-by-segment analysis
+
+**Correction (mandatory per principle #20 — Segment-decomposition discipline):**
+1. For multi-segment companies, decompose revenue by segment BEFORE evaluating total
+2. Identify AI/agentic-correlated segment growth rate explicitly
+3. Compute substitution rate (how fast AI segment needs to grow to offset declining)
+4. Compare AI-segment trajectory to total-company trajectory
+5. If AI segment is materially faster, bull thesis lives in AI segment regardless of company total
+6. Operating losses in declining segments are acceptable IF substitution rate is favorable
+7. Lead with segment-level findings, NEVER with total-company headlines when segments diverge
+
+**How to check:** Before completing any per-name evaluation, ask: "Is this a multi-segment company? If yes, did I lead with segment decomposition or with blended total?" If I led with blended total when segments diverge, REWRITE leading with segment-level analysis.
+
+**The harder case:** when segment-level disclosure is incomplete (company doesn't disclose detailed segment numbers), the discipline still applies — explicitly flag segment-level uncertainty and resist defaulting to blended-total anchoring.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

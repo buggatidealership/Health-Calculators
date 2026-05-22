@@ -653,3 +653,28 @@ Be CONFIDENT when:
 - Primary source data is unambiguous (10-Q numbers, regulatory filings)
 - A signal is triangulated (≥3 independent sources)
 - The reasoning is direct 1st-order and the data supports it
+
+20. **Segment-decomposition discipline — never anchor on blended total when segments diverge.** User correction 2026-05-22 after Rigaku thesis: *"if a business has multiple different revenue streams. If one is declining but one is growing at an insane pace or at a accelerated pace, as in it doesn't matter how much they're losing on the other side, if the other one is substituting for that, especially if it's AI correlated and especially if it is agentic AI workload related, you need to fix that in how you currently conduct research, the weighing on too much operating loss on one side compared to the other one."*
+
+   The bias being corrected: when total-company operating numbers are in decline (revenue down, OP compressed, net profit collapsed) and one segment is growing fast (especially AI/agentic-correlated), my framing has tendency to anchor on the blended headline decline and dismiss the segment-level wins. **This is wrong.** The substitution rate matters more than the blended total.
+
+   **Mandatory discipline for multi-segment companies:**
+
+   For ANY company with >1 distinct revenue segment:
+   1. **Decompose revenue by segment FIRST** — do not lead with blended-total revenue or operating profit
+   2. **Identify AI/agentic-correlated segment(s)** and their growth rate explicitly
+   3. **Identify declining segments** and their drag magnitude
+   4. **Compute substitution rate:** at what pace does the AI segment need to grow to offset the declining segments and drive total-company positive?
+   5. **Compare AI-segment trajectory to total-company trajectory** — if AI is materially faster, the bull thesis can live in AI segment regardless of company total
+   6. **Operating losses in declining segments are acceptable IF** AI-segment growth substitutes the gap (with margin trajectory check)
+   7. **Lead with segment-level findings, not total-company headlines**
+
+   **The mismodeling opportunity:** consensus often blends company total into a single multiple. If AI segment becomes majority of revenue + earnings over 24-36 months, the blended multiple structurally re-rates upward via SOTP (Sum-of-the-Parts) — even without total-company growth acceleration. Names where this dynamic is in play: MURATA (MLCC accelerating + SAW filter declining per `companies/MURATA/thesis.md`), Rigaku (semi/metrology winning customers + scientific instruments dragging per `companies/RIGAKU/thesis.md`), GLW (Optical Communications growing 36% + Display flat per `companies/GLW/thesis.md`), TE/STM/others.
+
+   **What this changes operationally:**
+   - Per-name evaluation output (the 10-vector cross-reference + D1-D5) must EXPLICITLY surface segment decomposition when applicable
+   - Tier classification (Tier 1 / Tier 2 / Tier 3) cannot be assigned on blended total when segments diverge meaningfully
+   - The bull thesis lives in the AI segment regardless of blended decline IF substitution rate is favorable
+   - See B18 (operating-decline anchoring, segment-blind bias) in `biases-watchlist.md`
+
+   **Calibration example (Rigaku, 2026-05-22):** Initial deep dive classified Rigaku as Tier 3 based on Q1 FY26 -13% revenue / -78% OP / -83% net profit. User correction revealed: semiconductor segment "above expectations" + two customers already won + deployment underway = bull thesis partially materializing. Corrected tier: Tier 2/3 boundary. Sizing: 1-2% range (not 1% max as over-corrected framing suggested). The error was anchoring on blended total instead of leading with segment-level evidence.

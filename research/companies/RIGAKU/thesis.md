@@ -153,3 +153,34 @@ Semiconductor process control instruments segment "trending above expectations" 
 **Recommendation if entering: 1% maximum** (lower than existing 1-2% range) until Q2-Q3 FY26 operating data confirms reversal. Otherwise wait.
 
 Per principle #18, formal sizing decision deferred to Phase 4.
+
+## CORRECTION (added 2026-05-22) — segment-level evidence reveals prior framing was too bearish
+
+User pushback 2026-05-22: my prior deep dive over-weighted the total-company operating decline and under-weighted the segment-level evidence of AI-segment customer wins + deployment already underway. This is exactly the bias the user has been correcting throughout the session.
+
+### Segment-level evidence (cross-vertical research 2026-05-22)
+
+Per [Metrology News](https://metrology.news/onto-innovation-and-rigaku-partner-to-advance-semiconductor-x-ray-process-control/) + [Mark LaPedus substack](https://marklapedus.substack.com/p/onto-innovation-acquires-stake-in) + [Onto Innovation IR](https://investors.ontoinnovation.com/news/news-details/2026/Onto-Innovation-Announces-Strategic-Partnership-With-Leading-X-Ray-Provider-Rigaku-To-Advance-Next-Generation-Process-Control-Solutions/default.aspx):
+
+- **Onto-Rigaku combined CD-SAXS + AI Diffract solution ALREADY won two key customers**
+- **Combined technology "already being deployed at key customer fabrications"** — before formal alliance closes (H2 2026)
+- Unusually fast for semi metrology (typical qualification = 12-24 months)
+- Semiconductor segment Q1 FY26 "above expectations" per management commentary
+
+**Bull case is partially MATERIALIZING in the AI/semi segment, not just speculative forward narrative.**
+
+### Updated tier and sizing
+
+**REVISED: Tier 2/3 boundary** (up from Tier 3):
+- Semi/metrology segment ALREADY executing bull thesis (customers + deployment)
+- Onto alliance materially strengthens position when closing H2 2026
+- Total company drag is REAL but obscures segment-level wins
+- The asymmetry: bull thesis partially materialized + total company numbers obscure = mismodeling opportunity
+
+**Sizing: 1-2% range per existing thesis is appropriate** (not 1% max as the over-corrected framing suggested). Bull thesis partial materialization justifies the existing sizing range.
+
+### Bias correction reference
+
+This correction is the worked example of **B18 — operating-decline anchoring (segment-blind bias)** in `meta/biases-watchlist.md` + **principle #20 — segment-decomposition discipline** in `meta/methodology.md`, both added 2026-05-22.
+
+**Discipline going forward:** for any multi-segment company, segment-level analysis FIRST, total-company numbers SECOND. Lead with segment-level findings, especially when AI/agentic-correlated segment is involved. Do NOT anchor on blended decline when segments diverge.
