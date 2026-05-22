@@ -153,3 +153,10 @@ Per user instruction 2026-05-21:
 - `research/portfolio/coherence-audit.md` — user-explained rationale (tokenization + Cerebras use case) is sound
 - `research/sector/where-we-are.md` non-default reads — AI x crypto convergence framing
 - No causal-map / scenario integration — by design (separate framework)
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer N/A** — not in AI thesis (held as crypto/tokenization satellite, separate framework)
+- Token-Volume Filter explicitly DOES NOT APPLY per existing thesis cross-references
+- Included in bottleneck map for completeness of held-position cascade

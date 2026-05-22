@@ -353,3 +353,11 @@ User holds AXTI (4.8%) + STM (6.6%) + GLW (10.8%) + MURATA (12.4%) = 34.6% AI-co
 - **D5 Independent view:** SOTP argument is the non-consensus pattern. Silver pricing pass-through is the gating margin variable. Cross-portfolio diversification value is real and material.
 
 **Net read:** position thesis stands at HOLD ~12.4%. Cross-vertical revealed (a) segment-specific weakness that needs separate tracking, not company-wide concern; (b) SOTP framing that could drive higher fair value than consensus models; (c) cross-portfolio diversification benefit that's understated.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 1** — MLCCs feed every accelerator board (one step from compute bottleneck)
+- **Top-compute agnostic: 10/10** — every board needs MLCCs regardless of chip designer
+- **CPU tightness: 5/10** — CPUs need MLCCs but density-per-board skews to GPU/accelerator
+- **Agentic tightness: 6/10** — board-density-driven more than workload-mix-driven

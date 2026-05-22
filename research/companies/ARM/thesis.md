@@ -292,3 +292,11 @@ Per principle #18, formal sizing decision deferred to Phase 4 after worldview sy
 - [TradingKey on SoftBank 87% stake / $300B market cap](https://www.tradingkey.com/analysis/stocks/us-stocks/261921505-arm-300b-softbank-87-stake-wins-cpu-fuels-wall-street-tradingkey)
 - [Public.com / Stock Analysis on valuation](https://public.com/stocks/arm/forecast-price-target)
 - [24/7 Wall St on stock doubled in 2026](https://247wallst.com/investing/2026/05/19/arm-holdings-has-doubled-in-2026-is-it-outperforming-other-chip-ip-stocks-like-synopsys-cadence-and-qualcomm/)
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 1/2** — CPU IP + AGI CPU (CPU rebalance is 12-24mo binding per `sector/bottlenecks.md`)
+- **Top-compute agnostic: 5/10** — AGI CPU competes with NVDA/AMD; IP into NVDA Grace + many others
+- **CPU tightness: 10/10** — they ARE the CPU layer
+- **Agentic tightness: 8/10** — agentic = more inference = more CPU + more ARM IP

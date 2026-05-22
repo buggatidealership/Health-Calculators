@@ -92,3 +92,11 @@ Per `research/wiki/memory-cycle-primer.md`:
 - **This is a NEW demand vector** that didn't exist in prior memory cycles — adds structural demand on top of historical smartphone + enterprise transactional demand
 - **Supply timing:** new fab capacity not in volume before late 2027 / 2028 per [TrendForce 2026-03-31](https://www.trendforce.com/presscenter/news/20260331-12995.html). SNDK pricing power persists through at least mid-2027.
 - **Implication:** position thesis (HOLD at ~10.8%) reinforced. NAND is now the FASTEST-rising memory layer in the cycle (NAND +70-75% Q2 vs DRAM +58-63% Q2). SNDK is the cleanest US-listed expression. Position alongside HYNIX gives portfolio dual-layer exposure to the memory tightness.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 1** — NAND for AI storage (not today binding — HBM is)
+- **Top-compute agnostic: 9/10** — storage layer agnostic to compute winner
+- **CPU tightness: 3/10**
+- **Agentic tightness: 7/10** — agentic checkpoints + KV cache offload = new structural demand vector

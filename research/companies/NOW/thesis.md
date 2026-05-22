@@ -137,3 +137,11 @@ Per `research/meta/methodology.md`: ✓ PASS. NOW's revenue grows with workflow 
 - `research/wiki/agentic-ai-enterprise.md` — workflow integration as the success pattern
 - `research/wiki/agentic-workload-scaling.md` — enterprise function-by-function adoption
 - `research/portfolio/holdings.md` — user holds 12.0%
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 3** — agentic workflow application (consumes the output, demand-driven, no chokepoint control)
+- **Top-compute agnostic: 8/10** — runs on any cloud
+- **CPU tightness: 6/10** — workflow execution is CPU-dominant
+- **Agentic tightness: 10/10** — agentic AI workflow IS the product pitch

@@ -228,3 +228,11 @@ Both corrections compound:
 - `meta/biases-watchlist.md` B18 (Operating-decline anchoring, segment-blind bias)
 - `meta/biases-watchlist.md` B19 (Industry-norm-claim anchoring without verification)
 - `meta/time-to-x-framework.md` (now generalized beyond time-to-power)
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0** — X-ray metrology enables CoWoS/advanced packaging (today binding)
+- **Top-compute agnostic: 9/10** — all fabs need metrology
+- **CPU tightness: 3/10**
+- **Agentic tightness: 5/10** — indirect via fab utilization

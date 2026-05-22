@@ -231,3 +231,11 @@ Per [BigGo Q1 2026 earnings call](https://finance.biggo.com/news/US_TSEM_2026-05
 ### Net read
 
 **HOLD at ~5.4% stands and is REINFORCED.** Structural thesis intact and stronger than existing thesis surfaced. Cross-portfolio finding: TSEM + STM are parallel exposures to NVDA vs AWS protocols, not redundant. Effective AI-optical concentration is ~12% not 27.6%.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 1** — specialty foundry for Si photonics + mixed-signal
+- **Top-compute agnostic: 8/10** — manufactures for many
+- **CPU tightness: 2/10**
+- **Agentic tightness: 7/10** — Si photonics for east-west interconnect

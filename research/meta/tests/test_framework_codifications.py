@@ -28,6 +28,25 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 METHODOLOGY = REPO_ROOT / "research" / "meta" / "methodology.md"
 BIASES = REPO_ROOT / "research" / "meta" / "biases-watchlist.md"
 RIGAKU = REPO_ROOT / "research" / "companies" / "RIGAKU" / "thesis.md"
+BOTTLENECK_MAP = REPO_ROOT / "research" / "portfolio" / "bottleneck-map.md"
+COMPANIES_DIR = REPO_ROOT / "research" / "companies"
+
+BOTTLENECK_MAP_TICKERS = [
+    "HYNIX",
+    "MURATA",
+    "NOW",
+    "GLW",
+    "SNDK",
+    "TE",
+    "DDOG",
+    "STM",
+    "TSEM",
+    "AXTI",
+    "ARM",
+    "SMTC",
+    "RIGAKU",
+    "PURR",
+]
 
 
 class TestResult:
@@ -240,6 +259,68 @@ def main() -> int:
         or "robust to ±20-30%" in rigaku
         or ("HIGH-MAGNITUDE" in rigaku and "30% lower" in rigaku),
     )
+
+    # ------------------------------------------------------------------
+    # bottleneck-map.md (synthesis artifact added 2026-05-22)
+    # ------------------------------------------------------------------
+    print()
+    print("portfolio/bottleneck-map.md")
+
+    if not BOTTLENECK_MAP.exists():
+        result.check("bottleneck-map.md exists", False, str(BOTTLENECK_MAP))
+    else:
+        bm = BOTTLENECK_MAP.read_text(encoding="utf-8")
+        result.check("bottleneck-map.md exists", True)
+        result.check(
+            "bottleneck-map — layer definitions table present",
+            "Layer definitions" in bm
+            and "AT the binding constraint" in bm,
+        )
+        result.check(
+            "bottleneck-map — held positions table present",
+            "## Held positions" in bm,
+        )
+        result.check(
+            "bottleneck-map — active candidates table present",
+            "## Active candidates" in bm,
+        )
+        result.check(
+            "bottleneck-map — references sector/bottlenecks.md",
+            "sector/bottlenecks.md" in bm,
+        )
+        result.check(
+            "bottleneck-map — all 14 tickers present in artifact",
+            all(t in bm for t in BOTTLENECK_MAP_TICKERS),
+            ", ".join(t for t in BOTTLENECK_MAP_TICKERS if t not in bm) or "",
+        )
+        result.check(
+            "bottleneck-map — sweet-spot analysis section",
+            "Sweet-spot names" in bm or "sweet-spot" in bm.lower(),
+        )
+
+    # ------------------------------------------------------------------
+    # Cascade enforcement: every ticker in the bottleneck map MUST have
+    # a back-reference in its thesis.md (per Critical Rule #10)
+    # ------------------------------------------------------------------
+    print()
+    print("bottleneck-map cascade (Critical Rule #10)")
+
+    BACKREF_MARKER = "Cross-reference — Bottleneck map (added 2026-05-22)"
+    for ticker in BOTTLENECK_MAP_TICKERS:
+        thesis = COMPANIES_DIR / ticker / "thesis.md"
+        if not thesis.exists():
+            result.check(
+                f"{ticker} — thesis.md exists",
+                False,
+                str(thesis),
+            )
+            continue
+        content = thesis.read_text(encoding="utf-8")
+        result.check(
+            f"{ticker} — back-references bottleneck-map.md",
+            BACKREF_MARKER in content
+            and "portfolio/bottleneck-map.md" in content,
+        )
 
     return result.report()
 

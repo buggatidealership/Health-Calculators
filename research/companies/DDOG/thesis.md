@@ -161,3 +161,11 @@ Funding sources: GLW trim (per `portfolio/recommendations.md`) or fresh cash dep
 - `research/sector/where-we-are.md` non-default read #3 — observability TAM under-modeled
 - `research/portfolio/recommendations.md` — DDOG add candidate
 - `research/portfolio/holdings.md` — user holds 6.8%
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0** — observability (12-24mo binding per `sector/bottlenecks.md`)
+- **Top-compute agnostic: 9/10** — runs across all clouds
+- **CPU tightness: 7/10** — observability is CPU-heavy
+- **Agentic tightness: 10/10** — agentic = telemetry explosion = direct ARR

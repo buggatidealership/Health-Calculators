@@ -356,3 +356,11 @@ Per `research/wiki/networking-primer.md` Extrapolation 8: networking-as-%-of-tot
 Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
 
 **NVDA networking +199% YoY** (Data Center networking $14.8B Q1 FY27 vs ~$5B Q1 FY26 per my inference from "+199%") is the in-situ empirical validation that networking spend is rising materially. This **strengthens the structural fiber-km argument** counter to the Aschenbrenner-puts thesis. The trim recommendation (from 10.8% to 5-7%) was driven primarily by Stage 4 multiple compression risk, not fiber-demand concern; the multiple-compression risk doesn't change but the underlying GLW TAM growth is now empirically larger than prior models. **Watch item for thesis re-rating up if Q2 FY27 networking continues +100%+ YoY.**
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0/1** — optical interconnect + glass substrate (12-24mo unpriced edge per `sector/bottlenecks.md`)
+- **Top-compute agnostic: 10/10** — fiber/glass into every hyperscaler + every fab
+- **CPU tightness: 4/10** — incidental
+- **Agentic tightness: 8/10** — east-west traffic scales with agentic workload count

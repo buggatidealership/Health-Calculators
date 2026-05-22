@@ -262,3 +262,11 @@ SMTC is structurally better than the existing compact thesis surfaced. Three fin
 | Margin trajectory as ACC vs fiber mix shifts | Watch — Q1 FY27 adj GM ~52.8% guide |
 
 Per principle #18, formal sizing decision deferred to Phase 4 after worldview synthesis.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0/1** — LPO/CopperEdge at CPO bottleneck (12-24mo unpriced edge)
+- **Top-compute agnostic: 9/10** — sells to all hyperscalers
+- **CPU tightness: 2/10**
+- **Agentic tightness: 9/10** — agentic = direct interconnect demand

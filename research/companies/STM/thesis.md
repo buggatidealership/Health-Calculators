@@ -158,3 +158,11 @@ Per user instruction 2026-05-21:
 - `research/wiki/optical-interconnect-primer.md` — RF/Optical Communications growth
 - `research/portfolio/holdings.md` — user holds 6.6%
 - `research/portfolio/coherence-audit.md` — was flagged "untested"; NOW UPGRADED post-reconstruction
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 1** — power conversion (SiC) + photonics components
+- **Top-compute agnostic: 8/10** — SiC for power conversion serves all DC builds
+- **CPU tightness: 4/10** — auto/MCU heavier than CPU
+- **Agentic tightness: 5/10** — power-density indirect signal

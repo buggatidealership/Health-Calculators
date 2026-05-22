@@ -185,3 +185,11 @@ Per `research/wiki/networking-primer.md`: HBM bandwidth and network fabric bandw
 Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
 
 Jensen's "supply-constrained throughout the entire life of Vera Rubin" (~3 years) is the **strongest single-source confirmation** in the OS that HBM4 allocation to NVDA (~70% to SK Hynix per Counterpoint) is sustained through 2027-2028. Combined with NVDA Q1 GM 74.9% vs my pre-print call 75.4% — the 50bp miss is consistent with HBM cost pressure flowing through to NVDA's BUYER side, which is BULLISH for HYNIX as the seller. HYNIX is now triangulated at: Patel (sell-side memory call) + TrendForce (industry forecast) + Jensen (largest customer commitment) — among the most-supported positions in the portfolio by primary-source evidence.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0** — at HBM bottleneck (today binding per `sector/bottlenecks.md`)
+- **Top-compute agnostic: 9/10** — sells HBM to NVDA + AMD + every custom ASIC
+- **CPU tightness: 3/10** — HBM-dominant, modest DDR exposure
+- **Agentic tightness: 8/10** — agentic = more inference workloads = more HBM allocation

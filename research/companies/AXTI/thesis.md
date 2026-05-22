@@ -214,3 +214,11 @@ User holds AXTI (~4.8%) + STM (~6.6%) + GLW (~10.8%) = **~22.2% portfolio in opt
 ## Cross-reference — Networking primer (added 2026-05-21)
 
 Per `research/wiki/networking-primer.md` Extrapolation 1: optical engines per switch ASIC are growing 4× per 2-year generation (8 → 16 engines + 3.2T → 6.4T per engine = 4× compound BOM math per high-end switch). Each engine requires InP epitaxial wafers, and AXTI holds 60-70% global InP substrate share per existing thesis. **The compound optical-engine BOM growth is a tailwind that consensus tracks at the bandwidth layer but doesn't decompose to wafer demand.** Partial counter to the TRIM recommendation — if BOM math is stronger than current model, earnings catch up faster. Watch item; doesn't reverse the trim stance yet because multiple compression remains the dominant near-term risk.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0/1** — InP substrate at CPO/optical interconnect bottleneck (12-24mo edge)
+- **Top-compute agnostic: 10/10** — substrate sells to all photonics players
+- **CPU tightness: 1/10**
+- **Agentic tightness: 9/10** — agentic = more interconnect demand = more InP demand

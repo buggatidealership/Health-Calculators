@@ -243,3 +243,11 @@ The existing thesis HOLD-at-7.1% stance is roughly correct but the underlying ri
 - Rerating-arc at anchor-to-mid-arc
 
 **Net stance:** HOLD at ~7.1% defensible. Trim trigger (policy reversal) has partial demonstrated insulation. But T1 is NOT a structurally premium position — it's a policy-bet that's working operationally. Per principle #18, formal sizing decision deferred to Phase 4.
+
+## Cross-reference — Bottleneck map (added 2026-05-22)
+
+Per `research/portfolio/bottleneck-map.md`:
+- **Layer 0** — power (6-12mo binding), specifically solar/battery
+- **Top-compute agnostic: 10/10** — power is power; chip-agnostic
+- **CPU tightness: 2/10**
+- **Agentic tightness: 5/10** — indirect; more agentic workloads = more datacenters = more power, but not directly tied to chip mix
