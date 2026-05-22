@@ -685,10 +685,23 @@ Be CONFIDENT when:
 
    **The mandatory discipline:**
 
-   A. **Verify industry-norm claims OR flag as unverified.** When I cite "industry typically X" or "norm is N":
+   A. **Verify industry-norm claims OR flag as unverified — calibrated by load-bearing-ness, not blanket precision.** When I cite "industry typically X" or "norm is N":
    - Search for primary or T2-T3 source confirming the norm
-   - If unverifiable from external sources, flag as `(my inference from training data — unverified industry estimate)`
+   - If unverifiable from external sources, flag as `(my inference from training data — directional estimate, ~80% accuracy band)`
    - Never use unverified industry-norm claims as the ANCHOR for "this is unusual" framing without explicit flag
+
+   **User refinement 2026-05-22:** *"If it is around twelve to twenty four months and it's not the exact number, but the exact number is, like, eighty percent of that twelve to twenty four month, there's about eighty percent correct. That's also fine. It does not have to be... for these type of claims, incomparables as long as it's, like, you know, eighty percent correct, that's fine."*
+
+   **Operationalizing the ~80% directional-accuracy rule:**
+
+   Distinguish TWO uses of industry-norm claims:
+   - **Framing/baseline use (~80% directional accuracy is fine):** "qualification cycles typically run 12-24 months" used to establish whether something is unusual. If the real range is 10-22 or 9-20 months, the conclusion about Rigaku (deployment <12 months during pre-alliance phase) still holds. Training-data inference is acceptable here IF flagged as directional.
+   - **Point-prediction use (must be verified):** "X will take 14 months" used as a decision input or model parameter. Cannot use training-data inference; must verify or refuse the prediction.
+
+   **The discipline shifts from "verify everything or flag everything" to "verify when load-bearing":**
+   - If my conclusion holds when the norm is ±20-30% off, training-data directional baseline is fine (flag as directional)
+   - If my conclusion would flip when the norm is ±20-30% off, must verify or stop
+   - Sanity check: would the signal still be a HIGH-MAGNITUDE anomaly if the norm were 30% lower (i.e., the company is less unusual than I think)? If yes, the framing is robust to ~80% accuracy. If no, the framing depends on precision I don't have.
 
    B. **Score Time-to-X explicitly as a separate analytical dimension** for every relevant evaluation. The Time-to-X family includes:
    - **Time-to-Qualification (TTQ):** how fast did the company move from testing/collaboration to customer qualification/production deployment?

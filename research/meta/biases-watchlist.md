@@ -184,14 +184,21 @@ This produces TWO compounding failures:
 - Rigaku 2026-05-22: claimed "12-24 month qualification cycles" (training data, unverified); search 2026-05-22 only found "6 months to over a year" for general productization. The actual norm I anchored on may have been wrong, and the Onto-Rigaku "faster than norm" signal was descriptive prose not formally scored.
 
 **Correction (mandatory per principle #21 — Time-to-X signals as primary analytical dimension):**
-1. When citing industry norms, VERIFY at external source OR flag explicitly as `(my inference from training data — unverified industry estimate)`
+1. When citing industry norms, VERIFY at external source OR flag explicitly as `(my inference from training data — directional estimate, ~80% accuracy band)`
 2. Score Time-to-X signals (qualification, deployment, customer expansion, etc.) EXPLICITLY as separate dimensions in evaluation
 3. If company is >30% faster than norm: HIGH-MAGNITUDE signal weight
 4. Recognize when framework signals (Time-to-X, bypass-route, paradigm shift) override numerical signals in lead-time-constrained or new-paradigm environments
 
+**User refinement 2026-05-22 (avoid over-correction):** *"If it is around twelve to twenty four months and it's not the exact number, but the exact number is, like, eighty percent of that twelve to twenty four month, there's about eighty percent correct. That's also fine. It does not have to be... for these type of claims, incomparables as long as it's, like, you know, eighty percent correct, that's fine."*
+
+**Discipline calibration — verify when load-bearing, flag as directional otherwise:**
+- For FRAMING/BASELINE use ("is this unusual?"): ~80% directional accuracy is acceptable. Training-data norms can be cited IF flagged as directional. If the conclusion holds when norm is ±20-30% off, framing is robust.
+- For POINT-PREDICTION use (decision input, model parameter): must verify. Training-data norms not acceptable.
+- Sanity check before using a training-data norm as anchor: would the signal still be a HIGH-MAGNITUDE anomaly if the norm were 30% lower? If yes, framing-use is fine. If no, must verify.
+
 **How to check:** Before stating "industry typically X" or "norm is N" in any evaluation:
 - Did I verify this at external source?
-- If not, did I flag as unverified?
+- If not, did I flag as directional (~80% band) with the load-bearing-ness check?
 - If a company is materially faster/slower than my anchor, did I formally score Time-to-X as separate signal?
 
 **The BE-vs-gas-turbine analogy (user 2026-05-22):** "Investors that were buying GE Vernova, gas turbines, Siemens Energy but missed Bloom Energy because they thought BE's numbers look bad — they're new entrants — and completely disregarded the time-to-power framework that is now more valid, especially in an environment where the lead times are so long." The structural pattern: in lead-time-constrained markets, framework signals (time-to-X) can dominate numerical signals. Anchoring on industry-norm-numerical claims without verifying + ignoring time-to-X = double miss.

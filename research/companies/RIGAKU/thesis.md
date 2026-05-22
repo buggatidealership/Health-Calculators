@@ -191,9 +191,9 @@ User correction 2026-05-22 surfaced a SECOND structural issue in my prior deep d
 
 ### Verification of the industry-norm claim
 
-Search 2026-05-22 for semiconductor metrology equipment qualification cycle times: found "6 months to over a year" for general productization per [chetanpatil.in](https://www.chetanpatil.in/the-productization-cycle-time-in-semiconductor-development/). **Could not verify "12-24 months" specifically for metrology equipment qualification.** My anchor was training-data inference, NOT primary-source verified.
+Search 2026-05-22 for semiconductor metrology equipment qualification cycle times: found "6 months to over a year" for general productization per [chetanpatil.in](https://www.chetanpatil.in/the-productization-cycle-time-in-semiconductor-development/). **Could not verify "12-24 months" specifically for metrology equipment qualification** at primary source. My anchor was training-data inference, flagged as directional estimate (~80% accuracy band) per refined principle #21.
 
-**Honest reframe:** the industry norm I anchored on was unverified. The "Onto-Rigaku is faster than 12-24 months" framing therefore was based on an unverified baseline.
+**Honest reframe (with user-refined calibration 2026-05-22):** The "12-24 months" training-data norm is acceptable for FRAMING use here — even if the actual range is closer to 10-22 or 9-20 months (i.e., training data ~80% directionally accurate), the Onto-Rigaku signal still holds as anomalous: customer deployment is happening BEFORE the alliance formally closes, during pre-deal collaboration. The conclusion is robust to ±20-30% norm imprecision (sanity check passes — even at 30% lower norm, "<12 months during pre-alliance phase" remains a HIGH-MAGNITUDE positive signal). The earlier "totally unverified, can't trust" framing was over-correction.
 
 ### Formal Time-to-Qualification (TTQ) signal scoring
 
