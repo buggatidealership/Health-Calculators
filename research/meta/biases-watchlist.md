@@ -205,6 +205,46 @@ This produces TWO compounding failures:
 
 ---
 
+### B20 — Current-segment-% snapshot anchoring (forward-trajectory blindness)
+**Origin:** User correction 2026-05-23 after Nippon Chemical Industrial (4092.T) evaluation — I dismissed the AI-adjacent thesis based on Functional Products being "only ~10-15% of revenue today." User quote verbatim: *"my pushback is that even if its 10/15%, the task is not to identify the split today but it is to model what it can become."*
+
+**Pattern:** When a multi-segment company has a small-but-structurally-growing AI-adjacent segment, I dismiss the thesis based on current segment % anchored on the snapshot, missing the forward trajectory. This is the FORWARD-LOOKING corollary of B18 (operating-decline anchoring, segment-blind bias):
+- B18 catches: companies in headline decline where small AI segment is being overwhelmed by larger declining segments
+- B20 catches: companies where AI-adjacent segment is small TODAY but the segment trajectory is the bull thesis
+
+The investable thesis often lives in the FORWARD trajectory of a currently small segment, not its current size. Three examples illustrate:
+- Murata 10 years ago: MLCC was a portion of revenue; today AI-accelerator MLCC density growth IS the bull thesis
+- Corning: optical fiber was small; AI east-west traffic is now the bull driver
+- Rigaku: semiconductor segment was overshadowed by scientific instruments; AI-metrology segment is the forward thesis
+
+**Manifestation this session:**
+- Nippon Chemical 2026-05-23: dismissed Functional Products (phosphine duopolist + TDK MLCC JV) based on snapshot ~10-15% revenue contribution. The structural setup (1 of 2 global PH3 manufacturers per their product page; TDK barium titanate JV April 2026; China-export-control supplier re-qualification creating TTQ tailwind) projects materially higher segment trajectory.
+
+**Correction (mandatory per principle #22 — Model segment trajectory, not snapshot):**
+
+1. State current segment split (or flag as unverified)
+2. Identify AI-adjacent segment(s) and current size
+3. Forecast underlying demand growth (cite source or hedge)
+4. Project segment trajectory at 12-24 month and 24-36 month horizons
+5. Compute substitution rate vs declining segments
+6. State SOTP re-rating implication if segment mix shifts as projected
+7. ONLY THEN issue tier/sizing verdict based on FORWARD positioning, not snapshot
+
+**"Segment is too small today" is NEVER a sufficient dismissal reason.** The dismissal must instead be: "segment can't grow to drive the thesis even at favorable demand growth" — and that requires modeling, not assertion.
+
+**Hook enforcement (added 2026-05-23):** `~/.claude/segment-trajectory-hook.py` is a Stop hook that scans assistant messages for the anti-pattern (e.g., "only X% of revenue... too small to drive the thesis... skip/Tier 3") and blocks the message if no forward-modeling language is present (trajectory, SOTP, substitution rate, 12-24/24-36 month, could grow to, etc.). Source in `research/meta/hooks/segment-trajectory-hook.py`.
+
+**The structural meta-lesson (user 2026-05-23):** *"instructions will not always work; if you create a hook, then it will guaranteed work because it forces you to do something. You can't build a hook-based system, whatever has to be enforced, has to be enforced within the system."* Pairs with the hooks-as-enforcement principle (see B16 + cascade-enforcement-hook). For biases that recur, codify in this file AND build a hook.
+
+**How to check:** Before issuing a tier/sizing verdict on a multi-segment company:
+- Did I state the current segment split?
+- Did I forecast the AI-adjacent segment trajectory at 12-24mo and 24-36mo?
+- Did I compute substitution rate or SOTP re-rating implication?
+- If my verdict is dismissive, is it based on FORWARD modeling or snapshot anchoring?
+- The Stop hook will catch the obvious snapshot-anchor + dismissive-verdict combinations.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

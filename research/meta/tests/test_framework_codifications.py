@@ -21,7 +21,11 @@ Usage:
   python3 research/meta/tests/test_framework_codifications.py
 """
 
+import json
+import os
+import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[3]
@@ -30,6 +34,9 @@ BIASES = REPO_ROOT / "research" / "meta" / "biases-watchlist.md"
 RIGAKU = REPO_ROOT / "research" / "companies" / "RIGAKU" / "thesis.md"
 BOTTLENECK_MAP = REPO_ROOT / "research" / "portfolio" / "bottleneck-map.md"
 COMPANIES_DIR = REPO_ROOT / "research" / "companies"
+CLAUDE_MD = REPO_ROOT / "research" / "CLAUDE.md"
+SEGMENT_HOOK = REPO_ROOT / "research" / "meta" / "hooks" / "segment-trajectory-hook.py"
+HOOKS_SETTINGS = REPO_ROOT / "research" / "meta" / "hooks" / "settings.json"
 
 BOTTLENECK_MAP_TICKERS = [
     "HYNIX",
@@ -320,6 +327,183 @@ def main() -> int:
             f"{ticker} — back-references bottleneck-map.md",
             BACKREF_MARKER in content
             and "portfolio/bottleneck-map.md" in content,
+        )
+
+    # ------------------------------------------------------------------
+    # Principle #22 + B20 + segment-trajectory-hook (added 2026-05-23)
+    # ------------------------------------------------------------------
+    print()
+    print("methodology.md — principle #22")
+
+    result.check(
+        "principle #22 — Model segment trajectory exists",
+        "22. **Model segment trajectory, not snapshot" in methodology,
+    )
+    result.check(
+        "principle #22 — mandatory discipline list present",
+        "State current segment split" in methodology
+        and "Project segment trajectory at 12-24" in methodology,
+    )
+    result.check(
+        "principle #22 — Nippon Chemical user pushback quote captured",
+        "the task is not to identify the split today" in methodology
+        or "but it is to model what it can become" in methodology,
+    )
+    result.check(
+        "principle #22 — hook enforcement referenced",
+        "segment-trajectory-hook.py" in methodology,
+    )
+    result.check(
+        "principle #22 — hooks-as-enforcement meta-lesson captured",
+        "instructions will not always work" in methodology
+        or "guaranteed work because it forces you" in methodology,
+    )
+    result.check(
+        "principle #22 — references B20",
+        "B20" in methodology,
+    )
+    result.check(
+        "principle #22 — Nippon calibration example present",
+        "Nippon Chemical Industrial" in methodology
+        and "Calibration example (Nippon" in methodology,
+    )
+
+    print()
+    print("biases-watchlist.md — B20")
+
+    result.check(
+        "B20 — Current-segment-% snapshot anchoring entry exists",
+        "B20 — Current-segment-% snapshot anchoring" in biases,
+    )
+    result.check(
+        "B20 — references principle #22",
+        "principle #22" in biases,
+    )
+    result.check(
+        "B20 — Nippon Chemical example present",
+        "Nippon Chemical" in biases,
+    )
+    result.check(
+        "B20 — hook enforcement documented",
+        "segment-trajectory-hook.py" in biases,
+    )
+    result.check(
+        "B20 — segment-too-small-NEVER-sufficient rule present",
+        "NEVER a sufficient dismissal reason" in biases
+        or "is NEVER a sufficient dismissal" in biases,
+    )
+
+    print()
+    print("segment-trajectory-hook.py — source mirror exists + valid")
+
+    result.check(
+        "hook source mirror exists",
+        SEGMENT_HOOK.exists(),
+    )
+    if SEGMENT_HOOK.exists():
+        hook_content = SEGMENT_HOOK.read_text(encoding="utf-8")
+        result.check(
+            "hook — TRIGGER_PATTERNS defined",
+            "TRIGGER_PATTERNS" in hook_content,
+        )
+        result.check(
+            "hook — EXEMPTION_PATTERNS defined",
+            "EXEMPTION_PATTERNS" in hook_content,
+        )
+        result.check(
+            "hook — exit code 2 on anti-pattern",
+            "sys.exit(2)" in hook_content,
+        )
+        result.check(
+            "hook — repo-scope guard present",
+            "in_scope" in hook_content,
+        )
+
+    print()
+    print("hooks/settings.json — segment-trajectory hook registered")
+
+    if HOOKS_SETTINGS.exists():
+        settings = HOOKS_SETTINGS.read_text(encoding="utf-8")
+        result.check(
+            "settings.json — segment-trajectory-hook registered as Stop hook",
+            "segment-trajectory-hook.py" in settings,
+        )
+
+    print()
+    print("CLAUDE.md — hook documented in Enforcement hooks section")
+
+    if CLAUDE_MD.exists():
+        claude_md = CLAUDE_MD.read_text(encoding="utf-8")
+        result.check(
+            "CLAUDE.md — segment-trajectory-hook documented",
+            "segment-trajectory-hook.py" in claude_md
+            and "principle #22" in claude_md,
+        )
+
+    # ------------------------------------------------------------------
+    # Hook execution test — actually invoke the hook with positive and
+    # negative fixtures to prove the binary has teeth
+    # ------------------------------------------------------------------
+    print()
+    print("segment-trajectory-hook — execution test (positive + negative + neutral)")
+
+    def run_hook(transcript_content: str) -> int:
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".jsonl", delete=False
+        ) as f:
+            f.write(transcript_content)
+            transcript_path = f.name
+        try:
+            payload = json.dumps({"transcript_path": transcript_path})
+            r = subprocess.run(
+                ["python3", str(SEGMENT_HOOK)],
+                input=payload,
+                capture_output=True,
+                text=True,
+                cwd=str(REPO_ROOT),
+                timeout=10,
+            )
+            return r.returncode
+        finally:
+            os.unlink(transcript_path)
+
+    BAD_FIXTURE = (
+        '{"role":"user","content":"analyze foo"}\n'
+        '{"role":"assistant","content":"Functional Products is only 10-15% of '
+        'revenue, AI-adjacent revenue is too small to drive the thesis. Tier 3. '
+        'Skip."}\n'
+    )
+    GOOD_FIXTURE = (
+        '{"role":"user","content":"analyze foo"}\n'
+        '{"role":"assistant","content":"Functional Products is only 10-15% of '
+        'revenue today, but if Functional Products grows at 12-15% CAGR over '
+        '24-36 months while inorganic base declines, SOTP framing surfaces '
+        'material re-rating via substitution rate. Tier 2/3 boundary."}\n'
+    )
+    NEUTRAL_FIXTURE = (
+        '{"role":"user","content":"hello"}\n'
+        '{"role":"assistant","content":"Hello, how can I help you today?"}\n'
+    )
+
+    if SEGMENT_HOOK.exists():
+        bad_exit = run_hook(BAD_FIXTURE)
+        good_exit = run_hook(GOOD_FIXTURE)
+        neutral_exit = run_hook(NEUTRAL_FIXTURE)
+
+        result.check(
+            "hook execution — BAD fixture (anti-pattern, no forward modeling) exits 2",
+            bad_exit == 2,
+            f"got exit {bad_exit}, expected 2",
+        )
+        result.check(
+            "hook execution — GOOD fixture (anti-pattern + forward modeling) exits 0",
+            good_exit == 0,
+            f"got exit {good_exit}, expected 0",
+        )
+        result.check(
+            "hook execution — NEUTRAL fixture exits 0",
+            neutral_exit == 0,
+            f"got exit {neutral_exit}, expected 0",
         )
 
     return result.report()

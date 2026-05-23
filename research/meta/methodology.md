@@ -731,3 +731,41 @@ Be CONFIDENT when:
    - **Discipline going forward:** verify industry-norm claims OR flag them; score Time-to-X explicitly; weight framework signals appropriately in narrative-driven markets
 
    See B19 (industry-norm-claim anchoring without verification) in `biases-watchlist.md` + existing `meta/time-to-x-framework.md` (which now generalizes beyond time-to-power).
+
+22. **Model segment trajectory, not snapshot — small-AI-segment dismissal is a bias.** User correction 2026-05-23 after Nippon Chemical Industrial (4092.T) evaluation: I dismissed the AI-adjacent thesis based on Functional Products being "only ~10-15% of revenue today." User pushback verbatim: *"my pushback is that even if its 10/15%, the task is not to identify the split today but it is to model what it can become."*
+
+   **Why this bias exists:** the conventional analyst frame asks "what is this company today?" That's a SNAPSHOT lens, valuable for backward-looking accounting analysis but inadequate for forward-looking thesis construction. When a multi-segment company has a small-but-structurally-growing AI-adjacent segment, dismissing the thesis based on current segment % anchors on the snapshot and misses the trajectory.
+
+   **The investable thesis often lives in the FORWARD trajectory of a currently small segment, not its current size.** Examples:
+   - Murata 10 years ago: MLCC was a portion of revenue; today the AI-accelerator MLCC density growth is the bull thesis
+   - Corning: optical fiber was a smaller portion; AI east-west traffic is now the bull driver
+   - Rigaku: semiconductor segment was overshadowed by scientific instruments; the AI-metrology segment is the forward thesis
+   - Nippon Chemical Industrial: Functional Products (phosphine + electronic ceramics + TDK MLCC JV) currently a minority of revenue, but the structural setup positions it as the dominant forward driver
+
+   **Mandatory discipline for any multi-segment company analysis:**
+
+   1. **State current segment split** (or flag as unverified)
+   2. **Identify AI-adjacent segment(s)** and current size
+   3. **Forecast underlying demand growth** for the AI-adjacent segment (cite source or hedge)
+   4. **Project segment trajectory at 12-24 month and 24-36 month horizons**
+   5. **Compute substitution rate** vs. declining segments (similar to principle #20 but forward-looking)
+   6. **State SOTP re-rating implication** if segment mix shifts as projected
+   7. **THEN issue tier/sizing verdict** — based on FORWARD positioning, not snapshot
+
+   **What this changes operationally:**
+   - "Segment is too small today" is NEVER a sufficient dismissal reason
+   - The dismissal must instead be: "segment can't grow to drive the thesis even at favorable demand growth" — and that requires modeling, not assertion
+   - Multi-segment company evaluations must include explicit forward trajectory section
+
+   **Hook enforcement (added 2026-05-23):** `~/.claude/segment-trajectory-hook.py` is a Stop hook that scans every assistant message for the anti-pattern (e.g., "only X% of revenue... too small to drive the thesis... skip/Tier 3") and blocks the message if no forward-modeling language is present (trajectory, SOTP, substitution rate, 12-24/24-36 month, could grow to, etc.). Exit 2 with explicit feedback on what to add. This is deterministic enforcement — instructions in this file are skippable; hooks are not.
+
+   **The structural meta-lesson (user-articulated 2026-05-23):** *"instructions will not always work; if you create a hook, then it will guaranteed work because it forces you to do something. You can't build a hook-based system, whatever has to be enforced, has to be enforced within the system."* Anything operationally critical should be enforced via hook, not just documented as a rule.
+
+   **Calibration example (Nippon Chemical Industrial, 2026-05-23):**
+   - Initial framing: "Functional Products is only 10-15%, AI-adjacent revenue is too small to drive the thesis" → would be Tier 3 dismissal
+   - User pushback applied: model what segment can become
+   - Revised framing: Nippon is one of only two manufacturers of high-purity liquefied phosphine globally per their product page; PH3 semi market $69M (2023) → $111M (2030) per Valuates Reports; TDK JV (April 2026) brings barium titanate into AI accelerator MLCC supply chain; China export control supplier re-qualification dislocation creates TTQ tailwind
+   - Forward trajectory: if Functional Products goes from ~35% to ~50% of revenue over 24-36 months with semi-grade chemical margins (25-35% vs commodity 10-15%), SOTP re-rating becomes material
+   - Revised verdict: Tier 2/3 boundary, not Tier 3 dismissal — same level as Rigaku
+
+   See B20 (current-segment-% snapshot anchoring) in `biases-watchlist.md`.
