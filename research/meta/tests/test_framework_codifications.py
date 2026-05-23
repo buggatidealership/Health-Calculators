@@ -36,6 +36,10 @@ BOTTLENECK_MAP = REPO_ROOT / "research" / "portfolio" / "bottleneck-map.md"
 COMPANIES_DIR = REPO_ROOT / "research" / "companies"
 CLAUDE_MD = REPO_ROOT / "research" / "CLAUDE.md"
 SEGMENT_HOOK = REPO_ROOT / "research" / "meta" / "hooks" / "segment-trajectory-hook.py"
+NTHORDER_HOOK = REPO_ROOT / "research" / "meta" / "hooks" / "nth-order-cascade-hook.py"
+BYPASS_HOOK = REPO_ROOT / "research" / "meta" / "hooks" / "bypass-route-hook.py"
+BOTTOMSUP_HOOK = REPO_ROOT / "research" / "meta" / "hooks" / "bottoms-up-hook.py"
+ANTIFRAG_HOOK = REPO_ROOT / "research" / "meta" / "hooks" / "antifragility-mn-hook.py"
 HOOKS_SETTINGS = REPO_ROOT / "research" / "meta" / "hooks" / "settings.json"
 
 BOTTLENECK_MAP_TICKERS = [
@@ -505,6 +509,298 @@ def main() -> int:
             neutral_exit == 0,
             f"got exit {neutral_exit}, expected 0",
         )
+
+    # ==================================================================
+    # 2026-05-23: four new Stop hooks elevating instruction-only rules
+    # to deterministic enforcement.
+    # ==================================================================
+
+    def run_hook_at(hook_path: Path, transcript_content: str) -> int:
+        with tempfile.NamedTemporaryFile(
+            mode="w", suffix=".jsonl", delete=False
+        ) as f:
+            f.write(transcript_content)
+            transcript_path = f.name
+        try:
+            payload = json.dumps({"transcript_path": transcript_path})
+            r = subprocess.run(
+                ["python3", str(hook_path)],
+                input=payload,
+                capture_output=True,
+                text=True,
+                cwd=str(REPO_ROOT),
+                timeout=10,
+            )
+            return r.returncode
+        finally:
+            os.unlink(transcript_path)
+
+    def fixture(content: str) -> str:
+        return (
+            '{"role":"user","content":"x"}\n'
+            + '{"role":"assistant","content":'
+            + json.dumps(content)
+            + "}\n"
+        )
+
+    # ------------------------------------------------------------------
+    # Hook structure tests for the four new hooks
+    # ------------------------------------------------------------------
+    for hook_name, hook_path in [
+        ("nth-order-cascade-hook", NTHORDER_HOOK),
+        ("bypass-route-hook", BYPASS_HOOK),
+        ("bottoms-up-hook", BOTTOMSUP_HOOK),
+        ("antifragility-mn-hook", ANTIFRAG_HOOK),
+    ]:
+        print()
+        print(f"{hook_name}.py — structure")
+        result.check(
+            f"{hook_name} — source mirror exists",
+            hook_path.exists(),
+        )
+        if hook_path.exists():
+            content = hook_path.read_text(encoding="utf-8")
+            result.check(
+                f"{hook_name} — EXEMPTION_PATTERNS defined",
+                "EXEMPTION_PATTERNS" in content,
+            )
+            result.check(
+                f"{hook_name} — sys.exit(2) on anti-pattern",
+                "sys.exit(2)" in content,
+            )
+            result.check(
+                f"{hook_name} — in_scope guard present",
+                "in_scope" in content,
+            )
+
+    # ------------------------------------------------------------------
+    # settings.json registration
+    # ------------------------------------------------------------------
+    print()
+    print("hooks/settings.json — four new hooks registered")
+    if HOOKS_SETTINGS.exists():
+        settings = HOOKS_SETTINGS.read_text(encoding="utf-8")
+        for hook_name in [
+            "nth-order-cascade-hook.py",
+            "bypass-route-hook.py",
+            "bottoms-up-hook.py",
+            "antifragility-mn-hook.py",
+        ]:
+            result.check(
+                f"settings.json — {hook_name} registered as Stop hook",
+                hook_name in settings,
+            )
+
+    # ------------------------------------------------------------------
+    # CLAUDE.md documentation
+    # ------------------------------------------------------------------
+    print()
+    print("CLAUDE.md — four new hooks documented")
+    if CLAUDE_MD.exists():
+        cm = CLAUDE_MD.read_text(encoding="utf-8")
+        result.check(
+            "CLAUDE.md — nth-order-cascade-hook documented + cites principle #2",
+            "nth-order-cascade-hook.py" in cm and "principle #2" in cm,
+        )
+        result.check(
+            "CLAUDE.md — bypass-route-hook documented + cites principle #9",
+            "bypass-route-hook.py" in cm and "principle #9" in cm,
+        )
+        result.check(
+            "CLAUDE.md — bottoms-up-hook documented + cites principle #1",
+            "bottoms-up-hook.py" in cm and "principle #1" in cm,
+        )
+        result.check(
+            "CLAUDE.md — antifragility-mn-hook documented + cites principle #5",
+            "antifragility-mn-hook.py" in cm and "principle #5" in cm,
+        )
+
+    # ------------------------------------------------------------------
+    # methodology.md hook-enforcement annotations
+    # ------------------------------------------------------------------
+    print()
+    print("methodology.md — hook-enforcement notes on principles #1, #2, #5, #9")
+    result.check(
+        "methodology #1 — bottoms-up-hook.py referenced",
+        "bottoms-up-hook.py" in methodology,
+    )
+    result.check(
+        "methodology #2 — nth-order-cascade-hook.py referenced",
+        "nth-order-cascade-hook.py" in methodology,
+    )
+    result.check(
+        "methodology #5 — antifragility-mn-hook.py referenced",
+        "antifragility-mn-hook.py" in methodology,
+    )
+    result.check(
+        "methodology #9 — bypass-route-hook.py referenced",
+        "bypass-route-hook.py" in methodology,
+    )
+
+    # ------------------------------------------------------------------
+    # biases-watchlist.md — B21-B24
+    # ------------------------------------------------------------------
+    print()
+    print("biases-watchlist.md — B21-B24 entries")
+    for bnum, label in [
+        ("B21", "First-order anchoring"),
+        ("B22", "Consensus-solution anchoring"),
+        ("B23", "Sell-side aggregation drift"),
+        ("B24", "Tier-without-M/N"),
+    ]:
+        result.check(
+            f"{bnum} — entry exists with label '{label}'",
+            f"{bnum} —" in biases and label in biases,
+        )
+
+    # ------------------------------------------------------------------
+    # Execution tests — BAD / GOOD / NEUTRAL for each new hook
+    # ------------------------------------------------------------------
+    print()
+    print("nth-order-cascade-hook — execution test")
+    nth_bad = run_hook_at(
+        NTHORDER_HOOK,
+        fixture(
+            "NVDA gets a Tier 1 thesis bump because the export-control news "
+            "drives substitution toward domestic suppliers."
+        ),
+    )
+    nth_good = run_hook_at(
+        NTHORDER_HOOK,
+        fixture(
+            "NVDA gets a Tier 1 thesis bump because the export-control news "
+            "drives substitution toward domestic suppliers. 2nd order: this "
+            "triggers a knock-on capex reallocation at the foundries."
+        ),
+    )
+    nth_neutral = run_hook_at(
+        NTHORDER_HOOK,
+        fixture("Hello, how can I help you today?"),
+    )
+    result.check(
+        "nth-order — BAD fixture (causal+anchor, no N-th markers) exits 2",
+        nth_bad == 2,
+        f"got {nth_bad}",
+    )
+    result.check(
+        "nth-order — GOOD fixture (with 2nd-order marker) exits 0",
+        nth_good == 0,
+        f"got {nth_good}",
+    )
+    result.check(
+        "nth-order — NEUTRAL fixture exits 0",
+        nth_neutral == 0,
+        f"got {nth_neutral}",
+    )
+
+    print()
+    print("bypass-route-hook — execution test")
+    byp_bad = run_hook_at(
+        BYPASS_HOOK,
+        fixture(
+            "The supply pinch is a binding constraint, the standard suppliers "
+            "are the consensus solution."
+        ),
+    )
+    byp_good = run_hook_at(
+        BYPASS_HOOK,
+        fixture(
+            "The supply pinch is a binding constraint. Bypass route: "
+            "downstream players re-qualify alternative topologies via TTQ "
+            "acceleration."
+        ),
+    )
+    byp_neutral = run_hook_at(
+        BYPASS_HOOK,
+        fixture("The weather is nice today."),
+    )
+    result.check(
+        "bypass-route — BAD fixture (constraint, no bypass) exits 2",
+        byp_bad == 2,
+        f"got {byp_bad}",
+    )
+    result.check(
+        "bypass-route — GOOD fixture (constraint + bypass) exits 0",
+        byp_good == 0,
+        f"got {byp_good}",
+    )
+    result.check(
+        "bypass-route — NEUTRAL fixture exits 0",
+        byp_neutral == 0,
+        f"got {byp_neutral}",
+    )
+
+    print()
+    print("bottoms-up-hook — execution test")
+    btu_bad = run_hook_at(
+        BOTTOMSUP_HOOK,
+        fixture(
+            "I forecast revenue will reach $200B in DC sales by FY28 based on "
+            "Street consensus aggregation."
+        ),
+    )
+    btu_good = run_hook_at(
+        BOTTOMSUP_HOOK,
+        fixture(
+            "I forecast revenue will reach $200B in DC sales by FY28. Built "
+            "from supply: 2 million units per board ASP math validates floor."
+        ),
+    )
+    btu_neutral = run_hook_at(
+        BOTTOMSUP_HOOK,
+        fixture("Just chatting, no analysis here."),
+    )
+    result.check(
+        "bottoms-up — BAD fixture (forecast, no bottoms-up) exits 2",
+        btu_bad == 2,
+        f"got {btu_bad}",
+    )
+    result.check(
+        "bottoms-up — GOOD fixture (forecast + bottoms-up math) exits 0",
+        btu_good == 0,
+        f"got {btu_good}",
+    )
+    result.check(
+        "bottoms-up — NEUTRAL fixture exits 0",
+        btu_neutral == 0,
+        f"got {btu_neutral}",
+    )
+
+    print()
+    print("antifragility-mn-hook — execution test")
+    af_bad = run_hook_at(
+        ANTIFRAG_HOOK,
+        fixture(
+            "Tier: Core. Position target: 10%. P(bull case): 65%. "
+            "P(bear case): 15%. Bull return +40%."
+        ),
+    )
+    af_good = run_hook_at(
+        ANTIFRAG_HOOK,
+        fixture(
+            "Tier: Core. Position target: 10%. P(bull case): 65%. "
+            "P(bear case): 15%. Anti-fragility: 4/5 scenarios."
+        ),
+    )
+    af_neutral = run_hook_at(
+        ANTIFRAG_HOOK,
+        fixture("Just a tier mention without conviction block."),
+    )
+    result.check(
+        "antifragility — BAD fixture (full thesis, no M/N) exits 2",
+        af_bad == 2,
+        f"got {af_bad}",
+    )
+    result.check(
+        "antifragility — GOOD fixture (full thesis + M/N) exits 0",
+        af_good == 0,
+        f"got {af_good}",
+    )
+    result.check(
+        "antifragility — NEUTRAL fixture (no thesis block) exits 0",
+        af_neutral == 0,
+        f"got {af_neutral}",
+    )
 
     return result.report()
 

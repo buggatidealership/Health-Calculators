@@ -245,6 +245,69 @@ The investable thesis often lives in the FORWARD trajectory of a currently small
 
 ---
 
+### B21 — First-order anchoring (skipping N-th order cascade)
+**Origin:** User directive 2026-05-23 — elevate four currently-instruction-only rules to deterministic hook enforcement. N-th order causal cascade was one of them. Rationale verbatim: *"instructions will not always work; if you create a hook, then it will guaranteed work because it forces you to do something."*
+
+**Pattern:** Making analytical conclusions (investable verdicts, tier classifications, thesis impact statements, beneficiary/casualty calls) based on the 1st-order direct effect of an event without walking out 2nd / 3rd / 4th order consequences. Methodology principle #2 is explicit: *"The investable insight is usually 2nd or 3rd order, not the obvious direct effect."* The bias surfaces because 1st-order reasoning feels complete, but the alpha lives downstream where consensus hasn't done the work.
+
+**Correction:** Every analytical output that uses causal-reasoning language (causes, drives, leads to, results in, implies, means that, triggers, produces) combined with an analytical-context anchor (TICKER, thesis, portfolio, scenario, investable, Tier, Core/Active/Watchlist/Avoid) OR any WORKFLOW label — must include explicit N-th order markers. Use TRACE format: 1st order (P>80%), 2nd order (P~60%), 3rd order (P~40%), 4th order (P~20%). Or use cascade / knock-on / ripple / downstream-effect framing naming the further-order beneficiary or casualty.
+
+**Hook enforcement:** `~/.claude/nth-order-cascade-hook.py` (source mirror in `research/meta/hooks/`). Exit 2 with required-action feedback when trigger fires without exemption. Generous meta-discussion exemptions (hook, principle #, .py file references) so harness-talk turns don't false-positive.
+
+**How to check:** Before issuing any thesis-level conclusion — did I name at least one 2nd-order consequence? Did I trace at least one knock-on or downstream beneficiary? If the answer is no, the analysis is 1st-order anchored and the hook will catch it.
+
+---
+
+### B22 — Consensus-solution anchoring (skipping bypass-route)
+**Origin:** User directive 2026-05-23 — same elevation batch as B21.
+
+**Pattern:** When a binding constraint is discussed, naming the standard supplier or incumbent (the "consensus solution") without asking "what do consumers do when the consensus solution fails their actual sensitivity?" Methodology principle #9 + Critical Rule #9 + the Time-to-X framework all converge on this point: the bypass-route names are usually where the edge is, because consensus has already priced the obvious incumbent.
+
+**Manifestation in past sessions:** HBM-as-bottleneck framing often stops at Micron / SK Hynix / Samsung without naming what hyperscalers do when HBM supply gates them (alternative topologies, LPDDR-based architectures, custom memory IP). Power-constraint framing often stops at VST / CEG without naming behind-the-meter, micro-grid, or off-grid bypass routes.
+
+**Correction:** Every binding-constraint discussion (binding constraint, bottleneck, supply tight/gap, shortage, capacity-limited/constrained, Time-to-X, WORKFLOW: BOTTLENECK-FORECAST) must include either (a) the named bypass route — substitution path, second-source, alternative topology, qualification cycle (TTQ), workaround, end-customer adaptation — or (b) an explicit statement that no bypass route exists, with the reason why.
+
+**Hook enforcement:** `~/.claude/bypass-route-hook.py` (source mirror in `research/meta/hooks/`). Exit 2 with required-action feedback when constraint vocabulary fires without bypass-route exemption.
+
+**How to check:** Before completing any constraint discussion — did I name the bypass route or explicitly negate it? If only the consensus supplier is named, the analysis is consensus-solution anchored.
+
+---
+
+### B23 — Sell-side aggregation drift (skipping bottoms-up)
+**Origin:** Pre-existing as lesson #1 in `predictions/lessons.md` — the dominant failure mode identified through graded predictions. User directive 2026-05-23 elevated it from lesson-only to hook-enforced.
+
+**Pattern:** Making forward projections (revenue forecasts, growth rates, capacity expansions, TAM evolution) by paraphrasing or weighted-averaging Street consensus, analyst notes, or sell-side targets instead of building bottoms-up from supply, capacity, ASP, mix. Methodology principle #1 is explicit: *"NEVER start with sell-side and adjust."* The reason: weighted-averaging consensus adds zero edge — the alpha comes from where my unit model diverges from consensus, not from where it converges.
+
+**User clarification 2026-05-23:** Optimise toward shared goal. Interpretation: catch the dominant failure mode. Bottoms-up indicators MUST be present on predictive output; top-down comparison is allowed but not required by the hook.
+
+**Correction:** Every predictive output (WORKFLOW: PREDICT, "I predict/forecast", "(will|could) reach/grow to/hit/exceed $X", forward year/quarter "by YYYY", "X% CAGR", "X% growth", "projected revenue/growth/capacity") must include at least one of: (a) capacity-gate reasoning (fab/wafer capacity, capex disclosure, capacity reallocation), (b) BOM-level math (units per board/server/rack, BOM count, BOM expansion), (c) unit-economics buildup (explicit `X * Y = Z` math, ASP × units floor), or (d) explicit hedge: `(my model)`, `(rough estimate)`, `(hypothetical)`, `(illustrative)`.
+
+**Hook enforcement:** `~/.claude/bottoms-up-hook.py` (source mirror in `research/meta/hooks/`). Exit 2 with required-action feedback referencing principle #1 + lesson #1 when predictive surface fires without bottoms-up exemption.
+
+**How to check:** Before stating a forward projection — did I build it from supply/capacity/units? Or did I paraphrase consensus and adjust? If the latter, the hook catches it.
+
+---
+
+### B24 — Tier-without-M/N (skipping anti-fragility scoring)
+**Origin:** User directive 2026-05-23 — same elevation batch as B21-B23.
+
+**Pattern:** Writing full Conviction Format thesis blocks (P(bull) + P(bear) + Tier classification all present) without naming the anti-fragility M/N score (how many of N modeled scenarios the name wins in). Methodology principle #5: *"Anti-fragility > optimization. Prefer picks-and-shovels that win across futures over names that need a specific future to be right."* The tier is meant to be derived from M/N robustness, not stated as a vibe. Skipping the M/N hides whether the tier reflects multi-scenario robustness or just bull-case excitement.
+
+**User clarification 2026-05-23:** Narrow trigger by user choice — fire ONLY on full thesis blocks (where all three of P(bull, P(bear, and Tier/Position target are present). Short tier mentions in chat don't fire — minimises false positives, hits drift on real thesis output.
+
+**Correction:** Every full Conviction Format block must include explicit anti-fragility scoring in one of these forms:
+- `Anti-fragility: M/N` (e.g., `Anti-fragility: 4/5`)
+- `wins in M of N scenarios` (e.g., `wins in 4 of 5 scenarios`)
+- `M/N: 4/5`
+- `AF: 4/5`
+- `4/5 scenarios`
+
+**Hook enforcement:** `~/.claude/antifragility-mn-hook.py` (source mirror in `research/meta/hooks/`). Exit 2 with required-action feedback when full thesis block fires without M/N exemption.
+
+**How to check:** Before completing any full thesis output — does the tier carry an M/N? If only "Tier: Core" or "Tier: Active" appears without the scenario-robustness number, the thesis is a vibe assertion.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

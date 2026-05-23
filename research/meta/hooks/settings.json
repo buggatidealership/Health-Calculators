@@ -31,6 +31,22 @@
                     {
                         "type": "command",
                         "command": "~/.claude/segment-trajectory-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/nth-order-cascade-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/bypass-route-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/bottoms-up-hook.py"
+                    },
+                    {
+                        "type": "command",
+                        "command": "~/.claude/antifragility-mn-hook.py"
                     }
                 ]
             }
