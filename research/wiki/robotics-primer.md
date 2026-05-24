@@ -1,8 +1,11 @@
 # Robotics + AI — Primer
 
 **Codified:** 2026-05-24
-**Status:** Phase 1 seed — structural anchor for the robotics-OS build. Empirical numbers marked `[needs primary-source verification]` where I don't have orthogonal corroboration in this session's context.
-**Author stance:** I am building a worldview here, not summarizing consensus. The "extrapolations" section is where the actual edge sits (per principle #13).
+**Status:** **HYPOTHESIS WORLDVIEW** (downgraded from Phase 1 seed 2026-05-24 same day) — built top-down from pre-training categories + bottom-up from pre-training company memory, WITHOUT orthogonal source verification of structural claims. Empirical numbers marked `[primary-source verification required]`; structural claims (who's dominant, FM lab roster, actuator counts, supply concentration) ALSO need orthogonal corroboration before this primer can be cited as primary evidence in thesis files. Per principle #23 / B25. Phase 2 = orthogonal-source ingest before promotion to "verified worldview."
+
+**First stress-test result (2026-05-24 same day):** user probed HDS data-center cooling exposure → orthogonal web verification revealed a terminology collision (HDS the company ≠ "ultra-low harmonic drives" the VFD class used in DC cooling). HDS has NO cooling exposure; the cooling VFD class is made by ABB / Mitsubishi Electric / Yaskawa / Schneider / Danfoss. The discipline worked — pre-training conflated similar-named entities; orthogonal sources disambiguated. Updated below.
+
+**Author stance:** I am building a worldview here, not summarizing consensus. The "extrapolations" section is where the actual edge sits (per principle #13). But until Phase 2 verification, treat all claims as hypotheses.
 
 ---
 
@@ -251,11 +254,14 @@ Per the user's 2026-05-23 framing (industrialization-of-intelligence reshuffles 
 - AVGO (connectivity for fleet ops)
 
 **Important pure-play exposure I'd add to watchlist** for further drill:
-- Harmonic Drive Systems (6324.T) — most concentrated actuator-supply exposure
+- Harmonic Drive Systems (6324.T) — most concentrated actuator-supply exposure. **CORRECTED 2026-05-24 same day after user probe + orthogonal verification:** ~35-40% of harmonic-drive usage globally goes to semi cap-equip per industry sources — so HDS is robotics + semi cap-equip, NOT single-narrative. NO data center cooling exposure (terminology collision with VFD class).
 - Nidec (6594.T) — broader motor + actuator
 - Symbotic (SYM) — public RaaS exemplar
 - ISRG — surgical regulatory moat
 - Teradyne (TER) — Universal Robots exposure + semi-test cross-cut
+- **Yaskawa Electric (6506.T) — added 2026-05-24** after user surfaced multi-narrative thinking. Industrial robotics (incumbent risk per E8) AND VFDs for data center cooling (separate growth vector). The cooling-VFD leg may offset robotics-incumbent margin compression. Worth verifying segment-split.
+- **Mitsubishi Electric (6503.T) — added 2026-05-24** same logic — VFDs for DC cooling + industrial robotics + factory automation. Multi-narrative.
+- **ABB — added 2026-05-24** same logic — VFDs + robotics + electrification. Multi-narrative incumbent.
 
 ---
 
