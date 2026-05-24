@@ -361,3 +361,12 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 10/10** — every board needs MLCCs regardless of chip designer
 - **CPU tightness: 5/10** — CPUs need MLCCs but density-per-board skews to GPU/accelerator
 - **Agentic tightness: 6/10** — board-density-driven more than workload-mix-driven
+
+## Cross-reference — Robotics primer Phase 2 verified (added 2026-05-24)
+
+Per `research/wiki/robotics-primer.md` Phase 2 verification:
+
+**Murata ranked candidate #10** in the robotics ranking — multi-narrative confirmed across AI + EV + industrial + consumer + (now) humanoid PCB density. MN 5/5; AF 4/5. Every humanoid robot needs hundreds-to-thousands of MLCCs across actuator-control boards, sensor-fusion boards, power-management boards.
+
+**Implication for existing Murata thesis:** robotics adds an incremental volume vector to the already-bullish MLCC volume thesis. Already-high allocation (12.4% of portfolio) — sizing-matrix consideration is whether to hold or modestly trim into strength, not increase. The robotics layer is anti-fragile addition rather than primary thesis driver. No tier or falsifier change.
+

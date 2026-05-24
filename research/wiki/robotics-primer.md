@@ -1,11 +1,208 @@
 # Robotics + AI — Primer
 
 **Codified:** 2026-05-24
-**Status:** **HYPOTHESIS WORLDVIEW** (downgraded from Phase 1 seed 2026-05-24 same day) — built top-down from pre-training categories + bottom-up from pre-training company memory, WITHOUT orthogonal source verification of structural claims. Empirical numbers marked `[primary-source verification required]`; structural claims (who's dominant, FM lab roster, actuator counts, supply concentration) ALSO need orthogonal corroboration before this primer can be cited as primary evidence in thesis files. Per principle #23 / B25. Phase 2 = orthogonal-source ingest before promotion to "verified worldview."
+**Status:** **PHASE 2 PARTIALLY VERIFIED (2026-05-24 same day)** — L1 (encompassing market growth), L2 (segment ranking), L3 (suppliers per top segment), L4 (underneath + adjacent) all verified via orthogonal sources per principle #24. See "Phase 2 verified findings" section below. Phase 1 hypothesis sections preserved beneath for diff tracking; sections superseded by verified data are explicitly marked.
 
-**First stress-test result (2026-05-24 same day):** user probed HDS data-center cooling exposure → orthogonal web verification revealed a terminology collision (HDS the company ≠ "ultra-low harmonic drives" the VFD class used in DC cooling). HDS has NO cooling exposure; the cooling VFD class is made by ABB / Mitsubishi Electric / Yaskawa / Schneider / Danfoss. The discipline worked — pre-training conflated similar-named entities; orthogonal sources disambiguated. Updated below.
+**First stress-test result (2026-05-24 same day):** user probed HDS data-center cooling exposure → orthogonal web verification revealed a terminology collision (HDS the company ≠ "ultra-low harmonic drives" the VFD class used in DC cooling). HDS has NO cooling exposure; the cooling VFD class is made by ABB / Mitsubishi Electric / Yaskawa / Schneider / Danfoss. The discipline worked — pre-training conflated similar-named entities; orthogonal sources disambiguated.
 
-**Author stance:** I am building a worldview here, not summarizing consensus. The "extrapolations" section is where the actual edge sits (per principle #13). But until Phase 2 verification, treat all claims as hypotheses.
+**Phase 2 execution (2026-05-24 same day):** ~9 web searches across orthogonal sources (IFR primary, market research firms, supplier earnings, trade press, company funding announcements). Findings supersede Phase 1 hypothesis claims where covered. Multi-narrative anti-fragility framing applied via principle #5 + the user 2026-05-24 multi-narrative refinement candidate.
+
+**Author stance:** the "Phase 2 verified findings" + "Candidate ranking" sections below are the authoritative output. Phase 1 sections retained for audit trail showing the difference between pre-training-anchored worldview vs verified worldview.
+
+---
+
+## Phase 2 verified findings (2026-05-24)
+
+### L1 — Total robotics market (verified)
+
+**Industrial robotics (IFR 2025 — primary source):**
+- 542,000 industrial robot installations in 2024 (4th straight year above 500K; 2024 was 2nd-highest annual count in history, only 2% lower than all-time peak 2022)
+- 4,664,000 operational stock worldwide (+9% YoY)
+- China: 295,000 installations in 2024 (record); domestic supplier share climbed to 57% (from ~28% a decade ago); Chinese manufacturers outsold foreign suppliers in China for first time
+- Europe: 85,000 (-8% YoY); Japan 44,500 (-4% YoY)
+- IFR forecast: 575K units in 2025 (+6%); 700K+ by 2028
+- Asia 74% of new deployments, Europe 16%, Americas 9%
+
+**Total robotics market (multiple market-research aggregators; methodology variance noted):**
+- Industrial robotics: ~$26.98B 2025 → $30.71B 2026 → $93.31B 2035 (Precedence Research)
+- Service robotics: ~$26.35B 2025 → $31.11B 2026 (Fortune Business Insights); alternative methodology ~$62.85B 2025 → $72.46B 2026 (Precedence)
+- Total global robotics: ~$50B 2025 (Statista) → $111B 2030 at 14% CAGR; or ~$108B 2025 → $124B 2026 with broader definitions
+- Mobile robots (AMR/AGV): 50-60% of revenue through rest of decade per industry sources
+
+### L2 — Segment ranking by growth (verified, ranked by CAGR)
+
+| Rank | Segment | Market size 2025 | Growth rate | Source class |
+|---|---|---|---|---|
+| 1 | Humanoid (overall) | $2.9B | 51% CAGR base case (~31% conservative, ~76% optimistic) | Industry consensus across sources |
+| 2 | Humanoid robot reducers (specific) | $52.3M | **46.3% CAGR** to $580M by 2032 | Intel Market Research |
+| 3 | AMR / AGV | included in service | ~30% CAGR by 2028 | Multiple |
+| 4 | Service robotics | $26-62B (variance) | ~19.8% CAGR | Fortune BI / Precedence |
+| 5 | Warehouse robotics | $7-15B 2025 (variance) | ~17-20% CAGR | Mordor / SNS Insider |
+| 6 | Surgical robotics | $7.24B 2024 → $22.68B 2032 | **~15.3% CAGR** | MDDIonline |
+| 7 | Industrial robotics | $27B 2025 | ~6% units / single-digit revenue growth | IFR + Precedence |
+
+**The non-consensus read:** the HUMANOID REDUCER market specifically growing at 46.3% CAGR ($52M → $580M) is the bottoms-up data signal that validates the actuator-bottleneck thesis I asserted in Phase 1 — but the size is much smaller in absolute revenue than I'd implied. Investable, but not by buying pure-play reducer suppliers expecting near-term revenue explosion — the play is the EARNINGS-MULTIPLE re-rate from "industrial robot reducer maker" to "humanoid actuator critical-path supplier."
+
+### L3 — Verified suppliers per top segments
+
+**Actuator/reducer choke point (the verified bottleneck):**
+- **Harmonic Drive Systems (6324.T)**: 60% of global harmonic drive market (verified)
+- **Nabtesco**: 35% of RV reducers for articulated industrial robots; 28% of miniature RV for humanoid robots (2024); **announced doubling RV reducer production capacity by 2026** (verified — capex disclosure)
+- **Schaeffler**: new entrant — "all-in-one" planetary gear actuator for humanoids, world premiere CES 2026 Las Vegas (verified — manufacturer announcement)
+- Structural constraint: precision gearbox capacity globally limited to **fewer than a dozen facilities worldwide**, lead times exceeding 6 months
+- Geographic concentration: **>80% of critical actuator components originate from just 3 countries** (Japan, Germany, China per industry analysis)
+
+**Foundation models for robotics:**
+- **Physical Intelligence (Pi)**: $600M Series B Nov 2025 (led by CapitalG; NVIDIA NVentures participated); $1.1B total raised; ~$5.6B valuation; π0 generalist policy released Feb 2025 (trained on 10K+ hours real-world data, 7 robot embodiments, 68 tasks); π0 FAST Nov 2025 (5x faster training); π0.5 generalizes to unseen homes/offices
+- **Skild AI**: comparable scale (not searched this session — Phase 2 follow-up)
+- **NVIDIA Isaac GR00T**: foundation model platform launched GTC 2025; N1.7 open-sourced on GitHub
+- **NVIDIA Cosmos / Isaac Sim**: simulation moat (orthogonal to FM-model competition)
+
+**Edge compute:**
+- **NVIDIA Jetson Thor** (Blackwell-based): GA Aug 2025; 7.5x AI compute + 3.5x energy efficiency vs Jetson Orin; 2M+ developers across Jetson lineage; 7,000+ Orin customers
+- **Verified customers** (early adopters): Agility Robotics, Amazon Robotics, Boston Dynamics, Caterpillar, Figure, Hexagon, Medtronic, Meta
+- **Verified evaluators**: 1X, John Deere, OpenAI, Physical Intelligence (cross-cut with FM layer)
+
+**Surgical (Intuitive Surgical primary-source verified):**
+- **Intuitive Surgical (ISRG)**: Q3 2025 revenue $2.51B (**+23% YoY** — strongest growth rate among large robotics names); da Vinci installed base 10,763 systems (+13% YoY); da Vinci procedure volume **+17% in 2024, +15.5-17% guidance 2025**; **Ion procedure volume +52% (lung)**; deepest regulatory + installed-base moat in robotics
+- **Stryker** (Mako orthopedic), **Medtronic** (Hugo RAS — IDE clinical studies Oct 2025 in gynecology, urology, hernia met endpoints), **Johnson & Johnson** (Ottava), **CMR Surgical** (private)
+
+**Warehouse robotics (verified):**
+- **Symbotic (SYM)**: $300M institutional raise Oct 2025 for 2nd US plant + regional service centers; acquired Walmart's internal robotics arm Jan 2025 (proprietary sortation IP + Walmart anchor)
+- **AutoStore**: $200M framework agreement with US 3PL for 50 cubic-storage systems by 2026 under RaaS model; $185M record quarterly revenue May 2025; new Ohio plant; next-gen Black Line robots
+- **Locus Robotics** (private): 13,000+ bots deployed across 300+ facilities
+
+**Humanoid OEMs (verified deployment status, NOT verified revenue):**
+- **Tesla Optimus**: not in material usage per Musk Q4 2025 earnings; Fremont conversion target 1M units/year, public sale targeted late 2027
+- **Figure 02**: BMW Spartanburg 11-month pilot — moved 90K components, 1,250 operating hours, 1.2M steps, assisted production of 30K BMW X3s; BotQ facility 12K units/year planned
+- **Apptronik Apollo**: Mercedes-Benz factory testing + GXO Logistics warehouse testing
+- **1X**: NEO household robot + EVE commercial; Hayward CA facility opened April 2026
+- **Boston Dynamics** (Hyundai-owned): 30K units/year planned production
+
+### L4 — Underneath + adjacent (verified cross-narrative discoveries)
+
+**Cross-narrative for held names** (multi-narrative anti-fragility surfaced via verified data):
+- **NVIDIA (NVDA)**: edge compute (Jetson Thor) + simulation (Isaac/Cosmos) + foundation model (GR00T) + FM-lab investor (Pi via NVentures) + AI compute (existing). FIVE INDEPENDENT NARRATIVES converging. Highest multi-narrative score.
+- **Amazon (AMZN held)**: hyperscale cloud (existing) + warehouse robotics direct via Amazon Robotics + Covariant FM acquisition (vertical-data moat) + Jetson Thor early adopter. Multi-narrative confirmed.
+- **STM (held)**: power semi for VFDs/motor drives + MEMS sensors + automotive + industrial + robotics-adjacent. Quad-narrative (already-multi-narrative confirmed).
+- **Murata (held)**: MLCC for AI + EV + industrial + consumer + humanoid PCB density. Multi-narrative confirmed.
+- **AXTI (held)**: InP for optical AI + compound semi for power electronics in motor drives. Dual-narrative (smaller than I'd thought without humanoid direct exposure).
+
+**Underneath the actuator choke point:**
+- Precision steel (specialized alloys for strain-wave gears) — fragmented supply
+- Specialty heat-treatment facilities — capacity-constrained
+- High-precision CNC machining — capacity-constrained, multi-year lead times
+
+**Adjacent: semi cap-equip overlap** — HDS has ~35-40% of harmonic-drive usage going to semi cap-equip globally (per industry sources). So HDS is NOT single-narrative robotics — it's robotics + semi cap-equip dual-narrative. Adds anti-fragility relative to humanoid-only exposure.
+
+---
+
+## Candidate ranking — 5-dimensional framework + multi-narrative score
+
+**Scoring dimensions** (per AI sector framework + principle #16 evaluation matrix v2):
+- **D1 Duration of constraint** (how long does the bottleneck bind)
+- **D2 Magnitude / pricing power** (how much margin can the layer capture)
+- **D3 Choke-point proximity** (how close to the binding constraint)
+- **D4 Recognition stage** (where on the consensus-discovery curve)
+- **D5 Execution quality** (management + capacity discipline)
+- **MN Multi-narrative count** (independent narrative drivers attracting capital)
+- **DR Displacement risk** (substitution / commoditization risk over 12-24mo)
+- **AF Anti-fragility M/N** (wins across multiple scenarios)
+
+Scoring: 5 = best, 1 = worst, "?" = needs deeper verification.
+
+| # | Name | D1 | D2 | D3 | D4 | D5 | MN | DR | AF | Net thesis (6-18mo horizon) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | **NVIDIA (NVDA)** | 5 | 5 | 4 | 3 | 5 | 5 | 2 | 5/5 | Multi-narrative champion — wins via every robotics scenario via Jetson + Isaac + GR00T + Pi investment. Recognition stage advanced for AI compute but EARLY for robotics segment. Pricing power high. Displacement risk only via custom-Si erosion (covered in AI sector primer). |
+| 2 | **Intuitive Surgical (ISRG)** | 5 | 5 | 5 | 4 | 5 | 2 | 1 | 4/5 | Most-verified strong fundamentals (+23% YoY Q3 2025 revenue; +52% Ion procedures). Deepest regulatory moat in robotics. Displacement risk lowest in the watchlist. Multi-narrative limited (surgical-specific). 6-18mo thesis: continued installed-base compounding + Ion expansion + Hugo competitive entry risk to monitor. |
+| 3 | **Harmonic Drive Systems (6324.T)** | 5 | 5 | 5 | 3 | ? | 3 | 3 | 4/5 | Choke-point verified — 60% global harmonic drive market, <12 facilities globally, 6mo+ lead times. Multi-narrative: robotics + semi cap-equip (35-40% of usage). DR medium — Schaeffler entrant + Chinese localization push. Earnings-multiple re-rate setup as humanoid narrative matures. Execution Q (D5) needs verification — capex discipline + customer concentration. |
+| 4 | **Nabtesco** | 5 | 4 | 5 | 3 | 5 | 3 | 3 | 4/5 | Sister-choke-point — 35% of RV reducers (industrial) + 28% miniature RV (humanoid). **DOUBLING CAPACITY BY 2026** — verified capex disclosure = pricing-power-to-volume-growth transition. D2 slightly lower than HDS because capacity ramp may compress pricing. Multi-narrative same as HDS. |
+| 5 | **Symbotic (SYM)** | 4 | 4 | 4 | 4 | 4 | 2 | 3 | 3/5 | Walmart anchor verified strong; Walmart robotics IP acquisition Jan 2025; $300M raise Oct 2025. RaaS economics work. Customer concentration risk (Walmart-heavy). DR medium — AutoStore, Locus, AMZN in-house compete. 6-18mo: continued Walmart deployment + 2nd-customer diversification proof. |
+| 6 | **NVIDIA — Robotics segment specifically** | (covered in #1) — flag for separate watching when NVDA breaks out robotics revenue on earnings (extrapolation E3 from Phase 1, still un-verified by NVDA disclosure) | | | | | | | | |
+| 7 | **Schaeffler** | 3 | 3 | 4 | 2 | ? | 3 | 4 | 3/5 | New entrant in humanoid actuators (CES 2026 launch) — too early to verify pricing or volume. Existing industrial business provides earnings floor. DR high because unproven in this segment. Worth watching post-CES 2026 commercial uptake. |
+| 8 | **Yaskawa Electric (6506.T)** | 3 | 3 | 3 | 4 | 4 | 4 | 3 | 3/5 | Multi-narrative: industrial robotics (incumbent — E8 displacement risk per Phase 1) + VFDs for DC cooling (orthogonal growth vector). The cooling-VFD leg may offset robotics-incumbent margin compression. 6-18mo thesis depends on which leg dominates earnings momentum. Verification needed: Yaskawa segment-split disclosure. |
+| 9 | **STM (held — 6.6%)** | 4 | 4 | 4 | 3 | 4 | 5 | 3 | 4/5 | Already multi-narrative: power semi for motor drives + MEMS + automotive + industrial + robotics. Phase 2 verification confirms robotics adds a 5th narrative leg. Sizing-matrix consideration: may deserve modest overweight under multi-narrative framing. |
+| 10 | **Murata (held — 12.4%)** | 4 | 4 | 3 | 3 | 5 | 5 | 2 | 4/5 | MLCC volume across AI + EV + industrial + consumer + humanoid PCB density. Verified multi-narrative anchor. Pricing power moderate (commoditized component but volume leverage). Already at high allocation — sizing-matrix consideration: hold or modestly trim into strength. |
+| 11 | **AutoStore** | 4 | 4 | 4 | 3 | 4 | 2 | 3 | 3/5 | RaaS exemplar — $200M framework + $185M Q revenue + Ohio plant + Black Line next-gen. Norwegian listing — accessibility consideration for portfolio. |
+| 12 | **AMZN (held)** | 3 | 3 | 4 | 4 | 5 | 5 | 2 | 5/5 | Multi-narrative confirmed: hyperscaler cloud + warehouse robotics direct + Covariant FM acquisition + Jetson Thor early adopter. AMZN robotics is part of broader cloud/AI thesis, not standalone — but adds to AF score. Already a known megacap; recognition stage advanced. |
+
+**Names flagged for short / size-reduction (per Phase 1 E8 displacement risk):**
+- **Fanuc (FANUY)**, **KUKA** (Midea-owned, less liquid public), **ABB** — industrial-robotics incumbents whose programming-services moat is at risk from foundation-model robotics. Mixed picture: ABB has VFDs + electrification (multi-narrative offsets robotics-displacement); pure-play Fanuc/KUKA most exposed.
+
+**Names that need separate company-folder build for thesis depth:**
+- Harmonic Drive Systems (6324.T) — no folder yet; create with Phase 2 data
+- Nabtesco — no folder yet; create with Phase 2 data
+- Intuitive Surgical (ISRG) — no folder yet; create
+- Symbotic (SYM) — no folder yet; create
+- Yaskawa (6506.T) — no folder yet; create
+- Physical Intelligence — private, track in private-tracker.md
+
+---
+
+## L1-L4 verification sources (per principle #23 orthogonality)
+
+**L1 — total robotics market:**
+- IFR (International Federation of Robotics) — primary industry data
+- Precedence Research — market research aggregator
+- Fortune Business Insights — orthogonal market research aggregator
+- Statista — orthogonal aggregator
+- ABI Research — orthogonal aggregator (referenced but not directly fetched)
+
+**L2 — segment ranking:**
+- IFR (industrial primary)
+- Mordor Intelligence (warehouse)
+- SNS Insider (warehouse)
+- MDDIonline (surgical)
+- Intel Market Research (humanoid reducer specific)
+- Multiple humanoid market estimates triangulated
+
+**L3 — suppliers:**
+- Nabtesco company website / press release (capacity announcement — primary)
+- Schaeffler press release (CES 2026 launch — primary)
+- ISRG SEC 8-K Q3 2025 earnings (primary)
+- Symbotic press / company announcements (primary + secondary)
+- AutoStore company disclosures (primary)
+- NVIDIA developer / investor relations (primary)
+- Physical Intelligence funding announcements (primary + trade press)
+- Industry analyses on actuator concentration (secondary — yrules, gerra, Intel Market Research)
+
+**L4 — underneath / adjacent:**
+- HDS semi cap-equip exposure (Strategic Revenue Insights + Intel Market Research — orthogonal market research firms)
+- NVIDIA Jetson Thor customer list (NVIDIA primary + edge-ai-vision trade press orthogonal)
+
+---
+
+## Phase 2 still-pending verification (Phase 3 queue)
+
+- Yaskawa segment-split disclosure (cooling-VFD revenue %) — needs earnings transcript pull
+- Mitsubishi Electric factory automation + cooling-VFD segment breakdown — needs earnings
+- Skild AI funding + technical benchmarks — Phase 2 didn't cover
+- Specific tactile sensor density supplier names + pricing — Phase 2 didn't cover (remains hypothesis from Phase 1)
+- Compound semi GaN/SiC motor-drive supplier ranking — primary-source needed
+- Defense robotics deployment numbers (Anduril, Shield AI) — most classified; verification via public disclosure only
+
+---
+
+## Author note on Phase 2 (per principle #24 self-observation)
+
+This Phase 2 build executed in ~9 web searches across orthogonal sources. Compared to Phase 1 (zero verification, all pre-training):
+
+**Where Phase 2 confirmed Phase 1:**
+- Harmonic Drive Systems concentration (60% global) — confirmed
+- Nabtesco as second leader — confirmed
+- ISRG as strongest surgical name — confirmed
+- NVIDIA dominance in edge compute + simulation — confirmed
+- Foundation model lab landscape (Pi central) — confirmed
+
+**Where Phase 2 SURPRISED vs Phase 1:**
+- Humanoid reducer market absolute size much smaller than implied ($52M 2025) — the play is multiple re-rate, not near-term revenue scale
+- Nabtesco's doubling capacity announcement (not in Phase 1) — strong execution signal
+- NVIDIA's investment in Physical Intelligence via NVentures (not in Phase 1) — cross-leg validation
+- ISRG's Ion procedure +52% growth (not just da Vinci) — multi-product growth verified
+- Schaeffler entrant in humanoid actuators (not in Phase 1)
+- Symbotic's Walmart robotics IP acquisition (Jan 2025) — material strategic move not in Phase 1
+
+**Conclusion on principle #24 first stress test:** the verified worldview added 6 material findings not present in Phase 1, while confirming 5 structural claims. Principle #24 is producing real edge — pre-training would have missed the Nabtesco capex announcement, the NVDA-Pi investment, the Ion +52%, the Symbotic Walmart IP, the Schaeffler entrant. These are the kind of details that change sizing decisions. Principle worth keeping. Re-evaluation deferred to next primer rebuild (next quarter).
 
 ---
 

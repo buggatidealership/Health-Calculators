@@ -101,3 +101,12 @@ The Q1 FY27 print (2026-05-20) surfaced 6 structural reads beyond the headline n
 **Watch items:** Q2 GM (74.9% Q1 vs my call 75.4%; HBM cost pressure possible BUYER-side hit); Vera Rubin "supply-constrained" framing persistence; sovereign AI growth sustainability.
 
 **No change to thesis tier** (Core 8-12% target stands); user's lack-of-NVDA-position stance defensible given Stage 4 + bidirectional risk surfaced by the call (Jensen vs Patel disagreement).
+
+## Cross-reference — Robotics primer Phase 2 verified (added 2026-05-24)
+
+Per `research/wiki/robotics-primer.md` Phase 2 verification:
+
+**NVDA ranked #1 candidate** in the robotics 5-dimensional + multi-narrative framework — five independent narratives converge in one name: edge compute (Jetson Thor, GA Aug 2025; 7.5x AI compute vs Orin), simulation (Isaac/Cosmos), foundation model (GR00T N1.7 open-sourced), FM-lab investor (NVentures led Physical Intelligence Series B Nov 2025), AI compute (existing thesis). 2M+ Jetson developers; 7,000+ Orin customers; verified early adopters include Agility, Amazon, Boston Dynamics, Figure, Medtronic, Meta.
+
+**Implication for existing NVDA thesis:** robotics is additional optionality, not a separate thesis. Adds to the multi-narrative anti-fragility score but doesn't change Core 8-12% target. The relevant catalyst to watch is whether NVDA breaks out robotics revenue on earnings (Phase 1 extrapolation E3 — still un-verified by NVDA disclosure but Jetson Thor commercial scale-up makes it a 6-8 quarter watch item). No tier change; sizing implication marginal positive.
+

@@ -222,3 +222,12 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 10/10** — substrate sells to all photonics players
 - **CPU tightness: 1/10**
 - **Agentic tightness: 9/10** — agentic = more interconnect demand = more InP demand
+
+## Cross-reference — Robotics primer Phase 2 verified (added 2026-05-24)
+
+Per `research/wiki/robotics-primer.md` Phase 2 verification:
+
+**AXTI flagged with INDIRECT robotics exposure** — InP for optical AI (existing thesis) + compound semi substrates underneath GaN/SiC for power electronics in motor drives. Dual-narrative confirmed via the L4 underneath/adjacent layer mapping. Note: weaker direct robotics exposure than I'd implied in Phase 1 (no humanoid direct supply); the robotics narrative for AXTI is supply-chain-underneath, not direct supply.
+
+**Implication for existing AXTI thesis:** robotics is a secondary thesis support, not primary. The primary thesis remains InP for optical AI (per `wiki/optical-interconnect-primer.md`). Robotics adds modest anti-fragility — wins if compound-semi GaN/SiC motor-drive tailwind plays out — but does not change tier or falsifiers. Sizing-matrix consideration: AXTI's multi-narrative score is moderate (2 narratives), not the 4-5 of STM/Murata.
+

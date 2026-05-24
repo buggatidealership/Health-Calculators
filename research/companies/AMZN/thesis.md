@@ -165,3 +165,12 @@ Per user instruction 2026-05-21:
 - `research/meta/private-tracker.md` — Anthropic specifics
 - `research/signals/triangulation.md` — Anthropic Q2 2026 signal
 - `research/portfolio/recommendations.md` — destination for cash deployment
+
+## Cross-reference — Robotics primer Phase 2 verified (added 2026-05-24)
+
+Per `research/wiki/robotics-primer.md` Phase 2 verification:
+
+**AMZN ranked candidate #12** in the robotics ranking — multi-narrative confirmed: hyperscaler cloud (existing thesis) + warehouse robotics direct via Amazon Robotics + Covariant FM acquisition (vertical-data moat in robotics foundation models) + Jetson Thor early adopter. Verified via NVIDIA developer announcements + AMZN press.
+
+**Implication for existing AMZN thesis:** robotics is part of the broader cloud/AI exposure, not standalone. Adds to anti-fragility scoring (now 5/5 with robotics counted). The Covariant acquisition specifically positions AMZN on the vertical-data-moat side of the generalist-vs-vertical foundation-model competition (per principle #5 / robotics-primer E2). No tier change implied; sizing-matrix consideration: AMZN benefits from being correctly classified as multi-narrative rather than single-narrative cloud.
+

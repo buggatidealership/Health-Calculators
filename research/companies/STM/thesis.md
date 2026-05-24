@@ -166,3 +166,12 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 8/10** — SiC for power conversion serves all DC builds
 - **CPU tightness: 4/10** — auto/MCU heavier than CPU
 - **Agentic tightness: 5/10** — power-density indirect signal
+
+## Cross-reference — Robotics primer Phase 2 verified (added 2026-05-24)
+
+Per `research/wiki/robotics-primer.md` Phase 2 verification:
+
+**STM ranked candidate #9** in the robotics ranking — Phase 2 verifies that STM was already multi-narrative before robotics was formally surfaced: power semi for VFDs/motor drives + MEMS sensors + automotive + industrial + (now) robotics-adjacent. MN score 5/5; AF 4/5. Robotics adds a 5th narrative leg via motor-drive power electronics + MEMS for sensor fusion.
+
+**Implication for existing STM thesis:** multi-narrative framing under principle #5 + the 2026-05-24 multi-narrative refinement candidate suggests STM may deserve modest overweight relative to current 6.6% portfolio allocation. Defer to tomorrow's sizing matrix (multi-horizon 6/12/18mo framework). No falsifier change. The robotics motor-drive exposure compounds with the existing AI sector power-electronics tailwind.
+
