@@ -802,6 +802,202 @@ def main() -> int:
         f"got {af_neutral}",
     )
 
+    # ==================================================================
+    # 2026-05-24: principle #23 (claim-level verification) + #6 refinement
+    # + B25 + fluidity layer + harness-observations section.
+    # ==================================================================
+    print()
+    print("methodology.md — principle #23 (claim-level verification)")
+    result.check(
+        "principle #23 — exists with label 'Claim-level verification'",
+        "23. **Claim-level verification via orthogonal data"
+        in methodology,
+    )
+    result.check(
+        "principle #23 — TrendForce HBF user correction quote captured",
+        "TrendForce" in methodology
+        and "HBF" in methodology
+        and "high-IOPS NAND" in methodology,
+    )
+    result.check(
+        "principle #23 — operational definition of 'orthogonal' present",
+        "different data-generation processes" in methodology
+        or "different data-generation process" in methodology,
+    )
+    result.check(
+        "principle #23 — mandatory discipline list (5 steps) present",
+        "first-order assertion" in methodology
+        and "orthogonal corroboration" in methodology
+        and "single-source hypothesis" in methodology,
+    )
+    result.check(
+        "principle #23 — retroactive HBF application worked example present",
+        "Kioxia/SanDisk roadmap" in methodology
+        or "GIDS architecture" in methodology,
+    )
+    result.check(
+        "principle #23 — fluidity footer (codified/last_review/falsified_by/re-eval)",
+        "codified: 2026-05-24" in methodology
+        and "last_review: 2026-05-24" in methodology
+        and "falsified_by:" in methodology
+        and "re-evaluation trigger:" in methodology,
+    )
+    result.check(
+        "principle #23 — references B25",
+        "B25" in methodology,
+    )
+
+    print()
+    print("methodology.md — principle #6 refinement (orthogonal triangulation)")
+    result.check(
+        "principle #6 — refined to require ORTHOGONAL sources",
+        "Triangulate weak signals — via ORTHOGONAL sources" in methodology,
+    )
+    result.check(
+        "principle #6 — redundant vs orthogonal distinction explained",
+        "redundant" in methodology
+        and "different data-generation processes" in methodology,
+    )
+    result.check(
+        "principle #6 — cross-references principle #23",
+        "principle #23" in methodology,
+    )
+
+    print()
+    print("methodology.md — Principle metadata & fluidity section")
+    result.check(
+        "fluidity section — exists",
+        "## Principle metadata & fluidity" in methodology,
+    )
+    result.check(
+        "fluidity section — user 2026-05-24 framing quoted",
+        "first principles also have expiration dates"
+        in methodology,
+    )
+    result.check(
+        "fluidity section — operating procedure documented",
+        "harness-observations log" in methodology
+        and "auto-queues for re-review" in methodology,
+    )
+    result.check(
+        "fluidity section — all 23 principles in metadata table",
+        all(
+            f"| {n} |" in methodology
+            for n in range(1, 24)
+        ),
+    )
+    result.check(
+        "fluidity section — status definitions present (active/under_review/refined/falsified)",
+        "active" in methodology
+        and "under_review" in methodology
+        and "refined" in methodology
+        and "falsified" in methodology,
+    )
+
+    print()
+    print("biases-watchlist.md — B25 (source-tracking-over-claim-verification)")
+    result.check(
+        "B25 — entry exists",
+        "B25 — Source-tracking-over-claim-verification" in biases,
+    )
+    result.check(
+        "B25 — TrendForce HBF origin documented",
+        "TrendForce" in biases and "HBF" in biases,
+    )
+    result.check(
+        "B25 — trusted-source false confidence pattern captured",
+        "Trusted-source false confidence" in biases
+        or "trusted-source false confidence" in biases,
+    )
+    result.check(
+        "B25 — untrusted-source false rejection pattern captured",
+        "Untrusted-source false rejection" in biases
+        or "untrusted-source false rejection" in biases,
+    )
+    result.check(
+        "B25 — retroactive HBF application present",
+        "GTC" in biases or "GIDS architecture" in biases,
+    )
+    result.check(
+        "B25 — references principle #23",
+        "principle #23" in biases,
+    )
+
+    print()
+    print("where-we-are.md — Harness observations section")
+    where_we_are = (REPO_ROOT / "research" / "sector" / "where-we-are.md").read_text(
+        encoding="utf-8"
+    )
+    result.check(
+        "where-we-are.md — Harness observations section exists",
+        "## Harness observations" in where_we_are,
+    )
+    result.check(
+        "where-we-are.md — operating rule documented",
+        "single-line entry" in where_we_are
+        and "principle #N" in where_we_are,
+    )
+    result.check(
+        "where-we-are.md — auto-queue rule (3+ flags / 30 days)",
+        "3+ times within 30 days" in where_we_are
+        or "flagged 3+ times" in where_we_are,
+    )
+    result.check(
+        "where-we-are.md — initial log entries for #23, #6, fluidity present",
+        "principle #23 (new)" in where_we_are
+        and "principle #6 (refined)" in where_we_are
+        and "fluidity layer (new)" in where_we_are,
+    )
+
+    print()
+    print("todo.md — P3 audit cycle replaced with claim-verification framing")
+    todo = (REPO_ROOT / "research" / "meta" / "todo.md").read_text(
+        encoding="utf-8"
+    )
+    result.check(
+        "todo.md — old 'Source-reliability monthly audit cycle' replaced",
+        "Source-reliability monthly audit cycle" not in todo,
+    )
+    result.check(
+        "todo.md — new 'Claim-verification audit cycle' present",
+        "Claim-verification audit cycle" in todo,
+    )
+    result.check(
+        "todo.md — new entry references principle #23 + B25",
+        "principle #23" in todo and "B25" in todo,
+    )
+
+    # ------------------------------------------------------------------
+    # T1-T4 verification walkthroughs (documented as structural assertions
+    # against the codified principle text — the walkthrough lives in the
+    # methodology + biases files as worked examples; the test confirms
+    # those worked examples were actually included.)
+    # ------------------------------------------------------------------
+    print()
+    print("T1-T4 verification walkthroughs in codified text")
+    result.check(
+        "T1 (replay-falsification) — HBF orthogonal-check walkthrough in methodology",
+        "Retroactive application to TrendForce HBF" in methodology
+        and "NONE corroborated HBF positioning" in methodology,
+    )
+    result.check(
+        "T2 (non-regression) — Nippon phosphine example still passes "
+        "(orthogonal sources visible in principle #22)",
+        "product page" in methodology
+        and "Valuates" in methodology
+        and "TDK JV" in methodology,
+    )
+    result.check(
+        "T3 (over-firing guard) — falsified_by condition includes "
+        "high false-positive rate trigger",
+        ">30% of claims" in methodology
+        or "high false-positive rate" in methodology,
+    )
+    result.check(
+        "T4 (meta-fluidity) — re-evaluation trigger present in #23",
+        "re-evaluation trigger" in methodology,
+    )
+
     return result.report()
 
 

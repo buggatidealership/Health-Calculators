@@ -308,6 +308,32 @@ The investable thesis often lives in the FORWARD trajectory of a currently small
 
 ---
 
+### B25 — Source-tracking-over-claim-verification (sample-size-dependent epistemics)
+**Origin:** User correction 2026-05-24 after TrendForce HBF fake-news incident. TrendForce reinterpreted one professor's speculation as definitive ("NVIDIA is using HBF"); the actual NVIDIA direction is high-IOPS NAND for GIDS. My initial response proposed "downgrade TrendForce in the source-reliability tracker." User pushback verbatim: *"instead of just relying on sources, what must work better is when you do read a TrendForce or a Motley Fool's or whichever other source that you verify a claim that they make through looking at adjacent data, alternative data sets. So the reliance is not primarily based on sample size reliance."*
+
+**Pattern:** Treating source reliability as the primary epistemic signal — aggregating per-source track records over time, then weighting new claims by the source's accumulated track record. This sample-size-dependent approach creates two symmetric failure modes:
+- **Trusted-source false confidence:** TrendForce has a good track record → I assume their HBF claim is likely true → I propagate to thesis files without independent verification.
+- **Untrusted-source false rejection:** A single-voice tweet has weak track record → I discount the claim even when the underlying assertion is falsifiable through orthogonal data → I miss real signal that happens to come from a low-track-record channel.
+
+Both failures share the same root cause: source-reputation is being used as a substitute for claim-verification, when it should be at best a weak prior.
+
+**The structural fix (principle #23):** every claim gets verified through orthogonal / adjacent data sets independently, regardless of source reputation. Orthogonal = different data-generation processes (earnings call + trade press + regulatory filing are orthogonal; three trade-press articles citing the same primary source are redundant). The claim stands on independently sourced cross-vertical evidence, not on the messenger's track record.
+
+**Correction (mandatory per principle #23):**
+1. Identify the claim's first-order assertion (strip interpretation)
+2. Identify the source type and data-generation process
+3. Find at least one orthogonal corroboration — different data-generation process, ideally different vertical
+4. If no orthogonal corroboration exists → flag as single-source hypothesis (signals/cross-source-log.md), DO NOT propagate to thesis files
+5. Track WHICH orthogonal sources corroborated — this is the actual epistemic provenance
+
+**Retroactive application to TrendForce HBF:** orthogonal-data check would have surfaced NVIDIA GTC technical sessions, Kioxia/SanDisk roadmap, hyperscaler storage RFPs, NVLink-storage spec, GIDS architecture docs — none of which corroborated HBF positioning. The gap was visible at ingest time if the discipline had been mandatory.
+
+**How to check:** Before citing any claim in a research file — what orthogonal evidence corroborates this? If the answer is "TrendForce said so" or "the analyst note said so" without naming a different-data-generation-process source, the citation is single-source. Single-source claims go to cross-source-log.md, not into thesis files.
+
+**Hook enforcement:** considered but deferred. Mechanical detection of "orthogonal" requires curated source-type taxonomy. For now: discipline enforced through (a) methodology principle #23, (b) the refined principle #6 (orthogonal triangulation), (c) replacement of the P3 source-reliability monthly audit with a claim-verification audit cycle, (d) end-of-session harness observation discipline (where-we-are.md). If drift recurs, build the hook with the source-type taxonomy.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

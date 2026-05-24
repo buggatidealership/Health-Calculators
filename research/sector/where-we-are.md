@@ -110,6 +110,35 @@ Will fire GRADE workflow + further SCENARIO-UPDATE on resolution.
 
 ---
 
+## Harness observations (added 2026-05-24)
+
+**Purpose.** Per methodology principle #23 + the user's 2026-05-24 framing on fluidity: *"first principles also have expiration dates on them... the weights and everything is something that only you would be able to spot when something goes wrong within your own harness."*
+
+Hooks catch drift *within* the harness (enforce principles as written). They cannot catch when a principle itself has gone stale, because they enforce the principle literally. Spotting harness-level decay requires me observing my own outputs at meta-level. This section is the log.
+
+**Operating rule.** At the end of any session where I made substantive analytical or methodological decisions, add a single-line entry. Format:
+
+```
+- YYYY-MM-DD | principle #N | observation
+```
+
+Examples of what to flag:
+- A principle felt *forced* when applied — bent to fit the situation rather than fitting naturally
+- A principle produced a false-positive (e.g., hook fired on benign content) — early signal of decay
+- A principle that should have fired *didn't* — early signal of gap
+- A principle conflicted with another principle — surfaces tension that may need refinement
+- An analytical situation had no relevant principle — surfaces missing coverage
+
+**Auto-queue rule.** When the same principle gets flagged 3+ times within 30 days, it queues for re-review (added as a P2 to-do with category `methodology`). Re-review either updates the principle, marks it falsified, or confirms it (and resets the flag counter).
+
+**Log:**
+
+- 2026-05-24 | principle #23 (new) | codified today after TrendForce HBF debacle revealed bias B25 (source-tracking-over-claim-verification). User pushback was the trigger, not a graded mistake. Watch for: principle becoming too restrictive (every claim requires orthogonal corroboration → research velocity collapses) OR too lenient (orthogonal definition gets stretched to fit). Re-review target: 2026-06-24 (1 month).
+- 2026-05-24 | principle #6 (refined) | now requires orthogonal sources, not just N sources. Risk: existing triangulation.md entries may not meet the new bar — need claim-verification audit to reclassify.
+- 2026-05-24 | fluidity layer (new) | first time the methodology itself carries metadata + falsifiers. Watch for: maintenance overhead (table getting stale faster than principles themselves change) OR the table becoming the work product instead of an audit aid.
+
+---
+
 ## How this file is maintained
 
 - **Read at session start** (per Session Start Protocol in `CLAUDE.md`)

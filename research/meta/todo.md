@@ -22,10 +22,11 @@
   - Scope: Run the 5 stock-reaction questions (per `meta/methodology.md` §Two-Part GRADE Protocol) against settled stock action 2026-05-21 cash session and pre-market 2026-05-22. Update `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` with the T+24h section.
   - Linked: `research/predictions/2026-05-20-NVDA-Q1FY27-GRADE.md`
 
-- [ ] **P3 / verification / 2026-06-21** [INDP, CAL] — Source-reliability monthly audit cycle (next: 6 sources remaining in queue)
-  - Origin: Monthly cadence from initial audit completed 2026-05-21
-  - Scope: Audit the 6 remaining sources from `meta/source-reliability.md` queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge). Apply 5-dimensional framework: tier + track record + bias direction + signal-use classification (🟢/🟡/🔴/🟣) + best/worst use case.
-  - Linked: `research/meta/source-reliability.md`
+- [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Claim-verification audit cycle (replaces source-reliability audit per principle #23, codified 2026-05-24)
+  - Origin: User correction 2026-05-24 after TrendForce HBF debacle. Bias B25 (source-tracking-over-claim-verification) identified. Source-reliability tracking is sample-size dependent; claim-level orthogonal verification is the actual epistemic discipline.
+  - Scope: Sample N recent claims (target: 15) across thesis files + signals + wiki entries committed in the prior 30 days. For each, verify: (a) the claim's first-order assertion is stripped of interpretation, (b) at least one orthogonal corroboration was logged at ingest (different data-generation process), (c) single-source claims correctly went to `cross-source-log.md` not to thesis files. Flag failures in `harness observations` log (`sector/where-we-are.md`).
+  - Also: re-audit the 6 sources still in the source-reliability queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge) — BUT use the claim-verification framing, not source-track-record framing. Output: for each source, sample 3 representative claims and check whether each had orthogonal corroboration at time of citation.
+  - Linked: `research/meta/methodology.md` principle #23, `research/meta/biases-watchlist.md` B25, `research/meta/source-reliability.md` (legacy tracker; keep for cross-reference but no longer primary)
 
 
 ### P3 — Foundational wiki entries (planned, not yet built)

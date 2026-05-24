@@ -371,7 +371,7 @@ Implication for every interaction:
 3. **Multiple futures simultaneously.** Hold ≥3 scenarios at once. Names that win in many are higher-conviction than names that win in the most-likely one.
 4. **Bottleneck of tomorrow > consensus pinch of today.** Trade on the constraint becoming binding in 12–24 months, not the one already in the news.
 5. **Anti-fragility > optimization.** Prefer picks-and-shovels that win across futures over names that need a specific future to be right. **Hook enforcement (added 2026-05-23):** `~/.claude/antifragility-mn-hook.py` blocks full thesis blocks (P(bull) + P(bear) + Tier/Position target all present) that omit an explicit M/N anti-fragility score. Narrow trigger by user choice — only fires on full Conviction Format outputs, not short tier mentions. Catches bias B24.
-6. **Triangulate weak signals.** A single source is noise. Three sources within 90 days is signal.
+6. **Triangulate weak signals — via ORTHOGONAL sources, not redundant ones.** A single source is noise. Three sources within 90 days is signal — but ONLY if the three come from different data-generation processes (e.g., earnings call + supply-chain disclosure + regulatory filing). Three trade-press articles citing the same primary source are redundant, not triangulated. Refined 2026-05-24 per principle #23 (claim-level verification). See `biases-watchlist.md` B25 (source-tracking-over-claim-verification).
 7. **Falsifiable theses only.** Every thesis has written invalidation conditions. If a condition fires, the thesis changes.
 8. **Grade everything.** Every forward call gets logged + graded. Lessons accumulate.
 9. **Bypass-route thinking.** For any binding constraint, the consensus solution rarely contains the edge. Ask: "What do consumers do when the consensus solution fails their actual sensitivity?" The answer surfaces non-consensus names. See the **Time-to-X framework** below. **Hook enforcement (added 2026-05-23):** `~/.claude/bypass-route-hook.py` blocks discussions of binding constraints (binding constraint, bottleneck, supply tight/gap, shortage, capacity-limited/constrained, Time-to-X) that lack bypass-route language (substitution, second-source, alternative supplier, qualification, TTQ, "what consumers do when", workaround). Catches bias B22.
@@ -769,3 +769,93 @@ Be CONFIDENT when:
    - Revised verdict: Tier 2/3 boundary, not Tier 3 dismissal — same level as Rigaku
 
    See B20 (current-segment-% snapshot anchoring) in `biases-watchlist.md`.
+
+23. **Claim-level verification via orthogonal data — source-reputation is a weak prior, not a primary signal.** User correction 2026-05-24 after TrendForce HBF debacle: TrendForce reinterpreted one professor's speculation as fact ("NVIDIA is using HBF"); reality is NVIDIA pursues high-IOPS NAND for GIDS, not HBF. My initial response proposed "downgrade TrendForce in the source-reliability tracker." User pushback verbatim: *"instead of just relying on sources, what must work better is when you do read a TrendForce or a Motley Fool's or whichever other source that you verify a claim that they make through looking at adjacent data, alternative data sets. So the reliance is not primarily based on sample size reliance."*
+
+   **The bias revealed:** source-reliability tracking is sample-size-dependent epistemics. You accumulate a track record per source over many claims, then use the aggregated record to weight new claims. This creates two failure modes: (a) trusted-source false confidence — TrendForce has a good track record, so I assumed their HBF claim was likely true; (b) untrusted-source false rejection — a single-voice tweet gets discounted even when the underlying claim is genuinely falsifiable through orthogonal data.
+
+   **The refinement:** every claim gets verified through *orthogonal / adjacent data sets independently*, regardless of source reputation. The source's reputation is at best a weak prior; the cross-verification through orthogonal evidence is the actual epistemic signal. Replacing source-tracking primacy with claim-verification primacy.
+
+   **Operational definition of "orthogonal":** two sources are orthogonal if they come from different data-generation processes — e.g., trade-press article + earnings-call transcript = orthogonal (one is journalist interpretation, one is direct management statement). Trade-press article A + trade-press article B citing A = redundant, not orthogonal. Company filing + competitor commentary about that company = orthogonal. Analyst note + analyst note from different firm citing same primary source = redundant.
+
+   **Mandatory discipline for any cited claim:**
+
+   1. **Identify the claim's first-order assertion** (what it actually says, stripped of interpretation)
+   2. **Identify the source type** (primary / secondary / tertiary, and the data-generation process)
+   3. **Find at least one orthogonal corroboration** — different data-generation process, ideally different vertical (semi roadmap + earnings call, supply chain disclosure + customer RFP, regulatory filing + trade press, etc.)
+   4. **If no orthogonal corroboration exists, flag the claim as single-source hypothesis** (goes to `signals/cross-source-log.md`), DO NOT propagate to thesis files until triangulated
+   5. **Track WHICH orthogonal sources corroborated** — this is the actual epistemic provenance, not the source-track-record
+
+   **Retroactive application to TrendForce HBF:**
+   - 1st-order claim: "NVIDIA is using HBF"
+   - Source type: secondary aggregator (TrendForce) citing tertiary (The Elec article based on one professor's opinion)
+   - Orthogonal corroboration check: NVIDIA GTC technical sessions, Kioxia/SanDisk roadmap, hyperscaler storage RFP language, NVLink-storage spec disclosures, GIDS architecture documentation — NONE corroborated HBF positioning
+   - Verdict: flag as single-source hypothesis, do NOT cite as established fact
+   - The claim's failure was visible at ingest time IF the orthogonal-data check had been mandatory
+
+   **What this changes operationally:**
+   - The P3 source-reliability monthly audit cycle (originally: review source track records) is replaced by **claim-verification audit cycle** — sample N recent claims in research files, verify each had orthogonal corroboration at ingest
+   - Principle #6 (triangulation) needs refinement: "three orthogonal sources within 90 days," not "three sources of similar type"
+   - The Bias B25 (source-tracking-over-claim-verification) is added to `biases-watchlist.md`
+
+   **Fluidity footer:**
+   - codified: 2026-05-24
+   - last_review: 2026-05-24
+   - falsified_by: orthogonal-data-check produces high false-positive rate (>30% of claims correctly flagged-as-OK but blocked anyway) OR orthogonal-source classification turns out to be too judgment-heavy to apply consistently. Then either tighten the orthogonality definition or revert to source-tracking primacy with stricter triangulation.
+   - re-evaluation trigger: monthly, OR when the claim-verification audit reveals systematic gaps
+
+   **The structural meta-lesson:** source-reputation tracking optimizes for *trusting your priors*. Claim-level orthogonal verification optimizes for *trusting orthogonal evidence*. The first is fragile to a few bad articles from a "trusted" source — exactly the TrendForce failure mode. The second is robust because each claim stands on independently sourced cross-vertical evidence.
+
+   See B25 (source-tracking-over-claim-verification) in `biases-watchlist.md`.
+
+---
+
+## Principle metadata & fluidity (added 2026-05-24)
+
+**Why this section exists.** User framing 2026-05-24: *"first principles also have expiration dates on them, but I'm not saying each one of them is going to break. But essentially remain fluid as in the weights and everything is something that only you would be able to spot when something goes wrong within your own harness."*
+
+Principles are not permanent rules. They are the *current best understanding* of what works in this OS, with explicit expiration awareness. Each principle carries metadata that makes its decay observable: when it was codified, when it was last reviewed, what would falsify it, and when to re-examine it.
+
+This converts principles from static doctrine into thesis-like artifacts with their own invalidation conditions — exactly the discipline applied to company theses (principle #7) now applied to the methodology itself.
+
+**Operating procedure:**
+- When applying a principle to an analysis, note any time the principle felt *forced* or *ill-fitting* in the harness-observations log (`sector/where-we-are.md` → "Harness observations" section)
+- When the same principle gets flagged 3+ times within a 30-day window, it auto-queues for re-review
+- Re-review either updates the principle (refinement), marks it falsified (retirement to archive), or confirms it (last_review date updated)
+- The fluidity layer protects against drift *of* the harness; the hooks protect against drift *within* the harness. Both are needed.
+
+| # | Principle (short label) | Codified | Last review | Re-eval trigger | Status |
+|---|---|---|---|---|---|
+| 1 | Bottoms-up before outside view | ≤2026-05-19 | 2026-05-23 | annual; OR bottoms-up-hook false-positive rate >15% | active |
+| 2 | N-th order > 1st order | ≤2026-05-19 | 2026-05-23 | annual; OR nth-order-hook false-positive rate >15% | active |
+| 3 | Multiple futures simultaneously | ≤2026-05-19 | 2026-05-19 | annual | active |
+| 4 | Bottleneck of tomorrow > consensus pinch | ≤2026-05-19 | 2026-05-19 | quarterly (bottleneck-map refresh) | active |
+| 5 | Anti-fragility > optimization | ≤2026-05-19 | 2026-05-23 | annual; OR antifragility-hook false-positive rate >15% | active |
+| 6 | Triangulate weak signals (refined 2026-05-24: orthogonal sources, not redundant) | ≤2026-05-19 | 2026-05-24 | monthly (with claim-verification audit) | active (refined) |
+| 7 | Falsifiable theses only | ≤2026-05-19 | 2026-05-19 | annual | active |
+| 8 | Grade everything | ≤2026-05-19 | 2026-05-19 | quarterly (grading-log review) | active |
+| 9 | Bypass-route thinking | ≤2026-05-19 | 2026-05-23 | annual; OR bypass-route-hook false-positive rate >15% | active |
+| 10 | Sell only on falsification | ≤2026-05-19 | 2026-05-19 | annual; OR if B9 (emotional risk-mgmt) recurs | active |
+| 11 | No fabricated numbers | ≤2026-05-19 | 2026-05-21 | annual; OR anti-fab-hook false-positive rate >15% | active |
+| 12 | Default BELOW revenue mix | 2026-05-21 | 2026-05-21 | quarterly (DEEP-DIG queue review) | active |
+| 13 | First-principles + layered + extrapolation discipline on wikis | 2026-05-21 | 2026-05-21 | quarterly (wiki completeness audit) | active |
+| 14 | Question user inputs (signals, not gospel) | 2026-05-21 | 2026-05-21 | annual | active |
+| 15 | Two-handed thinking | 2026-05-21 | 2026-05-21 | annual | active |
+| 16 | Evaluation matrix v2 (5-dimension framework) | 2026-05-21 | 2026-05-21 | quarterly (per re-evaluation cycle for held names) | active |
+| 17 | Cross-vertical analysis (LLM edge) | 2026-05-21 | 2026-05-21 | monthly (with claim-verification audit — overlaps #23) | active |
+| 18 | Multi-stage worldview build | 2026-05-21 | 2026-05-21 | annual | active |
+| 19 | Dual-portfolio construction (Structural Safety + Asymmetric Upside) | 2026-05-22 | 2026-05-22 | quarterly (sizing-matrix refresh) | active |
+| 20 | Segment-decomposition discipline | 2026-05-22 | 2026-05-22 | annual | active |
+| 21 | Time-to-X signals verified, not training-data anchored | 2026-05-22 | 2026-05-22 | annual | active |
+| 22 | Model segment trajectory, not snapshot | 2026-05-23 | 2026-05-23 | annual; OR segment-trajectory-hook false-positive rate >15% | active |
+| 23 | Claim-level verification via orthogonal data | 2026-05-24 | 2026-05-24 | monthly (with audit) | active (new) |
+
+**Falsifier conditions are filled in inline at the principle text** as we accumulate stress-test data. Initially most rows have empty `falsified_by` — the discipline is to fill them in as the principle gets stress-tested in practice, not to invent invalidation conditions speculatively.
+
+**Status definitions:**
+- `active` — currently applied, no flags
+- `under_review` — flagged 3+ times in observations log; pending re-evaluation
+- `refined` — text was updated; old version archived in git history
+- `falsified` — invalidation condition fired; principle removed from active set (kept in archive for audit trail)
+
+This table itself has fluidity: it gets re-versioned in commits as principles get reviewed. The git history is the audit log of methodology evolution.
