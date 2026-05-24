@@ -998,6 +998,119 @@ def main() -> int:
         "re-evaluation trigger" in methodology,
     )
 
+    # ==================================================================
+    # 2026-05-24 (later same day): principle #24 (recursive bottoms-up
+    # worldview discovery) + B26 (pre-training-as-primary-source bias).
+    # ==================================================================
+    print()
+    print("methodology.md — principle #24 (recursive bottoms-up worldview discovery)")
+    result.check(
+        "principle #24 — exists with label 'Recursive bottoms-up worldview'",
+        "24. **Recursive bottoms-up worldview discovery via verified data"
+        in methodology,
+    )
+    result.check(
+        "principle #24 — user 2026-05-24 quote captured ('just what everybody else gets')",
+        "just what everybody else gets" in methodology,
+    )
+    result.check(
+        "principle #24 — L1-L4 recursive discovery procedure documented",
+        "L1" in methodology
+        and "L2" in methodology
+        and "L3" in methodology
+        and "L4" in methodology
+        and "direct (industry reports)" in methodology
+        and "alternative (" in methodology
+        and "indirect (supplier" in methodology
+        and "adjacent (" in methodology,
+    )
+    result.check(
+        "principle #24 — distinction from #1 / #13 / #17 / #23 documented",
+        "Principle #1" in methodology
+        and "Principle #13" in methodology
+        and "Principle #17" in methodology
+        and "Principle #23" in methodology,
+    )
+    result.check(
+        "principle #24 — mandatory discipline (7 steps) present",
+        "Pre-training informs WHERE to look" in methodology
+        or "informs *where to look*" in methodology,
+    )
+    result.check(
+        "principle #24 — retroactive robotics-primer Phase 1 application present",
+        "robotics-primer.md Phase 1" in methodology
+        and "HYPOTHESIS WORLDVIEW" in methodology,
+    )
+    result.check(
+        "principle #24 — fluidity footer present (codified/last_review/falsified_by/re-eval)",
+        "codified: 2026-05-24" in methodology
+        and "falsified_by: if verified-at-each-layer" in methodology,
+    )
+    result.check(
+        "principle #24 — references B26",
+        "B26" in methodology,
+    )
+
+    print()
+    print("methodology.md — fluidity table has row 24")
+    result.check(
+        "fluidity table — row 24 present (Recursive bottoms-up worldview discovery)",
+        "| 24 | Recursive bottoms-up worldview discovery"
+        in methodology,
+    )
+    result.check(
+        "fluidity table — row 24 has new-status marker",
+        "active (new)" in methodology
+        and methodology.count("active (new)") >= 2,  # #23 + #24
+    )
+
+    print()
+    print("biases-watchlist.md — B26 (pre-training-as-primary-source)")
+    result.check(
+        "B26 — entry exists with label",
+        "B26 — Pre-training-as-primary-source" in biases,
+    )
+    result.check(
+        "B26 — distinction from B25 documented",
+        "Distinction from B25" in biases
+        or "distinct from B25" in biases.lower(),
+    )
+    result.check(
+        "B26 — robotics-primer Phase 1 manifestation captured",
+        "robotics-primer.md Phase 1" in biases
+        and "HDS" in biases,
+    )
+    result.check(
+        "B26 — references principle #24",
+        "principle #24" in biases,
+    )
+    result.check(
+        "B26 — manifestation calls out queued primers risk",
+        "hyperscaler-capex-primer" in biases
+        and "geopolitical-ai-primer" in biases
+        and "model-economics-primer" in biases,
+    )
+
+    print()
+    print("where-we-are.md — harness observation entry for principle #24")
+    where_we_are = (REPO_ROOT / "research" / "sector" / "where-we-are.md").read_text(
+        encoding="utf-8"
+    )
+    result.check(
+        "where-we-are.md — principle #24 codification entry present",
+        "principle #24 (new)" in where_we_are
+        and "recursive bottoms-up worldview" in where_we_are.lower(),
+    )
+    result.check(
+        "where-we-are.md — B26 entry present",
+        "B26 (new)" in where_we_are,
+    )
+    result.check(
+        "where-we-are.md — queued primer constraint flagged",
+        "wiki primer queue" in where_we_are
+        and "principle #24 discipline" in where_we_are,
+    )
+
     return result.report()
 
 

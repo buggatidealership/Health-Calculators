@@ -808,6 +808,59 @@ Be CONFIDENT when:
 
    See B25 (source-tracking-over-claim-verification) in `biases-watchlist.md`.
 
+24. **Recursive bottoms-up worldview discovery via verified data at each layer — pre-training categorization is consensus output, not edge.** User correction 2026-05-24 after I shipped wiki/robotics-primer.md Phase 1 entirely from pre-training data without orthogonal verification of structural claims. User pushback verbatim: *"Your pre training data is just what everybody else gets. If somebody asks you the same question, they... without a harness, without all the back and forth that we had, uh, Claude will just give them that answer... you have to start from okay. Let me just first check one robotics growth. Use direct datasets, alternative datasets, indirect datasets, adjacent market data to come up with a plausible, i.e., verified number. Then look at which segment grows the fastest, which are the biggest suppliers in that specific market, which... after the biggest market has been analyzed, look at which market underneath is growing the fastest, right, which other markets are growing currently. And then you just keep going."*
+
+   **The bias revealed:** pre-training data is a single source that produces *consensus answers*. The edge of this OS over a vanilla LLM is precisely the harness — orthogonal verification + recursive drill-down + the iterative back-and-forth that surfaces non-consensus reads. When I build a worldview top-down from pre-training categories + bottom-up from pre-training company memory (as I did with robotics-primer.md), I collapse the OS to vanilla-LLM output. The edge that justifies the harness's existence disappears.
+
+   **The discipline — recursive discovery procedure:**
+
+   | Level | Action | Output |
+   |---|---|---|
+   | L1 | Verify the encompassing market via orthogonal datasets — direct (industry reports), alternative (job postings, shipping data, capex disclosure, satellite, credit-card), indirect (supplier earnings, customer disclosure), adjacent (parallel-vertical data where the trend should show up) | Verified growth + market size for the encompassing layer |
+   | L2 | Within verified scope, identify fastest-growing SEGMENT using orthogonal data — NOT pre-training categorization | Verified segment ranking with corroboration |
+   | L3 | Within fastest-growing segment, identify biggest SUPPLIERS + unit economics + capacity | Verified supplier map for that segment |
+   | L4 | Find market UNDERNEATH (supply chain) + ADJACENT markets growing fast | Next layer's drill targets |
+   | L+1 | Recurse | Each layer produces both insight + the next layer's question |
+
+   **Why recursive:** each level's verified output surfaces the next level's question. The recursion produces cross-narrative discovery naturally — overlapping segments at L3/L4 surface multi-narrative names without anchoring on pre-training categorization. Pre-training informs *where to look*, not *what to assert*.
+
+   **Distinction from existing principles:**
+   - **Principle #1 (bottoms-up before outside view)** — applies to thesis building. This applies to worldview building.
+   - **Principle #13 (first-principles + layered + extrapolation on wikis)** — that's the *structural template* for the artifact. This is the *search procedure* for populating it.
+   - **Principle #17 (cross-vertical analysis as the LLM edge)** — that surfaces the concept of cross-vertical edge. This operationalizes it as a recursive search.
+   - **Principle #23 (claim-level verification via orthogonal data)** — that validates individual claims after they're made. This constructs the worldview itself via the same epistemic discipline.
+
+   **Mandatory discipline for any worldview/sector/wiki build:**
+   1. **State the encompassing layer being mapped** (e.g., "robotics," "AI compute," "power for AI")
+   2. **L1 verification** — gather orthogonal datasets, cross-reference for growth + market size. Do NOT proceed to L2 until L1 is verified.
+   3. **L2 segment ranking** — identify fastest-growing segments via the data, not pre-training categorization. Cross-check across ≥2 orthogonal sources.
+   4. **L3 supplier map** — within fastest-growing segment, identify who captures spend + their economics. Verify via supplier earnings, customer disclosure.
+   5. **L4 underneath + adjacent** — supply chain + parallel-vertical markets growing fast. Surfaces multi-narrative candidates.
+   6. **Recurse** to practical session depth (3-4 levels typical), document where verification stops + becomes "next-session pickup"
+   7. **Pre-training data informs WHERE to look (which keywords, which suppliers to check), NEVER WHAT to assert**
+
+   **Retroactive application to wiki/robotics-primer.md Phase 1:**
+   - Phase 1 built top-down (12 stack layers from pre-training memory) + bottom-up listing (companies in each layer from pre-training memory)
+   - Numerical claims marked `[verification required]`, but structural claims (who's dominant, FM lab roster, actuator counts, supply concentration) NOT verified
+   - First stress-test (HDS data-center cooling probe by user) revealed terminology collision that pre-training would have continued to assert
+   - Status downgraded to HYPOTHESIS WORLDVIEW pending Phase 2 verification under principle #24 discipline
+   - Phase 2 = re-do from L1 (verify total robotics market growth via IFR + ABI + adjacent supplier earnings + adjacent labor-cost data) → L2 (fastest-growing segments per verified data) → L3 (biggest suppliers per segment) → L4 (underneath + adjacent)
+
+   **What this changes operationally:**
+   - All 3 queued wiki primers (hyperscaler-capex-primer, geopolitical-ai-primer, model-economics-primer per todo.md P3) must be built under principle #24 from inception
+   - Existing primers — spot-check for retroactive compliance (hbm-primer, power-for-ai-primer, custom-silicon-primer, agentic-workload-scaling appear to have primary-source backing; networking-primer + token-consumption need check)
+   - The robotics primer Phase 2 is now THE calibration example for this principle — if Phase 2 output materially differs from Phase 1 (different fastest-growing segment, different supplier ranking), the principle is producing real edge. If Phase 2 confirms Phase 1, the principle adds overhead without edge — refine or falsify.
+
+   **Fluidity footer:**
+   - codified: 2026-05-24
+   - last_review: 2026-05-24
+   - falsified_by: if verified-at-each-layer produces the same segment ranking + supplier conclusions as pre-training categorization across 3 consecutive primer rebuilds (→ pre-training is sufficient, principle adds overhead without edge) OR if recursion depth requirements exceed practical session budgets across 3 attempts (→ principle is correct but unworkable as stated)
+   - re-evaluation trigger: after Phase-2 robotics build, OR after 3 primer rebuilds using this discipline, OR when the principle gets flagged 3+ times in harness observations log
+
+   **The structural meta-lesson:** the OS's edge over a vanilla LLM is the harness. If worldview-building skips orthogonal verification at the construction phase, the OS produces consensus output and loses its raison d'être. Principle #24 protects the edge itself.
+
+   See B26 (pre-training-as-primary-source bias) in `biases-watchlist.md`.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)
@@ -849,6 +902,7 @@ This converts principles from static doctrine into thesis-like artifacts with th
 | 21 | Time-to-X signals verified, not training-data anchored | 2026-05-22 | 2026-05-22 | annual | active |
 | 22 | Model segment trajectory, not snapshot | 2026-05-23 | 2026-05-23 | annual; OR segment-trajectory-hook false-positive rate >15% | active |
 | 23 | Claim-level verification via orthogonal data | 2026-05-24 | 2026-05-24 | monthly (with audit) | active (new) |
+| 24 | Recursive bottoms-up worldview discovery via verified data | 2026-05-24 | 2026-05-24 | after first Phase-2 robotics rebuild; OR after 3 primer rebuilds; OR 3+ observation-log flags | active (new) |
 
 **Falsifier conditions are filled in inline at the principle text** as we accumulate stress-test data. Initially most rows have empty `falsified_by` — the discipline is to fill them in as the principle gets stress-tested in practice, not to invent invalidation conditions speculatively.
 

@@ -334,6 +334,42 @@ Both failures share the same root cause: source-reputation is being used as a su
 
 ---
 
+### B26 — Pre-training-as-primary-source (worldview consensus collapse)
+**Origin:** User correction 2026-05-24 after I shipped wiki/robotics-primer.md Phase 1 entirely from pre-training data without orthogonal verification of structural claims. User pushback verbatim: *"Your pre training data is just what everybody else gets. If somebody asks you the same question, they... without a harness, without all the back and forth that we had, uh, Claude will just give them that answer."*
+
+**Pattern:** Building worldviews / wiki primers / sector maps top-down from pre-training categorization + bottom-up from pre-training company memory, treating pre-training as a primary source. This produces consensus output (the same answer any vanilla LLM would give the same question) and collapses the OS's edge over a vanilla LLM — which is precisely the orthogonal-verification + recursive-drill-down harness.
+
+**Distinction from B25:** B25 is about *claim-level* source-tracking over claim-verification. B26 is the *worldview-construction* analog — using pre-training categorization to define which segments / suppliers / dynamics exist, rather than discovering them via verified data at each layer.
+
+**Manifestation:**
+- 2026-05-24 wiki/robotics-primer.md Phase 1: 12 stack layers + supplier lists + segment categorization all from pre-training memory. Marked numbers as `[verification required]` but let structural claims pass as if established. First user stress-test (HDS data-center cooling probe) caught a terminology collision that pre-training would have continued asserting.
+- Risk for queued primers: hyperscaler-capex-primer, geopolitical-ai-primer, model-economics-primer all face the same failure mode if built without principle #24 discipline.
+
+**The structural fix (principle #24):** recursive bottoms-up worldview discovery via verified data at each layer. Pre-training informs *where to look* (which keywords to query, which suppliers to check), never *what to assert*. Each level (L1 encompassing market growth → L2 fastest-growing segment → L3 biggest suppliers → L4 underneath + adjacent markets) requires orthogonal-source verification before recursing.
+
+**Correction (mandatory per principle #24):**
+1. State the encompassing layer being mapped
+2. L1 verification — orthogonal datasets (direct + alternative + indirect + adjacent)
+3. L2 segment ranking via the data, NOT pre-training categorization
+4. L3 supplier map via earnings + customer disclosure
+5. L4 underneath + adjacent markets
+6. Recurse to practical depth, document where verification stops
+7. Pre-training informs WHERE to look, NEVER WHAT to assert
+
+**Retroactive application:**
+- wiki/robotics-primer.md Phase 1 = HYPOTHESIS WORLDVIEW. Phase 2 = re-do under principle #24 discipline. If Phase 2 surfaces a different fastest-growing segment or different supplier ranking, the principle is producing real edge.
+- Spot-check existing primers (hbm, power, custom-silicon, agentic-workload appear to have primary-source backing; networking + token-consumption need verification).
+
+**How to check:** Before completing any wiki / sector / worldview artifact:
+- Did I start from L1 verified market data, OR from pre-training category listing?
+- Did I derive segment ranking from orthogonal sources, OR from pre-training memory?
+- Did supplier identification come from earnings/disclosure, OR from pre-training "who I know plays in this space"?
+- If any answer is "from pre-training" without verification, the artifact is hypothesis worldview, not verified — mark accordingly and do not propagate to thesis files.
+
+**Hook enforcement:** considered but deferred. Mechanical detection of "structural claim from pre-training" requires distinguishing assertion-style language from verified-with-citation language. The closest existing mechanism is the anti-fabrication hook, which catches uncited NUMBERS but not uncited structural claims. Discipline enforced through (a) methodology principle #24, (b) explicit "HYPOTHESIS WORLDVIEW" status header on any artifact built without L1-L4 verification, (c) harness observation discipline. If drift recurs across 3+ artifacts, build hook with structural-claim-pattern detection.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.
