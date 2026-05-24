@@ -1,13 +1,159 @@
 # Robotics + AI — Primer
 
 **Codified:** 2026-05-24
-**Status:** **PHASE 2 PARTIALLY VERIFIED (2026-05-24 same day)** — L1 (encompassing market growth), L2 (segment ranking), L3 (suppliers per top segment), L4 (underneath + adjacent) all verified via orthogonal sources per principle #24. See "Phase 2 verified findings" section below. Phase 1 hypothesis sections preserved beneath for diff tracking; sections superseded by verified data are explicitly marked.
+**Status:** **PHASE 3+ HOLISTIC VERIFIED (2026-05-24 same day)** — extended Phase 2 (L1-L4) with deep batches on foundation models (Pi, Skild, OpenVLA, RT-2/X), Chinese humanoid ecosystem (Unitree, UBTECH, AgiBot — 90% of global units), Western humanoid deployment cadence (Tesla 90%+ miss, Agility verified RaaS revenue), batteries (CATL/Samsung SDI solid-state 450 Wh/kg), defense robotics (Anduril, Shield AI), sovereign policy (145% China tariff + Section 232 + procurement ban), capital flows ($14B 2025 robotics VC vs $8.2B 2024), labor crossover (Webb effect), SiC power electronics (Wolfspeed dominant 40%). See "Phase 3+ holistic findings" section for material refinements to Phase 2 framing.
 
-**First stress-test result (2026-05-24 same day):** user probed HDS data-center cooling exposure → orthogonal web verification revealed a terminology collision (HDS the company ≠ "ultra-low harmonic drives" the VFD class used in DC cooling). HDS has NO cooling exposure; the cooling VFD class is made by ABB / Mitsubishi Electric / Yaskawa / Schneider / Danfoss. The discipline worked — pre-training conflated similar-named entities; orthogonal sources disambiguated.
+**Three first stress-tests passed:** (1) user HDS-cooling probe caught terminology collision; (2) Phase 2 vs Phase 1 surfaced 6 material findings pre-training would have missed; (3) Phase 3 vs Phase 2 surfaced ~10 more material refinements (Chinese humanoid dominance, Yaskawa MC revenue declining, OpenVLA beating closed FM, NVIDIA double-investment in Pi AND Skild, etc.). Principle #24 producing real edge at each layer of recursion.
 
-**Phase 2 execution (2026-05-24 same day):** ~9 web searches across orthogonal sources (IFR primary, market research firms, supplier earnings, trade press, company funding announcements). Findings supersede Phase 1 hypothesis claims where covered. Multi-narrative anti-fragility framing applied via principle #5 + the user 2026-05-24 multi-narrative refinement candidate.
+**Phase 3 execution (2026-05-24 same day):** ~18 additional web searches across orthogonal sources. The principle #24 discipline is being validated at increasing depth — each layer of recursion produces more refinements vs prior pre-training-anchored framing.
 
-**Author stance:** the "Phase 2 verified findings" + "Candidate ranking" sections below are the authoritative output. Phase 1 sections retained for audit trail showing the difference between pre-training-anchored worldview vs verified worldview.
+**Author stance:** Phase 3+ findings supersede Phase 2 where they conflict. Phase 2 ranking is REVISED below. Phase 1 sections retained for audit trail.
+
+---
+
+## Phase 3+ holistic findings (2026-05-24)
+
+### Material refinements to Phase 2 framing
+
+**R1. Chinese humanoid dominance completely reframes the picture.** China = **~90% of global humanoid sales 2025**. Unitree shipped 5,500+ units in 2024 (verified Wikipedia + Rest of World). UBTECH delivered hundreds since Nov 2025. **AgiBot shipped 5,100+ units** (Sacra). Western OEMs (Tesla, Figure, Agility, Apptronik) ~150 units EACH 2025. Chinese pricing: Unitree R1 $6,000, G1 mass-production $16,000, AgiBot $14,000. Unitree gross margin ~60% 2024. **Implication:** the Phase 2 actuator-bottleneck thesis assumed humanoid demand pulls through to HDS/Nabtesco — but Chinese localized supply (Leaderdrive et al) takes domestic Chinese market. HDS/Nabtesco capture Western humanoid + non-Chinese industrial + semi cap-equip, NOT the largest unit-volume market.
+
+**R2. Tesla Optimus missed 2025 production target by >90%** (delivered hundreds vs 5,000 planned). Realistic 2026 = low thousands, NOT the 1M/year Fremont target. Western humanoid timeline materially slower than narrative implies. **Implication:** demand pull-through on Japanese actuator suppliers from Tesla is years away from being material; multiple-re-rate thesis on HDS/Nabtesco intact but timeline pushed out.
+
+**R3. Agility Robotics is the ONLY Western humanoid earning real commercial revenue** (per Sacra April 2026): 100K+ totes moved at GXO RaaS warehouse since mid-2024; paid contracts with Toyota AND Mercado Libre. RoboFab capacity 10K units/year. Private, no current public play — but watch for IPO. The Western humanoid bull case currently concentrates in this one private name.
+
+**R4. Yaskawa Motion Control revenue DECREASED YoY FY2025** (semi market weak, prior backlog normalized). This **refutes Phase 2 framing** that Yaskawa's "cooling-VFD" is a clean separate growth vector — Motion Control segment (which includes drives) actually contracted. Yaskawa demoted in Phase 3 ranking.
+
+**R5. Skild AI raised $1.4B Series C Jan 2026, $14B valuation, ~$30M 2025 revenue.** Backers: **SoftBank + NVIDIA NVentures + Bezos**. Combined with Physical Intelligence's $600M Series B Nov 2025 (also NVIDIA NVentures), **NVDA has investments in BOTH leading robotics FM labs.** NVDA wins regardless of which FM lab dominates — multi-narrative anti-fragility even stronger than Phase 2 implied.
+
+**R6. OpenVLA (7B parameters, open-source) beats closed RT-2-X (55B) by 16.5% on 29 tasks across multiple embodiments.** **Threatens closed-source FM lab moats** (Pi, Skild). The generalist-vs-vertical-data-moat question (extrapolation E2) gets a new third axis: open-source-vs-closed-source. If open-source generalists keep improving, both Pi and Skild face commoditization risk.
+
+**R7. Solid-state battery layer firming up.** CATL all-solid-state 450 Wh/kg (engineering validation + customer sampling); Samsung SDI SolidStack pouch all-solid-state (mass production rollout 2027); CALB 450 Wh/kg by 2025. **Enables 8-hour humanoid operation vs current 2-4 hours.** Humanoid battery demand forecast: 74 GWh by 2035. UBTECH-BYD partnership confirmed. Battery layer = additive picks-and-shovels (CATL, BYD, Samsung SDI, LG Energy Solution all positioned).
+
+**R8. Sovereign policy is a much bigger layer than Phase 2 modeled.** Trump 145% Chinese tariff + chip export controls cutting China from H20; Section 232 national security investigation of robotics/industrial machinery imports (Oct 2025); Senate considering federal procurement ban for Chinese robotics; Chinese humanoid firms received $2.4B private investment first 9 months 2025; Unitree has PLA ties. **Implication:** policy-enforced bifurcation IS happening. Western suppliers benefit on Western humanoid OEMs; Chinese suppliers benefit on Chinese OEMs. Cross-flows constrained by policy, not market.
+
+**R9. Capital flows enormous and concentrated.** 2025 robotics VC funding: **~$14B (vs $8.2B 2024, eclipsing 2021 peak of $13.1B)**. Figure $1B Series C at **$39B post-money valuation** (pre-revenue). Apptronik $520M extension + $415M Series A = $935M. NEURA Robotics €120M. Galbot $300M at $3B. Rounds >$100M = 50% of disclosed deals + 95% of capital. **Bubble risk acute if humanoid economics don't materialize within 2-3 years.**
+
+**R10. Labor cost crossover quantified.** Webb effect: 1% min wage rise → 0.420% robot adoption rise. Manufacturing wage inflation outpaced CPI by 1.8pp annually 2020-2025 OECD. Industrial robotics $54.28B 2026 → $94.38B 2031. Non-automotive captured majority of robot units 2025 (broadening to food, semi, life sciences). **Implication:** labor crossover is a confirmed multi-year tailwind for ALL robotics segments — not narrative, fundamentally-grounded.
+
+**R11. Wolfspeed dominant SiC (40% global wafers 2024) BUT emerged from Chapter 11 Sept 2025.** SiC market $11B by 2030; 22% CAGR; auto 70% of demand at 23% CAGR. The compound-semi-for-motor-drives thesis works at the substrate level, but Wolfspeed-specific execution risk requires monitoring. Infineon and STM (held) more reliable executions.
+
+**R12. Defense robotics adds a meaningful layer.** Anduril $14B valuation, $1B Ohio plant Jan 2025, took over MSFT $22B AR headset contract, YFQ-44A Fury CCA in testing Feb 2026. Shield AI $5.3B valuation, $267M revenue 2024, Air Force CCA contract with RTX. Skydio dominant US drone manufacturer, contracts with all DoD branches. All private — no current public play unless via defense primes (LMT, RTX, NOC) or sovereign defense ETFs.
+
+### Revised candidate ranking (Phase 3 refined, supersedes Phase 2)
+
+5-dimensional + multi-narrative + sovereign-policy + capital-bubble-risk lens:
+
+| # | Name | Status | Conviction | Net 6-18mo thesis (Phase 3 verified) |
+|---|---|---|---|---|
+| 1 | **NVIDIA (NVDA)** | Held-adjacent (not in portfolio per user holdings) | UP from Phase 2 | Now 6-narrative — invested in BOTH Pi AND Skild via NVentures; Jetson Thor GA with 8+ verified early adopters (Agility/Amazon/BD/Caterpillar/Figure/Hexagon/Medtronic/Meta). Wins regardless of FM lab winner OR humanoid OEM winner OR open-source-vs-closed-source. Recognition stage advanced on AI compute but robotics still early. |
+| 2 | **Intuitive Surgical (ISRG)** | Watchlist (no folder yet — to create) | SAME | Phase 3 confirms 70%+ global procedure share, 11K+ installed base, $4B 2025 recurring revenue, +52% Ion procedures, Hugo competitive risk real but installed-base switching cost moat. Surgical-specific = lower multi-narrative but highest moat depth. |
+| 3 | **Harmonic Drive Systems (6324.T)** | Watchlist (to create) | DOWN slightly from Phase 2 | 60% global harmonic drive market verified; semi cap-equip dual-narrative (~35-40% usage) verified. BUT Chinese localization takes domestic Chinese market (largest by units); Tesla 90%+ miss delays Western humanoid pull-through. Multiple-re-rate thesis intact but timeline 2-3 years out, not 12-18mo. |
+| 4 | **Nabtesco** | Watchlist (to create) | SAME | 35% RV reducers industrial + 28% miniature humanoid; capex doubling by 2026 verified. Same Chinese localization headwind as HDS. Capex announcement signals confidence — execution to watch. |
+| 5 | **Agility Robotics (private)** | Watch for IPO | NEW Phase 3 | Only Western humanoid earning real commercial revenue (GXO 100K+ totes, Toyota, Mercado Libre paid contracts). RoboFab 10K units/year capacity. If IPO files, becomes highest-conviction Western humanoid pure-play. |
+| 6 | **Unitree** | Watch Shanghai IPO ($610M filing pending) | NEW Phase 3 | Chinese humanoid leader by volume (5,500+ units 2024); 60% gross margin; $25K avg price 2024; plans 75K humanoid + 115K quadruped annually over 5 years. PLA ties = US accessibility uncertain. |
+| 7 | **CATL** | Watchlist (potential add) | NEW Phase 3 | World-first humanoid battery production (per CleanTechnica); 450 Wh/kg all-solid-state in customer sampling. Multi-narrative: EV + grid storage + humanoid + aerospace. Asia listing accessibility consideration. |
+| 8 | **Samsung SDI** | Watchlist | NEW Phase 3 | SolidStack pouch all-solid-state for humanoid; Hyundai+Kia partnership; mass production 2027 rollout. Multi-narrative same as CATL. |
+| 9 | **Symbotic (SYM)** | Watchlist (to create) | SAME | Walmart anchor + $300M raise + Walmart robotics IP acquisition verified. Customer concentration risk acute. AMR market growing ~30% CAGR — competitive (AutoStore, Locus, AMZN in-house). |
+| 10 | **Anduril / Shield AI (private)** | Watch for IPO | NEW Phase 3 | Anduril $14B + $1B Ohio plant + MSFT $22B contract + Lattice OS. Shield AI $5.3B + $267M 2024 revenue + Air Force CCA. Defense robotics layer = different beta than commercial. |
+
+**DOWNGRADED from Phase 2 ranking:**
+- **Yaskawa Electric (6506.T)** — Motion Control segment revenue DECREASED YoY FY2025 (semi market weak); cooling-VFD-as-separate-growth-vector thesis weakens. Demote to "monitor, not watchlist."
+- **Schaeffler** — new humanoid entrant CES 2026, but no commercial proof; defer to Phase 4 monitoring.
+- **AutoStore** — solid execution but Norwegian listing accessibility for portfolio + AMR competitive intensity.
+
+**REMOVED from active watchlist** (Phase 3 verification weakened thesis):
+- Mitsubishi Electric — industrial-arm-focused; not a clean humanoid play; multi-narrative thinner than Phase 2 implied.
+
+### Macro layer (added Phase 3)
+
+**Labor crossover dynamics (verified):**
+- 1% min wage rise → 0.420% robot adoption (Webb effect, peer-reviewed)
+- Manufacturing wages outpaced CPI by 1.8pp/yr OECD 2020-2025
+- Industrial robotics market path: $54.28B 2026 → $94.38B 2031 (validated multi-year tailwind)
+- Non-automotive now majority of robot orders → broadening adoption beyond auto strongholds
+
+**Sovereign policy environment (verified):**
+- US: 145% Chinese import tariff + chip export controls (cuts China from H20) + Section 232 robotics investigation Oct 2025 + Senate procurement ban consideration
+- China: $2.4B private investment to Chinese humanoid firms first 9 months 2025; "Made in China 2025" achieved 100K robots/year target; 150 robots per 10K employees
+- Bifurcation enforcement happening at policy level, not just market level
+
+**Capital flows (verified):**
+- Robotics VC 2025: ~$14B (vs $8.2B 2024, eclipses $13.1B 2021 peak)
+- Concentration: rounds >$100M = 50% of deals + 95% of capital
+- Figure $39B post-money pre-revenue = bubble-risk signal
+- Public market accessibility limited for top private names (Figure, Pi, Skild, Anduril, Shield AI, Agility, Apptronik, Unitree pending Shanghai IPO)
+
+### Micro layer additions (verified)
+
+**Battery for humanoid:**
+- CATL all-solid-state 450 Wh/kg (engineering validation, customer sampling)
+- Samsung SDI SolidStack pouch all-solid-state (2027 mass production)
+- CALB 450 Wh/kg by 2025
+- 8-hour humanoid operation enabled by solid-state (vs current 2-4 hours)
+- Humanoid battery demand: 74 GWh by 2035
+
+**Tactile sensors (still the unsolved component):**
+- SynTouch BioTac + NumaTac mature products
+- ~20 humanoid tactile sensor companies globally (fragmented per CMRA)
+- Emerging themes: e-skins, vision-based tactile, soft/biomimetic
+- Still pre-commercial-scale at humanoid manipulation density
+
+**Open-source robotics layer (NEW finding):**
+- OpenVLA (7B params) beats RT-2-X (55B) by 16.5% on 29 tasks
+- Threatens closed-source FM lab moats
+- ROS 2 + open-source policies + open-source sim (Genesis, MuJoCo) compound
+
+**Foundation model competitive map (verified):**
+- Physical Intelligence (Pi): $1.1B raised, $5.6B valuation, π0/π0 FAST/π0.5 generalist
+- Skild AI: $1.4B raised, $14B valuation, "Skild Brain" omni-bodied, $30M 2025 revenue
+- NVIDIA Isaac GR00T N1.7 (open-sourced) + Cosmos sim
+- Open-source: OpenVLA + Octo + RT-2/X family
+- Vertical-data players: Tesla (Optimus FSD-derivative), Amazon (Covariant), ISRG (proprietary surgical)
+
+### Adjacency map — who benefits from which combinations
+
+| Cross-narrative combination | Beneficiary names | Strength of overlap |
+|---|---|---|
+| AI compute + robotics edge compute + FM model | **NVIDIA (NVDA)** | Strongest — verified investments in both Pi AND Skild |
+| Surgical regulatory moat + AI imaging | **ISRG** | Strong — 70%+ procedure share + Ion +52% |
+| Actuator choke point + semi cap-equip | **HDS (6324.T), Nabtesco** | Strong — 35-40% of harmonic-drive usage to semi cap-equip |
+| MLCC volume + AI + EV + industrial + humanoid PCB density | **Murata (held)** | Verified multi-narrative |
+| Power semi (motor drives + AI cooling) + MEMS + automotive | **STM (held)** | Verified multi-narrative |
+| Battery (EV + grid storage + humanoid) | **CATL, Samsung SDI, BYD** | Strong — solid-state path firming |
+| Cloud + warehouse robotics + FM acquisition (Covariant) | **AMZN (held)** | Verified Phase 2 |
+| SiC dominance + EV growth + motor drives | **Wolfspeed** | Strong on market position, weak on execution (Ch11 emergence) |
+| InP substrate + optical AI + compound semi power | **AXTI (held)** | Dual-narrative; weaker than I'd implied |
+| Defense autonomous + AI software | **Anduril (private), Shield AI (private)** | Strong; access via IPO or defense primes |
+
+### Phase 3 sources (orthogonal per principle #23)
+
+- Skild AI Series C: Crunchbase + BusinessWire + TechCrunch (3 orthogonal)
+- Tesla Optimus production: Robot Report + Robozaps + NewMarketPitch (3 orthogonal)
+- Chinese humanoid: Rest of World + 36kr + Wikipedia + Humanoid.guide (4 orthogonal)
+- Agility GXO RaaS: Sacra + Robozaps (2 orthogonal)
+- Humanoid battery: CleanTechnica + Caixin + Samsung SDI primary + KED Global (4 orthogonal)
+- Defense robotics: Wikipedia + Built In + Breaking Defense + Contrary Research (4 orthogonal)
+- VC funding: Crunchbase + Marion Street Capital + RoboticsAndAutomationNews + DealMaker (4 orthogonal)
+- Labor crossover: ITIF + ScienceDirect peer-reviewed + Sage journal + AEA web (4 orthogonal)
+- Wolfspeed SiC: SEC 8-K primary + investor relations (primary)
+- US policy: FDD + Congress.gov + CFR + CSIS (4 orthogonal)
+- Yaskawa: company IR primary + Smartkarma earnings (2 orthogonal)
+- Surgical market: Grand View + Mordor + GM Insights + Expert Market Research (4 orthogonal)
+
+### Phase 4+ queue (next-session work)
+
+- Per-form-factor BOM teardowns (Figure 02 BOM, ISRG da Vinci 5 BOM, Symbotic system BOM)
+- da Vinci 5 launch cadence + ISRG Q4 2025 / Q1 2026 deeper
+- Chinese supplier deep dig (Leaderdrive, GreenTec, Anchuan) — Chinese harmonic drive alternatives to HDS
+- Tesla Dojo / FSD architecture as Optimus compute substrate
+- Foundation model benchmark deep dive (Pi vs Skild vs OpenVLA head-to-head)
+- Per-region labor crossover map (Japan vs US vs China vs EU)
+- ROS 2 ecosystem evolution + commercial adoption
+- Surgical specialty expansion timeline (cardiac, neuro, ophthalmic)
+- AMR sortation supplier ranking (Berkshire Grey, Geek+, others)
+- Boston Dynamics Stretch + Atlas commercial deployment (Hyundai-owned)
+
+---
 
 ---
 
