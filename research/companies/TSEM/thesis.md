@@ -239,3 +239,14 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 8/10** — manufactures for many
 - **CPU tightness: 2/10**
 - **Agentic tightness: 7/10** — Si photonics for east-west interconnect
+
+## Cross-reference — Physical AI primer Phase 1+2 verified (added 2026-05-25)
+
+Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
+
+**TSEM identified as tier-2 Physical AI cross-narrative beneficiary** — score 3+/6 sub-domains (upgraded from robotics 1/5). Multi-narrative legs surfaced:
+- **AV sensor fab** — Tower's specialty analog foundry capability fabs CMOS image sensors + radar ICs + motor-driver SoCs for ADAS / autonomous vehicle suppliers
+- **Industrial automation power semi** — specialty analog process technologies for industrial sensor + power conversion
+- **Datacenter analog** (adjacent to existing AI compute thesis)
+
+**Implication for existing TSEM thesis (held 5.4%):** robotics framing had TSEM at 1/5 sub-domains (limited direct robotics exposure). Physical AI lens reveals 3+/6 via AV sensor fab + industrial + datacenter. **Multi-narrative score upgrade reduces sizing-trim pressure.** No tier change; existing falsifiers unchanged. Phase 2 verification needed: TSEM customer mix in automotive segment (specific ADAS/AV design wins) + capacity utilization on specialty analog process nodes serving Physical AI customers.

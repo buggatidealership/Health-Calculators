@@ -110,3 +110,17 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 
 **Implication for existing NVDA thesis:** robotics is additional optionality, not a separate thesis. Adds to the multi-narrative anti-fragility score but doesn't change Core 8-12% target. The relevant catalyst to watch is whether NVDA breaks out robotics revenue on earnings (Phase 1 extrapolation E3 — still un-verified by NVDA disclosure but Jetson Thor commercial scale-up makes it a 6-8 quarter watch item). No tier change; sizing implication marginal positive.
 
+
+## Cross-reference — Physical AI primer Phase 1+2 verified (added 2026-05-25)
+
+Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
+
+**NVDA identified as 6/6 universal Physical AI champion** — the only name covering ALL six Physical AI sub-domains:
+- Robotics: Jetson Thor + GR00T + NVentures investment in Pi AND Skild
+- Autonomous Vehicles: DRIVE platform (Mercedes/Volvo/JLR/BYD/XPENG/Li Auto)
+- Industrial Automation: Omniverse + Siemens "Industrial AI Operating System" partnership; AI Factory blueprint with Schneider Electric + Cadence + Vertiv
+- Digital Twins: Omniverse (cross-cutting platform integrated with Bentley/Siemens/Ansys/Dassault)
+- AI-RAN: Aerial RAN Computer Pro (ARC-Pro); **$1B NVDA invested in Nokia** for strategic partnership; T-Mobile US 6G integration
+- Edge Devices: GeForce + AI PC GPU integration
+
+**Implication for existing NVDA thesis (held-adjacent, no current position per holdings):** the Physical AI umbrella reframing REINFORCES the multi-narrative anti-fragility ranking established in robotics primer Phase 3+ (#1 candidate). Wins regardless of which Physical AI sub-domain dominates. No tier change; existing non-holding stance per Stage 4 + Patel-Aschenbrenner bidirectional risk remains defensible — Physical AI adds optionality, not standalone trigger. Watch item: NVDA Q-on-Q segment disclosure on Edge Computing (split between robotics + AVs + AI-RAN) as the Physical AI umbrella matures into segment-line revenue attribution.

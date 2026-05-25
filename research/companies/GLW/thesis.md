@@ -364,3 +364,14 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 10/10** — fiber/glass into every hyperscaler + every fab
 - **CPU tightness: 4/10** — incidental
 - **Agentic tightness: 8/10** — east-west traffic scales with agentic workload count
+
+## Cross-reference — Physical AI primer Phase 1+2 verified (added 2026-05-25)
+
+Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
+
+**GLW identified as tier-2 Physical AI cross-narrative beneficiary** — score 3+/6 sub-domains (upgraded from robotics 1/5). Multi-narrative legs surfaced:
+- **AI-RAN backhaul fiber** — Nokia + Ericsson + NVDA Aerial RAN partnership ($1B NVDA investment in Nokia) increases fiber-km per cell site as 5G/6G AI-native deployments scale
+- **AV LIDAR glass** — Corning specialty glass used in solid-state LIDAR optics (Hesai, Innoviz, Luminar)
+- **Datacenter optical** (existing thesis) — reinforced by AI compute growth
+
+**Implication for existing GLW thesis (held 10.8%):** robotics framing had GLW at 1/5 sub-domains (limited direct robotics exposure). Physical AI lens reveals 3+/6 via AI-RAN + AV + datacenter. **Multi-narrative score upgrade — sizing-matrix consideration: hold current allocation; the upgrade reduces trim-pressure that the robotics-only lens implied.** No tier change; existing falsifiers unchanged but new watch item added: AI-RAN deployment cadence post NVDA-Nokia partnership (Phase 2 verification needed for fiber-km-per-cell-site attribution).
