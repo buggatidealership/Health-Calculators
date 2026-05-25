@@ -34,3 +34,9 @@ WIN in S1 (NVDA chips need packaging), S2 (custom Si needs packaging). Mixed S3 
 - `research/wiki/custom-silicon-primer.md`
 - `research/wiki/optical-interconnect-primer.md`
 - `research/watchlist/candidates.md`
+
+## Cross-reference — Advanced packaging primer (added 2026-05-25)
+
+Per `research/wiki/advanced-packaging-primer.md`:
+
+**CAMT identified as packaging inspection adjacent** in the advanced packaging layer mapping. TSMC CoWoS sold out through 2027 + quadrupling 33K → 130K wpm by late 2026 = 4x packaging inspection demand. CAMT sits at the inspection-equipment sub-layer (different from BESI's hybrid bonding equipment and ASMPT's TCB equipment — packaging inspection is QA/QC for the bonded stacks). Same demand cascade applies (per principle #2: TSMC capacity expansion → equipment vendor revenue growth) but at a smaller-TAM inspection sub-layer. No tier change to existing thesis; the packaging primer confirms CAMT's adjacent positioning in the advanced packaging bottleneck cascade rather than overturning prior analysis.
