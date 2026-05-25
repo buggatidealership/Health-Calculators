@@ -236,3 +236,114 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 9/10** — all fabs need metrology
 - **CPU tightness: 3/10**
 - **Agentic tightness: 5/10** — indirect via fab utilization
+
+## Update 2026-05-25 — mapped against frameworks added since 2026-05-22 (per principle #25)
+
+Triggered by user request 2026-05-25 to map Rigaku against the multiple frameworks codified after the 2026-05-22 deep dive. Per principle #25 (codified 2026-05-25), research findings about an existing-thesis company must cascade to the thesis file.
+
+### Physical AI primer mapping (built 2026-05-25) — score 1/6 sub-domains
+
+Per `research/wiki/physical-ai-primer.md`:
+
+Rigaku exposure across the 6 Physical AI sub-domains:
+- Robotics: indirect (3rd-order — chips for robots manufactured at fabs using Rigaku metrology)
+- Autonomous vehicles: same indirect path
+- Industrial automation: same indirect path
+- Digital twins: zero exposure
+- AI-RAN: same indirect — 5G/6G chips at advanced nodes
+- Edge devices: same indirect path
+
+**Net Physical AI score: 1/6 (LOW)** vs universal-supplier candidates (Sony 5/6, Murata 5/6, STM 5/6, NVDA 6/6). Rigaku is fab-equipment-layer — two layers below Physical AI itself.
+
+### Robotics primer Phase 3+ mapping (built 2026-05-24)
+
+Per `research/wiki/robotics-primer.md`:
+- NOT at actuator choke point (HDS, Nabtesco hold those positions)
+- NOT at humanoid OEM layer
+- NOT a chip fabricator directly
+- 3rd-order indirect beneficiary of robotics chip demand at fab
+
+### Google I/O 2026 + TPU bifurcation mapping (analyzed 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+- TPU 8t/8i at TSMC 2nm late 2027 + ARM AGI CPU TSMC 3nm + NVDA Vera Rubin TSMC 2nm = advanced-node metrology demand
+- Rigaku CD-SAXS for advanced-packaging metrology benefits IF Rigaku wins design slots over KLA/AMAT
+- KLA + Applied Materials dominate front-end metrology; Rigaku is Tier-2 in narrower niches
+- **2nd-order beneficiary; share-capture uncertain**
+
+### Test-time compute scaling regime mapping (analyzed 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+- Test-time compute regime → MORE compute per query → MORE advanced chips → MORE metrology demand
+- HBM4 16-Hi metrology IS Rigaku's CD-SAXS niche
+- BUT chip sales 1st order (HYNIX direct), fab equipment 2nd order (KLA, AMAT, ASML), Tier-2 metrology 3rd order (Rigaku)
+- **Each causal hop decays probability** — asymmetric upside diluted vs Layer-0 names
+
+### Model economics primer + 1999 fiber-buildout analog mapping (built 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+- Rigaku is closer in profile to Lucent/Nortel 1999 (smaller equipment supplier) than to trillion-dollar tech
+- Cisco-1999 multiple-compression risk applies MORE acutely to Tier-2 equipment names than to mega-cap suppliers
+- If hyperscaler capex compresses → fab spending compresses → Rigaku top-line compresses
+- **Multiple-compression risk decoupled from bankruptcy risk** — Rigaku doesn't go bankrupt but multiple compresses meaningfully in peak-cycle reversal
+
+### Multi-narrative anti-fragility scoring (refinement applied 2026-05-24+25)
+
+- Narrative legs: semi metrology + scientific instruments + medical + Onto alliance catalyst
+- Multi-narrative score: **2-3/5** vs Murata 7+/5, STM 6+/5, NVDA 6/6
+- Narrative drivers partially independent but smaller absolute scale than universal-supplier names
+
+### CPU rebalancing thesis mapping (per ARM AGI CPU discussion 2026-05-25)
+
+Per `research/companies/ARM/thesis.md` Update 2026-05-25:
+- ARM AGI CPU + hyperscaler custom CPUs manufactured at advanced nodes
+- Rigaku indirect 3rd-order beneficiary at fab-metrology layer
+
+### Comparison to current holdings + planned HDS
+
+**Where Rigaku is BETTER vs held names:**
+- Geographic diversification (Japan TSE listing — adds non-US, non-Korea)
+- Discrete catalyst (Onto alliance H2 2026 close) — most held names have continuous catalysts
+- Tokyo IPO discovery premium (less US analyst coverage)
+- CD-SAXS specifically for HBM4 16-Hi stacks (per `wiki/hbm-primer.md`)
+- TTQ signal already positive (2 customers deployed before alliance closes)
+
+**Where Rigaku is WORSE vs held names:**
+- Multi-narrative score 1-2/6 Physical AI vs universal suppliers 5-7/6
+- Layer 2 fab equipment (3rd-order beneficiary) vs HYNIX at Layer 0 HBM
+- Operating decline ACTIVE (Q1 FY26 -13%/-78%/-83% blended) even with segment-level wins
+- Anti-fragility 2.5/5 vs held names mostly 3-5/5
+- TAM $300M partnership-specific vs hundreds of $B end markets for held names
+- Cisco-1999 risk profile = MORE vulnerable to peak-cycle multiple compression than mega-cap held names
+- TSE liquidity friction
+- 3 sequential execution dependencies (Onto close H2 2026 → product roadmap H2 2027+ → CD-SAXS adoption materializes)
+- vs HDS (planned tomorrow): HDS 60% global share + multi-narrative semi cap-equip + structural choke-point (<12 facilities globally) vs Rigaku Tier-2 metrology with operating decline ACTIVE
+
+### Updated tier + sizing verdict
+
+**Tier 2/3 boundary holds** (no change from 2026-05-22). The new framework mappings did NOT materially change tier — Physical AI scoring at 1/6 is consistent with the 2.5/5 anti-fragility scoring. The frameworks added since 2026-05-22 confirm but don't overturn the existing analysis.
+
+**Sizing 1-2% range remains appropriate** for a SPECIFIC-CATALYST Portfolio B position. NOT competitive with universal-supplier candidates (Sony, Murata, STM, NVDA) on multi-narrative anti-fragility, but the Onto-alliance catalyst IS asymmetric upside that universal-supplier names don't have.
+
+### Position priority within available dry powder (~€14,867 post tomorrow's HDS+STM trades)
+
+**Ranked priority for ~€14,867 dry powder deployment:**
+1. ISRG — Physical AI surgical 70% procedure share, +52% Ion procedures, deepest moat verified (per `companies/ISRG/thesis.md`)
+2. Sony Semiconductor (6758.T) — Physical AI vision universal supplier 5/6, 43-64% CIS share (per `companies/SONY/thesis.md`)
+3. ALAB — CXL pooling structurally necessary under test-time-compute regime; 5+ vectors (per `companies/ALAB/thesis.md` Update 2026-05-25)
+4. ARM — multi-vector + AGI CPU + 50% hyperscaler share (per `companies/ARM/thesis.md` Update 2026-05-25)
+5. **Rigaku — only after the above 4 have been sized; or as small (1%) specific-catalyst position alongside the higher-conviction adds**
+
+### Honest discipline check
+
+Salience-bias self-check (per 2026-05-24 catch): am I over-discounting Rigaku because the Physical AI primer's universal-supplier framing is the most salient recent framework? The universal-supplier names LOOK better on multi-narrative scoring axes BUT the Onto-alliance catalyst is a SPECIFIC asymmetric setup. The "right" answer may be that Rigaku is appropriate as a 1% specific-catalyst position NOT competing on the same scoring axis as universal-suppliers — different shape of bet entirely.
+
+### Cross-references (multi-framework mapping)
+
+- `research/wiki/physical-ai-primer.md` — Physical AI 1/6 score
+- `research/wiki/robotics-primer.md` Phase 3+ — robotics indirect 3rd-order
+- `research/signals/events/2026-05-20-google-io-2026.md` — TPU bifurcation metrology demand
+- `research/signals/events/2026-05-25-test-time-compute-scaling.md` — test-time compute → advanced chip → metrology demand
+- `research/wiki/model-economics-primer.md` — 1999-fiber-buildout analog + Cisco-1999 multiple compression risk
+- `research/companies/HDS/thesis.md` — planned 2026-05-26 alternative (HDS 60% global share + multi-narrative)
+- `research/companies/ARM/thesis.md` — CPU rebalancing thesis Update 2026-05-25
