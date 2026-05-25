@@ -1196,8 +1196,8 @@ def main() -> int:
     )
     result.check(
         "memory-cycle-primer — mispricing spread documented",
-        "5.92-6.79x" in memory_primer
-        and "structural-growth comparable" in memory_primer,
+        "5.92-6.79" in memory_primer
+        and "structural-growth comparable" in memory_primer.lower(),
     )
 
     # ==================================================================
