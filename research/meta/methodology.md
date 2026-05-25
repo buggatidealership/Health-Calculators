@@ -900,6 +900,70 @@ Be CONFIDENT when:
 
    See B27 (research-findings-not-cascaded bias) in `biases-watchlist.md`.
 
+26. **Cyclical-to-structural transition recognition — the binding-constraint test.** User-articulated framework 2026-05-25: *"certain companies that used to be cyclical in prior cycles ended up being structural... companies that are going through a structural change as they become the backbone of the new AI based economy... memory in phones when we went from 8 to 16 to 32 GB, memory on a phone was a good to have, it was not a necessity for the product to be better, as in you could buy a phone with 32GB or one with 64GB, for the marginal user, the difference was minimal. It was part of the end product, but it wasn't ingrained with the new product. So if you now take this framework and extrapolate it, it becomes an unverified assumption that, okay, now memory and storage, because of inference, because of the growth of AI, the limit of how good a LLM can reason is directly tied to these components, and therefore they become structural in nature until they reach a plateau."*
+
+   **The bias revealed:** Pre-training data is heavily exposed to cyclical-behavior patterns from prior cycles (2017-2023 memory cycle, prior fab equipment cycles, etc.). When a component undergoes structural transition due to a technology regime change, pre-training-anchored reasoning over-weights cyclical mean-reversion at the wrong time. Sell-side analyst frameworks have the same lag (typically 2-3 quarters to update from cyclical to structural framing). The mispricing spread between cyclical multiples (5-10x forward) and structural multiples (15-30x forward) IS the alpha if the structural framing wins.
+
+   **The discipline — the binding-constraint test:**
+
+   For any AI-related component, ask one question: **"Is this a discretionary feature of the end product, OR is it a binding constraint on the end product's quality?"**
+
+   - **Binding constraint** = the END PRODUCT'S CAPABILITY is directly tied to this component's quantity/quality. Adding more of the component DIRECTLY improves what the product can do. → STRUCTURAL classification. Multi-year stickiness, pricing power, multiple-expansion potential.
+   - **Discretionary feature** = the component is part of the product but the product's quality doesn't fundamentally depend on its scaling. Marginal user is indifferent at moderate levels. → CYCLICAL classification. Mean-reversion risk applies.
+
+   **Worked examples:**
+
+   | Component | Pre-AI framing | Post-AI binding-constraint test | Verdict |
+   |---|---|---|---|
+   | HBM memory bandwidth | Cyclical (DRAM cycle 2017-2023) | Thinking-token depth scales linearly with HBM bandwidth (per `signals/events/2026-05-25-test-time-compute-scaling.md`) | STRUCTURAL — binding |
+   | Phone RAM 8→32→128GB | Discretionary feature 2017-2023 | Marginal user indifferent at moderate levels | CYCLICAL — correctly classified |
+   | NAND for AI inference (GIDS) | Cyclical NAND cycle | Long-context storage offload required for sustained inference | STRUCTURAL — newly binding |
+   | NAND for consumer storage | Cyclical | User indifferent at sufficient levels | CYCLICAL — unchanged |
+   | Optical interconnect (CPO) | Niche / cyclical telecom | Inter-chip bandwidth for sustained inference at scale | STRUCTURAL — newly binding |
+   | Advanced packaging (CoWoS) | Cyclical equipment cycle | HBM stacking + chiplet integration required | STRUCTURAL — newly binding |
+   | Compound semi power electronics | Specialty / cyclical EV | Motor drives + AI cooling + power density structural | STRUCTURAL — newly binding |
+
+   **Mandatory discipline:**
+
+   1. **For any AI-related held name or candidate, apply the binding-constraint test** before accepting cyclical or structural framing
+   2. **Identify what the end-product capability is** (e.g., "depth of reasoning per query," "inter-chip bandwidth," "thinking-token throughput")
+   3. **Test: does adding more of this component DIRECTLY improve that capability?** (Not "is the component part of the product" — that's the wrong test)
+   4. **If YES → structural; if NO → cyclical**
+   5. **For structural classifications, check consensus framing** — if consensus still uses cyclical multiples, the mispricing spread is the alpha
+   6. **For previously-structural-now-cyclical reversals,** check the canary metrics (e.g., HBM-per-FLOP trajectory, MoE adoption rate) for transition signals
+
+   **What this changes operationally:**
+   - For every held name with AI exposure, the cyclical-vs-structural question gets explicitly tested rather than implicitly assumed from pre-training
+   - HYNIX at 5.92-6.79x forward P/E vs structural-growth-comparable multiples (15-30x) = re-rating room if structural wins
+   - SNDK NAND framing needs explicit binding-constraint test (GIDS + AI inference storage vs commodity NAND cycle)
+   - Optical cluster (GLW, AXTI, TSEM, SMTC) → all pass binding-constraint test under test-time-compute regime
+   - Advanced packaging (BESI, ASMPT, DISCO candidates) → all pass binding-constraint test
+   - Memory-cycle-primer needs explicit cyclical-to-structural transition section
+
+   **Honest caveats per principle #15 two-handed thinking:**
+   - **Plateau risk (user-acknowledged):** at some point memory bandwidth ceases to be the binding constraint (e.g., MoE sparse activation decouples memory from reasoning, or new architecture displaces transformers). When that happens, structural framing breaks for the affected component. Canary: HBM-per-FLOP trajectory across model generations.
+   - **Supply-side reset risk:** Chinese memory production (CXMT, ChangXin) scaling could shift supply-demand even if demand stays structural. Not a cyclical-vs-structural framing change — a supply-side reset.
+   - **Sell-side framework lag = 2-3 quarters:** mispricing spread persists but not indefinitely. Re-rating plays out over 2-4 quarters, not immediately.
+   - **Architectural disruption risk:** MoE/sparse models, mamba/RWKV alternative architectures, custom inference architectures (Cerebras wafer-scale, Groq LPUs) could disrupt the memory-bandwidth-binding-constraint thesis.
+
+   **Worked example — HYNIX specifically:**
+   - Pre-AI framing: cyclical DRAM/HBM player; 5.92-6.79x forward P/E reflects cyclical mean-reversion expectation
+   - Binding-constraint test: HBM bandwidth directly scales with reasoning depth (verified per test-time-compute event) + 5+ hyperscaler programs simultaneously demand HBM (verified Google I/O event + Phase A); operating cycle has materially changed from prior 2017-2023 cycle
+   - Verdict: STRUCTURAL — the cycle nature changed in 2024-2026 specifically
+   - Mispricing spread: 5.92-6.79x cyclical multiple vs 15-30x structural-growth comparable = potential 2-3x re-rate room if framing wins
+   - Falsifier: HBM-per-FLOP requirements stop scaling (canary) OR Chinese supply materially compresses pricing OR architectural disruption (MoE wins) reduces memory demand per query
+   - Watch: forward EPS revisions (already +29% in recent months per Phase A check — consistent with structural-demand framing materializing)
+
+   **Fluidity footer:**
+   - codified: 2026-05-25
+   - last_review: 2026-05-25
+   - falsified_by: if HBM-per-FLOP trajectory plateaus across 2 consecutive model generations (signals memory plateau) OR if MoE/sparse architectures become dominant frontier-model architecture (decouples memory from reasoning depth) OR if Chinese memory supply meaningfully reshapes pricing dynamics (different mechanism but similar price effect). For these reversals, the structural framing breaks for HBM specifically while remaining intact for other AI-binding-constraint components.
+   - re-evaluation trigger: quarterly, OR on any of: HBM-per-FLOP metric disclosed by frontier-model labs; MoE adoption rate at frontier deployments; Chinese DRAM/HBM production milestone; held-name (HYNIX, SNDK) multi-quarter EPS guidance revisions
+
+   **The structural meta-lesson:** consensus framework lag at cyclical-to-structural transitions is a recurring alpha source in technology regime changes. Pre-training data captures the prior cycle's behavior at high weight; the current cycle's structural shift gets under-weighted until consensus catches up. The binding-constraint test is the mechanical detection rule that distinguishes "feature that scales cyclically" from "binding constraint that scales structurally."
+
+   See B28 (pre-training-anchored cyclical-vs-structural mis-classification) in `biases-watchlist.md`.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)
@@ -943,6 +1007,7 @@ This converts principles from static doctrine into thesis-like artifacts with th
 | 23 | Claim-level verification via orthogonal data | 2026-05-24 | 2026-05-24 | monthly (with audit) | active (new) |
 | 24 | Recursive bottoms-up worldview discovery via verified data | 2026-05-24 | 2026-05-25 | after first Phase-2 robotics rebuild; OR after 3 primer rebuilds; OR 3+ observation-log flags | active (validated — robotics Phase 2+3 + Physical AI Phase 1+2 both produced material refinements vs pre-training) |
 | 25 | Research findings cascade to existing thesis files | 2026-05-25 | 2026-05-25 | monthly; OR after 5 research-cascade events; OR 3+ observation-log flags | active (new) |
+| 26 | Cyclical-to-structural transition recognition (binding-constraint test) | 2026-05-25 | 2026-05-25 | quarterly; OR on HBM-per-FLOP disclosure / MoE frontier-model adoption / Chinese memory milestone | active (new) |
 
 **Falsifier conditions are filled in inline at the principle text** as we accumulate stress-test data. Initially most rows have empty `falsified_by` — the discipline is to fill them in as the principle gets stress-tested in practice, not to invent invalidation conditions speculatively.
 

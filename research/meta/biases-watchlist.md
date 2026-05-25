@@ -392,6 +392,38 @@ Both failures share the same root cause: source-reputation is being used as a su
 
 ---
 
+### B28 — Pre-training-anchored cyclical-vs-structural mis-classification
+**Origin:** User correction 2026-05-25: *"your pretraining is probably still classifying memory and storage as cyclical given prior cycles cyclicality. I'm not dismissing that it could be cyclical again, but there is a difference in how memory and storage relates to the product as in storage and memory here become binding constraint to how good the end product is, but that's the reasoning. It is not just a feature of the end product."* User explicitly invited fact-check via principle #14 (question own framings).
+
+**Pattern:** Pre-training data is heavily weighted on prior-cycle behavior. When a component undergoes structural transition due to technology regime change (e.g., AI inference workloads making HBM bandwidth a binding constraint on reasoning depth), pre-training-anchored reasoning over-weights cyclical mean-reversion at the wrong time. Same bias affects sell-side analyst frameworks at 2-3 quarter lag from structural-evidence accumulation. The mis-classification creates a multi-quarter mispricing spread between cyclical multiples (5-10x forward) and structural-growth multiples (15-30x forward) — alpha source for those who correctly identify the transition early.
+
+**Distinction from B26 (pre-training-as-primary-source):** B26 catches WORLDVIEW-CONSTRUCTION reliance on pre-training. B28 catches CLASSIFICATION-OF-EXISTING-COMPONENT reliance on prior-cycle pre-training. Both share the underlying "pre-training overrules current verified data" failure mode but operate at different decision scopes.
+
+**Manifestation 2026-05-25:** Honest self-audit applied — my pre-training was heavily exposed to 2017-2023 memory cycle including 2022-2023 downturn (DRAM ASPs -50-60% peak-to-trough; Hynix/Samsung/Micron all guided down; consensus modeled memory as classic boom-bust). The "memory is cyclical; assume mean reversion" pattern is the default pre-training anchor. User's structural framing required explicit re-weighting against verified 2024-2026 data: HBM bandwidth IS rate-limit for thinking-token depth (per test-time-compute event); 5+ hyperscaler programs simultaneously (per Google I/O event); SK Hynix US packaging plant + Anthropic 3.5GW Google TPU commitment (per Google I/O event); HYNIX forward P/E 5.92-6.79 = cyclical-multiple framing despite structural evidence.
+
+**The structural fix (principle #26 — binding-constraint test):** For any AI-related component, ask: "Is this a discretionary feature of the end product, OR is it a binding constraint on the end product's quality?" Binding constraint → structural classification; discretionary feature → cyclical. Apply BEFORE accepting pre-training-anchored or sell-side-consensus classification.
+
+**Correction (mandatory per principle #26):**
+1. For any AI-related held name or candidate, apply the binding-constraint test
+2. Identify the end-product capability (e.g., "reasoning depth," "inter-chip bandwidth")
+3. Test: does more of this component DIRECTLY improve that capability?
+4. If yes → structural; if no → cyclical
+5. Compare to consensus framing; if consensus uses cyclical multiples on a structural component, mispricing spread is the alpha
+6. Watch canary metrics for transition signals (HBM-per-FLOP, MoE adoption, Chinese supply)
+
+**Retroactive application (HYNIX):**
+- Pre-training framing: cyclical DRAM/HBM player at 5.92-6.79x forward P/E
+- Binding-constraint test: HBM bandwidth directly scales with reasoning depth (test-time-compute event verified); 5+ hyperscaler demand (Google I/O verified)
+- Verdict: STRUCTURAL — the cycle nature changed in 2024-2026 specifically
+- Mispricing spread: cyclical multiple 5.92-6.79x vs structural-growth comparable 15-30x = 2-3x re-rating room
+- Falsifier: HBM-per-FLOP plateau OR MoE displacement OR Chinese supply shift
+
+**How to check:** Before accepting any AI-related component as "cyclical" — apply the binding-constraint test explicitly. If the test says "binding constraint" but the framing says "cyclical," there's a pre-training-anchored mis-classification. Re-framing as structural with mispricing-spread alpha is the appropriate response.
+
+**Hook enforcement:** deferred. Mechanical detection of "cyclical-vs-structural mis-classification" requires semantic reasoning about end-product-capability relationships — too judgment-heavy for current hook implementation. Discipline enforced via principle #26 codification + binding-constraint test as part of every AI-thesis review.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

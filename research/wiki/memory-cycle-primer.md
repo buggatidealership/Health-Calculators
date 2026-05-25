@@ -235,3 +235,35 @@ Per Patel via [24/7 Wall St 2026-04-23](https://247wallst.com/personal-finance/2
 - [TokenRing — TSMC CoWoS expansion](https://markets.financialcontent.com/wral/article/tokenring-2026-1-1-the-great-packaging-pivot-how-tsmc-is-doubling-cowos-capacity-to-break-the-ai-supply-bottleneck-through-2026)
 - [PatSnap — HBM technology landscape 2026](https://www.patsnap.com/resources/blog/articles/hbm-technology-landscape-2026-market-and-ai-demand/)
 - [WCCFTech — Next-gen HBM architecture (capacity per stack data)](https://wccftech.com/next-gen-hbm-architecture-detailed-hbm4-hbm5-hbm6-hbm7-hbm8-up-to-64-tbps-bandwidth-240-gb-capacity-per-24-hi-stack-embedded-cooling/)
+
+---
+
+## Cyclical-to-structural transition recognition (added 2026-05-25 per principle #26)
+
+User-articulated framework 2026-05-25 — explicit binding-constraint test for memory in the AI era:
+
+**Pre-AI memory (2017-2023 cycle):** phone RAM 8→32GB was a "good to have" feature. Marginal user indifferent at moderate levels. Component was PART OF the product but NOT INTEGRAL to product quality. This was the CORRECT cyclical framing for that era.
+
+**Post-AI memory (2024-2026+ cycle):** HBM bandwidth directly scales with thinking-token depth per `signals/events/2026-05-25-test-time-compute-scaling.md` 1st-order cascade. Reasoning depth = product quality for LLM/agentic AI. **Memory is now a binding constraint on the END PRODUCT'S quality, not a discretionary feature.** This is a STRUCTURAL classification, not cyclical.
+
+**Per the binding-constraint test (principle #26):**
+- "Is HBM bandwidth a discretionary feature OR binding constraint on the end product's quality?"
+- Verified answer: BINDING CONSTRAINT (per test-time-compute event + model-economics primer + 5+ hyperscaler simultaneous demand evidence)
+- Classification: STRUCTURAL through 2027-2028 minimum, conditional on canary metrics (HBM-per-FLOP trajectory, MoE adoption, Chinese supply)
+
+**The mispricing spread:**
+- HYNIX forward P/E 5.92-6.79x (Phase A verified) = cyclical framing
+- Structural-growth comparable range 15-30x = re-rating room of 2-3x
+- Plus EPS revisions (already +29% recently for 2026 consensus) provide independent return driver
+
+**Falsifiers for the structural classification:**
+- HBM-per-FLOP plateaus across 2 consecutive model generations (signals memory plateau)
+- MoE/sparse architectures dominate frontier deployment (decouples memory from reasoning depth)
+- Chinese DRAM/HBM (CXMT, ChangXin) materially compresses pricing dynamics
+
+**NAND-specific application (SNDK held):**
+- AI inference storage / GIDS = STRUCTURAL (binding on multi-million-token context handling)
+- Consumer NAND = CYCLICAL (unchanged framing)
+- Hybrid case — sizing-matrix depends on revenue-mix attribution
+
+**The structural meta-lesson:** consensus framework lag at cyclical-to-structural transitions is a recurring alpha source. Sell-side analyst models update at 2-3 quarter cadence. The mispricing spread persists during that update window. Re-rating plays out over 2-4 quarters, not immediately.

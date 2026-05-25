@@ -233,3 +233,29 @@ The cost/sustainability counterpart to the demand-side test-time-compute event. 
 Per `research/wiki/advanced-packaging-primer.md`:
 
 **Hynix HBM4 production is GATED by advanced packaging capacity.** TSMC CoWoS sold out through 2027 with 50+ week lead times; HBM4 must physically bond to logic die during CoWoS process. SK Hynix US packaging plant ($3.9B investment per Tom's Hardware) verifies multi-year geographic diversification away from Taiwan concentration. **SK Hynix turning to Intel EMIB** as TSMC CoWoS bottleneck squeezes supply — per principle #9 bypass-route thinking, Intel EMIB emerges as credible alternative. Hybrid bonding (BESI <10nm precision moat) becomes mandatory for HBM4E 16-Hi stacks expected 2026 — Hynix is in the bonding-customer position. **The packaging bottleneck IS the gating constraint for Hynix's HBM4 ramp** — strengthens "constrained throughout Vera Rubin life" framing further. No tier change; reinforces Core position.
+
+## Cross-reference — Principle #26 binding-constraint test (added 2026-05-25)
+
+Per `research/meta/methodology.md` principle #26 codified 2026-05-25:
+
+**Binding-constraint test applied — HYNIX classifies STRUCTURAL, not cyclical:**
+
+- End-product capability tested: "reasoning depth per query at frontier LLM labs"
+- Component: HBM bandwidth + capacity
+- Test result: HBM bandwidth DIRECTLY scales with reasoning-token throughput (per `signals/events/2026-05-25-test-time-compute-scaling.md` 1st-order cascade). Adding more HBM directly increases thinking-token depth a model can sustain. NOT a discretionary feature — the END PRODUCT'S QUALITY is tied to this component.
+
+**Mispricing spread (Phase A verified 2026-05-25):**
+- Current forward P/E: 5.92-6.79x = consistent with CYCLICAL framing
+- Structural-growth comparable multiple range: 15-30x
+- Re-rating potential: 2-3x if structural framing wins consensus
+- Independent of EPS growth (which is ALSO trending up: 2026 EPS consensus raised ₩217K→₩281K = +29% in recent months)
+
+**Pre-training-anchor bias acknowledged per B28:** my pre-training was heavily exposed to 2017-2023 cyclical memory cycle including 2022-2023 downturn. Default classification was "cyclical." User-articulated principle #26 binding-constraint test forces explicit re-weighting against verified 2024-2026 structural evidence. **Reclassification to STRUCTURAL is justified by data.**
+
+**Falsifiers (per principle #26 worked example):**
+- HBM-per-FLOP requirements plateau across 2 consecutive model generations (signals memory plateau)
+- MoE/sparse architectures become dominant frontier-model architecture (decouples memory from reasoning depth)
+- Chinese memory supply (CXMT, ChangXin) meaningfully compresses pricing dynamics
+- Any of the above → re-classify back toward cyclical framing
+
+**Implication for existing 10.33% Core position:** the structural-classification framing INCREASES sizing-matrix conviction. Position remains Core; the multi-quarter re-rating thesis (EPS revisions + multiple expansion) is a 12-18 month catalyst window per principle #26 sell-side-framework-lag dynamic (2-4 quarters re-rating cycle). No tier change; reinforces existing thesis.

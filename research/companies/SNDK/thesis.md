@@ -112,3 +112,25 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Cross-reference — Principle #26 binding-constraint test (added 2026-05-25)
+
+Per `research/meta/methodology.md` principle #26 codified 2026-05-25:
+
+**Binding-constraint test applied — SNDK NAND PARTIALLY structural:**
+
+The test bifurcates SNDK exposure:
+- **AI inference storage / GIDS / long-context offload:** STRUCTURAL — binding constraint on multi-million-token context handling (per `signals/events/2026-05-25-test-time-compute-scaling.md`)
+- **Consumer storage (phones, laptops, SSD):** CYCLICAL — discretionary feature; marginal user indifferent at sufficient levels
+
+**Mixed classification:** SNDK is a hybrid case where the SAME product (NAND flash) serves both binding-constraint (AI) and discretionary-feature (consumer) end markets. Sizing-matrix framework depends on revenue-mix attribution between the two use cases.
+
+**Watch items per principle #26:**
+- SNDK revenue attribution between AI-inference-storage and consumer-storage (segment-level disclosure)
+- Forward P/E vs cyclical-multiple comparable (consumer NAND historically traded 5-12x cyclical) vs structural-growth comparable (15-25x if AI exposure dominant)
+- GIDS adoption rate at NVDA / hyperscaler datacenters (canary for AI-inference-storage demand)
+- Margin trend by segment (premium pricing on AI-grade high-IOPS NAND vs commodity consumer)
+
+**Implication for existing 9.20% Core position:** SNDK at +34% unrealized (BEP $1,099.60 vs current $1,477.91) already partially reflects the AI-storage thesis materializing. The structural-vs-cyclical mix question is the open variable — if AI-storage revenue mix continues growing, structural framing strengthens. If consumer NAND cycle reverts, cyclical framing returns. **The hybrid case requires monitoring segment-mix evolution, not single classification.**
+
+No tier change; this is a refinement-of-framing rather than thesis-change. The TrendForce HBF correction earlier this week + GIDS thesis already had the AI-inference-storage exposure framed; principle #26 adds the explicit cyclical-vs-structural test discipline.

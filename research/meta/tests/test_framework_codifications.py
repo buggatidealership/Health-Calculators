@@ -1090,6 +1090,117 @@ def main() -> int:
     )
 
     # ==================================================================
+    # 2026-05-25 (later): principle #26 (cyclical-to-structural transition
+    # recognition - binding-constraint test) + B28
+    # ==================================================================
+    print()
+    print("methodology.md — principle #26 (cyclical-to-structural / binding-constraint test)")
+    result.check(
+        "principle #26 — exists with label 'Cyclical-to-structural'",
+        "26. **Cyclical-to-structural transition recognition" in methodology,
+    )
+    result.check(
+        "principle #26 — user 2026-05-25 quote captured",
+        "good to have, it was not a necessity for the product to be better"
+        in methodology
+        or "binding constraint to how good the end product is" in methodology,
+    )
+    result.check(
+        "principle #26 — binding-constraint test documented",
+        "binding constraint on the end product's quality" in methodology,
+    )
+    result.check(
+        "principle #26 — worked examples table (HBM, NAND, optical, etc.) present",
+        "HBM memory bandwidth" in methodology
+        and "Phone RAM" in methodology
+        and "Optical interconnect (CPO)" in methodology,
+    )
+    result.check(
+        "principle #26 — mandatory discipline (6 steps) present",
+        "apply the binding-constraint test" in methodology,
+    )
+    result.check(
+        "principle #26 — HYNIX worked example with mispricing spread",
+        "5.92-6.79x cyclical multiple" in methodology
+        or ("5.92-6.79" in methodology and "structural-growth comparable" in methodology),
+    )
+    result.check(
+        "principle #26 — fluidity footer present",
+        "codified: 2026-05-25" in methodology
+        and "HBM-per-FLOP trajectory plateaus" in methodology,
+    )
+    result.check(
+        "principle #26 — references B28",
+        "B28" in methodology,
+    )
+
+    print()
+    print("methodology.md — fluidity table has row 26")
+    result.check(
+        "fluidity table — row 26 (Cyclical-to-structural)",
+        "| 26 | Cyclical-to-structural transition recognition"
+        in methodology,
+    )
+
+    print()
+    print("biases-watchlist.md — B28")
+    result.check(
+        "B28 — entry exists",
+        "B28 — Pre-training-anchored cyclical-vs-structural mis-classification" in biases,
+    )
+    result.check(
+        "B28 — distinction from B26 documented",
+        "Distinction from B26" in biases,
+    )
+    result.check(
+        "B28 — HYNIX manifestation captured",
+        "2017-2023 memory cycle" in biases
+        and "HYNIX" in biases,
+    )
+    result.check(
+        "B28 — references principle #26",
+        "principle #26" in biases,
+    )
+
+    print()
+    print("HYNIX + SNDK cascaded with principle #26 binding-constraint test")
+    hynix_thesis = (REPO_ROOT / "research" / "companies" / "HYNIX" / "thesis.md").read_text(
+        encoding="utf-8"
+    )
+    sndk_thesis = (REPO_ROOT / "research" / "companies" / "SNDK" / "thesis.md").read_text(
+        encoding="utf-8"
+    )
+    result.check(
+        "HYNIX thesis — principle #26 cross-reference added with STRUCTURAL classification",
+        "Cross-reference — Principle #26 binding-constraint test" in hynix_thesis
+        and "STRUCTURAL" in hynix_thesis,
+    )
+    result.check(
+        "SNDK thesis — principle #26 cross-reference added with HYBRID classification",
+        "Cross-reference — Principle #26 binding-constraint test" in sndk_thesis
+        and ("PARTIALLY structural" in sndk_thesis
+             or "Hybrid case" in sndk_thesis
+             or "Hybrid classification" in sndk_thesis
+             or "hybrid case" in sndk_thesis),
+    )
+
+    print()
+    print("wiki/memory-cycle-primer.md — cyclical-to-structural section added")
+    memory_primer = (REPO_ROOT / "research" / "wiki" / "memory-cycle-primer.md").read_text(
+        encoding="utf-8"
+    )
+    result.check(
+        "memory-cycle-primer — cyclical-to-structural section appended",
+        "Cyclical-to-structural transition recognition (added 2026-05-25 per principle #26)"
+        in memory_primer,
+    )
+    result.check(
+        "memory-cycle-primer — mispricing spread documented",
+        "5.92-6.79x" in memory_primer
+        and "structural-growth comparable" in memory_primer,
+    )
+
+    # ==================================================================
     # 2026-05-24 (later same day): principle #24 (recursive bottoms-up
     # worldview discovery) + B26 (pre-training-as-primary-source bias).
     # ==================================================================
