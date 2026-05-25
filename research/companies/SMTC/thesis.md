@@ -270,3 +270,19 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 9/10** — sells to all hyperscalers
 - **CPU tightness: 2/10**
 - **Agentic tightness: 9/10** — agentic = direct interconnect demand
+
+## Update 2026-05-25 — NOW HELD (entered above candidate target)
+
+User entered Semtech at **50 shares × $156.67 = ~$7,834 ($6,728 EUR equiv) = 6.09% of portfolio** per `portfolio/holdings.md` 2026-05-25 update. BEP $154.68. This is MATERIALLY ABOVE the 2-3% candidate target stated in this thesis (entered at ~2x the original target weight).
+
+**Tier status:** upgraded from "Active candidate" to **HELD (Active tier)** — sizing-matrix tomorrow should review whether 6.09% is the right target weight or whether to trim toward original 2-3% range.
+
+**Trigger for higher-than-target entry (open question):** the user's independent thesis layer led to a heavier entry. Plausible drivers from this OS's surfaced narratives:
+- Google I/O 2026 + Cloud Next 2026 event (per `signals/events/2026-05-20-google-io-2026.md`): TPU 8i 19.2 Tb/s inter-chip bandwidth + Ironwood 9,216-chip superpods = MASSIVE signal integrity demand at scale. Active Copper Cables (CopperEdge) + FiberEdge TIAs are direct beneficiaries.
+- Hyperscaler capex 2026 $175-185B doubling = step-function in optical / copper interconnect demand
+- Combined with existing thesis (Active Copper Cables hyperscaler ramp 2026), the news flow may have justified a higher entry weight
+
+**Watch items for next review:**
+- Q1 2026 results (Active Copper Cables ramp specifics)
+- Signal Integrity segment YoY growth rate (Q3 2026 was +30% YoY at 65.1% GM per prior thesis citation)
+- Competitive position vs MRVL post-Inphi for ACC design wins
