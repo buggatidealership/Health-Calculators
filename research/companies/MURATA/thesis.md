@@ -387,3 +387,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 
 **Implication for existing Murata thesis (held 12.4%):** user's 2026-05-25 intuition validated with hard data — Murata is genuinely multi-vector across robotics + AI chip value chain + automotive + AI-RAN + industrial + consumer. **Sizing-up consideration justified under Physical AI multi-narrative lens.** Previously the position was already at high allocation; the Physical AI reframing surfaces additional growth vectors (AV electrification structural; AI-RAN emerging) that weren't in original thesis. No tier change but sizing-matrix tomorrow should reconsider 12.4% as MAYBE undersized rather than at-ceiling.
 
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**2nd-order strengthened — MLCC volume at hyperscaler datacenter scale.** Google $175-185B 2026 capex (nearly doubling) + TPU 8t superpods 9,600 chips + 5+ hyperscaler custom-Si programs simultaneously = MLCC density per board × board volume = sustained MLCC demand growth. Stacks on top of Physical AI primer multi-narrative score upgrade (auto BEV 3-5K MLCCs + AI-RAN base stations + robotics PCBs). Cumulative multi-event reinforcement.

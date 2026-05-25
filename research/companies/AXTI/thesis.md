@@ -231,3 +231,9 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 
 **Implication for existing AXTI thesis:** robotics is a secondary thesis support, not primary. The primary thesis remains InP for optical AI (per `wiki/optical-interconnect-primer.md`). Robotics adds modest anti-fragility — wins if compound-semi GaN/SiC motor-drive tailwind plays out — but does not change tier or falsifiers. Sizing-matrix consideration: AXTI's multi-narrative score is moderate (2 narratives), not the 4-5 of STM/Murata.
 
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**1st-order strengthened — InP substrate for optical interconnects at hyperscaler scale.** Same logic as GLW one layer underneath: TPU 8i 19.2 Tb/s inter-chip bandwidth + Ironwood 9,216-chip superpods drive optical-engine demand, which drives InP substrate demand. Combined with the Physical AI primer cross-reference (compound-semi power electronics indirect), AXTI now has dual reinforcement. No tier change; 4.8% allocation appears appropriately-sized for the indirect-via-substrate exposure.

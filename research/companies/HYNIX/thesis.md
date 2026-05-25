@@ -193,3 +193,9 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 9/10** — sells HBM to NVDA + AMD + every custom ASIC
 - **CPU tightness: 3/10** — HBM-dominant, modest DDR exposure
 - **Agentic tightness: 8/10** — agentic = more inference workloads = more HBM allocation
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**STRONGEST 1st-order beneficiary among held names.** TPU 8t (Sunfish, Broadcom-designed) superpods 9,600 chips + TPU 8i (Zebrafish, MediaTek-designed) 384MB on-chip SRAM = massive HBM4 + SRAM demand on top of existing NVDA Blackwell + Vera Rubin + MSFT Maia + AMZN Trainium 3 + Meta MTIA programs. **Hynix HBM stack now demanded by 5+ hyperscaler programs simultaneously** — the strongest single-source verification across the entire OS for the "constrained throughout entire life of Vera Rubin" thesis. Anthropic 3.5GW commitment to Google TPU for 2027 adds another anchor demand source. No tier change; reinforces Core position at top allocation.

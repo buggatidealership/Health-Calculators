@@ -169,3 +169,9 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 9/10** — runs across all clouds
 - **CPU tightness: 7/10** — observability is CPU-heavy
 - **Agentic tightness: 10/10** — agentic = telemetry explosion = direct ARR
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**1st-order strengthened — agentic observability becomes a new product category.** Antigravity 2.0 multi-agent parallel orchestration + Managed Agents API (each agent run in isolated Linux sandbox) + scheduled background automation = MASSIVE observability surface area. Every agent execution needs trace + logs + metrics + cost tracking + security monitoring. Datadog is structurally positioned to capture agentic observability as a new product category, leveraging existing APM + Synthetics + Security platforms. No tier change; sizing-matrix consideration: 6.8% may be UNDERSIZED given the agentic observability product expansion.

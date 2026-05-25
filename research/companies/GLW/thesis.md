@@ -375,3 +375,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 - **Datacenter optical** (existing thesis) — reinforced by AI compute growth
 
 **Implication for existing GLW thesis (held 10.8%):** robotics framing had GLW at 1/5 sub-domains (limited direct robotics exposure). Physical AI lens reveals 3+/6 via AI-RAN + AV + datacenter. **Multi-narrative score upgrade — sizing-matrix consideration: hold current allocation; the upgrade reduces trim-pressure that the robotics-only lens implied.** No tier change; existing falsifiers unchanged but new watch item added: AI-RAN deployment cadence post NVDA-Nokia partnership (Phase 2 verification needed for fiber-km-per-cell-site attribution).
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**1st-order strengthened — optical interconnect at hyperscaler scale.** TPU 8i 19.2 Tb/s inter-chip bandwidth + Ironwood 9,216-chip superpods + Google $175-185B 2026 capex (nearly doubling $91.4B 2025) = massive optical interconnect demand. Validates `wiki/networking-primer.md` and `wiki/optical-interconnect-primer.md` extrapolations directly. The Physical AI primer back-reference + Google I/O event together strengthen GLW multi-narrative score. No tier change; sizing-matrix consideration: hold or modestly increase from 10.8% if cash allows.

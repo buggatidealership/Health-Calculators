@@ -124,3 +124,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 - Edge Devices: GeForce + AI PC GPU integration
 
 **Implication for existing NVDA thesis (held-adjacent, no current position per holdings):** the Physical AI umbrella reframing REINFORCES the multi-narrative anti-fragility ranking established in robotics primer Phase 3+ (#1 candidate). Wins regardless of which Physical AI sub-domain dominates. No tier change; existing non-holding stance per Stage 4 + Patel-Aschenbrenner bidirectional risk remains defensible — Physical AI adds optionality, not standalone trigger. Watch item: NVDA Q-on-Q segment disclosure on Edge Computing (split between robotics + AVs + AI-RAN) as the Physical AI umbrella matures into segment-line revenue attribution.
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**1st-order inference competitive pressure verified with hard data.** SemiAnalysis (Patel's firm) independently verified Ironwood TPU TCO at $0.18/M tokens vs Blackwell B200 $0.31/M tokens = 42% TCO advantage at hyperscaler-inference workloads. Combined with TPU 8i (MediaTek-designed, TSMC 2nm late 2027) targeting inference specifically + Anthropic 3.5GW commitment + custom ASICs (TPU + Maia 200 + Trainium 3 + MTIA) growing 44.6% CAGR while inference now 2/3 of all AI compute = **Patel "NVDA inference share drops to 20-30% by 2028" thesis gained material verification weight.** Jensen's Q1 FY27 "growing share in inference very quickly" claim now has a testable counter-data-point. Does NOT change non-holding stance (per Stage 4 + Patel-Aschenbrenner bidirectional risk); adds to existing bear-side calibration. Training market (frontier-model + Rubin) remains strong NVDA territory per Jensen "every frontier model on Rubin" framing — bifurcated read intact.

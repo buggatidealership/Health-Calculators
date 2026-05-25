@@ -251,3 +251,9 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 10/10** — power is power; chip-agnostic
 - **CPU tightness: 2/10**
 - **Agentic tightness: 5/10** — indirect; more agentic workloads = more datacenters = more power, but not directly tied to chip mix
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**2nd-order indirect — Google $175-185B 2026 capex (nearly doubling) drives massive power infrastructure demand.** Stacks on existing `wiki/power-for-ai-primer.md` structural power-deficit thesis. T1 Energy is one of several US solar/battery manufacturing names that could be indirect beneficiaries if portions of the buildout route through US sovereign-energy preferences. Mostly indirect exposure; T1 is not a direct Google customer. No tier change; the power-for-AI tailwind remains intact across multiple events.

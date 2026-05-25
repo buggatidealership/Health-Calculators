@@ -174,3 +174,9 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 
 **Implication for existing AMZN thesis:** robotics is part of the broader cloud/AI exposure, not standalone. Adds to anti-fragility scoring (now 5/5 with robotics counted). The Covariant acquisition specifically positions AMZN on the vertical-data-moat side of the generalist-vs-vertical foundation-model competition (per principle #5 / robotics-primer E2). No tier change implied; sizing-matrix consideration: AMZN benefits from being correctly classified as multi-narrative rather than single-narrative cloud.
 
+
+## Cross-reference — Google I/O 2026 + Cloud Next 2026 event (added 2026-05-25)
+
+Per `research/signals/events/2026-05-20-google-io-2026.md`:
+
+**2nd-order MIXED — Anthropic 3.5GW Google TPU commitment weakens AMZN-Anthropic exclusivity narrative.** Anthropic is now multi-cloud at scale (Google TPU 8t + 8i for 2027 production despite AMZN partnership), which contradicts the "Anthropic compute locked to AMZN" framing. Net for AMZN: own Trainium 3 still wins via custom-Si bifurcation (44.6% ASIC CAGR generalizes); but the Anthropic exclusivity premium compresses. No tier change; watch item: AMZN-Anthropic next earnings cadence for any narrative-realignment language.
