@@ -190,3 +190,148 @@ The strongest empirical signal for chokepoint duration is when a LATE-bucket nam
 - User decision pending: codify as principle #27 + add B29 bias entry + add hook? OR keep as harness-level discipline without hook enforcement?
 - Cascade impact if codified: 22 thesis files would need regime classification + binding-constraint cross-tag + bypass-route status added
 - Note: principle #27 would be the FIRST principle that operates on a TIME-SERIES variable (streak count over multiple quarters), whereas existing principles are mostly point-in-time tests. Hook enforcement is challenging because streak counts require persistent state across sessions; deterministic hook enforcement may not be feasible — this might be one of the rare principles best enforced as a session-start briefing item rather than a Stop hook.
+
+---
+
+# EXTENSION 2026-05-25 — Axis 3 + Axis 4 added per user refinement
+
+User-articulated refinement: streak-regime classification alone is incomplete. Two additional axes needed:
+- **Axis 3 — Price-vs-revenue rerating gap:** for LATE-bucket names, is the narrative re-rating priced in? Measured as (% price below all-time-high) vs (% revenue above prior all-time-high). Large gap = unpriced re-rating = sub-alpha remains. Working example user provided: ServiceNow — revenue at fresh ATH while price 57% below 2025 ATH.
+- **Axis 4 — Forward continuation probability (6-18mo):** probability the name keeps beating + raising guide + expanding margins. Operationalized via backlog/RPO visibility, margin trajectory direction, customer concentration, mgmt-disclosed multi-year capacity gaps.
+
+## Axis 3 data — Price-vs-revenue rerating gap (verified 2026-05-25)
+
+Source: 3 parallel research agents; price + revenue data as of late May 2026.
+
+| Name | Current price | ATH price + date | % below ATH | Most recent Q revenue | Revenue vs prior ATH | Rerating gap (price-side) |
+|------|---|---|---|---|---|---|
+| **NOW** | $102.13 (May 22) | $239.62 post-split (Jan 28, 2025) | **57.4%** | $3,770M Q1 FY26 | +5.7% above prior ATH | **MASSIVE — biggest in universe** |
+| **DISCO (6146.T)** | ¥69,680 | ¥81,000 (Feb 26, 2026) | 14.0% | ¥436.8B FY26 full year | +11.1% above FY24 record | LARGE |
+| **NVDA** | $215.33 (May 22) | $236.54 (May 14, 2026) | 9.0% | $81.6B Q1 FY27 | +19.8% above Q4 FY26 ATH | MODERATE |
+| **Nabtesco** | ¥5,598 | ¥6,113 (May 14, 2026) | 8.4% | ¥83.0B Q1 CY26 | +16.9% YoY | MODERATE |
+| **SNDK** | $1,467 (May 25) | $1,600 (May 11, 2026) | 8.3% | $5.95B Q3 FY26 | At ATH (every Q new record) | MODERATE |
+| **GLW** | ~$193 | $208.28 (May 14, 2026) | 7.3% | $4.35B Q1 CY26 | +3.1% above Q4 CY25 | MODERATE |
+| **ASMPT (0522.HK)** | HKD 176.20 | HKD 186.80 (May 22, 2026) | 5.7% | $507.9M Q1 CY26 | -0.2% (inline w/ Q4 CY25) | SMALL |
+| **SMTC** | $141.25 (May 22) | $149.34 (May 21, 2026) | 5.4% | $274.4M Q4 FY26 | At post-restructuring ATH; +31% above pre-restructuring | SMALL |
+| **ALAB** | $305.10 (May 24) | $315.81 intraday (May 22, 2026) | 3.4% | $308.4M Q1 CY26 | At ATH (every Q new record) | SMALL |
+| **SK Hynix (000660.KS)** | ₩1,941,000 | ₩1,995,000 (May 15, 2026) | 2.7% | ₩52.6T Q1 CY26 | +60% above Q4 CY25 record | MINIMAL — priced |
+| **TSEM** | ~$279 | $283.46 (52-week / operational ATH) | 1.4% | $414M Q1 CY26 (vs Q4 CY25 record $440M, -6.1%) | Slightly below ATH | MINIMAL — priced |
+| **DDOG** | $222.32 (May 22) | $224.77 intraday (May 22, 2026) | 0.9% | $1,006M Q1 FY26 | +5.6% above Q4 FY25 | MINIMAL — at ATH |
+| **ARM** | $306.51 (May 25) | ~$306.51 (May 25, 2026 NEW ATH) | 0% | $1,490M Q4 FY26 | +20.2% above Q3 FY26 | NONE — making new ATHs |
+| **Murata (6981.T)** | ¥7,928 | ~¥7,928+ split-adjusted (uncertain due to splits) | ~0-2% (estimate, split-adjustment uncertainty) | ¥1,830.9B FY26 full year | +5.0% above FY25 | SMALL (uncertain) |
+
+**Key observation:** Of the 9 LATE-bucket names, only **NOW** has a materially large rerating gap (57.4%). DISCO (14%) and NVDA (9%) are second-tier. All other LATE-bucket names have rerating gaps under 10%, indicating the AI narrative has been priced.
+
+## Axis 4 data — Forward continuation probability indicators (verified 2026-05-25)
+
+### Multi-year backlog visibility (strongest forward signals)
+
+| Name | Backlog signal | Source quote/data |
+|------|---|---|
+| **SK Hynix** | **"HBM demand required over the next three years exceeds our production capacity"** | Q1 CY26 earnings call, 2026-04-23 [Korea Herald] |
+| **TSEM** | $1.3B signed Silicon Photonics contracts for 2027 revenue + $290M prepayments received + 2028 model $2.8B revenue / $750M net profit disclosed | May 13, 2026 press release [ir.towersemi.com] |
+| **GLW** | Springboard plan upgraded to **>$11B incremental annualized sales by 2028** + Meta $6B multi-year + NVDA $3.2B / 10x optical capacity / 3 new US factories | Q1 CY26 print + NVDA partnership May 6, 2026 |
+| **ARM** | **>$2B AGI CPU customer commitments for FY27-FY28** (doubled from $1B in 6 weeks); RPO $2,071M total | Q4 FY26 6-K + StockTitan |
+| **DDOG** | cRPO growing **mid-40s% YoY vs revenue 32% YoY** = +12-13pp gap (forward beats loaded); Total RPO $3.48B (+51% YoY) | Q1 FY26 transcript + SEC 8-K |
+| **NOW** | cRPO **$12.64B (+22.5% YoY)**; total RPO **$28.2B (+26.5% YoY)**; cRPO-revenue growth gap +0.5pp (lockstep, not accelerating) | Q1 FY26 press release |
+| **ASMPT** | Q1 CY26 bookings **$727M** (+71.6% YoY); book-to-bill 1.43x; Q2 guide $540-600M | Q1 CY26 press release |
+| **DISCO** | **6 consecutive record quarters/years**; Q1 FY27 single-Q guide continues double-digit growth | FY26 results |
+| **SMTC** | DC revenue $223M FY26 (+58% YoY); **>50% DC growth guided FY27** | Q4 FY26 print |
+| **Murata** | FY27 OP guide ¥380B (**+34.8% YoY** — largest OP guide raise in at least a decade); 95% capacity utilization | FY26 earnings conference 2026-04-30 |
+| **Nabtesco** | FY26 guide raised: revenue ¥327B (+6.2%), OP **¥27.7B (+33.6%)**; ~35% global RV reducer share = implicit multi-year visibility | TipRanks Q1 FY26 |
+| **NVDA** | $80B buyback authorized; Q2 FY27 guide ($91B vs Q1 actual $81.6B) | Q1 FY27 print |
+| **SNDK** | Q4 FY26 guide **$7.75-8.25B** (+35% sequential from $5.95B); non-GAAP gross margin guide 79-81% | Q3 FY26 8-K |
+| **ALAB** | Q2 CY26 guide $355-365M (+15-18% sequential); Scorpio fabric switches ramping | Q1 CY26 press release |
+
+### Operating margin trajectory (4-quarter direction)
+
+| Name | 4-quarter margin trajectory | Direction |
+|------|---|---|
+| **SK Hynix** | 41% → 47% → 58% → **72%** | STRONGEST EXPANDING |
+| **SNDK** (GAAP) | -1.2% → 7.6% → 35.2% → **69.1%** | MOST DRAMATIC EXPANSION |
+| **ARM** (non-GAAP) | 39.1% → 41.1% → 40.7% → **49.0%** | STRONG EXPANDING (Q4 surge) |
+| **Nabtesco** | ~4.2% → 6.4% → 9.9% → **9.9%** | DOUBLED FROM TROUGH |
+| **GLW** | 18.0% → 19.0% → 19.6% → **20.2%** | STEADY EXPANDING |
+| **ASMPT** | 3.4% → 3.5% → **9.6%** (Q1 CY26 sharp inflection) | SHARP RECENT INFLECTION |
+| **TSEM** | 10.8% → 12.9% → 16.1% → 15.7% | EXPANDING (slight Q1 26 dip) |
+| **NVDA** (non-GAAP) | 64.7% → 66.3% → **67.7%** → 65.6% (GAAP) | EXPANDED THEN MODERATED |
+| **DDOG** (non-GAAP) | 20% → 23% → 24% → 22% | FLAT/OSCILLATING |
+| **NOW** (non-GAAP) | 31.5% → 33.5% → ~31% → 31.5% | STABLE FLAT |
+| **DISCO** | 38.3% → 42.4% → ~41.5% → ~42% | STABLE FLAT (HIGH BASE) |
+| **Murata** | 14.8% → ~18.2% → 8.1% (impairment) / ~18.8% ex-impairment → ~16% | FLAT ex-one-time |
+| **ALAB** | 39.2% → 41.7% → 40.2% → **36.2%** | **CONTRACTING ⚠** |
+
+### Customer concentration risk
+
+| Name | Disclosure |
+|------|---|
+| **SK Hynix** | NVDA ~14.8% Q1 CY26 (down from ~27% H1 CY25 — diversifying); one undisclosed hyperscaler ~12.4% (new) |
+| **ALAB** | Heavy hyperscaler dependence flagged in 10-Q (specific concentration not disclosed) |
+| **SMTC** | 2 customers >10% each in FY26 |
+| Others | No disclosed >10% customer or not publicly named |
+
+## Updated highest-conviction matrix (4-axis)
+
+### Tier-A: EARLY + binding-constraint (original alpha-window)
+
+| Name | Streak | Binding constraint | Rerating gap | Continuation P signal |
+|------|--------|---|---|---|
+| **STM** (held 5.51%) | 1Q | Power conversion SiC | n/a (held; adding €5K tomorrow) | DC >$500M FY26 / >$1B FY27 just disclosed |
+| **AXTI** (held 5.03%) | 1Q | InP optical 12-24mo unpriced edge | n/a (held) | InP record $100M backlog; no scale-physics substitute |
+| **HDS** (adding €10K tomorrow) | 2Q | Humanoid actuators (future bottleneck) | n/a | Humanoid ¥2.5B FY26; FY27 OP +141% |
+| **Sony I&SS** (candidate) | 2Q | AI vision sensor universal | (Sony group, not I&SS-specific stock) | TSMC JV for physical AI sensors |
+| **BESI** (candidate) | 2Q post-break | Hybrid bonding HBM4 16H 12-24mo edge | n/a | Customer base 18→20; record orders €269.7M |
+
+### Tier-A-new: LATE + Rerating-UNPRICED + High Continuation P (NEW high-conviction subcategory)
+
+| Name | Streak | Rerating gap | Continuation P | Rationale |
+|------|--------|---|---|---|
+| **NOW** (held 9.77%) | 6-9Q LATE | **57.4% below ATH** | cRPO $12.64B (+22.5%), RPO $28.2B (+26.5%); margin stable 31-33%; 16 transactions >$5M (+80% YoY) | Revenue at fresh ATH while price massively below post-split 2025 ATH = narrative-rerating-incomplete despite streak exhaustion; cRPO at $28.2B = forward visibility through multiple years |
+| **DISCO** (candidate) | 7Q LATE | **14.0% below ATH** | 6 consecutive record periods; margin stable ~42%; FY26 guide raised intra-year | Streak fully extended but stock pulled back from Feb ATH; GPU/HBM demand cited as record-shipment driver |
+
+### Tier-B: LATE + Rerating-PRICED + High Continuation P (duration-confidence hold)
+
+| Name | Streak | Continuation P signal | Action implication |
+|------|--------|---|---|
+| **SK Hynix** (held 10.33%) | 7Q+ | 3-year capacity gap; 41→72% margin; ₩1,941K vs ATH ₩1,995K | Hold confidently; don't add at near-ATH; trim only if 3-year gap statement weakens |
+| **ARM** (candidate) | 6Q (base) / 1Q (AGI sub) | $2B AGI backlog doubled in 6 weeks; 39→49% margin; new ATH today | Watchlist add candidate but enter on pullback, not at fresh ATH |
+| **DDOG** (held 10.38%) | 7Q | cRPO mid-40s% growing 12-13pp faster than revenue; at ATH | Hold; cRPO-revenue gap is forward-beat loaded signal |
+| **GLW** (held 9.20%) | 7-8Q | $11B Springboard 2028 + Meta $6B + NVDA $3.2B | Hold; multi-year contract anchors validate the streak |
+| **TSEM** (held 4.64%) | 5Q MID | $1.3B 2027 SiPho + $290M prepayments + 2028 model | Hold; binding contracts are highest-quality forward visibility in universe |
+| **Murata** (held 16.77%) | 3Q MID | FY27 OP +34.8% (largest OP raise in decade) | Hold; multi-narrative leader; near-ATH |
+| **SMTC** (held 6.09%) | 6Q | >50% DC growth FY27 | Hold; small rerating gap but continuation signal solid |
+| **ASMPT** (candidate) | 6Q | Book-to-bill 1.43x; HBM4 16H sampling | Watchlist; competing with BESI on hybrid-bonding alternative-topology positioning |
+| **Nabtesco** (candidate) | 3Q MID | 35% global RV share; margin doubled 4→10% | Watchlist add; complements HDS for humanoid actuator exposure |
+| **SNDK** (held 9.20%) | 3Q MID (spin-constrained) | Q4 guide +35% sequential; margin -1.2→69.1% in 4Q | Hold; underlying momentum exceptional but rerating gap small |
+| **NVDA** (not held) | 9Q | $80B buyback; Q2 guide +12% sequential | Skipped per existing thesis (Patel-Aschenbrenner risk + custom-Si bifurcation) |
+
+### Yellow flag: LATE + Contracting margin
+
+| Name | Streak | Concern |
+|------|--------|---|
+| **ALAB** (candidate) | 5Q MID | **Margin contracting 41.7% → 36.2% over 3Q** — XScale integration costs + higher hardware mix; rerating gap small (3.4% below ATH); hyperscaler concentration flagged in 10-Q |
+
+**Interpretation:** ALAB is the only name in the universe showing operational margin deterioration alongside revenue strength. Not a sell signal under principle #8 (no written falsifier fired) but downgrades from MID-with-no-concern to MID-with-margin-watch. Q2 CY26 print is the next signal — if margin recovers, yellow flag clears; if margin contracts further, the integration thesis weakens.
+
+## Summary observations (4-axis)
+
+1. **NOW is the LATE-bucket alpha-window standout** that prior single-axis (streak-only) classification missed. 57% below ATH while revenue + RPO at fresh ATHs = the narrative re-rating has NOT happened in price even though the streak is 6-9Q deep. **The user's hypothesis is strongly validated for NOW specifically.** DDOG does NOT share this profile (DDOG is at ATH); the original NOW vs DDOG distinction the user named was correct.
+
+2. **DISCO and NVDA are secondary rerating-gap candidates** at 14% and 9% below ATH respectively. Both have streak exhaustion but recent price pullbacks have left some gap.
+
+3. **SK Hynix has the strongest single duration anchor** but minimal rerating gap (2.7% below ATH after Q1 CY26 record). Hold confidently; don't add at near-ATH.
+
+4. **TSEM and GLW have the strongest forward backlog visibility** (TSEM $1.3B signed contracts + 2028 model; GLW $11B Springboard 2028 + named hyperscaler deals). Both held; both at/near ATH; both have continuation-P confidence stepping up.
+
+5. **ARM is at ATH with strongest expanding-margin trajectory** (39→49%) AND $2B AGI CPU backlog. Watchlist add candidate on any pullback; not at fresh-ATH chase.
+
+6. **ALAB yellow flag** is the first material warning sign in the universe — margin contraction alongside revenue strength.
+
+7. **The dual-test logic now becomes:** EARLY+binding-constraint (alpha-window per original principle) OR LATE+rerating-unpriced+high-continuation-P (the rescued LATE-bucket sub-alpha). The Tier-A combined now has 6 names: STM, AXTI, HDS, Sony I&SS, BESI, **NOW**.
+
+## Cash deployment implication (revised)
+
+Prior synthesis flagged Sony I&SS + BESI as the highest-conviction undeployed candidates (~€7K each from ~€14,867 residual after HDS+STM tomorrow). The 4-axis matrix now surfaces a question: **does NOW deserve a top-up?** Already held at 9.77% of portfolio. If the 57% rerating gap interpretation is correct, adding to NOW at current levels captures rerating mean-reversion alpha on top of the existing AI-streak fundamental momentum. Sizing trade-off: top-up NOW (existing position, narrative-rerating play) vs deploy into Sony I&SS + BESI (new positions, EARLY+binding-constraint play).
+
+This decision belongs to the user; the matrix surfaces both as defensible.
+
