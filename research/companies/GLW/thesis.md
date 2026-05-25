@@ -381,3 +381,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **1st-order strengthened — optical interconnect at hyperscaler scale.** TPU 8i 19.2 Tb/s inter-chip bandwidth + Ironwood 9,216-chip superpods + Google $175-185B 2026 capex (nearly doubling $91.4B 2025) = massive optical interconnect demand. Validates `wiki/networking-primer.md` and `wiki/optical-interconnect-primer.md` extrapolations directly. The Physical AI primer back-reference + Google I/O event together strengthen GLW multi-narrative score. No tier change; sizing-matrix consideration: hold or modestly increase from 10.8% if cash allows.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — sustained workloads compound optical interconnect demand.** Test-time-compute regime means hours-to-days of sustained cross-accelerator coordination per problem (vs burst inference for chat). TPU 8i 19.2 Tb/s inter-chip bandwidth becomes the floor not ceiling. Multi-million-token contexts span multiple accelerators requiring continuous optical fabric. Reinforces `wiki/networking-primer.md` + `wiki/optical-interconnect-primer.md` extrapolations. GLW optical fiber demand at hyperscaler scale + AI-RAN backhaul + AV LIDAR glass = 3+/6 Physical AI score still applies AND deepens via per-query interconnect intensity multiplication. No tier change.

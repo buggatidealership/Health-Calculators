@@ -286,3 +286,9 @@ User entered Semtech at **50 shares × $156.67 = ~$7,834 ($6,728 EUR equiv) = 6.
 - Q1 2026 results (Active Copper Cables ramp specifics)
 - Signal Integrity segment YoY growth rate (Q3 2026 was +30% YoY at 65.1% GM per prior thesis citation)
 - Competitive position vs MRVL post-Inphi for ACC design wins
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — signal integrity demand at sustained-load hyperscaler scale.** Test-time-compute regime requires sustained inter-chip data flow at TPU-8i-class bandwidth (19.2 Tb/s). Active Copper Cables (CopperEdge) + FiberEdge TIAs are direct beneficiaries — every accelerator-to-accelerator hop in a deep-reasoning compute campaign uses signal-integrity components. Reinforces user's existing 6.09% entry (which was above 2-3% candidate target — entry weight is increasingly defensible under multi-event cascade: Google I/O + test-time-compute). The user's "front-running the multi-custom-Si-bifurcation cascade" framing from prior session is incrementally validated by today's analysis.

@@ -175,3 +175,9 @@ Per `research/portfolio/bottleneck-map.md`:
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **1st-order strengthened — agentic observability becomes a new product category.** Antigravity 2.0 multi-agent parallel orchestration + Managed Agents API (each agent run in isolated Linux sandbox) + scheduled background automation = MASSIVE observability surface area. Every agent execution needs trace + logs + metrics + cost tracking + security monitoring. Datadog is structurally positioned to capture agentic observability as a new product category, leveraging existing APM + Synthetics + Security platforms. No tier change; sizing-matrix consideration: 6.8% may be UNDERSIZED given the agentic observability product expansion.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**3rd-order strengthened — agentic observability becomes structural product category.** Test-time-compute regime + per-segment compute pattern (chat → agentic coder → agentic enterprise → deep reasoning) creates explosion in observability surface area. Multi-step agentic tasks need trace + logs + metrics + cost attribution + security monitoring per agent run. Datadog positioned as enterprise-default for this new product category. Reinforces existing Google I/O 2026 cascade (Antigravity 2.0 multi-agent + Managed Agents API isolated sandboxes). The "thinking longer" pattern adds another dimension: cost-attribution-per-thinking-token becomes critical as deep-reasoning compute campaigns cost $100K-$1M+ per problem (estimate). DDOG sizing-up consideration reinforced.

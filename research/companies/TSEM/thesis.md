@@ -250,3 +250,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 - **Datacenter analog** (adjacent to existing AI compute thesis)
 
 **Implication for existing TSEM thesis (held 5.4%):** robotics framing had TSEM at 1/5 sub-domains (limited direct robotics exposure). Physical AI lens reveals 3+/6 via AV sensor fab + industrial + datacenter. **Multi-narrative score upgrade reduces sizing-trim pressure.** No tier change; existing falsifiers unchanged. Phase 2 verification needed: TSEM customer mix in automotive segment (specific ADAS/AV design wins) + capacity utilization on specialty analog process nodes serving Physical AI customers.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — silicon photonics foundry for CPO scale-up under sustained-load regime.** Test-time-compute drives sustained cross-accelerator optical fabric demand. Tower's PH18 silicon photonics platform + Coherent partnership 400 Gbps/lane modulator + $1.3B 2027 contracts already signed = forward-visibility foundry capacity at the manufacturing layer of the CPO transition. Test-time scaling adds a new demand vector on top of existing CPO transition timeline (2026-2030 with large-scale 3-5 years out). No tier change; 4.64% allocation appropriate for foundry-layer NVDA-protocol-aligned silicon photonics exposure.

@@ -210,3 +210,9 @@ Framework alignment:
 - User executes on the multi-narrative anti-fragility scoring rather than the prior robotics-only framing
 
 Post-fill: update holdings.md with new position value + log COMPLETED trade in changes.md.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — sustained accelerator power draw compounds power-semi demand.** Test-time-compute regime shifts hyperscaler accelerator utilization from burst to sustained; power-management ICs + motor drives + SiC inverters operating at higher duty cycles. Combined with STM's Physical AI multi-narrative position (6+/5: power semi + MEMS + auto ADAS + industrial + AI-RAN + edge devices) + NXP MEMS acquisition Feb 2026 = cumulative thesis reinforcement across Physical AI primer + Google I/O + test-time-compute regime. Planned €5K add executing US market open tomorrow (per `portfolio/changes.md` PLANNED log) lands STM in 8-10% target range under multi-narrative scoring; reinforced again by test-time-compute analysis.

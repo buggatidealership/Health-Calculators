@@ -151,3 +151,9 @@ Per `research/portfolio/bottleneck-map.md`:
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **1st-order strengthened — agentic workflow validated as default UX** by Google Antigravity 2.0 (multi-agent orchestration is now the DEFAULT, not advanced feature) + Managed Agents API + Gemini Enterprise Agent Platform. NOW becomes the enterprise-workflow integration layer for cross-platform agent ecosystems (Google + Anthropic Claude Code + OpenAI Codex CLI). The mainstreaming of multi-agent orchestration by the dominant cloud provider validates NOW's positioning 2-3 quarters earlier than mainstream forecasts. No tier change; holds Core position; sizing-matrix consideration: confirms current 12.0% allocation.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**3rd-order strengthened — useful-AI inflection drives enterprise agentic adoption acceleration.** User-articulated framing 2026-05-25: conversational AI (1x compute per interaction) → useful agentic AI (10-1000x compute per task). NOW becomes the enterprise integration + workflow orchestration layer for sustained multi-step agentic compute campaigns. Enterprise spend shifts from "chat seat licenses" to "compute capacity reservations" — the workflow-automation layer captures the integration value. Reinforces existing Google I/O 2026 cascade (Antigravity 2.0 multi-agent orchestration as default UX). No tier change; sizing-matrix consideration: 9.77% remains appropriate Core allocation.

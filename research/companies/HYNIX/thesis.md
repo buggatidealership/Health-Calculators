@@ -199,3 +199,9 @@ Per `research/portfolio/bottleneck-map.md`:
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **STRONGEST 1st-order beneficiary among held names.** TPU 8t (Sunfish, Broadcom-designed) superpods 9,600 chips + TPU 8i (Zebrafish, MediaTek-designed) 384MB on-chip SRAM = massive HBM4 + SRAM demand on top of existing NVDA Blackwell + Vera Rubin + MSFT Maia + AMZN Trainium 3 + Meta MTIA programs. **Hynix HBM stack now demanded by 5+ hyperscaler programs simultaneously** — the strongest single-source verification across the entire OS for the "constrained throughout entire life of Vera Rubin" thesis. Anthropic 3.5GW commitment to Google TPU for 2027 adds another anchor demand source. No tier change; reinforces Core position at top allocation.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**STRONGEST 1st-order beneficiary of the test-time-compute regime.** OpenAI Erdős unit distance conjecture solved 2026-05-20 + FrontierMath top models now solving 40% of postdoc-level problems (up from <2%) + test-time compute REPLACING training scale as dominant LLM-improvement vector = HBM cycles per query scale with thinking-token count. Sustained HBM bandwidth at multi-hour-per-problem cadence (vs burst inference for chat). Hynix's HBM stack now demanded by 5+ hyperscaler programs SIMULTANEOUSLY, each with multiplied per-query consumption under test-time scaling. The "constrained throughout entire life of Vera Rubin" thesis is further reinforced. No tier change; reinforces Core position at top allocation. New watch item: HBM-per-thinking-token allocation patterns disclosed in any Q-by-Q earnings commentary.

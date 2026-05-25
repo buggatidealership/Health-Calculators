@@ -100,3 +100,9 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 9/10** — storage layer agnostic to compute winner
 - **CPU tightness: 3/10**
 - **Agentic tightness: 7/10** — agentic checkpoints + KV cache offload = new structural demand vector
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — long-context storage for thinking traces.** Test-time-compute regime produces 1M-10M+ thinking tokens per deep-reasoning problem. Context-window memory at this scale exceeds single-accelerator HBM capacity, requiring offload to NAND-class storage (GIDS pattern from earlier TrendForce-corrected NAND thesis). Multi-million-token contexts persist across multi-hour problem-solving sessions. Sandisk's high-IOPS NAND for GIDS / GPU-Initiated Direct Storage is structurally positioned. No tier change; reinforces 9.20% allocation under sustained-load thesis.

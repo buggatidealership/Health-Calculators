@@ -237,3 +237,9 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **1st-order strengthened — InP substrate for optical interconnects at hyperscaler scale.** Same logic as GLW one layer underneath: TPU 8i 19.2 Tb/s inter-chip bandwidth + Ironwood 9,216-chip superpods drive optical-engine demand, which drives InP substrate demand. Combined with the Physical AI primer cross-reference (compound-semi power electronics indirect), AXTI now has dual reinforcement. No tier change; 4.8% allocation appears appropriately-sized for the indirect-via-substrate exposure.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — InP substrate demand compounds with sustained inter-chip data movement.** Same logic as GLW one layer underneath: sustained compute campaigns require continuous optical fabric → optical engines → InP substrates. The 19.2 Tb/s TPU 8i bandwidth + multi-Tb/s rack-to-rack demand creates structural per-accelerator optical demand. AXTI's dual-narrative (InP for optical AI + indirect via compound-semi power electronics) gains a third reinforcement vector via the test-time-compute regime. No tier change; 5.03% allocation appropriate for substrate-layer indirect exposure.

@@ -393,3 +393,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **2nd-order strengthened — MLCC volume at hyperscaler datacenter scale.** Google $175-185B 2026 capex (nearly doubling) + TPU 8t superpods 9,600 chips + 5+ hyperscaler custom-Si programs simultaneously = MLCC density per board × board volume = sustained MLCC demand growth. Stacks on top of Physical AI primer multi-narrative score upgrade (auto BEV 3-5K MLCCs + AI-RAN base stations + robotics PCBs). Cumulative multi-event reinforcement.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**2nd-order strengthened — MLCC demand compounds via sustained-load datacenter capex.** Test-time-compute regime drives hyperscaler capex doubling (Google $175-185B 2026 per Google I/O event analysis); custom ASIC 44.6% CAGR + inference 2/3 of all AI compute. Every PCB needs MLCCs and the compute-density-per-rack increase under test-time scaling = MLCC density per rack increases. Stacks on existing Physical AI multi-narrative score (7+/5) + Google I/O cascade. Now LARGEST position at 16.77% — sizing-matrix consideration: NOT undersized under test-time-compute lens; cumulative thesis reinforcement across three events (Physical AI primer + Google I/O + test-time scaling).
