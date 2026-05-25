@@ -337,3 +337,9 @@ Triggered by user portfolio question on CPU-rebalancing thesis. Today's web rese
 **Net update to thesis:** the AGI CPU growth leg is more concrete than prior thesis implied. Specific anchor customers (Meta lead + OpenAI + Cerebras + Cloudflare) + Stargate alignment + capacity-constrained orders all strengthen the production-revenue inflection scenario. No tier change but sizing-matrix conviction is incrementally stronger.
 
 **Cascade compliance per new principle #25** (codified this same session 2026-05-25 — see `research/meta/methodology.md`): research findings about a company that has an existing thesis file MUST be appended to that thesis file. This update closes the loop on principle #25 for the ARM research conducted today.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**Reinforces multi-vector ARM thesis — both IP royalty + AGI CPU direct silicon benefit from inference-orchestration workload growth.** ARM AGI CPU specifically targets "AI inference orchestration + agentic computing workloads" per the 2026-05-25 ARM thesis update (per Tech-Insider + MLQ.ai). The test-time-compute regime drives exactly this workload class. Per-segment compute pattern in the event analysis: agentic enterprise + deep reasoning are the segments where CPU orchestration scales most. ARM's $2B unfilled orders signal (capacity-constrained pricing power) becomes more durable under sustained-load test-time-compute regime. No tier change; watchlist position strengthened across multiple cascading events (Physical AI primer + Google I/O TPU bifurcation + test-time-compute scaling).

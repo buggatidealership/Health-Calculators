@@ -251,3 +251,9 @@ ALAB is the cleanest single-name expression of "interconnect protocol moat + opt
 - Per principle #18, sizing decision deferred to Phase 4 after worldview synthesis
 
 **Per principle #14 (verify, push back on framing):** my initial "ALAB is the cleanest pick" framing in prior message was directionally correct but UNDER-weighted the customer concentration risk. The corrected framing: ALAB is the highest-upside-with-concentration-risk pick. The simpler picks (LITE, COHR, TSM) have lower asymmetric upside but lower concentration risk.
+
+## Cross-reference — Test-time compute scaling regime (added 2026-05-25)
+
+Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
+
+**Reinforces watchlist thesis — CXL memory pooling becomes economically NECESSARY as thinking-context grows.** Test-time compute regime produces 1M-10M+ thinking tokens per deep-reasoning problem. Single-accelerator HBM caps around 100s-of-MB-to-GB; multi-million-token contexts require pooled memory across accelerators. ALAB's Microsoft Azure M-series CXL deployment (private beta now → GA end-2026 per existing thesis) is the canary deployment for this structural shift. The test-time-compute regime moves CXL pooling from "HBM bypass route" to "structurally necessary for deep-reasoning workloads." Reinforces existing "Best HBM-bypass play in user's universe" framing in the thesis. No tier change; sizing-matrix candidate strengthened.
