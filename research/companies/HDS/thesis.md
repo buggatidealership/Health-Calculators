@@ -55,3 +55,20 @@ Choke-point picks-and-shovels supplier for precision robotics — controls ~60% 
 - [Top 7 Harmonic Drive Reducer Manufacturers — Honpine](https://www.honpine.com/news/Harmonic-Drive-Reducers-News/Top-7-Harmonic-Drive-Reducer-Manufacturers.html)
 - [Humanoid Robotics Supply Chain Analysis — yrules](https://news.yrules.com/en/archives/4984)
 - [Humanoid Robot Rotary Actuator Market Outlook — Intel Market Research](https://www.intelmarketresearch.com/humanoid-robot-rotary-actuator-market-7922)
+
+## Update 2026-05-25 — PLANNED ENTRY (pending US market open 2026-05-26)
+
+User announced planned new position of **€10,000** at next US market open per `portfolio/changes.md` 2026-05-25 PLANNED log. Will execute via ADR (HSCMY) or directly accessing 6324.T.
+
+Sizing context:
+- €10K entry on a portfolio worth ~€110,396 (current) + €15K deployment from cash = ~€125,396 post-trade
+- HDS would become ~roughly 8% of post-trade portfolio (computed)
+- This is MATERIALLY ABOVE the 3-5% rough range I'd suggested in `wiki/robotics-primer.md` Phase 3+ candidate ranking
+- User judgment is for higher conviction on the actuator choke-point thesis
+
+Framework alignment:
+- Aligned with revised recommendation from 2026-05-24 salience-bias catch (HDS first-pick over Nabtesco after rigorous head-to-head: 60% global harmonic drive share + semi cap-equip dual-narrative + pricing-power preservation via no announced capacity expansion)
+- Phase 3+ ranking #3 in robotics primer
+- User chose HDS-only execution (no Nabtesco parallel position) — clean alignment with revised recommendation
+
+Tier status: upgrades from "Watchlist" to **HELD (pending execution)**. Post-fill: update tier to HELD, update holdings.md, log fill in changes.md.

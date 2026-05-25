@@ -192,3 +192,21 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 
 **Implication for existing STM thesis (held 6.6%):** user's 2026-05-25 intuition validated — STM is multi-vector across robotics + AI chip + auto + industrial + AI-RAN. **Sizing-up consideration justified under Physical AI lens** — current 6.6% allocation is LOWER than Murata's 12.4% despite similar multi-narrative score AND material new positive (NXP MEMS acquisition closes Feb 2026). Sizing-matrix tomorrow should consider STM at 8-10% target allocation. No tier change; falsifiers unchanged but NXP MEMS integration milestones added as Phase 2 verification queue.
 
+
+## Update 2026-05-25 — PLANNED ADD (pending US market open 2026-05-26)
+
+User announced planned additional **€5,000** add to existing STM position per `portfolio/changes.md` 2026-05-25 PLANNED log. Will execute on STM ADR at US market open.
+
+Sizing context:
+- Current position: €6,086 (5.51% of portfolio)
+- Post-add: ~€11,086 (~roughly 9% of portfolio, computed)
+- Brings STM into the 8-10% target range I recommended under Physical AI multi-narrative framework
+- Closes the previously-flagged STM execution gap from 2026-05-25 portfolio update
+
+Framework alignment:
+- Directly aligned with `wiki/physical-ai-primer.md` 2026-05-25 recommendation
+- 6+/5 multi-narrative score (power semi + MEMS + auto ADAS + industrial + AI-RAN + edge devices)
+- NXP MEMS acquisition $950M closing Feb 2026 = material new positive in existing thesis
+- User executes on the multi-narrative anti-fragility scoring rather than the prior robotics-only framing
+
+Post-fill: update holdings.md with new position value + log COMPLETED trade in changes.md.

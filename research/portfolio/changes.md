@@ -34,3 +34,18 @@ Verifications:
 - STM overweight NOT executed — STM relative weight actually slightly down (5.51% vs 6.6% prior). Question for user: intentional hold OR pending review?
 - ISRG / HDS / Nabtesco / Sony / AVGO additions NOT executed — these remain watchlist candidates with ~€29,867 cash dry powder for next sizing matrix.
 
+---
+
+## PLANNED — pending US market open 2026-05-26
+
+[2026-05-25 PLANNED] BUY HDS (Harmonic Drive Systems, 6324.T or ADR HSCMY) — **€10,000 planned entry** at next US market open. New position. At current portfolio size ~€110,396, this would be a ~€10K / ~€125K post-trade portfolio ≈ ~roughly 8% of portfolio (computed). Aligned with revised recommendation post-salience-bias catch (`sector/where-we-are.md` 2026-05-24 harness observation: HDS as first-pick over Nabtesco — 60% global harmonic drive share, semi cap-equip dual-narrative, pricing-power preservation via no announced capacity expansion). Above prior 3-5% rough robotics-primer target; user signaling higher conviction on the choke-point thesis. Linked: `companies/HDS/thesis.md` 2026-05-24 Phase 3+ stub.
+
+[2026-05-25 PLANNED] BUY STM (ADR) — **€5,000 additional add** at next US market open. Increases position from current €6,086 → ~€11,086, taking STM from 5.51% → ~roughly 9% of portfolio (computed). Directly aligned with Physical AI primer recommendation (`wiki/physical-ai-primer.md` 2026-05-25: STM 6+/5 multi-narrative score under Physical AI lens + NXP MEMS acquisition $950M closing Feb 2026 material new positive). Closes the previously-flagged STM execution gap from 2026-05-25 portfolio update.
+
+Combined planned cash deployment: **€15,000** (~half of current ~€29,867 cash dry powder). Remaining post-execution: ~€14,867 cash.
+
+Framework discipline check: both trades execute against verified recommendations from this OS rather than independent thesis layer. HDS sized larger than my originally-suggested 3-5% range (~8% target) — user judgment overrides my modest sizing; defensible given Phase 3+ HDS ranking #3 + first-pick after rigorous head-to-head.
+
+Update post-execution: rewrite holdings.md with actual fills + log COMPLETED trades.
+
+
