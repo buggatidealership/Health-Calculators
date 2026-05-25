@@ -175,3 +175,20 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 
 **Implication for existing STM thesis:** multi-narrative framing under principle #5 + the 2026-05-24 multi-narrative refinement candidate suggests STM may deserve modest overweight relative to current 6.6% portfolio allocation. Defer to tomorrow's sizing matrix (multi-horizon 6/12/18mo framework). No falsifier change. The robotics motor-drive exposure compounds with the existing AI sector power-electronics tailwind.
 
+
+## Cross-reference — Physical AI primer Phase 1+2 verified (added 2026-05-25)
+
+Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
+
+**STM identified as universal cross-sub-domain supplier within Physical AI** — score 5/6 sub-domains (robotics + AVs + industrial automation + AI-RAN + edge devices). Multi-narrative score upgraded from robotics-only 5/5 to Physical AI 6+/5.
+
+**Verified hard data backing the upgrade:**
+- **NXP MEMS acquisition for ~$950M closing Feb 2026** — materially strengthens multi-segment position (auto + industrial + personal electronics balanced)
+- AM&S segment (Analog products, MEMS and Sensors) $1.434B Q3 2025 (+26.6% QoQ, +7.0% YoY)
+- ADAS + SiC + sensors customer programs in Automotive
+- Industrial markets focus on safety + industrial technologies via existing + acquired NXP MEMS portfolios
+- AI-RAN power semi exposure (NVDA-Nokia $1B partnership + ARC-Pro deployment)
+- Robotics motor drives via existing SiC/GaN power electronics
+
+**Implication for existing STM thesis (held 6.6%):** user's 2026-05-25 intuition validated — STM is multi-vector across robotics + AI chip + auto + industrial + AI-RAN. **Sizing-up consideration justified under Physical AI lens** — current 6.6% allocation is LOWER than Murata's 12.4% despite similar multi-narrative score AND material new positive (NXP MEMS acquisition closes Feb 2026). Sizing-matrix tomorrow should consider STM at 8-10% target allocation. No tier change; falsifiers unchanged but NXP MEMS integration milestones added as Phase 2 verification queue.
+

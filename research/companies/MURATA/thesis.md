@@ -370,3 +370,20 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 
 **Implication for existing Murata thesis:** robotics adds an incremental volume vector to the already-bullish MLCC volume thesis. Already-high allocation (12.4% of portfolio) — sizing-matrix consideration is whether to hold or modestly trim into strength, not increase. The robotics layer is anti-fragile addition rather than primary thesis driver. No tier or falsifier change.
 
+
+## Cross-reference — Physical AI primer Phase 1+2 verified (added 2026-05-25)
+
+Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
+
+**Murata identified as universal cross-sub-domain supplier within Physical AI** — score 5/6 sub-domains (robotics + AVs + industrial automation + AI-RAN + edge devices). Multi-narrative score upgraded from robotics-only 5/5 to Physical AI 7+/5.
+
+**Verified hard data backing the upgrade:**
+- 40% global MLCC market share (dominant supplier per market research)
+- Automotive 30% of revenue (up from 23% three years ago) — structural multi-vector signal
+- Modern BEV uses 3,000-5,000 MLCCs vs 1,200-1,500 in ICE = 2-3x structural tailwind from auto electrification
+- Automotive MLCC market: $3.80B 2025 → $4.91B 2026 at 10.3% CAGR
+- AI-RAN base station MLCCs benefit from $1B NVDA-Nokia partnership + Ericsson AI-RAN Innovation Center
+- AI compute boards continue to drive MLCC density per board
+
+**Implication for existing Murata thesis (held 12.4%):** user's 2026-05-25 intuition validated with hard data — Murata is genuinely multi-vector across robotics + AI chip value chain + automotive + AI-RAN + industrial + consumer. **Sizing-up consideration justified under Physical AI multi-narrative lens.** Previously the position was already at high allocation; the Physical AI reframing surfaces additional growth vectors (AV electrification structural; AI-RAN emerging) that weren't in original thesis. No tier change but sizing-matrix tomorrow should reconsider 12.4% as MAYBE undersized rather than at-ceiling.
+

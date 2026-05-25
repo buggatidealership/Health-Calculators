@@ -902,7 +902,7 @@ This converts principles from static doctrine into thesis-like artifacts with th
 | 21 | Time-to-X signals verified, not training-data anchored | 2026-05-22 | 2026-05-22 | annual | active |
 | 22 | Model segment trajectory, not snapshot | 2026-05-23 | 2026-05-23 | annual; OR segment-trajectory-hook false-positive rate >15% | active |
 | 23 | Claim-level verification via orthogonal data | 2026-05-24 | 2026-05-24 | monthly (with audit) | active (new) |
-| 24 | Recursive bottoms-up worldview discovery via verified data | 2026-05-24 | 2026-05-24 | after first Phase-2 robotics rebuild; OR after 3 primer rebuilds; OR 3+ observation-log flags | active (new) |
+| 24 | Recursive bottoms-up worldview discovery via verified data | 2026-05-24 | 2026-05-25 | after first Phase-2 robotics rebuild; OR after 3 primer rebuilds; OR 3+ observation-log flags | active (validated — robotics Phase 2+3 + Physical AI Phase 1+2 both produced material refinements vs pre-training) |
 
 **Falsifier conditions are filled in inline at the principle text** as we accumulate stress-test data. Initially most rows have empty `falsified_by` — the discipline is to fill them in as the principle gets stress-tested in practice, not to invent invalidation conditions speculatively.
 

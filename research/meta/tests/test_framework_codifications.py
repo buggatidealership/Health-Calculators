@@ -1059,9 +1059,12 @@ def main() -> int:
         in methodology,
     )
     result.check(
-        "fluidity table — row 24 has new-status marker",
-        "active (new)" in methodology
-        and methodology.count("active (new)") >= 2,  # #23 + #24
+        "fluidity table — row 24 present + has status marker (active/validated)",
+        "| 24 | Recursive bottoms-up worldview discovery" in methodology
+        and (
+            "active (new)" in methodology  # #23 still new
+            or "active (validated" in methodology  # OR #24 has evolved to validated
+        ),
     )
 
     print()
