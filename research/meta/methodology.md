@@ -861,6 +861,45 @@ Be CONFIDENT when:
 
    See B26 (pre-training-as-primary-source bias) in `biases-watchlist.md`.
 
+25. **Research findings cascade to existing thesis files — the canonical capture rule.** User correction 2026-05-25: *"whenever you do research regarding any input that I give you, whenever an output forces you to research existing company names and new findings show up during the research, they must be added to the file of the company if it is in the actual thesis in itself, if we have a file for that company."*
+
+   **The bias revealed:** When research surfaces new findings about a company that has an existing `companies/{TICKER}/thesis.md` file, those findings are typically discussed in chat output and then LOST — they don't make it into the canonical thesis file. The next session reads the (now-stale) thesis file as the source of truth, missing the research that already happened. This breaks the OS's compounding-knowledge property — research velocity goes up, but cumulative thesis depth doesn't compound proportionally.
+
+   **The distinction from existing cascade rules:**
+   - **Critical Rule #10** (synthesis cascade) + cascade-enforcement-hook: catches when synthesis artifacts (primers, signals/events) name held tickers and requires per-thesis back-references. Operates at SYNTHESIS-ARTIFACT level.
+   - **Principle #25 (new)**: catches when CHAT RESEARCH surfaces new findings about a ticker and requires the findings be appended to the thesis file. Operates at RESEARCH-FINDING level.
+   - These are complementary, not overlapping. #10 ensures synthesis points to per-name files; #25 ensures per-name files capture the substance of the research.
+
+   **Mandatory discipline:**
+
+   1. **Whenever research is conducted (web search, primary source pull, deep dive) about a company** that has an existing `companies/{TICKER}/` folder:
+   2. **Identify what's NEW** vs the existing thesis file content (specific numerical data, customer names, product specifications, competitive positioning, strategic announcements, etc.)
+   3. **Append the NEW findings to the thesis file** as a dated update section (`## Update YYYY-MM-DD — [topic]`), with inline source citations per principle #11 + #23
+   4. **Cross-reference any synthesis artifacts** that this research contributes to (per Critical Rule #10 — bidirectional discipline)
+   5. **NEVER let research findings live only in chat output** — chat is ephemeral, thesis file is canonical
+
+   **Worked example (ARM AGI CPU research 2026-05-25):**
+   - User asked about CPU rebalancing → I researched ARM AGI CPU + Q-by-Q evolution
+   - Findings surfaced in chat: 136 Neoverse V3 cores on TSMC 3nm + Meta lead customer + OpenAI/Cerebras/Cloudflare launch partners + Stargate ARM CPU role + Q-by-Q $1B+ revenue 3 consecutive quarters + $2B unfilled orders capacity-constrained framing
+   - Per principle #25: appended these findings as `## Update 2026-05-25` section to `companies/ARM/thesis.md` with inline citations
+   - Net effect: next session reading ARM thesis sees today's research baked in, not just chat-ephemeral
+
+   **What this changes operationally:**
+   - Every research session that touches a held/candidate ticker triggers a thesis-file update obligation
+   - Chat responses with new ticker findings must be paired with thesis-file appends (within same commit if persistence is intended)
+   - Synthesis artifacts continue to back-reference per Critical Rule #10
+   - The OS compounds knowledge structurally rather than re-researching the same ticker repeatedly
+
+   **Hook enforcement (deferred):** Mechanical detection candidate — when chat output contains a TICKER pattern matching an existing `companies/{TICKER}/` folder + specific numerical/structural data + that data is NOT in the thesis file → block. Similar pattern to anti-fab repo-grounding check, scoped per-ticker. Defer building hook until drift recurs across 3+ research events (per the standard pattern from B25/B26 codifications).
+
+   **Fluidity footer:**
+   - codified: 2026-05-25
+   - last_review: 2026-05-25
+   - falsified_by: if cascading every research finding to thesis files produces noise overhead (thesis files become bloated with low-signal updates) OR if research velocity collapses because every chat-research touchpoint requires file-edit overhead. Then either tighten the "what counts as new finding" threshold OR build mechanical detection to surface only structural-not-incremental findings.
+   - re-evaluation trigger: monthly, OR after 5 research events trigger the cascade, OR when harness observations log flags principle #25 3+ times
+
+   See B27 (research-findings-not-cascaded bias) in `biases-watchlist.md`.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)
@@ -903,6 +942,7 @@ This converts principles from static doctrine into thesis-like artifacts with th
 | 22 | Model segment trajectory, not snapshot | 2026-05-23 | 2026-05-23 | annual; OR segment-trajectory-hook false-positive rate >15% | active |
 | 23 | Claim-level verification via orthogonal data | 2026-05-24 | 2026-05-24 | monthly (with audit) | active (new) |
 | 24 | Recursive bottoms-up worldview discovery via verified data | 2026-05-24 | 2026-05-25 | after first Phase-2 robotics rebuild; OR after 3 primer rebuilds; OR 3+ observation-log flags | active (validated — robotics Phase 2+3 + Physical AI Phase 1+2 both produced material refinements vs pre-training) |
+| 25 | Research findings cascade to existing thesis files | 2026-05-25 | 2026-05-25 | monthly; OR after 5 research-cascade events; OR 3+ observation-log flags | active (new) |
 
 **Falsifier conditions are filled in inline at the principle text** as we accumulate stress-test data. Initially most rows have empty `falsified_by` — the discipline is to fill them in as the principle gets stress-tested in practice, not to invent invalidation conditions speculatively.
 

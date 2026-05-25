@@ -999,6 +999,97 @@ def main() -> int:
     )
 
     # ==================================================================
+    # 2026-05-25: principle #25 (research findings cascade to thesis
+    # files) + B27 (research-findings-not-cascaded bias).
+    # ==================================================================
+    print()
+    print("methodology.md — principle #25 (research-findings cascade)")
+    result.check(
+        "principle #25 — exists with label 'Research findings cascade'",
+        "25. **Research findings cascade to existing thesis files"
+        in methodology,
+    )
+    result.check(
+        "principle #25 — user 2026-05-25 quote captured",
+        "must be added to the file of the company" in methodology,
+    )
+    result.check(
+        "principle #25 — distinction from Critical Rule #10 documented",
+        "Critical Rule #10" in methodology
+        and "RESEARCH-FINDING level" in methodology,
+    )
+    result.check(
+        "principle #25 — mandatory discipline (5 steps) present",
+        "Append the NEW findings" in methodology
+        and "NEVER let research findings live only in chat output" in methodology,
+    )
+    result.check(
+        "principle #25 — ARM AGI CPU worked example present",
+        "ARM AGI CPU research 2026-05-25" in methodology,
+    )
+    result.check(
+        "principle #25 — fluidity footer present",
+        "codified: 2026-05-25" in methodology
+        and "falsified_by: if cascading every research finding"
+        in methodology,
+    )
+    result.check(
+        "principle #25 — references B27",
+        "B27" in methodology,
+    )
+
+    print()
+    print("methodology.md — fluidity table has row 25")
+    result.check(
+        "fluidity table — row 25 (Research findings cascade)",
+        "| 25 | Research findings cascade to existing thesis files"
+        in methodology,
+    )
+
+    print()
+    print("biases-watchlist.md — B27")
+    result.check(
+        "B27 — entry exists",
+        "B27 — Research findings not cascaded" in biases,
+    )
+    result.check(
+        "B27 — distinction from B16 documented",
+        "Distinction from B16" in biases
+        or "distinct from B16" in biases.lower(),
+    )
+    result.check(
+        "B27 — ARM manifestation present",
+        "ARM thesis last updated 2026-05-22" in biases
+        or "ARM AGI CPU" in biases,
+    )
+    result.check(
+        "B27 — references principle #25",
+        "principle #25" in biases,
+    )
+
+    print()
+    print("ARM thesis cascaded with 2026-05-25 update")
+    arm_thesis = (REPO_ROOT / "research" / "companies" / "ARM" / "thesis.md").read_text(
+        encoding="utf-8"
+    )
+    result.check(
+        "ARM thesis — 2026-05-25 update section appended",
+        "## Update 2026-05-25 — research findings cascaded per new principle #25"
+        in arm_thesis,
+    )
+    result.check(
+        "ARM thesis — specific NEW findings (136 cores, Meta, Stargate)",
+        "136 Neoverse V3" in arm_thesis
+        and "Meta is lead customer" in arm_thesis
+        and "Stargate" in arm_thesis,
+    )
+    result.check(
+        "ARM thesis — Q-by-Q $1B 3 consecutive quarters captured",
+        "three consecutive quarters" in arm_thesis.lower()
+        or "third consecutive quarter" in arm_thesis,
+    )
+
+    # ==================================================================
     # 2026-05-24 (later same day): principle #24 (recursive bottoms-up
     # worldview discovery) + B26 (pre-training-as-primary-source bias).
     # ==================================================================

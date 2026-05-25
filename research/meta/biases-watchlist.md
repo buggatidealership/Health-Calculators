@@ -370,6 +370,28 @@ Both failures share the same root cause: source-reputation is being used as a su
 
 ---
 
+### B27 — Research findings not cascaded (the canonical capture gap)
+**Origin:** User correction 2026-05-25 after ARM AGI CPU research session. I researched ARM via web search in response to user CPU-rebalancing question, surfaced specific new findings (136 Neoverse V3 cores on TSMC 3nm, Meta lead customer, Stargate ARM role, $2B unfilled orders capacity-constrained framing, Q-by-Q $1B+ revenue 3 consecutive quarters) — and discussed them only in chat output, NOT in `companies/ARM/thesis.md`. User pushback verbatim: *"whenever you do research regarding any input that I give you, whenever an output forces you to research existing company names and new findings show up during the research, they must be added to the file of the company if it is in the actual thesis in itself, if we have a file for that company."*
+
+**Pattern:** Research conducted in chat about a company that has an existing thesis file produces ephemeral output (chat) but not canonical capture (thesis file update). Next session reads stale thesis file as source of truth, missing today's research. The OS's compounding-knowledge property breaks — research velocity goes up, cumulative thesis depth doesn't compound proportionally.
+
+**Distinction from B16 (synthesis cascade gap):** B16 catches synthesis artifacts that name held tickers without per-thesis back-references. B27 catches the inverse direction — research findings about a ticker that don't make it into the canonical thesis. Both are "knowledge that exists in one place but not the place it should propagate to" — but at different operational scopes (synthesis-to-thesis vs research-to-thesis).
+
+**Manifestation 2026-05-25:** ARM thesis last updated 2026-05-22 (already substantial — included AGI CPU + $25B FY2031 target + Q4 FY27 production). Today's research surfaced 5 categories of NEW specifics (technical specs + customer names + Stargate alignment + Q-by-Q cadence + capacity-constrained framing) — these were captured in chat output for the user but NOT in the thesis file until user corrected and principle #25 was codified. Without principle #25 + the cascade discipline, next session reading ARM thesis would have missed all five categories of NEW data.
+
+**Correction (mandatory per principle #25):**
+1. Identify when research is being conducted about a company with existing thesis file
+2. Identify what's NEW vs existing thesis content (delta-only — don't duplicate)
+3. Append findings to thesis file as dated update section with inline source citations
+4. Cross-reference any synthesis artifacts (per Critical Rule #10 — bidirectional)
+5. Commit thesis-file append within same commit as chat-response (where possible) — ensures persistence
+
+**Hook enforcement (deferred):** mechanical detection candidate — when chat output cites a TICKER pattern matching an existing `companies/{TICKER}/` folder + specific numerical/structural data + that data is NOT in the thesis file → block. Similar pattern to anti-fab repo-grounding scoped per-ticker. Defer building until drift recurs across 3+ research events (standard pattern from B25/B26 codifications).
+
+**How to check:** Before completing any chat response that includes specific NEW research findings about a held/candidate ticker — verify the corresponding thesis file has been updated. If chat response says "I verified X about TICKER" but `companies/TICKER/thesis.md` doesn't include X, the cascade is incomplete.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

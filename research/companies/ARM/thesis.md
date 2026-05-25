@@ -300,3 +300,40 @@ Per `research/portfolio/bottleneck-map.md`:
 - **Top-compute agnostic: 5/10** — AGI CPU competes with NVDA/AMD; IP into NVDA Grace + many others
 - **CPU tightness: 10/10** — they ARE the CPU layer
 - **Agentic tightness: 8/10** — agentic = more inference = more CPU + more ARM IP
+
+## Update 2026-05-25 — research findings cascaded per new principle #25
+
+Triggered by user portfolio question on CPU-rebalancing thesis. Today's web research surfaced these NEW specifics NOT in prior thesis:
+
+**AGI CPU technical detail (new):**
+- **136 Neoverse V3 cores on TSMC 3nm** per [Tech-Insider analysis](https://tech-insider.org/arm-agi-cpu-data-center-chip-2026/) and [MLQ.ai deep dive](https://mlq.ai/research/arm-agi-cpu/)
+- Targets AI inference orchestration + agentic computing workloads (aligned with user's "conversational AI → useful AI" framing — direct CPU-handoff bypass route for the Vera-Rubin supply constraint)
+
+**Customer specifics (new — prior thesis said "$2B booked demand, customers unnamed"):**
+- **Meta is lead customer + co-development partner** per [Tech-Insider](https://tech-insider.org/arm-agi-cpu-data-center-chip-2026/) and [MLQ.ai](https://mlq.ai/research/arm-agi-cpu/)
+- **OpenAI, Cerebras, Cloudflare** named as launch partners per same sources
+- This materially de-risks the AGI CPU launch — Meta as lead co-dev partner is strong primary-source customer signal
+
+**Stargate alignment (new — Stargate not in prior thesis):**
+- **Stargate (SoftBank + OpenAI joint venture, 10GW** per [DCD](https://www.datacenterdynamics.com/en/news/arm-to-develop-its-own-chips-says-stargate-offers-huge-potential-for-different-design-opportunities/)) uses ARM as core CPU per the expanded ARM-SoftBank IP + design services agreement
+- Strategic-alignment vector: ARM is structurally embedded in SoftBank's AGI infrastructure thesis (parent owns 90.6%)
+
+**Q-by-Q revenue evolution (new specifics — confirms acceleration):**
+- ARM Q2 + Q3 FY26 revenue surpassed $1B for **third consecutive quarter** per [Arm Newsroom Q2 FYE26](https://newsroom.arm.com/news/arm-q2-fye26-results)
+- Royalty revenue: Q3 FY26 +21% YoY to $620M; Q4 FY26 +27% YoY to $737M per [Futurum Q3 analysis](https://futurumgroup.com/insights/arm-q3-fy-2026-earnings-highlight-ai-driven-royalty-momentum/)
+- **Royalty rate ACCELERATION** Q3 → Q4 (21% → 27%) is a meaningful inflection signal
+
+**Capacity-constrained signal (new framing — prior thesis had "$2B booked demand"):**
+- **$2 billion in orders ARM cannot fill yet** per [TradingKey analysis](https://www.tradingkey.com/analysis/stocks/us-stocks/261919673-arm-arm-datacenter-royalties-neoverse-supply-constraints-2b-orders-hyperscaler-capacity-tradingkey)
+- This reframes the $2B as **capacity-constrained pricing power** signal, not just demand-backlog
+- Bypass route analysis: ARM's AGI CPU is at TSMC 3nm — sharing fab capacity with NVIDIA + AMD + Apple = TSMC capacity-constrained becomes ARM-AGI-CPU production constraint. ARM cannot simply scale supply.
+
+**Three-layer business model crystallized (refined framing):**
+- **Layer 1 (legacy):** pure IP per-chip royalty
+- **Layer 2 (recent):** Neoverse CSS — higher ASPs per core via pre-validated reference designs
+- **Layer 3 (NEW 2026 March):** AGI CPU direct silicon — full ASP capture per chip sold
+- User-articulated 2026-05-25: "IP licensing layers are usually just subscriptions" — the Layer-3 evolution breaks this constraint structurally; ARM is now hybrid IP + silicon vendor, not pure subscription
+
+**Net update to thesis:** the AGI CPU growth leg is more concrete than prior thesis implied. Specific anchor customers (Meta lead + OpenAI + Cerebras + Cloudflare) + Stargate alignment + capacity-constrained orders all strengthen the production-revenue inflection scenario. No tier change but sizing-matrix conviction is incrementally stronger.
+
+**Cascade compliance per new principle #25** (codified this same session 2026-05-25 — see `research/meta/methodology.md`): research findings about a company that has an existing thesis file MUST be appended to that thesis file. This update closes the loop on principle #25 for the ARM research conducted today.
