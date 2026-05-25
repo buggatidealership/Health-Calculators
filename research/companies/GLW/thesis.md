@@ -387,3 +387,9 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — sustained workloads compound optical interconnect demand.** Test-time-compute regime means hours-to-days of sustained cross-accelerator coordination per problem (vs burst inference for chat). TPU 8i 19.2 Tb/s inter-chip bandwidth becomes the floor not ceiling. Multi-million-token contexts span multiple accelerators requiring continuous optical fabric. Reinforces `wiki/networking-primer.md` + `wiki/optical-interconnect-primer.md` extrapolations. GLW optical fiber demand at hyperscaler scale + AI-RAN backhaul + AV LIDAR glass = 3+/6 Physical AI score still applies AND deepens via per-query interconnect intensity multiplication. No tier change.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

@@ -106,3 +106,9 @@ Per `research/portfolio/bottleneck-map.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — long-context storage for thinking traces.** Test-time-compute regime produces 1M-10M+ thinking tokens per deep-reasoning problem. Context-window memory at this scale exceeds single-accelerator HBM capacity, requiring offload to NAND-class storage (GIDS pattern from earlier TrendForce-corrected NAND thesis). Multi-million-token contexts persist across multi-hour problem-solving sessions. Sandisk's high-IOPS NAND for GIDS / GPU-Initiated Direct Storage is structurally positioned. No tier change; reinforces 9.20% allocation under sustained-load thesis.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

@@ -257,3 +257,9 @@ Per `research/portfolio/bottleneck-map.md`:
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **2nd-order indirect — Google $175-185B 2026 capex (nearly doubling) drives massive power infrastructure demand.** Stacks on existing `wiki/power-for-ai-primer.md` structural power-deficit thesis. T1 Energy is one of several US solar/battery manufacturing names that could be indirect beneficiaries if portions of the buildout route through US sovereign-energy preferences. Mostly indirect exposure; T1 is not a direct Google customer. No tier change; the power-for-AI tailwind remains intact across multiple events.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

@@ -216,3 +216,9 @@ Post-fill: update holdings.md with new position value + log COMPLETED trade in c
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — sustained accelerator power draw compounds power-semi demand.** Test-time-compute regime shifts hyperscaler accelerator utilization from burst to sustained; power-management ICs + motor drives + SiC inverters operating at higher duty cycles. Combined with STM's Physical AI multi-narrative position (6+/5: power semi + MEMS + auto ADAS + industrial + AI-RAN + edge devices) + NXP MEMS acquisition Feb 2026 = cumulative thesis reinforcement across Physical AI primer + Google I/O + test-time-compute regime. Planned €5K add executing US market open tomorrow (per `portfolio/changes.md` PLANNED log) lands STM in 8-10% target range under multi-narrative scoring; reinforced again by test-time-compute analysis.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

@@ -256,3 +256,9 @@ Per `research/wiki/physical-ai-primer.md` (built 2026-05-25):
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — silicon photonics foundry for CPO scale-up under sustained-load regime.** Test-time-compute drives sustained cross-accelerator optical fabric demand. Tower's PH18 silicon photonics platform + Coherent partnership 400 Gbps/lane modulator + $1.3B 2027 contracts already signed = forward-visibility foundry capacity at the manufacturing layer of the CPO transition. Test-time scaling adds a new demand vector on top of existing CPO transition timeline (2026-2030 with large-scale 3-5 years out). No tier change; 4.64% allocation appropriate for foundry-layer NVDA-protocol-aligned silicon photonics exposure.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

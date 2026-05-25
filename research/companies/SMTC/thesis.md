@@ -292,3 +292,9 @@ User entered Semtech at **50 shares × $156.67 = ~$7,834 ($6,728 EUR equiv) = 6.
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — signal integrity demand at sustained-load hyperscaler scale.** Test-time-compute regime requires sustained inter-chip data flow at TPU-8i-class bandwidth (19.2 Tb/s). Active Copper Cables (CopperEdge) + FiberEdge TIAs are direct beneficiaries — every accelerator-to-accelerator hop in a deep-reasoning compute campaign uses signal-integrity components. Reinforces user's existing 6.09% entry (which was above 2-3% candidate target — entry weight is increasingly defensible under multi-event cascade: Google I/O + test-time-compute). The user's "front-running the multi-custom-Si-bifurcation cascade" framing from prior session is incrementally validated by today's analysis.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

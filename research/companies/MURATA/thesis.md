@@ -399,3 +399,9 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — MLCC demand compounds via sustained-load datacenter capex.** Test-time-compute regime drives hyperscaler capex doubling (Google $175-185B 2026 per Google I/O event analysis); custom ASIC 44.6% CAGR + inference 2/3 of all AI compute. Every PCB needs MLCCs and the compute-density-per-rack increase under test-time scaling = MLCC density per rack increases. Stacks on existing Physical AI multi-narrative score (7+/5) + Google I/O cascade. Now LARGEST position at 16.77% — sizing-matrix consideration: NOT undersized under test-time-compute lens; cumulative thesis reinforcement across three events (Physical AI primer + Google I/O + test-time scaling).
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

@@ -187,3 +187,22 @@ Bypass routes per `wiki/optical-interconnect-primer.md` + `wiki/hbm-primer.md` +
 - [Recursive Self-Aggregation Unlocks Deep Thinking in LLMs — arXiv 2509.26626](https://arxiv.org/pdf/2509.26626)
 - [Scaling Test-Time Compute with Latent Reasoning: A Recurrent Depth Approach — arXiv 2502.05171](https://arxiv.org/pdf/2502.05171)
 - [Agentic Test-Time Scaling for WebAgents — arXiv 2602.12276](https://arxiv.org/pdf/2602.12276)
+
+---
+
+## Phase A verification follow-up (added same day 2026-05-25)
+
+Per principle #25 + the post-research extrapolation discipline applied:
+
+**MYTHOS numbers ORTHOGONALLY VERIFIED:** Independent security firms reviewed 1,752 of the high/critical-rated findings and **confirmed 90.6% were valid vulnerabilities** per [VulnCheck blog tracking Anthropic-attributed CVEs](https://www.vulncheck.com/blog/anthropic-glasswing-cves) and [The Next Web](https://thenextweb.com/news/anthropic-glasswing-claude-mythos-10000-vulnerabilities). **Most notable: CVE-2026-5194 in WolfSSL (CVSS 9.1)** — independently verified critical flaw in widely-used embedded TLS library. The 10K MYTHOS claim survives orthogonal verification at >90% validity rate.
+
+**However, important caveat surfaced:** <1% of MYTHOS-discovered vulnerabilities patched yet; average patch takes 2 weeks; discovery rate orders of magnitude faster than remediation. This means the cybersecurity demand vector is REAL but the remediation bottleneck creates a separate constraint — defensive cybersecurity spending (and compute consumption) compounds independently of offensive AI capability.
+
+**Token economics quantified** (per [IntuitionLabs API Pricing Comparison](https://intuitionlabs.ai/articles/ai-api-pricing-comparison-grok-gemini-openai-claude) + [TLDL LLM API Pricing 2026](https://www.tldl.io/resources/llm-api-pricing-2026) + [Inference.net comparison](https://inference.net/content/llm-api-pricing-comparison/)):
+- OpenAI o3 reasoning: $15/M input + $60/M output
+- Anthropic Claude Opus 4.7: $5/M input + $25/M output (current flagship as of April 2026)
+- Google Gemini 3.1 Pro: $2/M input + $12/M output
+
+**CRITICAL multiplier:** reasoning models generate "reasoning tokens" invisible in response but billed as output. **Multiply expected output by 3-5x for realistic cost estimates** per IntuitionLabs. This is the quantitative anchor for test-time-compute economics — effective cost per visible output on o3 reasoning is **$180-300/M tokens** (3-5x the headline $60/M).
+
+**Cumulative validation:** all three pillars of the test-time-compute regime now have orthogonal verification — OpenAI Erdős breakthrough independently verified by mathematicians, MYTHOS vulnerability findings independently verified at 90.6% validity, token-economics multiplier (3-5x) cross-confirmed across 3 pricing-comparison sources. The thesis structurally holds.

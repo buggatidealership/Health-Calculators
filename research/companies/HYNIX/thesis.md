@@ -205,3 +205,25 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **STRONGEST 1st-order beneficiary of the test-time-compute regime.** OpenAI Erdős unit distance conjecture solved 2026-05-20 + FrontierMath top models now solving 40% of postdoc-level problems (up from <2%) + test-time compute REPLACING training scale as dominant LLM-improvement vector = HBM cycles per query scale with thinking-token count. Sustained HBM bandwidth at multi-hour-per-problem cadence (vs burst inference for chat). Hynix's HBM stack now demanded by 5+ hyperscaler programs SIMULTANEOUSLY, each with multiplied per-query consumption under test-time scaling. The "constrained throughout entire life of Vera Rubin" thesis is further reinforced. No tier change; reinforces Core position at top allocation. New watch item: HBM-per-thinking-token allocation patterns disclosed in any Q-by-Q earnings commentary.
+
+## Update 2026-05-25 — Phase A valuation verification (per principle #25)
+
+Per the post-research extrapolation discipline applied 2026-05-25 + verified via web search:
+
+**Forward P/E verified:** 5.92x to 6.79x as of mid-May 2026 per [Finbox forward P/E tracker](https://finbox.com/KOSE:A000660/explorer/pe_fwd/) and [Seoul Economic Daily](https://en.sedaily.com/finance/2026/05/13/sk-hynix-valuation-overtakes-samsung-electronics-for-first). **2026 EPS consensus raised from ₩217,976 to ₩281,074** (+29%); 37-analyst consensus price target raised ₩1,423,257 → ₩1,480,422 with high end at ₩1,700,000; fair value estimate raised ₩255,245 → ₩398,528.
+
+**Important context:** per Seoul Economic Daily, "after SK hynix pre-empted the HBM market and overtook Samsung Electronics in operating profit last year, the perception of SK hynix as relatively undervalued has been erased." Translation: valuation is attractive in ABSOLUTE terms (<7x forward) but the multi-quarter re-rating from heavily-undervalued to fair-value has already happened.
+
+**Implication for existing 10.33% position (+35% unrealized):**
+- Asymmetric upside from multiple expansion is NARROWER than the prior pure-undervaluation thesis implied
+- BUT EPS revisions still ahead (₩217K → ₩281K = +29% consensus revision in recent months) — earnings revisions can drive returns independent of multiple expansion
+- Sustained HBM demand stack (5+ hyperscaler programs simultaneously) + test-time-compute regime + Google I/O TPU 8t/8i bifurcation = the EPS revision trajectory likely continues
+- Position remains Core; valuation framework refined from "undervalued" to "fairly valued with continued EPS revision upside"
+
+No tier change; sizing-matrix consideration: HOLD current allocation, lean on EPS trajectory rather than multiple-expansion thesis.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.

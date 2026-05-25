@@ -243,3 +243,9 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **2nd-order strengthened — InP substrate demand compounds with sustained inter-chip data movement.** Same logic as GLW one layer underneath: sustained compute campaigns require continuous optical fabric → optical engines → InP substrates. The 19.2 Tb/s TPU 8i bandwidth + multi-Tb/s rack-to-rack demand creates structural per-accelerator optical demand. AXTI's dual-narrative (InP for optical AI + indirect via compound-semi power electronics) gains a third reinforcement vector via the test-time-compute regime. No tier change; 5.03% allocation appropriate for substrate-layer indirect exposure.
+
+## Cross-reference — Model economics primer (added 2026-05-25)
+
+Per `research/wiki/model-economics-primer.md`:
+
+The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
