@@ -63,7 +63,13 @@ This is a precision issue at the segment level, not a directional issue at the t
 
 50bps below my call. Within company guide of 75% ± 50bps. Possible drivers: HBM3E cost pressure from SK Hynix pricing, Rubin sampling cost flow-through, GB300 mix at lower margin than I assumed. Worth tracking forward — if Q2 GM also comes in below 75%, the margin-pressure thesis (Dylan Patel "2-3x more pricing" claim) may need re-examination from the BUYER side.
 
-## Stock-reaction grade — DEFERRED to T+24h+
+## Stock-reaction grade — RESOLVED PER USER FRAMING 2026-05-25
+
+**User instruction 2026-05-25:** *"Resolve your predictions for Nvidia purely on base of numbers. Right? Not in terms of the price movements because the price movement is dependent on variables such as the macro landscape."*
+
+Per this framing, the stock-reaction grade is NOT a fundamental-thesis-correctness signal — it's macro-positioning noise. The numerical grade above is the correctness signal. **P2 to-do "Stock-reaction grade for NVDA Q1 FY27" is closed by user-fiat without a stock-action sub-grade.**
+
+**Generalizable lesson (added 2026-05-25):** stock-action grading conflates fundamental thesis correctness with macro positioning + options-positioning + sentiment dynamics. The two should be graded separately when possible; when not, defer to the fundamental grade. Macro-positioning grading requires a separate framework (factor analysis, positioning surveys, options-flow data) outside this OS's primary scope.
 
 Per the Two-Part GRADE Protocol added to `meta/methodology.md` on 2026-05-21 (user flag): same-day stock-action assessment is premature. After-hours and pre-market trading is thin liquidity; the genuine market signal requires at least one full regular-hours session, ideally 2-3 sessions.
 
