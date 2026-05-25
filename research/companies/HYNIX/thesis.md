@@ -227,3 +227,9 @@ No tier change; sizing-matrix consideration: HOLD current allocation, lean on EP
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Cross-reference — Advanced packaging primer (added 2026-05-25)
+
+Per `research/wiki/advanced-packaging-primer.md`:
+
+**Hynix HBM4 production is GATED by advanced packaging capacity.** TSMC CoWoS sold out through 2027 with 50+ week lead times; HBM4 must physically bond to logic die during CoWoS process. SK Hynix US packaging plant ($3.9B investment per Tom's Hardware) verifies multi-year geographic diversification away from Taiwan concentration. **SK Hynix turning to Intel EMIB** as TSMC CoWoS bottleneck squeezes supply — per principle #9 bypass-route thinking, Intel EMIB emerges as credible alternative. Hybrid bonding (BESI <10nm precision moat) becomes mandatory for HBM4E 16-Hi stacks expected 2026 — Hynix is in the bonding-customer position. **The packaging bottleneck IS the gating constraint for Hynix's HBM4 ramp** — strengthens "constrained throughout Vera Rubin life" framing further. No tier change; reinforces Core position.

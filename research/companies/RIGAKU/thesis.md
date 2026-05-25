@@ -347,3 +347,9 @@ Salience-bias self-check (per 2026-05-24 catch): am I over-discounting Rigaku be
 - `research/wiki/model-economics-primer.md` — 1999-fiber-buildout analog + Cisco-1999 multiple compression risk
 - `research/companies/HDS/thesis.md` — planned 2026-05-26 alternative (HDS 60% global share + multi-narrative)
 - `research/companies/ARM/thesis.md` — CPU rebalancing thesis Update 2026-05-25
+
+## Cross-reference — Advanced packaging primer (added 2026-05-25)
+
+Per `research/wiki/advanced-packaging-primer.md`:
+
+Confirms Rigaku's CD-SAXS metrology role in CoWoS/advanced packaging ramp. TSMC CoWoS quadrupling 33K → 130K wpm by late 2026 = 4x metrology demand for advanced packaging inspection. **Rigaku competitive position remains Tier-2** — KLA + Applied Materials dominate front-end metrology; ASMPT + BESI now also competing at packaging-equipment-adjacent inspection. The packaging primer's structural choke-point framing (sold out through 2027) is consistent with existing Rigaku thesis Onto-alliance bull case. No tier change; reinforces Tier 2/3 boundary at fab-metrology layer. **Rigaku is the metrology side of the packaging layer; BESI + ASMPT are the equipment side.** Different positioning within the same advanced-packaging beneficiary cascade.
