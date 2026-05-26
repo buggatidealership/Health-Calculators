@@ -113,3 +113,9 @@ Dutch hybrid bonding equipment leader with **<10nm precision moat** — best-in-
 - `research/wiki/model-economics-primer.md` — Cisco-1999 multiple compression risk profile
 - `research/companies/ASMPT/thesis.md` — sister candidate (TCB market leader)
 - `research/companies/HYNIX/thesis.md` — HBM customer that BESI supplies indirectly
+
+## Cross-reference — SK Hynix iHBM thermal solution (added 2026-05-26)
+
+Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
+
+**2nd-order positive (P~60%).** SK Hynix iHBM reduces thermal resistance 30% at the D2D PHY interface — relieves the thermal ceiling that has been the practical limit on HBM4 16-Hi stack feasibility industry-wide. More feasible HBM stack heights (20-Hi+) = more dies stacked per HBM package = more hybrid bonding operations per stack. BESI's <10nm hybrid-bonding precision moat becomes more valuable as HBM5 generation transitions get pulled forward. Reinforces existing thesis runway scoring (Long 3-5y per duration matrix). Customer base 18→20 in single quarter pattern likely extends.

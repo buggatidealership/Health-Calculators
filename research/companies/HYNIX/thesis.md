@@ -55,6 +55,18 @@ Korea is co-located with TSMC's Taiwan packaging ecosystem. Faster logistics + t
 
 **5. Market share at ~53%** per Trading Key — dominant position that compounds with each generation.
 
+**6. iHBM thermal moat (NEW — added 2026-05-26 per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`):**
+On 2026-05-25 SK Hynix unveiled iHBM — Integrated Cooling Elements (ICEs) embedded directly into the HBM package at the D2D PHY (Die-to-Die Physical Layer) interface between HBM and GPUs. Per [PR Newswire](https://www.prnewswire.com/news-releases/sk-hynix-unveils-ihbm-thermal-solution-to-boost-ai-performance-302781354.html) and [TrendForce](https://www.trendforce.com/news/2026/05/26/news-sk-hynix-introduces-ihbm-solution-targets-hbm5-adoption-with-30-thermal-resistance-reduction/):
+- ICEs made of thermally conductive, electrically non-conductive silicon-based materials
+- 30% thermal resistance reduction vs current HBM packaging
+- Manufactured via Wafer Level Packaging (WLP) built on existing MR-MUF process (i.e., extends the existing process moat rather than requiring new infrastructure)
+- High SiP design compatibility — customers adopt with minimal redesign
+- Targeted at HBM5 and next-generation HBM products
+
+**Why it matters:** This is a technology-moat extension on top of the existing supply moat + packaging moat. Thermal envelopes have been industry-wide binding ceiling on HBM4 16-Hi stack heights and AI accelerator TDPs; iHBM addresses this directly at the highest-heat-flux interface in the accelerator package. Customer/shipping dates not disclosed but HBM4E samples ship H2 2026 + HBM4E AI accelerators ship 2027 per prior earnings call. Samsung's HBM3E qualification path at NVDA was already 12-18mo TTQ per supplier disclosure; now Samsung must qualify thermal performance parity in addition to capacity + yield → effective alternative-supplier TTQ extends further → bypass-route maturity slips later.
+
+**Duration implication:** Combined supply moat (3-year capacity gap) + packaging moat (MR-MUF) + thermal moat (iHBM) means the duration scoring for SK Hynix may warrant upgrade from Long (3-5y) to Long-Open-ended (4-6y) per `research/meta/2026-05-26-duration-of-relevance-scoring.md`. Falsifier: Samsung iHBM-equivalent disclosure, customer thermal-parity statement, or HBM5 timeline slip.
+
 ## Recent financials
 
 Per [SK Hynix press release via PR Newswire](https://www.prnewswire.com/news-releases/sk-hynix-announces-1q26-financial-results-302750959.html) and `research/wiki/hbm-primer.md`:

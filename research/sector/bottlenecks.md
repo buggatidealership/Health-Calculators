@@ -11,6 +11,8 @@ Today's binding: **HBM3E + CoWoS-L + Taiwan packaging**. Mostly consensus, mostl
 
 ## Today's binding constraint (priced ~80%)
 
+**Update 2026-05-26 (per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`):** SK Hynix announced iHBM (Integrated Cooling Elements at the D2D PHY layer; 30% thermal resistance reduction; HBM5-targeted). This reinforces the HBM bottleneck duration: Samsung HBM3E qualification path (the consensus alternative supplier) now needs to qualify thermal performance parity in addition to capacity + yield — effective TTQ extends. CXL via ALAB remains a substitute topology at the system level (not HBM die level); LPDDR5X alternative topology unchanged. The thermal moat compounds with existing supply moat (3-year capacity gap) + packaging moat (MR-MUF).
+
 | Constraint | Detail | Beneficiaries | Status |
 |---|---|---|---|
 | HBM3E supply | SK Hynix sold out 2026; Samsung qualification in progress; Micron HBM3E ramping | MU, SK Hynix (.KS), Samsung | Mostly priced |

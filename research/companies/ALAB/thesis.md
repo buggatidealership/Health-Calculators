@@ -257,3 +257,9 @@ ALAB is the cleanest single-name expression of "interconnect protocol moat + opt
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **Reinforces watchlist thesis — CXL memory pooling becomes economically NECESSARY as thinking-context grows.** Test-time compute regime produces 1M-10M+ thinking tokens per deep-reasoning problem. Single-accelerator HBM caps around 100s-of-MB-to-GB; multi-million-token contexts require pooled memory across accelerators. ALAB's Microsoft Azure M-series CXL deployment (private beta now → GA end-2026 per existing thesis) is the canary deployment for this structural shift. The test-time-compute regime moves CXL pooling from "HBM bypass route" to "structurally necessary for deep-reasoning workloads." Reinforces existing "Best HBM-bypass play in user's universe" framing in the thesis. No tier change; sizing-matrix candidate strengthened.
+
+## Cross-reference — SK Hynix iHBM thermal solution (added 2026-05-26)
+
+Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
+
+**3rd-order positive (P~40%).** SK Hynix iHBM enables higher TDP envelopes per AI accelerator + higher feasible HBM stack heights (20-Hi+). More compute per rack → more fabric switching needed → reinforces ALAB Scorpio scale-up demand. Also reinforces aiXscale Photonics CPO 2027-2028 roadmap because higher compute densities ultimately require optical fabric beyond copper SerDes limits. No tier change; reinforces today's planned €10K add.

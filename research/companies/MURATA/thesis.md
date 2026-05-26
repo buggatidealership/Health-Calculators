@@ -405,3 +405,9 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Cross-reference — SK Hynix iHBM thermal solution (added 2026-05-26)
+
+Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
+
+**3rd-order positive (P~40%).** SK Hynix iHBM (30% thermal resistance reduction at the D2D PHY interface) enables higher TDP envelopes per AI accelerator and higher feasible HBM stack heights. Higher TDP per accelerator board → more MLCCs per board (MLCC count scales with power conversion stages + decoupling requirements). Reinforces Murata's AI server MLCC narrative (Murata mgmt forecast 3.3x AI server MLCC demand by 2030; April 2026 confirmed 15-35% MLCC price hike; capacity utilization 90-95%). No tier change; reinforces existing held overweight.

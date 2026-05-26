@@ -132,3 +132,9 @@ TCB (Thermo-Compression Bonding) market leader targeting **35-40% market share**
 - `research/wiki/hbm-primer.md` — HBM demand requiring TCB + hybrid bonding
 - `research/companies/BESI/thesis.md` — sister candidate (hybrid bonding leader)
 - `research/companies/HYNIX/thesis.md` — HBM customer
+
+## Cross-reference — SK Hynix iHBM thermal solution (added 2026-05-26)
+
+Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
+
+**2nd-order positive (P~60%).** SK Hynix iHBM relieves thermal ceiling on HBM stack heights. ASMPT TCB is the alternative-topology supplier for HBM3E/HBM4 base; higher feasible HBM4 16-Hi + HBM5 stacks = more TCB operations per stack. ASMPT's HBM4 16-Hi flux-based TCB tool sampling underway (per Q1 CY26 earnings) is positioned for this transition. BESI hybrid bonding remains the substitute topology for HBM4 16H specifically; ASMPT + BESI duopoly dynamic unchanged. No tier change; reinforces existing thesis runway scoring (Long 3-4y per duration matrix).
