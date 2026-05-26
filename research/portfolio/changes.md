@@ -68,6 +68,8 @@ Update post-execution: rewrite holdings.md with actual fills for all FOUR trades
 
 [2026-05-26 EXECUTED — HDS leg COMPLETED via non-Degiro platform] User confirmed HDS €10,000 has been EXECUTED via a different brokerage platform (not Degiro, which is the user's usual platform from which holdings screenshots are taken). Funded from fresh capital. **Multi-platform tracking implication:** Degiro screenshots will NOT show this HDS position; total portfolio AUM is now distributed across at least 2 platforms (Degiro + the other-platform). Need from user: (a) name of the other platform, (b) fill price + share count for HDS, (c) any other positions held on the non-Degiro platform that should be reflected in `holdings.md` consolidated view. Without these, the consolidated portfolio picture is incomplete.
 
+[2026-05-26 PLATFORM CONFIRMED — N26] User confirmed the secondary brokerage platform is N26 (N26 neo-bank with stock-trading offering, available in EU; equity execution typically routed via Upvest). Portfolio is now tracked across TWO platforms going forward: Degiro (primary, screenshots) + N26 (secondary; HDS €10K executed 2026-05-26 via fresh capital). Still pending from user: HDS fill price + share count + date, plus any other positions held on N26 that should be reflected in the consolidated `holdings.md`.
+
 Remaining planned trades from the €35K plan (3 of 4 outstanding):
 - STM €5K (Degiro) — pending US market open today 2026-05-26
 - ALAB €10K (Degiro) — pending US market open today 2026-05-26
