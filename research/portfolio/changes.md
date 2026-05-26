@@ -79,3 +79,29 @@ Remaining planned trades from the €35K plan (3 of 4 outstanding):
 Updated post-execution residual cash (computed): ~€4,867 Degiro residual + any fresh-capital surplus beyond the €10K already deployed for HDS. The €5K fresh-capital-for-STM injection mentioned earlier is NOT needed since the existing Degiro cash covers STM/ALAB/ARM cleanly.
 
 
+
+---
+
+## EXECUTED 2026-05-26 — 4 trades filled (Degiro + N26)
+
+[2026-05-26 EXECUTED — Degiro] BUY ARM Holdings ADR — **37 shares @ BEP $309.83** = €10,030.67 position (6.45% of consolidated portfolio per holdings.md 2026-05-26 update). NEW POSITION. Closes CPU-exposure gap previously flagged in `research/portfolio/bottleneck-map.md`. Source: Degiro screenshot 2026-05-26 16:55.
+
+[2026-05-26 EXECUTED — Degiro] BUY Astera Labs — **38 shares @ BEP $306.80** = €10,078.53 position (6.48% of consolidated portfolio). NEW POSITION. Captures AI fabric silicon thesis post-aiXscale reclassification. Source: Degiro screenshot 2026-05-26 16:55.
+
+[2026-05-26 EXECUTED — Degiro] BUY STMicroelectronics ADR — **+82 shares; total now 188 @ BEP $64.08** = €11,398.69 position (7.33% of consolidated portfolio). Added ~€5K. Closes previously-flagged STM execution gap. Source: Degiro screenshot 2026-05-26 16:55.
+
+[2026-05-26 EXECUTED — N26 (separate platform, fresh capital)] BUY Harmonic Drive Systems — **€10,000 position** (6.43% of consolidated portfolio). User confirmed via voice 2026-05-26: HDS executed via N26 from fresh capital. Fill price + share count + exact local currency TBD pending user confirmation. NEW POSITION on N26 platform.
+
+## EXECUTED 2026-05-26 — Unexpected additions detected from screenshot (pending user confirmation)
+
+[2026-05-26 EXECUTED — Degiro, unplanned] BUY Murata Manufacturing — **+22 shares; total now 437 @ BEP €33.29** (BEP shifted €32.71 → €33.29 confirms incremental adds at higher price). Estimated ~€967 deployed. NOT IN PRIOR TRADE PLAN — flagged as discrepancy in `holdings.md` 2026-05-26 update for user confirmation. Possible: dividend reinvestment, intentional add not communicated, or BEP/data revision. Source: Degiro screenshot 2026-05-26 16:55.
+
+[2026-05-26 EXECUTED — Degiro, unplanned] BUY SK Hynix GDR — **+3 shares; total now 13 @ BEP €931.92** (BEP shifted €844.00 → €931.92 — large upward shift confirming significant add at higher price). Estimated ~€3,780 deployed. NOT IN PRIOR TRADE PLAN — flagged as discrepancy in `holdings.md` 2026-05-26 update for user confirmation. Source: Degiro screenshot 2026-05-26 16:55.
+
+## Net consolidated change summary
+
+- Pre-deployment (2026-05-25): €110,395.80 Degiro shares + €29,867.21 Degiro cash = €140,263.01 total
+- Post-deployment (2026-05-26): €145,537.51 Degiro shares + (cash TBD) + €10,000 N26 HDS = €155,537.51+ consolidated
+- Net change: +€15,275 attributable to (a) day P/L +€4,510, (b) fresh capital injection (~€10-15K), (c) market action on existing positions
+- 4 planned trades EXECUTED: HDS (N26) + STM (Degiro) + ALAB (Degiro) + ARM (Degiro)
+- 2 unplanned adds detected: Murata + SK Hynix on Degiro — pending user confirmation

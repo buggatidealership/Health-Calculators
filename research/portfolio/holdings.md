@@ -1,113 +1,112 @@
 # Current Holdings
 
-**Last updated:** 2026-05-25
-**Source:** User screenshot from European brokerage account (`@5c01b086-23484.jpg`)
+**Last updated:** 2026-05-26 (EOD after €35K deployment + market action)
+**Source:** Degiro screenshot 2026-05-26 16:55 + user-confirmed N26 HDS position
 
-## Account totals
+## Account totals — consolidated across platforms
 
-- Total balance: €140,263.01
-- Portfolio value: €110,395.80 (78.7%)
-- Cash (EUR): €29,867.21 (21.3% — dry powder still available)
-- Available to trade: €29,889.00
-- Day P/L: +€2,291.93 (+1.66%)
-- Total P/L on portfolio: +€21,441.44
+| Platform | Shares value | Cash | Subtotal |
+|---|---|---|---|
+| **Degiro** (primary) | €145,537.51 | TBD (not shown in screenshot) | €145,537.51+ |
+| **N26** (secondary, fresh capital) | €10,000 (HDS only) | TBD | €10,000+ |
+| **Total consolidated** | **€155,537.51 (shares only)** | TBD | **€155,537.51+** |
 
-## Positions (sorted by % of portfolio)
+- Day P/L on Degiro: +€4,510.12 (+3.20%) per screenshot
+- 6 trades executed today on Degiro
 
-| # | Position | Ticker | Qty | Current price | Curr. | Value (EUR equiv per broker) | % of portfolio | BEP (avg cost) | Sector mapping |
-|---|---|---|---|---|---|---|---|---|---|
-| 1 | Murata Manufacturing | 6981.T | 415 | €44.60 | EUR | €18,509.00 | **16.77%** | €32.71 | MLCC / Physical AI universal supplier |
-| 2 | Datadog | DDOG | 60 | $222.40 | USD | €11,460.96 | **10.38%** | $203.37 | Observability / agentic-AI infra |
-| 3 | SK Hynix (GDR) | HXSCL | 10 | €1,140.00 | EUR | €11,400.00 | **10.33%** | €844.00 | HBM (5+ hyperscaler programs) |
-| 4 | ServiceNow | NOW | 123 | $102.13 | USD | €10,789.31 | 9.77% | $94.30 | Agentic workflow automation |
-| 5 | Corning | GLW | 61 | $193.86 | USD | €10,156.71 | 9.20% | $159.03 | Optical fiber + display + AV LIDAR glass |
-| 6 | Sandisk | SNDK | 8 | $1,477.91 | USD | €10,154.84 | 9.20% | $1,099.60 | NAND / AI storage / GIDS |
-| 7 | Hyperliquid Strategies | — | 1,382 | $7.66 | USD | €9,092.26 | 8.24% | $8.32 | Crypto perp DEX treasury (off-AI thesis) |
-| 8 | **Semtech (NEW)** | SMTC | 50 | $156.67 | USD | €6,728.08 | **6.09%** | $154.68 | Signal integrity + IoT + Active Copper Cables (AI datacenter) |
-| 9 | STMicroelectronics (ADR) | STM | 106 | $66.85 | USD | €6,086.15 | 5.51% | $58.90 | Power semi + MEMS + auto + Physical AI universal supplier |
-| 10 | AXT Inc | AXTI | 46 | $140.63 | USD | €5,556.11 | 5.03% | $126.59 | Compound semi substrates (InP optical) |
-| 11 | T1 Energy | TE | 760 | €7.00 | EUR | €5,320.00 | 4.82% | €5.90 | US solar/battery manufacturing |
-| 12 | Tower Semiconductor | TSEM | 21 | $283.90 | USD | €5,120.59 | 4.64% | $265.00 | Specialty analog foundry / AV sensor fab |
+## Positions (sorted by % of consolidated portfolio)
 
-**Sum check:** ~€110,374 (rounding tolerance vs stated €110,395.80) ✓
+| # | Position | Ticker | Qty | Current price | Curr. | Value (EUR equiv) | % of portfolio | BEP (avg cost) | Platform | Sector mapping |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 1 | Murata Manufacturing | 6981.T | **437** | €43.945 | EUR | €19,203.97 | **12.35%** | €33.29 | Degiro | MLCC / Physical AI universal supplier |
+| 2 | SK Hynix (GDR) | HXSCL | **13** | €1,260.00 | EUR | €16,380.00 | **10.53%** | €931.92 | Degiro | HBM (3-year capacity gap; +iHBM thermal moat per 2026-05-25) |
+| 3 | Datadog | DDOG | 60 | $224.76 | USD | €11,599.52 | **7.46%** | $203.37 | Degiro | Observability / agentic-AI infra |
+| 4 | **STMicroelectronics ADR** | STM | **188** | $70.49 | USD | €11,398.69 | **7.33%** | $64.08 | Degiro | Power semi + MEMS (2 of 3 robotics universals) |
+| 5 | Sandisk | SNDK | 8 | $1,602.03 | USD | €11,023.77 | **7.09%** | $1,099.60 | Degiro | NAND / AI storage / GIDS |
+| 6 | ServiceNow | NOW | 123 | $101.38 | USD | €10,725.74 | **6.90%** | $94.30 | Degiro | Agentic workflow; 42.6% pre-ATH (largest gap) |
+| 7 | Corning | GLW | 61 | $199.06 | USD | €10,444.40 | **6.72%** | $159.03 | Degiro | Optical fiber + display + AV LIDAR glass |
+| 8 | Hyperliquid Strategies | HYPS | 1,382 | $8.645 | USD | €10,276.44 | **6.61%** | $8.32 | Degiro | Crypto perp DEX treasury (off-AI thesis) |
+| 9 | **Astera Labs (NEW)** | ALAB | **38** | $308.35 | USD | €10,078.53 | **6.48%** | $306.80 | Degiro | AI fabric silicon (CPU-GPU + GPU-GPU + CPO 2028) |
+| 10 | **ARM Holdings (NEW)** | ARM | **37** | $315.18 | USD | €10,030.67 | **6.45%** | $309.83 | Degiro | CPU IP + AGI CPU architecture |
+| 11 | **Harmonic Drive Systems** | HSCMY / 6324 | (TBD shares on N26) | (per fill) | (TBD) | **€10,000** | **6.43%** | (TBD) | **N26** | Precision actuators (cobots + humanoid distal + surgical) |
+| 12 | Semtech | SMTC | 50 | $164.83 | USD | €7,088.85 | **4.56%** | $154.68 | Degiro | Signal integrity + Active Copper Cables (AI DC) |
+| 13 | T1 Energy | TE | 760 | €8.75 | EUR | €6,650.00 | **4.28%** | €5.90 | Degiro | **Reclassified 2026-05-26: AI-adjacent via Supply Chain Inheritance** (NVDA 800V DC rack arch credits EV/solar industries; principle #28 + B29 codified) |
+| 14 | AXT Inc | AXTI | 46 | $134.30 | USD | €5,313.78 | **3.42%** | $126.55 | Degiro | InP optical interconnect (12-24mo unpriced edge) |
+| 15 | Tower Semiconductor | TSEM | 21 | $278.68 | USD | €5,033.79 | **3.24%** | $265.00 | Degiro | Specialty foundry / silicon photonics |
 
-## Changes vs prior holdings (2026-05-20)
+**Sum check:** ~€155,247 (close to €155,537.51 displayed — minor delta likely cash or rounding) ✓
 
-| Position | Prior % | Current % | Direction | Notes |
+## Changes vs prior holdings (2026-05-25 → 2026-05-26)
+
+| Position | Prior shares | Current shares | Delta | Trade source |
 |---|---|---|---|---|
-| Murata | 12.4% | **16.77%** | **+€8.2K cash deployed** | User executed on multi-narrative overweight recommendation |
-| Datadog | 6.8% | **10.38%** | **+€5.4K cash deployed** | Roughly doubled position; aligned with agentic-observability thesis |
-| Hyperliquid | 5.7% | 8.24% | **+€3.3K cash deployed** | User chose to add despite off-AI-thesis flag |
-| Semtech (NEW) | 0% | **6.09%** | **NEW POSITION ~€6.7K** | Active Copper Cables / signal integrity AI datacenter thesis |
-| T1 Energy | 7.1% | 4.82% | Small reduction | ~€570 trimmed |
-| HYNIX, NOW, GLW, SNDK, STM, AXT, TSEM | — | — | Largely flat in absolute terms; % shifts driven by other positions growing | No material rebalancing |
+| **ARM** (NEW) | 0 | 37 | **+€10,030.67 @ BEP $309.83** | Today on Degiro |
+| **ALAB** (NEW) | 0 | 38 | **+€10,078.53 @ BEP $306.80** | Today on Degiro |
+| **HDS** (NEW, N26) | 0 | TBD | **+€10,000** | Today on N26 (fresh capital) |
+| STM | 106 | 188 | **+82 shares (~€5K)** | Today on Degiro (planned €5K add) |
+| **Murata** | 415 | 437 | **+22 shares (~€967)** ⚠ NOT IN PRIOR PLAN | Today on Degiro (pending user confirmation) |
+| **SK Hynix** | 10 | 13 | **+3 shares (~€3,780)** ⚠ NOT IN PRIOR PLAN | Today on Degiro (pending user confirmation) |
+| DDOG / GLW / SNDK / NOW / HYPS / AXTI / SMTC / TE / TSEM | — | — | Shares flat; values shifted on price action | n/a |
 
-**Net cash deployment: ~€21,800 (cash €51,673 → €29,867)**
+**Total deployed today across both platforms: ~€39,856** (€29,856 from Degiro existing cash + tracked + new Degiro/N26 adds; €10K fresh capital to N26 HDS)
+**Net of fresh capital injection (~€15K user-confirmed minimum)**
 
-## Sector allocation (revised)
+## Sector allocation (consolidated view)
 
 | Bucket | % of portfolio | Names |
 |---|---|---|
-| MLCC / passive (Physical AI universal supplier) | **16.77%** | Murata |
-| Memory / HBM | 10.33% | SK Hynix |
-| AI-adjacent enterprise software | **20.15%** | ServiceNow (9.77%) + Datadog (10.38%) |
-| Optical / interconnect | **14.23%** | Corning (9.20%) + AXT (5.03%) |
-| Signal integrity / connectivity (NEW expansion) | **6.09%** | Semtech |
-| NAND / storage | 9.20% | Sandisk |
-| Specialty / niche semi | **15.18%** | STM (5.51%) + Tower Semi (4.64%) + AXT (already counted, see below) |
-| Energy / power (AI-adjacent) | 4.82% | T1 Energy |
-| Crypto-adjacent (off AI thesis) | 8.24% | Hyperliquid Strategies |
+| MLCC / passive (Physical AI universal) | **12.35%** | Murata |
+| Memory / HBM | **10.53%** | SK Hynix |
+| Agentic enterprise software | **14.36%** | NOW (6.90%) + DDOG (7.46%) |
+| Optical / interconnect / fabric | **20.42%** | GLW (6.72%) + AXT (3.42%) + ALAB (6.48%) + TSEM (3.24%) |
+| Signal integrity / connectivity | **4.56%** | SMTC |
+| NAND / storage | **7.09%** | SNDK |
+| Power semi + MEMS (Physical AI universal) | **7.33%** | STM (sits on 2 of 3 robotics universals) |
+| CPU IP / AGI CPU | **6.45%** | ARM (closes prior CPU-exposure gap in `bottleneck-map.md`) |
+| Precision actuators (Physical AI) | **6.43%** | HDS (cobots + humanoid distal + surgical) |
+| Energy / Supply Chain Inheritance (NEW reclass) | **4.28%** | T1 Energy (per principle #28 + B29) |
+| Crypto-adjacent (off AI thesis) | **6.61%** | Hyperliquid Strategies |
 
-**Notably absent** from the holdings: NVDA, AMD, AVGO, MSFT, GOOG, META, AMZN, TSM, ASML — the obvious-AI-compute layer. **User's existing NVDA non-holding stance documented in `companies/NVDA/thesis.md`** as defensible under Stage 4 + Patel-Aschenbrenner bidirectional risk + Google I/O 2026 TPU 8i 42% TCO inference advantage further reinforces.
+## Position multi-narrative scores (updated 2026-05-26)
 
-## Thesis structure observed (refined per Physical AI primer + Google I/O event)
-
-The portfolio expresses a **"behind-the-front-line"** view of AI, now further validated by Physical AI umbrella framing + Google I/O 2026:
-- Bet on **memory** (the binding constraint — HBM stack now demanded by 5+ hyperscaler programs simultaneously)
-- Bet on **passive components + universal Physical AI suppliers** (Murata MLCC, STM power+MEMS, Corning optical, AXT InP)
-- Bet on **late-cycle agentic software** (NOW + DDOG — both 1st-order strengthened by Google Antigravity 2.0 announcements)
-- Bet on **signal integrity / optical interconnect** (Semtech, Corning, AXT) — directly benefits from TPU 8i 19.2 Tb/s inter-chip bandwidth + Ironwood 9,216-chip superpods + hyperscaler capex
-- Avoid the consensus-priced compute names (NVDA, AMD)
-
-Intentionally anti-fragile structure. Most positions win across multiple scenarios in `sector/scenarios.md` — they don't require NVDA-specific dominance to work. **The Physical AI primer Phase 1+2 + Google I/O event cascade VALIDATE the portfolio's "behind-the-front-line" framing structurally.**
-
-## Position multi-narrative scores (revised under Physical AI lens)
-
-| Position | Multi-narrative score | Sub-domains |
+| Position | Multi-narrative score | Notes |
 |---|---|---|
-| **Murata** | **7+/5** (Physical AI universal supplier) | MLCC across robotics + AI compute + AV (3-5K MLCCs per BEV) + AI-RAN + industrial + consumer |
-| **STM** | **6+/5** (Physical AI universal supplier + NXP MEMS Feb 2026 closing) | Power semi + MEMS + auto ADAS + industrial + AI-RAN |
-| **Corning (GLW)** | **3+/6** Physical AI tier-2 | Optical fiber for AI-RAN backhaul + datacenter + AV LIDAR glass + display |
-| **AXT** | **2/6** Physical AI partial | InP for optical interconnect + indirect compound-semi power electronics |
-| **Tower Semi (TSEM)** | **3+/6** Physical AI tier-2 | Specialty analog foundry for AV sensors + industrial |
-| **SK Hynix** | Memory-thesis (separate from Physical AI lens) | HBM for 5+ hyperscaler programs |
-| **NOW** | Agentic software | Direct beneficiary of Antigravity 2.0 multi-agent default UX |
-| **DDOG** | Agentic observability (NEW product category) | Direct beneficiary of agentic infra spend |
-| **Sandisk** | NAND / GIDS | AI storage for GPU-Initiated Direct Storage |
-| **Semtech (NEW)** | Signal integrity multi-narrative | Active Copper Cables hyperscaler design wins + LoRa IoT + AV (some) |
-| **T1 Energy** | Energy adjacent | US solar/battery for power infra demand |
-| **Hyperliquid** | Crypto-adjacent | Off-AI thesis |
+| **Murata** | **7+/5** Physical AI universal | MLCC universal across robotics + AI compute + AV + AI-RAN; AI server MLCC CAGR 30%; April 2026 confirmed 15-35% price hike |
+| **STM** | **6+/5** Physical AI universal | Sits on 2 of 3 investable robotics universals (power electronics + IMU/MEMS); NXP MEMS acquisition Feb 2026 closing; SiC caveat retained |
+| **ALAB (NEW)** | **5/5** AI fabric platform | Aries (CPU-GPU) + Scorpio (GPU-GPU) + aiXscale (CPO 2028); investment cycle reclassified from yellow flag |
+| **ARM (NEW)** | **5/5** CPU IP foundational | Mobile + datacenter + AGI CPU + edge; $2B AGI CPU FY27-28 backlog disclosed |
+| **HDS (NEW)** | **4/5** precision actuator joint-level specialist | Joint-payload <20kg + zero-backlash precision; full cobot/humanoid distal/surgical coverage; partial industrial arm wrist coverage |
+| **Corning (GLW)** | **3+/6** Physical AI tier-2 | Optical fiber + display + AV LIDAR glass; $6B Meta + NVDA $3.2B/10x deals |
+| **AXT** | **2/6** Physical AI partial | InP for optical interconnect; record $100M backlog Q1 CY26 |
+| **Tower Semi (TSEM)** | **3+/6** Physical AI tier-2 | Specialty SiPho; $1.3B 2027 SiPho contracts + 2028 model $2.8B |
+| **SK Hynix** | Memory thesis + iHBM thermal moat | 3-year capacity gap + MR-MUF moat + iHBM 30% thermal reduction (2026-05-25) |
+| **NOW** | Agentic software + rerating gap | 42.6% of post-split Jan 2025 ATH; Now Assist tracking $1.5B 2026 |
+| **DDOG** | Agentic observability | cRPO mid-40s% growing 12-13pp faster than revenue |
+| **SNDK** | NAND / AI storage | Q4 FY26 guide $7.75-8.25B; operating margin -1.2 → 69.1% over 4Q |
+| **SMTC** | Active Copper Cable + LPO | DC FY27 50%+ growth guided |
+| **T1 Energy** | Solar manufacturing + AI-adjacent via Supply Chain Inheritance (NEW reclass) | NVDA 800V DC rack arch credits EV/solar |
+| **Hyperliquid** | Crypto-adjacent | Off-AI thesis; user discretionary position |
 
-## Open questions
+## Notable observations
 
-1. **Cash dry powder remaining ~€29,867.** Sizing-matrix candidates surfaced but not yet acted on: ISRG (Physical AI surgical moat), HDS/Nabtesco (actuator choke point), Sony Semiconductor (Physical AI vision universal supplier), AVGO (TPU 8t Sunfish design win cleanest custom-Si beneficiary). Multi-horizon sizing matrix work would refine which deserve deployment.
+1. **Portfolio structure now spans 4 distinct AI-stack layers** (per the €35K deployment framework): precision actuators (HDS), power-electronics + IMU/MEMS universals (STM), CPU-to-GPU + GPU-to-GPU connectivity (ALAB), CPU IP + AGI CPU architecture (ARM)
+2. **CPU-exposure gap closed** — ARM was the only direct CPU play and was unheld per prior `bottleneck-map.md`. Now held at 6.45%.
+3. **TE reclassification updated** — from "NOT AI" to "AI-adjacent via Supply Chain Inheritance" per principle #28 + B29 codified 2026-05-26
+4. **iHBM event flowed through** to SK Hynix thesis (Long-Open runway candidate)
 
-2. **User's Murata + DDOG add execution aligned with recommendations** (multi-narrative overweight thesis), but the **STM modest-overweight recommendation NOT executed** (STM is actually slightly down in % terms vs prior). Question: was STM intentionally held flat, or pending review?
+## Open questions for user
 
-3. **Semtech (SMTC) addition is the user's independent thesis layer** — wasn't in my recommendation list. The thesis file `companies/SMTC/thesis.md` (last updated 2026-05-21) had SMTC as "Active candidate" with 2-3% target; user entered at 6.09%, materially above the candidate target. Worth reviewing for intentional overweight rationale.
+1. **Murata +22 shares + SK Hynix +3 shares** — were these intentional additions today? Or were they prior small additions I missed in my records?
+2. **HDS N26 fill details** — share count + price + currency for the €10K position so we can log BEP properly?
+3. **Any other N26 positions** beyond HDS that should be in the consolidated view?
+4. **Available cash post-execution** — Degiro screenshot doesn't show cash balance; rough estimate?
 
-4. **Hyperliquid position grew (€5,119 → €9,092)** despite being flagged off-AI-thesis. User's active position decision; not driven by AI framework.
-
-5. **Avg entry prices visible via BEP column** — useful for computing per-position unrealized P/L:
-   - Murata BEP €32.71 vs current €44.60 = +36% unrealized
-   - HYNIX BEP €844 vs current €1,140 = +35% unrealized
-   - Corning BEP $159 vs $193.86 = +22% unrealized
-   - Datadog BEP $203.37 vs $222.40 = +9.4% unrealized
-   - STM BEP $58.90 vs $66.85 = +13.5% unrealized
-   - AXT BEP $126.59 vs $140.63 = +11% unrealized
-   - NOW BEP $94.30 vs $102.13 = +8.3% unrealized
-   - Sandisk BEP $1,099.60 vs $1,477.91 = +34% unrealized
-   - Semtech BEP $154.68 vs $156.67 = +1.3% unrealized (recent entry)
-   - Tower Semi BEP $265 vs $283.90 = +7.1% unrealized
-   - T1 Energy BEP €5.90 vs €7.00 = +18.6% unrealized
-   - Hyperliquid BEP $8.32 vs $7.66 = **-7.9% unrealized (only loser)**
+## Files referenced
+- `research/portfolio/changes.md` — chronological trade log + planned trade announcements
+- `research/sector/themes.md` — T7 Supply Chain Inheritance theme (added 2026-05-26)
+- `research/meta/methodology.md` — principles #26, #27, #28 (latest)
+- `research/meta/biases-watchlist.md` — B28, B29 (latest)
+- `research/meta/2026-05-26-duration-of-relevance-scoring.md` — 22-name runway matrix
+- `research/meta/earnings-streak-stratification-2026-05-25.md` — 4-axis framework
+- `research/signals/events/2026-05-25-sk-hynix-ihbm.md` — iHBM thermal moat event
+- `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md` — Supply Chain Inheritance framework
