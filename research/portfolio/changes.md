@@ -56,4 +56,14 @@ Framework discipline check on ALAB add: validates Tier-A-new category in the 4-a
 
 Update post-execution: rewrite holdings.md with actual fills + log all 3 COMPLETED trades.
 
+[2026-05-26 PLANNED — ADDED to revised plan, fresh capital] BUY ARM (Arm Holdings) — **€10,000 planned entry as NEW POSITION** at next US market open. Decision triggered by user request for ARM due diligence + portfolio CPU-exposure-gap recognition + Long-Open-ended runway scoring per `research/meta/2026-05-26-duration-of-relevance-scoring.md`. Key inputs: ARM at-ATH (making new ATH 2026-05-26 per `research/meta/2026-05-26-ath-refresh-and-4092-prediction.md`); $2B AGI CPU FY27-28 backlog (doubled in 6 weeks per Q4 FY26 earnings); non-GAAP operating margin expanded from 39.1% (Q1 FY26) to 49.0% (Q4 FY26); ~50% hyperscaler CPU share per DCD; RISC-V is the only structural bypass and is 4-6 years from DC-scale viability. Alpha mechanism here is NOT pre-ATH rerating (ARM is at fresh ATH) — it is duration + AGI CPU catalyst (already triggered, not priced) + portfolio CPU-layer-exposure-gap closure. Position approximately ~€10K / ~€145K post-trade portfolio ≈ ~roughly 7% of portfolio (computed). Linked: `companies/ARM/thesis.md` + duration-of-relevance scoring file.
+
+[2026-05-26 PLANNED — fresh capital injection] User confirmed bringing in additional fresh capital (~€5,133 estimate to cover the gap, computed: €35,000 trade total - €29,867 current cash = ~€5,133 fresh-capital need; user may bring in more for ongoing dry powder). The STM €5K leg from yesterday's plan is RETAINED via this fresh capital. Final revised combined deployment 2026-05-26: **€35,000 total** (HDS €10K + STM €5K + ALAB €10K + ARM €10K).
+
+Updated post-execution residual cash (computed): close to €0 from existing dry powder + whatever surplus fresh capital the user brings in beyond €5,133 stays as new dry powder for next sizing matrix.
+
+Framework discipline check on ARM add: validates Tier-B-LATE-with-strong-continuation-anchor category from `research/meta/earnings-streak-stratification-2026-05-25.md` Axis-3+4 extension (2026-05-25). Combined with the HDS, STM, ALAB legs, the €35K deployment covers FOUR distinct AI-stack layers simultaneously: precision actuators (HDS), power-electronics + IMU/MEMS universals (STM, sits on 2 of 3 investable robotics universals per `research/meta/2026-05-26-three-thread-research.md`), CPU-to-GPU + GPU-to-GPU connectivity (ALAB), and CPU IP + AGI CPU architecture (ARM). Closes portfolio CPU-exposure gap noted in prior bottleneck-map.md (ARM was previously the only direct CPU play and was unheld).
+
+Update post-execution: rewrite holdings.md with actual fills for all FOUR trades + log all 4 COMPLETED trades + log the fresh-capital deposit amount.
+
 
