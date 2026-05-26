@@ -175,3 +175,46 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 - Duration: 2-3 years (Medium) confirmed
 - Pre-ATH gap: 42.6% of $239.62 Jan 2025 post-split ATH = largest current-business gap in universe per `meta/2026-05-26-ath-refresh-and-4092-prediction.md`
 - New falsifier added: Salesforce Agentforce displaces NOW at major CRM-adjacent customer; OR federal channel partner concentration triggers DOGE-driven revenue compression
+
+## Update 2026-05-26 — Renewal rate verified + Salesforce competitive depth comparison (Agent research)
+
+**Verified retention figures (primary-source):**
+- **Gross Renewal Rate Q1 2026: 97%** per [NOW Q1 2026 8-K](https://www.sec.gov/Archives/edgar/data/0001373715/000137371526000054/erq1fy26.htm) + [Q1 2026 earnings transcript Motley Fool](https://www.fool.com/earnings/call-transcripts/2026/04/22/servicenow-now-q1-2026-earnings-transcript/)
+- **Full years 2023, 2024, 2025: 98% Renewal Rate each year** per [NOW FY2025 ARS](https://www.sec.gov/Archives/edgar/data/1373715/000137371526000041/now2025ars.pdf)
+- Q3 2025 dipped from 98% to 97% due to one large US federal agency churn; excluding that event would have been 98%; Q1 2026 includes Moveworks integration normalization
+- **Methodology:** Renewal Rate = 100% minus attrition rate (ACV-weighted gross churn). This is NOT NDR (Net Dollar Retention).
+- NDR not formally disclosed; analyst estimates >120% (estimate, based on 22% subscription revenue growth + stable customer count)
+
+**Integration depth (primary-source):**
+- Total customers ~8,700 (Dec 2025)
+- 2,100+ customers >$1M ACV
+- 630 customers >$5M ACV (Q1 2026)
+- Average ACV per >$5M customer: **$14.9M** (Q1 2026 8-K)
+- Fortune 500 penetration ~85% (NOW FY2025 ARS)
+- ITSM market share 44.4% (#1) per [Gartner 2024 Market Share](https://www.servicenow.com/workflow/product-insights/technology-workflow-gartner-market-share.html)
+- Customers >$20M ACV grew >30% YoY in Q2 2025
+
+**Salesforce comparison (primary-source verified):**
+- Salesforce does NOT disclose a comparable renewal rate or NDR in SEC filings
+- The "98% retention" figure attributed to Salesforce in some commentary is incorrect — that's ServiceNow's number
+- Salesforce inferred metrics: RPO $72.4B (+14% YoY); >60% Q4 FY26 bookings from existing customer expansion; >70% Fortune 100 use Agentforce + Data Cloud; 150,000 total customers
+- Salesforce moat type = DATA + ECOSYSTEM embedding (AppExchange/AgentExchange 10,000+ apps, 14M installs)
+- NOW moat type = OPERATIONAL PROCESS embedding (workflows ARE the business process)
+
+**Different layers, different moats:**
+- NOW: fewer customers (~8,700) but DEEPER per-account embedding (custom workflow logic, 5-8 year deployments rewriting business process)
+- Salesforce: broader distribution (~150,000 customers; ~90% Fortune 500) but per-account switching cost at CRM layer is lower (CRM has known migration paths to MS Dynamics / HubSpot / Oracle CX / SAP CX)
+
+**Threat vector verified — Agentforce IT Service:**
+Salesforce launched Agentforce IT Service 2025 directly attacking NOW's CSM/Customer Workflows segment. Salesforce ships "AI agents included in base license" — undercuts NOW's 50-60% Now Assist pricing premium. Consumption-based pricing ($0.10/action) vs NOW seat-based. **This is the credible cannibalization risk for NOW's Customer Workflows segment specifically, NOT for ITSM core.**
+
+**NOW's structural defense:**
+- 44.4% ITSM dominance (#1 by wide margin); Salesforce ~2% ITSM market share entering
+- Microsoft Copilot is COMPLEMENTARY at ITSM core (Copilot Actions connect INTO ServiceNow workflows — does not replace)
+- Pilot-to-production conversion improved ~11% → ~31% (per Agent 4 research today) accelerates NOW's existing-base agentic conversion before Salesforce can displace
+- Displacement timeline at ITSM core: 3-5 years of competition required (not quarters)
+
+**Implication for thesis:**
+- Retention metric INTACT — 97% Q1 2026 is consistent with ServiceNow's historical 98% pattern; slip is one-quarter federal-specific
+- Salesforce Agentforce competitive risk is REAL at CSM/Customer Workflows layer; NOT a near-term ITSM-core threat
+- New watch item: Agentforce IT Service market share at NOW's incumbent customers + Now Assist seat-attach rate vs Agentforce per-action attach rate
