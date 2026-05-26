@@ -66,4 +66,14 @@ Framework discipline check on ARM add: validates Tier-B-LATE-with-strong-continu
 
 Update post-execution: rewrite holdings.md with actual fills for all FOUR trades + log all 4 COMPLETED trades + log the fresh-capital deposit amount.
 
+[2026-05-26 EXECUTED — HDS leg COMPLETED via non-Degiro platform] User confirmed HDS €10,000 has been EXECUTED via a different brokerage platform (not Degiro, which is the user's usual platform from which holdings screenshots are taken). Funded from fresh capital. **Multi-platform tracking implication:** Degiro screenshots will NOT show this HDS position; total portfolio AUM is now distributed across at least 2 platforms (Degiro + the other-platform). Need from user: (a) name of the other platform, (b) fill price + share count for HDS, (c) any other positions held on the non-Degiro platform that should be reflected in `holdings.md` consolidated view. Without these, the consolidated portfolio picture is incomplete.
+
+Remaining planned trades from the €35K plan (3 of 4 outstanding):
+- STM €5K (Degiro) — pending US market open today 2026-05-26
+- ALAB €10K (Degiro) — pending US market open today 2026-05-26
+- ARM €10K (Degiro) — pending US market open today 2026-05-26
+- Total remaining: €25K from existing Degiro cash €29,867 → ~€4,867 Degiro residual post-execution (computed)
+
+Updated post-execution residual cash (computed): ~€4,867 Degiro residual + any fresh-capital surplus beyond the €10K already deployed for HDS. The €5K fresh-capital-for-STM injection mentioned earlier is NOT needed since the existing Degiro cash covers STM/ALAB/ARM cleanly.
+
 
