@@ -98,6 +98,29 @@ Updated post-execution residual cash (computed): ~€4,867 Degiro residual + any
 
 [2026-05-26 EXECUTED — Degiro, unplanned] BUY SK Hynix GDR — **+3 shares; total now 13 @ BEP €931.92** (BEP shifted €844.00 → €931.92 — large upward shift confirming significant add at higher price). Estimated ~€3,780 deployed. NOT IN PRIOR TRADE PLAN — flagged as discrepancy in `holdings.md` 2026-05-26 update for user confirmation. Source: Degiro screenshot 2026-05-26 16:55.
 
+## 2026-05-26 — Verified rationale for Murata + SK Hynix adds (no longer "unplanned")
+
+User clarification 2026-05-26: the Murata + SK Hynix adds today were intentional, acting on the Physical AI primer multi-narrative recommendation that surfaced during the cross-AI-sector analysis (physical AI + robotics + AI data centers + AI chip design).
+
+**Murata add justification (framework-verified):**
+- Highest multi-narrative score in universe: **7+/5** per `research/wiki/physical-ai-primer.md` line 22 + `research/companies/MURATA/thesis.md` line 378
+- Coverage: mobile + auto (BEV 3K-5K MLCCs vs ICE 1.2K-1.5K) + industrial + medical + AR/VR + security + AI-RAN + robotics PCBs + AI compute boards
+- Physical AI primer (2026-05-25) explicit recommendation: *"Both [Murata + STM] deserve sizing-up consideration under Physical-AI-multi-narrative lens"*
+- Citrini Research 2026-05-12 reinforces independently: 10x MLCCs per AI server vs crypto miner; share price doubled in 2019-21 crypto-mining MLCC shortage
+- Add of +22 shares (~€967 deployed) takes position from 16.77% → 12.35% (% denominator shifted due to total portfolio growth from €110K → €155K)
+
+**SK Hynix add justification (framework-verified via different multi-narrative axis):**
+- Different multi-narrative axis: AI workload types (training + inference + custom-Si + sovereign) × structural-moat stacking (supply + packaging + thermal)
+- Three moats stacking: mgmt-confirmed 3-year capacity gap (supply) + MR-MUF process advantage (packaging) + iHBM 30% thermal resistance reduction (thermal — 2026-05-25 event)
+- 5+ hyperscaler programs simultaneously (NVDA Blackwell + Google TPU + AWS Trainium + Meta MTIA + MS Maia)
+- HBM4 → HBM4E → HBM5 generational compounding
+- Citrini Research 2026-05-12 "Korea Unlocked" theme reinforces (full body not yet ingested)
+- Add of +3 shares (~€3,780 deployed) takes position from 10.33% → 10.53%
+
+**Reclassification of these adds:** From "unplanned discrepancy" to **"FRAMEWORK-ALIGNED but pre-execution announcement missing."** User acted on recommendations from existing research files; communication gap was on user-to-OS direction, not on framework discipline. No corrective action needed beyond logging the verified rationale.
+
+Combined intentional deployment 2026-05-26 (across both platforms): €35K planned (HDS €10K + STM €5K + ALAB €10K + ARM €10K) + ~€4,747 in framework-aligned Murata + SK Hynix adds = **~€39,747 total deployment**, of which ~€10K was N26 fresh capital and ~€29,747 was Degiro existing cash + STM €5K fresh capital. Degiro residual cash post-execution: low single digits / near zero.
+
 ## Net consolidated change summary
 
 - Pre-deployment (2026-05-25): €110,395.80 Degiro shares + €29,867.21 Degiro cash = €140,263.01 total
