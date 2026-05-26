@@ -134,3 +134,26 @@ The test bifurcates SNDK exposure:
 **Implication for existing 9.20% Core position:** SNDK at +34% unrealized (BEP $1,099.60 vs current $1,477.91) already partially reflects the AI-storage thesis materializing. The structural-vs-cyclical mix question is the open variable — if AI-storage revenue mix continues growing, structural framing strengthens. If consumer NAND cycle reverts, cyclical framing returns. **The hybrid case requires monitoring segment-mix evolution, not single classification.**
 
 No tier change; this is a refinement-of-framing rather than thesis-change. The TrendForce HBF correction earlier this week + GIDS thesis already had the AI-inference-storage exposure framed; principle #26 adds the explicit cyclical-vs-structural test discipline.
+
+## Update 2026-05-26 — $42B backlog + mid-70s% datacenter growth guidance raise + Vera Rubin 10× SSD content (Agent 4 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**Strongest forward-visibility disclosure in held universe** per Q3 FY2026 results:
+- **$42B minimum contractual revenue backlog + $11B enforceable financial guarantees** from 5 signed NBM (New Business Model) multi-year supply agreements per [Sandisk IR](https://investor.sandisk.com/news-releases/news-release-details/sandisk-reports-fiscal-third-quarter-2026-financial-results)
+- **Over 1/3 of FY2027 bit supply now contracted**
+- Datacenter sector growth guidance RAISED to **"mid-70s%"** (from prior "60s%") per [Alphastreet transcript](https://news.alphastreet.com/sandisk-corporation-sndk-q3-2026-earnings-call-transcript/)
+- Q3 FY26 datacenter revenue **$1.47B = +645% YoY, +233% sequential**
+- Q4 FY26 guide $7.75-8.25B (+35% sequential at midpoint)
+- Non-GAAP gross margin 78.4% (up from 51.1% sequential)
+- QLC Stargate entering volume shipment Q4 FY26 (next quarter catalyst)
+
+**Critical new BOM-level demand multiplier:**
+**Vera Rubin accelerator incorporates ~1,152 TB of SSD capacity, more than 10× prior Blackwell model** per [NAND Research May 2026](https://nand-research.com/memory-nand-flash-crisis-may-2026-update/) (referenced in Agent 4 research; site access limited).
+
+**Management framing (Goeckeler):** demand driven by "inference, reasoning, and agentic systems" — "structural and durable shift" framing per [Yahoo Finance earnings highlights](https://finance.yahoo.com/markets/stocks/articles/sandisk-corp-sndk-q3-2026-071938558.html).
+
+**Implication for thesis:**
+- Duration: 18-24 months (Medium-Short) — bounded by NBM contract structure + supply wall (new NAND fab capacity arriving late 2027/2028 per [Tom's Hardware](https://www.tomshardware.com/pc-components/storage/perfect-storm-of-demand-and-supply-driving-up-storage-costs))
+- P(bull) likely should move higher than prior thesis (50% framing) given NBM lock-in + datacenter growth-rate raise
+- Holding at 7.09% — bull-case fundamentals strongly reinforced; sizing consideration: NBM contract structure is binding-constraint visibility at scale, but supply-wall arrival post-2028 returns cyclicality risk

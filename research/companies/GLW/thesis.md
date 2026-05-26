@@ -393,3 +393,23 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Update 2026-05-26 — Feynman 2028 CPO compression risk (Agent 1 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**New watch item:** NVDA Feynman (2028) requires **co-packaged optics (CPO) MANDATORY** for NVLink switches per NVDA "5 years ahead of schedule" framing (cited in Agent 1 research). CPO transition does NOT eliminate fiber demand entirely — longer runs (rack-to-rack, datacenter-to-datacenter) remain unaffected — but rack-level intra-rack fiber demand may compress 2028+.
+
+**Material BUFFER:** GLW's multi-year contract anchors run through 2030:
+- $6B Meta multi-year supply agreement
+- $3.2B NVDA partnership + 10x US optical capacity + 3 new factories (NC + TX)
+- Springboard plan upgraded to $11B incremental annualized sales by 2028
+
+These contracts SECURE volume through the CPO-transition window even if rack-level intra-rack fiber TAM compresses post-2028.
+
+**Implication for thesis:**
+- Duration: Long (3-4 years) intact — multi-year contracts through 2030 dominate the CPO-2028 compression risk
+- New watch item: CPO pull-forward beyond Feynman timing (compression of rack-level fiber demand earlier than 2028) OR Meta/NVDA contract renegotiation
+- The fiber TAM compression is more 2030+ than 2028 — GLW thesis runway intact
+
+**Falsifier reinforcement:** US tariff policy reversal; Springboard plan execution slip below $11B incremental annualized 2028; CPO pull-forward beyond Feynman timing materially compressing rack-level fiber demand.

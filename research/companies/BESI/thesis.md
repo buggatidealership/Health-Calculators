@@ -119,3 +119,22 @@ Dutch hybrid bonding equipment leader with **<10nm precision moat** — best-in-
 Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
 
 **2nd-order positive (P~60%).** SK Hynix iHBM reduces thermal resistance 30% at the D2D PHY interface — relieves the thermal ceiling that has been the practical limit on HBM4 16-Hi stack feasibility industry-wide. More feasible HBM stack heights (20-Hi+) = more dies stacked per HBM package = more hybrid bonding operations per stack. BESI's <10nm hybrid-bonding precision moat becomes more valuable as HBM5 generation transitions get pulled forward. Reinforces existing thesis runway scoring (Long 3-5y per duration matrix). Customer base 18→20 in single quarter pattern likely extends.
+
+## Update 2026-05-26 — TCB vs hybrid bonding qualification correction (Agent 1 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**Critical correction to prior thesis-timing framing:**
+
+Per Agent 1 research:
+- **ASMPT TCB is the current primary qualification vehicle for HBM4 16-Hi** at the lead memory customer, NOT BESI hybrid bonding
+- ASMPT secured 4 chip-to-wafer ultra-fine pitch TCB tools from a leading customer (2 in Feb 2026, 2 subsequently)
+- BESI hybrid bonding remains the only sub-micron-accuracy tool capable of 16-Hi and 24-Hi stacking, BUT hybrid bonding pull-in did NOT happen as fast as some analysts modeled (BESI Q1-Q3 2025 orders DOWN 6.5% YoY before Q4 recovery)
+- **BESI mandatory-for-volume threshold shifts from HBM4 (2026-2027) to HBM5 (2028-2029)** per [Lumen Alpha analysis](https://lumenalpha.substack.com/p/besi-asmpt-hanmi-and-hanwha-what)
+
+**Implication for BESI thesis:**
+- BESI's Q1 CY26 record orders €269.7M (+104.5% YoY) and customer base 18→20 single quarter are REAL — but reflect mid-cycle qualification + early HBM4 deployment, NOT yet the full mandatory-volume threshold
+- The "mandatory hybrid bonding at volume" peak revenue event shifts ~1-2 years vs the most aggressive prior framing
+- Duration remains Long (3-5 years) — the HBM5 (2028-2029) mandatory hybrid-bonding transition is the structural anchor; near-term competitive landscape is BESI + ASMPT duopoly
+
+**Falsifier reinforcement:** ASMPT achieves hybrid-bonding precision parity with BESI; Kulicke & Soffa or Applied Materials enters production-scale hybrid bonding; HBM5 timeline slips beyond 2029.

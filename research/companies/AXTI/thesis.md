@@ -249,3 +249,24 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Update 2026-05-26 — Coherent vertical integration partial bypass (Agent 2 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**New competitive development:** Coherent established **6-inch InP wafer fabrication capability in Sherman, Texas** with $154M investment + $14M TSIF grant per [Semiconductor Today](https://www.semiconductor-today.com/news_items/2026/feb/coherent-090226.shtml). Targeting doubling of internal capacity by Q4 2026.
+
+**Implication for AXT:**
+- **Partial bypass for Coherent-specific revenue** — Coherent will source less from AXT for its own production
+- **Net effect: LENGTHENS AXT duration for non-Coherent customers** (removes one demand source from the open market, tightening supply for remaining customers Lumentum, Marvell, II-VI's other product lines, AI-DC optical players)
+- **SHORTENS Coherent-specific revenue potential** for AXT
+
+**Global InP supply-demand gap remains ~70%** per [semiconductorinsight.com InP substrate market report](https://semiconductorinsight.com/report/inp-substrate-market/). InP supply gap is the binding constraint; Coherent's vertical integration adds ~140K wafers/year to global supply but the gap is still large.
+
+**Silicon photonics substitution caveat:** Heterogeneous integration (InP-on-Si) STILL consumes InP substrates — it shifts where the InP chip is made, not whether InP is needed. Monolithic Si-Ph without InP lasers remains pre-production; tier-1 InP substitution earliest 2029+.
+
+**Implication for thesis:**
+- Duration: **Long (3-4 years) for non-Coherent customers**; Medium for Coherent-specific revenue
+- AXTI capacity-doubling 2026 + planned double again 2027 (Tongmei $632.5M raise, per Agent 2 — treat as approximate) remains framework-aligned
+- Record $100M InP backlog Q1 CY26 reflects industry-wide demand absorption ahead of Coherent self-supply ramp
+- New falsifier added: Chinese InP qualification at Western tier-1 customer (Lumentum, Marvell) within 12 months; OR Coherent fully self-supplies AND materially reduces AXT volume; OR silicon photonics monolithic light-source breakthrough pre-2028

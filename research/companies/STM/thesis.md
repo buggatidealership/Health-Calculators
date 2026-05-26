@@ -238,3 +238,21 @@ Per `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md` + m
 **Caveat retained from duration scoring (`research/meta/2026-05-26-duration-of-relevance-scoring.md`):** STM is NOT a moat-holder in SiC the way DISCO is in dicing or BESI is in hybrid bonding. Bypass routes are FUNCTIONAL today — Wolfspeed, onsemi, Infineon, Rohm all qualified for AI-DC SiC. STM's advantage is design partnerships (NVDA co-development for 800V) + manufacturing breadth + MEMS+power+auto multi-narrative — not exclusivity. The Post-Traumatic Supply Disorder framework helps STM benefit from industry-wide capex discipline, but does NOT make STM uniquely positioned vs the alternative-supplier set.
 
 **Implication for today's planned €5K add:** Framework-aligned but caveat-flagged. The Physical AI multi-narrative scoring (STM sits on 2 of 3 investable robotics universals per `research/meta/2026-05-26-three-thread-research.md`) is the dominant rationale, not the AI-DC SiC ramp specifically. The €5K add remains supported; further sizing above this would need to verify Post-Traumatic Supply Disorder is delivering for STM specifically (not just at the analog/power-semi industry level).
+
+## Update 2026-05-26 — SiC competitive intensity update (Agent 4 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**Wolfspeed exited Chapter 11 September 29, 2025** with $4.6B debt eliminated per [Wolfspeed press release](https://www.wolfspeed.com/company/news-events/news/wolfspeed-successfully-completes-financial-restructuring-emerges-as-financially-stronger-company-well-positioned-in-silicon-carbide-market/). A restructured, lower-cost-structure Wolfspeed is a more formidable competitor than a balance-sheet-impaired one. The OS prior thesis listed Wolfspeed as "qualified bypass route" — the emergence of a financially healthy Wolfspeed strengthens that bypass.
+
+**Other competitive intensity updates:**
+- onsemi AI-DC revenue exceeded $250M FY2025; acquired SiC JFET technology to enhance AI-datacenter power portfolio
+- Navitas Semiconductor streamlined go-to-market to focus on "high-power GaN and SiC for AI datacenters" (per Q1 2026 8-K)
+
+**Sustained inference duty cycle confirmed:** Production inference workloads plan for 85% average utilization; H100 ~700W TDP, B200 ~1,000W TDP; 8-GPU server draws 10-10.5 kW including overhead per [Spheron inference power guide 2026](https://www.spheron.network/blog/ai-inference-power-electricity-cost-2026/). This QUANTIFIES the duty-cycle mechanism behind STM's DC revenue trajectory (>$500M FY26 → >$1B FY27).
+
+**Implication for thesis:**
+- SiC-specific narrative duration: shortened to 2-3 years (Medium) given competitive intensity
+- Overall STM multi-narrative (6+/5 per Physical AI primer + NXP MEMS) duration: Long 3-4 years intact
+- STM's moat is NOT SiC exclusivity — it's MEMS + power + auto ADAS + industrial + AI-RAN + edge breadth
+- Planned €5K add 2026-05-26 framework-aligned BUT the duration of pricing-power on the SiC sub-leg has been re-scoped vs the most aggressive prior framing

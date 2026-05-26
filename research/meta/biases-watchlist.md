@@ -467,6 +467,52 @@ Both failures share the same root cause: source-reputation is being used as a su
 
 ---
 
+### B30 — Customer-share-shift anchoring (treating one customer's strategic choice as company-wide thesis change)
+
+**Origin:** User correction 2026-05-26 after I framed HDS's Tesla situation as a "duration downgrade" because Tesla dual-sourced strain-wave actuators with Green Harmonic (China). User pushback verbatim: *"having the Tesla downgrade does not materially change or might potentially not change the thesis downstream that much as in if the component that is required that Harmonic Drive system is built or whatever they servicing... If the robotics segment that they cater towards or the physical AI segment they cater towards is growing and is gonna become a binding constraint or potentially a binding constraint... then the Tesla is not a downgrade per se. It's an adjustment, sure, on something maybe to note. But if there's still the chance that what... how many cloud systems deliver is in massive need because of the growth in robotic or if you see double digit growth in robotics, then it makes sense. Does it not have any other tangential AI specific narrative? Just as, for example, you initially missed the t one energy correlation to to the AI infra. Maybe you missed one here as well."*
+
+**Pattern:** Treating a single customer's strategic share-shift (e.g., Tesla dual-sourcing component supply) as if it were equivalent to market-wide market-share erosion. The failure mode shows up at the duration-scoring step where one customer's decision gets read as the company's thesis-runway compression. Misses: (a) the customer's % of total revenue, (b) the broader market trajectory the supplier serves, (c) tangential AI narratives the supplier participates in beyond the headline customer.
+
+**Distinction from related biases:**
+- B15 (revenue-mix-anchoring): operates AFTER the company is in the AI universe; goes below revenue mix to BOM-level. B30 operates at the duration-scoring step — one customer's decision being mistaken for the whole story.
+- B29 (label-anchoring at AI-relevance classification): operates at the AI-relevance gate (in/out of universe). B30 operates at the duration-scoring step (how long does the position's strength last).
+- Both B29 and B30 share the same meta-failure: anchoring on a surface signal (marketed label / single customer decision) rather than the underlying supply-chain / market positioning. Both are operational extensions of principle #28's supply-chain-reality test discipline.
+
+**Manifestation 2026-05-26:**
+- Earlier I framed "Tesla DUAL-SOURCED with Green Harmonic" as eroding HDS positional strength at the Tesla account: "1-2 years eroding at Tesla specifically" sub-narrative downgrade
+- I failed to ask: Tesla is what % of HDS revenue? (Likely small — Tesla Optimus is at <1,000 units pilot scale Q1 2026)
+- I failed to ask: what's the broader market trajectory? (Industrial robots +56.7% CAGR, surgical robotics durable, humanoid market $52M → $580M 2032 per OS robotics primer)
+- I failed to identify HDS's tangential AI narrative — **semi cap-equipment (35-40% of harmonic-drive usage globally per `companies/HDS/thesis.md` line 9)** which directly benefits from AI capex (TSMC CoWoS expansion + BESI hybrid bonding ramp + DISCO dicing + ASMPT TCB + ASML/AMAT/LRCX tool production)
+- I failed to enumerate broader humanoid OEM optionality (Agility Digit RaaS at GXO, Figure 02 BMW, Apptronik Apollo Mercedes — HDS supplier status not publicly confirmed at any, meaning OPTION VALUE exists)
+
+**The structural fix (extension of principle #28):**
+For any per-position duration scoring, before treating a single customer's decision as a thesis-compressing signal, run the customer-share-shift discipline:
+1. Quantify the customer's % of total revenue (or % of total relevant segment revenue)
+2. Identify the broader market trajectory the supplier serves
+3. Enumerate tangential AI narratives the supplier participates in beyond the headline customer
+4. Distinguish CUSTOMER-SHIFT (single-customer share movement) from MARKET-WIDE SHARE EROSION (industry-wide share movement)
+5. If the company has multi-customer + multi-segment + multi-narrative optionality, a single customer's decision is an ADJUSTMENT to note, not a duration downgrade
+
+**Correction (mandatory per principle #28 extension):**
+1. For any per-position duration scoring where a single-customer disclosure has emerged (positive or negative), apply the customer-share-shift discipline
+2. Map the customer to its % of supplier revenue (estimate if not disclosed)
+3. Map the broader market trajectory the supplier serves
+4. Enumerate at least 2 tangential AI narratives the supplier participates in beyond the headline customer
+5. If the broader market is growing toward binding-constraint AND the supplier has multi-customer optionality, the customer-share-shift is an adjustment, not a duration compression
+
+**Retroactive application (HDS):**
+- Prior framing: "Tesla account share eroding to Green Harmonic = 1-2 year sub-narrative downgrade"
+- Customer-share-shift discipline: Tesla is one customer of many; <1,000 units pilot scale Q1 2026
+- Broader market trajectory: humanoid robotics growing 46.3% CAGR ($52M 2025 → $580M 2032 per OS robotics primer); industrial robots growing; surgical robotics ISRG da Vinci 5 ramp +58% YoY placements
+- Tangential AI narratives: **SEMI CAP-EQUIPMENT (~35-40% of HDS revenue per `companies/HDS/thesis.md` line 9)** = direct AI-binding-constraint exposure via TSMC CoWoS / BESI hybrid bonding / DISCO dicing / ASMPT TCB / ASML EUV tools; **surgical robotics** (~30%+ HDS share per IntelMarketResearch); **broader humanoid OEM optionality** (Figure / Apptronik / Agility public actuator supplier disclosure absent — option value)
+- Verdict: Tesla share-shift is an ADJUSTMENT to note, NOT a duration compression. HDS broader thesis runway 3-5 years (Long) intact.
+
+**How to check:** Before any duration-scoring downgrade triggered by a single-customer disclosure, force the question — "did I run the customer-share-shift discipline (4 steps above), or did I anchor on one customer's decision as if it were market-wide?" If only the customer-specific decision was assessed, B30 has fired — go back and run the broader discipline.
+
+**Hook enforcement:** deferred. Mechanical detection of "customer-share-shift anchoring" requires semantic reasoning about supplier-customer mapping + market segmentation. Best enforced as principle #28 extension + the 4-step customer-share-shift discipline as a mandatory gate before duration-downgrade triggered by single-customer disclosures.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

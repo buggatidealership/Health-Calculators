@@ -72,3 +72,50 @@ Framework alignment:
 - User chose HDS-only execution (no Nabtesco parallel position) — clean alignment with revised recommendation
 
 Tier status: upgrades from "Watchlist" to **HELD (pending execution)**. Post-fill: update tier to HELD, update holdings.md, log fill in changes.md.
+
+## Update 2026-05-26 — CORRECTED Tesla framing + missed semi cap-equipment AI narrative (per B30 + principle #28 extension)
+
+**Prior framing miss (per B30 codified 2026-05-26):** I framed "Tesla DUAL-SOURCED with Green Harmonic" as eroding HDS positional strength ("1-2 years eroding at Tesla specifically" sub-narrative downgrade). This was customer-share-shift anchoring — treating ONE customer's decision as if it were market-wide share erosion.
+
+**Corrected framing per principle #28 customer-share-shift discipline:**
+
+1. **Tesla as % of HDS revenue:** Tesla Optimus production at <1,000 units pilot scale Q1 2026 — material contribution to HDS revenue likely <few % at current scale. Tesla is one customer of many, not a dominant share.
+
+2. **Broader market trajectory:**
+   - Humanoid robotics: $52M 2025 → $580M 2032 at 46.3% CAGR (per `research/wiki/robotics-primer.md` Phase 2 verified data)
+   - Industrial robots: Japan Robot Association Q1 2025 orders +32.2% YoY (per Agent 3 research 2026-05-26)
+   - Surgical robotics: ISRG da Vinci 5 +58% YoY placements (232 of 431 Q1 2026 placements per ISRG Q1 CY26 8-K)
+   - All three segments growing double-digit toward binding-constraint scale
+
+3. **Tangential AI narratives BEYOND humanoid (the critical miss):**
+   - **SEMI CAP-EQUIPMENT (~35-40% of harmonic-drive usage globally per this thesis file line 9) — DIRECT AI exposure via:**
+     - TSMC CoWoS-L expansion (130-150K wpm exit-2026 → 170K wpm exit-2027 per Agent 1 research) — more wafer-handling robotics tools
+     - BESI hybrid bonding ramp (customer base 18→20 single quarter; record Q1 CY26 orders €269.7M) — more BESI tools = more strain-wave gear content
+     - ASMPT TCB for HBM4 16-Hi qualification (record bookings $727M Q1 CY26)
+     - DISCO 6 consecutive record years for wafer dicing
+     - ASML EUV systems + AMAT/LRCX deposition/etch + Rigaku metrology = strain-wave gear content per tool
+   - **Surgical robotics (~30%+ HDS share per IntelMarketResearch)** — durable 5+ year duration; ISRG da Vinci 5 ramp validates
+   - **Broader humanoid OEM optionality:**
+     - Agility Digit at GXO (industry-first commercial humanoid RaaS, 100K totes processed) — actuator supplier NOT publicly confirmed
+     - Figure 02 BMW Spartanburg (90K+ components, 30K BMW X3 assist) — supplier NOT confirmed
+     - Apptronik Apollo (Mercedes + GXO + Jabil pilots) — supplier NOT confirmed
+     - HDS has OPTION VALUE across multiple Western humanoid OEMs even if Tesla shifts toward Chinese supply
+
+4. **Customer-shift vs market-wide-erosion distinction:**
+   - Tesla dual-sourcing = CUSTOMER-SHIFT (one customer's decision)
+   - Market-wide share erosion would require Chinese suppliers qualifying at multiple tier-1 Western OEMs simultaneously — NOT confirmed at Figure / Apptronik / Agility / ISRG / semi cap-equipment customers
+
+5. **Verdict:** Tesla share-shift is an ADJUSTMENT to note, NOT a duration compression. HDS broader thesis runway 3-5 years (Long) intact. Tangential AI exposure via semi cap-equipment (35-40% of revenue) was UNDERWEIGHTED in prior framing — this is a direct AI-capex beneficiary narrative that I missed.
+
+**Revised duration scoring:**
+- Prior: "3-5 years Western non-Tesla; 1-2 years eroding at Tesla specifically"
+- **CORRECTED: 3-5 years (Long) overall — diversified revenue base + semi cap-equipment AI exposure + surgical durable + multi-humanoid optionality.** Tesla-specific subnarrative is a watch item (note), not a duration anchor.
+
+**FY27 guidance reinforces the corrected framing:**
+Operating profit +141.5% YoY to ¥6,200M; management humanoid orders "could double or triple in FY27" (per BigGo Finance TDNET FY26 results). This guidance is broad-based recovery + humanoid pull-through, NOT Tesla-specific.
+
+**Falsifier updates:**
+- Falsifier #1 (Chinese suppliers reach Western OEM qualification): PARTIALLY firing at Tesla via Green Harmonic; NOT firing at Figure / Apptronik / Agility / ISRG (no public disclosure). Watch list: Figure or Apptronik disclosing Chinese strain-wave supplier qualification.
+- NEW Falsifier added: Semi cap-equipment AI-capex slowdown (e.g., TSMC CoWoS expansion pause OR BESI hybrid bonding order decline) — would compress the 35-40% revenue exposure narrative.
+
+**Meta-lesson per user 2026-05-26:** mistakes are fine if encoded. The corrective action is: (a) B30 codified (customer-share-shift anchoring); (b) principle #28 extended; (c) this thesis update with the corrected framing; (d) HDS sizing unchanged from 6.43% (the corrected framing reinforces, not erodes, the position).

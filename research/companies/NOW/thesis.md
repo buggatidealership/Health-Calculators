@@ -157,3 +157,21 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **3rd-order strengthened — useful-AI inflection drives enterprise agentic adoption acceleration.** User-articulated framing 2026-05-25: conversational AI (1x compute per interaction) → useful agentic AI (10-1000x compute per task). NOW becomes the enterprise integration + workflow orchestration layer for sustained multi-step agentic compute campaigns. Enterprise spend shifts from "chat seat licenses" to "compute capacity reservations" — the workflow-automation layer captures the integration value. Reinforces existing Google I/O 2026 cascade (Antigravity 2.0 multi-agent orchestration as default UX). No tier change; sizing-matrix consideration: 9.77% remains appropriate Core allocation.
+
+## Update 2026-05-26 — Now Assist target raised + Salesforce Agentforce competitive intensity (Agent 4 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**Now Assist target raised from $1B to $1.5B 2026 ACV** per Q1 FY26 earnings call (CEO Bill McDermott; per [Alphastreet transcript](https://news.alphastreet.com/servicenow-inc-now-q1-2026-earnings-call-transcript/)). Moveworks rebranded EmployeeWorks; grew 5× YoY with more Q1 deals than all of prior year per [ServiceNow Newsroom](https://newsroom.servicenow.com/press-releases/details/2026/ServiceNow-launches-Autonomous-Workforce-that-thinks-and-acts-adds-Moveworks-to-the-ServiceNow-AI-Platform/default.aspx). $1M+ Now Assist customers grew 130% YoY.
+
+**New competitive risk (material):**
+**Salesforce Agentforce now $800M ARR + 169% YoY growth + 29,000 deals (+50% QoQ)** per [Salesforce Q4 FY26 8-K](https://www.sec.gov/Archives/edgar/data/0001108524/000110852426000056/crm-q4fy26xexhibit991.htm). Aggressive at CSM/CRM layer (NOW Customer Workflows segment specifically). Microsoft Copilot remains complementary at ITSM core (no new disconfirming evidence). Domain split: NOW owns ITSM/operations; Salesforce owns CRM workflows.
+
+**Federal exposure quantified:** US federal = 19% of accounts receivable + 12% of total revenues Q1 FY26 per [SEC 10-Q](https://www.sec.gov/Archives/edgar/data/0001373715/000137371526000056/now-20260331.htm). Single channel-partner concentration creates DOGE-driven revenue compression risk previously not quantified in falsifiers.
+
+**Pilot-to-production conversion accelerant:** Enterprise pilot-to-production graduation rate improved from ~11% to ~31% per Q1 2026 enterprise data (Agent 4) — direct accelerant for NOW's enterprise agentic adoption.
+
+**Implication for thesis:**
+- Duration: 2-3 years (Medium) confirmed
+- Pre-ATH gap: 42.6% of $239.62 Jan 2025 post-split ATH = largest current-business gap in universe per `meta/2026-05-26-ath-refresh-and-4092-prediction.md`
+- New falsifier added: Salesforce Agentforce displaces NOW at major CRM-adjacent customer; OR federal channel partner concentration triggers DOGE-driven revenue compression

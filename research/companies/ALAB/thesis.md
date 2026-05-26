@@ -263,3 +263,28 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
 
 **3rd-order positive (P~40%).** SK Hynix iHBM enables higher TDP envelopes per AI accelerator + higher feasible HBM stack heights (20-Hi+). More compute per rack → more fabric switching needed → reinforces ALAB Scorpio scale-up demand. Also reinforces aiXscale Photonics CPO 2027-2028 roadmap because higher compute densities ultimately require optical fabric beyond copper SerDes limits. No tier change; reinforces today's planned €10K add.
+
+## Update 2026-05-26 — Feynman 2028 CPO MANDATORY anchors aiXscale 2027-2028 window (Agent 1 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**Critical new disclosure:** NVDA Feynman (2028) is the first NVDA platform to require **co-packaged optics (CPO) MANDATORY** for NVLink switches. NVIDIA framed this as "five years ahead of schedule" per [Tom's Hardware](https://www.tomshardware.com/tech-industry/semiconductors/nvidia-enterprise-roadmap-rubin-rubin-ultra-feynman-and-silicon-photonics) + [WCCFTech](https://wccftech.com/nvidia-fast-forwarded-co-packaged-optics-five-years-ahead-arriving-with-feynman-gpus/). Full optical NVLink enables scale-up to 576 or 1,152 GPU packages.
+
+**Implication for ALAB / aiXscale:**
+- aiXscale Photonics acquisition (Nov 2025, $31.1M) positioned exactly for the Feynman 2028 CPO transition
+- Three-stage ALAB optical product plan per Q1 2026 earnings:
+  1. High-density fiber couplers (aiXscale IP) — volume shipment 2027
+  2. NPO chipsets — revenue ramp 2027
+  3. Full CPO for Scorpio switches — 2028+
+- The NVDA "5 years ahead of schedule" framing HARDENS the window where ALAB's optical buildout becomes investable
+- Duration anchored at Long-Open-ended (4-5+ years) per `meta/2026-05-26-positional-strength-duration.md`
+
+**Competitive landscape:**
+- Marvell Teralynx fabric switch silicon (development; 2028+ at earliest competitive)
+- Broadcom scale-up Ethernet (architectural alternative)
+- Lightmatter Passage photonic interposer (different topology — could displace Scorpio in next-gen)
+- Hyperscaler internal designs
+
+**Reinforces existing thesis:** ALAB transitions from copper-only AI fabric to vertically integrated copper+optical AI fabric platform addressing $20B merchant scale-up switching TAM by 2030.
+
+**Falsifier reinforcement:** 2027 NPO volume shipment milestone misses; aiXscale founder retention failure (Witzens + Merget); ESUN open-source architecture (Meta + AMD + Broadcom + Marvell) excludes ALAB.

@@ -271,3 +271,19 @@ Per `research/meta/methodology.md` principle #26 codified 2026-05-25:
 - Any of the above → re-classify back toward cyclical framing
 
 **Implication for existing 10.33% Core position:** the structural-classification framing INCREASES sizing-matrix conviction. Position remains Core; the multi-quarter re-rating thesis (EPS revisions + multiple expansion) is a 12-18 month catalyst window per principle #26 sell-side-framework-lag dynamic (2-4 quarters re-rating cycle). No tier change; reinforces existing thesis.
+
+## Update 2026-05-26 — Rubin Ultra H2 2027 HBM4E 16-stack BOM confirmation (Agent 1 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**First confirmed Rubin Ultra memory specification:** NVDA Rubin Ultra (VR300) launches H2 2027 with **16 stacks of HBM4E per GPU package, 1 TB HBM4E per GPU, 32 TB/s bandwidth per GPU** per [VideoCardz](https://videocardz.com/newz/nvidia-unveils-rubin-ultra-with-1tb-hbm4e-memory-for-2027-feynman-architecture-in-2028) + [Tom's Hardware](https://www.tomshardware.com/pc-components/gpus/nvidias-vera-rubin-platform-in-depth-inside-nvidias-most-complex-ai-and-hpc-platform-to-date). NVL576 rack specs: 576 GPUs / 144 GPU packages; 4.6 PB/s HBM4E aggregate; 365 TB total fast memory; 15 Exaflops FP4 inference; 600 kW per rack.
+
+**Implication for SK Hynix duration:**
+HBM4E mass production target (SK Hynix Q1 CY26 earnings: samples H2 2026, mass production 2027) ALIGNS PRECISELY with Rubin Ultra H2 2027 shipment window. Any HBM4E production slip directly delays Rubin Ultra ramp = continued HBM4 12-Hi pricing power in interim. This LOCKS the HBM4E pricing-power window for SK Hynix through at least H2 2027.
+
+**Combined with iHBM thermal moat (2026-05-25 announcement) + MR-MUF packaging moat + supply moat (3-year capacity gap):**
+- THREE moats stacking: supply + packaging + thermal
+- Duration upgraded from Long (3-5y) to **Long-Open-ended (4-6y)** per `meta/2026-05-26-positional-strength-duration.md`
+- Mgmt-confirmed 3-year capacity gap extends past 2028 into HBM5 era
+
+**Falsifier reinforcement:** Samsung achieving thermal-parity (iHBM-equivalent) disclosure within 12 months OR HBM5 timeline slips OR HBM-per-FLOP plateau across 2 model generations. None firing currently.

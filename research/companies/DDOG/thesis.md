@@ -181,3 +181,22 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 
 **3rd-order strengthened — agentic observability becomes structural product category.** Test-time-compute regime + per-segment compute pattern (chat → agentic coder → agentic enterprise → deep reasoning) creates explosion in observability surface area. Multi-step agentic tasks need trace + logs + metrics + cost attribution + security monitoring per agent run. Datadog positioned as enterprise-default for this new product category. Reinforces existing Google I/O 2026 cascade (Antigravity 2.0 multi-agent + Managed Agents API isolated sandboxes). The "thinking longer" pattern adds another dimension: cost-attribution-per-thinking-token becomes critical as deep-reasoning compute campaigns cost $100K-$1M+ per problem (estimate). DDOG sizing-up consideration reinforced.
+
+## Update 2026-05-26 — Total RPO +51% YoY + Langfuse bypass discovered (Agent 4 research)
+
+**Per `research/meta/2026-05-26-positional-strength-duration.md`:**
+
+**Strongest contractual demand signal in DDOG history:** Total RPO **$3.48B (+51% YoY)** vs revenue +32% — 19pp gap is the strongest forward-demand signal not previously in this thesis file. cRPO mid-40s% YoY widening from Q4 2025. 4,550 customers at $100K+ ARR (vs ~3,770 prior); 603 customers at $1M+ ARR (per Q1 FY26 earnings).
+
+**Bypass route discovered (material competitive risk):**
+**Langfuse (open-source LLM observability) + Arize Phoenix combination** is the leading alternative stack for AI-native startups per [Confident AI tool comparison 2026](https://www.confident-ai.com/knowledge-base/compare/best-ai-observability-tools-2026). Six platforms own production conversation: LangSmith, Langfuse, Helicone, Datadog LLM Observability, Arize Phoenix, Honeycomb. Datadog wins where infrastructure + LLM observability need unified view = enterprise moat HOLDS; AI-native startups with smaller infra footprint may choose Langfuse/Arize over Datadog (per-span pricing avoided via self-host).
+
+**The duration tension:**
+- Enterprise segment: DDOG moat intact (APM/infra integration is the lock-in)
+- AI-native startup cohort (which is ~80% of new ARR per Q1 FY26 disclosure): functional open-source bypass available
+- Net: enterprise duration durable; startup duration potentially shorter
+
+**Implication for thesis:**
+- Duration: 3-4 years (Medium-Long) confirmed
+- Total RPO +51% YoY signal NOT in prior thesis file — should be in the recent-data section
+- New watch item: AI-native customer ARR retention rate (cohort-level) — if AI-native startups churn to open-source, the 80% new-ARR contribution becomes vulnerable

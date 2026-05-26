@@ -1029,6 +1029,19 @@ Be CONFIDENT when:
 
    See B29 (label-anchoring at AI-relevance classification) in `biases-watchlist.md` and `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md` (the trigger event).
 
+   **Extension 2026-05-26 — customer-share-shift application of principle #28:**
+
+   The supply-chain-reality test applies BOTH at the AI-relevance classification gate (B29 / TE case) AND at the per-position duration-scoring step (B30 / HDS Tesla case). The unifying discipline: do not anchor on a surface signal — verify against the broader supply-chain / market-positioning reality.
+
+   For per-position duration scoring, before treating a single customer's decision (e.g., dual-sourcing announcement, design-cycle shift, share-shift to alternative supplier) as a thesis-compressing signal, run the customer-share-shift discipline:
+   1. Quantify the customer's % of total revenue (or % of total relevant segment revenue)
+   2. Identify the broader market trajectory the supplier serves
+   3. Enumerate tangential AI narratives the supplier participates in beyond the headline customer
+   4. Distinguish CUSTOMER-SHIFT (single-customer share movement) from MARKET-WIDE SHARE EROSION (industry-wide share movement)
+   5. If the company has multi-customer + multi-segment + multi-narrative optionality, a single customer's decision is an ADJUSTMENT to note, NOT a duration downgrade
+
+   The HDS Tesla case (2026-05-26) is the retroactive application: Tesla dual-sourcing strain-wave actuators with Green Harmonic is an ADJUSTMENT (Tesla ~<1% of HDS revenue at current Optimus scale), NOT a duration compression. HDS's broader thesis runway (3-5 years Long at Western non-Tesla OEMs + semi cap-equipment 35-40% revenue exposure + surgical robotics ISRG ramp + multi-humanoid OEM optionality) is intact. See B30 for full diagnosis.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)
