@@ -48,4 +48,12 @@ Framework discipline check: both trades execute against verified recommendations
 
 Update post-execution: rewrite holdings.md with actual fills + log COMPLETED trades.
 
+[2026-05-26 PLANNED — ADDED to prior plan] BUY ALAB (Astera Labs) — **€10,000 planned entry as NEW POSITION** at next US market open. Decision triggered by ALAB aiXscale Photonics acquisition reclassification per `research/meta/2026-05-26-three-thread-research.md` (Thread 1). User rationale: "if it's really something that allows communication between GPU and CPU, which is becoming more crucial, adding €10K to ALAB would make sense." Logic verified: ALAB Aries PCIe Gen5/6 retimers cover CPU-to-GPU (host-to-device) + Scorpio fabric switches cover GPU-to-GPU scale-up + aiXscale acquisition (Nov 2025) extends to optical CPO 2027-2028. Margin contraction was reclassified from "yellow flag" to "investment cycle — OPEX step-up for intentional 2027-2028 optical roadmap, NOT operational deterioration; Q1 2026 GM actually +70bps to 76.4%." Position would be approximately ~€10K / ~€135K post-trade portfolio ≈ ~roughly 7% of portfolio (computed). Linked: `companies/ALAB/thesis.md` + `research/meta/2026-05-26-three-thread-research.md`.
+
+Revised combined planned cash deployment 2026-05-26: **€25,000 total** (HDS €10K + STM €5K + ALAB €10K). Remaining residual cash post-execution: ~€4,867 (computed: €29,867 - €25,000).
+
+Framework discipline check on ALAB add: validates Tier-A-new category in the 4-axis matrix (`research/meta/earnings-streak-stratification-2026-05-25.md` extension 2026-05-25) — ALAB is MID-streak + investment-cycle + critical-bottleneck (GPU-CPU + GPU-GPU + CPU-CPU connectivity); the 3rd-order upside if 2027 NPO milestone hits = vertically integrated copper+optical AI fabric platform addressing $20B merchant scale-up TAM by 2030 per mgmt.
+
+Update post-execution: rewrite holdings.md with actual fills + log all 3 COMPLETED trades.
+
 
