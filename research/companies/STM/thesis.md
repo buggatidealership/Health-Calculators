@@ -228,3 +228,13 @@ The cost/sustainability counterpart to the demand-side test-time-compute event. 
 Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
 
 **3rd-order positive (P~40%).** SK Hynix iHBM enables higher TDP envelopes per AI accelerator. Higher TDPs require more power conversion infrastructure per rack — STM SiC + GaN-on-SiC product lines benefit directly. Reinforces STM's disclosed DC revenue trajectory (>$500M FY26, >$1B FY27 per Q1 CY26 earnings). Caveat: SiC commoditization risk remains (Wolfspeed + onsemi + Infineon + Rohm all qualified — bypass functional today per duration scoring); STM advantage is design partnerships (NVDA co-development) not exclusivity. No tier change; reinforces today's planned €5K add but does NOT change the runway-shortening concern.
+
+## Cross-reference — Citrini Supply Chain Inheritance + Post-Traumatic Supply Disorder (added 2026-05-26)
+
+Per `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md` + methodology principle #27:
+
+**2nd-order positive (P~60%) with retained caveat.** Citrini Research's Supply Chain Inheritance thesis names analog/power semi as a primary AI capex inheritance vector. STM's SiC + GaN + MEMS portfolio benefits directly. Post-Traumatic Supply Disorder framework (codified 2026-05-26 as principle #27) predicts that cycle-burned analog/power-semi companies let ASPs rise instead of expanding capacity → margin expansion compounds revenue expansion for the duration.
+
+**Caveat retained from duration scoring (`research/meta/2026-05-26-duration-of-relevance-scoring.md`):** STM is NOT a moat-holder in SiC the way DISCO is in dicing or BESI is in hybrid bonding. Bypass routes are FUNCTIONAL today — Wolfspeed, onsemi, Infineon, Rohm all qualified for AI-DC SiC. STM's advantage is design partnerships (NVDA co-development for 800V) + manufacturing breadth + MEMS+power+auto multi-narrative — not exclusivity. The Post-Traumatic Supply Disorder framework helps STM benefit from industry-wide capex discipline, but does NOT make STM uniquely positioned vs the alternative-supplier set.
+
+**Implication for today's planned €5K add:** Framework-aligned but caveat-flagged. The Physical AI multi-narrative scoring (STM sits on 2 of 3 investable robotics universals per `research/meta/2026-05-26-three-thread-research.md`) is the dominant rationale, not the AI-DC SiC ramp specifically. The €5K add remains supported; further sizing above this would need to verify Post-Traumatic Supply Disorder is delivering for STM specifically (not just at the analog/power-semi industry level).

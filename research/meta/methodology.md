@@ -964,6 +964,40 @@ Be CONFIDENT when:
 
    See B28 (pre-training-anchored cyclical-vs-structural mis-classification) in `biases-watchlist.md`.
 
+27. **Post-Traumatic Supply Disorder — capex-response discipline imposed by prior-cycle scarring.** Codified 2026-05-26 after ingesting Citrini Research "Semis Memo: Supply Chain Inheritance" (May 12, 2026). The framework articulates a recurring pattern: industries that experienced severe oversupply / glut cycles in the prior 3-7 years exhibit MUTED capacity-response to subsequent demand acceleration. Instead of expanding capacity at typical cycle-mid pace, mgmt teams let ASPs rise — preserving margin expansion BEYOND the timeframe that classical cycle-supply-response models predict.
+
+   **The mechanism:** management memory of prior-cycle pain (inventory writedowns, capacity-utilization collapse, shareholder anger over capex misallocation) creates psychological capex discipline that survives even at high demand inflection points. Investors aggregating from sell-side estimates that ASSUME normal capacity response will systematically under-model the duration of pricing power.
+
+   **The 2026 working examples per Citrini:**
+   - Texas Instruments (TXN) — capex intensity (capex/revenue) DECLINING despite AI-driven demand acceleration; raising prices instead of expanding fabs
+   - NXP Semiconductors (NXPI) — peer behavior matches TXN; same capex discipline pattern
+   - Murata (held 16.77%) — already exhibiting 15-35% MLCC price hike confirmed April 2026; lead times 8→24 weeks; capacity utilization 90-95%; FY27 OP guide +34.8% reflects the ASP-led margin expansion
+   - The 4 tier-1 MLCC makers each chose vertical integration (Murata 2013 JV, Samsung EM in-house, Taiyo Yuden ¥5B building, TDK April 2026 NCI JV) over greenfield capacity build — Post-Traumatic Supply Disorder mechanism applies upstream at the BaTiO3 powder layer too
+
+   **The compounding effect with principle #26 (cyclical-to-structural transition):**
+   - Principle #26 catches when consensus is mis-classifying a structural shift as cyclical
+   - Principle #27 (this) catches when the supply-side response under that structural shift is ALSO muted by capex discipline — extending the duration of pricing power beyond what principle #26 alone predicts
+   - Combined: structural demand growth × muted supply response = pricing-power durability longer than classical models predict
+
+   **Detection rule:** when an analog/power-semi / mature-cycle name shows (a) demand acceleration tied to AI capex, AND (b) capex/revenue ratio declining or flat over the same window, AND (c) explicit mgmt commentary signaling "discipline" or "lessons from prior cycle," apply Post-Traumatic Supply Disorder framework. The investable consequence is margin expansion compounds revenue expansion; the duration extends beyond typical cycle timescales.
+
+   **Falsifiers / inversion conditions:**
+   - mgmt reverses on capex discipline and announces meaningful greenfield expansion
+   - Chinese / second-source alternative-supplier competition reaches qualification at tier-1 customers (substitute path matures faster than expected)
+   - Industry-wide ASP correction triggered by demand dip (cycle proves not structural after all — principle #26 falsifier fires)
+   - Capacity-share-shift to vertically-integrated customers undermines independent suppliers' pricing power
+
+   **Hook enforceability:** challenging — requires synthesis of capex/revenue trajectory + mgmt commentary + ASP direction across multiple sources over multiple quarters. Best enforced as a methodology principle + session-start briefing item (when a tracked name's earnings hit) rather than a Stop hook.
+
+   **Fluidity footer:**
+   - codified: 2026-05-26 (Citrini Research "Semis Memo" + Murata price-hike confirmation + 4 tier-1 MLCC maker vertical integration pattern)
+   - last_review: 2026-05-26
+   - status: active (new)
+   - falsified_by: TXN/NXPI announce capex expansion within 12 months OR Chinese analog/power semi qualification at tier-1 hyperscalers within 12 months OR Murata/Samsung EM/TDK reverse on vertical integration moves OR MLCC ASP correction >10% within 6 months
+   - re-evaluation trigger: quarterly, OR on any of: held-name (Murata) capex announcement, TXN/NXPI capex guidance change, Chinese MLCC qualification milestone at NVDA/AMD/AVGO
+
+   See `signals/events/2026-05-12-citrini-supply-chain-inheritance.md` for the source synthesis + cross-stack cascade. See B29 (capex-response anchoring) in `biases-watchlist.md` candidate (to be added).
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)

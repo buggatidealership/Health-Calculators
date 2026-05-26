@@ -263,3 +263,22 @@ Per `research/signals/events/2026-05-20-google-io-2026.md`:
 Per `research/wiki/model-economics-primer.md`:
 
 The cost/sustainability counterpart to the demand-side test-time-compute event. Verified LLM inference economics + 1999-fiber-buildout counter-analog stress test surface the structural conclusion: AI capex (1.28% of GDP) exceeds 1999 telecom peak BUT financing is fundamentally different (cash-funded trillion-dollar tech, debt/equity 0.23 for AMZN/GOOG/MSFT/META). **Position remains structurally defensible.** Hynix specifically: 5.92-6.79x forward P/E inherently less exposed to Cisco-1999 multiple-compression analog than higher-multiple AI names. The 3-5x invisible-reasoning-token multiplier quantifies the test-time-compute regime cost economics. MYTHOS worked example (~$375K compute spend → $50M-$1B+ cybersecurity value at ~100x-2,000x ROI estimate) proves "compute as utility" framing for at least one vertical.
+
+## Cross-reference — Supply Chain Inheritance reframing (added 2026-05-26)
+
+Per `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md`:
+
+**FLAG FOR USER REVIEW — possible reclassification candidate.**
+
+Citrini Research (May 12, 2026) introduces "Supply Chain Inheritance" thesis citing NVDA's May 2025 technical blog where NVDA explicitly credits 800V DC rack architecture to "the electric vehicle and solar industries." The physical supply base — power conversion, magnetics, capacitors, inductors, manufacturing equipment — is SHARED between EV/solar and AI data center infrastructure.
+
+**Implication for T1 Energy held position (4.82%):** Prior agent classification "this name should NOT be in an AI-sector investing universe" may have anchored too literally on the SOLAR label vs the underlying SUPPLY CHAIN. G2 Austin 5GW solar cell factory + battery infrastructure is part of the same physical supply base that powers AI server rack architecture per NVDA's own engineering disclosure.
+
+**Reclassification candidates for user decision:**
+- (a) Maintain "NOT AI" classification — TE's revenue is solar/battery-direct, not AI-direct; Supply Chain Inheritance is structural but TE doesn't directly sell to hyperscalers
+- (b) Upgrade to "AI-adjacent via Supply Chain Inheritance" — acknowledges NVDA's own attribution; partial-AI-thesis-rehabilitation
+- (c) Wait for evidence — explicit NVDA / hyperscaler procurement disclosure that mentions TE specifically
+
+**Falsifier for the reframing:** absence of any direct supply-chain connection between TE's actual customer base (utilities, residential solar installers) and the AI data center supply chain. Currently no public evidence of TE selling to hyperscalers; the Supply Chain Inheritance framing is INDIRECT (shared physical supply base), not DIRECT (shared customer base).
+
+No automatic tier change. Decision belongs to user pending re-evaluation of how literally to apply the Supply Chain Inheritance framing.

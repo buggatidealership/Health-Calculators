@@ -64,3 +64,22 @@ Anti-fragile themes (win in ≥3 scenarios): T1, T5, T6.
 - T4 (custom Si winning) is somewhat in tension with S1 (NVDA dominance). Holding both implies hedging.
 - T2 (power binds) doesn't help if S4 (digestion) plays — hyperscalers slow builds, power demand softens.
 - T6 (sovereign) wins under most scenarios but is fragile to S5 (export controls, geopolitical shocks).
+
+## T7 Supply Chain Inheritance (added 2026-05-26)
+
+**Source:** Citrini Research "Semis Memo" 2026-05-12 (see `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md`).
+
+**Thesis:** AI's 800V DC rack architecture inherits the EV/solar manufacturing supply chain per NVDA's own May 2025 technical blog. The physical infrastructure — power conversion, magnetics, capacitors, inductors, manufacturing equipment — is SHARED between EV/solar and AI data center.
+
+**Compounded with T7-companion mechanism — "Post-Traumatic Supply Disorder" (methodology principle #27):** cycle-burned analog/power semi companies (TXN, NXPI, Murata, etc.) deliberately NOT expanding capacity. Let ASPs rise instead. Margin expansion compounds revenue expansion.
+
+**Names that play this theme:**
+- Murata (held 16.77%) — primary; Citrini's "first and highest-conviction" beneficiary
+- STM (held + planned €5K add) — power semi + MEMS + Physical AI universal (caveat: SiC commoditization per duration scoring)
+- T1 Energy (held 4.82%) — possible reclassification candidate; G2 Austin solar cell factory part of shared supply base
+- TXN, NXPI, VSH (not yet in universe — candidate stubs deferred per user)
+- Eaton (ETN), Vertiv (VRT), Schneider Electric, Hubbell — power-conversion infrastructure that previously sat outside AI universe; deferred
+
+**Anti-fragility:** likely wins in S1, S2, S3 (the AI capex story stays intact across compute-winner permutations); neutral in S4 (digestion); loses in S5 (geopolitical shock to global supply chains).
+
+**Falsifier:** TXN / NXPI / Murata announce greenfield capacity expansion (reverses Post-Traumatic Supply Disorder); Chinese analog/power semi qualifies at tier-1 hyperscalers (substitute-path matures); ASP correction >10% within 6 months (cycle proves not structural).

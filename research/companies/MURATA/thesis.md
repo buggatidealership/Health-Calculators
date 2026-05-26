@@ -411,3 +411,18 @@ The cost/sustainability counterpart to the demand-side test-time-compute event. 
 Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
 
 **3rd-order positive (P~40%).** SK Hynix iHBM (30% thermal resistance reduction at the D2D PHY interface) enables higher TDP envelopes per AI accelerator and higher feasible HBM stack heights. Higher TDP per accelerator board → more MLCCs per board (MLCC count scales with power conversion stages + decoupling requirements). Reinforces Murata's AI server MLCC narrative (Murata mgmt forecast 3.3x AI server MLCC demand by 2030; April 2026 confirmed 15-35% MLCC price hike; capacity utilization 90-95%). No tier change; reinforces existing held overweight.
+
+## Cross-reference — Citrini Research Supply Chain Inheritance (added 2026-05-26)
+
+Per `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md`:
+
+**Thesis materially reinforced.** Citrini Research (May 12, 2026 paid note, analysts Zephyr + Jukan) explicitly names Murata as "first and highest-conviction" beneficiary of the analog/power semi AI thesis. Key facts cited in the note:
+
+- **"AI server boards use more than 10x as many MLCCs than crypto miners"** — the bottoms-up demand multiplier anchor
+- **Murata's share price doubled during the 2019-2021 crypto-mining MLCC shortage** — direct historical analog / chart precedent
+- April 2026 confirmed 15-35% MLCC price hike + lead times 8→24 weeks + capacity utilization 90-95% = operational fingerprints of the structural pricing-power phase
+- Post-Traumatic Supply Disorder framework (methodology principle #27 codified 2026-05-26): even Murata + Samsung EM + Taiyo Yuden + TDK are NOT ramping greenfield capacity; instead all 4 pursued vertical integration with BaTiO3 powder suppliers. ASPs rise, not units.
+
+**Convergence pattern (user-articulated chart-narrative framework):** narrative (AI infrastructure structural binding constraint) + chart precedent (2019-21 doubled share price) + bottoms-up math (10x MLCC per AI server) all converge on Murata.
+
+No tier change. Reinforces existing held overweight (16.77%). Principle #27 (Post-Traumatic Supply Disorder) extends the duration of pricing-power beyond classical cycle-supply-response model predictions.
