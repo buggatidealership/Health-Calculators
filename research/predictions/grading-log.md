@@ -8,7 +8,9 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 
 ## Pending
 
-(none currently)
+| Date made | Resolution | Ticker | Event | Prediction file |
+|---|---|---|---|---|
+| 2026-05-26 | 2026-05-27 | MOD | Q4 FY26 earnings + FY27 guide | `2026-05-26-MOD-Q4FY26.md` |
 
 ## Graded
 
