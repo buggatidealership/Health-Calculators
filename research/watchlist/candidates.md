@@ -122,6 +122,10 @@ A watchlist name gets a full `companies/{TICKER}/` folder when:
 
 (none yet)
 
+### Advanced substrate / FC-BGA (added 2026-05-26)
+
+- **LG Innotek (KRX: 011070)** — Korean substrate maker; verified FC-BGA producer at Dream Factory in Gumi (mass production Feb 2024, 100% utilization); Intel + cloud giants signed long-term agreements per DigiTimes May 21, 2026. Substrate is 8% of revenue but ~20-30% of op profit (margin-disproportionate). Apple still 70% of total revenue (concentration risk). Forward P/E 30x vs Ibiden 60-70x = ~2x conglomerate discount. Stock at NEW ATH +200% YTD 2026 (864K KRW vs prior 414K March 2022 ATH). Korean analyst consensus 21 BUY / 1 SELL; street-high PT 1.2M KRW (~38% implied upside). **Status: WATCHLIST** pending Q2 2026 earnings (July 2026) + named AI accelerator design-win disclosure. Full stub: `companies/LGINNOTEK/thesis.md`. Causal chain: AI compute → GPU/accelerator chip → **FC-BGA substrate (LGI competing with Ibiden)** → advanced packaging → AI server board.
+
 ## Archived (rejected after research)
 
 (none yet)

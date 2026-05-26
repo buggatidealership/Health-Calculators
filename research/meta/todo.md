@@ -23,6 +23,13 @@
   - Linked: `research/predictions/2026-05-26-MOD-Q4FY26.md`, `research/predictions/grading-log.md`, `research/companies/MOD/thesis.md` (stub created 2026-05-26)
   - Specific watch items: (a) Q4 revenue vs $920.7M consensus + $940M bottoms-up; (b) Q4 EPS vs $1.55 consensus + $1.52 bottoms-up; (c) FY27 DC guide magnitude (key indicator >$1.7B per my inference); (d) CS Q4 adj EBITDA margin vs Q3's 17.9% (was the +200bps recovery delivered?); (e) stock-action reaction separately tracked (this is a function of expectations not just outcomes).
 
+### P1 — High priority (next session)
+
+- [ ] **P1 / research / 2026-05-27** [INDP, AF] — LG Innotek (KRX: 011070) deeper dig + Ibiden comparison
+  - Origin: User request 2026-05-26 to "look into LG Innotek." Initial deep-dive completed today; supply-chain-reality test PASSED — verified as genuine FC-BGA substrate producer (not label-anchored Apple camera supplier). Stock at new ATH +200% YTD; WATCHLIST verdict given the re-rating already substantially run. User said "add to watchlist for now, dig into it tomorrow."
+  - Scope: (a) Direct Ibiden (4062.T) comparison as the dominant 60% ABF substrate competitor — same supply-chain-reality test + valuation gap analysis; (b) International analyst coverage (Goldman, MS, JPMorgan) — gap from today's research; (c) Specific named AI accelerator design wins for LGI (today's research found general "GPU server" + "Intel + cloud giants" but no named chip); (d) Apple-pullback entry-point analysis — if Apple-driven quarterly weakness creates entry window, what trigger; (e) Sizing-matrix vs other Active-tier candidates (Sony I&SS, Sumco, BESI, ASMPT, Nabtesco, Infineon, Renesas, Yaskawa, Nidec) — where does LGI fit in the prioritization
+  - Linked: `companies/LGINNOTEK/thesis.md` (candidate stub), `watchlist/candidates.md` (FC-BGA section)
+
 ### P2 — Medium priority
 
 - [x] **P2 / verification / 2026-05-22** [CAL] — Stock-reaction grade for NVDA Q1 FY27 (T+24h follow-up) — CLOSED 2026-05-25 per user framing: "resolve purely on numbers, not stock movements because price depends on macro." Numerical grade stands at HIT direction on all 5 axes (revenue/EPS within 0.5%; biggest miss UNDERCALLED Q2 guide by $2.5B because of historical sandbag heuristic that doesn't fit multi-year-contracted-demand environments, per lesson L4). See `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` final section.
