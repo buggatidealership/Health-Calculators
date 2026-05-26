@@ -424,6 +424,49 @@ Both failures share the same root cause: source-reputation is being used as a su
 
 ---
 
+### B29 — Label-anchoring at the AI-relevance classification step (surface vs supply-chain-reality)
+
+**Origin:** User correction 2026-05-26 after I flagged T1 Energy (TE held 4.82%) reclassification as a "FLAG FOR USER REVIEW" rather than just updating the file with the corrected classification supported by verified primary-source evidence. User pushback verbatim: *"there's a change and a verifiable change, especially for TE. You update that file. Right? That just means you were wrong. Or... no. You were wrong, but you only did a surface level analysis. You didn't... you did not think about it. And the point of view in which you would have realized it on your own, so that needs to mean then that must be a change to the actual harness or your behavior or principle. Like, there has to be an update done."*
+
+**Pattern:** Classifying a company's AI-relevance based on its MARKETED BUSINESS LABEL (e.g., "solar manufacturer," "industrial chemical maker," "general-purpose foundry") rather than its underlying PHYSICAL SUPPLY CHAIN POSITION. The failure mode operates at the FIRST classification step in the analytical pipeline: if AI-relevance gets scored "zero" because the label says non-AI, all downstream analysis defaults to the zero-AI assumption — even when primary-source evidence (e.g., NVDA's own engineering disclosure) explicitly says the underlying supply chain IS shared with AI infrastructure.
+
+**Manifestation 2026-05-26:**
+- Earlier US duration-of-relevance agent (working in good faith) classified TE as "this name should NOT be in an AI-sector investing universe" based on: TE's revenue label = solar/battery, no explicit AI mgmt commentary, direct customer base = utilities + residential installers.
+- I accepted this at face value WITHOUT applying principle #14 (question own framings) or a supply-chain-reality check.
+- The agent + I both missed: NVDA's May 2025 technical blog explicitly credits 800V DC rack architecture to "the electric vehicle and solar industries." That's primary-source verifiable evidence that the physical supply chain TE participates in OVERLAPS with AI data center infrastructure.
+- Citrini Research May 12, 2026 surfaced this connection ("Supply Chain Inheritance" thesis). My response was to flag TE's classification for user review — punting the decision when the evidence already supported reclassification.
+- User pushback: "you only did a surface level analysis. You didn't... did not think about it" — the failure was at the classification step, before deeper analysis even started.
+
+**Distinction from related biases:**
+- B15 (revenue-mix-anchoring): operates AFTER the company is in the AI universe; tells me to go below revenue mix to BOM-level. B29 operates BEFORE — at the gate where the company gets classified as AI-relevant or not.
+- B20 (segment-trajectory): operates on WITHIN-company segment growth modeling. B29 operates on WHETHER-company is AI-adjacent at all.
+- B28 (pre-training-anchored cyclical-vs-structural): operates on DEMAND classification (cyclical vs structural). B29 operates on AI-RELEVANCE classification (in-universe vs out-of-universe).
+- B7 (brain-dump-literal-read): operates on user-input parsing. B29 operates on COMPANY-INPUT classification — same family of failure (taking the label literally rather than parsing the underlying reality).
+
+**The structural fix (principle #28 — supply-chain-reality test):** Before classifying a company as "non-AI" or out-of-AI-universe, run the supply-chain-reality test: what is the physical supply chain this company participates in, and does ANY layer of that chain overlap with AI infrastructure? Verifiable evidence to check: hyperscaler procurement disclosures, chip-vendor engineering blogs, supply-chain-tier press releases, industry-trade-press mentions of shared infrastructure.
+
+**Correction (mandatory per principle #28):**
+1. For any company at the AI-relevance classification step, identify the underlying PHYSICAL SUPPLY CHAIN it participates in
+2. Map that supply chain to AI infrastructure: power conversion, magnetics, capacitors, inductors, manufacturing equipment, materials, etc.
+3. Check primary-source evidence (chip-vendor blogs, hyperscaler disclosures) for explicit attribution
+4. If ANY layer overlaps with AI infrastructure, classification ≠ "NOT AI" — at minimum it's "AI-adjacent via [specific layer]"
+5. When verified evidence supports reclassification, UPDATE THE FILE — don't ask user for permission to update something the evidence already supports
+
+**Retroactive application (TE):**
+- Prior framing: "this name should NOT be in an AI-sector investing universe" (per US duration agent + my acceptance)
+- Supply-chain-reality test: TE = US solar cell manufacturing + battery infrastructure. Per NVDA's May 2025 technical blog, 800V DC rack architecture is INHERITED from EV/solar industries. The physical supply chain (power conversion, magnetics, capacitors, manufacturing equipment) is SHARED.
+- Verdict: AI-adjacent via Supply Chain Inheritance (theme T7 in `research/sector/themes.md`)
+- Reclassification: from "NOT AI" to "AI-adjacent via Supply Chain Inheritance — indirect"
+- Falsifier for reclassification: absence of direct customer-base overlap (TE sells to utilities + residential, not hyperscalers); if no further primary evidence emerges of direct procurement flow, downgrade back to "weakly AI-adjacent" rather than "NOT AI" or stronger
+
+**How to check:** Before completing ANY company-level analysis that produces an AI-relevance classification, ask: "Did I check the underlying physical supply chain, or did I anchor on the company's marketed label?" If only the label was checked, B29 has fired — go back and run the supply-chain-reality test.
+
+**Hook enforcement:** deferred. Mechanical detection of "label-anchoring" requires semantic reasoning about supply-chain mapping — too judgment-heavy for current hook implementation. Discipline enforced via principle #28 codification + the supply-chain-reality test as a mandatory gate before "non-AI" classification.
+
+**Meta-lesson about my own learning:** When I receive an agent classification or accept a verdict, the discipline is to apply principle #14 (question own framings) and verify by primary source. The TE miss happened because I accepted the agent's "NOT AI" classification at face value without independent supply-chain verification. The corrective action (per user's framing 2026-05-26): mistakes are fine; encoding them as principle + bias updates is mandatory.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

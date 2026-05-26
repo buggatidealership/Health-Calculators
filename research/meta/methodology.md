@@ -996,7 +996,38 @@ Be CONFIDENT when:
    - falsified_by: TXN/NXPI announce capex expansion within 12 months OR Chinese analog/power semi qualification at tier-1 hyperscalers within 12 months OR Murata/Samsung EM/TDK reverse on vertical integration moves OR MLCC ASP correction >10% within 6 months
    - re-evaluation trigger: quarterly, OR on any of: held-name (Murata) capex announcement, TXN/NXPI capex guidance change, Chinese MLCC qualification milestone at NVDA/AMD/AVGO
 
-   See `signals/events/2026-05-12-citrini-supply-chain-inheritance.md` for the source synthesis + cross-stack cascade. See B29 (capex-response anchoring) in `biases-watchlist.md` candidate (to be added).
+   See `signals/events/2026-05-12-citrini-supply-chain-inheritance.md` for the source synthesis + cross-stack cascade.
+
+28. **Supply-chain-reality test for AI-relevance classification — never anchor on marketed business label.** Codified 2026-05-26 after the TE (T1 Energy) miss documented in B29. The failure: classifying TE as "NOT in AI-sector investing universe" based on its marketed business label (solar/battery manufacturer) while NVDA's own May 2025 technical blog explicitly credits 800V DC rack architecture to "the electric vehicle and solar industries." The physical supply chain overlaps with AI infrastructure even though the marketed label says non-AI.
+
+   **The discipline:** Before classifying ANY company as "NOT AI" or out-of-AI-universe, run the supply-chain-reality test:
+   1. Identify the underlying PHYSICAL SUPPLY CHAIN this company participates in (not the marketed end-product label)
+   2. Map that supply chain to AI infrastructure layers: power conversion, magnetics, capacitors/inductors, manufacturing equipment, raw materials, optical, networking, etc.
+   3. Check primary-source evidence for explicit attribution: chip-vendor engineering blogs (NVDA, AMD, etc.), hyperscaler procurement disclosures (META, AMZN, GOOG, MSFT), supply-chain trade press
+   4. If ANY layer overlaps with AI infrastructure → classification ≠ "NOT AI"; minimum classification = "AI-adjacent via [specific layer]"
+   5. When verified evidence supports reclassification, UPDATE THE FILE — do not punt the decision to user via "flag for review" when evidence already supports the call
+
+   **The decision-action coupling:** When primary-source evidence supports a reclassification, the corrective action is to UPDATE the file, not to ask for permission. Asking for permission on something the evidence already supports is decision-avoidance under the guise of caution. The user (2026-05-26): *"You update that file. Right? That just means you were wrong. Or... no. You were wrong, but you only did a surface level analysis."*
+
+   **Compounds with principle #14 (question user/own framings):** When an agent or prior synthesis produces a classification, do not accept at face value — apply the supply-chain-reality test independently. The TE miss happened because I accepted the US duration agent's "NOT AI" verdict without applying critical thinking.
+
+   **Detection rule:** for every "non-AI" classification call, force the question — "did I check the underlying supply chain, or did I anchor on the company's marketed label?" If only the label was checked, the classification is provisional and incomplete.
+
+   **Falsifiers / inversion conditions:**
+   - Primary-source evidence emerges that the company's supply chain does NOT overlap with AI infrastructure (e.g., explicit hyperscaler procurement audit showing no flow)
+   - The "shared physical supply chain" turns out to be commodity-level (e.g., generic copper wire); the overlap exists but provides no investable concentration
+   - Customer-base divergence is absolute (no possible procurement path); pure-play end-customer mismatch
+
+   **Hook enforceability:** challenging — requires semantic reasoning about supply-chain mapping. Best enforced as a methodology principle + classification-step discipline rather than a Stop hook. Possible session-start briefing item: surface held positions classified "non-AI" for periodic re-evaluation under the supply-chain-reality test (e.g., quarterly).
+
+   **Fluidity footer:**
+   - codified: 2026-05-26 (after TE classification miss + Citrini Supply Chain Inheritance ingest + user pushback)
+   - last_review: 2026-05-26
+   - status: active (new)
+   - falsified_by: primary-source evidence that "supply chain overlap" is too thin to confer investable concentration (e.g., overlapping layers are commodity-level not pricing-power-level); OR misclassification recurrence DESPITE applying the test (which would indicate the test itself needs refinement)
+   - re-evaluation trigger: monthly, OR on any TE / "AI-adjacent via Supply Chain Inheritance" name producing a graded outcome (positive or negative)
+
+   See B29 (label-anchoring at AI-relevance classification) in `biases-watchlist.md` and `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md` (the trigger event).
 
 ---
 

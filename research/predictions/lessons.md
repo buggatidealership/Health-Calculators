@@ -10,6 +10,17 @@ Accumulated calibration memory from graded predictions. Every PREDICT workflow M
 
 ## Lessons (most recent first)
 
+### L5 — Check the supply-chain reality before classifying a name as "non-AI"
+**Origin:** TE classification GRADE 2026-05-26. The earlier US duration-of-relevance agent classified TE as "this name should NOT be in an AI-sector investing universe" based on TE's marketed business label (solar/battery manufacturer). I accepted at face value. Then Citrini Research "Semis Memo" 2026-05-12 surfaced the Supply Chain Inheritance thesis — citing NVDA's own May 2025 technical blog crediting 800V DC rack architecture to "the electric vehicle and solar industries." The physical supply chain TE participates in OVERLAPS with AI data center infrastructure. The "NOT AI" classification was a surface-level call that missed the underlying supply-chain reality.
+
+**Reasoning error:** Label-anchoring at the AI-relevance classification step. The agent and I both anchored on the company's marketed end-product label without applying a supply-chain-reality test.
+
+**Generalizable lesson:** Before classifying ANY company as "non-AI" or out-of-AI-universe, run the supply-chain-reality test: (1) identify the underlying physical supply chain the company participates in (not the marketed end-product label); (2) map that supply chain to AI infrastructure layers; (3) check primary-source evidence (chip-vendor engineering blogs, hyperscaler procurement disclosures) for explicit attribution; (4) if ANY layer overlaps, classification ≠ "NOT AI." When evidence supports reclassification, UPDATE THE FILE — don't punt to user via "flag for review."
+
+**Calibration adjustment:** Any future "non-AI" classification must explicitly cite the supply-chain-reality test result, not just the marketed label. If only the label was checked, the classification is provisional and incomplete. See principle #28 + B29 in `meta/biases-watchlist.md`.
+
+**Meta-lesson about accepting agent verdicts:** When I receive a classification from a subagent, the discipline is principle #14 (question own framings) applied to the subagent — not face-value acceptance. The TE miss compounded because I accepted "NOT AI" without independent verification.
+
 ### L4 — In a multi-year-contracted-demand environment, historical guide-sandbag heuristics over-discount
 **Origin:** NVDA Q1 FY27 GRADE 2026-05-20. My prediction called Q2 guide midpoint $88.5B by applying a 4-5% sandbag haircut to an internal-expectation model of $92.7B. Actual guide: $91.0B ± 2% (per [NVIDIA 8-K via StockTitan](https://www.stocktitan.net/sec-filings/NVDA/8-k-nvidia-corp-reports-material-event-56086a88bbb4.html)). My internal-expectation model was nearly right ($92.7B vs $91B = within $1.7B); the sandbag haircut was the error.
 
