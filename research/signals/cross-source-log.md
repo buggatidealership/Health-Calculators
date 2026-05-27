@@ -6,6 +6,79 @@ Weak/single-source signals. When ≥3 independent sources converge on the same d
 
 ---
 
+## ENTRIES (2026-05-27 AM brief triage, premortem-verified)
+
+### [2026-05-27] DuckDuckGo install surge — consumer-AI segment
+
+**Source(s):** [TechCrunch May 26 2026 (T2)](https://techcrunch.com/2026/05/26/duckduckgo-installs-are-up-30-as-users-reject-being-force-fed-googles-ai-search/) citing DuckDuckGo primary disclosure (T1 underlying). Multiple corroborating outlets (Engadget, Tom's Guide, ASOWorld, AI Weekly).
+
+**Verified numbers (per premortem fresh-verification 2026-05-27):**
+- US installs week-over-week average +18.1% during May 20-25, 2026
+- Peak +30.5% on May 25 (not a single-day spike; sustained 6 consecutive days)
+- iOS specifically: +33% WoW average, peak +69.9%
+- `noai.duckduckgo.com` (DDG's AI-free search page): +22.7% WoW average, peak +27.7% on May 24 — separate signal of explicit AI-rejection
+
+**Trigger**: Google I/O 2026 May 19 AI Mode redesign — the migration started immediately after.
+
+**Direction:** bear for GOOG consumer-AI thesis; bull for "open-web survives" narrative
+
+**Segment classification (per principle #29):** consumer-AI
+
+**Cross-cut vs prior GOOG data points:**
+- Google AI Mode 1B MAU (yesterday's TRACE entry) — Google's own consumption metric, AI-Mode segment
+- Publisher traffic -33% globally; HubSpot -70-80% (in GOOG thesis) — publisher segment
+- THIS signal: consumer-AI segment, DIFFERENT segment from above two
+- **Cross-cutting, NOT triangulation** (per principle #29 — three sources spanning three different segments).
+
+**Thesis impact:** does NOT fire GOOG falsifier #4 (Network revenue -5% for 3+ quarters) or #5 (Search growth <10% for 2+ quarters). DDG growth off a small base is not yet a Google Search revenue threat. **Watch item, not falsifier trigger.**
+
+**Premortem flags / hedges:**
+- Single-source-cluster (DDG self-disclosure + journalists covering it) — DDG has interest in publicizing growth
+- 6-day window is meaningful but not multi-month; could revert
+- Absolute base sizing not disclosed (a 30% gain on a small base ≠ 30% gain on a large base)
+- Promote to triangulation if: 2-3 more consumer-AI segment data points emerge over next 90 days (Bing/Perplexity/ChatGPT search install surges OR Google AI Mode user retention disclosures)
+
+---
+
+### [2026-05-27] xAI gas-heavy power deployment + Anthropic $1.25B/month Colossus deal — power-and-cooling + AI-infrastructure segments
+
+**Source(s) (premortem-verified):**
+- [TechCrunch May 13 2026 (T2)](https://techcrunch.com/2026/05/13/musks-xai-is-running-nearly-50-gas-turbines-unchecked-at-its-mississippi-data-center/) — 62 unpermitted methane gas turbines at Memphis + Southaven
+- [TechCrunch May 20 2026 (T2)](https://techcrunch.com/2026/05/20/musks-xai-is-being-sued-over-its-data-center-generators-now-its-buying-2-8b-more/) — $2.8B additional gas turbine purchase
+- [TechCrunch May 23 2026 (T2)](https://techcrunch.com/2026/05/23/elon-musk-has-given-up-on-solar-power-on-earth/) — Musk solar pivot framing
+- Anthropic-SpaceX/xAI compute deal — $1.25B/month for Colossus compute = $40B+ contract through 2029 (per Anthropic disclosure)
+
+**Verified facts:**
+- xAI operating 62 methane gas turbines (unpermitted)
+- Combined Memphis + Southaven facilities estimated >6 million tons GHG/year + >1,300 tons air pollutants/year (per xAI's own permit applications)
+- Solar plans NOT fully abandoned but minimal — 88-acre array proposed produces only ~10% of data center power
+- $697M spent on Tesla Megapacks vs minimal solar panel purchases per SpaceX S-1
+- $2.8B additional gas turbines purchased May 2026
+- **Anthropic paying xAI $1.25B/MONTH for Colossus compute** — $40B+ commitment through 2029
+- EPA closed regulatory loophole January 2026; NAACP + Earthjustice seeking emergency court action
+
+**Direction:** bull for power-and-cooling beneficiaries (gas turbine OEMs, gas peaker producers); bull for neocloud compute value (Anthropic-xAI deal validates magnitude); bear for "AI runs on renewables" narrative
+
+**Segment classification (per principle #29):**
+- Power-and-cooling signal: gas turbine deployment + solar de-prioritization
+- AI-infrastructure signal: Anthropic→xAI compute deal (separate segment)
+
+**Thesis implications:**
+- **GEV (Active candidate)**: gas turbines + electrical equipment — DIRECT beneficiary if hyperscaler gas-pivot pattern broadens beyond xAI
+- **BE (held, per Aschenbrenner cluster)**: natural gas fuel cells — DIRECT
+- **ETN, VST, CEG, TLN, NEE**: indirect via power equipment + producers
+- **Neocloud commercial value (CRWV / IREN / APLD / CORZ thesis files)**: Anthropic→xAI $1.25B/month is a structurally important commercial-value data point for the GW-scale compute-host business model
+
+**Premortem flags / hedges:**
+- xAI is a single private company (sample size of 1). Generalizing "hyperscaler shift to gas" requires 2-3 more data points.
+- Musk-driven decision-making is idiosyncratic — could be partly personal-narrative-driven (per TSLA Stage 4-5 analogy), not purely technical-economic
+- Regulatory tail risk: EPA / court action could force xAI to scale back gas turbines (CAUTIONARY for direct xAI exposure, NEUTRAL for gas-turbine vendors who already booked sale)
+- Anthropic→xAI deal: $1.25B/month verified from SpaceX/Anthropic disclosure, but how Anthropic recognizes/allocates that cost vs CoreWeave/AWS Trainium is not yet clear
+
+**Promotion criteria:** Promote power-and-cooling signal to triangulation if 2-3 more hyperscaler gas/nuclear-pivot disclosures land in next 90 days. Promote AI-infrastructure-commercial-value signal to triangulation if more neocloud deals at $1B+/month scale emerge.
+
+---
+
 ## HYPOTHESIS PENDING VERIFICATION
 
 ### [2026-05-27] User-articulated hypothesis — "Narrative-driven investment era reduces weight of traditional valuation"
