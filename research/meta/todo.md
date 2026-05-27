@@ -29,6 +29,13 @@
   - Linked: `research/predictions/2026-05-27-SNOW-Q1FY27.md`, `research/predictions/grading-log.md`, `research/companies/SNOW/thesis.md` (created 2026-05-27)
   - Specific watch items: (a) product revenue vs $1.275B base; (b) NRR direction (especially behavior below 120% as bear trigger or above 127% as bull trigger); (c) whether mgmt re-quantifies AI run rate in dollars vs reframing to tokens/accounts; (d) FY27 guide path; (e) Cortex pricing-cut volume tailwind narrative (key qualitative signal); (f) stock-action separately tracked T+24h.
 
+- [ ] **P0 / verification / 2026-05-28** [CAL, INDP] — GRADE Marvell (MRVL) Q1 FY27 earnings prediction (FIRST APPLICATION of Supply-Chain-Cohort Calibration framework)
+  - Origin: PREDICT workflow executed 2026-05-27 ahead of MRVL Q1 FY27 print (after market close 2026-05-27). 5 prediction targets logged with cohort-calibrated hedge bands: revenue $2,470M point (vs $2,410M consensus); EPS $0.82 (vs $0.79-0.80 consensus); datacenter +42-47% YoY (vs ~40% target); 60% probability custom Si FY27 floor RAISED above >20%; 65-70% probability Q2 FY27 guide raise to $2.65B+ midpoint.
+  - **Methodology validation**: this was the FIRST application of Supply-Chain-Cohort Calibration framework (user-articulated 2026-05-27). Cohort signals collected from AMZN/ANET/CSCO/ALAB/NVDA/AVGO/SK Hynix and hyperscaler capex aggregate. If predictions land within cohort-calibrated bands → codify as principle #32 in methodology.md. If not → keep as cross-source-log methodology candidate pending 2nd application.
+  - Scope: Pull Q1 FY27 actuals + earnings call. Run 3-layer GRADE template (INPUT / COMPUTATION / REASONING per CLAUDE.md updated 2026-05-27). For each of 5 targets: actual vs predicted, which layer failed if any. Reflect specifically on whether cohort signals were predictive vs confirmatory. Two-Part GRADE protocol: fundamental grade T+0 (May 28); stock-reaction grade T+24h (May 29 — narrative-Stage 3-4 modifier means muted/negative reaction possible even on beat per NVDA May 2026 parallel).
+  - Linked: `research/predictions/2026-05-27-MRVL-Q1FY27.md`, `research/predictions/grading-log.md`, `research/companies/MRVL/thesis.md` (updated with cohort calibration 2026-05-27)
+  - Specific watch items: (a) revenue vs $2,470M base / $2,400M guide; (b) datacenter Q1 trajectory vs ~$1.815B (my model); (c) whether mgmt RAISES custom Si FY27 floor above ">20% YoY" language (the key non-consensus call); (d) Q2 FY27 guide direction; (e) Trainium3 ramp commentary (cohort-key signal); (f) Stage 3-4 stock reaction separately T+24h.
+
 ### P1 — High priority (next session)
 
 - [ ] **P1 / research / 2026-05-27** [INDP, AF] — LG Innotek (KRX: 011070) deeper dig + Ibiden comparison

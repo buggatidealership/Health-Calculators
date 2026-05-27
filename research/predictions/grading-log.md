@@ -12,6 +12,7 @@ Index of every prediction made by the system. Each row resolves to "pending" or 
 |---|---|---|---|---|
 | 2026-05-26 | 2026-05-27 | MOD | Q4 FY26 earnings + FY27 guide | `2026-05-26-MOD-Q4FY26.md` |
 | 2026-05-27 | 2026-05-27 (fundamental) + 2026-05-28 (stock-reaction T+24h) | SNOW | Q1 FY27 earnings + FY27 guide raise/maintain/lower + Cortex AI run rate | `2026-05-27-SNOW-Q1FY27.md` |
+| 2026-05-27 | 2026-05-27 (fundamental) + 2026-05-28 (stock-reaction T+24h) | MRVL | Q1 FY27 earnings + Q2 guide + custom Si FY27 outlook commentary | `2026-05-27-MRVL-Q1FY27.md` |
 
 ## Graded
 
