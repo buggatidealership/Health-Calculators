@@ -17,12 +17,6 @@
 
 ### P0 — Critical (next session)
 
-- [ ] **P0 / verification / 2026-05-27** [CAL, INDP] — GRADE Snowflake (SNOW) Q1 FY27 earnings prediction
-  - Origin: PREDICT workflow executed 2026-05-27 ahead of SNOW Q1 FY27 print (after market close 2026-05-27). 4 prediction targets logged: product revenue $1.275B base (vs $1.2645B guide midpoint), NRR direction 124% base (vs 125% prior), Cortex AI run rate behavior (45% probability $110-130M), FY27 guide raise probability 65% to $5.75-5.85B range.
-  - Scope: Pull Q1 FY27 actuals + earnings call. Run GRADE template. For each of 4 targets: actual vs predicted, magnitude, which input was over/under-weighted. Add lesson L6+ to `predictions/lessons.md` if generalizable insight emerged. Two-Part GRADE protocol: fundamental grade T+0 (May 27); stock-reaction grade T+24h (May 28). Move row from Pending to Graded in grading-log.md.
-  - Linked: `research/predictions/2026-05-27-SNOW-Q1FY27.md`, `research/predictions/grading-log.md`, `research/companies/SNOW/thesis.md` (created 2026-05-27)
-  - Specific watch items: (a) product revenue vs $1.275B base; (b) NRR direction (especially behavior below 120% as bear trigger or above 127% as bull trigger); (c) whether mgmt re-quantifies AI run rate in dollars vs reframing to tokens/accounts; (d) FY27 guide path; (e) Cortex pricing-cut volume tailwind narrative (key qualitative signal); (f) stock-action separately tracked T+24h.
-
 - [ ] **P0 / verification / 2026-05-28** [CAL, INDP] — GRADE Marvell (MRVL) Q1 FY27 earnings prediction (FIRST APPLICATION of Supply-Chain-Cohort Calibration framework)
   - Origin: PREDICT workflow executed 2026-05-27 ahead of MRVL Q1 FY27 print (after market close 2026-05-27). 5 prediction targets logged with cohort-calibrated hedge bands: revenue $2,470M point (vs $2,410M consensus); EPS $0.82 (vs $0.79-0.80 consensus); datacenter +42-47% YoY (vs ~40% target); 60% probability custom Si FY27 floor RAISED above >20%; 65-70% probability Q2 FY27 guide raise to $2.65B+ midpoint.
   - **Methodology validation**: this was the FIRST application of Supply-Chain-Cohort Calibration framework (user-articulated 2026-05-27). Cohort signals collected from AMZN/ANET/CSCO/ALAB/NVDA/AVGO/SK Hynix and hyperscaler capex aggregate. If predictions land within cohort-calibrated bands → codify as principle #32 in methodology.md. If not → keep as cross-source-log methodology candidate pending 2nd application.

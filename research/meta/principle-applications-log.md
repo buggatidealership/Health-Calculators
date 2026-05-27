@@ -27,6 +27,13 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-27 (SNOW GRADE — third application day)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-27 | #32-A (fresh-verify) | SNOW Q1 FY27 GRADE — pulling actual numbers + cascade implications | Fresh research agent for Q1 actuals + DDOG/NOW cascade extraction | Agent flagged 8 data gaps (exact AH price, specific AI run rate $$, $10M+ customer count Q1 FY27, GAAP EPS, exact Q2 op margin, post-print analyst PTs, Iceberg/Polaris metrics, Databricks commentary). Hedged all in GRADE artifact. | REAL CATCH — prevented 8 over-confident citations |
+| 2026-05-27 | #32-B (premortem) | Before writing SNOW GRADE artifact | Enumerated risks: (a) over-attributing cross-segment signal to DDOG/NOW (B20 risk per principle #29); (b) misreading mgmt's no-$ reframe as defensive when actually confident; (c) confusing fundamental vs stock-reaction grade per Two-Part Protocol | Premortem caught: cascade language needed explicit "DIFFERENT segments, SAME-MACRO not SAME-SEGMENT" framing; "DDOG already self-validated Q1 FY26 INDEPENDENTLY" guardrail against over-attribution; L10 lesson generation about leading-vs-lagging indicator inference | REAL CATCH — prevented 3 framing errors in cascade |
+
 ### 2026-05-27 (MOD GRADE — second application day)
 
 | Date | Principle | Context | Checked | Caught | Classification |

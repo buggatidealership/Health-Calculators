@@ -31,6 +31,34 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 ## Lessons (most recent first)
 
+### L10 — When management RE-FRAMES metrics, infer from the TYPE of metric chosen
+
+**Origin:** SNOW Q1 FY27 GRADE 2026-05-27. Mgmt did NOT re-quantify Cortex AI dollar run rate (Q4 FY26 disclosed $100M; pricing cut April 2026 created optics dilemma per my prediction). I predicted 30% probability of "bear scenario — mgmt avoids dollar number due to weakness." MECHANISM matched (no $ disclosed) but IMPLICATION was opposite — mgmt confidently shifted to volume metrics: 13,600+ AI accounts (+49% QoQ from ~9,100), Snowflake Intelligence doubled QoQ, Cortex Code 7,100+ accounts. This was a BULLISH reframe, not defensive.
+
+**Generalizable lesson:** When mgmt drops a previously-cited dollar metric and shifts to a new metric type, infer from the TYPE:
+- **Leading indicators** (account counts, usage growth, engagement, accounts using feature X) = signal of CONFIDENCE; mgmt is showing fast adoption ahead of revenue translation
+- **Lagging indicators** (efficiency ratios, utilization, retention plateaus) = signal of HEDGING; mgmt highlighting stability rather than growth
+- **Engagement-quality indicators** (paid users, active users, conversion) = signal of QUALITY confidence; mgmt showing user base is sticky
+
+**Calibration adjustment:** Flip the default. When mgmt SHIFTS to leading indicators after dropping a $ metric, treat as MORE bullish than the missing dollar number suggests, not less. My SNOW base-case predicted "optics dilemma" framing was systematically too bearish on this dimension.
+
+**Validation criterion:** Apply to next 3 earnings predictions where mgmt drops a dollar metric. If pattern holds (leading-indicator reframes = bullish; lagging-indicator reframes = bearish), L10 is confirmed.
+
+### L9 — Elastic demand response to pricing cuts can outpace ASP compression WITHIN the same quarter for AI/SaaS products with PMF
+
+**Origin:** SNOW Q1 FY27 GRADE 2026-05-27. NRR inflected UP to 126% from stable 125% 4-quarter baseline DESPITE the 70% Cortex AI pricing cut in April 2026. My model predicted slight dip to 124% based on 2-3 quarter elasticity lag assumption. **Actual: volume compensation happened WITHIN the same quarter.** Cohort evidence: 13,600+ AI accounts (+49% QoQ), Intelligence doubled QoQ, Cortex Code 7,100+ accounts.
+
+**Mechanism:** When pricing cuts trigger elastic demand response in a product with strong PMF (queued demand previously capacity-constrained at higher ASP), the volume tailwind can compensate ASP compression IMMEDIATELY. Traditional cyclical-product elasticity-lag models (MU/SNDK NAND-cycle analog: 2-4 quarter response) DO NOT generalize to AI/SaaS PMF products which can respond in 1 quarter.
+
+**Generalizable lesson:** For future predictions involving pricing cuts on AI/SaaS products with PMF signals, assume volume response in 1-2 quarters not 2-3. Apply specifically when:
+- Product was previously CAPACITY-CONSTRAINED at higher ASP (queued demand)
+- Pricing cut UNBLOCKS that queued demand
+- Existing customers can IMMEDIATELY consume more (consumption-based pricing, not seat-licensed)
+
+**Calibration adjustment:** Does NOT apply to commodity-elastic markets (NAND/DRAM/memory cycles) where traditional 2-4 quarter lag holds.
+
+**Falsification criterion:** If next 2+ AI/SaaS pricing-cut events show volume response taking 2-3 quarters per traditional model, L9 was over-applied to this single SNOW case.
+
 ### L8 — Structural-acceleration thesis on AI cooling CONFIRMED (positive lesson)
 
 **Origin:** MOD Q4 FY26 GRADE 2026-05-27. DC sub-segment +158% YoY at Modine validates the bypass-route framework — from chip-cooling (Vertiv/Asetek/LiquidStack territory) to facility-cooling (Modine + Vertiv) per the original thesis. The $4B Airedale deal disclosed 2026-05-26 is now PROVEN as forward-bookings visibility, not just announcement noise. Multi-quarter beat-and-raise streak confirms cyclical-to-structural transition per principle #26.

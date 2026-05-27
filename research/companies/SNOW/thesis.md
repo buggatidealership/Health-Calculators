@@ -156,4 +156,39 @@ The thesis is partially "anti-fragility improves as AI revenue mix grows from 2%
 - 2026-05-27: thesis file created from comprehensive agent deep-dive (8 sections, T1 SEC + Databricks + market-data sources)
 - 2026-05-27: Q1 FY27 earnings reports tonight (after-market close); position-entry decision deferred until T+24h grade
 - **No position taken pre-earnings.** Better entry would be $145-155 range (lows of current cycle). Current $178 is at base-case anchor of $195-210 expected-value range minus risk premium.
+- **2026-05-27 (post-print): GRADED — thesis STRUCTURALLY STRONGER than file assumed.** 0 falsification conditions fired. Beat-and-raise across 4 targets. NRR INFLECTED UP to 126% (predicted 124% dip — WRONG DIRECTION). $6B AWS pact bonus signal. Stock +25% AH. L9 + L10 lessons generated. See `research/predictions/2026-05-27-SNOW-Q1FY27-GRADE.md`.
+
+## Post-GRADE thesis update (2026-05-27)
+
+**Structural confirmation across multiple dimensions:**
+- Product revenue $1.330B (+34% YoY, accelerating from +30% in Q4 FY26) per [SEC 8-K T1](https://www.sec.gov/Archives/edgar/data/0001640147/000164014726000027/fy2027q1earnings.htm)
+- NRR inflected UP to 126% (vs 125% stable 4-quarter baseline) — DESPITE 70% Cortex pricing cut in April 2026 (per L9: elastic demand response within same quarter when PMF is strong)
+- FY27 raise to $5.84B (vs prior $5.66B = +$180M)
+- AI account growth +49% QoQ to 13,600+ (vs ~9,100 Q4 FY26); Snowflake Intelligence accounts doubled QoQ; Cortex Code 7,100+ accounts
+- $6B multi-year AWS pact announced simultaneously per [StockTitan T2](https://www.stocktitan.net/news/SNOW/snowflake-reports-financial-results-for-the-first-quarter-of-fiscal-6ma0nv9h8p9a.html) — sets multi-year demand floor
+- 46 NEW $1M+ ACV customers in Q1 vs 26 in Q1 FY26 = +77% YoY cohort acceleration
+
+**Tier change consideration**: prior tier was Active-candidate at 1.5-3% if entered at $145-155. Post-GRADE evidence:
+- Stage 2-3 narrative positioning still applies per principle #31 — stock at +25% AH puts implied price ~$220 vs pre-earnings consensus PT $229.14 (so still below avg PT — surprise capacity NOT exhausted, unlike NVDA/MOD/MRVL Stage 4)
+- Anti-fragility revisable from 2.5/5 to 3-3.5/5 given S4 (AI spend digestion) risk now demonstrably REDUCED by NRR inflection
+- Position-entry trigger HIT: beat + raise + AI re-quantification confidence + bullish customer cohort acceleration
+- **Effective recommendation: 3% Active tier sizing if entered post-print.** Apply principle #31 25% Stage 2-3 modifier → 2-2.5% appropriate. Better entry on any post-print profit-taking down toward $190-200 range.
+
+**CFO-budget cascade signal**: The NRR inflection + +34% revenue growth REFUTES the CFO-budget-scrutiny migration concern (Uber/MSFT developer-tooling segmented signal from `signals/cross-source-log.md` 2026-05-27 AM brief triage). Enterprise AI budgets are NOT being throttled at the AI-infrastructure tier — this is a positive cross-name signal for NOW, DDOG, PLTR (see Cascade section below).
+
+**Falsifiers updated** (post-GRADE refinement):
+1. ~~Q1 product revenue below $1.255B~~ ✅ DID NOT FIRE
+2. ~~AI run rate below $100M~~ ✅ DID NOT FIRE (volume metrics confirm $)
+3. ~~NRR drops to 120% or below~~ ✅ DID NOT FIRE (inflected UP)
+4. **NEW (forward-looking)**: NRR declines below 124% for 2+ consecutive quarters → signals Cortex monetization velocity slowing
+5. **NEW (forward-looking)**: Databricks announces SQL warehouse winning at named BFSI/healthcare $10M+ TCV customer → direct competitive displacement at SNOW core
+6. **NEW (forward-looking)**: Non-GAAP product gross margin compresses below 72% for 2+ consecutive quarters → LLM inference cost absorption breaking the consumption-margin thesis
+
+## Cross-reference — Q1 FY27 GRADE + cascade (added 2026-05-27)
+
+Per `research/predictions/2026-05-27-SNOW-Q1FY27-GRADE.md`:
+
+Two lessons generated: **L9** (elastic demand response to pricing cuts can outpace ASP compression within the same quarter for AI/SaaS PMF products); **L10** (mgmt re-framing from $ to leading-indicator metrics signals confidence, not evasion). Both lessons cascade to future SNOW predictions + other AI/SaaS PMF predictions.
+
+Stock-reaction grade T+24h pending May 28 — separate from this fundamental grade per Two-Part GRADE Protocol.
 

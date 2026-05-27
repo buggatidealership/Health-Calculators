@@ -218,3 +218,17 @@ Salesforce launched Agentforce IT Service 2025 directly attacking NOW's CSM/Cust
 - Retention metric INTACT — 97% Q1 2026 is consistent with ServiceNow's historical 98% pattern; slip is one-quarter federal-specific
 - Salesforce Agentforce competitive risk is REAL at CSM/Customer Workflows layer; NOT a near-term ITSM-core threat
 - New watch item: Agentforce IT Service market share at NOW's incumbent customers + Now Assist seat-attach rate vs Agentforce per-action attach rate
+
+## Cross-reference — SNOW Q1 FY27 cascade (added 2026-05-27)
+
+Per `research/predictions/2026-05-27-SNOW-Q1FY27-GRADE.md` (SNOW Q1 FY27 beat-and-raise):
+
+**Segment classification per principle #29**: SNOW = data-platform segment; NOW = workflow-software segment. DIFFERENT segments. SAME enterprise-software cohort. SAME-MACRO signal (CFO budgets healthy), NOT direct workflow-automation readthrough.
+
+**CFO-budget-scrutiny risk REDUCED**: SNOW NRR inflected UP to 126% from 125% baseline + product revenue +34% YoY + FY27 guide raised to $5.84B + $6B multi-year AWS pact announced simultaneously (per [StockTitan T2](https://www.stocktitan.net/news/SNOW/snowflake-reports-financial-results-for-the-first-quarter-of-fiscal-6ma0nv9h8p9a.html)) = enterprise AI budgets demonstrably NOT being throttled at the AI-infrastructure tier.
+
+This DIRECTLY REFUTES the CFO-budget-scrutiny migration concern logged in `research/signals/cross-source-log.md` 2026-05-27 (Uber + MSFT developer-tooling segmented signal). The pipeline-lengthening risk identified in NOW's existing falsifier framework is LOWER post-SNOW print. Enterprise CFOs are not throttling AI-infrastructure spend; by extension, NOW's workflow-automation pipeline is unlikely to lengthen materially in coming quarters.
+
+**Workflow-automation indirect readthrough**: SNOW positioning as "the control plane for the Agentic Enterprise" (CEO Ramaswamy quote per agent T2) + Snowflake Intelligence multi-agent orchestration layer growth = enterprises are building agent stacks. NOW's Now Assist is the natural orchestration layer on TOP of SNOW's data layer. Potential integration partner, not competitor. Multi-quarter positive signal for NOW's agentic-workflow narrative.
+
+No sizing change. Position remains at current 6.9%. The "CFO-budget-scrutiny pipeline-lengthening" risk that was elevated as a watch item is now de-emphasized.

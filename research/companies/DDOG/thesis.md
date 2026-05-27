@@ -200,3 +200,17 @@ Per `research/signals/events/2026-05-25-test-time-compute-scaling.md`:
 - Duration: 3-4 years (Medium-Long) confirmed
 - Total RPO +51% YoY signal NOT in prior thesis file — should be in the recent-data section
 - New watch item: AI-native customer ARR retention rate (cohort-level) — if AI-native startups churn to open-source, the 80% new-ARR contribution becomes vulnerable
+
+## Cross-reference — SNOW Q1 FY27 cascade (added 2026-05-27)
+
+Per `research/predictions/2026-05-27-SNOW-Q1FY27-GRADE.md` (SNOW Q1 FY27 beat-and-raise):
+
+**Segment classification per principle #29**: SNOW = data-platform segment; DDOG = observability segment. DIFFERENT segments. SAME enterprise-software cohort. SAME-MACRO signal, NOT same-segment readthrough.
+
+**Cascade signal**: SNOW AI account growth +49% QoQ (~9,100 → 13,600+ accounts using AI capabilities per [Snowflake press release T1](https://www.snowflake.com/en/news/press-releases/snowflake-expands-snowflake-intelligence-and-cortex-code-to-power-the-control-plane-for-the-agentic-enterprise/)) implies ~4,500 new enterprise AI deployments in one quarter — each is a POTENTIAL DDOG LLM observability workload at the AI Observability product line. 2nd-order multi-quarter tailwind, not Q2 readthrough.
+
+**B20 / principle #29 discipline**: do NOT change DDOG sizing based on SNOW signal alone. DDOG already self-validated Q1 FY26 INDEPENDENTLY (per agent research: +30.4% revenue to $1.006B, stock +31.3% post-print). The SNOW cascade is environment confirmation, not new thesis evidence.
+
+**Risk update — CFO-budget-scrutiny signal**: SNOW NRR inflected UP to 126% from 125% baseline + product revenue +34% YoY = enterprise AI budgets demonstrably NOT being throttled. This DIRECTLY refutes the developer-tooling CFO-scrutiny migration concern logged in `research/signals/cross-source-log.md` 2026-05-27 (Uber + MSFT segmented signal). The 2nd-order risk on DDOG's AI-native startup cohort (Langfuse/Arize bypass acceleration) is REDUCED — startup spending appears resilient.
+
+No sizing change. Position remains at current 7.5%. Monitor next DDOG quarterly print for direct AI-customer-cohort retention metrics.
