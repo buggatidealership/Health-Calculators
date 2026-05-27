@@ -288,3 +288,9 @@ Per `research/signals/events/2026-05-25-sk-hynix-ihbm.md`:
 **Reinforces existing thesis:** ALAB transitions from copper-only AI fabric to vertically integrated copper+optical AI fabric platform addressing $20B merchant scale-up switching TAM by 2030.
 
 **Falsifier reinforcement:** 2027 NPO volume shipment milestone misses; aiXscale founder retention failure (Witzens + Merget); ESUN open-source architecture (Meta + AMD + Broadcom + Marvell) excludes ALAB.
+
+## Cross-reference — SNOW $6B AWS pact TRACE (added 2026-05-27, back-reference per Critical Rule #10)
+
+Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: ALAB named in 4th/3rd-order cascade as **speculative indirect beneficiary**. P~25% confidence. Logic chain: IF AWS Trainium3 is included in SNOW's $6B GPU commitment AND AWS scales Trainium3 cluster deployment for SNOW workloads AND those clusters use PCIe/CXL retimers — ALAB has marginal demand pull-through. Each step is itself uncertain; compounded probability is low.
+
+**No thesis update warranted (premortem 2026-05-27)**: too tenuous (depends on speculative Trainium3 inclusion). Propagating speculative 4th-order signal to thesis would dilute the file's signal quality per principle #32 premortem discipline. The existing ALAB thesis (held 9.6%) does not need this signal — direct PCIe-Gen6 + Scorpio AI fabric design wins already provide the load-bearing structural evidence.

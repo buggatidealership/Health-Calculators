@@ -174,3 +174,9 @@ Per `research/signals/events/2026-05-20-NVDA-Q1FY27-call-deepdive.md`:
 **Partial counter-evidence at custom-Si frontier:** Jensen's "every single frontier model company will jump on Vera Rubin from the get-go" implies AVGO custom-Si design partnerships may NOT capture frontier-model training share. But production inference still fragments per Patel — AVGO retains exposure there.
 
 **Net read:** Networking-layer thesis for AVGO STRONGER; custom-Si-frontier portion partially weakened but still material because (a) Anthropic-Broadcom partnership covered separately, (b) production inference is the larger TAM, (c) hyperscaler internal Si programs (Google TPU, Meta MTIA, MS Maia) still ramping. **5-8% Active candidate tier stands; consider 6-7% within range given the dual-leg reinforcement.**
+
+## Cross-reference — SNOW $6B AWS pact TRACE (added 2026-05-27, back-reference per Critical Rule #10)
+
+Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: AVGO named in 4th-order cascade as **slight competitive headwind**. P~15% confidence (negligible magnitude). Logic: AWS becomes stronger custom-Si showcase platform via deepened SNOW relationship; AVGO competes for custom-Si design wins at Google/Meta/MSFT/OpenAI/Anthropic and AWS-strength narrative is marginally competitive vs that.
+
+**No thesis update warranted (premortem 2026-05-27)**: AVGO has its own diversified custom-Si design wins (Google TPU 8t/8i, Meta MTIA, MSFT Maia, OpenAI Titan, Anthropic) AND networking-layer dominance (Tomahawk 6 102.4T = 1 generation ahead of MRVL Teralynx 51.2T). The SNOW-AWS pact does not change AVGO's competitive positioning materially. AVGO is a 1st-order beneficiary of the broader hyperscaler-AI capex wave that the SNOW pact is one data point in — net positive overall, not negative.

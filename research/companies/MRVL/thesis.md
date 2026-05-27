@@ -85,3 +85,9 @@ Per `research/predictions/2026-05-27-MRVL-Q1FY27.md` (PREDICT artifact + first a
 **Stock-reaction caveat per principle #31**: BEAT high probability fundamentally, but Stage 3-4 positioning means stock could react muted-to-negative even on a fundamental beat (NVDA May 2026 pattern is the parallel case study).
 
 **Pending GRADE outcome 2026-05-28** — if the framework's non-consensus calls land, codify as principle #32 in methodology.md. If not, keep as cross-source-log methodology candidate pending 2nd application.
+
+## Cross-reference — SNOW $6B AWS pact TRACE (added 2026-05-27, back-reference per Critical Rule #10)
+
+Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: MRVL named in 3rd-order cascade as **conditional beneficiary** via UNCONFIRMED Trainium3 inclusion in SNOW's $6B GPU commitment. P~40% confidence. MRVL is AWS Trainium custom-Si networking partner per [The New Stack T3](https://thenewstack.io/openai-bedrock-trainium-silicon/); IF Trainium3 is part of the GPU category in the SNOW commitment, MRVL benefits via EthOS networking demand.
+
+**No thesis update warranted (premortem 2026-05-27)**: Trainium3 inclusion is NOT confirmed in public deal disclosures. The TRACE artifact captures this as a single-source hypothesis, NOT a triangulated signal. Propagating to thesis as fact would violate principle #29 segmented-triangulation discipline. Watch item: any AWS-side disclosure confirming chip mix in the SNOW infrastructure commitment.

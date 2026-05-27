@@ -287,3 +287,9 @@ HBM4E mass production target (SK Hynix Q1 CY26 earnings: samples H2 2026, mass p
 - Mgmt-confirmed 3-year capacity gap extends past 2028 into HBM5 era
 
 **Falsifier reinforcement:** Samsung achieving thermal-parity (iHBM-equivalent) disclosure within 12 months OR HBM5 timeline slips OR HBM-per-FLOP plateau across 2 model generations. None firing currently.
+
+## Cross-reference — SNOW $6B AWS pact TRACE (added 2026-05-27, back-reference per Critical Rule #10)
+
+Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: HYNIX named in 3rd-order cascade as **marginal beneficiary**. P~35% confidence; magnitude marginal. Logic: SNOW's 5-year AWS infrastructure commitment includes AI GPUs; AI GPUs require HBM; SNOW's incremental AWS GPU demand adds to broader hyperscaler HBM consumption — but SNOW alone is one input among thousands driving AWS GPU cluster expansion.
+
+**No thesis update warranted (premortem 2026-05-27)**: HYNIX thesis is anchored on HBM stack-height crowding-out + iHBM thermal moat + 3-year backlog visibility — load-bearing structural evidence is multiple orders of magnitude larger than the marginal incremental signal from one customer's 5-year cloud infrastructure commitment. The SNOW-AWS pact is environmental confirmation, not new HYNIX thesis evidence. Existing held position remains anchored on the direct HBM-supply-chain structural evidence.
