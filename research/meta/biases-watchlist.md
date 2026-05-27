@@ -560,6 +560,42 @@ Before promoting any signal cluster to `triangulation.md`, classify each source 
 
 ---
 
+### B32 — Comp-set anchoring at the valuation step (pre-training stale-reference-class bias)
+
+**Origin:** Self-caught 2026-05-27 during LSCC valuation discussion. User meta-question: *"Are you undermodeling the valuation because of your pre-training data?"* Honest answer: yes. I had called "26-27x forward EV/Sales is elevated" for LSCC without enumerating WHICH comp set "elevated" was relative to. The implicit comp set was historical FPGA cyclical semis (10-20x range from 2010-2020 data — the era my training data is heaviest on). But LSCC has structurally re-rated from FPGA-cyclical to chokepoint + AMI-firmware-platform per the chokepoint analysis from the prior turn. The right comp set is "chokepoint + software-adjacent" (ASML, TSMC, ARM, ALAB at 25-40x EV/Sales). Under the correct comp set, 26x is at the LOWER end of fair value, not elevated.
+
+**Pattern:** Stating "elevated / cheap / fair / overvalued / undervalued / asymmetric" without enumerating the comp set the call rests on. Pre-training defaults to the historical comp set (the one with the most training data); structural reframes that change which comp set applies are not automatically carried through to the valuation step. The reframe is done at the classification step (per principle #28) but the valuation language reverts to old anchors.
+
+**Distinction from related biases:**
+- B23 (sell-side aggregation drift): operates on a single forecast at the input-aggregation step. B32 operates on a valuation call at the comp-set selection step.
+- B25 (source-tracking over claim-verification): operates on a single claim's epistemic status. B32 operates on the comp set itself being mis-selected.
+- B26 (pre-training as primary source): the parent bias. B32 is a SPECIFIC manifestation of B26 at the valuation step.
+- B28 (cyclical-vs-structural mis-classification): operates at the classification step. B32 operates AFTER classification is correct but the valuation reverts to pre-classification comp set. The two compound: structural reframe at classification + stale comp set at valuation = double-undermodeling.
+
+**Manifestation 2026-05-27 (the LSCC self-catch):**
+- Step 1 (correctly done): classified LSCC as chokepoint + AMI-firmware platform per principle #28
+- Step 2 (failed): said "26-27x forward EV/Sales is elevated" — anchored on FPGA cyclical comp 10-20x
+- Step 3 (user surfaced): "are you undermodeling because of pre-training data?"
+- Step 4 (corrected): built 3-layer valuation with chokepoint comp set (Layer 2: 25x chokepoint multiple → $130-145 fair value) + AMI optionality (Layer 3: 30-35x blended → $160-190 fair value). Current ~$140 in Layer 2 fair value, BELOW Layer 3 midpoint.
+- Magnitude of undermodeling: ~15-30% understatement of fair value under chokepoint framing
+
+**The structural fix (codified as principle #30):**
+Before any valuation call, explicitly enumerate (1) which comp set the call rests on, (2) does the comp set match the company's current structural position per principle #28, (3) if structural re-rating has occurred, the right comp set has changed — pre-training defaults to the old one.
+
+**Correction (mandatory per principle #30):**
+1. For any "elevated / cheap / fair / asymmetric" language, name the comp set being used
+2. Test the comp set against the current structural position (cyclical / chokepoint / platform / commodity)
+3. If mismatch: rebuild valuation using the 3-layer template (cyclical floor + chokepoint premium + platform optionality + displacement haircut)
+4. Compare the structurally-correct fair value to current price — that's the actual valuation call
+
+**Retroactive application:** the LSCC "elevated" framing has been corrected. Other recent valuation calls worth re-auditing: any "rich multiple" / "expensive" / "asymmetric / not asymmetric" call where the underlying name has structurally re-rated in the past 24 months. Candidates for re-audit: SNDK, HYNIX, ALAB, MU, AVGO, MRVL — all underwent cyclical → structural transitions and may carry stale-comp anchors in their thesis files.
+
+**How to check:** Before any valuation-language output, force the question — "did I name the comp set, and does that comp set match the company's CURRENT structural position?" If only the multiple was stated without comp-set enumeration, B32 may have fired — go back and rebuild via 3-layer template.
+
+**Hook enforcement:** moderate-high feasibility. A Stop hook could scan for valuation-language tokens AND require either (a) explicit comp-set reference in the same message + structural classifier OR (b) explicit hedge "(snap valuation, not structurally-checked)". Deferred — pending second observation of drift to confirm hook value over the codification-instruction baseline.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

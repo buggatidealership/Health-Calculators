@@ -1,8 +1,38 @@
 # Cross-Source Signal Log
 
-**Last updated:** 2026-05-21
+**Last updated:** 2026-05-27
 
-Weak/single-source signals. When ≥3 independent sources converge on the same direction within 90 days, promote to `triangulation.md`.
+Weak/single-source signals. When ≥3 independent sources converge on the same direction within 90 days, promote to `triangulation.md` (per principle #29: segment-classify each source before promoting).
+
+---
+
+## HYPOTHESIS PENDING VERIFICATION
+
+### [2026-05-27] User-articulated hypothesis — "Narrative-driven investment era reduces weight of traditional valuation"
+
+**Source:** User input 2026-05-27 (verbatim): *"There are certain signals where evaluations don't matter as much anymore. They still hold weight for sure. But what matters more is just the earnings — do they beat the guidance, the profit margins. Valuations, P/Es, all of these are less relevant today because we're more in a narrative driven investment era. One good example is Tesla — Elon Musk driven narrative. Any news headline where an LLM achieves a breakthrough reinforces the entire stack even if the numbers themselves don't change."*
+
+**Decomposed claims:**
+1. Valuation multiples (P/E, EV/Sales) carry less explanatory weight today vs pre-2018
+2. Earnings BEAT + guide RAISE + margin EXPANSION matter MORE than absolute multiple level
+3. Narrative momentum drives multi-quarter price moves independent of fundamental change
+4. Pure-narrative names (no/weak fundamentals) can sustain extreme multiples via narrative reinforcement
+5. Tesla is canonical example (Elon-driven narrative)
+
+**Direction:** structural (if confirmed) — shifts OS valuation methodology
+**Linked theme:** methodology principle candidate
+**Status:** Verification agent launched 2026-05-27. Will return with empirical data on:
+- Forward multiple at entry vs 12mo return correlation across AI-era basket
+- LLM-breakthrough event-study (NVDA/AVGO/HYNIX/ALAB/SNOW reaction to GPT-5/Claude/Gemini/DeepSeek releases)
+- Tesla EPS YoY vs stock price YoY 2022-2026
+- Pure-narrative names cohort 12mo and 24mo returns
+- 2022 NASDAQ correction: did pure-narrative names de-rate faster than fundamentals-supported names
+
+**Promotion decision pending:** if agent verifies, codify as principle #31 (narrative-stage as explicit valuation modifier). If agent invalidates or partially refutes, log as user-articulated hypothesis with empirical counter-evidence and move on.
+
+**OS-relevance:** the answer changes how valuation enters the Conviction Format (CLAUDE.md) and how the Recognition Stage framework is operationalized.
+
+---
 
 ## Format
 

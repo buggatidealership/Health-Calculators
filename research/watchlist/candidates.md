@@ -111,6 +111,10 @@ The most anti-fragile substrate layer of all: every chip company in the AI unive
 ### Sovereign / Strategic
 - **ORCL** — Stargate partner; sovereign cloud builds.
 
+### Server platform control / chokepoint FPGA (added 2026-05-27)
+
+- **Lattice Semiconductor (LSCC)** — dominant supplier of low-power small-form-factor FPGAs at server BMC / security root-of-trust / power-sequencing / thermal-management sockets. Chokepoint is BROADER than AI — every modern server, networking switch, industrial system, automotive platform needs these chips to boot. AI is demand amplifier, not source. Q1 2026 +42% YoY; Q2 guide +~50% YoY (per [Q1 2026 transcript T1](https://www.fool.com/earnings/call-transcripts/2026/05/04/lattice-lscc-q1-2026-earnings-transcript/)). $1.65B AMI acquisition closes Q3 2026 — transformational firmware-platform pivot (per [EE Times T2](https://www.eetimes.com/fpga-makers-strategic-pivot-into-firmware-world/)). Anti-fragility 4/5 (revised UP from agent's 3.5/5 after chokepoint-breadth analysis 2026-05-27). Valuation: 3-layer build-up fair value $130-190 range (per principle #30 chokepoint comp set, NOT FPGA cyclical anchor). Currently ~$140 — in upper-middle of fair value range, not elevated. Stage 2-3 transition. **Status: ACTIVE-CANDIDATE** at 1.5-3% initial sizing if entered. Full thesis: `companies/LSCC/thesis.md`. Two consecutive high-quality CEOs (Anderson 2018-2024 grew rev $398M → $737M; Tamer 2024+ executing recovery + AMI bet).
+
 ## Promotion criteria
 
 A watchlist name gets a full `companies/{TICKER}/` folder when:

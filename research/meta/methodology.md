@@ -1078,6 +1078,41 @@ Be CONFIDENT when:
 
    See B31 (cross-segment aggregation as triangulation) in `biases-watchlist.md`. Companion to principle #22 + B20.
 
+30. **Comp-set verification before any valuation call — pre-training defaults to stale reference classes.** Codified 2026-05-27 after the LSCC valuation self-audit. The failure mode: I called "26-27x forward EV/Sales is elevated" without enumerating WHICH comp set "elevated" was relative to. The implicit comp set was historical FPGA cyclical semis (10-20x range from 2010-2020 data). But LSCC has structurally re-rated from FPGA-cyclical → chokepoint + AMI-firmware-platform. The right comp set is "chokepoint + software-adjacent" names (25-40x EV/Sales: ASML, TSMC, ARM, ALAB). Under the right comp set, 26x is at the LOWER end of fair value, not elevated. The 1-layer mental valuation model embedded a pre-training cyclical comp anchor that didn't survive the structural-reframe step.
+
+   **The discipline:** Before stating "elevated / cheap / fair" in any valuation call, explicitly enumerate:
+   1. Which comp set am I implicitly using?
+   2. Does that comp set match the company's CURRENT structural position (per principle #28 supply-chain-reality test + principle #22 segment trajectory), or does it match its HISTORICAL position?
+   3. If structural re-rating has occurred (cyclical → chokepoint, hardware → software-adjacent, single-product → platform, etc.), the right comp set has changed — and pre-training defaults to the old one.
+
+   **The 3-layer valuation build-up template (mandatory for structurally-re-rated names):**
+   - **Layer 1 — Cyclical floor**: apply the OLD comp-set multiple to current revenue. This is the bear-case floor (what the stock trades at if the structural reframe is wrong).
+   - **Layer 2 — Chokepoint / structural premium**: add premium for non-substitutable function + switching cost + demand breadth. Apply chokepoint comp set (ASML / TSMC / ARM / ALAB range).
+   - **Layer 3 — Platform / recurring-revenue optionality**: if applicable (SaaS-like pivot, firmware-with-hardware integration, IP-licensing layer), add software-adjacent comp multiple to the qualifying revenue stream.
+   - **Displacement-risk haircut**: subtract 15-25% (per OS bypass-route framework, principle #9) for substitution-route maturity.
+
+   **Detection rule:** for every valuation call ("elevated / cheap / fair / overvalued / undervalued / asymmetric / not asymmetric"), force the question — "did I enumerate my comp set, and does that comp set match the company's current structural position?" If no, the valuation call is anchored on pre-training reference class and is provisional.
+
+   **Retroactive application (LSCC 2026-05-27):**
+   - Prior call: "26-27x forward EV/Sales is elevated" (anchored on FPGA cyclical comp 10-20x)
+   - Corrected call: Layer 1 floor ~$80/share at 15x cyclical EV/Sales; Layer 2 chokepoint fair value ~$130-145 at 25x chokepoint EV/Sales; Layer 3 AMI optionality ~$160-190 at 30-35x blended. Displacement-risk haircut 15-25%. Current ~$140 sits in Layer 2 fair value, below Layer 3 midpoint by 15-30%. NOT elevated under chokepoint framing.
+
+   **Falsifiers / inversion conditions:**
+   - The "old comp set" actually was the right comp set because the structural-reframe was wrong (cyclical reality not chokepoint reality)
+   - Layer 1+2+3 produces fair-value range below current price (i.e., the chokepoint comp set ALSO can't justify the multiple, in which case the stock is genuinely expensive)
+   - Displacement-risk haircut should be larger than 15-25% because bypass routes are more mature than assumed
+
+   **Hook enforceability:** moderate-high. A Stop hook could scan for valuation-language tokens ("elevated", "cheap", "fair", "overvalued", "undervalued", "asymmetric", "X x forward", "rich multiple", etc.) AND require that the same message contains: (a) named comp set reference + (b) explicit structural-reframe check ("cyclical / chokepoint / platform" classifier present) OR (c) explicit "(snap valuation, not structurally-checked)" hedge. Deferred — pending second observation of B32 drift to confirm hook value.
+
+   **Fluidity footer:**
+   - codified: 2026-05-27 (after LSCC valuation self-audit triggered by user meta-question)
+   - last_review: 2026-05-27
+   - status: active (new)
+   - falsified_by: structural-reframe-comp-sets routinely producing fair values that don't survive contact with subsequent earnings (suggests reframes are over-applied); OR a hard pattern emerging that pre-training comp set was actually right because the structural reframe was wishful
+   - re-evaluation trigger: monthly, OR on any thesis where the 3-layer valuation build produced a meaningfully-different fair value than the snap "old comp set" call would have
+
+   See B32 (comp-set anchoring at valuation step) in `biases-watchlist.md`.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)
