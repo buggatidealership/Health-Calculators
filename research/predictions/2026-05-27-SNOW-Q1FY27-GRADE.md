@@ -83,9 +83,13 @@ Source: [StockTitan T2 citing SEC 8-K](https://www.stocktitan.net/news/SNOW/snow
 
 ## NEW HIDDEN SIGNAL — $6B AWS Pact (not in my prediction)
 
-Per [StockTitan T2](https://www.stocktitan.net/news/SNOW/snowflake-reports-financial-results-for-the-first-quarter-of-fiscal-6ma0nv9h8p9a.html): a new **multi-year $6B AWS commitment** was announced simultaneously with earnings. This is structural — a demand floor, not immediate revenue. Sets multi-cloud co-sell baseline through commitment period. **My prediction did not anticipate this announcement.**
+Per [BusinessWire T1](https://www.businesswire.com/news/home/20260527269473/en/Snowflake-Expands-AWS-Collaboration-with-$6B-Commitment-to-Accelerate-Enterprise-Agentic-AI-Adoption) + [CNBC T2](https://www.cnbc.com/2026/05/27/snowflake-amazon-graviton-cloud-chips.html): a new **5-year $6B AWS infrastructure commitment** was announced simultaneously with earnings. **My prediction did not anticipate this announcement.**
 
-**Implication**: this is parallel to the MOD $4B Airedale deal pattern — major customer commitment disclosed AT earnings creating structural-acceleration evidence. The cascade implication for AI-infrastructure cohort (MRVL custom Si Trainium ramp, ALAB connectivity, HYNIX HBM) is positive: hyperscaler multi-year commitments are becoming the new disclosure norm.
+**CORRECTED FRAMING (per premortem fresh-verify 2026-05-27)**: This is **SNOW paying AWS** $6B over 5 years (~$1.2B/year) for Graviton + AI GPUs. NOT AWS paying SNOW. NOT joint customer revenue commitment. This is a COST commitment, not a revenue commitment. My initial framing parallel-to-MOD-$4B-Airedale was WRONG — opposite direction-of-payment signals. The better structural parallel is OpenAI-AWS (AI software company committing multi-year hyperscaler spend for capacity security), not Microsoft-OpenAI.
+
+**Implication**: signal of mgmt confidence in customer-demand durability (justifies $1.2B/yr cost commitment) + locks in Graviton + GPU compute capacity through ~2031 against tightening AWS capacity per [DataCenterDynamics T3](https://www.datacenterdynamics.com/en/news/two-customers-ask-to-buy-all-of-aws-graviton-instance-capacity-in-2026/). Counter-narrative vs Databricks pre-IPO. NOT a direct revenue floor for SNOW — it's a supply-side capacity lock + co-sell intensification + multi-cloud-neutral narrative preservation.
+
+Full TRACE analysis with N-th order cascade in `signals/events/2026-05-27-SNOW-AWS-pact.md`. Cascade is more nuanced than initial framing suggested — MRVL Trainium3 inclusion is unconfirmed (NOT propagated to MRVL thesis); HYNIX/ALAB 3rd-4th order signal too marginal to warrant cascade updates.
 
 ---
 

@@ -180,3 +180,15 @@ Per `research/wiki/robotics-primer.md` Phase 2 verification:
 Per `research/signals/events/2026-05-20-google-io-2026.md`:
 
 **2nd-order MIXED — Anthropic 3.5GW Google TPU commitment weakens AMZN-Anthropic exclusivity narrative.** Anthropic is now multi-cloud at scale (Google TPU 8t + 8i for 2027 production despite AMZN partnership), which contradicts the "Anthropic compute locked to AMZN" framing. Net for AMZN: own Trainium 3 still wins via custom-Si bifurcation (44.6% ASIC CAGR generalizes); but the Anthropic exclusivity premium compresses. No tier change; watch item: AMZN-Anthropic next earnings cadence for any narrative-realignment language.
+
+## Cross-reference — Snowflake $6B AWS infrastructure commitment (added 2026-05-27)
+
+Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md` + [BusinessWire T1](https://www.businesswire.com/news/home/20260527269473/en/Snowflake-Expands-AWS-Collaboration-with-$6B-Commitment-to-Accelerate-Enterprise-Agentic-AI-Adoption):
+
+**Snowflake committed $6B / 5 years (~$1.2B/year) to AWS** for Graviton ARM CPUs + AI GPUs (Cortex AI / Snowpark / data warehousing workloads). Announced simultaneously with SNOW Q1 FY27 earnings 2026-05-27. Adds to AWS's growing roster of multi-year AI software vendor infrastructure commitments (OpenAI-AWS, Anthropic-AWS, Meta-Graviton).
+
+**1st-order implication for AMZN**: ~$1.2B/year incremental AWS Cloud revenue commitment. Combined with the prior $2B 2025 SNOW Marketplace customer transaction volume per [BusinessWire Dec 2025 T1](https://www.businesswire.com/news/home/20251203483596/en/Snowflake-Doubles-AWS-Marketplace-Growth-YoY-Eclipses-$2-Billion-in-Sales-as-New-Integrations-Accelerate-Enterprise-Data-and-AI-Adoption), AWS deepens its lock on enterprise data layer co-sell motion. Strengthens AWS positioning vs Microsoft Azure Fabric/Synapse and GCP BigQuery for next-wave enterprise data platform deals.
+
+**2nd-order**: Graviton + GPU pull-through scales. Multi-cloud-neutral software vendor (SNOW) explicitly committing AWS-preferred infrastructure spend = competitive moat signal vs Azure/GCP. Pre-positions AWS ahead of Databricks IPO (DBX has stronger Azure relationship); SNOW counter-narrative is "AWS-preferred enterprise data layer."
+
+**No tier change** — existing AMZN thesis already accounts for AWS strength + custom Si bifurcation. This is incremental confirmation, not new thesis evidence. Watch item: whether similar mega-pacts surface across Oracle, SAP, MongoDB or other Tier-1 enterprise software vendors (would confirm a structural pattern per principle #29 segmented-triangulation, not yet codified as theme).

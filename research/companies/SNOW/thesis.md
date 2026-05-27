@@ -165,7 +165,7 @@ The thesis is partially "anti-fragility improves as AI revenue mix grows from 2%
 - NRR inflected UP to 126% (vs 125% stable 4-quarter baseline) — DESPITE 70% Cortex pricing cut in April 2026 (per L9: elastic demand response within same quarter when PMF is strong)
 - FY27 raise to $5.84B (vs prior $5.66B = +$180M)
 - AI account growth +49% QoQ to 13,600+ (vs ~9,100 Q4 FY26); Snowflake Intelligence accounts doubled QoQ; Cortex Code 7,100+ accounts
-- $6B multi-year AWS pact announced simultaneously per [StockTitan T2](https://www.stocktitan.net/news/SNOW/snowflake-reports-financial-results-for-the-first-quarter-of-fiscal-6ma0nv9h8p9a.html) — sets multi-year demand floor
+- $6B 5-year AWS infrastructure commitment announced simultaneously (per [BusinessWire T1](https://www.businesswire.com/news/home/20260527269473/en/Snowflake-Expands-AWS-Collaboration-with-$6B-Commitment-to-Accelerate-Enterprise-Agentic-AI-Adoption) + [CNBC T2](https://www.cnbc.com/2026/05/27/snowflake-amazon-graviton-cloud-chips.html)) — **DIRECTION: SNOW pays AWS** for Graviton CPUs + AI GPUs at ~$1.2B/year. NOT AWS paying SNOW; NOT joint customer revenue commitment. This is a COST commitment signaling mgmt confidence in customer-demand durability + locking in compute capacity through ~2031. The MOD $4B Airedale parallel (customer paying MOD = revenue commitment) is the WRONG analog — better parallel is OpenAI-AWS (AI software co committing multi-year hyperscaler spend for capacity security)
 - 46 NEW $1M+ ACV customers in Q1 vs 26 in Q1 FY26 = +77% YoY cohort acceleration
 
 **Tier change consideration**: prior tier was Active-candidate at 1.5-3% if entered at $145-155. Post-GRADE evidence:
@@ -191,4 +191,25 @@ Per `research/predictions/2026-05-27-SNOW-Q1FY27-GRADE.md`:
 Two lessons generated: **L9** (elastic demand response to pricing cuts can outpace ASP compression within the same quarter for AI/SaaS PMF products); **L10** (mgmt re-framing from $ to leading-indicator metrics signals confidence, not evasion). Both lessons cascade to future SNOW predictions + other AI/SaaS PMF predictions.
 
 Stock-reaction grade T+24h pending May 28 — separate from this fundamental grade per Two-Part GRADE Protocol.
+
+## AWS $6B Pact — structural analysis (added 2026-05-27, premortem-corrected)
+
+Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md` (TRACE event file with full N-th order cascade):
+
+**Verified deal structure**: SNOW pays AWS $6B over 5 years (~$1.2B/year) for Graviton ARM CPUs + AI GPUs to run Cortex AI / Snowpark / data warehousing workloads. Layered SCA includes co-sell motion, AWS Marketplace expansion, product integrations. The deal is SNOW's COST commitment, not revenue commitment. Direction-of-payment correction was a real catch via principle #32 premortem — my initial framing parallel-to-MOD-$4B-Airedale was WRONG (MOD's was customer-paying-MOD revenue; SNOW's is SNOW-paying-AWS cost).
+
+**Honest stock-move attribution of +25-30% AH**:
+- FY27 dual raise (revenue + op margin): ~30-35%
+- NRR inflection 125%→126%: ~20-25%
+- AI accounts +49% QoQ: ~15-20%
+- $6B AWS pact: ~15-20% (amplifier + narrative crystallizer, NOT primary anchor)
+- Revenue beat magnitude + Op margin: ~10-15%
+
+**Strategic implications for SNOW**:
+- Capacity security through agentic AI demand surge (Graviton capacity tightening per [DataCenterDynamics T3](https://www.datacenterdynamics.com/en/news/two-customers-ask-to-buy-all-of-aws-graviton-instance-capacity-in-2026/))
+- Multi-cloud independence narrative preserved while AWS-preferred positioning vs Databricks Azure-depth + BigQuery GCP-native
+- Margin floor risk: if customer demand disappoints, $1.2B/year becomes fixed-cost headwind
+- Demand magnitude signal: 5-year $6B infrastructure commitment requires mgmt to expect customer demand growth ~3-4x over 5 years (~$4.7B FY26 → $15-20B by FY31 at 25-30% CAGR, my rough model)
+
+**Updated anti-fragility (revised UP from 2.5/5 → 3/5)**: S4 (AI spend digestion) bear case materially weakened by NRR inflection + AWS infrastructure commitment magnitude signaling sustained demand confidence. The structural floor on enterprise AI infrastructure spend through 2031 (via SNOW-AWS multi-year cost commitment) reduces S4 downside magnitude even if scenario occurs.
 

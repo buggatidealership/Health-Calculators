@@ -27,6 +27,14 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-27 (SNOW $6B AWS pact deep-dive — fourth application day; MAJOR CATCH)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-27 | #32-A (fresh-verify) | $6B AWS pact end-to-end deep dive | Launched dedicated research agent with explicit "verify direction of payment first" instruction; agent confirmed via BusinessWire T1 + CNBC T2 | **SNOW pays AWS, NOT vice versa.** My prior framing (parallel to MOD $4B Airedale customer payment) was WRONG — opposite direction of payment. Would have propagated across 5+ thesis files if not caught. | **REAL CATCH (MAJOR)** — direction-of-payment correction prevented systematic mis-framing |
+| 2026-05-27 | #32-B (premortem) | Filtering agent's 10 recommended file updates | Enumerated for each: blast radius, signal-to-noise, principle #29 segmented-triangulation discipline, B23 sell-side aggregation risk | Filtered 10 → 5: dropped MRVL (Trainium3 unconfirmed), HYNIX (3rd-order marginal), ALAB (4th-order speculative), themes.md (single data point, not triangulation yet), where-we-are.md (premature) | **REAL CATCH** — prevented 5 speculative/premature file updates |
+| 2026-05-27 | #32-B (premortem) | User hypothesis test: "$6B AWS pact might be biggest signal" | Agent decomposition of +25-30% AH move attribution | Found honest decomposition: NRR inflection + FY27 dual raise = ~50-60% of move; $6B pact = only ~15-20%. User's hypothesis was directionally right (pact matters) but magnitude wrong (not the biggest single driver). | **REAL CATCH** — prevented confirmation-bias on user-articulated hypothesis; delivered honest stock-move decomposition |
+
 ### 2026-05-27 (SNOW GRADE — third application day)
 
 | Date | Principle | Context | Checked | Caught | Classification |
