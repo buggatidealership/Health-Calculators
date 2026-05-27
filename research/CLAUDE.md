@@ -216,9 +216,15 @@ Save significant traces to `signals/events/{date}-{event}.md`.
 ### 3. TRIANGULATE — weak signals → directional read
 
 When ≥3 independent sources within 90 days point the same direction:
-1. Move entry from `cross-source-log.md` to `triangulation.md`
-2. Confidence boost: a triangulated signal beats any single primary source
-3. Cascade implications via TRACE to affected companies' `interpretations.md`
+
+1. **Segment-classify each source FIRST** (per principle #29, added 2026-05-27). Assign each source to one of: developer-tooling / workflow-software / data-platform / infrastructure-IaaS / chip-and-foundry / memory-and-storage / power-and-cooling / advanced-packaging / model-and-foundation-lab / consumer-AI / sovereign-AI / agentic-application.
+2. **Apply the segment rule:**
+   - **Same-segment cluster (≥3 sources share segment):** promote to `triangulation.md` as **segmented triangulation** — actionable for that segment only. Note the segment explicitly in the entry.
+   - **Cross-segment cluster (sources span ≥2 segments):** log to `cross-source-log.md` as **cross-cutting signal**. Do NOT promote. Require separate per-segment validation before any thesis impact.
+3. Confidence boost: a segmented-triangulated signal beats any single primary source — but only within its segment.
+4. Cascade implications via TRACE to affected companies' `interpretations.md` — only to companies whose primary segment matches the triangulation segment.
+
+**Anti-pattern caught by principle #29 / B31:** aggregating cross-segment signals as if observing the same population (e.g., developer-tooling-layer AI cost data treated as evidence about workflow-software-layer AI ROI). See B20 + B31 in `meta/biases-watchlist.md` and the 2026-05-27 codification in `meta/methodology.md`.
 
 ### 4. PREDICT — making a forward call
 
@@ -431,7 +437,7 @@ Always check against these before completing any analysis:
 3. **NEVER claim "consensus thinks X" without naming the source.**
 4. **ALWAYS run TRACE on any event with cross-domain reach** (not just the obvious affected ticker).
 5. **ALWAYS update `bottlenecks.md` last_review** when running BOTTLENECK-FORECAST.
-6. **NEVER let a single new article override a triangulated signal.** Weight evidence by source quality and convergence.
+6. **NEVER let a single new article override a triangulated signal.** Weight evidence by source quality and convergence. **AND: segment-classify before triangulating** (per principle #29, added 2026-05-27): each source belongs to a specific AI-value-chain segment; ≥3 same-segment sources = segmented triangulation (actionable for that segment); cross-segment cluster = log to `cross-source-log.md`, do NOT promote. See B31 in `meta/biases-watchlist.md` for the May 27, 2026 near-miss (Uber + MSFT + KPMG cluster).
 7. **NEVER FABRICATE NUMBERS.** Every numerical claim ($X, X%, X GW, X wafers, etc.) MUST be either: (a) cited inline with source (URL, file path, "per [source]"), or (b) computed from a number you cited earlier in the same message, or (c) explicitly flagged with a hedge: `(estimate)`, `(my inference)`, `(unsourced)`, `(approximate)`, `(my model)`, `~`, `roughly`, etc., or (d) **grounded by exact-string existence in any `research/*.md` file** (added 2026-05-21 per user calibration — see below). This is enforced by `~/.claude/anti-fabrication-hook.py` — a Stop hook that scans your output and blocks the message if uncited+ungrounded numerical claims are found.
 
    **User calibration 2026-05-21:** *"If you can prove that every time you write a file inside it and you give me a summary, you do not have to specify... but you have to catch your own failure mode in case you write a file in which you do not do the citation."* Hook now checks repo grounding via exact-string match — passes restatement of properly-cited file content, still catches genuine fabrication.

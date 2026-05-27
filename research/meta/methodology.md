@@ -1042,6 +1042,42 @@ Be CONFIDENT when:
 
    The HDS Tesla case (2026-05-26) is the retroactive application: Tesla dual-sourcing strain-wave actuators with Green Harmonic is an ADJUSTMENT (Tesla ~<1% of HDS revenue at current Optimus scale), NOT a duration compression. HDS's broader thesis runway (3-5 years Long at Western non-Tesla OEMs + semi cap-equipment 35-40% revenue exposure + surgical robotics ISRG ramp + multi-humanoid OEM optionality) is intact. See B30 for full diagnosis.
 
+29. **Segmented triangulation — classify each source by AI-value-chain segment before promoting a signal cluster.** Codified 2026-05-27 after a near-miss while ingesting the May 26 daily AI brief (Uber AI ROI exhaustion + Microsoft tokenmaxxing + KPMG 24%-scaling-with-ROI). Three sources, 90-day window, same direction — the current triangulation rule (Critical Rule #6 / Workflow 3) would have promoted the cluster. The agent caught it: all three corroborating sources observed the **developer-tooling / inference-cost segment** (Claude Code / Cursor / Copilot at engineering layer). Meanwhile the held names being potentially impacted (NOW, PLTR, DDOG, SNOW) sit at the **workflow-software / data-platform segment** with entirely different buyer, cost structure, and ROI measurement. T1 SEC evidence at the held-name segment showed the opposite signal (PLTR 150% NDR, NOW 97% renewal, DDOG +51% RPO, SNOW $100M AI run rate one quarter ahead of guide). Aggregating cross-segment as if same-population would have committed B20 (segment-trajectory anchor) and potentially triggered an unjustified workflow-software trim.
+
+   **The discipline:** Before promoting any signal cluster to `triangulation.md`, classify each source by the segment of the AI value chain it observes (one of: developer-tooling / workflow-software / data-platform / infrastructure-IaaS / chip-and-foundry / memory-and-storage / power-and-cooling / advanced-packaging / model-and-foundation-lab / consumer-AI / sovereign-AI / agentic-application). Then:
+   1. **Same-segment cluster (≥3 sources):** promote to `triangulation.md` as "segmented triangulation" — actionable for that segment only. Note the segment explicitly in the entry.
+   2. **Cross-segment cluster (sources span ≥2 segments):** log to `cross-source-log.md` as a "cross-cutting signal." Require separate per-segment validation before any thesis impact in any other segment.
+   3. **Never aggregate cross-segment signals** as if they observe the same population. Cross-segment convergence is interesting hypothesis-fodder, not high-conviction read.
+
+   **The decision-action coupling:** Before any portfolio action triggered by a signal cluster, force the question — "are all sources observing the same value-chain segment as the position(s) being acted on?" If no, the cluster is cross-cutting and cannot justify single-name action without per-segment validation.
+
+   **Compounds with principle #22 (model segment trajectory, not snapshot):** Same root failure — treating cross-segment data as same-segment data. Principle #22 catches this at the snapshot-vs-trajectory step within a single name; principle #29 catches it at the multi-source triangulation step across names.
+
+   **Detection rule:** for every triangulation candidate, force enumeration: "source 1 segment = X, source 2 segment = Y, source 3 segment = Z." If X = Y = Z → segmented triangulation. If any of {X, Y, Z} diverge → cross-cutting signal, NOT triangulation.
+
+   **Retroactive application (the near-miss 2026-05-27):**
+   - Uber COO Macdonald, May 25 comment on Claude Code / Cursor ROI → segment: **developer-tooling**
+   - Microsoft internal AI agents cost > human employees → segment: **developer-tooling** (Copilot for engineering)
+   - KPMG 24%-scaling-with-ROI survey → segment: **cross-cutting** (general AI deployment survey spanning multiple segments)
+   - PLTR / NOW / DDOG / SNOW Q1 2026 T1 SEC evidence → segment: **workflow-software / data-platform**
+   - Correct verdict: log Uber + MSFT to `cross-source-log.md` as **segmented signal for developer-tooling**. Do NOT promote to `triangulation.md` as broad "enterprise AI ROI failure." The KPMG cross-cutting source cannot fill the third slot — it spans segments by definition.
+
+   **Falsifiers / inversion conditions:**
+   - The segment taxonomy needs revision (segments are too coarse or too fine to be useful)
+   - A genuine cross-cutting signal emerges where the same dynamic actually IS active across multiple segments — at which point the cross-cutting log becomes the launching pad for multiple per-segment validation efforts
+   - Hook-based enforcement produces false-positives on legitimate same-segment triangulation due to phrasing variation
+
+   **Hook enforceability:** moderate. A Stop hook could scan for `triangulation.md` edits and require explicit segment classification language in the new entry (e.g., presence of "segment:" tag + segment value from approved list). Lower-friction approach: add a session-start reminder to the SessionStart hook surfacing this discipline whenever the OS detects a triangulation candidate forming in recent assistant messages. Deferred — pending second observation of B20-via-triangulation drift to confirm hook is worth the build cost.
+
+   **Fluidity footer:**
+   - codified: 2026-05-27 (after near-miss during May 26 daily AI brief INGEST)
+   - last_review: 2026-05-27
+   - status: active (new)
+   - falsified_by: segment-taxonomy proves too coarse or too fine; OR cross-cutting signals routinely need to be promoted to triangulation (proving the segment distinction is over-engineered); OR same-segment triangulation routinely fails to fire portfolio action despite valid clustering (proving the constraint is too tight)
+   - re-evaluation trigger: monthly, OR on any GRADE that reveals a triangulation-driven decision was wrong because of cross-segment aggregation, OR on third triangulation entry to confirm segment-classification step is being applied consistently
+
+   See B31 (cross-segment aggregation as triangulation) in `biases-watchlist.md`. Companion to principle #22 + B20.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)

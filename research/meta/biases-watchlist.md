@@ -513,6 +513,53 @@ For any per-position duration scoring, before treating a single customer's decis
 
 ---
 
+### B31 — Cross-segment aggregation masquerading as triangulation
+
+**Origin:** Near-miss during May 26 daily AI brief INGEST (codified 2026-05-27). Three sources within the 90-day window pointed the same direction on "AI ROI is broken": (a) Uber COO Macdonald on Claude Code / Cursor cost ROI gap, (b) Microsoft internal data showing AI agents cost more than human employees, (c) KPMG quarterly survey reporting only 24% of organizations scaling AI with ROI. The current triangulation rule (Critical Rule #6 / Workflow 3 — "≥3 independent sources within 90 days pointing the same direction") would have passed and promoted the cluster to `triangulation.md`. But the research agent caught the failure: Uber + Microsoft both observed **developer-tooling segment** (engineering Copilot/coding-agent cost); KPMG was a **cross-segment survey**. Meanwhile the held names at risk of action (NOW, PLTR, DDOG, SNOW) sit at the **workflow-software / data-platform segment** where T1 SEC evidence showed the OPPOSITE signal. Aggregating across segments as if same-population would have committed B20 (segment-trajectory anchor) and potentially triggered unjustified workflow-software trim.
+
+**Pattern:** Promoting a cluster of signals to triangulation status without first classifying which segment of the AI value chain each source observes. The failure mode is invisible when the rule is applied mechanically ("3 sources, 90 days, same direction") but visible the moment you ask "are these 3 sources observing the same population the action would target?" If no, the cluster is cross-cutting (interesting hypothesis-fodder) — not triangulation (actionable high-conviction read).
+
+**Distinction from related biases:**
+- B20 (current-segment-% snapshot anchoring): operates WITHIN a single name at the snapshot-vs-trajectory step. B31 operates ACROSS names at the multi-source triangulation step. Both share the same root: treating segment-incompatible data as same-population.
+- B16 (synthesis without cascade): operates AFTER the synthesis is correctly drawn — the failure is not following through to per-name cascade. B31 operates BEFORE the synthesis is drawn — the failure is misclassifying the synthesis input itself.
+- B23 (sell-side aggregation drift): operates on a single forecast at the input-aggregation step (paraphrasing Street consensus). B31 operates on a multi-source signal at the cluster-promotion step (cross-segment aggregation).
+
+**Manifestation 2026-05-27 (the near-miss):**
+- Initial framing: "Uber + Microsoft + KPMG = 3 sources, 90 days, same direction → promote to `triangulation.md` as 'enterprise AI ROI failure'"
+- I failed to ask: which segment is each source observing?
+- I failed to ask: do those segments overlap with the segments where my potential actions would land?
+- The agent caught: Uber/MSFT = developer-tooling segment; KPMG = cross-segment; held names being potentially acted on = workflow-software / data-platform segment
+- T1 SEC evidence at the workflow-software segment (PLTR 150% NDR, NOW 97% renewal, DDOG +51% RPO, SNOW $100M AI run rate ahead of guide) contradicted the "broad ROI failure" thesis
+- Correct verdict: log Uber + MSFT to `cross-source-log.md` as **segmented signal for developer-tooling segment**. Do NOT promote to triangulation. KPMG is cross-segment by construction and cannot fill the third slot for any specific segment.
+
+**The structural fix (codified as principle #29):**
+
+Before promoting any signal cluster to `triangulation.md`, classify each source by the AI-value-chain segment it observes. Approved segments: developer-tooling / workflow-software / data-platform / infrastructure-IaaS / chip-and-foundry / memory-and-storage / power-and-cooling / advanced-packaging / model-and-foundation-lab / consumer-AI / sovereign-AI / agentic-application.
+
+1. **Same-segment cluster (≥3 sources):** promote as "segmented triangulation" — actionable for that segment only.
+2. **Cross-segment cluster (sources span ≥2 segments):** log to `cross-source-log.md` as "cross-cutting signal" — requires separate per-segment validation before thesis impact.
+3. **Never aggregate cross-segment as if same population.**
+
+**Correction (mandatory per principle #29):**
+1. For any triangulation candidate, enumerate: "source 1 segment = X, source 2 segment = Y, source 3 segment = Z"
+2. If X = Y = Z → segmented triangulation. Note the segment explicitly in the `triangulation.md` entry.
+3. If any of {X, Y, Z} diverge → cross-cutting signal. Log to `cross-source-log.md` only.
+4. Before any portfolio action, verify the segment of the cluster matches the segment of the position(s) being acted on. Mismatch = no action.
+
+**Retroactive application (May 26 brief):**
+- Cluster: Uber (May 25) + Microsoft (May 22) + KPMG (Q1 2026) → "AI ROI is broken"
+- Source 1 segment (Uber): developer-tooling
+- Source 2 segment (Microsoft): developer-tooling
+- Source 3 segment (KPMG): cross-segment (general AI survey)
+- Action target: workflow-software / data-platform (NOW, PLTR, DDOG, SNOW)
+- Verdict: cross-cutting signal, log to `cross-source-log.md` as **segmented signal for developer-tooling**. Do NOT promote to triangulation. Do NOT trigger workflow-software-segment portfolio action.
+
+**How to check:** Before any `triangulation.md` write, force the question — "did I classify each source by AI-value-chain segment, or did I aggregate on direction-of-signal alone?" If only direction was checked, B31 may have fired — go back and enumerate segments.
+
+**Hook enforcement:** moderate-feasibility. A Stop hook could scan for `triangulation.md` edits and require explicit "segment: [approved-value]" tag in each new entry. Alternatively, a session-start surface that flags triangulation candidates forming in recent assistant messages. Deferred — pending second observation of B31 or B20-via-triangulation drift to confirm hook value.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.
