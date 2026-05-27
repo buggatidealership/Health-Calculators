@@ -58,9 +58,6 @@
 - [ ] **P3 / wiki / 2026-05-21** [INFRA] — Geopolitical AI primer
   - Scope: US-China tech war, export controls, allowed/restricted lists, Taiwan dependence. **BOM-depth requirement:** wafer-volume by node × geography; specific HSCD-controlled items; substitution paths.
 
-- [ ] **P3 / wiki / 2026-05-21** [INFRA] — Model economics primer
-  - Scope: Training vs inference cost structures, scaling laws state of art, MoE adoption math. **BOM-depth requirement:** GPU-hours per token at current vs next-gen architectures; KV cache memory footprint deltas; inference unit-cost trajectory.
-
 ---
 
 ## Archive (completed process items without permanent artifact)
