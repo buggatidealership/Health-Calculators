@@ -17,12 +17,6 @@
 
 ### P0 — Critical (next session)
 
-- [ ] **P0 / verification / 2026-05-27** [CAL, INDP] — GRADE Modine (MOD) Q4 FY26 earnings prediction
-  - Origin: PREDICT workflow executed 2026-05-26 ahead of MOD Q4 FY26 results (after close 2026-05-26) + earnings call 2026-05-27 9 AM CT. 4 prediction targets logged: revenue beat, EPS beat, FY27 guide direction, profit margin direction.
-  - Scope: Pull Q4 actuals + earnings call FY27 guide. Run GRADE template. For each of 4 targets: actual vs predicted, magnitude, which input was over/under-weighted. Add lesson L6 to `predictions/lessons.md` if generalizable insight emerged. Update biases-watchlist if new pattern. Move row from Pending to Graded in grading-log.md with link to GRADE doc.
-  - Linked: `research/predictions/2026-05-26-MOD-Q4FY26.md`, `research/predictions/grading-log.md`, `research/companies/MOD/thesis.md` (stub created 2026-05-26)
-  - Specific watch items: (a) Q4 revenue vs $920.7M consensus + $940M bottoms-up; (b) Q4 EPS vs $1.55 consensus + $1.52 bottoms-up; (c) FY27 DC guide magnitude (key indicator >$1.7B per my inference); (d) CS Q4 adj EBITDA margin vs Q3's 17.9% (was the +200bps recovery delivered?); (e) stock-action reaction separately tracked (this is a function of expectations not just outcomes).
-
 - [ ] **P0 / verification / 2026-05-27** [CAL, INDP] — GRADE Snowflake (SNOW) Q1 FY27 earnings prediction
   - Origin: PREDICT workflow executed 2026-05-27 ahead of SNOW Q1 FY27 print (after market close 2026-05-27). 4 prediction targets logged: product revenue $1.275B base (vs $1.2645B guide midpoint), NRR direction 124% base (vs 125% prior), Cortex AI run rate behavior (45% probability $110-130M), FY27 guide raise probability 65% to $5.75-5.85B range.
   - Scope: Pull Q1 FY27 actuals + earnings call. Run GRADE template. For each of 4 targets: actual vs predicted, magnitude, which input was over/under-weighted. Add lesson L6+ to `predictions/lessons.md` if generalizable insight emerged. Two-Part GRADE protocol: fundamental grade T+0 (May 27); stock-reaction grade T+24h (May 28). Move row from Pending to Graded in grading-log.md.

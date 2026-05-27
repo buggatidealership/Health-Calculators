@@ -31,6 +31,40 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 ## Lessons (most recent first)
 
+### L8 — Structural-acceleration thesis on AI cooling CONFIRMED (positive lesson)
+
+**Origin:** MOD Q4 FY26 GRADE 2026-05-27. DC sub-segment +158% YoY at Modine validates the bypass-route framework — from chip-cooling (Vertiv/Asetek/LiquidStack territory) to facility-cooling (Modine + Vertiv) per the original thesis. The $4B Airedale deal disclosed 2026-05-26 is now PROVEN as forward-bookings visibility, not just announcement noise. Multi-quarter beat-and-raise streak confirms cyclical-to-structural transition per principle #26.
+
+**Reasoning success (not error):** The original MOD PREDICT correctly identified: (a) supply-chain-reality test passed for MOD's actual position in AI DC cooling supply chain (facility-layer, not chip-layer); (b) $4B Airedale deal as multi-quarter forward-bookings visibility (per L4); (c) FY27 DC guide >$1.5B inference. All landed.
+
+**Generalizable lesson:** Cyclical-to-structural transitions per principle #26 produce DC-style sub-segment growth rates (>100% YoY) when the structural-rerating moment arrives. Watch for analogous patterns: SNDK datacenter SSD +233% pattern; HYNIX HBM stack-height crowding-out; LSCC server platform control +85% YoY FY2025; MRVL custom Si Trainium ramp. The signature of structural transition: sub-segment growth materially exceeds total-company growth + accelerates over multiple quarters.
+
+**Calibration adjustment:** Continue applying principle #26's binding-constraint test to all candidates surfacing >100% YoY sub-segment growth signals. When confirmed, the multiple deserves chokepoint comp-set treatment per principle #30, not cyclical comp-set treatment.
+
+### L7 — Management margin-recovery guides are HOPES, not contracts
+
+**Origin:** MOD Q4 FY26 GRADE 2026-05-27. Modine's Climate Solutions adj EBITDA margin guide of "+200bps recovery from Q3's 17.9%" delivered only +80bps (to 18.7%). Driver: capacity-ramp friction + tariffs + weather-related labor/overtime costs suppressed CS gross margin -510bps YoY even as $$ adj EBITDA grew +63% YoY. These friction factors were FORESEEABLE — they were already happening in Q3 — but the recovery framework didn't model them.
+
+**Reasoning error:** Accepted mgmt's "+200bps recovery" guide at face value. Same pattern as B17 (user-deference bias) but applied to management commentary rather than user input. Mgmt's margin-execution guides are systematically biased toward their plan, not the friction reality. The capacity-expansion phase introduces costs that mgmt's recovery narrative under-models.
+
+**Generalizable lesson:** When mgmt gives a margin-recovery guide that depends on internal execution (capacity absorption, tariff pass-through, mix shift, supply-chain normalization), apply a 30-50% haircut to the guided recovery MAGNITUDE. Direction is usually right; magnitude is usually optimistic. Apply principle #14 (question framings) to mgmt guides, not just own framings.
+
+**Distinction from L4:** L4 says mgmt UNDER-promises on top-line in contracted-demand environments. L7 says mgmt OVER-promises on margin-execution recovery. Both can be true simultaneously — under-promise on demand visibility AND over-promise on execution friction recovery.
+
+**Calibration adjustment:** For future predictions involving mgmt margin-recovery guides, apply 30-50% haircut to the guided magnitude. Verify by tracking next 3 predictions where mgmt gives a specific bps recovery guide — if pattern holds, L7 is confirmed.
+
+### L6 — L4's smaller-sandbag-adjustment applies MORE aggressively at the EPS/margin line than at the revenue line
+
+**Origin:** Same pattern recurring across two graded predictions:
+- NVDA Q1 FY27 GRADE 2026-05-20: Q2 guide undercalled by $2.5B (predicted $88.5B vs actual $91.0B). L4 codified: smaller sandbag in contracted-demand environments.
+- MOD Q4 FY26 GRADE 2026-05-27: adj EPS undercalled by $0.13-0.19 (predicted $1.52-1.58 vs actual $1.71). Revenue magnitude undercalled by ~70bps vs consensus. EPS magnitude undercalled by ~590bps vs consensus.
+
+**Reasoning error:** Applied L4 sandbag-adjustment to revenue but failed to apply consistently to EPS. Revenue line is constrained by guide framework + bottoms-up unit economics; EPS has compounding flow-through from revenue beat + margin expansion + tax/interest mix. The standard sandbag heuristic discounts EPS magnitude even more aggressively than revenue magnitude — because each layer of conservatism (revenue + margin + tax + share count) stacks multiplicatively, not additively.
+
+**Generalizable lesson:** In contracted-demand environments (currently: NVDA, AVGO, TSM, NBIS, HYNIX, MU, MRVL custom Si, MOD, possibly LSCC, SNDK), apply L4 smaller-sandbag-haircut MORE aggressively at the EPS line than at the revenue line. Specifically: ~2% sandbag haircut on revenue, ~3-5% reduced sandbag haircut on EPS (i.e., expect more EPS upside surprise relative to consensus than revenue upside surprise).
+
+**Validation criterion:** if next 3+ predictions in contracted-demand environments show direction-right + magnitude-undercall on EPS, L6 is confirmed. If EPS predictions become consistently too aggressive after applying L6, L6 needs revision.
+
 ### L5 — Check the supply-chain reality before classifying a name as "non-AI"
 **Origin:** TE classification GRADE 2026-05-26. The earlier US duration-of-relevance agent classified TE as "this name should NOT be in an AI-sector investing universe" based on TE's marketed business label (solar/battery manufacturer). I accepted at face value. Then Citrini Research "Semis Memo" 2026-05-12 surfaced the Supply Chain Inheritance thesis — citing NVDA's own May 2025 technical blog crediting 800V DC rack architecture to "the electric vehicle and solar industries." The physical supply chain TE participates in OVERLAPS with AI data center infrastructure. The "NOT AI" classification was a surface-level call that missed the underlying supply-chain reality.
 

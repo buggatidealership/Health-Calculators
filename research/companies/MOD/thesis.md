@@ -76,4 +76,33 @@ For Modine's cooling layer specifically:
 
 - 2026-05-26: PREDICT artifact created; 4 research agents conducted comprehensive diligence
 - 2026-05-26: NOT entered position before earnings — recommended to user "wait for tomorrow's call + market reaction"
-- 2026-05-27: GRADE due (Workflow 5); thesis to be elaborated post-resolution
+- 2026-05-27: **GRADED — thesis STRUCTURALLY CONFIRMED.** 0 falsification conditions fired. RIGHT direction on all 4 prediction targets. Magnitude undercalled on EPS ($1.71 actual vs $1.52-1.58 predicted range) + CS margin (+80bps actual vs +200bps guided). Generated 3 lessons (L6, L7, L8). See `research/predictions/2026-05-26-MOD-Q4FY26-GRADE.md`.
+
+## Post-GRADE thesis update (2026-05-27)
+
+**Structural confirmation**: DC sub-segment +158% YoY (per [StockTitan T2](https://www.stocktitan.net/news/MOD/modine-reports-fourth-quarter-fiscal-2026-pxlq7sb5hhrt.html)) validates cyclical-to-structural transition per principle #26. The $4B Airedale deal is now PROVEN as multi-year forward-bookings visibility, not announcement noise. FY27 guide: +20-35% total revenue growth, +60-80% DC growth, adj EBITDA $650-680M (per [SEC 8-K T1](https://www.sec.gov/Archives/edgar/data/0000067347/000110465926066291/mod-20260526xex99d1.htm)).
+
+**Tier change consideration**: thesis was Candidate (NOT held). Post-GRADE evidence supports upgrade to Active-candidate at 1.5-3% sizing if entered, with two important modifiers:
+- **Principle #31 narrative-stage modifier**: stock +22.5% post-print to ~$305-306 per [GuruFocus T2](https://www.gurufocus.com/news/8882702/modine-mod-sees-225-surge-in-stock-value); KeyBanc PT raised to $370 (Street-high); consensus PT $285.38 implying ~7% downside from current. **Stage 3 narrative positioning — apply 25-35% sizing discount.** Effective recommendation: 1-2% if entered post-print.
+- **Principle #30 comp-set verification**: MOD has structurally re-rated from cyclical-industrial → AI cooling chokepoint. Comp-set should be Vertiv (~65x forward earnings) + AAON not traditional industrial-HVAC. The Seeking Alpha "valuation-based" Hold downgrade (per [T3](https://seekingalpha.com/article/4887849-modine-breakout-frenzy-meets-ai-beneficiary-status-downgrade-to-hold)) is using the OLD comp set per B32.
+
+**CS margin caveat (per L7)**: capacity-ramp friction will persist through next 1-2 quarters as Modine completes "largest capacity expansion in company history". Don't expect CS adj EBITDA margin recovery to be linear. Margin recovery + execution friction can coexist.
+
+**Falsifiers updated** (post-GRADE refinement):
+1. ~~Q4 FY26 revenue misses $920.7M~~ ✅ DID NOT FIRE
+2. ~~EPS <$1.50 AND CS margin <17.9%~~ ✅ DID NOT FIRE
+3. ~~FY27 guide below pre-deal consensus~~ ✅ DID NOT FIRE
+4. **NEW (forward-looking)**: FY27 H2 DC revenue growth decelerates below 40% YoY (signals binding-constraint thesis breaking; deal pipeline cooling)
+5. **NEW (forward-looking)**: CS adj EBITDA margin remains BELOW 19% for 2+ consecutive quarters post-Gentherm spin (signals capacity-ramp friction is structural not transitional)
+6. **NEW**: Major hyperscaler announces alternative-supplier cooling deal at $1B+ scale (signals competitive displacement at Airedale's strategic-customer relationship)
+
+## Cross-reference — Q4 FY26 GRADE (added 2026-05-27)
+
+Per `research/predictions/2026-05-26-MOD-Q4FY26-GRADE.md`:
+
+GRADE outcome: thesis structurally confirmed across all 4 prediction targets. Three lessons generated:
+- **L6**: L4's smaller-sandbag-adjustment applies more aggressively at EPS line than revenue (same pattern as NVDA Q2 guide undercall)
+- **L7**: Mgmt margin-recovery guides are hopes not contracts (CS +200bps guide delivered only +80bps)
+- **L8 (positive)**: Structural-acceleration thesis on AI cooling confirmed — DC sub-segment +158% YoY validates the chip-cooling → facility-cooling bypass-route framework
+
+Stock action +22.5% AH May 26 to $305-306 + held DESPITE NASDAQ sell-off on May 27 = strong relative-strength validation. Per Two-Part Grade Protocol, stock-reaction grade is T+24h follow-up; fundamental grade resolves on numbers alone.

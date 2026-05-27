@@ -27,6 +27,13 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-27 (MOD GRADE — second application day)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-27 | #32-A (fresh-verify) | MOD Q4 FY26 GRADE — pulling actual numbers | Fresh research agent for Q4 actuals + earnings call + analyst reactions before grading my prediction | Agent flagged that CS adj EBITDA margin 18.7% was CALCULATED from disclosed $$ not directly printed by mgmt; consensus EPS was $1.57 not $1.55 (small input drift in my prediction); DC dollar revenue not disclosed standalone | REAL CATCH — three hedge flags that would have hardened a number without verification |
+| 2026-05-27 | #32-B (premortem) | Before writing MOD GRADE artifact | Enumerated what could go wrong: (a) propagating uncited agent claims, (b) confusing fundamental vs stock-reaction grade per Two-Part Protocol, (c) missing macro context (NASDAQ sell-off today) implications | Premortem caught the need to keep stock action separate (Two-Part Protocol) and to note the NASDAQ-sell-off-relative-strength signal explicitly | REAL CATCH — kept fundamental + reaction grades cleanly separated |
+
 ### 2026-05-27 (codification day — seed entries from the AM brief triage that triggered the codification)
 
 | Date | Principle | Context | Checked | Caught | Classification |
