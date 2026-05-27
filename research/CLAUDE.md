@@ -244,22 +244,27 @@ Save to `predictions/{date}-{ticker}-{event}.md`. Add a stub entry to `grading-l
 
 ### 5. GRADE — predicted event has resolved
 
-Write what actually happened. For each component:
-- Right or wrong, by how much
-- WHICH INPUT did I over/under-weight (the most important field)
-- The generalizable lesson
+**Epistemic posture (per `predictions/lessons.md` meta-posture, codified 2026-05-27):** Predictions are not performance artifacts; they are structured data-generation exercises. The GRADE is the data point that closes the loop. The outcome is not the lesson — the lesson lives in which of three layers (input / computation / reasoning) was misaligned and why.
+
+For each prediction component, run the **3-layer GRADE structure:**
+
+1. **INPUT layer** — were the data points I used current, complete, and correctly weighted? Did I miss a public source that would have shifted the call? Was a key anchor stale?
+2. **COMPUTATION layer** — was the math/model structurally correct? Did the bottoms-up framework represent the system, or collapse onto a single-driver assumption? Were the multipliers / ratios / seasonal factors right?
+3. **REASONING layer** — was the logical chain from data → computation → conclusion sound? Did I correctly carry uncertainty through hedge bands? Did I check biases-watchlist before concluding?
+
+Then identify the **diagnostic test result:** outcome was right/wrong by X% — which of the three layers explains the gap?
 
 Append to `predictions/lessons.md`:
 ```
 [YYYY-MM-DD] {ticker}-{event}
 Predicted: ...
 Actual: ...
-Reasoning error: [1 sentence]
-Generalizable lesson: [1 sentence]
+Layer that failed (INPUT / COMPUTATION / REASONING): [which, why]
+Generalizable lesson: [1 sentence — tied to the failed layer]
 Calibration adjustment: [how this changes future weighting]
 ```
 
-Update `grading-log.md` status: graded.
+Update `grading-log.md` status: graded. Two-Part GRADE Protocol: fundamental grade T+0 (numerical); stock-reaction grade T+24h (separately tracked — price is a function of expectations not just outcomes).
 
 ### 6. SCENARIO-UPDATE — reweight futures
 

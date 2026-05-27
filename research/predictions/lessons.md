@@ -1,10 +1,31 @@
 # Lessons — Mandatory Pre-Read Before Any New Prediction
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-05-27
 
 ## TL;DR
 
 Accumulated calibration memory from graded predictions. Every PREDICT workflow MUST start by reading this file. New lessons are appended via the GRADE workflow.
+
+---
+
+## Meta-posture — the epistemic stance for predictions (codified 2026-05-27)
+
+**User framing 2026-05-27:** *"There is no failure or success. There's only data points, and what you learn from them, how you compute them, how you reason through them."*
+
+Predictions are not performance artifacts. They are structured data-generation exercises. The point of writing a prediction down BEFORE the resolving event is to expose the inputs, computation, and reasoning chain to verifiable contact with reality. The GRADE that follows is not a verdict — it is the data point that closes the loop.
+
+**Three things to learn from on every prediction (separately gradable):**
+1. **What you learn from the data** — were the inputs you used current, complete, and correctly weighted? Did you miss a public data point that would have shifted the call?
+2. **How you compute** — was the math/model/formula you applied structurally correct? Did the bottoms-up framework actually represent the system, or did it collapse onto a single-driver assumption?
+3. **How you reason through** — was the logical chain from data → computation → conclusion sound? Did you correctly carry uncertainty through hedge bands? Did you check biases-watchlist before concluding?
+
+The OUTCOME (right/wrong by how much) is the diagnostic test that tells you WHICH of the three layers failed. The outcome is not the lesson — the lesson lives in which layer (input/computation/reasoning) was misaligned and why.
+
+**Implication for GRADE workflow:** every grade must explicitly identify which of the three layers explains the gap between prediction and reality. "Wrong by 3%" is not a lesson. "Wrong by 3% because INPUT was stale by 2 quarters" or "wrong by 3% because COMPUTATION over-weighted seasonal ratio at the expense of pricing-change effect" is a lesson.
+
+**Implication for the OS posture broadly:** predictions are not bets to win or lose. They are instruments. The bigger the gap between prediction and reality (in either direction), the richer the data point — provided we can identify which layer failed. A "directionally right but magnitude wrong" prediction yields a different lesson than "directionally wrong but reasoning sound" — and both yield more learning than "directionally and magnitudinally right by accident."
+
+This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction across all 4 axes, but the lesson (L4 — sandbag heuristic mismatched the contracted-demand regime) is more valuable than the score.
 
 ---
 
