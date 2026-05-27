@@ -641,6 +641,53 @@ Apply stage-dependent sizing modifier on top of D-score:
 
 ---
 
+### B34 — Action without verification or premortem (file-anchored confidence + commit-blind execution)
+
+**Origin:** Codified 2026-05-27 alongside principle #32. Triggered by twin user directives within 2 days articulating two complementary failure modes: (a) "never just formulate an output without doing some research, even if it's already in the files" (output-side: file-anchored confidence trap) and (b) "always ask yourself what could go wrong and what you might have missed before acting" (action-side: commit-blind execution trap). Same-turn operational validation: the AM 2026-05-27 brief triage caught 3 corrections + 1 correct drop using the discipline.
+
+**Pattern (two manifestations):**
+
+**Manifestation A (file-anchored confidence):** Using existing OS files as the source of truth without fresh verification. Files have a `last_updated` field that drifts; narratives shift between updates; the gap between the file's snapshot and current reality may invalidate the conclusion being drawn. Specific failure mode: re-using a stale stub or stale facts.md entry to support a current-turn output without checking whether the data has changed.
+
+**Manifestation B (commit-blind execution):** Executing actions (file commits, agent launches, signal logs, thesis updates) without explicitly enumerating "what could go wrong" + "what might I have missed." Specific failure mode: shipping output with framing borrowed from source headlines that turn out to be misleading; propagating unverified claims; adding marginal signals to thesis files (degrading file quality); over-aggregating cross-segment signals as triangulation (B31 manifestation at the commit step).
+
+**Distinction from related biases:**
+- B11 (numerical claims without citation or hedge): operates at the claim level. B34 operates at the workflow level — checks BEFORE producing the claim.
+- B17 (user-deference bias): operates on user inputs being uncritically accepted. B34 operates on FILE inputs being uncritically accepted.
+- B25 (source-tracking-over-claim-verification): operates on relying on source reputation. B34 operates on relying on FILE STATE without verification.
+- B26 (pre-training-as-primary-source): operates on data layer. B34 operates on the OUTPUT-GENERATION step.
+
+**Manifestation 2026-05-27 (the codification trigger):**
+
+Pre-codification, the AM brief triage would have:
+- Logged DDG +30% as "single-day spike" (wrong — it's a 6-day sustained pattern; framing matters for thesis impact)
+- Logged xAI as "abandoned solar" (wrong — minimal-not-abandoned + bigger story is Anthropic→xAI $1.25B/month contract that wasn't in the brief at all)
+- Added LSCC Vivado note (wrong — would have diluted thesis file with marginal noise)
+- Claimed "near-triangulation threshold" for power-pivot data points (unverified — only 1 prior reference in bottlenecks.md)
+
+Post-codification (premortem applied), all four were caught and corrected before commit.
+
+**The structural fix (codified as principle #32):**
+Two-component discipline:
+1. Fresh-verify before user-facing output on a name/topic (web search / primary-source check)
+2. Premortem before commit or irreversible action (explicitly enumerate what could go wrong + what might be missed)
+
+Scope explicit to prevent rigidity: fires on thesis/prediction/sizing/triangulation outputs + file commits + agent launches; does NOT fire on routine reads or simple status updates.
+
+**Correction (mandatory per principle #32):**
+1. Before any high-blast-radius output: ask "do I have a recent enough fresh-verify on this name?" If no, run fast verification.
+2. Before commit: enumerate at least 2 "what could go wrong" + 1 "what might I have missed."
+3. Log the application in `research/meta/principle-applications-log.md` with classification (REAL CATCH / FALSE POSITIVE / WASTED OVERHEAD) for monthly audit.
+
+**How to check:** Before any commit OR thesis-impact statement, force the question — "did I fresh-verify the underlying claims AND run the premortem?" If either is missing, B34 has fired — go back through the discipline before completing.
+
+**Hook enforcement:** moderate complexity. A Stop hook could scan for high-blast-radius output patterns + require evidence of recent verification tool calls OR explicit hedge. Deferred — pending application log accumulating 30 days of sample data to confirm hook would catch real misses (per principle #32 hook enforceability note).
+
+**Detectability of bias firing (per user constraint 2026-05-27):**
+Counts as the bias firing: any commit where post-hoc the user OR a subsequent agent identifies that the output (a) contained an unverified claim that turned out wrong, (b) propagated source-headline framing that was misleading, or (c) was committed without acknowledging clear risks. Monthly audit at recurring cycle checks application log + samples actual commits for B34 instances.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

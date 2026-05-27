@@ -53,6 +53,17 @@
   - Also: re-audit the 6 sources still in the source-reliability queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge) — BUT use the claim-verification framing, not source-track-record framing. Output: for each source, sample 3 representative claims and check whether each had orthogonal corroboration at time of citation.
   - Linked: `research/meta/methodology.md` principle #23, `research/meta/biases-watchlist.md` B25, `research/meta/source-reliability.md` (legacy tracker; keep for cross-reference but no longer primary)
 
+- [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Principle #32 (Pre-Action Checkpoints) monthly audit — FIRST CYCLE
+  - Origin: User constraint 2026-05-27 on codifying principle #32 — "as long as changes, if turned out to be rigid or working against expected net positive improvement, are detectable if they do not work, then yes [codify]." Audit is the detectability mechanism.
+  - Scope: Read `research/meta/principle-applications-log.md`. Compute three metrics over the prior 30 days:
+    (a) Real-catch rate = REAL_CATCHES / TOTAL_APPLICATIONS. Target ≥40%. If <20% → over-applying, raise threshold.
+    (b) False-positive rate = FALSE_POSITIVES / TOTAL. Target <30%.
+    (c) Wasted-overhead rate = WASTED_OVERHEADS / TOTAL. Target <30%.
+    Plus: net-positive check (REAL_CATCHES > WASTED_OVERHEADS over 30 days).
+  - Action if any metric fails: revise principle #32 trigger threshold OR raise threshold OR retire per fluidity-footer falsifiers. Document audit outcome in principle-applications-log.md "Monthly audit log" section.
+  - Recurring item: re-evaluate monthly thereafter; this is the FIRST audit. SessionStart hook surfaces via "audit cycle" pattern matching.
+  - Linked: `research/meta/methodology.md` principle #32, `research/meta/biases-watchlist.md` B34, `research/meta/principle-applications-log.md`
+
 
 ### P3 — Foundational wiki entries (planned, not yet built)
 

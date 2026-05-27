@@ -1164,6 +1164,69 @@ Be CONFIDENT when:
 
    See B33 (narrative-stage-blind sizing) in `biases-watchlist.md`. Companion to principle #16 (D5 Recognition Stage), #30 (comp-set verification), #29 (segmented triangulation).
 
+32. **Pre-Action Checkpoints — fresh-verify before output + premortem before commit.** Codified 2026-05-27 after two user directives within 2 days plus same-turn operational validation (DDG/xAI/LSCC corrections caught before commit during AM brief triage).
+
+   **User directives (both verbatim 2026-05-27):**
+   - *"Never just formulate an output without doing some research fast, even if it's already in the files. Do some additional research to verify the claims in the file."* — the OUTPUT-side discipline
+   - *"Always ask yourself what could go wrong and what you might have missed before acting."* — the ACTION-side discipline
+
+   **The discipline (two components):**
+
+   **A) Fresh-verify before user-facing output on a name/topic:** before generating a thesis statement, valuation call, signal classification, or sizing recommendation, run a fast fresh-research pass (web search, primary-source check, current-data fetch) even if the topic is covered in files. Files drift; fresh-verify catches narrative shifts the file missed.
+
+   **B) Premortem before commit or irreversible action:** before committing files, launching agents, posting GitHub comments, or finalizing any artifact with side effects, explicitly enumerate "what could go wrong" + "what might I have missed." Common failure modes: unverified claim propagated; framing borrowed from source headline that's misleading; signal-to-noise too low; over-aggregation across segments; pre-training anchor at comp-set selection (B32) or sizing (B33).
+
+   **Scope (when this fires — explicit to prevent rigidity):**
+   - **FIRES on**: thesis-impact statements, prediction targets, sizing recommendations, signal triangulations, valuation calls, file commits, agent launches, watchlist additions, principle codifications, GitHub interactions
+   - **DOES NOT FIRE on**: routine Bash ls/git status, file reads for context, simple status updates to user, factual responses where the data is already in primary-source form, in-conversation clarifications
+
+   **Detectability (per user constraint 2026-05-27 — must be detectable if becomes rigid or net-negative):**
+
+   The principle MUST surface its own failure modes via three mechanisms:
+
+   1. **Application log** at `research/meta/principle-applications-log.md` — every meaningful application of principle #32 records: (a) what was checked, (b) what was caught, (c) classification — REAL CATCH / FALSE POSITIVE / WASTED OVERHEAD. Minimum-friction format: one line per application.
+
+   2. **Monthly hit-rate audit** at recurring audit cycle (next cycle 2026-06-24 in todo.md): sample last 30 days of applications. Compute three metrics:
+      - **Real-catch rate** = real_catches / total_applications. Target ≥40%. If <20% → over-applying.
+      - **False-positive rate** = (premortem suggestions implemented that turned out wrong) / total. Target <30%.
+      - **Wasted-overhead rate** = (applications producing no value AND consuming non-trivial time) / total. Target <30%.
+
+   3. **Rigidity flag** — if I find myself running premortem on routine operations (file reads, status updates, well-cached factual responses), the trigger threshold is too low. Flag for tightening at next audit.
+
+   **Falsifiers / inversion conditions (when to retire the principle):**
+   - 3+ consecutive months where real-catch rate < 20% per audit → principle is over-applying, retire or significantly raise threshold
+   - 1+ confirmed case where premortem SUPPRESSED a signal that should have been logged (false negative of false-positive concerns) → trigger threshold is too aggressive
+   - User flags that routine work is consistently delayed by premortem overhead → friction is exceeding value
+   - The "fresh-verify" component yielding identical results to file content 90%+ of time over 30 days → files are not drifting fast enough to justify the verification overhead (lower the verification frequency)
+
+   **Net-positive-improvement criterion (the test the principle must pass):**
+
+   Over any 30-day window, principle #32 must produce:
+   - More real catches than wasted overheads (real_catches > wasted_overheads count)
+   - At least 1 case where premortem caught a correction that would have shipped wrong without it
+   - No case where premortem suppressed a legitimate signal
+
+   If any of these fails over 30 days → principle requires revision OR retirement.
+
+   **Hook enforceability:** moderate complexity. A Stop hook could scan for high-blast-radius output patterns (thesis edits, valuation language, sizing recommendations, file commits) and require evidence of recent WebFetch/WebSearch/file-read calls OR an explicit "(fresh-verified at [time])" tag. Deferred — pending application log accumulating sample data to confirm hook would catch real misses vs add noise.
+
+   **Retroactive validation (the codification trigger turn):**
+   - DDG +30% framing: premortem caught that "30% surge" was the PEAK on May 25, not daily growth rate; actual is 18.1% WoW US average sustained 6 days. Without fresh-verify, would have logged stronger-than-actual single-day claim.
+   - xAI signal: premortem + fresh-verify caught that brief's "abandons solar for gas" framing was wrong; actual story is 62 unpermitted methane turbines + $2.8B more purchased + minimal-not-abandoned solar + HIDDEN BIGGER SIGNAL (Anthropic→xAI $1.25B/MONTH for Colossus compute) the brief omitted entirely
+   - LSCC Vivado update: premortem caught that adding marginal signal would dilute thesis file quality; correctly DROPPED
+   - "Near-triangulation threshold" claim about power data points: premortem-driven file-grep revealed only ONE prior reference in bottlenecks.md, not "4+" as I'd casually claimed
+
+   3 catches + 1 drop in one application = strong real-catch rate baseline.
+
+   **Fluidity footer:**
+   - codified: 2026-05-27 (after twin user directives + same-turn operational validation)
+   - last_review: 2026-05-27
+   - status: active (new)
+   - falsified_by: see Falsifiers section above (4 explicit conditions); plus general criterion that real_catches must exceed wasted_overheads over any 30-day window
+   - re-evaluation trigger: monthly via principle-applications-log.md audit, OR on any premortem-suppressed-signal confirmation, OR on user friction flag
+
+   See B34 (action-without-verification-or-premortem) in `biases-watchlist.md`. Companion to principle #23 (claim-verification), #24 (recursive bottoms-up + verified data at each layer), #14 (question own framings).
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)
