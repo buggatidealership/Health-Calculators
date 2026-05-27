@@ -1113,6 +1113,57 @@ Be CONFIDENT when:
 
    See B32 (comp-set anchoring at valuation step) in `biases-watchlist.md`.
 
+31. **Narrative-stage modifier on valuation + position sizing — valuation calls are STAGE-DEPENDENT, not absolute.** Codified 2026-05-27 after user-articulated hypothesis ("valuations matter less in narrative-driven era") was tested empirically by background research agent. Verdict: hypothesis is PARTIALLY CORRECT but critically overstated — narrative momentum is real and measurable but has explicit stage dependency the unqualified version missed.
+
+   **Empirical evidence supporting the principle:**
+   - Tesla EPS peak $4.71 (Dec 2023) → $1.01 (Dec 2025) = -78% EPS decline vs stock $162 → $448.98 = +177% gain (per [stock-analysis-on.net T4](https://www.stock-analysis-on.net/NASDAQ/Company/Tesla-Inc/Valuation/Ratios/Quarterly-Data)) — multi-year price/EPS divergence
+   - DeepSeek R1 release Jan 27, 2025: NVDA -17% one day, $588.8B market cap erased (largest single-day loss in market history per [CNBC T2](https://www.cnbc.com/2025/01/27/nvidia-falls-10percent-in-premarket-trading-as-chinas-deepseek-triggers-global-tech-sell-off.html)) — zero fundamental change at NVDA
+   - Academic: valuation multiples explained only ~3.67% of long-term return variation 2014-2024 (per [ResearchGate study T2](https://www.researchgate.net/publication/391552948_Comparative_Analysis_of_Growth_and_Value_Stocks_in_the_SP_500_Impacts_of_Recent_Macroeconomic_Events_from_2014-2024))
+   - C3.AI -57.73% over 12 months despite AI narrative intact (per [SimplyWallSt T4](https://simplywall.st/stocks/us/software/nyse-ai/c3ai)) — pure narrative reverts on 12-18mo timescale
+   - NVDA May 2026: beat + guided $91B vs $86.84B consensus → stock SLIPPED (per [CNBC T2](https://www.cnbc.com/2026/05/20/nvidia-nvda-earnings-report-q1-2027.html)) — Stage 4-5 surprise-capacity exhaustion
+   - PLTR at 361x P/E with +85% YoY Q1 2026 revenue → fell 8%+ post-earnings — priced-to-perfection failure
+
+   **The discipline — narrative-stage modifier on sizing:**
+
+   | Narrative Stage | Definition | Sizing modifier |
+   |---|---|---|
+   | **Stage 1** | Fresh thesis, sub-consensus awareness, narrative just forming | Standard sizing per D1-D5 + may add up to +25% PREMIUM if asymmetry is clean |
+   | **Stage 2-3** | Mainstream awareness, expanding coverage, positioning building, beats still expanding multiple | Standard sizing per D1-D5 |
+   | **Stage 4** | Priced to perfection, consensus crowded, expectations high, beats producing muted reactions | Apply 25-50% DISCOUNT to computed position size regardless of D1-D5 scoring. Surprise capacity exhausted. Multiple compression risk elevated even if thesis intact. |
+   | **Stage 5** | Narrative fatigue, compression underway, correct thesis losing money via multiple compression | Reduce or exit. Wait for re-entry when narrative refreshes (new product cycle, new customer class, new TAM expansion). |
+
+   **For pure-narrative names** (no improving fundamentals, no path to positive earnings in 12-18 months): maximum 2% position size regardless of narrative momentum. Hard exit trigger: 2 consecutive quarters of narrative persistence without fundamental improvement. Duration expectation: 6-18 months maximum (per SOUN, BBAI, C3.AI cohort evidence 2024-2026).
+
+   **The unifying insight (most important):** beat-beat-raise IS the narrative engine for fundamentals-backed names. They are not separate variables. DeepSeek proved that a narrative challenging earnings-delivery destroys value; narrative reinforcing earnings-delivery sustains it. **Narrative without an earnings engine = noise. Earnings + narrative in lockstep = multi-quarter compounding.** The hypothesis "narrative > valuation" is shorthand for "earnings velocity + narrative reinforcement together overwhelm starting multiple" — but ONLY at Stages 1-3. At Stages 4-5 the relationship inverts.
+
+   **Compounds with principle #16 (Recognition Stage in D-scoring):** the existing OS has Recognition Stage in the D1-D5 framework but does NOT explicitly modify position sizing as a function of stage. Principle #31 adds the explicit sizing modifier.
+
+   **Detection rule:** for every sizing recommendation, force the question — "what Recognition Stage is this name at, and what's the residual surprise capacity given current consensus positioning?" If Stage 4-5, the standard D-score sizing is over-stated by 25-50%; apply the modifier explicitly.
+
+   **Retroactive portfolio implications (to apply over next 30 days):**
+   - **NVDA**: Stage 4 → suggests modest sizing discount; surprise capacity exhausted (May 2026 muted reaction is evidence)
+   - **PLTR**: Stage 4-5 → priced-to-perfection risk explicit; not held; no entry until stage refreshes
+   - **ALAB (held 9.6%)**: Stage 3-4 transition → near-max sizing already; do NOT add; consider partial trim if Q2 2026 beat produces muted reaction
+   - **LSCC (Active candidate)**: Stage 2-3 transition → standard sizing 1.5-3% per stub thesis
+   - **SNOW (pending grade)**: Stage 2-3 transition → standard sizing if entered
+   - **NOW (held 6.9%)**: Stage 3-4 → modest discount on incremental adds
+   - **HYNIX (held)**: Stage 3 → standard
+   - **SNDK (held)**: Stage 3 → standard
+   - **DDOG (held 7.5%)**: Stage 3 → standard
+
+   **Falsifier for the principle:** if a name with no improving fundamentals sustains >200% return over 24-month period without earnings improvement, the principle needs revision. If Stage 4-5 names systematically continue beating + getting positive stock reaction (rather than the muted/negative pattern observed in 2026), the surprise-capacity exhaustion framing is wrong.
+
+   **Hook enforceability:** moderate. A Stop hook could scan for sizing recommendations and require an explicit "Stage: [1/2/3/4/5]" + "modifier applied: +/-X%" tag. Deferred — pending second observation of Stage-4-undermodified sizing recommendation to confirm hook value.
+
+   **Fluidity footer:**
+   - codified: 2026-05-27 (after empirical verification of user-articulated hypothesis)
+   - last_review: 2026-05-27
+   - status: active (new)
+   - falsified_by: Stage 4-5 names systematically defying the muted-reaction pattern in 2026-2027 (suggests surprise-capacity-exhaustion framing is wrong); OR pure-narrative names sustaining >200% returns >24 months without earnings (suggests duration limit is wrong); OR the empirical refresh in 6 months showing 2025-2026 was an idiosyncratic regime
+   - re-evaluation trigger: monthly, OR on any GRADE that reveals a position sized without stage-modifier produced an unexpected outcome (positive or negative)
+
+   See B33 (narrative-stage-blind sizing) in `biases-watchlist.md`. Companion to principle #16 (D5 Recognition Stage), #30 (comp-set verification), #29 (segmented triangulation).
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)

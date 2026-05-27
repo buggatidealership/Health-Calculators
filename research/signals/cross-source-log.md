@@ -32,6 +32,8 @@ Weak/single-source signals. When ≥3 independent sources converge on the same d
 
 **OS-relevance:** the answer changes how valuation enters the Conviction Format (CLAUDE.md) and how the Recognition Stage framework is operationalized.
 
+**RESOLUTION 2026-05-27:** Verification agent returned. Verdict: PARTIALLY CORRECT but critically overstated. Hypothesis is true at Recognition Stages 1-3; INVERTS at Stages 4-5 where surprise-capacity exhaustion makes beats produce muted/negative reactions (NVDA May 2026 / PLTR Q1 2026 confirmation cases). Pure-narrative names sustain extreme multiples 12-18 months MAX (C3.AI -57% with AI narrative intact). Beat-beat-raise IS the narrative engine for fundamentals-backed names — not separate. **Codified as principle #31 + B33 (narrative-stage modifier on sizing) 2026-05-27.** Entry moved to resolved.
+
 ---
 
 ## Format

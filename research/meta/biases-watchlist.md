@@ -596,6 +596,51 @@ Before any valuation call, explicitly enumerate (1) which comp set the call rest
 
 ---
 
+### B33 — Narrative-stage-blind sizing (treating valuation-based sizing as stage-independent)
+
+**Origin:** Codified 2026-05-27 alongside principle #31 after user-articulated hypothesis verification. User claimed valuations matter less in narrative-driven era; empirical agent verification confirmed PARTIAL truth but surfaced stage dependency the user's framing missed. Position-sizing recommendations historically applied D1-D5 scoring uniformly across Recognition Stages — but Stage 4-5 names systematically face surprise-capacity exhaustion that makes the same D-score over-state appropriate sizing by 25-50%.
+
+**Pattern:** Recommending position size based on D1-D5 scoring (Duration / Magnitude / Pricing Power / Recognition Stage / Execution Quality) without applying an explicit stage-dependent sizing modifier. The Recognition Stage variable is INPUT to the D-score, but it does NOT separately modify the resulting size recommendation. Result: Stage 4 names get sized as if they were Stage 2 names of comparable D-score, leading to overweight positions in priced-to-perfection territory where beats produce muted/negative reactions (NVDA May 2026 muted reaction; PLTR Q1 2026 -8% post-beat).
+
+**Distinction from related biases:**
+- B26 (pre-training as primary source): operates at the data-input step. B33 operates at the sizing-output step after data is correct.
+- B32 (comp-set anchoring at valuation step): operates on the multiple-judgment step. B33 operates on the resulting position-size step.
+- B13 (recency-anchored synthesis): operates on the synthesis-update step. B33 operates on sizing decisions independent of synthesis updates.
+
+**Manifestation 2026-05-27 (the verification trigger):**
+- Multiple Stage 4 names in current portfolio (NVDA, ALAB, NOW) sized near max per D-score
+- Agent verified Stage 4-5 names systematically face surprise-capacity exhaustion (NVDA May 2026 slipped on $91B vs $86.84B guide; PLTR -8% on +85% revenue growth)
+- Under principle #31, these positions should carry 25-50% sizing discount vs current
+- The over-sizing wasn't caught because Recognition Stage was an INPUT to D-score, not a separate sizing modifier
+
+**The structural fix (codified as principle #31):**
+Apply stage-dependent sizing modifier on top of D-score:
+- Stage 1: standard + up to +25% premium if clean asymmetry
+- Stage 2-3: standard sizing
+- Stage 4: 25-50% discount
+- Stage 5: reduce or exit
+- Pure-narrative (no improving fundamentals): max 2%, 6-18 month hold, hard exit trigger after 2 quarters without fundamental improvement
+
+**Correction (mandatory per principle #31):**
+1. For any sizing recommendation, name the Recognition Stage
+2. Apply the modifier table
+3. State the modifier applied (e.g., "Standard sizing 4% × Stage 4 modifier 0.65 = 2.6% actual recommendation")
+4. If no modifier explicitly applied, B33 has fired
+
+**Retroactive application:**
+- NVDA at Stage 4 → suggest sizing discount (Stage 4 muted reaction confirmed May 2026)
+- ALAB at Stage 3-4 → near-max sizing already, do not add, consider partial trim trigger if Q2 muted
+- LSCC (Active candidate, Stage 2-3) → standard sizing, no modifier needed
+- HYNIX / SNDK / DDOG (Stage 3) → standard sizing
+- NOW (Stage 3-4) → modest discount on incremental adds
+- PLTR (Stage 4-5, not held) → no entry until stage refreshes
+
+**How to check:** Before any sizing recommendation, force the question — "what Recognition Stage is this name at, did I apply the explicit modifier, and what is the residual surprise capacity?" If no Stage tag + no modifier visible in the recommendation, B33 has fired.
+
+**Hook enforcement:** moderate feasibility. A Stop hook could scan for sizing-recommendation language ("X% position", "Tier: Core/Active", "size at Y%", "recommend Z% sizing") and require "Stage: [1/2/3/4/5]" + "modifier: [+/-X%]" tags in the same message. Deferred — pending second observation of stage-blind sizing recommendation to confirm hook value over codification-instruction baseline.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.
