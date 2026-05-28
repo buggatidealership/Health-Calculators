@@ -454,3 +454,11 @@ Silicon capacitors are an **ADDITIONAL PDN layer**, NOT a substitute. Per Cadenc
 This falsifier addresses an ADDITIVE risk in the silicon-cap sub-market — not a substitutive risk to MLCC. Distinct from existing falsifier #6 (substitute risk) which is now substantially RESOLVED by the verified PDN-architecture analysis.
 
 **No tier change. No sizing change. 12.35% Core position remains correct.**
+
+## Cross-reference — SEMCO candidate thesis (added 2026-05-28, per Critical Rule #10)
+
+Per `research/companies/SEMCO/thesis.md` (candidate stub created 2026-05-28): Samsung Electro-Mechanics is the MLCC duopoly partner (84% AI server MLCC combined share per T3 TradingKey) + the named first-mover on AI-EMIB-T silicon-cap contracts ($1B US AI chip customer per T1 Samsung EM newsroom). Murata participates in silicon caps via Caen France 200mm line but did not lead on the first major named EMIB-T contract.
+
+**Implication for Murata thesis:** the Murata silicon-cap falsifier #7 (added 2026-05-28 above — "Murata loses silicon-capacitor design wins to Samsung EM at scale within AI EMIB-T packaging ecosystem") is now operationalized at the FIRST data point — SEMCO won, Murata did not. Threshold for falsifier trigger requires 2+ additional named AI ASIC programs adopting Samsung EM silicon caps without Murata participation over 12 months. **Monitor**: future EMIB-T silicon-cap deal announcements + Murata Q2-Q3 FY27 earnings commentary on silicon cap revenue trajectory.
+
+**No tier change. No sizing change.** MLCC dominance unaffected; silicon-cap is additive opportunity not core thesis.

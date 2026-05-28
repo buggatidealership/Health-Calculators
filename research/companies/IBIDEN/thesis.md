@@ -120,3 +120,9 @@ Stage 2-3 in US AI investor coverage. Japan-listed = under-covered by sell-side.
 2. Monitor Schwab June 2026 agentic-brokerage launch (existing P2 todo) — separate validation of Principle #33 framework
 3. Wait for Q1 FY27 Ibiden earnings (typically reports late July / early Aug for fiscal Q1 ending June 30) — fresh verification of revenue trajectory + customer commentary
 4. Decision point on entry: post Q1 FY27 earnings (likely Aug 2026)
+
+## Cross-reference — SEMCO candidate thesis (added 2026-05-28, per Critical Rule #10)
+
+Per `research/companies/SEMCO/thesis.md` (candidate stub created 2026-05-28): SEMCO is a 5-firm FC-BGA substrate oligopoly peer (~8-10% share per T3 LGINNOTEK comparison table, vs Ibiden's ~60%). NOT named in Intel's "seeking commitments from" list (only 2 Japan suppliers + 4 Taiwan per TrendForce T3) — SEMCO is NOT in the Intel EMIB-T tier and does not threaten Ibiden's EMIB-T-specific positioning.
+
+**Implication for Ibiden thesis:** SEMCO substrate capacity coming online (bear case line 65) remains a directional risk but the EMIB-T-specific subsegment Ibiden owns is not contested by SEMCO. SEMCO's structural breakout is on the silicon-cap side ($1B contract for embedded silicon caps inside EMIB-T packaging) — which is COMPLEMENTARY to Ibiden's substrate position, not competitive with it. **No tier change. No sizing change.**
