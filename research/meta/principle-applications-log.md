@@ -27,6 +27,14 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-28 (analyst-PT hook codification — B37 + 8th live hook)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | B28 self-application failure | IBIDEN deep-dive synthesis | User catch: I cited "current ¥15,375 above analyst PT ¥11,276" as caution signal — exactly the pre-training-default investing wisdom that B28 was codified 24 hours earlier to catch | B28 codified yesterday was INERT in today's application. Self-application gap real. Required hook-based deterministic enforcement to prevent recurrence. | REAL CATCH (MAJOR) — the codified principle existed but didn't fire; user discipline LOOP step 3 (monitor) caught step 2 (apply fix) was incomplete |
+| 2026-05-28 | #32-B (premortem) | Before designing the hook | Enumerated risks: hook over-fires on legitimate Stage 4-5 overvaluation cases (false positives); hook under-fires on subtle valuation-comparison language (false negatives); exemption list too tight vs too loose | Designed with explicit exemption for Stage 4 / priced-to-perfection / cyclical comp at peak + principle/bias references + explicit hedges. Tested with BAD + GOOD fixtures. | REAL CATCH — premortem caught the calibration tradeoff before deployment |
+| 2026-05-28 | B37 codification | After hook design | Verified hook works deterministically on BAD case (exit 2 with feedback) + GOOD case (exit 0 silent) | Hook tested + installed live + mirrored in research/meta/hooks/ + registered in settings.json + documented in CLAUDE.md + B37 codified | INSTALLATION SUCCESS — 8 live Stop hooks now |
+
 ### 2026-05-28 (AM brief triage + China sovereignty verification catch + SpaceX TeraFab meta-validation)
 
 | Date | Principle | Context | Checked | Caught | Classification |

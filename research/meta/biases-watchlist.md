@@ -786,6 +786,53 @@ For any TAM measurement of an emerging-tech category:
 
 ---
 
+### B37 — Analyst-PT framing as default-bearish for binding-constraint structural names (the "above analyst PT = caution" pre-training reversion)
+
+**Origin:** User catch 2026-05-28 in real-time during IBIDEN deep-dive synthesis. Agent surfaced "Ibiden current ¥15,375 above average analyst PT ¥11,276" and I treated it as a CAUTION signal — exactly the pre-training-default investing-wisdom failure mode that B28 had been codified to catch 24 hours earlier. User catch verbatim 2026-05-28: *"that is exactly the false reasoning that the initial Claude session I did this in December and January with what it did not say to buy because it was saying that everything is above analyst consensus. PNE is too elevated, but it missed the fact that, well, if it... if you can just confirm or find patterns that whatever layer they are in within the AI value chain is a crucial component for models to be better at reasoning... then the average analyst PT doesn't matter."*
+
+User directive on enforcement: *"this must be fixed with a hook. its ok to surface it but its not ok to overweight it."*
+
+**Pattern:** Citing "above (analyst | consensus | street) PT" — or any inverse "below PT" or "trading above target" or "stock has run past consensus" — as a CAUTION or BEARISH framing without explicit structural-context classification. For verified binding-constraint structural names in early-to-mid rerating arc, the expected sequence is STOCK LEADS, ANALYST CATCHES UP. Analyst PT lags structural-evidence accumulation by 2-3 quarters per B28. Therefore "above analyst PT" is NOT automatically caution-relevant — it's potentially the OPPOSITE signal (analysts chasing the rerating, bullish setup).
+
+User's empirical observation: "the price back then [BE / SNDK early-mid 2025] was above every analyst's price target... they started chasing the stock instead of rerating it higher when it was lower, which again shows they chased the stock. That's actually the setup you want."
+
+**Distinction from related biases:**
+- **B23** (sell-side aggregation drift): operates at forecast-aggregation step. B37 operates at the price-target-comparison step.
+- **B26** (pre-training as primary source): default sell-side anchoring is one manifestation. B37 is specifically the PT-vs-price framing manifestation.
+- **B28** (cyclical-vs-structural mis-classification): parent bias. B37 is the specific manifestation at the analyst-PT level. B28 already said: "Same bias affects sell-side analyst frameworks at 2-3 quarter lag from structural-evidence accumulation. The mis-classification creates a multi-quarter mispricing spread between cyclical multiples (5-10x forward) and structural-growth multiples (15-30x forward) — alpha source for those who correctly identify the transition early." B37 enforces that codified principle at the specific PT-language application step.
+- **B32** (comp-set anchoring at valuation step): operates on multiple selection. B37 operates on analyst-PT interpretation.
+
+**The meta-failure pattern (worth flagging separately):**
+
+B37 codification triggered by re-committing B28 24 hours after codification. The codified principle was inert text in the specific application. The user's discipline LOOP step 3 (monitor) revealed step 2 (codify the fix) was insufficient — required hook-based deterministic enforcement. This is the OS canonical pattern: "instructions are choices; hooks are enforced."
+
+**Manifestation 2026-05-28 (the codification trigger):**
+- IBIDEN synthesis cited "current ¥15,375 above analyst PT ¥11,276" as caution
+- B28 codified 2026-05-27 explicitly said analyst lag is structural for binding-constraint names
+- B28 did NOT fire in my application — codification was inert
+- User caught real-time + directed hook-based enforcement
+
+**The structural fix (now enforced via hook):**
+
+`~/.claude/analyst-pt-context-hook.py` (added 2026-05-28). Triggers on PT-vs-price framing patterns; requires explicit structural-context classification (analyst lag, structural rerating, binding-constraint designation) OR genuine-overvaluation reasoning (Stage 4 narrative, priced-to-perfection, cyclical comp at peak) OR explicit hedge ("analyst PT framing; neutral, not used as valuation argument") OR principle/bias reference (B28, #28, #30, #31). Missing classification → hook exits 2 with required-action feedback.
+
+**Correction (mandatory per hook enforcement):**
+1. Before using any analyst-PT mention as a valuation argument, force the question: "is this a binding-constraint structural rerating where analyst lag is expected?"
+2. If YES: "above PT" reframes as bullish signal (analysts chasing the rerating)
+3. If NO: cyclical / overvaluation framing applies but must be reasoned explicitly
+4. If unverified: hedge explicitly "(analyst PT framing; structural rerating context not yet verified)"
+
+**Retroactive application 2026-05-28:**
+- IBIDEN analysis: "current ¥15,375 above analyst PT ¥11,276" reframed — Ibiden IS a binding-constraint structural rerating per Principle #33 + EMIB-T cluster triangulation; therefore "above PT" is potentially BULLISH (analysts behind the curve), not bearish. Backtest agent launched to verify the empirical pattern on BE + SNDK + 2-3 additional binding-constraint structural names.
+
+**How to check:** Before any analyst-PT comparison output, force the question — "did I classify this name as binding-constraint structural rerating OR genuine overvaluation OR neutral?" If no classification, B37 has fired — the hook will catch it; restate with explicit context.
+
+**Hook enforcement:** ACTIVE (this is the codification that ships WITH a hook, unlike most prior bias entries where hook enforcement was deferred). Tested with BAD fixture (above-PT without context → exit 2) and GOOD fixture (above-PT with explicit "analyst lag" + "structural rerating" + "B28" context → exit 0) on 2026-05-28.
+
+**Detectability**: hook fires deterministically on triggers; applications logged to principle-applications-log.md; monthly audit reviews false-positive vs real-catch ratios. If the hook fires consistently on legitimate Stage 4-5 overvaluation cases (false positives), tighten exemption patterns. Currently exemption list errs on the side of false positives (B17 risk that hook over-fires) — calibrated for first 30 days of use, refine at first monthly audit.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.
