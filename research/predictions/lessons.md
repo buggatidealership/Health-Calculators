@@ -46,9 +46,22 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 - Outlook upgrade (extending existing trend)
 - No new strategic relationships, metric reframe, or baseline-break
 
-**Origin data (N=1):**
-- SNOW Q1 FY27 (Stage 2-3 + CATEGORY EVENT) → +37.65% T+24h per `2026-05-27-SNOW-Q1FY27-GRADE.md` Stock-Reaction section
+**Origin data (N=1, plus same-day cohort 2026-05-28):**
+- SNOW Q1 FY27 (Stage 2-3 + HIGH-CONCRETE CATEGORY EVENT: signed $6B AWS pact + NRR baseline-break + L10 reframe) → +37.65% T+24h per `2026-05-27-SNOW-Q1FY27-GRADE.md` Stock-Reaction section
 - MRVL Q1 FY27 (Stage 3-4 + TREND ACCELERATION) → -1.96% pre-market faded from +5.07% AH per `2026-05-27-MRVL-Q1FY27-GRADE.md`
+- **MDB Q1 FY27 (Stage 2-3 + TREND ACCELERATION with some category elements)** → ~+20% post-print per [Gurufocus T3](https://www.gurufocus.com/news/8889811/mongodb-mdb-reports-strong-q1-results-shares-surge-over-20). Revenue $687.6M (+25% YoY) per [SEC 8-K T1](https://www.sec.gov/Archives/edgar/data/0001441816/000162828026038798/mdb-043026xex991xrelease.htm); EPS $1.32 vs $1.18 consensus; FY27 raised to $2.86B-$2.90B (16-18% YoY); Atlas +29% YoY. Vector search story prominent + Voyage AI integration ongoing — but no NEW high-concrete category event (no new strategic deal of $6B AWS pact magnitude).
+- **NTAP Q4 FY26 (Stage 2-3 + LOW-CONCRETE CATEGORY EVENT)** → ~+10% per [Gurufocus T3](https://www.gurufocus.com/news/8889514/netapp-ntap-surges-10-following-strong-q4-earnings-report). Revenue $1.95B (+12% YoY) per [SEC 8-K T1](https://www.sec.gov/Archives/edgar/data/0001002047/000119312526245196/ntap-ex99_1.htm); All-flash array $1.2B (+18% YoY). NEW: NVIDIA co-engineered AI Data Engine + EF50/EF80 AI-focused hardware launches — CATEGORY markers but press-release-grade not signed-contract-grade.
+- **ESTC Q1 CY26 (Stage 1-2 deeply discounted + BEAT + MGMT-NARRATIVE-SUPPRESSION)** → -10.9% per [FinancialContent T3](https://markets.financialcontent.com/stocks/article/stockstory-2026-5-28-elastics-nyseestc-q1-cy2026-sales-beat-estimates-but-stock-drops-109). Revenue $450.7M (+16% YoY) beat expectations. Stock down 71% from Nov-2021 ATH $186.78. CEO publicly framed vector DB as "a feature, never a business" — REVERSE-CATEGORY mgmt signal commoditizing own AI story.
+
+**Refined framework (post 4-data-point cohort 2026-05-28):**
+
+| Stage | Beat type | Mgmt narrative | T+24h move | Origin case |
+|---|---|---|---|---|
+| Stage 2-3 | HIGH-CONCRETE CATEGORY (signed strategic deal + metric baseline-break + leading-indicator reframe) | Bullish, embraces story | **~+37%** | SNOW |
+| Stage 2-3 | TREND ACCELERATION (incremental beat + guidance raise + no new strategic relationship) | Bullish, embraces story | **~+20%** | MDB |
+| Stage 2-3 | LOW-CONCRETE CATEGORY (new product launch + co-engineering partnership announcement; no signed multi-year deal) | Bullish, embraces story | **~+10%** | NTAP |
+| Stage 1-2 (deep discount) | BEAT with intact fundamentals | **NEGATIVE — mgmt commoditizing own category** | **~-11%** (stock drops on beat) | ESTC |
+| Stage 3-4 | TREND ACCELERATION | Bullish | **~-2%** (Stage premium dominates) | MRVL |
 
 **Generalizable lesson (if codified at N=2):** principle #31 narrative-stage modifier needs CATEGORY-vs-TREND axis as additional input. Stage classification alone under-predicts magnitude when CATEGORY EVENT compounds with stage positioning.
 

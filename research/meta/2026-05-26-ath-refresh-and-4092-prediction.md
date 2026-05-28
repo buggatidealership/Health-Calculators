@@ -154,7 +154,9 @@ All sizing splits remain user judgment — no specific allocation amounts derive
 
 **Price update (T2 per [Investing.com](https://www.investing.com/equities/nippon-chemical-industry)):** 4092.T trading at ~¥4,445 (May 27 close; data-feed shows "previous close ¥5,110" anomaly that requires primary TradingView lifetime-chart verification before integration). Move from May 26 baseline ¥3,905 → ¥4,445 = ~+13.8% acceleration in 1-2 trading sessions.
 
-**User-shared context to verify (per principle #14):** "the chart is approaching an ATH set in 2000." The May 26 file confirmed only the 2018 ATH at ¥5,190 via TradingView. A 2000 ATH would be Nikkei-bubble-era; needs primary TradingView lifetime-chart verification before integration. **Open data gap.**
+**User correction 2026-05-28 (resolves prior data gap):** the 2018 ATH at ¥5,190 IS the all-time high; the 2018 high was achieved by BREAKING the prior year-2000 peak (i.e., 2018 = breakout above 18-year structural resistance from 2000 peak). Current ¥4,445 is testing back toward the 2018 ATH from below (~85.6% of ¥5,190). **Structural reading:** the multi-decade resistance was broken in 2018; we're now in 8-year consolidation. Breakout above ¥5,190 would confirm the multi-decade rerating; failure here = ¥5,190 becomes durable resistance again.
+
+**Investability update (user confirmed 2026-05-28):** TSE direct access AVAILABLE on user's brokerage platforms. Investability constraint that blocked LGI/SEMCO does NOT apply to 4092.T (or to Ibiden 4062.T). This removes a major blocker.
 
 **News-cascade reinforcement (2026-05-27 + 2026-05-28 events) — structural thesis materially strengthened:**
 
