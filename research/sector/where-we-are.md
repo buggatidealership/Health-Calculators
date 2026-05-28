@@ -1,9 +1,43 @@
 # Where AI Is — Living Synthesis
 
-**Last material update:** 2026-05-20 (Google I/O + OpenAI Guaranteed Capacity + Anthropic profit + SemiAnalysis workflow ROI)
+**Last material synthesis update:** 2026-05-20 (Google I/O + OpenAI Guaranteed Capacity + Anthropic profit + SemiAnalysis workflow ROI). All events 2026-05-21 to 2026-05-28 have been REINFORCING (per B13 discipline) — no synthesis shift required. See §"Recent harness state" below for non-synthesis updates worth pointer-tracking.
+
 **Purpose:** The single document that holds the CURRENT BEST holistic view. Read this every session before reacting to specific events. If a new event doesn't change the synthesis here, don't restructure the entire OS for it — just log the signal and move on.
 
 **Self-evolution rule:** Update this file only when new evidence MATERIALLY shifts the prior view. Most events are reinforcing, not new — note them but don't restate. Track view changes in §"What I changed my mind about" with date + trigger. The file should grow slowly; not every news cycle is a paradigm shift.
+
+---
+
+## Recent harness state (non-synthesis pointer — 2026-05-28)
+
+This section tracks RECENT HARNESS ACTIVITY that doesn't shift the synthesis above but a new session needs to be aware of. Update when material harness state changes; not a substitute for §"What I changed my mind about" (which tracks SYNTHESIS shifts).
+
+**Predictions cadence (last 8 days):**
+- 2026-05-20 → NVDA Q1 FY27 GRADED (RIGHT direction beat all 4; L4 added)
+- 2026-05-26 → MOD Q4 FY26 GRADED (RIGHT direction all 4; L6/L7/L8 added)
+- 2026-05-27 → SNOW Q1 FY27 GRADED (beat-and-raise; L9/L10 added; $6B AWS pact bonus signal)
+- 2026-05-27 → MRVL Q1 FY27 GRADED (Supply-Chain-Cohort Calibration framework N=1 partial validation; L11/L12/L13 added; principle #31 Stage 3-4 modifier 2nd validation)
+- Zero pending predictions.
+
+**Candidate codifications awaiting N=2+ validation:**
+- Principle #34 — Supplier-Side Cross-Layer Moat Decomposition (origin: SEMCO 2026-05-28; #33 demand-side framework systematically under-surfaces cross-vendor coverage matrix + customer procurement preference)
+- B38 — Demand-side decomposition blind-spot for supplier-side cross-layer moats (companion to candidate #34)
+- Supply-Chain-Cohort Calibration framework (origin: MRVL prediction 2026-05-27; partial validation N=1; refinement: apply cohort overlay to forward outlook NOT immediate quarter, model vintage choice as separate probability distribution, add multi-year guide raise as default target)
+
+All three re-evaluate at next monthly codification audit 2026-06-24 OR on next eligible application case (Schwab June 2026 launch for Supply-Chain-Cohort + any multi-layer-participating candidate for #34/B38).
+
+**Hook layer (8 Stop hooks live, +1 SessionStart + 1 git-check = 10 total):**
+- Most recent hook added 2026-05-28: `analyst-pt-context-hook.py` (B37 enforcement — analyst-PT-as-default-bearish for structural names)
+- Hook discipline working: caught the borrowed-framing propagation on SEMCO turnkey-moat analyst note + caught the missing principle-applications-log update on MRVL grade (user surfaced the second)
+
+**Investability constraint surfaced 2026-05-28:** user's brokerage platforms do not support direct KRX (Korean) exchange access; no sponsored ADRs for LGI or SEMCO. Implication: LGI deeper-dig P1 archived; SEMCO retained as N=1 origin case + reference artifact only; substrate-supplier exposure for user anchored on Ibiden (4062.T, Japan accessible) + Murata (held). All future research candidates must pass investability check before P1/P2 prioritization.
+
+**Active themes reinforced** (not reweighted — synthesis unchanged):
+- S2 Custom Si scenario: MRVL FY28 $16.5B (+45% YoY) + "more than double" custom Si commentary
+- Advanced-packaging chokepoint (Ibiden + Intel EMIB-T + Samsung EM silicon caps): segmented-triangulation promoted 2026-05-28 (1st instance under principle #29)
+- MLCC duopoly pricing power: silicon-cap-vs-MLCC bear signal MISFRAMED — additive PDN layer not substitutive (caught real-time per B14 discipline)
+
+**Open todos:** 8 items (P1 currently empty; P2/P3 dated for monthly audit 2026-06-24 or specific verification triggers). See `meta/todo.md`.
 
 ---
 
