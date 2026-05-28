@@ -41,12 +41,35 @@
   - Also: re-audit the 6 sources still in the source-reliability queue (MLQ.ai, Sacra, Fortune, Photoncap, TweakTown, The Razor's Edge) — BUT use the claim-verification framing, not source-track-record framing. Output: for each source, sample 3 representative claims and check whether each had orthogonal corroboration at time of citation.
   - Linked: `research/meta/methodology.md` principle #23, `research/meta/biases-watchlist.md` B25, `research/meta/source-reliability.md` (legacy tracker; keep for cross-reference but no longer primary)
 
-- [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Principle #32 (Pre-Action Checkpoints) monthly audit — FIRST CYCLE
+- [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Codification audit cycle (EXPANDED scope per user 2026-05-28) — FIRST CYCLE
+  - **Scope expansion (added 2026-05-28)**: originally scoped to Principle #32 monthly audit only. User discipline LOOP articulation 2026-05-28 — "spot reasoning inconsistencies → apply fixes → monitor the fixes — see if they actually work" — surfaced that the rapid codification cadence (5 principles + 6 biases in 72 hours since 2026-05-21) created a monitoring gap: only #32 has explicit detectability; #29/#30/#31/#33 + B31-B36 have declarative falsifiers but NO scheduled monitoring. Expanded audit covers ALL recent codifications.
+  - **Audit scope (expanded)** — each of these gets the 3-question test:
+    - Principles: #29 (segmented triangulation), #30 (comp-set verification), #31 (narrative-stage modifier), #32 (pre-action checkpoints), #33 (top-down capability decomposition + 2026-05-28 competition-intensity refinement)
+    - Biases: B31 (cross-segment aggregation triangulation), B32 (comp-set anchoring at valuation), B33 (narrative-stage-blind sizing), B34 (action without verification or premortem), B35 (within-category aggregation), B36 (visible-user-adoption anchoring when embedded)
+  - **3 questions per codification**:
+    1. Has it been APPLIED in any analysis since codification? (Check `principle-applications-log.md` + grep recent commits)
+    2. If applied: classify REAL CATCH / FALSE POSITIVE / WASTED OVERHEAD (per principle #32 detectability framework)
+    3. If NOT applied in 30 days: codification is INERT. Two options — RETIRE per fluidity-footer falsifier OR PROMOTE TO HOOK (deterministic enforcement per "instructions are choices; hooks are enforced")
+  - **Metrics (per codification)**:
+    - Real-catch rate ≥40% (below 20% over 3+ months → over-applying, retire)
+    - False-positive rate <30%
+    - Wasted-overhead rate <30%
+    - Net-positive check (REAL_CATCHES > WASTED_OVERHEADS over 30 days)
+  - **Action items by outcome**:
+    - Metrics pass + applied ≥3 times: confirmed active; continue monitoring
+    - Applied <3 times in 30 days: codification is inert; flag for retirement OR hook promotion
+    - Metrics fail: revise trigger threshold OR retire per fluidity-footer falsifier
+    - New pattern surfaces during audit: codify per standard process
+  - **Failure mode the audit protects against (the user's stated concern)**: rapid codification cadence producing ossified text that's never actually applied = step 1+2 of the loop without step 3 = the most likely OS-degradation pathway given the recent codification velocity
+  - Document audit outcome in `research/meta/principle-applications-log.md` "Monthly audit log" section. Recurring monthly thereafter; this is the FIRST audit.
+  - Linked: `research/meta/methodology.md` (all principles), `research/meta/biases-watchlist.md` (all B-entries), `research/meta/principle-applications-log.md`, recent commit log
 
 - [ ] **P2 / verification / 2026-06-15** [INDP, AF] — Schwab June 2026 AI agent launch — triangulation 3rd-data-point candidate
   - Origin: Robinhood + eToro + Moomoo agentic-trading launches Apr-May 2026 (per `signals/events/2026-05-27-robinhood-agentic-trading.md`). Schwab targeting June 2026 per [WealthManagement.com T3](https://www.wealthmanagement.com/ria-news/schwab-makes-ai-push-with-client-facing-agents-to-roll-out-in-june). If 3rd same-segment data point lands, agentic-brokerage promotes to triangulation per principle #29.
   - Scope: verify Schwab launch date + scope + tech stack; if launched, promote agentic-brokerage cluster to triangulation.md; cascade to DDOG (regulatory observability mandate validation) + SNDK (compliance NAND demand validation). Also: apply Principle #33 top-down capability decomposition to Schwab as 2nd application of the framework — validation criterion for the principle.
   - Linked: `signals/events/2026-05-27-robinhood-agentic-trading.md`, `companies/DDOG/thesis.md`, `companies/SNDK/thesis.md`, `meta/methodology.md` principle #33
+
+- [ ] **[SUPERSEDED by expanded audit above]** ~~P3 / verification / 2026-06-24 — Principle #32 monthly audit~~ — see expanded codification audit cycle above (now covers principles #29-33 + B31-B36)
   - Origin: User constraint 2026-05-27 on codifying principle #32 — "as long as changes, if turned out to be rigid or working against expected net positive improvement, are detectable if they do not work, then yes [codify]." Audit is the detectability mechanism.
   - Scope: Read `research/meta/principle-applications-log.md`. Compute three metrics over the prior 30 days:
     (a) Real-catch rate = REAL_CATCHES / TOTAL_APPLICATIONS. Target ≥40%. If <20% → over-applying, raise threshold.
