@@ -1,23 +1,54 @@
 # Triangulated Signals (High-Conviction)
 
-**Last updated:** 2026-05-20
+**Last updated:** 2026-05-28
 
 Signals confirmed by ≥3 independent sources within 90 days. These outweigh single-article reads. Cited in theses.
+
+**Per principle #29 (added 2026-05-27)**: each source MUST be segment-classified before promotion. SAME-SEGMENT clusters promote here; CROSS-SEGMENT clusters log to `cross-source-log.md` only.
 
 ## Format
 
 ```
 [YYYY-MM-DD promoted] {THEME or DIRECTION}
+Segment classification (per principle #29): [single segment OR cross-segment]
 Sources:
-  1. [primary] - [name, date, what was said]
-  2. [secondary] - [name, date, what was said]
-  3. [tertiary or another primary] - [name, date, what was said]
+  1. [primary] - [name, date, what was said] [SEGMENT: X]
+  2. [secondary] - [name, date, what was said] [SEGMENT: X]
+  3. [tertiary or another primary] - [name, date, what was said] [SEGMENT: X]
 Convergent read: [what the signal collectively says]
 Names affected: [tickers]
 Falsifier: [what would suggest this convergence is coincidence not pattern]
 ```
 
 ## Entries (most recent first)
+
+### [2026-05-28 promoted] Advanced-Packaging substrate supply chain at binding-constraint chokepoint
+
+**Segment classification (per principle #29)**: SINGLE-SEGMENT — all sources are advanced-packaging segment. First triangulation hit of principle #29 threshold (3+ same-segment data points within 90 days).
+
+**Sources** (all advanced-packaging segment):
+1. **[T1 primary]** Ibiden ¥500B capex plan, ¥220B first phase at Gama Plant Cell6 for EMIB-T mass production, FY26-28 timeline (per [Globe and Mail relay of Ibiden IR T1](https://www.theglobeandmail.com/investing/markets/stocks/IBIDF/pressreleases/10864/ibiden-to-invest-yen500-billion-in-expanding-ic-package-substrate-capacity-for-ai-and-high-performance-servers/), May 2026)
+2. **[T1 primary]** Samsung Electro-Mechanics $1B (1.55T KRW) silicon capacitor contract signed May 20, 2026 for delivery Jan 2027-Dec 2028 (per [Samsung EM newsroom T1](https://samsungsem.com/global/newsroom/news/view.do?id=10310))
+3. **[T2 secondary]** Intel CEO Lip-Bu Tan on-record: substrate supply "extremely tight"; customers willing to prepay billions; "Intel/AMD/NVDA collectively co-funded roughly 50% of capex at top 4 substrate suppliers" (per [Tom's Hardware T2](https://www.tomshardware.com/tech-industry/semiconductors/intel-reportedly-in-talks-with-google-and-amazon-over-advanced-packaging) + [TrendForce T3](https://www.trendforce.com/news/2026/05/20/news-intel-says-emib-customers-back-substrate-prepayments-4-taiwan-and-2-japan-suppliers-reportedly-seek-commitments/), May 2026)
+4. **[T3 trade]** Google v8e ("Humufish") H2 2027 launch confirmed using Intel EMIB-T packaging + TSMC chip + MediaTek design (per [SemiWiki/Kuo T3](https://semiwiki.com/forum/threads/ming-chi-kuo-on-intels-emib-t-packaging-for-google-tpu-v8e-humufish.25038/), May 2026)
+
+**Convergent read**: EMIB-T substrate is a binding constraint at the advanced-packaging layer. Customer co-funded capex pattern (Intel/AMD/NVDA collectively ~50% of top-4 substrate-supplier capex per TrendForce) is the strongest possible demand-pull signal — analogous to how TSMC CoWoS customers pre-funded capacity in 2022-2023. The constraint persists through 2027-2028. Intel EMIB-T (with embedded silicon capacitors via Samsung EM contract) emerges as the genuine TSMC-CoWoS-bypass for non-NVDA AI ASICs.
+
+**Names affected** (per Critical Rule #10 cascade — all have back-references):
+- IBIDEN (primary beneficiary; substrate capacity at chokepoint; new candidate thesis stub created)
+- MURATA (additive silicon-cap content per AI server; MLCC business unaffected per fresh-verified PDN architecture analysis — bear-signal framing in original sources was MISFRAMED)
+- HYNIX (HBM independent of EMIB vs CoWoS choice; supports any packaging format)
+- LGINNOTEK (FC-BGA substrate but different product mix vs EMIB-T)
+
+**Falsifier**: Intel EMIB-T yield fails to reach 95%+ by H2 2026 → Google v8e delays or shifts back to TSMC CoWoS; Ibiden Gama Plant ramp slips; substrate suppliers reverse course on capex commitments (signaling customer demand softening).
+
+**Investable conclusion**: TIER S candidate (per refined principle #33 criteria — limited oligopoly competition + customer-funded capex moat) at the EMIB-T substrate layer. Ibiden is the named beneficiary. Full TRACE event detail in `research/signals/events/2026-05-28-emib-t-substrate-cluster.md`.
+
+**Methodology validation**: this is the FIRST triangulation entry promoted under principle #29 segmented-triangulation criteria. Three of four sources are T1/T2 primary (Ibiden IR, Samsung EM newsroom, Tom's Hardware citing Intel CEO on-record). Promotion is well-supported.
+
+---
+
+
 
 ### [2026-05-20] AI compute demand outrunning supply — capacity-constrained narrative goes mainstream
 

@@ -1319,6 +1319,14 @@ Be CONFIDENT when:
 
    **Detectability of refinement misapplication**: every TIER S classification going forward MUST name competition-handling. Missing handling = principle #33 refinement has fired and classification needs correction.
 
+   **2nd application validation 2026-05-28 — EMIB-T substrate cluster:** advanced-packaging segment surfaced new binding-constraint (Ibiden EMIB-T substrate capacity at chokepoint with customer-funded capex moat). Framework produced 1 non-consensus insight (Ibiden as Layer-0 supplier to EMIB-T) + 1 major framing correction (MURATA bear-signal MISFRAMED — silicon caps are additive PDN layer not substitutive to MLCC). Same-segment principle #29 triangulation threshold met (first instance) → promoted to `signals/triangulation.md`.
+
+   **Cumulative validation log**:
+   - Application 1 (Robinhood, 2026-05-27): 2 non-consensus insights (compliance NAND + CPU/DRAM orchestration)
+   - Application 2 (EMIB-T cluster, 2026-05-28): 1 non-consensus insight (Ibiden EMIB-T substrate) + 1 framing correction (MURATA bear misframed)
+
+   N=2 cumulative validation. Framework continues earning its keep. Reassess at N=3 (next agentic-category launch — Schwab June 2026 likely — or major structural signal cluster).
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)

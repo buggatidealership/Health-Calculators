@@ -27,6 +27,16 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-28 (EMIB-T cluster + MURATA bear misframing — 2nd application of Principle #33)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | #32-A (fresh-verify) + #33 (top-down) | User shared JPM screenshot + Korean trade article with MURATA bear-signal framing | Agent fresh-verified PDN architecture for silicon-cap-vs-MLCC + checked Intel CEO substrate-tightness claims + Ibiden capex IR + Samsung EM contract + Google v8e timeline | MURATA bear MISFRAMED (silicon caps are ADDITIVE PDN layer not substitutive to board-level bulk MLCC); applies to WHOLE MLCC business (>40% global share) not just AI HPC sub-portion; Murata also competes in silicon caps (Caen France 200mm line); the user's catch about my framing narrowness ("isn't MLCC the biggest portion?") sharpened defense scope further | REAL CATCH (MAJOR) — prevented bear-signal propagation that could have wrongly reduced 12.35% Core MURATA confidence |
+| 2026-05-28 | #32-A (fresh-verify) | "TSMC tera-fab Q3 capex raise" claim | Verified via web search — "tera-fab" is Tesla/Musk terminology not TSMC | TSMC capex trajectory $52-56B 2026 is real but tera-fab framing is MISATTRIBUTED. DON'T propagate | REAL CATCH — prevented propagation of misattributed claim |
+| 2026-05-28 | #29 (segmented triangulation) | Multi-source advanced-packaging signals | Segment-classified each source: Intel CEO substrate prepayment (advanced-packaging) + Ibiden ¥500B capex (advanced-packaging) + Samsung EM silicon-cap contract (advanced-packaging) + Google v8e EMIB-T adoption (advanced-packaging) | 4 same-segment signals within 90 days — first triangulation threshold MET. Promoted to triangulation.md per principle #29 | REAL CATCH — first successful triangulation since principle #29 codification 2026-05-27 |
+| 2026-05-28 | #33 (top-down) | EMIB-T cluster as 2nd application of framework | Applied 5-step top-down decomposition + competition-intensity refinement to EMIB-T substrate layer | Surfaced Ibiden as Layer-0 binding-constraint supplier with LIMITED competition (oligopoly + customer-funded capex moat). TIER S candidate per refined criteria. New thesis stub warranted. | REAL CATCH — 2nd application of P#33 produced 1 non-consensus binding-constraint insight (cumulative N=2 produces 3 non-consensus insights total) |
+| 2026-05-28 | #32-B (premortem) | Before commits | Enumerated risks: ticker-cascade hook violations if MU/NVDA/TSMC named in TRACE without back-refs; framework misapplication on competition-handling for Ibiden vs alternatives | Kept TRACE cascade table tight to MURATA/HYNIX/LGI/IBIDEN (all back-referenced); avoided MU/NVDA/TSMC ticker mentions in TRACE that would trigger cascade hook | REAL CATCH — avoided 3 cascade-hook violations |
+
 ### 2026-05-28 (Principle #33 refinement — competition-intensity as secondary filter)
 
 | Date | Principle | Context | Checked | Caught | Classification |

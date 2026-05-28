@@ -426,3 +426,31 @@ Per `research/signals/events/2026-05-12-citrini-supply-chain-inheritance.md`:
 **Convergence pattern (user-articulated chart-narrative framework):** narrative (AI infrastructure structural binding constraint) + chart precedent (2019-21 doubled share price) + bottoms-up math (10x MLCC per AI server) all converge on Murata.
 
 No tier change. Reinforces existing held overweight (16.77%). Principle #27 (Post-Traumatic Supply Disorder) extends the duration of pricing-power beyond classical cycle-supply-response model predictions.
+
+## Cross-reference — Silicon-capacitor bear-signal MISFRAMING correction (added 2026-05-28)
+
+Per `research/signals/events/2026-05-28-emib-t-substrate-cluster.md`: a Korean trade press article + JPM Specialist Sales tweet framed silicon capacitors as displacing MLCC at AI HPC due to "100x lower ESL/ESR." Fresh-verification per principle #32 + agent research caught this is **architecturally MISFRAMED**.
+
+**The verified PDN architecture** (per [TTI industry report T3](https://www.tti.com/content/ttiinc/en/resources/marketeye/categories/passives/me-zogbi-20250810.html) + [Cadence PCB resources T3](https://resources.pcb.cadence.com/blog/types-of-embedded-capacitors-for-pcbs-chips-and-packages)):
+
+| Layer | Component | Frequency |
+|---|---|---|
+| Board-level bulk decoupling | MLCC arrays (1000s per AI server board) | 100 kHz – 50 MHz |
+| Package-level near-die | Silicon capacitor (embedded in EMIB-T bridge) | 50 MHz – 1 GHz+ |
+| On-die | Gate-oxide capacitance | GHz |
+
+Silicon capacitors are an **ADDITIONAL PDN layer**, NOT a substitute. Per Cadence direct quote: "designers can view them as an additional PDN layer between on-die capacitance and board-level components." MLCC count per AI server is unchanged or increases.
+
+**Critical scope clarification (added 2026-05-28 per user framing-narrowness catch)**: the defense applies to the **WHOLE MLCC business** — not just AI HPC sub-portion. Per this thesis line 13: Murata holds **>40% global MLCC market share overall** (the broad dominant business covering smartphone + automotive + AI HPC + telecom + industrial — ALL use cases require board-level bulk decoupling MLCC). The agent's PDN-architecture defense covers the full >40% global MLCC dominance, not just the ~45% AI-server-specific share.
+
+**The bear signal threatens NEITHER the AI HPC MLCC sub-portion NOR the broader MLCC business across all other use cases.** Silicon caps are additive across the board.
+
+**Critical additional fact**: Murata already manufactures silicon capacitors at its Caen France 200mm production line (announced 2023, expanded — per [Murata IR T1](https://corporate.murata.com/en-global/newsroom/news/company/general/2023/0308)). **Murata participates in BOTH MLCC AND silicon cap markets.** Samsung EM's $1B silicon cap contract is competition in a growing sub-market, NOT MLCC displacement.
+
+## New falsifier (added 2026-05-28 — narrow concern within silicon-cap sub-market, NOT MLCC)
+
+7. **Murata loses silicon-capacitor design wins to Samsung EM at scale within AI EMIB-T packaging ecosystem** — would signal Murata is being excluded from a growing adjacent passive-component category. NOT an MLCC concern. Specifically: if Intel EMIB-T or hyperscaler ASICs adopt Samsung EM as exclusive silicon-cap supplier, Murata captures less of the silicon-cap upside even as MLCC remains structurally intact. Threshold: 2+ named AI ASIC programs adopting Samsung EM silicon caps without Murata participation over 12 months.
+
+This falsifier addresses an ADDITIVE risk in the silicon-cap sub-market — not a substitutive risk to MLCC. Distinct from existing falsifier #6 (substitute risk) which is now substantially RESOLVED by the verified PDN-architecture analysis.
+
+**No tier change. No sizing change. 12.35% Core position remains correct.**

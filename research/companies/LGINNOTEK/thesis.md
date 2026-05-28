@@ -161,3 +161,13 @@ BUT — the re-rating has already run materially. Stock is at new ATH +200% YTD.
 - International analyst (GS, MS, JPMorgan) coverage status
 - Capex breakdown specifically for FC-BGA vs total
 - Confirmed named AI-accelerator design win — not yet publicly disclosed
+
+## Cross-reference — Advanced-Packaging Substrate Cluster TRACE (added 2026-05-28, back-reference per Critical Rule #10)
+
+Per `research/signals/events/2026-05-28-emib-t-substrate-cluster.md`: LGINNOTEK named in cascade as **neutral** — different-product-mix vs the EMIB-T cluster beneficiary (Ibiden).
+
+**The logic**: LGI's FC-BGA business is at a different sub-segment vs Ibiden's EMIB-T substrate position. EMIB-T is Intel's specific packaging architecture for which Ibiden + Shinko are the named Japan-based suppliers. LGI's FC-BGA business serves a broader substrate market that includes AI accelerators not using EMIB-T (e.g., AMD packaging via TSMC CoWoS-L, alternative ASIC packaging via standard FC-BGA).
+
+**The complementary relationship**: Ibiden = EMIB-T specialist (Intel + hyperscaler ASIC packaging). LGI = FC-BGA generalist (broader substrate market). Both benefit from the same underlying advanced-packaging capacity shortage that Intel CEO Lip-Bu Tan confirmed at primary source. The P1 todo item (LGI vs Ibiden deeper-dig, scheduled 2026-05-27) is the natural next-step analysis to quantify the relative positioning.
+
+**No thesis update warranted** beyond this cross-reference. The cluster confirms the broader substrate supply-tightness environment but doesn't shift LGI's competitive position. LGI thesis continues anchored on (a) AI substrate Dream Factory production + 100% utilization, (b) Intel + cloud-giant agreements, (c) Apple-pullback entry-trigger watch.

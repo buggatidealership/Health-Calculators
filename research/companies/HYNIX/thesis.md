@@ -304,3 +304,15 @@ After user-prompted reframing of NAND bifurcation (see `wiki/memory-cycle-primer
 4. **iHBM thermal moat specific to HYNIX**: provides incremental supplier-concentration advantage beyond just HBM's 3-player base; HYNIX as the iHBM tech leader extends pricing power durability into HBM5 era 2027-2029.
 
 **Implication**: HYNIX held position remains the cleanest structural-memory expression. SNDK is also structural — different layer in the AI memory hierarchy with different supply dynamics. They are complementary in portfolio, not substitutes. Cross-reference: `companies/SNDK/thesis.md` reframing section.
+
+## Cross-reference — Advanced-Packaging Substrate Cluster TRACE (added 2026-05-28, back-reference per Critical Rule #10)
+
+Per `research/signals/events/2026-05-28-emib-t-substrate-cluster.md`: HYNIX named in 2nd-order cascade as **neutral** with respect to packaging-format choice. P>80% confidence on neutrality.
+
+**The logic**: EMIB-T (Intel's CoWoS-bypass for non-NVDA ASICs) supports HBM3/HBM3E/HBM4/HBM5 stacks as well as CoWoS does. HBM demand is independent of which packaging format the customer chooses. Whether hyperscaler ASICs use EMIB-T or NVDA GPUs use CoWoS, both architectures consume HBM at scale. HYNIX wins regardless.
+
+**However the cluster CONFIRMS two existing HYNIX thesis components**:
+1. HBM4 supply/share dynamics — SK Hynix holds ~60% of NVDA's HBM4 allocation per agent research; sold-out 2026 supply window; HBM4 race remains multi-axis (SK Hynix qualification lead + Samsung architectural ambition + Micron peak Gb/s)
+2. HBM LTA pricing power evolution — memory makers are ABANDONING long fixed contracts in favor of shorter 3-5yr LTAs that allow price-appreciation capture per [TrendForce T3](https://www.trendforce.com/news/2026/04/09/news-from-annual-deals-to-3-5-year-ltas-samsung-and-sk-hynix-reportedly-reset-big-tech-memory-contracts/). HYNIX pricing power structurally confirmed.
+
+**No tier change. No sizing change. 12.5% Core position remains correct.** The cluster strengthens existing thesis on memory pricing power and confirms HYNIX as packaging-format-agnostic beneficiary of all AI-accelerator architectures.
