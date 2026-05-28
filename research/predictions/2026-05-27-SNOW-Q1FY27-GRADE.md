@@ -219,3 +219,33 @@ All 3 graded predictions in the past week share a pattern:
 ---
 
 **Stock-reaction grade (T+24h, May 28)** — to be logged tomorrow with 24h price reaction analysis vs the +25% AH baseline. Per two-part protocol, this is separate from the fundamental grade above.
+
+---
+
+## Stock-Reaction Grade (T+24h — logged 2026-05-28)
+
+**Actual T+24h move (T2 verified):** SNOW closed 2026-05-27 at $175.26 → 2026-05-28 at $244.45 = **+$69.19 / +37.65%** per [Motley Fool T2 2026-05-28](https://www.fool.com/investing/2026/05/28/snowflake-stock-is-soaring-after-a-blowout-quarter-and-a-new-usd6-billion-aws-deal/) + [Timothy Sykes T3](https://www.timothysykes.com/news/snowflake-inc-snow-news-2026_05_28/). Idiosyncratic component: tech sector only +1.93% same day per same sources → net idiosyncratic move ~+35.7pp above sector.
+
+**Vs prediction:** my Stage 2-3 expected behavior was "+25% directionally consistent with beat magnitude + NRR surprise + $6B AWS pact" (per grade file line 126). Actual +37.65% intraday next day. **Magnitude under-called by 12.65pp.**
+
+**Diagnostic — was principle #31 modifier wrong?** NO. Stage classification was correctly Stage 2-3 (NOT Stage 3-4), so the Stage 3-4 -25 to -35% discount was deliberately not applied. The modifier's stage-correct expected behavior (fuller than Stage 4) was directionally right but magnitude-undercalled.
+
+**The structural diagnostic — what produced the under-call:**
+
+Comparing SNOW (Stage 2-3, +37.65%) vs MRVL (Stage 3-4, -1.96% per `2026-05-27-MRVL-Q1FY27-GRADE.md`):
+
+| Dimension | SNOW | MRVL |
+|---|---|---|
+| Stage classification | 2-3 | 3-4 |
+| Type of beat | **CATEGORY EVENT** ($6B AWS strategic deal + NRR baseline-break from stable 4-quarter 125% → 126% + mgmt metric reframe to leading indicators per L10) | **TREND ACCELERATION** (FY28 outlook upgrade extending existing trend; no new strategic relationship) |
+| Result | +37.65% (compounded over T+0 to T+48h) | -1.96% pre-market (faded from +5.07% AH) |
+
+**Compound-catalyst mechanism (L14 candidate origin):** at Stage 2-3, multi-layered positive surprises compound BEYOND the immediate post-print reaction. The T+0 AH +25% only captured the earnings beat; the T+24h reading at +37.65% added: (a) sell-side upgrade cycle starting, (b) cohort buyers processing the $6B AWS pact magnitude, (c) digestion of NRR baseline-break significance, (d) leading-indicator reframe (L10) interpreted bullishly.
+
+**L14 candidate (NOT codified at N=1 per principle #32 premortem — flagged in `lessons.md` for next monthly audit 2026-06-24):** distinguish CATEGORY EVENTS from TREND EVENTS in earnings-driven stock reactions; expect 50-100% larger T+0-to-T+48h moves on CATEGORY events vs TREND events at the same stage. Markers per below.
+
+**Per principle #31 status:** modifier confirmed for TREND ACCELERATION (MRVL N=2 validation). Modifier UNDER-PREDICTS magnitude for CATEGORY EVENTS at Stage 2-3 (SNOW N=1 case). Needs refinement via L14 candidate.
+
+**Position implication (per Critical Rule #11):** NO ACTION on SNOW — SNOW is not held in user portfolio. The +37.65% move would have been outsized winner had we entered post-prediction; accept as missed opportunity per L3 falsifier-not-magnitude-based decisions. Lesson capture (L14 candidate + refined principle #31 calibration) is the more valuable output than chase-action.
+
+**Watch-trigger from this lesson:** any Stage 2-3 candidate name (e.g., MDB which reports tonight) where pre-print signals include CATEGORY EVENT markers (new strategic deal, metric baseline-break, mgmt reframe to leading indicators) becomes tactical PREDICT candidate even at "consensus-tracking" magnitude expectations.

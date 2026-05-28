@@ -147,3 +147,36 @@ All sizing splits remain user judgment — no specific allocation amounts derive
 - `research/meta/2026-05-26-duration-of-relevance-scoring.md` — 22-name runway matrix
 - `research/meta/2026-05-26-three-thread-research.md` — ALAB reclassification + robotics universals + 4092 first-pass
 - `research/portfolio/changes.md` — €25K planned trades for 2026-05-26 (HDS €10K + STM €5K + ALAB €10K)
+
+---
+
+## Update 2026-05-28 — News-cascade reinforcement + price acceleration
+
+**Price update (T2 per [Investing.com](https://www.investing.com/equities/nippon-chemical-industry)):** 4092.T trading at ~¥4,445 (May 27 close; data-feed shows "previous close ¥5,110" anomaly that requires primary TradingView lifetime-chart verification before integration). Move from May 26 baseline ¥3,905 → ¥4,445 = ~+13.8% acceleration in 1-2 trading sessions.
+
+**User-shared context to verify (per principle #14):** "the chart is approaching an ATH set in 2000." The May 26 file confirmed only the 2018 ATH at ¥5,190 via TradingView. A 2000 ATH would be Nikkei-bubble-era; needs primary TradingView lifetime-chart verification before integration. **Open data gap.**
+
+**News-cascade reinforcement (2026-05-27 + 2026-05-28 events) — structural thesis materially strengthened:**
+
+**1st order (P>80%) — directly reinforcing:**
+- **MRVL Q1 FY27 grade (per `predictions/2026-05-27-MRVL-Q1FY27-GRADE.md`):** FY28 outlook raised to ~$16.5B (+45% YoY); custom Si "more than double" FY28 commentary. Custom Si scaling = more AI accelerator boards deployed = more MLCCs per deployment = more BaTiO3 powder demand cascade up.
+- **SNOW Q1 FY27 grade (per `predictions/2026-05-27-SNOW-Q1FY27-GRADE.md`):** 13,600+ AI accounts (+49% QoQ from ~9,100); Snowflake Intelligence doubled QoQ; +37.65% post-print stock-reaction validates structural agentic-AI deployment thesis = more compute deployed = more MLCCs needed.
+- **Anthropic Mythos 2026-05-28 announcement (sector-level TRACE in this session — not yet committed as standalone event file; pending if user wants):** Mythos-class models to broad availability in "coming weeks" per [Axios T2 2026-05-28](https://www.axios.com/2026/05/28/anthropic-opus-release-mythos). Continuous-agent infrastructure (cybersecurity-vertical first wave) creates sustained-load workloads → per BOM-level deep-dig physics: ~12,000 MLCCs per Rubin board is the MINIMUM for sustained TDP not stylistic choice → MORE MLCCs per board structurally required, NOT optional.
+
+**2nd order (P~60%):**
+- All 4 tier-1 MLCC makers + Samsung continuing BaTiO3 vertical integration (per principle #27 Post-Traumatic Supply Disorder) = merchant BaTiO3 market shrinks structurally even as demand compounds
+- TDK-NCI JV (51%/49% TDK control, commenced April 2026) = NCI has one large customer at JV scale; remaining external customers (Sakai, smaller MLCC makers, ceramics industry) compete for what's left of merchant supply
+- Custom Si + agentic continuous-agent demand BOTH increase MLCC content per board AND increase number of boards = compound growth vector for BaTiO3 demand
+
+**3rd order (P~40%):**
+- NCI structurally squeezed into pricing-power position; mechanical pressure for public communication of capacity-gap
+- TDK Q2/Q3 FY27 earnings call (Oct-Nov 2026) most likely trigger for explicit JV-capacity-investment commentary
+- Per prior file: 55-65% probability of mgmt capacity-gap statement in 2-4 quarters PRESERVED; news cascade strengthens the catalyst-likely-sooner read
+
+**Bypass-route check (per Critical Rule #9):** for BaTiO3 binding constraint, named bypass routes are Sakai Chemical (largest market share but itself capacity-constrained per industry pattern) + Ferro (smaller) + captive BaTiO3 from MLCC makers' internal production (REMOVES demand from merchant; doesn't substitute supply) + alternative dielectrics like TiO2+BaCO3 (possible but lower performance at premium MLCC tier). **No effective bypass exists at the high-spec / nanoscale BaTiO3 tier.**
+
+**L14 candidate application:** if NCI is approaching a CATEGORY EVENT catalyst (TDK JV operational disclosure, NCI capacity-gap statement, OR primary customer-naming disclosure), Stage 2-3 positioning + CATEGORY EVENT marker would suggest L14-style explosive T+0-to-T+48h move on event firing — consistent with the +13.8% recent acceleration if any underlying primary catalyst is leaking. Needs primary IR verification.
+
+**Investability check (per Critical Rule investability filter 2026-05-28):** 4092.T is Tokyo-listed Japan equity. Same access question as Ibiden (4062.T). Need to verify user's brokerage platforms support TSE direct OR pink-sheet ADR equivalent for 4092 (none widely known). **Open question for user.**
+
+**Position implication (per Critical Rule #11):** NO ACTION YET — thesis materially reinforced by cascading news (Mythos sustained-load + MRVL custom Si FY28 + SNOW agentic deployment all compound BaTiO3 demand vector); BUT entry-price discipline applies given +13.8% acceleration without verified primary catalyst (don't chase momentum per L3 / B9). Watch items: (1) verify 2000 ATH claim on TradingView lifetime chart, (2) verify TSE 4092 accessibility on user platforms, (3) monitor for TDK Q2 FY27 commentary OR NCI Q2 FY27 earnings (Oct 2026) as primary catalyst trigger, (4) any pullback below ¥4,200 = potential entry trigger if 1-3 resolve favorably.

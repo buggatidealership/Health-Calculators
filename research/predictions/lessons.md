@@ -31,6 +31,33 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 ## Lessons (most recent first)
 
+### L14 (CANDIDATE — NOT codified at N=1; awaiting N=2 per principle #32 premortem)
+
+**Pattern:** Distinguish CATEGORY EVENTS from TREND EVENTS in earnings-driven stock reactions. Expect 50-100% larger T+0-to-T+48h moves on CATEGORY events vs TREND events at the same narrative stage.
+
+**Markers of CATEGORY EVENT:**
+- New strategic relationship disclosed (SNOW Q1 FY27: $6B AWS pact)
+- Baseline-break in previously-stable metric (SNOW: NRR baseline 125% stable for 4 quarters → 126% break)
+- Management metric reframe (SNOW: dropped Cortex $ run rate → shifted to volume metrics per L10)
+- New customer-category disclosure or TAM expansion
+
+**Markers of TREND EVENT:**
+- Incremental beat-and-raise within existing framework
+- Outlook upgrade (extending existing trend)
+- No new strategic relationships, metric reframe, or baseline-break
+
+**Origin data (N=1):**
+- SNOW Q1 FY27 (Stage 2-3 + CATEGORY EVENT) → +37.65% T+24h per `2026-05-27-SNOW-Q1FY27-GRADE.md` Stock-Reaction section
+- MRVL Q1 FY27 (Stage 3-4 + TREND ACCELERATION) → -1.96% pre-market faded from +5.07% AH per `2026-05-27-MRVL-Q1FY27-GRADE.md`
+
+**Generalizable lesson (if codified at N=2):** principle #31 narrative-stage modifier needs CATEGORY-vs-TREND axis as additional input. Stage classification alone under-predicts magnitude when CATEGORY EVENT compounds with stage positioning.
+
+**Calibration adjustment:** when running PREDICT on Stage 2-3 names with multi-layered positive setup (e.g., MDB tonight if mgmt discloses new strategic deal + metric reframe + customer-category expansion), apply L14 candidate to expect explosive T+0-to-T+48h move; size sandbag-haircut lower than standard Stage 2-3 calibration.
+
+**Falsification criterion:** if next 2+ Stage 2-3 names with CATEGORY EVENT setup produce moves within the standard Stage 2-3 expected range (NOT 50-100% larger), L14 was over-fit to SNOW single data point — retire.
+
+**Re-eval trigger:** next monthly audit cycle 2026-06-24 OR first eligible Stage 2-3 + CATEGORY EVENT case for N=2 validation.
+
 ### L13 — When predicting management commentary upgrades, model the VINTAGE choice as a separate probability distribution
 
 **Origin:** MRVL Q1 FY27 GRADE 2026-05-28. Predicted 60% prob FY27 custom Si floor raised above >20%. Actual: FY27 maintained at ">20%"; FY28 NEW commentary "more than double" (>100% YoY). Direction right (bullish upgrade); vintage wrong (FY28 not FY27). Trainium3 ramps Q2-Q4 FY27 → meaningful FY28 not FY27 P&L impact — mgmt put the bullish reveal where the ramp materially impacts revenue.
