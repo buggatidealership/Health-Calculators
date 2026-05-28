@@ -27,7 +27,31 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
-### 2026-05-28 (SEMCO thesis — 3rd application of Principle #33 — FRAMEWORK BLIND-SPOT EXPOSED)
+### 2026-05-28 (MRVL Q1 FY27 GRADE — Supply-Chain-Cohort Calibration framework N=1 partial validation)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | #31 (narrative-stage modifier) | MRVL Q1 FY27 stock reaction prediction | Predicted Stage 3-4 positioning meant beat-and-raise insufficient against priced expectations; included specific scenario "Beat + raise but stock SLIPS anyway (NVDA pattern): -2 to -6%" | Stock fell -1.96% pre-market 2026-05-28 from $196.33 close (-$3.86). Faded from +5.07% AH pop. Macro context: Iran-US deal created green tape today — MRVL underperforming green tape = NEGATIVE RELATIVE-STRENGTH signal even with macro support. | **REAL CATCH (CONFIRMATORY)** — Stage 3-4 sizing modifier validated 2nd time post-NVDA May 2026. NVDA pattern held. -25 to -35% sizing discount discipline validated for Stage 3-4 names |
+| 2026-05-28 | L4 (smaller sandbag in contracted-demand) | MRVL Q2 FY27 guide prediction | Applied ~2% sandbag-reduction (instead of historical 4-5%) → predicted Q2 guide raise to $2.65B+ midpoint | Q2 guide came in at $2.700B = +$50M above my floor; direction right + magnitude reasonably calibrated | **REAL CATCH (CONFIRMATORY)** — L4 validated 2nd time post-NVDA Q1 FY27. Contracted-demand smaller-sandbag heuristic now has N=2 validation |
+| 2026-05-28 | L6 (EPS magnification beyond revenue magnitude) | MRVL Q1 FY27 EPS prediction | Applied L6 to predict $0.82 EPS based on revenue beat × margin × tax × shares compounding | Actual $0.80 (at consensus high end). L6 over-applied because revenue beat itself was small (~0.3% above consensus) → compounding flow-through was muted not amplified | **FALSE POSITIVE** — L6 over-fit from MOD single data point. Refined to L11: L6 amplification applies only when revenue beat >1% above consensus. Conditional rule now codified |
+| 2026-05-28 | Supply-Chain-Cohort Calibration (candidate framework) | MRVL Q1 FY27 5-target prediction | First N=1 application. Cohort signals from AMZN/ANET/CSCO/ALAB/NVDA/AVGO/SK Hynix + hyperscaler capex aggregate informed all 5 targets | Direction RIGHT on Targets 1, 2 (tied), 5; partial-vintage-miss on Target 4 (FY28 reveal not FY27); reasoning-error catch on Target 3 (sequential conflated with YoY); MISSED CATEGORY: multi-year guide raise not in prediction targets. **Framework correctly anticipated beat-and-raise environment + bullish-commentary direction; mis-applied to immediate-quarter magnitude + wrong vintage** | **PARTIAL CATCH at N=1** — NOT codified yet per principle #32 premortem. Refinement criteria documented: (1) apply cohort overlay to forward outlook not immediate Q, (2) model vintage choice as separate probability distribution, (3) add multi-year guide raise as default target. Re-evaluate at N=2 (Schwab June 2026) |
+| 2026-05-28 | #32-B (premortem) | Before codifying Supply-Chain-Cohort Calibration as principle | Enumerated risk: codifying N=1 framework that needs refinement = principle rigidity. Per principle #32, codification requires N=2+ where framework adds non-consensus insights. | Did NOT codify. Captured refinement criteria in GRADE artifact + new lessons L11/L12/L13. | **REAL CATCH** — prevented premature codification at N=1; preserved framework as candidate for Schwab N=2 application |
+| 2026-05-28 | Reasoning-error self-catch (L12 origin) | MRVL Q1 FY27 datacenter YoY prediction | Predicted datacenter +42-47% YoY based on Q4 FY26 base + 10% sequential math. Actual +27% YoY ($1.833B vs $1.443B Q1 FY26 base). Dollar math was right within 1%; YoY framing was wrong because Q1 FY26 base was never independently verified. | GRADE catch revealed systematic reasoning error: conflated sequential growth with YoY growth without checking year-ago anchor. L12 codified: any YoY % must cite the year-ago base inline. | **REAL CATCH** — surfaced a recurring reasoning-discipline gap. L12 will catch future YoY-framing errors if applied consistently |
+| 2026-05-28 | L13 origin (vintage-distribution framing) | MRVL Q1 FY27 custom Si commentary prediction | Predicted 60% prob FY27 floor raised. Actual: FY27 maintained, FY28 NEW "more than double" commentary. The cohort data (Trainium3 ramps Q2-Q4 FY27 → meaningful FY28 P&L) supported FY28 vintage more than FY27 — I had the inputs but reasoned wrong vintage. | Binary upgrade-or-not framing was wrong granularity. L13 codified: replace binary with vintage-distribution P(current FY) / P(next FY) / P(both) / P(neither) weighted by ramp-timing logic. | **REAL CATCH** — surfaced framing gap in management commentary predictions. L13 will improve future multi-year predictions |
+
+**Application summary (single-grade event):**
+- Real catches: 5 (3 confirmatory: #31, L4, L13 framing; 2 origin: L11 refinement, L12 codification)
+- False positives: 1 (L6 over-applied → refined to L11)
+- Partial catches: 1 (Supply-Chain-Cohort Calibration at N=1)
+- Wasted overheads: 0
+- Real-catch rate: 71% (5/7)
+- Net-positive check: PASSES
+
+**Stock-reaction context note**: principle #31 Stage 3-4 prediction validated against MRVL pre-market -1.96% despite green-tape macro (Iran-US deal news). The discipline of separating macro tailwind from idiosyncratic stock signal was applied — MRVL underperforming the green tape was correctly flagged as negative relative-strength signal.
+
+---
+
+
 
 | Date | Principle | Context | Checked | Caught | Classification |
 |---|---|---|---|---|---|
