@@ -31,6 +31,36 @@ This stance applies retroactively: NVDA Q1 FY27 was graded RIGHT on direction ac
 
 ## Lessons (most recent first)
 
+### L13 — When predicting management commentary upgrades, model the VINTAGE choice as a separate probability distribution
+
+**Origin:** MRVL Q1 FY27 GRADE 2026-05-28. Predicted 60% prob FY27 custom Si floor raised above >20%. Actual: FY27 maintained at ">20%"; FY28 NEW commentary "more than double" (>100% YoY). Direction right (bullish upgrade); vintage wrong (FY28 not FY27). Trainium3 ramps Q2-Q4 FY27 → meaningful FY28 not FY27 P&L impact — mgmt put the bullish reveal where the ramp materially impacts revenue.
+
+**Generalizable lesson:** Management commentary upgrades come at a SPECIFIC vintage. The vintage is a function of (a) when the underlying ramp materially impacts revenue, (b) mgmt's preference to give themselves room not to under-deliver near-term. Both factors typically favor the later-vintage reveal.
+
+**Calibration adjustment:** When predicting management commentary upgrades, replace binary "will they upgrade or not" with vintage-distribution: P(current FY raise), P(next FY raise), P(both), P(neither). Sum to 100%. Apply ramp-timing logic to weight vintages — if structural driver impacts year N+1 P&L > year N P&L, weight P(next FY raise) higher than P(current FY raise).
+
+**Validation criterion:** Apply to next 2+ predictions involving management multi-year commentary. If vintage-distribution framing produces calibrated calls, L13 confirmed.
+
+### L12 — When stating YoY growth %, ALWAYS verify the year-ago base independently
+
+**Origin:** MRVL Q1 FY27 GRADE 2026-05-28. Predicted datacenter +42-47% YoY based on sequential math (Q4 FY26 $1.65B + 10% sequential = $1.815B). Actual +27% YoY ($1.833B). The DOLLAR forecast was right within 1%; the YoY % framing was wrong because I never checked the Q1 FY26 base (~$1.443B implied) — I implicitly conflated sequential math with YoY math.
+
+**Generalizable lesson:** Sequential growth and YoY growth are structurally DIFFERENT metrics. When stating a YoY %, pull the year-ago base from the company 10-Q/10-K and compute YoY = (current - year_ago) / year_ago. NEVER infer YoY from sequential without the year-ago anchor.
+
+**Calibration adjustment:** Any future prediction containing a YoY % must cite the year-ago base inline. This is a REASONING-layer discipline.
+
+**Falsification:** if next 3+ predictions stating YoY % do so with explicit year-ago citation AND remain calibrated, L12 has become habit.
+
+### L11 — When revenue beat is small (<1% above consensus), EPS magnification flow-through is muted, not amplified
+
+**Origin:** MRVL Q1 FY27 GRADE 2026-05-28. L6 said apply MORE sandbag-reduction at EPS line than revenue in contracted-demand. Predicted $0.82 EPS; actual $0.80 (in line with consensus high end). L6 over-applied because revenue beat itself was small (~0.3% above consensus) → multi-layer flow-through (revenue × margin × tax × shares) did NOT compound the way L6 assumed.
+
+**Generalizable lesson:** L6's EPS-amplification calibration applies when revenue beat is >1-2% above consensus. When revenue beat is small (<1%), apply NO EPS-line amplification beyond bottoms-up — let the EPS forecast track the revenue forecast 1-to-1.
+
+**Calibration adjustment:** L6 is now CONDITIONAL — apply only when revenue forecast itself exceeds consensus by >1%. Otherwise revert to bottoms-up EPS without amplification overlay.
+
+**Falsification:** if next 2+ EPS predictions in contracted-demand environments show consistent EPS magnification beyond revenue magnitude regardless of revenue beat size, L11 was over-fit to MRVL single data point.
+
 ### L10 — When management RE-FRAMES metrics, infer from the TYPE of metric chosen
 
 **Origin:** SNOW Q1 FY27 GRADE 2026-05-27. Mgmt did NOT re-quantify Cortex AI dollar run rate (Q4 FY26 disclosed $100M; pricing cut April 2026 created optics dilemma per my prediction). I predicted 30% probability of "bear scenario — mgmt avoids dollar number due to weakness." MECHANISM matched (no $ disclosed) but IMPLICATION was opposite — mgmt confidently shifted to volume metrics: 13,600+ AI accounts (+49% QoQ from ~9,100), Snowflake Intelligence doubled QoQ, Cortex Code 7,100+ accounts. This was a BULLISH reframe, not defensive.

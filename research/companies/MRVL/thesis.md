@@ -91,3 +91,26 @@ Per `research/predictions/2026-05-27-MRVL-Q1FY27.md` (PREDICT artifact + first a
 Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: MRVL named in 3rd-order cascade as **conditional beneficiary** via UNCONFIRMED Trainium3 inclusion in SNOW's $6B GPU commitment. P~40% confidence. MRVL is AWS Trainium custom-Si networking partner per [The New Stack T3](https://thenewstack.io/openai-bedrock-trainium-silicon/); IF Trainium3 is part of the GPU category in the SNOW commitment, MRVL benefits via EthOS networking demand.
 
 **No thesis update warranted (premortem 2026-05-27)**: Trainium3 inclusion is NOT confirmed in public deal disclosures. The TRACE artifact captures this as a single-source hypothesis, NOT a triangulated signal. Propagating to thesis as fact would violate principle #29 segmented-triangulation discipline. Watch item: any AWS-side disclosure confirming chip mix in the SNOW infrastructure commitment.
+
+## Cross-reference — Q1 FY27 GRADE (added 2026-05-28, back-reference per Critical Rule #10)
+
+Per `research/predictions/2026-05-27-MRVL-Q1FY27-GRADE.md`:
+
+**Print summary (T1 per [Q1 FY27 8-K via SEC](https://www.sec.gov/Archives/edgar/data/0001835632/000183563226000014/q127_8kx522026ex-991.htm))**:
+- Q1 FY27 revenue $2.418B (+28% YoY) — RECORD; beat consensus $2,410M
+- Q1 FY27 non-GAAP EPS $0.80 (+29% YoY) — at consensus high end
+- Datacenter $1.833B (+27% YoY) = 76% of total
+- Q2 FY27 guide $2.700B ± 5% — beat raise expectations
+- **FY27 outlook RAISED to ~$11.5B (vs prior ~$11B target)** = +$500M material upgrade
+- **FY28 outlook NEW at ~$16.5B (+45% YoY)** = new structural data point
+- Custom Si FY27 ">20% growth" MAINTAINED; **FY28 "more than double" NEW commentary** (>100% YoY)
+
+**Thesis impact:** STRUCTURALLY POSITIVE. Multi-year guide upgrade + FY28 custom Si "more than double" commentary CONFIRMS the contracted-demand thesis and EXTENDS the visibility horizon. The "more than double" FY28 commentary is the strongest single-data-point structural signal in the print — tied to new tier-1 hyperscaler XPU program ramp + 10+ XPU-attached programs reaching volume. No falsifier fired.
+
+**Stock reaction (per Two-Part Protocol):** -1.96% pre-market 2026-05-28 despite green macro tape (Iran-US deal news). Validates principle #31 Stage 3-4 positioning modifier. MRVL underperforming green tape = NEGATIVE relative-strength signal. Sizing discipline applies: -25 to -35% discount to standard sizing for any entry. The fundamental thesis remains intact; the entry-price asymmetry is poor at current levels.
+
+**No tier change.** Active candidate; sizing discipline per principle #31 continues to apply. Recommended next watch: Q2 FY27 earnings (next August) — does mgmt confirm the FY28 "more than double" trajectory with first quarterly proof-points, OR slip the timeline.
+
+**Lessons added (L11 + L12 + L13):** see `predictions/lessons.md`. L11 conditional-EPS-amplification refinement to L6; L12 sequential-vs-YoY discipline; L13 management-commentary vintage-distribution framing.
+
+**Supply-Chain-Cohort Calibration framework status:** PARTIALLY VALIDATED at N=1. NOT codified yet. Refinement notes documented for N=2 application at Schwab June 2026 launch.
