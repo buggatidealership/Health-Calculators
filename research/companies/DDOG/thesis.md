@@ -216,3 +216,19 @@ Per `research/predictions/2026-05-27-SNOW-Q1FY27-GRADE.md` (SNOW Q1 FY27 beat-an
 No sizing change. Position remains at current 7.5%. Monitor next DDOG quarterly print for direct AI-customer-cohort retention metrics.
 
 **Augmented note re: $6B AWS pact (added 2026-05-27 post-deep-dive TRACE)**: Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`, the $6B is SNOW PAYING AWS for infrastructure (5-year cost commitment, NOT revenue floor). The actionable signal for DDOG is NOT the pact itself — it's the underlying customer-demand signal that JUSTIFIES the pact: NRR inflection 125%→126% + revenue +34% YoY + AI accounts +49% QoQ. These are direct empirical refutation of the consumption-optimization / CFO-budget-throttling bear case for enterprise AI software broadly. DDOG benefits via 2nd-order workload-observability tailwind, not via the $6B pact mechanics themselves.
+
+## Cross-reference — Robinhood Agentic Trading TRACE (added 2026-05-28)
+
+Per `research/signals/events/2026-05-27-robinhood-agentic-trading.md`: Robinhood launched mass-market AI-agent stock trading May 27, 2026 (eToro/Moomoo also live; Schwab June 2026). Top-down capability decomposition identified DDOG as a **2nd-order beneficiary with REGULATORY MOAT amplification** at compliance/audit-trail layer.
+
+**The non-consensus signal**: FINRA Q4 2026 audit (per [Steel Eye T3](https://www.steel-eye.com/news/north-american-regulatory-priorities-for-2026)) will require every broker with AI trading agents to demonstrate auditable third-party logging of every agent decision + reasoning chain. **This converts DDOG observability from DISCRETIONARY enterprise infrastructure to REGULATORY-BINDING infrastructure** for any regulated industry deploying AI agents (finance first, healthcare next, legal after).
+
+**Implication for DDOG thesis**:
+- Existing thesis is anchored on AI observability tailwind (general enterprise demand)
+- Robinhood-class deployments create REGULATED demand category that bypasses CFO discretion — finance compliance teams MUST procure observability for AI-agent deployments to satisfy auditors
+- DIY/in-house bypass is severely limited because regulated financial agents require auditable THIRD-PARTY logging
+- This is structurally similar to how cybersecurity (CRWD) became regulatorily-mandated post-breach disclosure rules
+
+**Quantification (per agent research 2026-05-28)**: ~3.4 GB compliance logging per session × 270K trading agents at Robinhood scale × daily activity = ~324 TB/year just from Robinhood. Global scale 10M trading agents = 12 PB/year permanent observability data. DDOG captures the logging + tracing + eval layer of this.
+
+**No sizing change** — position remains at current 7.5%. The thesis enhancement is structural moat (regulatory-binding vs discretionary), not new revenue magnitude. **64% of failed agentic deployments cite eval/observability as primary blocker per `wiki/agentic-ai-enterprise.md`** — this is the OS's existing thesis-anchor that the Robinhood launch concretely validates at the consumer-financial-agent scale.

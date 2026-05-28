@@ -178,3 +178,26 @@ The "structural-with-supply-wall 18-24mo" framing was honest but too pessimistic
 ## Cross-reference — within-NAND bifurcation framework (added 2026-05-28)
 
 Per `wiki/memory-cycle-primer.md` section 3.5: NAND bifurcates structurally into AI-tier enterprise SSD (STRUCTURAL, binding-constraint test passes) vs consumer NAND (CYCLICAL). SNDK datacenter Q3 FY26 revenue +645% YoY validates structural component is the dominant growth driver. Treating "NAND" as one cyclical category is a B20 segment-trajectory-anchoring failure at the within-category level (see B35 in `meta/biases-watchlist.md`).
+
+## Cross-reference — Robinhood Agentic Trading TRACE (added 2026-05-28) — compliance audit-trail = PERMANENT NAND demand vector
+
+Per `research/signals/events/2026-05-27-robinhood-agentic-trading.md`: Robinhood launched mass-market AI-agent stock trading May 27, 2026. Top-down capability decomposition surfaced a **non-consensus NAND demand driver — compliance/audit-trail logging** — that is mechanically DIFFERENT from the KV-cache-offload NVIDIA-CMX driver added to the SNDK thesis earlier today.
+
+**The mechanism**: FINRA Q4 2026 audit will require every broker with AI trading agents to maintain auditable multi-year logging of every agent decision, reasoning chain, input data state, and output action. This is PERMANENT, MONOTONICALLY-GROWING, REGULATION-MANDATED NAND storage demand — fundamentally different from:
+- Training data storage (one-time)
+- KV cache storage (ephemeral)
+- Consumer NAND demand (replacement-cycle)
+- Even AI-tier enterprise SSD for inference (workload-driven, can flex)
+
+**Quantification (per agent research 2026-05-28)**: ~3.4 GB compliance logging per session × 270K trading agents at Robinhood scale × daily activity = **~324 TB/year just from Robinhood**. Global scale 10M trading agents = **12 PB/year permanent compliance NAND**. As regulated agentic deployments expand (healthcare next, legal after), this becomes a MULTI-VERTICAL permanent demand driver.
+
+**Why this is non-consensus**: bottoms-up NAND analysts model training data + inference KV cache + consumer SSDs. They do NOT naturally arrive at "FINRA will mandate multi-year logging of every AI decision" without specifically modeling the regulatory layer. Top-down capability decomposition (per Principle #33 codified 2026-05-28) surfaces this naturally.
+
+**Implication for SNDK thesis**:
+- This is ADDITIVE to the within-NAND bifurcation update (AI-tier SSD = structural for KV-cache + model storage)
+- Compliance NAND is a SEPARATE structural driver: KV-cache + model-storage is ephemeral/workload-driven; compliance audit-trail is permanent/monotonically-growing
+- The combined demand profile = workload-driven structural NAND + permanent compliance NAND together
+- Strengthens the structural thesis FURTHER beyond the existing "AI-tier enterprise SSD structural" framing
+- **No sizing change** — position at 7.09% remains appropriate; the multi-driver structural confirmation justifies maintaining (not reducing) the position even as supply-wall arrives 2027-2028
+
+**Watch trigger**: if Schwab June 2026 launch + healthcare agent launches H2 2026 confirm the regulatory-mandated compliance NAND pattern, promote to triangulation.md per principle #29 (3+ same-segment data points).

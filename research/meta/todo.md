@@ -42,6 +42,11 @@
   - Linked: `research/meta/methodology.md` principle #23, `research/meta/biases-watchlist.md` B25, `research/meta/source-reliability.md` (legacy tracker; keep for cross-reference but no longer primary)
 
 - [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Principle #32 (Pre-Action Checkpoints) monthly audit — FIRST CYCLE
+
+- [ ] **P2 / verification / 2026-06-15** [INDP, AF] — Schwab June 2026 AI agent launch — triangulation 3rd-data-point candidate
+  - Origin: Robinhood + eToro + Moomoo agentic-trading launches Apr-May 2026 (per `signals/events/2026-05-27-robinhood-agentic-trading.md`). Schwab targeting June 2026 per [WealthManagement.com T3](https://www.wealthmanagement.com/ria-news/schwab-makes-ai-push-with-client-facing-agents-to-roll-out-in-june). If 3rd same-segment data point lands, agentic-brokerage promotes to triangulation per principle #29.
+  - Scope: verify Schwab launch date + scope + tech stack; if launched, promote agentic-brokerage cluster to triangulation.md; cascade to DDOG (regulatory observability mandate validation) + SNDK (compliance NAND demand validation). Also: apply Principle #33 top-down capability decomposition to Schwab as 2nd application of the framework — validation criterion for the principle.
+  - Linked: `signals/events/2026-05-27-robinhood-agentic-trading.md`, `companies/DDOG/thesis.md`, `companies/SNDK/thesis.md`, `meta/methodology.md` principle #33
   - Origin: User constraint 2026-05-27 on codifying principle #32 — "as long as changes, if turned out to be rigid or working against expected net positive improvement, are detectable if they do not work, then yes [codify]." Audit is the detectability mechanism.
   - Scope: Read `research/meta/principle-applications-log.md`. Compute three metrics over the prior 30 days:
     (a) Real-catch rate = REAL_CATCHES / TOTAL_APPLICATIONS. Target ≥40%. If <20% → over-applying, raise threshold.

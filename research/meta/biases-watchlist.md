@@ -735,6 +735,57 @@ For any category bifurcation applied at one level, force the question — "does 
 
 ---
 
+### B36 — Visible-user-adoption anchoring when adoption is embedded/invisible (wrong-measurement bias for emerging-technology TAM)
+
+**Origin:** User correction 2026-05-28 during Robinhood Agentic Trading top-down decomposition discussion. After I argued "agentic MAU ~35M / social media 5.79B = 0.6% penetration → agentic is behind social media's curve," user pushed back: *"end users won't even know they're using agents — they'll just expect 'if I need X done, I expect this tool to make it work'."* Fresh-verify per principle #32 confirmed: 79% of organizations have deployed agentic AI in some form per Gartner April 2026 — meaning the "visible agentic MAU" measurement was severely understating actual adoption. Most users of enterprise tools with embedded agents don't self-identify as "agentic AI users."
+
+**Pattern:** Using VISIBLE/EXPLICIT user-adoption metrics (e.g., "ChatGPT MAU," "Claude MAU," "agents-with-API-keys") as the TAM proxy when the actual adoption pattern is EMBEDDED — i.e., agents running under the hood of tools users already use (Google AI Mode embedded in search, GitHub Copilot embedded in IDEs, customer service tools that escalate to agents invisibly, brokerage platforms with bring-your-own-agent like Robinhood). The visible-MAU undercount understates demand and leads to wrong conclusions about adoption curves, binding-constraint duration, and infrastructure demand magnitude.
+
+**Distinction from related biases:**
+- **B17** (user-deference): operates at the input-credulity step. B36 operates at the MEASUREMENT-PROXY-SELECTION step.
+- **B23** (sell-side aggregation drift): operates on forecast inputs. B36 operates on what to MEASURE.
+- **B26** (pre-training as primary source): operates on data freshness. B36 operates on choice of metric.
+- **B14** (default-first-reading): operates on initial interpretation. B36 is a SPECIFIC manifestation of B14 at the TAM-quantification step — defaulting to the visible/explicit measurement when embedded/implicit is the right frame.
+- **B35** (within-category aggregation): operates on classification bifurcation. B36 operates on adoption-metric selection. Both share the "wrong-level-of-abstraction" failure mode.
+
+**Manifestation 2026-05-28 (the user catch):**
+- I framed agentic adoption: ~35M visible MAU vs 5.79B social media users → 0.6% penetration → "agentic is BEHIND social media's 1.5% 2008 baseline curve"
+- User counter: "end users won't even know they're using agents"
+- Fresh-verify caught: 79% of organizations have deployed agentic AI; ~10-20% reaching production scaling. The TRUE measurement should include embedded-agent users (people whose tools have agents under the hood), not just explicit agent users.
+- Correct metric per `wiki/token-consumption.md`: compute consumed per user across all tools touched — NOT visible MAU
+- The "0.6% penetration → slow ramp" framing was directionally wrong; the actual ramp is faster because adoption is hidden inside tool refresh cycles, not gated by user willingness to adopt new tool category
+
+**The structural fix:**
+
+For any TAM measurement of an emerging-tech category:
+1. Distinguish VISIBLE adoption (users who self-identify as users of category X) from EMBEDDED adoption (users whose tools have category X embedded)
+2. The right measurement is OUTCOME-PROXY — what does the category CONSUME (tokens, compute, storage, bandwidth) per user? — not user-count of those who self-identify
+3. Token-intensity multiplier (10-100x agentic vs chat per `wiki/token-consumption.md`) is the correct mechanism for translating embedded-adoption into infrastructure demand
+4. Social-media-style adoption-curve analogies only work for FRICTIONLESS-CONSUMER-DECISION adoption (download an app); they break down for EMBEDDED adoption (tool refreshes happen at vendor pace)
+
+**Correction (mandatory):**
+1. When estimating TAM for an emerging-tech category, explicitly name both VISIBLE and EMBEDDED adoption pathways
+2. Use compute/token/storage CONSUMPTION as the proxy, not user-count
+3. If using user-count as proxy, multiply by token-intensity ratio vs prior reference category (chat → agentic = 10-100x per OS wiki)
+4. Apply social-media-curve analogies only when adoption is frictionless-consumer-decision driven; flag explicitly when category is embedded
+
+**Retroactive application (2026-05-28):**
+- Prior framing: "agentic MAU 35M / social media 5.79B = 0.6% penetration → ramp is behind social media"
+- Corrected framing: "VISIBLE agentic MAU 35M is severe undercount of TRUE adoption (79% organizational adoption per Gartner Apr 2026); EMBEDDED adoption is happening at vendor-tool-refresh pace inside enterprise software; correct measurement is compute consumed per user, not visible MAU; token-intensity multiplier (10-100x vs chat) means even 'low' visible adoption produces structural infrastructure demand at scale"
+
+**Investable implication of the correction**:
+- HYNIX (held HBM): visible-MAU framing UNDERSTATES HBM demand because embedded adoption is fueling concurrent inference workloads invisibly
+- SNDK (held NAND): both KV-cache offload AND compliance audit-trail compounding NAND demand grow with EMBEDDED adoption, not visible adoption — therefore growth pace is faster than visible-MAU implies
+- DDOG (held observability): regulatory-binding observability demand for AI agents grows with REGULATED INDUSTRY adoption (finance, healthcare, legal) — embedded inside compliance procurement decisions, not visible adoption
+
+**How to check:** Before any TAM estimate for an emerging-tech category, force the question — "is adoption visible-user-driven OR embedded-tool-refresh-driven? Did I use the right proxy?" If visible-MAU was used as proxy when adoption is embedded, B36 has fired — restate using consumption proxy + token-intensity multiplier.
+
+**Hook enforcement:** moderate complexity. A Stop hook could scan for TAM-estimation language ("MAU," "adoption," "penetration," "user count") combined with category names ("agentic," "AI agents," "embedded AI") and require either consumption-proxy framing OR explicit "(visible MAU; embedded adoption excluded)" hedge. Deferred — first observation 2026-05-28; await second drift instance before hook investment.
+
+**Detectability**: monthly audit via principle-applications-log.md can check for B36 instances. The signature is "TAM estimate using user-count proxy without consumption-multiplier adjustment."
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

@@ -1227,6 +1227,55 @@ Be CONFIDENT when:
 
    See B34 (action-without-verification-or-premortem) in `biases-watchlist.md`. Companion to principle #23 (claim-verification), #24 (recursive bottoms-up + verified data at each layer), #14 (question own framings).
 
+33. **Top-down capability decomposition as demand-discovery tool (complements bottoms-up, does not replace it).** Codified 2026-05-28 after empirical validation on Robinhood Agentic Trading launch (N=1 application).
+
+   **User articulation 2026-05-28 verbatim:** *"Start from what AI agents need to do to be able to achieve human tasks... what does an agent that is good at trading need? What are the prerequisites? And then you map out all the different categories — memory, NAND, and whatever comes downstream. And those will all be binding constraints."*
+
+   **The discipline (5 steps):**
+
+   When a new agentic application category enters commercial deployment, run a top-down capability decomposition BEFORE the bottoms-up supply model:
+
+   1. **Define the end-task** with precision (what is the agent actually doing? — e.g., "execute profitable trades on behalf of a retail user")
+   2. **Enumerate agent capabilities required** (what must it be able to do? — market data ingestion, reasoning, risk assessment, execution, compliance, learning)
+   3. **Map each capability to infrastructure layer** (what physical layer does each capability consume? — HBM, NAND, networking, CPU, storage, observability)
+   4. **Identify which layers are binding** given the scale of deployment
+   5. **Compare to existing bottoms-up models** — the top-down trace reveals which layers the bottoms-up missed
+
+   **Why this adds edge:**
+
+   Standard bottoms-up semiconductor analysis starts at the supply chain and asks "what are they building?" → finds HBM, CoWoS, packaging, networking fabric. Top-down capability decomposition starts at end-use case and asks "what does this use case require?" → finds compliance audit-trail NAND, host-side CPU orchestration, vector DB persistence, observability-as-regulatory-infrastructure. **The two approaches find DIFFERENT binding constraints.** The capability-found constraints are typically less covered by sell-side analysts because sell-side starts at the chip layer; top-down starts at the application layer.
+
+   **NOT a replacement for bottoms-up.** Run BOTH. Bottoms-up sizes the demand (BOM counts, capacity expansion, ASP modeling); top-down identifies WHERE the demand comes from. Used together they cross-check: top-down finds the demand-layer; bottoms-up validates it can be sized.
+
+   **Scope:** Apply to EVERY new agentic application category entering commercial deployment. Robinhood (May 2026) was the prototype. Watch list of next categories to apply framework to: Schwab (June 2026), healthcare agents (H2 2026), legal agents (H2 2026), scientific discovery agents (rolling).
+
+   **Embedded-agent dimension** (added 2026-05-28 per user catch): end users will increasingly NOT self-identify as "agentic AI users" — they'll just use tools that have agents embedded under the hood. The TAM measurement for any application category should NOT be "visible agentic MAU" but rather "compute consumed per user across all tools touched" (connects to `wiki/token-consumption.md`). The visible-MAU measurement bias is codified separately as B36.
+
+   **Detectability (per principle #32 framework — operational disciplines validated by USE not GRADE):**
+   - Track applications in `research/meta/principle-applications-log.md`: each application records the binding constraints discovered + whether they were already in bottoms-up coverage
+   - Monthly audit checks: did the top-down framework surface ANY constraint that bottoms-up missed in each application? If yes (rate ≥40%), framework is earning its keep. If no (rate <20% across 3+ applications), framework is redundant with bottoms-up.
+
+   **Falsifiers / inversion conditions:**
+   - 3+ consecutive applications produce ZERO non-consensus insights vs bottoms-up → framework is redundant, retire
+   - The top-down identified constraints routinely fail to materialize as actual demand (false-positive binding) → framework over-identifies; tighten capability decomposition rigor
+   - Bottoms-up alone consistently catches what top-down finds with less friction → framework is unnecessary overhead
+
+   **Retroactive validation (the codification trigger N=1):**
+   Robinhood Agentic Trading launch May 27, 2026 — top-down decomposition surfaced TWO specific non-consensus binding constraints that pure bottoms-up wouldn't have:
+   1. **Compliance/audit-trail NAND demand** — permanent, monotonically-growing, regulation-mandated NAND storage. Bottoms-up models training data + inference KV cache + consumer SSDs; doesn't naturally arrive at "FINRA mandates multi-year AI decision logging" without specifically modeling regulatory layer.
+   2. **CPU/DRAM orchestration layer** — bottoms-up models GPU + HBM; doesn't naturally surface host-side CPU work per agent tool call. At millions of concurrent agents × 50 tool calls/session = real co-constraint.
+
+   Both insights are real, investable, and not in sell-side consensus models. N=1 validation justifies codification with explicit "reassess at next agentic-category application" caveat.
+
+   **Fluidity footer:**
+   - codified: 2026-05-28 (after Robinhood Agentic Trading top-down decomposition application — N=1 empirical validation)
+   - last_review: 2026-05-28
+   - status: active (new — N=1 validated; reassess at next application)
+   - falsified_by: 3+ consecutive applications producing zero non-consensus insights; OR routine false-positive binding constraints; OR bottoms-up consistently catching same constraints with less friction
+   - re-evaluation trigger: next agentic-category commercial launch (Schwab June 2026 / healthcare H2 2026 / legal H2 2026 are the next 3 candidates) — if framework continues producing non-consensus insights, codification is validated; if not, retire
+
+   See B36 (visible-user-adoption anchoring when adoption is embedded) in `biases-watchlist.md`. Companion to principle #1 (bottoms-up before outside view) — top-down is COMPLEMENTARY to bottoms-up, not replacement.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)

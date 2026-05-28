@@ -9,6 +9,16 @@ The headline number: **88% of enterprise agentic AI deployments fail to reach pr
 
 **Update 2026-05-20 — Anthropic profitability inflection.** Anthropic's WSJ-reported Q2 2026 forecast of $10.9B revenue + $559M first operating profit (per [WSJ via Investing.com](https://za.investing.com/news/economy-news/anthropic-revenue-set-to-more-than-double-to-109-billion-in-q2-4293058)) is the canonical "frontier model providers CAN make money at scale" data point. Combined with their $30B run-rate (per [Sherwood](https://sherwood.news/markets/anthropic-revenue-run-rate-30-billion-google-broadcom-partnership/)) and 34.4% enterprise share (per Barclays cited earlier), this triangulates the agentic enterprise revenue thesis from "pilot data + Cursor breakthrough" to "frontier-provider-profitable at scale." See `research/signals/triangulation.md` 2026-05-20 entry.
 
+**Failure-rate framing update (added 2026-05-28 per principle #32 fresh-verify):** The single "88%" figure (from Q4 2025/Q1 2026 Medium 847-deployment study) should be triangulated with more recent + orthogonal 2026 data:
+- **40%+** of agentic AI projects will be canceled by end of 2027 per [Gartner June 2025](https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027) (forward cancellation projection, not current failure rate)
+- **80.3%** of all enterprise AI projects fail to deliver promised business value per RAND analysis of 2,400+ initiatives
+- **79%** of organizations have deployed agentic AI in some form per Gartner Apr 2026; only ~10-20% reach production scaling per [Agentic AI Institute](https://agenticaiinstitute.org/agentic-ai-enterprise-adoption-2026-governance-gap/)
+- **60%** of abandoned projects cite insufficient AI-ready data as primary cause per [Gartner Apr 2026](https://www.gartner.com/en/newsroom/press-releases/2026-04-07-gartner-says-artificial-intelligence-projects-in-infrastructure-and-operations-stall-ahead-of-meaningful-roi-returns)
+
+The picture is more nuanced than "88% fail" — it's broad adoption (79%) with narrow scaling (~10-20%). This actually STRENGTHENS the DDOG/observability thesis because the gap between adoption and production scaling IS the eval/governance/observability problem.
+
+**Embedded-agent dimension (added 2026-05-28):** Per user articulation 2026-05-28: *"end users won't even know they're using agents — they'll just expect 'if I need X done, I expect this tool to make it work'."* The 79% organizational adoption number suggests this is already happening — most users of enterprise tools with embedded agents don't self-identify as "agentic AI users." The TAM measurement should NOT be "visible agentic MAU" (~35M per prior OS estimate) but "compute consumed per user across all tools touched" — connects directly to `wiki/token-consumption.md`. The bias of measuring visible adoption when adoption is embedded is codified as B36 in `meta/biases-watchlist.md`.
+
 ---
 
 ## The failure rate headline

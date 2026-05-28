@@ -27,6 +27,15 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-28 (Robinhood top-down + B36 + Principle #33 codification day — fifth application day)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | #32-A (fresh-verify) | User flagged "88% enterprise failure rate is unverified, recheck" | WebSearch for current 2026 enterprise AI failure-rate data | Verified 88% was from a single Q4 2025/Q1 2026 study; current 2026 data: Gartner 40%+ cancellation by 2027 / RAND 80.3% all-AI fail / Gartner 79% adoption / 60% data-readiness blocker. Old single-number framing replaced with triangulated 4-source view. | REAL CATCH — prevented stale-data propagation; updated wiki/agentic-ai-enterprise.md with corrected framings |
+| 2026-05-28 | #32-B (premortem) | Before codifying Principle #33 | Enumerated risks: codifying based on N=1 application; framework might be redundant with bottoms-up; embedded-agent insight from user might invalidate framework if not incorporated | Premortem caught: incorporate embedded-agent dimension INTO Principle #33 before codification; add explicit "N=1 validation; reassess at next application" fluidity caveat | REAL CATCH — prevented incomplete codification; B36 also surfaced as needed before P#33 ships |
+| 2026-05-28 | #32-B (premortem) | Filtering recommended file updates from agent | Enumerated: HYNIX (marginal), MDB (no thesis file), HOOD (fails Token-Volume Filter), themes.md (single data point, principle #29 requires 3+) | Filtered 8+ proposed updates → 6 commits: dropped HYNIX (marginal), MDB (premature), HOOD (filter fails), themes (single data point) | REAL CATCH — prevented 4 speculative/premature file updates |
+| 2026-05-28 | #32-A (fresh-verify) | B36 codification verification | Verified embedded-agent adoption pattern: 79% organizational adoption per Gartner Apr 2026; Robinhood / eToro / Moomoo / Schwab June pattern of embedded brokerage agents | Strong empirical support for embedded-agent reframing → B36 ships with concrete retroactive application | REAL CATCH — bias entry has fresh-verified empirical anchor, not just framework reasoning |
+
 ### 2026-05-27 (SNOW $6B AWS pact deep-dive — fourth application day; MAJOR CATCH)
 
 | Date | Principle | Context | Checked | Caught | Classification |
