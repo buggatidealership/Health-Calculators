@@ -1276,6 +1276,49 @@ Be CONFIDENT when:
 
    See B36 (visible-user-adoption anchoring when adoption is embedded) in `biases-watchlist.md`. Companion to principle #1 (bottoms-up before outside view) — top-down is COMPLEMENTARY to bottoms-up, not replacement.
 
+   **Refinement 2026-05-28 (added same-day after first-pass portfolio application) — competition intensity as SECONDARY filter, not primary:**
+
+   User articulation 2026-05-28 verbatim: *"competition for a market that is or will be structurally constrained isn't as meaningful of a variable but that's why the verification is so crucial."*
+
+   The structural insight: pre-training data on portfolio construction defaults to treating competition as a PRIMARY moat variable (Porter's Five Forces framing). This is wrong-ordered for binding-constraint analysis. The correct order:
+
+   1. **PRIMARY**: verify binding-constraint at the layer (does the layer pass the principle #26 test?)
+   2. **SECONDARY**: handle competition based on whether constraint is verified
+      - If layer is verified-structurally-constrained → competition is secondary; oligopoly suppliers all benefit (HBM: HYNIX + Samsung + MU all win at constrained layer)
+      - If constraint verification is uncertain or bifurcated → competition becomes primary differentiator; bypass-route discipline (principle #9) determines winners
+      - If constraint is unverified → fall back to standard competitive-moat analysis
+
+   **Tier-criteria refinement (applied to the top-down framework's output classification):**
+
+   | Tier | Binding-constraint test | Competition handling required |
+   |---|---|---|
+   | **TIER S** | PASSES with high verification confidence | Competition must be either (a) LIMITED (oligopoly with high entry barriers, e.g., HBM 3 suppliers + advanced packaging bottleneck), OR (b) NEUTRALIZED (regulatory anti-bypass mechanism, e.g., FINRA-mandated observability) |
+   | **TIER A** | PASSES but with BIFURCATION or partial verification | Competition is real and material at the contested portion; bypass-routes exist |
+   | **TIER B** | Application-layer (test doesn't apply cleanly) | Competition treated as application-execution variable, not infrastructure-binding-constraint variable |
+   | **TIER C** | 4th-order indirect | Competition not the binding test |
+
+   **Required justification for each TIER S classification**: explicit naming of the competition-handling mechanism (limited oligopoly with named-suppliers + entry barrier, OR regulatory anti-bypass with named regulation). If neither can be named, classification defaults to TIER A.
+
+   **Empirical validation of refinement (2026-05-28 SNOW application)**:
+   - SNOW data-platform: constraint test BIFURCATED (Cortex AI structural; storage commoditized by Iceberg)
+   - Competition: 4+ direct competitors (Databricks $5.4B ARR at +65% growth + BigQuery + Redshift + Synapse) + open-source bypass (Iceberg)
+   - No regulatory anti-bypass mechanism
+   - **Verdict: TIER A, NOT TIER S** despite the structural AI portion. Without this refinement, SNOW could have been mis-classified TIER S; with it, the classification is correctly TIER A.
+
+   **Retroactive review of held TIER S positions per refined criteria**:
+   - HYNIX (HBM): oligopoly limited (3 suppliers) + advanced-packaging bottleneck = LIMITED competition → TIER S confirmed
+   - SNDK (NAND): 6+ suppliers BUT compliance regulatory anti-bypass per Robinhood TRACE = NEUTRALIZED competition for compliance portion → TIER S confirmed
+   - DDOG (observability): competitors exist (Splunk, Dynatrace) BUT FINRA regulatory anti-bypass for regulated industries = NEUTRALIZED → TIER S confirmed
+   - ALAB (fabric): pure-play PCIe-Gen6 with first-to-market moat = LIMITED → TIER S confirmed
+   - AXTI (InP substrate): **BORDERLINE** — Coherent named bypass-route winner exists per `companies/AXTI/thesis.md` (partial $154M Texas InP fab); competition is named, not limited or neutralized → should be re-classified TIER A (or TIER S-borderline with explicit hedge)
+   - TSEM (silicon photonics foundry): limited specialty foundry options (GlobalFoundries sub-segment, TSMC partial) = LIMITED → TIER S confirmed
+
+   AXTI honest reclassification: the Coherent partial-bypass IS named and material. Under strict refined criteria, AXTI moves from TIER S → TIER A. Position remains correct; classification framework needed sharpening.
+
+   **Falsifier for the competition-intensity refinement**: if a single supplier in a verified-structurally-constrained market captures the majority of value over 24+ months (proving competition WAS primary even when constraint was real), the refinement reverses and competition must move back to primary variable. Monitor: TSMC vs Samsung+Intel foundry split at advanced nodes; HBM market-share trajectory across HYNIX vs Samsung vs MU.
+
+   **Detectability of refinement misapplication**: every TIER S classification going forward MUST name competition-handling. Missing handling = principle #33 refinement has fired and classification needs correction.
+
 ---
 
 ## Principle metadata & fluidity (added 2026-05-24)

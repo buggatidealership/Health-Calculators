@@ -27,6 +27,13 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-28 (Principle #33 refinement — competition-intensity as secondary filter)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | #33 refinement | User asked "where does SNOW fall" + raised competition-intensity-vs-structural-constraint framing | Applied refined criteria to SNOW: bifurcated structural test + 4+ competitors + no regulatory anti-bypass = TIER A not TIER S | Without refinement, SNOW could have been mis-classified TIER S. The framework needed explicit competition-handling requirement to differentiate "structural but contested" (TIER A) from "structural + competition-neutralized" (TIER S) | REAL CATCH — sharpened tier framework, prevented mis-classification |
+| 2026-05-28 | #33 refinement | Retroactive review of held TIER S positions under refined criteria | Re-checked HYNIX/SNDK/DDOG/ALAB/AXTI/TSEM against "competition must be limited OR neutralized" criterion | AXTI flagged as BORDERLINE — Coherent partial-bypass named in AXTI thesis means competition is NEITHER limited NOR neutralized; should reclassify TIER S → TIER A (or TIER S-borderline with hedge). Other 5 positions confirmed TIER S. | REAL CATCH — surfaced one mis-classification (AXTI) that prior placement missed |
+
 ### 2026-05-28 (Robinhood top-down + B36 + Principle #33 codification day — fifth application day)
 
 | Date | Principle | Context | Checked | Caught | Classification |
