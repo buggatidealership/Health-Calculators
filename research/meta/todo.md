@@ -17,10 +17,7 @@
 
 ### P1 — High priority (next session)
 
-- [ ] **P1 / research / 2026-05-27** [INDP, AF] — LG Innotek (KRX: 011070) deeper dig + Ibiden comparison
-  - Origin: User request 2026-05-26 to "look into LG Innotek." Initial deep-dive completed today; supply-chain-reality test PASSED — verified as genuine FC-BGA substrate producer (not label-anchored Apple camera supplier). Stock at new ATH +200% YTD; WATCHLIST verdict given the re-rating already substantially run. User said "add to watchlist for now, dig into it tomorrow."
-  - Scope: (a) Direct Ibiden (4062.T) comparison as the dominant 60% ABF substrate competitor — same supply-chain-reality test + valuation gap analysis; (b) International analyst coverage (Goldman, MS, JPMorgan) — gap from today's research; (c) Specific named AI accelerator design wins for LGI (today's research found general "GPU server" + "Intel + cloud giants" but no named chip); (d) Apple-pullback entry-point analysis — if Apple-driven quarterly weakness creates entry window, what trigger; (e) Sizing-matrix vs other Active-tier candidates (Sony I&SS, Sumco, BESI, ASMPT, Nabtesco, Infineon, Renesas, Yaskawa, Nidec) — where does LGI fit in the prioritization
-  - Linked: `companies/LGINNOTEK/thesis.md` (candidate stub), `watchlist/candidates.md` (FC-BGA section)
+(none currently — LGI P1 archived 2026-05-28 per investability constraint)
 
 ### P2 — Medium priority
 
@@ -101,6 +98,12 @@
 ## Archive (completed process items without permanent artifact)
 
 (Items that DID produce a permanent artifact are deleted — the artifact replaces the to-do. The artifact location is noted in case future Claude needs to find it.)
+
+- [x] **2026-05-28** [INDP, AF] — LG Innotek (KRX: 011070) deeper dig — ARCHIVED NOT COMPLETED
+  - Reason: User confirmed 2026-05-28 that LGI is not directly investable on either of the platforms they use (KRX direct access not supported; no sponsored ADR available — only unsponsored pink-sheet listings most platforms block). Investability-first discipline: no point completing deeper research on uninvestable name.
+  - Artifact retained: `companies/LGINNOTEK/thesis.md` remains as reference for substrate-supplier cross-comparisons (Ibiden / SEMCO / Murata). Status banner added to thesis file.
+  - Same investability constraint applies to SEMCO (009150.KS) — flagged in `companies/SEMCO/thesis.md` investability section. SEMCO retained as N=1 origin case for candidate Principle #34 / B38 + as reference artifact for substrate-supplier comparisons.
+  - Substrate-supplier exposure now anchored on: Ibiden (4062.T, Japan — accessible via Japan TSE direct or IBDSF/IBDSY pink-sheet ADR depending on platform) + Murata (held, 12.4-16.77%).
 
 - [x] **2026-05-20** [INFRA] — Build anti-fabrication Stop hook
   - Completed: 2026-05-20

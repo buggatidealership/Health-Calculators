@@ -1,6 +1,7 @@
 # LG Innotek (KRX: 011070) — Thesis (candidate stub)
 
-**Last updated:** 2026-05-26 (stub created from deep-dive research)
+**Last updated:** 2026-05-28 (investability status added)
+**Status:** ⚠️ **NOT DIRECTLY INVESTABLE FOR USER (confirmed 2026-05-28)** — KRX direct access not supported on user's current brokerage platforms; no sponsored US ADR (only unsponsored pink-sheet listings most platforms block). Thesis retained as REFERENCE ARTIFACT only for substrate-supplier cross-comparisons (Ibiden / SEMCO / Murata). Deeper-dig P1 todo archived 2026-05-28.
 **Tier:** Candidate / WATCHLIST (re-rating already substantially happened; entry-point question dominant)
 **Position target:** TBD (3-5% Active-tier sizing IF entered, pending Q2 2026 earnings + named AI accelerator design-win disclosure)
 **Anti-fragility:** 2/5 estimate — single dominant narrative (Apple) + emerging second narrative (substrate); concentration risk material
