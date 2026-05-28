@@ -33,6 +33,13 @@
 
 ### P2 — Medium priority
 
+- [ ] **P3 / verification / 2026-06-24** [CAL, INDP] — Monitor for N=2+ confirmation of candidate Principle #34 (Supplier-Side Cross-Layer Moat Decomposition) + candidate B38 (demand-side decomposition blind-spot for cross-layer moats)
+  - Origin: SEMCO thesis 2026-05-28 — Principle #33 demand-side decomposition completed analysis but failed to surface integrated-turnkey moat (SEMCO is only merchant vendor at Layer 0 substrate + Layer 1 silicon caps); surfaced only via T3 borrowed analyst framing. User meta-question caught the framework gap. N=1 insufficient to codify per principle #32 premortem.
+  - Scope: at next monthly audit cycle, check if any analyses 2026-05-29 to 2026-06-24 surfaced a structural moat that lives in cross-vendor coverage pattern + customer procurement preference (rather than per-layer position). If N=2+ confirmed → codify Principle #34 + B38. If 30 days pass with no second case → retain as candidate or retire.
+  - Heuristic for detection: any analysis where (a) candidate touches 2+ adjacent binding-constraint layers, (b) demand-side decomposition completed normally, (c) a non-consensus structural moat was surfaced by orthogonal source (analyst note, user framing, external research). If all 3 conditions met → B38 fired retroactively, count toward N=2+.
+  - Linked: `research/companies/SEMCO/thesis.md` (origin case + meta-observation), `research/meta/biases-watchlist.md` B38 (candidate), `research/meta/methodology.md` Principle #34 (candidate row in metadata table), `research/meta/principle-applications-log.md` (3rd application of #33 logged)
+
+
 - [x] **P2 / verification / 2026-05-22** [CAL] — Stock-reaction grade for NVDA Q1 FY27 (T+24h follow-up) — CLOSED 2026-05-25 per user framing: "resolve purely on numbers, not stock movements because price depends on macro." Numerical grade stands at HIT direction on all 5 axes (revenue/EPS within 0.5%; biggest miss UNDERCALLED Q2 guide by $2.5B because of historical sandbag heuristic that doesn't fit multi-year-contracted-demand environments, per lesson L4). See `predictions/2026-05-20-NVDA-Q1FY27-GRADE.md` final section.
 
 - [ ] **P3 / verification / 2026-06-24** [INDP, CAL] — Claim-verification audit cycle (replaces source-reliability audit per principle #23, codified 2026-05-24)

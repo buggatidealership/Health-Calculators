@@ -27,7 +27,18 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
-### 2026-05-28 (analyst-PT hook codification — B37 + 8th live hook)
+### 2026-05-28 (SEMCO thesis — 3rd application of Principle #33 — FRAMEWORK BLIND-SPOT EXPOSED)
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | #33 (top-down) | SEMCO candidate thesis build from scratch using top-down framework | Applied 5-step #33 decomposition (end-task → capabilities → layers → binding constraints → bottoms-up cross-check). Identified SEMCO as 3-layer participant (MLCC + silicon caps + FC-BGA substrate) | **Framework completed analysis BUT failed to surface the integrated-turnkey moat that became the dominant structural insight.** SEMCO is the only MERCHANT vendor offering both Layer 0 substrate AND Layer 1 silicon caps externally. This was surfaced only when user shared T3 borrowed analyst framing. Data was in my files (Murata = L1 only; Ibiden = L0 only; SEMCO = L0+L1) but #33's demand-side decomposition doesn't naturally construct the cross-vendor coverage matrix or examine customer procurement preference as a moat-activating variable. | **WASTED OVERHEAD (partial) + FAILURE-MODE DOCUMENTED** — #33 surfaced 1st-order layer-binding insights but missed the supplier-side cross-layer moat. Candidate Principle #34 + candidate B38 flagged for next monthly audit 2026-06-24 (N=1 insufficient to codify per principle #32 premortem) |
+| 2026-05-28 | borrowed-vs-firstprinciples hook | User shared T3 analyst note on SEMCO turnkey advantage | Hook fired on "few million dollars" baseline framing (anti-fab + borrowed-framing markers) | Caught propagation of unsourced numerical baseline in real time. User-shared analyst framing was integrated only after explicit tier-labeling + L0/L1/L2 derivation. Honest discipline preserved. | **REAL CATCH** — hook discipline working as designed; orthogonal-source verification confirmed insight was correct + non-consensus + #33-framework-missed |
+| 2026-05-28 | #32-B (premortem) | Before codifying candidate Principle #34 + candidate B38 | Enumerated risk: N=1 codification trap (recurrent pattern in my OS — 5 principles + 6 biases codified in 72 hours per todo.md P3 audit scope). Principle #32 specifically requires N=2+ empirical validation before codification | Did NOT codify. Flagged as CANDIDATE with explicit re-eval trigger at next monthly audit cycle 2026-06-24. Added to methodology.md principle metadata table with status `candidate (awaiting N=2+)`. Added to biases-watchlist.md with status `candidate (awaiting N=2+)`. Added P3 todo for monitoring. | **REAL CATCH** — prevented premature codification per principle #32; preserved insight in 4 ledger locations for next-month re-eval |
+| 2026-05-28 | Critical Rule #10 (cascade) | SEMCO thesis touches MURATA + IBIDEN + LGINNOTEK | Constructed back-references in each named ticker's thesis file; cascade-enforcement-hook silent (no violation) | Cascade completed properly | REAL CATCH (CASCADE-DISCIPLINE) — back-references made structural-moat insight propagate to MURATA thesis (via-Ibiden bundle framing added) |
+
+---
+
+
 
 | Date | Principle | Context | Checked | Caught | Classification |
 |---|---|---|---|---|---|

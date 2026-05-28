@@ -833,6 +833,41 @@ B37 codification triggered by re-committing B28 24 hours after codification. The
 
 ---
 
+### B38 — Demand-side decomposition blind-spot for supplier-side cross-layer moats (CANDIDATE — awaiting N=2+ validation)
+
+**Status:** CANDIDATE (per principle #32 premortem discipline — N=1 insufficient). Re-eval trigger: next monthly audit cycle 2026-06-24. If a 2nd case surfaces where a supplier-side cross-layer moat is hiding behind a demand-side-only decomposition, promote to codified bias. If 30 days pass with no second case, leave as candidate or retire.
+
+**Origin:** SEMCO candidate thesis 2026-05-28. Applied Principle #33 (top-down capability decomposition — demand-side framework). Framework completed analysis but failed to surface the dominant structural insight: SEMCO is the only MERCHANT vendor offering both Layer 0 substrate AND Layer 1 silicon caps externally (turnkey-integrated supplier moat). The insight was surfaced only when user shared T3 borrowed analyst framing.
+
+**Pattern:** Principle #33 traces END-TASK → CAPABILITIES → LAYERS → VENDORS (top-down demand). It naturally produces a per-layer competitive map but does NOT naturally produce a cross-vendor coverage MATRIX or surface unique-intersection moats activated by customer procurement preference. When a candidate company touches 2+ adjacent binding-constraint layers AND a buyer-side procurement-architecture variable activates the cross-layer position, #33 systematically under-surfaces the structural moat.
+
+**Specific manifestations to watch:**
+- Multi-layer-participating candidate companies where the structural moat lives in the COVERAGE pattern, not the per-layer position
+- Customer procurement preference (integrated bundle vs best-of-breed) as a buyer-side moat-activating variable
+- Vertical-integration plays where a vendor spans adjacent binding-constraint layers and a customer rewards the integration
+
+**Correction (candidate — pending validation):**
+When applying Principle #33 to a candidate touching 2+ adjacent binding-constraint layers:
+1. Construct an explicit CROSS-VENDOR COVERAGE MATRIX — every named competitor as rows; every named binding-constraint layer as columns; cell = does this vendor have merchant presence at this layer
+2. Identify unique-intersection cells (vendor X is unique in spanning layers A + B at merchant tier)
+3. Examine the dominant customer's procurement architecture — do they prefer integrated bundles or best-of-breed per layer?
+4. Map vendors to customer-procurement-preference axis; identify which sub-segment of the addressable market each vendor structurally captures
+
+**Distinction from related biases:**
+- **B15** (revenue-mix-anchoring): operates at single-company segment analysis. B38 operates at cross-company competitive-map level.
+- **B16** (synthesis without cascade): operates at artifact-completion step. B38 operates at the FRAMEWORK-COMPLETENESS step within a single analysis.
+- **B20** / **B31** (cross-segment aggregation): operate at signal-triangulation step. B38 operates at competitive-map-construction step.
+
+**Detectability (per principle #32):**
+- Track applications where a candidate touches 2+ binding-constraint layers. Question 1: did the analyst construct a cross-vendor coverage matrix? Question 2: did they examine customer procurement preference? If NO to both AND a non-consensus structural moat emerged from orthogonal source, B38 has fired retroactively.
+- N=2+ confirmation pattern would justify codification. Until then: CANDIDATE.
+
+**Codification origin** (the meta-pattern): the SEMCO insight was surfaced by borrowed analyst framing, NOT by my own framework. Hook discipline (anti-fab + borrowed-vs-firstprinciples) caught the propagation failure mode in real time. The user's meta-question 2026-05-28 verbatim: *"What input must I have given you for you to surface this in your own personal deep dive research?"* — surfaced the framework gap.
+
+**Companion candidate methodology entry**: Principle #34 candidate (Supplier-Side Cross-Layer Moat Decomposition) — see methodology.md principle metadata table.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.
