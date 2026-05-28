@@ -477,6 +477,32 @@ Always check against these before completing any analysis:
 
    **HARD DISCIPLINE (after B16 catch 2026-05-21):** Before completing any synthesis artifact commit, list every named ticker in the artifact. For each, verify the corresponding thesis file has been updated. If any is missing, the cascade is incomplete and the commit is premature. The discipline is symmetric: the artifact references the theses AND each thesis back-references the artifact.
 
+11. **ALWAYS CLOSE THE THESIS → POSITION TRANSLATION STEP** (added 2026-05-28). Every thesis update with material new evidence (new earnings, new contract, new structural insight, new cascade cross-reference) MUST end with an explicit `Position implication:` line in this exact form:
+
+    ```
+    Position implication: [ENTER / HOLD / TRIM / EXIT / NO ACTION] — [size delta if action] — [1-line rationale tied to the new evidence]
+    ```
+
+    Examples that are ACCEPTABLE:
+    - `Position implication: HOLD — no size change — FY28 raise reinforces Core thesis but Stage 3-4 sizing modifier means no add at current price`
+    - `Position implication: TRIM — reduce from 16.77% → 12% — position drifted >2× target via appreciation per L3 rebalance rule`
+    - `Position implication: NO ACTION — investability constraint dominates — thesis retained as reference artifact only`
+
+    Examples that VIOLATE the discipline:
+    - "No tier change." (too brief; no action stated)
+    - "Continues to apply." (no decision content)
+    - Silence at the end of a thesis update.
+
+    **Why this rule exists:** insight that doesn't translate to portfolio decisions is operationally useless. The harness's overarching goal is non-consensus conviction → portfolio action. Without this discipline, I produce high-quality thesis work and stop one step short of the alpha-generating decision.
+
+    **Detectability (how I know this rule is net positive vs net negative — built-in per user 2026-05-28 directive):**
+    - POSITIVE: thesis updates over next 30 days produce VARIED position implications (mix of enter / hold / trim / no action with differentiated rationale)
+    - NEGATIVE: 5+ consecutive thesis updates produce identical "HOLD — no size change" with rote rationale → discipline became decorative noise → retire or refine
+    - FALSIFIER: if 30 days of thesis updates produce ZERO position implications that differ from "HOLD — no size change," the rule is not earning its keep
+    - RE-EVAL TRIGGER: first monthly codification audit 2026-06-24 — does grep for "Position implication:" surface meaningful decision variety?
+
+    **Discipline check (added 2026-05-28):** principle-applications-log.md entries from this discipline are tagged `Rule #11 application` for monthly audit.
+
 ---
 
 ## File Templates
@@ -514,6 +540,9 @@ Always check against these before completing any analysis:
 - Causal chain: [from sector/causal-maps/X.md] — direction (beneficiary/casualty)
 - Scenario X — wins / loses
 - ...
+
+## Position implication (Critical Rule #11 — required closing line on every thesis update)
+**Position implication:** [ENTER / HOLD / TRIM / EXIT / NO ACTION] — [size delta if action] — [1-line rationale tied to current evidence]
 ```
 
 ### New `companies/{TICKER}/facts.md`

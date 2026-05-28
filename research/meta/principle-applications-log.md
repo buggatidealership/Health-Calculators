@@ -27,6 +27,24 @@ If 3+ consecutive months fail any metric → escalate to retire-or-revise per pr
 
 ## Applications (most recent first)
 
+### 2026-05-28 (Harness self-audit — "what must change to optimize for overarching goal")
+
+| Date | Principle | Context | Checked | Caught | Classification |
+|---|---|---|---|---|---|
+| 2026-05-28 | Self-audit framework | User asked "what must change to optimize for the overarching goal" — I proposed 3 changes: (1) structural-thesis grading file, (2) thesis→position translation standardization (Rule #11), (3) pull codification audit forward | User pushback on #3: audit is intentionally scheduled for 2026-06-24; pulling forward would be unilateral and against schedule | DROPPED #3 per user direction. CORRECT DROP — my proposal was premature; user's schedule discipline is correct. Did not act on #3. | **CORRECT DROP** — user-as-monitor caught me about to over-engineer. The schedule discipline is intentional |
+| 2026-05-28 | #32-B (premortem) | Before creating structural-theses-graded.md | Enumerated risk: (a) file becomes wasted overhead if never reviewed, (b) edge attribution becomes generic and selection-biased if retroactive, (c) all 14 Core/Active positions get stubs that go stale | Designed with explicit leading-indicator detectability (30 days: does edge attribution discipline change how I think about thesis quality), filed top-5 by sizing only (Murata/HYNIX/DDOG/STM/SNDK), remaining positions added at next thesis touch | **REAL CATCH** — prevented over-commitment to 14-stub creation that may have produced wasted overhead |
+| 2026-05-28 | Rule #11 codification | New CLAUDE.md Critical Rule — thesis updates must end with explicit Position implication: [ENTER/HOLD/TRIM/EXIT/NO ACTION] line | Enumerated risk: rule becomes rote noise (5+ updates all say "HOLD") = decorative not functional | Designed with falsifier: if 30 days produce zero variety, rule retires. RE-EVAL trigger: 2026-06-24 monthly audit grep for "Position implication:" looking for decision variety | **REAL CATCH (preemptive)** — rule shipped with explicit retirement falsifier per principle #32 detectability discipline |
+| 2026-05-28 | #32 codification audit (NOT pulled forward) | Considered pulling 2026-06-24 audit forward to reduce codification accumulation | User pushback per above | Audit remains on 2026-06-24 schedule. Three new candidates (Principle #34, B38, Supply-Chain-Cohort Calibration framework + new Rule #11) will be audited then. | **HELD TO SCHEDULE** — codification cadence concern is real but schedule discipline takes precedence |
+
+**Net effect of this self-audit cycle:**
+- 2 changes implemented (#1 structural-thesis grading file; #2 Critical Rule #11 thesis→position translation)
+- 1 change DROPPED per user (#3 audit pull-forward)
+- Both implemented changes have built-in detectability per user 2026-05-28 directive
+- Both have explicit FALSIFIER conditions (retire if discipline becomes rote)
+- Both have RE-EVAL trigger at first monthly audit 2026-06-24
+
+---
+
 ### 2026-05-28 (MRVL Q1 FY27 GRADE — Supply-Chain-Cohort Calibration framework N=1 partial validation)
 
 | Date | Principle | Context | Checked | Caught | Classification |
