@@ -8,7 +8,7 @@
 
 ---
 
-## Recent harness state (non-synthesis pointer — 2026-05-28)
+## Recent harness state (non-synthesis pointer — last refreshed 2026-05-28 end of day)
 
 This section tracks RECENT HARNESS ACTIVITY that doesn't shift the synthesis above but a new session needs to be aware of. Update when material harness state changes; not a substitute for §"What I changed my mind about" (which tracks SYNTHESIS shifts).
 
@@ -37,7 +37,50 @@ All three re-evaluate at next monthly codification audit 2026-06-24 OR on next e
 - Advanced-packaging chokepoint (Ibiden + Intel EMIB-T + Samsung EM silicon caps): segmented-triangulation promoted 2026-05-28 (1st instance under principle #29)
 - MLCC duopoly pricing power: silicon-cap-vs-MLCC bear signal MISFRAMED — additive PDN layer not substitutive (caught real-time per B14 discipline)
 
-**Open todos:** 8 items (P1 currently empty; P2/P3 dated for monthly audit 2026-06-24 or specific verification triggers). See `meta/todo.md`.
+**Open todos:** 9 items as of 2026-05-28 end of day. See `meta/todo.md`. Two new P1 added for next session pickup:
+- ESTC contrarian-asymmetric check (user-flagged 2026-05-28; beaten -71% from ATH; -10.9% on beat; reverse-category mgmt signal)
+- 4092 (Nippon) entry-trigger watch (multi-decade structural breakout setup; TSE accessibility confirmed; watching ¥5,190 2018 ATH as trigger)
+
+Plus P2 continuous-agent infrastructure category thesis build candidate (from 2026-05-28 Mythos cascade analysis).
+
+## End-of-day 2026-05-28 session-close summary
+
+**Major events processed:**
+- MRVL Q1 FY27 GRADED (fundamental + T+24h stock-reaction; principle #31 Stage 3-4 modifier N=2 validation; L11/L12/L13 added)
+- SNOW T+24h stock-reaction graded (+37.65% per `2026-05-27-SNOW-Q1FY27-GRADE.md` Stock-Reaction section); Stage 2-3 + CATEGORY EVENT analyzed
+- MDB Q1 FY27 reported (+20% post-print); same-day L14 candidate cohort data
+- NTAP Q4 FY26 reported (+10% post-print); LOW-CONCRETE CATEGORY EVENT data
+- ESTC Q1 CY26 (-10.9% on beat); REVERSE-CATEGORY mgmt signal flagged for P1 investigation
+- Anthropic Mythos GA news 2026-05-28 (TRACE event file created at `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md`)
+- Continuous-agent infrastructure category insight surfaced (pre-consensus play)
+- Vector DB infrastructure cohort analysis (MDB momentum / ESTC contrarian / SNOW agentic / NTAP storage)
+
+**Harness changes implemented today:**
+- New file `predictions/structural-theses-graded.md` (5 stubs: Murata / HYNIX / DDOG / STM / SNDK; closes 6-24mo feedback loop)
+- New Critical Rule #11 (CLAUDE.md): thesis updates must end with explicit Position implication line
+- L14 candidate added to `predictions/lessons.md` with 5-data-point cohort + refined framework table
+- Investability filter resolved for TSE (4092, Ibiden accessible; KRX still blocked for LGI/SEMCO)
+- Nippon ATH structural correction (2018 = ATH; broke 2000 prior peak; current testing 18-year-breakout consolidation)
+
+**Harness changes considered but NOT implemented:**
+- Pull codification audit forward (user pushback 2026-05-28: audit intentionally scheduled 2026-06-24)
+- Backfill remaining 9 structural-thesis stubs (deferred per top-down triage; only 5 of 14 positions had genuine non-consensus structural edge worth attributing)
+
+**Candidate codifications awaiting validation (3 active, all flagged for 2026-06-24 audit):**
+- Principle #34 (Supplier-Side Cross-Layer Moat Decomposition) — N=1 origin: SEMCO
+- B38 (demand-side decomposition blind-spot for supplier-side cross-layer moats) — companion to #34
+- Supply-Chain-Cohort Calibration framework — N=1 partial validation: MRVL
+- L14 (CATEGORY vs TREND events; refined framework) — N=1 same-day cohort: SNOW/MDB/NTAP/ESTC/MRVL
+
+**Pending grades:** ZERO. All 4 predictions in last 8 days now graded (NVDA/MOD/SNOW/MRVL).
+
+**Where to pick up tomorrow** (in order of leverage):
+1. **P1 ESTC contrarian check** — is "feature not business" a sandbag (L10 reverse, asymmetric setup) or genuine assessment (pricing pressure real)? Primary IR + unit economics verification needed.
+2. **P1 4092 entry-trigger watch** — monitor ¥5,190 2018 ATH; investability resolved means actionable; news cascade reinforces structurally.
+3. **P2 Continuous-agent infrastructure category thesis** — decide whether to build dedicated category file or keep as TRACE event reference; identify pre-consensus public-investable plays.
+4. **MDB Q1 FY27 print processing** — already reported (+20%); could backfill as PREDICT/GRADE cycle if codification value to L14, but bounded incremental value.
+
+**User-stated timing:** "wait until tomorrow" for next action. System is clean for pickup; no in-flight uncommitted work.
 
 ---
 

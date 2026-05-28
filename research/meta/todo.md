@@ -15,11 +15,31 @@
 
 ## Open
 
-### P1 — High priority (next session)
+### P1 — High priority (next session — added 2026-05-28 end of session)
 
-(none currently — LGI P1 archived 2026-05-28 per investability constraint)
+- [ ] **P1 / research / 2026-05-28** [INDP, AF] — ESTC contrarian-asymmetric-opportunity check
+  - Origin: User flag 2026-05-28 — "Elastic is still beat down so recovery or narrative still not proliferated." Verified: ESTC -71% from Nov 2021 ATH $186.78; -10.9% post-Q1 CY26 beat (revenue $450.7M +16% YoY). 2,700+ vector DB customers + 470+ AI customers at $100K+ ACV per prior pull = STRUCTURALLY INTACT. CEO framed vector DB as "a feature, never a business" — REVERSE-CATEGORY mgmt signal (per L14 framework cohort 2026-05-28). Asymmetric setup: structural reality vs market perception gap.
+  - Scope: (a) Primary IR verification — AI revenue as % of total revenue; average ACV per AI customer; gross margin on AI workloads vs traditional search; (b) Distinguish "feature not business" as sandbag (L10 reverse) vs genuine assessment via unit economics; (c) Identify category-event catalysts on horizon (new strategic deals, customer-naming, AI-revenue-segment-disclosure); (d) Build ESTC thesis file if asymmetric setup confirmed.
+  - Linked: `predictions/lessons.md` L14 candidate framework; `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md` (vector DB infrastructure context); existing `companies/ESTC/thesis.md` (built 2026-05-21 — needs refresh)
+
+- [ ] **P1 / verification / 2026-05-28** [INDP, AF] — 4092 (Nippon Chemical Industrial) entry-trigger watch
+  - Origin: User correction 2026-05-28 — 2018 ATH ¥5,190 IS the all-time high (broke prior 2000 peak; 18-year resistance breakout). Current ¥4,445 = 85.6% of 2018 ATH, testing back from below after 8-year consolidation. TSE accessibility confirmed (user platforms support direct). News cascade reinforces thesis structurally.
+  - Scope: (a) Monitor for breakout above ¥5,190 = structural rerating confirmation = entry trigger; (b) Rejection at ¥5,190 = stay watchlist; (c) Pullback below ¥4,200 with news cascade intact = potential early entry; (d) Watch TDK Q2 FY27 commentary (Oct-Nov 2026) for JV-capacity-investment disclosure as primary CATEGORY catalyst per L14 framework; (e) Watch NCI Q2 FY27 earnings (Oct 2026) for Functional Products segment disclosure.
+  - Linked: `meta/2026-05-26-ath-refresh-and-4092-prediction.md`; `companies/MURATA/thesis.md` (BaTiO3 upstream supply); `predictions/lessons.md` L14 candidate framework
 
 ### P2 — Medium priority
+
+- [ ] **P2 / research / 2026-05-28** [INDP, AF, BOT] — Continuous-agent infrastructure category thesis build candidate
+  - Origin: 2026-05-28 Mythos cascade analysis surfaced "AWS moment" pre-consensus category (vector DBs + agent observability + identity + orchestration + reserved-capacity pricing). Currently fragmented; not yet priced as unified category. Cybersecurity-first wave forces continuous-agent deployment infrastructure to crystallize.
+  - Scope: (a) Decide if this warrants a dedicated category-thesis file or stays as TRACE event; (b) Map the 3-5 named plays at each infrastructure layer (vector DBs, agent observability, identity, orchestration); (c) Identify which public-investable plays are pre-consensus vs already-priced; (d) Cascade to held positions only if material sizing changes emerge.
+  - Linked: `signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md`; `meta/methodology.md` principle #33; `companies/DDOG/thesis.md` (agent observability incumbent)
+
+- [ ] **P2 / verification / 2026-05-28** [CAL, INDP] — L14 candidate N=2 validation watch (next eligible Stage 2-3 + CATEGORY EVENT case)
+  - Origin: 2026-05-28 4-data-point same-day cohort (SNOW +37.65%, MDB +20%, NTAP +10%, ESTC -10.9%, MRVL -1.96% prior) produced refined framework distinguishing HIGH-CONCRETE / LOW-CONCRETE / TREND / REVERSE-CATEGORY events. But same-day cohort = mostly coincident (possible common-cause AI rerating wave); needs independent N=2+ across different days/events.
+  - Scope: monitor next earnings cycle for Stage 2-3 names with potential CATEGORY EVENT markers (signed strategic deal, metric baseline-break, mgmt narrative shift to leading indicators). When found, run PREDICT with explicit L14 application; resolve at GRADE to validate or falsify magnitude calibration. If 2+ independent cases validate framework → codify L14 at next monthly audit 2026-06-24. If 2+ falsify → retire to candidate-archive.
+  - Linked: `predictions/lessons.md` L14 candidate; `meta/methodology.md` principle #31 (narrative-stage modifier — being refined by L14)
+
+### P2 — Existing items
 
 - [ ] **P3 / verification / 2026-06-24** [CAL, INDP] — Monitor for N=2+ confirmation of candidate Principle #34 (Supplier-Side Cross-Layer Moat Decomposition) + candidate B38 (demand-side decomposition blind-spot for cross-layer moats)
   - Origin: SEMCO thesis 2026-05-28 — Principle #33 demand-side decomposition completed analysis but failed to surface integrated-turnkey moat (SEMCO is only merchant vendor at Layer 0 substrate + Layer 1 silicon caps); surfaced only via T3 borrowed analyst framing. User meta-question caught the framework gap. N=1 insufficient to codify per principle #32 premortem.
