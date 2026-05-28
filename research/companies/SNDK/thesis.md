@@ -201,3 +201,13 @@ Per `research/signals/events/2026-05-27-robinhood-agentic-trading.md`: Robinhood
 - **No sizing change** — position at 7.09% remains appropriate; the multi-driver structural confirmation justifies maintaining (not reducing) the position even as supply-wall arrives 2027-2028
 
 **Watch trigger**: if Schwab June 2026 launch + healthcare agent launches H2 2026 confirm the regulatory-mandated compliance NAND pattern, promote to triangulation.md per principle #29 (3+ same-segment data points).
+
+## Cross-reference — Mythos GA / continuous-agent infrastructure TRACE (added 2026-05-28, per Critical Rule #10)
+
+Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md`: Mythos GA forces continuous-agent deployment in cybersecurity vertical first; the 3-layer storage cascade (HOT/WARM/COLD) extracted from the TRACE event surfaces that **cyber-AI compliance storage is MONOTONICALLY-GROWING demand** — regulatory mandate requires keeping logs forever; each year adds tranche; nothing retires. AI-driven security generates ~100-1000x more log data than legacy (every AI decision logged with reasoning trace per upcoming regulatory expectation). This is the SAME structural mechanism as the FINRA compliance-NAND signal (Robinhood top-down) applied to a SECOND vertical.
+
+**This is structurally significant for SNDK thesis**: the compliance-NAND insight that was N=1 (Robinhood/financial-agents) now has N=2 verification candidate at cybersecurity vertical. The pattern repeats: regulated industry deploying continuous AI agents → mandatory permanent logging → monotonically-growing NAND demand. If pattern continues at healthcare H2 2026 → N=3 triangulation candidate per principle #29.
+
+**No material sizing change.** Existing 7.09% Active position remains appropriate; the structural-multi-vertical confirmation justifies maintaining position even as supply-wall arrives 2027-2028. The Mythos cascade strengthens the compliance-NAND structural pattern beyond the existing single-vertical thesis.
+
+**Position implication (per Critical Rule #11):** HOLD — no size change — sector-level cascade reinforces existing compliance-NAND thesis at SECOND vertical (cyber); does NOT introduce new sizing math beyond existing 7.09% allocation. **Watch for**: cybersecurity regulatory rulemaking explicitly requiring multi-year AI-decision logging (would confirm N=2 → graduate to triangulation candidate).

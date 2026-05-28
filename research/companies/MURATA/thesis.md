@@ -464,3 +464,11 @@ Per `research/companies/SEMCO/thesis.md` (candidate stub created 2026-05-28): Sa
 **No tier change. No sizing change.** MLCC dominance unaffected; silicon-cap is additive opportunity not core thesis.
 
 **Updated framing 2026-05-28 (per integrated-turnkey moat insight in SEMCO thesis):** Murata's silicon-cap go-to-market at Intel EMIB-T is structurally a "via-Ibiden bundle" topology — Murata + Ibiden as best-of-breed pair vs SEMCO's integrated turnkey. This bifurcates the EMIB-T addressable market by customer procurement preference: best-of-breed-preferring customers (Intel top-tier flagship programs, Google v8e Humufish prestige) structurally favor Murata-via-Ibiden; integrated-preferring customers (Tesla vertical-supply-chain, AWS Annapurna-style) structurally favor SEMCO turnkey. Murata's silicon-cap upside is in the best-of-breed sub-segment, not the full addressable market. **Does not change MLCC thesis** (Layer 2 = different mechanism); does sharpen the silicon-cap falsifier #7 threshold criteria.
+
+## Cross-reference — Mythos GA / continuous-agent infrastructure TRACE (added 2026-05-28, per Critical Rule #10)
+
+Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md`: Mythos-class GA forces continuous-agent deployment in cybersecurity vertical = sustained-load AI workloads = sustained-load TDP regime per board → existing BOM-deep-dig physics (~12,000 MLCCs per Rubin board) is the MINIMUM for sustained TDP at rated load, NOT a stylistic choice. Cyber-AI continuous-loop inference compounds with existing Rubin TDP-doubling MLCC demand cascade. Mythos cascade is STRUCTURAL REINFORCEMENT of existing MLCC duopoly thesis via sustained-load demand profile addition.
+
+**No material thesis change.** The MLCC demand cascade is already maximally captured by the existing BOM-deep-dig + Physical AI multi-narrative + Citrini analog reinforcement; Mythos adds a new vertical (cybersecurity continuous agents) but doesn't change per-board MLCC math.
+
+**Position implication (per Critical Rule #11):** HOLD — no size change — sector-level cascade reinforces 12.35% Core position; does NOT introduce new sizing math beyond existing thesis.

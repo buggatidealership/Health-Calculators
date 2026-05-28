@@ -232,3 +232,11 @@ Per `research/signals/events/2026-05-27-robinhood-agentic-trading.md`: Robinhood
 **Quantification (per agent research 2026-05-28)**: ~3.4 GB compliance logging per session × 270K trading agents at Robinhood scale × daily activity = ~324 TB/year just from Robinhood. Global scale 10M trading agents = 12 PB/year permanent observability data. DDOG captures the logging + tracing + eval layer of this.
 
 **No sizing change** — position remains at current 7.5%. The thesis enhancement is structural moat (regulatory-binding vs discretionary), not new revenue magnitude. **64% of failed agentic deployments cite eval/observability as primary blocker per `wiki/agentic-ai-enterprise.md`** — this is the OS's existing thesis-anchor that the Robinhood launch concretely validates at the consumer-financial-agent scale.
+
+## Cross-reference — Mythos GA / continuous-agent infrastructure TRACE (added 2026-05-28, per Critical Rule #10)
+
+Per `research/signals/events/2026-05-28-anthropic-mythos-continuous-agent-infrastructure.md`: Anthropic Mythos-class GA in "coming weeks" forces continuous-agent deployment in cybersecurity vertical first → sustained-load AI workloads at every enterprise scale → DDOG agent observability moat extends from FINRA-regulated (existing thesis) to cyber-mandated observability. The Mythos cascade is STRUCTURAL REINFORCEMENT of existing FINRA-anti-bypass thesis at adjacent vertical (cybersecurity); no new mechanism beyond what existing thesis captures. The agent-observability category-creation gap identified in the TRACE event (current observability is human-centric; agent-native observability is the missing layer) is precisely the DDOG existing-thesis frontier.
+
+**No material thesis change.** Sector-level reinforcement only; per Critical Rule #10 documented for cascade-discipline completeness.
+
+**Position implication (per Critical Rule #11):** HOLD — no size change — Mythos cascade reinforces existing Core thesis (regulatory-binding observability moat); does NOT introduce new sizing math beyond existing 7.5% allocation.
