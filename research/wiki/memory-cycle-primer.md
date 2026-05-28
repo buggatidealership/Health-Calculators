@@ -95,6 +95,31 @@ Per `research/wiki/agentic-workload-scaling.md`: agentic workloads need persiste
 
 **This is the Sandisk thesis bottoms-up signal** (per `companies/SNDK/thesis.md`).
 
+### 3.5 Within-NAND bifurcation — applied at the same level as DRAM bifurcation (added 2026-05-28)
+
+Just as DRAM bifurcates into structural HBM + transitional commodity DRAM + cyclical legacy, **NAND bifurcates into structural AI-tier enterprise SSD + cyclical consumer NAND** at the same analytical level. Treating "NAND" as one category is the same B20 (segment-trajectory anchoring) failure applied at the within-category level.
+
+The bifurcation:
+
+| NAND sub-segment | Classification | Demand driver | Duration assessment |
+|---|---|---|---|
+| **AI-tier enterprise SSD** (KV cache offload, model storage, vector DB storage, agentic persistent state) | **STRUCTURAL** — binding-constraint test passes | AI reasoning depth + agentic state + RAG vector DBs + frontier model storage | Multi-year contracted demand (per SNDK $42B NBM backlog) |
+| **Consumer NAND** (phone, PC, gaming, removable storage) | CYCLICAL — traditional replacement-driven | Device replacement cycles | Standard 2-3 year cycle |
+
+**Why the bifurcation matters analytically:**
+1. AI-tier NAND passes the principle #26 binding-constraint test cleanly: more reasoning depth → larger KV cache spill → more NAND-tier storage required. NVDA GPU-Initiated Direct Storage (GIDS) framework explicitly treats high-IOPS NAND as part of the AI compute stack, not separate from it.
+2. As frontier model context windows expand (1M → 10M → 100M tokens per agent reasoning campaign), in-context memory requirements scale beyond what HBM alone can hold cost-effectively. NAND becomes architecturally REQUIRED, not optional.
+3. Agentic persistent state (long-running agent memory, multi-day reasoning campaigns) creates a NEW NAND demand vector that didn't exist in prior cycles.
+
+**Where the bifurcation makes HBM still structurally superior to AI-tier NAND** (the honest qualifier):
+1. **Supplier concentration**: HBM has 3 players (HYNIX 50-62%, Samsung 25-30%, MU 11-24%); NAND has 6+ (SNDK, Samsung, HYNIX, MU, Kioxia, YMTC). Tighter HBM oligopoly captures more pricing power.
+2. **Supply elasticity**: NAND scales with wafer area + 3D layer count (200+ → 300+ → 400+ layers); HBM scales with advanced packaging (CoWoS + TSV) which is a tighter bottleneck. NAND supply can respond faster.
+3. **Contract structure**: HBM's 5-year cash-prepayment contracts (per MU March 2026 disclosure per [TrendForce T1/T2](https://www.trendforce.com/news/2026/03/19/news-micron-ramps-fy26-capex-to-25b-signs-first-5-year-customer-deal/)) are more structurally durable than NAND's NBM agreements.
+
+**The corrected framework**: BOTH AI-tier NAND AND HBM are structural. The DIFFERENCE is the magnitude of supply elasticity and contract duration. NAND structural-thesis duration is bounded by faster supply response; HBM structural-thesis duration is longer because of harder supply elasticity.
+
+**Investable implication**: SNDK (held) is a legitimate structural AI-memory play, not just a cyclical NAND name with structural tailwind. The "structural-with-supply-wall 18-24mo" framing was too pessimistic — the supply wall arrives ~2027-2028 for both HBM AND NAND, so the asymmetry is in supply ELASTICITY (NAND faster to ramp) not duration. Hold thesis remains intact; differentiation vs HBM is supplier-count + elasticity, not "cyclical-vs-structural."
+
 ---
 
 ## 4. The crowding-out math (the key cycle insight)

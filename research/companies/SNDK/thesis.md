@@ -157,3 +157,24 @@ No tier change; this is a refinement-of-framing rather than thesis-change. The T
 - Duration: 18-24 months (Medium-Short) — bounded by NBM contract structure + supply wall (new NAND fab capacity arriving late 2027/2028 per [Tom's Hardware](https://www.tomshardware.com/pc-components/storage/perfect-storm-of-demand-and-supply-driving-up-storage-costs))
 - P(bull) likely should move higher than prior thesis (50% framing) given NBM lock-in + datacenter growth-rate raise
 - Holding at 7.09% — bull-case fundamentals strongly reinforced; sizing consideration: NBM contract structure is binding-constraint visibility at scale, but supply-wall arrival post-2028 returns cyclicality risk
+
+## Reframing — structural-permanent vs prior "structural-with-supply-wall" (added 2026-05-28)
+
+The "structural-with-supply-wall 18-24mo" framing was honest but too pessimistic on the structural classification. Corrected framing per `wiki/memory-cycle-primer.md` section 3.5 (within-NAND bifurcation, added same date):
+
+**AI-tier enterprise SSD (the dominant growth driver of SNDK's datacenter segment) passes the principle #26 binding-constraint test cleanly** — KV cache offload, model storage, vector DB storage for RAG, agentic persistent state are REQUIRED architectural components of AI inference stacks, not optional features. NVDA GIDS (GPU-Initiated Direct Storage) framework explicitly treats high-IOPS NAND as part of the AI compute stack.
+
+**What differentiates SNDK's structural durability from HBM (HYNIX/MU)** — NOT cyclical-vs-structural classification, but:
+1. **Supplier concentration**: NAND has 6+ players (SNDK, Samsung, HYNIX, MU, Kioxia, YMTC); HBM has 3. NAND oligopoly is wider → less pricing-power concentration
+2. **Supply elasticity**: NAND scales via wafer area + 3D layer count (200+ → 300+ → 400+ layers); HBM scales via advanced packaging (CoWoS + TSV) which is a tighter bottleneck. NAND supply ramps faster
+3. **Contract structure**: HBM 5-year cash-prepay contracts (per MU March 2026 per [TrendForce T1/T2](https://www.trendforce.com/news/2026/03/19/news-micron-ramps-fy26-capex-to-25b-signs-first-5-year-customer-deal/)) are more structurally durable than NAND NBM agreements
+
+**Implication for SNDK position**:
+- Hold thesis remains correct (NOT rotate to HBM — explored 2026-05-27 user discussion + this thesis section)
+- Structural classification UPGRADED — SNDK is a legitimate structural AI-memory play, not "cyclical-NAND-with-structural-tailwind"
+- Duration framing UPDATED — the 18-24mo "supply wall" framing was too compressed; supply wall arrives ~2027-2028 for BOTH HBM AND NAND, so the duration asymmetry is in supply ELASTICITY (NAND faster to ramp) NOT structural classification
+- Sizing remains at current 7.09%; the structural reframe doesn't justify adding here (concentration risk with HYNIX 12.5% maintaining memory thesis exposure already)
+
+## Cross-reference — within-NAND bifurcation framework (added 2026-05-28)
+
+Per `wiki/memory-cycle-primer.md` section 3.5: NAND bifurcates structurally into AI-tier enterprise SSD (STRUCTURAL, binding-constraint test passes) vs consumer NAND (CYCLICAL). SNDK datacenter Q3 FY26 revenue +645% YoY validates structural component is the dominant growth driver. Treating "NAND" as one cyclical category is a B20 segment-trajectory-anchoring failure at the within-category level (see B35 in `meta/biases-watchlist.md`).

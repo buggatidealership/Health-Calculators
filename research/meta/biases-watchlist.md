@@ -688,6 +688,53 @@ Counts as the bias firing: any commit where post-hoc the user OR a subsequent ag
 
 ---
 
+### B35 — Within-category aggregation when bifurcation applies at the same analytical level as the parent-category bifurcation
+
+**Origin:** User correction 2026-05-28 during MU/SNDK rotation discussion. After I correctly bifurcated DRAM into HBM (structural) + commodity DDR5 (transitional), I failed to apply the SAME bifurcation discipline to NAND. I aggregated all NAND as "more cyclical than DRAM" when in fact NAND itself bifurcates into AI-tier enterprise SSD (structural — KV cache offload, model storage, vector DB, agentic persistent state — same binding-constraint test passes as HBM) + consumer NAND (cyclical — phone, PC, gaming, replacement-driven). User verbatim 2026-05-28: *"NAND is becoming a structural integral part to how good an AI can reason."* They were right.
+
+**Pattern:** Aggregating a category as one classification when the SAME bifurcation that applies to a parent category (e.g., "memory" → "DRAM structural-HBM-vs-cyclical-commodity-DRAM") also applies INSIDE the sibling sub-category at the same analytical level. The failure isn't "missing the bifurcation entirely" — it's "applying bifurcation to one branch but not the other." The blind spot operates one level deeper than B20 catches.
+
+**Distinction from related biases:**
+- **B20** (current-segment-% snapshot anchoring — forward-trajectory blindness): operates at the snapshot vs trajectory step within a single segment. B35 operates at the WITHIN-CATEGORY-BIFURCATION step — failing to apply bifurcation symmetrically when the same logic applies to a sibling category.
+- **B26** (pre-training as primary source): operates on data input. B35 operates on framework application — accepting a category as homogeneous because pre-training data treated it as homogeneous (e.g., "NAND was cyclical 2018-2022" pre-training → "NAND is cyclical" present-tense).
+- **B28** (cyclical-vs-structural mis-classification): operates at the binary classification step for a single name/category. B35 operates at the within-category bifurcation step — accepting a binary classification when a within-category split is warranted.
+- **B14** (default vs non-default first reading): operates at the first-pass interpretation. B35 is a SPECIFIC manifestation of B14 at the within-category level — the default reading is "category X = classification Y" without bifurcating.
+
+**Manifestation 2026-05-28 (the user catch):**
+- I correctly bifurcated DRAM into HBM-structural + commodity-cyclical
+- I correctly identified MU NAND as "21% cyclical drag"
+- BUT I aggregated all NAND under cyclical without applying the within-NAND bifurcation that the same AI-binding-constraint test would have produced
+- User pushed back: NAND is becoming structural for AI reasoning depth (KV cache offload, model storage, vector DBs, agentic state) — same binding-constraint logic that makes HBM structural
+- Correction: NAND bifurcates into AI-tier enterprise SSD (STRUCTURAL — passes binding-constraint test) + consumer NAND (CYCLICAL — replacement-driven)
+- Magnitude of mis-framing: SNDK was framed as "cyclical-with-structural-tailwind 18-24mo"; correct framing is "structural-permanent within AI-tier-SSD subsegment with supply-elasticity asymmetry vs HBM"
+
+**The structural fix:**
+
+For any category bifurcation applied at one level, force the question — "does the SAME bifurcation logic apply at the sibling-category level too?" Specifically:
+
+1. When bifurcating any category (e.g., DRAM → HBM + commodity), ALSO check sibling categories (e.g., NAND, optical, networking) for the same bifurcation logic at the same analytical level
+2. The binding-constraint test (principle #26) should be applied to sub-segments INSIDE the sibling category, not just to the parent category
+3. If the same test produces "structural" verdict in sibling sub-segment, the framework correction is: bifurcate the sibling too, don't aggregate
+
+**Correction (mandatory):**
+1. For any cyclical-vs-structural classification of a CATEGORY, enumerate at least 2 sub-segments
+2. Apply binding-constraint test (principle #26) to EACH sub-segment independently
+3. Output the category classification as bifurcated (e.g., "NAND = AI-tier-SSD structural + consumer-NAND cyclical"), NOT as a single label
+4. Map portfolio exposure to the specific sub-segment, not the parent category
+
+**Retroactive application (the SNDK reframe 2026-05-28):**
+- Prior framing: "NAND is more cyclical than DRAM; SNDK structural-with-supply-wall 18-24mo"
+- Corrected framing: "NAND bifurcates structurally just like DRAM does; SNDK is structural via AI-tier enterprise SSD with supply-elasticity asymmetry vs HBM (NAND supply ramps faster than HBM supply due to less complex bottleneck); structural-vs-cyclical classification was wrong, supply-elasticity differentiation is right"
+- Files updated: `wiki/memory-cycle-primer.md` (section 3.5 within-NAND bifurcation), `companies/SNDK/thesis.md` (reframing section), `companies/HYNIX/thesis.md` (HBM structural-advantage source clarification)
+
+**How to check:** Before any cyclical-vs-structural classification of a parent category, force the question — "did I apply the bifurcation test inside the category? Did I check sibling categories for the same bifurcation?" If only the parent classification was made, B35 may have fired — go back through the sub-segments.
+
+**Hook enforcement:** moderate complexity. A Stop hook could scan for cyclical-vs-structural classification statements and require that the same message includes either (a) explicit sub-segment bifurcation OR (b) explicit hedge "(category-level classification; sub-segment bifurcation deferred)". Deferred pending second observation of drift.
+
+**Detectability**: monthly audit via principle-applications-log.md sampling can check for B35 instances. If 3+ instances in 30 days where post-hoc bifurcation revealed the wrong classification, codify a hook.
+
+---
+
 Every GRADE that reveals a new systematic error → add a row here with the same structure (origin, pattern, correction, how to check).
 
 Every 6 months: review all entries, retire ones that have stopped showing up in grades, deepen ones that recur.

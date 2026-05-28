@@ -293,3 +293,14 @@ HBM4E mass production target (SK Hynix Q1 CY26 earnings: samples H2 2026, mass p
 Per `research/signals/events/2026-05-27-SNOW-AWS-pact.md`: HYNIX named in 3rd-order cascade as **marginal beneficiary**. P~35% confidence; magnitude marginal. Logic: SNOW's 5-year AWS infrastructure commitment includes AI GPUs; AI GPUs require HBM; SNOW's incremental AWS GPU demand adds to broader hyperscaler HBM consumption — but SNOW alone is one input among thousands driving AWS GPU cluster expansion.
 
 **No thesis update warranted (premortem 2026-05-27)**: HYNIX thesis is anchored on HBM stack-height crowding-out + iHBM thermal moat + 3-year backlog visibility — load-bearing structural evidence is multiple orders of magnitude larger than the marginal incremental signal from one customer's 5-year cloud infrastructure commitment. The SNOW-AWS pact is environmental confirmation, not new HYNIX thesis evidence. Existing held position remains anchored on the direct HBM-supply-chain structural evidence.
+
+## HBM vs AI-tier NAND — structural-advantage source clarification (added 2026-05-28)
+
+After user-prompted reframing of NAND bifurcation (see `wiki/memory-cycle-primer.md` section 3.5 + `companies/SNDK/thesis.md` reframing section): the HBM structural-advantage vs AI-tier NAND is NOT "cyclical-vs-structural" classification — BOTH are structural for AI workloads. The actual structural advantages of HBM (and therefore HYNIX) over AI-tier NAND (SNDK) are:
+
+1. **Tighter supplier oligopoly**: 3 HBM suppliers (HYNIX 50-62%, Samsung 25-30%, MU 11-24%) vs 6+ NAND suppliers (SNDK, Samsung, HYNIX, MU, Kioxia, YMTC). More pricing power concentration in HBM.
+2. **Harder supply elasticity bottleneck**: HBM scales via advanced packaging (CoWoS + TSV) which is structurally constrained; NAND scales via wafer area + 3D layer count (200+ → 300+ → 400+ layers) which is easier to ramp. NAND supply response is faster — compresses the supply-tightness duration when fabs catch up.
+3. **Stronger contract structure**: HBM 5-year cash-prepay contracts (per MU March 2026 per [TrendForce T1/T2](https://www.trendforce.com/news/2026/03/19/news-micron-ramps-fy26-capex-to-25b-signs-first-5-year-customer-deal/)) provide longer demand visibility than NAND NBM agreements (~18-24mo SNDK visibility).
+4. **iHBM thermal moat specific to HYNIX**: provides incremental supplier-concentration advantage beyond just HBM's 3-player base; HYNIX as the iHBM tech leader extends pricing power durability into HBM5 era 2027-2029.
+
+**Implication**: HYNIX held position remains the cleanest structural-memory expression. SNDK is also structural — different layer in the AI memory hierarchy with different supply dynamics. They are complementary in portfolio, not substitutes. Cross-reference: `companies/SNDK/thesis.md` reframing section.
