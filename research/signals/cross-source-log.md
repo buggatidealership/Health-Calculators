@@ -6,6 +6,80 @@ Weak/single-source signals. When ≥3 independent sources converge on the same d
 
 ---
 
+## ENTRIES 2026-05-28 AM Brief
+
+### [2026-05-28] China 9 domestic AI chips certified for government procurement — China-sovereignty segment
+
+**Source:** Per Tom's Hardware (T2 via AI Intelligence Brief 2026-05-28 morning edition): China certified nine domestic AI chips for government procurement "secure and reliable" list; three-year certifications; first time homegrown AI chips added.
+
+**Direction:** bull for Chinese domestic AI chip ecosystem (Huawei, Cambricon, MetaX); bear for NVDA China revenue (already structurally zero) + AMD China + ARM China royalty stream long-term
+
+**Segment classification (per principle #29):** China-sovereignty / sovereign-AI
+
+**Cluster pre-existence check (per principle #32 fresh-verify 2026-05-28):**
+- Prior signals exist in OS files but NOT documented as a coherent TRACE event:
+  - Huawei LogicFolding + Tau Scaling Law (May 25 2026) — scattered references in ARM thesis + 13F analysis
+  - China AI talent travel restrictions (May 26 2026) — scattered references same as above
+  - DeepSeek V4 + State AI Fund $4B round (May 16 2026) — references in test-time-compute-scaling event
+- Today's signal would be 3rd-4th same-segment data point IF prior signals were properly documented
+- **HOWEVER**: per principle #29 + fresh-verify discipline 2026-05-28, the prior signals lack a dedicated TRACE event documenting the same-segment cluster. Cannot promote to triangulation without documentation back-fill.
+
+**Action**: log as cross-source signal today; back-fill TRACE event for the China sovereignty cluster as new P2 todo item; promotion to triangulation.md deferred until back-fill completes.
+
+**Cascade implications** (when promoted):
+- NVDA China revenue stays structurally zero (already in thesis)
+- ARM China royalty migration to RISC-V accelerating (already in thesis blind-spots)
+- TSMC mature-node China revenue trajectory 5-7 year horizon
+
+### [2026-05-28] AI hitting power grid capacity limits — power-and-cooling segment
+
+**Source:** NY Post via Hacker News (T3 via AI Intelligence Brief 2026-05-28 morning edition): data centers facing operational constraints as electricity demand outpaces infrastructure; political implications for midterm elections.
+
+**Direction:** bull for power producers + power-equipment beneficiaries with bypass-routes to grid constraint (CEG nuclear baseload, GEV gas turbines, BE distributed fuel cells, VST/TLN merchant power)
+
+**Segment classification (per principle #29):** power-and-cooling
+
+**Cluster pre-existence check:**
+- 2026-05-27: xAI 62 gas turbines unpermitted + $2.8B more turbines + Anthropic $1.25B/month Colossus deal (per existing entry above)
+- 2026-05-28: today's AI grid capacity limits + Erin Brockovich DC tracking project (Tom's Hardware via brief; 2,700+ submissions on water/power/environmental concerns)
+- Count: 2 prior entries + 2 today = 4 same-segment signals in 48 hours
+
+**Power-cluster status**: still building. Today's grid-capacity-limits signal is the strongest framing-level signal but the cluster needs ≥3 properly-documented independent sources (not just headline aggregation). Per principle #29 segmented-triangulation discipline, NOT yet promoted to triangulation pending verification of independent sources beyond AI brief aggregation. **Watch trigger**: if 1-2 more independent same-segment signals land in next 30 days (utility earnings, hyperscaler power-PPA announcements, regulatory siting events), promote to triangulation.
+
+### [2026-05-28] Arm accelerates cloud infrastructure adoption — CPU-orchestration segment confirmation
+
+**Source:** The Register (T3 via brief): "Multi-architecture cloud deployments increasing as hyperscaler adoption and AI workloads drive Arm into core cloud stack, with cost and availability advantages over traditional on-prem hardware."
+
+**Direction:** confirmatory bull for ARM thesis (held 6.45%)
+
+**Segment classification:** CPU/DRAM orchestration (per Robinhood top-down analysis 2026-05-27 + Principle #33)
+
+**This is direct empirical confirmation** of the Robinhood top-down framework's non-consensus CPU/DRAM orchestration binding-constraint insight — surfaced 2026-05-27 as one of 2 non-consensus insights from Principle #33 first application. Per the framework: every embedded agent tool call requires host-side CPU work; at millions of concurrent agents = real co-binding constraint.
+
+ARM thesis benefits but no triangulation promotion (single confirmatory signal). Brief cross-ref added to companies/ARM/thesis.md same commit batch.
+
+### [2026-05-28] Mistral exploring custom chip design — custom Si bifurcation confirmation
+
+**Source:** CNBC (T2 via brief): Mistral CEO Arthur Mensch confirmed considering designing own chips.
+
+**Direction:** confirmatory for custom-Si bifurcation thesis (one more frontier-lab joining the OpenAI Titan / Anthropic-AVGO / Google TPU / MSFT Maia / Meta MTIA pattern)
+
+**Segment classification:** custom-silicon-design
+
+**No triangulation promotion**: custom-Si bifurcation is already well-covered in OS (custom-silicon-primer.md + multiple thesis files). Mistral adds to ecosystem confirmation but doesn't shift positioning.
+
+### [2026-05-28] SpaceX TeraFab IPO disclosure — META-VALIDATION of prior principle #32 fresh-verify catch
+
+**Source:** Tom's Hardware (T2 via brief): SpaceX IPO risk factor disclosure admits TeraFab project "may not succeed" + cannot secure enough AI chips for orbital computing ambitions.
+
+**Significance**: empirically confirms the principle #32 fresh-verify catch from 2026-05-28 where agent rejected the JPM Specialist Sales note's attribution of "tera-fab" to TSMC. The agent correctly identified "tera-fab" as Tesla/Musk terminology not TSMC. Today's SpaceX IPO disclosure confirms it's SpaceX's orbital-AI compute project all along.
+
+**This is a high-confidence validation** of the discipline working as designed — fresh-verify caught a misattribution that propagation would have been incorrect, and the empirical confirmation arrived within 24 hours.
+
+**Logged as application entry in principle-applications-log.md.** No thesis impact (SpaceX is private; orbital AI compute is not material to OS holdings).
+
+---
+
 ## ENTRIES (2026-05-27 AM brief triage, premortem-verified)
 
 ### [2026-05-27] DuckDuckGo install surge — consumer-AI segment
